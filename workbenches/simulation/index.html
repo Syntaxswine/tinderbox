@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tinderbox — simulation diagnostics</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><strong>TINDERBOX / TB-004</strong><p>Simulation diagnostic · technical stand-ins · production art and UI are separate deliveries</p></div><nav><a href="?scenario=street">Street</a><a href="?scenario=chase">Trail chase</a><a href="?scenario=chain">Barrel chain</a><a href="contract.html">Factory checks</a></nav></header>
+<main>
+<section id="viewport" aria-label="Isometric diagnostic scene"><div class="world-note">CYAN = BEAR STAND-IN · PURPLE = WALKER · RED = EXPLOSIVE DRUM</div><div class="zoom"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button></div></section>
+<aside aria-label="Diagnostic controls">
+<div class="state"><strong id="health">HP 100</strong><span id="pour-state">Pour off</span><span id="pause-state">Running</span></div>
+<p class="hint">Move: WASD/arrows or the raw stick. Aim: point in the scene. Hold Primary/Space for torch or flame. Tap toggles the can; drugs preserve pouring.</p>
+<div id="tools" class="buttons" aria-label="Five tools"></div>
+<div class="input-row"><div id="stick" role="group" aria-label="Raw movement joystick"><div id="knob"></div><span>RAW STICK</span></div><button id="primary">Primary</button></div>
+<div id="drugs" class="buttons" aria-label="Drug actions"></div>
+<div class="buttons"><button id="pause">Pause</button><button id="reset">Reset fixture</button><button id="step">Step 0.25 s</button><button id="chase-demo">Pour + powder + chase</button></div>
+<p id="effects" role="status">Powder off · inversion off</p>
+<p class="legend"><i class="gas"></i>Gas <i class="heat"></i>Heating <i class="fire"></i>Burning <i class="spent"></i>Spent</p>
+<pre id="stats" aria-live="off"></pre><details><summary>Resolved events</summary><pre id="events"></pre></details>
+<p class="hint">Fire cells are 0.5 m; heat, fuel and damage come from the fixed-step model. This view deliberately uses simple blocks. Pause freezes drug timers and world time. Focus loss pauses and clears input.</p>
+<output id="error" role="alert"></output>
+</aside>
+</main><script type="module" src="workbench.js"></script>
+</body></html>
