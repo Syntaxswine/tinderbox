@@ -20,8 +20,16 @@ function inventory(directory) {
     const file = path.join(directory, entry.name);
     if (entry.isSymbolicLink()) throw Error('Public distribution cannot contain symbolic links');
     if (entry.isDirectory()) return inventory(file);
-    const bytes = fs.readFileSync(file);
-    return [{path:path.relative(output,file).split(path.sep).join('/'),bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')}];
+    const relative = path.relative(output,file).split(path.sep).join('/');
+    let bytes = fs.readFileSync(file);
+    // Git checkouts use different line endings on Windows and Linux. Canonicalize
+    // our packaged text so a reviewed local artifact matches CI; preserve vendor bytes.
+    if (!relative.startsWith('vendor/') && /\.(?:html|js|css|json|svg)$/.test(relative)) {
+      const canonical = Buffer.from(bytes.toString('utf8').replace(/\r\n/g,'\n'));
+      if (!canonical.equals(bytes)) fs.writeFileSync(file,canonical);
+      bytes = canonical;
+    }
+    return [{path:relative,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')}];
   });
 }
 const files = inventory(output);
