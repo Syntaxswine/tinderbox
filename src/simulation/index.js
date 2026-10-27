@@ -42,6 +42,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y},
       discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, acceptedPath: [{x: start.x, y: start.y}]};
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
+    for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
     state.tiles = [];
     for (let y = 0; y < def.height; y += def.tileSize) for (let x = 0; x < def.width; x += def.tileSize) {
       const point = {x: x + def.tileSize / 2, y: y + def.tileSize / 2};
@@ -173,12 +174,19 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
   }
   function snapshot() {
     if (disposed) throw Error('Simulation disposed');
-    const cells = field.snapshot();
+    const cells = field.snapshot(), present = new Set(state.obstacles.filter(o => !o.destroyed).map(o => o.id));
+    const intactSupport = new Map(definition.modules.map(m => [m.id, m.colliderIds.length > 0 && m.colliderIds.every(id => present.has(id))]));
+    const modules = definition.modules.map(module => {
+      const copy = structuredClone(module);
+      copy.destroyed = copy.supportModuleIds ? copy.supportModuleIds.some(id => !intactSupport.get(id)) : copy.colliderIds.length > 0 && copy.colliderIds.every(id => !present.has(id));
+      copy.parts = copy.parts.map(part => ({...part, destroyed: part.solid ? !present.has(part.id) : part.role === 'lintel' ? !present.has(copy.id + ':pier-left') || !present.has(copy.id + ':pier-right') : copy.destroyed}));
+      return copy;
+    });
     return {version: 1, tick: state.tick, paused: state.paused,
       clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory}},
       effects: Object.fromEntries(['powder', 'inversion'].map(name => [name,
         {active: activeEffect(name), remaining: Math.max(0, state.effects[name].expiresAt - state.clocks.active)}])),
-      world: {width: definition.width, height: definition.height, tileSize: definition.tileSize,
+      world: {width: definition.width, height: definition.height, tileSize: definition.tileSize, modules,
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
         obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => ({...o}))},
       cells, actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),

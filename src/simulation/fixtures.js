@@ -1,6 +1,9 @@
+import {EXPOSITION_SCENARIO} from '../content/exposition.js';
+import {compileModules, validateCivilian} from '../content/exterior-kit.js';
 const obstacle = (id, x, y, width, depth, height, material, kind = 'building') =>
   ({id, x, y, width, depth, height, material, kind});
 export const SCENARIOS = Object.freeze({
+  exposition: EXPOSITION_SCENARIO,
   street: {
     id: 'street', width: 20, height: 16, player: {x: 4, y: 9, tool: 'matches'},
     patches: [{x: 0, y: 0, width: 20, depth: 4, material: 'grass'},
@@ -41,6 +44,7 @@ export function scenarioDefinition(scenario = 'street') {
       Math.abs(result.height / result.tileSize - Math.round(result.height / result.tileSize)) > 1e-8 ||
       result.width / result.fireCellSize * result.height / result.fireCellSize > 65536) throw Error('Invalid tile size or excessive fire grid');
   result.player ??= {x: 2, y: 2}; result.obstacles ??= []; result.actors ??= [];
+  const compiled = compileModules(result.modules, result); result.modules = compiled.modules; result.obstacles.push(...compiled.obstacles);
   if (result.player.hp !== undefined && (!Number.isFinite(result.player.hp) || result.player.hp < 0)) throw Error('Invalid player health');
   if (![result.player.x, result.player.y].every(Number.isFinite)) throw Error('Invalid player position');
   for (const object of result.obstacles) {
@@ -48,6 +52,7 @@ export function scenarioDefinition(scenario = 'street') {
     if (object.radius !== undefined && (!Number.isFinite(object.radius) || object.radius <= 0)) throw Error('Invalid obstacle radius');
   }
   for (const actor of result.actors) {
+    if (actor.species !== undefined || actor.team === 'civilian') validateCivilian(actor);
     if (actor.hp !== undefined && (!Number.isFinite(actor.hp) || actor.hp < 0)) throw Error('Invalid actor health');
     if (actor.speed !== undefined && (!Number.isFinite(actor.speed) || actor.speed < 0)) throw Error('Invalid actor speed');
     if (actor.route?.some(p => ![p.x, p.y].every(Number.isFinite))) throw Error('Invalid actor route');
