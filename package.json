@@ -1,0 +1,14 @@
+{
+  "name": "tinderbox",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "test": "node --test tests/simulation/*.test.js",
+    "check": "node tools/check.mjs",
+    "build": "node tools/build.mjs",
+    "serve": "node tools/serve.mjs",
+    "fixtures": "node tools/fixtures.mjs"
+  }
+}

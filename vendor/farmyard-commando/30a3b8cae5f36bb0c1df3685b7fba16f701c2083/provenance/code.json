@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "owner": "coder",
+  "purpose": "TB-004 simulation/runtime code inventory",
+  "sourceRepository": "https://github.com/Syntaxswine/farmyard-commando.git",
+  "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "files": [],
+  "sharedDependencies": [
+    {"manifest": "provenance/engine.json", "files": 3, "adaptations": [], "reason": "Architect-imported single Three.js r180 pair and MIT notice; no second renderer copy"}
+  ],
+  "referenceAlgorithms": [
+    {
+      "sourcePath": "sites/tactical-animal/dist/designer/a20b343a0234/tactics/explosive-barrels.js",
+      "sha256": "7e012463105901dfc19b82d28794444f5c45099774b54eaf819393d177fe9e45",
+      "inheritedSourceCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+      "target": "src/simulation/config.js",
+      "adaptation": "Retain 0.328 m radius and 0.8 m height as explicitly configured drum dimensions. New continuous simulation uses stable object IDs, not donor coordinate IDs. No donor module copied."
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/designer/a20b343a0234/tactics/fuel-blast.js",
+      "sha256": "42f77e6a806d4ca2cb0d05c14d0ff9f93744a27dd9ed7853b10c014f5ffd2322",
+      "inheritedSourceCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+      "target": "src/simulation/index.js",
+      "adaptation": "Use the audited remove-before-enqueue invariant for exactly-once explosions. New heat field, wall-protected 2.5 m prototype blasts, real-time clocks and HP rules are Tinderbox code, not the inherited turn/panic system. No donor module copied."
+    }
+  ],
+  "rightsStatus": "No additional donor files imported in TB-004. Shared Three bytes retain MIT notice via engine.json. Original application/art rights remain as recorded in the source baseline."
+}
