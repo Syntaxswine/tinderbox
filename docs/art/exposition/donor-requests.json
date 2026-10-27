@@ -1,0 +1,102 @@
+{
+  "task": "TB-009",
+  "manifestOwner": "coder; provenance/city.json only",
+  "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "inheritedSourceCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+  "scope": "Exact art requests and reference hashes, not a competing import inventory. No extra raw roof texture requested.",
+  "approvedRawSurfaces": [
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/brick-factory-v1.png",
+      "sha256": "a2c62ed9e3266c0ca3769365b06b1eb085d5ef350db660fe2361f3d8b7af34ae",
+      "bytes": 3084552,
+      "role": "facade; donor2m period",
+      "ancestryPath": "assets/environment/hybrid-surfaces/brick-factory-v1.png",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/wood-factory-v2.png",
+      "sha256": "fd84b8b6dffb4974ce19c51d8a8e0dbe7295a2dddcf8c262eaa94e542ed64021",
+      "bytes": 2757790,
+      "role": "door; donor1m period",
+      "ancestryPath": "assets/environment/hybrid-surfaces/wood-factory-v2.png",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/assets/environment/ground-concrete.png",
+      "sha256": "a55fefded481abfce45866984caa9495884416f6273d65e6a95de1ff8e6598f1",
+      "bytes": 3308630,
+      "role": "plaster placeholder, caps/reveals; donor2m period",
+      "ancestryPath": "assets/environment/ground-concrete.png",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    }
+  ],
+  "referenceRecipes": [
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/hybrid-room-art.js",
+      "sha256": "694de3e164710c133231d33274c730589c47f9e0afcd48deea1471df258c747f",
+      "bytes": 4649,
+      "role": "Read-only recipe reference; coder audits runtime closure; artist adapts surface orientation/material slots",
+      "ancestryPath": "tactics/hybrid-room-art.js",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/hybrid-materials.js",
+      "sha256": "1dca85ff2eeb36cf61bc1ae7e16ccae7c82ec9fb7f624b13dadc7b4c65954953",
+      "bytes": 4723,
+      "role": "Read-only recipe reference; coder audits runtime closure; artist adapts surface orientation/material slots",
+      "ancestryPath": "tactics/hybrid-materials.js",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/hybrid-world.js",
+      "sha256": "13d1906addb3d46872b28e46772610715c6f19a169a81e6bdef9b0e6c8c30a69",
+      "bytes": 12497,
+      "role": "Read-only recipe reference; coder audits runtime closure; artist adapts surface orientation/material slots",
+      "ancestryPath": "tactics/hybrid-world.js",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    }
+  ],
+  "normalCivilianVisualSeeds": [
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+      "bytes": 419191,
+      "role": "Normal horse/goat factory seed; complete raw code/data/paint closure belongs to coder",
+      "ancestryPath": "tactics/horse-10k-data.json",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+      "bytes": 410862,
+      "role": "Normal horse/goat factory seed; complete raw code/data/paint closure belongs to coder",
+      "ancestryPath": "tactics/goat-10k-data.json",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+      "sha256": "468ce2d133019dfbcf9ee69439ecb0eb92fecdc20c1306b83536d2a440329b89",
+      "bytes": 1590294,
+      "role": "Normal horse/goat factory seed; complete raw code/data/paint closure belongs to coder",
+      "ancestryPath": "assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+      "sha256": "50e63428f990f31cdb2f6df0bee6a9ccb678860bf12dbc95a3fd6e87db73afea",
+      "bytes": 1622867,
+      "role": "Normal horse/goat factory seed; complete raw code/data/paint closure belongs to coder",
+      "ancestryPath": "assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+      "rights": "Upstream game/art license not declared; retain existing unresolved rights in coder inventory"
+    }
+  ],
+  "excluded": [
+    "Red Hat data/paint",
+    "service caps/headgear",
+    "weapons and identity attachments",
+    "closed-door sprites over genuine open holes",
+    "new custom facade or roof artwork"
+  ],
+  "temporarySlots": "inherited-cream and inherited-roof reuse existing imported cargo finishes, explicitly placeholders; no extra raw files",
+  "factory": "src/reuse/civilians.js loadCivilianKit({THREE,renderer,assetBaseUrl}); shared Three and borrowed renderer required"
+}
