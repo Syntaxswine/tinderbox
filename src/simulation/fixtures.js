@@ -33,15 +33,22 @@ export function scenarioDefinition(scenario = 'street') {
   const result = structuredClone(source);
   result.id ??= 'custom'; result.tileSize ??= 1; result.fireCellSize ??= 0.5;
   if (![result.width, result.height].every(Number.isFinite) || !(result.width > 0 && result.height > 0 && result.width <= 64 && result.height <= 64)) throw Error('Scenario bounds must be positive and <=64 m');
-  if (!(result.fireCellSize >= 0.125 && result.fireCellSize <= 1) ||
+  if (!Number.isFinite(result.fireCellSize) || !(result.fireCellSize >= 0.125 && result.fireCellSize <= 1) ||
       Math.abs(result.width / result.fireCellSize - Math.round(result.width / result.fireCellSize)) > 1e-8 ||
       Math.abs(result.height / result.fireCellSize - Math.round(result.height / result.fireCellSize)) > 1e-8) throw Error('Fire grid must divide scenario bounds');
   if (!Number.isFinite(result.tileSize) || result.tileSize <= 0 || result.tileSize > 4 ||
+      Math.abs(result.width / result.tileSize - Math.round(result.width / result.tileSize)) > 1e-8 ||
+      Math.abs(result.height / result.tileSize - Math.round(result.height / result.tileSize)) > 1e-8 ||
       result.width / result.fireCellSize * result.height / result.fireCellSize > 65536) throw Error('Invalid tile size or excessive fire grid');
   result.player ??= {x: 2, y: 2}; result.obstacles ??= []; result.actors ??= [];
+  if (result.player.hp !== undefined && (!Number.isFinite(result.player.hp) || result.player.hp < 0)) throw Error('Invalid player health');
   if (![result.player.x, result.player.y].every(Number.isFinite)) throw Error('Invalid player position');
-  for (const object of result.obstacles) if (![object.width, object.depth, object.height].every(v => Number.isFinite(v) && v > 0)) throw Error('Invalid obstacle dimensions');
+  for (const object of result.obstacles) {
+    if (![object.width, object.depth, object.height].every(v => Number.isFinite(v) && v > 0)) throw Error('Invalid obstacle dimensions');
+    if (object.radius !== undefined && (!Number.isFinite(object.radius) || object.radius <= 0)) throw Error('Invalid obstacle radius');
+  }
   for (const actor of result.actors) {
+    if (actor.hp !== undefined && (!Number.isFinite(actor.hp) || actor.hp < 0)) throw Error('Invalid actor health');
     if (actor.speed !== undefined && (!Number.isFinite(actor.speed) || actor.speed < 0)) throw Error('Invalid actor speed');
     if (actor.route?.some(p => ![p.x, p.y].every(Number.isFinite))) throw Error('Invalid actor route');
   }

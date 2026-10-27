@@ -20,7 +20,7 @@ export class HeatField {
           Math.max(0, Math.min(y + this.size / 2, o.y + o.depth / 2) - Math.max(y - this.size / 2, o.y - o.depth / 2));
       }
       if (timberArea > 0) material = 'wood';
-      const density = material === 'grass' ? 0.32 : material === 'wood' ? 1.2 : 0;
+      const density = config.fuel.surfaceDensity[material] ?? 0;
       return {id: 'cell:' + i % this.cols + ',' + Math.floor(i / this.cols), x, y, size: this.size, material,
         surfaceFuel: density * (material === 'wood' ? (timberArea > 0 ? Math.min(timberArea, this.size ** 2) : this.size ** 2) : this.size ** 2), depositedFuel: 0, heat: 0, phase: 'cold', intensity: 0, ignitedAt: null, cause: null};
     });
@@ -90,7 +90,7 @@ export class HeatField {
         const target = this.cells[neighbour.index];
         if (target.surfaceFuel + target.depositedFuel <= EPS || target.phase === 'burning' ||
             worldTime + EPS < source.ignitedAt + neighbour.distance / fire.frontSpeed || !lineClear(source, target, this.obstacles)) continue;
-        this.delta[neighbour.index] += fire.heatRate / neighbour.distance * Math.max(0.5, source.intensity) * delta;
+        this.delta[neighbour.index] += fire.heatRate / neighbour.distance * Math.max(fire.minIntensity, source.intensity) * delta;
         if (!target.cause) target.cause = source.id;
       }
     }
@@ -107,12 +107,12 @@ export class HeatField {
           cell.surfaceFuel = cell.depositedFuel = 0; cell.phase = 'spent'; cell.intensity = 0;
           event('burnout', cell, {cellId: cell.id}); continue;
         }
-        cell.heat = Math.max(cell.heat, 1.5); cell.intensity = clamp(0.5 + (worldTime - cell.ignitedAt) * 3, 0.5, 1);
+        cell.heat = Math.max(cell.heat, fire.burnHeat); cell.intensity = clamp(fire.minIntensity + (worldTime - cell.ignitedAt) * fire.intensityRise, fire.minIntensity, 1);
       } else {
         const total = cell.surfaceFuel + cell.depositedFuel;
         const threshold = cell.depositedFuel > EPS ? fire.ignition.gas : fire.ignition[cell.material] ?? Infinity;
         if (total > EPS && cell.heat >= threshold) {
-          cell.phase = 'burning'; cell.ignitedAt = worldTime; cell.intensity = 0.5;
+          cell.phase = 'burning'; cell.ignitedAt = worldTime; cell.intensity = fire.minIntensity;
           event('ignition', cell, {cellId: cell.id, cause: cell.cause});
         } else if (cell.phase !== 'spent') cell.phase = cell.heat > 0.03 ? 'heating' : 'cold';
       }
@@ -120,7 +120,7 @@ export class HeatField {
   }
   exposure(point) {
     const cell = this.at(point); if (!cell) return 0;
-    return Math.max(cell.phase === 'burning' ? cell.intensity : 0, clamp((cell.heat - 0.4) / 1.6, 0, 1));
+    return Math.max(cell.phase === 'burning' ? cell.intensity : 0, clamp((cell.heat - this.config.fire.damageHeatStart) / this.config.fire.damageHeatSpan, 0, 1));
   }
   snapshot() { return this.cells.map(({ignitedAt, cause, ...cell}) => ({...cell})); }
 }

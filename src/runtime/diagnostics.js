@@ -11,7 +11,7 @@ export function createDiagnosticScene({THREE: T, scene, config}) {
   const playerRing = new T.Mesh(geom(new T.RingGeometry(0.3, 0.34, 24)), material(0xffffff, {side: T.DoubleSide})); playerRing.rotation.x = -Math.PI / 2; playerRing.position.y = 0.025; bear.add(playerRing);
   const floorMaterial = material(0x4b5555), obstacleMaterials = {wood: material(0xae8653), masonry: material(0x63777c), steel: material(0xad4b35)};
   const obstacles = new Map(), actors = new Map(), projectiles = new Map(), bursts = [];
-  const drum = geom(new T.CylinderGeometry(config.barrel.radius, config.barrel.radius, config.barrel.height, 16));
+  const drum = geom(new T.CylinderGeometry(0.5, 0.5, 1, 16));
   const sphere = geom(new T.SphereGeometry(0.11, 8, 6));
   const shotMaterial = material(0xffd558), actorMaterial = material(0xa4a2f8);
   let floor, cells, flames, grid, lastEvent = 0;
@@ -52,7 +52,7 @@ export function createDiagnosticScene({THREE: T, scene, config}) {
     for (const [id, mesh] of obstacles) if (!present.has(id)) { mesh.removeFromParent(); obstacles.delete(id); }
     for (const o of snapshot.world.obstacles) if (!obstacles.has(o.id)) {
       const mesh = new T.Mesh(o.kind === 'barrel' ? drum : box, obstacleMaterials[o.material] ?? floorMaterial);
-      if (o.kind !== 'barrel') mesh.scale.set(o.width, o.height, o.depth);
+      mesh.scale.set(o.width, o.height, o.depth);
       mesh.position.set(o.x, o.height / 2, o.y); mesh.userData.objectId = o.id; obstacles.set(o.id, mesh); root.add(mesh);
     }
     for (const a of snapshot.actors) {

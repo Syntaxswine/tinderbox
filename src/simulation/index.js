@@ -57,7 +57,11 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     }
     if (command.type === 'cancel-input') { clearInput('cancel-input'); return; }
     if (command.type === 'select-tool') {
-      if (p.tool !== command.tool) { clearInput('tool-change'); p.tool = command.tool; event('tool-selected', p, {tool: p.tool}); }
+      if (p.tool !== command.tool) {
+        state.input.primary = false; p.usingTool = false;
+        if (p.pouring) event('pour', p, {active: false, reason: 'tool-change'});
+        p.pouring = false; p.tool = command.tool; event('tool-selected', p, {tool: p.tool});
+      }
       return;
     }
     if (state.paused || p.hp <= 0) return;
@@ -89,7 +93,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
   }
   function barrels() {
     const pending = state.obstacles.filter(o => o.kind === 'barrel' && !o.destroyed &&
-      field.candidates(o, config.barrel.radius).some(c => c.heat >= config.barrel.ignitionHeat)).map(o => o.id).sort();
+      field.candidates(o, o.radius ?? o.width / 2).some(c => c.heat >= config.barrel.ignitionHeat)).map(o => o.id).sort();
     for (let i = 0; i < pending.length; i++) {
       const barrel = state.obstacles.find(o => o.id === pending[i] && !o.destroyed);
       if (!barrel) continue;

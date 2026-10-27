@@ -37,7 +37,7 @@ function render(snapshot, metrics) {
   el('pause').textContent = snapshot.paused ? 'Resume' : 'Pause';
   el('effects').textContent = `Powder: ${snapshot.effects.powder.active ? snapshot.effects.powder.remaining.toFixed(1) + 's · bear ×1.5 / world ×0.35' : 'off'} · Inversion: ${snapshot.effects.inversion.active ? snapshot.effects.inversion.remaining.toFixed(1) + 's · movement reversed' : 'off'}`;
   const f = snapshot.diagnostics.fuel;
-  el('stats').textContent = `Fixture ${scenario} | tick ${snapshot.tick}\nActive ${snapshot.clocks.active.toFixed(2)}s · world ${snapshot.clocks.world.toFixed(2)}s\nBear (${snapshot.player.x.toFixed(2)}, ${snapshot.player.y.toFixed(2)}) · ${snapshot.player.travelled.toFixed(2)} m\nGas poured ${f.pouredFuel.toFixed(3)} L · burning ${snapshot.diagnostics.burningCells}\nFront X ${snapshot.diagnostics.frontX.toFixed(2)} · gap ${(snapshot.player.x - snapshot.diagnostics.frontX).toFixed(2)} m\nRender CPU p95 ${metrics.renderCpuP95Ms.toFixed(2)} ms · sim ${(metrics.simulationMs ?? 0).toFixed(2)} ms\n${metrics.drawCalls} draws · ${metrics.geometries} geometries · ${metrics.textures} textures · Three ${metrics.threeRevision}\n${metrics.viewport.width} × ${metrics.viewport.height} canvas · dropped ${snapshot.diagnostics.droppedRealSeconds.toFixed(2)}s`;
+  el('stats').textContent = `Fixture ${scenario} | tick ${snapshot.tick}\nActive ${snapshot.clocks.active.toFixed(2)}s · world ${snapshot.clocks.world.toFixed(2)}s\nBear (${snapshot.player.x.toFixed(2)}, ${snapshot.player.y.toFixed(2)}) · ${snapshot.player.travelled.toFixed(2)} m\nGas poured ${f.pouredFuel.toFixed(3)} L · burning ${snapshot.diagnostics.burningCells}\nFront X ${snapshot.diagnostics.frontX.toFixed(2)} · gap ${(snapshot.player.x - snapshot.diagnostics.frontX).toFixed(2)} m\nRender CPU p95 ${metrics.renderCpuP95Ms.toFixed(2)} ms · sim p95 ${(metrics.simulationCpuP95Ms ?? 0).toFixed(2)} ms · ${(metrics.observedHz ?? 0).toFixed(0)} Hz\n${metrics.drawCalls} draws · ${metrics.geometries} geometries · ${metrics.textures} textures · Three ${metrics.threeRevision}\n${metrics.viewport.width} × ${metrics.viewport.height} canvas · dropped ${snapshot.diagnostics.droppedRealSeconds.toFixed(2)}s\n${metrics.rendererDescription}\n${metrics.userAgent}`;
   const fresh = snapshot.events.filter(event => event.id > lastEvents);
   if (fresh.length) { lastEvents = fresh.at(-1).id; el('events').textContent = (el('events').textContent + fresh.map(e => `#${e.id} @${e.tick} ${e.type} ${e.drug || e.objectId || e.reason || ''}`).join('\n') + '\n').split('\n').slice(-20).join('\n'); }
 }
@@ -76,7 +76,7 @@ addEventListener('keydown', e => {
 addEventListener('keyup', e => { const key = e.key.toLowerCase(); keys.delete(key); if (movementKeys.has(key)) keyboardMove(); if (key === ' ') command({type: 'primary', pressed: false}); });
 addEventListener('blur', () => { keys.clear(); resetStick(); primaryId = null; });
 try {
-  runtime = await createRuntime({root: el('viewport'), scenario, autoStart: !params.has('manual'), onSnapshot: render});
+  runtime = await createRuntime({root: el('viewport'), scenario, autoStart: !params.has('manual'), onSnapshot: render, onError: error => { el('error').textContent = String(error); }});
   window.tinderboxDiagnostic = {runtime, recording: records, scenario, startChase: () => el('chase-demo').click()};
   if (params.has('demo')) el('chase-demo').click();
 } catch (error) { el('error').textContent = error.stack || String(error); }

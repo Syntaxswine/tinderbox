@@ -47,11 +47,14 @@ export function projectilesStep(state, field, config, delta, event) {
     const target = {x: projectile.targetX, y: projectile.targetY}, d = distance(projectile, target);
     const step = Math.min(d, spec.speed * delta), ratio = d > 1e-10 ? step / d : 1;
     const next = {x: projectile.x + (target.x - projectile.x) * ratio, y: projectile.y + (target.y - projectile.y) * ratio};
-    const impact = impactPoint(projectile, next, state.obstacles), hit = distance(impact, next) > 1e-8;
-    projectile.x = impact.x; projectile.y = impact.y;
     const full = Math.hypot(projectile.targetX - projectile.fromX, projectile.targetY - projectile.fromY);
+    const nextProgress = full ? clamp(1 - distance(next, target) / full, 0, 1) : 1;
+    const height = t => 0.8 * (1 - t) + 0.1 * t + Math.sin(t * Math.PI) * Math.min(2, full * 0.35);
+    const impact = impactPoint(projectile, next, state.obstacles, {startHeight: projectile.h, endHeight: height(nextProgress)});
+    const hit = distance(impact, next) > 1e-8;
+    projectile.x = impact.x; projectile.y = impact.y;
     projectile.progress = full ? clamp(1 - distance(projectile, target) / full, 0, 1) : 1;
-    projectile.h = 0.2 + Math.sin(projectile.progress * Math.PI) * Math.min(2, full * 0.35);
+    projectile.h = height(projectile.progress);
     if (hit || step >= d - 1e-10) {
       field.addPool(impact, spec.radius, spec.fuel); field.emit(impact, spec.radius, spec.heat, 'molotov');
       event('molotov-impact', impact, {projectileId: projectile.id});

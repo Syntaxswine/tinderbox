@@ -73,12 +73,15 @@ export function lineClear(a, b, obstacles, {ignoreBarrels = true} = {}) {
   }
   return true;
 }
-export function impactPoint(a, b, obstacles) {
+export function impactPoint(a, b, obstacles, {startHeight = 0, endHeight = startHeight} = {}) {
   let reach = 1;
   for (const o of obstacles) {
     if (o.destroyed || o.blocksHeat === false) continue;
     const span = boxInterval(a, b, o);
-    if (span && span[1] > EPS) reach = Math.min(reach, Math.max(0, span[0] - 0.002));
+    if (span && span[1] > EPS) {
+      const low = Math.min(startHeight + (endHeight - startHeight) * span[0], startHeight + (endHeight - startHeight) * span[1]);
+      if (low <= o.height + 0.05) reach = Math.min(reach, Math.max(0, span[0] - 0.002));
+    }
   }
   return {x: a.x + (b.x - a.x) * reach, y: a.y + (b.y - a.y) * reach};
 }

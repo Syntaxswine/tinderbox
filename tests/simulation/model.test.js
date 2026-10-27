@@ -93,8 +93,8 @@ test('healing clamps at 100, consumes one pill, and neither selects a tool nor c
   sim.dispatch({type: 'drug', drug: 'healing'}); s = sim.advance(1 / 60); assert.equal(s.player.inventory.healing, 2);
 });
 
-test('pause, cancellation, tool change and death stop pouring without resuming held input', () => {
-  for (const command of [{type: 'pause', paused: true}, {type: 'cancel-input'}, {type: 'select-tool', tool: 'torch'}]) {
+test('pause, cancellation and death stop pouring without resuming held input', () => {
+  for (const command of [{type: 'pause', paused: true}, {type: 'cancel-input'}]) {
     const sim = model(); startPour(sim); run(sim, 0.1); sim.dispatch(command); let s = sim.advance(1 / 60);
     assert.equal(s.player.pouring, false); assert.equal(s.player.moving, false);
     sim.dispatch({type: 'pause', paused: false}); const x = s.player.x; s = sim.advance(1 / 60); close(s.player.x, x);

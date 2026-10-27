@@ -20,6 +20,14 @@ try {
     check(root.querySelectorAll('canvas').length === 1, 'One owned canvas');
     const before = runtime.snapshot(); runtime.advance(1 / 60); const after = runtime.snapshot();
     check(after.player.travelled > before.player.travelled, 'Command changes the authoritative model');
+    runtime.dispatch({type: 'select-tool', tool: 'jerry-can'}); runtime.dispatch({type: 'primary', pressed: true});
+    runtime.advance(1 / 60); check(runtime.snapshot().player.pouring, 'Pour active before scripted blur');
+    window.dispatchEvent(new Event('blur'));
+    const blurred = runtime.snapshot();
+    check(blurred.paused && !blurred.player.pouring && !blurred.player.moving, 'Window blur wiring pauses and clears input');
+    runtime.advance(0.25); check(runtime.snapshot().clocks.active === blurred.clocks.active, 'Paused browser clocks freeze');
+    runtime.dispatch({type: 'pause', paused: false}); runtime.advance(1 / 60);
+    check(runtime.snapshot().player.x === blurred.player.x && runtime.snapshot().player.y === blurred.player.y, 'Resume does not restore held movement');
     check(runtime.metrics().threeRevision === '180', 'Pinned r180 renderer');
     runtime.dispose(); runtime.dispose(); check(root.querySelectorAll('canvas').length === 0, 'Canvas retired');
     check(artDisposals === i + 1 && uiDisposals === i + 1, 'Factories disposed exactly once');
@@ -28,5 +36,12 @@ try {
   try { await createRuntime({root, scenario: 'tiny', autoStart: false, createArtScene: async () => { throw Error('intentional factory failure'); }}); }
   catch { rejected = true; }
   check(rejected && root.querySelectorAll('canvas').length === 0, 'Rejected async factory cleans up');
-  output.dataset.status = 'pass'; output.textContent = `PASS · 6 real WebGL create/update/dispose cycles\nArt disposals ${artDisposals} · UI disposals ${uiDisposals} · updates ${updates}\nOne Three r180 instance · raw movement · v1 snapshots/timing\nIdempotent disposal · failed factory cleanup · no owned canvas left`;
+  let failedUpdateDisposals = 0, updateRejected = false;
+  try {
+    await createRuntime({root, scenario: 'tiny', autoStart: false,
+      createArtScene: async () => ({update() { throw Error('intentional update failure'); }, dispose() { failedUpdateDisposals++; }}),
+      mountUI: () => ({update() {}, dispose() { failedUpdateDisposals++; }})});
+  } catch { updateRejected = true; }
+  check(updateRejected && failedUpdateDisposals === 2 && root.querySelectorAll('canvas').length === 0, 'Failed view update cleans both factories and canvas');
+  output.dataset.status = 'pass'; output.textContent = `PASS · 6 real WebGL create/update/dispose cycles\nArt disposals ${artDisposals} · UI disposals ${uiDisposals} · updates ${updates}\nOne Three r180 instance · raw movement · v1 snapshots/timing\nScripted window blur pauses/stops pour · frozen clocks · safe resume\nIdempotent disposal · failed factory + update cleanup · no owned canvas left`;
 } catch (error) { output.dataset.status = 'fail'; output.textContent = error.stack || String(error); }
