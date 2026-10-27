@@ -1,0 +1,3096 @@
+{
+  "schemaVersion": 1,
+  "inspectionOnly": true,
+  "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "inheritedSourceCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+  "imports": [],
+  "baseTinderboxCommit": "420266af6b92a4925164cdceda4ef43beb2d6a40",
+  "groups": {
+    "roomPrimitiveReference": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+          "bytes": 1644,
+          "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-geometry.js",
+            "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+            "bytes": 1644,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 1,
+      "incrementalBytes": 1644,
+      "totalBytes": 1644
+    },
+    "roomArtUnchanged": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/hybrid-room-art.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-family.js",
+          "bytes": 958,
+          "sha256": "ea372bb80935888f90f28091976df027c0882d8e5ae90b2c6aac76917b717aff",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-family.js",
+            "sha256": "ea372bb80935888f90f28091976df027c0882d8e5ae90b2c6aac76917b717aff",
+            "bytes": 958,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-foliage-data.js",
+          "bytes": 2836,
+          "sha256": "32553c1c962c609f6091cf1ac3b558d3b69e8cdf144525bc848426c88478ac54",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-foliage-data.js",
+            "sha256": "32553c1c962c609f6091cf1ac3b558d3b69e8cdf144525bc848426c88478ac54",
+            "bytes": 2836,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-gameplay-data.js",
+          "bytes": 502,
+          "sha256": "125cd4c3bf9616a62f7afa008d97664029fcf02ef10170a2d07a9d16d2bcb4ab",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-gameplay-data.js",
+            "sha256": "125cd4c3bf9616a62f7afa008d97664029fcf02ef10170a2d07a9d16d2bcb4ab",
+            "bytes": 502,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-ground-composition.js",
+          "bytes": 6586,
+          "sha256": "f63266c584b1b9f8d819fe391eb33ab105a9f4e136441a28b31cd920877fabc2",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-ground-composition.js",
+            "sha256": "f63266c584b1b9f8d819fe391eb33ab105a9f4e136441a28b31cd920877fabc2",
+            "bytes": 6586,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-ground-sprite-layout.js",
+          "bytes": 3113,
+          "sha256": "cc76f88d584fea31ad1a2daafc7a7512bc17e19dc2c3cd45bf2c9e1e282c4e3e",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-ground-sprite-layout.js",
+            "sha256": "cc76f88d584fea31ad1a2daafc7a7512bc17e19dc2c3cd45bf2c9e1e282c4e3e",
+            "bytes": 3113,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-plant-parts.js",
+          "bytes": 6180,
+          "sha256": "131fc981d6697d2527d84c23208c38562f296e421cf57cc270fd936ea9378929",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-plant-parts.js",
+            "sha256": "131fc981d6697d2527d84c23208c38562f296e421cf57cc270fd936ea9378929",
+            "bytes": 6180,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-tree-mix.js",
+          "bytes": 1351,
+          "sha256": "9dae025ba2e7c2d750cc0f0c8067c041b88a0a84abf0e279f0355cc93cfab697",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-tree-mix.js",
+            "sha256": "9dae025ba2e7c2d750cc0f0c8067c041b88a0a84abf0e279f0355cc93cfab697",
+            "bytes": 1351,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/bridge-trellis.js",
+          "bytes": 1888,
+          "sha256": "9471b97bcefb72b0329fdc85c0d99b94c49c172a7893268844ac6777641d7cbd",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/bridge-trellis.js",
+            "sha256": "9471b97bcefb72b0329fdc85c0d99b94c49c172a7893268844ac6777641d7cbd",
+            "bytes": 1888,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/character-patrol.js",
+          "bytes": 3095,
+          "sha256": "5f5b2c63c8ff51c990e7bb855b4ec093011195648969a1d415c8e1cff4998924",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/character-patrol.js",
+            "sha256": "5f5b2c63c8ff51c990e7bb855b4ec093011195648969a1d415c8e1cff4998924",
+            "bytes": 3095,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cliff-map.js",
+          "bytes": 1709,
+          "sha256": "527befc286bd5face8d92c293c99f0365f1463d617b842b1e4a99b16b7eb2166",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cliff-map.js",
+            "sha256": "527befc286bd5face8d92c293c99f0365f1463d617b842b1e4a99b16b7eb2166",
+            "bytes": 1709,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cliff-ramps.js",
+          "bytes": 5856,
+          "sha256": "9750e07c9c59893b9421169bda763892dbcb15ce49b6ef05738451428eecbdaf",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cliff-ramps.js",
+            "sha256": "9750e07c9c59893b9421169bda763892dbcb15ce49b6ef05738451428eecbdaf",
+            "bytes": 5856,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cliff-support.js",
+          "bytes": 748,
+          "sha256": "deb570d942312383418b8b1b1fedae440b7abfa9c271f1d70fa8db306f9509a0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cliff-support.js",
+            "sha256": "deb570d942312383418b8b1b1fedae440b7abfa9c271f1d70fa8db306f9509a0",
+            "bytes": 748,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/climbable-roofs.js",
+          "bytes": 3495,
+          "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/climbable-roofs.js",
+            "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+            "bytes": 3495,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/diagonal-roads.js",
+          "bytes": 1150,
+          "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/diagonal-roads.js",
+            "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+            "bytes": 1150,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/editor-canopies.js",
+          "bytes": 2350,
+          "sha256": "349ca3bf15f6d1a2933c3f3d982e9cac40e752735815b86a73bc6c5c427fb162",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/editor-canopies.js",
+            "sha256": "349ca3bf15f6d1a2933c3f3d982e9cac40e752735815b86a73bc6c5c427fb162",
+            "bytes": 2350,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/environment-regions.js",
+          "bytes": 6511,
+          "sha256": "003e1578418440fa0dceb465203f8cb13c10092721dcabd1cb6ecedeafc471ba",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/environment-regions.js",
+            "sha256": "003e1578418440fa0dceb465203f8cb13c10092721dcabd1cb6ecedeafc471ba",
+            "bytes": 6511,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/environment.js",
+          "bytes": 5706,
+          "sha256": "c7f94a38a4ef8b70eee343e05200895d888d46fff71d86ed82b9763b83221e4d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/environment.js",
+            "sha256": "c7f94a38a4ef8b70eee343e05200895d888d46fff71d86ed82b9763b83221e4d",
+            "bytes": 5706,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-data.js",
+          "bytes": 6825,
+          "sha256": "63be51d37c90f06cdc0ddd357b3bf0f5ba753710411742be701cd1052c8868c9",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-data.js",
+            "sha256": "63be51d37c90f06cdc0ddd357b3bf0f5ba753710411742be701cd1052c8868c9",
+            "bytes": 6825,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-models.js",
+          "bytes": 4195,
+          "sha256": "3d8f5c13e12e569a73dad041d0ff2a2c24e350479ad5917b719e1f426ec117ba",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-models.js",
+            "sha256": "3d8f5c13e12e569a73dad041d0ff2a2c24e350479ad5917b719e1f426ec117ba",
+            "bytes": 4195,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-obstacles.js",
+          "bytes": 12843,
+          "sha256": "434aa0186f94a092b00583473aea97c48507d36aa79f09a0c2c696e1f94cabea",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-obstacles.js",
+            "sha256": "434aa0186f94a092b00583473aea97c48507d36aa79f09a0c2c696e1f94cabea",
+            "bytes": 12843,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-presets.js",
+          "bytes": 932,
+          "sha256": "8751f763ec385989e4816ad75022a7291f7c16365846667931f1a16dcf8b342f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-presets.js",
+            "sha256": "8751f763ec385989e4816ad75022a7291f7c16365846667931f1a16dcf8b342f",
+            "bytes": 932,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-tree-cover.js",
+          "bytes": 714,
+          "sha256": "480284a6d25787fa26712f4e6b68f377d84d9e5c91256c970f49923d2ea07e74",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-tree-cover.js",
+            "sha256": "480284a6d25787fa26712f4e6b68f377d84d9e5c91256c970f49923d2ea07e74",
+            "bytes": 714,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/game-clock.js",
+          "bytes": 2845,
+          "sha256": "6ae4040203e2b29c87a782eb0c897cb0b12fc481f12103e6cc435efd18d4fa07",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/game-clock.js",
+            "sha256": "6ae4040203e2b29c87a782eb0c897cb0b12fc481f12103e6cc435efd18d4fa07",
+            "bytes": 2845,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-data.js",
+          "bytes": 1743,
+          "sha256": "56fb335124c27afe6cb26c36b72e660ea384d95c95b6a587575b75767ac3b884",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-data.js",
+            "sha256": "56fb335124c27afe6cb26c36b72e660ea384d95c95b6a587575b75767ac3b884",
+            "bytes": 1743,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-layout.js",
+          "bytes": 5043,
+          "sha256": "bb88768eccd4c36e97cea5414a88aae4b9fd2c1bad8c033d6d5a9f206b036eef",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-layout.js",
+            "sha256": "bb88768eccd4c36e97cea5414a88aae4b9fd2c1bad8c033d6d5a9f206b036eef",
+            "bytes": 5043,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-obstacles.js",
+          "bytes": 1112,
+          "sha256": "da9dfe98651ba73bfbb179cdef965558cec3745cfe4a733d29144ffe7c4872c9",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-obstacles.js",
+            "sha256": "da9dfe98651ba73bfbb179cdef965558cec3745cfe4a733d29144ffe7c4872c9",
+            "bytes": 1112,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-surfaces.js",
+          "bytes": 5933,
+          "sha256": "60185f5c5df8831f927d9c1bd9eb1b699989fcf82d213358b01ea4abef7178b7",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-surfaces.js",
+            "sha256": "60185f5c5df8831f927d9c1bd9eb1b699989fcf82d213358b01ea4abef7178b7",
+            "bytes": 5933,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+          "bytes": 1644,
+          "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-geometry.js",
+            "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+            "bytes": 1644,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-materials.js",
+          "bytes": 4723,
+          "sha256": "1dca85ff2eeb36cf61bc1ae7e16ccae7c82ec9fb7f624b13dadc7b4c65954953",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-materials.js",
+            "sha256": "1dca85ff2eeb36cf61bc1ae7e16ccae7c82ec9fb7f624b13dadc7b4c65954953",
+            "bytes": 4723,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-props.js",
+          "bytes": 3935,
+          "sha256": "a2ba1d3a0b60b93cad4dc20dfc8eb36b426dce940a40c1afa2c2f03341e473ee",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-props.js",
+            "sha256": "a2ba1d3a0b60b93cad4dc20dfc8eb36b426dce940a40c1afa2c2f03341e473ee",
+            "bytes": 3935,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-room-art.js",
+          "bytes": 4649,
+          "sha256": "694de3e164710c133231d33274c730589c47f9e0afcd48deea1471df258c747f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-room-art.js",
+            "sha256": "694de3e164710c133231d33274c730589c47f9e0afcd48deea1471df258c747f",
+            "bytes": 4649,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-world.js",
+          "bytes": 12497,
+          "sha256": "13d1906addb3d46872b28e46772610715c6f19a169a81e6bdef9b0e6c8c30a69",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-world.js",
+            "sha256": "13d1906addb3d46872b28e46772610715c6f19a169a81e6bdef9b0e6c8c30a69",
+            "bytes": 12497,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/light-sources.js",
+          "bytes": 5529,
+          "sha256": "e4908a7c6d9eb54aebcdc12571dbd5c375ab13ba8fdcd5623fc52180b699dbce",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/light-sources.js",
+            "sha256": "e4908a7c6d9eb54aebcdc12571dbd5c375ab13ba8fdcd5623fc52180b699dbce",
+            "bytes": 5529,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/map-geometry-cache.js",
+          "bytes": 2022,
+          "sha256": "83d5c96d6c51116efbbd8184152901908b311042304aa9d8c5754c0fd4ea8fcb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/map-geometry-cache.js",
+            "sha256": "83d5c96d6c51116efbbd8184152901908b311042304aa9d8c5754c0fd4ea8fcb",
+            "bytes": 2022,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/map-layers.js",
+          "bytes": 676,
+          "sha256": "81300e228604072c4e0be9f34293e50361c1013520d2e4209d1b32e87f3581df",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/map-layers.js",
+            "sha256": "81300e228604072c4e0be9f34293e50361c1013520d2e4209d1b32e87f3581df",
+            "bytes": 676,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/movement-timing.js",
+          "bytes": 330,
+          "sha256": "54bffde4945e03d1c196619d05c2ca9a060c6af3badf1e343c70e55599b22799",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/movement-timing.js",
+            "sha256": "54bffde4945e03d1c196619d05c2ca9a060c6af3badf1e343c70e55599b22799",
+            "bytes": 330,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/ramp-banks.js",
+          "bytes": 3352,
+          "sha256": "9fd7caeeb4ea7c79ab49c04b3dcd8f22fa78fc4e27f82a5bd81ec9e39455056d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/ramp-banks.js",
+            "sha256": "9fd7caeeb4ea7c79ab49c04b3dcd8f22fa78fc4e27f82a5bd81ec9e39455056d",
+            "bytes": 3352,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/scenery-catalog.js",
+          "bytes": 4614,
+          "sha256": "d1fe9b6fb3f7a1f2feb2221d10984507f9059c7884598a261e3ce671369f530f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/scenery-catalog.js",
+            "sha256": "d1fe9b6fb3f7a1f2feb2221d10984507f9059c7884598a261e3ce671369f530f",
+            "bytes": 4614,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/scenery-index.js",
+          "bytes": 1083,
+          "sha256": "1a1a8e78c818d1b61d50ad9c5134e59729527820004691eb3cda5e0b310c091e",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/scenery-index.js",
+            "sha256": "1a1a8e78c818d1b61d50ad9c5134e59729527820004691eb3cda5e0b310c091e",
+            "bytes": 1083,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/spotlight-path.js",
+          "bytes": 2331,
+          "sha256": "54734b20d6c27b9e65785a1914ca6b92ee74685c657ffc08083d93f222acd6e2",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/spotlight-path.js",
+            "sha256": "54734b20d6c27b9e65785a1914ca6b92ee74685c657ffc08083d93f222acd6e2",
+            "bytes": 2331,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/stone-arch-geometry.js",
+          "bytes": 3175,
+          "sha256": "575b8c66cc10102715b5947b1e5ac6a72fb2711062ae007c712c9398de36563f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/stone-arch-geometry.js",
+            "sha256": "575b8c66cc10102715b5947b1e5ac6a72fb2711062ae007c712c9398de36563f",
+            "bytes": 3175,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/stone-arches.js",
+          "bytes": 2845,
+          "sha256": "57db649d02b9d6adaa2f4b71e57f16452a2cfd03d55bc8f3d74d2fe2a141003f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/stone-arches.js",
+            "sha256": "57db649d02b9d6adaa2f4b71e57f16452a2cfd03d55bc8f3d74d2fe2a141003f",
+            "bytes": 2845,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/strategic-site-data.js",
+          "bytes": 2886480,
+          "sha256": "705750528fa5bf24f9c4665548abc987b69f5ec4a7f50c1a179bc539cc0fb2eb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/strategic-site-data.js",
+            "sha256": "705750528fa5bf24f9c4665548abc987b69f5ec4a7f50c1a179bc539cc0fb2eb",
+            "bytes": 2886480,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/strategic-site-rules.js",
+          "bytes": 7744,
+          "sha256": "22ae318dea52bd377fe560aaff404c96e7e9ef50d0af752d276c6cd673b33a17",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/strategic-site-rules.js",
+            "sha256": "22ae318dea52bd377fe560aaff404c96e7e9ef50d0af752d276c6cd673b33a17",
+            "bytes": 7744,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/tower-geometry.js",
+          "bytes": 5868,
+          "sha256": "86689ec9ac7ba2b70c52c7e918df1080d2972061899835700188127098ab60cd",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/tower-geometry.js",
+            "sha256": "86689ec9ac7ba2b70c52c7e918df1080d2972061899835700188127098ab60cd",
+            "bytes": 5868,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+          "bytes": 1462227,
+          "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.core.js",
+            "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+            "bytes": 1462227,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+          "bytes": 621667,
+          "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.module.js",
+            "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+            "bytes": 621667,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 45,
+      "incrementalBytes": 3049716,
+      "totalBytes": 5133610
+    },
+    "worldUnchanged": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/hybrid-world.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-family.js",
+          "bytes": 958,
+          "sha256": "ea372bb80935888f90f28091976df027c0882d8e5ae90b2c6aac76917b717aff",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-family.js",
+            "sha256": "ea372bb80935888f90f28091976df027c0882d8e5ae90b2c6aac76917b717aff",
+            "bytes": 958,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-foliage-data.js",
+          "bytes": 2836,
+          "sha256": "32553c1c962c609f6091cf1ac3b558d3b69e8cdf144525bc848426c88478ac54",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-foliage-data.js",
+            "sha256": "32553c1c962c609f6091cf1ac3b558d3b69e8cdf144525bc848426c88478ac54",
+            "bytes": 2836,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-gameplay-data.js",
+          "bytes": 502,
+          "sha256": "125cd4c3bf9616a62f7afa008d97664029fcf02ef10170a2d07a9d16d2bcb4ab",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-gameplay-data.js",
+            "sha256": "125cd4c3bf9616a62f7afa008d97664029fcf02ef10170a2d07a9d16d2bcb4ab",
+            "bytes": 502,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-ground-composition.js",
+          "bytes": 6586,
+          "sha256": "f63266c584b1b9f8d819fe391eb33ab105a9f4e136441a28b31cd920877fabc2",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-ground-composition.js",
+            "sha256": "f63266c584b1b9f8d819fe391eb33ab105a9f4e136441a28b31cd920877fabc2",
+            "bytes": 6586,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-ground-sprite-layout.js",
+          "bytes": 3113,
+          "sha256": "cc76f88d584fea31ad1a2daafc7a7512bc17e19dc2c3cd45bf2c9e1e282c4e3e",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-ground-sprite-layout.js",
+            "sha256": "cc76f88d584fea31ad1a2daafc7a7512bc17e19dc2c3cd45bf2c9e1e282c4e3e",
+            "bytes": 3113,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-plant-parts.js",
+          "bytes": 6180,
+          "sha256": "131fc981d6697d2527d84c23208c38562f296e421cf57cc270fd936ea9378929",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-plant-parts.js",
+            "sha256": "131fc981d6697d2527d84c23208c38562f296e421cf57cc270fd936ea9378929",
+            "bytes": 6180,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/biome-tree-mix.js",
+          "bytes": 1351,
+          "sha256": "9dae025ba2e7c2d750cc0f0c8067c041b88a0a84abf0e279f0355cc93cfab697",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/biome-tree-mix.js",
+            "sha256": "9dae025ba2e7c2d750cc0f0c8067c041b88a0a84abf0e279f0355cc93cfab697",
+            "bytes": 1351,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/bridge-trellis.js",
+          "bytes": 1888,
+          "sha256": "9471b97bcefb72b0329fdc85c0d99b94c49c172a7893268844ac6777641d7cbd",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/bridge-trellis.js",
+            "sha256": "9471b97bcefb72b0329fdc85c0d99b94c49c172a7893268844ac6777641d7cbd",
+            "bytes": 1888,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/character-patrol.js",
+          "bytes": 3095,
+          "sha256": "5f5b2c63c8ff51c990e7bb855b4ec093011195648969a1d415c8e1cff4998924",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/character-patrol.js",
+            "sha256": "5f5b2c63c8ff51c990e7bb855b4ec093011195648969a1d415c8e1cff4998924",
+            "bytes": 3095,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cliff-map.js",
+          "bytes": 1709,
+          "sha256": "527befc286bd5face8d92c293c99f0365f1463d617b842b1e4a99b16b7eb2166",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cliff-map.js",
+            "sha256": "527befc286bd5face8d92c293c99f0365f1463d617b842b1e4a99b16b7eb2166",
+            "bytes": 1709,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cliff-ramps.js",
+          "bytes": 5856,
+          "sha256": "9750e07c9c59893b9421169bda763892dbcb15ce49b6ef05738451428eecbdaf",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cliff-ramps.js",
+            "sha256": "9750e07c9c59893b9421169bda763892dbcb15ce49b6ef05738451428eecbdaf",
+            "bytes": 5856,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cliff-support.js",
+          "bytes": 748,
+          "sha256": "deb570d942312383418b8b1b1fedae440b7abfa9c271f1d70fa8db306f9509a0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cliff-support.js",
+            "sha256": "deb570d942312383418b8b1b1fedae440b7abfa9c271f1d70fa8db306f9509a0",
+            "bytes": 748,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/climbable-roofs.js",
+          "bytes": 3495,
+          "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/climbable-roofs.js",
+            "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+            "bytes": 3495,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/diagonal-roads.js",
+          "bytes": 1150,
+          "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/diagonal-roads.js",
+            "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+            "bytes": 1150,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/editor-canopies.js",
+          "bytes": 2350,
+          "sha256": "349ca3bf15f6d1a2933c3f3d982e9cac40e752735815b86a73bc6c5c427fb162",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/editor-canopies.js",
+            "sha256": "349ca3bf15f6d1a2933c3f3d982e9cac40e752735815b86a73bc6c5c427fb162",
+            "bytes": 2350,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/environment-regions.js",
+          "bytes": 6511,
+          "sha256": "003e1578418440fa0dceb465203f8cb13c10092721dcabd1cb6ecedeafc471ba",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/environment-regions.js",
+            "sha256": "003e1578418440fa0dceb465203f8cb13c10092721dcabd1cb6ecedeafc471ba",
+            "bytes": 6511,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/environment.js",
+          "bytes": 5706,
+          "sha256": "c7f94a38a4ef8b70eee343e05200895d888d46fff71d86ed82b9763b83221e4d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/environment.js",
+            "sha256": "c7f94a38a4ef8b70eee343e05200895d888d46fff71d86ed82b9763b83221e4d",
+            "bytes": 5706,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-data.js",
+          "bytes": 6825,
+          "sha256": "63be51d37c90f06cdc0ddd357b3bf0f5ba753710411742be701cd1052c8868c9",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-data.js",
+            "sha256": "63be51d37c90f06cdc0ddd357b3bf0f5ba753710411742be701cd1052c8868c9",
+            "bytes": 6825,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-models.js",
+          "bytes": 4195,
+          "sha256": "3d8f5c13e12e569a73dad041d0ff2a2c24e350479ad5917b719e1f426ec117ba",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-models.js",
+            "sha256": "3d8f5c13e12e569a73dad041d0ff2a2c24e350479ad5917b719e1f426ec117ba",
+            "bytes": 4195,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-obstacles.js",
+          "bytes": 12843,
+          "sha256": "434aa0186f94a092b00583473aea97c48507d36aa79f09a0c2c696e1f94cabea",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-obstacles.js",
+            "sha256": "434aa0186f94a092b00583473aea97c48507d36aa79f09a0c2c696e1f94cabea",
+            "bytes": 12843,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-presets.js",
+          "bytes": 932,
+          "sha256": "8751f763ec385989e4816ad75022a7291f7c16365846667931f1a16dcf8b342f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-presets.js",
+            "sha256": "8751f763ec385989e4816ad75022a7291f7c16365846667931f1a16dcf8b342f",
+            "bytes": 932,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/foliage-tree-cover.js",
+          "bytes": 714,
+          "sha256": "480284a6d25787fa26712f4e6b68f377d84d9e5c91256c970f49923d2ea07e74",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/foliage-tree-cover.js",
+            "sha256": "480284a6d25787fa26712f4e6b68f377d84d9e5c91256c970f49923d2ea07e74",
+            "bytes": 714,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/game-clock.js",
+          "bytes": 2845,
+          "sha256": "6ae4040203e2b29c87a782eb0c897cb0b12fc481f12103e6cc435efd18d4fa07",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/game-clock.js",
+            "sha256": "6ae4040203e2b29c87a782eb0c897cb0b12fc481f12103e6cc435efd18d4fa07",
+            "bytes": 2845,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-data.js",
+          "bytes": 1743,
+          "sha256": "56fb335124c27afe6cb26c36b72e660ea384d95c95b6a587575b75767ac3b884",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-data.js",
+            "sha256": "56fb335124c27afe6cb26c36b72e660ea384d95c95b6a587575b75767ac3b884",
+            "bytes": 1743,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-layout.js",
+          "bytes": 5043,
+          "sha256": "bb88768eccd4c36e97cea5414a88aae4b9fd2c1bad8c033d6d5a9f206b036eef",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-layout.js",
+            "sha256": "bb88768eccd4c36e97cea5414a88aae4b9fd2c1bad8c033d6d5a9f206b036eef",
+            "bytes": 5043,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-obstacles.js",
+          "bytes": 1112,
+          "sha256": "da9dfe98651ba73bfbb179cdef965558cec3745cfe4a733d29144ffe7c4872c9",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-obstacles.js",
+            "sha256": "da9dfe98651ba73bfbb179cdef965558cec3745cfe4a733d29144ffe7c4872c9",
+            "bytes": 1112,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hedge-surfaces.js",
+          "bytes": 5933,
+          "sha256": "60185f5c5df8831f927d9c1bd9eb1b699989fcf82d213358b01ea4abef7178b7",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hedge-surfaces.js",
+            "sha256": "60185f5c5df8831f927d9c1bd9eb1b699989fcf82d213358b01ea4abef7178b7",
+            "bytes": 5933,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+          "bytes": 1644,
+          "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-geometry.js",
+            "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+            "bytes": 1644,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-props.js",
+          "bytes": 3935,
+          "sha256": "a2ba1d3a0b60b93cad4dc20dfc8eb36b426dce940a40c1afa2c2f03341e473ee",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-props.js",
+            "sha256": "a2ba1d3a0b60b93cad4dc20dfc8eb36b426dce940a40c1afa2c2f03341e473ee",
+            "bytes": 3935,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-world.js",
+          "bytes": 12497,
+          "sha256": "13d1906addb3d46872b28e46772610715c6f19a169a81e6bdef9b0e6c8c30a69",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-world.js",
+            "sha256": "13d1906addb3d46872b28e46772610715c6f19a169a81e6bdef9b0e6c8c30a69",
+            "bytes": 12497,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/light-sources.js",
+          "bytes": 5529,
+          "sha256": "e4908a7c6d9eb54aebcdc12571dbd5c375ab13ba8fdcd5623fc52180b699dbce",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/light-sources.js",
+            "sha256": "e4908a7c6d9eb54aebcdc12571dbd5c375ab13ba8fdcd5623fc52180b699dbce",
+            "bytes": 5529,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/map-geometry-cache.js",
+          "bytes": 2022,
+          "sha256": "83d5c96d6c51116efbbd8184152901908b311042304aa9d8c5754c0fd4ea8fcb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/map-geometry-cache.js",
+            "sha256": "83d5c96d6c51116efbbd8184152901908b311042304aa9d8c5754c0fd4ea8fcb",
+            "bytes": 2022,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/map-layers.js",
+          "bytes": 676,
+          "sha256": "81300e228604072c4e0be9f34293e50361c1013520d2e4209d1b32e87f3581df",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/map-layers.js",
+            "sha256": "81300e228604072c4e0be9f34293e50361c1013520d2e4209d1b32e87f3581df",
+            "bytes": 676,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/movement-timing.js",
+          "bytes": 330,
+          "sha256": "54bffde4945e03d1c196619d05c2ca9a060c6af3badf1e343c70e55599b22799",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/movement-timing.js",
+            "sha256": "54bffde4945e03d1c196619d05c2ca9a060c6af3badf1e343c70e55599b22799",
+            "bytes": 330,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/ramp-banks.js",
+          "bytes": 3352,
+          "sha256": "9fd7caeeb4ea7c79ab49c04b3dcd8f22fa78fc4e27f82a5bd81ec9e39455056d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/ramp-banks.js",
+            "sha256": "9fd7caeeb4ea7c79ab49c04b3dcd8f22fa78fc4e27f82a5bd81ec9e39455056d",
+            "bytes": 3352,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/scenery-catalog.js",
+          "bytes": 4614,
+          "sha256": "d1fe9b6fb3f7a1f2feb2221d10984507f9059c7884598a261e3ce671369f530f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/scenery-catalog.js",
+            "sha256": "d1fe9b6fb3f7a1f2feb2221d10984507f9059c7884598a261e3ce671369f530f",
+            "bytes": 4614,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/scenery-index.js",
+          "bytes": 1083,
+          "sha256": "1a1a8e78c818d1b61d50ad9c5134e59729527820004691eb3cda5e0b310c091e",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/scenery-index.js",
+            "sha256": "1a1a8e78c818d1b61d50ad9c5134e59729527820004691eb3cda5e0b310c091e",
+            "bytes": 1083,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/spotlight-path.js",
+          "bytes": 2331,
+          "sha256": "54734b20d6c27b9e65785a1914ca6b92ee74685c657ffc08083d93f222acd6e2",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/spotlight-path.js",
+            "sha256": "54734b20d6c27b9e65785a1914ca6b92ee74685c657ffc08083d93f222acd6e2",
+            "bytes": 2331,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/stone-arch-geometry.js",
+          "bytes": 3175,
+          "sha256": "575b8c66cc10102715b5947b1e5ac6a72fb2711062ae007c712c9398de36563f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/stone-arch-geometry.js",
+            "sha256": "575b8c66cc10102715b5947b1e5ac6a72fb2711062ae007c712c9398de36563f",
+            "bytes": 3175,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/stone-arches.js",
+          "bytes": 2845,
+          "sha256": "57db649d02b9d6adaa2f4b71e57f16452a2cfd03d55bc8f3d74d2fe2a141003f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/stone-arches.js",
+            "sha256": "57db649d02b9d6adaa2f4b71e57f16452a2cfd03d55bc8f3d74d2fe2a141003f",
+            "bytes": 2845,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/strategic-site-data.js",
+          "bytes": 2886480,
+          "sha256": "705750528fa5bf24f9c4665548abc987b69f5ec4a7f50c1a179bc539cc0fb2eb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/strategic-site-data.js",
+            "sha256": "705750528fa5bf24f9c4665548abc987b69f5ec4a7f50c1a179bc539cc0fb2eb",
+            "bytes": 2886480,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/strategic-site-rules.js",
+          "bytes": 7744,
+          "sha256": "22ae318dea52bd377fe560aaff404c96e7e9ef50d0af752d276c6cd673b33a17",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/strategic-site-rules.js",
+            "sha256": "22ae318dea52bd377fe560aaff404c96e7e9ef50d0af752d276c6cd673b33a17",
+            "bytes": 7744,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/tower-geometry.js",
+          "bytes": 5868,
+          "sha256": "86689ec9ac7ba2b70c52c7e918df1080d2972061899835700188127098ab60cd",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/tower-geometry.js",
+            "sha256": "86689ec9ac7ba2b70c52c7e918df1080d2972061899835700188127098ab60cd",
+            "bytes": 5868,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 43,
+      "incrementalBytes": 3040344,
+      "totalBytes": 3040344
+    },
+    "roofDefinitionsUnchanged": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/climbable-roofs.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/climbable-roofs.js",
+          "bytes": 3495,
+          "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/climbable-roofs.js",
+            "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+            "bytes": 3495,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/map-geometry-cache.js",
+          "bytes": 2022,
+          "sha256": "83d5c96d6c51116efbbd8184152901908b311042304aa9d8c5754c0fd4ea8fcb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/map-geometry-cache.js",
+            "sha256": "83d5c96d6c51116efbbd8184152901908b311042304aa9d8c5754c0fd4ea8fcb",
+            "bytes": 2022,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/map-layers.js",
+          "bytes": 676,
+          "sha256": "81300e228604072c4e0be9f34293e50361c1013520d2e4209d1b32e87f3581df",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/map-layers.js",
+            "sha256": "81300e228604072c4e0be9f34293e50361c1013520d2e4209d1b32e87f3581df",
+            "bytes": 676,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 3,
+      "incrementalBytes": 6193,
+      "totalBytes": 6193
+    },
+    "surfaceHelpers": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/hybrid-materials.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/diagonal-roads.js",
+          "bytes": 1150,
+          "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/diagonal-roads.js",
+            "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+            "bytes": 1150,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hybrid-materials.js",
+          "bytes": 4723,
+          "sha256": "1dca85ff2eeb36cf61bc1ae7e16ccae7c82ec9fb7f624b13dadc7b4c65954953",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hybrid-materials.js",
+            "sha256": "1dca85ff2eeb36cf61bc1ae7e16ccae7c82ec9fb7f624b13dadc7b4c65954953",
+            "bytes": 4723,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 2,
+      "incrementalBytes": 5873,
+      "totalBytes": 5873
+    },
+    "normalHorseGeometryAndPaint": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+        "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-graphic-paint.js",
+          "bytes": 4353,
+          "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-graphic-paint.js",
+            "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+            "bytes": 4353,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand-data.js",
+          "bytes": 36327,
+          "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand-data.js",
+            "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+            "bytes": 36327,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand.js",
+          "bytes": 3428,
+          "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand.js",
+            "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+            "bytes": 3428,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+          "bytes": 25451,
+          "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-light-model.js",
+            "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+            "bytes": 25451,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+          "bytes": 47623,
+          "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-model-paint.js",
+            "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+            "bytes": 47623,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-rifle.js",
+          "bytes": 2727,
+          "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-rifle.js",
+            "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+            "bytes": 2727,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+          "bytes": 1462227,
+          "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.core.js",
+            "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+            "bytes": 1462227,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+          "bytes": 621667,
+          "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.module.js",
+            "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+            "bytes": 621667,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 6,
+      "incrementalBytes": 119909,
+      "totalBytes": 2203803
+    },
+    "normalHorseWithMotion": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+        "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+        "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/clothing-weights.js",
+          "bytes": 1202,
+          "sha256": "a70f99e17ce5cfe233f81e13219e432781a59f87beb97257bbdc3d76c47fb471",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/clothing-weights.js",
+            "sha256": "a70f99e17ce5cfe233f81e13219e432781a59f87beb97257bbdc3d76c47fb471",
+            "bytes": 1202,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/dog-motion.js",
+          "bytes": 11096,
+          "sha256": "cb813ff8952ea197703d73118ebf35ec415381e67626c97b10c6e36318bb7201",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/dog-motion.js",
+            "sha256": "cb813ff8952ea197703d73118ebf35ec415381e67626c97b10c6e36318bb7201",
+            "bytes": 11096,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hen-motion.js",
+          "bytes": 6310,
+          "sha256": "1234eee6c06f04ef2cb3999b3e0c7378143fee8dc46cbb43149ddfed6e617154",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hen-motion.js",
+            "sha256": "1234eee6c06f04ef2cb3999b3e0c7378143fee8dc46cbb43149ddfed6e617154",
+            "bytes": 6310,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-graphic-paint.js",
+          "bytes": 4353,
+          "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-graphic-paint.js",
+            "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+            "bytes": 4353,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand-data.js",
+          "bytes": 36327,
+          "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand-data.js",
+            "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+            "bytes": 36327,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand.js",
+          "bytes": 3428,
+          "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand.js",
+            "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+            "bytes": 3428,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+          "bytes": 25451,
+          "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-light-model.js",
+            "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+            "bytes": 25451,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+          "bytes": 47623,
+          "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-model-paint.js",
+            "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+            "bytes": 47623,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-rifle.js",
+          "bytes": 2727,
+          "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-rifle.js",
+            "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+            "bytes": 2727,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/roof-mantle-equipment.js",
+          "bytes": 3386,
+          "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/roof-mantle-equipment.js",
+            "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+            "bytes": 3386,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+          "bytes": 1462227,
+          "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.core.js",
+            "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+            "bytes": 1462227,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+          "bytes": 621667,
+          "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.module.js",
+            "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+            "bytes": 621667,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js",
+          "bytes": 3755,
+          "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/worker-locomotion.js",
+            "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+            "bytes": 3755,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 11,
+      "incrementalBytes": 145658,
+      "totalBytes": 2229552
+    },
+    "horseGoatWithMotion": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/goat-worker.js",
+        "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+        "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+        "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/clothing-weights.js",
+          "bytes": 1202,
+          "sha256": "a70f99e17ce5cfe233f81e13219e432781a59f87beb97257bbdc3d76c47fb471",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/clothing-weights.js",
+            "sha256": "a70f99e17ce5cfe233f81e13219e432781a59f87beb97257bbdc3d76c47fb471",
+            "bytes": 1202,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/dog-motion.js",
+          "bytes": 11096,
+          "sha256": "cb813ff8952ea197703d73118ebf35ec415381e67626c97b10c6e36318bb7201",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/dog-motion.js",
+            "sha256": "cb813ff8952ea197703d73118ebf35ec415381e67626c97b10c6e36318bb7201",
+            "bytes": 11096,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/goat-worker.js",
+          "bytes": 827,
+          "sha256": "4bb669374a539443b96b1c79a2a2097978958fd7e219cb21df9413675dc32d9c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/goat-worker.js",
+            "sha256": "4bb669374a539443b96b1c79a2a2097978958fd7e219cb21df9413675dc32d9c",
+            "bytes": 827,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hen-motion.js",
+          "bytes": 6310,
+          "sha256": "1234eee6c06f04ef2cb3999b3e0c7378143fee8dc46cbb43149ddfed6e617154",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hen-motion.js",
+            "sha256": "1234eee6c06f04ef2cb3999b3e0c7378143fee8dc46cbb43149ddfed6e617154",
+            "bytes": 6310,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-graphic-paint.js",
+          "bytes": 4353,
+          "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-graphic-paint.js",
+            "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+            "bytes": 4353,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand-data.js",
+          "bytes": 36327,
+          "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand-data.js",
+            "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+            "bytes": 36327,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand.js",
+          "bytes": 3428,
+          "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand.js",
+            "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+            "bytes": 3428,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+          "bytes": 25451,
+          "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-light-model.js",
+            "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+            "bytes": 25451,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+          "bytes": 47623,
+          "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-model-paint.js",
+            "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+            "bytes": 47623,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-rifle.js",
+          "bytes": 2727,
+          "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-rifle.js",
+            "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+            "bytes": 2727,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/roof-mantle-equipment.js",
+          "bytes": 3386,
+          "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/roof-mantle-equipment.js",
+            "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+            "bytes": 3386,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+          "bytes": 1462227,
+          "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.core.js",
+            "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+            "bytes": 1462227,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+          "bytes": 621667,
+          "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.module.js",
+            "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+            "bytes": 621667,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js",
+          "bytes": 3755,
+          "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/worker-locomotion.js",
+            "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+            "bytes": 3755,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 12,
+      "incrementalBytes": 146485,
+      "totalBytes": 2230379
+    },
+    "fullAnimalCatalogAndPaint": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/animal-motion-catalog.js",
+        "sites/tactical-animal/dist/aft/tactics/animal-motion-paint.js",
+        "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/animal-motion-catalog.js",
+          "bytes": 4242,
+          "sha256": "b8215ef64b97009e59030316de996e610c2b73dec92aa3c5ce69e239025f53cd",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/animal-motion-catalog.js",
+            "sha256": "b8215ef64b97009e59030316de996e610c2b73dec92aa3c5ce69e239025f53cd",
+            "bytes": 4242,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/animal-motion-paint.js",
+          "bytes": 3513,
+          "sha256": "84e2515a48dff3eae55cc37d5515a346e0e4032ce31d3156d0b535a91786b274",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/animal-motion-paint.js",
+            "sha256": "84e2515a48dff3eae55cc37d5515a346e0e4032ce31d3156d0b535a91786b274",
+            "bytes": 3513,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/animal-motion-repair-paint.js",
+          "bytes": 4918,
+          "sha256": "99565e955fef383e539b4041547dcedd993da83f908e9454953d66c107ed6a8f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/animal-motion-repair-paint.js",
+            "sha256": "99565e955fef383e539b4041547dcedd993da83f908e9454953d66c107ed6a8f",
+            "bytes": 4918,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/bull-worker.js",
+          "bytes": 827,
+          "sha256": "5c9f3b3bc1c14e9ebb595055d2c25176f9d1190aca1564f839a46e30c57df473",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/bull-worker.js",
+            "sha256": "5c9f3b3bc1c14e9ebb595055d2c25176f9d1190aca1564f839a46e30c57df473",
+            "bytes": 827,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/clothing-weights.js",
+          "bytes": 1202,
+          "sha256": "a70f99e17ce5cfe233f81e13219e432781a59f87beb97257bbdc3d76c47fb471",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/clothing-weights.js",
+            "sha256": "a70f99e17ce5cfe233f81e13219e432781a59f87beb97257bbdc3d76c47fb471",
+            "bytes": 1202,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cow-neck-paint.js",
+          "bytes": 3221,
+          "sha256": "62a681f84cce9caf83b4dc0ed3c487491a55d488304c4834092bfa87de318835",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cow-neck-paint.js",
+            "sha256": "62a681f84cce9caf83b4dc0ed3c487491a55d488304c4834092bfa87de318835",
+            "bytes": 3221,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/cow-worker.js",
+          "bytes": 859,
+          "sha256": "d45c38a5f276247365aa84bbf5d63aa02090e1e2e2b29ef8e1bbce09199a3645",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/cow-worker.js",
+            "sha256": "d45c38a5f276247365aa84bbf5d63aa02090e1e2e2b29ef8e1bbce09199a3645",
+            "bytes": 859,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/dog-guard.js",
+          "bytes": 999,
+          "sha256": "fe073971d408af77ae09e36dc47b3e811a23b95887998091257a63d83e3b272e",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/dog-guard.js",
+            "sha256": "fe073971d408af77ae09e36dc47b3e811a23b95887998091257a63d83e3b272e",
+            "bytes": 999,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/dog-motion-paint.js",
+          "bytes": 727,
+          "sha256": "75c6a82a2a9b268d42ab51fba51a989f76e8843d023da737c6e63c6d14742a10",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/dog-motion-paint.js",
+            "sha256": "75c6a82a2a9b268d42ab51fba51a989f76e8843d023da737c6e63c6d14742a10",
+            "bytes": 727,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/dog-motion.js",
+          "bytes": 11096,
+          "sha256": "cb813ff8952ea197703d73118ebf35ec415381e67626c97b10c6e36318bb7201",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/dog-motion.js",
+            "sha256": "cb813ff8952ea197703d73118ebf35ec415381e67626c97b10c6e36318bb7201",
+            "bytes": 11096,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/dog-paint-layers.js",
+          "bytes": 4042,
+          "sha256": "4c2f95b034c4f7364a921edb7a3821133e1314c7718c1d5902490e861e817b40",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/dog-paint-layers.js",
+            "sha256": "4c2f95b034c4f7364a921edb7a3821133e1314c7718c1d5902490e861e817b40",
+            "bytes": 4042,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/donkey-hawaiian.js",
+          "bytes": 2375,
+          "sha256": "3413bcb0d7334d60657f56bd86e3d03045ddc185e3fd6162aa1119ef78bc652d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/donkey-hawaiian.js",
+            "sha256": "3413bcb0d7334d60657f56bd86e3d03045ddc185e3fd6162aa1119ef78bc652d",
+            "bytes": 2375,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/donkey-straw-hat.js",
+          "bytes": 2942,
+          "sha256": "5b69892761c849d439f869d3b7abf91e9a5a5e485bba34f01e97b76946d4a8d9",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/donkey-straw-hat.js",
+            "sha256": "5b69892761c849d439f869d3b7abf91e9a5a5e485bba34f01e97b76946d4a8d9",
+            "bytes": 2942,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/donkey-worker.js",
+          "bytes": 878,
+          "sha256": "4160be473958cfed502a158f7efefa897286069f354dd388f62e770db000d1f9",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/donkey-worker.js",
+            "sha256": "4160be473958cfed502a158f7efefa897286069f354dd388f62e770db000d1f9",
+            "bytes": 878,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/goat-worker.js",
+          "bytes": 827,
+          "sha256": "4bb669374a539443b96b1c79a2a2097978958fd7e219cb21df9413675dc32d9c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/goat-worker.js",
+            "sha256": "4bb669374a539443b96b1c79a2a2097978958fd7e219cb21df9413675dc32d9c",
+            "bytes": 827,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hen-motion.js",
+          "bytes": 6310,
+          "sha256": "1234eee6c06f04ef2cb3999b3e0c7378143fee8dc46cbb43149ddfed6e617154",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hen-motion.js",
+            "sha256": "1234eee6c06f04ef2cb3999b3e0c7378143fee8dc46cbb43149ddfed6e617154",
+            "bytes": 6310,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hen-paint-layers.js",
+          "bytes": 5396,
+          "sha256": "27bc747c722b3a60f9b647910246e750860c8f8cf7bd7f30b0c941cde03630eb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hen-paint-layers.js",
+            "sha256": "27bc747c722b3a60f9b647910246e750860c8f8cf7bd7f30b0c941cde03630eb",
+            "bytes": 5396,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hen-worker.js",
+          "bytes": 4049,
+          "sha256": "ed62ba0884b3ecfbd6d38fa3f652d12d39e77630b790df72a2eadb457d4450ec",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hen-worker.js",
+            "sha256": "ed62ba0884b3ecfbd6d38fa3f652d12d39e77630b790df72a2eadb457d4450ec",
+            "bytes": 4049,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-graphic-paint.js",
+          "bytes": 4353,
+          "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-graphic-paint.js",
+            "sha256": "43bc4fee3b074f7a7fccfbf8377fc3057adfc0aaa1155c8136dc5ea6427afa51",
+            "bytes": 4353,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand-data.js",
+          "bytes": 36327,
+          "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand-data.js",
+            "sha256": "85d4bdd8346b96a710f8b0baed04cc0cf7c843d305b94989eca9956cbfc35728",
+            "bytes": 36327,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-grip-hand.js",
+          "bytes": 3428,
+          "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-grip-hand.js",
+            "sha256": "f557f598246ff246c8a8497fc86acbe732d0c83d0b480857e74b0ed4d8b56a3d",
+            "bytes": 3428,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+          "bytes": 25451,
+          "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-light-model.js",
+            "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+            "bytes": 25451,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+          "bytes": 47623,
+          "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-model-paint.js",
+            "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+            "bytes": 47623,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/horse-rifle.js",
+          "bytes": 2727,
+          "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/horse-rifle.js",
+            "sha256": "ebc8cfe99fc85b0daec29be3441f951e8e52feecb4e78eec0a4d5195b1a407cf",
+            "bytes": 2727,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/pig-director.js",
+          "bytes": 1393,
+          "sha256": "ebf780f646519bc39ce06dcde65f0459626876bc13930955a0bfbadde5c5fcbb",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/pig-director.js",
+            "sha256": "ebf780f646519bc39ce06dcde65f0459626876bc13930955a0bfbadde5c5fcbb",
+            "bytes": 1393,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/pig-foreman.js",
+          "bytes": 1001,
+          "sha256": "d40aae4b5356c511d1dee5f9d11b232dc21c4c0b8b0c6feabf164744d8ef9e5d",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/pig-foreman.js",
+            "sha256": "d40aae4b5356c511d1dee5f9d11b232dc21c4c0b8b0c6feabf164744d8ef9e5d",
+            "bytes": 1001,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/rabbit-paint-layers.js",
+          "bytes": 3023,
+          "sha256": "3b1a1357d957c007cd92703cc642439f1cfdc9ebf397cfa93bef9e4c141a3221",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/rabbit-paint-layers.js",
+            "sha256": "3b1a1357d957c007cd92703cc642439f1cfdc9ebf397cfa93bef9e4c141a3221",
+            "bytes": 3023,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/rabbit-worker.js",
+          "bytes": 966,
+          "sha256": "e50c887e54a63037e234e8d4f945c587a94334f4608729940afc75594ea6edbe",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/rabbit-worker.js",
+            "sha256": "e50c887e54a63037e234e8d4f945c587a94334f4608729940afc75594ea6edbe",
+            "bytes": 966,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/red-hat-tailored-paint.js",
+          "bytes": 5638,
+          "sha256": "e7cf7be5cf40187da8d626fb9ecb624b16713d3daa6406eaf4d0d6f29e832f49",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/red-hat-tailored-paint.js",
+            "sha256": "e7cf7be5cf40187da8d626fb9ecb624b16713d3daa6406eaf4d0d6f29e832f49",
+            "bytes": 5638,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/red-hat-uniform.js",
+          "bytes": 6069,
+          "sha256": "5faf3d40656536b698fe7f383dfab33f7621e2b476b343e4e02e8d7b3d60dcb7",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/red-hat-uniform.js",
+            "sha256": "5faf3d40656536b698fe7f383dfab33f7621e2b476b343e4e02e8d7b3d60dcb7",
+            "bytes": 6069,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/roof-mantle-equipment.js",
+          "bytes": 3386,
+          "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/roof-mantle-equipment.js",
+            "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+            "bytes": 3386,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/sheep-paint-layers.js",
+          "bytes": 4598,
+          "sha256": "8989c394dbca0e7c1222d3a1a72d45dcff6e8ff2a9433be953d552e8170f6d46",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/sheep-paint-layers.js",
+            "sha256": "8989c394dbca0e7c1222d3a1a72d45dcff6e8ff2a9433be953d552e8170f6d46",
+            "bytes": 4598,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/sheep-worker.js",
+          "bytes": 875,
+          "sha256": "2a7c72cc1e5ddaa92535267c87582e7378a599f24f63c837b4e14344dd9b6b76",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/sheep-worker.js",
+            "sha256": "2a7c72cc1e5ddaa92535267c87582e7378a599f24f63c837b4e14344dd9b6b76",
+            "bytes": 875,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/skunk-worker.js",
+          "bytes": 2715,
+          "sha256": "76d3f9bcd53354f41da3d948486c485a62df489b8f87c38e050d659a5dc9d52f",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/skunk-worker.js",
+            "sha256": "76d3f9bcd53354f41da3d948486c485a62df489b8f87c38e050d659a5dc9d52f",
+            "bytes": 2715,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+          "bytes": 1462227,
+          "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.core.js",
+            "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+            "bytes": 1462227,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+          "bytes": 621667,
+          "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.module.js",
+            "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+            "bytes": 621667,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js",
+          "bytes": 3755,
+          "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/worker-locomotion.js",
+            "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+            "bytes": 3755,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 35,
+      "incrementalBytes": 211751,
+      "totalBytes": 2295645
+    },
+    "henGeometry": {
+      "roots": [
+        "sites/tactical-animal/dist/aft/tactics/hen-worker.js"
+      ],
+      "files": [
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/hen-worker.js",
+          "bytes": 4049,
+          "sha256": "ed62ba0884b3ecfbd6d38fa3f652d12d39e77630b790df72a2eadb457d4450ec",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/hen-worker.js",
+            "sha256": "ed62ba0884b3ecfbd6d38fa3f652d12d39e77630b790df72a2eadb457d4450ec",
+            "bytes": 4049,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+          "bytes": 1462227,
+          "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.core.js",
+            "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+            "bytes": 1462227,
+            "status": "matches-inherited-snapshot"
+          }
+        },
+        {
+          "path": "sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+          "bytes": 621667,
+          "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+          "ancestry": {
+            "manifest": "sites/tactical-animal/aft-provenance.json",
+            "path": "tactics/vendor/three.module.js",
+            "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+            "bytes": 621667,
+            "status": "matches-inherited-snapshot"
+          }
+        }
+      ],
+      "incrementalFiles": 1,
+      "incrementalBytes": 4049,
+      "totalBytes": 2087943
+    }
+  },
+  "animals": [
+    {
+      "id": "horse",
+      "path": "sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "bytes": 419191,
+      "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+      "triangles": 10300,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected overalls seat and legs",
+        "forearm and hand -1",
+        "exposed hoof -1",
+        "forearm and hand 1",
+        "exposed hoof 1",
+        "unified skull jaw neck and ears",
+        "mane crest"
+      ],
+      "restBounds": {
+        "min": [
+          -0.2254926,
+          0,
+          -0.4306861
+        ],
+        "max": [
+          0.278974,
+          1.65,
+          0.4308367
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/horse-10k-data.json",
+        "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+        "bytes": 419191,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4315189184146739
+    },
+    {
+      "id": "goat",
+      "path": "sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "bytes": 410862,
+      "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+      "triangles": 9994,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected overalls seat and legs",
+        "forearm and hand -1",
+        "exposed cloven hoof -1",
+        "forearm and hand 1",
+        "exposed cloven hoof 1",
+        "unified goat skull ears and swept horns",
+        "goat beard"
+      ],
+      "restBounds": {
+        "min": [
+          -0.2549528,
+          0,
+          -0.4306554
+        ],
+        "max": [
+          0.2116736,
+          1.6495175,
+          0.4309749
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/goat-10k-data.json",
+        "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+        "bytes": 410862,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4314473149436673
+    },
+    {
+      "id": "bull",
+      "path": "sites/tactical-animal/dist/aft/tactics/bull-10k-data.json",
+      "bytes": 410392,
+      "sha256": "e3b0c07ceb64fcf61fd27eee63234367980550da7e48924c655ed680790097b7",
+      "triangles": 9998,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected overalls seat and legs",
+        "forearm and hand -1",
+        "exposed cloven hoof -1",
+        "forearm and hand 1",
+        "exposed cloven hoof 1",
+        "unified bull skull ears and short horns",
+        "bull tail"
+      ],
+      "restBounds": {
+        "min": [
+          -0.3388977,
+          0,
+          -0.4306554
+        ],
+        "max": [
+          0.2323986,
+          1.6494774,
+          0.4309749
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/bull-10k-data.json",
+        "sha256": "e3b0c07ceb64fcf61fd27eee63234367980550da7e48924c655ed680790097b7",
+        "bytes": 410392,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4314473149436673
+    },
+    {
+      "id": "cow",
+      "path": "sites/tactical-animal/dist/aft/tactics/cow-10k-data.json",
+      "bytes": 417330,
+      "sha256": "ab40e8592c80ca98b1d96ff2ab5fbda07cb011b1f08414ce2143dcb522515392",
+      "triangles": 10184,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected overalls seat and legs",
+        "forearm and hand -1",
+        "exposed cloven hoof -1",
+        "forearm and hand 1",
+        "exposed cloven hoof 1",
+        "unified cow skull ears and forehead tuft",
+        "cow tail",
+        "fitted neckerchief wrap",
+        "neckerchief knot",
+        "neckerchief end -1",
+        "neckerchief end 1"
+      ],
+      "restBounds": {
+        "min": [
+          -0.3483341,
+          0,
+          -0.4290127
+        ],
+        "max": [
+          0.2522985,
+          1.5991156,
+          0.4290632
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/cow-10k-data.json",
+        "sha256": "ab40e8592c80ca98b1d96ff2ab5fbda07cb011b1f08414ce2143dcb522515392",
+        "bytes": 417330,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4297156144705938
+    },
+    {
+      "id": "donkey",
+      "path": "sites/tactical-animal/dist/aft/tactics/donkey-10k-data.json",
+      "bytes": 804202,
+      "sha256": "5ba3bc38971fa92dac50b9232623383de41e3338879fccf3d669baf896a33566",
+      "triangles": 10110,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected work trousers seat and legs",
+        "forearm and hand -1",
+        "exposed hoof -1",
+        "forearm and hand 1",
+        "exposed hoof 1",
+        "unified donkey skull muzzle and long ears",
+        "donkey mane crest",
+        "donkey tail and tuft",
+        "fitted neckerchief wrap",
+        "neckerchief knot",
+        "neckerchief end -1",
+        "neckerchief end 1"
+      ],
+      "restBounds": {
+        "min": [
+          -0.3277264,
+          0,
+          -0.43400639295578003
+        ],
+        "max": [
+          0.23472799360752106,
+          1.7619365453720093,
+          0.43380650877952576
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/donkey-10k-data.json",
+        "sha256": "5ba3bc38971fa92dac50b9232623383de41e3338879fccf3d669baf896a33566",
+        "bytes": 804202,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.434882489043899
+    },
+    {
+      "id": "sheep",
+      "path": "sites/tactical-animal/dist/aft/tactics/sheep-10k-data.json",
+      "bytes": 427643,
+      "sha256": "c299886b93848d9cf3f0a3c27d45d18b8badedeaac3f4c758db16ce3faf16fd6",
+      "triangles": 10476,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected work trousers seat and legs",
+        "forearm and hand -1",
+        "exposed cloven hoof -1",
+        "forearm and hand 1",
+        "exposed cloven hoof 1",
+        "unified sheep skull ears and wool",
+        "short woolly tail",
+        "fitted waistcoat with pointed hem",
+        "fitted neckerchief wrap",
+        "neckerchief knot",
+        "neckerchief end -1",
+        "neckerchief end 1"
+      ],
+      "restBounds": {
+        "min": [
+          -0.2538642,
+          0,
+          -0.4348743
+        ],
+        "max": [
+          0.1890996,
+          1.6495215,
+          0.4345849
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/sheep-10k-data.json",
+        "sha256": "c299886b93848d9cf3f0a3c27d45d18b8badedeaac3f4c758db16ce3faf16fd6",
+        "bytes": 427643,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4358513968185143
+    },
+    {
+      "id": "skunk",
+      "path": "sites/tactical-animal/dist/aft/tactics/skunk-10k-data.json",
+      "bytes": 410101,
+      "sha256": "c1176d473c045f08f6a5cfa3eeb210b10c3e0e7585a80ac1f4852460a9765c5f",
+      "triangles": 9998,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected overalls seat and legs",
+        "forearm and hand -1",
+        "work boot -1",
+        "forearm and hand 1",
+        "work boot 1",
+        "unified skunk skull rounded ears and muzzle",
+        "skunk tail plume"
+      ],
+      "restBounds": {
+        "min": [
+          -0.6620306,
+          0,
+          -0.4306554
+        ],
+        "max": [
+          0.1938836,
+          1.6499333,
+          0.4309749
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/skunk-10k-data.json",
+        "sha256": "c1176d473c045f08f6a5cfa3eeb210b10c3e0e7585a80ac1f4852460a9765c5f",
+        "bytes": 410101,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.6999770331218017
+    },
+    {
+      "id": "pig-foreman",
+      "path": "sites/tactical-animal/dist/aft/tactics/pig-foreman-10k-data.json",
+      "bytes": 701072,
+      "sha256": "4e63017607f7ef4d90b6dba384ce4852436a0cd66e48aed8646be95c7892f7a8",
+      "triangles": 9988,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected trousers belt and braces",
+        "forearm and hand -1",
+        "work boot -1",
+        "forearm and hand 1",
+        "work boot 1",
+        "unified pig skull folded ears and snout",
+        "pig curly tail",
+        "skull service cap crown band and visor"
+      ],
+      "restBounds": {
+        "min": [
+          -0.3629088,
+          0,
+          -0.4952732
+        ],
+        "max": [
+          0.3743683,
+          1.6498476,
+          0.4955673
+        ]
+      },
+      "headgearParts": [
+        "skull service cap crown band and visor"
+      ],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/pig-foreman-10k-data.json",
+        "sha256": "4e63017607f7ef4d90b6dba384ce4852436a0cd66e48aed8646be95c7892f7a8",
+        "bytes": 701072,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4961261537836722
+    },
+    {
+      "id": "pig-director",
+      "path": "sites/tactical-animal/dist/aft/tactics/pig-director-10k-data.json",
+      "bytes": 699101,
+      "sha256": "01173d8ef0102f2528aebdd7ac0cac39e7b3bba242075dfec6181bc565d18e82",
+      "triangles": 9998,
+      "parts": [
+        "connected shirt waistcoat and sleeves",
+        "connected dress trousers",
+        "forearm and hand -1",
+        "dress boot -1",
+        "forearm and hand 1",
+        "dress boot 1",
+        "unified director skull folded ears and snout",
+        "pig curly tail"
+      ],
+      "restBounds": {
+        "min": [
+          -0.3716798,
+          0,
+          -0.5343202
+        ],
+        "max": [
+          0.3989564,
+          1.6487131,
+          0.5352246
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/pig-director-10k-data.json",
+        "sha256": "01173d8ef0102f2528aebdd7ac0cac39e7b3bba242075dfec6181bc565d18e82",
+        "bytes": 699101,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.5354940773088439
+    },
+    {
+      "id": "rabbit",
+      "path": "sites/tactical-animal/dist/aft/tactics/rabbit-10k-data.json",
+      "bytes": 416543,
+      "sha256": "49747783c5411bc013c84ba99e92857b319cabe75057f5d078cebc7586be40bd",
+      "triangles": 10156,
+      "parts": [
+        "connected shirt and sleeves",
+        "connected overalls seat and legs",
+        "forearm and hand -1",
+        "furry rabbit foot -1",
+        "forearm and hand 1",
+        "furry rabbit foot 1",
+        "unified rabbit skull and leaf ears",
+        "rabbit tail",
+        "fitted neckerchief wrap",
+        "neckerchief knot",
+        "neckerchief end -1",
+        "neckerchief end 1"
+      ],
+      "restBounds": {
+        "min": [
+          -0.265296,
+          0,
+          -0.4290127
+        ],
+        "max": [
+          0.2111528,
+          1.7378772,
+          0.4290632
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/rabbit-10k-data.json",
+        "sha256": "49747783c5411bc013c84ba99e92857b319cabe75057f5d078cebc7586be40bd",
+        "bytes": 416543,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4297156144705938
+    },
+    {
+      "id": "dog",
+      "path": "sites/tactical-animal/dist/aft/tactics/dog-guard-10k-data.json",
+      "bytes": 423242,
+      "sha256": "7f940dfb71a63e02d19c73f0a443045aa5361c022aba611251bba2ed23bd7284",
+      "triangles": 10446,
+      "parts": [
+        "connected jacket shirt and sleeves",
+        "connected trousers seat and legs",
+        "forearm and hand -1",
+        "furry dog foot -1",
+        "forearm and hand 1",
+        "furry dog foot 1",
+        "unified dog skull and upright ears",
+        "dog tail",
+        "fitted neckerchief wrap",
+        "neckerchief knot",
+        "neckerchief end -1",
+        "neckerchief end 1",
+        "utility pouch -1",
+        "utility pouch 1",
+        "utility belt",
+        "collar flap -1",
+        "collar flap 1"
+      ],
+      "restBounds": {
+        "min": [
+          -0.4124552,
+          0,
+          -0.4290127
+        ],
+        "max": [
+          0.2230209,
+          1.6959718,
+          0.4290632
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/dog-guard-10k-data.json",
+        "sha256": "7f940dfb71a63e02d19c73f0a443045aa5361c022aba611251bba2ed23bd7284",
+        "bytes": 423242,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.4297156144705938
+    },
+    {
+      "id": "hen",
+      "path": "sites/tactical-animal/dist/aft/tactics/hen-10k-data.json",
+      "bytes": 725847,
+      "sha256": "c71bbdd6be9b229d4127f8043564a95ed17e30edcd12fcce6a0e8809041322c5",
+      "triangles": 10348,
+      "parts": [
+        "feathered body",
+        "head and feathered neck",
+        "rounded comb",
+        "short hooked beak",
+        "paired wattles",
+        "fitted waistcoat",
+        "continuous apron",
+        "layered wing -1",
+        "layered wing 1",
+        "upright tail fan",
+        "scaly leg and four toes -1",
+        "scaly leg and four toes 1",
+        "apron waist tie"
+      ],
+      "restBounds": {
+        "min": [
+          -0.5439449,
+          0,
+          -0.4522324
+        ],
+        "max": [
+          0.3639344,
+          1.6491828,
+          0.4514566
+        ]
+      },
+      "headgearParts": [],
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/hen-10k-data.json",
+        "sha256": "c71bbdd6be9b229d4127f8043564a95ed17e30edcd12fcce6a0e8809041322c5",
+        "bytes": 725847,
+        "status": "matches-inherited-snapshot"
+      },
+      "restRadius": 0.5540271302696466
+    }
+  ],
+  "selectedAssets": [
+    {
+      "path": "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+      "bytes": 1590294,
+      "sha256": "468ce2d133019dfbcf9ee69439ecb0eb92fecdc20c1306b83536d2a440329b89",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+        "sha256": "468ce2d133019dfbcf9ee69439ecb0eb92fecdc20c1306b83536d2a440329b89",
+        "bytes": 1590294,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+      "bytes": 1622867,
+      "sha256": "50e63428f990f31cdb2f6df0bee6a9ccb678860bf12dbc95a3fd6e87db73afea",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+        "sha256": "50e63428f990f31cdb2f6df0bee6a9ccb678860bf12dbc95a3fd6e87db73afea",
+        "bytes": 1622867,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/brick-factory-v1.png",
+      "bytes": 3084552,
+      "sha256": "a2c62ed9e3266c0ca3769365b06b1eb085d5ef350db660fe2361f3d8b7af34ae",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "assets/environment/hybrid-surfaces/brick-factory-v1.png",
+        "sha256": "a2c62ed9e3266c0ca3769365b06b1eb085d5ef350db660fe2361f3d8b7af34ae",
+        "bytes": 3084552,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/metal-factory-v1.png",
+      "bytes": 3544624,
+      "sha256": "1b6079ba8d0281ab0fc16a98220a8e82c7340e80088faac691a686089613fc7d",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "assets/environment/hybrid-surfaces/metal-factory-v1.png",
+        "sha256": "1b6079ba8d0281ab0fc16a98220a8e82c7340e80088faac691a686089613fc7d",
+        "bytes": 3544624,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/wood-factory-v2.png",
+      "bytes": 2757790,
+      "sha256": "fd84b8b6dffb4974ce19c51d8a8e0dbe7295a2dddcf8c262eaa94e542ed64021",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "assets/environment/hybrid-surfaces/wood-factory-v2.png",
+        "sha256": "fd84b8b6dffb4974ce19c51d8a8e0dbe7295a2dddcf8c262eaa94e542ed64021",
+        "bytes": 2757790,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/assets/environment/ground-concrete.png",
+      "bytes": 3308630,
+      "sha256": "a55fefded481abfce45866984caa9495884416f6273d65e6a95de1ff8e6598f1",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "assets/environment/ground-concrete.png",
+        "sha256": "a55fefded481abfce45866984caa9495884416f6273d65e6a95de1ff8e6598f1",
+        "bytes": 3308630,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/assets/environment/ground-grass.png",
+      "bytes": 2985022,
+      "sha256": "6a9482a0d5f2b5e32814f6f8c279f9635d028dbdceb5d859059b1ad84ee72ab1",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "assets/environment/ground-grass.png",
+        "sha256": "6a9482a0d5f2b5e32814f6f8c279f9635d028dbdceb5d859059b1ad84ee72ab1",
+        "bytes": 2985022,
+        "status": "matches-inherited-snapshot"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+      "bytes": 1644,
+      "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/hybrid-geometry.js",
+        "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+        "bytes": 1644,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/hybrid-world.js",
+      "bytes": 12497,
+      "sha256": "13d1906addb3d46872b28e46772610715c6f19a169a81e6bdef9b0e6c8c30a69",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/hybrid-world.js",
+        "sha256": "13d1906addb3d46872b28e46772610715c6f19a169a81e6bdef9b0e6c8c30a69",
+        "bytes": 12497,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/hybrid-room-art.js",
+      "bytes": 4649,
+      "sha256": "694de3e164710c133231d33274c730589c47f9e0afcd48deea1471df258c747f",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/hybrid-room-art.js",
+        "sha256": "694de3e164710c133231d33274c730589c47f9e0afcd48deea1471df258c747f",
+        "bytes": 4649,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/hybrid-materials.js",
+      "bytes": 4723,
+      "sha256": "1dca85ff2eeb36cf61bc1ae7e16ccae7c82ec9fb7f624b13dadc7b4c65954953",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/hybrid-materials.js",
+        "sha256": "1dca85ff2eeb36cf61bc1ae7e16ccae7c82ec9fb7f624b13dadc7b4c65954953",
+        "bytes": 4723,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/environment.js",
+      "bytes": 5706,
+      "sha256": "c7f94a38a4ef8b70eee343e05200895d888d46fff71d86ed82b9763b83221e4d",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/environment.js",
+        "sha256": "c7f94a38a4ef8b70eee343e05200895d888d46fff71d86ed82b9763b83221e4d",
+        "bytes": 5706,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/environment-visuals.js",
+      "bytes": 7338,
+      "sha256": "5a7e169b03d27c3e5fb73151fcc76349ec4411c11a63f434439ab3ef33606661",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/environment-visuals.js",
+        "sha256": "5a7e169b03d27c3e5fb73151fcc76349ec4411c11a63f434439ab3ef33606661",
+        "bytes": 7338,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/climbable-roofs.js",
+      "bytes": 3495,
+      "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/climbable-roofs.js",
+        "sha256": "54035f6932752b84a79dd5febc13abc7ae745185c79f08fd5b25a2b2483a28db",
+        "bytes": 3495,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/animal-motion-catalog.js",
+      "bytes": 4242,
+      "sha256": "b8215ef64b97009e59030316de996e610c2b73dec92aa3c5ce69e239025f53cd",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/animal-motion-catalog.js",
+        "sha256": "b8215ef64b97009e59030316de996e610c2b73dec92aa3c5ce69e239025f53cd",
+        "bytes": 4242,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/animal-motion-paint.js",
+      "bytes": 3513,
+      "sha256": "84e2515a48dff3eae55cc37d5515a346e0e4032ce31d3156d0b535a91786b274",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/animal-motion-paint.js",
+        "sha256": "84e2515a48dff3eae55cc37d5515a346e0e4032ce31d3156d0b535a91786b274",
+        "bytes": 3513,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/red-hat-model.js",
+      "bytes": 3113,
+      "sha256": "6baef3bf8160cd6bdc2c429e5c6f5bd1dec2fe029c9f0f319710f543b0712ad7",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/red-hat-model.js",
+        "sha256": "6baef3bf8160cd6bdc2c429e5c6f5bd1dec2fe029c9f0f319710f543b0712ad7",
+        "bytes": 3113,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/red-hat-uniform.js",
+      "bytes": 6069,
+      "sha256": "5faf3d40656536b698fe7f383dfab33f7621e2b476b343e4e02e8d7b3d60dcb7",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/red-hat-uniform.js",
+        "sha256": "5faf3d40656536b698fe7f383dfab33f7621e2b476b343e4e02e8d7b3d60dcb7",
+        "bytes": 6069,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/red-hat-tailored-paint.js",
+      "bytes": 5638,
+      "sha256": "e7cf7be5cf40187da8d626fb9ecb624b16713d3daa6406eaf4d0d6f29e832f49",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/red-hat-tailored-paint.js",
+        "sha256": "e7cf7be5cf40187da8d626fb9ecb624b16713d3daa6406eaf4d0d6f29e832f49",
+        "bytes": 5638,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/pig-foreman.js",
+      "bytes": 1001,
+      "sha256": "d40aae4b5356c511d1dee5f9d11b232dc21c4c0b8b0c6feabf164744d8ef9e5d",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/pig-foreman.js",
+        "sha256": "d40aae4b5356c511d1dee5f9d11b232dc21c4c0b8b0c6feabf164744d8ef9e5d",
+        "bytes": 1001,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+      "bytes": 25451,
+      "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/horse-light-model.js",
+        "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+        "bytes": 25451,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+      "bytes": 47623,
+      "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/horse-model-paint.js",
+        "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+        "bytes": 47623,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js",
+      "bytes": 3755,
+      "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/worker-locomotion.js",
+        "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+        "bytes": 3755,
+        "status": "matches-inherited-snapshot"
+      }
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/roof-mantle-equipment.js",
+      "bytes": 3386,
+      "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+      "ancestry": {
+        "manifest": "sites/tactical-animal/aft-provenance.json",
+        "path": "tactics/roof-mantle-equipment.js",
+        "sha256": "66b8263bf339dfb374fbd81271fb0326b0a1be6190bef955e0377dbc046aecd6",
+        "bytes": 3386,
+        "status": "matches-inherited-snapshot"
+      }
+    }
+  ],
+  "provenance": {
+    "path": "sites/tactical-animal/aft-provenance.json",
+    "keys": [
+      "source",
+      "sourceCommit",
+      "snapshotAt",
+      "visualEntryPoints",
+      "assetGroups",
+      "files"
+    ],
+    "metadata": {
+      "path": "sites/tactical-animal/aft-provenance.json",
+      "bytes": 221712,
+      "sha256": "10f4bb40ba69e326e04b0f2b6f23c81e34d8fd2155daf7005469becdb5887a3a"
+    }
+  },
+  "ancestrySummary": {
+    "matches-inherited-snapshot": [
+      "sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+      "sites/tactical-animal/dist/aft/tactics/biome-family.js",
+      "sites/tactical-animal/dist/aft/tactics/biome-foliage-data.js",
+      "sites/tactical-animal/dist/aft/tactics/biome-gameplay-data.js",
+      "sites/tactical-animal/dist/aft/tactics/biome-ground-composition.js",
+      "sites/tactical-animal/dist/aft/tactics/biome-ground-sprite-layout.js",
+      "sites/tactical-animal/dist/aft/tactics/biome-plant-parts.js",
+      "sites/tactical-animal/dist/aft/tactics/biome-tree-mix.js",
+      "sites/tactical-animal/dist/aft/tactics/bridge-trellis.js",
+      "sites/tactical-animal/dist/aft/tactics/character-patrol.js",
+      "sites/tactical-animal/dist/aft/tactics/cliff-map.js",
+      "sites/tactical-animal/dist/aft/tactics/cliff-ramps.js",
+      "sites/tactical-animal/dist/aft/tactics/cliff-support.js",
+      "sites/tactical-animal/dist/aft/tactics/climbable-roofs.js",
+      "sites/tactical-animal/dist/aft/tactics/diagonal-roads.js",
+      "sites/tactical-animal/dist/aft/tactics/editor-canopies.js",
+      "sites/tactical-animal/dist/aft/tactics/environment-regions.js",
+      "sites/tactical-animal/dist/aft/tactics/environment.js",
+      "sites/tactical-animal/dist/aft/tactics/foliage-data.js",
+      "sites/tactical-animal/dist/aft/tactics/foliage-models.js",
+      "sites/tactical-animal/dist/aft/tactics/foliage-obstacles.js",
+      "sites/tactical-animal/dist/aft/tactics/foliage-presets.js",
+      "sites/tactical-animal/dist/aft/tactics/foliage-tree-cover.js",
+      "sites/tactical-animal/dist/aft/tactics/game-clock.js",
+      "sites/tactical-animal/dist/aft/tactics/hedge-data.js",
+      "sites/tactical-animal/dist/aft/tactics/hedge-layout.js",
+      "sites/tactical-animal/dist/aft/tactics/hedge-obstacles.js",
+      "sites/tactical-animal/dist/aft/tactics/hedge-surfaces.js",
+      "sites/tactical-animal/dist/aft/tactics/hybrid-materials.js",
+      "sites/tactical-animal/dist/aft/tactics/hybrid-props.js",
+      "sites/tactical-animal/dist/aft/tactics/hybrid-room-art.js",
+      "sites/tactical-animal/dist/aft/tactics/hybrid-world.js",
+      "sites/tactical-animal/dist/aft/tactics/light-sources.js",
+      "sites/tactical-animal/dist/aft/tactics/map-geometry-cache.js",
+      "sites/tactical-animal/dist/aft/tactics/map-layers.js",
+      "sites/tactical-animal/dist/aft/tactics/movement-timing.js",
+      "sites/tactical-animal/dist/aft/tactics/ramp-banks.js",
+      "sites/tactical-animal/dist/aft/tactics/scenery-catalog.js",
+      "sites/tactical-animal/dist/aft/tactics/scenery-index.js",
+      "sites/tactical-animal/dist/aft/tactics/spotlight-path.js",
+      "sites/tactical-animal/dist/aft/tactics/stone-arch-geometry.js",
+      "sites/tactical-animal/dist/aft/tactics/stone-arches.js",
+      "sites/tactical-animal/dist/aft/tactics/strategic-site-data.js",
+      "sites/tactical-animal/dist/aft/tactics/strategic-site-rules.js",
+      "sites/tactical-animal/dist/aft/tactics/tower-geometry.js",
+      "sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+      "sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+      "sites/tactical-animal/dist/aft/tactics/horse-graphic-paint.js",
+      "sites/tactical-animal/dist/aft/tactics/horse-grip-hand-data.js",
+      "sites/tactical-animal/dist/aft/tactics/horse-grip-hand.js",
+      "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+      "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+      "sites/tactical-animal/dist/aft/tactics/horse-rifle.js",
+      "sites/tactical-animal/dist/aft/tactics/clothing-weights.js",
+      "sites/tactical-animal/dist/aft/tactics/dog-motion.js",
+      "sites/tactical-animal/dist/aft/tactics/hen-motion.js",
+      "sites/tactical-animal/dist/aft/tactics/roof-mantle-equipment.js",
+      "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js",
+      "sites/tactical-animal/dist/aft/tactics/goat-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/animal-motion-catalog.js",
+      "sites/tactical-animal/dist/aft/tactics/animal-motion-paint.js",
+      "sites/tactical-animal/dist/aft/tactics/animal-motion-repair-paint.js",
+      "sites/tactical-animal/dist/aft/tactics/bull-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/cow-neck-paint.js",
+      "sites/tactical-animal/dist/aft/tactics/cow-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/dog-guard.js",
+      "sites/tactical-animal/dist/aft/tactics/dog-motion-paint.js",
+      "sites/tactical-animal/dist/aft/tactics/dog-paint-layers.js",
+      "sites/tactical-animal/dist/aft/tactics/donkey-hawaiian.js",
+      "sites/tactical-animal/dist/aft/tactics/donkey-straw-hat.js",
+      "sites/tactical-animal/dist/aft/tactics/donkey-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/hen-paint-layers.js",
+      "sites/tactical-animal/dist/aft/tactics/hen-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/pig-director.js",
+      "sites/tactical-animal/dist/aft/tactics/pig-foreman.js",
+      "sites/tactical-animal/dist/aft/tactics/rabbit-paint-layers.js",
+      "sites/tactical-animal/dist/aft/tactics/rabbit-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/red-hat-tailored-paint.js",
+      "sites/tactical-animal/dist/aft/tactics/red-hat-uniform.js",
+      "sites/tactical-animal/dist/aft/tactics/sheep-paint-layers.js",
+      "sites/tactical-animal/dist/aft/tactics/sheep-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/skunk-worker.js",
+      "sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/bull-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/cow-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/donkey-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/sheep-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/skunk-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/pig-foreman-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/pig-director-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/rabbit-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/dog-guard-10k-data.json",
+      "sites/tactical-animal/dist/aft/tactics/hen-10k-data.json",
+      "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+      "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+      "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/brick-factory-v1.png",
+      "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/metal-factory-v1.png",
+      "sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/wood-factory-v2.png",
+      "sites/tactical-animal/dist/aft/assets/environment/ground-concrete.png",
+      "sites/tactical-animal/dist/aft/assets/environment/ground-grass.png",
+      "sites/tactical-animal/dist/aft/tactics/environment-visuals.js",
+      "sites/tactical-animal/dist/aft/tactics/red-hat-model.js"
+    ],
+    "changed-at-Farmyard-pin": [],
+    "not-listed": []
+  },
+  "minimumProposedCivilianPayload": {
+    "species": [
+      "horse",
+      "goat"
+    ],
+    "rawJavaScriptBytes": 146485,
+    "modelJsonBytes": 830053,
+    "normalPaintPngBytes": 3213161,
+    "totalAdditionalBytes": 4189699,
+    "excludes": [
+      "already-shared Three pair",
+      "new adapter code",
+      "headers/compression",
+      "existing atlases"
+    ]
+  }
+}

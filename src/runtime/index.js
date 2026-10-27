@@ -29,7 +29,7 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
   let lastMetrics = {}, frames = 0;
   function dispatch(command) { return sim.dispatch(command); }
   try {
-    art = createArtScene ? await createArtScene({THREE, scene, assetBaseUrl}) : createDiagnosticScene({THREE, scene, config: configuration(config)});
+    art = createArtScene ? await createArtScene({THREE, scene, renderer, assetBaseUrl}) : createDiagnosticScene({THREE, scene, config: configuration(config)});
     ui = mountUI?.({root: uiRoot, onCommand: dispatch});
   } catch (error) { dispose(); throw error; }
   function present(next, delta, simulationMs = 0) {
