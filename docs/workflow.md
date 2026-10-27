@@ -6,9 +6,9 @@
 | --- | --- | --- | --- |
 | Architect | `master` | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
 | Artist | `codex/art-assets` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Art sources/exports, visual reuse audit |
-| Coder | Pending creation by architect | Pending | Runtime dependency/behavior reuse audit |
+| Coder | `codex/coding` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Runtime dependency/behavior reuse audit |
 
-The existing artist chat is **Set up Tinderbox art worktree**. Reuse that worker. The architect assigns a coder worker to a separate worktree; no worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+The existing worker chats are **Artist, Tinderbox** and **Coder Tinderbox**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
 ## TB-001: visual reuse audit
 
