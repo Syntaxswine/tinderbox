@@ -103,7 +103,7 @@
       "path": "src/art/fire.js",
       "source": "Painted atlas frame interpolation and billboarding conventions from pinned tactics/painted-fire-effects.js and painted-blast-effects.js",
       "processing": "New injected-THREE instanced shaders, authoritative cell masks, world clock, event deduplication. No donor JS imports or candidate-branch code.",
-      "sha256": "27aec59f3c173e31eee294f8ead38af42871ca41b491f166aa93cd973ea38ab2",
+      "sha256": "95df530de3152715397f2400786205951b66befe8213c34f2a5170869111e80a",
       "sourceReferences": [
         {
           "sourcePath": "sites/tactical-animal/dist/aft/tactics/painted-fire-effects.js",
@@ -143,9 +143,37 @@
     {
       "path": "src/art/bear.js",
       "source": "Original Tinderbox procedural prototype",
-      "processing": "New provisional species silhouette and five equipment poses. Not an inherited finished character.",
-      "sha256": "5e3bb5cbb76273d8476f19158014b3044505f00f52bb95d9346440bf12c10ea5",
+      "processing": "Provisional geometry and five poses; active held lance/torch hides when its cosmetic muzzle is outside the supplied connected shape. Dimensions/anchors unchanged.",
+      "sha256": "6b01f6baa79cec2c24f33a3416fd93ba71aca6dc283b42614275bb2cbbad4e52",
       "sourceReferences": []
+    },
+    {
+      "path": "src/art/discharge.js",
+      "source": "Pinned painted-fire atlas and frame conventions; new Tinderbox resolved-shape consumer",
+      "processing": "Injected-THREE bounded ribbons and instanced plumes clipped to supplied ray fans, independent-ray fallback, explicit torch lead, world-clock animation. No collision/range/heat queries.",
+      "sourceReferences": [
+        {
+          "sourcePath": "sites/tactical-animal/dist/aft/tactics/painted-fire-effects.js",
+          "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+          "sha256": "903559ce0a9c4a65365e8e35d314079845145da5c85109fed0f0e2bac8d562e2",
+          "kind": "Attributed rendering/geometry reference; no donor JavaScript installed in artist partition"
+        },
+        {
+          "sourcePath": "sites/tactical-animal/dist/aft/tactics/painted-blast-effects.js",
+          "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+          "sha256": "1f058006c301dc55520936beae3cbb18060d62917461b4d2fbb161b95662c9af",
+          "kind": "Attributed rendering/geometry reference; no donor JavaScript installed in artist partition"
+        }
+      ],
+      "contractReferences": [
+        {
+          "repository": "Syntaxswine/tinderbox",
+          "commit": "11b8cd05c0ca885f277d048c1825d0e52c0a367c",
+          "path": "docs/engineering/qc-body-discharge.md",
+          "kind": "Authoritative snapshot.discharge v1 contract; no coder runtime imported"
+        }
+      ],
+      "sha256": "db9a693f103a098ca7f50a2e0d1ed87aa750d52f8138b4d80dd22cb922e4ff0a"
     }
   ]
 }

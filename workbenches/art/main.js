@@ -12,8 +12,8 @@ let art,fixture='front',reviewTime=4,playing=true,tool='jerry-can',alive=true,la
 const target=new THREE.Vector3(),anchorWorld=new THREE.Vector3(),labels=new Map();
 for(const info of FIXTURES){const b=document.createElement('button');b.type='button';b.textContent=info.label;b.dataset.fixture=info.id;b.addEventListener('click',()=>setFixture(info.id));$('fixtures').append(b);}
 function cameraFrame(){
-  const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);span=fixture==='bear'?5.8:13;
-  target.set(fixture==='bear'?11.55:10.8,fixture==='bear'?.9:.25,fixture==='bear'?9.4:8.9);
+  const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);span=fixture==='bear'||fixture==='corner'?5.8:fixture==='jet-near-wall'?7.2:13;
+  target.set(fixture==='corner'?9.06:fixture==='bear'?11.55:10.8,fixture==='bear'||fixture==='corner'?.9:.25,fixture==='corner'?7.8:fixture==='bear'?9.4:8.9);
   camera.left=-span*w/h/2;camera.right=span*w/h/2;camera.top=span/2;camera.bottom=-span/2;camera.near=.1;camera.far=100;
   camera.position.copy(target).add(new THREE.Vector3(10,14,12));camera.lookAt(target);camera.updateProjectionMatrix();camera.updateMatrixWorld();
   $('view-label').textContent=span+' m vertical span';
@@ -21,7 +21,7 @@ function cameraFrame(){
 function setFixture(id,options={}){
   if(!FIXTURES.some(f=>f.id===id))throw Error('Unknown fixture '+id);
   fixture=id;reviewTime=options.time??(id==='burst'?.3:4);
-  if(options.tool)tool=options.tool;
+  if(options.tool)tool=options.tool;else if(id.startsWith('jet'))tool='flamethrower';else if(id==='torch')tool='torch';
   if(options.frozen!==undefined)playing=!options.frozen;
   const info=FIXTURES.find(f=>f.id===id);$('title').textContent=info.title;$('copy').textContent=info.copy;$('state-label').textContent=info.label;
   for(const b of $('fixtures').children)b.setAttribute('aria-current',String(b.dataset.fixture===id));
@@ -71,6 +71,57 @@ try{
       art.update(still,{playerTime:11,worldTime:2});check(art.diagnostics().fire.worldTime===2,'Player clock advanced environmental flame');
       for(const selected of ['matches','jerry-can','molotov','torch','flamethrower']){const equipped=fixtureSnapshot('bear',4,selected);art.update(equipped,timingFor(equipped));for(const name of ['grip','muzzle','spout']){const p=art.anchors[name].getWorldPosition(new THREE.Vector3());check(p.toArray().every(Number.isFinite),'Invalid '+selected+' '+name+' anchor');}}
       const dry=fixtureSnapshot('trail',4);art.update(dry,timingFor(dry));const mask=scene.getObjectByName('Authoritative gas / heat / char mask').children[0].material.uniforms.field.value;check(mask.image.data[(17*40+16)*4]===0,'Dry gap received inferred gas');
+      const footprint=scene.getObjectByName('Player footprint'),diameter=new THREE.Vector3();
+      let footprintCounts;
+      for(const radius of [.56,.8,.56]){const sized=fixtureSnapshot('corner',4,'jerry-can');sized.player.radius=radius;art.update(sized,timingFor(sized));renderer.render(scene,camera);new THREE.Box3().setFromObject(footprint).getSize(diameter);check(Math.abs(diameter.x-radius*2)<1e-5&&Math.abs(diameter.z-radius*2)<1e-5,'Player radius did not set footprint diameter');if(!footprintCounts)footprintCounts={...renderer.info.memory};else check(renderer.info.memory.geometries===footprintCounts.geometries&&renderer.info.memory.textures===footprintCounts.textures,'Footprint resizing retained GPU resources');}
+
+      const openDischarge=freeze(fixtureSnapshot('jet',4,'flamethrower')),openBefore=JSON.stringify(openDischarge);
+      art.update(openDischarge,timingFor(openDischarge));renderer.render(scene,camera);
+      const opened=art.diagnostics().fire.discharge;
+      check(opened.active&&Math.abs(opened.longestRay-4.5)<1e-8&&opened.connectRays&&opened.plumeCards>0,'Open resolved fan did not show its supplied reach');
+      check(JSON.stringify(openDischarge)===openBefore,'Discharge snapshot mutation');
+      art.update(openDischarge,timingFor(openDischarge));check(art.diagnostics().fire.discharge.geometryBuilds===opened.geometryBuilds,'Unchanged discharge rebuilt geometry');
+      for(let warm=0;warm<3;warm++){art.update(openDischarge,{playerTime:4,worldTime:2});renderer.render(scene,camera);}
+      const frozenDischarge=renderer.domElement.toDataURL();art.update(openDischarge,{playerTime:4,worldTime:2});renderer.render(scene,camera);
+      check(frozenDischarge===renderer.domElement.toDataURL(),'Frozen discharge pixels changed');
+      art.update(openDischarge,{playerTime:11,worldTime:2});check(art.diagnostics().fire.discharge.worldTime===2,'Player clock advanced discharge animation');
+      const independent=fixtureSnapshot('jet-rays',4,'flamethrower');art.update(independent,timingFor(independent));renderer.render(scene,camera);
+      const independentState=art.diagnostics().fire.discharge,segments=scene.getObjectByName('Resolved discharge ribbons').geometry;
+      let nonSegmentTriangles=0;
+      for(let i=0;i<segments.drawRange.count;i+=3){
+        const a=segments.index.array[i]*3,b=segments.index.array[i+1]*3,c=segments.index.array[i+2]*3,p=segments.attributes.position.array;
+        const area=(p[b]-p[a])*(p[c+2]-p[a+2])-(p[b+2]-p[a+2])*(p[c]-p[a]);if(Math.abs(area)>1e-5)nonSegmentTriangles++;
+      }
+      check(!independentState.connectRays&&independentState.plumeCards===0&&nonSegmentTriangles===0,'Independent rays gained invented fan fill');
+      const torch=fixtureSnapshot('torch',4,'torch');art.update(torch,timingFor(torch));renderer.render(scene,camera);
+      check(art.diagnostics().fire.discharge.active&&Math.abs(art.diagnostics().fire.discharge.longestRay-.4)<1e-7&&torch.discharge.lead,'Torch endpoint fan/lead missing');
+      const blocked=fixtureSnapshot('jet-near-wall',4,'flamethrower');blocked.cells=[];blocked.actors=[];art.update(freeze(blocked),timingFor(blocked));renderer.render(scene,camera);
+      const blockedState=art.diagnostics().fire.discharge;
+      check(!blockedState.muzzleInsideShape&&blockedState.longestRay<.61,'Near-wall nozzle did not use the clipped domain');
+      check(!scene.getObjectByName('Cosmetic lance').visible,'Far-side cosmetic lance remained visible');
+      const blockGeometry=scene.getObjectByName('Resolved discharge ribbons').geometry;
+      let maxSubmittedX=-Infinity;
+      for(let i=0;i<blockGeometry.drawRange.count;i++)maxSubmittedX=Math.max(maxSubmittedX,blockGeometry.attributes.position.array[blockGeometry.index.array[i]*3]);
+      check(maxSubmittedX<=11.499902,'Ribbon extended past supplied wall endpoints');
+      const artRoot=scene.getObjectByName('Tinderbox art module'),savedVisibility=artRoot.children.map(object=>[object,object.visible]),savedBackground=scene.background,previousTarget=renderer.getRenderTarget();
+      const target=new THREE.WebGLRenderTarget(256,256),probeCamera=new THREE.OrthographicCamera(-3,3,3,-3,.1,60);
+      let visiblePixels=0,outsidePixels=0;
+      try{
+        for(const object of artRoot.children)object.visible=object.name==='Painted authoritative fire';
+        scene.background=new THREE.Color(0);probeCamera.position.set(11,10,15);probeCamera.lookAt(11,1.05,9);probeCamera.updateProjectionMatrix();probeCamera.updateMatrixWorld();
+        renderer.setRenderTarget(target);renderer.render(scene,probeCamera);
+        const pixels=new Uint8Array(256*256*4);renderer.readRenderTargetPixels(target,0,0,256,256,pixels);
+        const edge=new THREE.Vector3(11.5,1.05,9).project(probeCamera),outsideColumn=Math.ceil((edge.x*.5+.5)*256)+1;
+        for(let y=0;y<256;y++)for(let x=0;x<256;x++){const i=(y*256+x)*4;if(Math.max(pixels[i],pixels[i+1],pixels[i+2])>8){visiblePixels++;if(x>=outsideColumn)outsidePixels++;}}
+        check(visiblePixels>10&&outsidePixels===0,'Painted discharge crossed clipped wall in GPU probe');
+      }finally{
+        renderer.setRenderTarget(previousTarget);scene.background=savedBackground;for(const [object,visible]of savedVisibility)object.visible=visible;target.dispose();
+      }
+      const stopped=fixtureSnapshot('jet',4,'flamethrower');stopped.paused=true;stopped.discharge={...stopped.discharge,active:false,tool:null,origin:null,shapeOrigin:null,rays:[],lead:null};art.update(stopped,timingFor(stopped));renderer.render(scene,camera);
+      check(!art.diagnostics().fire.discharge.active&&art.diagnostics().fire.discharge.plumeCards===0,'Inactive discharge retained a jet');
+      check(scene.getObjectByName('Cosmetic lance').visible,'Inactive discharge did not restore held art');
+      const dischargeReview={openReach:opened.longestRay,openPlumes:opened.plumeCards,independentTriangles:independentState.triangles,nonSegmentTriangles,blockedReach:blockedState.longestRay,maxSubmittedX,visiblePixels,outsidePixels,pixelGuard:1};
+
       const counts=[];
       for(let i=0;i<8;i++){
         const changed=fixtureSnapshot('burn',4,'torch');if(i%2)changed.world.obstacles=changed.world.obstacles.slice(0,4);
@@ -84,7 +135,7 @@ try{
       art.update(history,timingFor(history));check(art.diagnostics().fire.burstCards===0,'Undated startup history replayed');
       history.tick++;history.events=[{id:1000,tick:history.tick,type:'barrel-explosion',x:8,y:7}];art.update(history,timingFor(history));check(art.diagnostics().fire.burstCards>0,'New event after startup cursor did not play');
       drawAt(4);
-      return {passed:errors.length===0,errors,rebuildCounts:counts,disposed,diagnostics:this.diagnostics()};
+      return {passed:errors.length===0,errors,rebuildCounts:counts,disposed,dischargeReview,diagnostics:this.diagnostics()};
     },
     dispose(){if(!alive)return;alive=false;cancelAnimationFrame(raf);resize.disconnect();art.dispose();renderer.dispose();renderer.forceContextLoss();}
   };
@@ -97,4 +148,4 @@ try{
   }
   raf=requestAnimationFrame(frame);
   window.addEventListener('pagehide',()=>window.artWorkbench.dispose(),{once:true});
-}catch(error){$('loading').textContent='Art workbench failed: '+error.message;console.error(error);window.artWorkbench={ready:false,error:error.message};}
+}catch(error){const loading=$('loading');if(loading)loading.textContent='Art workbench failed: '+error.message;console.error(error);window.artWorkbench={ready:false,error:error.message};}

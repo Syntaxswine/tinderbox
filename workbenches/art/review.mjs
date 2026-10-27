@@ -30,9 +30,9 @@ try{
     await page.setViewportSize(viewport);await page.waitForTimeout(120);
     const overflow=await page.evaluate(()=>['main','aside','.review-controls','#clock'].filter(selector=>document.querySelector(selector).getBoundingClientRect().right>innerWidth+.5));
     if(overflow.length)throw Error('Workbench clips at '+viewport.width+'px: '+overflow.join(', '));
-    for(const fixture of ['trail','front','burn','spent','powder','bear','burst']){
+    for(const fixture of ['trail','front','burn','spent','powder','bear','burst','corner','jet','jet-wall','jet-near-wall','jet-rays','torch']){
       const time=fixture==='burst'?.34:4;
-      await page.evaluate(({fixture,time})=>{window.artWorkbench.setFixture(fixture,{time,tool:fixture==='bear'?'flamethrower':'jerry-can',frozen:true});document.getElementById('guides').checked=fixture==='bear';window.artWorkbench.drawAt(time);},{fixture,time});
+      await page.evaluate(({fixture,time})=>{window.artWorkbench.setFixture(fixture,{time,tool:fixture==='bear'||fixture.startsWith('jet')?'flamethrower':fixture==='torch'?'torch':'jerry-can',frozen:true});document.getElementById('guides').checked=fixture==='bear';window.artWorkbench.drawAt(time);},{fixture,time});
       await page.waitForTimeout(90);
       const name=fixture+'-'+viewport.width+'x'+viewport.height+'.png';await page.screenshot({path:path.join(out,name)});
       screenshots.push({file:name,fixture,viewport,diagnostics:await page.evaluate(()=>window.artWorkbench.diagnostics())});
@@ -45,8 +45,8 @@ try{
   await page.evaluate(()=>document.body.classList.add('capture'));
   for(const viewport of [{width:1280,height:800},{width:390,height:844}]){
     await page.setViewportSize(viewport);await page.waitForTimeout(120);
-    for(const fixture of ['front','burn','bear']){
-      await page.evaluate(fixture=>window.artWorkbench.setFixture(fixture,{time:4,tool:fixture==='bear'?'flamethrower':'jerry-can',frozen:true}),fixture);
+    for(const fixture of ['front','burn','bear','corner','jet','jet-wall','jet-near-wall','jet-rays','torch']){
+      await page.evaluate(fixture=>window.artWorkbench.setFixture(fixture,{time:4,tool:fixture==='bear'||fixture.startsWith('jet')?'flamethrower':fixture==='torch'?'torch':'jerry-can',frozen:true}),fixture);
       const diagnostics=await page.evaluate(()=>window.artWorkbench.diagnostics());
       if(diagnostics.canvas[0]!==viewport.width||diagnostics.canvas[1]!==viewport.height)throw Error('Field-only canvas size mismatch');
       const name=fixture+'-field-'+viewport.width+'x'+viewport.height+'.png';await page.screenshot({path:path.join(out,name)});screenshots.push({file:name,fixture,viewport,captureMode:'field-only',diagnostics});
