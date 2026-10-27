@@ -53,7 +53,7 @@ Assignments may be developed concurrently because their owned files and public i
 5. Record passed checks, visual evidence if applicable, limitations, and the architect's decision in the handoff/review record. Correct failed checks before promotion.
 6. The architect merges or cherry-picks the reviewed commit into the integration branch, verifies the resulting tree, then follows the user's commit/push/deployment instructions. Never force-push. Stop task-owned disposable helpers after verification and verify their ports are released.
 
-The GitHub repository is [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox), configured as `origin`; `master` is the integration branch. Worker candidate branches share that remote. The Pages workflow checks/packages code changes on `master`; deployment requires configured hosting and repository variable `PAGES_ENABLED=true`. The current private-repository plan restriction and publication status are recorded in the [opening-test review](reviews/2026-10-27-burning-trail.md). Branch protection is not configured. Do not push Tinderbox commits to the donor's remote.
+The public GitHub repository is [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox), configured as `origin`; `master` is the integration branch. Worker candidate branches share that remote. Pages is configured and repository variable `PAGES_ENABLED=true`; the workflow checks/packages code changes on `master` and deploys the reviewed artifact. Documentation-only pushes do not run this workflow. Publication and live verification are recorded in the [opening-test review](reviews/2026-10-27-burning-trail.md). Branch protection is not configured. Do not push Tinderbox commits to the donor's remote.
 
 ## Worker handoff format
 

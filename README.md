@@ -8,7 +8,7 @@ This is a mechanics test with provisional character/environment art. The next vi
 
 ## Play and develop
 
-The GitHub Pages target is [Tinderbox](https://syntaxswine.github.io/tinderbox/). Node.js 22 or newer is needed for local checks; no package installation is required.
+Play [Tinderbox on GitHub Pages](https://syntaxswine.github.io/tinderbox/). Node.js 22 or newer is needed for local checks; no package installation is required.
 
 ```sh
 npm run check
@@ -52,4 +52,4 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 The primary checkout is the architect's integration workspace on `master`. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
 
-Pages is currently awaiting a repository visibility decision: GitHub rejected hosting for this private repository on the current plan. The approved mechanics test and its verification are recorded in [the architect's acceptance](docs/reviews/2026-10-27-burning-trail.md).
+The repository is public with the user's approval, and the opening mechanics test is live on Pages. The [publication run](https://github.com/Syntaxswine/tinderbox/actions/runs/40596420252) passed both build and deployment; all 46 hosted game files match the reviewed package. The checks and remaining visual direction are recorded in [the architect's acceptance](docs/reviews/2026-10-27-burning-trail.md).
