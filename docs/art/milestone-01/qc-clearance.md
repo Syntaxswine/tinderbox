@@ -34,3 +34,9 @@ An additional read-only smoke used actual snapshots from coder commit `11b8cd05c
 - [Original anchor measurements](../../../artifacts/art-review/qc-radius/anchor-probe.json)
 
 The renderer uses bounded preallocated GPU buffers: 256 rays, 18,000 vertices, 52,000 indices and 128 plume cards maximum. It owns two geometries, two materials and one data texture, sharing the existing flame atlas. The correction adds no raw assets or second Three instance. Whole handheld hiding is deliberately conservative; per-part mesh clipping and a final visual redesign are not claimed. All changes remain in artist-owned files.
+
+## Explicit-LOD shader follow-up
+
+After checkpoint `86f281e4f63825ed9c721e790f5cb00fac13de85`, the architect observed ANGLE/D3D11 warning X3595 from implicit-derivative ray-table sampling in the per-fragment binary search. The sole production change replaces that lookup with `texelFetch(rayTable, ivec2(int(i), 0), 0)`. Three r180 compiles these ShaderMaterials as GLSL 300 ES / WebGL2; exact level-zero data fetch preserves the nearest, non-mipmapped table values.
+
+A minimal fresh Chrome 155 / RTX 3080 / ANGLE-D3D11 smoke rendered free flame, near-wall flame, torch, and independent-ray fixtures. All 12 compiled programs linked, all program/shader logs were empty, and browser warnings/errors/failed requests were empty. Disposal returned zero geometries and textures. Fourteen syntax/dependency checks and five raw import checks pass. The historical 52-capture matrix was not rerun; its source commit remains recorded separately from this shader follow-up in the review manifest. Raw smoke evidence and the reproducible script are in ignored `artifacts/art-review/shader-lod/`.

@@ -150,7 +150,7 @@
     {
       "path": "src/art/discharge.js",
       "source": "Pinned painted-fire atlas and frame conventions; new Tinderbox resolved-shape consumer",
-      "processing": "Injected-THREE bounded ribbons and instanced plumes clipped to supplied ray fans, independent-ray fallback, explicit torch lead, world-clock animation. No collision/range/heat queries.",
+      "processing": "Injected-THREE bounded ribbons and instanced plumes clipped to supplied ray fans, independent-ray fallback, explicit torch lead, world-clock animation. No collision/range/heat queries. Ray-table binary search uses exact texelFetch at LOD 0 without implicit derivatives.",
       "sourceReferences": [
         {
           "sourcePath": "sites/tactical-animal/dist/aft/tactics/painted-fire-effects.js",
@@ -173,7 +173,7 @@
           "kind": "Authoritative snapshot.discharge v1 contract; no coder runtime imported"
         }
       ],
-      "sha256": "db9a693f103a098ca7f50a2e0d1ed87aa750d52f8138b4d80dd22cb922e4ff0a"
+      "sha256": "8082c3747cb098e95ae26590e4f117f98251ba106be618fb143c0708bca14f47"
     }
   ]
 }
