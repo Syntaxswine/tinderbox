@@ -5,7 +5,7 @@
   "type": "module",
   "engines": {"node": ">=22"},
   "scripts": {
-    "test": "node --test tests/simulation/*.test.js",
+    "test": "node --test tests/simulation/*.test.js tests/ui/*.test.mjs tests/integration/*.test.mjs",
     "check": "node tools/check.mjs",
     "build": "node tools/build.mjs",
     "serve": "node tools/serve.mjs",

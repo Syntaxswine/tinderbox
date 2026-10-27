@@ -22,7 +22,6 @@ const runtime = await createRuntime({
   root: document.querySelector('#viewport'),
   uiRoot: document.querySelector('#hud'),
   createArtScene, mountUI,
-  assetBaseUrl: new URL('./', location.href),
   scenario: 'street', seed: 1947
 });
 // Runtime supplies the single shared THREE namespace, scene, snapshots and timing.

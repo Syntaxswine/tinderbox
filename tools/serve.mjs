@@ -5,7 +5,9 @@ const args = process.argv.slice(2);
 const option = (name, fallback) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : fallback; };
 const root = fs.realpathSync(path.resolve(option('--root', '.'))), port = Number(option('--port', '4550'));
 const ttl = Number(option('--ttl', '1800'));
+const base = option('--base', '/');
 if (!Number.isInteger(port) || port < 1024 || port > 65535 || !Number.isFinite(ttl) || ttl <= 0 || ttl > 86400) throw Error('Invalid preview port/TTL');
+if (!/^\/(?:[a-z0-9-]+\/)*$/i.test(base)) throw Error('Invalid preview base path');
 const helperDirectory = path.resolve('artifacts/helpers', 'preview-' + process.pid);
 const stopFile = path.resolve(option('--stop-file', path.join(helperDirectory, 'STOP')));
 fs.mkdirSync(path.dirname(stopFile), {recursive: true});
@@ -15,9 +17,10 @@ const server = http.createServer((req, res) => {
   let file;
   try {
     const url = new URL(req.url, 'http://localhost');
-    let pathname = decodeURIComponent(url.pathname);
-    if (pathname === '/') pathname = '/workbenches/simulation/index.html';
-    else if (pathname.endsWith('/')) pathname += 'index.html';
+    if (url.pathname === '/' && base !== '/') { res.writeHead(302,{Location:base}).end(); return; }
+    if (!url.pathname.startsWith(base)) { res.writeHead(404).end(); return; }
+    let pathname = '/' + decodeURIComponent(url.pathname.slice(base.length));
+    if (pathname.endsWith('/')) pathname += 'index.html';
     file = path.resolve(root, '.' + pathname);
     if (!file.startsWith(root + path.sep) || pathname.split(/[\\/]/).some(p => p.startsWith('.'))) { res.writeHead(403).end(); return; }
     if (!fs.realpathSync(file).startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
@@ -33,4 +36,4 @@ function stop(reason) { if (stopping) return; stopping = true; clearInterval(ret
 const retire = setInterval(() => { if (Date.now() >= expiresAt || fs.existsSync(stopFile)) stop(fs.existsSync(stopFile) ? 'stop-file' : 'ttl'); }, 250);
 process.on('SIGINT', () => stop('SIGINT')); process.on('SIGTERM', () => stop('SIGTERM'));
 server.on('error', error => { clearInterval(retire); console.error(error.message); process.exitCode = 1; });
-server.listen(port, '127.0.0.1', () => console.log(JSON.stringify({pid: process.pid, url: `http://127.0.0.1:${port}/workbenches/simulation/`, root, stopFile, expiresAt: new Date(expiresAt).toISOString()})));
+server.listen(port, '127.0.0.1', () => console.log(JSON.stringify({pid: process.pid, url: `http://127.0.0.1:${port}${base}`, root, stopFile, expiresAt: new Date(expiresAt).toISOString()})));

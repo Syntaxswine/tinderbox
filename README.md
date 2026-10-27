@@ -2,7 +2,26 @@
 
 An isometric 3D game about a pyromaniac anthropomorphic bear who does drugs and sets things on fire.
 
-Tinderbox will reuse Farmyard Commando's existing UI, art, and suitable gameplay systems, including flamethrower and explosive-barrel work. The initial architecture and reuse audits are documented below. This repository does not contain a playable game yet.
+The opening **Burning Trail** test combines a small exterior scene, five tools, three drug effects, continuous gasoline trails, spreading fire and explosive drums. It runs in a browser with WebGL 2.
+
+This is a mechanics test with provisional character/environment art. The next visual pass must use Farmyard Commando's actual game assets and interface as its direct foundation. The current atlas/painted-control reuse does not establish the final visual direction.
+
+## Play and develop
+
+The GitHub Pages target is [Tinderbox](https://syntaxswine.github.io/tinderbox/). Node.js 22 or newer is needed for local checks; no package installation is required.
+
+```sh
+npm run check
+npm run build
+node tools/check-release.mjs
+npm run serve -- --root dist --port 4550 --ttl 1800
+```
+
+Open `http://127.0.0.1:4550/`. The loopback preview expires after 30 minutes; stop it immediately when finished. Agents must register retained previews under the user's helper policy.
+
+Move with WASD/arrows or the joystick. Point or tap the ground to aim. Select tools with 1–5; use Space or the red action button. Jerry-can pouring toggles on a press and continues while moving. Torch and flamethrower require holding the action. Q uses powder, E heals, R reverses the movement stick; Esc/P opens pause, options and reset.
+
+For the reproducible browser acceptance page, serve the source root and open `/workbenches/integration/`. It runs the actual simulation, art and UI together. Workbenches and evidence are excluded from the public build.
 
 ## Project coordination
 
@@ -31,4 +50,6 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 ## Delivery status
 
-The primary checkout is the architect's integration workspace on `master`. The private GitHub repository is [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox), configured as `origin`. Artist and coder branches use this same Tinderbox remote. CI and deployment are not configured; the Farmyard remote belongs to the donor game.
+The primary checkout is the architect's integration workspace on `master`. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
+
+Pages is currently awaiting a repository visibility decision: GitHub rejected hosting for this private repository on the current plan. The approved mechanics test and its verification are recorded in [the architect's acceptance](docs/reviews/2026-10-27-burning-trail.md).

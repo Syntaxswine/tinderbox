@@ -32,7 +32,7 @@ Deliver the exact commit SHA, changed paths, source/provenance evidence, checks 
 
 Use the promotion gate in `docs/workflow.md`. Run checks appropriate to the change; documentation-only work needs path/reference review, not invented runtime tests. Runtime and UI changes need meaningful behavior checks and browser review at the intended scale. A failed relevant check blocks promotion.
 
-No remote branch protection or automatic deployment exists yet. Do not describe this local review workflow as a configured GitHub enforcement rule.
+The Pages workflow checks and packages code changes on `master`. Its deployment job runs only with configured Pages hosting and repository variable `PAGES_ENABLED=true`. Branch protection is not configured; do not describe the architect's review as a remotely enforced approval rule. Read the current review record for any hosting restriction before publishing.
 
 ## Current milestone
 

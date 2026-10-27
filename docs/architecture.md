@@ -16,7 +16,7 @@
 
 The inspected Farmyard baseline is a browser game using JavaScript ES modules and a vendored Three.js renderer. `field-view.js` constructs an orthographic camera. The source project builds and checks with Node.js 22 or newer, without a package installation.
 
-Use that stack as the reuse reference. A move to Godot, Unity, or another runtime has not been approved. The first work item is to establish dependency closures and adaptation costs before importing a runtime. Tinderbox does not have a build or launch command yet.
+The opening mechanics test uses that stack with one pinned Three.js instance and separate simulation, art and interface factories. Build and launch commands are in the root README. A move to Godot, Unity, or another runtime has not been approved. Direct reuse of the donor game's assets/interface remains the required foundation for the next visual pass.
 
 The source of record is the locally available `origin/main` commit recorded in `source-baseline.json`, not the donor's stale local `main` branch or an arbitrary active worktree. This pin records what was inspected; it is not a claim that a remote was freshly fetched. Farmyard has inherited Animal Factory Tactics snapshots with their own provenance manifests; preserve that chain.
 

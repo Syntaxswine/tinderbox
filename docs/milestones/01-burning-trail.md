@@ -1,6 +1,6 @@
 # Milestone 01: the burning trail
 
-Status: assigned for implementation. This is one small exterior test scene. The architect reviews the combined result before promotion. Read the source baseline and both reuse audits; the Farmyard donor remains read-only.
+Status: architect-approved as an opening mechanics test; see [the acceptance record](../reviews/2026-10-27-burning-trail.md). This is one small exterior test scene. Direct Farmyard asset/interface reuse remains required for the next visual pass. Read the source baseline and both reuse audits; the Farmyard donor remains read-only.
 
 ## Accepted user direction
 
@@ -11,6 +11,8 @@ Tinderbox is an isometric 3D game about a pyromaniac anthropomorphic bear who us
 - Powder increases bear movement speed and slows other actors and fire. Healing pills restore health. Inversion pills reverse the movement joystick by 180 degrees: NE becomes SW, N becomes S, and so on.
 - Neighborhood exteriors take spatial/aesthetic cues from Paperboy. Use a street/yard/building-front setting with free movement within a tile-structured world. Interiors and a larger campaign are outside this milestone.
 - Fire should look convincing, spread readily, and have understandable causes, fuel limits, barriers and burnout.
+
+User review of the first combined scene: acceptable as an opening mechanics test. The next visual pass must make the existing Farmyard Commando game assets and interface the direct foundation. The provisional bear/buildings and current adapted control deck do not establish the final Tinderbox art/UI direction. Reusing a few textures or a painted style is insufficient evidence of that broader reuse requirement.
 
 ## Prototype decisions
 
