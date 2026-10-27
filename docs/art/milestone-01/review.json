@@ -1,0 +1,583 @@
+{
+  "task": "TB-005",
+  "sharedBaseline": "fddc7ce218695dad14b6015de4019e89d53a6255",
+  "donorCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "inheritedSourceCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+  "recordedOn": "2026-10-27",
+  "browserRun": {
+    "startedAt": "2026-10-27T20:45:38.820Z",
+    "completedAt": "2026-10-27T20:45:46.601Z"
+  },
+  "hardware": {
+    "vendor": "Google Inc. (NVIDIA)",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+  },
+  "checks": {
+    "rawImports": 5,
+    "syntaxAndDependencyFiles": 13,
+    "browserPassed": true,
+    "browserErrors": [],
+    "failedRequests": [],
+    "immutableSnapshots": true,
+    "deduplicatedEvents": true,
+    "startupHistoryNotReplayed": true,
+    "freshEventAfterCursor": true,
+    "pausedPixels": "Identical after three fixed-clock warm-up renders",
+    "separateClockDomains": true,
+    "dryGapHasNoGas": true,
+    "fiveToolsHaveFiniteAnchors": true,
+    "viewportControlBounds": true,
+    "worldAndActorRebuilds": [
+      {
+        "geometries": 18,
+        "textures": 23
+      },
+      {
+        "geometries": 13,
+        "textures": 23
+      },
+      {
+        "geometries": 18,
+        "textures": 23
+      },
+      {
+        "geometries": 13,
+        "textures": 23
+      },
+      {
+        "geometries": 18,
+        "textures": 23
+      },
+      {
+        "geometries": 13,
+        "textures": 23
+      },
+      {
+        "geometries": 18,
+        "textures": 23
+      },
+      {
+        "geometries": 13,
+        "textures": 23
+      }
+    ],
+    "afterDispose": {
+      "geometries": 0,
+      "textures": 0
+    }
+  },
+  "timing": {
+    "samples": 90,
+    "meanMs": 0.8022222227520412,
+    "p50Ms": 0.7999999523162842,
+    "p95Ms": 1.1000001430511475,
+    "scope": "Synchronous update + renderer.render CPU submission; not GPU completion or physical-device timing"
+  },
+  "sources": {
+    "src/art/.gitattributes": "c9ba37e9d0f1d4bedcf8fd2ae38ecb19a32264f63035c98882671606745d329f",
+    "src/art/bear.js": "5e3bb5cbb76273d8476f19158014b3044505f00f52bb95d9346440bf12c10ea5",
+    "src/art/fire.js": "27aec59f3c173e31eee294f8ead38af42871ca41b491f166aa93cd973ea38ab2",
+    "src/art/ground-field.js": "a31f94b458fe9d12ed4e4609b7c72c1b00038fde4e6a724d30588b32613164f5",
+    "src/art/index.js": "97a5972f7f6fc6d95b99a17b1c0a0187313445452ecfc987c8c641ae962ca5ba",
+    "src/art/materials.js": "e67136dbb1f713e787f6fa57b40ba102ccb36d8ad1552dbf61cc96544b520c37",
+    "src/art/resources.js": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
+    "src/art/tool-props.js": "1dedb9f2ebbdc61aa1b687953998add1d7ca3e793d236f47a0015ffa198e834e",
+    "src/art/world.js": "1697dfaba1bc1c8b8b3ae95182109a52f53dfd257b6f89fbdbe64273b133daed",
+    "workbenches/art/.gitattributes": "d9cc10c7514fcb9ae799249e85a863afcaff4e92f9a23143ef3c6f62fcd226cf",
+    "workbenches/art/check-art.mjs": "fe56d9e9247caceac6969db4e6f68e7fd160c675a38eff31990cd9c00c36342d",
+    "workbenches/art/fixtures.js": "4ab121db978f20ee47c8ee86b5ed917d977a666860e3b021f54eac6c7cfb35e4",
+    "workbenches/art/index.html": "91076686583f4574ca07cea668235fa617da207585d01cd14be78ca71f405ffd",
+    "workbenches/art/main.js": "594f6ff5876e86db50bfd39c01d0144e0dafeb8f0be7a0e6c2a7755de9db84c2",
+    "workbenches/art/review.mjs": "a142a1b3ee649a009e0f152fffa276ce1d87d3da2d58133e2a4f11b33f492712",
+    "workbenches/art/server.mjs": "6a885db1191b3e6f02b85f4da9dfeeaa6302ea69f7acae3c5fa0638baa28770d",
+    "workbenches/art/style.css": "c43ad08c45a7f6aa2d2bb46c8a694abf3258f1569712a64a824fe568d9a278ee"
+  },
+  "images": [
+    {
+      "path": "artifacts/art-review/final/trail-1280x800.png",
+      "sha256": "7f63a3db85e9f176dd252aa9c4b2a361041f5477345c7768c3c950b3c5806e7b",
+      "fixture": "trail",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 121,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/front-1280x800.png",
+      "sha256": "ceeeb42ce806b92a619da3fd2e27fe161eb6c791e226da3637cfedc808f9ffc2",
+      "fixture": "front",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 123,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/burn-1280x800.png",
+      "sha256": "371ac9ab8a8d922ad8c477b46343111dc03ca498aa3db8b45f9901a29ffcdd7a",
+      "fixture": "burn",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 123,
+      "flameCards": 50
+    },
+    {
+      "path": "artifacts/art-review/final/spent-1280x800.png",
+      "sha256": "baae7eae2e6c07063bfca8ce697c02bf6bf5f38c6d27b6a9e61ddc4c1bbc3a0b",
+      "fixture": "spent",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 122,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/powder-1280x800.png",
+      "sha256": "8968f04e6f5b0c23afda77dbbc4e2bdca6ad1af2a7a1834bf9a23e5453e74dc6",
+      "fixture": "powder",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 125,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/bear-1280x800.png",
+      "sha256": "8cf56678aea4a9de4c66e1616fa0d02ce86f5fd992fff24adce6b62396def310",
+      "fixture": "bear",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 105,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/burst-1280x800.png",
+      "sha256": "bc2d6debaade0889d1f28f8ccd8f94a8deaaa8e3159fd27f3bc34555703d19ec",
+      "fixture": "burst",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 117,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/bear-matches-1280x800.png",
+      "sha256": "6cbbfb01d7b38528e4ccad97385d6c67a5e474314ce20f1ce792bf58d87208e1",
+      "fixture": "bear",
+      "tool": "matches",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 92,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/bear-jerry-can-1280x800.png",
+      "sha256": "478bf8619a3dc1c66d79b89e7e3fe1236762f8e1475b450f79dd78757f969f8d",
+      "fixture": "bear",
+      "tool": "jerry-can",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 95,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/bear-molotov-1280x800.png",
+      "sha256": "b236cc09bfd9b45aeb8a1e19495a52e50e0e62733111e0dabdfb201c8f4a6937",
+      "fixture": "bear",
+      "tool": "molotov",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 94,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/bear-torch-1280x800.png",
+      "sha256": "cdee96d0b8f8064b7068d064e3ba5cf16d33ec52b05c713de3c3df07d7f042c8",
+      "fixture": "bear",
+      "tool": "torch",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 92,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/trail-390x844.png",
+      "sha256": "4ca34272da34ecc4e50c76526a9f17c55a356089b6db64c761014911fe9cfc71",
+      "fixture": "trail",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 105,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/front-390x844.png",
+      "sha256": "6d4abccf2b3756e537274464fed86ecd158eb4e95c6c5d589d72c55a6f6a4389",
+      "fixture": "front",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 107,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/burn-390x844.png",
+      "sha256": "5db19b671fd1630bdca89466e11d0ab35421afd3518f68d9c9ad0419271b3e3e",
+      "fixture": "burn",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 107,
+      "flameCards": 50
+    },
+    {
+      "path": "artifacts/art-review/final/spent-390x844.png",
+      "sha256": "1319992a5f92f2ad422ec50872bb54a6990fccf3dc2285b75f25b1adb87ca3a6",
+      "fixture": "spent",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 106,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/powder-390x844.png",
+      "sha256": "c35edfe68f3817c69722c1a8b705fc21ba33b1c56a7adc2f1df99883b1284348",
+      "fixture": "powder",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 109,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/bear-390x844.png",
+      "sha256": "3049d8956c3f19ed62a45e17f50a9720065c411f0884ced5036d5acfb6a9bafd",
+      "fixture": "bear",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 96,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/burst-390x844.png",
+      "sha256": "dcade346a3f11db1714de17a7812a79b63a3bf1b9f40cdd239b16dda99036d97",
+      "fixture": "burst",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 101,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/bear-matches-390x844.png",
+      "sha256": "8ac02f743a0138c0b55772e4efd7b95e527da58617301f1c10d7bc5f857e9134",
+      "fixture": "bear",
+      "tool": "matches",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 83,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/bear-jerry-can-390x844.png",
+      "sha256": "6af28a80089cd009d3ae009e28c4070477f9822729d1007511b9dca4e3a4f12c",
+      "fixture": "bear",
+      "tool": "jerry-can",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 86,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/bear-molotov-390x844.png",
+      "sha256": "f14ae78ce5c132026636d2a0c8eb5bfb99c53e89d9e1120e4fa7bf728fdbd55a",
+      "fixture": "bear",
+      "tool": "molotov",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 85,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/bear-torch-390x844.png",
+      "sha256": "682ffcea09c82f78ce91a8836508cb60fa78f27b90186c0e9ac5dff75af1071c",
+      "fixture": "bear",
+      "tool": "torch",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 83,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/front-field-1280x800.png",
+      "sha256": "eda8dd3b2276c1321c9c5f07b1e6afb8005de3bfc8494bdcbcaca8153a7ee532",
+      "fixture": "front",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 123,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/burn-field-1280x800.png",
+      "sha256": "a8dc398b96bd699909484e9bcae76bf594abfc7ce29ba7dbea65a05c6ef871a5",
+      "fixture": "burn",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 123,
+      "flameCards": 50
+    },
+    {
+      "path": "artifacts/art-review/final/bear-field-1280x800.png",
+      "sha256": "04b9b6d63735defc02ee0c1575b9ff4c836c3c6cca8407600029f63c9a2b7964",
+      "fixture": "bear",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 105,
+      "flameCards": 0
+    },
+    {
+      "path": "artifacts/art-review/final/front-field-390x844.png",
+      "sha256": "7ff6c65785ce73a57ee20e11eff59cab113dce63b70d836a68901a4313c56d87",
+      "fixture": "front",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 104,
+      "flameCards": 10
+    },
+    {
+      "path": "artifacts/art-review/final/burn-field-390x844.png",
+      "sha256": "f25d28e5b26685e2c349697285b25674cfa32fb233b0d56ef53c2a4838573331",
+      "fixture": "burn",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 104,
+      "flameCards": 50
+    },
+    {
+      "path": "artifacts/art-review/final/bear-field-390x844.png",
+      "sha256": "abce1bc203c0f7e4249ae0a8132d9fc3e31668a646c3850df9be2c499ae5e29e",
+      "fixture": "bear",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 90,
+      "flameCards": 0
+    }
+  ],
+  "limitations": [
+    "Labelled local fixtures, not integrated gameplay acceptance",
+    "No physical mobile-device or fresh-player review",
+    "CPU submission timing does not measure GPU completion",
+    "Provisional 2.02 m bear / 1.06 m shoulder silhouette requires collision-envelope reconciliation",
+    "Local muzzle plume only; a full authoritatively clipped discharge cone is not supplied by snapshot v1",
+    "Art rights remain unresolved as recorded in provenance"
+  ]
+}
