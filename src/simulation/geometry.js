@@ -37,6 +37,32 @@ export function freePoint(p, radius, world, obstacles) {
   }
   return true;
 }
+function pointSegmentDistance(p, a, b) {
+  const dx = b.x - a.x, dy = b.y - a.y, length2 = dx * dx + dy * dy;
+  const t = length2 > EPS * EPS ? clamp(((p.x - a.x) * dx + (p.y - a.y) * dy) / length2, 0, 1) : 0;
+  return Math.hypot(p.x - a.x - dx * t, p.y - a.y - dy * t);
+}
+function pointBoxDistance(p, o) {
+  return Math.hypot(Math.max(Math.abs(p.x - o.x) - o.width / 2, 0), Math.max(Math.abs(p.y - o.y) - o.depth / 2, 0));
+}
+// Exact swept-disc clearance: endpoint tests alone can shave a rounded corner.
+export function sweptDiscClear(a, b, radius, world, obstacles) {
+  if (!freePoint(a, radius, world, obstacles) || !freePoint(b, radius, world, obstacles)) return false;
+  for (const o of obstacles) {
+    if (o.destroyed || o.solid === false) continue;
+    if (o.kind === 'barrel') {
+      if (pointSegmentDistance(o, a, b) < radius + (o.radius ?? o.width / 2) - EPS) return false;
+    } else {
+      if (boxInterval(a, b, o)) return false;
+      let gap = Math.min(pointBoxDistance(a, o), pointBoxDistance(b, o));
+      for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
+        gap = Math.min(gap, pointSegmentDistance({x: o.x + sx * o.width / 2, y: o.y + sy * o.depth / 2}, a, b));
+      }
+      if (gap < radius - EPS) return false;
+    }
+  }
+  return true;
+}
 // Return every accepted segment. Fuel accounting never uses requested distance.
 export function moveDisc(start, dx, dy, radius, world, obstacles, cellSize) {
   const length = Math.hypot(dx, dy), points = [{x: start.x, y: start.y}];
@@ -44,9 +70,9 @@ export function moveDisc(start, dx, dy, radius, world, obstacles, cellSize) {
   const sx = dx / count, sy = dy / count;
   for (let i = 0; i < count; i++) {
     const p = points.at(-1); let next = {x: p.x + sx, y: p.y + sy};
-    if (!freePoint(next, radius, world, obstacles)) {
-      if (freePoint({x: next.x, y: p.y}, radius, world, obstacles)) next.y = p.y;
-      else if (freePoint({x: p.x, y: next.y}, radius, world, obstacles)) next.x = p.x;
+    if (!sweptDiscClear(p, next, radius, world, obstacles)) {
+      if (sweptDiscClear(p, {x: next.x, y: p.y}, radius, world, obstacles)) next.y = p.y;
+      else if (sweptDiscClear(p, {x: p.x, y: next.y}, radius, world, obstacles)) next.x = p.x;
       else continue;
     }
     if (distance(p, next) > EPS) points.push(next);

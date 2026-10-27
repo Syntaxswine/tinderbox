@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tinderbox body and discharge QC</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<header><h1>Body and held discharge QC</h1><p>Diagnostic stand-ins. White ring = 0.56 m body. Orange rays/fan = authoritative heat mask.</p><a href="./index.html">Simulation workbench</a></header>
+<main>
+<section><div id="viewport" style="height: min(65vh, 580px); min-height: 300px"></div><p id="error" role="alert"></p></section>
+<aside>
+<h2>Held-tool fixtures</h2>
+<div id="presets"><button data-preset="free">Full 4.5 m cone</button><button data-preset="wall">Wall at muzzle</button><button data-preset="corner">Narrow corner</button><button data-preset="torch">Torch at wall</button></div>
+<p><button id="release">Release</button> <button id="pause">Pause</button> <button id="powder">Powder + step</button></p>
+<pre id="result" aria-live="polite"></pre>
+<p>Held equipment can protrude; discharge always starts at model root. Art must consume this mask.</p>
+</aside>
+</main>
+<script type="module" src="./qc.js"></script>
+</body></html>
