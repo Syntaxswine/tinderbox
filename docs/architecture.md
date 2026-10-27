@@ -36,6 +36,8 @@ Imports will be small, pinned, reproducible snapshots with preserved licenses an
 
 The artist inventories visual assets and conventions. The coder inventories module dependencies and gameplay behavior, especially flame, barrel, camera, UI, and storage paths. The architect reconciles both audits against source and sets the first implementation brief.
 
+The resulting [architect reuse plan](reuse-plan.md) resolves the audits' layout proposals and defines the next handoff boundary. Historical recommendations in individual audits remain evidence; use the reconciled plan for implementation.
+
 A useful subsequent validation scene would put a bear, inherited UI, a flamethrower, and explosive barrels into one small isometric environment. Its acceptance criteria must distinguish artwork from collision and actual fire/explosion behavior. It remains a proposed next milestone, not a completed or fully specified game.
 
 ## Decisions still open

@@ -2,14 +2,18 @@
 
 An isometric 3D game about a pyromaniac anthropomorphic bear who does drugs and sets things on fire.
 
-Tinderbox will reuse Farmyard Commando's existing UI, art, and suitable gameplay systems, including flamethrower and explosive-barrel work. The first milestone is an audited reuse plan. This repository does not contain a playable game yet.
+Tinderbox will reuse Farmyard Commando's existing UI, art, and suitable gameplay systems, including flamethrower and explosive-barrel work. The initial architecture and reuse audits are documented below. This repository does not contain a playable game yet.
 
 ## Project coordination
 
 The architect owns architecture, worktree assignments, integration, and final quality control. The artist and coder deliver separate commits from their own worktrees. Work enters the integration branch only after the architect reviews the exact candidate.
 
 - [Architecture and reuse decisions](docs/architecture.md)
+- [Architect's reconciled reuse plan](docs/reuse-plan.md)
+- [Art reuse audit](docs/art/farmyard-reuse-audit.md)
+- [Runtime reuse audit](docs/engineering/farmyard-reuse-audit.md)
 - [Assignments and promotion gate](docs/workflow.md)
+- [Architect review record](docs/reviews/2026-10-27-reuse-foundation.md)
 - [Pinned Farmyard source](docs/source-baseline.json)
 - [Repository instructions](AGENTS.md)
 
