@@ -30,4 +30,4 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 ## Delivery status
 
-The primary checkout is the architect's integration workspace, currently on `master`. No GitHub remote or deployment is configured. Keep commits local until the Tinderbox destination is established; the Farmyard remote belongs to the donor game.
+The primary checkout is the architect's integration workspace on `master`. The private GitHub repository is [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox), configured as `origin`. Artist and coder branches use this same Tinderbox remote. CI and deployment are not configured; the Farmyard remote belongs to the donor game.

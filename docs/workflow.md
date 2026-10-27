@@ -26,7 +26,7 @@ Use the pinned baseline to identify the renderer/camera, UI/input, character/equ
 
 Review both audit commits against the pinned source. Resolve inconsistent paths, state/visual claims, dependency assumptions, and rights evidence. Promote only reviewed documentation. Set the first implementation assignment from the agreed reuse plan and the user's gameplay direction.
 
-Initial status: TB-001 and TB-002 are reviewed and promoted locally. TB-003 is recorded in the [architect review](reviews/2026-10-27-reuse-foundation.md) and [reconciled reuse plan](reuse-plan.md). No runtime or asset import is promoted by these documentation approvals.
+Initial status: TB-001 and TB-002 are reviewed and promoted to integration. TB-003 is recorded in the [architect review](reviews/2026-10-27-reuse-foundation.md) and [reconciled reuse plan](reuse-plan.md). No runtime or asset import is promoted by these documentation approvals.
 
 ## Promotion gate
 
@@ -37,7 +37,7 @@ Initial status: TB-001 and TB-002 are reviewed and promoted locally. TB-003 is r
 5. Record passed checks, visual evidence if applicable, limitations, and the architect's decision in the handoff/review record. Correct failed checks before promotion.
 6. The architect merges or cherry-picks the reviewed commit into the integration branch, verifies the resulting tree, then follows the user's commit/push/deployment instructions. Never force-push. Stop task-owned disposable helpers after verification and verify their ports are released.
 
-This is a local workflow. GitHub branch protections, a Tinderbox remote, CI, and deployment are not configured. Do not push Tinderbox commits to the donor's remote.
+The private GitHub repository is [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox), configured as `origin`; `master` is the integration branch. Artist and coder candidate branches share that remote. GitHub branch protections, CI, and deployment are not configured. Do not push Tinderbox commits to the donor's remote.
 
 ## Worker handoff format
 
