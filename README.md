@@ -10,6 +10,7 @@ The architect owns architecture, worktree assignments, integration, and final qu
 
 - [Architecture and reuse decisions](docs/architecture.md)
 - [Architect's reconciled reuse plan](docs/reuse-plan.md)
+- [Current milestone: the burning trail](docs/milestones/01-burning-trail.md)
 - [Art reuse audit](docs/art/farmyard-reuse-audit.md)
 - [Runtime reuse audit](docs/engineering/farmyard-reuse-audit.md)
 - [Assignments and promotion gate](docs/workflow.md)

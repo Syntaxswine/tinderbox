@@ -6,6 +6,11 @@
 - One anthropomorphic bear protagonist, with drug use and setting things on fire central to the premise.
 - Substantial reuse from Farmyard Commando: UI, art assets, and systems such as the flamethrower and explosive barrels.
 - Separate artist and coder worktrees, coordinated and reviewed by the architect before promotion.
+- A UI specialist owns the joystick, HUD, buttons and menus in a separate worktree.
+- Tools: matches, jerry cans, Molotov cocktails, torches, and the flamethrower. Pouring toggles on/off while moving and follows the bear's speed; escaping fire advancing along that trail is an intended tactic.
+- Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
+- Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. Interiors may come later. Combine tile-based world structure with free movement.
+- Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
 
 ## Reuse-first technical direction
 
@@ -42,4 +47,4 @@ A useful subsequent validation scene would put a bear, inherited UI, a flamethro
 
 ## Decisions still open
 
-The user has not yet specified the gameplay pace (real-time or turn-based), target devices, camera controls, bear appearance, setting, progression, detailed fire rules, or drug mechanics. Audit and isolate reusable systems now; do not silently decide these by importing the donor's game rules.
+The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, bear appearance, progression, precise balancing, and later interior gameplay remain open. Do not import the donor's turn/AP rules as Tinderbox requirements.

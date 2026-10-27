@@ -2,6 +2,8 @@
 
 The art and engineering audits support retaining Farmyard's browser ES-module/Three.js direction. Their acceptance is documentation approval; no runtime, art import, new bear, or playable scene is delivered in this milestone.
 
+The foundation above is followed by the authorized [burning-trail milestone](milestones/01-burning-trail.md), which supplies the current implementation assignments and shared interfaces. Its common Three.js dependency is now imported with provenance; the worker deliverables remain subject to architect review.
+
 ## Import layout
 
 The audits propose different source homes. Use one canonical layout for implementation:

@@ -9,7 +9,8 @@ Read `docs/architecture.md`, `docs/workflow.md`, and `docs/source-baseline.json`
 ## Roles and worktrees
 
 - The architect owns the primary checkout, architecture, task boundaries, integration branch, final review, and promotion decisions.
-- The artist owns asset sources, exports, art manifests, and visual documentation in the assigned art worktree.
+- The artist owns world/character/effect art, its sources/exports, art manifests, and visual documentation in the assigned art worktree.
+- The UI specialist owns interface controls, HUD, buttons, menus, and their presentation in the assigned UI worktree. Coordinate through the scene contract; do not implement gameplay rules in UI callbacks.
 - The coder owns runtime code, adapters, tooling, and relevant tests in the assigned code worktree.
 - Work only in the assigned worktree and branch. Do not edit another worker's checkout. Check `git status` and the worktree registry before starting.
 - Only the architect promotes reviewed work to the integration branch. Workers may commit and push their own task branch to its configured Tinderbox remote according to the user's global Git instructions; pushing a candidate is not promotion.
@@ -32,3 +33,7 @@ Deliver the exact commit SHA, changed paths, source/provenance evidence, checks 
 Use the promotion gate in `docs/workflow.md`. Run checks appropriate to the change; documentation-only work needs path/reference review, not invented runtime tests. Runtime and UI changes need meaningful behavior checks and browser review at the intended scale. A failed relevant check blocks promotion.
 
 No remote branch protection or automatic deployment exists yet. Do not describe this local review workflow as a configured GitHub enforcement rule.
+
+## Current milestone
+
+Read `docs/milestones/01-burning-trail.md` for the accepted user requirements, shared APIs, file ownership, bounded TB-004/TB-005/TB-006 assignments, and acceptance evidence. Its prototype defaults are tunable implementation choices, not new user requirements. Keep the movement joystick's 180-degree inversion in the simulation/input adapter exactly once. Pouring follows the bear's accepted movement; fire propagation follows world time.

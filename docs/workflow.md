@@ -9,7 +9,7 @@
 | Coder | `codex/coding` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Runtime dependency/behavior reuse audit |
 | UI designer | `codex/ui-design` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Player controls, HUD, buttons, menus, layout, and interaction states |
 
-The existing worker chats are **Artist, Tinderbox** and **Coder Tinderbox**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
 The UI designer works from the dedicated UI worktree. Coordinate new asset exports with the artist and gameplay/runtime contracts with the coder. Follow the [reconciled reuse plan](reuse-plan.md) for Farmyard UI reuse; unresolved gameplay and device choices remain proposals. UI candidates follow the same architect promotion gate.
 
@@ -30,6 +30,19 @@ Use the pinned baseline to identify the renderer/camera, UI/input, character/equ
 Review both audit commits against the pinned source. Resolve inconsistent paths, state/visual claims, dependency assumptions, and rights evidence. Promote only reviewed documentation. Set the first implementation assignment from the agreed reuse plan and the user's gameplay direction.
 
 Initial status: TB-001 and TB-002 are reviewed and promoted to integration. TB-003 is recorded in the [architect review](reviews/2026-10-27-reuse-foundation.md) and [reconciled reuse plan](reuse-plan.md). No runtime or asset import is promoted by these documentation approvals.
+
+## Active implementation assignments
+
+The shared brief, APIs, ownership and acceptance criteria are in [Milestone 01: the burning trail](milestones/01-burning-trail.md).
+
+| Task | Owner | First delivery |
+| --- | --- | --- |
+| TB-004 | Coder | Fixed-step simulation, tools/drugs, fuel trails/fire, deterministic checks, diagnostic scene |
+| TB-005 | Artist | Bear/exterior and fire visual module, selected asset imports, visual workbench |
+| TB-006 | UI specialist | Movement joystick, tool/drug HUD, buttons/menus, interactive UI workbench |
+| TB-007 | Architect | Reconcile handoffs, assemble the scene, run combined behavior/visual checks, and decide promotion |
+
+Assignments may be developed concurrently because their owned files and public interfaces are separate. Prototype workbenches are explicitly labelled. No candidate merges itself to `master`.
 
 ## Promotion gate
 

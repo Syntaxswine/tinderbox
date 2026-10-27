@@ -27,6 +27,12 @@
       "status": "Observed UI candidate only; not approved for Tinderbox import"
     }
   ],
-  "tinderboxImports": [],
+  "tinderboxImports": [
+    {
+      "kind": "shared-renderer",
+      "manifest": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/engine.json",
+      "files": 3
+    }
+  ],
   "rightsStatus": "The user requests reuse; per-file license/provenance review remains part of the import gate"
 }
