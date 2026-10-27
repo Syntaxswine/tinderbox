@@ -14,6 +14,16 @@ export function createDiagnosticScene({THREE: T, scene, config}) {
   const drum = geom(new T.CylinderGeometry(0.5, 0.5, 1, 16));
   const sphere = geom(new T.SphereGeometry(0.11, 8, 6));
   const shotMaterial = material(0xffd558), actorMaterial = material(0xa4a2f8);
+  // Bounded diagnostic geometry consumes the model mask directly; no scene raycasts.
+  const rayPositions = new Float32Array(257 * 6), fanPositions = new Float32Array(255 * 9);
+  const rayGeometry = geom(new T.BufferGeometry()), fanGeometry = geom(new T.BufferGeometry());
+  rayGeometry.setAttribute('position', new T.BufferAttribute(rayPositions, 3)); rayGeometry.setDrawRange(0, 0);
+  fanGeometry.setAttribute('position', new T.BufferAttribute(fanPositions, 3)); fanGeometry.setDrawRange(0, 0);
+  const rayMaterial = new T.LineBasicMaterial({color: 0xffc24f}); ownedMaterials.add(rayMaterial);
+  const fanMaterial = new T.MeshBasicMaterial({color: 0xff8c20, transparent: true, opacity: 0.18, side: T.DoubleSide, depthWrite: false}); ownedMaterials.add(fanMaterial);
+  const dischargeRays = new T.LineSegments(rayGeometry, rayMaterial), dischargeFan = new T.Mesh(fanGeometry, fanMaterial);
+  dischargeRays.name = 'AUTHORITATIVE DISCHARGE RAYS'; dischargeFan.name = 'AUTHORITATIVE DISCHARGE FAN';
+  dischargeRays.frustumCulled = dischargeFan.frustumCulled = false; root.add(dischargeFan, dischargeRays);
   let floor, cells, flames, grid, lastEvent = 0;
   const cellMaterial = material(0x2368a0, {transparent: true, opacity: 0.8, depthWrite: false});
   const flameMaterial = material(0xf19628, {emissive: 0xe36116, emissiveIntensity: 0.8});
@@ -33,6 +43,22 @@ export function createDiagnosticScene({THREE: T, scene, config}) {
     if (!floor) setWorld(snapshot);
     bear.position.set(snapshot.player.x, 0, snapshot.player.y); bear.rotation.y = -snapshot.player.heading;
     body.material.color.setHex(snapshot.player.hp <= 0 ? 0x666666 : snapshot.effects.powder.active ? 0xefff94 : 0x63d7cf);
+    playerRing.scale.setScalar(snapshot.player.radius / 0.34);
+    body.scale.set(snapshot.player.radius / 0.23, 1, snapshot.player.radius / 0.23);
+    const d = snapshot.discharge; let lineFloats = 0, fanFloats = 0;
+    if (d.active) {
+      for (const r of d.rays) {
+        rayPositions.set([d.shapeOrigin.x, d.shapeOrigin.h, d.shapeOrigin.y, r.x, r.h, r.y], lineFloats); lineFloats += 6;
+      }
+      if (d.lead) { rayPositions.set([d.lead.from.x, d.lead.from.h, d.lead.from.y, d.lead.to.x, d.lead.to.h, d.lead.to.y], lineFloats); lineFloats += 6; }
+      if (d.connectRays) for (let i = 1; i < d.rays.length; i++) {
+        const a = d.rays[i - 1], b = d.rays[i];
+        fanPositions.set([d.shapeOrigin.x, d.shapeOrigin.h, d.shapeOrigin.y, a.x, a.h, a.y, b.x, b.h, b.y], fanFloats); fanFloats += 9;
+      }
+    }
+    rayGeometry.setDrawRange(0, lineFloats / 3); rayGeometry.attributes.position.needsUpdate = true;
+    fanGeometry.setDrawRange(0, fanFloats / 3); fanGeometry.attributes.position.needsUpdate = true;
+    dischargeRays.visible = lineFloats > 0; dischargeFan.visible = fanFloats > 0;
     let c = 0, f = 0;
     for (const cell of snapshot.cells) {
       if (cell.depositedFuel > 0.00001 || cell.heat > 0.03 || cell.phase === 'spent' || cell.material === 'grass') {

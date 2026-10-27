@@ -34,7 +34,7 @@ test('exact grid path lengths conserve poured fuel for diagonals, reversals and 
 
 test('stationary, blocked and wall-slide movement consumes only accepted path fuel', () => {
   const sim = model(plain({obstacles: [{id: 'wall', x: 5, y: 5, width: 0.5, depth: 10, height: 2, material: 'masonry', kind: 'wall'}]}));
-  startPour(sim); let s = run(sim, 1); assert.ok(s.player.x <= 4.75 - 0.23 + 1e-8);
+  startPour(sim); let s = run(sim, 1); assert.ok(s.player.x <= 4.75 - s.player.radius + 1e-8);
   close(s.diagnostics.fuel.pouredFuel, s.player.travelled * 0.08);
   const remaining = s.player.inventory.gas; s = run(sim, 0.5); close(s.player.inventory.gas, remaining);
   sim.dispatch({type: 'move', x: 1, y: 1}); s = run(sim, 0.5); assert.ok(s.player.y > 5.25);

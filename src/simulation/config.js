@@ -1,14 +1,14 @@
 // Tunable TB-004 prototype values. Metres, seconds, HP and litres (fuel).
 export const DEFAULT_CONFIG = Object.freeze({
   step: 1 / 60, maxCatchUp: 0.25,
-  player: {speed: 3, radius: 0.23, maxHp: 100},
+  player: {speed: 3, radius: 0.56, maxHp: 100},
   input: {cameraRelative: true, cameraX: 10, cameraY: 12},
   drugs: {duration: 8, playerScale: 1.5, worldScale: 0.35, healing: 35},
   fuel: {gasPerMetre: 0.08, gasBurnRate: 0.018, surfaceBurnRate: 0.025, surfaceDensity: {grass: 0.32, wood: 1.2}},
   fire: {frontSpeed: 4, heatRate: 40, cooling: 0.3, damagePerSecond: 18,
     ignition: {gas: 0.6, grass: 0.85, wood: 1.1}, maxHeat: 4, burnHeat: 1.5, minIntensity: 0.5, intensityRise: 3, damageHeatStart: 0.4, damageHeatSpan: 1.6},
   tools: {
-    emissionClock: 'player', matches: {range: 0.85, radius: 0.3, heat: 1.8},
+    emissionClock: 'player', presentationHeight: 1.05, matches: {range: 0.85, radius: 0.3, heat: 1.8},
     torch: {range: 1.1, radius: 0.4, heatPerSecond: 9, fuelPerSecond: 0.12},
     flamethrower: {range: 4.5, halfAngle: Math.PI / 8, heatPerSecond: 12, fuelPerSecond: 0.3},
     molotov: {range: 6, speed: 7, radius: 0.9, fuel: 0.3, heat: 2.2}

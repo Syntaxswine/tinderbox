@@ -13,6 +13,7 @@
     "id": "bear",
     "x": 1.2304663838792136,
     "y": 1.0579446801006558,
+    "radius": 0.56,
     "heading": -0.694738276196702,
     "moving": true,
     "hp": 100,
@@ -702,6 +703,21 @@
     }
   ],
   "actors": [],
+  "discharge": {
+    "version": 1,
+    "tick": 6,
+    "active": false,
+    "tool": null,
+    "origin": null,
+    "shapeOrigin": null,
+    "heading": 0,
+    "range": 0,
+    "radius": 0,
+    "halfAngle": 0,
+    "connectRays": false,
+    "rays": [],
+    "lead": null
+  },
   "events": [
     {
       "id": 1,

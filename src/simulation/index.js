@@ -3,6 +3,7 @@ import {scenarioDefinition} from './fixtures.js';
 import {HeatField, materialAt} from './field.js';
 import {clamp, normalized, movementVector, moveDisc, distance, lineClear, freePoint} from './geometry.js';
 import {discreteTool, heldTool, projectilesStep} from './tools.js';
+import {inactiveDischarge} from './discharge.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
@@ -19,6 +20,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
   }
   function clearInput(reason) {
     const pouring = state.player.pouring;
+    state.discharge = inactiveDischarge(state.tick);
     state.input = {move: {x: 0, y: 0}, primary: false};
     state.player.pouring = state.player.moving = state.player.usingTool = false;
     if (pouring) event('pour', state.player, {active: false, reason});
@@ -30,7 +32,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     for (const value of Object.values(inventory)) if (!Number.isFinite(value) || value < 0) throw Error('Invalid initial stock');
     state = {tick, paused: false, seed, events: [], input: {move: {x: 0, y: 0}, primary: false},
       clocks: {active: 0, player: 0, world: 0, playerScale: 1, worldScale: 1},
-      player: {id: 'bear', x: start.x, y: start.y, heading: 0, moving: false,
+      player: {id: 'bear', x: start.x, y: start.y, radius: config.player.radius, heading: 0, moving: false,
         hp: clamp(start.hp ?? config.player.maxHp, 0, config.player.maxHp), maxHp: config.player.maxHp,
         tool: start.tool ?? 'matches', pouring: false, usingTool: false, inventory, travelled: 0},
       effects: {powder: {expiresAt: 0}, inversion: {expiresAt: 0}},
@@ -38,7 +40,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       actors: def.actors.map(a => ({...a, route: a.route?.map(p => ({...p})) ?? [{x: a.x, y: a.y}],
         routeIndex: a.route?.length > 1 ? 1 : 0, heading: 0, moving: false, hp: a.hp ?? 100, travelled: 0})),
       aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y},
-      projectiles: [], projectileSequence: 0, acceptedPath: [{x: start.x, y: start.y}]};
+      discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, acceptedPath: [{x: start.x, y: start.y}]};
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     state.tiles = [];
     for (let y = 0; y < def.height; y += def.tileSize) for (let x = 0; x < def.width; x += def.tileSize) {
@@ -58,7 +60,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     if (command.type === 'cancel-input') { clearInput('cancel-input'); return; }
     if (command.type === 'select-tool') {
       if (p.tool !== command.tool) {
-        state.input.primary = false; p.usingTool = false;
+        state.input.primary = false; p.usingTool = false; state.discharge = inactiveDischarge(state.tick);
         if (p.pouring) event('pour', p, {active: false, reason: 'tool-change'});
         p.pouring = false; p.tool = command.tool; event('tool-selected', p, {tool: p.tool});
       }
@@ -131,7 +133,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     const due = commands.filter(c => c.atTick <= state.tick).sort((a, b) => a.atTick - b.atTick || a.sequence - b.sequence);
     commands = commands.filter(c => c.atTick > state.tick);
     for (const command of due) if (apply(command) === 'reset') break;
-    const p = state.player; p.moving = p.usingTool = false;
+    const p = state.player; p.moving = p.usingTool = false; state.discharge = inactiveDischarge(state.tick);
     if (state.paused) return;
     const powder = activeEffect('powder'), inverted = activeEffect('inversion');
     const playerScale = powder ? config.drugs.playerScale : 1, worldScale = powder ? config.drugs.worldScale : 1;
@@ -140,7 +142,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     if (p.hp > 0) {
       const direction = movementVector(state.input.move, inverted, config.input);
       const path = moveDisc(p, direction.x * config.player.speed * playerDelta, direction.y * config.player.speed * playerDelta,
-        config.player.radius, definition, state.obstacles, field.size);
+        p.radius, definition, state.obstacles, field.size);
       state.acceptedPath = path;
       let walked = 0;
       for (let i = 1; i < path.length; i++) {
@@ -152,7 +154,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
         }
       }
       if (walked > EPS) { const end = path.at(-1); p.heading = Math.atan2(end.y - p.y, end.x - p.x); p.x = end.x; p.y = end.y; p.moving = true; p.travelled += walked; }
-      heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event);
+      heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition);
     }
     for (const actor of state.actors) actorStep(actor, worldDelta);
     projectilesStep(state, field, config, worldDelta, event);
@@ -180,7 +182,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
         obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => ({...o}))},
       cells, actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
-      events: state.events.map(e => ({...e})), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
+      discharge: structuredClone(state.discharge), events: state.events.map(e => ({...e})), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
         acceptedPath: state.acceptedPath.map(p => ({...p})), fuel: {...field.stats,
           remainingDepositedFuel: cells.reduce((sum, c) => sum + c.depositedFuel, 0)},

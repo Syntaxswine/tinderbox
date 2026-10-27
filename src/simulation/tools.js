@@ -1,4 +1,5 @@
 import {distance, impactPoint, clamp} from './geometry.js';
+import {resolveDischarge, inactiveDischarge} from './discharge.js';
 export function aimHeading(player, aim) { return Math.atan2(aim.y - player.y, aim.x - player.x); }
 export function localPoint(player, aim, range) {
   const heading = aimHeading(player, aim), reach = Math.min(range, distance(player, aim));
@@ -26,7 +27,7 @@ export function discreteTool(state, field, config, event) {
     state.projectiles.push(projectile); event('tool-use', p, {tool, projectileId: projectile.id});
   }
 }
-export function heldTool(state, field, config, delta, event) {
+export function heldTool(state, field, config, delta, event, world) {
   const p = state.player, tool = p.tool;
   p.usingTool = false;
   if (!state.input.primary || !['torch', 'flamethrower'].includes(tool)) return;
@@ -39,7 +40,15 @@ export function heldTool(state, field, config, delta, event) {
   if (tool === 'torch') {
     const point = impactPoint(p, localPoint(p, state.aim, spec.range), state.obstacles);
     field.emit(point, spec.radius, heat, tool);
-  } else field.cone(p, p.heading, spec.range, spec.halfAngle, heat, tool);
+    state.discharge = resolveDischarge(state, config, world, point);
+  } else {
+    field.cone(p, p.heading, spec.range, spec.halfAngle, heat, tool);
+    state.discharge = resolveDischarge(state, config, world);
+  }
+  if (p.inventory[key] <= 1e-10) {
+    p.inventory[key] = 0; state.input.primary = false; p.usingTool = false;
+    state.discharge = inactiveDischarge(state.tick); event('tool-empty', p, {tool});
+  }
 }
 export function projectilesStep(state, field, config, delta, event) {
   const spec = config.tools.molotov, alive = [];
