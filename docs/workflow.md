@@ -31,7 +31,7 @@ Review both audit commits against the pinned source. Resolve inconsistent paths,
 
 Initial status: TB-001 and TB-002 are reviewed and promoted to integration. TB-003 is recorded in the [architect review](reviews/2026-10-27-reuse-foundation.md) and [reconciled reuse plan](reuse-plan.md). No runtime or asset import is promoted by these documentation approvals.
 
-## Active implementation assignments
+## Opening implementation assignments
 
 The shared brief, APIs, ownership and acceptance criteria are in [Milestone 01: the burning trail](milestones/01-burning-trail.md).
 
@@ -43,6 +43,21 @@ The shared brief, APIs, ownership and acceptance criteria are in [Milestone 01: 
 | TB-007 | Architect | Reconcile handoffs, assemble the scene, run combined behavior/visual checks, and decide promotion |
 
 Assignments may be developed concurrently because their owned files and public interfaces are separate. Prototype workbenches are explicitly labelled. No candidate merges itself to `master`.
+
+TB-004 through TB-007 are approved as the [opening mechanics test](reviews/2026-10-27-burning-trail.md).
+
+## Active exposition assignments
+
+The bounded result, APIs, ownership and acceptance criteria are in [Milestone 02: researched exposition construction kit](milestones/02-exposition-foundation.md).
+
+| Task | Owner | Delivery |
+| --- | --- | --- |
+| TB-008 | Coder | Shared wall/door/roof content and collision, inherited normal horse/goat adapter, verified city imports and tests |
+| TB-009 | Artist | Original-plan/photo study, basic forms and replaceable material slots, direct civilian presentation and visual review |
+| TB-010 | UI specialist | Original site-plan/wayfinding evidence and continued inherited UI foundation; no new menu system |
+| TB-011 | Architect | Reconcile sources, integrate exact candidates, review the actual scene and decide promotion/deployment |
+
+The architect's review branch is `codex/exposition-foundation`. Worker ownership/worktrees remain as recorded above. Historical research is [indexed separately](research/1893-exposition/README.md), with original sources, uncertainties and game adaptations distinguished.
 
 ## Promotion gate
 

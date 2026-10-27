@@ -4,6 +4,14 @@ The user selected Chicago's World's Columbian Exposition as Tinderbox's setting 
 
 The first implementation is a small exterior construction-kit scene. Its arrangement is a game adaptation. It is not a claim to reproduce the entire fair, a surveyed historic location, or an architect's complete construction drawing set.
 
+The combined dossier has three linked registers:
+
+- [Architect's source classification and initial evidence](sources.json).
+- [Artist's original plan/photo study](../../art/exposition/README.md), [form/skin specifications](../../art/exposition/kit-design.md) and [source register](../../art/exposition/sources.json).
+- [UI specialist's original site-plan and wayfinding study](../../ui/exposition/README.md), [interface continuity](../../ui/exposition/interface-foundation.md) and [source register](../../ui/exposition/sources.json).
+
+For source-to-code traceability, see the [engineering extraction audit](../../engineering/exposition/source-audit.md) and [exact module/civilian contract](../../engineering/exposition/contract.md). Historical sources and Farmyard code/asset provenance are different records.
+
 ## Evidence rules
 
 1. Begin with an identified original drawing, dated map, contemporary photograph or original publication. Record the repository, item ID, creator, date, page/plate, stable item URL, accessible scan and rights statement. A modern article is a discovery aid or interpretation, not an original plan.
@@ -39,6 +47,10 @@ pdftoppm -f 31 -l 31 -singlefile -scale-to 2200 -png artifacts/research/expositi
 ```
 
 The one-based scan 34 Fisheries description was also rendered and visually read. It identifies the central building, two polygonal wings connected by arcades and Spanish-tile roof treatment. No precise arcade-bay dimensions or roof pitch were inferred from that description.
+
+The architect also inspected the artist's rendered McKim, Mead & White New York State Building plate 44 (first-floor plan/elevation with foot scales) and plate 43 photograph. This is a later architect-published record of the 1893 work, not an 1893 printing. It is a useful future measured-building exemplar, with fine numerals left unresolved where illegible. The Administration front-half plan and New York complete first-floor plan must not be conflated.
+
+The UI specialist's inspected Smithsonian map and Flinn guide were independently checked and copied from its temporary research cache into `artifacts/research/exposition/ui/`. The two PDFs match the worker's recorded SHA-256 values. The map's complete exposition sheet is PDF page 4 and prints 580 feet to one inch; the court detail locates Administration west of the Basin. Flinn's printed p. 17 / PDF page 23 promises directing signs/placards, rather than specifying their graphic design. These original records are useful for a future geographically anchored crop; the present kit is still the documented frontage study.
 
 Documentation, cached research and review workbenches are excluded from the public package. Keep sources retrievable by stable archive URL and item ID so local caches are a convenience, not the sole surviving evidence.
 
