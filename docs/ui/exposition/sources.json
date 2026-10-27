@@ -1,0 +1,481 @@
+{
+  "schemaVersion": 1,
+  "task": "TB-010",
+  "researchedOn": "2026-10-27",
+  "branch": "codex/ui-design",
+  "integrationBase": "420266af6b92a4925164cdceda4ef43beb2d6a40",
+  "scope": "Research/documentation only under docs/ui/exposition/. No runtime or art imports.",
+  "evidenceClasses": {
+    "visuallyInspected": "Original scan pixels reviewed by this worker; observations limited to the stated sheet/pages.",
+    "catalogueOnly": "Institutional description inspected; original image not inspected or no detail inferred.",
+    "architectReported": "Explicit architect inspection handoff; not independently repeated here.",
+    "derived": "Arithmetic or interpretation, not a printed historical measurement.",
+    "proposal": "Game adaptation requiring architect acceptance."
+  },
+  "sources": [
+    {
+      "id": "M01",
+      "title": "Rand, McNally & Co.'s handy map of Chicago and the World's Fair, 1893",
+      "institution": "Smithsonian Libraries and Archives",
+      "creator": "Rand McNally and Company",
+      "publication": {
+        "date": "c1893",
+        "place": "[Chicago?]",
+        "publisher": "Rand, McNally & Co.",
+        "dateBasis": "Institutional catalogue; map sheet itself reads Chicago, 1893."
+      },
+      "identifiers": {
+        "doi": "10.5479/sil.776754.39088011383783",
+        "smithsonianBib": "776754",
+        "barcode": "39088011383783",
+        "internetArchive": "randmcnallycosh00randa",
+        "ark": "ark:/13960/t9n36qf3f",
+        "shelfmarkOnScan": "G 4104.C6:2W95 1893 R36"
+      },
+      "links": {
+        "record": "https://library.si.edu/digital-library/book/randmcnallycosh00randa",
+        "persistent": "https://doi.org/10.5479/sil.776754.39088011383783",
+        "archive": "https://archive.org/details/randmcnallycosh00randa",
+        "metadata": "https://archive.org/metadata/randmcnallycosh00randa",
+        "pdf": "https://archive.org/download/randmcnallycosh00randa/randmcnallycosh00randa.pdf#page=4"
+      },
+      "evidenceClass": "visuallyInspected",
+      "locators": [
+        {
+          "pdfPage": 1,
+          "printedPage": null,
+          "content": "Library identifier leaf"
+        },
+        {
+          "pdfPage": 2,
+          "printedPage": null,
+          "content": "Advertisement"
+        },
+        {
+          "pdfPage": 3,
+          "printedPage": null,
+          "content": "Chicago city side; not the fairgrounds calibration"
+        },
+        {
+          "pdfPage": 4,
+          "printedPage": null,
+          "content": "Complete unnumbered fairground sheet; title/scale, border grid, General Index, Administration at N-18 and its east approach"
+        }
+      ],
+      "observed": {
+        "printedScale": "580 Feet to 1 Inch",
+        "scaleBar": true,
+        "northArrow": true,
+        "indexGroups": [
+          "General",
+          "Midway Plaisance",
+          "State Sites and Buildings",
+          "Foreign Sites and Buildings",
+          "Other Buildings and Arrangements"
+        ],
+        "administrationIndex": "N-18",
+        "administrationAnnotation": "250 sq.",
+        "materialLegend": "No construction/fire-material legend identified on this inspected sheet."
+      },
+      "derived": {
+        "representativeFraction": "1:6960",
+        "metresPerCentimetreOnUndistortedOriginal": 69.6,
+        "basis": "580 feet per inch; modern game-unit conversion of 0.3048 m/foot. No site distances measured."
+      },
+      "rights": {
+        "statement": "Smithsonian digital-library record labels the content CC0 and public domain; linked IA metadata also describes public-domain status.",
+        "source": "https://library.si.edu/digital-library/book/randmcnallycosh00randa",
+        "scope": "Institutional statements recorded; no historical pixels imported into game assets."
+      },
+      "inspectedDownload": {
+        "bytes": 1420985,
+        "sha256": "eb225fd2fa6a4f67bbe878753ea3f57b4e7ba5548e4617205d0b7682afe96c27",
+        "pdfPages": 4
+      },
+      "limits": [
+        "Commercial visitor plan, not a construction/as-built survey.",
+        "Printed annotations and folded scan do not establish precise clearances or elevations.",
+        "A displayed web inch is not an original physical inch."
+      ]
+    },
+    {
+      "id": "M02",
+      "title": "Rand, McNally and Co.'s Handy Map of Chicago and the World's Fair; Standard Guide Map of the World's Columbian Exposition in Chicago, 1893",
+      "institution": "Tennessee State Library & Archives",
+      "creator": "Rand McNally and Company",
+      "publication": {
+        "date": "1893",
+        "dateBasis": "Institutional catalogue"
+      },
+      "identifiers": {
+        "accession": "1992-085",
+        "mapId": "45951",
+        "imageLabel": "45951_002",
+        "item": "p15138coll23/10512",
+        "compoundObject": "p15138coll23/10513",
+        "storage": "XIV-J-2, Box 6, Folder 2",
+        "collection": "Clara Whorley Hasslock Papers, 1884-1973"
+      },
+      "links": {
+        "record": "https://teva.contentdm.oclc.org/digital/collection/p15138coll23/id/10512/",
+        "manifest": "https://teva.contentdm.oclc.org/iiif/info/p15138coll23/10513/manifest.json",
+        "image": "https://cdm15138.contentdm.oclc.org/iiif/2/p15138coll23:10512/full/full/0/default.jpg"
+      },
+      "evidenceClass": "visuallyInspected",
+      "locator": "Second manifest canvas, canvas/c1, image 45951_002; unpaginated fairgrounds verso.",
+      "observed": {
+        "printedScale": "580 Feet to 1 Inch",
+        "imagePixels": [
+          2142,
+          1458
+        ],
+        "sheetContent": "Complete fairground layout, border grid and index groups."
+      },
+      "rights": {
+        "statement": "No copyright - United States",
+        "uri": "http://rightsstatements.org/vocab/NoC-US/1.0/",
+        "source": "Institutional IIIF manifest and item record",
+        "credit": "Tennessee State Library & Archives"
+      },
+      "inspectedDownload": {
+        "bytes": 881245,
+        "sha256": "98671dbd8eb8c2acf4061dc185ce77cc5d4511c84e8e95882766594fdec4396b"
+      },
+      "limits": [
+        "Separate scan of the same map family, not independent surveyed geometry."
+      ]
+    },
+    {
+      "id": "M03",
+      "title": "Rand, McNally & Co.'s New Indexed Standard Guide Map of the World's Columbian Exposition at Chicago (Ill.), 1893",
+      "institution": "Lewis University / CARLI",
+      "creator": "Rand McNally and Co.",
+      "publication": {
+        "date": "1893",
+        "dateBasis": "Catalogue Date (Original)"
+      },
+      "identifiers": {
+        "collection": "lew_map",
+        "item": "24",
+        "identifier": "ColumbianExpomap-1893"
+      },
+      "links": {
+        "record": "https://collections.carli.illinois.edu/digital/collection/lew_map/id/24/"
+      },
+      "evidenceClass": "catalogueOnly",
+      "locator": "Single unpaginated map; full sheet not visually inspected.",
+      "catalogueStatements": {
+        "physicalSize": "49 x 35 cm",
+        "scale": "1 in. : 610 ft.",
+        "indexes": "Foreign, Midway, state and general indexes described."
+      },
+      "rights": {
+        "statement": "Copyright Undetermined; record requests permission for reproduction/distribution/use.",
+        "uri": "http://rightsstatements.org/vocab/UND/1.0/"
+      },
+      "limits": [
+        "No measurements taken.",
+        "Do not transfer this copy's catalogued scale to M01/M02."
+      ]
+    },
+    {
+      "id": "P01",
+      "title": "Map of Jackson Park showing proposed improvements for World's Columbian Exposition, 1893",
+      "institution": "Library of Congress",
+      "publication": {
+        "date": "1891",
+        "dateBasis": "LOC catalogue; 1893 in title is not publication date."
+      },
+      "identifiers": {
+        "locItem": "2018695444"
+      },
+      "links": {
+        "record": "https://www.loc.gov/item/2018695444/"
+      },
+      "evidenceClass": "catalogueOnly",
+      "locator": "One map print; image and scale not inspected.",
+      "rights": {
+        "statement": "LOC general rights notice observed; no item-specific reuse determination verified in this task."
+      },
+      "limits": [
+        "Planning-stage evidence only; not evidence of every built 1893 condition.",
+        "Direct page access returned 403; official indexed catalogue metadata identified the item/date."
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "World's Columbian Exposition, insurance diagram: showing the Midway Plaisance and buildings adjacent to Jackson Park",
+      "institution": "Special Collections Research Center, Henry Madden Library, California State University, Fresno",
+      "creator": "United States, World's Columbian Commission",
+      "publication": {
+        "date": "1892-11",
+        "place": "Chicago",
+        "publisher": "[World's Columbian Commission]",
+        "dateBasis": "Archive metadata: Nov 1892"
+      },
+      "identifiers": {
+        "archiveReference": "Speci EXP 893.map 7 sheet 1-2",
+        "platformId": "HMLSC_map_EXP893-map7sheet1-2"
+      },
+      "links": {
+        "record": "https://www.worldsfairs.amdigital.co.uk/Documents/Details/World-s-Columbian-Exposition--insurance-diagram--showing-the-Midway-Plaisance-and-buildings/HMLSC_map_EXP893-map7sheet1-2"
+      },
+      "evidenceClass": "catalogueOnly",
+      "locator": "Sheets 1-2; full images institution-gated and not requested.",
+      "catalogueStatements": {
+        "sheet1": "Northern/southern continuation maps.",
+        "sheet2": "Building construction and fire/water services, hose reels and stand-pipes; labelled dimensions.",
+        "colorCoding": "Colours described as representing construction materials."
+      },
+      "rights": {
+        "statement": "Catalogue copyright attribution: Special Collections Research Center, Henry Madden Library, California State University, Fresno; institutional access restriction."
+      },
+      "limits": [
+        "No sheet pixels inspected, dimensions extracted, scale calibrated or colour/material legend transcribed."
+      ]
+    },
+    {
+      "id": "G01",
+      "title": "Official guide to the World's Columbian exposition, handbook edition",
+      "creator": "John J. Flinn, compiler",
+      "institution": "University of Pittsburgh Library System / Internet Archive",
+      "publication": {
+        "date": "1893",
+        "place": "Chicago",
+        "publisher": "The Columbian Guide Company",
+        "edition": "Hand book edition; 192, [2] pages",
+        "dateBasis": "Archive metadata and inspected title page; no month/day of publication asserted."
+      },
+      "identifiers": {
+        "internetArchive": "officialguidetow00flin",
+        "ark": "ark:/13960/t4fn1k186",
+        "libraryCallNumber": "31735060220559",
+        "oclc": "562073"
+      },
+      "links": {
+        "record": "https://archive.org/details/officialguidetow00flin",
+        "metadata": "https://archive.org/metadata/officialguidetow00flin",
+        "pdf": "https://archive.org/download/officialguidetow00flin/officialguidetow00flin.pdf#page=23"
+      },
+      "evidenceClass": "visuallyInspected",
+      "locators": [
+        {
+          "pdfPage": 9,
+          "printedPage": null,
+          "heading": "Title/edition/authority leaf"
+        },
+        {
+          "pdfPage": 23,
+          "printedPage": "17",
+          "heading": "Introductory",
+          "observations": "Guide says visitors will find directing signs/placards on grounds and in buildings; describes information assistance."
+        },
+        {
+          "pdfPage": 24,
+          "printedPage": "18",
+          "heading": "Ten Suggestions for Visitors",
+          "observations": "Visitor information and posted-announcement provisions."
+        }
+      ],
+      "rights": {
+        "statement": "No explicit rights field found in the retrieved IA metadata. Record gives original publication as 1893. No pixel reuse licence is asserted by this document.",
+        "scope": "Research reference; no source pixels imported or reproduced in this candidate."
+      },
+      "inspectedDownload": {
+        "bytes": 15084645,
+        "sha256": "7ec382225cde5e2d998c6fb5901a379704d4221fb3d2456280fc36b16bd6e615",
+        "pdfPages": 206
+      },
+      "limits": [
+        "Do not transfer page locators to the separate 301-page edition.",
+        "A guide's visitor directions are not proof of a standardized physical sign design or complete installation.",
+        "Referenced foldout maps were not inspected in this book scan."
+      ]
+    },
+    {
+      "id": "T01",
+      "title": "Ticket to the World's Columbian Exposition, Expressly for Manhattan Day, Oct. 21st 1893",
+      "institution": "Cooper Hewitt, Smithsonian Design Museum",
+      "publication": {
+        "date": "1893",
+        "eventDate": "1893-10-21",
+        "place": "New York, USA",
+        "dateBasis": "Institutional catalogue"
+      },
+      "identifiers": {
+        "accession": "1968-48-1",
+        "edan": "edanmdm:chndm_1968-48-1",
+        "ark": "ark:/65665/kq42286cdeb-e394-4742-9b7c-efaccd7acd7a"
+      },
+      "links": {
+        "record": "https://collections.si.edu/search/detail/edanmdm:chndm_1968-48-1",
+        "persistent": "https://n2t.net/ark:/65665/kq42286cdeb-e394-4742-9b7c-efaccd7acd7a"
+      },
+      "evidenceClass": "catalogueOnly",
+      "locator": "Single unpaginated ticket; image not inspected.",
+      "catalogueStatements": {
+        "medium": "Offset lithograph on wove paper",
+        "dimensions": "5.3 x 10.2 cm",
+        "format": "Horizontal",
+        "serial": "203857",
+        "catalogueStatus": "Research in Progress"
+      },
+      "rights": {
+        "statement": "CC0",
+        "source": "Institutional record Restrictions & Rights field"
+      },
+      "limits": [
+        "No font, colour or ornament inferred from uninspected pixels.",
+        "Specific to Manhattan Day; not a generic all-season ticket."
+      ]
+    },
+    {
+      "id": "T02",
+      "title": "World's Columbian Exposition Chicago Admission Ticket",
+      "institution": "Mississippi State University Libraries, Frank and Virginia Williams Collection of Lincolniana",
+      "creator": "American Banknote Company",
+      "publication": {
+        "date": "ca. 1893",
+        "printedValidity": "May 1 to October 30, 1893",
+        "dateBasis": "Catalogue approximate creation date and inscription transcription"
+      },
+      "identifiers": {
+        "physicalId": "2794",
+        "digitalId": "FVW_02794",
+        "catalogueItem": "fvw-artifacts/81"
+      },
+      "links": {
+        "record": "https://scholarsjunction.msstate.edu/fvw-artifacts/81/"
+      },
+      "evidenceClass": "catalogueOnly",
+      "locator": "Catalogue's recto/verso inscription fields; ticket pixels not inspected.",
+      "catalogueStatements": {
+        "medium": "Ink on paper; engraved admission ticket",
+        "dimensions": "2 1/4 x 3 7/8 inches",
+        "portrait": "Abraham Lincoln",
+        "contentHierarchy": "Exposition title, validity, serial and admission condition are separately transcribed."
+      },
+      "rights": {
+        "statement": "Institution states copyright protected by Mississippi State University Libraries and permission required for publication/reproduction.",
+        "scope": "Metadata reference only; no scan copied into repository or game assets."
+      }
+    },
+    {
+      "id": "A01",
+      "externalArchitectId": "EXPO-A02",
+      "title": "Hunt/Riquois Administration elevation and front-half plan",
+      "institution": "Library of Congress",
+      "publication": {
+        "date": "1893",
+        "dateBasis": "Architect-reported catalogue review"
+      },
+      "identifiers": {
+        "locItem": "2024636088",
+        "resource": "ppmsca.73183"
+      },
+      "links": {
+        "record": "https://www.loc.gov/item/2024636088/",
+        "persistent": "https://hdl.loc.gov/loc.pnp/ppmsca.73183"
+      },
+      "evidenceClass": "architectReported",
+      "locator": "Lower plan explicitly FRONT HALF (MOITIE ANTERIEURE); not a whole-building plan.",
+      "architectReported": {
+        "architect": "Richard Morris Hunt",
+        "delineator": "A. Riquois",
+        "publication": "Semaine des Constructeurs",
+        "features": "Central dome, symmetric corner pavilions and rounded front openings",
+        "ruler": "Visible but uncalibrated"
+      },
+      "rights": {
+        "statement": "No known restrictions on publication, as reported by architect from the catalogue; not independently repeated by this worker."
+      },
+      "limits": [
+        "No complete footprint, exact dimensions or unseen half reconstructed from this record.",
+        "Current kit remains the architect-reported Horticulture-derived frontage form study."
+      ]
+    }
+  ],
+  "donorReferences": [
+    {
+      "path": "sites/tactical-animal/dist/game.html",
+      "revision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "106b8cef84728459dc6e6d64bc9c9ef64e3479796307da232b087eeec3e6111b",
+      "bytes": 10366
+    },
+    {
+      "path": "sites/tactical-animal/dist/touch-controls.css",
+      "revision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "27b7c45a74c45ee3d8c23f9baa84961e73baf99285e2f413562280ec0a343ef2",
+      "bytes": 10486
+    },
+    {
+      "path": "sites/tactical-animal/dist/field-hardware.css",
+      "revision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "dd6accfe14fff84077dd362124e4895ce180e149647e9567f97a827ee190f900",
+      "bytes": 3210
+    },
+    {
+      "path": "sites/tactical-animal/dist/industrial-switches.css",
+      "revision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "54f98dead8cd3fb197f20cfe4f337e9a8082f2990f174edbbfa8a0a5e7c5377b",
+      "bytes": 5967
+    },
+    {
+      "path": "sites/tactical-animal/dist/map-frame.css",
+      "revision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "51d64eebd2ba6a52c4ec2c47e7ce3d0aa9b348043a52ecf49e0e354880b23753",
+      "bytes": 1191
+    },
+    {
+      "path": "sites/tactical-animal/dist/mobile-controls.js",
+      "revision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "886de37086f38e8ba77264da1c0624fdb3a84567e1ae9779ac0b971978f02122",
+      "bytes": 2301
+    },
+    {
+      "path": "sites/tactical-animal/dist/aft/tactics/animal-motion-catalog.js",
+      "revision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "b8215ef64b97009e59030316de996e610c2b73dec92aa3c5ce69e239025f53cd",
+      "bytes": 4242
+    }
+  ],
+  "proposedLocation": {
+    "accepted": false,
+    "workingName": "Administration east forecourt",
+    "anchorSource": "M01",
+    "anchorIndex": "N-18",
+    "placement": "A small paving/facade crop east of Administration, west of the Basin.",
+    "currentFixtureMetres": [
+      20,
+      16
+    ],
+    "extentMeaning": "Game crop only, not a historical forecourt measurement.",
+    "geometryStatus": "No trace, survey, whole-building footprint or facade dimensions produced.",
+    "approvalMeaning": "The architect accepts the future historical anchor; the exact crop remains unapproved. accepted:false applies to the exact scene crop.",
+    "currentScene": "Horticulture-derived frontage form study, as reported in the architect's milestone02 handoff; not the Administration forecourt."
+  },
+  "immutableGameplay": {
+    "tools": [
+      "matches",
+      "jerry-can",
+      "molotov",
+      "torch",
+      "flamethrower"
+    ],
+    "drugs": [
+      "powder",
+      "healing",
+      "inversion"
+    ],
+    "movement": "Raw stick; 180-degree inversion remains in the movement adapter exactly once.",
+    "uiFactory": "mountUI({root,onCommand}) -> {update,dispose}",
+    "hudChangeInThisTask": false
+  },
+  "verification": {
+    "pdfRendering": "Poppler pdftoppm; M01 full page/detail renders, G01 title and printed pp.17-18 visually inspected.",
+    "extraction": "pypdf used only to find page text; source observations checked against page images.",
+    "externalAccess": "Public records, IIIF manifests/derivatives and linked IA scans. Some institutional pages returned 403/JavaScript wrappers; those limitations are explicit per source. No institution-gated image requested.",
+    "runtimeTests": "Not run: documentation-only change.",
+    "helpers": "Only short-lived retrieval/render commands; no preview server or retained helper."
+  }
+}
