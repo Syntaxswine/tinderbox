@@ -11,6 +11,7 @@
 - Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
 - Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. Interiors may come later. Combine tile-based world structure with free movement.
 - Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
+- Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
 
 ## Reuse-first technical direction
 
@@ -48,3 +49,5 @@ A useful subsequent validation scene would put a bear, inherited UI, a flamethro
 ## Decisions still open
 
 The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, bear appearance, progression, precise balancing, and later interior gameplay remain open. Do not import the donor's turn/AP rules as Tinderbox requirements.
+
+The [exposition foundation](milestones/02-exposition-foundation.md) establishes the next bounded kit/research assignment. The [source dossier](research/1893-exposition/README.md) is the authority for historical evidence; prototype game arrangements are labelled separately from exact named-building reconstructions.
