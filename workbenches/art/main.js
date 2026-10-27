@@ -46,14 +46,14 @@ $('tool').addEventListener('change',e=>{tool=e.target.value;drawAt(reviewTime);}
 $('guides').addEventListener('change',()=>drawAt(reviewTime));
 const resize=new ResizeObserver(()=>{cameraFrame();drawAt(reviewTime);});resize.observe(stage);
 try{
-  art=await createArtScene({THREE,scene});$('loading').remove();
+  art=await createArtScene({THREE,scene,renderer});$('loading').remove();
   for(const name of ['grip','muzzle','spout']){const label=document.createElement('span');label.className='anchor-tag';label.textContent=name.toUpperCase();$('anchor-labels').append(label);labels.set(name,label);}
   setFixture(new URLSearchParams(location.search).get('fixture')||'front');
   window.artWorkbench={ready:true,scene,camera,renderer,THREE,createArtScene,
     setFixture,drawAt,get snapshot(){return structuredClone(lastSnapshot);},get art(){return art;},
     diagnostics:()=>({art:art.diagnostics(),renderer:JSON.parse(JSON.stringify(renderer.info.memory)),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,viewport:[innerWidth,innerHeight],canvas:[stage.clientWidth,stage.clientHeight]}),
     pause(){playing=false;$('play').textContent='Play review';},
-    async recreate(){art.dispose();renderer.render(scene,camera);art=await createArtScene({THREE,scene});drawAt(reviewTime);},
+    async recreate(){art.dispose();renderer.render(scene,camera);art=await createArtScene({THREE,scene,renderer});drawAt(reviewTime);},
     render(){renderer.render(scene,camera);},
     async validate(){
       playing=false;const errors=[],check=(ok,msg)=>{if(!ok)errors.push(msg);};
@@ -130,7 +130,7 @@ try{
       check(counts.slice(2).every((m,i)=>m.geometries===counts[i%2+2].geometries&&m.textures===counts[i%2+2].textures),'World/actor rebuild resources grew');
       art.dispose();art.dispose();renderer.render(scene,camera);const disposed={...renderer.info.memory};
       check(disposed.geometries===0&&disposed.textures===0,'Dispose retained GPU resources');
-      art=await createArtScene({THREE,scene});
+      art=await createArtScene({THREE,scene,renderer});
       const history=fixtureSnapshot('burst',4.3);history.events=[{id:999,tick:0,type:'barrel-explosion',x:8,y:7}];
       art.update(history,timingFor(history));check(art.diagnostics().fire.burstCards===0,'Undated startup history replayed');
       history.tick++;history.events=[{id:1000,tick:history.tick,type:'barrel-explosion',x:8,y:7}];art.update(history,timingFor(history));check(art.diagnostics().fire.burstCards>0,'New event after startup cursor did not play');
