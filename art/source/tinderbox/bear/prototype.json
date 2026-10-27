@@ -1,8 +1,8 @@
 {
   "id": "tinderbox-bear-prototype-01",
-  "status": "provisional",
+  "status": "provisional-mechanics-test",
   "source": "src/art/bear.js",
-  "sha256": "5e3bb5cbb76273d8476f19158014b3044505f00f52bb95d9346440bf12c10ea5",
+  "sha256": "6b01f6baa79cec2c24f33a3416fd93ba71aca6dc283b42614275bb2cbbad4e52",
   "authoring": "Original code-native Three.js geometry and material assignment; no generated bitmap master",
   "units": "metres",
   "neutralForward": "ground +X",
@@ -22,5 +22,7 @@
     "spout",
     "backpack"
   ],
-  "finishedArt": false
+  "finishedArt": false,
+  "footprint": "Rendering follows authoritative player.radius; no art collision rule",
+  "dischargeVisibility": "Conservative active handheld visibility uses supplied discharge shape only"
 }

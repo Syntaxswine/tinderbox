@@ -6,7 +6,13 @@ export const FIXTURES=Object.freeze([
   {id:'spent',label:'04 / SPENT GROUND',title:'What the fire leaves',copy:'Authoritative spent cells: darkened ground without an endlessly burning effect. Fixture only.'},
   {id:'powder',label:'05 / TWO CLOCKS',title:'Gain a little distance',copy:'Player clock ×1.5, world clock ×0.35. Authored motion compares animation domains; this is not a gameplay test.'},
   {id:'bear',label:'06 / BEAR & GRIPS',title:'A provisional troublemaker',copy:'Original procedural bear, five equipped tools, and grip/muzzle/spout anchors. Prototype appearance.'},
-  {id:'burst',label:'07 / RESOLVED EVENT',title:'One event, one burst',copy:'A labelled explosion fixture. Repeated event IDs do not restart the presentation. Damage is outside this workbench.'}
+  {id:'burst',label:'07 / RESOLVED EVENT',title:'One event, one burst',copy:'A labelled explosion fixture. Repeated event IDs do not restart the presentation. Damage is outside this workbench.'},
+  {id:'corner',label:'08 / CORNER CLEARANCE',title:'Room for the shoulders',copy:'Authored 0.56 m body disc against two wall faces. The bear faces out of the corner. Visual clearance fixture only.'},
+  {id:'jet',label:'09 / RESOLVED DISCHARGE',title:'A stream with reach',copy:'Authored 4.5 m resolved fan, rendered without range or collision queries. Discharge contract fixture.'},
+  {id:'jet-wall',label:'10 / CLIPPED FAN',title:'The wall is the end',copy:'Authored resolved rays stop at a wall plane. No painted plume may extend to its other side.'},
+  {id:'jet-near-wall',label:'11 / NOZZLE AT WALL',title:'A cosmetic nozzle is not a ray',copy:'The held nozzle protrudes beyond the body disc. The effect stays in the supplied short fan.'},
+  {id:'jet-rays',label:'12 / INDEPENDENT RAYS',title:'No invented fill',copy:'connectRays is false: independent supplied segments only, with no fan or billboard fill.'},
+  {id:'torch',label:'13 / TORCH LEAD',title:'A small source of trouble',copy:'Authoritative-style clipped lead and endpoint radius fan. This is a labelled data fixture.'}
 ]);
 function world(){
   const tiles=[];
@@ -23,13 +29,13 @@ function world(){
 const WORLD=world();
 const cell=(ix,iy,phase='cold',gas=.3,intensity=.7)=>({id:ix+':'+iy,x:ix*.5+.25,y:iy*.5+.25,size:.5,material:'paving',surfaceFuel:0,depositedFuel:gas,heat:phase==='heating'?.7:phase==='burning'?1:0,phase,intensity:phase==='burning'?intensity:0});
 export function fixtureSnapshot(id='front',time=4,tool='jerry-can'){
-  const powder=id==='powder',worldTime=time*(powder?.35:1),playerTime=time*(powder?1.5:1),cells=[];
+  const powder=id==='powder',isJet=id.startsWith('jet'),isDischarge=isJet||id==='torch',worldTime=time*(powder?.35:1),playerTime=time*(powder?1.5:1),cells=[];
   const path=[];
   for(let x=11;x<=22;x++)path.push([x,17]);
   for(let y=18;y<=19;y++)path.push([22,y]);
   for(let x=23;x<=26;x++)path.push([x,19]);
   path.forEach(([x,y],i)=>{
-    const phase=id==='trail'||id==='bear'?'cold':id==='spent'?'spent':i<4?'spent':i<9?'burning':i===9?'heating':'cold';
+    const phase=id==='trail'||id==='bear'||isDischarge?'cold':id==='spent'?'spent':i<4?'spent':i<9?'burning':i===9?'heating':'cold';
     if(id==='trail'&&i===5)return;
     const gas=phase==='spent'?0:phase==='burning'?.15:.3;cells.push(cell(x,y,phase,gas,.55+(i%3)*.12));
   });
@@ -37,14 +43,37 @@ export function fixtureSnapshot(id='front',time=4,tool='jerry-can'){
     if(cells.some(c=>c.id===x+':'+y))continue;
     const c=cell(x,y,(x+y)%7===0?'heating':'burning',0,.50+((x+y)%4)*.12);c.material='grass';c.surfaceFuel=.5;cells.push(c);
   }
-  const position=powder?{x:10.0+Math.min(playerTime*.38,3.35),y:9.75}:id==='bear'?{x:11.5,y:9.4}:id==='burn'?{x:11.10,y:9.30}:{x:13.35,y:9.75};
+  const position=powder?{x:10.0+Math.min(playerTime*.38,3.35),y:9.75}:id==='jet-near-wall'?{x:10.94,y:9}:isJet?{x:8.5,y:9}:id==='torch'?{x:10.6,y:9}:id==='corner'?{x:9.06,y:7.56}:id==='bear'?{x:11.5,y:9.4}:id==='burn'?{x:11.10,y:9.30}:{x:13.35,y:9.75};
   if(id==='burst')WORLD.obstacles=WORLD.obstacles.map(o=>o.id==='drum-a'?{...o,destroyed:true}:o);
   else WORLD.obstacles=WORLD.obstacles.map(o=>o.id==='drum-a'?{...o,destroyed:false}:o);
-  return {version:1,tick:Math.floor(time*60),paused:false,clocks:{active:time,player:playerTime,world:worldTime,playerScale:powder?1.5:1,worldScale:powder?.35:1},
-    player:{id:'bear',...position,heading:.08,moving:powder,hp:100,maxHp:100,tool,pouring:id==='trail'||powder,usingTool:id==='bear'&&['torch','flamethrower'].includes(tool),
+  const viewWorld=structuredClone(WORLD);
+  if(id==='corner'){cells.length=0;viewWorld.obstacles=[
+    {id:'clearance-north',x:10,y:6.9,width:3.2,depth:.2,height:1.8,material:'masonry',kind:'wall'},
+    {id:'clearance-west',x:8.4,y:8.4,width:.2,depth:3,height:1.8,material:'masonry',kind:'wall'}];}
+  if(id==='jet-wall'||id==='jet-near-wall'){const plane=id==='jet-wall'?11.1:11.5;viewWorld.obstacles=[{id:'discharge-wall',x:plane+.1,y:9,width:.2,depth:4,height:id==='jet-near-wall'?1.25:2,material:'masonry',kind:'wall'}];}
+  const snapshot={version:1,tick:Math.floor(time*60),paused:false,clocks:{active:time,player:playerTime,world:worldTime,playerScale:powder?1.5:1,worldScale:powder?.35:1},
+    player:{id:'bear',...position,heading:id==='corner'?Math.PI/4:isDischarge?0:.08,radius:.56,moving:powder,hp:100,maxHp:100,tool,pouring:id==='trail'||powder,usingTool:isDischarge&&['torch','flamethrower'].includes(tool),
       inventory:{matches:6,gas:20,molotovs:3,torchFuel:30,flamethrowerFuel:30,powder:2,healing:2,inversion:2}},
     effects:{powder:{active:powder,remaining:powder?Math.max(0,8-time):0},inversion:{active:false,remaining:0}},
-    world:structuredClone(WORLD),cells,actors:[{id:'neighbor',x:5.5+Math.sin(worldTime*.6)*.65,y:11.1,heading:0,moving:true,hp:100}],
+    world:viewWorld,cells,actors:id==='corner'?[]:[{id:'neighbor',x:5.5+Math.sin(worldTime*.6)*.65,y:11.1,heading:0,moving:true,hp:100}],
     events:id==='burst'?[{id:1,tick:0,type:'explosion',x:8,y:7.1,radius:1.7,worldTime:Math.floor(time/4)*4}]:[]};
+  snapshot.discharge=authoredDischarge(snapshot,id);
+  return snapshot;
 }
 export function timingFor(snapshot,delta=0){return {alpha:0,playerDelta:delta*snapshot.clocks.playerScale,worldDelta:delta*snapshot.clocks.worldScale,playerTime:snapshot.clocks.player,worldTime:snapshot.clocks.world};}
+
+// Authored presentation data only. This workbench does not resolve gameplay collisions.
+export function authoredDischarge(snapshot,id){
+  const p=snapshot.player,torch=id==='torch',flamer=id.startsWith('jet');
+  if(!p.usingTool||(!torch&&!flamer))return {version:1,tick:snapshot.tick,active:false,tool:null,origin:null,shapeOrigin:null,heading:0,range:0,radius:0,halfAngle:0,connectRays:false,rays:[],lead:null};
+  const origin={x:p.x,y:p.y,h:1.05},heading=p.heading,halfAngle=torch?Math.PI:Math.PI/8;
+  const shapeOrigin=torch?{x:origin.x+Math.cos(heading)*1.1,y:origin.y+Math.sin(heading)*1.1,h:origin.h}:{...origin};
+  const count=torch?32:24,reach=torch?.4:4.5,plane=id==='jet-wall'?11.0999:id==='jet-near-wall'?11.4999:null;
+  const rays=Array.from({length:count+1},(_,i)=>{
+    const angle=heading-halfAngle+2*halfAngle*i/count;
+    const distance=plane===null?reach:Math.min(reach,(plane-shapeOrigin.x)/Math.cos(angle));
+    const length=id==='jet-rays'&&i%3===0?Math.min(distance,1.65):distance;
+    return {angle,x:shapeOrigin.x+Math.cos(angle)*length,y:shapeOrigin.y+Math.sin(angle)*length,h:shapeOrigin.h,distance:length,obstacleId:plane===null?null:'discharge-wall'};
+  });
+  return {version:1,tick:snapshot.tick,active:true,tool:torch?'torch':'flamethrower',origin,shapeOrigin,heading,range:torch?1.1:4.5,radius:torch?.4:0,halfAngle,connectRays:id!=='jet-rays',rays,lead:torch?{from:{...origin},to:{...shapeOrigin}}:null};
+}

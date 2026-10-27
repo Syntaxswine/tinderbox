@@ -57,7 +57,7 @@ export function createBear(T,materials){
   function segment(part,a,b,r){const d=b.clone().sub(a);part.position.copy(a).add(b).multiplyScalar(.5);part.scale.set(r,d.length(),r);part.quaternion.setFromUnitVectors(up,d.normalize());}
   const anchors={};
   for(const name of BEAR_SPEC.anchors){const a=new T.Object3D();a.name='bear:'+name;root.add(a);anchors[name]=a;}
-  const equipment={};
+  const equipment={},heldParts={};
   for(const tool of ['matches','jerry-can','molotov','torch','flamethrower']){const g=new T.Group();g.name=tool;g.scale.z=-1;root.add(g);equipment[tool]=g;}
   const grip=[.46,1.03,-.29];
   {
@@ -82,15 +82,15 @@ export function createBear(T,materials){
     cube(materials.creamWood,[.52,1.10,-.29],[.017,.11,.09],g);
   }
   {
-    const g=equipment.torch;rod(grip,[.95,1.08,-.29],.026,materials.wood,g);
+    const g=equipment.torch;heldParts.torch=g;rod(grip,[.95,1.08,-.29],.026,materials.wood,g);
     rod([.88,1.073,-.29],[1.01,1.09,-.29],.063,materials.shirt,g);
   }
   {
-    const g=equipment.flamethrower;
-    rod([.39,1.05,-.29],[1.03,1.05,-.29],.026,materials.dark,g);
-    rod([.51,1.04,-.29],[.51,.96,-.29],.023,materials.leather,g);
-    rod([.96,1.05,-.29],[1.06,1.05,-.29],.045,materials.steel,g);
-    rod([.96,1.015,-.31],[1.07,1.015,-.31],.009,materials.brass,g);
+    const g=equipment.flamethrower,lance=new T.Group();lance.name='Cosmetic lance';g.add(lance);heldParts.flamethrower=lance;
+    rod([.39,1.05,-.29],[1.03,1.05,-.29],.026,materials.dark,lance);
+    rod([.51,1.04,-.29],[.51,.96,-.29],.023,materials.leather,lance);
+    rod([.96,1.05,-.29],[1.06,1.05,-.29],.045,materials.steel,lance);
+    rod([.96,1.015,-.31],[1.07,1.015,-.31],.009,materials.brass,lance);
     for(const side of [-1,1]){
       mesh(cylinder,materials.oliveWood,[-.36,1.16,.115*side],[.10,.48,.10],g);
       for(const h of [.96,1.34]){const band=mesh(ring,materials.steel,[-.36,h,.115*side],[.103,.103,.103],g);band.rotation.x=Math.PI/2;}
@@ -122,5 +122,5 @@ export function createBear(T,materials){
     root.updateMatrixWorld(true);
   }
   update({x:0,y:0,heading:0,moving:false,tool:'matches'},0);
-  return {root,anchors,update,dispose(){removeTree(root);pool.dispose();},counts:()=>pool.counts()};
+  return {root,anchors,update,setHeldVisible(visible){const part=heldParts[lastTool];if(part)part.visible=visible;},dispose(){removeTree(root);pool.dispose();},counts:()=>pool.counts()};
 }

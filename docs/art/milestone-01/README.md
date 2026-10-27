@@ -1,94 +1,78 @@
-# TB-005: burning-trail art candidate
+# TB-005: burning-trail mechanics-test art
 
-The art factory and standalone workbench render a continuous deposited-fuel trail, heating, painted flame fronts, sustained fire, smoke, spent ground, a provisional bear with five equipment poses, and a small exterior kit. This is a prototype candidate for architect integration. The workbench uses labelled authored snapshots and does not validate gameplay.
+This candidate renders fuel trails, heating, flame fronts, sustained fire, smoke, spent ground, a provisional bear/exterior, and the coder's resolved held discharge. The user accepts the scene as an opening mechanics test. Its visual direction is not approved: the next art pass must use actual Farmyard assets as its direct foundation. Matching the style or importing a handful of atlases is insufficient.
 
-Shared baseline: `fddc7ce218695dad14b6015de4019e89d53a6255`. Raw art is pinned to Farmyard `30a3b8cae5f36bb0c1df3685b7fba16f701c2083`, with inherited AFT ancestry `a20b343a0234b5d8b365a4e1668961ca1bf37653`.
+The bounded QC correction follows art checkpoint `b3c7c009706dc48a10cd97951df36f79a4d5fb21` and the discharge contract at coder commit `11b8cd05c0ca885f277d048c1825d0e52c0a367c`. Shared baseline: `fddc7ce218695dad14b6015de4019e89d53a6255`. Farmyard source remains pinned to `30a3b8cae5f36bb0c1df3685b7fba16f701c2083`, with inherited AFT ancestry `a20b343a0234b5d8b365a4e1668961ca1bf37653`.
 
-## Entry points and composition
+## Entry points
 
-- [Art factory](../../../src/art/index.js): async `createArtScene({THREE, scene, assetBaseUrl})`, returning `update(snapshot,timing)` and idempotent `dispose()`.
-- [Workbench](../../../workbenches/art/index.html): seven labelled fixtures, five equipment views, pause/scrub controls, optional anchor guides, and full-canvas capture mode.
-- [Import inventory](../../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/art.json): five unchanged PNGs, source/installed hashes, ancestry, rights status, and separate attributed adaptations.
-- [Bear master record](../../../art/source/tinderbox/bear/prototype.json): original procedural source, nominal dimensions, and provisional status.
-- [Review manifest](review.json): source/evidence fingerprints, actual browser checks, resource counts, and measured host information.
+- [Art factory](../../../src/art/index.js): async `createArtScene({THREE, scene, assetBaseUrl})`, returning `update(snapshot,timing)`, named anchors, diagnostics, and idempotent `dispose()`.
+- [Resolved discharge renderer](../../../src/art/discharge.js): bounded consumer of `snapshot.discharge` v1.
+- [Workbench](../../../workbenches/art/index.html): thirteen labelled fixtures, five tool views, pause/scrub controls, anchor guides, and field-only capture mode.
+- [Import inventory](../../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/art.json): unchanged source images and separately attributed adaptations.
+- [Bear master record](../../../art/source/tinderbox/bear/prototype.json), [review fingerprints](review.json), and [QC details](qc-clearance.md).
 
 ```js
-import {createArtScene, ART_ASSET_ROOT} from './src/art/index.js';
+import {createArtScene} from './src/art/index.js';
 const art = await createArtScene({THREE, scene});
 art.update(snapshot, {
-  alpha: 0, playerDelta: 0, worldDelta: 0,
-  playerTime: snapshot.clocks.player, worldTime: snapshot.clocks.world
+  playerTime: snapshot.clocks.player,
+  worldTime: snapshot.clocks.world
 });
 // Before replacing the scene:
 art.dispose();
 ```
 
-`THREE` is injected throughout; production art imports no second renderer. The optional `assetBaseUrl` is a directory URL for the AFT **assets** root, not the repository root. Its default, exported as `ART_ASSET_ROOT`, resolves to the versioned vendor directory inside Tinderbox. Normal composition can omit it. Failed texture loads reject the factory and dispose successfully loaded textures.
+The shared `THREE` instance is injected. The caller owns camera, renderer, resizing, input, and background. The factory respects existing caller lighting, otherwise adding its own hemisphere/key lights; fire lights remain art-owned. Failed texture loads dispose successfully loaded resources. `assetBaseUrl`, when supplied, is the directory URL of the versioned AFT **assets** root; its default is exported as `ART_ASSET_ROOT`.
 
-The caller owns camera, renderer, resize, input, and scene background. When the scene already contains a light, the factory retains caller lighting; otherwise it adds its own hemisphere/key lights. Its limited fire lights remain owned by the art module. Shadow rendering is optional and configured by the caller. Removing the art never disposes the caller's scene, renderer, or lights.
+## Snapshot and clocks
 
-## Snapshot and clock handling
+Ground `(x,y)` maps to Three `(x,h,y)`; headings run from +X toward ground +Y. Positions are centres. The view never modifies snapshots or advances gameplay. It uses supplied player/world times, falling back to the corresponding snapshot clocks. Bear gait and pouring use player time; neighbors, environmental fire, discharge, smoke and bursts use world time. Fixed clocks freeze animation.
 
-Ground `(x,y)` becomes Three `(x,h,y)`. Headings are radians from +X toward ground +Y. Tiles and obstacle/cell positions are interpreted as centres. The view reads v1 snapshots without modifying them. It uses `timing.playerTime/worldTime`, falling back to the matching snapshot clocks; it does not advance its own gameplay clock or extrapolate movement.
+Positive deposited fuel produces the ground trail. Adjacent supplied cells join visibly; absent/dry cells stay absent. Heating changes ground treatment, positive-intensity burning cells emit sustained flame, and spent cells become char. An observed burn-to-spent transition leaves a 3.2-world-second smoke tail; cells first seen spent do not create a fresh effect.
 
-Bear gait, neighbor gait, and pouring details use the appropriate player/world domains. Environmental atlas phases, smoke drift/fade, and bursts use world time. Powder never changes the snapshot, fire spread, damage, resources, or input here. The powder fixture demonstrates animation domains only.
+Resolved explosion/molotov events play once per ID. A bounded receipt set and numeric high-water cursor prevent replay. Undated startup history establishes the cursor without emitting bursts; explicitly dated current events can play on mount. Rewinding world time or tick resets presentation history. Obstacle destruction and projectile trajectories come from snapshots.
 
-Gas appears only where supplied cells contain positive deposited fuel. Connected neighboring cells share a masked stroke, including bends; absent/dry cells remain absent. Heating changes the ground treatment. Only positive-intensity `burning` cells emit sustained flame. `spent` cells become char; an observed burn-to-spent transition leaves a 3.2-world-second smoke tail. Cells first seen already spent do not start a new smoke effect.
+The footprint ring and escape arrow follow positive finite `player.radius`; older snapshots fall back to 0.56 m. Scaling reuses their geometry. Art does not choose a collision radius.
 
-Explosions consume resolved `explosion`, `barrel-explosion`, `barrel-exploded`, or `molotov-impact` events once per ID. Numeric monotonic IDs retain a high-water cursor; the bounded receipt set handles the recent stream. On mount/reset, undated startup history establishes the cursor without replaying bursts. Optional `event.worldTime` permits an explicitly dated, still-current initial burst. A world-clock rewind or decreasing tick resets presentation history. The view never removes a drum because of particles: obstacles disappear only when removed/marked destroyed in the snapshot.
+Held fire consumes only `snapshot.discharge.version === 1` with an active torch/flamethrower. Supplied ordered endpoints define the permitted fan; instanced painted plumes are fragment-clipped to it. `connectRays:false` produces independent vertical ray strips with no fan or billboard fill. Torch also renders its explicit `lead`. Art does not query obstacles, recompute range, move the shape to the cosmetic nozzle, or apply heat/damage. Missing/inactive discharge produces no held jet, even if `player.usingTool` remains true. Full details and conservative handheld hiding are in the QC note.
 
-The module also understands the coder's optional `player.usingTool` and root `projectiles` fields. Active torch/flamethrower use adds a short local muzzle plume. Projectiles use supplied `x,y,h,progress`; the view does not solve their trajectory. Missing optional fields produce no firing/projectile effect. The base factory remains compatible with the stable v1 fields.
+## Current art and reuse
 
-## Bear and exterior scope
+The original procedural bear remains provisional: approximately 2.02 m high, with a 1.06 m shoulder silhouette, five poses and a small gait. `art.anchors` exposes `grip`, `support`, `muzzle`, `spout`, and `backpack`; call `getWorldPosition()` after updating. Neutral forward is +X, with equipment on the camera-near side. The stationary lance muzzle stays 1.07 m forward, 0.29 m sideways and 1.05 m high. The correction does not change its dimensions or anchor offsets.
 
-The original bear prototype has rounded ears, a short tan muzzle, umber fur, green canvas overalls, cream sleeves, broad paws/boots, and simple equipment poses. It is about 2.02 m high with a 1.06 m shoulder silhouette. These are prototype art dimensions, not a new simulation collision rule or finished character approval.
+The exterior supports supplied tiles, buildings, fences, crates and drums through compact provisional builders. Drum body dimensions follow obstacle dimensions. Neighbors remain provisional geometry. This is not a finished character or environment suite.
 
-`art.anchors` exposes read-only named Object3D references: `grip`, `support`, `muzzle`, `spout`, and `backpack`. After `update`, use `getWorldPosition()` for their current world positions. Grip/support follow the selected pose. Muzzle applies to matches, bottle wick, torch, and lance; spout applies to the jerry can. Unused tool anchors are not promises of a visible item. Neutral forward is +X; the equipment is placed on the camera-near side for readability.
+Five raw images are reused unchanged: flame, smoke, tank-burst, material-atlas-v2, and cargo-materials-v1, totaling 9,038,991 bytes. The QC correction adds no raster imports. Runtime crops, paint grain and hazard labels are generated and disposed by the module. The shared Three.js MIT notice is preserved. Illustrated-art rights remain unresolved in provenance. The next visual pass still needs broader direct Farmyard reuse.
 
-The exterior builder supports grass/yard, paving, asphalt/road, wood, plaster building fronts, fences, crates, and drums. Tiles/solids come from the snapshot. The label/material/geometry recipe is compact Tinderbox code using the two inherited cargo atlases; it does not import donor campaigns, mission art, or the full cargo renderer. Drum body dimensions follow the supplied obstacle width/depth/height; the fixture uses 0.656 m diameter and 0.8 m height. Small bands/bungs are cosmetic detail. Neighbor actors are labelled provisional geometry, not a new character suite.
-
-Raw imported images: flame, smoke, tank-burst, material-atlas-v2, and cargo-materials-v1 (9,038,991 bytes total). Their bytes are preserved. Crop textures, body paint grain, and the hazard label are generated at runtime and owned/disposed by the module. New geometry masters live in source; no fabricated layered raster master or finished bear export is claimed. The Three.js MIT notice remains in the shared engine partition. Upstream illustrated-art rights remain explicitly unresolved in the artist inventory.
-
-## Checks and visual evidence
+## Verification and evidence
 
 Run from the art worktree:
 
 ```sh
 node workbenches/art/check-art.mjs
 node workbenches/art/server.mjs --port 4551 --ttl 3600
-```
-
-Open [the labelled workbench](http://127.0.0.1:4551/workbenches/art/). Add `?capture=1` for a field-only canvas; fixture labels remain visible. The default stop marker is `artifacts/art-preview/STOP`; a run using a custom `--state` has its marker inside that directory. The server is read-only, binds localhost, and has an actual one-hour shutdown timer. Register any retained process lifetime with the user's helper utility; the source command alone is not registration.
-
-The browser runner uses an installed Chrome by default, with an optional `--channel msedge`. It needs Playwright available through normal module resolution or `--playwright <absolute-path-to-playwright/index.mjs>`:
-
-```sh
 node workbenches/art/review.mjs --playwright <path-to-playwright/index.mjs> --out artifacts/art-review/recheck
 ```
 
-The completed run passed five raw import/hash checks and 13 source syntax/dependency checks. Browser assertions passed for immutable snapshots, exactly-once receipts, startup-history suppression/fresh-event playback, separate clocks, a dry gap with no inferred gas, finite anchors for all five tools, viewport control bounds, repeated world/actor rebuilds, and double disposal. The eight rebuild samples remained bounded; after disposal the renderer reported **0 geometries and 0 textures**.
+The [workbench URL](http://127.0.0.1:4551/workbenches/art/) supports `?capture=1`. The read-only server binds localhost and has an actual one-hour expiry. Its default stop marker is `artifacts/art-preview/STOP`; custom `--state` puts it there. Every retained process lifetime needs fresh registration with the user's helper utility. The browser runner defaults to installed Chrome and closes in `finally`.
 
-Paused-pixel comparison runs after three fixed-clock warm-up renders. Equality before that warm-up is not claimed. The browser run had no page errors, console errors, or failed requests.
+Five raw import checks and fourteen source syntax/dependency checks pass. Browser assertions cover immutable data, receipt handling, frozen pixels after three fixed-clock warm-up renders, separate clocks, dry gaps, five tool anchors, footprint resizing, supplied fan reach, clipped plumes, independent rays, torch lead, inactive discharge, repeated rebuilds and double disposal. Disposal reports **0 geometries / 0 textures**; no page/console errors or failed requests occurred.
 
-The run captured 28 images: 22 workbench/tool views and six field-only views. Full-canvas views are exactly 390 x 844 and 1280 x 800, at offset `(10,14,12)` and 13 m vertical span. The bear close-up retains the angle with a labelled 5.8 m span. Normal workbench canvases are 390 x 600 and 1022 x 638 inside their labelled viewport layouts. Source and image SHA-256 values are in `review.json`; raw screenshots/session receipts remain in ignored `artifacts/`.
+A separate consumer smoke passed eight serialized snapshots from the exact final coder checkout: free flame, masonry wall, thin wood, narrow corner, clipped torch, complex independent-ray fallback, rotated aim, and pause. No cross-checkout dependency is installed. Combined gameplay and final production-scene acceptance remain architect-owned.
 
-Visual inspection covered cold gas/dry gap, the front, burn-at-the-bear edge, spent ground/smoke, powder-domain motion, a resolved burst, and all five equipped silhouettes. Representative final captures:
+The completed run captured 52 images at 1280 x 800 and 390 x 844, including 18 field-only captures. Source and image hashes, GPU probe values, actual-model smoke references and hardware information are recorded in `review.json`. Raw evidence stays under ignored `artifacts/`.
 
-- [Full desktop front](../../../artifacts/art-review/final/front-field-1280x800.png)
-- [Full phone front](../../../artifacts/art-review/final/front-field-390x844.png)
-- [Phone burn/readability](../../../artifacts/art-review/final/burn-field-390x844.png)
-- [Phone bear/muzzle](../../../artifacts/art-review/final/bear-field-390x844.png)
-- [Interactive workbench desktop](../../../artifacts/art-review/final/front-1280x800.png)
+- [Desktop resolved jet](../../../artifacts/art-review/qc-discharge/jet-field-1280x800.png)
+- [Phone resolved jet](../../../artifacts/art-review/qc-discharge/jet-field-390x844.png)
+- [Near-wall clipped plume](../../../artifacts/art-review/qc-discharge/jet-near-wall-field-1280x800.png)
+- [Phone corner clearance](../../../artifacts/art-review/qc-discharge/corner-field-390x844.png)
+- [Phone torch](../../../artifacts/art-review/qc-discharge/torch-field-390x844.png)
 
-Host evidence is Headless Chrome 155, WebGL 2, ANGLE/D3D11 on the reported NVIDIA GeForce RTX 3080. The last 90-frame sample measured approximately 0.80 ms mean and 1.10 ms p95 for synchronous fixture/update/render CPU submission. This is not GPU-completion timing, integrated simulation timing, or physical-phone performance. The exact values and scope are retained in the review manifest.
+Host: Headless Chrome 155 / WebGL 2 / ANGLE D3D11 / NVIDIA RTX 3080. The 90-frame fixture sample measured about 0.80 ms mean and 1.10 ms p95 for synchronous update/render CPU submission. This is not GPU completion, integrated simulation timing, or physical-phone performance.
 
-## Integration limits
+## Limits and lifecycle
 
-- The art workbench consumes authored fixtures. Combined TB-004/TB-006 gameplay, normal/powder chase correctness, damage, inversion, finite-resource accounting, and fresh-player comprehension remain architect acceptance work.
-- Reconcile the bear's broad 1.06 m shoulder silhouette with the coder's current 0.23 m movement-disc radius before accepting tight wall clearances. This art module does not change collision. No complete character animation suite is included.
-- The snapshot does not supply a resolved discharge-cone mesh. Current active-tool art is a short muzzle plume; distant burning is shown by authoritative cells. A full clipped lance-to-impact jet needs an explicit coder-owned presentation shape rather than a second artist-owned range/obstruction rule.
-- Fields accept at most 65,536 cells. Fire has an 8,192-card flame budget (two per burning cell), 4,096 smoke cards, and bounded bursts. Over-budget flame presentation reports `diagnostics().fire.capped`. Very dense transparent sheets can still flatten/overlap; they are painterly sprites with depth testing, not a fluid simulation.
-- Main draw order, opaque occlusion, and a small visual opacity reduction near the bear protect readability without changing state. There is no separate fog-of-war input in v1.
-- Asset-rights status remains unresolved. No donor candidate branch, hosting configuration, UI skin, or full game is imported by this task.
+The mechanics-test visual direction remains provisional. Physical mobile-device testing and fresh-player comprehension are outstanding. Dense transparent sprites can still overlap; the effect is painted presentation. Discharge allocates at most 256 rays, 18,000 vertices, 52,000 indices and 128 plume cards in two owned geometries, two materials and one data texture. Ground accepts at most 65,536 cells; sustained fire uses existing bounded card budgets. Whole handheld hiding is conservative rather than per-mesh weapon clipping.
 
-All disposable browser sessions close in `finally`. The registered preview is stopped before final handoff and its released port is checked; restart records and receipts remain under ignored `artifacts/art-preview/`.
+The architect owns combined gameplay checks and promotion. This correction edits no root composition/build, coder/UI files, donor source or integration branch. Disposable browsers close after verification. The preview is stopped before handoff, with exact process identity and released port checked; restart records and cleanup receipts remain under ignored `artifacts/art-preview/`.

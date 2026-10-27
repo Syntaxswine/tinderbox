@@ -1,12 +1,16 @@
 {
-  "task": "TB-005",
+  "task": "TB-005-QC",
+  "status": "Passing art checkpoint; architect integration acceptance remains separate",
+  "visualStatus": "Mechanics test, not final visual-direction approval; next art pass must use actual Farmyard assets as foundation",
   "sharedBaseline": "fddc7ce218695dad14b6015de4019e89d53a6255",
+  "previousArtCheckpoint": "b3c7c009706dc48a10cd97951df36f79a4d5fb21",
+  "coderContractCommit": "11b8cd05c0ca885f277d048c1825d0e52c0a367c",
   "donorCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
   "inheritedSourceCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
   "recordedOn": "2026-10-27",
   "browserRun": {
-    "startedAt": "2026-10-27T20:45:38.820Z",
-    "completedAt": "2026-10-27T20:45:46.601Z"
+    "startedAt": "2026-10-27T22:07:30.923Z",
+    "completedAt": "2026-10-27T22:07:44.077Z"
   },
   "hardware": {
     "vendor": "Google Inc. (NVIDIA)",
@@ -16,7 +20,7 @@
   },
   "checks": {
     "rawImports": 5,
-    "syntaxAndDependencyFiles": 13,
+    "syntaxAndDependencyFiles": 14,
     "browserPassed": true,
     "browserErrors": [],
     "failedRequests": [],
@@ -29,38 +33,111 @@
     "dryGapHasNoGas": true,
     "fiveToolsHaveFiniteAnchors": true,
     "viewportControlBounds": true,
+    "footprintRadiusCases": [
+      0.56,
+      0.8,
+      0.56
+    ],
+    "discharge": {
+      "openReach": 4.5,
+      "openPlumes": 117,
+      "independentTriangles": 500,
+      "nonSegmentTriangles": 0,
+      "blockedReach": 0.6060313929437122,
+      "maxSubmittedX": 11.499899864196777,
+      "visiblePixels": 389,
+      "outsidePixels": 0,
+      "pixelGuard": 1
+    },
+    "modelSmoke": {
+      "passed": true,
+      "sourceCommit": "11b8cd05c0ca885f277d048c1825d0e52c0a367c",
+      "sourceDischargeSha256": "5659c2747a65ffc50132faed0d0cf5c33486129cd206752c324c6aa96953079d",
+      "cases": [
+        {
+          "id": "free",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": true
+        },
+        {
+          "id": "wall",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": true
+        },
+        {
+          "id": "wood",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": true
+        },
+        {
+          "id": "corner",
+          "active": true,
+          "rayCount": 37,
+          "connectRays": true
+        },
+        {
+          "id": "torch",
+          "active": true,
+          "rayCount": 57,
+          "connectRays": true
+        },
+        {
+          "id": "fallback",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": false
+        },
+        {
+          "id": "rotated",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": true
+        },
+        {
+          "id": "pause",
+          "active": false,
+          "rayCount": 0,
+          "connectRays": false
+        }
+      ],
+      "path": "artifacts/art-review/qc-discharge/model-smoke.json",
+      "sha256": "7e1ded85a26f123cdb39af694c3acfe407f74ee02ca40c5603931f448d56bbc6"
+    },
     "worldAndActorRebuilds": [
       {
-        "geometries": 18,
-        "textures": 23
+        "geometries": 19,
+        "textures": 24
       },
       {
-        "geometries": 13,
-        "textures": 23
+        "geometries": 14,
+        "textures": 24
       },
       {
-        "geometries": 18,
-        "textures": 23
+        "geometries": 19,
+        "textures": 24
       },
       {
-        "geometries": 13,
-        "textures": 23
+        "geometries": 14,
+        "textures": 24
       },
       {
-        "geometries": 18,
-        "textures": 23
+        "geometries": 19,
+        "textures": 24
       },
       {
-        "geometries": 13,
-        "textures": 23
+        "geometries": 14,
+        "textures": 24
       },
       {
-        "geometries": 18,
-        "textures": 23
+        "geometries": 19,
+        "textures": 24
       },
       {
-        "geometries": 13,
-        "textures": 23
+        "geometries": 14,
+        "textures": 24
       }
     ],
     "afterDispose": {
@@ -70,34 +147,35 @@
   },
   "timing": {
     "samples": 90,
-    "meanMs": 0.8022222227520412,
-    "p50Ms": 0.7999999523162842,
+    "meanMs": 0.7966666671964857,
+    "p50Ms": 0.7000000476837158,
     "p95Ms": 1.1000001430511475,
     "scope": "Synchronous update + renderer.render CPU submission; not GPU completion or physical-device timing"
   },
   "sources": {
     "src/art/.gitattributes": "c9ba37e9d0f1d4bedcf8fd2ae38ecb19a32264f63035c98882671606745d329f",
-    "src/art/bear.js": "5e3bb5cbb76273d8476f19158014b3044505f00f52bb95d9346440bf12c10ea5",
-    "src/art/fire.js": "27aec59f3c173e31eee294f8ead38af42871ca41b491f166aa93cd973ea38ab2",
+    "src/art/bear.js": "6b01f6baa79cec2c24f33a3416fd93ba71aca6dc283b42614275bb2cbbad4e52",
+    "src/art/discharge.js": "db9a693f103a098ca7f50a2e0d1ed87aa750d52f8138b4d80dd22cb922e4ff0a",
+    "src/art/fire.js": "95df530de3152715397f2400786205951b66befe8213c34f2a5170869111e80a",
     "src/art/ground-field.js": "a31f94b458fe9d12ed4e4609b7c72c1b00038fde4e6a724d30588b32613164f5",
-    "src/art/index.js": "97a5972f7f6fc6d95b99a17b1c0a0187313445452ecfc987c8c641ae962ca5ba",
+    "src/art/index.js": "492d4bf3811f381f4cfa1b1464180675310a9ce7c4d69e3f1e1c1e02f92c14b3",
     "src/art/materials.js": "e67136dbb1f713e787f6fa57b40ba102ccb36d8ad1552dbf61cc96544b520c37",
     "src/art/resources.js": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
     "src/art/tool-props.js": "1dedb9f2ebbdc61aa1b687953998add1d7ca3e793d236f47a0015ffa198e834e",
     "src/art/world.js": "1697dfaba1bc1c8b8b3ae95182109a52f53dfd257b6f89fbdbe64273b133daed",
     "workbenches/art/.gitattributes": "d9cc10c7514fcb9ae799249e85a863afcaff4e92f9a23143ef3c6f62fcd226cf",
     "workbenches/art/check-art.mjs": "fe56d9e9247caceac6969db4e6f68e7fd160c675a38eff31990cd9c00c36342d",
-    "workbenches/art/fixtures.js": "4ab121db978f20ee47c8ee86b5ed917d977a666860e3b021f54eac6c7cfb35e4",
+    "workbenches/art/fixtures.js": "a75e657b881442ba622166d9808215e7e02b4879f7f20adcc529c0fa4dd67125",
     "workbenches/art/index.html": "91076686583f4574ca07cea668235fa617da207585d01cd14be78ca71f405ffd",
-    "workbenches/art/main.js": "594f6ff5876e86db50bfd39c01d0144e0dafeb8f0be7a0e6c2a7755de9db84c2",
-    "workbenches/art/review.mjs": "a142a1b3ee649a009e0f152fffa276ce1d87d3da2d58133e2a4f11b33f492712",
+    "workbenches/art/main.js": "45fbbbc01805a66ad91c332ebbf0843169492a4d847d90e6575f524ec536bf98",
+    "workbenches/art/review.mjs": "6a51560a65aa4ab7af40ae15e517c7bc7874778cb077e71037ea24a8611d6f93",
     "workbenches/art/server.mjs": "6a885db1191b3e6f02b85f4da9dfeeaa6302ea69f7acae3c5fa0638baa28770d",
     "workbenches/art/style.css": "c43ad08c45a7f6aa2d2bb46c8a694abf3258f1569712a64a824fe568d9a278ee"
   },
   "images": [
     {
-      "path": "artifacts/art-review/final/trail-1280x800.png",
-      "sha256": "7f63a3db85e9f176dd252aa9c4b2a361041f5477345c7768c3c950b3c5806e7b",
+      "path": "artifacts/art-review/qc-discharge/trail-1280x800.png",
+      "sha256": "afc0e4df8b0d6500dffa2db5beca364d84758d1974c7a7ba4684bcfd6c6bbbcd",
       "fixture": "trail",
       "tool": null,
       "viewport": {
@@ -110,11 +188,27 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 121,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/front-1280x800.png",
-      "sha256": "ceeeb42ce806b92a619da3fd2e27fe161eb6c791e226da3637cfedc808f9ffc2",
+      "path": "artifacts/art-review/qc-discharge/front-1280x800.png",
+      "sha256": "65d347c8c475f6e4f0c26c05f4c5665b0e839ae77843847665867bebca80544d",
       "fixture": "front",
       "tool": null,
       "viewport": {
@@ -127,11 +221,27 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 123,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/burn-1280x800.png",
-      "sha256": "371ac9ab8a8d922ad8c477b46343111dc03ca498aa3db8b45f9901a29ffcdd7a",
+      "path": "artifacts/art-review/qc-discharge/burn-1280x800.png",
+      "sha256": "c22dbc7d7509305a090125c151929af719c2f9290fdc702ec37d496cba8370bf",
       "fixture": "burn",
       "tool": null,
       "viewport": {
@@ -144,11 +254,27 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 123,
-      "flameCards": 50
+      "flameCards": 50,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/spent-1280x800.png",
-      "sha256": "baae7eae2e6c07063bfca8ce697c02bf6bf5f38c6d27b6a9e61ddc4c1bbc3a0b",
+      "path": "artifacts/art-review/qc-discharge/spent-1280x800.png",
+      "sha256": "668c492d56b1c0c56a0a9e98820cd252d473714e2bc78cbc88daa1a067f8a49b",
       "fixture": "spent",
       "tool": null,
       "viewport": {
@@ -161,11 +287,27 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 122,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/powder-1280x800.png",
-      "sha256": "8968f04e6f5b0c23afda77dbbc4e2bdca6ad1af2a7a1834bf9a23e5453e74dc6",
+      "path": "artifacts/art-review/qc-discharge/powder-1280x800.png",
+      "sha256": "54949ff4a50d6df97647f5004fa864e90819d21cbda08cb7aed1de6283fbd51b",
       "fixture": "powder",
       "tool": null,
       "viewport": {
@@ -178,11 +320,27 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 125,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 1.4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-1280x800.png",
-      "sha256": "8cf56678aea4a9de4c66e1616fa0d02ce86f5fd992fff24adce6b62396def310",
+      "path": "artifacts/art-review/qc-discharge/bear-1280x800.png",
+      "sha256": "ff5e6660e775327fdef4e7e99782ae7ddabb2f52f18d7952db4ff217a6a3178d",
       "fixture": "bear",
       "tool": null,
       "viewport": {
@@ -194,12 +352,28 @@
         638
       ],
       "mode": "labelled-workbench",
-      "drawCalls": 105,
-      "flameCards": 0
+      "drawCalls": 104,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/burst-1280x800.png",
-      "sha256": "bc2d6debaade0889d1f28f8ccd8f94a8deaaa8e3159fd27f3bc34555703d19ec",
+      "path": "artifacts/art-review/qc-discharge/burst-1280x800.png",
+      "sha256": "609792ee6fbf0513596f193645dc243fc14e97e7595f591c48e518f4ab785484",
       "fixture": "burst",
       "tool": null,
       "viewport": {
@@ -212,11 +386,240 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 117,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 0.34,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-matches-1280x800.png",
-      "sha256": "6cbbfb01d7b38528e4ccad97385d6c67a5e474314ce20f1ce792bf58d87208e1",
+      "path": "artifacts/art-review/qc-discharge/corner-1280x800.png",
+      "sha256": "98ff4e13ceefba4bfc1027c3ed865efaf2fec550f6500211eab27469f5371180",
+      "fixture": "corner",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 62,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-1280x800.png",
+      "sha256": "5500b58f6e6698b1010db82d8337251400b52d36d1a389c7de3710a08a23950c",
+      "fixture": "jet",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 132,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 1,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-wall-1280x800.png",
+      "sha256": "0824416ebfd30fd543def2fa3813b83d314714e42f59bc1bf2bfefbabd1740de",
+      "fixture": "jet-wall",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 77,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 2.814111481540195,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 2,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-near-wall-1280x800.png",
+      "sha256": "75bfb6fcf69adb910ad42dc98c906ec1bd69a6638f67cc0fc23e064bf2f085a9",
+      "fixture": "jet-near-wall",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 73,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 0.6060313929437122,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 3,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-rays-1280x800.png",
+      "sha256": "2d4be0d0eb1d681e6ad06e9dfaeebb5f1e906e50599fb3e0e69b2222be19c12d",
+      "fixture": "jet-rays",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 127,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": false,
+        "rayCount": 25,
+        "triangles": 500,
+        "plumeCards": 0,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 4,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/torch-1280x800.png",
+      "sha256": "d75e41e6a52fbf83784e26a9807658ee785666f4cca22c6c5c13e9a1ea9a54a4",
+      "fixture": "torch",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1022,
+        638
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 119,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 33,
+        "triangles": 1940,
+        "plumeCards": 18,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/bear-matches-1280x800.png",
+      "sha256": "95051f742db78f989395754af1eda5290e803eb8924ebcabcdbf196237ad671b",
       "fixture": "bear",
       "tool": "matches",
       "viewport": {
@@ -229,11 +632,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 92,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-jerry-can-1280x800.png",
-      "sha256": "478bf8619a3dc1c66d79b89e7e3fe1236762f8e1475b450f79dd78757f969f8d",
+      "path": "artifacts/art-review/qc-discharge/bear-jerry-can-1280x800.png",
+      "sha256": "054e20491d3bf16410cf9647cf83d9ae66c55f5f4dea13cad281e768447ef437",
       "fixture": "bear",
       "tool": "jerry-can",
       "viewport": {
@@ -246,11 +668,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 95,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-molotov-1280x800.png",
-      "sha256": "b236cc09bfd9b45aeb8a1e19495a52e50e0e62733111e0dabdfb201c8f4a6937",
+      "path": "artifacts/art-review/qc-discharge/bear-molotov-1280x800.png",
+      "sha256": "f4abb8f2c7b9456c7e3a44aceab5ddc56152b78b135fd5795cb8241728426943",
       "fixture": "bear",
       "tool": "molotov",
       "viewport": {
@@ -263,11 +704,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 94,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-torch-1280x800.png",
-      "sha256": "cdee96d0b8f8064b7068d064e3ba5cf16d33ec52b05c713de3c3df07d7f042c8",
+      "path": "artifacts/art-review/qc-discharge/bear-torch-1280x800.png",
+      "sha256": "4931e46bac3f9879a2076331f0a68edf2c8ab0a13f7116f01f9b2e864b400070",
       "fixture": "bear",
       "tool": "torch",
       "viewport": {
@@ -279,12 +739,31 @@
         638
       ],
       "mode": "labelled-workbench",
-      "drawCalls": 92,
-      "flameCards": 0
+      "drawCalls": 91,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/trail-390x844.png",
-      "sha256": "4ca34272da34ecc4e50c76526a9f17c55a356089b6db64c761014911fe9cfc71",
+      "path": "artifacts/art-review/qc-discharge/trail-390x844.png",
+      "sha256": "a39a805d0fba09944378019f9a30ef4223cc12dd82eabff2ce875679e953a763",
       "fixture": "trail",
       "tool": null,
       "viewport": {
@@ -297,11 +776,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 105,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/front-390x844.png",
-      "sha256": "6d4abccf2b3756e537274464fed86ecd158eb4e95c6c5d589d72c55a6f6a4389",
+      "path": "artifacts/art-review/qc-discharge/front-390x844.png",
+      "sha256": "b33b08a283c33e3c01a3457ff3a59ed29fd9692696ff1da0d89aac5bdbfa239a",
       "fixture": "front",
       "tool": null,
       "viewport": {
@@ -314,11 +812,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 107,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/burn-390x844.png",
-      "sha256": "5db19b671fd1630bdca89466e11d0ab35421afd3518f68d9c9ad0419271b3e3e",
+      "path": "artifacts/art-review/qc-discharge/burn-390x844.png",
+      "sha256": "1309f7477e5ad0cacd4c5ba83973e7f71aed320526c8123b2e564566a32d187d",
       "fixture": "burn",
       "tool": null,
       "viewport": {
@@ -331,11 +848,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 107,
-      "flameCards": 50
+      "flameCards": 50,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/spent-390x844.png",
-      "sha256": "1319992a5f92f2ad422ec50872bb54a6990fccf3dc2285b75f25b1adb87ca3a6",
+      "path": "artifacts/art-review/qc-discharge/spent-390x844.png",
+      "sha256": "56b1190bd2a79d6369789d845612d12c2bf23fcaa2b14b56c361e6d37a16838c",
       "fixture": "spent",
       "tool": null,
       "viewport": {
@@ -348,11 +884,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 106,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/powder-390x844.png",
-      "sha256": "c35edfe68f3817c69722c1a8b705fc21ba33b1c56a7adc2f1df99883b1284348",
+      "path": "artifacts/art-review/qc-discharge/powder-390x844.png",
+      "sha256": "532eeaaccc562f93355247fd09466f23291edfb25078d9b07fa11158b8fa44c0",
       "fixture": "powder",
       "tool": null,
       "viewport": {
@@ -365,11 +920,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 109,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 1.4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-390x844.png",
-      "sha256": "3049d8956c3f19ed62a45e17f50a9720065c411f0884ced5036d5acfb6a9bafd",
+      "path": "artifacts/art-review/qc-discharge/bear-390x844.png",
+      "sha256": "cdf51c83e9919466b7c1f4a8780c87dec8ecc11383e2c610c729b2afdd2bd7f8",
       "fixture": "bear",
       "tool": null,
       "viewport": {
@@ -381,12 +955,31 @@
         600
       ],
       "mode": "labelled-workbench",
-      "drawCalls": 96,
-      "flameCards": 0
+      "drawCalls": 95,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/burst-390x844.png",
-      "sha256": "dcade346a3f11db1714de17a7812a79b63a3bf1b9f40cdd239b16dda99036d97",
+      "path": "artifacts/art-review/qc-discharge/burst-390x844.png",
+      "sha256": "87e18f18d256d283a8ecd58505fbe567baeea17c198b8b245f987a18999dd018",
       "fixture": "burst",
       "tool": null,
       "viewport": {
@@ -399,11 +992,246 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 101,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 0.34,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-matches-390x844.png",
-      "sha256": "8ac02f743a0138c0b55772e4efd7b95e527da58617301f1c10d7bc5f857e9134",
+      "path": "artifacts/art-review/qc-discharge/corner-390x844.png",
+      "sha256": "be0916cf62f9981fb36524f212125bcd325336c3af43c465974bec1471a5e701",
+      "fixture": "corner",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 62,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 5,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-390x844.png",
+      "sha256": "d6e2b11355325b7394ee2467486ac028e760fa0d70f5bddae5cb967fd3182bf3",
+      "fixture": "jet",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 116,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 6,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-wall-390x844.png",
+      "sha256": "a84ddf34649d3aec8ad6e9ae61653c8f40257dd9432fe26a5da0bb23831fc279",
+      "fixture": "jet-wall",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 70,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 2.814111481540195,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 7,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-near-wall-390x844.png",
+      "sha256": "f8658565c12660008c15d1d754b16d5235ed6a0353c38e55a82db45fb252310d",
+      "fixture": "jet-near-wall",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 66,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 0.6060313929437122,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 8,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-rays-390x844.png",
+      "sha256": "8d247323f9f80fa9d28d2bb215ec57dbda97e4aaa131e260da22e41cab1c821b",
+      "fixture": "jet-rays",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 111,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": false,
+        "rayCount": 25,
+        "triangles": 500,
+        "plumeCards": 0,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 9,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/torch-390x844.png",
+      "sha256": "3caa73b39624c66356997f117700a7d062daba6beed23aa201fc5c9cd4c1a771",
+      "fixture": "torch",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        600
+      ],
+      "mode": "labelled-workbench",
+      "drawCalls": 103,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 33,
+        "triangles": 1940,
+        "plumeCards": 18,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/bear-matches-390x844.png",
+      "sha256": "a982df0ecb964ae594330d2d8b72af4a7cc9f29273d6c4145117d71f121e4c4a",
       "fixture": "bear",
       "tool": "matches",
       "viewport": {
@@ -416,11 +1244,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 83,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-jerry-can-390x844.png",
-      "sha256": "6af28a80089cd009d3ae009e28c4070477f9822729d1007511b9dca4e3a4f12c",
+      "path": "artifacts/art-review/qc-discharge/bear-jerry-can-390x844.png",
+      "sha256": "d84dc56a95bbd42eca975810adaf6ddb07e0e76cfbb6ecd137732ca164e0bb41",
       "fixture": "bear",
       "tool": "jerry-can",
       "viewport": {
@@ -433,11 +1280,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 86,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-molotov-390x844.png",
-      "sha256": "f14ae78ce5c132026636d2a0c8eb5bfb99c53e89d9e1120e4fa7bf728fdbd55a",
+      "path": "artifacts/art-review/qc-discharge/bear-molotov-390x844.png",
+      "sha256": "388819613df664aebecfe42a61195123212d085c91094f59ddd63da2250afd23",
       "fixture": "bear",
       "tool": "molotov",
       "viewport": {
@@ -450,11 +1316,30 @@
       ],
       "mode": "labelled-workbench",
       "drawCalls": 85,
-      "flameCards": 0
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-torch-390x844.png",
-      "sha256": "682ffcea09c82f78ce91a8836508cb60fa78f27b90186c0e9ac5dff75af1071c",
+      "path": "artifacts/art-review/qc-discharge/bear-torch-390x844.png",
+      "sha256": "97e5a0ffaf389243874b1197fb721e50ea2e4eeb96065125d0877052a653f61a",
       "fixture": "bear",
       "tool": "torch",
       "viewport": {
@@ -466,12 +1351,31 @@
         600
       ],
       "mode": "labelled-workbench",
-      "drawCalls": 83,
-      "flameCards": 0
+      "drawCalls": 82,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/front-field-1280x800.png",
-      "sha256": "eda8dd3b2276c1321c9c5f07b1e6afb8005de3bfc8494bdcbcaca8153a7ee532",
+      "path": "artifacts/art-review/qc-discharge/front-field-1280x800.png",
+      "sha256": "03b802fc531d7b0dc2223024214e3b012a2eb81f6ebe296f66a373b841dde3fa",
       "fixture": "front",
       "tool": null,
       "viewport": {
@@ -484,11 +1388,30 @@
       ],
       "mode": "field-only",
       "drawCalls": 123,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/burn-field-1280x800.png",
-      "sha256": "a8dc398b96bd699909484e9bcae76bf594abfc7ce29ba7dbea65a05c6ef871a5",
+      "path": "artifacts/art-review/qc-discharge/burn-field-1280x800.png",
+      "sha256": "3e01874ac657c77cc3c6f0270ee14c4c2b9ec9bbc6e856875c5dc286cc0113b8",
       "fixture": "burn",
       "tool": null,
       "viewport": {
@@ -501,11 +1424,30 @@
       ],
       "mode": "field-only",
       "drawCalls": 123,
-      "flameCards": 50
+      "flameCards": 50,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-field-1280x800.png",
-      "sha256": "04b9b6d63735defc02ee0c1575b9ff4c836c3c6cca8407600029f63c9a2b7964",
+      "path": "artifacts/art-review/qc-discharge/bear-field-1280x800.png",
+      "sha256": "bbc45b46ab986a174b71ab3c6863b304b1c9b0bf9b635edb807d43eba44ba525",
       "fixture": "bear",
       "tool": null,
       "viewport": {
@@ -517,12 +1459,247 @@
         800
       ],
       "mode": "field-only",
-      "drawCalls": 105,
-      "flameCards": 0
+      "drawCalls": 104,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/front-field-390x844.png",
-      "sha256": "7ff6c65785ce73a57ee20e11eff59cab113dce63b70d836a68901a4313c56d87",
+      "path": "artifacts/art-review/qc-discharge/corner-field-1280x800.png",
+      "sha256": "80dedcf9eb2a387a49c6d72deee39562af0378214e26ceef5097e9ac6340b870",
+      "fixture": "corner",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 62,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 10,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-field-1280x800.png",
+      "sha256": "03837c2982daaba575926f5a44f777dda7bbd6680b0a816f4dc121ea7318657c",
+      "fixture": "jet",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 132,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 11,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-wall-field-1280x800.png",
+      "sha256": "3f0b305193217bab6609991e8fcd3e1f80133e1a8dd2c7aac1137101feb701d1",
+      "fixture": "jet-wall",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 77,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 2.814111481540195,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 12,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-near-wall-field-1280x800.png",
+      "sha256": "d29486593a002a1f775b5b08592011b6b74437559f4b79276374462381905ff5",
+      "fixture": "jet-near-wall",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 73,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 0.6060313929437122,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 13,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-rays-field-1280x800.png",
+      "sha256": "8af475c14f11ea0fdd9f09edd3cbe33ee1f5d0b2cedb46c62133340107a2d0df",
+      "fixture": "jet-rays",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 127,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": false,
+        "rayCount": 25,
+        "triangles": 500,
+        "plumeCards": 0,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 14,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/torch-field-1280x800.png",
+      "sha256": "47aebbf386080280b017d418a8dcf16c437bde7e3d9539a1c4039bd0be844e1d",
+      "fixture": "torch",
+      "tool": null,
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "canvas": [
+        1280,
+        800
+      ],
+      "mode": "field-only",
+      "drawCalls": 119,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 33,
+        "triangles": 1940,
+        "plumeCards": 18,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 15,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/front-field-390x844.png",
+      "sha256": "68685100294c68583750478977baeda45cc0343970f2d0674a9ec2ce809aeb4b",
       "fixture": "front",
       "tool": null,
       "viewport": {
@@ -535,11 +1712,30 @@
       ],
       "mode": "field-only",
       "drawCalls": 104,
-      "flameCards": 10
+      "flameCards": 10,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 15,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/burn-field-390x844.png",
-      "sha256": "f25d28e5b26685e2c349697285b25674cfa32fb233b0d56ef53c2a4838573331",
+      "path": "artifacts/art-review/qc-discharge/burn-field-390x844.png",
+      "sha256": "9801398f2e8f2e5985f2cc15a945c556c15b1bf88cfd98fee0abcb7a6ee03759",
       "fixture": "burn",
       "tool": null,
       "viewport": {
@@ -552,11 +1748,30 @@
       ],
       "mode": "field-only",
       "drawCalls": 104,
-      "flameCards": 50
+      "flameCards": 50,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 15,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     },
     {
-      "path": "artifacts/art-review/final/bear-field-390x844.png",
-      "sha256": "abce1bc203c0f7e4249ae0a8132d9fc3e31668a646c3850df9be2c499ae5e29e",
+      "path": "artifacts/art-review/qc-discharge/bear-field-390x844.png",
+      "sha256": "f7dbf0c34bf287b2fa69005654f490d64dd67c16059cb83f9ff619b4ef8e21c7",
       "fixture": "bear",
       "tool": null,
       "viewport": {
@@ -568,16 +1783,251 @@
         844
       ],
       "mode": "field-only",
-      "drawCalls": 90,
-      "flameCards": 0
+      "drawCalls": 89,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 15,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/corner-field-390x844.png",
+      "sha256": "13b85858acfbbf8d5090eea2c6d1d7364d7122f605c6f4d41521da574f7c4db7",
+      "fixture": "corner",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 61,
+      "flameCards": 0,
+      "discharge": {
+        "active": false,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 0,
+        "triangles": 0,
+        "plumeCards": 0,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 15,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-field-390x844.png",
+      "sha256": "aa1c40be1b4aaea0c4b045593f5b0d5be5793effc57344f596c1bb4e94a6fe83",
+      "fixture": "jet",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 113,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 16,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-wall-field-390x844.png",
+      "sha256": "37805f5f433baf9c1c4323892544bb106197504557c7f02dfefecde14af68d78",
+      "fixture": "jet-wall",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 70,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 2.814111481540195,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 1.0700000000000003,
+        "invalid": null,
+        "geometryBuilds": 17,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-near-wall-field-390x844.png",
+      "sha256": "8e751bc33e09370f53508d4c2606e6f052e6fcb7b21e255cb8933cf7e70e0004",
+      "fixture": "jet-near-wall",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 66,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": true,
+        "rayCount": 25,
+        "triangles": 1440,
+        "plumeCards": 117,
+        "longestRay": 0.6060313929437122,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 18,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/jet-rays-field-390x844.png",
+      "sha256": "ef6b21d96abf3aefee4765df333ff641d531c770db526aec80f398e7ab952616",
+      "fixture": "jet-rays",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 108,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "flamethrower",
+        "connectRays": false,
+        "rayCount": 25,
+        "triangles": 500,
+        "plumeCards": 0,
+        "longestRay": 4.5,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 19,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
+    },
+    {
+      "path": "artifacts/art-review/qc-discharge/torch-field-390x844.png",
+      "sha256": "b3d9d4e03356f4c98e015492d112ffb8d865010e8a39e92dd8c27dda080fa9a6",
+      "fixture": "torch",
+      "tool": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": [
+        390,
+        844
+      ],
+      "mode": "field-only",
+      "drawCalls": 100,
+      "flameCards": 0,
+      "discharge": {
+        "active": true,
+        "tool": "torch",
+        "connectRays": true,
+        "rayCount": 33,
+        "triangles": 1940,
+        "plumeCards": 18,
+        "longestRay": 0.4,
+        "capped": false,
+        "muzzleInsideShape": true,
+        "visualForwardStart": 0,
+        "invalid": null,
+        "geometryBuilds": 20,
+        "worldTime": 4,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      }
     }
   ],
   "limitations": [
-    "Labelled local fixtures, not integrated gameplay acceptance",
+    "Standalone labelled visual fixtures and exact-model consumer smoke; combined gameplay acceptance remains architect-owned",
+    "Provisional bear/exterior; current scene accepted only as a mechanics test",
+    "Whole active handheld lance/torch hides conservatively when its cosmetic muzzle is outside a connected supplied shape; fallback rays do not invent fill",
     "No physical mobile-device or fresh-player review",
     "CPU submission timing does not measure GPU completion",
-    "Provisional 2.02 m bear / 1.06 m shoulder silhouette requires collision-envelope reconciliation",
-    "Local muzzle plume only; a full authoritatively clipped discharge cone is not supplied by snapshot v1",
     "Art rights remain unresolved as recorded in provenance"
   ]
 }

@@ -19,7 +19,7 @@ export async function createArtScene({THREE:T,scene,assetBaseUrl=ART_ASSET_ROOT}
   const failure=loaded.findIndex(result=>result.status==='rejected');
   if(failure!==-1){pool.dispose();throw new Error('Tinderbox art asset failed: '+entries[failure][1],{cause:loaded[failure].reason});}
   const assets=Object.fromEntries(entries.map(([name],i)=>{const texture=loaded[i].value;texture.colorSpace=T.SRGBColorSpace;return [name,texture];}));
-  let root,world,bear,field,fire,toolProps,keyLight,disposed=false,updates=0,lastSnapshot;
+  let root,world,bear,field,fire,toolProps,keyLight,disposed=false,updates=0,lastSnapshot,footprintRadius=BEAR_SPEC.shoulderWidth/2+.03;
   const actors=new Map(),muzzlePoint=new T.Vector3();
   try{
     root=new T.Group();root.name='Tinderbox art module';
@@ -31,10 +31,10 @@ export async function createArtScene({THREE:T,scene,assetBaseUrl=ART_ASSET_ROOT}
     keyLight=new T.DirectionalLight(0xffe6be,2.4);keyLight.position.set(-4,12,5);keyLight.target.position.set(10,0,8);root.add(keyLight,keyLight.target);
     keyLight.castShadow=true;keyLight.shadow.mapSize.set(1024,1024);keyLight.shadow.camera.left=-16;keyLight.shadow.camera.right=16;keyLight.shadow.camera.top=16;keyLight.shadow.camera.bottom=-16;keyLight.shadow.bias=-.00025;keyLight.shadow.normalBias=.025;
     }
-    const ringGeo=pool.geometry(new T.RingGeometry(.47,.49,40));ringGeo.rotateX(-Math.PI/2);
+    const ringGeo=pool.geometry(new T.RingGeometry(.96,1,40));ringGeo.rotateX(-Math.PI/2);
     const ringMat=pool.material(new T.MeshBasicMaterial({color:0xf0d28a,transparent:true,opacity:.60,depthWrite:false}));
-    const ring=new T.Mesh(ringGeo,ringMat);ring.position.y=.026;root.add(ring);
-    const arrowGeo=pool.geometry(new T.BufferGeometry());arrowGeo.setAttribute('position',new T.Float32BufferAttribute([.85,.027,0,.67,.027,-.09,.67,.027,.09],3));arrowGeo.computeVertexNormals();
+    const ring=new T.Mesh(ringGeo,ringMat);ring.name='Player footprint';ring.position.y=.026;root.add(ring);
+    const arrowGeo=pool.geometry(new T.BufferGeometry());arrowGeo.setAttribute('position',new T.Float32BufferAttribute([1.6,.027,0,1.23,.027,-.16,1.23,.027,.16],3));arrowGeo.computeVertexNormals();
     const arrow=new T.Mesh(arrowGeo,pool.material(new T.MeshBasicMaterial({color:0xf0d28a,transparent:true,opacity:.7,side:T.DoubleSide,depthWrite:false})));root.add(arrow);
     scene.add(root);
     function update(snapshot,timing={}){
@@ -44,8 +44,10 @@ export async function createArtScene({THREE:T,scene,assetBaseUrl=ART_ASSET_ROOT}
       if(![player.x,player.y,map.width,map.height,map.fireCellSize].every(Number.isFinite)||map.fireCellSize<=0||map.width<=0||map.height<=0||Math.ceil(map.width/map.fireCellSize)*Math.ceil(map.height/map.fireCellSize)>65536)throw new RangeError('Art grid must be finite, positive, and at most 65536 cells.');
       const playerTime=Number.isFinite(timing.playerTime)?timing.playerTime:snapshot.clocks?.player||0;
       const worldTime=Number.isFinite(timing.worldTime)?timing.worldTime:snapshot.clocks?.world||0;
-      world.update(map);field.update(snapshot);bear.update(player,playerTime);bear.anchors.muzzle.getWorldPosition(muzzlePoint);fire.update(snapshot,worldTime,{muzzle:muzzlePoint});toolProps.update(snapshot,playerTime,bear.anchors);
-      ring.position.set(player.x,.026,player.y);arrow.position.set(player.x,0,player.y);arrow.rotation.y=-(player.heading||0);
+      world.update(map);field.update(snapshot);bear.update(player,playerTime);bear.anchors.muzzle.getWorldPosition(muzzlePoint);fire.update(snapshot,worldTime,{muzzle:muzzlePoint});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
+      footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:BEAR_SPEC.shoulderWidth/2+.03;
+      ring.position.set(player.x,.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);
+      arrow.position.set(player.x,0,player.y);arrow.rotation.y=-(player.heading||0);arrow.scale.set(footprintRadius,1,footprintRadius);
       const active=new Set();
       for(const actor of snapshot.actors||[]){
         if(actor.id===player.id)continue;active.add(actor.id);
@@ -60,7 +62,7 @@ export async function createArtScene({THREE:T,scene,assetBaseUrl=ART_ASSET_ROOT}
       fire.dispose();toolProps.dispose();field.dispose();bear.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
     }
     return {update,dispose,anchors:Object.freeze({...bear.anchors}),
-      diagnostics:()=>({disposed,updates,lastSnapshot,provisionalBear:true,actors:actors.size,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics()})};
+      diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:true,actors:actors.size,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics()})};
   }catch(error){
     for(const model of actors.values())model.dispose();fire?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
   }
