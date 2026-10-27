@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "task": "TB-006",
+  "sourceRepository": "https://github.com/Syntaxswine/farmyard-commando.git",
+  "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "extraction": "git show from explicit pinned Git objects; no donor checkout writes or builds",
+  "rightsStatus": "User-authorized reuse; no general Farmyard/AFT code or art license was found. Third-party rights remain unresolved for architect review.",
+  "sourceMetadata": "Generation prompts, atlas cells, hashes and symbol ancestry preserved in the imported manifest.json.",
+  "runtimeDependencies": "Both CSS files retain their original relative URLs; all resolved assets are installed here. No donor runtime code, external fonts or external network requests.",
+  "adapters": [
+    "src/ui/index.js",
+    "src/ui/model.js",
+    "src/ui/styles.css"
+  ],
+  "originalTinderboxArt": {
+    "path": "assets/art/ui/control-symbols.svg",
+    "note": "Original editable 32-unit vector tool/drug/menu symbols, not donor pixels."
+  },
+  "files": [
+    {
+      "sourcePath": "sites/tactical-animal/dist/assets/ui/industrial-switches/switch-skins-v2.webp",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/switch-skins-v2.webp",
+      "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "2894c3ebed7ffd229aea9dbc632a7ccac76b50130d98ab4ee6050eeb60f19f2b",
+      "bytes": 361972,
+      "installedSha256": "2894c3ebed7ffd229aea9dbc632a7ccac76b50130d98ab4ee6050eeb60f19f2b",
+      "dependencies": [],
+      "ancestry": {
+        "source": "Farmyard project-authored UI",
+        "generationManifest": "sites/tactical-animal/dist/assets/ui/industrial-switches/manifest.json"
+      },
+      "notices": "No per-file license header; original comments/metadata retained.",
+      "adaptations": "None to this upstream copy. Tinderbox overrides size, layout and labels in src/ui/styles.css."
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/assets/ui/industrial-switches/map-frame-v1.webp",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/map-frame-v1.webp",
+      "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "de448296888095d958a84afe0cdafdd8f268034c380d97a0a1f5f8cd30a9aae0",
+      "bytes": 221832,
+      "installedSha256": "de448296888095d958a84afe0cdafdd8f268034c380d97a0a1f5f8cd30a9aae0",
+      "dependencies": [],
+      "ancestry": {
+        "source": "Farmyard project-authored UI",
+        "generationManifest": "sites/tactical-animal/dist/assets/ui/industrial-switches/manifest.json"
+      },
+      "notices": "No per-file license header; original comments/metadata retained.",
+      "adaptations": "None to this upstream copy. Tinderbox overrides size, layout and labels in src/ui/styles.css."
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/assets/ui/industrial-switches/symbols.svg",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/symbols.svg",
+      "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "a7772b6274fed2efc0681b38bfda60546db754f2d3f88c3100feefce99891e88",
+      "bytes": 1610,
+      "installedSha256": "a7772b6274fed2efc0681b38bfda60546db754f2d3f88c3100feefce99891e88",
+      "dependencies": [],
+      "ancestry": {
+        "sourceRevision": "d1e84684058c8d44298432a00c6ea9a6bd2b2cf6",
+        "sourcePath": "sites/tactical-animal/dist/field-radio-icons.svg",
+        "note": "M includes later symbols; these bytes are from the approved M pin."
+      },
+      "notices": "No per-file license header; original comments/metadata retained.",
+      "adaptations": "None to this upstream copy. Tinderbox overrides size, layout and labels in src/ui/styles.css."
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/assets/ui/industrial-switches/manifest.json",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/manifest.json",
+      "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "b3fe18a5df5131583217d75da2efd24799a49bcdb5714e39a80c2358be55fa83",
+      "bytes": 7192,
+      "installedSha256": "b3fe18a5df5131583217d75da2efd24799a49bcdb5714e39a80c2358be55fa83",
+      "dependencies": [],
+      "ancestry": {
+        "source": "Farmyard project-authored UI",
+        "generationManifest": "sites/tactical-animal/dist/assets/ui/industrial-switches/manifest.json"
+      },
+      "notices": "No per-file license header; original comments/metadata retained.",
+      "adaptations": "None to this upstream copy. Tinderbox overrides size, layout and labels in src/ui/styles.css."
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/industrial-switches.css",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/industrial-switches.css",
+      "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "54f98dead8cd3fb197f20cfe4f337e9a8082f2990f174edbbfa8a0a5e7c5377b",
+      "bytes": 5967,
+      "installedSha256": "54f98dead8cd3fb197f20cfe4f337e9a8082f2990f174edbbfa8a0a5e7c5377b",
+      "dependencies": [
+        "sites/tactical-animal/dist/assets/ui/industrial-switches/switch-skins-v2.webp"
+      ],
+      "ancestry": {
+        "source": "Farmyard project-authored UI",
+        "generationManifest": "sites/tactical-animal/dist/assets/ui/industrial-switches/manifest.json"
+      },
+      "notices": "No per-file license header; original comments/metadata retained.",
+      "adaptations": "None to this upstream copy. Tinderbox overrides size, layout and labels in src/ui/styles.css."
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/map-frame.css",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/map-frame.css",
+      "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "51d64eebd2ba6a52c4ec2c47e7ce3d0aa9b348043a52ecf49e0e354880b23753",
+      "bytes": 1191,
+      "installedSha256": "51d64eebd2ba6a52c4ec2c47e7ce3d0aa9b348043a52ecf49e0e354880b23753",
+      "dependencies": [
+        "sites/tactical-animal/dist/assets/ui/industrial-switches/map-frame-v1.webp"
+      ],
+      "ancestry": {
+        "source": "Farmyard project-authored UI",
+        "generationManifest": "sites/tactical-animal/dist/assets/ui/industrial-switches/manifest.json"
+      },
+      "notices": "No per-file license header; original comments/metadata retained.",
+      "adaptations": "None to this upstream copy. Tinderbox overrides size, layout and labels in src/ui/styles.css."
+    }
+  ]
+}
