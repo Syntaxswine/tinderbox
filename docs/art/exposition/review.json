@@ -1,0 +1,3370 @@
+{
+  "task": "TB-009",
+  "status": "Passing artist candidate; architect owns combined acceptance, arrangement and publication",
+  "researchCommit": "86220f3f633661736438d3fe427d9a66e1661e19",
+  "coderBaseline": "1b51ff81f3089094c6398b05a7c26095f8ce8b91",
+  "mergeCommit": "76574bf1bc5fa8b75b708fefbca76b5967fb3a52",
+  "donorCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "inheritedSourceCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+  "visualStatus": "Research-based form kit with actual donor surfaces/normal civilians and temporary cream/roof finishes; no named-building reconstruction",
+  "browser": {
+    "startedAt": "2026-10-27T23:47:55.474Z",
+    "completedAt": "2026-10-27T23:48:01.884Z",
+    "hardware": {
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    },
+    "programs": 17,
+    "allProgramLogsEmpty": true,
+    "warnings": [],
+    "errors": [],
+    "failedRequests": [],
+    "visibleReviewControl": "Run kit review; review-output DOM JSON; button exercised by browser runner"
+  },
+  "checks": {
+    "passed": true,
+    "errors": [],
+    "motion": {
+      "normalTravel": 0.8000000000000185,
+      "powderTravel": 0.28000000000002245,
+      "worldTime": 1.3500000000000028
+    },
+    "fixedClockPixels": true,
+    "roofBounds": {
+      "roof-gable": {
+        "size": [
+          12,
+          1.5999999046325684,
+          2.4000000953674316
+        ],
+        "base": 3.5999999046325684,
+        "top": 5.199999809265137
+      },
+      "roof-hip": {
+        "size": [
+          2.4000015258789062,
+          0.7999999523162842,
+          2.3999998569488525
+        ],
+        "base": 3.200000047683716,
+        "top": 4
+      },
+      "rotatedRectangularHip": [
+        2,
+        0.7999999523162842,
+        4
+      ]
+    },
+    "firstUse": {
+      "before": {
+        "geometries": 47,
+        "textures": 29
+      },
+      "afterAllFinishes": {
+        "geometries": 47,
+        "textures": 30
+      }
+    },
+    "skinCounts": [
+      {
+        "geometries": 47,
+        "textures": 30
+      },
+      {
+        "geometries": 47,
+        "textures": 30
+      },
+      {
+        "geometries": 47,
+        "textures": 30
+      }
+    ],
+    "actorCycles": [
+      {
+        "geometries": 47,
+        "textures": 30
+      },
+      {
+        "geometries": 47,
+        "textures": 30
+      },
+      {
+        "geometries": 47,
+        "textures": 30
+      },
+      {
+        "geometries": 47,
+        "textures": 30
+      }
+    ],
+    "damage": {
+      "modules": 2,
+      "survivingSolidParts": [
+        "burn-gate:pier-right"
+      ],
+      "suppressedSolidParts": [
+        "burn-gate:pier-left"
+      ],
+      "suppressedCosmeticParts": [
+        "burn-gate:lintel",
+        "burn-roof:roof-envelope"
+      ],
+      "visibleRoofParts": [],
+      "disposed": false,
+      "renderedModuleIds": [
+        "burn-gate"
+      ],
+      "renderedPartIds": [
+        "burn-gate:pier-right"
+      ],
+      "roofIds": [],
+      "skinBindings": {
+        "burn-gate:pier-right": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        }
+      },
+      "builds": 4,
+      "meshes": 1,
+      "geometries": 1,
+      "materials": 3,
+      "textures": 0,
+      "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+      "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+    },
+    "actorVisibility": [
+      {
+        "name": "Provisional Tinderbox bear",
+        "fullPixels": 996,
+        "isolatedPixels": 996,
+        "visibleRatio": 1
+      },
+      {
+        "name": "Civilian horse",
+        "fullPixels": 492,
+        "isolatedPixels": 496,
+        "visibleRatio": 0.9919354838709677
+      },
+      {
+        "name": "Civilian goat",
+        "fullPixels": 473,
+        "isolatedPixels": 476,
+        "visibleRatio": 0.9936974789915967
+      }
+    ],
+    "disposed": {
+      "geometries": 0,
+      "textures": 0
+    }
+  },
+  "legacySmoke": {
+    "passed": true,
+    "scope": "Legacy art factory/workbench compatibility; no historical screenshot matrix rerun",
+    "startedAt": "2026-10-27T23:47:54.592Z",
+    "completedAt": "2026-10-27T23:47:56.400Z",
+    "disposed": {
+      "geometries": 0,
+      "textures": 0
+    },
+    "discharge": {
+      "openReach": 4.5,
+      "openPlumes": 117,
+      "independentTriangles": 500,
+      "nonSegmentTriangles": 0,
+      "blockedReach": 0.6060313929437122,
+      "maxSubmittedX": 11.499899864196777,
+      "visiblePixels": 389,
+      "outsidePixels": 0,
+      "pixelGuard": 1
+    },
+    "warnings": [],
+    "errors": []
+  },
+  "visibilityMethod": "Same camera and actor geometry rendered with opaque scene and alone into depth-tested colour masks; ratios measure geometric visibility, not player comprehension",
+  "visibility": [
+    {
+      "layout": "source",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "actors": [
+        {
+          "name": "Provisional Tinderbox bear",
+          "fullPixels": 1220,
+          "isolatedPixels": 1220,
+          "visibleRatio": 1
+        },
+        {
+          "name": "Civilian horse",
+          "fullPixels": 209,
+          "isolatedPixels": 611,
+          "visibleRatio": 0.34206219312602293
+        },
+        {
+          "name": "Civilian goat",
+          "fullPixels": 584,
+          "isolatedPixels": 586,
+          "visibleRatio": 0.9965870307167235
+        }
+      ]
+    },
+    {
+      "layout": "proposal",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "actors": [
+        {
+          "name": "Provisional Tinderbox bear",
+          "fullPixels": 1220,
+          "isolatedPixels": 1220,
+          "visibleRatio": 1
+        },
+        {
+          "name": "Civilian horse",
+          "fullPixels": 605,
+          "isolatedPixels": 614,
+          "visibleRatio": 0.9853420195439739
+        },
+        {
+          "name": "Civilian goat",
+          "fullPixels": 584,
+          "isolatedPixels": 586,
+          "visibleRatio": 0.9965870307167235
+        }
+      ]
+    },
+    {
+      "layout": "source",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "actors": [
+        {
+          "name": "Provisional Tinderbox bear",
+          "fullPixels": 234,
+          "isolatedPixels": 234,
+          "visibleRatio": 1
+        },
+        {
+          "name": "Civilian horse",
+          "fullPixels": 43,
+          "isolatedPixels": 121,
+          "visibleRatio": 0.35537190082644626
+        },
+        {
+          "name": "Civilian goat",
+          "fullPixels": 109,
+          "isolatedPixels": 110,
+          "visibleRatio": 0.990909090909091
+        }
+      ]
+    },
+    {
+      "layout": "proposal",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "actors": [
+        {
+          "name": "Provisional Tinderbox bear",
+          "fullPixels": 234,
+          "isolatedPixels": 234,
+          "visibleRatio": 1
+        },
+        {
+          "name": "Civilian horse",
+          "fullPixels": 116,
+          "isolatedPixels": 117,
+          "visibleRatio": 0.9914529914529915
+        },
+        {
+          "name": "Civilian goat",
+          "fullPixels": 109,
+          "isolatedPixels": 110,
+          "visibleRatio": 0.990909090909091
+        }
+      ]
+    }
+  ],
+  "package": {
+    "files": 72,
+    "bytes": 25291405,
+    "allPackagedHashesPassed": true,
+    "hostedFileChecks": 70,
+    "privateWorkbenchExcluded": true
+  },
+  "sources": {
+    "src/art/.gitattributes": "c9ba37e9d0f1d4bedcf8fd2ae38ecb19a32264f63035c98882671606745d329f",
+    "src/art/bear.js": "6b01f6baa79cec2c24f33a3416fd93ba71aca6dc283b42614275bb2cbbad4e52",
+    "src/art/discharge.js": "8082c3747cb098e95ae26590e4f117f98251ba106be618fb143c0708bca14f47",
+    "src/art/exterior-kit.js": "eb2ee77d5cbd84c924afde10ef1ab50d07ae3c34623ae0f64614eb2103619193",
+    "src/art/fire.js": "95df530de3152715397f2400786205951b66befe8213c34f2a5170869111e80a",
+    "src/art/ground-field.js": "a31f94b458fe9d12ed4e4609b7c72c1b00038fde4e6a724d30588b32613164f5",
+    "src/art/index.js": "19a7b0d0e083b4f2812373934b16753b85f9b8b44f43ecb49288df484d4b0800",
+    "src/art/materials.js": "e67136dbb1f713e787f6fa57b40ba102ccb36d8ad1552dbf61cc96544b520c37",
+    "src/art/resources.js": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
+    "src/art/tool-props.js": "1dedb9f2ebbdc61aa1b687953998add1d7ca3e793d236f47a0015ffa198e834e",
+    "src/art/world.js": "1697dfaba1bc1c8b8b3ae95182109a52f53dfd257b6f89fbdbe64273b133daed",
+    "workbenches/art/.gitattributes": "d9cc10c7514fcb9ae799249e85a863afcaff4e92f9a23143ef3c6f62fcd226cf",
+    "workbenches/art/check-art.mjs": "fe56d9e9247caceac6969db4e6f68e7fd160c675a38eff31990cd9c00c36342d",
+    "workbenches/art/exposition.html": "cdf3d28bbdcbc5fa1460691c15ec5c98770dbdbad76cedf1f8cf61beb8714767",
+    "workbenches/art/exposition.js": "08a7078654c512ac2c0801319b6af3f082bd477246f07f25a23d3f3b5b59dd20",
+    "workbenches/art/fixtures.js": "a75e657b881442ba622166d9808215e7e02b4879f7f20adcc529c0fa4dd67125",
+    "workbenches/art/index.html": "91076686583f4574ca07cea668235fa617da207585d01cd14be78ca71f405ffd",
+    "workbenches/art/main.js": "81f190376cc3f4a93d79f851e2bea500c3fa1f916990848777aba2df8625f847",
+    "workbenches/art/review-exposition.mjs": "92c5951d836f1ea55b8ab76bc7e665077894e187300ac6cf5305b08c6837ceb4",
+    "workbenches/art/review.mjs": "6a51560a65aa4ab7af40ae15e517c7bc7874778cb077e71037ea24a8611d6f93",
+    "workbenches/art/server.mjs": "6a885db1191b3e6f02b85f4da9dfeeaa6302ea69f7acae3c5fa0638baa28770d",
+    "workbenches/art/style.css": "c43ad08c45a7f6aa2d2bb46c8a694abf3258f1569712a64a824fe568d9a278ee"
+  },
+  "adapterProvenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/art.json",
+  "rawCityInventory": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json",
+  "images": [
+    {
+      "file": "source-1280x800.png",
+      "layout": "source",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "view": "default-camera",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 5,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                6.569313999237861
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                7.430836485897401
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 11,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 2,
+            "meshes": 17,
+            "geometries": 17,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 43,
+          "textures": 29
+        },
+        "draws": 163,
+        "triangles": 32932,
+        "layout": "source",
+        "skin": "inherited-plaster",
+        "cameraMode": "overview",
+        "canvas": [
+          1280,
+          628
+        ]
+      },
+      "path": "artifacts/art-review/exposition/source-1280x800.png",
+      "sha256": "10128fad8e9de6fa5b6f6d077a5d8ad6bcb1b9b8d8519356c73452aed8d8bfe9"
+    },
+    {
+      "file": "proposal-1280x800.png",
+      "layout": "proposal",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "view": "default-camera",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 7,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                9.569314038353408
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                10.430836396490434
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 15,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip",
+              "bay-pilaster-0",
+              "bay-pilaster-1",
+              "bay-pilaster-2",
+              "bay-pilaster-3"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-0:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-1:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-2:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-3:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 3,
+            "meshes": 21,
+            "geometries": 21,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 47,
+          "textures": 29
+        },
+        "draws": 187,
+        "triangles": 32980,
+        "layout": "proposal",
+        "skin": "inherited-plaster",
+        "cameraMode": "overview",
+        "canvas": [
+          1280,
+          628
+        ]
+      },
+      "path": "artifacts/art-review/exposition/proposal-1280x800.png",
+      "sha256": "e978bb50e82a379d05cee53d8adb3004fc4b6a16f5a9638ccb756fc1f223031c"
+    },
+    {
+      "file": "detail-1280x800.png",
+      "layout": "proposal",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "view": "labelled-detail",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 8,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                9.569314038353408
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                10.430836396490434
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 15,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip",
+              "bay-pilaster-0",
+              "bay-pilaster-1",
+              "bay-pilaster-2",
+              "bay-pilaster-3"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-0:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-1:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-2:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-3:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 3,
+            "meshes": 21,
+            "geometries": 21,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 47,
+          "textures": 29
+        },
+        "draws": 187,
+        "triangles": 32980,
+        "layout": "proposal",
+        "skin": "inherited-plaster",
+        "cameraMode": "detail",
+        "canvas": [
+          1280,
+          628
+        ]
+      },
+      "path": "artifacts/art-review/exposition/detail-1280x800.png",
+      "sha256": "8542161048f53a38060e4137d5840d3400cbe9fe68d437b02a31b9e45692ed20"
+    },
+    {
+      "file": "brick-1280x800.png",
+      "layout": "proposal",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "view": "skin-swap",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 10,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                9.569314038353408
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                10.430836396490434
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 15,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip",
+              "bay-pilaster-0",
+              "bay-pilaster-1",
+              "bay-pilaster-2",
+              "bay-pilaster-3"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-0:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-1:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-2:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-3:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 3,
+            "meshes": 21,
+            "geometries": 21,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 47,
+          "textures": 30
+        },
+        "draws": 187,
+        "triangles": 32980,
+        "layout": "proposal",
+        "skin": "inherited-brick",
+        "cameraMode": "overview",
+        "canvas": [
+          1280,
+          628
+        ]
+      },
+      "path": "artifacts/art-review/exposition/brick-1280x800.png",
+      "sha256": "1f5bd0cd1a8628ef2714bcca8eb2e7851069bda0920d47d618fd5cfb08e1faa7"
+    },
+    {
+      "file": "source-390x844.png",
+      "layout": "source",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "view": "default-camera",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 13,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                6.569313999237861
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                7.430836485897401
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 11,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 4,
+            "meshes": 17,
+            "geometries": 17,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 43,
+          "textures": 30
+        },
+        "draws": 163,
+        "triangles": 32932,
+        "layout": "source",
+        "skin": "inherited-plaster",
+        "cameraMode": "overview",
+        "canvas": [
+          390,
+          528
+        ]
+      },
+      "path": "artifacts/art-review/exposition/source-390x844.png",
+      "sha256": "b81fb81f6b7b9ee6d67e5d3cbc54eaee595c64c9968b6fe01fde68773d20838f"
+    },
+    {
+      "file": "proposal-390x844.png",
+      "layout": "proposal",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "view": "default-camera",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 15,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                9.569314038353408
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                10.430836396490434
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 15,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip",
+              "bay-pilaster-0",
+              "bay-pilaster-1",
+              "bay-pilaster-2",
+              "bay-pilaster-3"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-0:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-1:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-2:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-3:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 5,
+            "meshes": 21,
+            "geometries": 21,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 47,
+          "textures": 30
+        },
+        "draws": 187,
+        "triangles": 32980,
+        "layout": "proposal",
+        "skin": "inherited-plaster",
+        "cameraMode": "overview",
+        "canvas": [
+          390,
+          528
+        ]
+      },
+      "path": "artifacts/art-review/exposition/proposal-390x844.png",
+      "sha256": "563edfd6c285c02d7cd1a620fcda206d3d992b99281ff74ea9e0f0b9dd2a9cd9"
+    },
+    {
+      "file": "detail-390x844.png",
+      "layout": "proposal",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "view": "labelled-detail",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 16,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                9.569314038353408
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                10.430836396490434
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 15,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip",
+              "bay-pilaster-0",
+              "bay-pilaster-1",
+              "bay-pilaster-2",
+              "bay-pilaster-3"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-plaster",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-0:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-1:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-2:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-3:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 5,
+            "meshes": 21,
+            "geometries": 21,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 47,
+          "textures": 30
+        },
+        "draws": 187,
+        "triangles": 32980,
+        "layout": "proposal",
+        "skin": "inherited-plaster",
+        "cameraMode": "detail",
+        "canvas": [
+          390,
+          528
+        ]
+      },
+      "path": "artifacts/art-review/exposition/detail-390x844.png",
+      "sha256": "85f5de60e4b3e811355378d76d2c2a441093a493a924dce7b938e7f0b6388d6b"
+    },
+    {
+      "file": "brick-390x844.png",
+      "layout": "proposal",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "view": "skin-swap",
+      "diagnostics": {
+        "art": {
+          "disposed": false,
+          "updates": 18,
+          "lastSnapshot": {
+            "tick": 0,
+            "worldTime": 0,
+            "playerTime": 0
+          },
+          "footprintRadius": 0.56,
+          "provisionalBear": true,
+          "actors": 2,
+          "provisionalActors": 0,
+          "civilianKit": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilians": {
+            "disposed": false,
+            "species": [
+              "goat",
+              "horse"
+            ],
+            "instances": 2,
+            "sourceTextures": 2,
+            "baseUrl": "http://127.0.0.1:4551/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+          },
+          "civilianActors": [
+            {
+              "id": "visitor-horse",
+              "triangles": 10300,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                6.7745075547957585,
+                0,
+                9.569314038353408
+              ],
+              "max": [
+                7.278973833941505,
+                1.649999976158142,
+                10.430836396490434
+              ],
+              "contacts": [],
+              "sourceTriangles": 856076,
+              "species": "horse",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            },
+            {
+              "id": "visitor-goat",
+              "triangles": 9994,
+              "rifleTriangles": 480,
+              "weapon": "rifle",
+              "weaponTriangles": 480,
+              "bones": 17,
+              "skinnedMeshes": 8,
+              "min": [
+                12.745047211647034,
+                0,
+                11.569344523777481
+              ],
+              "max": [
+                13.211673602461815,
+                1.64951753616333,
+                12.430975132267454
+              ],
+              "contacts": [],
+              "sourceTriangles": 29586,
+              "species": "goat",
+              "appearance": "normal",
+              "armed": false,
+              "bounds": {
+                "radius": 0.62,
+                "height": 1.7
+              }
+            }
+          ],
+          "exterior": {
+            "modules": 15,
+            "survivingSolidParts": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "suppressedSolidParts": [],
+            "suppressedCosmeticParts": [],
+            "visibleRoofParts": [
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope"
+            ],
+            "disposed": false,
+            "renderedModuleIds": [
+              "court-gate",
+              "court-front-west",
+              "court-front-east",
+              "court-west",
+              "court-east",
+              "hall-back",
+              "hall-closed-door",
+              "hall-pilaster",
+              "service-corner",
+              "hall-gable",
+              "service-hip",
+              "bay-pilaster-0",
+              "bay-pilaster-1",
+              "bay-pilaster-2",
+              "bay-pilaster-3"
+            ],
+            "renderedPartIds": [
+              "court-gate:pier-left",
+              "court-gate:pier-right",
+              "court-gate:lintel",
+              "court-front-west:wall",
+              "court-front-east:wall",
+              "court-west:wall",
+              "court-east:wall",
+              "hall-back:wall",
+              "hall-closed-door:pier-left",
+              "hall-closed-door:pier-right",
+              "hall-closed-door:lintel",
+              "hall-closed-door:closed-door",
+              "hall-pilaster:pilaster",
+              "service-corner:leg-x",
+              "service-corner:leg-y",
+              "hall-gable:roof-envelope",
+              "service-hip:roof-envelope",
+              "bay-pilaster-0:pilaster",
+              "bay-pilaster-1:pilaster",
+              "bay-pilaster-2:pilaster",
+              "bay-pilaster-3:pilaster"
+            ],
+            "roofIds": [
+              "hall-gable",
+              "service-hip"
+            ],
+            "skinBindings": {
+              "court-gate:pier-left": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:pier-right": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-gate:lintel": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-west:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-front-east:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-west:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "court-east:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-back:wall": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-left": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:pier-right": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:lintel": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-closed-door:closed-door": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-pilaster:pilaster": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-x": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-corner:leg-y": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "hall-gable:roof-envelope": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "service-hip:roof-envelope": {
+                "facade": "inherited-brick",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-0:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-1:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-2:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              },
+              "bay-pilaster-3:pilaster": {
+                "facade": "inherited-cream",
+                "trim": "inherited-cream",
+                "door": "inherited-wood",
+                "roof": "inherited-roof"
+              }
+            },
+            "builds": 5,
+            "meshes": 21,
+            "geometries": 21,
+            "materials": 3,
+            "textures": 0,
+            "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+            "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+          },
+          "sharedResources": {
+            "geometries": 2,
+            "materials": 28,
+            "textures": 30,
+            "objects": 0
+          },
+          "world": {
+            "geometries": 3,
+            "materials": 0,
+            "textures": 0,
+            "objects": 2,
+            "builds": 1
+          },
+          "bear": {
+            "geometries": 5,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "ground": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 0
+          },
+          "tools": {
+            "projectiles": 0,
+            "geometries": 2,
+            "materials": 0,
+            "textures": 0,
+            "objects": 0
+          },
+          "fire": {
+            "flameCards": 0,
+            "smokeCards": 0,
+            "burstCards": 0,
+            "discharge": {
+              "active": false,
+              "rayCount": 0,
+              "connectRays": false,
+              "triangles": 0,
+              "plumeCards": 0,
+              "capped": false,
+              "muzzleInsideShape": false,
+              "visualForwardStart": 0,
+              "geometryBuilds": 0,
+              "worldTime": 0,
+              "geometries": 2,
+              "materials": 2,
+              "textures": 1,
+              "objects": 0
+            },
+            "eventCount": 0,
+            "trackedCells": 1280,
+            "seenEvents": 0,
+            "capped": false,
+            "worldTime": 0,
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        "memory": {
+          "geometries": 47,
+          "textures": 30
+        },
+        "draws": 187,
+        "triangles": 32980,
+        "layout": "proposal",
+        "skin": "inherited-brick",
+        "cameraMode": "overview",
+        "canvas": [
+          390,
+          528
+        ]
+      },
+      "path": "artifacts/art-review/exposition/brick-390x844.png",
+      "sha256": "b29451838f1b277b7f0136b628110d0934ce567351b478edd2f23edad6a499be"
+    }
+  ],
+  "limitations": [
+    "Game adaptation, not named-building reconstruction",
+    "Viewport emulation, not physical phone",
+    "Coder checkpoint layout is retained for comparison; proposal is a workbench-only arrangement pending architect promotion",
+    "Cream/roof skins remain inherited placeholders",
+    "Historic bay/roof dimensions are unmeasured; game dimensions explicit",
+    "No upper-storey fire, collapse, interior or crowd behavior added",
+    "Original monograph edition date and fine dimension numerals remain uncertain"
+  ],
+  "helpers": {
+    "previewState": "artifacts/art-preview/tb009-01",
+    "stopMethod": "Private STOP marker after exact identity verification",
+    "restart": "Deliberate new lifetime and registration required"
+  }
+}

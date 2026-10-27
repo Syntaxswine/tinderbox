@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tinderbox · exposition kit study</title><link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#24332d;color:#e5ddc4;font:13px system-ui}body{display:grid;grid-template-rows:auto minmax(180px,1fr) auto}header,footer{padding:12px 18px}h1{margin:0;font:700 16px system-ui;letter-spacing:.08em}p{margin:5px 0;color:#c4c5b1;font-size:12px}#stage{position:relative;min-width:0;min-height:0;background:#b6bba5}canvas{display:block;width:100%;height:100%}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}button,select{font:inherit;padding:7px 9px;color:inherit;background:#35483e;border:1px solid #71816c;border-radius:3px}label{display:flex;gap:6px;align-items:center}#status{font:11px monospace;margin-top:8px;overflow-wrap:anywhere}#loading{position:absolute;inset:40% 0;text-align:center;background:#35483e;padding:20px}a{color:#ece0ae}#review-output{white-space:pre-wrap;overflow-wrap:anywhere;max-height:28vh;overflow:auto;font:11px monospace;background:#18251f;padding:12px;border:1px solid #71816c}@media(max-width:500px){header,footer{padding:10px 12px}.controls{gap:6px}button,select{max-width:100%;padding:6px}label{font-size:12px}h1{font-size:14px}}
+</style>
+<header><h1>TINDERBOX / EXPOSITION KIT</h1><p>Research-based form study · game dimensions · temporary inherited skins</p></header>
+<main id="stage"><div id="loading">Loading original Farmyard surfaces and normal animals…</div></main>
+<footer><div class="controls">
+<button id="play">Play</button><button id="step">+1 second</button><button id="reset">Reset</button>
+<label>Layout <select id="layout"><option value="proposal">Open foreground proposal</option><option value="source">Coder checkpoint layout</option></select></label>
+<label>Façade <select id="skin"><option value="inherited-plaster">Inherited plaster</option><option value="inherited-brick">Inherited brick</option><option value="inherited-wood">Inherited wood</option></select></label>
+<button id="validate">Run kit review</button><button id="overview">Default camera</button><button id="detail">Roof / opening detail</button></div>
+<p>Frontage: EXPO-P01 scan31 + EXPO-P02 plate43. Separate pitched/hip roof samples: plate53. <a href="../../docs/art/exposition/README.md">Sources and adaptations</a></p>
+<div id="status">Preparing the shared simulation and art factory.</div><pre id="review-output" hidden aria-live="polite"></pre></footer>
+<script type="module" src="./exposition.js"></script></html>
