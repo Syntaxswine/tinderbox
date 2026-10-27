@@ -7,8 +7,11 @@
 | Architect | `master` | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
 | Artist | `codex/art-assets` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Art sources/exports, visual reuse audit |
 | Coder | `codex/coding` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Runtime dependency/behavior reuse audit |
+| UI designer | `codex/ui-design` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Player controls, HUD, buttons, menus, layout, and interaction states |
 
 The existing worker chats are **Artist, Tinderbox** and **Coder Tinderbox**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+
+The UI designer works from the dedicated UI worktree. Coordinate new asset exports with the artist and gameplay/runtime contracts with the coder. Follow the [reconciled reuse plan](reuse-plan.md) for Farmyard UI reuse; unresolved gameplay and device choices remain proposals. UI candidates follow the same architect promotion gate.
 
 ## TB-001: visual reuse audit
 
