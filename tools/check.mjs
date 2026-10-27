@@ -26,7 +26,7 @@ for (const file of ['index.html', ...files('workbenches'), ...files('tests')].fi
   }
 }
 const vendor = 'vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083';
-for (const name of ['engine', 'code', 'art', 'ui']) {
+for (const name of ['engine', 'code', 'art', 'ui', 'city']) {
   const manifest = JSON.parse(fs.readFileSync(`${vendor}/provenance/${name}.json`, 'utf8'));
   for (const record of manifest.files) {
     const bytes = fs.readFileSync(record.installedPath);
