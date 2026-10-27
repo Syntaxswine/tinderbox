@@ -1,0 +1,26 @@
+{
+  "id": "tinderbox-bear-prototype-01",
+  "status": "provisional",
+  "source": "src/art/bear.js",
+  "sha256": "5e3bb5cbb76273d8476f19158014b3044505f00f52bb95d9346440bf12c10ea5",
+  "authoring": "Original code-native Three.js geometry and material assignment; no generated bitmap master",
+  "units": "metres",
+  "neutralForward": "ground +X",
+  "heading": "radians toward ground +Y",
+  "nominalHeight": 2.02,
+  "nominalShoulderWidth": 1.06,
+  "appearance": {
+    "fur": "umber brown",
+    "muzzle": "warm tan",
+    "clothes": "muted green canvas overalls / cream short sleeves",
+    "equipment": "Five simple authoring poses; right-hand equipment mirrored onto the camera-near side"
+  },
+  "anchors": [
+    "grip",
+    "support",
+    "muzzle",
+    "spout",
+    "backpack"
+  ],
+  "finishedArt": false
+}
