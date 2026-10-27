@@ -10,7 +10,8 @@
   "recordedOn": "2026-10-27",
   "browserRun": {
     "startedAt": "2026-10-27T22:07:30.923Z",
-    "completedAt": "2026-10-27T22:07:44.077Z"
+    "completedAt": "2026-10-27T22:07:44.077Z",
+    "sourceCommit": "86f281e4f63825ed9c721e790f5cb00fac13de85"
   },
   "hardware": {
     "vendor": "Google Inc. (NVIDIA)",
@@ -143,6 +144,66 @@
     "afterDispose": {
       "geometries": 0,
       "textures": 0
+    },
+    "explicitLodShaderSmoke": {
+      "baselineCommit": "86f281e4f63825ed9c721e790f5cb00fac13de85",
+      "previousSourceSha256": "db9a693f103a098ca7f50a2e0d1ed87aa750d52f8138b4d80dd22cb922e4ff0a",
+      "passed": true,
+      "startedAt": "2026-10-27T22:16:00.634Z",
+      "completedAt": "2026-10-27T22:16:02.136Z",
+      "source": "src/art/discharge.js",
+      "sourceSha256": "8082c3747cb098e95ae26590e4f117f98251ba106be618fb143c0708bca14f47",
+      "scope": "Minimal fresh Chrome/WebGL2 shader compile/render smoke; no screenshot matrix rerun",
+      "cases": [
+        {
+          "id": "jet",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": true,
+          "plumeCards": 117,
+          "muzzleInsideShape": true
+        },
+        {
+          "id": "jet-near-wall",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": true,
+          "plumeCards": 117,
+          "muzzleInsideShape": false
+        },
+        {
+          "id": "torch",
+          "active": true,
+          "rayCount": 33,
+          "connectRays": true,
+          "plumeCards": 18,
+          "muzzleInsideShape": true
+        },
+        {
+          "id": "jet-rays",
+          "active": true,
+          "rayCount": 25,
+          "connectRays": false,
+          "plumeCards": 0,
+          "muzzleInsideShape": false
+        }
+      ],
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+      },
+      "programCount": 12,
+      "allProgramAndShaderLogsEmpty": true,
+      "disposed": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "warnings": [],
+      "errors": [],
+      "failedRequests": [],
+      "evidencePath": "artifacts/art-review/shader-lod/smoke.json",
+      "evidenceSha256": "6ee96cc6620a2e5e823dfbbfc2ce759ced79496bb9ea6aafa8ca8d809897c359"
     }
   },
   "timing": {
@@ -155,7 +216,7 @@
   "sources": {
     "src/art/.gitattributes": "c9ba37e9d0f1d4bedcf8fd2ae38ecb19a32264f63035c98882671606745d329f",
     "src/art/bear.js": "6b01f6baa79cec2c24f33a3416fd93ba71aca6dc283b42614275bb2cbbad4e52",
-    "src/art/discharge.js": "db9a693f103a098ca7f50a2e0d1ed87aa750d52f8138b4d80dd22cb922e4ff0a",
+    "src/art/discharge.js": "8082c3747cb098e95ae26590e4f117f98251ba106be618fb143c0708bca14f47",
     "src/art/fire.js": "95df530de3152715397f2400786205951b66befe8213c34f2a5170869111e80a",
     "src/art/ground-field.js": "a31f94b458fe9d12ed4e4609b7c72c1b00038fde4e6a724d30588b32613164f5",
     "src/art/index.js": "492d4bf3811f381f4cfa1b1464180675310a9ce7c4d69e3f1e1c1e02f92c14b3",

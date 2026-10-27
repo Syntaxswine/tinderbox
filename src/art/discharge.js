@@ -74,7 +74,8 @@ export function createDischarge(T,flameTexture){
       uniform vec2 shapeOrigin,sourceOrigin,direction,bear;
       varying vec2 paintUv;varying vec3 paintWorld;varying vec4 paintShape;
     `+atlasCode+`
-      vec4 ray(float i){return texture2D(rayTable,vec2((i+.5)/256.,.5));}
+      // Exact level-zero data fetch: no implicit derivatives in the varying search.
+      vec4 ray(float i){return texelFetch(rayTable,ivec2(int(i),0),0);}
       bool allowed(vec2 p){
         vec2 delta=p-shapeOrigin;if(dot(delta,delta)<.00000001)return true;
         float a=atan(delta.y,delta.x)-heading;a=atan(sin(a),cos(a));
