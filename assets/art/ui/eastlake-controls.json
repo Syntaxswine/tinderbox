@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "task": "Eastlake interface and period typography",
+  "baseCommit": "5bb4fefcc0fea181b6d2ab90824ba622907032d8",
+  "sourceRevision": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "materialBase": "assets/art/ui/wooden-controls.json",
+  "fontProvenance": "assets/art/ui/typography/manifest.json",
+  "direction": "Eastlake-informed inset timber panels with reeded rules, incised geometric carving, chamfered button surrounds and corner rosettes. Functional layout and commands retain the existing Farmyard/Tinderbox foundation.",
+  "historicScope": "Modern game interpretation. The fonts are licensed modern designs/revivals with documented period sources; no exact 1893 font or cabinet reproduction is asserted.",
+  "references": [
+    {
+      "id": "E01",
+      "url": "https://museum.state.il.us/muslink/art/htmls/ms_eastlake.html",
+      "evidence": "Institutional text inspected; describes shallow carving, incised linework, geometric decoration and flat surfaces.",
+      "appliedAs": "Original low-relief line ornaments and flat panel/rail hierarchy. Museum image pixels are not imported."
+    },
+    {
+      "id": "E02",
+      "url": "https://www.museum.state.il.us/muslink/art/htmls/ms_eastlake_lg.html",
+      "evidence": "Museum catalogue dates its walnut-and-marble table circa 1880 and identifies reeding and chamfered corners among varied Eastlake treatments.",
+      "appliedAs": "Restrained rail incisions and chamfered borders; no direct object tracing."
+    },
+    {
+      "id": "E03",
+      "url": "https://marktwainstudies.com/quarry-farm-historic-interiors-and-furnishings/",
+      "locator": "Modern Gothic discussion and descriptions of figures 9, 12–14.",
+      "evidence": "Institutional furnishing study describes surviving circa-1880 woodwork with corner blocks, round bosses, reeding, incised motifs and geometric panels. Text inspected; the cited object images were not visually reviewed.",
+      "appliedAs": "Square rosette corner blocks, lozenges and reeded rules as original editable vectors."
+    },
+    {
+      "id": "G01",
+      "url": "https://archive.org/details/officialguidetow00flin",
+      "locator": "1893 hand book edition, PDF page 9 title/authority leaf; existing docs/ui/exposition/sources.json G01.",
+      "evidence": "Previously downloaded title leaf visually inspected again. Hierarchy uses contrasting roman sizes, capitals/small-cap appearance and separating rules.",
+      "appliedAs": "Clear display/label/prose hierarchy, spaced capitals and centered rules; exact historical face identification is unclaimed."
+    },
+    {
+      "id": "F01",
+      "url": "https://indestructibletype.com/Besley.html",
+      "evidence": "Designer describes a Clarendon-inspired antique slab serif designed for screen readability.",
+      "appliedAs": "Besley display and functional label family. Exact pinned font/source/license records are separate."
+    },
+    {
+      "id": "F02",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/oldstandardtt/DESCRIPTION.en_us.html",
+      "evidence": "Publisher identifies a Modern/classicist serif idiom used in late-nineteenth- and early-twentieth-century editions.",
+      "appliedAs": "Old Standard TT roman prose and actual italic secondary notes, with a larger size for readable small text."
+    }
+  ],
+  "code": {
+    "fonts": "src/ui/typography.css",
+    "layoutAndType": "src/ui/styles.css",
+    "material": "src/ui/wood.css",
+    "gameType": "src/app.css",
+    "preloads": "index.html"
+  },
+  "ornaments": [
+    {
+      "path": "assets/art/ui/eastlake-rosette.svg",
+      "bytes": 481,
+      "sha256": "ed15dac870382eeaa106c4f1f962ab24f9c0b56371fb75eddbfd2673bb27c055",
+      "authorship": "Original Tinderbox code-native vector adaptation; no source image pixels.",
+      "dependencies": []
+    },
+    {
+      "path": "assets/art/ui/eastlake-rule.svg",
+      "bytes": 450,
+      "sha256": "4c861935859ec12f7e7af3e15749cc4c783f0dc2198da5ed48e0e4debb6b8361",
+      "authorship": "Original Tinderbox code-native vector adaptation; no source image pixels.",
+      "dependencies": []
+    },
+    {
+      "path": "assets/art/ui/eastlake-button.svg",
+      "bytes": 554,
+      "sha256": "586ec0949b07c75d89bb31661ae61e0a168a26db557706b0934096922a860598",
+      "authorship": "Original Tinderbox code-native vector adaptation; no source image pixels.",
+      "dependencies": []
+    }
+  ],
+  "invariants": [
+    "Five tool IDs, three drug actions and snapshot/command v1 are unchanged.",
+    "Normalized raw movement, one simulation inversion, aim, focus cancellation, keyboard, independent pointers, menu commands and disposal remain intact.",
+    "Farmyard source pin, existing timber bitmap and imported vendor pixels stay unchanged."
+  ]
+}

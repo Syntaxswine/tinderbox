@@ -7,8 +7,8 @@ const base = {
     torch: {phase:'unlit',remainingSeconds:41.6666667,durationSeconds:41.6666667},
     inventory: {matches: 9, gas: 24.8, molotovs: 3, torchFuel: 5, flamethrowerFuel: 120, powder: 2, healing: 3, inversion: 1}},
   effects: {powder: {active: false, remaining: 0}, inversion: {active: false, remaining: 0}},
-  world: {width: 20, height: 16, tileSize: 1, fireCellSize: 0.5, tiles: [], obstacles: []},
-  cells: [], actors: [], events: [], diagnostics:{generation:0}
+  world: {width: 20, height: 16, tileSize: 1, fireCellSize: 0.5, tiles: Array.from({length:320},(_,i)=>({x:i%20+.5,y:Math.floor(i/20)+.5,size:1,material:Math.floor(i/20)<4?'grass':'paving'})), obstacles: [{id:'fixed-building',x:5,y:3,width:6,depth:3,height:3,material:'masonry'}]},
+  cells: [{x:14.25,y:10.25,size:.5,phase:'burning'},{x:14.75,y:10.25,size:.5,phase:'burning'}], actors: [], events: [], diagnostics:{generation:0}
 };
 export const FIXTURE_NAMES = ['ready', 'pouring', 'reversed', 'low-stock', 'empty', 'paused', 'down', 'torch-unlit', 'torch-lit', 'torch-paused', 'torch-powder', 'torch-spent', 'torch-unknown', 'torch-blocked', 'matches-no-fuel'];
 export function fixture(name = 'ready') {
@@ -54,7 +54,7 @@ export function createFakeSnapshotAdapter({onSnapshot, onCommand = () => {}}) {
     dispatch(command) {
       onCommand(structuredClone(command));
       if (command.type === 'select-tool') {
-        value.player.tool = command.tool; value.player.pouring = false;
+        if(value.player.tool!==command.tool){value.player.tool=command.tool;value.player.pouring=false;}
       } else if (command.type === 'primary') {
         if (command.pressed && !pressed && value.player.tool === 'jerry-can') value.player.pouring = !value.player.pouring;
         pressed = command.pressed;

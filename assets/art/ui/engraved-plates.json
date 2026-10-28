@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "task": "Engraved newspaper menus",
+  "date": "2026-10-28",
+  "parentUiCommit": "0c52b7f08a8f4bf5e93502810a2751f5de63d444",
+  "direction": "Detailed engraving-style object illustrations, newspaper masthead/rules and lettered sign plates in the existing Eastlake wood frames. The thrown incendiary is a glass-bodied oil lantern without a carrying handle per the user’s corrections.",
+  "atlas": {
+    "installedPath": "assets/art/ui/engraved-atlas.png",
+    "source": "Built-in image_gen tool, new image generation",
+    "generationFile": "exec-98c8d82e-791c-495c-aee0-0243452259bd.png",
+    "width": 1402,
+    "height": 1122,
+    "bytes": 1994109,
+    "sha256": "e1be50ce8a5afc92e535730d24ac9ad19ac416119275cb345eafe4c8cfe6502a",
+    "requestedTransparentBackground": true,
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "bytesUnmodified": true,
+    "display": "Native SVG viewports and per-instance clip paths; no physical image cropping/re-encoding.",
+    "supersededCell": {
+      "id": "molotov",
+      "frame": [
+        630,
+        52,
+        176,
+        285
+      ],
+      "status": "Original bottle cell retained in unchanged atlas bytes; never displayed."
+    }
+  },
+  "frames": {
+    "source": "src/ui/etching-frames.js",
+    "rectangles": {
+      "matches": [
+        19,
+        140,
+        285,
+        191
+      ],
+      "jerry-can": [
+        331,
+        65,
+        203,
+        265
+      ],
+      "torch": [
+        868,
+        12,
+        208,
+        325
+      ],
+      "flamethrower": [
+        1106,
+        60,
+        290,
+        268
+      ],
+      "powder": [
+        25,
+        396,
+        282,
+        195
+      ],
+      "healing": [
+        375,
+        337,
+        130,
+        264
+      ],
+      "inversion": [
+        568,
+        337,
+        267,
+        264
+      ],
+      "pause": [
+        870,
+        337,
+        201,
+        264
+      ],
+      "play": [
+        1102,
+        407,
+        281,
+        157
+      ],
+      "stop": [
+        59,
+        595,
+        183,
+        280
+      ],
+      "options": [
+        270,
+        668,
+        312,
+        191
+      ],
+      "reset": [
+        583,
+        630,
+        259,
+        244
+      ],
+      "movement": [
+        850,
+        601,
+        245,
+        282
+      ],
+      "tools": [
+        1103,
+        610,
+        285,
+        261
+      ],
+      "zoom-in": [
+        30,
+        887,
+        274,
+        223
+      ],
+      "zoom-out": [
+        318,
+        887,
+        266,
+        222
+      ]
+    }
+  },
+  "systemColorFallback": {
+    "installedPath": "assets/art/ui/engraved-outline-plates.svg",
+    "kind": "Original editable 64-unit contour/hatch drawings made in this task; used in system forced colors.",
+    "sha256": "18604a6d3672ce7737283522d9bc1e626c3980b7f516db00caf0d6ea21820fd0"
+  },
+  "references": [
+    {
+      "title": "Illinois State Museum: The Eastlake Movement",
+      "url": "https://museum.state.il.us/muslink/art/htmls/ms_eastlake.html",
+      "access": "Museum page text read in this pass; images not copied.",
+      "use": "Low-relief/incised/geometric wood framing. Menu layout and illustrations are Tinderbox adaptations."
+    },
+    {
+      "title": "Existing primary-source print and wayfinding study",
+      "projectPath": "docs/ui/exposition/README.md",
+      "source": "John J. Flinn, official guide handbook edition, 1893; G01 PDF page 9 title and printed pages 17–18, previously visually inspected.",
+      "url": "https://archive.org/details/officialguidetow00flin",
+      "use": "Centered serif hierarchy, rules, and period directing-sign/placard context. No claim of a standard historical sign design."
+    }
+  ],
+  "typography": {
+    "preservedManifest": "assets/art/ui/typography/manifest.json",
+    "family": [
+      "Besley",
+      "Old Standard TT"
+    ],
+    "newFontImports": false
+  },
+  "reuse": {
+    "sourcePin": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+    "preserved": "Farmyard central joystick and six-button grouping, timber and map-frame foundation. Vendor and font files unchanged.",
+    "previousHandoff": "docs/ui/phone/README.md"
+  },
+  "scope": "UI presentation, direct-action input mapping and review fixtures. Existing command vocabulary, simulation rules and runtime camera wiring are preserved.",
+  "rights": "The PNGs are AI-generated for this project, not reproductions of museum images or historical engravings. Fallback vectors and menu styling are original adaptations. Existing donor rights limitations and font OFL notices remain as recorded.",
+  "imageGeneration": {
+    "mode": "Built-in image_gen: original atlas, edited glass oil lantern and new oil barrel plate",
+    "prompt": "Use case: historical-scene / illustration.\nAsset type: ONE production sprite atlas for Tinderbox game menus, a single cohesive plate of 17 Victorian newspaper wood engravings.\nPrimary request: deeply detailed black-ink nineteenth-century wood engravings, like tiny object illustrations in an 1893 newspaper advertisement, with natural contour hatching, cross-hatched shadows, stippling, irregular burin-cut line weights and realistic material detail. These must look like printed illustrations, not modern outlined UI icons, not flat pictograms, not infographic graphics.\nComposition: strict evenly spaced 5-column by 4-row atlas, all cells equal and aligned to the exact grid. Every object isolated and centered in its cell with generous transparent safety margins (at least 12 percent all around), no overlapping cells. Entire atlas landscape aspect 5:4. NO grid lines, no cell borders, no labels, no captions, no decorative shared frame. One object illustration per filled cell.\nRead left to right:\nRow 1: a small matchbox with two long wooden matches; a rectangular metal fuel can with handle and cap; a glass bottle with cloth rag in its neck; a burning wooden hand torch; a flamethrower consisting of a strapped pressure cylinder, hose and small handheld nozzle.\nRow 2: a folded paper powder packet with a few grains beside it; a stoppered apothecary medicine bottle with an unlettered label; a wooden fingerpost with two opposing directional boards; an ornate closed-case pocket watch with exposed dial; a detailed Victorian pointing right hand/manicule with cuff.\nRow 3: an upright open palm meaning stop, with finely drawn natural fingers; an open old book; a quill pen lying diagonally on a sheet of paper; an antique compass rose; a joiner's wooden tool chest with handle.\nRow 4: a handheld magnifying glass with a small plus in the lens; a handheld magnifying glass with a small minus in the lens; EMPTY transparent cell; EMPTY transparent cell; EMPTY transparent cell.\nPalette: monochrome dark brown-black ink only. No color. Shadows expressed ONLY through carved line work and stippling. Strong outer silhouettes and large areas of clear negative space so the cuts remain recognizable at 40 CSS pixels. Fine engraving detail rewards a larger view, but avoid fuzzy grey wash.\nBackground: actual transparent alpha, including all blank cells and all surrounding space. No paper background, no checkerboard, no shadows cast onto a background, no gradients. Highlights and negative spaces inside the drawings should also be transparent as far as possible. No words, letters, numerals, logos or watermarks. The plus and minus on the magnifiers are the only symbols. Preserve all 17 distinct objects and the exact 5x4 order."
+  },
+  "oilLantern": {
+    "installedPath": "assets/art/ui/engraved-oil-lantern.png",
+    "source": "Built-in image_gen tool, removal of carrying handle from the approved glass lantern",
+    "generationFile": "exec-d2f0f7b2-d482-4a42-ac1f-f334900ce5ed.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1063533,
+    "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
+    "requestedTransparentBackground": true,
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "bytesUnmodified": true,
+    "frame": [
+      356,
+      128,
+      544,
+      1108
+    ],
+    "internalToolId": "molotov",
+    "displayLabel": "Oil lantern",
+    "stockField": "molotovs",
+    "action": "Throw",
+    "worldArtStatus": "Artist/coder integration: clear glass reservoir and chimney, visible oil/wick, small brass burner and functional wick-adjustment knob; no carrying handle, bail, side loops or carrying supports. UI only here.",
+    "prompt": "Edit the provided oil-lamp engraving. The user approves everything except the metal carrying handle. Make ONE narrowly scoped alteration: remove the entire thin wire carrying bail/arched handle, its two circular side loops, and the diagonal wire supports/attachment tabs running down to the reservoir. Replace the removed handle area with genuine transparent alpha.\nPreserve the glass oil lamp itself: the exact broad rounded cut-glass oil reservoir, horizontal oil level, submerged wick, small brass burner and its right-side wick-adjustment knob, tall clear glass chimney, lit flame, proportions, perspective, contour hatching, cross-hatching and dark brown-black monochrome ink style. Keep the chimney opening, glass highlights, facets, oil and flame intact. The wick-adjustment knob is functional and must remain; it is not the carrying handle.\nKeep the original square canvas and the lamp's scale and placement. Do not enlarge, reposition, crop or redesign the lamp. No new handle, grip, bail, hanging loop, side frame, chain or other carrying hardware. No other changes, lettering, border, background or cast shadow. Preserve the transparent background. This is the final production newspaper-style engraving for the same game menu.",
+    "material": "Clear glass reservoir and chimney, visible oil level and submerged wick, minimal brass burner and functional wick-adjustment knob. No carrying handle, bail, side loops or diagonal carrying supports.",
+    "editTarget": {
+      "gitCommit": "6a0793981862205b72c290f7036f0264bb2606ab",
+      "path": "assets/art/ui/engraved-oil-lantern.png",
+      "sha256": "0072d2cdbf32acf83cf806d6075e0d00876eea75f82d84eb6111f1643c813bdc",
+      "prompt": "Use case: historical-scene / engraving illustration.\nAsset type: a replacement production menu illustration for Tinderbox.\nReference image role: EDIT TARGET — the existing monochrome engraved tin hurricane lantern. Match its fine Victorian newspaper engraving style and detailed contour hatching, but redesign the object as a GLASS-BODIED oil lantern.\nPrimary request: a portable nineteenth-century chamber oil lantern with a broad, clear blown-glass oil reservoir at its base, a small brass wick burner above the reservoir, a tall clear glass chimney enclosing a small lit flame, and a spare thin wire carrying bail. The transparent glass reservoir must be a prominent part of the silhouette, occupying roughly the lower third of the object. A clearly visible horizontal oil level and the submerged wick can be seen through the glass. Give the glass rounded shoulders, restrained cut-glass facets at the base, crisp double contours at glass edges, a few slender curved reflection highlights and broad open areas. Use only fine sparse hatching on the transparent glass; reserve denser hatching for the tiny brass burner and oil below its level.\nComposition: one complete upright lantern centered with generous margin, three-quarter view, compact enough to read at 44px high. Keep the whole bail, chimney and base visible and distinct.\nStyle and palette: same dark brown-black ink-only 1893 newspaper wood engraving as the edit target. Natural fine contour hatching and stipple, realistic object illustration. No modern icon treatment. Preserve the established monochrome print language: oil is indicated with engraving marks, not amber color fill.\nChange requirements: remove the opaque metal fuel tank and heavy metal hurricane frame. The fuel reservoir is visibly transparent glass, not a tin tank with a glass window. Keep metal fittings minimal. No sheet-metal bonnet obscuring the tall glass chimney.\nBackground: preserve genuine transparent alpha; highlights and negative space should be transparent as far as possible. No paper background, colored wash, gradients, scene, shadows on a background, labels, words, numerals or watermark. No modern pressure lamp, electric bulb, LED, rag bottle or decorative flowers. This is an original game object design, not an exact named historical model."
+    }
+  },
+  "oilBarrel": {
+    "installedPath": "assets/art/ui/engraved-oil-barrel.png",
+    "source": "Built-in image_gen tool, new engraving for requested oil-barrel action",
+    "generationFile": "exec-b52fc0c9-b992-431d-9e95-d43c596efb7b.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 2227597,
+    "sha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4",
+    "requestedTransparentBackground": true,
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "bytesUnmodified": true,
+    "frame": [
+      232,
+      106,
+      789,
+      1065
+    ],
+    "internalToolId": "jerry-can",
+    "stockField": "gas",
+    "action": "Pour / Stop",
+    "worldArtStatus": "Carried oil barrel is an artist/coder integration follow-up; existing pour behavior is retained.",
+    "prompt": "Asset: one original engraving plate for the Oil barrel button in Tinderbox's period game UI.\nDraw a small upright wooden oil barrel in three-quarter view. Bulging stave-built cask with a closed round wooden head, three dark iron hoops, a small round bung in the head, convincing curved staves and visible wood grain. Whole barrel visible, simple strong silhouette, no spigot, no lettering or oil-drop symbols.\nStyle: detailed 1893 newspaper wood engraving, monochrome dark brown-black ink, natural contour hatching, dense cross-hatched hoop shadows, restrained stippling and open highlights. Match a coherent set of Victorian newspaper tool-advertisement illustrations. Realistic object illustration, not a modern outline icon or infographic. Recognizable at 20 to 44 CSS pixels.\nCentered isolated barrel, square canvas with generous clear margins. Transparent background and transparent negative space where possible. No paper, cast shadow on a background, colored wash, gradient, labels, words, numbers, border or watermark. No modern plastic jerry can, no modern steel drum, no electric objects. Original game adaptation, no claim of an exact historical manufacturer.",
+    "supersedesAtlasFrame": [
+      331,
+      65,
+      203,
+      265
+    ]
+  },
+  "controls": {
+    "left": [
+      "Matches",
+      "Torch",
+      "Flamethrower"
+    ],
+    "right": [
+      "Oil barrel",
+      "Throw lantern",
+      "Menu"
+    ],
+    "input": "Tool buttons select then activate; torch/flamethrower hold, barrel toggles pour.",
+    "drugs": "User requires automatic activation when walked over; manual UI buttons and shortcuts removed. Simulation pickup detection remains coder work."
+  }
+}
