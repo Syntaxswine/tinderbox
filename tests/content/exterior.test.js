@@ -54,7 +54,7 @@ test('exposition is additive, civilian metadata is explicit, detached, and uses 
   const normal = createSimulation({scenario: 'exposition'}), slow = createSimulation({scenario: 'exposition'});
   slow.dispatch({type: 'drug', drug: 'powder'});
   for (let i = 0; i < 60; i++) { normal.advance(1 / 60); slow.advance(1 / 60); }
-  const a = normal.snapshot(), b = slow.snapshot(); assert.equal(a.world.modules.length, 11);
+  const a = normal.snapshot(), b = slow.snapshot(); assert.equal(a.world.modules.length, 15);
   assert.deepEqual(a.actors.map(p => p.species), ['horse', 'goat']);
   for (let i = 0; i < a.actors.length; i++) { close(b.actors[i].travelled / a.actors[i].travelled, 0.35); close(b.actors[i].radius, 0.62); assert.equal(a.actors[i].appearance, 'normal'); }
   a.world.modules[0].parts[0].x = -999; assert.notEqual(normal.snapshot().world.modules[0].parts[0].x, -999);

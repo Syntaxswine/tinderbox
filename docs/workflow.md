@@ -46,7 +46,7 @@ Assignments may be developed concurrently because their owned files and public i
 
 TB-004 through TB-007 are approved as the [opening mechanics test](reviews/2026-10-27-burning-trail.md).
 
-## Active exposition assignments
+## Reviewed exposition assignments
 
 The bounded result, APIs, ownership and acceptance criteria are in [Milestone 02: researched exposition construction kit](milestones/02-exposition-foundation.md).
 
@@ -58,6 +58,8 @@ The bounded result, APIs, ownership and acceptance criteria are in [Milestone 02
 | TB-011 | Architect | Reconcile sources, integrate exact candidates, review the actual scene and decide promotion/deployment |
 
 The architect's review branch is `codex/exposition-foundation`. Worker ownership/worktrees remain as recorded above. Historical research is [indexed separately](research/1893-exposition/README.md), with original sources, uncertainties and game adaptations distinguished.
+
+All four bounded deliveries passed the architect's combined gate. See the [exposition acceptance](reviews/2026-10-27-exposition-foundation.md) for exact candidates, integration corrections, checks and deployment status. Further custom skins or building reconstructions require a new bounded assignment.
 
 ## Promotion gate
 

@@ -40,7 +40,7 @@ The three approved raw maps are brick-factory-v1, wood-factory-v2 and ground-con
 
 ## Proposed camera-friendly arrangement
 
-This exists only in the art workbench's `scenarioFor()`, where the same simulation compiles it. The original coder arrangement is retained for comparison. The architect may apply reviewed positions to the production content.
+At artist candidate `c80db1d`, this existed only in the art workbench's `scenarioFor()`, where the same simulation compiles it. The architect subsequently adopted the reviewed positions and four pilasters in production; the current workbench explicitly reconstructs the old coder arrangement for comparison. See the [combined acceptance](../../reviews/2026-10-27-exposition-foundation.md). The candidate fingerprints and browser evidence below describe the original artist checkpoint.
 
 | Module/actor | Proposed change from coder checkpoint |
 | --- | --- |

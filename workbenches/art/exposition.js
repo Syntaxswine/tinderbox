@@ -12,18 +12,19 @@ renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;s
 let art,simulation,layout='proposal',skin='inherited-plaster',playing=false,alive=true,raf,last=performance.now(),cameraMode='overview',snapshot;
 function scenarioFor(){
   const s=structuredClone(EXPOSITION_SCENARIO);
-  if(layout==='proposal'){
+  // Preserve the original reviewed checkpoint after the production descriptor
+  // adopts the open-foreground arrangement. Compare through the same compiler.
+  if(layout==='source'){
+    s.modules=s.modules.filter(m=>!m.id.startsWith('bay-pilaster-'));
     for(const m of s.modules){
-      if(m.id.startsWith('court-front')||m.id==='court-gate')m.y=5;
-      if(m.id==='court-west'||m.id==='court-east'){m.y=3;m.width=4;}
-      if(m.id==='hall-back')m.y=1;
-      if(m.id==='hall-closed-door'||m.id==='hall-pilaster')m.y=3;
-      if(m.id==='hall-gable')m.y=2;
-      if(m.id==='service-corner'||m.id==='service-hip')m.y=3;
+      if(m.id.startsWith('court-front')||m.id==='court-gate')m.y=9;
+      if(m.id==='court-west'||m.id==='court-east'){m.y=6;m.width=6;}
+      if(m.id==='hall-back')m.y=3;
+      if(m.id==='hall-closed-door'||m.id==='hall-pilaster')m.y=5;
+      if(m.id==='hall-gable')m.y=4;
+      if(m.id==='service-corner'||m.id==='service-hip')m.y=5;
     }
-    const frontage=s.modules.find(m=>m.id==='court-front-west');
-    for(const [i,x]of [4,8,12,16].entries())s.modules.push({...structuredClone(frontage),id:'bay-pilaster-'+i,form:'pilaster',x,y:5.10,width:.30,depth:.45,height:3.40,skinSlots:{...frontage.skinSlots,facade:'inherited-cream'},sourceRefs:[...frontage.sourceRefs,'game:bay-articulation']});
-    const horse=s.actors.find(a=>a.species==='horse');horse.x=7;horse.y=10;horse.route=[{x:7,y:10},{x:13,y:10}];
+    const horse=s.actors.find(a=>a.species==='horse');horse.x=7;horse.y=7;horse.route=[{x:7,y:7},{x:13,y:7}];
   }
   for(const m of s.modules)m.skinSlots.facade=m.id.startsWith('bay-pilaster-')?'inherited-cream':skin;
   return s;

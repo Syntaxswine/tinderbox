@@ -1,6 +1,6 @@
 # Milestone 02: researched exposition construction kit
 
-Status: in development on the architect's `codex/exposition-foundation` review branch. No candidate is approved for the live game until the combined review below passes.
+Status: approved after combined review on the architect's `codex/exposition-foundation` branch. Exact candidates, passed checks, source evidence, limitations and publication status are in the [architect's acceptance](../reviews/2026-10-27-exposition-foundation.md).
 
 ## User direction and bounded result
 
