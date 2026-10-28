@@ -1,6 +1,6 @@
 # TB-011: exposition foundation review
 
-Decision: **approved for promotion** as a small researched construction-kit study. The combined checks pass. Publication and live-byte verification are recorded below after deployment. This approval covers the basic forms, direct asset reuse and source dossier; custom historical skins and a named-building reconstruction remain later work.
+Decision: **approved and published** as a small researched construction-kit study. The combined checks pass and the [live game](https://syntaxswine.github.io/tinderbox/) matches the reviewed package. This approval covers the basic forms, direct asset reuse and source dossier; custom historical skins and a named-building reconstruction remain later work.
 
 ## Reviewed deliveries
 
@@ -49,4 +49,6 @@ The facade uses actual inherited concrete as a temporary pale finish; roof and c
 
 ## Publication
 
-Pending promotion of this reviewed candidate and verification of the GitHub Pages deployment.
+Promotion commit: `5b3bfef37c0bd1d54ef9ce6e2d3730acd07b25b6`. The architect pushed the reviewed branch, fast-forwarded `master` from `420266a` and pushed normally. [GitHub run 40606724201](https://github.com/Syntaxswine/tinderbox/actions/runs/40606724201) passed both build and Pages deployment. `tools/check-site.mjs` then verified all seventy published non-dot game files against the local reviewed manifest, including byte hashes and JavaScript MIME types; the QA workbench returns 404.
+
+The existing public game tab was reloaded and visually checked: it renders the exposition kit and original civilians, displays the new scene label and reports no browser warnings/errors. The saved capture is `artifacts/qa/exposition-published.jpg`; the byte-check receipt is `artifacts/qa/exposition-published-site.log`. The tab remains available to the user. Subsequent publication-record edits are documentation only and do not change the deployed game package.
