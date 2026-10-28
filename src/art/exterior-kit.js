@@ -1,6 +1,7 @@
 
 import {Resources} from './resources.js';
 import {addFacadeCoordinates,makeExpositionMaterials,validateSkinSet} from './skins.js';
+import {makeBuildingMaterials,validateFacadeStyle} from './building-facades.js';
 
 // Adapted from pinned AFT hybrid-materials.surfaceUV and hybrid-room-art's
 // vertical-face/cap assignment. Raw surface imports stay in coder city.json.
@@ -8,8 +9,10 @@ function surfaceUV(position,normal){
   if(Math.abs(normal[1])>.5)return [position[0],position[2]];
   return [Math.abs(normal[0])>.5?position[2]:position[0],position[1]];
 }
-export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=null,skinSet='inherited'}={}){
-  let activeSkinSet=validateSkinSet(skinSet);
+export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=null,skinSet='inherited',buildingAssets=null,facadeStyle='generic',facadeStyles={}}={}){
+  let activeSkinSet=validateSkinSet(skinSet),activeFacade=validateFacadeStyle(facadeStyle);
+  const moduleStyles=new Map(Object.entries(facadeStyles).map(([id,style])=>[id,validateFacadeStyle(style)]));
+  const styleFor=id=>moduleStyles.get(id)||activeFacade;
   const root=new T.Group();root.name='Exposition construction kit';
   const materialPool=new Resources();let geometryPool=new Resources(),signature='',builds=0,closed=false;
   const specs={
@@ -27,17 +30,19 @@ export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=
     }
   }
   const expositionMaterials=expositionAssets?makeExpositionMaterials(T,materialPool,expositionAssets,renderer):null;
+  const buildingMaterials=buildingAssets?makeBuildingMaterials(T,materialPool,expositionAssets,buildingAssets,renderer):{};
+  for(const style of [activeFacade,...moduleStyles.values()])if(style!=='generic'&&!buildingMaterials[style])throw new Error('Facade assets not loaded: '+style);
   let records=[],state={modules:0,survivingSolidParts:[],suppressedSolidParts:[],suppressedCosmeticParts:[],visibleRoofParts:[]};
-  function spec(id){const value=specs[id];if(!value)throw new Error('Unsupported exterior skin '+id);return activeSkinSet==='exposition-v1'?{...value,material:expositionMaterials[id]}:value;}
+  function spec(id,module){const value=specs[id];if(!value)throw new Error('Unsupported exterior skin '+id);const palette=styleFor(module.id)==='generic'?expositionMaterials:buildingMaterials[styleFor(module.id)];return activeSkinSet==='exposition-v1'?{...value,material:palette[id]}:value;}
   function applySkin(record,module){
-    const slots=module.skinSlots,style=JSON.stringify([activeSkinSet,slots]);if(record.style===style)return;
+    const slots=module.skinSlots,style=JSON.stringify([activeSkinSet,styleFor(module.id),slots]);if(record.style===style)return;
     const {mesh,part,roof}=record,geometry=mesh.geometry,p=geometry.attributes.position,n=geometry.attributes.normal,uv=geometry.attributes.uv;
     let faces;
-    if(roof)faces=[spec(slots.roof)];
-    else if(part.skinSlot==='door')faces=Array(6).fill(spec(slots.door));
-    else if(part.skinSlot==='trim')faces=Array(6).fill(spec(slots.trim));
+    if(roof)faces=[spec(slots.roof,module)];
+    else if(part.skinSlot==='door')faces=Array(6).fill(spec(slots.door,module));
+    else if(part.skinSlot==='trim')faces=Array(6).fill(spec(slots.trim,module));
     else{
-      const facade=spec(slots.facade),trim=spec(slots.trim),east=part.width<part.depth;
+      const facade=spec(slots.facade,module),trim=spec(slots.trim,module),east=part.width<part.depth;
       faces=east?[facade,facade,trim,trim,trim,trim]:[trim,trim,trim,trim,facade,facade];
     }
     mesh.material=roof?faces[0].material:faces.map(face=>face.material);
@@ -46,7 +51,7 @@ export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=
       const q=surfaceUV(point,normal),period=faces[roof?0:Math.floor(i/4)].period;
       uv.setXY(i,q[0]/period,q[1]/period);
     }
-    uv.needsUpdate=true;record.style=style;mesh.userData.skinSlots={...slots};mesh.userData.skinSet=activeSkinSet;
+    uv.needsUpdate=true;record.style=style;mesh.userData.skinSlots={...slots};mesh.userData.skinSet=activeSkinSet;mesh.userData.facadeStyle=styleFor(module.id);
   }
   function roofGeometry(module){
     const hip=module.form==='roof-hip',swap=hip&&module.depth>module.width;
@@ -85,10 +90,10 @@ export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=
           (part.solid?state.suppressedSolidParts:state.suppressedCosmeticParts).push(part.id);continue;
         }
         let geometry,mesh;
-        if(roof){geometry=roofGeometry(module);mesh=new T.Mesh(geometry,spec(module.skinSlots.roof).material);state.visibleRoofParts.push(part.id);}
+        if(roof){geometry=roofGeometry(module);mesh=new T.Mesh(geometry,spec(module.skinSlots.roof,module).material);state.visibleRoofParts.push(part.id);}
         else{
           geometry=geometryPool.geometry(new T.BoxGeometry(part.width,part.height,part.depth));
-          mesh=new T.Mesh(geometry,spec(module.skinSlots.facade).material);mesh.position.set(part.x,part.h,part.y);
+          mesh=new T.Mesh(geometry,spec(module.skinSlots.facade,module).material);mesh.position.set(part.x,part.h,part.y);
           if(expositionAssets)addFacadeCoordinates(T,geometry,mesh,module,part);
         }
         mesh.name='module-part:'+part.id;mesh.castShadow=mesh.receiveShadow=true;
@@ -104,6 +109,6 @@ export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=
     const next=JSON.stringify(modules.map(m=>[m.id,m.form,m.x,m.y,m.width,m.depth,m.height,m.heading,m.baseHeight,m.stories,m.storyHeight,m.destroyed,m.parts?.map(p=>[p.id,p.x,p.y,p.h,p.width,p.depth,p.height,p.solid,p.skinSlot,p.destroyed,surviving.has(p.id)])]));
     if(next!==signature){signature=next;rebuild(modules,surviving);}
     const byId=new Map(modules.map(m=>[m.id,m]));for(const record of records)applySkin(record,byId.get(record.moduleId));
-  },setSkinSet(id){validateSkinSet(id);if(id==='exposition-v1'&&!expositionMaterials)throw new Error('Exposition assets were not loaded');activeSkinSet=id;},dispose(){if(closed)return;closed=true;root.removeFromParent();root.clear();records=[];state={modules:0,survivingSolidParts:[],suppressedSolidParts:[],suppressedCosmeticParts:[],visibleRoofParts:[]};geometryPool.dispose();materialPool.dispose();},
-  diagnostics:()=>({...state,skinSet:activeSkinSet,disposed:closed,renderedModuleIds:[...new Set(records.map(r=>r.moduleId))],renderedPartIds:records.map(r=>r.part.id),roofIds:records.filter(r=>r.roof).map(r=>r.moduleId),skinBindings:Object.fromEntries(records.map(r=>[r.part.id,{...r.mesh.userData.skinSlots}])),builds,meshes:records.length,geometries:geometryPool.geometries.size,materials:materialPool.materials.size,textures:0,roofPolicy:'Consumes authoritative support/destroyed flags; no inferred collapse or roof fire',lintelPolicy:'Consumes authoritative pier-support/destroyed flags'})};
+  },setSkinSet(id){validateSkinSet(id);if(id==='exposition-v1'&&!expositionMaterials)throw new Error('Exposition assets were not loaded');activeSkinSet=id;},setFacadeStyle(id,moduleIds){validateFacadeStyle(id);if(id!=='generic'&&!buildingMaterials[id])throw new Error('Facade assets not loaded: '+id);if(moduleIds===undefined){activeFacade=id;moduleStyles.clear();}else{if(!Array.isArray(moduleIds)||moduleIds.some(v=>typeof v!=='string'||!v))throw new Error('Invalid facade module IDs');for(const moduleId of moduleIds)moduleStyles.set(moduleId,id);}},dispose(){if(closed)return;closed=true;root.removeFromParent();root.clear();records=[];state={modules:0,survivingSolidParts:[],suppressedSolidParts:[],suppressedCosmeticParts:[],visibleRoofParts:[]};geometryPool.dispose();materialPool.dispose();},
+  diagnostics:()=>({...state,skinSet:activeSkinSet,facadeStyle:activeFacade,facadeBindings:Object.fromEntries(records.map(r=>[r.moduleId,styleFor(r.moduleId)])),disposed:closed,renderedModuleIds:[...new Set(records.map(r=>r.moduleId))],renderedPartIds:records.map(r=>r.part.id),roofIds:records.filter(r=>r.roof).map(r=>r.moduleId),skinBindings:Object.fromEntries(records.map(r=>[r.part.id,{...r.mesh.userData.skinSlots}])),builds,meshes:records.length,geometries:geometryPool.geometries.size,materials:materialPool.materials.size,textures:0,roofPolicy:'Consumes authoritative support/destroyed flags; no inferred collapse or roof fire',lintelPolicy:'Consumes authoritative pier-support/destroyed flags'})};
 }

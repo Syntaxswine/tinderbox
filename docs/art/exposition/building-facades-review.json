@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "task": "Named1893 Exposition facade expansion",
+  "owner": "artist",
+  "branch": "codex/art-assets",
+  "baseArtCommit": "3f3291565178ff66accecf6914957a05263cbc15",
+  "coderContractCommit": "c3b7ec415366df09733c97146a3cfc10622ef4c4",
+  "passed": true,
+  "assets": 6,
+  "authoredBytes": 18885443,
+  "profiles": [
+    {
+      "id": "new-york-state",
+      "label": "New York State Building",
+      "defaultStories": 2,
+      "portalStories": 2,
+      "bay": "nyBay",
+      "portal": "nyPortal",
+      "openingUV": [
+        0.368,
+        0.633,
+        0,
+        0.432
+      ],
+      "field": 15918539,
+      "trim": 15325366,
+      "sourceRefs": [
+        "TB009-R02:plate44",
+        "EXPO-P02:plate64"
+      ]
+    },
+    {
+      "id": "fisheries",
+      "label": "Fisheries Building",
+      "defaultStories": 1,
+      "portalStories": 1,
+      "bay": "fisheriesBay",
+      "portal": "fisheriesPortal",
+      "openingUV": [
+        0.384,
+        0.617,
+        0,
+        0.547
+      ],
+      "field": 14993828,
+      "trim": 13476473,
+      "sourceRefs": [
+        "EXPO-P01:Fisheries-description",
+        "EXPO-P02:plate53"
+      ]
+    },
+    {
+      "id": "transportation",
+      "label": "Transportation · Golden Door",
+      "defaultStories": 2,
+      "portalStories": 2,
+      "bay": "transportationBay",
+      "portal": "transportationPortal",
+      "openingUV": [
+        0.37,
+        0.631,
+        0.024,
+        0.33
+      ],
+      "field": 10635560,
+      "trim": 12163667,
+      "sourceRefs": [
+        "EXPO-P02:plate39",
+        "EXPO-P02:plate41"
+      ]
+    }
+  ],
+  "assetManifest": "assets/art/exposition-buildings-v1/manifest.json",
+  "sourceRecord": "art/source/exposition-buildings-v1/sources.json",
+  "promptSet": "art/source/exposition-buildings-v1/generation.json",
+  "mode": "built-in image_gen",
+  "checks": {
+    "node": {
+      "tests": 56,
+      "passed": 56,
+      "ownScripts": 66,
+      "staticModules": 74,
+      "rawInventories": 5,
+      "artistFingerprints": 9,
+      "authoredHashesAndReferences": true
+    },
+    "browser": {
+      "viewports": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "passed": true,
+          "profileGeometryComparisons": 60,
+          "styleCycles": 12,
+          "stableMemory": {
+            "geometries": 64,
+            "textures": 82
+          },
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "mixedBindings": {
+            "new-york-state-entry": "new-york-state",
+            "new-york-state-west": "new-york-state",
+            "new-york-state-east": "new-york-state",
+            "new-york-state-pilaster-west": "new-york-state",
+            "new-york-state-pilaster-east": "new-york-state",
+            "new-york-state-roof": "new-york-state",
+            "fisheries-entry": "fisheries",
+            "fisheries-west": "fisheries",
+            "fisheries-east": "fisheries",
+            "fisheries-pilaster-west": "fisheries",
+            "fisheries-pilaster-east": "fisheries",
+            "fisheries-roof": "fisheries",
+            "transportation-entry": "transportation",
+            "transportation-west": "transportation",
+            "transportation-east": "transportation",
+            "transportation-pilaster-west": "transportation",
+            "transportation-pilaster-east": "transportation",
+            "transportation-roof": "transportation"
+          },
+          "baseSkinReview": true,
+          "originalHeads": {
+            "passed": true,
+            "hashes": [
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              },
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              }
+            ],
+            "clipHeight": 1.33
+          },
+          "motion": {
+            "normal": 0.8000000000000185,
+            "powder": 0.28000000000002245
+          }
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "passed": true,
+          "profileGeometryComparisons": 60,
+          "styleCycles": 12,
+          "stableMemory": {
+            "geometries": 64,
+            "textures": 82
+          },
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "mixedBindings": {
+            "new-york-state-entry": "new-york-state",
+            "new-york-state-west": "new-york-state",
+            "new-york-state-east": "new-york-state",
+            "new-york-state-pilaster-west": "new-york-state",
+            "new-york-state-pilaster-east": "new-york-state",
+            "new-york-state-roof": "new-york-state",
+            "fisheries-entry": "fisheries",
+            "fisheries-west": "fisheries",
+            "fisheries-east": "fisheries",
+            "fisheries-pilaster-west": "fisheries",
+            "fisheries-pilaster-east": "fisheries",
+            "fisheries-roof": "fisheries",
+            "transportation-entry": "transportation",
+            "transportation-west": "transportation",
+            "transportation-east": "transportation",
+            "transportation-pilaster-west": "transportation",
+            "transportation-pilaster-east": "transportation",
+            "transportation-roof": "transportation"
+          },
+          "baseSkinReview": true,
+          "originalHeads": {
+            "passed": true,
+            "hashes": [
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              },
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              }
+            ],
+            "clipHeight": 1.33
+          },
+          "motion": {
+            "normal": 0.8000000000000185,
+            "powder": 0.28000000000002245
+          }
+        }
+      ],
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+      },
+      "programs": 21,
+      "allProgramLogsEmpty": true,
+      "warnings": [],
+      "errors": [],
+      "failedRequests": [],
+      "rawReview": {
+        "path": "artifacts/art-review/buildings-v1/review.json",
+        "sha256": "f4dec774f634687d171c22a89160e13c139149d2280c4d68411effebf35956de"
+      }
+    },
+    "compatibility": {
+      "originalExposition": true
+    },
+    "package": {
+      "files": 91,
+      "bytes": 59869697,
+      "servedFilesVerified": 89,
+      "profiles": [
+        {
+          "style": "new-york-state",
+          "namedImageRequests": 2,
+          "loaded": [
+            "new-york-state-bay-v1.png",
+            "new-york-state-portal-v1.png"
+          ],
+          "binding": "new-york-state",
+          "memory": {
+            "geometries": 13,
+            "textures": 19
+          },
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          }
+        },
+        {
+          "style": "fisheries",
+          "namedImageRequests": 2,
+          "loaded": [
+            "fisheries-bay-v1.png",
+            "fisheries-portal-v1.png"
+          ],
+          "binding": "fisheries",
+          "memory": {
+            "geometries": 13,
+            "textures": 19
+          },
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          }
+        },
+        {
+          "style": "transportation",
+          "namedImageRequests": 2,
+          "loaded": [
+            "transportation-bay-v1.png",
+            "transportation-portal-v1.png"
+          ],
+          "binding": "transportation",
+          "memory": {
+            "geometries": 13,
+            "textures": 19
+          },
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          }
+        }
+      ],
+      "errors": [],
+      "basePath": "/dist/"
+    }
+  },
+  "sourceFingerprints": [
+    {
+      "path": "src/art/index.js",
+      "sha256": "5b804bd6b24b9e38eb7192b9e560a262ebc505d4334d04394548e7345378d467"
+    },
+    {
+      "path": "src/art/exterior-kit.js",
+      "sha256": "ba8b8bfd4d155da13becbefa9fbbd20793d3e1b4229b6bc542249ac2a5feb3fc"
+    },
+    {
+      "path": "src/art/skins.js",
+      "sha256": "35cb6f9348babe36a3693a345366bd978878f3dfa509fe1436b0a2fb3756174c"
+    },
+    {
+      "path": "src/art/building-facades.js",
+      "sha256": "76398fb33e6b8572d20a64245357db4c7ff724282230741766d968ec776d6c85"
+    },
+    {
+      "path": "workbenches/art/check-art.mjs",
+      "sha256": "d183086547edfb32be5d5b5194d8fd77fa1bf171ece7eea1d301d601a07654c9"
+    },
+    {
+      "path": "workbenches/art/skins.html",
+      "sha256": "1dad09202414001589fe1a511e18f36613df8b52d438d01a0e3304746fae1946"
+    },
+    {
+      "path": "workbenches/art/skins.js",
+      "sha256": "15ba2dd1125f4faaeee8ffdaf2f6f055840df5aab9d1c9c9d0f8b9fe0b24cb8a"
+    },
+    {
+      "path": "workbenches/art/building-review.js",
+      "sha256": "bb93ad22bf8e3d4412ac04d3448e256f16cb58ab027e4071f47334682142ad54"
+    },
+    {
+      "path": "workbenches/art/review-buildings.mjs",
+      "sha256": "4bcd13744582a0243948581d508e4c9c0c758c4c549f34b0ba9ed3208f227d4c"
+    }
+  ],
+  "previews": [
+    {
+      "path": "docs/art/exposition/building-previews/street-desktop.png",
+      "sha256": "05571336c488a76d1aa07c3f2856a4ce7c0a084561a4c8f3e7213a508a6278ec"
+    },
+    {
+      "path": "docs/art/exposition/building-previews/street-phone.png",
+      "sha256": "a4aeb3ffaefb624c6177347a809016058379266d849af5160f60bcd68f53a52e"
+    },
+    {
+      "path": "docs/art/exposition/building-previews/new-york-desktop.png",
+      "sha256": "acdbca320a782b8f4baec4b471f42fce20154f8feed0a67b2b4506bc1c66cd00"
+    },
+    {
+      "path": "docs/art/exposition/building-previews/fisheries-desktop.png",
+      "sha256": "13e268c55d51fb3a44f7d5fcc10824a029779f1c13191978d639a5c34cce4ba1"
+    },
+    {
+      "path": "docs/art/exposition/building-previews/transportation-desktop.png",
+      "sha256": "5326c115629b113fca9e950a8b0a674cbc2b9ff608789d73cd34f3736e7ac423"
+    },
+    {
+      "path": "docs/art/exposition/building-previews/transportation-stories-phone.png",
+      "sha256": "96a5d42cd6644ca402c0739576ed7aaa4b9d4c7edec7484b637ab81505912a7e"
+    },
+    {
+      "path": "docs/art/exposition/building-previews/new-york-courtyard-phone.png",
+      "sha256": "00a44860bb4881bdfb48012644db3717dafd7bcc0e21f70d989b873ed2bdda23"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/art-review/buildings-v1/buildings-1280x800.png",
+      "sha256": "05571336c488a76d1aa07c3f2856a4ce7c0a084561a4c8f3e7213a508a6278ec",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "buildings"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-new-york-state-2-1280x800.png",
+      "sha256": "acdbca320a782b8f4baec4b471f42fce20154f8feed0a67b2b4506bc1c66cd00",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "building": "new-york-state",
+        "stories": 2
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-new-york-state-5-1280x800.png",
+      "sha256": "ce5eddd2ff24a375308bca039df8707552a81088cdfb3598f81a1036c6e74203",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "building": "new-york-state",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/gallery-new-york-state-1280x800.png",
+      "sha256": "74f435400929db9bca64ea35e2dd98e27635c39960e3836c9d979ed92372da8b",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "gallery",
+        "building": "new-york-state"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/courtyard-new-york-state-1280x800.png",
+      "sha256": "097be139814474d627936c0119261ff1a2e75d8a9e54cdd4785c1a09b6e445d5",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "courtyard",
+        "building": "new-york-state"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-fisheries-1-1280x800.png",
+      "sha256": "13e268c55d51fb3a44f7d5fcc10824a029779f1c13191978d639a5c34cce4ba1",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "building": "fisheries",
+        "stories": 1
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-fisheries-5-1280x800.png",
+      "sha256": "2c07fd5c02e6e13b3cb87cf17a1ccd8311d559625a21bcf6e0c147bd1765d38b",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "building": "fisheries",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/gallery-fisheries-1280x800.png",
+      "sha256": "cb7cb50e273bc50f4e39f770f4b6aacaa7af1b9f2e3485ccb791210585e7c9df",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "gallery",
+        "building": "fisheries"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/courtyard-fisheries-1280x800.png",
+      "sha256": "74f0d40be8028cf5bfa2b239fd94b50c0ad8df736b10eb011e73b25aa58e0523",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "courtyard",
+        "building": "fisheries"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-transportation-2-1280x800.png",
+      "sha256": "5326c115629b113fca9e950a8b0a674cbc2b9ff608789d73cd34f3736e7ac423",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "building": "transportation",
+        "stories": 2
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-transportation-5-1280x800.png",
+      "sha256": "a509183a70d4c1cb1866ea93f403f1891d52b758a01bdc2d2dee43c9cf1f98bb",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "building": "transportation",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/gallery-transportation-1280x800.png",
+      "sha256": "4ce5b22ff2272404f00b99ccdcde4659d9d193a6e1d763ad2d5dae3c6286dff4",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "gallery",
+        "building": "transportation"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/courtyard-transportation-1280x800.png",
+      "sha256": "125fbc9e5bc7b8d245dbe8d896293a45fda9270023a54f5af85863e76a0c5847",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "courtyard",
+        "building": "transportation"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/buildings-390x844.png",
+      "sha256": "a4aeb3ffaefb624c6177347a809016058379266d849af5160f60bcd68f53a52e",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "buildings"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-new-york-state-2-390x844.png",
+      "sha256": "4336cd5d582aa377baa4d03e9cde24416a4e1ab128adaf3fbdf9ae4532bb5eb3",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "building": "new-york-state",
+        "stories": 2
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-new-york-state-5-390x844.png",
+      "sha256": "f5258c040c17da2aa8320d574343f484acc30736f109d83c2cf0c9fbe2ec05d9",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "building": "new-york-state",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/gallery-new-york-state-390x844.png",
+      "sha256": "390a163efddc870235719804ccfbff9998752d5f2b33532835508187987f7134",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "gallery",
+        "building": "new-york-state"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/courtyard-new-york-state-390x844.png",
+      "sha256": "00a44860bb4881bdfb48012644db3717dafd7bcc0e21f70d989b873ed2bdda23",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "courtyard",
+        "building": "new-york-state"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-fisheries-1-390x844.png",
+      "sha256": "38a92c1a1bef6d59d124a2fefcacc8ea6e2d4a6733075c2680aeeb2fd467529f",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "building": "fisheries",
+        "stories": 1
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-fisheries-5-390x844.png",
+      "sha256": "8606ac07508561f07057229a9a571ad8f093035c9bc7f5facce3201e74f59277",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "building": "fisheries",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/gallery-fisheries-390x844.png",
+      "sha256": "c680effe0293ae75626e18c960db3d30b36e490c6159469658a798fc54c8c5ed",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "gallery",
+        "building": "fisheries"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/courtyard-fisheries-390x844.png",
+      "sha256": "4c8593f82b53c888fbe4545e13ddc3810e8a8215556d9cda22058f080add12ec",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "courtyard",
+        "building": "fisheries"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-transportation-2-390x844.png",
+      "sha256": "7e7e3a57b3a2039cff755b679c24f9e5890b232333138cfcebaa21a52cc5629b",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "building": "transportation",
+        "stories": 2
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/facade-transportation-5-390x844.png",
+      "sha256": "ab545319a30feacfbe80c1e566d759175a21dd303fb3ea617581b5e20761b254",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "building": "transportation",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/gallery-transportation-390x844.png",
+      "sha256": "96a5d42cd6644ca402c0739576ed7aaa4b9d4c7edec7484b637ab81505912a7e",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "gallery",
+        "building": "transportation"
+      }
+    },
+    {
+      "path": "artifacts/art-review/buildings-v1/courtyard-transportation-390x844.png",
+      "sha256": "51387a1076d58ced6d3d2bf221de99dcafe4a2320bdcf2842475aa5191157141",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "courtyard",
+        "building": "transportation"
+      }
+    }
+  ],
+  "helper": {
+    "retained": false,
+    "registrationId": "9a44b1b0d11d41d4b7bdcad04f919a2d",
+    "cleanupReceipt": "artifacts/art-preview/buildings-01/cleanup-receipt.json"
+  },
+  "limits": [
+    "Architectural facade fragments on existing meshes, not complete building reconstructions",
+    "Colours and expanded story counts are game adaptations",
+    "Viewport emulation on a desktop GPU"
+  ]
+}

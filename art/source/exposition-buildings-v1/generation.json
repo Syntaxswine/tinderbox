@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "mode": "built-in image_gen",
+  "createdOn": "2026-10-27",
+  "task": "Building-specific Exposition facade expansion",
+  "baseArtCommit": "3f3291565178ff66accecf6914957a05263cbc15",
+  "assets": [
+    {
+      "id": "ny-bay",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-9cf6160c-f627-4a2b-9f81-1a9255dc9179.png",
+      "path": "assets/art/exposition-buildings-v1/new-york-state-bay-v1.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE game facade diffuse/albedo texture, an authored 4m-wide by 3.2m-high lateral story bay based specifically on the NEW YORK STATE BUILDING at the Chicago 1893 fair.\nReference image 1: architect McKim Mead & White plate44 elevation. Reference image 2: Arnold1893 actual building photo. Use these as historical form references, not edit targets.\nProduce a flat orthographic frontal texture at 5:4 aspect. Pale ivory staff: two narrow rectangular sash windows with triangular pediments; one shallow round-headed empty niche between them; ornate drooping garland/swags below a narrow upper frieze with a few small square attic vents. Thin classical pilaster divisions and small round relief medallions. Source-specific rectangular windows, niches and garlands must be obvious; do NOT replace with generic arched windows.\nA repeatable wall panel on a rectangle, matching plain ivory at lateral edges. No roof towers, skyline, plants, visitors, flags, steps projecting into foreground or objects. Closed dark blue-grey glazing. Restrained hand-painted low-poly game detail, legible from isometric camera, neutral diffuse illumination, minimal baked relief shading only, no cast shadows or perspective. Stylized warm ivory colour is an art choice from monochrome references. No words, numbers, border, watermark or surrounding sheet.",
+      "referenceImages": [
+        {
+          "id": "NY-ELEVATION",
+          "path": "artifacts/exposition-research/plates/mmw-plate44.png",
+          "sha256": "9f441a3cfa37319913a44ae76f1bfe6ffa7757f2411208fe1fcaaaaa14e28127",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "NY-PHOTO",
+          "path": "artifacts/exposition-research/raw/arnold-plate064-gutenberg.jpg",
+          "sha256": "d6b033a84bfdd8eddff663ae6019caa294328f2cf896b031fbdda14693edb541",
+          "role": "historical form reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "ny-portal",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-99c2b56a-febd-44cb-8ddd-d5a555de32f7.png",
+      "path": "assets/art/exposition-buildings-v1/new-york-state-portal-v1.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque game entrance-facade texture based specifically on the central two-story entrance of the NEW YORK STATE BUILDING, 1893 Chicago fair.\nReference image 1 is the original architect elevation, reference image 2 the actual Arnold1893 building photo. Form references only. Produce a flat front orthographic facade fragment, nearly square portrait 15:16 aspect representing a game adaptation 6m wide by 6.4m high.\nPreserve the source identity: an elegant tall central round arch, classical staff pilasters, round portrait relief medallions to either side of the arch, drooping garlands and swags, a dentil cornice and small square attic vents. Pale ivory with warm cream carved details and a deep subdued dark arch recess. Crop to this central entrance fragment; omit the roof towers and whole building wings.\nTECHNICAL LAYOUT: keep a plain dark rectangular doorway exactly centred at the bottom edge, 23.33% of image width and 35.94% of image height (x38.33–61.67%, bottom35.94%). The real mesh removes that rectangle. Put the grand arch and dark lunette ABOVE that doorway, not a second doorway. All ornament stays within the rectangle canvas. No steps, people, trees, roofs, text, dates, captions, border or watermark.\nHand-painted low-poly game albedo with readable ornament, uniform neutral lighting, only restrained shallow relief shading, no perspective or directional cast shadows. No sky or scenery. This is a new texture adapted from the sources, not a coloured scan.",
+      "referenceImages": [
+        {
+          "id": "NY-ELEVATION",
+          "path": "artifacts/exposition-research/plates/mmw-plate44.png",
+          "sha256": "9f441a3cfa37319913a44ae76f1bfe6ffa7757f2411208fe1fcaaaaa14e28127",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "NY-PHOTO",
+          "path": "artifacts/exposition-research/raw/arnold-plate064-gutenberg.jpg",
+          "sha256": "d6b033a84bfdd8eddff663ae6019caa294328f2cf896b031fbdda14693edb541",
+          "role": "historical form reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "fisheries-bay",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-1374090e-0ba6-4215-80e7-71a3d02be0ae.png",
+      "path": "assets/art/exposition-buildings-v1/fisheries-bay-v1.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE authored facade albedo texture based on HENRY IVES COBB'S FISHERIES BUILDING at the 1893 Chicago exposition.\nThe supplied Arnold1893 photo is a historical form reference, NOT an edit target. Adapt the close-set small semicircular arcade on the polygonal pavilions and connecting wings into a flat straight-on 4m by 3.2m wall bay, 5:4 aspect.\nFour narrow round-headed glazed openings in a rhythmic Romanesque arcade, slender paired colonnettes and thick rounded archivolts. Small corbels under the top eaves. Marine-themed shallow relief details, tiny stylized fish and shell capitals, subtle wave band. Warm pale buff staff with soft muted terracotta details, dark desaturated blue-green glazing. This is a readable game palette; exact colour is not claimed from the monochrome source.\nA single rectangular opaque wall texture, continuous matching wall at both side edges. No central large doorway. No towers or roof, foreground, terrain, visitors, landscape, sky, text, captions, border or watermark. Neutral diffuse albedo, restrained hand-painted low-poly detail, shallow relief shading only, no perspective or strong cast shadows. Clearly a Fisheries marine Romanesque arcade, not the pedimented classical New York design.",
+      "referenceImages": [
+        {
+          "id": "FISH-PHOTO",
+          "path": "artifacts/exposition-research/raw/arnold-plate053-gutenberg.jpg",
+          "sha256": "8b1e56a647132783599376f75a1702bca46b617fb3451ecfbd6b3b044eb82fce",
+          "role": "historical form reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "fisheries-portal",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-f4bf768c-8813-4e94-89df-1f118309352e.png",
+      "path": "assets/art/exposition-buildings-v1/fisheries-portal-v1.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE game doorway-facade albedo texture based on the marine Romanesque language of COBB'S FISHERIES BUILDING, 1893 Chicago exposition.\nUse the supplied Arnold1893 image as a form reference, not as an edit target. Flat straight-on 15:8 landscape rectangle representing a 6m-wide by 3.2m-high adapted entrance fragment.\nOne centred simple round-arched portal with substantial buff archivolt and short paired columns. Decorative fish, shell and seaweed shallow relief in capitals and spandrels, a narrow wave frieze above, close-set small blind Romanesque arches at the sides. Pale warm buff and muted terracotta trim; restrained dark blue-green recess. No grand gilding or classical triangular pediments.\nTECHNICAL LAYOUT: put ONE dark rectangular ground doorway exactly at the centre of the bottom edge: x38.33–61.67% of canvas width, rising 71.875% of height from the bottom. The mesh removes this rectangular doorway. A small rounded dark lunette sits above it within the remaining top band. Keep all ornament inside the rectangle.\nOpaque edge-to-edge game texture. No building silhouette or roof, no projecting steps, people, animals in the scene, trees, sky, text, numbers, captions, border or watermark. Hand-painted low-poly surface, uniform neutral illumination, no perspective or directional cast shadows.",
+      "referenceImages": [
+        {
+          "id": "FISH-PHOTO",
+          "path": "artifacts/exposition-research/raw/arnold-plate053-gutenberg.jpg",
+          "sha256": "8b1e56a647132783599376f75a1702bca46b617fb3451ecfbd6b3b044eb82fce",
+          "role": "historical form reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "transportation-bay",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-2dfd432a-5a7f-46d5-b5f7-77c07f01fd43.png",
+      "path": "assets/art/exposition-buildings-v1/transportation-bay-v1.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE game facade albedo texture based specifically on SULLIVAN'S TRANSPORTATION BUILDING at the 1893 Chicago World's Fair.\nUse the supplied original Arnold1893 photograph as a form reference, not an edit target. Produce a flat front orthographic repeat bay, 4m by 3.2m, 5:4 aspect. One substantial broad round arch with dark glazed fanlight above a straight transom and two lower rectangular dark windows divided by thin columns, matching the source's lower arcade. Flattened stylized winged relief ornaments in the upper corner spandrels, patterned horizontal bands and a shallow rectangular cornice. Cropped rectangular wall bay, no whole building or roof.\nDistinguish this from the white classical fair buildings: warm deep russet/crimson wall, old gold geometric and leafy ornament, subtle desaturated teal details and dark glazing. A stylized game palette, not a claim of exact colours from monochrome evidence. No central Golden Door portal in this repeating side bay.\nHand-painted low-poly game diffuse surface, readable at distance, restrained shallow relief shading, neutral uniform illumination. Matching side edges, opaque. No people, trees, flags, sky, scenery, projecting objects, captions, text, dates, border or watermark. No perspective or strong cast shadows.",
+      "referenceImages": [
+        {
+          "id": "TRANS-SIDE",
+          "path": "artifacts/exposition-buildings/raw/arnold-plate039.jpg",
+          "sha256": "452a46599b656b50b9c3280d55946545d39bb90330860b72d9a3bff472f9c6bc",
+          "role": "historical form reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "transportation-portal",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-d0727ee9-6f57-41b0-bcc6-587601700552.png",
+      "path": "assets/art/exposition-buildings-v1/transportation-portal-v1.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE authored game facade albedo of the GOLDEN DOOR entrance fragment, Sullivan's Transportation Building, Chicago1893.\nReference image is the actual Arnold1893 Golden Door photograph. Preserve its unmistakable motif in a flat frontal, nearly square portrait 15:16 texture representing a 6m by 6.4m game facade fragment: a huge semicircular portal made of FIVE nested concentric gilded archivolts with dense leafy/geometric Sullivan ornament, inside a rectangular ornamental border, broad carved frieze above, stepped radiating spandrel patterns. Retain the source's straight transom and rectangular door BELOW the nested arches. No pediment and no classical columns.\nWarm old gold and ochre ornament, deep russet/crimson wall at sides, a few quiet teal accents, very dark recessed opening. Stylized colour treatment from monochrome evidence, not a photographic colour reconstruction.\nTECHNICAL: one centred dark RECTANGULAR doorway at the bottom: x38.33–61.67% width, rising35.94% height from bottom. The original mesh cuts this rectangle out. Place the nested rings and dark semi-circular lunette above it. All motifs remain within the rectangular canvas. Omit the source's roof tower, flags, bridge, water, people, statues outside facade, lamp posts, sky and scenery.\nAn edge-to-edge opaque albedo texture for an existing flat wall. Neutral uniform lighting, shallow painted relief, no strong shadows, perspective, render background, letters, words, dates, caption, border or watermark.",
+      "referenceImages": [
+        {
+          "id": "TRANS-DOOR",
+          "path": "artifacts/exposition-buildings/raw/arnold-plate041.jpg",
+          "sha256": "33799b272869c1320ca6a741b121b5ac3779ddd038271f55ab464fcabd0950fb",
+          "role": "historical form reference, not edit target"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Six authored textures generated from visually inspected original-work references.",
+    "Colours, scaled ornament and blank niches are deliberate game adaptations; no claim of exact reconstruction.",
+    "Runtime keeps original mesh openings and binds the generated dark rectangles to those openings."
+  ]
+}

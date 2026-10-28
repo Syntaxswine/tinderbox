@@ -10,7 +10,7 @@ export function validateSkinSet(id){if(!SKIN_SETS.includes(id))throw new Error('
 // Whole-module coordinates make piers and the tall lintel share a continuous
 // facade. Original position, normal and surfaceUV data remain unchanged.
 export function addFacadeCoordinates(T,geometry,mesh,module,part){
-  const p=geometry.attributes.position,n=geometry.attributes.normal,coords=[],decor=[];
+  const p=geometry.attributes.position,n=geometry.attributes.normal,coords=[],decor=[],portals=[];
   const c=Math.cos(module.heading),s=Math.sin(module.heading),story=module.storyHeight||(module.stories?module.height/module.stories:module.height);
   for(let i=0;i<p.count;i++){
     const wx=p.getX(i)+mesh.position.x-module.x,wz=p.getZ(i)+mesh.position.z-module.y;
@@ -20,11 +20,13 @@ export function addFacadeCoordinates(T,geometry,mesh,module,part){
     const broad=Math.abs(n.getY(i))<.5&&(part.width<part.depth?Math.abs(n.getX(i))>.5:Math.abs(n.getZ(i))>.5);
     const panel=['wall','corner','doorway'].includes(module.form)&&part.skinSlot!=='door'&&broad;
     decor.push(panel?1:0,module.form==='doorway'?1:0,module.form==='pilaster'?1:0);
+    portals.push(across/span,(module.opening?.width||1.4)/span,(module.opening?.height||2.3)/story,module.height/story);
   }
   geometry.setAttribute('tbFacadeCoord',new T.Float32BufferAttribute(coords,4));
   geometry.setAttribute('tbFacadeDecor',new T.Float32BufferAttribute(decor,3));
+  geometry.setAttribute('tbPortalCoord',new T.Float32BufferAttribute(portals,4));
 }
-export function makeExpositionMaterials(T,pool,assets,renderer){
+export function makeExpositionMaterials(T,pool,assets,renderer,style={}){
   const anisotropy=Math.min(8,renderer?.capabilities.getMaxAnisotropy()||2);
   for(const texture of Object.values(assets)){texture.colorSpace=T.SRGBColorSpace;texture.anisotropy=anisotropy;}
   for(const key of ['staff','timber','brick','roof','bay'])assets[key].wrapS=assets[key].wrapT=T.RepeatWrapping;
@@ -32,32 +34,44 @@ export function makeExpositionMaterials(T,pool,assets,renderer){
   assets.brick.repeat.set(2/1.2,2/1.2);assets.roof.repeat.set(1/2.4,1/2.4);
   const result={};
   for(const [id,key,color,windows]of [
-    ['inherited-plaster','staff',0xffffff,true],['inherited-cream','staff',0xf2dfb8,true],
+    ['inherited-plaster','staff',style.field||0xffffff,true],['inherited-cream','staff',style.trim||0xf2dfb8,true],
     ['inherited-brick','brick',0xffffff,false],['inherited-wood','timber',0xffffff,false],
     ['inherited-roof','roof',0xffffff,false]
   ]){
     const material=pool.material(new T.MeshStandardMaterial({map:assets[key],color,roughness:.95,side:T.DoubleSide}));
-    material.name='Tinderbox Exposition / '+key;
+    material.name='Tinderbox Exposition / '+(style.id||'generic')+' / '+key;
     if(id!=='inherited-roof'){
       material.onBeforeCompile=shader=>{
         shader.uniforms.tbWindowBay={value:assets.bay};
+        if(style.entrance){shader.uniforms.tbEntrance={value:style.entrance};shader.uniforms.tbPortalUV={value:new T.Vector4(...style.openingUV)};shader.uniforms.tbPortalStories={value:style.portalStories};}
+        shader.uniforms.tbTrimColor={value:new T.Color(style.trim||0xf2dfb8)};
         shader.vertexShader=shader.vertexShader.replace('#include <common>',
-          '#include <common>\nattribute vec4 tbFacadeCoord; attribute vec3 tbFacadeDecor; varying vec4 vTbFacade; varying vec3 vTbDecor;')
-          .replace('#include <begin_vertex>','#include <begin_vertex>\nvTbFacade=tbFacadeCoord;vTbDecor=tbFacadeDecor;');
+          '#include <common>\nattribute vec4 tbFacadeCoord; attribute vec3 tbFacadeDecor; varying vec4 vTbFacade; varying vec3 vTbDecor;'+(style.entrance?'attribute vec4 tbPortalCoord; varying vec4 vTbPortal;':''))
+          .replace('#include <begin_vertex>','#include <begin_vertex>\nvTbFacade=tbFacadeCoord;vTbDecor=tbFacadeDecor;'+(style.entrance?'vTbPortal=tbPortalCoord;':''));
         shader.fragmentShader=shader.fragmentShader.replace('#include <common>',
-          '#include <common>\nuniform sampler2D tbWindowBay; varying vec4 vTbFacade; varying vec3 vTbDecor;');
+          '#include <common>\nuniform sampler2D tbWindowBay; uniform vec3 tbTrimColor; varying vec4 vTbFacade; varying vec3 vTbDecor;'+(style.entrance?'uniform sampler2D tbEntrance; uniform vec4 tbPortalUV; uniform float tbPortalStories; varying vec4 vTbPortal;':''));
         shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
-          float tbY=vTbFacade.z,tbTop=vTbFacade.w-tbY;
-          ${windows?`if(vTbDecor.x>.5&&vTbFacade.y>=vTbDecor.y){
-            vec2 tbUV=vec2(vTbFacade.x,fract(vTbFacade.y));
-            diffuseColor.rgb=texture2D(tbWindowBay,tbUV).rgb;
+          float tbY=vTbFacade.z,tbTop=vTbFacade.w-tbY,tbPortalActive=0.;
+          ${windows?`if(vTbDecor.x>.5){
+            ${style.entrance?`if(vTbDecor.y>.5&&vTbPortal.w+.001>=tbPortalStories&&vTbFacade.y<tbPortalStories){
+              float x=vTbPortal.x,halfOpening=vTbPortal.y*.5,u;
+              if(x < -halfOpening)u=mix(0.,tbPortalUV.x,clamp((x+.5)/(.5-halfOpening),0.,1.));
+              else if(x > halfOpening)u=mix(tbPortalUV.y,1.,clamp((x-halfOpening)/(.5-halfOpening),0.,1.));
+              else u=mix(tbPortalUV.x,tbPortalUV.y,(x/halfOpening+1.)*.5);
+              float v=vTbFacade.y<=vTbPortal.z?mix(tbPortalUV.z,tbPortalUV.w,vTbFacade.y/vTbPortal.z):mix(tbPortalUV.w,1.,(vTbFacade.y-vTbPortal.z)/(tbPortalStories-vTbPortal.z));
+              diffuseColor.rgb=texture2D(tbEntrance,vec2(u,v)).rgb;tbPortalActive=1.;
+            }else`:''}
+            if(vTbFacade.y>=vTbDecor.y){
+              vec2 tbUV=vec2(vTbFacade.x,fract(vTbFacade.y));
+              diffuseColor.rgb=texture2D(tbWindowBay,tbUV).rgb;
+            }
           }`:''}
           // Physical metre-sized top cornice; floor divisions repeat per story.
           float tbCourse=min(fract(vTbFacade.y),1.-fract(vTbFacade.y));
-          if(tbY>.12&&tbCourse<.024)diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.66,.57,.40),.32);
+          if(tbY>.12&&tbCourse<.024&&tbPortalActive<.5)diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.66,.57,.40),.32);
           if(tbTop<.28){
             float tbLip=step(.075,tbTop)*step(tbTop,.105)+step(.19,tbTop)*step(tbTop,.22);
-            diffuseColor.rgb=mix(vec3(.86,.78,.62),vec3(.40,.33,.23),tbLip*.58);
+            diffuseColor.rgb=${style.id?'mix(tbTrimColor,tbTrimColor*.48,tbLip*.58)':'mix(vec3(.86,.78,.62),vec3(.40,.33,.23),tbLip*.58)'};
           }
           if(tbY<.20)diffuseColor.rgb*=.83;
           if(vTbDecor.z>.5&&tbY>.28&&tbTop>.34){
@@ -66,7 +80,7 @@ export function makeExpositionMaterials(T,pool,assets,renderer){
           }
         `);
       };
-      material.customProgramCacheKey=()=> 'tinderbox-exposition-facade-v1-'+Number(windows);
+      material.customProgramCacheKey=()=> 'tinderbox-exposition-facade-v2-'+Number(windows)+'-'+(style.id||'generic');
     }
     result[id]=material;
   }

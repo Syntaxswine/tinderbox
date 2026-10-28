@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "NY-ELEVATION",
+      "title": "McKim, Mead & White monograph, volume I, plate44: New York State Building elevation and plan",
+      "url": "https://archive.org/details/gri_33125006526145/page/n98/mode/1up",
+      "path": "artifacts/exposition-research/plates/mmw-plate44.png",
+      "type": "Architect-published drawing; later than1893",
+      "rights": "Getty/IA metadata NOT_IN_COPYRIGHT; prior ledger TB009-R02",
+      "usedFor": [
+        "Window/pediment/niche rhythm",
+        "Central arch, medallions and swags"
+      ],
+      "limits": "Plan scale not used to measure these game fragments; source edition date remains unresolved in prior ledger.",
+      "sha256": "9f441a3cfa37319913a44ae76f1bfe6ffa7757f2411208fe1fcaaaaa14e28127"
+    },
+    {
+      "id": "NY-PHOTO",
+      "title": "Arnold and Higinbotham, Official views (1893), plate64: New York State Building",
+      "url": "https://www.gutenberg.org/cache/epub/22847/images/064_25.jpg",
+      "path": "artifacts/exposition-research/raw/arnold-plate064-gutenberg.jpg",
+      "type": "Published built photograph, digital derivative",
+      "rights": "1893 public-domain publication; Gutenberg ebook22847",
+      "usedFor": [
+        "Built facade cross-check; pedimented windows, medallions, swags and attic vents"
+      ],
+      "limits": "Monochrome, perspective, vegetation hides some ground detail.",
+      "sha256": "d6b033a84bfdd8eddff663ae6019caa294328f2cf896b031fbdda14693edb541"
+    },
+    {
+      "id": "FISH-PHOTO",
+      "title": "Arnold and Higinbotham, Official views (1893), plate53: Fisheries Building from Wooded Island",
+      "url": "https://www.gutenberg.org/cache/epub/22847/images/053_25.jpg",
+      "path": "artifacts/exposition-research/raw/arnold-plate053-gutenberg.jpg",
+      "type": "Published built photograph, digital derivative",
+      "rights": "1893 public-domain publication; Gutenberg ebook22847",
+      "usedFor": [
+        "Close-set semicircular arcade, slender columns, pavilion/wings rhythm"
+      ],
+      "limits": "No exact colour, bay scale or detailed ornament measurement.",
+      "sha256": "8b1e56a647132783599376f75a1702bca46b617fb3451ecfbd6b3b044eb82fce"
+    },
+    {
+      "id": "FISH-TEXT",
+      "title": "Plans and diagrams of all exhibit buildings (Conkey,1893): Fish and Fisheries Building description",
+      "url": "https://www.loc.gov/item/05028673/",
+      "path": "artifacts/exposition-research/raw/plansdiagramsofa00worl_djvu.txt",
+      "type": "Original published description read through cached OCR",
+      "rights": "LOC/IA public-domain evidence in prior ledger TB009-R01",
+      "locator": "Heading FISH AND FISHERIES BUILDING; cached OCR lines1474–1486",
+      "usedFor": [
+        "Spanish-Romanesque description and marine motives in capitals/cornices"
+      ],
+      "limits": "OCR is a reading aid. Exact ornamental creatures/layout are stylized; no dimensions taken from this text.",
+      "sha256": "941240e2294a383bb7b88a1288234fe877b96a67a781fc237ba35e3bf431c699"
+    },
+    {
+      "id": "TRANS-SIDE",
+      "title": "Arnold and Higinbotham, Official views (1893), plate39: Transportation Building",
+      "url": "https://www.gutenberg.org/cache/epub/22847/images/039_25.jpg",
+      "path": "artifacts/exposition-buildings/raw/arnold-plate039.jpg",
+      "type": "Published built photograph, digital derivative",
+      "rights": "1893 public-domain publication; Gutenberg ebook22847",
+      "usedFor": [
+        "Broad lower arcade, transoms and winged spandrel motifs"
+      ],
+      "limits": "Monochrome perspective; selected russet, gold and teal palette is an art adaptation.",
+      "sha256": "452a46599b656b50b9c3280d55946545d39bb90330860b72d9a3bff472f9c6bc"
+    },
+    {
+      "id": "TRANS-DOOR",
+      "title": "Arnold and Higinbotham, Official views (1893), plate41: The Golden Door, Transportation Building",
+      "url": "https://www.gutenberg.org/cache/epub/22847/images/041_25.jpg",
+      "path": "artifacts/exposition-buildings/raw/arnold-plate041.jpg",
+      "type": "Published built photograph, digital derivative",
+      "rights": "1893 public-domain publication; Gutenberg ebook22847",
+      "usedFor": [
+        "Nested archivolts, square ornamental border, upper frieze, rectangular entrance/transom"
+      ],
+      "limits": "Ornament is simplified and reauthored; no colour or metric scale inferred from photograph.",
+      "sha256": "33799b272869c1320ca6a741b121b5ac3779ddd038271f55ab464fcabd0950fb"
+    }
+  ],
+  "digitalTreatment": "Gutenberg states gamma0.8 adjustment, repairs to specks/voids and resizing; these are not untreated negatives.",
+  "additionalCrossCheck": {
+    "title": "Smithsonian Institution Archives RU95 Box61 Folder08 image026, dated1893",
+    "url": "https://siarchives.si.edu/collections/siris_arc_401345",
+    "inspection": "Catalog metadata read; image not used as generation input",
+    "rights": "Catalog states CC0"
+  },
+  "policy": "Reference scans/photos stay in ignored research cache; only authored PNGs are runtime assets."
+}

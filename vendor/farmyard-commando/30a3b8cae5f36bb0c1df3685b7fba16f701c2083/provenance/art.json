@@ -178,7 +178,7 @@
     {
       "path": "src/art/exterior-kit.js",
       "source": "Pinned AFT surfaceUV and hybrid-room-art face/cap recipes; final coder compiled module contract",
-      "processing": "Original compiled-part renderer and surfaceUV layout with optional authored material palette and extra continuous story coordinates; same geometry, part IDs and authoritative liveness.",
+      "processing": "Original compiled-part renderer and surfaceUV convention with authored palette/per-module named facade selection. Same geometry and authoritative liveness; added art-only portal/story coordinates.",
       "sourceReferences": [
         {
           "sourcePath": "sites/tactical-animal/dist/aft/tactics/hybrid-materials.js",
@@ -206,12 +206,12 @@
         }
       ],
       "rawDependencyInventory": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json",
-      "sha256": "323a15cc30d514fbfbbf97dd0f4ffa83b9213dbc346dae9856d9dfe20e85107d"
+      "sha256": "ba8b8bfd4d155da13becbefa9fbbd20793d3e1b4229b6bc542249ac2a5feb3fc"
     },
     {
       "path": "src/art/index.js",
       "source": "Tinderbox composition and final coder normal-civilian kit",
-      "processing": "Borrowed renderer and original normal-civilian factory; optional Exposition appearance assets and reversible setSkinSet. Default inherited load path stays available. Joint lifecycle cleanup; no state/collision changes.",
+      "processing": "Borrowed renderer and original civilian kit; optional authored v1 clothes/materials and demand-loaded named facade assets. Reversible global/per-module facade binding and joint cleanup; simulation unchanged.",
       "sourceReferences": [],
       "contractReferences": [
         {
@@ -231,16 +231,24 @@
         }
       ],
       "rawDependencyInventory": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json",
-      "sha256": "a5cf862857e5fb8606fc04a5d878304fd8d5aa32fdc0348e87c5137ff9117c7c"
+      "sha256": "5b804bd6b24b9e38eb7192b9e560a262ebc505d4334d04394548e7345378d467"
     },
     {
       "path": "src/art/skins.js",
       "source": "Original Tinderbox material/cloth binding around pinned donor projected paint",
-      "processing": "Authored Exposition material palette, metre-spaced story/course/cornice surface details, cloth-only sampler extension around unchanged original paint projection and mask. No replacement rigs, geometry or physics.",
-      "sha256": "0753dc7d5583fe37b7495b684f5668dfec1630923373fe96aa89df89d833b344",
+      "processing": "Authored material palette and original projected cloth guard; source-specific bay/portal sampling maps painted entry rectangles to unchanged model openings. Generic and named cornice/course treatment; no geometry or physics change.",
+      "sha256": "35cb6f9348babe36a3693a345366bd978878f3dfa509fe1436b0a2fb3756174c",
       "sourceReferences": [],
       "assetManifest": "assets/art/exposition-skins-v1/manifest.json",
       "rawDependencyInventory": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "path": "src/art/building-facades.js",
+      "source": "Original Tinderbox appearance profiles from referenced1893 built facades",
+      "processing": "Three named facade profiles and asset bindings with source references and generated-image portal bounds. Makes only materials through injected shared THREE.",
+      "sha256": "76398fb33e6b8572d20a64245357db4c7ff724282230741766d968ec776d6c85",
+      "sourceReferences": [],
+      "assetManifest": "assets/art/exposition-buildings-v1/manifest.json"
     }
   ]
 }

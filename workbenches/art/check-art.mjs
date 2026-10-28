@@ -48,4 +48,16 @@ for(const asset of authored.assets){
   }
 }
 for(const adapted of manifest.adaptations)assert(createHash('sha256').update(fs.readFileSync(path.join(root,adapted.path))).digest('hex')===adapted.sha256,'Art adapter fingerprint mismatch '+adapted.path);
-console.log('PASS: 7 authored skins, exact prompt/source records, projected sheet dimensions and 8 adapter fingerprints.');
+console.log('PASS: 7 authored skins, exact prompts/source records and '+manifest.adaptations.length+' adapter fingerprints.');
+
+const named=JSON.parse(fs.readFileSync(path.join(root,'assets/art/exposition-buildings-v1/manifest.json'),'utf8'));
+const namedPrompts=JSON.parse(fs.readFileSync(path.join(root,named.generationRecord),'utf8'));
+assert(named.assets.length===6&&named.profiles.length===3,'Expected three named facade pairs');
+for(const asset of named.assets){
+  assert(asset.path.startsWith('assets/art/exposition-buildings-v1/'),'Named facades must stay separate from vendor');
+  const bytes=fs.readFileSync(path.join(root,asset.path));
+  assert(createHash('sha256').update(bytes).digest('hex')===asset.sha256&&bytes.length===asset.bytes,'Named facade byte mismatch');
+  assert(bytes.readUInt32BE(16)===asset.width&&bytes.readUInt32BE(20)===asset.height,'Named facade dimensions mismatch');
+  assert(namedPrompts.assets.some(p=>p.id===asset.id&&p.prompt&&p.referenceImages.length),'Named facade missing prompt/primary reference');
+}
+console.log('PASS: 6 named-building textures, 3 facade profiles and exact primary-reference/prompt bindings.');

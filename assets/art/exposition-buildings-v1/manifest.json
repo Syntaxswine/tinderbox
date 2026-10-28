@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "owner": "artist",
+  "set": "exposition-buildings-v1",
+  "mode": "built-in image_gen",
+  "baseArtCommit": "3f3291565178ff66accecf6914957a05263cbc15",
+  "assets": [
+    {
+      "id": "ny-bay",
+      "path": "assets/art/exposition-buildings-v1/new-york-state-bay-v1.png",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 2709102,
+      "sha256": "0c63e0b2b2fe070a78ffd2cb00696602d97baa258e9d0d01e82440a5e48bd8fe",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v1/generation.json#ny-bay",
+      "referenceIds": [
+        "NY-ELEVATION",
+        "NY-PHOTO"
+      ]
+    },
+    {
+      "id": "ny-portal",
+      "path": "assets/art/exposition-buildings-v1/new-york-state-portal-v1.png",
+      "width": 1214,
+      "height": 1295,
+      "bytes": 2803955,
+      "sha256": "85c55aa6304edd0af14bbdd033939e53c187985d721aa81a4d71202023802495",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v1/generation.json#ny-portal",
+      "referenceIds": [
+        "NY-ELEVATION",
+        "NY-PHOTO"
+      ]
+    },
+    {
+      "id": "fisheries-bay",
+      "path": "assets/art/exposition-buildings-v1/fisheries-bay-v1.png",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 3387174,
+      "sha256": "1f4edf97fbbd67d546d7b1ab66e3b7fe6ca472ca34e45ea40a5d16961731de55",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v1/generation.json#fisheries-bay",
+      "referenceIds": [
+        "FISH-PHOTO"
+      ]
+    },
+    {
+      "id": "fisheries-portal",
+      "path": "assets/art/exposition-buildings-v1/fisheries-portal-v1.png",
+      "width": 1717,
+      "height": 916,
+      "bytes": 3078413,
+      "sha256": "57bcb8866a15a76bd5a186bea789fa4573c47a8f0970137ec3525228212f3abe",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v1/generation.json#fisheries-portal",
+      "referenceIds": [
+        "FISH-PHOTO"
+      ]
+    },
+    {
+      "id": "transportation-bay",
+      "path": "assets/art/exposition-buildings-v1/transportation-bay-v1.png",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 2974457,
+      "sha256": "e120ea3bed8b74ecfb8db068457298627135c515ad1dd366970a99f7b8973955",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v1/generation.json#transportation-bay",
+      "referenceIds": [
+        "TRANS-SIDE"
+      ]
+    },
+    {
+      "id": "transportation-portal",
+      "path": "assets/art/exposition-buildings-v1/transportation-portal-v1.png",
+      "width": 1214,
+      "height": 1295,
+      "bytes": 3932342,
+      "sha256": "f1b60098ff28b3cf78402471c76c7342786b30f24deaecf45fbf5e49fddef4f9",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v1/generation.json#transportation-portal",
+      "referenceIds": [
+        "TRANS-DOOR"
+      ]
+    }
+  ],
+  "totalBytes": 18885443,
+  "profiles": [
+    {
+      "id": "new-york-state",
+      "label": "New York State Building",
+      "defaultStories": 2,
+      "portalStories": 2,
+      "bay": "nyBay",
+      "portal": "nyPortal",
+      "openingUV": [
+        0.368,
+        0.633,
+        0,
+        0.432
+      ],
+      "field": 15918539,
+      "trim": 15325366,
+      "sourceRefs": [
+        "TB009-R02:plate44",
+        "EXPO-P02:plate64"
+      ]
+    },
+    {
+      "id": "fisheries",
+      "label": "Fisheries Building",
+      "defaultStories": 1,
+      "portalStories": 1,
+      "bay": "fisheriesBay",
+      "portal": "fisheriesPortal",
+      "openingUV": [
+        0.384,
+        0.617,
+        0,
+        0.547
+      ],
+      "field": 14993828,
+      "trim": 13476473,
+      "sourceRefs": [
+        "EXPO-P01:Fisheries-description",
+        "EXPO-P02:plate53"
+      ]
+    },
+    {
+      "id": "transportation",
+      "label": "Transportation · Golden Door",
+      "defaultStories": 2,
+      "portalStories": 2,
+      "bay": "transportationBay",
+      "portal": "transportationPortal",
+      "openingUV": [
+        0.37,
+        0.631,
+        0.024,
+        0.33
+      ],
+      "field": 10635560,
+      "trim": 12163667,
+      "sourceRefs": [
+        "EXPO-P02:plate39",
+        "EXPO-P02:plate41"
+      ]
+    }
+  ],
+  "sourceRecord": "art/source/exposition-buildings-v1/sources.json",
+  "generationRecord": "art/source/exposition-buildings-v1/generation.json",
+  "bindingPolicy": {
+    "appearanceSet": "exposition-v1",
+    "slotIds": "Existing inherited-* slots preserved",
+    "moduleSelection": "Artist-owned facadeStyles map, keyed by module ID; no new simulation fields",
+    "doorway": "Actual 1.4 x2.3m rectangle preserved; piecewise art UV maps measured generated-image opening bounds to the unchanged gap",
+    "oneStory": "NY and Transportation full portals require >=2 stories; smaller variants keep a plain frame",
+    "upperStories": "Repeat one complete source-specific bay per story; portal remains at ground, fixed at one/two stories",
+    "roof": "Existing roof cap/finish retained; source towers, balustrades and roof geometry are not reconstructed"
+  },
+  "scope": "Named-building facade fragments, with stylized colour, sculpture and scaled proportions; not complete measured reconstructions"
+}
