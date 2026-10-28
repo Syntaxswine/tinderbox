@@ -1,5 +1,6 @@
-// TB-008: metre-based exterior recipes adapted from the pinned Farmyard hybrid
-// geometry/world/room-art recipes. Recipe hashes and ancestry: provenance/city.json.
+import {reusedWallParts} from '../reuse/walls.js';
+// TB-008: shared metre-based schema; walls come from the pinned Farmyard builder.
+// Original builder bytes and ancestry: provenance/city.json. Dimensions are adapted separately.
 export const KIT_VERSION = 1;
 export const OPENING_CLEARANCE = Object.freeze({width: 1.4, height: 2.3});
 export const MODULE_FORMS = Object.freeze(['wall', 'doorway', 'pilaster', 'corner', 'roof-gable', 'roof-hip']);
@@ -48,21 +49,15 @@ export function compileModules(input = [], world) {
       if (!o || !['open', 'closed'].includes(o.state)) throw Error('Doorway requires explicit open/closed state');
       positive(o.width, 'opening width'); positive(o.height, 'opening height');
       if (o.width < OPENING_CLEARANCE.width || o.height < OPENING_CLEARANCE.height || o.width >= m.width || o.height >= m.height) throw Error('Doorway needs >=1.4m x2.3m clear opening inside its frame');
-      const pier = (m.width - o.width) / 2;
-      part('pier-left', -(o.width + pier) / 2, 0, m.height / 2, pier, m.depth, m.height);
-      part('pier-right', (o.width + pier) / 2, 0, m.height / 2, pier, m.depth, m.height);
-      part('lintel', 0, 0, (o.height + m.height) / 2, o.width, m.depth, m.height - o.height, false, 'trim');
-      if (o.state === 'closed') part('closed-door', 0, 0, o.height / 2, o.width, Math.min(m.depth, 0.12), o.height, true, 'door');
     } else if (m.form === 'corner') {
       positive(m.thickness, 'corner thickness');
       if (m.thickness >= Math.min(m.width, m.depth)) throw Error('Corner thickness exceeds its legs');
-      part('leg-x', 0, -(m.depth - m.thickness) / 2, m.height / 2, m.width, m.thickness, m.height);
-      part('leg-y', -(m.width - m.thickness) / 2, m.thickness / 2, m.height / 2, m.thickness, m.depth - m.thickness, m.height);
     } else if (m.form.startsWith('roof-')) {
       // Elevated decorative roof envelope. No new climbing or volumetric fire model.
       if (!Number.isFinite(m.baseHeight) || m.baseHeight < OPENING_CLEARANCE.height) throw Error('Roof must be overhead');
       part('roof-envelope', 0, 0, m.baseHeight + m.height / 2, m.width, m.depth, m.height, false, 'roof');
-    } else part(m.form, 0, 0, m.height / 2, m.width, m.depth, m.height);
+    }
+    if (!m.form.startsWith('roof-')) for (const p of reusedWallParts(m)) part(p.role, p.x, p.y, p.h, p.width, p.depth, p.height, p.solid, p.skinSlot);
     m.colliderIds = m.parts.filter(p => p.solid).map(p => p.id); modules.push(m);
   }
   for (const m of modules) if (m.form.startsWith('roof-')) {

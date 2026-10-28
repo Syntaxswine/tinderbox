@@ -2,6 +2,8 @@
 
 Candidate based on master `420266af6b92a4925164cdceda4ef43beb2d6a40`. Coder owns content/compiler/scenario, raw donor extraction, `src/reuse/civilians.js`, simulation/runtime hooks, tests and `provenance/city.json`. Artist owns production art adapters, geometry and skin-slot materials. Architect owns promotion, milestone 02, central provenance index and production default selection. This contract is additive to snapshot v1.
 
+Wall construction now directly calls the unchanged pinned `hybrid-geometry.js::roomBoxes` through `src/reuse/walls.js`; the separate duplicated wall/opening construction formulas were removed. The adapter only maps returned volumes into requested dimensions/placements. The public schema and part IDs below are preserved. See [direct-reuse correction](reuse-correction.md).
+
 ## Module data
 
 Entry: `src/content/exterior-kit.js`. Exports `compileModules(input,world)`, `KIT_VERSION`, `MODULE_FORMS`, `OPENING_CLEARANCE`, `SKIN_IDS`, `SKIN_SLOTS`, `CIVILIAN_PROFILES` and `validateCivilian(actor)`. Fixture: `src/content/exposition.js::EXPOSITION_SCENARIO`, selectable via `createSimulation({scenario:'exposition'})`. Existing street/chase/chain/tiny remain.

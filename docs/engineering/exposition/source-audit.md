@@ -1,6 +1,6 @@
 # TB-008 source audit and coder handoff
 
-Based on clean `codex/coding` normally advanced to reviewed master `420266af6b92a4925164cdceda4ef43beb2d6a40`. This delivers the bounded coder contract/scenario/civilian wrapper, not final facade/roof art or production default selection. See [exact shared API](contract.md). Only this coding worktree was changed; the donor and primary checkout were read-only.
+Based on clean `codex/coding` normally advanced to reviewed master `420266af6b92a4925164cdceda4ef43beb2d6a40`. This delivers the bounded coder contract/scenario/civilian wrapper, not final facade/roof art or production default selection. See [exact shared API](contract.md) and the [subsequent direct-builder correction](reuse-correction.md). Only this coding worktree was changed; the donor and primary checkout were read-only.
 
 ## Source and extraction
 
@@ -16,7 +16,7 @@ Farmyard pin: `30a3b8cae5f36bb0c1df3685b7fba16f701c2083`; inherited AFT: `a20b34
 | `T/environment-visuals.js::environmentVisuals(world,map)` | Renders corrugated roof wedge/sheet/eaves and original source slab conventions. Whole composition is not the bounded new roof adapter. |
 | `T/painted-environment-scene.js::{softBox,createPaintedEnvironment}` | Beveled box helper and a hardcoded wall/door/cargo study, not a parameterized general building kit. Existing atlas already belongs to the art inventory. |
 
-The new compiler adapts the split-wall/opening recipes into explicit metre dimensions and quarter turns, with recipe source hashes in city.json. It imports no 45-module room/battle/editor composition. Artist owns the new gable/hip meshes and material slots, consuming those same dimensions/parts. Minimum usable 1.4 x2.3 m openings are approved game adaptations. Elevated roof/lintel geometry is not a full projected ground blocker. Closed leaves are physical and must look closed; no door animation or interiors were introduced.
+The compiler calls the unchanged original `roomBoxes` builder. Its dimension/placement adapter maps those returned wall, pier, lintel and closed-leaf volumes into the shared metre/quarter-turn schema, with source hashes in city.json. It imports no 45-module room/battle/editor composition. Artist owns the new gable/hip meshes and material slots, consuming those same dimensions/parts. Minimum usable 1.4 x2.3 m openings are approved game adaptations. Elevated roof/lintel geometry is not a full projected ground blocker. Closed leaves are physical and must look closed; no door animation or interiors were introduced.
 
 ## Normal animal factories and identity
 
@@ -47,11 +47,12 @@ The selected raw JS closure is exactly 12 files: `clothing-weights.js`, `dog-mot
 
 ## Imported bytes and skins
 
-There are **19 new byte-preserved files / 13,340,671 bytes** in `vendor/farmyard-commando/<pin>/...`, covered by the single coder-owned `provenance/city.json`:
+There are **20 new byte-preserved files / 13,342,315 bytes** in `vendor/farmyard-commando/<pin>/...`, covered by the single coder-owned `provenance/city.json`:
 
 | Selection | Bytes |
 | --- | ---: |
-| 12 raw JS support modules | 146,485 |
+| 12 civilian JS support modules | 146,485 |
+| Original wall/room box builder | 1,644 |
 | Horse/goat model JSONs | 830,053 |
 | Horse/goat normal model-paint PNGs | 3,213,161 |
 | `assets/environment/hybrid-surfaces/brick-factory-v1.png` | 3,084,552 |
@@ -66,8 +67,8 @@ Raw game/art licensing is not declared in the inspected source; retain that unre
 
 ## Verification and limitations
 
-- `npm run check`: **53/53 Node checks**, 56 own-script syntax checks, 63 resolved static modules, exactly one shared Three pair, all five import inventories, and existing art/UI checks pass. Ten new content checks cover real open/closed/rotated openings, edge clearance, roof non-collision, skin/physics invariance, invalid schemas, real horse/goat identity/motion/bounds, translated gait, required renderer failures, world-time powder, matched 30/60/120 Hz and bounded-hitch replays, and per-part wood burnout/support liveness.
-- `npm run build`: 71 packaged files /25,282,678 bytes. `node tools/check-site.mjs http://127.0.0.1:4550/dist/`: **69 hosted file hashes/MIME types pass**, with the private workbench absent from the public package. Root/default production scene is unchanged.
+- `npm run check`: **53/53 Node checks**, 57 own-script syntax checks, 65 resolved static modules, exactly one shared Three pair, all five import inventories, and existing art/UI checks pass. Ten new content checks cover real open/closed/rotated openings, edge clearance, roof non-collision, skin/physics invariance, invalid schemas, real horse/goat identity/motion/bounds, translated gait, required renderer failures, world-time powder, matched 30/60/120 Hz and bounded-hitch replays, and per-part wood burnout/support liveness.
+- `npm run build`: 73 packaged files /25,288,032 bytes. `node tools/check-site.mjs http://127.0.0.1:4550/dist/`: **71 hosted file hashes/MIME types pass**, with the private workbench absent from the public package. Root/default production scene is unchanged.
 - Actual WebGL diagnostic reviewed at 1280x800 and 390x844. Horse/goat use source meshes/normal paint, 10,300/9,994 body triangles, no hats/guns. Bear crosses open gate from y12 to y7.8 (4.200 m /0.336 L poured), then stops at closed leaf at y5.625. A subsequent one-second powder step adds .280 m NPC travel, advances player/world clocks by1.5/.35, and preserves Pour. Fresh corrected browser session has no warnings/errors, one canvas and no horizontal portrait overflow.
 - Six two-species instance cycles create/dispose 12 actual painted rigs, with geometry/texture counts returning to **22/10** and two live civilian instances. Idempotent instance/kit cleanup is implemented. The browser exposed and helped fix a real translated-IK defect; the regression now exercises translated/rotated instances. This is lifecycle/behavior evidence, not a new performance budget or physical-phone measurement.
 - `world.modules.parts[].destroyed` prevents resurrection of burned solid parts. A lintel hides when either pier disappears; a roof declares required supportModuleIds and hides when any support loses a solid part. This is conservative support visibility, not collapse physics. Overhead fire, crowd collision/AI, interiors and door state commands remain outside scope.
