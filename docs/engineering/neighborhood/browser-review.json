@@ -1,0 +1,14 @@
+{
+  "task": "TB-014",
+  "recordedAt": "2026-10-28T18:34:27Z",
+  "browser": "Codex In-app Browser",
+  "reviewPage": "workbenches/art/neighborhood.html",
+  "attemptedFrames": [{"width": 1280, "height": 800}, {"width": 390, "height": 844}],
+  "rendered": false,
+  "visualAcceptance": "pending",
+  "blocker": "WebGL context creation fails before art loading; GL_VENDOR = Disabled and GL_RENDERER = Disabled. Same previously recorded browser limitation remains.",
+  "visibleResult": {"rendered": false, "error": "Error creating WebGL context.", "visualAcceptance": "pending"},
+  "evidence": ["evidence/desktop-webgl-blocked.png", "evidence/phone-webgl-blocked.png"],
+  "offlineEvidence": "The separately labelled Node checks exercise source meshes, production art through a renderer API fixture, and real HTTP package resources. They do not establish GPU rendering or visual acceptance.",
+  "cleanup": {"previewPid": 69064, "creationFiletime": "134376859690635926", "port": 4581, "exited": true, "portReleased": true, "registryId": "a99f576243804822bb1e51e46262a2eb"}
+}

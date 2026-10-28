@@ -27,12 +27,17 @@ for (const file of ['index.html', ...files('workbenches'), ...files('tests')].fi
   }
 }
 const vendor = 'vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083';
-for (const name of ['engine', 'code', 'art', 'ui', 'city']) {
+for (const name of ['engine', 'code', 'art', 'ui', 'city', 'native-units']) {
   const manifest = JSON.parse(fs.readFileSync(`${vendor}/provenance/${name}.json`, 'utf8'));
   for (const record of manifest.files) {
     const bytes = fs.readFileSync(record.installedPath);
     if (bytes.length !== record.bytes || createHash('sha256').update(bytes).digest('hex') !== record.sha256) throw Error('Changed vendor bytes: ' + record.installedPath);
   }
+}
+const housingIntake = JSON.parse(fs.readFileSync('assets/art/neighborhood-intake.json', 'utf8'));
+for (const file of [...housingIntake.runtimeFiles, ...housingIntake.evidenceFiles, ...housingIntake.derivedFiles]) {
+  const bytes = fs.readFileSync(file.installedPath);
+  if (bytes.length !== file.bytes || createHash('sha256').update(bytes).digest('hex') !== file.sha256) throw Error('Changed housing intake bytes: ' + file.installedPath);
 }
 const bearManifest=JSON.parse(fs.readFileSync('vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json','utf8'));
 for(const file of [...bearManifest.files,...bearManifest.adaptations]){const bytes=fs.readFileSync(file.installedPath);if(bytes.length!==file.bytes||createHash('sha256').update(bytes).digest('hex')!==file.sha256)throw Error('Changed bear intake bytes: '+file.installedPath);}

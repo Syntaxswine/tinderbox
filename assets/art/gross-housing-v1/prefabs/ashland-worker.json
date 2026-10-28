@@ -1,0 +1,321 @@
+{
+  "id": "ashland-worker",
+  "label": "Ashland & 47th / frame workers cottage",
+  "source": {
+    "leaf": 66,
+    "printedPage": 63,
+    "url": "https://archive.org/details/TenthAnnualIllustratedCatalogueOfS.e.GrossFamousCitySubdivisionsAnd/page/n66/mode/1up",
+    "plate": "../../../art/source/gross-housing-v1/plates/n66.jpg"
+  },
+  "width": 6,
+  "depth": 7,
+  "style": {
+    "wall": "clapboard",
+    "color": "#d6d0b4",
+    "trim": "#f0e3c6",
+    "accent": "#656655",
+    "roof": "cedar",
+    "form": "gable"
+  },
+  "plinth": 2.12,
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "hall",
+          "label": "Hall",
+          "type": "hall",
+          "polygon": [
+            [
+              6,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-a",
+          "label": "Bed room",
+          "type": "bedroom",
+          "polygon": [
+            [
+              6,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ]
+        },
+        {
+          "id": "parlor",
+          "label": "Parlor",
+          "type": "parlor",
+          "polygon": [
+            [
+              4,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-b",
+          "label": "Bed room",
+          "type": "bedroom",
+          "polygon": [
+            [
+              6,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              4,
+              7
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "pantry",
+          "label": "Pantry",
+          "type": "pantry",
+          "polygon": [
+            [
+              6,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-a"
+        ],
+        [
+          "hall",
+          "parlor"
+        ],
+        [
+          "bed-a",
+          "parlor"
+        ],
+        [
+          "parlor",
+          "kitchen"
+        ],
+        [
+          "bed-b",
+          "kitchen"
+        ],
+        [
+          "pantry",
+          "kitchen"
+        ]
+      ],
+      "entry": [
+        5,
+        0,
+        6,
+        0
+      ],
+      "stairs": null
+    }
+  ],
+  "porch": {
+    "x": 4,
+    "z": -1,
+    "width": 2,
+    "depth": 1
+  },
+  "basement": "Two compartments indicated in the printed basement plan.",
+  "basementSplit": 3,
+  "mirror": false,
+  "notes": [
+    "Four main rooms: two bedrooms, parlor and kitchen, plus hall and pantry.",
+    "Front door is left for Ashland and right for Archer, following the exterior illustrations."
+  ],
+  "basementFloor": {
+    "label": "Basement",
+    "rooms": [
+      {
+        "id": "service-a",
+        "label": "Basement / front",
+        "type": "service",
+        "polygon": [
+          [
+            6,
+            3
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ]
+        ]
+      },
+      {
+        "id": "service-b",
+        "label": "Basement / rear",
+        "type": "service",
+        "polygon": [
+          [
+            6,
+            7
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            6,
+            3
+          ]
+        ]
+      }
+    ],
+    "connections": [
+      [
+        "service-a",
+        "service-b"
+      ]
+    ],
+    "entry": [
+      4,
+      0,
+      5,
+      0
+    ],
+    "stairs": null
+  },
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalSpanMetres": 1.4142135623730951,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "adaptation": "New modular composition from the catalogue, not a measured reconstruction. Room sequence, major bays and facade type are sourced; one-metre plan snapping, colors, furniture, rear elevations and ornament details are artist interpretations.",
+  "integration": {
+    "status": "artist contribution candidate",
+    "requires": [
+      "Tinderbox nautilus-wall-runs-v1 consumer",
+      "interior-floor support",
+      "door and stair gameplay integration"
+    ],
+    "nautilusImported": false
+  }
+}

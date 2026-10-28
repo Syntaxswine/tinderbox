@@ -1,0 +1,426 @@
+{
+  "version": 1,
+  "kind": "artist-housing-contribution",
+  "source": "art/source/hopkins-housing-v1",
+  "houses": [
+    {
+      "id": "hopkins-4-09",
+      "path": "prefabs/hopkins-4-09.json",
+      "design": 9,
+      "leaf": 20,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-10",
+      "path": "prefabs/hopkins-4-10.json",
+      "design": 10,
+      "leaf": 20,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-11",
+      "path": "prefabs/hopkins-4-11.json",
+      "design": 11,
+      "leaf": 22,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-12",
+      "path": "prefabs/hopkins-4-12.json",
+      "design": 12,
+      "leaf": 22,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-13",
+      "path": "prefabs/hopkins-4-13.json",
+      "design": 13,
+      "leaf": 24,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-14",
+      "path": "prefabs/hopkins-4-14.json",
+      "design": 14,
+      "leaf": 24,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-15",
+      "path": "prefabs/hopkins-4-15.json",
+      "design": 15,
+      "leaf": 26,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-16",
+      "path": "prefabs/hopkins-4-16.json",
+      "design": 16,
+      "leaf": 26,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-17",
+      "path": "prefabs/hopkins-4-17.json",
+      "design": 17,
+      "leaf": 28,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-18",
+      "path": "prefabs/hopkins-4-18.json",
+      "design": 18,
+      "leaf": 28,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-19",
+      "path": "prefabs/hopkins-4-19.json",
+      "design": 19,
+      "leaf": 30,
+      "floors": 2
+    },
+    {
+      "id": "hopkins-4-20",
+      "path": "prefabs/hopkins-4-20.json",
+      "design": 20,
+      "leaf": 30,
+      "floors": 2
+    }
+  ],
+  "materials": [],
+  "reusedMaterialCollection": "assets/art/gross-housing-v1",
+  "contract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "nautilusImported": false,
+  "files": [
+    {
+      "path": "assets/art/hopkins-housing-v1/houses.json",
+      "bytes": 133937,
+      "sha256": "a15e7e25c9a3cd2b98f28065f78d2aa2a3579efb2c9001bfe70327196a46edfb"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-09.json",
+      "bytes": 41091,
+      "sha256": "7c665c60b08bfdc7a5faa86aaff6125fd169b0e70994f785f0388c6db48aa3a4"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-10.json",
+      "bytes": 49103,
+      "sha256": "479c62d7ca617d754f17c71c5d550bcdbbc94cfacd44214b26a44e0e11424410"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-11.json",
+      "bytes": 46762,
+      "sha256": "2fcd5cd9375e0c06c4d36d67fb9b0ec253fb029e984356284d498dc82cf5936a"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-12.json",
+      "bytes": 33933,
+      "sha256": "26d2e05fcaacf051280bb82f1e19c621aa696c3e148d1d1dc832691b2d7f8d89"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-13.json",
+      "bytes": 37777,
+      "sha256": "44699209e7cae2c73ed2aa09dd0f0c3a45b5b74490414a3d40162dbf829a6be9"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-14.json",
+      "bytes": 40970,
+      "sha256": "6ba8bb7109bd8005a5789a0c3b6b6b82b2174c77b455e186422c5f656cca6f8e"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-15.json",
+      "bytes": 49859,
+      "sha256": "74cdd6b8893fba8c67d9cf00f421dedf3d75dbb1bdd488c0a95e69ea6e0e2ddd"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-16.json",
+      "bytes": 40230,
+      "sha256": "7a5aa4e574615e9428fc6e7ded1fdaa18d348bda957709734a6dc11748dbb3c3"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-17.json",
+      "bytes": 32530,
+      "sha256": "7385ae3510021b99516b3c899f8da8948805b9117f9b661d5c90b9addbf11e0f"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-18.json",
+      "bytes": 34582,
+      "sha256": "575124e6bd9072c765d747788c9d67e371e995b8d1a085171c669060ad2de0ca"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-19.json",
+      "bytes": 47441,
+      "sha256": "7c07db94a3a00e2b14e6d7a8a817d4a1f9759aaf4ac7859227dc95247bad9a68"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-20.json",
+      "bytes": 44198,
+      "sha256": "c820066177ddf52a0d7dc5040fb69b453f43f22bd084788be968b6bad0010b64"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-09.json",
+      "bytes": 8940,
+      "sha256": "5a13314808ba21d6cf26fa29973a448740a331363821196901b4069c2c00de1d"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-10.json",
+      "bytes": 9676,
+      "sha256": "7ed1e21ba30ebc7dcef9b2ed7f98ee3c4987843b0406b9ba83f32dd47bf6ce14"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-11.json",
+      "bytes": 11005,
+      "sha256": "ee1addccb604fa563547bab9821c85ee7a80fcbbe3ab684d74c178181f9e6b4a"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-12.json",
+      "bytes": 8274,
+      "sha256": "a467f2cc2342f59dd69de125a04a9c7f161b054974c38f0d2cac819eee31f179"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-13.json",
+      "bytes": 8286,
+      "sha256": "f735ef937bf742421775cc9c7682525a0baa59877fd41da384c795ab94abcaf3"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-14.json",
+      "bytes": 7817,
+      "sha256": "47d3a09278d43f57c379837582775eaddc71c6771cfe7d00913443e09478f355"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json",
+      "bytes": 11447,
+      "sha256": "b04dfcd8dead9dcd5947af1b003d0bd3e061b992af5c9f013ed7a7fb6071461e"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-16.json",
+      "bytes": 8762,
+      "sha256": "b7fe65b71d1c105e5acd7ec6c03a7688ea83ed864e46d8a2c68c879e39b3d2e8"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-17.json",
+      "bytes": 8097,
+      "sha256": "8cdc04f84b7c91cf766b83fae78718c3a1fa54998f14c4d13567c6fd6d53c6fd"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-18.json",
+      "bytes": 7848,
+      "sha256": "85c34fe7a87c89f98422e671d04a45637339aecb1ee612d728a7ce0e9413c3c9"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-19.json",
+      "bytes": 10109,
+      "sha256": "9f06f09e7fdc7abbbfc633577991b7ffa84a087b0f203c3399aee11474ef15a6"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-20.json",
+      "bytes": 8796,
+      "sha256": "014a95dd37383151e77c4a45c3fd9313599f8b460c6465797460be160f054850"
+    }
+  ],
+  "assembly": [
+    {
+      "path": "src/art/gambrel-roof.js",
+      "bytes": 6452,
+      "sha256": "1f215cf7edc7eefb4a0006a5081875bc591fb81ddabe981457524cde675aa0b6",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/art/hopkins-housing.js",
+      "bytes": 8233,
+      "sha256": "74cd074e4e776f44dea1aa2a16ef75264024dd9f9bc42145d27c38d97100f818",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/art/gross-housing.js",
+      "bytes": 27589,
+      "sha256": "1de78796776499718866895c893782a6824df1196722e31989f825b5deb344e2",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/art/resources.js",
+      "bytes": 1291,
+      "sha256": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/content/asset-scale.js",
+      "bytes": 1066,
+      "sha256": "6c8773c1317b6b6e0adead577cd819e21ce1ae93b0f20eed2ae0af5bffb3d0ea",
+      "byteRepresentation": "UTF-8 LF"
+    }
+  ],
+  "reusedMaterials": [
+    {
+      "path": "assets/art/gross-housing-v1/clapboard-ivory-v1.png",
+      "bytes": 2144158,
+      "sha256": "d5a3ee4fdd75dc82aa3c06b52568fcea70caaa89da0e52f152829230f166e654",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/cedar-shingles-v1.png",
+      "bytes": 2250650,
+      "sha256": "cce3ad634daae358ef319843cc87eee6d0b6df3a58b7cd67d43aae8b624df97c",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/floorboards-oak-v1.png",
+      "bytes": 2663881,
+      "sha256": "9c089b06713a7d252def2d0a383b9419e45f36615eea8c73f633a6aeff1dd464",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
+      "bytes": 3267103,
+      "sha256": "6a953461e4886eaa5b8bf3aefce60ab6f964209d875d91be0f3846c221f2da60",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "path": "assets/art/exposition-skins-v1/brick-sienna-v1.png",
+      "bytes": 2388078,
+      "sha256": "17066064a1d9dcf8b128615bba1f1472c0921801e440d619d99b49e8e5962853",
+      "repeatMetres": [
+        2,
+        2
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "path": "assets/art/exposition-skins-v1/roof-slate-v1.png",
+      "bytes": 2333888,
+      "sha256": "04fd7476c41c5d290350aba957db2a6d9234d38b9634c55a834b5afe4e64c25d",
+      "repeatMetres": [
+        2,
+        2
+      ],
+      "pixelEdits": "none"
+    }
+  ],
+  "provenance": [
+    "art/source/gross-housing-v1/generation.json",
+    "art/source/exposition-skins-v1/generation.json",
+    "art/source/hopkins-housing-v1/sources.json",
+    "art/source/hopkins-housing-v1/roof-15.json"
+  ],
+  "geometryReview": {
+    "passed": true,
+    "houses": 12,
+    "levels": 24,
+    "rooms": 112,
+    "units": 1202,
+    "diagonals": 11,
+    "meshes": 8753,
+    "vertices": 269024,
+    "nativeAttributeChecks": 1333,
+    "roofCoverageSamples": 792,
+    "sourcePlates": 12,
+    "materialHashes": 0,
+    "nativeScale": true,
+    "disposal": true
+  },
+  "nautilusContract": {
+    "repository": "https://github.com/Syntaxswine/nautilus-engine",
+    "commit": "cc52f89de6333a1d94e2dfe45d47d1317369fac0",
+    "contractPath": "packages/map-core/wall-runs.js",
+    "documentationPath": "docs/wall-runs.md",
+    "feature": "nautilus-wall-runs-v1",
+    "inspection": "Read fixed Git objects only; no donor edits or moving branch imports.",
+    "nativeKit": {
+      "panel": 1,
+      "height": 2,
+      "thickness": 0.16,
+      "floorSpacing": 2.12
+    },
+    "traces": 12,
+    "segments": 914,
+    "apertures": 288,
+    "consumerStatus": "Editor authoring feature exists on the pinned candidate. Tinderbox consumer integration and full Nautilus house intake are separate."
+  },
+  "preview": "docs/art/hopkins-housing-v1/previews/collection.jpg",
+  "roof15Review": {
+    "passed": true,
+    "asset": "hopkins-4-15",
+    "baselineCommit": "e49465128970ea02d2a3a1b9040548d4d136cda3",
+    "unchangedBodySha256": "8c5623c27330a1616aa75086123f9953fc7c9384975931588c26e6b8045d09b7",
+    "roofPanels": 52,
+    "oneMetrePanels": 48,
+    "cutEndPanels": 4,
+    "valleyCutPanels": 24,
+    "pitchesDegrees": {
+      "main": [
+        21.8,
+        70.02
+      ],
+      "front": [
+        34.99,
+        77.2
+      ]
+    },
+    "physicalUVEdges": 453,
+    "clearanceSamples": 1152,
+    "gableWindowAperturesPreserved": 3,
+    "verticalGablesMaterial": "horizontal clapboard",
+    "slopedRoofMaterial": "cedar shingles",
+    "centerRidgeInsteadOfNotch": true,
+    "cutawayHidesEntireRoof": true,
+    "disposal": true,
+    "windowRequest": "Centered two-space window deferred to the map editor; original openings remain."
+  },
+  "sidingReview": {
+    "source": "art/source/housing-siding-review/material-direction.json",
+    "report": "docs/art/housing-siding-review/geometry-review.json",
+    "baselineCommit": "ec77f460e539d2bf114c806ed520c0a7945edabc",
+    "geometryAndOpenings": "unchanged",
+    "roofCovering": "unchanged"
+  }
+}

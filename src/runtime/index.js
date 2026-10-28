@@ -29,14 +29,15 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
   let lastMetrics = {}, frames = 0;
   function dispatch(command) { return sim.dispatch(command); }
   try {
-    art = createArtScene ? await createArtScene({THREE, scene, renderer, assetBaseUrl}) : createDiagnosticScene({THREE, scene, config: configuration(config)});
+    art = createArtScene ? await createArtScene({THREE, scene, renderer, assetBaseUrl, world: snapshot.world}) : createDiagnosticScene({THREE, scene, config: configuration(config)});
     ui = mountUI?.({root: uiRoot, onCommand: dispatch});
   } catch (error) { dispose(); throw error; }
   function present(next, delta, simulationMs = 0) {
     const before = performance.now(), previous = snapshot; snapshot = next;
     const timing = {alpha: snapshot.diagnostics.alpha, playerDelta: Math.max(0, snapshot.clocks.player - previous.clocks.player),
-      worldDelta: Math.max(0, snapshot.clocks.world - previous.clocks.world), playerTime: snapshot.clocks.player, worldTime: snapshot.clocks.world};
-    art.update(snapshot, timing); ui?.update(snapshot); renderer.render(scene, camera.camera); frames++;
+      worldDelta: Math.max(0, snapshot.clocks.world - previous.clocks.world), playerTime: snapshot.clocks.player, worldTime: snapshot.clocks.world,
+      camera: camera.camera, viewport: {width: root.clientWidth, height: root.clientHeight}};
+    camera.update(snapshot.player); art.update(snapshot, timing); ui?.update(snapshot); renderer.render(scene, camera.camera); frames++;
     cpuSamples.push(performance.now() - before); simulationSamples.push(simulationMs); frameSamples.push(delta * 1000);
     if (cpuSamples.length > 240) { cpuSamples.shift(); simulationSamples.shift(); frameSamples.shift(); }
     const sorted = [...cpuSamples].sort((a, b) => a - b), simSorted = [...simulationSamples].sort((a, b) => a - b), intervals = frameSamples.filter(v => v > 0);
@@ -44,7 +45,7 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
       simulationCpuP95Ms: simSorted[Math.floor((simSorted.length - 1) * 0.95)] ?? 0,
       observedHz: intervals.length ? 1000 * intervals.length / intervals.reduce((n, v) => n + v, 0) : 0, renderCpuP95Ms: sorted[Math.floor((sorted.length - 1) * 0.95)] ?? 0,
       drawCalls: renderer.info.render.calls, geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures,
-      viewport: {width: root.clientWidth, height: root.clientHeight}, threeRevision: THREE.REVISION};
+      viewport: {width: root.clientWidth, height: root.clientHeight}, threeRevision: THREE.REVISION, camera: camera.diagnostics()};
     onSnapshot(snapshot, lastMetrics);
     return snapshot;
   }
