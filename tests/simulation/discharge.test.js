@@ -77,9 +77,12 @@ test('ordered visibility fan cannot bridge off-axis narrow occluders or their co
   assert.ok(s.discharge.rays.some(r => r.distance === 4.5));
 });
 
-test('torch supplies an occluded root-to-tip lead and clipped local heat disk', () => {
+test('a deliberate lit-torch press supplies one occluded root-to-tip lead and clipped local heat disk', () => {
   const wall = {id: 'front', x: 3.3, y: 5, width: 0.1, depth: 10, height: 2, material: 'masonry'};
-  const sim = armed(plain({player: {x: 2.6, y: 5.25, tool: 'torch'}, obstacles: [wall]})), s = sim.advance(1 / 60), d = s.discharge;
+  const sim = armed(plain({player: {x: 2.6, y: 5.25, tool: 'torch'}, obstacles: [wall], patches: [{x:0,y:0,width:12,depth:10,material:'grass'}]}));
+  const light = sim.advance(1 / 60); assert.equal(light.player.torch.phase, 'lit'); inactive(light);
+  sim.dispatch({type:'primary',pressed:false}); sim.dispatch({type:'primary',pressed:true});
+  const s = sim.advance(1 / 60), d = s.discharge;
   assert.equal(d.tool, 'torch'); close(d.range, 1.1); close(d.radius, 0.4); close(d.halfAngle, Math.PI);
   assert.deepEqual(d.lead.from, d.origin); assert.deepEqual(d.lead.to, d.shapeOrigin);
   assert.ok(d.shapeOrigin.x < 3.25 && d.shapeOrigin.x > 3.24);
@@ -100,7 +103,7 @@ test('release, pause, cancel, selection, reset and death clear held presentation
 });
 
 test('partial and empty stock bound heat and stop the shape exactly when fuel ends', () => {
-  for (const [tool, key, rate] of [['torch', 'torchFuel', 0.12], ['flamethrower', 'flamethrowerFuel', 0.3]]) {
+  for (const [tool, key, rate] of [['flamethrower', 'flamethrowerFuel', 0.3]]) {
     function first(stock) {
       const sim = armed(plain({player: {x: 2.25, y: 5.25, tool, inventory: {[key]: stock}}}));
       return {sim, s: sim.advance(1 / 60)};

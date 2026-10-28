@@ -44,14 +44,17 @@ try {
   const {loadNeighborhoodKit, createNeighborhood} = await import(pathToFileURL(path.join(root, 'src/art/neighborhood.js')));
   const {createSimulation} = await import(pathToFileURL(path.join(root, 'src/simulation/index.js')));
   kit = await loadNeighborhoodKit(T); simulation = createSimulation({scenario: 'neighborhood'}); view = createNeighborhood(T, kit); view.update(simulation.snapshot().world);
-  if (view.diagnostics().active !== 6 || !view.diagnostics().models.every(model => model.nativeScale.every(value => value === 1))) throw Error('Wrong actual packaged prefab instances');
+  if (view.diagnostics().active !== 8 || !view.diagnostics().models.every(model => model.nativeScale.every(value => value === 1))) throw Error('Wrong actual packaged prefab instances');
+  const row=simulation.snapshot().world.buildings.filter(building=>building.prefabId==='monroe-row');
+  if(row.length!==3||row[1].partyWalls.left!==row[0].id||row[1].partyWalls.right!==row[2].id)throw Error('Packaged authoritative row join IDs missing');
   const windows = []; view.root.traverse(object => { if (object.name === 'Nautilus centered window bay') windows.push(object); });
   if (windows.length !== 2 || windows.some(object => object.userData.sourceCommit !== intake.windowSourceCommit)) throw Error('Packaged centered-window source closure missing');
   if (loaderRequests.length !== 8 || textures.length !== 6 || new Set(loaderRequests).size !== 8) throw Error('Expected two actual catalogue requests and six shared texture requests');
   if ((await netFetch(new URL('workbenches/art/neighborhood.html', origin))).status !== 404) throw Error('Review page leaked into public package');
-  receipt = {task: 'TB-016', purpose: 'One-shot nested-path HTTP, actual loader and offline source-mesh package smoke; no WebGL',
+  receipt = {task: 'TB-018', purpose: 'One-shot nested-path HTTP, loader, native instance/source and code-side join check; joined-art/UI semantics await exact candidates; no WebGL',
     pid: process.pid, executable: process.execPath, startedAt, port, sourceCommit: intake.sourceCommit, resources: paths.length,
-    loaderRequests, selectedPrefabs: view.diagnostics().models.map(model => model.id), centeredWindows: windows.length,
+    loaderRequests, selectedPrefabs: [...new Set(view.diagnostics().models.map(model => model.id))], instances:view.diagnostics().active,
+    partyWalls:row.map(({id,partyWalls})=>({id,partyWalls})),artRowAcceptance:'pending exact artist candidate',uiAcceptance:'pending exact UI candidate',centeredWindows: windows.length,
     windowSourceCommit: intake.windowSourceCommit, rendered: false, passed: true};
 } finally {
   globalThis.fetch = netFetch; if (T && previousLoad) T.TextureLoader.prototype.loadAsync = previousLoad;
@@ -59,6 +62,6 @@ try {
   server.closeAllConnections(); if (server.listening) await new Promise(resolve => server.close(resolve));
   if (receipt) {
     receipt.stoppedAt = new Date().toISOString(); receipt.serverClosed = !server.listening;
-    fs.mkdirSync('artifacts/TB-016', {recursive: true}); fs.writeFileSync('artifacts/TB-016/package-smoke.json', JSON.stringify(receipt, null, 2) + '\n'); console.log(JSON.stringify(receipt));
+    fs.mkdirSync('artifacts/TB-018', {recursive: true}); fs.writeFileSync('artifacts/TB-018/package-smoke.json', JSON.stringify(receipt, null, 2) + '\n'); console.log(JSON.stringify(receipt));
   }
 }

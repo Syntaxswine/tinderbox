@@ -193,11 +193,11 @@ test('actual source geometry resources retire once during repeated scene rebuild
   const simulation = createSimulation({scenario: 'neighborhood'}), view = createNeighborhood(T, library);
   let disposedGeometry = 0, firstGeometry;
   try {
-    const world = simulation.snapshot().world; view.update(world); assert.equal(view.diagnostics().active, 6);
+    const world = simulation.snapshot().world; view.update(world); assert.equal(view.diagnostics().active, 8);
     view.root.traverse(object => { if (!firstGeometry && object.isMesh) firstGeometry = object.geometry; });
     firstGeometry.addEventListener('dispose', () => disposedGeometry++);
     for (let i = 0; i < 3; i++) { view.update({buildings: []}); view.update(world); }
-    assert.equal(disposedGeometry, 1); assert.equal(view.diagnostics().active, 6); assert.equal(view.diagnostics().builds, 24);
+    assert.equal(disposedGeometry, 1); assert.equal(view.diagnostics().active, 8); assert.equal(view.diagnostics().builds, 32);
     view.dispose(); view.dispose(); assert.equal(view.root.children.length, 0); assert.equal(view.diagnostics().active, 0);
   } finally { view.dispose(); simulation.dispose(); }
 });
@@ -253,11 +253,11 @@ test('source-bounds occlusion fades houses behind the bear and in gaps, restores
     view.root.traverse(mesh => { if (mesh.isMesh) for (const material of [mesh.material].flat()) {
       near(material.opacity, 1); assert.equal(material.transparent, false); assert.equal(material.depthWrite, true);
     } });
-    assert.equal(JSON.stringify(world), before); assert.equal(view.diagnostics().builds, 6);
+    assert.equal(JSON.stringify(world), before); assert.equal(view.diagnostics().builds, 8);
   } finally { view.dispose(); simulation.dispose(); }
 });
 
-test('production art composes all six houses, painted native bear and civilians, without generic duplicate boxes (renderer API fixture; no WebGL)', async () => {
+test('production composition instantiates eight native house instances without duplicate generic boxes (row-art semantics await artist; no WebGL)', async () => {
   const oldFetch = globalThis.fetch, oldLoad = T.TextureLoader.prototype.loadAsync, oldDocument = globalThis.document;
   const renderer = Object.create(T.WebGLRenderer.prototype), rendererState = {target: null, projections: 0, disposed: 0};
   Object.defineProperty(renderer, 'outputColorSpace', {value: T.SRGBColorSpace, writable: true});
@@ -281,7 +281,7 @@ test('production art composes all six houses, painted native bear and civilians,
     const rig = createCameraRig({clientWidth: 390, clientHeight: 420}, {setSize() {}}, snapshot.world); rig.update(snapshot.player);
     art.update(snapshot, {camera: rig.camera, viewport: {width: 390, height: 420}});
     const diagnostics = art.diagnostics();
-    assert.equal(diagnostics.housing.active, 6); assert.equal(diagnostics.bearProtagonist.species, 'bear');
+    assert.equal(diagnostics.housing.active, 8); assert.equal(diagnostics.bearProtagonist.species, 'bear');
     assert.equal(diagnostics.bearProtagonist.paint, 'native-normal-projection');
     assert.deepEqual(diagnostics.civilianActors.map(actor => actor.species).sort(), ['goat', 'horse']);
     assert.ok(diagnostics.housing.projection.bearHeightPixels > 45); assert.equal(rendererState.projections, 12);
@@ -316,10 +316,10 @@ test('second row preserves the original street and has a continuous native-bear 
   ]);
   const simulation = createSimulation({scenario: 'neighborhood'});
   try {
-    const {world, player} = simulation.snapshot(); assert.deepEqual([world.width, world.height], [36, 47]);
+    const {world, player} = simulation.snapshot(); assert.deepEqual([world.width, world.height], [51, 47]);
     const route = [[4.5, 18], [4.5, 27.5], [4.5, 18], [18.5, 18], [18.5, 27.5], [18.5, 18],
-      [28.5, 18], [28.5, 26.9], [25.5, 26.9], [25.5, 45.5], [12.5, 45.5], [12.5, 35], [12.5, 45.5],
-      [1.2, 45.5], [1.2, 18], [35, 18], [35, 45.5], [20, 45.5]];
+      [28.5, 18], [28.5, 26.9], [35.5, 26.9], [42.5, 26.9], [25.5, 26.9], [25.5, 45.5], [12.5, 45.5], [12.5, 35], [12.5, 45.5],
+      [1.2, 45.5], [1.2, 18], [49.5, 18], [49.5, 45.5], [20, 45.5]];
     let current = {x: player.x, y: player.y};
     for (const [x, y] of route) {
       const path = moveDisc(current, x - current.x, y - current.y, player.radius, world, world.obstacles, world.fireCellSize);
@@ -333,7 +333,7 @@ test('second row preserves the original street and has a continuous native-bear 
     // Monroe's elevated front bay has no ground foundation at this point.
     assert.equal(freePoint({x: 32, y: 30.2}, .56, world, world.obstacles), true);
     assert.equal(lineClear({x: 31.5, y: 30}, {x: 33, y: 30}, world.obstacles), true);
-    assert.equal(world.buildings.length, new Set(world.buildings.map(building => building.prefabId)).size);
+    assert.equal(world.buildings.length, 8); assert.equal(new Set(world.buildings.map(building => building.prefabId)).size, 6);
     assert.deepEqual(world.buildings.filter(building => building.windowBays.length).map(building => [building.prefabId, building.windowBays[0].sourceCommit]),
       [['hopkins-4-15', intake.windowSourceCommit], ['hopkins-4-13', intake.windowSourceCommit]]);
     const detached = simulation.snapshot(); detached.world.buildings.find(building => building.windowBays.length).windowBays[0].a[0] = 999;

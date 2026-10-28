@@ -92,6 +92,10 @@ export function boxInterval(a, b, o) {
 export function lineClear(a, b, obstacles, {ignoreBarrels = true} = {}) {
   for (const o of obstacles) {
     if (o.destroyed || o.blocksHeat === false || ignoreBarrels && o.kind === 'barrel') continue;
+    for (const barrier of o.heatBarriers || []) {
+      const span = boxInterval(a, b, barrier);
+      if (span && span[1] > EPS && span[0] < 1 - EPS) return false;
+    }
     // A combustible obstacle can be heated at its own surface, then become a source.
     if (o.material === 'wood' && (inObstacle(a, o, (a.size ?? 0) / 2) || inObstacle(b, o, (b.size ?? 0) / 2))) continue;
     const span = boxInterval(a, b, o);
@@ -101,7 +105,7 @@ export function lineClear(a, b, obstacles, {ignoreBarrels = true} = {}) {
 }
 export function impactPoint(a, b, obstacles, {startHeight = 0, endHeight = startHeight} = {}) {
   let reach = 1;
-  for (const o of obstacles) {
+  for (const o of obstacles.flatMap(object => object.destroyed || object.blocksHeat === false ? [] : [object, ...(object.heatBarriers || [])])) {
     if (o.destroyed || o.blocksHeat === false) continue;
     const span = boxInterval(a, b, o);
     if (span && span[1] > EPS) {

@@ -69,8 +69,8 @@ test('empty held tools and invalid throws consume no invented fuel or items', ()
   const sim = createSimulation({scenario: plain({player: {x: 2, y: 4, tool: 'torch', inventory: {torchFuel: 0.001}}})});
   sim.dispatch({type: 'primary', pressed: true}); let s = run(sim, 1);
   close(s.player.inventory.torchFuel, 0); assert.equal(s.player.usingTool, false);
-  assert.equal(s.events.filter(e => e.type === 'tool-empty').length, 1);
-  sim.dispatch({type: 'select-tool', tool: 'molotov'}); sim.dispatch({type: 'aim', x: 10, y: 4}); sim.dispatch({type: 'primary', pressed: true});
+  assert.equal(s.events.filter(e => e.type === 'torch-spent').length, 1); assert.equal(s.player.torch.phase, 'spent');
+  sim.dispatch({type:'primary',pressed:false}); sim.dispatch({type: 'select-tool', tool: 'molotov'}); sim.dispatch({type: 'aim', x: 10, y: 4}); sim.dispatch({type: 'primary', pressed: true});
   s = sim.advance(1 / 60); assert.equal(s.player.inventory.molotovs, 4); assert.equal(s.projectiles.length, 0);
 });
 

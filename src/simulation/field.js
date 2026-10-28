@@ -1,4 +1,4 @@
-import {clamp, distance, inObstacle, lineClear, rasterSegments} from './geometry.js';
+import {clamp, distance, inObstacle, lineClear, rasterSegments, impactPoint} from './geometry.js';
 const EPS = 1e-10;
 export function materialAt(def, p) {
   let material = 'paving';
@@ -72,6 +72,26 @@ export class HeatField {
       cell.heat = Math.min(this.config.fire.maxHeat, cell.heat + heat); cell.cause = cause;
     }
   }
+  tileAt(point) {
+    const x = Math.floor(Math.min(this.def.width - EPS, Math.max(0, point.x)));
+    const y = Math.floor(Math.min(this.def.height - EPS, Math.max(0, point.y)));
+    return {x, y, width: Math.min(1, this.def.width - x), depth: Math.min(1, this.def.height - y)};
+  }
+  tileCells(tile) {
+    // Fully contained cells prevent direct heat leaking across an authoring tile.
+    return this.cells.filter(cell => cell.x - this.size / 2 >= tile.x - EPS && cell.y - this.size / 2 >= tile.y - EPS &&
+      cell.x + this.size / 2 <= tile.x + tile.width + EPS && cell.y + this.size / 2 <= tile.y + tile.depth + EPS);
+  }
+  seed(origin, targets, heat, cause) {
+    const visible = targets.filter(cell => {
+      if (!lineClear(origin, cell, this.obstacles)) return false;
+      const hit = impactPoint(origin, cell, this.obstacles);
+      return Math.abs(hit.x - cell.x) <= cell.size / 2 + .003 && Math.abs(hit.y - cell.y) <= cell.size / 2 + .003;
+    });
+    const cells = visible.filter(cell => cell.surfaceFuel + cell.depositedFuel > EPS);
+    for (const cell of cells) { cell.heat = Math.min(this.config.fire.maxHeat, cell.heat + heat); cell.cause = cause; }
+    return {result: cells.length ? 'heated' : visible.length ? 'no-fuel' : 'blocked', cells};
+  }
   cone(origin, heading, range, halfAngle, heat, cause) {
     const ux = Math.cos(heading), uy = Math.sin(heading), cosine = Math.cos(halfAngle);
     for (const cell of this.candidates(origin, range)) {
@@ -86,11 +106,14 @@ export class HeatField {
     // waits for its world-time travel deadline: no connected-component flood fill.
     for (let i = 0; i < this.cells.length; i++) {
       const source = this.cells[i]; if (source.phase !== 'burning') continue;
+      const sourcePolicy = fire.propagation[source.depositedFuel > EPS ? 'gas' : source.material] || fire.propagation.wood;
       for (const neighbour of this.neighbours[i]) {
         const target = this.cells[neighbour.index];
+        const targetPolicy = fire.propagation[target.depositedFuel > EPS ? 'gas' : target.material] || fire.propagation.wood;
+        const speed = fire.frontSpeed * Math.min(sourcePolicy.speedScale, targetPolicy.speedScale);
         if (target.surfaceFuel + target.depositedFuel <= EPS || target.phase === 'burning' ||
-            worldTime + EPS < source.ignitedAt + neighbour.distance / fire.frontSpeed || !lineClear(source, target, this.obstacles)) continue;
-        this.delta[neighbour.index] += fire.heatRate / neighbour.distance * Math.max(fire.minIntensity, source.intensity) * delta;
+            worldTime + EPS < source.ignitedAt + neighbour.distance / speed || !lineClear(source, target, this.obstacles)) continue;
+        this.delta[neighbour.index] += fire.heatRate * Math.min(sourcePolicy.heatScale, targetPolicy.heatScale) / neighbour.distance * Math.max(fire.minIntensity, source.intensity) * delta;
         if (!target.cause) target.cause = source.id;
       }
     }
