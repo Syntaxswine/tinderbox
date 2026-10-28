@@ -6,10 +6,11 @@ export const DEFAULT_CONFIG = Object.freeze({
   drugs: {duration: 8, playerScale: 1.5, worldScale: 0.35, healing: 35},
   fuel: {gasPerMetre: 0.08, gasBurnRate: 0.018, surfaceBurnRate: 0.025, surfaceDensity: {grass: 0.32, wood: 1.2}},
   fire: {frontSpeed: 4, heatRate: 40, cooling: 0.3, damagePerSecond: 18,
+    propagation: {gas: {speedScale: 1, heatScale: 1}, grass: {speedScale: .5, heatScale: .65}, wood: {speedScale: .2, heatScale: .35}},
     ignition: {gas: 0.6, grass: 0.85, wood: 1.1}, maxHeat: 4, burnHeat: 1.5, minIntensity: 0.5, intensityRise: 3, damageHeatStart: 0.4, damageHeatSpan: 1.6},
   tools: {
-    emissionClock: 'player', presentationHeight: 1.05, matches: {range: 0.85, radius: 0.3, heat: 1.8},
-    torch: {range: 1.1, radius: 0.4, heatPerSecond: 9, fuelPerSecond: 0.12},
+    emissionClock: 'player', presentationHeight: 1.05, matches: {range: 0.85, heat: 1.8},
+    torch: {range: 1.1, radius: 0.4, heat: 1.8, fuelPerSecond: 0.12},
     flamethrower: {range: 4.5, halfAngle: Math.PI / 8, heatPerSecond: 12, fuelPerSecond: 0.3},
     molotov: {range: 6, speed: 7, radius: 0.9, fuel: 0.3, heat: 2.2}
   },
@@ -48,5 +49,6 @@ export function configuration(override) {
   if (value.fire.minIntensity <= 0 || value.fire.minIntensity > 1 || value.fire.damageHeatSpan <= 0 || value.fire.burnHeat > value.fire.maxHeat) throw Error('Invalid thermal bounds');
   if (!Number.isInteger(value.events.capacity) || value.events.capacity < 1 || value.events.capacity > 4096) throw Error('Invalid event capacity');
   if (!['player', 'active'].includes(value.tools.emissionClock)) throw Error('Unsupported emission clock');
+  if (value.tools.torch.fuelPerSecond <= 0 || Object.values(value.fire.propagation).some(policy => policy.speedScale <= 0)) throw Error('Invalid torch/material timing');
   return value;
 }

@@ -2,7 +2,7 @@ import {configuration, TOOLS, DRUGS} from './config.js';
 import {scenarioDefinition} from './fixtures.js';
 import {HeatField, materialAt} from './field.js';
 import {clamp, normalized, movementVector, moveDisc, distance, lineClear, freePoint} from './geometry.js';
-import {discreteTool, heldTool, projectilesStep} from './tools.js';
+import {discreteTool, heldTool, projectilesStep, ageTorch} from './tools.js';
 import {inactiveDischarge} from './discharge.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
@@ -21,6 +21,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
   function clearInput(reason) {
     const pouring = state.player.pouring;
     state.discharge = inactiveDischarge(state.tick);
+    state.primaryNeedsRelease ||= state.input.primary;
     state.input = {move: {x: 0, y: 0}, primary: false};
     state.player.pouring = state.player.moving = state.player.usingTool = false;
     if (pouring) event('pour', state.player, {active: false, reason});
@@ -30,6 +31,9 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     const def = structuredClone(definition), start = def.player;
     const inventory = {...config.inventory, ...start.inventory};
     for (const value of Object.values(inventory)) if (!Number.isFinite(value) || value < 0) throw Error('Invalid initial stock');
+    if (inventory.torchFuel <= 1e-10) inventory.torchFuel = 0;
+    const torchDuration = inventory.torchFuel / config.tools.torch.fuelPerSecond;
+    if (!Number.isFinite(torchDuration)) throw Error('Invalid initial torch duration');
     state = {tick, paused: false, seed, events: [], input: {move: {x: 0, y: 0}, primary: false},
       clocks: {active: 0, player: 0, world: 0, playerScale: 1, worldScale: 1},
       player: {id: 'bear', x: start.x, y: start.y, radius: config.player.radius, heading: 0, moving: false,
@@ -41,7 +45,8 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       actors: def.actors.map(a => ({...a, route: a.route?.map(p => ({...p})) ?? [{x: a.x, y: a.y}],
         routeIndex: a.route?.length > 1 ? 1 : 0, heading: 0, moving: false, hp: a.hp ?? 100, travelled: 0})),
       aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y},
-      discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, acceptedPath: [{x: start.x, y: start.y}]};
+      discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
+    state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
     state.tiles = [];
@@ -62,23 +67,29 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
   const activeEffect = name => state.effects[name].expiresAt > state.clocks.active + EPS;
   function apply(command) {
     const p = state.player;
-    if (command.type === 'reset') { const tick = state.tick; commands = []; initialize(tick); event('reset', state.player, {generation}); return 'reset'; }
+    if (command.type === 'reset') { const tick = state.tick, held = state.input.primary || state.primaryNeedsRelease; commands = []; initialize(tick); state.primaryNeedsRelease = held; event('reset', state.player, {generation}); return 'reset'; }
     if (command.type === 'pause') {
       state.paused = command.paused; if (state.paused) clearInput('pause'); event('pause', p, {paused: state.paused}); return;
     }
     if (command.type === 'cancel-input') { clearInput('cancel-input'); return; }
     if (command.type === 'select-tool') {
       if (p.tool !== command.tool) {
+        state.primaryNeedsRelease ||= state.input.primary;
         state.input.primary = false; p.usingTool = false; state.discharge = inactiveDischarge(state.tick);
         if (p.pouring) event('pour', p, {active: false, reason: 'tool-change'});
         p.pouring = false; p.tool = command.tool; event('tool-selected', p, {tool: p.tool});
       }
       return;
     }
-    if (state.paused || p.hp <= 0) return;
+    if (command.type === 'primary' && !command.pressed) { state.input.primary = false; state.primaryNeedsRelease = false; return; }
+    if (state.paused || p.hp <= 0) {
+      if (command.type === 'primary' && command.pressed) state.primaryNeedsRelease = true;
+      return;
+    }
     if (command.type === 'move') { state.input.move = normalized(command.x, command.y); return; }
     if (command.type === 'aim') { state.aim = {x: command.x, y: command.y}; return; }
     if (command.type === 'primary') {
+      if (state.primaryNeedsRelease) return;
       const rising = command.pressed && !state.input.primary;
       state.input.primary = command.pressed;
       if (rising) discreteTool(state, field, config, event);
@@ -139,10 +150,11 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
   }
   function step() {
     state.tick++;
+    state.player.moving = state.player.usingTool = false; state.discharge = inactiveDischarge(state.tick); state.ignitionResults = [];
     const due = commands.filter(c => c.atTick <= state.tick).sort((a, b) => a.atTick - b.atTick || a.sequence - b.sequence);
     commands = commands.filter(c => c.atTick > state.tick);
     for (const command of due) if (apply(command) === 'reset') break;
-    const p = state.player; p.moving = p.usingTool = false; state.discharge = inactiveDischarge(state.tick);
+    const p = state.player;
     if (state.paused) return;
     const powder = activeEffect('powder'), inverted = activeEffect('inversion');
     const playerScale = powder ? config.drugs.playerScale : 1, worldScale = powder ? config.drugs.worldScale : 1;
@@ -167,7 +179,10 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     }
     for (const actor of state.actors) actorStep(actor, worldDelta);
     projectilesStep(state, field, config, worldDelta, event);
+    ageTorch(state, config, worldDelta, event);
     field.step(worldDelta, state.clocks.world, event); barrels();
+    for (const result of state.ignitionResults) result.record.result = result.cells.some(cell => cell.phase === 'burning') ? 'ignited' : 'heated';
+    state.ignitionResults = [];
     for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');
     // A catalogue prefab is one coarse ground-fuel group. Keep every footprint
     // until the whole group is spent, then remove its collision and art together.
@@ -202,16 +217,17 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       return copy;
     });
     return {version: 1, tick: state.tick, paused: state.paused,
-      clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory}},
+      clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory},
+        torch: {...state.player.torch, remainingSeconds: state.player.inventory.torchFuel / config.tools.torch.fuelPerSecond}},
       effects: Object.fromEntries(['powder', 'inversion'].map(name => [name,
         {active: activeEffect(name), remaining: Math.max(0, state.effects[name].expiresAt - state.clocks.active)}])),
       world: {width: definition.width, height: definition.height, tileSize: definition.tileSize, modules,
         buildings: state.buildings.map(building => structuredClone(building)),
         ...(definition.camera ? {camera: structuredClone(definition.camera)} : {}),
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
-        obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => ({...o}))},
+        obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => structuredClone(o))},
       cells, actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
-      discharge: structuredClone(state.discharge), events: state.events.map(e => ({...e})), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
+      discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
         acceptedPath: state.acceptedPath.map(p => ({...p})), fuel: {...field.stats,
           remainingDepositedFuel: cells.reduce((sum, c) => sum + c.depositedFuel, 0)},
@@ -243,4 +259,4 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; }
   };
 }
-function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2; }
+function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }

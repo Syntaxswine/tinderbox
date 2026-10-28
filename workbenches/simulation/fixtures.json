@@ -1,4 +1,178 @@
 {
+  "neighborhood": {
+    "id": "neighborhood",
+    "width": 51,
+    "height": 47,
+    "player": {
+      "x": 20,
+      "y": 18,
+      "tool": "jerry-can"
+    },
+    "camera": {
+      "followPlayer": true,
+      "span": 12,
+      "phoneSpan": 10
+    },
+    "patches": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 51,
+        "depth": 16,
+        "material": "grass"
+      },
+      {
+        "x": 0,
+        "y": 19,
+        "width": 51,
+        "depth": 5,
+        "material": "road"
+      },
+      {
+        "x": 0,
+        "y": 25,
+        "width": 51,
+        "depth": 22,
+        "material": "grass"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "hopkins-twelve",
+        "prefabId": "hopkins-4-12",
+        "x": 11,
+        "y": 10,
+        "quarterTurns": 2
+      },
+      {
+        "id": "hopkins-fifteen",
+        "prefabId": "hopkins-4-15",
+        "x": 24,
+        "y": 13,
+        "quarterTurns": 2
+      },
+      {
+        "id": "ashland-cottage",
+        "prefabId": "ashland-worker",
+        "x": 33,
+        "y": 10,
+        "quarterTurns": 2
+      },
+      {
+        "id": "hopkins-nine",
+        "prefabId": "hopkins-4-09",
+        "x": 3,
+        "y": 30,
+        "quarterTurns": 0
+      },
+      {
+        "id": "hopkins-thirteen",
+        "prefabId": "hopkins-4-13",
+        "x": 15,
+        "y": 30,
+        "quarterTurns": 0
+      },
+      {
+        "id": "monroe-row-house",
+        "prefabId": "monroe-row",
+        "x": 27,
+        "y": 31,
+        "quarterTurns": 0
+      },
+      {
+        "id": "monroe-row-middle",
+        "prefabId": "monroe-row",
+        "x": 34,
+        "y": 31,
+        "quarterTurns": 0
+      },
+      {
+        "id": "monroe-row-east",
+        "prefabId": "monroe-row",
+        "x": 41,
+        "y": 31,
+        "quarterTurns": 0
+      }
+    ],
+    "obstacles": [
+      {
+        "id": "street-drum-west",
+        "x": 12.5,
+        "y": 15,
+        "width": 0.656,
+        "depth": 0.656,
+        "height": 0.8,
+        "material": "steel",
+        "kind": "barrel"
+      },
+      {
+        "id": "street-drum-east",
+        "x": 25.5,
+        "y": 15,
+        "width": 0.656,
+        "depth": 0.656,
+        "height": 0.8,
+        "material": "steel",
+        "kind": "barrel"
+      }
+    ],
+    "actors": [
+      {
+        "id": "neighbor-horse",
+        "species": "horse",
+        "appearance": "normal",
+        "radius": 0.62,
+        "height": 1.7,
+        "model": "../tactics/horse-10k-data.json",
+        "paint": "characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+        "sourceRef": "farmyard:normal-horse",
+        "x": 7,
+        "y": 17,
+        "route": [
+          {
+            "x": 7,
+            "y": 17
+          },
+          {
+            "x": 17,
+            "y": 17
+          }
+        ],
+        "hp": 100,
+        "speed": 0.8,
+        "team": "civilian",
+        "headgear": "none",
+        "equipment": "none"
+      },
+      {
+        "id": "neighbor-goat",
+        "species": "goat",
+        "appearance": "normal",
+        "radius": 0.62,
+        "height": 1.7,
+        "model": "../tactics/goat-10k-data.json",
+        "paint": "characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+        "sourceRef": "farmyard:normal-goat",
+        "x": 29,
+        "y": 24.5,
+        "route": [
+          {
+            "x": 29,
+            "y": 24.5
+          },
+          {
+            "x": 19,
+            "y": 24.5
+          }
+        ],
+        "hp": 100,
+        "speed": 0.8,
+        "team": "civilian",
+        "headgear": "none",
+        "equipment": "none"
+      }
+    ]
+  },
   "exposition": {
     "id": "exposition",
     "width": 20,
@@ -22,7 +196,7 @@
         "id": "court-gate",
         "form": "doorway",
         "x": 10,
-        "y": 9,
+        "y": 5,
         "width": 4,
         "depth": 0.3,
         "height": 3.2,
@@ -50,7 +224,7 @@
         "id": "court-front-west",
         "form": "wall",
         "x": 6,
-        "y": 9,
+        "y": 5,
         "width": 4,
         "depth": 0.3,
         "height": 3.2,
@@ -73,7 +247,7 @@
         "id": "court-front-east",
         "form": "wall",
         "x": 14,
-        "y": 9,
+        "y": 5,
         "width": 4,
         "depth": 0.3,
         "height": 3.2,
@@ -96,8 +270,8 @@
         "id": "court-west",
         "form": "wall",
         "x": 4,
-        "y": 6,
-        "width": 6,
+        "y": 3,
+        "width": 4,
         "depth": 0.3,
         "height": 3.2,
         "heading": 1.5707963267948966,
@@ -119,8 +293,8 @@
         "id": "court-east",
         "form": "wall",
         "x": 16,
-        "y": 6,
-        "width": 6,
+        "y": 3,
+        "width": 4,
         "depth": 0.3,
         "height": 3.2,
         "heading": 1.5707963267948966,
@@ -139,10 +313,106 @@
         ]
       },
       {
+        "id": "bay-pilaster-0",
+        "form": "pilaster",
+        "x": 4,
+        "y": 5.1,
+        "width": 0.3,
+        "depth": 0.45,
+        "height": 3.4,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-cream",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment",
+          "game:bay-articulation"
+        ]
+      },
+      {
+        "id": "bay-pilaster-1",
+        "form": "pilaster",
+        "x": 8,
+        "y": 5.1,
+        "width": 0.3,
+        "depth": 0.45,
+        "height": 3.4,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-cream",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment",
+          "game:bay-articulation"
+        ]
+      },
+      {
+        "id": "bay-pilaster-2",
+        "form": "pilaster",
+        "x": 12,
+        "y": 5.1,
+        "width": 0.3,
+        "depth": 0.45,
+        "height": 3.4,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-cream",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment",
+          "game:bay-articulation"
+        ]
+      },
+      {
+        "id": "bay-pilaster-3",
+        "form": "pilaster",
+        "x": 16,
+        "y": 5.1,
+        "width": 0.3,
+        "depth": 0.45,
+        "height": 3.4,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-cream",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment",
+          "game:bay-articulation"
+        ]
+      },
+      {
         "id": "hall-back",
         "form": "wall",
         "x": 10,
-        "y": 3,
+        "y": 1,
         "width": 12,
         "depth": 0.3,
         "height": 3.6,
@@ -165,7 +435,7 @@
         "id": "hall-closed-door",
         "form": "doorway",
         "x": 10,
-        "y": 5,
+        "y": 3,
         "width": 4,
         "depth": 0.3,
         "height": 3.2,
@@ -193,7 +463,7 @@
         "id": "hall-pilaster",
         "form": "pilaster",
         "x": 6,
-        "y": 5,
+        "y": 3,
         "width": 0.45,
         "depth": 0.55,
         "height": 3.4,
@@ -216,7 +486,7 @@
         "id": "service-corner",
         "form": "corner",
         "x": 18,
-        "y": 5,
+        "y": 3,
         "width": 2,
         "depth": 2,
         "height": 3,
@@ -240,7 +510,7 @@
         "id": "hall-gable",
         "form": "roof-gable",
         "x": 10,
-        "y": 4,
+        "y": 2,
         "width": 12,
         "depth": 2.4,
         "height": 1.6,
@@ -267,7 +537,7 @@
         "id": "service-hip",
         "form": "roof-hip",
         "x": 18,
-        "y": 5,
+        "y": 3,
         "width": 2.4,
         "depth": 2.4,
         "height": 0.8,
@@ -302,15 +572,15 @@
         "paint": "characters/lowpoly-proof/horse-worker-model-paint-v1.png",
         "sourceRef": "farmyard:normal-horse",
         "x": 7,
-        "y": 7,
+        "y": 10,
         "route": [
           {
             "x": 7,
-            "y": 7
+            "y": 10
           },
           {
             "x": 13,
-            "y": 7
+            "y": 10
           }
         ],
         "hp": 100,

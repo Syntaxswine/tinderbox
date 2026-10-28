@@ -12,9 +12,21 @@ export function discreteTool(state, field, config, event) {
     p.pouring = !p.pouring; event('pour', p, {active: p.pouring}); return;
   }
   if (tool === 'matches') {
-    if (stock.matches < 1) return event('tool-rejected', p, {tool, reason: 'empty'});
-    const spec = config.tools.matches, point = impactPoint(p, localPoint(p, state.aim, spec.range), state.obstacles);
-    stock.matches--; field.emit(point, spec.radius, spec.heat, tool); event('tool-use', point, {tool});
+    const spec = config.tools.matches, point = localPoint(p, state.aim, spec.range), tile = field.tileAt(point);
+    if (stock.matches < 1) return event('tool-rejected', point, {tool, reason: 'empty', result: 'empty', tile});
+    stock.matches--; recordIgnition(state, event, tool, point, field.seed(p, field.tileCells(tile), spec.heat, tool), {tile});
+  }
+  if (tool === 'torch') {
+    if (p.torch.phase === 'spent' || stock.torchFuel <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty', result: 'empty'});
+    if (p.torch.phase === 'unlit') {
+      p.torch.phase = 'lit'; event('torch-lit', p, {tool, durationSeconds: p.torch.durationSeconds});
+      event('tool-use', p, {tool, result: 'lit'}); return;
+    }
+    const spec = config.tools.torch, target = localPoint(p, state.aim, spec.range);
+    const point = impactPoint(p, target, state.obstacles), result = field.seed(p, field.candidates(point, spec.radius), spec.heat, tool);
+    if (result.result === 'no-fuel' && distance(point, target) > 1e-8) result.result = 'blocked';
+    recordIgnition(state, event, tool, point, result);
+    if (result.cells.length) { p.heading = aimHeading(p, state.aim); p.usingTool = true; state.discharge = resolveDischarge(state, config, field.def, point); }
   }
   if (tool === 'molotov') {
     const spec = config.tools.molotov;
@@ -27,24 +39,33 @@ export function discreteTool(state, field, config, event) {
     state.projectiles.push(projectile); event('tool-use', p, {tool, projectileId: projectile.id});
   }
 }
+function recordIgnition(state, event, tool, point, result, extra = {}) {
+  const accepted = result.cells.length > 0;
+  const record = event(accepted ? 'tool-use' : 'tool-rejected', point, {tool, result: result.result,
+    ...(!accepted ? {reason: result.result} : {}), ...extra, heatedCells: result.cells.length, cellIds: result.cells.map(cell => cell.id)});
+  if (accepted) state.ignitionResults.push({record, cells: result.cells});
+}
+export function ageTorch(state, config, worldDelta, event) {
+  const p = state.player;
+  if (p.torch.phase !== 'lit') return;
+  p.inventory.torchFuel = Math.max(0, p.inventory.torchFuel - config.tools.torch.fuelPerSecond * worldDelta);
+  if (p.inventory.torchFuel <= 1e-10) {
+    p.inventory.torchFuel = 0; p.torch.phase = 'spent';
+    if (state.discharge.tool === 'torch') { state.discharge = inactiveDischarge(state.tick); p.usingTool = false; }
+    event('torch-spent', p, {tool: 'torch'});
+  }
+}
 export function heldTool(state, field, config, delta, event, world) {
   const p = state.player, tool = p.tool;
-  p.usingTool = false;
-  if (!state.input.primary || !['torch', 'flamethrower'].includes(tool)) return;
-  const spec = config.tools[tool], key = tool === 'torch' ? 'torchFuel' : 'flamethrowerFuel';
+  if (!state.input.primary || tool !== 'flamethrower') return;
+  const spec = config.tools[tool], key = 'flamethrowerFuel';
   const used = Math.min(p.inventory[key], spec.fuelPerSecond * delta);
   if (used <= 1e-10) { state.input.primary = false; event('tool-empty', p, {tool}); return; }
   p.inventory[key] = Math.max(0, p.inventory[key] - used);
   const heat = spec.heatPerSecond * (spec.fuelPerSecond > 0 ? used / spec.fuelPerSecond : delta);
   p.heading = aimHeading(p, state.aim); p.usingTool = true;
-  if (tool === 'torch') {
-    const point = impactPoint(p, localPoint(p, state.aim, spec.range), state.obstacles);
-    field.emit(point, spec.radius, heat, tool);
-    state.discharge = resolveDischarge(state, config, world, point);
-  } else {
-    field.cone(p, p.heading, spec.range, spec.halfAngle, heat, tool);
-    state.discharge = resolveDischarge(state, config, world);
-  }
+  field.cone(p, p.heading, spec.range, spec.halfAngle, heat, tool);
+  state.discharge = resolveDischarge(state, config, world);
   if (p.inventory[key] <= 1e-10) {
     p.inventory[key] = 0; state.input.primary = false; p.usingTool = false;
     state.discharge = inactiveDischarge(state.tick); event('tool-empty', p, {tool});

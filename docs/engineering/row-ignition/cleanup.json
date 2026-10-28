@@ -1,0 +1,28 @@
+{
+  "task": "TB-018",
+  "owner": "01a17ea3-b99b-74d2-8a74-56d2556a19cb",
+  "checkedAt": "2026-10-28T20:46:23.8735191Z",
+  "helpers": [
+    {
+      "purpose": "One-shot neighborhood package verification",
+      "executable": "C:/Program Files/nodejs/node.exe",
+      "receipt": "package-neighborhood.json",
+      "port": 52090,
+      "pid": 69248
+    },
+    {
+      "purpose": "One-shot existing bear package regression",
+      "executable": "C:/Program Files/nodejs/node.exe",
+      "receipt": "package-bear.json",
+      "port": 52102,
+      "pid": 56152
+    }
+  ],
+  "currentProcesses": [],
+  "listeners": [],
+  "stopMethod": "Owned foreground tool commands exited naturally; server finally blocks closed connections and servers. No termination issued.",
+  "expiry": "Each smoke has an actual 30-second shutdown timeout plus immediate finally cleanup.",
+  "retainedHelpers": [],
+  "previousHelpers": "The ten previously registered original helper lifetimes for this chat were checked at task start; all had exited.",
+  "passed": true
+}

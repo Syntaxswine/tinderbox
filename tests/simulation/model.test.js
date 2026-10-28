@@ -129,7 +129,9 @@ test('solid wall prevents spread and protects explosions; barrel chains are exac
 test('all tools have finite stock and common field outcomes; Molotov flight follows world time', () => {
   for (const tool of ['matches', 'torch', 'flamethrower', 'molotov']) {
     const sim = model(plain({player: {x: 3.25, y: 5.25, tool}, patches: [{x: 0, y: 0, width: 30, depth: 10, material: 'grass'}]}));
-    sim.dispatch({type: 'aim', x: 4.1, y: 5.25}); sim.dispatch({type: 'primary', pressed: true}); const s = run(sim, 0.8);
+    sim.dispatch({type: 'aim', x: 4.1, y: 5.25}); sim.dispatch({type: 'primary', pressed: true});
+    if (tool === 'torch') { run(sim, 1/60); sim.dispatch({type:'primary',pressed:false}); sim.dispatch({type:'primary',pressed:true}); }
+    const s = run(sim, 0.8);
     assert.ok(s.cells.some(c => c.phase === 'burning'), tool);
     const key = {matches: 'matches', torch: 'torchFuel', flamethrower: 'flamethrowerFuel', molotov: 'molotovs'}[tool];
     assert.ok(s.player.inventory[key] < DEFAULT_CONFIG.inventory[key], tool);

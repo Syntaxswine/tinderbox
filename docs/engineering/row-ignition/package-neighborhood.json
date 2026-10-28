@@ -1,0 +1,60 @@
+{
+  "task": "TB-018",
+  "purpose": "One-shot nested-path HTTP, loader, native instance/source and code-side join check; joined-art/UI semantics await exact candidates; no WebGL",
+  "pid": 69248,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-10-28T20:45:21.816Z",
+  "port": 52090,
+  "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+  "resources": 36,
+  "loaderRequests": [
+    "/nested/tinderbox/assets/art/gross-housing-v1/houses.json",
+    "/nested/tinderbox/assets/art/gross-housing-v1/clapboard-ivory-v1.png",
+    "/nested/tinderbox/assets/art/gross-housing-v1/cedar-shingles-v1.png",
+    "/nested/tinderbox/assets/art/gross-housing-v1/floorboards-oak-v1.png",
+    "/nested/tinderbox/assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
+    "/nested/tinderbox/assets/art/exposition-skins-v1/brick-sienna-v1.png",
+    "/nested/tinderbox/assets/art/exposition-skins-v1/roof-slate-v1.png",
+    "/nested/tinderbox/assets/art/hopkins-housing-v1/houses.json"
+  ],
+  "selectedPrefabs": [
+    "hopkins-4-12",
+    "hopkins-4-15",
+    "ashland-worker",
+    "hopkins-4-09",
+    "hopkins-4-13",
+    "monroe-row"
+  ],
+  "instances": 8,
+  "partyWalls": [
+    {
+      "id": "monroe-row-house",
+      "partyWalls": {
+        "left": null,
+        "right": "monroe-row-middle"
+      }
+    },
+    {
+      "id": "monroe-row-middle",
+      "partyWalls": {
+        "left": "monroe-row-house",
+        "right": "monroe-row-east"
+      }
+    },
+    {
+      "id": "monroe-row-east",
+      "partyWalls": {
+        "left": "monroe-row-middle",
+        "right": null
+      }
+    }
+  ],
+  "artRowAcceptance": "pending exact artist candidate",
+  "uiAcceptance": "pending exact UI candidate",
+  "centeredWindows": 2,
+  "windowSourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "rendered": false,
+  "passed": true,
+  "stoppedAt": "2026-10-28T20:45:22.281Z",
+  "serverClosed": true
+}

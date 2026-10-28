@@ -1,0 +1,426 @@
+{
+  "task": "TB-018",
+  "kind": "Authoritative simulation fixtures; no art/UI semantic acceptance or WebGL",
+  "prototypeRates": true,
+  "materialTraces": [
+    {
+      "material": "gas",
+      "powder": false,
+      "distanceMetres": 4,
+      "sourceIgnitionWorld": 0.016666666666666666,
+      "sourceSpentWorld": 1.1333333333333342,
+      "sourceBurnSeconds": 1.1166666666666676,
+      "arrivalWorld": 1.0833333333333344,
+      "arrivalActive": 1.0833333333333344,
+      "initialFuel": 0.64,
+      "remainingFuel": 0.5455999999999995,
+      "burnedFuel": 0.09439999999999968
+    },
+    {
+      "material": "gas",
+      "powder": true,
+      "distanceMetres": 4,
+      "sourceIgnitionWorld": 0.005833333333333333,
+      "sourceSpentWorld": 1.1200000000000032,
+      "sourceBurnSeconds": 1.1141666666666699,
+      "arrivalWorld": 1.0791666666666697,
+      "arrivalActive": 3.0833333333333273,
+      "initialFuel": 0.64,
+      "remainingFuel": 0.5464999999999993,
+      "burnedFuel": 0.09349999999999861
+    },
+    {
+      "material": "grass",
+      "powder": false,
+      "distanceMetres": 4,
+      "sourceIgnitionWorld": 0.016666666666666666,
+      "sourceSpentWorld": 3.21666666666666,
+      "sourceBurnSeconds": 3.1999999999999935,
+      "arrivalWorld": 2.0166666666666644,
+      "arrivalActive": 2.0166666666666644,
+      "initialFuel": 15.360000000000012,
+      "remainingFuel": 10.837500000000013,
+      "burnedFuel": 4.522499999999947
+    },
+    {
+      "material": "grass",
+      "powder": true,
+      "distanceMetres": 4,
+      "sourceIgnitionWorld": 0.005833333333333333,
+      "sourceSpentWorld": 3.2166666666666752,
+      "sourceBurnSeconds": 3.210833333333342,
+      "arrivalWorld": 2.1058333333333406,
+      "arrivalActive": 6.016666666666651,
+      "initialFuel": 15.360000000000012,
+      "remainingFuel": 10.851729166666713,
+      "burnedFuel": 4.508270833332117
+    },
+    {
+      "material": "wood",
+      "powder": false,
+      "distanceMetres": 4,
+      "sourceIgnitionWorld": 0.016666666666666666,
+      "sourceSpentWorld": 12.016666666666843,
+      "sourceBurnSeconds": 12.000000000000176,
+      "arrivalWorld": 5.349999999999986,
+      "arrivalActive": 5.349999999999986,
+      "initialFuel": 57.59999999999981,
+      "remainingFuel": 33.180833333332885,
+      "burnedFuel": 24.419166666648515
+    },
+    {
+      "material": "wood",
+      "powder": true,
+      "distanceMetres": 4,
+      "sourceIgnitionWorld": 0.005833333333333333,
+      "sourceSpentWorld": 12.016666666666858,
+      "sourceBurnSeconds": 12.010833333333524,
+      "arrivalWorld": 5.333333333333335,
+      "arrivalActive": 10.533333333333436,
+      "initialFuel": 57.59999999999981,
+      "remainingFuel": 33.071499999999496,
+      "burnedFuel": 24.528499999981637
+    }
+  ],
+  "matches": [
+    {
+      "fireCellSize": 0.5,
+      "event": {
+        "id": 1,
+        "tick": 1,
+        "type": "tool-use",
+        "x": 3.05,
+        "y": 2.25,
+        "tool": "matches",
+        "result": "ignited",
+        "tile": {
+          "x": 3,
+          "y": 2,
+          "width": 1,
+          "depth": 1
+        },
+        "heatedCells": 4,
+        "cellIds": [
+          "cell:6,4",
+          "cell:7,4",
+          "cell:6,5",
+          "cell:7,5"
+        ]
+      },
+      "stock": 11,
+      "adjacentDirectHeatCells": 0
+    },
+    {
+      "fireCellSize": 0.25,
+      "event": {
+        "id": 1,
+        "tick": 1,
+        "type": "tool-use",
+        "x": 3.05,
+        "y": 2.25,
+        "tool": "matches",
+        "result": "ignited",
+        "tile": {
+          "x": 3,
+          "y": 2,
+          "width": 1,
+          "depth": 1
+        },
+        "heatedCells": 16,
+        "cellIds": [
+          "cell:12,8",
+          "cell:13,8",
+          "cell:14,8",
+          "cell:15,8",
+          "cell:12,9",
+          "cell:13,9",
+          "cell:14,9",
+          "cell:15,9",
+          "cell:12,10",
+          "cell:13,10",
+          "cell:14,10",
+          "cell:15,10",
+          "cell:12,11",
+          "cell:13,11",
+          "cell:14,11",
+          "cell:15,11"
+        ]
+      },
+      "stock": 11,
+      "adjacentDirectHeatCells": 0
+    }
+  ],
+  "torch": [
+    {
+      "name": "initial",
+      "torch": {
+        "phase": "unlit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 41.66666666666667
+      },
+      "tool": "torch",
+      "clocks": {
+        "active": 0,
+        "player": 0,
+        "world": 0,
+        "playerScale": 1,
+        "worldScale": 1
+      },
+      "stock": 5,
+      "matchStock": 12,
+      "directHeat": false
+    },
+    {
+      "name": "lit",
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 41.650000000000006
+      },
+      "tool": "torch",
+      "clocks": {
+        "active": 0.016666666666666666,
+        "player": 0.016666666666666666,
+        "world": 0.016666666666666666,
+        "playerScale": 1,
+        "worldScale": 1
+      },
+      "stock": 4.998,
+      "matchStock": 12,
+      "directHeat": false
+    },
+    {
+      "name": "moving",
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 41.150000000000055
+      },
+      "tool": "torch",
+      "clocks": {
+        "active": 0.5166666666666666,
+        "player": 0.5166666666666666,
+        "world": 0.5166666666666666,
+        "playerScale": 1,
+        "worldScale": 1
+      },
+      "stock": 4.938000000000007,
+      "matchStock": 12,
+      "directHeat": false
+    },
+    {
+      "name": "holstered",
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 40.65000000000011
+      },
+      "tool": "matches",
+      "clocks": {
+        "active": 1.016666666666668,
+        "player": 1.016666666666668,
+        "world": 1.016666666666668,
+        "playerScale": 1,
+        "worldScale": 1
+      },
+      "stock": 4.878000000000013,
+      "matchStock": 12,
+      "directHeat": false
+    },
+    {
+      "name": "powder",
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 40.30000000000004
+      },
+      "tool": "matches",
+      "clocks": {
+        "active": 2.0166666666666644,
+        "player": 2.5166666666666626,
+        "world": 1.3666666666666694,
+        "playerScale": 1.5,
+        "worldScale": 0.35
+      },
+      "stock": 4.836000000000005,
+      "matchStock": 12,
+      "directHeat": false
+    },
+    {
+      "name": "pause-start",
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 40.30000000000004
+      },
+      "tool": "matches",
+      "clocks": {
+        "active": 2.0166666666666644,
+        "player": 2.5166666666666626,
+        "world": 1.3666666666666694,
+        "playerScale": 1.5,
+        "worldScale": 0.35
+      },
+      "stock": 4.836000000000005,
+      "matchStock": 12,
+      "directHeat": false
+    },
+    {
+      "name": "pause-end",
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 40.30000000000004
+      },
+      "tool": "matches",
+      "clocks": {
+        "active": 2.0166666666666644,
+        "player": 2.5166666666666626,
+        "world": 1.3666666666666694,
+        "playerScale": 1.5,
+        "worldScale": 0.35
+      },
+      "stock": 4.836000000000005,
+      "matchStock": 12,
+      "directHeat": false
+    }
+  ],
+  "row": {
+    "width": 51,
+    "height": 47,
+    "buildings": [
+      {
+        "id": "hopkins-twelve",
+        "prefabId": "hopkins-4-12",
+        "x": 11,
+        "y": 10,
+        "quarterTurns": 2,
+        "partyWalls": {
+          "left": null,
+          "right": null
+        },
+        "colliderIds": [
+          "hopkins-twelve:foundation",
+          "hopkins-twelve:porch",
+          "hopkins-twelve:stairs"
+        ]
+      },
+      {
+        "id": "hopkins-fifteen",
+        "prefabId": "hopkins-4-15",
+        "x": 24,
+        "y": 13,
+        "quarterTurns": 2,
+        "partyWalls": {
+          "left": null,
+          "right": null
+        },
+        "colliderIds": [
+          "hopkins-fifteen:foundation",
+          "hopkins-fifteen:porch",
+          "hopkins-fifteen:stairs"
+        ]
+      },
+      {
+        "id": "ashland-cottage",
+        "prefabId": "ashland-worker",
+        "x": 33,
+        "y": 10,
+        "quarterTurns": 2,
+        "partyWalls": {
+          "left": null,
+          "right": null
+        },
+        "colliderIds": [
+          "ashland-cottage:foundation",
+          "ashland-cottage:porch",
+          "ashland-cottage:stairs"
+        ]
+      },
+      {
+        "id": "hopkins-nine",
+        "prefabId": "hopkins-4-09",
+        "x": 3,
+        "y": 30,
+        "quarterTurns": 0,
+        "partyWalls": {
+          "left": null,
+          "right": null
+        },
+        "colliderIds": [
+          "hopkins-nine:foundation",
+          "hopkins-nine:porch",
+          "hopkins-nine:stairs"
+        ]
+      },
+      {
+        "id": "hopkins-thirteen",
+        "prefabId": "hopkins-4-13",
+        "x": 15,
+        "y": 30,
+        "quarterTurns": 0,
+        "partyWalls": {
+          "left": null,
+          "right": null
+        },
+        "colliderIds": [
+          "hopkins-thirteen:foundation",
+          "hopkins-thirteen:porch",
+          "hopkins-thirteen:stairs"
+        ]
+      },
+      {
+        "id": "monroe-row-house",
+        "prefabId": "monroe-row",
+        "x": 27,
+        "y": 31,
+        "quarterTurns": 0,
+        "partyWalls": {
+          "left": null,
+          "right": "monroe-row-middle"
+        },
+        "colliderIds": [
+          "monroe-row-house:foundation",
+          "monroe-row-house:porch",
+          "monroe-row-house:stairs"
+        ]
+      },
+      {
+        "id": "monroe-row-middle",
+        "prefabId": "monroe-row",
+        "x": 34,
+        "y": 31,
+        "quarterTurns": 0,
+        "partyWalls": {
+          "left": "monroe-row-house",
+          "right": "monroe-row-east"
+        },
+        "colliderIds": [
+          "monroe-row-middle:foundation",
+          "monroe-row-middle:porch",
+          "monroe-row-middle:stairs"
+        ]
+      },
+      {
+        "id": "monroe-row-east",
+        "prefabId": "monroe-row",
+        "x": 41,
+        "y": 31,
+        "quarterTurns": 0,
+        "partyWalls": {
+          "left": "monroe-row-middle",
+          "right": null
+        },
+        "colliderIds": [
+          "monroe-row-east:foundation",
+          "monroe-row-east:porch",
+          "monroe-row-east:stairs"
+        ]
+      }
+    ]
+  },
+  "artAcceptance": "pending exact TB-019 candidate",
+  "uiAcceptance": "pending exact TB-020 candidate",
+  "browserAcceptance": "pending known disabled-WebGL gate",
+  "passed": true
+}
