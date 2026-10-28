@@ -18,6 +18,8 @@ Read `docs/architecture.md`, `docs/workflow.md`, and `docs/source-baseline.json`
 
 ## Reuse boundaries
 
+- All Tinderbox assets use the native Animal Factory Tactics 3D / Farmyard Commando scale so they remain compatible with later games. Reskins preserve original dimensions, mesh/rig/UV layout, origins, attachment points and physical texture density. Taller or wider buildings compose compatible modules; do not stretch existing wall/door assets or resize characters to force a fit. The source measurements, reusable kit rules and current character-fit limitation are in `docs/engineering/exposition/native-scale.md`.
+
 - The Farmyard checkout and its worktrees are read-only donors. Do not change, check out, reset, merge into, or push to the donor repository for a Tinderbox task.
 - Use the pinned source commit. Record later source revisions deliberately, with a reason and review. A file present in an asset catalog is not proof that its gameplay is connected.
 - Distinguish the approved source baseline from experimental branch work. Never silently absorb a donor work-in-progress branch.

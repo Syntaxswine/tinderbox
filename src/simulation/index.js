@@ -179,7 +179,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     const modules = definition.modules.map(module => {
       const copy = structuredClone(module);
       copy.destroyed = copy.supportModuleIds ? copy.supportModuleIds.some(id => !intactSupport.get(id)) : copy.colliderIds.length > 0 && copy.colliderIds.every(id => !present.has(id));
-      copy.parts = copy.parts.map(part => ({...part, destroyed: part.solid ? !present.has(part.id) : part.role === 'lintel' ? !present.has(copy.id + ':pier-left') || !present.has(copy.id + ':pier-right') : copy.destroyed}));
+      copy.parts = copy.parts.map(part => ({...part, destroyed: part.solid ? !present.has(part.id) : part.supportPartIds ? part.supportPartIds.some(id => !present.has(id)) : copy.destroyed}));
       return copy;
     });
     return {version: 1, tick: state.tick, paused: state.paused,

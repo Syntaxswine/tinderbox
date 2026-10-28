@@ -28,7 +28,7 @@ const recipeReferences = ['hybrid-geometry.js','hybrid-world.js','hybrid-room-ar
 });
 const manifest = {schemaVersion: 1, owner: 'coder', task: 'TB-008', sourceRepository: 'https://github.com/Syntaxswine/farmyard-commando.git',
   sourceCommit: pin, inheritedSourceCommit: ancestry.sourceCommit, files: records, recipeReferences,
-  adapters: ['src/content/exterior-kit.js', 'src/reuse/walls.js', 'src/reuse/civilians.js'],
-  notes: ['Raw bytes remain unchanged. Shared Three files are owned by engine.json.', 'Civilian adapter maps carry to neutral; no Red Hat, team gear, service caps or visible weapons.', 'Wall/opening construction calls unchanged roomBoxes through a dimension adapter; roof forms reference EXPO-P02 plates53/97 as documented game adaptations.']};
+  adapters: ['src/content/asset-scale.js', 'src/content/exterior-kit.js', 'src/reuse/walls.js', 'src/reuse/civilians.js'],
+  notes: ['Raw bytes remain unchanged. Shared Three files are owned by engine.json.', 'Civilian adapter maps carry to neutral; no Red Hat, team gear, service caps or visible weapons.', 'Wall/opening construction places unchanged roomBoxes templates at native scale; roof forms reference EXPO-P02 plates53/97 as documented game adaptations.']};
 fs.writeFileSync(vendor + 'provenance/city.json', JSON.stringify(manifest, null, 2) + '\n');
 console.log(`Imported ${records.length} pinned city files (${records.reduce((n, r) => n + r.bytes, 0)} bytes); all match inherited ancestry.`);

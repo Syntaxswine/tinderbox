@@ -1,23 +1,25 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {compileModules, CIVILIAN_PROFILES, DEFAULT_STORY_HEIGHT, WALL_STORY_OPTIONS} from '../../src/content/exterior-kit.js';
+import {compileModules, CIVILIAN_PROFILES, DEFAULT_STORY_HEIGHT, WALL_STORY_OPTIONS, ASSET_SCALE} from '../../src/content/exterior-kit.js';
 import {createSimulation} from '../../src/simulation/index.js';
 import {createCivilianRig, loadCivilianKit} from '../../src/reuse/civilians.js';
+import {roomBoxes} from '../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js';
 const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-8, `${a} != ${b}`);
 const skins = {facade: 'inherited-plaster', trim: 'inherited-cream', door: 'inherited-wood', roof: 'inherited-roof'};
-const gate = (state = 'open', heading = 0) => ({id: 'gate', form: 'doorway', x: 6, y: 5, heading, width: 6, depth: 0.3, height: 3.2,
-  opening: {width: 1.4, height: 2.3, state}, physicalMaterial: 'wood', skinSlots: {...skins}, sourceRefs: ['game:test', 'farmyard:hybrid-wall-opening']});
+const gate = (state = 'open', heading = 0) => ({id: 'gate', form: 'doorway', x: 6, y: 5, heading, width: 3, depth: 0.16, height: 2,
+  opening: {width: 1, height: 1.65, state}, physicalMaterial: 'wood', skinSlots: {...skins}, sourceRefs: ['game:test', 'farmyard:hybrid-wall-opening']});
 const scenario = m => ({id: 'gate-test', width: 12, height: 10, player: {x: 6, y: 7.5, tool: 'jerry-can'}, modules: [m], obstacles: [], actors: []});
-function passGate(m, powder = false) {
-  const sim = createSimulation({scenario: scenario(m), config: {input: {cameraRelative: false}}});
+function passGate(m, powder = false, radius = 0.56) {
+  const sim = createSimulation({scenario: scenario(m), config: {input: {cameraRelative: false}, player: {radius}}});
   sim.dispatch({type: 'move', x: 0, y: -1}); sim.dispatch({type: 'primary', pressed: true}); sim.dispatch({type: 'primary', pressed: false});
   if (powder) sim.dispatch({type: 'drug', drug: 'powder'});
   let s; for (let i = 0; i < 90; i++) s = sim.advance(1 / 60); return s;
 }
-test('open passage passes the bear and closed leaf blocks its swept path, with normal/powder fuel accounting', () => {
+test('native door stays unchanged: small probe passes, full-sized bear cannot fit, closed leaf blocks both', () => {
   for (const powder of [false, true]) {
-    const open = passGate(gate(), powder), closed = passGate(gate('closed'), powder);
+    const open = passGate(gate(), powder, 0.3), closed = passGate(gate('closed'), powder, 0.3);
+    const bear = passGate(gate(), powder); assert.ok(bear.player.y > 5); close(bear.player.radius, 0.56);
     assert.ok(open.player.y < 4); assert.ok(closed.player.y >= 5 + 0.06 + closed.player.radius - 1e-8);
     for (const s of [open, closed]) {
       close(s.diagnostics.fuel.pouredFuel, s.player.travelled * 0.08); assert.equal(s.player.pouring, true);
@@ -28,12 +30,12 @@ test('open passage passes the bear and closed leaf blocks its swept path, with n
 test('module compiler retains split piers, non-solid overhead lintel, IDs, and quarter-turn geometry', () => {
   const compiled = compileModules([gate()], {width: 12, height: 10});
   assert.deepEqual(compiled.obstacles.map(p => p.id), ['gate:pier-left', 'gate:pier-right']);
-  const m = compiled.modules[0]; close(m.parts.find(p => p.role === 'lintel').h - m.parts.find(p => p.role === 'lintel').height / 2, 2.3);
+  const m = compiled.modules[0]; close(m.parts.find(p => p.role === 'lintel').h - m.parts.find(p => p.role === 'lintel').height / 2, 1.65);
   assert.equal(m.parts.find(p => p.role === 'lintel').blocksHeat, false);
   const turn = compileModules([gate('open', Math.PI / 2)], {width: 12, height: 10});
-  close(turn.obstacles[0].x, 6); assert.ok(turn.obstacles[0].y < 5); close(turn.obstacles[0].width, 0.3);
+  close(turn.obstacles[0].x, 6); assert.ok(turn.obstacles[0].y < 5); close(turn.obstacles[0].width, 0.16);
   const turnedScenario = scenario(gate('open', Math.PI / 2)); turnedScenario.player = {x: 8.5, y: 5};
-  const sim = createSimulation({scenario: turnedScenario, config: {input: {cameraRelative: false}}});
+  const sim = createSimulation({scenario: turnedScenario, config: {input: {cameraRelative: false}, player: {radius: 0.3}}});
   sim.dispatch({type: 'move', x: -1, y: 0}); for (let i = 0; i < 90; i++) sim.advance(1 / 60);
   assert.ok(sim.snapshot().player.x < 5);
 });
@@ -44,8 +46,8 @@ test('skin swaps leave collision, thermal state, clocks, inventory and movement 
   assert.notDeepEqual(sa.world.modules[0].skinSlots, sb.world.modules[0].skinSlots);
 });
 test('bad form, diagonal rotation, unsafe opening, source IDs and skins fail before simulation starts', () => {
-  for (const change of [{form: 'palace'}, {heading: 0.1}, {opening: {width: 1, height: 2.3, state: 'open'}},
-    {opening: {width: 1.4, height: 1.65, state: 'open'}}, {opening: {width: 1.4, height: 2.3, state: 'ajar'}}, {sourceRefs: []}, {skinSlots: {facade: 'unregistered'}}]) {
+  for (const change of [{form: 'palace'}, {heading: 0.1}, {opening: {width: 1.4, height: 2.3, state: 'open'}},
+    {opening: {width: 1.4, height: 1.65, state: 'open'}}, {opening: {width: 1, height: 1.65, state: 'ajar'}}, {sourceRefs: []}, {skinSlots: {facade: 'unregistered'}}]) {
     assert.throws(() => createSimulation({scenario: scenario({...gate(), ...change})}));
   }
   assert.throws(() => compileModules([gate(), gate()], {width: 12, height: 10}));
@@ -87,16 +89,16 @@ test('civilian kit fails meaningfully without a shared borrowed renderer; forbid
   assert.throws(() => createSimulation({scenario: s}), /Civilian identity/);
 });
 test('opening edge clearance and roof envelopes preserve swept ground passage', () => {
-  for (const [offset, clears] of [[0.1, true], [0.2, false]]) {
+  for (const [offset, clears] of [[0.1, true], [0.25, false]]) {
     const def = scenario(gate()); def.player.x += offset;
-    const sim = createSimulation({scenario: def, config: {input: {cameraRelative: false}}}); sim.dispatch({type: 'move', x: 0, y: -1});
+    const sim = createSimulation({scenario: def, config: {input: {cameraRelative: false}, player: {radius: 0.3}}}); sim.dispatch({type: 'move', x: 0, y: -1});
     for (let i = 0; i < 90; i++) sim.advance(1 / 60);
     assert.equal(sim.snapshot().player.y < 4, clears);
   }
   for (const form of ['roof-gable', 'roof-hip']) {
-    const roof = {...gate(), form, depth: 4, height: 1.6, baseHeight: 3.2}; delete roof.opening;
+    const roof = {...gate(), form, depth: 4, height: 1.6, baseHeight: 2}; delete roof.opening;
     roof.supportModuleIds = ['support'];
-    const def = scenario(roof); def.modules.push({...gate(), id: 'support', form: 'pilaster', x: 1, y: 1, width: 0.3, depth: 0.3});
+    const def = scenario(roof); def.modules.push({...gate(), id: 'support', form: 'pilaster', x: 1, y: 1, width: 1, depth: 0.16});
     const sim = createSimulation({scenario: def, config: {input: {cameraRelative: false}}});
     assert.equal(sim.snapshot().world.obstacles.length, 1); sim.dispatch({type: 'move', x: 0, y: -1});
     for (let i = 0; i < 60; i++) sim.advance(1 / 60);
@@ -106,7 +108,7 @@ test('opening edge clearance and roof envelopes preserve swept ground passage', 
 test('exterior passage replay including powder is identical at 30/60/120 Hz and bounded hitches', () => {
   const replay = [{type: 'move', x: 0, y: -1, atTick: 1}, {type: 'drug', drug: 'powder', atTick: 31}, {type: 'move', x: 0, y: 0, atTick: 91}];
   const run = hz => {
-    const sim = createSimulation({scenario: scenario(gate()), config: {input: {cameraRelative: false}}}); replay.forEach(c => sim.dispatch(c));
+    const sim = createSimulation({scenario: scenario(gate()), config: {input: {cameraRelative: false}, player: {radius: 0.3}}}); replay.forEach(c => sim.dispatch(c));
     for (let i = 0; i < 2 * hz; i++) sim.advance(1 / hz);
     const s = sim.snapshot(); delete s.diagnostics.alpha; delete s.diagnostics.lastSteps; return s;
   };
@@ -115,8 +117,8 @@ test('exterior passage replay including powder is identical at 30/60/120 Hz and 
 });
 test('wood burnout marks individual parts dead and hides unsupported lintel/roof presentation', () => {
   const def = scenario(gate());
-  def.modules.push({...gate(), id: 'roof', form: 'roof-gable', width: 6, depth: 3, height: 1.6, baseHeight: 3.2, supportModuleIds: ['gate']});
-  def.ignitions = [{x: 4.15, y: 5, radius: 1.5, heat: 4}];
+  def.modules.push({...gate(), id: 'roof', form: 'roof-gable', width: 6, depth: 3, height: 1.6, baseHeight: 2, supportModuleIds: ['gate']});
+  def.ignitions = [{x: 5, y: 5, radius: 0.6, heat: 4}];
   const sim = createSimulation({scenario: def, config: {fuel: {surfaceBurnRate: 1000}, fire: {damagePerSecond: 0}}});
   sim.advance(1 / 60); const s = sim.advance(1 / 60), m = s.world.modules[0];
   assert.equal(s.world.obstacles.some(p => p.id === 'gate:pier-left'), false);
@@ -127,52 +129,78 @@ test('wood burnout marks individual parts dead and hides unsupported lintel/roof
   const bad = scenario(gate()); bad.modules.push({...def.modules[1], supportModuleIds: ['missing']}); assert.throws(() => createSimulation({scenario: bad}), /supportModuleIds/);
 });
 
-test('one-through-five-story facades reuse the exact explicit-height wall parts at every heading', () => {
+test('shared scale derives native wall, leaf, slab and floor-spacing dimensions from pinned templates', () => {
+  assert.deepEqual(ASSET_SCALE, {worldUnitsPerMetre: 1, tile: 1, wallHeight: 2, wallThickness: 0.16, slab: 0.12, floorSpacing: 2.12, doorWidth: 1, doorHeight: 1.65, doorThickness: 0.12});
+  assert.equal(DEFAULT_STORY_HEIGHT, 2); assert.ok(Object.isFrozen(ASSET_SCALE));
   assert.deepEqual(WALL_STORY_OPTIONS.map(p => p.stories), [1, 2, 3, 4, 5]);
-  assert.equal(DEFAULT_STORY_HEIGHT, 3.2);
+  for (const [i, height] of [2, 4.12, 6.24, 8.36, 10.48].entries()) close(WALL_STORY_OPTIONS[i].height, height);
   assert.ok(Object.isFrozen(WALL_STORY_OPTIONS) && WALL_STORY_OPTIONS.every(Object.isFrozen));
+});
+
+test('five heights compose unchanged native wall templates at every heading, with native slab intervals', () => {
+  const native = roomBoxes({doorClosed: true});
+  const wall = native.find(p => p.name === 'Left pier'), lintel = native.find(p => p.name === 'Door lintel'), leaf = native.find(p => p.name === 'Closed door');
   for (const option of WALL_STORY_OPTIONS) for (const heading of [0, Math.PI / 2, Math.PI, 3 * Math.PI / 2]) {
     for (const form of ['wall', 'doorway', 'pilaster', 'corner']) {
-      const explicit = {...gate('open', heading), form, height: option.height, thickness: 0.2};
-      if (form !== 'doorway') delete explicit.opening;
-      const counted = {...explicit, stories: option.stories}; delete counted.height;
-      const a = compileModules([explicit], {width: 12, height: 10});
-      const b = compileModules([counted], {width: 12, height: 10});
-      assert.deepEqual(b.obstacles, a.obstacles); assert.deepEqual(b.modules[0].parts, a.modules[0].parts);
-      assert.equal(b.modules[0].stories, option.stories); close(b.modules[0].storyHeight, 3.2); close(b.modules[0].height, option.height);
-      const top = Math.max(...b.modules[0].parts.map(p => p.h + p.height / 2)); close(top, option.height);
-      close(Math.min(...b.modules[0].parts.map(p => p.h - p.height / 2)), 0);
-      assert.equal(b.modules[0].parts.length, a.modules[0].parts.length);
+      const module = {...gate('closed', heading), form, width: form === 'doorway' ? 5 : 2, depth: form === 'corner' ? 2 : 0.16, stories: option.stories, thickness: 0.16}; delete module.height;
+      if (form !== 'doorway') delete module.opening;
+      const {modules, obstacles} = compileModules([module], {width: 12, height: 10}), m = modules[0];
+      close(m.height, option.height); close(m.storyHeight, 2); close(m.floorSpacing, 2.12);
+      close(Math.max(...m.parts.map(p => p.h + p.height / 2)), option.height);
+      close(Math.min(...m.parts.map(p => p.h - p.height / 2)), 0);
+      for (const p of m.parts) {
+        if (p.sourceAssetId === 'tinderbox:facade-slab-band-1m') {
+          close(p.height, 0.12); assert.equal(p.solid, false); assert.ok(p.supportPartIds.length);
+        } else {
+          const template = p.sourceAssetId === 'aft:door-leaf-1m' ? leaf : p.sourceAssetId === 'aft:door-lintel-1m' ? lintel : wall;
+          assert.deepEqual([p.width, p.height, p.depth].sort((a,b) => a-b), [...template.size].sort((a,b) => a-b));
+          const bottom = p.h - p.height / 2;
+          if (p.role.startsWith('story-')) { assert.equal(p.solid, false); assert.ok(p.supportPartIds.length); close(bottom / 2.12, Math.round(bottom / 2.12)); }
+          else if (p.solid) close(bottom, 0);
+        }
+      }
+      assert.ok(obstacles.every(p => p.baseHeight === 0));
+      if (form === 'doorway') { close(m.parts.find(p => p.role === 'closed-door').height, 1.65); }
     }
   }
 });
 
-test('all story presets keep ground-door clearance and leaf height while supporting an elevated roof', () => {
+test('one through five stories preserve native ground passage, physical footprint and roof support', () => {
   for (const option of WALL_STORY_OPTIONS) for (const state of ['open', 'closed']) {
     const door = {...gate(state), stories: option.stories}; delete door.height;
     const roof = {...gate(), id: 'roof', form: 'roof-hip', depth: 3, height: 1.6, baseHeight: option.height, supportModuleIds: ['gate']}; delete roof.opening;
     const def = scenario(door); def.modules.push(roof);
-    const sim = createSimulation({scenario: def, config: {input: {cameraRelative: false}}});
+    const sim = createSimulation({scenario: def});
     const before = sim.snapshot(), frame = before.world.modules[0];
-    close(frame.parts.find(p => p.role === 'lintel').h - frame.parts.find(p => p.role === 'lintel').height / 2, 2.3);
-    if (state === 'closed') close(frame.parts.find(p => p.role === 'closed-door').height, 2.3);
+    close(frame.parts.find(p => p.role === 'lintel').h - frame.parts.find(p => p.role === 'lintel').height / 2, 1.65);
     const envelope = before.world.modules[1].parts[0]; close(envelope.h - envelope.height / 2, option.height); assert.equal(envelope.solid, false);
     assert.equal(before.world.obstacles.length, state === 'open' ? 2 : 3);
-    sim.dispatch({type: 'move', x: 0, y: -1}); for (let i = 0; i < 90; i++) sim.advance(1 / 60);
-    assert.equal(sim.snapshot().player.y < 4, state === 'open');
-    assert.equal(sim.snapshot().world.modules[0].stories, option.stories);
+    assert.ok(passGate(door).player.y > 5, 'full-size bear must not squeeze through native opening');
+    assert.equal(passGate(door, false, 0.3).player.y < 4, state === 'open');
+    const ground = compileModules([gate(state)], {width:12,height:10}); assert.deepEqual(before.world.obstacles, ground.obstacles);
     sim.dispose();
   }
 });
 
-test('story metadata validates counts and dimensions without changing legacy arbitrary-height modules', () => {
+test('native composition rejects asset rescaling and invalid dimensions before creating a scenario', () => {
   for (const stories of [0, 6, -1, 1.5, null, '3', Infinity]) assert.throws(() => compileModules([{...gate(), stories}], {width: 12, height: 10}), /stories/);
-  for (const change of [{stories: 2, height: 3.2}, {storyHeight: 3.2}, {stories: 2, storyHeight: 0}, {stories: 2, storyHeight: NaN}, {stories: 2, storyHeight: Number.MAX_VALUE}]) {
-    assert.throws(() => compileModules([{...gate(), ...change}], {width: 12, height: 10}));
-  }
-  const custom = {...gate(), stories: 3, storyHeight: 4.1}; delete custom.height;
-  close(compileModules([custom], {width: 12, height: 10}).modules[0].height, 12.3);
-  const legacy = compileModules([{...gate(), height: 3.7}], {width: 12, height: 10}).modules[0];
-  close(legacy.height, 3.7); assert.equal(legacy.stories, undefined); assert.equal(legacy.storyHeight, undefined);
-  assert.throws(() => compileModules([{...gate(), form: 'roof-gable', stories: 2}], {width: 12, height: 10}), /stories/);
+  for (const change of [{height:3.2}, {stories:2, height:4}, {storyHeight:3.2}, {floorSpacing:2}, {depth:0.3}, {width:3.5}, {width:4},
+    {opening:{width:1.4,height:2.3,state:'open'}}, {opening:{width:1,height:2.3,state:'open'}}]) assert.throws(() => compileModules([{...gate(), ...change}], {width:12,height:10}));
+  assert.throws(() => compileModules([{...gate(), form:'roof-gable', stories:2}], {width:12,height:10}), /Story/);
+});
+
+test('destroyed native ground structure hides supported upper walls and floor bands without ground blockers', () => {
+  const module = {...gate(), stories:5}; delete module.height;
+  const def=scenario(module); def.ignitions=[{x:5,y:5,radius:0.6,heat:4}];
+  const sim=createSimulation({scenario:def,config:{fuel:{surfaceBurnRate:1000},fire:{damagePerSecond:0}}});
+  sim.advance(1/60);const snapshot=sim.advance(1/60), m=snapshot.world.modules[0];
+  assert.equal(m.parts.find(p=>p.role==='pier-left').destroyed,true);
+  assert.ok(m.parts.filter(p=>p.role.startsWith('story-')||p.role.startsWith('floor-')||p.role==='lintel').every(p=>p.destroyed));
+  assert.ok(snapshot.world.obstacles.every(p=>p.baseHeight===0));
+});
+
+test('composed story part IDs cannot alias another module or its collision', () => {
+  const tall={...gate(),id:'facade',form:'wall',stories:2};delete tall.height;delete tall.opening;
+  const other={...gate(),id:'facade:story-1',form:'wall'};delete other.opening;
+  assert.throws(()=>compileModules([tall,other],{width:12,height:10}),/Duplicate resolved part ID/);
 });

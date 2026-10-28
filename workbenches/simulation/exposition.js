@@ -1,6 +1,7 @@
 import {createRuntime} from '../../src/runtime/index.js';
 import {createDiagnosticScene} from '../../src/runtime/diagnostics.js';
 import {loadCivilianKit} from '../../src/reuse/civilians.js';
+import {ASSET_SCALE} from '../../src/content/exterior-kit.js';
 import {worldToStick, DEFAULT_CONFIG} from '../../src/simulation/index.js';
 const el = id => document.getElementById(id); let runtime, view, cycleStatus = 'not run';
 async function createView({THREE, scene, renderer}) {
@@ -36,9 +37,9 @@ async function createView({THREE, scene, renderer}) {
   }; view = api; return api;
 }
 function report(s) {
-  const d = view.report(), pass = d.kit.instances === 2 && d.people.every(p => p.appearance === 'normal' && !p.armed) && s.world.modules[0].opening.width === 1.4;
+  const d = view.report(), pass = d.kit.instances === 2 && d.people.every(p => p.appearance === 'normal' && !p.armed) && s.world.modules[0].opening.width === ASSET_SCALE.doorWidth;
   el('result').dataset.status = pass ? 'pass' : 'fail';
-  el('result').textContent = `${pass ? 'PASS' : 'FAIL'} · real source civilians\n${s.world.modules.length} modules · ${s.world.obstacles.length} collision parts\n${d.people.map(p => p.species + ': normal / no hat / unarmed / ' + p.triangles + ' triangles').join('\n')}\nCivilian radii ${s.actors.map(p => p.radius.toFixed(2)).join(' / ')} m\nBear ${s.player.x.toFixed(2)},${s.player.y.toFixed(2)} · travelled ${s.player.travelled.toFixed(3)} m\nGas poured ${s.diagnostics.fuel.pouredFuel.toFixed(4)} L\nNPC travel ${s.actors.map(p => p.travelled.toFixed(3)).join(' / ')} m\nPlayer/world clocks ${s.clocks.player.toFixed(3)} / ${s.clocks.world.toFixed(3)}\nCycle check: ${cycleStatus}`;
+  el('result').textContent = `${pass ? 'PASS' : 'FAIL'} · real source civilians\nNative 1m tiles / 2m wall units / 1 x1.65m doorway\nFull-size bear retains 0.56m radius and cannot fit this opening\n${s.world.modules.length} modules · ${s.world.obstacles.length} collision parts\n${d.people.map(p => p.species + ': normal / no hat / unarmed / ' + p.triangles + ' triangles').join('\n')}\nCivilian radii ${s.actors.map(p => p.radius.toFixed(2)).join(' / ')} m\nBear ${s.player.x.toFixed(2)},${s.player.y.toFixed(2)} · travelled ${s.player.travelled.toFixed(3)} m\nGas poured ${s.diagnostics.fuel.pouredFuel.toFixed(4)} L\nNPC travel ${s.actors.map(p => p.travelled.toFixed(3)).join(' / ')} m\nPlayer/world clocks ${s.clocks.player.toFixed(3)} / ${s.clocks.world.toFixed(3)}\nCycle check: ${cycleStatus}`;
 }
 function step(seconds) { for (let i = 0; i < seconds * 60; i++) runtime.advance(1 / 60); }
 el('walk').onclick = () => { runtime.dispatch({type: 'move', ...worldToStick({x: 0, y: -1}, DEFAULT_CONFIG.input)}); runtime.dispatch({type: 'primary', pressed: true}); runtime.dispatch({type: 'primary', pressed: false}); step(1.4); runtime.dispatch({type: 'move', x: 0, y: 0}); runtime.advance(1 / 60); };
