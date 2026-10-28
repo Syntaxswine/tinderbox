@@ -56,7 +56,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       if(map.buildings?.length&&!housing)throw new Error('Catalogue housing was not loaded for this scene');
       world.update({...map,obstacles:(map.obstacles||[]).filter(o=>!o.moduleId&&!o.buildingId)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
       housing?.update(map,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,trail:snapshot.cells.filter(cell=>cell.depositedFuel>0&&Math.hypot(cell.x-player.x,cell.y-player.y)<2.5).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))});
-      fire.update(snapshot,worldTime,{muzzle:muzzlePoint});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
+      fire.update(snapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
       footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:.56;
       ring.position.set(player.x,.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);
       arrow.position.set(player.x,0,player.y);arrow.rotation.y=-(player.heading||0);arrow.scale.set(footprintRadius,1,footprintRadius);

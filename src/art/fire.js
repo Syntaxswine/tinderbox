@@ -1,5 +1,6 @@
 
 import {Resources,clamp,seedOf,hash} from './resources.js';
+import {createCarriedTorch} from './carried-torch.js';
 import {createDischarge} from './discharge.js';
 const MAX_CELLS=4096;
 export function createFire(T,assets,fieldUniforms){
@@ -63,11 +64,11 @@ export function createFire(T,assets,fieldUniforms){
     };layers.push(value);return value;
   }
   const flames=layer(assets.flame,0,MAX_CELLS*2),smoke=layer(assets.smoke,1,MAX_CELLS),bursts=layer(assets.burst,2,64);
-  const discharge=createDischarge(T,assets.flame);root.add(discharge.root);
+  const discharge=createDischarge(T,assets.flame),carriedTorch=createCarriedTorch(T,assets.flame);root.add(discharge.root,carriedTorch.root);
   const history=new Map(),eventsSeen=new Set(),eventOrder=[],explosions=[];
   let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false;
   const lights=Array.from({length:3},()=>{const light=new T.PointLight(0xffad52,0,4,2);root.add(light);return light;});
-  function reset(){history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;}
+  function reset(){carriedTorch.reset();history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;}
   function update(snapshot,time,anchors={}){
     const clock=Number.isFinite(time)?time:snapshot.clocks?.world||0;
     if(clock<lastWorld-1e-8||snapshot.tick<lastTick)reset();
@@ -117,9 +118,9 @@ export function createFire(T,assets,fieldUniforms){
     }
     const groups=[...lightGroups.values()].sort((a,b)=>b.weight-a.weight);
     lights.forEach((light,i)=>{const g=groups[i];light.intensity=g?Math.min(3.5,g.weight*.65):0;if(g)light.position.set(g.x/g.weight,.60,g.y/g.weight);});
-    discharge.update(snapshot.discharge,clock,anchors);
+    discharge.update(snapshot.discharge,clock,anchors);carriedTorch.update(snapshot,clock,anchors);
     primed=true;for(const l of layers)l.end();
   }
-  return {root,update,reset,dispose(){discharge.dispose();root.removeFromParent();root.clear();pool.dispose();for(const l of lights)l.shadow?.dispose();},
-    diagnostics:()=>({flameCards:flames.count,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
+  return {root,update,reset,dispose(){carriedTorch.dispose();discharge.dispose();root.removeFromParent();root.clear();pool.dispose();for(const l of lights)l.shadow?.dispose();},
+    diagnostics:()=>({flameCards:flames.count,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
 }
