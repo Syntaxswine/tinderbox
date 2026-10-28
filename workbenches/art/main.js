@@ -97,8 +97,10 @@ try{
       check(art.diagnostics().fire.discharge.active&&Math.abs(art.diagnostics().fire.discharge.longestRay-.4)<1e-7&&torch.discharge.lead,'Torch endpoint fan/lead missing');
       const blocked=fixtureSnapshot('jet-near-wall',4,'flamethrower');blocked.cells=[];blocked.actors=[];art.update(freeze(blocked),timingFor(blocked));renderer.render(scene,camera);
       const blockedState=art.diagnostics().fire.discharge;
-      check(!blockedState.muzzleInsideShape&&blockedState.longestRay<.61,'Near-wall nozzle did not use the clipped domain');
-      check(!scene.getObjectByName('Cosmetic lance').visible,'Far-side cosmetic lance remained visible');
+      const nativeAtWall=art.diagnostics().bearProtagonist,nativeMuzzleX=nativeAtWall.worldAnchors.muzzle[0];
+      check(blockedState.muzzleInsideShape&&blockedState.longestRay<.61,'Native near-wall nozzle did not use the clipped domain');
+      check(nativeAtWall.selectedTool==='flamethrower'&&nativeAtWall.visibleTools.includes('flamethrower')&&nativeAtWall.finiteAnchors,'Native held tool or anchors missing');
+      check(Math.abs(nativeMuzzleX-blocked.player.x-.5301)<1e-6&&nativeMuzzleX<11.4999,'Native nozzle must remain before the wall');
       const blockGeometry=scene.getObjectByName('Resolved discharge ribbons').geometry;
       let maxSubmittedX=-Infinity;
       for(let i=0;i<blockGeometry.drawRange.count;i++)maxSubmittedX=Math.max(maxSubmittedX,blockGeometry.attributes.position.array[blockGeometry.index.array[i]*3]);
@@ -117,10 +119,16 @@ try{
       }finally{
         renderer.setRenderTarget(previousTarget);scene.background=savedBackground;for(const [object,visible]of savedVisibility)object.visible=visible;target.dispose();
       }
+      // Synthetic mask stress, not a physical near-wall placement: deliberately
+      // supply a fan shorter than the unmodified source lance before stopping it.
+      const shortFan=structuredClone(blocked);for(const ray of shortFan.discharge.rays){ray.distance=.1;ray.x=shortFan.player.x+Math.cos(ray.angle)*.1;ray.y=shortFan.player.y+Math.sin(ray.angle)*.1;}
+      art.update(shortFan,timingFor(shortFan));renderer.render(scene,camera);
+      const syntheticMaskStress=!art.diagnostics().fire.discharge.muzzleInsideShape&&!art.diagnostics().bearProtagonist.visibleTools.includes('flamethrower');
+      check(syntheticMaskStress,'Synthetic short fan did not hide the native held lance');
       const stopped=fixtureSnapshot('jet',4,'flamethrower');stopped.paused=true;stopped.discharge={...stopped.discharge,active:false,tool:null,origin:null,shapeOrigin:null,rays:[],lead:null};art.update(stopped,timingFor(stopped));renderer.render(scene,camera);
       check(!art.diagnostics().fire.discharge.active&&art.diagnostics().fire.discharge.plumeCards===0,'Inactive discharge retained a jet');
-      check(scene.getObjectByName('Cosmetic lance').visible,'Inactive discharge did not restore held art');
-      const dischargeReview={openReach:opened.longestRay,openPlumes:opened.plumeCards,independentTriangles:independentState.triangles,nonSegmentTriangles,blockedReach:blockedState.longestRay,maxSubmittedX,visiblePixels,outsidePixels,pixelGuard:1};
+      check(art.diagnostics().bearProtagonist.visibleTools.includes('flamethrower'),'Inactive discharge did not restore native held art');
+      const dischargeReview={openReach:opened.longestRay,openPlumes:opened.plumeCards,independentTriangles:independentState.triangles,nonSegmentTriangles,blockedReach:blockedState.longestRay,nativeMuzzleX,syntheticMaskStress,maxSubmittedX,visiblePixels,outsidePixels,pixelGuard:1};
 
       const counts=[];
       for(let i=0;i<8;i++){

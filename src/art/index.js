@@ -1,7 +1,7 @@
 
 import {Resources,removeTree} from './resources.js';
 import {createMaterials} from './materials.js';
-import {createBear,BEAR_SPEC} from './bear.js';
+import {BEAR_SPEC,loadBearKit} from '../reuse/bear.js';
 import {createWorld,createActor} from './world.js';
 import {createExteriorKit} from './exterior-kit.js';
 import {loadCivilianKit} from '../reuse/civilians.js';
@@ -10,7 +10,7 @@ import {createFire} from './fire.js';
 import {createToolProps} from './tool-props.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
-export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT}={}){
+export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl}={}){
   if(!T?.TextureLoader||!scene?.add)throw new TypeError('createArtScene requires the shared THREE module and a scene.');
   const base=new URL(assetBaseUrl,import.meta.url);if(!base.pathname.endsWith('/'))base.pathname+='/';
   const selected={flame:'effects/painted-fire/flame-atlas-v1.png',smoke:'effects/painted-fire/smoke-atlas-v1.png',
@@ -22,13 +22,14 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   const failure=loaded.findIndex(result=>result.status==='rejected');
   if(failure!==-1){pool.dispose();throw new Error('Tinderbox art asset failed: '+entries[failure][1],{cause:loaded[failure].reason});}
   const assets=Object.fromEntries(entries.map(([name],i)=>{const texture=loaded[i].value;texture.colorSpace=T.SRGBColorSpace;return [name,texture];}));
-  let root,world,bear,field,fire,toolProps,exterior,civilianKit,keyLight,disposed=false,updates=0,lastSnapshot,footprintRadius=BEAR_SPEC.shoulderWidth/2+.03;
+  let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,keyLight,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
   const actors=new Map(),muzzlePoint=new T.Vector3();
   try{
     if(renderer)civilianKit=await loadCivilianKit({THREE:T,renderer,assetBaseUrl:base.href});
     root=new T.Group();root.name='Tinderbox art module';
     const materials=createMaterials(T,pool,assets);
-    world=createWorld(T,materials);bear=createBear(T,materials);field=createGroundField(T);fire=createFire(T,assets,field.uniforms);
+    bearKit=await loadBearKit({THREE:T,renderer,assetBaseUrl:bearAssetBaseUrl,materials});
+    world=createWorld(T,materials);bear=bearKit.create();field=createGroundField(T);fire=createFire(T,assets,field.uniforms);
     exterior=createExteriorKit(T,materials,assets,renderer);
     toolProps=createToolProps(T,materials);root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root);
     if(!scene.children.some(object=>object.isLight)){
@@ -49,8 +50,8 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       if(![player.x,player.y,map.width,map.height,map.fireCellSize].every(Number.isFinite)||map.fireCellSize<=0||map.width<=0||map.height<=0||Math.ceil(map.width/map.fireCellSize)*Math.ceil(map.height/map.fireCellSize)>65536)throw new RangeError('Art grid must be finite, positive, and at most 65536 cells.');
       const playerTime=Number.isFinite(timing.playerTime)?timing.playerTime:snapshot.clocks?.player||0;
       const worldTime=Number.isFinite(timing.worldTime)?timing.worldTime:snapshot.clocks?.world||0;
-      world.update({...map,obstacles:(map.obstacles||[]).filter(o=>!o.moduleId)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime);bear.anchors.muzzle.getWorldPosition(muzzlePoint);fire.update(snapshot,worldTime,{muzzle:muzzlePoint});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
-      footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:BEAR_SPEC.shoulderWidth/2+.03;
+      world.update({...map,obstacles:(map.obstacles||[]).filter(o=>!o.moduleId)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);fire.update(snapshot,worldTime,{muzzle:muzzlePoint});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
+      footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:.56;
       ring.position.set(player.x,.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);
       arrow.position.set(player.x,0,player.y);arrow.rotation.y=-(player.heading||0);arrow.scale.set(footprintRadius,1,footprintRadius);
       const active=new Set();
@@ -72,11 +73,11 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       if(disposed)return;disposed=true;
       for(const record of actors.values())record.model.dispose();actors.clear();
       civilianKit?.dispose();exterior.dispose();
-      fire.dispose();toolProps.dispose();field.dispose();bear.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
+      fire.dispose();toolProps.dispose();field.dispose();bearKit.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
     }
-    return {update,dispose,anchors:Object.freeze({...bear.anchors}),
-      diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:true,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),exterior:exterior.diagnostics(),sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics()})};
+    return {update,dispose,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
+      diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),exterior:exterior.diagnostics(),sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics()})};
   }catch(error){
-    for(const record of actors.values())record.model.dispose();civilianKit?.dispose();exterior?.dispose();fire?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
+    for(const record of actors.values())record.model.dispose();civilianKit?.dispose();exterior?.dispose();fire?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();bearKit?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
   }
 }

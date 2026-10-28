@@ -53,7 +53,7 @@ function draw(override){
 function advance(seconds){for(let t=0;t<seconds-1e-9;t+=1/60)simulation.advance(Math.min(1/60,seconds-t));return draw();}
 function focus(mode){cameraMode=mode;frameCamera();draw();}
 function visibility(){
-  const targets=['Provisional Tinderbox bear','Civilian horse','Civilian goat'],meshes=[];
+  const targets=['Tinderbox shared bear','Civilian horse','Civilian goat'],meshes=[];
   scene.traverse(o=>{if(o.isMesh)meshes.push(o);});
   const original=meshes.map(o=>[o,o.material,o.visible]),background=scene.background,previous=renderer.getRenderTarget();
   const black=new THREE.MeshBasicMaterial({color:0,toneMapped:false,side:THREE.DoubleSide}),mark=new THREE.MeshBasicMaterial({color:0xff00ff,toneMapped:false,side:THREE.DoubleSide});

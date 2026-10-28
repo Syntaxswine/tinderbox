@@ -5,12 +5,12 @@ export const FIXTURES=Object.freeze([
   {id:'burn',label:'03 / SUSTAINED BURN',title:'Heat has a footprint',copy:'A mixed grass/fuel patch, painted flame and soot. The ground mask stays inside supplied cells. Fixture only.'},
   {id:'spent',label:'04 / SPENT GROUND',title:'What the fire leaves',copy:'Authoritative spent cells: darkened ground without an endlessly burning effect. Fixture only.'},
   {id:'powder',label:'05 / TWO CLOCKS',title:'Gain a little distance',copy:'Player clock ×1.5, world clock ×0.35. Authored motion compares animation domains; this is not a gameplay test.'},
-  {id:'bear',label:'06 / BEAR & GRIPS',title:'A provisional troublemaker',copy:'Original procedural bear, five equipped tools, and grip/muzzle/spout anchors. Prototype appearance.'},
+  {id:'bear',label:'06 / BEAR & GRIPS',title:'A shared troublemaker',copy:'Original painted AFT bear at native scale, five fitted tools and actual grip/muzzle/spout anchors. Browser acceptance remains a separate review.'},
   {id:'burst',label:'07 / RESOLVED EVENT',title:'One event, one burst',copy:'A labelled explosion fixture. Repeated event IDs do not restart the presentation. Damage is outside this workbench.'},
   {id:'corner',label:'08 / CORNER CLEARANCE',title:'Room for the shoulders',copy:'Authored 0.56 m body disc against two wall faces. The bear faces out of the corner. Visual clearance fixture only.'},
   {id:'jet',label:'09 / RESOLVED DISCHARGE',title:'A stream with reach',copy:'Authored 4.5 m resolved fan, rendered without range or collision queries. Discharge contract fixture.'},
   {id:'jet-wall',label:'10 / CLIPPED FAN',title:'The wall is the end',copy:'Authored resolved rays stop at a wall plane. No painted plume may extend to its other side.'},
-  {id:'jet-near-wall',label:'11 / NOZZLE AT WALL',title:'A cosmetic nozzle is not a ray',copy:'The held nozzle protrudes beyond the body disc. The effect stays in the supplied short fan.'},
+  {id:'jet-near-wall',label:'11 / NOZZLE AT WALL',title:'The nozzle stays before the wall',copy:'The native nozzle is 0.5301 m ahead, within the 0.56 m body disc. It remains visible before the wall while the supplied fan clips at the wall plane.'},
   {id:'jet-rays',label:'12 / INDEPENDENT RAYS',title:'No invented fill',copy:'connectRays is false: independent supplied segments only, with no fan or billboard fill.'},
   {id:'torch',label:'13 / TORCH LEAD',title:'A small source of trouble',copy:'Authoritative-style clipped lead and endpoint radius fan. This is a labelled data fixture.'}
 ]);
@@ -53,7 +53,7 @@ export function fixtureSnapshot(id='front',time=4,tool='jerry-can'){
   if(id==='jet-wall'||id==='jet-near-wall'){const plane=id==='jet-wall'?11.1:11.5;viewWorld.obstacles=[{id:'discharge-wall',x:plane+.1,y:9,width:.2,depth:4,height:id==='jet-near-wall'?1.25:2,material:'masonry',kind:'wall'}];}
   const snapshot={version:1,tick:Math.floor(time*60),paused:false,clocks:{active:time,player:playerTime,world:worldTime,playerScale:powder?1.5:1,worldScale:powder?.35:1},
     player:{id:'bear',...position,heading:id==='corner'?Math.PI/4:isDischarge?0:.08,radius:.56,moving:powder,hp:100,maxHp:100,tool,pouring:id==='trail'||powder,usingTool:isDischarge&&['torch','flamethrower'].includes(tool),
-      inventory:{matches:6,gas:20,molotovs:3,torchFuel:30,flamethrowerFuel:30,powder:2,healing:2,inversion:2}},
+      travelled:powder?playerTime*3:0,inventory:{matches:6,gas:20,molotovs:3,torchFuel:30,flamethrowerFuel:30,powder:2,healing:2,inversion:2}},
     effects:{powder:{active:powder,remaining:powder?Math.max(0,8-time):0},inversion:{active:false,remaining:0}},
     world:viewWorld,cells,actors:id==='corner'?[]:[{id:'neighbor',x:5.5+Math.sin(worldTime*.6)*.65,y:11.1,heading:0,moving:true,hp:100}],
     events:id==='burst'?[{id:1,tick:0,type:'explosion',x:8,y:7.1,radius:1.7,worldTime:Math.floor(time/4)*4}]:[]};
