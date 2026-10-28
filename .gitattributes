@@ -1,1 +1,7 @@
 /vendor/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Byte-preserved upstream font distributions and research source descriptions.
+/assets/art/ui/typography/*/*.ttf -text
+/assets/art/ui/typography/*/METADATA.pb -text
+/assets/art/ui/typography/*/OFL.txt -text -whitespace
+/docs/ui/eastlake/font-sources/** -text

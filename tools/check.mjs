@@ -40,3 +40,5 @@ if (sample.version !== 1 || !sample.player?.inventory || !sample.cells.length ||
 console.log(`${own.length} own scripts pass syntax; ${visited.size} static modules resolve; one shared Three pair and provenance pass.`);
 execFileSync(process.execPath, ['--test', ...files('tests').filter(p => /\.test\.(?:m?js)$/.test(p))], {stdio: 'inherit'});
 execFileSync(process.execPath, ['workbenches/art/check-art.mjs'], {stdio:'inherit'});
+
+execFileSync(process.execPath, ['workbenches/ui/check-typography.mjs'], {stdio:'inherit'});

@@ -34,8 +34,9 @@ const inventory = {schemaVersion: 1, task: 'TB-006', sourceRepository: 'https://
   rightsStatus: 'User-authorized reuse; no general Farmyard/AFT code or art license was found. Third-party rights remain unresolved for architect review.',
   sourceMetadata: 'Generation prompts, atlas cells, hashes and symbol ancestry preserved in the imported manifest.json.',
   runtimeDependencies: 'Source switch CSS and symbols resolve locally. Wood presentation uses the already imported city timber texture; all imported assets remain byte-preserved. No donor runtime, external fonts or network requests.',
-  adapters: ['src/ui/index.js', 'src/ui/model.js', 'src/ui/styles.css', 'src/ui/farmyard-controls.css', 'src/ui/wood.css'],
+  adapters: ['src/ui/index.js', 'src/ui/model.js', 'src/ui/styles.css', 'src/ui/farmyard-controls.css', 'src/ui/wood.css', 'src/ui/typography.css'],
   materialAdaptation: 'assets/art/ui/wooden-controls.json',
+  presentationAdaptations: ['assets/art/ui/wooden-controls.json','assets/art/ui/eastlake-controls.json'],
   sharedAssets: [{installedPath:material.upstreamMaterial.installedPath,provenanceManifest:material.upstreamMaterial.manifest,sha256:material.upstreamMaterial.sha256,bytes:material.upstreamMaterial.bytes,note:'Already imported by the reviewed city closure; raw bytes reused by the wooden UI.'}],
   originalTinderboxArt: {path: 'assets/art/ui/control-symbols.svg', note: 'Original editable 32-unit vector tool/drug/menu symbols, not donor pixels.'},
   files: entries};

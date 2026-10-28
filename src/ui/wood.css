@@ -95,3 +95,81 @@
 .tb-ui.tb-high-contrast { --ink:#fff9e8; --muted:#fff9e8; }
 .tb-ui.tb-high-contrast .switch-legend { --legend-paint:#fff9e8; background:#160e09e8; border-radius:2px; text-shadow:none; }
 .tb-ui.tb-high-contrast .tb-stick-thumb { color:#fff9e8; }
+
+/* Eastlake follow-up: flat inset panels, reeded rails and shallow geometric carving.
+ * These editable ornaments are original adaptations; research is in docs/ui/eastlake.
+ */
+.tb-ui .tb-wood-panel {
+  border:5px solid #382316;
+  border-radius:1px;
+  background-color:#21180f;
+  background-image:linear-gradient(#1d150dd1,#24180fd9),var(--wood-grain);
+  background-size:auto,560px;
+  box-shadow:inset 0 0 0 1px #c3a17099,inset 0 0 0 3px #140c08,inset 0 0 0 4px #ab885255,0 4px 0 #130b07,0 8px 20px #08060499;
+}
+.tb-ui .tb-vitals,.tb-ui .tb-menu { position:relative; }
+.tb-ui .tb-wood-panel::before {
+  content:'';
+  position:absolute;
+  inset:-6px;
+  z-index:3;
+  background:url('../../assets/art/ui/eastlake-rosette.svg') left top/19px 19px no-repeat,url('../../assets/art/ui/eastlake-rosette.svg') right top/19px 19px no-repeat,url('../../assets/art/ui/eastlake-rosette.svg') left bottom/19px 19px no-repeat,url('../../assets/art/ui/eastlake-rosette.svg') right bottom/19px 19px no-repeat;
+  pointer-events:none;
+}
+.tb-ui .tb-wood-panel::after {
+  content:'';
+  position:absolute;
+  inset:3px;
+  border:1px solid #b6945c66;
+  box-shadow:inset 0 0 0 2px #100b0777;
+  pointer-events:none;
+}
+.tb-ui .tb-console {
+  background-image:linear-gradient(#21160dc7,#24180fdc),var(--wood-grain);
+  background-size:auto,560px;
+}
+.tb-ui .industrial-switch { border-radius:1px; }
+.tb-ui .industrial-switch::before {
+  background-image:url('../../assets/art/ui/eastlake-button.svg'),linear-gradient(160deg,#a1794133,#1b10095e),var(--wood-grain);
+  background-size:100% 100%,auto,540px;
+  background-position:center,center,var(--wood-position,35% 24%);
+  background-repeat:no-repeat,no-repeat,repeat;
+  border-color:#9d7d51 #49301d #322013 #896b40;
+  box-shadow:inset 0 0 0 1px #20140ca6;
+}
+.tb-ui .industrial-switch[data-face=red]::before {
+  background-image:url('../../assets/art/ui/eastlake-button.svg'),linear-gradient(#6f291747,#2d130b88),var(--wood-grain);
+}
+.tb-ui .industrial-switch::after {
+  border:1px solid #f0d79c;
+  box-shadow:inset 0 -3px 0 #ddbf7e,inset 0 0 0 3px #d9b97155;
+  background-color:#bd8b3b0c;
+}
+.tb-ui .tb-stick { border-radius:20%; border:3px ridge #987444; }
+.tb-ui .tb-stick-thumb { border-width:3px; }
+.tb-ui .tb-rack-label { align-items:center; gap:12px; }
+.tb-ui .tb-rack-label::after {
+  content:''; order:1; flex:1; height:12px;
+  background:url('../../assets/art/ui/eastlake-rule.svg') center/100% 12px no-repeat;
+  opacity:.8;
+}
+.tb-ui .tb-rack-label>[data-loadout-state] { order:2; }
+.tb-ui .tb-menu::before { inset:0; background-size:16px 16px; }
+.tb-ui .tb-menu-heading {
+  padding-bottom:24px;
+  border-bottom:0;
+  background:url('../../assets/art/ui/eastlake-rule.svg') center bottom/100% 12px no-repeat;
+}
+.tb-ui .tb-menu-button {
+  border-radius:1px;
+  border-bottom-width:3px;
+  background-image:linear-gradient(#48311d73,#20150ca3),var(--wood-grain);
+}
+.tb-ui .tb-health-meter { border-color:#9c8052; }
+@media(max-width:650px) {
+  .tb-ui .tb-wood-panel::before { background-size:16px 16px; }
+  .tb-ui .tb-rack-label { gap:8px; }
+}
+@media(forced-colors:active) {
+  .tb-ui .tb-wood-panel::before,.tb-ui .tb-wood-panel::after,.tb-ui .tb-rack-label::after { display:none; }
+}

@@ -1,5 +1,7 @@
 # Wooden Tinderbox interface
 
+The later [Eastlake and period typography pass](../eastlake/README.md) extends this candidate.
+
 User request: “lets make a UI out of wood”. Owner: UI specialist, `codex/ui-design`. Integration base: `8a8405681614662a92f9b98fb9b9600bd06d3ad1`, brought into the assigned UI worktree by a normal merge.
 
 The HUD, tool switches, movement well, primary action and pause/options panels now use painted timber, carved edges and cream legends. A bright outline and lower inlay identify selection or active actions. Empty and disabled controls keep explicit stock labels. Pour changes to Stop from the authoritative snapshot.

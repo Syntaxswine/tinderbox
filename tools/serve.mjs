@@ -12,7 +12,7 @@ const helperDirectory = path.resolve('artifacts/helpers', 'preview-' + process.p
 const stopFile = path.resolve(option('--stop-file', path.join(helperDirectory, 'STOP')));
 fs.mkdirSync(path.dirname(stopFile), {recursive: true});
 const expiresAt = Date.now() + ttl * 1000;
-const types = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp'};
+const types = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.ttf':'font/ttf', '.png': 'image/png', '.webp': 'image/webp'};
 const server = http.createServer((req, res) => {
   let file;
   try {

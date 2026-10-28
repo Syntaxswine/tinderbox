@@ -1,0 +1,32 @@
+/* Byte-preserved OFL fonts; exact source commits/hashes and licenses accompany them. */
+@font-face {
+  font-family:'Besley';
+  src:url('../../assets/art/ui/typography/besley/Besley[wght].ttf') format('truetype');
+  font-style:normal;
+  font-weight:400 900;
+  font-display:swap;
+}
+@font-face {
+  font-family:'Old Standard TT';
+  src:url('../../assets/art/ui/typography/oldstandardtt/OldStandard-Regular.ttf') format('truetype');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+@font-face {
+  font-family:'Old Standard TT';
+  src:url('../../assets/art/ui/typography/oldstandardtt/OldStandard-Italic.ttf') format('truetype');
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+}
+.tb-ui {
+  --display:'Besley',Georgia,serif;
+  --label:'Besley',Georgia,serif;
+  --text:'Old Standard TT','Times New Roman',serif;
+  --mono:var(--label); /* Inherited Farmyard recipes retain this variable name. */
+  font-synthesis:none;
+  font-kerning:normal;
+}
+
+.tb-ui .switch-cost,.tb-ui [data-time],.tb-ui [data-health-text],.tb-ui [data-selected-stock] { font-variant-numeric:lining-nums tabular-nums; }

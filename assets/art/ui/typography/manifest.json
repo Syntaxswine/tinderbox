@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "task": "Eastlake interface and period typography",
+  "roles": {
+    "display": {
+      "family": "Besley",
+      "designer": "Owen Earl",
+      "use": "Clarendon-inspired antique slab serif for titles and functional labels",
+      "weights": [
+        500,
+        600,
+        700,
+        800
+      ],
+      "historicBasis": "Modern interpretation of Robert Besley's Clarendon; screen-size readability is an intentional adaptation."
+    },
+    "text": {
+      "family": "Old Standard TT",
+      "designer": "Alexey Kryukov",
+      "use": "Modern/classicist book roman for descriptions and menus; real italic for secondary prose.",
+      "historicBasis": "Publisher description identifies a serif idiom common in late nineteenth- and early twentieth-century editions; selected for the 1893 setting."
+    }
+  },
+  "license": "SIL Open Font License 1.1; family copyright and full terms accompany each unmodified distribution. No external font service is used at runtime.",
+  "files": [
+    {
+      "family": "Besley",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1",
+      "sourcePath": "ofl/besley/Besley[wght].ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1/ofl/besley/Besley[wght].ttf",
+      "installedPath": "assets/art/ui/typography/besley/Besley[wght].ttf",
+      "bytes": 108640,
+      "sha256": "71f352d8859c787631a0978161d48497a72caa69dcae6996d6712a564df86c1e",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Besley",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1",
+      "sourcePath": "ofl/besley/OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1/ofl/besley/OFL.txt",
+      "installedPath": "assets/art/ui/typography/besley/OFL.txt",
+      "bytes": 4393,
+      "sha256": "e8d81ba3b06080b764626d4385f319344e102ddf2c08bb4209412ac22d695f69",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Besley",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1",
+      "sourcePath": "ofl/besley/METADATA.pb",
+      "url": "https://raw.githubusercontent.com/google/fonts/c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1/ofl/besley/METADATA.pb",
+      "installedPath": "assets/art/ui/typography/besley/METADATA.pb",
+      "bytes": 1269,
+      "sha256": "4246965c38a01d82c5c8b7a7f3eeda869423bedf66f69191093ab1fdb74af30f",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Besley",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1",
+      "sourcePath": "ofl/besley/DESCRIPTION.en_us.html",
+      "url": "https://raw.githubusercontent.com/google/fonts/c13390277dfb1fcc7415d84ef7ef9cfc1e52f8c1/ofl/besley/DESCRIPTION.en_us.html",
+      "installedPath": "docs/ui/eastlake/font-sources/besley/DESCRIPTION.en_us.html",
+      "bytes": 601,
+      "sha256": "3b64e68e4e8aaa894724bb5f56204705203c8a25dfc4a5ce3666a0f08068cd6a",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Old Standard TT",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "a01f27e9f42b5afad05090256d0d809928d84cae",
+      "sourcePath": "ofl/oldstandardtt/OldStandard-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/a01f27e9f42b5afad05090256d0d809928d84cae/ofl/oldstandardtt/OldStandard-Regular.ttf",
+      "installedPath": "assets/art/ui/typography/oldstandardtt/OldStandard-Regular.ttf",
+      "bytes": 249668,
+      "sha256": "42717a1280b523a506ca2b0285cca380e77fe214b1f6e3d75a8b925005f19eac",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Old Standard TT",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "a01f27e9f42b5afad05090256d0d809928d84cae",
+      "sourcePath": "ofl/oldstandardtt/OldStandard-Italic.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/a01f27e9f42b5afad05090256d0d809928d84cae/ofl/oldstandardtt/OldStandard-Italic.ttf",
+      "installedPath": "assets/art/ui/typography/oldstandardtt/OldStandard-Italic.ttf",
+      "bytes": 272692,
+      "sha256": "4b9522f4711317fc06e2413a58b4662c249cb707df193d682b9d640e365ef564",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Old Standard TT",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "a01f27e9f42b5afad05090256d0d809928d84cae",
+      "sourcePath": "ofl/oldstandardtt/OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/a01f27e9f42b5afad05090256d0d809928d84cae/ofl/oldstandardtt/OFL.txt",
+      "installedPath": "assets/art/ui/typography/oldstandardtt/OFL.txt",
+      "bytes": 4373,
+      "sha256": "4faa2d9e2ce0a4b5b37e62ee6fafe474a539b31578f7214ed97cc3503aeb8ebd",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Old Standard TT",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "a01f27e9f42b5afad05090256d0d809928d84cae",
+      "sourcePath": "ofl/oldstandardtt/METADATA.pb",
+      "url": "https://raw.githubusercontent.com/google/fonts/a01f27e9f42b5afad05090256d0d809928d84cae/ofl/oldstandardtt/METADATA.pb",
+      "installedPath": "assets/art/ui/typography/oldstandardtt/METADATA.pb",
+      "bytes": 1205,
+      "sha256": "c2893bc801b26ce6017f8983b8c5c7fb3198d0b6b4f2bde2c185201921eba91d",
+      "adaptations": "None; upstream bytes preserved."
+    },
+    {
+      "family": "Old Standard TT",
+      "sourceRepository": "https://github.com/google/fonts",
+      "sourceCommit": "a01f27e9f42b5afad05090256d0d809928d84cae",
+      "sourcePath": "ofl/oldstandardtt/DESCRIPTION.en_us.html",
+      "url": "https://raw.githubusercontent.com/google/fonts/a01f27e9f42b5afad05090256d0d809928d84cae/ofl/oldstandardtt/DESCRIPTION.en_us.html",
+      "installedPath": "docs/ui/eastlake/font-sources/oldstandardtt/DESCRIPTION.en_us.html",
+      "bytes": 1106,
+      "sha256": "8f890b4a6c93591c47c6a8c39b55ff7a7509a520dee29176243634258a86cb57",
+      "adaptations": "None; upstream bytes preserved."
+    }
+  ]
+}

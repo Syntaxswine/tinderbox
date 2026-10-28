@@ -1,0 +1,171 @@
+{
+  "task": "Eastlake interface and period typography",
+  "baseCommit": "5bb4fefcc0fea181b6d2ab90824ba622907032d8",
+  "branch": "codex/ui-design",
+  "project": {
+    "testsPassed": 56,
+    "failed": 0,
+    "ownScripts": 61,
+    "staticModules": 68,
+    "pinnedFontSourceFiles": 9
+  },
+  "browser": [
+    {
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "height": 800,
+        "width": 1280
+      },
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "height": 568,
+        "width": 320
+      },
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "height": 390,
+        "width": 844
+      },
+      "passed": 18,
+      "failed": 0
+    }
+  ],
+  "combined": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "passed": 11,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "passed": 11,
+      "failed": 0
+    }
+  ],
+  "fonts": {
+    "status": "passed",
+    "fonts": [
+      {
+        "family": "Besley",
+        "status": "loaded",
+        "faces": [
+          {
+            "family": "Besley",
+            "weight": "400 900",
+            "style": "normal",
+            "status": "loaded"
+          }
+        ]
+      },
+      {
+        "family": "Old Standard TT",
+        "status": "loaded",
+        "faces": [
+          {
+            "family": "Old Standard TT",
+            "weight": "400",
+            "style": "normal",
+            "status": "loaded"
+          }
+        ]
+      },
+      {
+        "family": "Old Standard TT italic",
+        "status": "loaded",
+        "faces": [
+          {
+            "family": "Old Standard TT",
+            "weight": "400",
+            "style": "italic",
+            "status": "loaded"
+          }
+        ]
+      }
+    ]
+  },
+  "fontHttp": [
+    {
+      "path": "assets/art/ui/typography/besley/Besley[wght].ttf",
+      "bytes": 108640,
+      "mime": "font/ttf",
+      "sha256": "71f352d8859c787631a0978161d48497a72caa69dcae6996d6712a564df86c1e"
+    },
+    {
+      "path": "assets/art/ui/typography/oldstandardtt/OldStandard-Regular.ttf",
+      "bytes": 249668,
+      "mime": "font/ttf",
+      "sha256": "42717a1280b523a506ca2b0285cca380e77fe214b1f6e3d75a8b925005f19eac"
+    },
+    {
+      "path": "assets/art/ui/typography/oldstandardtt/OldStandard-Italic.ttf",
+      "bytes": 272692,
+      "mime": "font/ttf",
+      "sha256": "4b9522f4711317fc06e2413a58b4662c249cb707df193d682b9d640e365ef564"
+    }
+  ],
+  "smallLabelBounds": {
+    "outside": [],
+    "viewport": {
+      "height": 568,
+      "width": 320
+    }
+  },
+  "phoneMenuBounds": {
+    "clientHeight": 581,
+    "clientWidth": 344,
+    "scrollHeight": 581,
+    "scrollWidth": 344
+  },
+  "production": {
+    "packagedFiles": 88,
+    "hostedNonHiddenFiles": 86,
+    "resourceClosure": "Relative URLs and hashes pass; one shared Three pair; QA workbench absent from public package.",
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "evidence": [
+    {
+      "path": "docs/ui/eastlake/evidence/desktop-game.jpg",
+      "bytes": 78160,
+      "sha256": "8ef199f7154009c6a75c6176f7b499298eed21f18fe3ff87472b381f01f637d5"
+    },
+    {
+      "path": "docs/ui/eastlake/evidence/phone-game.jpg",
+      "bytes": 50829,
+      "sha256": "5537daa205178644635ce661edb53a1413e1ef5025500f8e533758b5640c121a"
+    },
+    {
+      "path": "docs/ui/eastlake/evidence/phone-pause.jpg",
+      "bytes": 33100,
+      "sha256": "1c9c5b91253e36de687936a059a4b079cf1941b983058f2477347f4bd89b8339"
+    },
+    {
+      "path": "docs/ui/eastlake/evidence/phone-options.jpg",
+      "bytes": 43943,
+      "sha256": "a10cebd409da30779acaa315c1835a40b5af817f53a6eb15e5caf1e0dbafdb5e"
+    }
+  ],
+  "limits": [
+    "Period-informed modern font designs/revivals, not an asserted exact 1893 font reconstruction.",
+    "Windows browser viewport review; physical phone and external assistive-technology review remain unperformed."
+  ]
+}
