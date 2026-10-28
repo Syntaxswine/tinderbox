@@ -9,6 +9,9 @@ import {fixture} from '../../workbenches/ui/fixtures.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 test('only the five contracted tools and three drug commands are exposed', () => {
   assert.deepEqual(TOOLS.map(tool => tool.id), ['matches','jerry-can','molotov','torch','flamethrower']);
+  assert.equal(TOOLS[2].label, 'Oil lantern');
+  assert.equal(TOOLS[2].stock, 'molotovs');
+  assert.equal(TOOLS[2].action, 'Throw');
   assert.deepEqual(DRUGS.map(drug => drug.id), ['powder','healing','inversion']);
 });
 test('raw movement is finite and normalized with positive Y up', () => {

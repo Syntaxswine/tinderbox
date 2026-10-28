@@ -1,7 +1,7 @@
 export const TOOLS = Object.freeze([
   {id: 'matches', label: 'Matches', face: 'MATCHES', stock: 'matches', action: 'Strike', hint: 'One local ignition', unit: 'left'},
   {id: 'jerry-can', label: 'Jerry can', face: 'JERRY CAN', stock: 'gas', action: 'Pour', hint: 'Tap to pour · keep moving', unit: 'gas'},
-  {id: 'molotov', label: 'Molotov', face: 'MOLOTOV', stock: 'molotovs', action: 'Throw', hint: 'Throw toward your aim', unit: 'left'},
+  {id: 'molotov', label: 'Oil lantern', face: 'OIL|LANTERN', stock: 'molotovs', action: 'Throw', hint: 'Throw toward your aim', unit: 'left'},
   {id: 'torch', label: 'Torch', face: 'TORCH', stock: 'torchFuel', action: 'Burn', hint: 'Hold for close ignition', unit: 'fuel'},
   {id: 'flamethrower', label: 'Flamethrower', face: 'FLAME|THROWER', stock: 'flamethrowerFuel', action: 'Spray', hint: 'Hold to spray toward your aim', unit: 'fuel'}
 ].map(Object.freeze));

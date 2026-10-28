@@ -48,6 +48,10 @@ await check('Pour/Stop and remaining times change only on snapshot updates',s=>{
   equal(s.find('[data-primary-label]').textContent,'STOP');
   equal(s.find('[data-effect="powder"] [data-time]').textContent,'6.4s');
   const zero=fixture('pouring');zero.player.inventory.gas=0;s.ui.update(deepFreeze(zero));
+  const image=s.find('.tb-primary-icon image'),low=fixture('pouring');low.player.inventory.gas=.1;s.ui.update(deepFreeze(low));
+  ok(s.find('.tb-primary-icon image')===image,'Stock-only update rebuilt the engraving resource');
+  equal(s.find('.tb-primary-icon').dataset.plate,'stop');
+  s.ui.update(deepFreeze(zero));
   ok(!s.find('[data-primary]').disabled,'Stop must remain available when pouring at zero stock');
 });
 await check('Inversion leaves raw NE joystick positive on both axes, with no aim command',s=>{
@@ -155,11 +159,14 @@ await check('Every UI listener is removed across repeated mount/dispose; stale c
     equal(active.length,0,'Undisposed event listeners');
   } finally {other?.close();EventTarget.prototype.addEventListener=originalAdd;EventTarget.prototype.removeEventListener=originalRemove;}
 });
-await check('Independent mounts have unique ARIA references and preserve root siblings',s=>{
+await check('Independent mounts scope ARIA and engraving clips and preserve root siblings',s=>{
   const sibling=document.createElement('canvas');s.root.append(sibling);
   const other=make();
   try {
     ok(s.find('[data-stick]').getAttribute('aria-describedby')!==other.find('[data-stick]').getAttribute('aria-describedby'),'Duplicate ARIA ids');
+    const clips=[...document.querySelectorAll('.tb-ui clipPath[id]')].map(element=>element.id);
+    equal(new Set(clips).size,clips.length,'Duplicate engraving clip IDs');
+    for(const image of s.root.querySelectorAll('image[clip-path]')){const id=image.getAttribute('clip-path').slice(5,-1);ok(s.root.contains(document.getElementById(id)),'Engraving clip escaped its own mount');}
     s.ui.dispose();ok(sibling.isConnected,'Dispose removed caller-owned content');
   } finally {other.close();}
 });

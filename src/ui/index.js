@@ -1,8 +1,18 @@
+import {ETCHING_SIZE, ETCHING_FRAMES, OIL_LANTERN_SIZE, OIL_LANTERN_FRAME} from './etching-frames.js';
 import {mountMap} from './map.js';
 import {TOOLS, DRUGS, normalizeStick, pointerStick, stockText, viewOf} from './model.js';
-const marks = new URL('../../assets/art/ui/control-symbols.svg', import.meta.url).href;
-const donorMarks = new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/symbols.svg', import.meta.url).href;
-const icon = (id, donor = false) => '<svg class="switch-glyph" viewBox="0 0 32 32" aria-hidden="true"><use href="' + (donor ? donorMarks : marks) + '#' + id + '"></use></svg>';
+const marks = new URL('../../assets/art/ui/engraved-outline-plates.svg', import.meta.url).href;
+const engraving = new URL('../../assets/art/ui/engraved-atlas.png', import.meta.url).href;
+const oilLantern = new URL('../../assets/art/ui/engraved-oil-lantern.png', import.meta.url).href;
+let plateInstance = 0;
+const icon = id => {
+  const lantern = id === 'molotov';
+  const frame = lantern ? OIL_LANTERN_FRAME : ETCHING_FRAMES[id];
+  const source = lantern ? oilLantern : engraving, size = lantern ? OIL_LANTERN_SIZE : ETCHING_SIZE;
+  if (!frame) throw new RangeError('Unknown engraving: ' + id);
+  const clip = 'tb-engraving-' + (++plateInstance);
+  return '<svg class="switch-glyph" viewBox="0 0 64 64" aria-hidden="true"><svg class="tb-engraved-image" viewBox="' + frame.join(' ') + '" width="64" height="64" preserveAspectRatio="xMidYMid meet"><defs><clipPath id="' + clip + '" clipPathUnits="userSpaceOnUse"><rect x="' + frame[0] + '" y="' + frame[1] + '" width="' + frame[2] + '" height="' + frame[3] + '"></rect></clipPath></defs><image clip-path="url(#' + clip + ')" href="' + source + '" width="' + size.width + '" height="' + size.height + '"></image></svg><use class="tb-etch-fallback" href="' + marks + '#' + id + '"></use></svg>';
+};
 const toolButtons = TOOLS.map((tool, index) => '<button type="button" class="industrial-switch tb-tool" data-tool="' + tool.id + '" aria-pressed="false"><span class="switch-legend">' + icon(tool.id) + '<span class="switch-label">' + tool.face.replace('|', '<br>') + '</span><span class="switch-cost" data-stock></span></span><kbd>' + (index + 1) + '</kbd></button>').join('');
 const drugButtons = DRUGS.map(drug => '<button type="button" class="square-control industrial-switch tb-drug" data-drug="' + drug.id + '" data-face="' + (drug.id === 'inversion' ? 'red' : 'green') + '"><span class="switch-legend">' + icon(drug.id) + '<span class="switch-label">' + drug.face + '</span><span class="switch-cost" data-stock></span></span><kbd>' + drug.key + '</kbd></button>').join('');
 let instance = 0;
@@ -10,18 +20,18 @@ let instance = 0;
 const markup = '<header class="tb-top">' +
   '<div class="hero-strip tb-vitals tb-wood-panel"><span class="hero-identity tb-wordmark">TINDERBOX<span>EXPOSITION</span></span><div class="vitals tb-health"><span class="tb-micro">HEALTH <b data-health-text>—</b></span><div class="tb-health-meter" role="meter" aria-label="Bear health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-health-fill></span></div></div></div><figure class="tb-map tb-wood-panel"><div class="tb-map-content map-metal-frame" data-map role="img" aria-label="Ground plan loading."><span class="tb-map-loading">Awaiting plan…</span></div><figcaption><b>GROUND PLAN</b><span><i></i>Bear <i></i>Fire</span></figcaption></figure></header>' +
   '<div class="tb-effects" aria-label="Active effects"><div class="tb-effect tb-powder" data-effect="powder" hidden><b>POWDER <span data-time></span></b><span>Bear faster · world & fire slower</span></div><div class="tb-effect tb-inversion" data-effect="inversion" hidden><b>STICK 180° <span data-time></span></b><span>Movement reversed · aim unchanged</span></div></div>' +
-  '<div class="view-controls tb-zoom" role="group" aria-label="Camera zoom"><button type="button" class="industrial-switch" data-zoom="in" aria-label="Zoom in">' + icon('zoom-in', true) + '</button><button type="button" class="industrial-switch" data-zoom="out" aria-label="Zoom out">' + icon('zoom-out', true) + '</button></div>' +
+  '<div class="view-controls tb-zoom" role="group" aria-label="Camera zoom"><button type="button" class="industrial-switch" data-zoom="in" aria-label="Zoom in">' + icon('zoom-in') + '</button><button type="button" class="industrial-switch" data-zoom="out" aria-label="Zoom out">' + icon('zoom-out') + '</button></div>' +
   '<p class="tb-death tb-wood-panel" data-death hidden>BEAR DOWN <span>Open pause to reset the scene.</span></p>' +
   '<section class="battle-bottom tb-console tb-wood-panel" aria-label="Player control deck">' +
   '<div class="thumb-layout tb-controls">' +
   '<div class="left-controls tb-drugs" role="group" aria-label="Three drug actions">' + drugButtons + '</div>' +
-  '<div class="stick-column tb-stick-group"><div class="tb-selected"><span data-selected-icon aria-hidden="true"></span><strong data-tool-name>—</strong><span class="tb-selected-stock" data-selected-stock></span><span class="tb-sr-only" data-tool-hint></span><span class="tb-loadout-state" data-loadout-state>SELECT A TOOL</span></div><button type="button" class="tb-stick" data-stick aria-label="Movement joystick. Drag to move. Keyboard: W A S D or arrow keys." aria-describedby="tb-movement-help"><span class="stick-ring tb-stick-ring"></span><span class="tb-stick-thumb">' + icon('movement', true) + '</span><span class="stick-north tb-stick-n">▲</span></button><span class="stick-caption tb-micro tb-stick-caption" id="tb-movement-help">MOVE <span>WASD / ↑↓←→</span></span></div>' +
+  '<div class="stick-column tb-stick-group"><div class="tb-selected"><span data-selected-icon aria-hidden="true"></span><strong data-tool-name>—</strong><span class="tb-selected-stock" data-selected-stock></span><span class="tb-sr-only" data-tool-hint></span><span class="tb-loadout-state" data-loadout-state>SELECT A TOOL</span></div><button type="button" class="tb-stick" data-stick aria-label="Movement joystick. Drag to move. Keyboard: W A S D or arrow keys." aria-describedby="tb-movement-help"><span class="stick-ring tb-stick-ring"></span><span class="tb-stick-thumb">' + icon('movement') + '</span><span class="stick-north tb-stick-n">▲</span></button><span class="stick-caption tb-micro tb-stick-caption" id="tb-movement-help">MOVE <span>WASD / ↑↓←→</span></span></div>' +
   '<div class="right-controls"><button type="button" class="square-control industrial-switch tb-primary" data-primary data-face="red" aria-label="Primary action" aria-pressed="false"><span class="switch-legend"><span class="tb-primary-icon"></span><span class="switch-label" data-primary-label>—</span><span class="switch-cost" data-primary-mode></span></span><kbd>SPACE</kbd></button>' +
   '<button type="button" class="square-control industrial-switch tb-picker-toggle" data-tools aria-label="Choose a tool" aria-haspopup="dialog" aria-expanded="false" aria-controls="tb-picker">' + '<span class="switch-legend">' + icon('tools') + '<span class="switch-label">TOOLS</span><span class="switch-cost">1–5</span></span></button>' +
   '<button type="button" class="square-control industrial-switch tb-pause" data-pause aria-label="Pause and open scene menu" aria-expanded="false"><span class="switch-legend">' + icon('pause') + '<span class="switch-label">PAUSE</span></span></button></div></div></section>' +
-  '<section class="tb-picker tb-wood-panel" id="tb-picker" data-picker role="dialog" aria-modal="false" aria-labelledby="tb-picker-title" hidden><div class="tb-picker-heading"><h2 id="tb-picker-title">Choose a tool</h2><button type="button" class="tb-picker-close tb-menu-button" data-close-tools aria-label="Close tool picker">×</button></div><div class="tb-tools" role="group" aria-label="Five tools">' + toolButtons + '</div><p class="tb-picker-note">Choose a tool · 1–5 on keyboard</p></section>' +
-  '<div class="tb-menu-backdrop" data-menu hidden><section class="tb-menu tb-wood-panel" role="dialog" aria-modal="true" aria-labelledby="tb-menu-title"><div class="tb-menu-heading"><span class="tb-micro">TINDERBOX / SCENE MENU</span><h1 id="tb-menu-title" tabindex="-1" data-menu-title>Paused</h1></div>' +
-  '<div data-pause-panel><p class="tb-menu-note" data-pause-note>The trail can wait.</p><button type="button" class="tb-menu-button tb-resume" data-resume>' + icon('play') + '<span>Resume scene</span><kbd>ESC</kbd></button><button type="button" class="tb-menu-button" data-options>' + icon('options', true) + '<span>Controls & options</span></button><button type="button" class="tb-menu-button" data-reset>' + icon('reset') + '<span>Reset test scene</span></button></div>' +
+  '<section class="tb-picker tb-wood-panel" id="tb-picker" data-picker role="dialog" aria-modal="false" aria-labelledby="tb-picker-title" hidden><div class="tb-picker-heading"><div><span class="tb-print-kicker">ILLUSTRATED STOCK LIST</span><h2 id="tb-picker-title">Choose a tool</h2></div><button type="button" class="tb-picker-close tb-menu-button" data-close-tools aria-label="Close tool picker">CLOSE</button></div><div class="tb-tools" role="group" aria-label="Five tools">' + toolButtons + '</div><p class="tb-picker-note">Five implements · Keys 1–5</p></section>' +
+  '<div class="tb-menu-backdrop" data-menu hidden><section class="tb-menu tb-wood-panel" role="dialog" aria-modal="true" aria-labelledby="tb-menu-title"><div class="tb-menu-heading"><div class="tb-masthead" aria-hidden="true"><span>THE</span><strong>TINDERBOX</strong></div><div class="tb-issue" aria-hidden="true"><span>EXPOSITION · 1893</span><span>FIELD EDITION</span></div><h1 id="tb-menu-title" tabindex="-1" data-menu-title>Paused</h1></div>' +
+  '<div data-pause-panel><p class="tb-menu-note" data-pause-note>The trail can wait.</p><button type="button" class="tb-menu-button tb-resume" data-resume>' + icon('play') + '<span>Resume scene</span><kbd>ESC</kbd></button><button type="button" class="tb-menu-button" data-options>' + icon('options') + '<span>Controls & options</span></button><button type="button" class="tb-menu-button" data-reset>' + icon('reset') + '<span>Reset test scene</span></button></div>' +
   '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Space · action button</dd></div><div><dt>Drugs</dt><dd>Q powder · E heal · R invert</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Pour toggles on a press. You can keep moving and take drugs while pouring. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
@@ -32,7 +42,7 @@ export function mountUI({root, onCommand, onZoom} = {}) {
   shell.className = 'tb-ui';
   shell.setAttribute('aria-label', 'Tinderbox player controls');
   const suffix = '-' + (++instance);
-  shell.innerHTML = markup.replaceAll('tb-movement-help', 'tb-movement-help' + suffix).replaceAll('tb-menu-title', 'tb-menu-title' + suffix).replaceAll('tb-picker-title', 'tb-picker-title' + suffix).replaceAll('tb-picker"', 'tb-picker' + suffix + '"');
+  shell.innerHTML = markup.replaceAll('tb-engraving-', 'tb-engraving' + suffix + '-').replaceAll('tb-movement-help', 'tb-movement-help' + suffix).replaceAll('tb-menu-title', 'tb-menu-title' + suffix).replaceAll('tb-picker-title', 'tb-picker-title' + suffix).replaceAll('tb-picker"', 'tb-picker' + suffix + '"');
   const style = doc.createElement('link');
   style.rel = 'stylesheet';
   style.href = new URL('./styles.css', import.meta.url).href;
@@ -114,6 +124,10 @@ export function mountUI({root, onCommand, onZoom} = {}) {
     cancelInput(); paint(); focusMenu(); emit({type: 'pause', paused: true});
   }
   function resume() { awaitingResume = true; emit({type: 'pause', paused: false}); }
+  function paintIcon(element, id) {
+    if (element.dataset.plate === id) return;
+    element.innerHTML = icon(id); element.dataset.plate = id;
+  }
   function paint() {
     if (!view) return;
     const signature = JSON.stringify([view.tool.id, view.hp, view.maxHp, view.inventory, view.pouring, view.paused, view.effects, menu, primarySources.size]);
@@ -130,9 +144,9 @@ export function mountUI({root, onCommand, onZoom} = {}) {
     primary.dataset.empty = String(view.stock <= 0);
     find('[data-primary-label]').textContent = view.primaryLabel.toUpperCase();
     find('[data-primary-mode]').textContent = view.pouring ? 'POURING' : view.stock <= 0 ? 'EMPTY' : ['torch', 'flamethrower'].includes(view.tool.id) ? 'HOLD' : 'PRESS';
-    find('.tb-primary-icon').innerHTML = icon(view.pouring ? 'stop' : view.tool.id);
+    paintIcon(find('.tb-primary-icon'), view.pouring ? 'stop' : view.tool.id);
     primary.setAttribute('aria-label', view.primaryLabel + ' — ' + view.tool.label + (view.pouring ? '. Pouring is on.' : '. ' + stockText(view.stock) + ' ' + view.tool.unit));
-    find('[data-selected-icon]').innerHTML = icon(view.tool.id);
+    paintIcon(find('[data-selected-icon]'), view.tool.id);
     find('[data-tool-name]').textContent = view.tool.label;
     find('[data-tool-hint]').textContent = view.pouring ? 'Pouring · tap Stop to finish' : view.tool.hint;
     find('[data-selected-stock]').textContent = stockText(view.stock) + ' ' + view.tool.unit + (view.stock <= 0 ? ' · EMPTY' : '');
