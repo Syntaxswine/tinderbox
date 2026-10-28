@@ -12,6 +12,7 @@
 - Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
 - Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. Interiors may come later. Combine tile-based world structure with free movement.
 - Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
+- Exterior fire follows heat exposure, fuel and buoyant/radiative transfer. Playable buildings are dry wood by default. The [exterior fire model](engineering/fire-model.md) records the equations, sources, shared state and current approximation boundaries.
 
 ## Reuse-first technical direction
 

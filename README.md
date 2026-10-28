@@ -23,6 +23,8 @@ Move with WASD/arrows or the joystick. Point or tap the ground to aim. Select to
 
 For the reproducible browser acceptance page, serve the source root and open `/workbenches/integration/`. It runs the actual simulation, art and UI together. Workbenches and evidence are excluded from the public build.
 
+The [exterior fire model](docs/engineering/fire-model.md) adds science-informed upward and building-to-building spread on dry wood. Serve the source root and open `/workbenches/fire/` to review heat exposure, wind, gaps and the five native story heights.
+
 ## Project coordination
 
 The architect owns architecture, worktree assignments, integration, and final quality control. The artist and coder deliver separate commits from their own worktrees. Work enters the integration branch only after the architect reviews the exact candidate.

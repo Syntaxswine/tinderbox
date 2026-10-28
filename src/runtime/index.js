@@ -2,11 +2,12 @@ import * as THREE from './three.js';
 import {createSimulation} from '../simulation/index.js';
 import {configuration} from '../simulation/config.js';
 import {createCameraRig} from './camera.js';
+import {createStructureFireView} from './structure-fire-view.js';
 import {createDiagnosticScene} from './diagnostics.js';
 export {THREE};
 // Composition adapter. Supplied factories use the public milestone v1 API.
 export async function createRuntime({root, uiRoot = root, createArtScene, mountUI, assetBaseUrl,
-  simulation, seed, scenario, config, autoStart = true, onSnapshot = () => {}, onError = error => console.error(error)} = {}) {
+  simulation, seed, scenario, config, cameraFocus, autoStart = true, pauseOnBlur = true, onSnapshot = () => {}, onError = error => console.error(error)} = {}) {
   if (!root) throw Error('A viewport root is required');
   const settings = configuration(config);
   const sim = simulation ?? createSimulation({seed, scenario, config});
@@ -16,9 +17,9 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
   const scene = new THREE.Scene();
   scene.add(new THREE.HemisphereLight(0xfff1d1, 0x334852, 2.3));
   const sun = new THREE.DirectionalLight(0xffffff, 2.5); sun.position.set(-8, 16, 6); scene.add(sun);
-  let snapshot = sim.snapshot(), art, ui, animation, disposed = false, lastTime = null;
+  let snapshot = sim.snapshot(), art, ui, surfaceView, animation, disposed = false, lastTime = null;
   const controller = new AbortController(), signal = controller.signal;
-  const camera = createCameraRig(root, renderer, snapshot.world, {x: settings.input.cameraX, h: 14, y: settings.input.cameraY});
+  const camera = createCameraRig(root, renderer, snapshot.world, {x: settings.input.cameraX, h: 14, y: settings.input.cameraY, focus: cameraFocus});
   const observer = new ResizeObserver(() => {
     camera.resize();
     if (art && !disposed) try { present(snapshot, 0); } catch (error) { dispose(); onError(error); }
@@ -30,13 +31,14 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
   function dispatch(command) { return sim.dispatch(command); }
   try {
     art = createArtScene ? await createArtScene({THREE, scene, renderer, assetBaseUrl}) : createDiagnosticScene({THREE, scene, config: configuration(config)});
+    surfaceView = createStructureFireView({THREE, scene, maxSurfaces: settings.structure.maxPatches});
     ui = mountUI?.({root: uiRoot, onCommand: dispatch});
   } catch (error) { dispose(); throw error; }
   function present(next, delta, simulationMs = 0) {
     const before = performance.now(), previous = snapshot; snapshot = next;
     const timing = {alpha: snapshot.diagnostics.alpha, playerDelta: Math.max(0, snapshot.clocks.player - previous.clocks.player),
       worldDelta: Math.max(0, snapshot.clocks.world - previous.clocks.world), playerTime: snapshot.clocks.player, worldTime: snapshot.clocks.world};
-    art.update(snapshot, timing); ui?.update(snapshot); renderer.render(scene, camera.camera); frames++;
+    art.update(snapshot, timing); surfaceView.update(snapshot.structureFire); ui?.update(snapshot); renderer.render(scene, camera.camera); frames++;
     cpuSamples.push(performance.now() - before); simulationSamples.push(simulationMs); frameSamples.push(delta * 1000);
     if (cpuSamples.length > 240) { cpuSamples.shift(); simulationSamples.shift(); frameSamples.shift(); }
     const sorted = [...cpuSamples].sort((a, b) => a - b), simSorted = [...simulationSamples].sort((a, b) => a - b), intervals = frameSamples.filter(v => v > 0);
@@ -59,8 +61,10 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
   renderer.domElement.addEventListener('pointermove', e => { const point = camera.screenToWorld(e.clientX, e.clientY); if (point) dispatch({type: 'aim', ...point}); }, {signal});
   renderer.domElement.addEventListener('pointerdown', e => { if (e.button !== 0) return; const point = camera.screenToWorld(e.clientX, e.clientY); if (point) dispatch({type: 'aim', ...point}); }, {signal});
   function loseFocus() { dispatch({type: 'cancel-input'}); dispatch({type: 'pause', paused: true}); lastTime = null; advance(settings.step); }
-  globalThis.addEventListener('blur', loseFocus, {signal});
-  document.addEventListener('visibilitychange', () => { if (document.hidden) loseFocus(); lastTime = null; }, {signal});
+  if (pauseOnBlur) {
+    globalThis.addEventListener('blur', loseFocus, {signal});
+    document.addEventListener('visibilitychange', () => { if (document.hidden) loseFocus(); lastTime = null; }, {signal});
+  }
   try { present(snapshot, 0); } catch (error) { dispose(); throw error; } if (autoStart) animation = requestAnimationFrame(frame);
   return {dispatch, advance, snapshot: () => sim.snapshot(), metrics: () => ({...lastMetrics}),
     screenToWorld: camera.screenToWorld, zoom: camera.magnify,
@@ -69,7 +73,7 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
     if (disposed) return;
     disposed = true; cancelAnimationFrame(animation); controller.abort(); observer.disconnect();
     try { ui?.dispose(); } finally {
-      try { art?.dispose(); } finally {
+      try { try { surfaceView?.dispose(); } finally { art?.dispose(); } } finally {
         sim.dispose(); scene.clear();
         try { renderer.forceContextLoss(); renderer.dispose(); } finally { renderer.domElement.remove(); }
       }

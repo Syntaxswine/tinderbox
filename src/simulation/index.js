@@ -1,5 +1,6 @@
 import {configuration, TOOLS, DRUGS} from './config.js';
 import {scenarioDefinition} from './fixtures.js';
+import {StructureFire} from './structure-fire.js';
 import {HeatField, materialAt} from './field.js';
 import {clamp, normalized, movementVector, moveDisc, distance, lineClear, freePoint} from './geometry.js';
 import {discreteTool, heldTool, projectilesStep} from './tools.js';
@@ -11,7 +12,7 @@ const EPS = 1e-9;
 export function createSimulation({seed = 1947, scenario, config: override} = {}) {
   const config = configuration(override), definition = scenarioDefinition(scenario);
   if (!Number.isSafeInteger(seed)) throw Error('Seed must be a safe integer');
-  let state, field, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  let state, field, structures, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
@@ -48,7 +49,8 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       const point = {x: x + def.tileSize / 2, y: y + def.tileSize / 2};
       state.tiles.push({...point, size: def.tileSize, material: materialAt(def, point)});
     }
-    field = new HeatField(def, config, state.obstacles);
+    structures = new StructureFire(def, config, state.obstacles);
+    field = new HeatField(def, config, state.obstacles, structures);
   }
   initialize();
   const activeEffect = name => state.effects[name].expiresAt > state.clocks.active + EPS;
@@ -160,9 +162,10 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     for (const actor of state.actors) actorStep(actor, worldDelta);
     projectilesStep(state, field, config, worldDelta, event);
     field.step(worldDelta, state.clocks.world, event); barrels();
-    for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');
+    structures.collectGround(field.lastRelease, worldDelta); structures.step(worldDelta, state.clocks.world, event);
+    for (const target of [p, ...state.actors]) hurt(target, Math.max(field.exposure(target), structures.exposure(target)) * config.fire.damagePerSecond * worldDelta, 'heat');
     // Wood remains collision-solid until its own footprint's fuel has burned out.
-    for (const o of state.obstacles) if (!o.destroyed && o.material === 'wood') {
+    for (const o of state.obstacles) if (!o.destroyed && o.material === 'wood' && !structures.managed.has(o.id)) {
       const cells = field.cells.filter(c => inBox(c, o));
       if (cells.length && cells.every(c => c.surfaceFuel + c.depositedFuel <= EPS)) { o.destroyed = true; event('obstacle-burnout', o, {objectId: o.id}); }
     }
@@ -179,7 +182,8 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     const modules = definition.modules.map(module => {
       const copy = structuredClone(module);
       copy.destroyed = copy.supportModuleIds ? copy.supportModuleIds.some(id => !intactSupport.get(id)) : copy.colliderIds.length > 0 && copy.colliderIds.every(id => !present.has(id));
-      copy.parts = copy.parts.map(part => ({...part, destroyed: part.solid ? !present.has(part.id) : part.supportPartIds ? part.supportPartIds.some(id => !present.has(id)) : copy.destroyed}));
+      copy.parts = copy.parts.map(part => ({...part, destroyed: structures.managed.has(part.id) ? structures.isGone(part.id) : part.solid ? !present.has(part.id) : part.supportPartIds ? part.supportPartIds.some(id => !present.has(id)) : copy.destroyed}));
+      if (copy.parts.some(part => structures.managed.has(part.id))) copy.destroyed = copy.parts.every(part => part.destroyed);
       return copy;
     });
     return {version: 1, tick: state.tick, paused: state.paused,
@@ -189,6 +193,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       world: {width: definition.width, height: definition.height, tileSize: definition.tileSize, modules,
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
         obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => ({...o}))},
+      structureFire: structures.snapshot(),
       cells, actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
       discharge: structuredClone(state.discharge), events: state.events.map(e => ({...e})), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
@@ -219,7 +224,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
       return snapshot();
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; structures = null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2; }

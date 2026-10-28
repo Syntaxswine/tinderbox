@@ -1,0 +1,373 @@
+{
+  "model": "Tinderbox exterior fire v1",
+  "units": "SI; world seconds",
+  "sourcePin": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "defaultMaterial": "dry wood (0% moisture by dry mass)",
+  "method": "Finite-volume heat balance, limited radiative and plume transfer; qualitative checks, not experimental validation",
+  "results": [
+    {
+      "name": "dry-calm",
+      "options": {},
+      "patches": 346,
+      "links": 66546,
+      "initMs": 332,
+      "receiverIgnitionSeconds": 29.1,
+      "samples": [
+        {
+          "worldSeconds": 30,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 846,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 6,
+              "hottestC": 534,
+              "highestBurningM": 1.25
+            }
+          }
+        },
+        {
+          "worldSeconds": 60,
+          "frontages": {
+            "source": {
+              "burningPatches": 88,
+              "hottestC": 799,
+              "highestBurningM": 5.99
+            },
+            "receiver": {
+              "burningPatches": 54,
+              "hottestC": 779,
+              "highestBurningM": 3.87
+            }
+          }
+        },
+        {
+          "worldSeconds": 90,
+          "frontages": {
+            "source": {
+              "burningPatches": 106,
+              "hottestC": 793,
+              "highestBurningM": 5.99
+            },
+            "receiver": {
+              "burningPatches": 64,
+              "hottestC": 790,
+              "highestBurningM": 3.87
+            }
+          }
+        }
+      ],
+      "initialFuelKg": 2486.3999999999946,
+      "burnedFuelKg": 35.33788265834493,
+      "energyResidualJ": -0.000009745359420776367
+    },
+    {
+      "name": "dry-downwind",
+      "options": {
+        "wind": {
+          "x": 0,
+          "y": 6
+        }
+      },
+      "patches": 346,
+      "links": 46944,
+      "initMs": 245,
+      "receiverIgnitionSeconds": 10.1,
+      "samples": [
+        {
+          "worldSeconds": 30,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 889,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 4,
+              "hottestC": 672,
+              "highestBurningM": 0.75
+            }
+          }
+        },
+        {
+          "worldSeconds": 60,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 620,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 4,
+              "hottestC": 665,
+              "highestBurningM": 0.75
+            }
+          }
+        },
+        {
+          "worldSeconds": 90,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 608,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 4,
+              "hottestC": 665,
+              "highestBurningM": 0.75
+            }
+          }
+        }
+      ],
+      "initialFuelKg": 2486.3999999999946,
+      "burnedFuelKg": 5.73330629085665,
+      "energyResidualJ": 0.00000391155481338501
+    },
+    {
+      "name": "dry-upwind",
+      "options": {
+        "wind": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      "patches": 346,
+      "links": 47420,
+      "initMs": 273,
+      "receiverIgnitionSeconds": 29.1,
+      "samples": [
+        {
+          "worldSeconds": 30,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 833,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 2,
+              "hottestC": 534,
+              "highestBurningM": 0.75
+            }
+          }
+        },
+        {
+          "worldSeconds": 60,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 571,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 2,
+              "hottestC": 640,
+              "highestBurningM": 0.75
+            }
+          }
+        },
+        {
+          "worldSeconds": 90,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 561,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 2,
+              "hottestC": 646,
+              "highestBurningM": 0.75
+            }
+          }
+        }
+      ],
+      "initialFuelKg": 2486.3999999999946,
+      "burnedFuelKg": 4.351767548010796,
+      "energyResidualJ": 0.0000029765069484710693
+    },
+    {
+      "name": "dry-wide-gap",
+      "options": {
+        "gap": 3
+      },
+      "patches": 346,
+      "links": 56460,
+      "initMs": 267,
+      "receiverIgnitionSeconds": null,
+      "samples": [
+        {
+          "worldSeconds": 30,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 816,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 111,
+              "highestBurningM": 0
+            }
+          }
+        },
+        {
+          "worldSeconds": 60,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 381,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 95,
+              "highestBurningM": 0
+            }
+          }
+        },
+        {
+          "worldSeconds": 90,
+          "frontages": {
+            "source": {
+              "burningPatches": 32,
+              "hottestC": 365,
+              "highestBurningM": 3.37
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 149,
+              "highestBurningM": 0
+            }
+          }
+        }
+      ],
+      "initialFuelKg": 2486.3999999999946,
+      "burnedFuelKg": 4.128865300562364,
+      "energyResidualJ": 0.00000545009970664978
+    },
+    {
+      "name": "shield-test",
+      "options": {
+        "barrier": true
+      },
+      "patches": 694,
+      "links": 84598,
+      "initMs": 1563,
+      "receiverIgnitionSeconds": null,
+      "samples": [
+        {
+          "worldSeconds": 30,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 816,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 20,
+              "highestBurningM": 0
+            }
+          }
+        },
+        {
+          "worldSeconds": 60,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 381,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 20,
+              "highestBurningM": 0
+            }
+          }
+        },
+        {
+          "worldSeconds": 90,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 360,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 20,
+              "highestBurningM": 0
+            }
+          }
+        }
+      ],
+      "initialFuelKg": 2486.3999999999946,
+      "burnedFuelKg": 3.1079913188269046,
+      "energyResidualJ": 0.000007295049726963043
+    },
+    {
+      "name": "wet-control-only",
+      "options": {
+        "moisture": 0.3
+      },
+      "patches": 346,
+      "links": 64934,
+      "initMs": 415,
+      "receiverIgnitionSeconds": null,
+      "samples": [
+        {
+          "worldSeconds": 30,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 777,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 388,
+              "highestBurningM": 0
+            }
+          }
+        },
+        {
+          "worldSeconds": 60,
+          "frontages": {
+            "source": {
+              "burningPatches": 10,
+              "hottestC": 268,
+              "highestBurningM": 1.25
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 314,
+              "highestBurningM": 0
+            }
+          }
+        },
+        {
+          "worldSeconds": 90,
+          "frontages": {
+            "source": {
+              "burningPatches": 0,
+              "hottestC": 94,
+              "highestBurningM": 0
+            },
+            "receiver": {
+              "burningPatches": 0,
+              "hottestC": 96,
+              "highestBurningM": 0
+            }
+          }
+        }
+      ],
+      "initialFuelKg": 2486.3999999999946,
+      "burnedFuelKg": 2.0706659985327645,
+      "energyResidualJ": -0.0000029597431421279907
+    }
+  ]
+}

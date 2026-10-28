@@ -65,7 +65,7 @@ export function projectilesStep(state, field, config, delta, event) {
     projectile.progress = full ? clamp(1 - distance(projectile, target) / full, 0, 1) : 1;
     projectile.h = height(projectile.progress);
     if (hit || step >= d - 1e-10) {
-      field.addPool(impact, spec.radius, spec.fuel); field.emit(impact, spec.radius, spec.heat, 'molotov');
+      field.addPool(impact, spec.radius, spec.fuel); field.emit({...impact, h: projectile.h}, spec.radius, spec.heat, 'molotov');
       event('molotov-impact', impact, {projectileId: projectile.id});
     } else alive.push(projectile);
   }

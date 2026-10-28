@@ -1,15 +1,19 @@
+import {validateStructureDefinition} from './structure-fire.js';
+import {buildingFireScenario} from '../content/building-fire.js';
 import {EXPOSITION_SCENARIO} from '../content/exposition.js';
 import {compileModules, validateCivilian} from '../content/exterior-kit.js';
 const obstacle = (id, x, y, width, depth, height, material, kind = 'building') =>
   ({id, x, y, width, depth, height, material, kind});
 export const SCENARIOS = Object.freeze({
   exposition: EXPOSITION_SCENARIO,
+  'building-fire': buildingFireScenario(),
   street: {
+    structureFire: {moisture: 0},
     id: 'street', width: 20, height: 16, player: {x: 4, y: 9, tool: 'matches'},
     patches: [{x: 0, y: 0, width: 20, depth: 4, material: 'grass'},
       {x: 0, y: 12, width: 20, depth: 4, material: 'grass'}],
-    obstacles: [obstacle('house-west', 4, 1.5, 5, 3, 3, 'masonry'),
-      obstacle('house-east', 14, 1.5, 7, 3, 3.5, 'masonry'),
+    obstacles: [obstacle('house-west', 4, 1.5, 5, 3, 3, 'wood'),
+      obstacle('house-east', 14, 1.5, 7, 3, 3.5, 'wood'),
       obstacle('yard-fence', 12, 12, 6, 0.3, 1.2, 'wood', 'fence'),
       obstacle('crate', 8, 9, 1, 1, 0.9, 'wood', 'crate'),
       obstacle('drum-a', 12, 8, 0.656, 0.656, 0.8, 'steel', 'barrel'),
@@ -62,5 +66,6 @@ export function scenarioDefinition(scenario = 'street') {
     if (!object.id || ids.has(object.id)) throw Error('Scenario IDs must be unique'); ids.add(object.id);
     if (![object.x, object.y].every(Number.isFinite)) throw Error('Invalid scene position');
   }
+  validateStructureDefinition(result);
   return result;
 }

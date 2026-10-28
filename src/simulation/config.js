@@ -7,6 +7,10 @@ export const DEFAULT_CONFIG = Object.freeze({
   fuel: {gasPerMetre: 0.08, gasBurnRate: 0.018, surfaceBurnRate: 0.025, surfaceDensity: {grass: 0.32, wood: 1.2}},
   fire: {frontSpeed: 4, heatRate: 40, cooling: 0.3, damagePerSecond: 18,
     ignition: {gas: 0.6, grass: 0.85, wood: 1.1}, maxHeat: 4, burnHeat: 1.5, minIntensity: 0.5, intensityRise: 3, damageHeatStart: 0.4, damageHeatSpan: 1.6},
+  // SI units for the exterior surface solver; see docs/engineering/fire-model.md.
+  structure: {step: 0.1, patchSize: 0.5, maxPatches: 4096, maxLinks: 1500000,
+    ambientK: 293.15, airLoss: 10, flameK: 1100, flameHtc: 50,
+    radiativeFraction: 0.35, selfFeedback: 0.25, radiationRange: 12},
   tools: {
     emissionClock: 'player', presentationHeight: 1.05, matches: {range: 0.85, radius: 0.3, heat: 1.8},
     torch: {range: 1.1, radius: 0.4, heatPerSecond: 9, fuelPerSecond: 0.12},
@@ -48,5 +52,12 @@ export function configuration(override) {
   if (value.fire.minIntensity <= 0 || value.fire.minIntensity > 1 || value.fire.damageHeatSpan <= 0 || value.fire.burnHeat > value.fire.maxHeat) throw Error('Invalid thermal bounds');
   if (!Number.isInteger(value.events.capacity) || value.events.capacity < 1 || value.events.capacity > 4096) throw Error('Invalid event capacity');
   if (!['player', 'active'].includes(value.tools.emissionClock)) throw Error('Unsupported emission clock');
+  const s = value.structure;
+  if (s.step < 0.02 || s.step > 0.1 || s.patchSize < 0.25 || s.patchSize > 1 ||
+      !Number.isInteger(s.maxPatches) || s.maxPatches < 1 || s.maxPatches > 8192 ||
+      !Number.isInteger(s.maxLinks) || s.maxLinks < 1 || s.maxLinks > 2000000 ||
+      s.ambientK < 273.15 || s.ambientK > 323.15 || s.flameK < 800 || s.flameK > 1500 ||
+      s.airLoss <= 0 || s.flameHtc <= 0 || s.radiativeFraction + s.selfFeedback >= 1 ||
+      s.radiationRange < 2 || s.radiationRange > 32) throw Error('Invalid structure thermal configuration');
   return value;
 }

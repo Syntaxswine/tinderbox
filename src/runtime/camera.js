@@ -1,7 +1,7 @@
 import * as THREE from './three.js';
-export function createCameraRig(container, renderer, world, {x = 10, h = 14, y = 12} = {}) {
+export function createCameraRig(container, renderer, world, {x = 10, h = 14, y = 12, focus} = {}) {
   const camera = new THREE.OrthographicCamera(-10, 10, 10, -10, 0.1, 150);
-  const target = new THREE.Vector3(world.width / 2, 0, world.height / 2);
+  const target = new THREE.Vector3(focus?.x ?? world.width / 2, focus?.h ?? 0, focus?.y ?? world.height / 2);
   let zoom = 1;
   const ray = new THREE.Raycaster(), plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), point = new THREE.Vector3();
   function resize() {

@@ -7,15 +7,16 @@ export function materialAt(def, p) {
   return material;
 }
 export class HeatField {
-  constructor(def, config, obstacles) {
-    this.def = def; this.config = config; this.obstacles = obstacles;
+  constructor(def, config, obstacles, structures) {
+    this.structures = structures; this.lastRelease = []; this.def = def; this.config = config; this.obstacles = obstacles;
     this.size = def.fireCellSize; this.cols = Math.round(def.width / this.size); this.rows = Math.round(def.height / this.size);
     this.stats = {pouredFuel: 0, fixtureFuel: 0, molotovFuel: 0, burnedDepositedFuel: 0, burnedSurfaceFuel: 0};
+    const groundDefinition = {...def, obstacles: def.obstacles.filter(o => !structures?.managed.has(o.id))};
     this.cells = Array.from({length: this.cols * this.rows}, (_, i) => {
       const x = (i % this.cols + 0.5) * this.size, y = (Math.floor(i / this.cols) + 0.5) * this.size;
-      let material = materialAt(def, {x, y});
+      let material = materialAt(groundDefinition, {x, y});
       let timberArea = 0;
-      for (const o of obstacles) if (o.material === 'wood') {
+      for (const o of obstacles) if (o.material === 'wood' && !structures?.managed.has(o.id)) {
         timberArea += Math.max(0, Math.min(x + this.size / 2, o.x + o.width / 2) - Math.max(x - this.size / 2, o.x - o.width / 2)) *
           Math.max(0, Math.min(y + this.size / 2, o.y + o.depth / 2) - Math.max(y - this.size / 2, o.y - o.depth / 2));
       }
@@ -68,11 +69,19 @@ export class HeatField {
     this.stats.molotovFuel += amount; return amount;
   }
   emit(point, radius, heat, cause, {wallsProtect = true} = {}) {
+    // Existing tool units remain compatible. These explicit adapters supply a finite
+    // energy pulse at tool height; they do not bypass the surface ignition solver.
+    const joulesPerUnit = {matches: 600, torch: 3000, molotov: 100000};
+    const budget = joulesPerUnit[cause] ?? (String(cause).startsWith('barrel:') ? 100000 : 0);
+    if (budget) this.structures?.addEnergy({x: point.x, y: point.y, h: point.h ?? this.config.tools.presentationHeight}, radius, heat * budget, cause);
+
     for (const cell of this.candidates(point, radius)) if (!wallsProtect || lineClear(point, cell, this.obstacles)) {
       cell.heat = Math.min(this.config.fire.maxHeat, cell.heat + heat); cell.cause = cause;
     }
   }
   cone(origin, heading, range, halfAngle, heat, cause) {
+    this.structures?.addEnergy({x: origin.x, y: origin.y, h: this.config.tools.presentationHeight}, range, heat * 40000, cause, true, {heading, halfAngle});
+
     const ux = Math.cos(heading), uy = Math.sin(heading), cosine = Math.cos(halfAngle);
     for (const cell of this.candidates(origin, range)) {
       const dx = cell.x - origin.x, dy = cell.y - origin.y, d = Math.hypot(dx, dy);
@@ -81,7 +90,7 @@ export class HeatField {
     }
   }
   step(delta, worldTime, event) {
-    const {fire, fuel} = this.config; this.delta.fill(0);
+    const {fire, fuel} = this.config; this.delta.fill(0); this.lastRelease = [];
     // Only sources burning before this pass can transfer heat. Each edge also
     // waits for its world-time travel deadline: no connected-component flood fill.
     for (let i = 0; i < this.cells.length; i++) {
@@ -103,6 +112,8 @@ export class HeatField {
         const surface = Math.min(cell.surfaceFuel, fuel.surfaceBurnRate * areaScale * delta);
         cell.depositedFuel = Math.max(0, cell.depositedFuel - gas); cell.surfaceFuel = Math.max(0, cell.surfaceFuel - surface);
         this.stats.burnedDepositedFuel += gas; this.stats.burnedSurfaceFuel += surface;
+        if (gas + surface > 0) this.lastRelease.push({id: cell.id, x: cell.x, y: cell.y, h: 0.05,
+          area: this.size ** 2, powerW: (gas * 32000000 + surface * 13000000) / delta});
         if (cell.surfaceFuel + cell.depositedFuel <= EPS) {
           cell.surfaceFuel = cell.depositedFuel = 0; cell.phase = 'spent'; cell.intensity = 0;
           event('burnout', cell, {cellId: cell.id}); continue;

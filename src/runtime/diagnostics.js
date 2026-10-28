@@ -74,12 +74,14 @@ export function createDiagnosticScene({THREE: T, scene, config}) {
     }
     cells.count = c; cells.instanceMatrix.needsUpdate = true; if (cells.instanceColor) cells.instanceColor.needsUpdate = true;
     flames.count = f; flames.instanceMatrix.needsUpdate = true;
-    const present = new Set(snapshot.world.obstacles.map(o => o.id));
+    const sceneParts = [...snapshot.world.obstacles, ...snapshot.world.modules.flatMap(m =>
+      m.parts.filter(p => !p.solid && !p.destroyed && p.role !== 'roof-envelope'))];
+    const present = new Set(sceneParts.map(o => o.id));
     for (const [id, mesh] of obstacles) if (!present.has(id)) { mesh.removeFromParent(); obstacles.delete(id); }
-    for (const o of snapshot.world.obstacles) if (!obstacles.has(o.id)) {
+    for (const o of sceneParts) if (!obstacles.has(o.id)) {
       const mesh = new T.Mesh(o.kind === 'barrel' ? drum : box, obstacleMaterials[o.material] ?? floorMaterial);
       mesh.scale.set(o.width, o.height, o.depth);
-      mesh.position.set(o.x, o.height / 2, o.y); mesh.userData.objectId = o.id; obstacles.set(o.id, mesh); root.add(mesh);
+      mesh.position.set(o.x, o.h ?? (o.baseHeight ?? 0) + o.height / 2, o.y); mesh.userData.objectId = o.id; obstacles.set(o.id, mesh); root.add(mesh);
     }
     for (const a of snapshot.actors) {
       let mesh = actors.get(a.id); if (!mesh) { mesh = new T.Mesh(character, actorMaterial); root.add(mesh); actors.set(a.id, mesh); }

@@ -8,6 +8,7 @@ const panel = (id, form, x, y, width, depth, height, extra = {}) => ({id, form, 
 const civilian = (id, species, x, y, route) => ({id, ...CIVILIAN_PROFILES[species], x, y, route, hp: 100, speed: 0.8,
   team: 'civilian', headgear: 'none', equipment: 'none'});
 export const EXPOSITION_SCENARIO = {
+  structureFire: {moisture: 0},
   id: 'exposition', width: 20, height: 16, player: {x: 10, y: 12, tool: 'jerry-can'},
   patches: [{x: 0, y: 0, width: 3, depth: 16, material: 'grass'}],
   modules: [

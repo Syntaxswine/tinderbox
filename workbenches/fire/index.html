@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tinderbox · Exterior fire laboratory</title><link rel="stylesheet" href="style.css"></head>
+<body><main><header><a href="../../index.html">Tinderbox</a><h1>Exterior fire laboratory</h1><p>Native wall modules · radiation + buoyant flame contact</p></header>
+<section class="controls" aria-label="Fire experiments"><label>Experiment<select id="experiment">
+<option value="climb">Calm · wall climb</option><option value="wind">Wind · next building</option>
+<option value="gap">Wide gap · weaker exposure</option></select></label>
+<label>Source height<select id="stories"><option value="1">1 story · 2 m</option><option value="2">2 stories · 4.12 m</option><option value="3" selected>3 stories · 6.24 m</option><option value="4">4 stories · 8.36 m</option><option value="5">5 stories · 10.48 m</option></select></label>
+<div class="buttons"><button id="step">+10 seconds</button><button id="minute">+60 seconds</button><button id="reset">Reset</button></div></section>
+<div id="viewport" aria-label="Three dimensional exterior fire experiment"></div>
+<section class="readout" aria-live="polite"><div><span>World time</span><strong id="time">0 s</strong></div><div><span>Heat release</span><strong id="power">0 kW</strong></div><div><span>Burning height</span><strong id="height">0 m</strong></div></section>
+<table><caption>Authoritative material state</caption><thead><tr><th>Frontage</th><th>Hottest surface</th><th>Burning patches</th></tr></thead><tbody id="frontages"></tbody></table>
+<p id="conditions"></p><p class="key"><i class="warm"></i> Heating <i class="dry"></i> Drying / preheating <i class="hot"></i> Burning</p>
+<p class="note">All buildings are dry wood. The burner heats the source frontage for 30 world seconds. Each step follows the same fixed simulation clock. Skins do not change flammability. This reduced model covers exterior flame contact and radiation; airborne embers and indoor ventilation are future work.</p>
+<output id="status">Ready</output></main><script type="module" src="main.js"></script></body></html>

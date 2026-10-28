@@ -40,7 +40,7 @@ async function suite(){
     });
     await check('Held flamethrower consumes finite fuel, emits resolved fire and releases',async()=>{
       await open();select('flamethrower');game.dispatch({type:'aim',x:7,y:9});step();
-      pointer(find('[data-primary]'),'pointerdown',72);const after=step(45);ok(after.player.usingTool,'Held trigger lost');ok(after.player.inventory.flamethrowerFuel<6,'No fuel consumed');ok(after.cells.some(cell=>cell.phase==='burning'),'No ignition');ok(dischargeArt()?.active,'Resolved discharge art is missing');pointer(window,'pointerup',72);step();ok(!game.snapshot().player.usingTool&&!dischargeArt().active,'Release left a stale jet');
+      pointer(find('[data-primary]'),'pointerdown',72);const after=step(45);ok(after.player.usingTool,'Held trigger lost');ok(after.player.inventory.flamethrowerFuel<6,'No fuel consumed');ok(after.cells.some(cell=>cell.phase==='burning')||after.structureFire.surfaces.some(surface=>surface.temperatureK>293.15),'No authoritative heat supplied');ok(dischargeArt()?.active,'Resolved discharge art is missing');pointer(window,'pointerup',72);step();ok(!game.snapshot().player.usingTool&&!dischargeArt().active,'Release left a stale jet');
     });
     await check('A nearby wall clips resolved flame before the protruding cosmetic nozzle',async()=>{
       await open({scenario:{id:'combined-wall',width:20,height:16,player:{x:4,y:9,tool:'flamethrower'},obstacles:[{id:'front',x:5.1,y:8,width:.1,depth:16,height:3,material:'masonry',kind:'building'}],actors:[]}});

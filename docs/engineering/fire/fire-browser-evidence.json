@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "environment": "Desktop Chromium / RTX 3080; phone viewport emulation, not physical handset benchmarking",
+  "integration": {
+    "passed": 9,
+    "failed": 0,
+    "checks": [
+      "Production factories load together with exactly five tools and three drugs",
+      "Real UI pour, raw joystick and powder preserve a continuous distance-accounted trail",
+      "Inversion reverses the same held stick once and leaves aim and pour intact",
+      "Pause freezes all clocks, stops pour and resumes without stale movement",
+      "Healing reads and changes the authoritative HP and pill stock",
+      "Held flamethrower consumes finite fuel, emits resolved fire and releases",
+      "A nearby wall clips resolved flame before the protruding cosmetic nozzle",
+      "Powder separates bear from a finite front on the same freshly poured line",
+      "Four complete runtime rebuilds dispose views and keep live resource counts stable"
+    ]
+  },
+  "factory": "PASS · 6 real WebGL create/update/dispose cycles\nArt disposals 6 · UI disposals 6 · updates 36\nOne Three r180 instance · raw movement · v1 snapshots/timing\nScripted window blur pauses/stops pour · frozen clocks · safe resume\nIdempotent disposal · failed factory + update cleanup · no owned canvas left",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "case": "3-story calm at 60 world seconds",
+      "highestBurningM": 5.99,
+      "sourceBurningPatches": 88,
+      "receiverBurningPatches": 54,
+      "screenshot": "fire-desktop.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "case": "5-story calm at 60 world seconds",
+      "highestBurningM": 10.23,
+      "sourceBurningPatches": 158,
+      "receiverBurningPatches": 54,
+      "minButtonHeight": 44,
+      "horizontalOverflow": false,
+      "screenshot": "fire-phone.png"
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "case": "Downwind 6 m/s at 20 world seconds",
+      "sourceBurningPatches": 10,
+      "receiverBurningPatches": 4,
+      "minButtonHeight": 53.6875,
+      "horizontalOverflow": false,
+      "screenshot": "fire-narrow-wind.png"
+    }
+  ],
+  "wideGap": {
+    "gapM": 3,
+    "worldSeconds": 60,
+    "receiverBurningPatches": 0,
+    "receiverHottestC": 95
+  },
+  "consoleErrors": []
+}
