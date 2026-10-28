@@ -2,13 +2,13 @@
 
 An isometric 3D game about a pyromaniac anthropomorphic bear who does drugs and sets things on fire.
 
-The **Exposition Study** combines a small exterior construction kit, original Farmyard horse/goat civilians, five tools, three drug effects, continuous gasoline trails and spreading fire. It runs in a browser with WebGL 2.
+The current **Catalogue Street** candidate combines three original artist houses, the native painted bear, original Farmyard horse/goat civilians, five tools, three drug effects, continuous gasoline trails and spreading fire. It runs in a browser with WebGL 2.
 
-The walls use Farmyard Commando's actual brick, wood and concrete surfaces; civilians use its original normal models, paint and walking rigs. The pale facade finish and roof finishes remain provisional. The existing interface still uses the imported Farmyard control assets; a future UI pass must begin with the donor's actual component layout and recipes.
+Hopkins Nos. 12 and 15 and the Gross Ashland cottage retain the artist's actual native geometry, siding, shingles and window/porch details. A following camera and conservative house fading keep the bear visible around the buildings. Ground footprints govern movement and fire; each house chars and retires with its collider group when its finite fuel is spent. The existing interface still uses the imported Farmyard control assets; a future UI pass must begin with the donor's actual component layout and recipes.
 
-This review branch replaces the procedural protagonist with the original shared AFT bear, normal painting and native walking rig. [Browser acceptance is pending](docs/reviews/2026-10-28-shared-bear-protagonist.md); the public Pages build still has the provisional bear.
+[Browser acceptance is pending](docs/reviews/2026-10-28-catalogue-neighborhood.md). The public Pages build remains the reviewed **Exposition Study**, with its provisional bear; this review branch contains the shared AFT bear and new houses.
 
-The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. This first arrangement is a game adaptation demonstrating reusable forms and skin slots, rather than a named historic building or a surveyed piece of the fair.
+The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. The new street is a fictional arrangement of [catalogue-derived houses](docs/research/catalogue-neighborhood/README.md), preserving the reusable Farmyard/AFT dimensions. Interiors, stair traversal, wall-climb fire and collapse physics remain separate work.
 
 ## Play and develop
 
@@ -27,7 +27,7 @@ Move with WASD/arrows or the joystick. Point or tap the ground to aim. Select to
 
 For the reproducible browser acceptance page, serve the source root and open `/workbenches/integration/`. It runs the actual simulation, art and UI together. Workbenches and evidence are excluded from the public build.
 
-The focused native-character review is `/workbenches/art/shared-bear.html`, with visible controls for each tool, walking, turning, powder, pause and an explicit review run.
+The focused production-street review is `/workbenches/art/neighborhood.html`, with desktop/phone frames, entry/rear/gap views, actual UI behavior and an accelerated burn-out fixture. `/workbenches/art/shared-bear.html` retains the earlier native-character review. Offline review tools under `tools/review/` can reproduce the saved house-layout render; they do not establish WebGL acceptance.
 
 ## Project coordination
 
@@ -35,7 +35,8 @@ The architect owns architecture, worktree assignments, integration, and final qu
 
 - [Architecture and reuse decisions](docs/architecture.md)
 - [Architect's reconciled reuse plan](docs/reuse-plan.md)
-- [Current candidate: shared bear protagonist](docs/milestones/03-shared-bear-protagonist.md)
+- [Current candidate: catalogue neighborhood](docs/milestones/04-catalogue-neighborhood.md)
+- [Shared bear protagonist](docs/milestones/03-shared-bear-protagonist.md)
 - [Reviewed exposition construction kit](docs/milestones/02-exposition-foundation.md)
 - [Exposition research and original sources](docs/research/1893-exposition/README.md)
 - [Original burning-trail mechanics](docs/milestones/01-burning-trail.md)
@@ -45,6 +46,7 @@ The architect owns architecture, worktree assignments, integration, and final qu
 - [Reuse foundation review](docs/reviews/2026-10-27-reuse-foundation.md)
 - [Exposition construction-kit acceptance](docs/reviews/2026-10-27-exposition-foundation.md)
 - [Shared bear candidate review](docs/reviews/2026-10-28-shared-bear-protagonist.md)
+- [Catalogue neighborhood review and offline preview](docs/reviews/2026-10-28-catalogue-neighborhood.md)
 - [Pinned Farmyard source](docs/source-baseline.json)
 - [Repository instructions](AGENTS.md)
 
@@ -61,6 +63,6 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 ## Delivery status
 
-The primary checkout is the architect's workspace, currently on `codex/review-bear-protagonist`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
+The primary checkout is the architect's workspace, currently on `codex/catalogue-neighborhood`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
 
 The repository is public with the user's approval, and the exposition construction-kit study is live on Pages. The [publication run](https://github.com/Syntaxswine/tinderbox/actions/runs/40606724201) passed both build and deployment; all 70 hosted game files match the reviewed package. Source evidence, checks and remaining art scope are recorded in [the architect's acceptance](docs/reviews/2026-10-27-exposition-foundation.md). The [opening mechanics review](docs/reviews/2026-10-27-burning-trail.md) remains the earlier gameplay baseline.

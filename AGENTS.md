@@ -18,6 +18,8 @@ Read `docs/architecture.md`, `docs/workflow.md`, and `docs/source-baseline.json`
 
 ## Reuse boundaries
 
+- New building assets preserve native Farmyard/AFT dimensions, UVs, origins, attachments and physical texture density. Native walls are 1 by 2 by .16 m; doors are 1 by 1.65 by .12 m; floor pitch is 2.12 m. Compose modules instead of stretching them or shrinking characters. The older enlarged exposition gate remains a regression fixture, not a template for new assets.
+
 - The Farmyard checkout and its worktrees are read-only donors. Do not change, check out, reset, merge into, or push to the donor repository for a Tinderbox task.
 - Use the pinned source commit. Record later source revisions deliberately, with a reason and review. A file present in an asset catalog is not proof that its gameplay is connected.
 - Distinguish the approved source baseline from experimental branch work. Never silently absorb a donor work-in-progress branch.
@@ -36,7 +38,9 @@ The Pages workflow checks and packages code changes on `master`. Its deployment 
 
 ## Current milestone
 
-The current candidate is `docs/milestones/03-shared-bear-protagonist.md`. Read its linked architect review for completed offline checks, pending browser acceptance and promotion status. The bear comes from the explicitly approved additional AFT pin in `docs/source-baseline.json`; do not update the Farmyard baseline or absorb other worker branches for this swap.
+The current candidate is `docs/milestones/04-catalogue-neighborhood.md`: three selected original artist houses in one playable exterior street. It builds on the shared-bear checkpoint and freezes artist intake at `14d18d7de667c7b83955150313347e198869f5ee`. The artist's active window update remains separate until deliberately reviewed. Preserve the native units and the agreement between building visibility, ground footprints and burnout.
+
+Read `docs/milestones/03-shared-bear-protagonist.md` and its linked architect review for the bear's completed offline checks and pending browser acceptance. The bear comes from the explicitly approved additional AFT pin in `docs/source-baseline.json`; do not update the Farmyard baseline or silently absorb other worker branches.
 
 Read `docs/milestones/02-exposition-foundation.md` for the reviewed wall/door/roof kit and non-Red-Hat civilian foundation, and its linked acceptance for delivery status and remaining scope. Follow `docs/research/1893-exposition/README.md` when recording original-plan evidence, derived dimensions, uncertainties and game adaptations. Preserve shared physical dimensions when swapping skins.
 

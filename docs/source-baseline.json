@@ -58,6 +58,18 @@
       "manifest": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json",
       "files": 19,
       "localAdaptations": 1
+    },
+    {
+      "kind": "native-wall-door-slab-dimension-helper",
+      "manifest": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/native-units.json",
+      "files": 1
+    },
+    {
+      "kind": "selected-artist-catalogue-houses-and-shared-materials",
+      "manifest": "assets/art/neighborhood-intake.json",
+      "files": 16,
+      "evidenceFiles": 9,
+      "derivedFiles": 1
     }
   ],
   "additionalSourceBaselines": [
@@ -70,6 +82,17 @@
       "reason": "User requested the shared bear reported through Nautilus; inspected Nautilus intake still marks it incoming, so use its genuine committed AFT origin",
       "intakeStatus": "Source pin approved; candidate browser acceptance and promotion pending",
       "milestone": "docs/milestones/03-shared-bear-protagonist.md"
+    },
+    {
+      "recordedOn": "2026-10-28",
+      "sourceName": "Tinderbox artist catalogue houses and siding correction",
+      "repository": "https://github.com/Syntaxswine/tinderbox.git",
+      "baselineCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "inspectionMode": "Selective immutable Git-object intake from the assigned artist branch",
+      "reason": "User reports completed artist assets are ready to use; assemble three original prefabs in a bounded exterior street",
+      "selectedPrefabs": ["hopkins-4-12", "hopkins-4-15", "ashland-worker"],
+      "intakeStatus": "Selected source/native units and combined offline implementation checks pass; browser acceptance and promotion pending",
+      "milestone": "docs/milestones/04-catalogue-neighborhood.md"
     }
   ],
   "rightsStatus": "The user requests reuse; per-file license/provenance review remains part of the import gate"

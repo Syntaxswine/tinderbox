@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-bear-protagonist` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
+| Architect | `codex/catalogue-neighborhood` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
 | Artist | `codex/art-assets` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Art sources/exports, visual reuse audit |
-| Coder | `codex/bear-protagonist-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Shared bear protagonist intake and adapter; prior `codex/coding` work preserved |
+| Coder | `codex/catalogue-neighborhood-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Catalogue street integration; prior bear and `codex/coding` branches preserved |
 | UI designer | `codex/ui-design` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Player controls, HUD, buttons, menus, layout, and interaction states |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -64,6 +64,10 @@ All four bounded deliveries passed the architect's combined gate. See the [expos
 ## Shared bear protagonist assignments
 
 The new bounded brief is [Milestone 03: shared bear protagonist](milestones/03-shared-bear-protagonist.md). TB-012 uses the existing coder for source intake and the native-model adapter; TB-013 is the architect's independent combined gate. The review branch is `codex/review-bear-protagonist`, based on `8a84056`. The coder's separate task branch is `codex/bear-protagonist-coder` in its existing checkout, preserving `codex/coding` and its unpromoted work. Candidate `de447b4` is checkpointed for combined review. [The architect's record](reviews/2026-10-28-shared-bear-protagonist.md) reports 67 passing offline tests and package/source checks; real browser acceptance and promotion remain pending because WebGL is disabled in the available browser. The artist's ongoing roof correction remains separate.
+
+## Catalogue neighborhood assignments
+
+The new [catalogue-neighborhood brief](milestones/04-catalogue-neighborhood.md) assigns TB-014 to the existing coder and TB-015 to the architect. It freezes the artist intake at `14d18d7` and the combined base at the shared-bear checkpoint `b2942f9`. Coder candidate `eb59547978393be73a1d513e71894f0536ece1ab` is copied as `b35086f` on the architect branch. Three original houses enter one small playable street; the artist's active window work and other runtime branches remain separate until deliberately reviewed. [The combined record](reviews/2026-10-28-catalogue-neighborhood.md) reports 81 passing tests, independent geometry/behavior checks and complete package verification; WebGL browser acceptance still blocks promotion.
 
 ## Promotion gate
 
