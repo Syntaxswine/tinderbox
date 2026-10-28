@@ -6,6 +6,8 @@ Tinderbox is an isometric 3D game about a pyromaniac anthropomorphic bear who do
 
 Read `docs/architecture.md`, `docs/workflow.md`, and `docs/source-baseline.json` before starting a task. Treat proposed mechanics as proposals until the user or architect accepts them.
 
+Tinderbox is a phone-first game. Reuse Farmyard Commando's live-game layout: a central movement joystick with three action buttons on each side, a mini-map in the upper right, and zoom controls on the left. The phone layout and UI-agent implementation handoff are in `docs/engineering/phone-layout.md`.
+
 ## Roles and worktrees
 
 - The architect owns the primary checkout, architecture, task boundaries, integration branch, final review, and promotion decisions.
