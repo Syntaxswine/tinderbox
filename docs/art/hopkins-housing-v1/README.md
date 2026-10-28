@@ -1,5 +1,7 @@
 # Hopkins small houses, first set
 
+Current finish review: [25-house siding audit](../housing-siding-review/README.md). Vertical gable/closure faces, dormer walls and tower drums match the house wall finish. Cedar/slate remain on the sloped roofs. Geometry, windows and native dimensions are unchanged.
+
 Twelve reusable artist prefabs from D. S. Hopkins's **Houses and cottages, Book No. 4 (1891)**: designs 9-20, with twelve complete exterior assemblies, 24 furnished interior levels and 112 labeled spaces. The source exterior and floor diagrams are paired for every asset. This is the first Hopkins set; the ordered [build queue](../../../art/source/hopkins-housing-v1/build-queue.json) records the remaining books and designs.
 
 [Exterior collection](previews/collection.jpg) · [first floors](previews/all-first-floors.jpg) · [second floors](previews/all-second-floors.jpg) · [source comparisons](previews/source-to-prefab.jpg) · [No. 15 roof revision](roof-15.md).

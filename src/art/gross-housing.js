@@ -205,6 +205,8 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true,ro
   if(!house.basementFloor)box(root,'New raised plinth',house.width,house.plinth,.0+house.depth,house.width/2,house.plinth/2-S.slab,house.depth/2,m.earth);
   const ornament=new T.Group();ornament.name='Exterior ornament';root.add(ornament);
   const top=house.plinth+(house.floors.length-1)*S.floorSpacing+S.wallHeight;
+  // Vertical roof enclosures continue the house siding or masonry. Roof covering
+  // belongs to the sloped envelope; changing its skin never repaints the walls.
   function roof(parent,cx,cz,w,d,y,h,form='gable'){
     const x0=cx-w/2,x1=cx+w/2,z0=cz-d/2,z1=cz+d/2,positions=[],uv=[];
     const tri=(a,b,c)=>{positions.push(...a,...b,...c);const av=new T.Vector3(...a),normal=new T.Vector3(...b).sub(av).cross(new T.Vector3(...c).sub(av)).normalize();if(normal.y<0)normal.negate();const u=new T.Vector3().crossVectors(normal,new T.Vector3(0,1,0)).normalize();if(u.x<-.001||Math.abs(u.x)<.001&&u.z<0)u.negate();const v=new T.Vector3().crossVectors(normal,u).normalize();for(const p of [a,b,c]){const q=new T.Vector3(...p);uv.push(q.dot(u),q.dot(v));}};
@@ -213,7 +215,7 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true,ro
       const inset=Math.min(w,d)/2,l=[cx,y+h,z0+inset],r=[cx,y+h,z1-inset];tri(a,b,l);tri(e,r,c);tri(a,l,r);tri(a,r,e);tri(b,c,r);tri(b,r,l);
     }else{
       const l=[cx,y+h,z0],r=[cx,y+h,z1];tri(a,l,r);tri(a,r,e);tri(b,c,r);tri(b,r,l);
-      const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute([...a,...b,...l,...e,...r,...c],3));g.computeVertexNormals();project(g);g.setAttribute('uv',g.attributes.grossUV.clone());const mesh=new T.Mesh(pool.geometry(g),m.shingle);mesh.name='New gable infill';parent.add(mesh);
+      const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute([...a,...b,...l,...e,...r,...c],3));g.computeVertexNormals();project(g);g.setAttribute('uv',g.attributes.grossUV.clone());const mesh=new T.Mesh(pool.geometry(g),m.exterior);mesh.name='New gable infill';parent.add(mesh);
       for(const z of [z0,z1]){line(parent,'Gable bargeboard',[x0,y,z],[cx,y+h,z],.1,m.trim);line(parent,'Gable bargeboard',[cx,y+h,z],[x1,y,z],.1,m.trim);}
     }
     const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('grossUV',g.attributes.uv.clone());g.computeVertexNormals();const mesh=new T.Mesh(pool.geometry(g),m.roof);mesh.name='New roof envelope';mesh.castShadow=mesh.receiveShadow=true;parent.add(mesh);
@@ -228,11 +230,11 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true,ro
   if(house.style.form==='cross'&&!house.style.turret){
     const cross=new T.Group();cross.position.set(house.width*.5,0,house.depth*.48);cross.rotation.y=Math.PI/2;roofs.add(cross);roof(cross,0,0,4.4,house.width+2.5,top+.09,1.45);
   }
-  if(house.style.dormer){roof(roofs,house.width/2,1,2.6,2,top+.6,1.25);box(roofs,'Dormer front',2.3,.9,.15,house.width/2,top+.85,.0,m.shingle);for(const x of [-.6,0,.6])box(roofs,'Dormer sash',.4,.4,.06,house.width/2+x,top+.95,-.09,m.glass);}
+  if(house.style.dormer){roof(roofs,house.width/2,1,2.6,2,top+.6,1.25);box(roofs,'Dormer front',2.3,.9,.15,house.width/2,top+.85,.0,m.exterior);for(const x of [-.6,0,.6])box(roofs,'Dormer sash',.4,.4,.06,house.width/2+x,top+.95,-.09,m.glass);}
   for(const x of (['ashland-worker','archer-worker','humboldt-cottage'].includes(house.id)?[house.width*.65]:[1,house.width-1]))box(roofs,'New brick chimney',.52,1.6,.62,x,top+roofHeight,house.depth*.7,m.stone);
   if(house.style.spire){
     const x=house.style.spire[0],z=house.id==='grossdale-spire'?-.1:house.style.spire[1];
-    box(roofs,'New spire drum',1.55,1.35,1.1,x,top+.64,z,m.shingle);
+    box(roofs,'New spire drum',1.55,1.35,1.1,x,top+.64,z,m.exterior);
     for(const side of [-1,1])box(roofs,'Spire corner board',.1,1.4,.12,x+side*.72,top+.65,z-.58,m.trim);
     box(roofs,'Spire frieze',1.7,.14,1.26,x,top+1.28,z,m.trim);box(roofs,'Spire sash',.62,.7,.06,x,top+.65,z-.59,m.glass);
     cylinder(roofs,'Square spire roof',0,1.1,2.2,x,top+2.45,z,m.roof,4).rotation.y=Math.PI/4;cylinder(roofs,'Spire finial',.025,.045,.65,x,top+3.85,z,m.iron);

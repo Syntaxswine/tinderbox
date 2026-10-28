@@ -1,5 +1,7 @@
 # Artist handoff: Hopkins small houses, first set
 
+Current material correction follows candidate `ec77f460e539d2bf114c806ed520c0a7945edabc`: [shared siding review](../housing-siding-review/README.md). New saved exterior renders and current checks are recorded there; earlier GPU evidence below belongs to the earlier material revision. This correction preserves all mesh attributes, transforms, UVs, openings and roof covering.
+
 Branch: `codex/art-assets`. The No. 15 roof revision follows Hopkins candidate `e49465128970ea02d2a3a1b9040548d4d136cda3`. Final delivery reports the exact candidate commit. This candidate is not promoted or deployed to master.
 
 ## No. 15 roof correction

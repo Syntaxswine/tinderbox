@@ -3,8 +3,11 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import * as T from '../../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.module.js';
 import {createHopkinsHouse} from '../../../src/art/hopkins-housing.js';
-const root=path.resolve(fileURLToPath(new URL('../../../',import.meta.url))),out=path.join(root,'artifacts/hopkins-renders/scenes');fs.mkdirSync(out,{recursive:true});
-const catalogue=JSON.parse(fs.readFileSync(path.join(root,'assets/art/hopkins-housing-v1/houses.json'),'utf8'));
+import {createGrossHouse} from '../../../src/art/gross-housing.js';
+const collection=process.argv.includes('--collection')?process.argv[process.argv.indexOf('--collection')+1]:'hopkins';
+if(!['hopkins','gross'].includes(collection))throw Error('Unknown housing collection');
+const root=path.resolve(fileURLToPath(new URL('../../../',import.meta.url))),out=path.join(root,'artifacts/'+collection+'-renders/scenes');fs.mkdirSync(out,{recursive:true});
+const catalogue=JSON.parse(fs.readFileSync(path.join(root,'assets/art/'+collection+'-housing-v1/houses.json'),'utf8'));
 const texturePaths={clapboard:'gross-housing-v1/clapboard-ivory-v1.png',cedar:'gross-housing-v1/cedar-shingles-v1.png',oak:'gross-housing-v1/floorboards-oak-v1.png',paper:'gross-housing-v1/wallpaper-botanical-v1.png',brick:'exposition-skins-v1/brick-sienna-v1.png',slate:'exposition-skins-v1/roof-slate-v1.png'};
 const textures=Object.fromEntries(Object.entries(texturePaths).map(([id,file])=>{const t=new T.Texture();t.userData.file='assets/art/'+file;t.repeat.setScalar(['brick','slate'].includes(id)?.5:1);return[id,t];}));
 function clip(poly,y){const result=[];for(let j=0;j<poly.length;j++){const a=poly[j],b=poly[(j+1)%poly.length],insideA=a[1]<=y,insideB=b[1]<=y;if(insideA)result.push(a);if(insideA!==insideB){const t=(y-a[1])/(b[1]-a[1]);result.push(a.map((v,k)=>v+(b[k]-v)*t));}}return result;}
@@ -30,5 +33,5 @@ function exportView(model,view,level){
  const data={id,house:model.house.id,label:model.house.label,view,level,source:model.house.source.url,bounds:{min,max},groundY:view==='cutaway'?model.house.plinth+level*2.12-.14:-.14,materials:files};fs.writeFileSync(path.join(directory,'scene.json'),JSON.stringify(data,null,2)+'\n');return data;
 }
 const selected=process.argv.includes('--id')?process.argv[process.argv.indexOf('--id')+1]:null,scenes=[];
-for(const h of catalogue.houses.filter(h=>!selected||h.id===selected)){const model=createHopkinsHouse(T,{catalogue,textures},h.id);scenes.push(exportView(model,'exterior',0));for(let level=0;level<h.floors.length;level++)scenes.push(exportView(model,'cutaway',level));model.dispose();}
+for(const h of catalogue.houses.filter(h=>!selected||h.id===selected)){const create=collection==='hopkins'?createHopkinsHouse:createGrossHouse,model=create(T,{catalogue,textures},h.id);scenes.push(exportView(model,'exterior',0));if(!process.argv.includes('--only-exterior'))for(const level of model.levels)scenes.push(exportView(model,'cutaway',level.index));model.dispose();}
 fs.writeFileSync(path.join(out,'index.json'),JSON.stringify(scenes.map(({materials,...s})=>s),null,2)+'\n');console.log('Exported '+scenes.length+' actual geometry scenes, including the renderer cut planes.');

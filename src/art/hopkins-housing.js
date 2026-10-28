@@ -41,7 +41,7 @@ function exterior(T,{house:h,roof,box,line,cylinder,project,pool,roofs,ornament,
    infills.push(a[0],y,a[1],c[0],y,c[1],c[0],cy,c[1],a[0],y,a[1],c[0],cy,c[1],a[0],ay,a[1]);
    line(roofs,'Roof edge bargeboard',[a[0],ay+.015,a[1]],[c[0],cy+.015,c[1]],.1,m.trim);
   }
-  mesh(infills,m.shingle,'New Hopkins roof closure / level '+level);
+  mesh(infills,m.exterior,'New Hopkins roof closure / level '+level);
  }
  function gambrelAssembly(){
   const gableMaterial=h.roofAssembly.gableMaterial==='clapboard'?m.exterior:m.shingle;

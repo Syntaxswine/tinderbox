@@ -348,8 +348,8 @@
   ],
   "assembly": {
     "path": "src/art/gross-housing.js",
-    "bytes": 27423,
-    "sha256": "7fabff7dde2731d529dd60c3c25457351cc43d61340c1b564c3f46bd4dbc539d"
+    "bytes": 27589,
+    "sha256": "1de78796776499718866895c893782a6824df1196722e31989f825b5deb344e2"
   },
   "nautilusContract": {
     "repository": "https://github.com/Syntaxswine/nautilus-engine",
@@ -384,5 +384,12 @@
     "nativeScale": true,
     "disposal": true
   },
-  "generationRecord": "art/source/gross-housing-v1/generation.json"
+  "generationRecord": "art/source/gross-housing-v1/generation.json",
+  "sidingReview": {
+    "source": "art/source/housing-siding-review/material-direction.json",
+    "report": "docs/art/housing-siding-review/geometry-review.json",
+    "baselineCommit": "ec77f460e539d2bf114c806ed520c0a7945edabc",
+    "geometryAndOpenings": "unchanged",
+    "roofCovering": "unchanged"
+  }
 }

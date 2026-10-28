@@ -1,5 +1,7 @@
 # Artist handoff: Gross catalogue housing
 
+Current material correction follows candidate `ec77f460e539d2bf114c806ed520c0a7945edabc`: [shared siding review](../housing-siding-review/README.md). New saved exterior renders and current checks are recorded there; earlier GPU evidence below belongs to the earlier material revision. This correction preserves all mesh attributes, transforms, UVs, openings and roof covering.
+
 Candidate branch: `codex/art-assets`, based on `2fd15661f1334832d5cf873fcc0c6829b5ff53e7`. The final Git commit is reported with delivery. This artist candidate does not promote or deploy the integration branch.
 
 ## Delivered

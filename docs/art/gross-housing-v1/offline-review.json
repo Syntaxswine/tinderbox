@@ -1,0 +1,145 @@
+{
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "drjit": "1.5.0",
+  "width": 800,
+  "height": 600,
+  "samplesPerPixel": 48,
+  "images": [
+    {
+      "id": "grossdale-spire-exterior-0",
+      "file": "artifacts/gross-renders/images/grossdale-spire-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 3.213,
+      "triangles": 14875
+    },
+    {
+      "id": "grossdale-hip-exterior-0",
+      "file": "artifacts/gross-renders/images/grossdale-hip-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.637,
+      "triangles": 13520
+    },
+    {
+      "id": "grossdale-octagon-exterior-0",
+      "file": "artifacts/gross-renders/images/grossdale-octagon-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.542,
+      "triangles": 16748
+    },
+    {
+      "id": "grossdale-cross-gable-exterior-0",
+      "file": "artifacts/gross-renders/images/grossdale-cross-gable-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.678,
+      "triangles": 13183
+    },
+    {
+      "id": "grossdale-balcony-exterior-0",
+      "file": "artifacts/gross-renders/images/grossdale-balcony-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.696,
+      "triangles": 15809
+    },
+    {
+      "id": "dauphin-park-exterior-0",
+      "file": "artifacts/gross-renders/images/dauphin-park-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.846,
+      "triangles": 14315
+    },
+    {
+      "id": "calumet-heights-exterior-0",
+      "file": "artifacts/gross-renders/images/calumet-heights-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.589,
+      "triangles": 15575
+    },
+    {
+      "id": "brookdale-villa-exterior-0",
+      "file": "artifacts/gross-renders/images/brookdale-villa-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.622,
+      "triangles": 21266
+    },
+    {
+      "id": "humboldt-cottage-exterior-0",
+      "file": "artifacts/gross-renders/images/humboldt-cottage-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.701,
+      "triangles": 14646
+    },
+    {
+      "id": "albany-cottage-exterior-0",
+      "file": "artifacts/gross-renders/images/albany-cottage-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.493,
+      "triangles": 12670
+    },
+    {
+      "id": "ashland-worker-exterior-0",
+      "file": "artifacts/gross-renders/images/ashland-worker-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.652,
+      "triangles": 10118
+    },
+    {
+      "id": "archer-worker-exterior-0",
+      "file": "artifacts/gross-renders/images/archer-worker-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.538,
+      "triangles": 9306
+    },
+    {
+      "id": "monroe-row-exterior-0",
+      "file": "artifacts/gross-renders/images/monroe-row-exterior-0.png",
+      "width": 800,
+      "height": 600,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 2.937,
+      "triangles": 15366
+    }
+  ],
+  "limits": "Actual Three mesh/UV/material export in Mitsuba scalar_rgb. Diffuse path tracing substitutes for live WebGL shaders. Prior browser review records concern the earlier material revision; current GPU review remains unavailable.",
+  "passed": true,
+  "imageCount": 13,
+  "visualReview": "Inspected all thirteen exteriors after matching vertical gables, dormer fronts and spire drums to their wall finishes. Roof covering, geometry and openings remain unchanged.",
+  "reviewedAt": "2026-10-28T16:31:07.261663+00:00",
+  "sidingReview": "docs/art/housing-siding-review/geometry-review.json"
+}

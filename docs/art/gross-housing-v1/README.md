@@ -1,5 +1,7 @@
 # Gross catalogue housing collection v1
 
+Current finish review: [25-house siding audit](../housing-siding-review/README.md). Vertical gable/closure faces, dormer walls and tower drums match the house wall finish. Cedar/slate remain on the sloped roofs. Geometry, windows and native dimensions are unchanged.
+
 Thirteen reusable artist prefabs based on the exterior illustrations and floor plans in S. E. Gross’s 1891 Chicago catalogue. The collection contains 22 main floor plans and seven basement plans, with 147 labeled spaces including halls, pantries and service rooms. Every house has a complete exterior assembly and selectable furnished interior cutaways.
 
 These are new modular interpretations of the advertised houses. Their room sequence and major bays are drawn from the same source plate as the exterior. They are not measured historical reconstructions. Original sales plans and illustrations sometimes disagree; the adaptation follows the illustrated entrance side and records mirroring where necessary. Colors, furniture, unseen rear elevations, simplified closets and ornament details are interpretations. Source scans remain separate from runtime materials.
@@ -45,7 +47,7 @@ Four new opaque PNG textures were generated with the built-in ImageGen tool and 
 | Material | Physical repeat | Use |
 | --- | --- | --- |
 | Ivory clapboard | 1 × 1 m | Tinted painted siding |
-| Cedar shingles | 1 × 1 m | Gable fields and selected roofs |
+| Cedar shingles | 1 × 1 m | Selected sloped roofs; vertical gables now match the wall finish |
 | Oak floorboards | 1 × 1 m | Interior floors and porch decks |
 | Botanical wallpaper | 1 × 1 m | Domestic interior wall faces |
 | Existing sienna brick | 2 × 2 m | Brick houses, chimneys and basement work |
