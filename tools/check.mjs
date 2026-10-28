@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+import {pathToFileURL} from 'node:url';
 const root = process.cwd();
 function files(directory) { return fs.existsSync(directory) ? fs.readdirSync(directory, {withFileTypes: true}).flatMap(e => e.isDirectory() ? files(path.join(directory, e.name)) : [path.join(directory, e.name)]) : []; }
 const own = [...files('src'), ...files('workbenches'), ...files('tools'), ...files('tests')].filter(p => /\.(?:m?js)$/.test(p));
@@ -33,8 +34,13 @@ for (const name of ['engine', 'code', 'art', 'ui', 'city']) {
     if (bytes.length !== record.bytes || createHash('sha256').update(bytes).digest('hex') !== record.sha256) throw Error('Changed vendor bytes: ' + record.installedPath);
   }
 }
-const three = [...visited].filter(p => /three\.(?:module|core)\.js$/.test(p));
-if (three.length !== 2 || three.some(p => !p.includes(path.normalize(vendor + '/sites/tactical-animal/dist/aft/tactics/vendor/')))) throw Error('Expected exactly one shared Three pair');
+const bearManifest=JSON.parse(fs.readFileSync('vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json','utf8'));
+for(const file of [...bearManifest.files,...bearManifest.adaptations]){const bytes=fs.readFileSync(file.installedPath);if(bytes.length!==file.bytes||createHash('sha256').update(bytes).digest('hex')!==file.sha256)throw Error('Changed bear intake bytes: '+file.installedPath);}
+const facade=path.resolve(bearManifest.adaptations.find(a=>a.kind==='three-facade').installedPath);
+const three = [...visited].filter(p => /three\.(?:module|core)\.js$/.test(p)&&p!==facade);
+if (three.length !== 2 || three.some(p => !p.includes(path.normalize(vendor + '/sites/tactical-animal/dist/aft/tactics/vendor/')))) throw Error('Expected exactly one shared Three implementation pair');
+const [alias,shared]=await Promise.all([import(pathToFileURL(facade)),import(pathToFileURL(path.resolve('src/runtime/three.js')))]);
+if(Object.keys(shared).some(key=>shared[key]!==alias[key]))throw Error('Bear facade must re-export the same shared Three objects');
 const sample = JSON.parse(fs.readFileSync('workbenches/simulation/example-snapshot.json', 'utf8'));
 if (sample.version !== 1 || !sample.player?.inventory || !sample.cells.length || !sample.world.tiles.length) throw Error('Incomplete example snapshot');
 console.log(`${own.length} own scripts pass syntax; ${visited.size} static modules resolve; one shared Three pair and provenance pass.`);

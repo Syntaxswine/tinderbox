@@ -1,0 +1,14 @@
+// A short-lived HTTP protocol check, not a WebGL or visual acceptance test.
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+const root=path.resolve('dist'),base='/nested/tinderbox/',manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json'))),startedAt=new Date().toISOString();
+const server=http.createServer((request,response)=>{try{const url=new URL(request.url,'http://localhost');if(!url.pathname.startsWith(base))throw Error();const file=path.resolve(root,url.pathname.slice(base.length));if(!file.startsWith(root+path.sep)||!fs.statSync(file).isFile())throw Error();const extension=path.extname(file);response.writeHead(200,{'Content-Type':extension==='.js'?'text/javascript':extension==='.png'?'image/png':extension==='.json'?'application/json':'text/html'});response.end(fs.readFileSync(file));}catch{response.writeHead(404);response.end();}});
+const expiry=setTimeout(()=>{server.closeAllConnections();server.close();process.exitCode=1;},30000);let port,record;
+try{await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});port=server.address().port;const origin='http://127.0.0.1:'+port+base;
+  const paths=['index.html','src/main.js','src/art/index.js','src/reuse/bear.js','src/reuse/bear-tools.js','src/runtime/three.js',...manifest.files.map(f=>f.installedPath),...manifest.adaptations.map(f=>f.installedPath)];
+  for(const item of paths){const response=await fetch(new URL(item,origin));if(!response.ok)throw Error('Packaged resource HTTP '+response.status+': '+item);const bytes=Buffer.from(await response.arrayBuffer()),expected=manifest.files.find(f=>f.installedPath===item)||manifest.adaptations.find(f=>f.installedPath===item);if(expected&&(bytes.length!==expected.bytes||createHash('sha256').update(bytes).digest('hex')!==expected.sha256))throw Error('Packaged bear bytes changed: '+item);}
+  const facade=manifest.adaptations[0],text=await(await fetch(new URL(facade.installedPath,origin))).text(),target=text.match(/from\s+["']([^"']+)["']/)?.[1],url=new URL(target,new URL(facade.installedPath,origin));if(url.pathname!==base+'src/runtime/three.js')throw Error('Facade escapes nested game path');
+  record={task:'TB-012',purpose:'One-shot nested-path package protocol smoke; no WebGL',pid:process.pid,executable:process.execPath,startedAt,port,resources:paths.length,sourceCommit:manifest.sourceCommit,passed:true};
+}finally{clearTimeout(expiry);server.closeAllConnections();if(server.listening)await new Promise(resolve=>server.close(resolve));if(record){record.stoppedAt=new Date().toISOString();record.serverClosed=!server.listening;fs.mkdirSync('artifacts/TB-012',{recursive:true});fs.writeFileSync('artifacts/TB-012/package-smoke.json',JSON.stringify(record,null,2)+'\n');console.log(JSON.stringify(record));}}
