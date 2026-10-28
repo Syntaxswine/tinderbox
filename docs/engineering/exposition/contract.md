@@ -1,39 +1,52 @@
-# TB-008 shared exterior/civilian contract
+# Shared exterior/civilian contract
 
-Candidate based on master `420266af6b92a4925164cdceda4ef43beb2d6a40`. Coder owns content/compiler/scenario, raw donor extraction, `src/reuse/civilians.js`, simulation/runtime hooks, tests and `provenance/city.json`. Artist owns production art adapters, geometry and skin-slot materials. Architect owns promotion, milestone 02, central provenance index and production default selection. This contract is additive to snapshot v1.
+The user's cross-game asset compatibility requirement supersedes the former Tinderbox-specific 3.2m story height and 1.4 x2.3m door enlargement. All new skins and architectural assets use the Animal Factory Tactics 3D / Farmyard Commando scale. Original asset templates retain their dimensions; larger buildings compose native units. Coder owns the content/compiler, raw extraction, adapters and behavior tests. Artist owns skins, production art and previews. Architect owns integration/promotion. See [native scale evidence and handoff](native-scale.md).
 
-Wall construction now directly calls the unchanged pinned `hybrid-geometry.js::roomBoxes` through `src/reuse/walls.js`; the separate duplicated wall/opening construction formulas were removed. The adapter only maps returned volumes into requested dimensions/placements. The public schema and part IDs below are preserved. See [direct-reuse correction](reuse-correction.md).
+## Shared native scale
+
+`src/content/asset-scale.js::ASSET_SCALE` derives dimensions from the unchanged pinned `hybrid-geometry.js::roomBoxes` templates. `hybrid-world.js::DIMENSIONS` is the independent source reference for the same floor spacing.
+
+| Setting | Native world units (1 unit = 1 metre) |
+| --- | --- |
+| Ground tile / repeated wall width | 1 |
+| Wall face height | 2 |
+| Wall thickness | 0.16 |
+| Slab / floor interval | 0.12 |
+| Floor origins | 2.12 apart |
+| Door opening / leaf | 1 wide x1.65 high |
+| Door leaf thickness | 0.12 |
+
+Preserve mesh/rig/UV layout, pivots, attachment conventions and physical texture density when exporting skins. Layout can move, repeat and quarter-turn assets; it cannot stretch an existing asset. New ornaments/roof forms are separate assets measured in this same metre scale. Do not enlarge original doors or shrink actors to force a fit. The provisional bear remains 0.56m radius and about 2.02m high, so it cannot pass the original single doorway. Native horse/goat bounds also remain unchanged. A larger entrance or character-fit solution needs its own compatible asset/behavior review.
 
 ## Module data
 
-Entry: `src/content/exterior-kit.js`. Exports `compileModules(input,world)`, `KIT_VERSION`, `MODULE_FORMS`, `DEFAULT_STORY_HEIGHT`, `WALL_STORY_OPTIONS`, `OPENING_CLEARANCE`, `SKIN_IDS`, `SKIN_SLOTS`, `CIVILIAN_PROFILES` and `validateCivilian(actor)`. Fixture: `src/content/exposition.js::EXPOSITION_SCENARIO`, selectable via `createSimulation({scenario:'exposition'})`. Existing street/chase/chain/tiny remain.
+Entry `src/content/exterior-kit.js` exports `compileModules(input,world)`, `KIT_VERSION`, `MODULE_FORMS`, `ASSET_SCALE`, `DEFAULT_STORY_HEIGHT`, `WALL_STORY_OPTIONS`, `OPENING_CLEARANCE`, `SKIN_IDS`, `SKIN_SLOTS`, `CIVILIAN_PROFILES`, and `validateCivilian`. Existing source scenarios remain; `exposition` uses native-sized architecture.
 
-`world.modules` is always an array. Module ground-centre `(x,y)` and all dimensions use metres; Three positions are `(x,h,y)`. `heading` is radians from +X toward +Y, restricted to multiples of pi/2 and normalized to 0,pi/2,pi,3pi/2. Positive heading rotates local +X toward ground +Y; art wrapper rotation is Three Y = -heading. Width is local X, depth local Y, height vertical. Do not globally scale characters to match architecture.
+Coordinates and dimensions are metres, module centre `(x,y)` is on the ground plane, and Three positions are `(x,h,y)`. Heading is radians from +X toward +Y and is restricted to quarter turns. Resolved parts are already placed/rotated in world coordinates; do not rotate them again. Roof meshes use the source module's local footprint and heading.
 
 ```js
 {
- id:'court-gate', form:'doorway', x:10,y:9,heading:0,
- width:4,depth:0.3,height:3.2, physicalMaterial:'wood',
- opening:{width:1.4,height:2.3,state:'open'}, // open | closed, static this slice
+ id:'native-gate', form:'doorway', x:10,y:9,heading:0,
+ width:3,depth:0.16,stories:1,physicalMaterial:'wood',
+ opening:{width:1,height:1.65,state:'open'},
  skinSlots:{facade:'inherited-plaster',trim:'inherited-cream',
             door:'inherited-wood',roof:'inherited-roof'},
- sourceRefs:['farmyard:hybrid-wall-opening','game:exposition-courtyard-study'],
- version:1, parts:[/* authoritative resolved parts below */],
- colliderIds:['court-gate:pier-left','court-gate:pier-right'], destroyed:false
+ sourceRefs:['farmyard:hybrid-wall-opening','game:frontage-fragment']
+ // Resolved: height:2, storyHeight:2, floorSpacing:2.12, parts, colliderIds
 }
 ```
 
-Forms: `wall`, `doorway`, `pilaster`, `corner`, `roof-gable`, `roof-hip`. Corner adds `thickness`; roof adds `baseHeight` (>=2.3) and nonempty `supportModuleIds` naming existing solid modules. Roof height is its rise above baseHeight. Gable ridge runs along local X; hip uses the same bounding envelope with slopes on all four sides. Roofs are decorative overhead descriptors; this slice adds no roof walking, climbing, vertical fire or collapse simulation. Gable/hip are game primitives referencing EXPO-P02 plates53/97; their presence is not a claim about any specific 1893 building.
+`wall`, `doorway`, `pilaster` and `corner` assemble one-metre wall units. Width must be whole metres. Wall/door/pilaster depth is exactly 0.16m; corners use whole-metre legs and 0.16m thickness. A doorway has the unchanged 1 x1.65m opening and equal whole-unit piers (total width 3,5,7,... metres). An open frame has no leaf; a closed frame adds the original 1 x1.65 x0.12m leaf. The 1 x0.35 x0.16m lintel is unchanged and stays overhead.
 
-Walls, doorways, pilasters and corners may opt into **one through five stories** with `stories:1|2|3|4|5`. `WALL_STORY_OPTIONS` exports the five frozen presets: 3.2, 6.4, 9.6, 12.8 and 16.0 metres, based on the existing 3.2 m game frontage. These are game dimensions, not historical measurements. Omit `height` to derive it from `stories * storyHeight`; `storyHeight` defaults to `DEFAULT_STORY_HEIGHT=3.2` and can be a positive researched/adapted dimension. When an explicit `height` is also supplied it must agree with that product. Counted modules retain `stories` and resolved `storyHeight` in snapshots so art can arrange floor bands, window rhythms and a top cornice without stretching one-story ornament. Story metadata is for vertical wall forms; roof height remains its rise and roof `baseHeight` should follow its supporting facade height. Existing arbitrary-height modules without story metadata retain their original geometry and snapshot shape.
+Use `stories:1..5` with height omitted, or spread an entry from frozen `WALL_STORY_OPTIONS`. `DEFAULT_STORY_HEIGHT=2` is the native wall-face height. Floor origins are at `level * ASSET_SCALE.floorSpacing`, so facade top is `2 + (stories-1)*2.12`: **2, 4.12, 6.24, 8.36, 10.48m**. Snapshots retain `stories`, `storyHeight:2`, and `floorSpacing:2.12`. `storyHeight` and `floorSpacing` are fixed compatibility values. A supplied explicit height must match one of the five native assemblies. The previous arbitrary wall resizing and custom story-height override are rejected.
 
-Every option uses the same unchanged donor builder and the same number/IDs of wall parts. The opening stays ground-level at its supplied clearance: increasing the facade does not stretch the door leaf or scale any character. Upper-story facade details consume the height/metadata as appearance; this count adds no navigable floors or vertical fire model. Ground footprints and physical material remain authoritative, and skin changes remain cosmetic. See [story-option verification](wall-stories.md).
+Every upper wall remains a native 1 x2 x0.16m template. A new `tinderbox:facade-slab-band-1m` trim piece fills each 0.12m interval at the facade edge; it uses the native one-metre span and wall thickness and does not stretch a donor slab. Upper facade panels/bands are presentation in this ground-plane simulation. They add no ground blockers, upper-floor navigation, vertical fire or collapse physics.
 
-A resolved `parts[]` entry is `{id,moduleId,role,x,y,h,width,depth,height,material,skinSlot,solid,blocksHeat,destroyed}`. Its coordinates and extents are already rotated to world axes; use them directly for rectangular wall/piers/lintel/closed leaf/pilaster/corner pieces. Do not rotate those resolved parts a second time. Roof envelopes are guides for the artist's roof mesh; use source module local dimensions/heading for slopes. Non-solid `roof-envelope` is never a filled gameplay obstruction.
+Roof forms `roof-gable` / `roof-hip` remain new primitive assets in native metre units. `height` is the rise and `baseHeight` is the supporting facade top, at least 2m. Require nonempty `supportModuleIds` naming existing solid modules. Gable ridge is local X; hip slopes on four sides. Their reference is EXPO-P02 plates53/97, with retained game adaptations documented by art.
 
-Doorway piers are true separate solids. Lintel bottom is exactly opening.height, and the overhead lintel is non-solid/non-blocking in the existing planar model. A closed door adds `closed-door`, thickness <=0.12 m, with solid/heat-blocking collision; art must visibly render it CLOSED. An open gate has no leaf collision/heat barrier. Minimum **1.40 m clear width / 2.30 m clear height** is an architect-approved game adaptation, not a donor/historical measurement. Roofs/ornament must not reduce it. Skin IDs can be swapped from `SKIN_IDS` without changing physical material or collision. Current placeholders use inherited materials; they are not finished custom skins. Rendering skin must never select burn rules.
+Resolved parts are `{id,moduleId,role,x,y,h,width,depth,height,material,skinSlot,solid,blocksHeat,destroyed}`, with wall-part `sourceAssetId` and optional `supportPartIds`. Ground part roles preserve the first `wall`/`pier-left`/`pier-right`/`lintel`/`closed-door`/`leg-x`/`leg-y` names. Repeated ground tiles append `-1`, `-2`, etc.; upper walls use `story-<level>:<role>` and interval bands use `floor-<level>:<role>`. Part IDs cannot alias any other module's parts.
 
-Compiler emits module parts and matching ground AABB obstacles once while defining the scenario. Snapshot modules include destruction flags derived from the same intact obstacle IDs. Render only intact solid parts; honor each overhead part's own destruction flag as well as module destruction. Each roof hides when any required support module loses a solid collider. Each lintel hides when either pier is gone. These conservative visibility rules remove unsupported art without applying collapse damage or creating physical debris; every resolved part exposes `destroyed` and must be checked by art. Art must not create new collision from meshes, or mutate descriptors to open a door. No door-interaction command was added. Stable `sourceRefs` distinguish original source recipes from adapted game placements; frontage cites EXPO-P01 scan31 / EXPO-P02 plate43; roof examples cite EXPO-P02 plates53/97. Exact dimensions/positions remain game adaptations, with the source dossier owned by architect/artist.
+Art consumes resolved dimensions and flags. Ground solid parts emit matching obstacles. A cosmetic part's `supportPartIds` makes it hide if a required ground support is gone; each roof hides if a required support module loses a collider. Do not infer replacement collision or change a door state in art. Skin slots `facade/trim/door/roof` are appearance only; physical `wood/masonry/steel`, thermal rules, clocks and collision are separate. `sourceRefs` retain the original builder, original plan/photo evidence and game-layout adaptations.
 
 ## Civilian loading
 

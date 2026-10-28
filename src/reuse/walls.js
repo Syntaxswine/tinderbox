@@ -1,36 +1,51 @@
 import {roomBoxes} from '../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js';
-// Reuse the donor builder itself. This adapter only places/resizes returned boxes;
-// it does not define a second wall, jamb, lintel or closed-leaf construction recipe.
-const fit = (value, fromMin, fromMax, toMin, toMax) => toMin + (value - fromMin) / (fromMax - fromMin) * (toMax - toMin);
-function resize(box, center, size, role, solid = true, skinSlot = 'facade') {
-  const scale = box.size.map((n, i) => size[i] / n);
-  const min = box.min.map((n, i) => center[i] + (n - box.center[i]) * scale[i]);
-  const max = box.max.map((n, i) => center[i] + (n - box.center[i]) * scale[i]);
-  return {role, x: (min[0] + max[0]) / 2, y: (min[2] + max[2]) / 2, h: (min[1] + max[1]) / 2,
-    width: max[0] - min[0], depth: max[2] - min[2], height: max[1] - min[1], solid, skinSlot};
-}
+import {ASSET_SCALE as S} from '../content/asset-scale.js';
+// Place unchanged native templates. Taller/wider facades repeat those templates;
+// no source wall, lintel, door leaf or character is resized to fit a building.
 export function reusedWallParts(module) {
   const native = roomBoxes({doorClosed: module.opening?.state === 'closed'});
   const get = name => { const box = native.find(b => b.name === name); if (!box) throw Error('Pinned wall builder missing ' + name); return box; };
-  const wall = get('Center wall');
-  if (module.form === 'wall' || module.form === 'pilaster') return [resize(wall, [0, module.height / 2, 0], [module.width, module.height, module.depth], module.form)];
-  if (module.form === 'corner') {
-    const t = module.thickness;
-    return [resize(get('Rear wall'), [0, module.height / 2, -(module.depth - t) / 2], [module.width, module.height, t], 'leg-x'),
-      resize(get('Left wall'), [-(module.width - t) / 2, module.height / 2, t / 2], [t, module.height, module.depth - t], 'leg-y')];
+  const parts = [], wall = get('Left pier');
+  const copy = (box, role, x, y, base = 0, solid = true, skinSlot = 'facade', turn = false) => {
+    const [width, height, depth] = box.size;
+    const p = {role, x, y, h: base + box.center[1], width: turn ? depth : width,
+      depth: turn ? width : depth, height, solid, skinSlot,
+      sourceAssetId: 'aft:' + (box === wall ? 'wall-1m' : box.name === 'Door lintel' ? 'door-lintel-1m' : 'door-leaf-1m')};
+    parts.push(p); return p;
+  };
+  const row = (role, count, startX, y, turn = false) => {
+    for (let i = 0; i < count; i++) copy(wall, role + (i ? '-' + i : ''), turn ? startX : startX + i * S.tile,
+      turn ? y + i * S.tile : y, 0, true, module.form === 'pilaster' ? 'trim' : 'facade', turn);
+  };
+  if (module.form === 'wall' || module.form === 'pilaster') row(module.form, module.width / S.tile, -module.width / 2 + S.tile / 2, 0);
+  else if (module.form === 'corner') {
+    row('leg-x', module.width / S.tile, -module.width / 2 + S.tile / 2, -(module.depth - S.wallThickness) / 2);
+    row('leg-y', module.depth / S.tile, -(module.width - S.wallThickness) / 2, -module.depth / 2 + S.tile / 2, true);
+  } else if (module.form === 'doorway') {
+    const count = (module.width - S.doorWidth) / (2 * S.tile);
+    row('pier-left', count, -module.width / 2 + S.tile / 2, 0);
+    row('pier-right', count, S.doorWidth / 2 + S.tile / 2, 0);
+    copy(get('Door lintel'), 'lintel', 0, 0, 0, false, 'trim');
+    if (module.opening.state === 'closed') copy(get('Closed door'), 'closed-door', 0, 0, 0, true, 'door');
+  } else throw Error('Unsupported reused wall form');
+  const structural = parts.filter(p => p.solid && p.role !== 'closed-door').map(p => p.role);
+  const ground = parts.filter(p => p.role !== 'lintel' && p.role !== 'closed-door');
+  for (const p of parts) if (p.role === 'lintel') p.supportRoles = structural;
+  for (let level = 1; level < module.stories; level++) {
+    const base = level * S.floorSpacing;
+    // New compatible trim fills only the native .12m slab interval; native wall
+    // meshes stay 1 x 2 x .16, with their floor origins exactly 2.12m apart.
+    for (const p of ground) {
+      parts.push({...p, role: 'story-' + level + ':' + p.role, h: base + S.wallHeight / 2, solid: false, supportRoles: structural});
+      parts.push({...p, role: 'floor-' + level + ':' + p.role, h: base - S.slab / 2, height: S.slab,
+        solid: false, skinSlot: 'trim', sourceAssetId: 'tinderbox:facade-slab-band-1m', supportRoles: structural});
+    }
+    if (module.form === 'doorway') {
+      copy(wall, 'story-' + level + ':above-door', 0, 0, base, false).supportRoles = structural;
+      parts.push({role: 'floor-' + level + ':above-door', x: 0, y: 0, h: base - S.slab / 2,
+        width: S.tile, depth: S.wallThickness, height: S.slab, solid: false, skinSlot: 'trim',
+        sourceAssetId: 'tinderbox:facade-slab-band-1m', supportRoles: structural});
+    }
   }
-  if (module.form !== 'doorway') throw Error('Unsupported reused wall form');
-  const left = get('Left pier'), lintel = get('Door lintel'), right = wall, opening = module.opening;
-  // Fit the original left/opening/right spans and lower/lintel heights separately.
-  // This changes architectural dimensions without scaling characters or rebuilding gaps.
-  const cuts = [left.min[0], lintel.min[0], lintel.max[0], right.max[0]];
-  const targets = [-module.width / 2, -opening.width / 2, opening.width / 2, module.width / 2];
-  const x = value => { const i = value <= cuts[1] ? 0 : value <= cuts[2] ? 1 : 2; return fit(value, cuts[i], cuts[i + 1], targets[i], targets[i + 1]); };
-  const h = value => value <= lintel.min[1] ? fit(value, left.min[1], lintel.min[1], 0, opening.height) : fit(value, lintel.min[1], left.max[1], opening.height, module.height);
-  const roles = new Map([['Left pier', ['pier-left', true, 'facade']], ['Center wall', ['pier-right', true, 'facade']], ['Door lintel', ['lintel', false, 'trim']], ['Closed door', ['closed-door', true, 'door']]]);
-  return native.filter(b => roles.has(b.name)).map(box => {
-    const [role, solid, slot] = roles.get(box.name), min = [x(box.min[0]), h(box.min[1])], max = [x(box.max[0]), h(box.max[1])];
-    return resize(box, [(min[0] + max[0]) / 2, (min[1] + max[1]) / 2, 0],
-      [max[0] - min[0], max[1] - min[1], role === 'closed-door' ? Math.min(module.depth, box.size[2]) : module.depth], role, solid, slot);
-  }).sort((a, b) => ['pier-left', 'pier-right', 'lintel', 'closed-door'].indexOf(a.role) - ['pier-left', 'pier-right', 'lintel', 'closed-door'].indexOf(b.role));
+  return parts;
 }
