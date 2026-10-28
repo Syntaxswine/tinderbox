@@ -38,7 +38,9 @@ The Pages workflow checks and packages code changes on `master`. Its deployment 
 
 ## Current milestone
 
-The current candidate is `docs/milestones/04-catalogue-neighborhood.md`: three selected original artist houses in one playable exterior street. It builds on the shared-bear checkpoint and freezes artist intake at `14d18d7de667c7b83955150313347e198869f5ee`. The artist's active window update remains separate until deliberately reviewed. Preserve the native units and the agreement between building visibility, ground footprints and burnout.
+The current candidate is `docs/milestones/05-catalogue-block-two.md`: add Hopkins 9, Hopkins 13 and Monroe to the three-house street, giving six selected/placed houses. It builds on `1a3e2934072f98b7be9f691cf651ee369748d66f` and deliberately advances artist intake to `56b028c2935b5a97fe259618f38e0a1550928ab4`, including the committed Nautilus windows for Hopkins 13 and 15. The artist's active Hopkins v2 work stays separate. Preserve native units and agreement between building visibility, ground footprints and burnout. Include JPG previews with visual handoffs, clearly identifying omitted elements; the runtime browser gate remains in force.
+
+Read `docs/milestones/04-catalogue-neighborhood.md` and its linked review for the first three-house checkpoint and its completed offline checks. The public `master`/Pages version remains the reviewed exposition study while browser acceptance is pending.
 
 Read `docs/milestones/03-shared-bear-protagonist.md` and its linked architect review for the bear's completed offline checks and pending browser acceptance. The bear comes from the explicitly approved additional AFT pin in `docs/source-baseline.json`; do not update the Farmyard baseline or silently absorb other worker branches.
 

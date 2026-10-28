@@ -80,12 +80,12 @@ async function suite(){
       pointer(window,'pointerup',79);step();
     });
     results.push({name:'Combined resource/performance sample',status:'observed',metrics:game.metrics(),art:game.artDiagnostics()});
-    await check('Three original catalogue prefabs, native bear and original civilians share the production street',async()=>{
+    await check('Six original catalogue prefabs, native bear and original civilians share the production street',async()=>{
       await open({scenario:'neighborhood'});const s=game.snapshot(),d=game.artDiagnostics(),houses=d.housing;
-      const expected=['ashland-worker','hopkins-4-12','hopkins-4-15'];
+      const expected=['ashland-worker','hopkins-4-09','hopkins-4-12','hopkins-4-13','hopkins-4-15','monroe-row'];
       ok(JSON.stringify(s.world.buildings.map(b=>b.prefabId).sort())===JSON.stringify(expected),'Wrong source building set');
-      ok(s.world.buildings.every(b=>b.sourceCommit==='14d18d7de667c7b83955150313347e198869f5ee'&&b.meshScale.every(v=>v===1)&&b.door.state==='closed'&&!b.door.traversable),'Source/native scale/door contract');
-      ok(houses?.active===3&&JSON.stringify(houses.models.map(m=>m.id).sort())===JSON.stringify(expected),'Actual artist models missing');
+      ok(s.world.buildings.every(b=>b.sourceCommit==='56b028c2935b5a97fe259618f38e0a1550928ab4'&&b.meshScale.every(v=>v===1)&&b.door.state==='closed'&&!b.door.traversable),'Source/native scale/door contract');
+      ok(houses?.active===6&&JSON.stringify(houses.models.map(m=>m.id).sort())===JSON.stringify(expected),'Actual artist models missing');
       ok(houses.models.every(m=>m.nativeScale.every(v=>v===1)&&m.mode==='exterior'&&m.props===0),'Rescaled model or unwanted interior props');
       ok(d.bearProtagonist?.species==='bear'&&d.bearProtagonist.paint==='native-normal-projection'&&d.civilianActors.length===2&&d.provisionalActors===0,'Wrong bear/civilian source');
       ok(game.metrics().camera.followPlayer&&houses.projection.bearHeightPixels>40,'Native bear is too small in the production canvas');
@@ -94,8 +94,18 @@ async function suite(){
       select('jerry-can');find('[data-primary]').click();step();move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input),83);find('[data-drug="powder"]').click();
       const before=game.snapshot(),after=step(30),distance=after.player.travelled-before.player.travelled;near(distance,2.25);near(before.player.inventory.gas-after.player.inventory.gas,distance*.08);near(after.clocks.world-before.clocks.world,.175);
       const art=game.artDiagnostics(),camera=game.metrics().camera;near(art.bearProtagonist.position.travelled,after.player.travelled);near(camera.target[0],after.player.x);near(camera.target[2],after.player.y);
-      ok(after.player.pouring&&art.housing.active===3&&art.housing.projection.bearHeightPixels>40,'Lost pouring, houses or readable camera');
+      ok(after.player.pouring&&art.housing.active===6&&art.housing.projection.bearHeightPixels>40,'Lost pouring, houses or readable camera');
       pointer(window,'pointerup',83);step();
+    });
+    await check('Real UI crosses the road toward the new block and stops pouring distance at its visible porch',async()=>{
+      await open({scenario:'neighborhood'});select('jerry-can');find('[data-primary]').click();step();
+      move(worldToStick({x:0,y:1},DEFAULT_CONFIG.input),84);
+      const before=game.snapshot(),stopped=step(280),gas=stopped.player.inventory.gas;
+      ok(stopped.player.y>27&&stopped.player.y<30,'Did not cross the road and reach the new frontage');
+      near(stopped.player.x,before.player.x);near(before.player.inventory.gas-gas,(stopped.player.travelled-before.player.travelled)*.08);
+      const later=step(60);near(later.player.travelled,stopped.player.travelled);near(later.player.inventory.gas,gas);
+      ok(game.artDiagnostics().housing.active===6&&game.artDiagnostics().housing.projection.bearHeightPixels>40,'New-block camera or source house missing');
+      pointer(window,'pointerup',84);step();
     });
     await check('Moving behind a native house fades its presentation while retaining the authoritative foundation',async()=>{
       const scenario={id:'catalogue-occlusion',width:36,height:26,player:{x:19,y:1.7,tool:'flamethrower'},camera:{followPlayer:true,span:12,phoneSpan:10},buildings:[{id:'review-gambrel',prefabId:'hopkins-4-15',x:24,y:13,quarterTurns:2}],obstacles:[],actors:[]};

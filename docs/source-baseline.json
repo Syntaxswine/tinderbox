@@ -65,10 +65,11 @@
       "files": 1
     },
     {
-      "kind": "selected-artist-catalogue-houses-and-shared-materials",
+      "kind": "six-selected-artist-houses-shared-materials-and-native-nautilus-window-closure",
       "manifest": "assets/art/neighborhood-intake.json",
-      "files": 16,
-      "evidenceFiles": 9,
+      "files": 25,
+      "evidenceFiles": 12,
+      "supportFiles": 3,
       "derivedFiles": 1
     }
   ],
@@ -91,8 +92,30 @@
       "inspectionMode": "Selective immutable Git-object intake from the assigned artist branch",
       "reason": "User reports completed artist assets are ready to use; assemble three original prefabs in a bounded exterior street",
       "selectedPrefabs": ["hopkins-4-12", "hopkins-4-15", "ashland-worker"],
-      "intakeStatus": "Selected source/native units and combined offline implementation checks pass; browser acceptance and promotion pending",
+      "intakeStatus": "First-street checkpoint; source/native units and combined offline checks pass, browser acceptance pending. Deliberately superseded for current intake by the milestone-05 artist pin.",
       "milestone": "docs/milestones/04-catalogue-neighborhood.md"
+    },
+    {
+      "recordedOn": "2026-10-28",
+      "sourceName": "Tinderbox artist second catalogue block and committed sash-window update",
+      "repository": "https://github.com/Syntaxswine/tinderbox.git",
+      "baselineCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "inspectionMode": "Selective immutable Git-object intake; active artist v2 work remains excluded",
+      "reason": "User requested another chunk of buildings; add Hopkins 9, Hopkins 13 and Monroe to the first three and deliberately adopt the committed native sash update for Nos. 13 and 15",
+      "selectedPrefabs": ["hopkins-4-12", "hopkins-4-15", "ashland-worker", "hopkins-4-09", "hopkins-4-13", "monroe-row"],
+      "intakeStatus": "Selected raw/native units, 85 tests, independent combined geometry/behavior and package checks pass; browser acceptance and promotion pending",
+      "milestone": "docs/milestones/05-catalogue-block-two.md"
+    },
+    {
+      "recordedOn": "2026-10-28",
+      "sourceName": "Nautilus native centered sash sculptures",
+      "repository": "https://github.com/Syntaxswine/nautilus-engine.git",
+      "baselineCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
+      "inspectionMode": "Eight artist-preserved files compared byte-for-byte with the original Nautilus Git objects; five are runtime modules",
+      "reason": "Minimal dependency of the selected artist window revision; keep original two-metre span and the host's one shared renderer",
+      "inheritedHelperCommit": "781246a668c723d5a4c5463e70534cc04b6a5641",
+      "intakeStatus": "Original source-chain bytes, combined native geometry/UV/aperture/disposal and package checks pass; browser acceptance pending",
+      "milestone": "docs/milestones/05-catalogue-block-two.md"
     }
   ],
   "rightsStatus": "The user requests reuse; per-file license/provenance review remains part of the import gate"

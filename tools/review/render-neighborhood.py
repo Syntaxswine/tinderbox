@@ -5,6 +5,7 @@ ROOT=Path(__file__).resolve().parents[2]
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--deps',type=Path,help='Optional existing Mitsuba/Python dependency folder; read only')
 parser.add_argument('--owner',default='Tinderbox offline review')
+parser.add_argument('--input',type=Path,default=ROOT/'artifacts/qa/catalogue-layout',help='Directory containing the mesh export and scene.json')
 args=parser.parse_args()
 if args.deps:sys.path.insert(0,str(args.deps))
 started=time.time()
@@ -18,7 +19,7 @@ try:
  creation,exit_time,kernel,user=(ctypes.c_ulonglong() for _ in range(4))
  if ctypes.windll.kernel32.GetProcessTimes(ctypes.windll.kernel32.GetCurrentProcess(),ctypes.byref(creation),ctypes.byref(exit_time),ctypes.byref(kernel),ctypes.byref(user)):record['creationFiletime']=creation.value
 except Exception:pass
-out=ROOT/'artifacts/qa/catalogue-layout';(out/'run.json').write_text(json.dumps(record,indent=2)+'\n')
+out=args.input.resolve();(out/'run.json').write_text(json.dumps(record,indent=2)+'\n')
 try:
  import mitsuba as mi
  import numpy as np
@@ -37,8 +38,14 @@ try:
  scene={'type':'scene','integrator':{'type':'path','max_depth':4},'sensor':{'type':'orthographic','to_world':mi.ScalarTransform4f.look_at(origin=camera['origin'],target=camera['target'],up=[0,1,0]) @ mi.ScalarTransform4f.scale([camera['halfWidth'],camera['halfWidth'],1]),'sampler':{'type':'independent','sample_count':24},'film':{'type':'hdrfilm','width':1280,'height':800,'pixel_format':'rgb','rfilter':{'type':'tent'}}},'ambient':{'type':'constant','radiance':{'type':'rgb','value':[.65,.68,.58]}},'sun':{'type':'directional','direction':[.5,-1,.4],'irradiance':{'type':'rgb','value':[2.9,2.7,2.25]}},'outside-ground':{'type':'rectangle','to_world':mi.ScalarTransform4f.translate([18,-.32,13]) @ mi.ScalarTransform4f.rotate([1,0,0],-90) @ mi.ScalarTransform4f.scale([100,100,100]),'bsdf':{'type':'diffuse','reflectance':{'type':'rgb','value':[.39,.43,.32]}}}}
  for i,m in enumerate(data['materials']):scene['mesh-'+str(i)]={'type':'ply','filename':str(out/m['file']),'face_normals':True,'bsdf':{'type':'twosided','material':{'type':'diffuse','reflectance':reflectance(m)}}}
  image=mi.render(mi.load_dict(scene),spp=24,seed=123)
- target=out/'catalogue-street-offline.png';mi.util.write_bitmap(str(target),image)
- record.update(passed=True,renderer='Mitsuba scalar_rgb',seconds=round(time.time()-started,3),output=str(target),triangles=data['triangles'],limitations=data['limitations'])
+ name=data.get('outputName','catalogue-street-offline')
+ if Path(name).name!=name or not name:raise ValueError('Output name must be a plain filename stem')
+ target=out/(name+'.png');mi.util.write_bitmap(str(target),image,write_async=False)
+ jpg=out/(name+'.jpg')
+ with Image.open(target) as source:source.convert('RGB').save(jpg,'JPEG',quality=95,subsampling=0,optimize=True)
+ record.update(passed=True,renderer='Mitsuba scalar_rgb',seconds=round(time.time()-started,3),output=str(target),jpg=str(jpg),triangles=data['triangles'],limitations=data['limitations'])
  print(json.dumps(record),flush=True)
+except Exception as error:
+ record.update(passed=False,error=str(error));raise
 finally:
  expiry.cancel();record['finishedAt']=datetime.datetime.now(datetime.timezone.utc).isoformat();(out/'run.json').write_text(json.dumps(record,indent=2)+'\n')

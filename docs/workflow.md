@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/catalogue-neighborhood` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
+| Architect | `codex/catalogue-block-two` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
 | Artist | `codex/art-assets` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Art sources/exports, visual reuse audit |
-| Coder | `codex/catalogue-neighborhood-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Catalogue street integration; prior bear and `codex/coding` branches preserved |
+| Coder | `codex/catalogue-block-two-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Second catalogue block; prior neighborhood, bear and `codex/coding` branches preserved |
 | UI designer | `codex/ui-design` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Player controls, HUD, buttons, menus, layout, and interaction states |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -68,6 +68,12 @@ The new bounded brief is [Milestone 03: shared bear protagonist](milestones/03-s
 ## Catalogue neighborhood assignments
 
 The new [catalogue-neighborhood brief](milestones/04-catalogue-neighborhood.md) assigns TB-014 to the existing coder and TB-015 to the architect. It freezes the artist intake at `14d18d7` and the combined base at the shared-bear checkpoint `b2942f9`. Coder candidate `eb59547978393be73a1d513e71894f0536ece1ab` is copied as `b35086f` on the architect branch. Three original houses enter one small playable street; the artist's active window work and other runtime branches remain separate until deliberately reviewed. [The combined record](reviews/2026-10-28-catalogue-neighborhood.md) reports 81 passing tests, independent geometry/behavior checks and complete package verification; WebGL browser acceptance still blocks promotion.
+
+## Second catalogue block assignments
+
+[Milestone 05](milestones/05-catalogue-block-two.md) assigns TB-016 to the existing coder and TB-017 to the architect. It starts from `1a3e2934072f98b7be9f691cf651ee369748d66f`, freezes artist intake at `56b028c2935b5a97fe259618f38e0a1550928ab4`, and adds Hopkins 9, Hopkins 13 and Monroe to the existing three houses. The committed Nautilus window update for Nos. 13 and 15 is deliberately included. The artist's active v2 work remains separate. The architect owns combined checks, JPG previews and promotion.
+
+Coder candidate `143042467aea5780b401d0bf8041ed66a561036d` is copied as `0da02f015d6395dde9f12e8e4d3c16923db6dbd2` on the architect branch. [The combined review](reviews/2026-10-28-catalogue-block-two.md) records 85 passing tests, independent native-geometry/source checks, complete package verification and two JPGs. Browser acceptance and promotion remain pending; the public integration/deployment branch is unchanged.
 
 ## Promotion gate
 

@@ -52,6 +52,8 @@ The next [catalogue neighborhood](milestones/04-catalogue-neighborhood.md) uses 
 
 The street uses the existing controls and finite ground-fire model. A new house is one coarse footprint/burnout group: its visible prefab and its ground colliders leave together. This is an exterior integration boundary, not room traversal, wall-climb fire or collapse physics. Wider fire and shared-editor work remains on separate candidate branches.
 
+The [second catalogue block](milestones/05-catalogue-block-two.md) adds Hopkins 9, Hopkins 13 and the Monroe Street brick row-house design across the same street, retaining the first three placements. Artist intake deliberately advances to `56b028c2935b5a97fe259618f38e0a1550928ab4`; the centered native sash sculptures for Nos. 13 and 15 retain their original Nautilus pin `90054d07134116a5d9661f8318a76fe68f922aad` and minimal dependency closure. The [additional source record](research/catalogue-block-two/README.md) distinguishes original plates from detached placement and native-grid adaptations. Six source designs enter this candidate; the artist's active v2 collection remains separate. Offline JPGs support visual handoffs alongside the existing runtime promotion gate.
+
 ## Decisions still open
 
 The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, custom protagonist clothing, progression, precise balancing, and later interior gameplay remain open. The bear candidate starts with the source's normal worker painting. Do not import the donor's turn/AP rules as Tinderbox requirements.
