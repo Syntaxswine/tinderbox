@@ -1,4 +1,4 @@
-import {TOOLS, DRUGS, normalizeStick, pointerStick, stockText, viewOf} from './model.js';
+import {TOOLS, DRUGS, normalizeStick, pointerStick, stockText, viewOf, toolFeedbackOf} from './model.js';
 const marks = new URL('../../assets/art/ui/control-symbols.svg', import.meta.url).href;
 const donorMarks = new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/symbols.svg', import.meta.url).href;
 const icon = (id, donor = false) => '<svg class="switch-glyph" viewBox="0 0 32 32" aria-hidden="true"><use href="' + (donor ? donorMarks : marks) + '#' + id + '"></use></svg>';
@@ -13,7 +13,7 @@ const markup = '<header class="tb-top">' +
   '<section class="tb-console map-metal-frame" aria-label="Player control deck">' +
   '<div class="tb-rack-label"><span>TOOLS</span><span data-loadout-state>SELECT A TOOL</span></div><div class="tb-tools" role="group" aria-label="Five tools">' + toolButtons + '</div>' +
   '<div class="tb-controls"><div class="tb-stick-group"><button type="button" class="tb-stick" data-stick aria-label="Movement joystick. Drag to move. Keyboard: W A S D or arrow keys." aria-describedby="tb-movement-help"><span class="tb-stick-ring"></span><span class="tb-stick-cross"></span><span class="tb-stick-thumb">' + icon('movement', true) + '</span><span class="tb-stick-n">N</span></button><span class="tb-micro tb-stick-caption" id="tb-movement-help">MOVE <span>WASD / ↑↓←→</span></span></div>' +
-  '<div class="tb-action-cluster"><div class="tb-selected"><span class="tb-micro">IN HAND</span><strong data-tool-name>—</strong><span data-tool-hint></span><span class="tb-selected-stock" data-selected-stock></span></div>' +
+  '<div class="tb-action-cluster"><div class="tb-selected"><span class="tb-micro">IN HAND</span><strong data-tool-name>—</strong><span data-tool-hint></span><span class="tb-selected-stock" data-selected-stock id="tb-tool-resource" aria-live="off"></span><span class="tb-tool-feedback" data-tool-feedback id="tb-tool-feedback" hidden></span></div>' +
   '<button type="button" class="industrial-switch tb-primary" data-primary data-face="red" aria-label="Primary action" aria-pressed="false"><span class="switch-legend"><span class="tb-primary-icon"></span><span class="switch-label" data-primary-label>—</span><span class="switch-cost" data-primary-mode></span></span><kbd>SPACE</kbd></button>' +
   '<div class="tb-drugs" role="group" aria-label="Three drug actions">' + drugButtons + '</div></div></div></section>' +
   '<div class="tb-menu-backdrop" data-menu hidden><section class="tb-menu map-metal-frame" role="dialog" aria-modal="true" aria-labelledby="tb-menu-title"><div class="tb-menu-heading"><span class="tb-micro">TINDERBOX / SCENE MENU</span><h1 id="tb-menu-title" tabindex="-1" data-menu-title>Paused</h1></div>' +
@@ -28,7 +28,7 @@ export function mountUI({root, onCommand} = {}) {
   shell.className = 'tb-ui';
   shell.setAttribute('aria-label', 'Tinderbox player controls');
   const suffix = '-' + (++instance);
-  shell.innerHTML = markup.replaceAll('tb-movement-help', 'tb-movement-help' + suffix).replaceAll('tb-menu-title', 'tb-menu-title' + suffix);
+  shell.innerHTML = markup.replaceAll('tb-movement-help', 'tb-movement-help' + suffix).replaceAll('tb-menu-title', 'tb-menu-title' + suffix).replaceAll('tb-tool-resource','tb-tool-resource'+suffix).replaceAll('id="tb-tool-feedback"','id="tb-tool-feedback'+suffix+'"');
   const style = doc.createElement('link');
   style.rel = 'stylesheet';
   style.href = new URL('./styles.css', import.meta.url).href;
@@ -38,11 +38,22 @@ export function mountUI({root, onCommand} = {}) {
   const stick = find('[data-stick]'), thumb = find('.tb-stick-thumb');
   const primary = find('[data-primary]'), pause = find('[data-pause]');
   const menuElement = find('[data-menu]'), listeners = [];
+  primary.setAttribute('aria-describedby','tb-tool-resource'+suffix);
   let disposed = false, view = null, keys = new Set();
   let stickPointer = null, stickVector = {x: 0, y: 0}, lastMove = {x: 0, y: 0};
   let primaryPointer = null, primarySources = new Set();
   let menu = null, awaitingResume = false, previousFocus = null;
   let previousAnnouncement = '', wasBlocked = true, renderSignature = '';
+  let feedback=null,eventCursor=0,eventInitialized=false,eventGeneration,lastTick;
+  function readToolEvents(snapshot){
+    const generation=snapshot.diagnostics?.generation,rewound=lastTick!==undefined&&snapshot.tick<lastTick;
+    if(!eventInitialized || rewound || generation!==eventGeneration){eventCursor=Math.max(0,...(snapshot.events??[]).filter(e=>Number.isSafeInteger(e.id)).map(e=>e.id));feedback=null;eventInitialized=true;}
+    else for(const event of [...(snapshot.events??[])].filter(e=>Number.isSafeInteger(e.id)&&e.id>eventCursor).sort((a,b)=>a.id-b.id)){
+      eventCursor=event.id;if(event.type==='reset'){feedback=null;continue;}
+      const message=toolFeedbackOf(event);if(message)feedback={id:event.id,tool:event.tool??'torch',message};
+    }
+    eventGeneration=generation;lastTick=snapshot.tick;
+  }
 
   const on = (target, type, handler, options) => {
     target.addEventListener(type, handler, options);
@@ -100,22 +111,27 @@ export function mountUI({root, onCommand} = {}) {
   function resume() { awaitingResume = true; emit({type: 'pause', paused: false}); }
   function paint() {
     if (!view) return;
-    const signature = JSON.stringify([view.tool.id, view.hp, view.maxHp, view.inventory, view.pouring, view.paused, view.effects, menu, primarySources.size]);
+    const signature = JSON.stringify([view.tool.id, view.hp, view.maxHp, view.inventory, view.pouring, view.paused, view.effects, view.torch, feedback, menu, primarySources.size]);
     if (signature === renderSignature) return;
     renderSignature = signature;
     const gated = blocked();
     stick.disabled = gated; stick.setAttribute('aria-disabled', String(gated));
     primary.disabled = view.primaryDisabled || Boolean(menu);
     primary.setAttribute('aria-pressed', String(view.pouring || primarySources.size > 0));
-    primary.dataset.lit = String(view.pouring || primarySources.size > 0);
+    primary.dataset.lit = String(view.tool.id==='torch'?view.torch.phase==='lit':view.pouring||primarySources.size>0);
+    primary.dataset.torchPhase=view.tool.id==='torch'?view.torch.phase:'';
     primary.dataset.empty = String(view.stock <= 0);
     find('[data-primary-label]').textContent = view.primaryLabel.toUpperCase();
-    find('[data-primary-mode]').textContent = view.pouring ? 'POURING' : view.stock <= 0 ? 'EMPTY' : ['torch', 'flamethrower'].includes(view.tool.id) ? 'HOLD' : 'PRESS';
+    find('[data-primary-mode]').textContent = view.primaryMode;
     find('.tb-primary-icon').innerHTML = icon(view.pouring ? 'stop' : view.tool.id);
-    primary.setAttribute('aria-label', view.primaryLabel + ' — ' + view.tool.label + (view.pouring ? '. Pouring is on.' : '. ' + stockText(view.stock) + ' ' + view.tool.unit));
+    primary.setAttribute('aria-label', view.primaryLabel + ' — ' + view.tool.label + (view.tool.id==='torch'?'. '+(view.torch.known?view.torch.status.toLowerCase():view.torch.hint):view.pouring?'. Pouring is on.':'. '+stockText(view.stock)+' '+view.tool.unit));
     find('[data-tool-name]').textContent = view.tool.label;
-    find('[data-tool-hint]').textContent = view.pouring ? 'Pouring · tap Stop to finish' : view.tool.hint;
-    find('[data-selected-stock]').textContent = stockText(view.stock) + ' ' + view.tool.unit + (view.stock <= 0 ? ' · EMPTY' : '');
+    find('[data-tool-hint]').textContent = view.pouring ? 'Pouring · tap Stop to finish' : view.toolHint;
+    find('[data-selected-stock]').textContent = view.resourceText;
+    const visibleFeedback=feedback?.tool===view.tool.id?feedback:null;
+    const output=find('[data-tool-feedback]');output.hidden=!visibleFeedback;
+    output.textContent=visibleFeedback?.message??'';
+    primary.setAttribute('aria-describedby','tb-tool-resource'+suffix+(visibleFeedback?' tb-tool-feedback'+suffix:''));
     find('[data-loadout-state]').textContent = view.dead ? 'BEAR DOWN' : view.paused ? 'PAUSED' : view.pouring ? '● POURING' : view.stock <= 0 ? 'EMPTY' : 'READY';
     for (const button of all('[data-tool]')) {
       const tool = TOOLS.find(item => item.id === button.dataset.tool);
@@ -124,8 +140,10 @@ export function mountUI({root, onCommand} = {}) {
       button.dataset.empty = String(empty);
       button.setAttribute('aria-pressed', String(view.tool.id === tool.id));
       button.setAttribute('aria-label', tool.label + ', ' + stockText(stock) + ' ' + tool.unit + (empty ? ', empty' : ''));
-      button.title = tool.label + ' · ' + tool.hint;
-      button.querySelector('[data-stock]').textContent = empty ? 'EMPTY' : stockText(stock) + ' ' + tool.unit;
+      button.title = tool.label + ' · ' + (tool.id==='torch'?view.torch.hint:tool.hint);
+      button.dataset.torchPhase=tool.id==='torch'?view.torch.phase:'';
+      if(tool.id==='torch'){button.dataset.lit=String(view.torch.phase==='lit');button.setAttribute('aria-label','Torch, '+(view.torch.known?view.torch.status.toLowerCase():view.torch.hint));}
+      button.querySelector('[data-stock]').textContent = tool.id==='torch'?(view.torch.known?view.torch.status+' '+view.torch.remaining:'WAIT'):empty?'EMPTY':stockText(stock)+' '+tool.unit;
     }
     for (const button of all('[data-drug]')) {
       const drug = DRUGS.find(item => item.id === button.dataset.drug);
@@ -149,8 +167,9 @@ export function mountUI({root, onCommand} = {}) {
       effect.querySelector('[data-time]').textContent = view.effects[name].remaining;
     }
     find('[data-death]').hidden = !view.dead; paintMenu();
-    const announcement = view.tool.label + '. ' + (view.pouring ? 'Pouring on.' : 'Pouring off.') + (view.effects.powder.active ? ' Powder active.' : '') + (view.effects.inversion.active ? ' Movement reversed 180 degrees.' : '') + (view.dead ? ' Bear down.' : '');
-    if (announcement !== previousAnnouncement) { find('[data-announcement]').textContent = announcement; previousAnnouncement = announcement; }
+    const announcement = view.tool.label+'. '+(view.tool.id==='torch'?(view.torch.known?view.torch.status.toLowerCase()+'. ':view.torch.hint+' '):'')+(view.pouring?'Pouring on.':'Pouring off.')+(view.effects.powder.active?' Powder active.':'')+(view.effects.inversion.active?' Movement reversed 180 degrees.':'')+(view.dead?' Bear down.':'');
+    const announcementKey=JSON.stringify([announcement,view.tool.id==='torch'?view.torch.phase:null,visibleFeedback?.id]);
+    if (announcementKey !== previousAnnouncement) { find('[data-announcement]').textContent = announcement+(visibleFeedback?' '+visibleFeedback.message:''); previousAnnouncement = announcementKey; }
   }
   on(stick, 'pointerdown', event => {
     if (event.button !== 0 || stickPointer !== null || blocked()) return;
@@ -256,7 +275,7 @@ export function mountUI({root, onCommand} = {}) {
     update(snapshot) {
       if (disposed) return;
       const previouslyPaused = view?.paused;
-      view = viewOf(snapshot);
+      view = viewOf(snapshot); readToolEvents(snapshot);
       if ((awaitingResume || previouslyPaused) && !view.paused) {
         awaitingResume = false; menu = null;
         if (previousFocus?.isConnected && previousFocus !== doc.body && gameplayFocus(previousFocus)) previousFocus.focus({preventScroll: true});

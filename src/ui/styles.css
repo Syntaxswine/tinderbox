@@ -157,3 +157,8 @@
   .tb-effect { background:Canvas; color:CanvasText; border:2px solid CanvasText; }
   .tb-ui [data-empty=true] { outline:1px dashed CanvasText; }
 }
+
+/* TB-020: authoritative state inside the existing controls; no layout replacement. */
+.tb-ui [data-tool="torch"] .switch-cost { font-size:8px; letter-spacing:0; font-variant-numeric:tabular-nums; }
+.tb-tool-feedback { color:#ffe0ad; font:700 10px/1.35 var(--mono); max-width:170px; overflow-wrap:anywhere; }
+.tb-ui [data-torch-phase=spent] .switch-cost { color:#e7be9f; }

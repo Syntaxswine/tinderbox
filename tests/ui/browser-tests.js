@@ -190,6 +190,60 @@ await check('Field-canvas focus keeps keyboard control; leaving the scene clears
     const count=s.commands.length;key(input,'keydown','KeyD');equal(s.commands.length,count);
   } finally {canvas.remove();input.remove();}
 });
+
+await check('Torch phases and rack show authoritative seconds, spent disables only use',s=>{
+  for(const [name,label,state] of [['torch-unlit','LIGHT','UNLIT'],['torch-lit','IGNITE','LIT'],['torch-spent','SPENT','SPENT'],['torch-unknown','LIGHT','WAIT']]){
+    s.ui.update(deepFreeze(fixture(name)));equal(s.find('[data-primary-label]').textContent,label);equal(s.find('[data-primary-mode]').textContent,state);
+    equal(s.find('[data-primary]').disabled,['torch-spent','torch-unknown'].includes(name));ok(!s.find('[data-tool="torch"]').disabled,'Cannot inspect spent torch');
+    ok(!s.find('[data-selected-stock]').textContent.includes('fuel'),'Competing fuel unit');
+  }
+});
+await check('Lighting during a held press does not emit an extra Ignite edge or timer update',s=>{
+  s.ui.update(fixture('torch-unlit'));pointer(s.find('[data-primary]'),'pointerdown',22);equal(s.find('[data-primary]').dataset.lit,'false');
+  const lit=fixture('torch-lit');lit.tick=1;s.ui.update(deepFreeze(lit));
+  for(let i=0;i<10;i++)s.ui.update(lit);
+  equal(s.commands.filter(c=>c.type==='primary'&&c.pressed).length,1);
+  equal(s.find('[data-primary-label]').textContent,'IGNITE');equal(s.find('[data-selected-stock]').textContent,'LIT · 26.2s left');
+  pointer(window,'pointerup',22);equal(s.commands.at(-1),{type:'primary',pressed:false});
+});
+await check('Torch countdown, pause and powder come only from supplied snapshots without live spam',s=>{
+  s.ui.update(fixture('torch-lit'));const live=s.find('[data-announcement]'),node=live.firstChild;
+  const next=fixture('torch-lit');next.player.torch.remainingSeconds=25.9;next.tick=1;s.ui.update(next);
+  equal(s.find('[data-selected-stock]').textContent,'LIT · 25.9s left');ok(live.firstChild===node,'Countdown rewrote live region');
+  next.effects.powder={active:true,remaining:6.4};next.clocks.worldScale=.35;s.ui.update(next);
+  equal(s.find('[data-selected-stock]').textContent,'LIT · 25.9s left');
+  next.paused=true;s.ui.update(next);equal(s.find('[data-selected-stock]').textContent,'LIT · 25.9s left');
+  ok(s.find('[data-primary]').disabled,'Paused torch active');
+});
+await check('Switching away and back preserves aged torch state without relighting',s=>{
+  const next=fixture('torch-lit');s.ui.update(next);next.player.tool='matches';next.player.torch.remainingSeconds=20;s.ui.update(next);
+  equal(s.find('[data-tool="torch"] [data-stock]').textContent,'LIT 20.0s');next.player.tool='torch';s.ui.update(next);
+  equal(s.find('[data-primary-label]').textContent,'IGNITE');equal(s.find('[data-selected-stock]').textContent,'LIT · 20.0s left');equal(s.commands,[]);
+});
+await check('Spent transition releases held input and repeats cannot relight it',s=>{
+  s.ui.update(fixture('torch-lit'));const p=s.find('[data-primary]');p.focus();key(p,'keydown','Space');
+  s.ui.update(fixture('torch-spent'));equal(s.commands.at(-1),{type:'primary',pressed:false});const n=s.commands.length;
+  key(p,'keydown','Space',{repeat:true});key(p,'keyup','Space');p.click();equal(s.commands.length,n);equal(p.dataset.lit,'false');
+});
+await check('Action events update visible/accessibility feedback once, without replaying countdown history',s=>{
+  const noFuel=fixture('matches-no-fuel');s.ui.update(noFuel);equal(s.find('[data-tool-feedback]').textContent,'No burnable fuel on this tile.');
+  const live=s.find('[data-announcement]'),node=live.firstChild;s.ui.update(noFuel);ok(live.firstChild===node,'Event replay announced twice');
+  const blocked=fixture();blocked.tick=2;blocked.events=[...noFuel.events,{id:2,type:'tool-rejected',tool:'matches',reason:'blocked'}];s.ui.update(blocked);
+  equal(s.find('[data-tool-feedback]').textContent,'Target blocked. Aim at reachable ground.');ok(live.textContent.includes('Target blocked'),'Feedback not accessible');
+  const refs=s.find('[data-primary]').getAttribute('aria-describedby').split(' ');for(const id of refs)ok(s.root.querySelector('[id="'+id+'"]'),'Description escaped mount');
+  blocked.events.push({id:3,type:'reset'});s.ui.update(blocked);ok(s.find('[data-tool-feedback]').hidden,'Reset left feedback');
+});
+await check('Initial old events are not announced and tool feedback stays with its tool',s=>{
+  const otherRoot=document.createElement('div');host.append(otherRoot);const ui=mountUI({root:otherRoot,onCommand:()=>{}});
+  try{ui.update(fixture('matches-no-fuel'));ok(otherRoot.querySelector('[data-tool-feedback]').hidden,'Old history replayed');}finally{ui.dispose();otherRoot.remove();}
+  s.ui.update(fixture('torch-blocked'));ok(!s.find('[data-tool-feedback]').hidden,'Torch feedback missing');const next=fixture('torch-blocked');next.player.tool='matches';s.ui.update(next);ok(s.find('[data-tool-feedback]').hidden,'Torch feedback shown as match result');
+});
+await check('Torch discrete keypress and cancellation preserve the existing raw joystick contract',s=>{
+  s.ui.update(fixture('torch-lit'));downStick(s,11);const p=s.find('[data-primary]');p.focus();key(p,'keydown','Enter');key(p,'keydown','Enter',{repeat:true});
+  equal(s.commands.filter(c=>c.type==='primary'&&c.pressed).length,1);key(p,'keyup','Enter');
+  ok(!s.commands.some(c=>c.type==='move'&&c.x===0&&c.y===0),'Ignite stopped movement');window.dispatchEvent(new Event('blur'));equal(s.commands.at(-1),{type:'cancel-input'});
+});
+
 for(const result of results){const item=document.createElement('li');item.dataset.status=result.status;item.textContent=(result.status==='pass'?'PASS ':'FAIL ')+result.name+(result.message?' — '+result.message:'');document.querySelector('#checks').append(item);}
 const passed=results.filter(result=>result.status==='pass').length;
 document.querySelector('#summary').textContent=passed+' / '+results.length+' passed';

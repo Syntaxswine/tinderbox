@@ -4,7 +4,7 @@ import {readFileSync, existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
-import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText} from '../../src/ui/model.js';
+import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf} from '../../src/ui/model.js';
 import {fixture} from '../../workbenches/ui/fixtures.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 test('only the five contracted tools and three drug commands are exposed', () => {
@@ -49,4 +49,34 @@ test('all imported UI files retain recorded bytes; CSS dependency closure resolv
   }
   const css=readFileSync(path.join(root,'src/ui/styles.css'),'utf8');
   for(const match of css.matchAll(/@import url\('([^']+)'\)/g)) assert.ok(existsSync(path.resolve(root,'src/ui',match[1])));
+});
+
+
+test('torch phases project Light/Ignite/Spent and seconds without exposing fuel units',()=>{
+  for(const [name,label,status] of [['torch-unlit','Light','UNLIT'],['torch-lit','Ignite','LIT'],['torch-spent','Spent','SPENT']]){
+    const snap=fixture(name),before=JSON.stringify(snap),v=viewOf(snap);
+    assert.equal(v.primaryLabel,label);assert.equal(v.primaryMode,status);assert.match(v.resourceText,/s left$/);assert.ok(!v.resourceText.includes('fuel'));
+    assert.equal(v.primaryDisabled,name==='torch-spent');assert.equal(JSON.stringify(snap),before);
+  }
+});
+test('missing or malformed authoritative torch state waits safely instead of inferring from fuel',()=>{
+  for(const state of [undefined,{phase:'lit',remainingSeconds:NaN,durationSeconds:30},{phase:'lit',remainingSeconds:-1,durationSeconds:30},{phase:'lit',remainingSeconds:40,durationSeconds:30},{phase:'burning',remainingSeconds:10,durationSeconds:30}]){
+    const snap=fixture('torch-lit');snap.player.torch=state;const v=viewOf(snap);assert.equal(v.torch.known,false);assert.equal(v.primaryDisabled,true);assert.equal(v.primaryMode,'WAIT');assert.equal(v.resourceText,'Awaiting torch state');
+  }
+});
+test('pause, powder and selection do not create a second UI burn clock',()=>{
+  const snap=fixture('torch-lit');const expected=viewOf(snap).torch;
+  snap.paused=true;assert.deepEqual(viewOf(snap).torch,expected);
+  snap.paused=false;snap.effects.powder={active:true,remaining:8};snap.clocks.worldScale=.35;assert.deepEqual(viewOf(snap).torch,expected);
+  snap.player.tool='matches';assert.deepEqual(viewOf(snap).torch,expected);
+  snap.player.tool='torch';snap.player.torch.remainingSeconds=19.8;assert.equal(viewOf(snap).resourceText,'LIT · 19.8s left');
+});
+test('action feedback distinguishes no-fuel, blocked, range and empty without assuming success',()=>{
+  assert.equal(toolFeedbackOf({type:'tool-use',tool:'matches',result:'no-fuel'}),'No burnable fuel on this tile.');
+  assert.equal(toolFeedbackOf({type:'tool-rejected',tool:'torch',reason:'blocked'}),'Target blocked. Aim at reachable ground.');
+  assert.equal(toolFeedbackOf({type:'tool-rejected',tool:'matches',reason:'empty'}),'No matches left.');
+  assert.equal(toolFeedbackOf({type:'tool-rejected',tool:'matches',reason:'range'}),'Target out of reach. Move closer.');
+  assert.equal(toolFeedbackOf({type:'tool-use',tool:'matches'}),'Match used.');
+  assert.equal(toolFeedbackOf({type:'tool-use',tool:'flamethrower'}),null);
+  assert.equal(toolFeedbackOf({type:'torch-spent'}),'Torch spent. No fuel remains.');
 });
