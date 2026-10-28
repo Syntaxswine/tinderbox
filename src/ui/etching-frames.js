@@ -102,3 +102,7 @@ export const ETCHING_FRAMES = {
 // Glass-bodied oil lantern requested by the user; internal tool ID stays molotov.
 export const OIL_LANTERN_SIZE = {width:1254,height:1254};
 export const OIL_LANTERN_FRAME = [356,128,544,1108];
+
+// Oil barrel is the display replacement for the existing pour tool ID.
+export const OIL_BARREL_SIZE = {width:1254,height:1254};
+export const OIL_BARREL_FRAME = [232,106,789,1065];

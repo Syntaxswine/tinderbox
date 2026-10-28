@@ -1,0 +1,1912 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "task": "Five direct tool controls, Menu, and automatic-pickup UI handoff",
+  "branch": "codex/ui-design",
+  "baseCommit": "b2960b71cffc67f702979ec7c2094237df30b910",
+  "candidate": "Commit containing this handoff; exact SHA in delivery",
+  "sourcePin": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "layout": {
+    "left": [
+      "matches",
+      "torch",
+      "flamethrower"
+    ],
+    "right": [
+      "jerry-can",
+      "molotov",
+      "menu"
+    ],
+    "display": [
+      "Matches",
+      "Torch",
+      "Flamethrower",
+      "Oil barrel",
+      "Throw lantern",
+      "Menu"
+    ]
+  },
+  "pickupImplementation": {
+    "manualUiConsumption": false,
+    "manualShortcuts": false,
+    "automaticWalkOverImplementedHere": false,
+    "owner": "Coder and artist; architect integrates",
+    "requirements": "docs/ui/six-actions/pickup-handoff.md"
+  },
+  "sourceHashes": [
+    {
+      "path": "src/ui/index.js",
+      "bytes": 20903,
+      "sha256": "dff728387a25e361dd12f98105816147424385c9e420ee4e3225a794dcb27809"
+    },
+    {
+      "path": "src/ui/model.js",
+      "bytes": 3244,
+      "sha256": "6c10adb730a87ade784cca1b2467b6bc395c321637a1080de686aad78e76ce8c"
+    },
+    {
+      "path": "src/ui/styles.css",
+      "bytes": 16526,
+      "sha256": "4ae24a7329676b638e234522fb80346468cc0a3b4b3ea8fee8e0c756240acbe5"
+    },
+    {
+      "path": "src/ui/etching-frames.js",
+      "bytes": 1425,
+      "sha256": "b755c51dde04ceb561bfafbf60ba74afcec9956182acaa7c96d47ff466b77c69"
+    },
+    {
+      "path": "assets/art/ui/engraved-oil-barrel.png",
+      "bytes": 2227597,
+      "sha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4"
+    },
+    {
+      "path": "assets/art/ui/engraved-oil-lantern.png",
+      "bytes": 1063533,
+      "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698"
+    },
+    {
+      "path": "assets/art/ui/engraved-atlas.png",
+      "bytes": 1994109,
+      "sha256": "e1be50ce8a5afc92e535730d24ac9ad19ac416119275cb345eafe4c8cfe6502a"
+    },
+    {
+      "path": "assets/art/ui/engraved-outline-plates.svg",
+      "bytes": 8169,
+      "sha256": "18604a6d3672ce7737283522d9bc1e626c3980b7f516db00caf0d6ea21820fd0"
+    },
+    {
+      "path": "assets/art/ui/engraved-plates.json",
+      "bytes": 14911,
+      "sha256": "c4c65a6d6a2bf46e176241bd77bb621bfb743a3d279e5436e8495ac521db4215"
+    },
+    {
+      "path": "tests/ui/browser-tests.js",
+      "bytes": 20652,
+      "sha256": "5bb252ab9e5e4fcf02554a6194f66f213fb07abe863472ecc265e564ea1ca938"
+    },
+    {
+      "path": "tests/ui/model.test.mjs",
+      "bytes": 3455,
+      "sha256": "5b63edef65a5c8177c018c18c52ff8a1657a29cefb091550b0d465148492e1da"
+    },
+    {
+      "path": "workbenches/ui/fixtures.js",
+      "bytes": 3554,
+      "sha256": "976c13effd55c6616beaf5048aee6943d32d379ae93832a9e28005a43d024b19"
+    },
+    {
+      "path": "workbenches/integration/review.js",
+      "bytes": 12622,
+      "sha256": "954de47839827bc43f6654de00e83a9d9f31252226cabc89d660afe97036a7ed"
+    }
+  ],
+  "checks": {
+    "repository": {
+      "status": "passed",
+      "command": "node tools/check.mjs",
+      "scripts": 66,
+      "staticModules": 73,
+      "nodeTests": {
+        "passed": 59,
+        "failed": 0
+      },
+      "sharedThreeAndProvenance": true,
+      "artCheck": true,
+      "fontSourceNoticeHashes": 9
+    },
+    "uiBrowser": {
+      "checks": 30,
+      "viewports": 4,
+      "status": "passed"
+    },
+    "combined": {
+      "checks": 11,
+      "viewports": 2,
+      "status": "passed",
+      "effectSetup": "Existing engine drug commands supplied as QA fixtures; not walk-over pickup proof."
+    },
+    "build": {
+      "status": "passed",
+      "command": "node tools/build.mjs",
+      "files": 97,
+      "bytes": 31295807
+    },
+    "release": {
+      "status": "passed",
+      "command": "node tools/check-release.mjs",
+      "hashes": 97,
+      "nestedResources": true
+    },
+    "hosted": {
+      "status": "passed",
+      "command": "node tools/check-site.mjs http://127.0.0.1:4552/nested/ui-review/dist/",
+      "files": 95,
+      "mimeHashesAndQaExclusion": true
+    },
+    "engravings": {
+      "status": "passed",
+      "ids": [
+        "matches",
+        "jerry-can",
+        "molotov",
+        "torch",
+        "flamethrower",
+        "powder",
+        "healing",
+        "inversion",
+        "pause",
+        "play",
+        "stop",
+        "options",
+        "reset",
+        "movement",
+        "tools",
+        "zoom-in",
+        "zoom-out"
+      ],
+      "assets": [
+        {
+          "path": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122,
+          "bytes": 1994109,
+          "sha256": "e1be50ce8a5afc92e535730d24ac9ad19ac416119275cb345eafe4c8cfe6502a",
+          "unmodifiedGeneration": true
+        },
+        {
+          "path": "assets/art/ui/engraved-oil-lantern.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1063533,
+          "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
+          "unmodifiedGeneration": true
+        },
+        {
+          "path": "assets/art/ui/engraved-oil-barrel.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 2227597,
+          "sha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4",
+          "unmodifiedGeneration": true
+        }
+      ],
+      "plates": [
+        {
+          "id": "matches",
+          "label": "matches",
+          "frame": [
+            19,
+            140,
+            285,
+            191
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "jerry-can",
+          "label": "Oil barrel",
+          "frame": [
+            232,
+            106,
+            789,
+            1065
+          ],
+          "source": "assets/art/ui/engraved-oil-barrel.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "id": "molotov",
+          "label": "Glass oil lantern",
+          "frame": [
+            356,
+            128,
+            544,
+            1108
+          ],
+          "source": "assets/art/ui/engraved-oil-lantern.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "id": "torch",
+          "label": "torch",
+          "frame": [
+            868,
+            12,
+            208,
+            325
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "flamethrower",
+          "label": "flamethrower",
+          "frame": [
+            1106,
+            60,
+            290,
+            268
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "powder",
+          "label": "powder",
+          "frame": [
+            25,
+            396,
+            282,
+            195
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "healing",
+          "label": "healing",
+          "frame": [
+            375,
+            337,
+            130,
+            264
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "inversion",
+          "label": "inversion",
+          "frame": [
+            568,
+            337,
+            267,
+            264
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "frame": [
+            870,
+            337,
+            201,
+            264
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "play",
+          "label": "play",
+          "frame": [
+            1102,
+            407,
+            281,
+            157
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "stop",
+          "label": "stop",
+          "frame": [
+            59,
+            595,
+            183,
+            280
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "options",
+          "label": "options",
+          "frame": [
+            270,
+            668,
+            312,
+            191
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "reset",
+          "label": "reset",
+          "frame": [
+            583,
+            630,
+            259,
+            244
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "movement",
+          "label": "movement",
+          "frame": [
+            850,
+            601,
+            245,
+            282
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "tools",
+          "label": "tools",
+          "frame": [
+            1103,
+            610,
+            285,
+            261
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "zoom-in",
+          "label": "zoom-in",
+          "frame": [
+            30,
+            887,
+            274,
+            223
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "id": "zoom-out",
+          "label": "zoom-out",
+          "frame": [
+            318,
+            887,
+            266,
+            222
+          ],
+          "source": "assets/art/ui/engraved-atlas.png",
+          "width": 1402,
+          "height": 1122
+        }
+      ],
+      "perIconSvgClipping": true,
+      "independentClipIds": true,
+      "systemColorFallback": true,
+      "supersededBottleFrameUnused": true
+    },
+    "runtimeFramesMatchMetadata": true,
+    "fallbackHashMatches": true
+  },
+  "browser": {
+    "ui": [
+      {
+        "width": 390,
+        "height": 844,
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower hold until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: held torch and flamer consume finite fuel and release cleanly",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower hold until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: held torch and flamer consume finite fuel and release cleanly",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower hold until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: held torch and flamer consume finite fuel and release cleanly",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower hold until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: held torch and flamer consume finite fuel and release cleanly",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      }
+    ],
+    "native": [
+      {
+        "check": "Production direct clicks",
+        "matches": {
+          "before": "12 left",
+          "after": "11 left"
+        },
+        "lantern": {
+          "before": "4 left",
+          "after": "3 left"
+        },
+        "pour": {
+          "on": "Oil barrel, 4 gas. Pouring on. Tap to stop.",
+          "off": "Oil barrel, 4 gas. Tap to pour · keep moving"
+        },
+        "manualDrugControls": 0
+      },
+      {
+        "check": "Native flamethrower button and held Space release",
+        "before": "6 fuel",
+        "after": "5.8 fuel",
+        "selected": "Flamethrower",
+        "pressedClass": "square-control industrial-switch tb-quick"
+      }
+    ],
+    "console": [],
+    "browserCleanup": {
+      "ownedTabs": [
+        "13",
+        "14"
+      ],
+      "closed": true,
+      "viewportReset": true,
+      "userTabsLeftOpen": true
+    },
+    "integration": [
+      {
+        "width": 390,
+        "height": 844,
+        "passed": 11,
+        "failed": 0,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "results": [
+          {
+            "name": "Production factories load with five direct tools and no manual drug controls",
+            "status": "pass"
+          },
+          {
+            "name": "Direct UI pour and raw joystick preserve the trail during engine-supplied powder",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion reverses the same held stick once and leaves aim and pour intact",
+            "status": "pass"
+          },
+          {
+            "name": "Pause freezes all clocks, stops pour and resumes without stale movement",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied healing updates the authoritative HP, stock and UI readout",
+            "status": "pass"
+          },
+          {
+            "name": "Held flamethrower consumes finite fuel, emits resolved fire and releases",
+            "status": "pass"
+          },
+          {
+            "name": "A nearby wall clips resolved flame before the protruding cosmetic nozzle",
+            "status": "pass"
+          },
+          {
+            "name": "Powder separates bear from a finite front on the same freshly poured line",
+            "status": "pass"
+          },
+          {
+            "name": "Exposition renders original normal civilians and exactly the surviving physical module parts",
+            "status": "pass"
+          },
+          {
+            "name": "Combined exposition UI pours through the open gate, stops at the closed door and slows the original civilians",
+            "status": "pass"
+          },
+          {
+            "name": "Combined resource/performance sample",
+            "status": "observed",
+            "metrics": {
+              "frames": 154,
+              "simulationMs": 0.8000001907348633,
+              "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+              "simulationCpuP95Ms": 1.5,
+              "observedHz": 60.00000000000002,
+              "renderCpuP95Ms": 3.200000047683716,
+              "drawCalls": 187,
+              "geometries": 48,
+              "textures": 28,
+              "viewport": {
+                "width": 390,
+                "height": 476
+              },
+              "threeRevision": "180"
+            },
+            "art": {
+              "disposed": false,
+              "updates": 154,
+              "lastSnapshot": {
+                "tick": 153,
+                "worldTime": 0.9141666666666692,
+                "playerTime": 3.8083333333333242
+              },
+              "footprintRadius": 0.56,
+              "provisionalBear": true,
+              "actors": 2,
+              "provisionalActors": 0,
+              "civilianKit": {
+                "disposed": false,
+                "species": [
+                  "goat",
+                  "horse"
+                ],
+                "instances": 2,
+                "sourceTextures": 2,
+                "baseUrl": "http://127.0.0.1:4552/nested/ui-review/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+              },
+              "civilians": {
+                "disposed": false,
+                "species": [
+                  "goat",
+                  "horse"
+                ],
+                "instances": 2,
+                "sourceTextures": 2,
+                "baseUrl": "http://127.0.0.1:4552/nested/ui-review/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+              },
+              "civilianActors": [
+                {
+                  "id": "visitor-horse",
+                  "triangles": 10300,
+                  "rifleTriangles": 480,
+                  "weapon": "rifle",
+                  "weaponTriangles": 480,
+                  "bones": 17,
+                  "skinnedMeshes": 8,
+                  "min": [
+                    7.505840904475723,
+                    5.551115123125783e-17,
+                    9.569314038353408
+                  ],
+                  "max": [
+                    8.043703289917008,
+                    1.5770123378662508,
+                    10.430836396490434
+                  ],
+                  "contacts": [],
+                  "sourceTriangles": 856076,
+                  "species": "horse",
+                  "appearance": "normal",
+                  "armed": false,
+                  "bounds": {
+                    "radius": 0.62,
+                    "height": 1.7
+                  }
+                },
+                {
+                  "id": "visitor-goat",
+                  "triangles": 9994,
+                  "rifleTriangles": 480,
+                  "weapon": "rifle",
+                  "weaponTriangles": 480,
+                  "bones": 17,
+                  "skinnedMeshes": 8,
+                  "min": [
+                    13.476380544980424,
+                    4.163336342344337e-17,
+                    11.569344523777481
+                  ],
+                  "max": [
+                    14.043703245213527,
+                    1.5765298978714388,
+                    12.430975132267454
+                  ],
+                  "contacts": [],
+                  "sourceTriangles": 29586,
+                  "species": "goat",
+                  "appearance": "normal",
+                  "armed": false,
+                  "bounds": {
+                    "radius": 0.62,
+                    "height": 1.7
+                  }
+                }
+              ],
+              "exterior": {
+                "modules": 15,
+                "survivingSolidParts": [
+                  "court-gate:pier-left",
+                  "court-gate:pier-right",
+                  "court-front-west:wall",
+                  "court-front-east:wall",
+                  "court-west:wall",
+                  "court-east:wall",
+                  "bay-pilaster-0:pilaster",
+                  "bay-pilaster-1:pilaster",
+                  "bay-pilaster-2:pilaster",
+                  "bay-pilaster-3:pilaster",
+                  "hall-back:wall",
+                  "hall-closed-door:pier-left",
+                  "hall-closed-door:pier-right",
+                  "hall-closed-door:closed-door",
+                  "hall-pilaster:pilaster",
+                  "service-corner:leg-x",
+                  "service-corner:leg-y"
+                ],
+                "suppressedSolidParts": [],
+                "suppressedCosmeticParts": [],
+                "visibleRoofParts": [
+                  "hall-gable:roof-envelope",
+                  "service-hip:roof-envelope"
+                ],
+                "disposed": false,
+                "renderedModuleIds": [
+                  "court-gate",
+                  "court-front-west",
+                  "court-front-east",
+                  "court-west",
+                  "court-east",
+                  "bay-pilaster-0",
+                  "bay-pilaster-1",
+                  "bay-pilaster-2",
+                  "bay-pilaster-3",
+                  "hall-back",
+                  "hall-closed-door",
+                  "hall-pilaster",
+                  "service-corner",
+                  "hall-gable",
+                  "service-hip"
+                ],
+                "renderedPartIds": [
+                  "court-gate:pier-left",
+                  "court-gate:pier-right",
+                  "court-gate:lintel",
+                  "court-front-west:wall",
+                  "court-front-east:wall",
+                  "court-west:wall",
+                  "court-east:wall",
+                  "bay-pilaster-0:pilaster",
+                  "bay-pilaster-1:pilaster",
+                  "bay-pilaster-2:pilaster",
+                  "bay-pilaster-3:pilaster",
+                  "hall-back:wall",
+                  "hall-closed-door:pier-left",
+                  "hall-closed-door:pier-right",
+                  "hall-closed-door:lintel",
+                  "hall-closed-door:closed-door",
+                  "hall-pilaster:pilaster",
+                  "service-corner:leg-x",
+                  "service-corner:leg-y",
+                  "hall-gable:roof-envelope",
+                  "service-hip:roof-envelope"
+                ],
+                "roofIds": [
+                  "hall-gable",
+                  "service-hip"
+                ],
+                "skinBindings": {
+                  "court-gate:pier-left": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-gate:pier-right": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-gate:lintel": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-front-west:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-front-east:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-west:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-east:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-0:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-1:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-2:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-3:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-back:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:pier-left": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:pier-right": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:lintel": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:closed-door": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-pilaster:pilaster": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "service-corner:leg-x": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "service-corner:leg-y": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-gable:roof-envelope": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "service-hip:roof-envelope": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  }
+                },
+                "builds": 1,
+                "meshes": 21,
+                "geometries": 21,
+                "materials": 3,
+                "textures": 0,
+                "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+                "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+              },
+              "sharedResources": {
+                "geometries": 2,
+                "materials": 28,
+                "textures": 30,
+                "objects": 0
+              },
+              "world": {
+                "geometries": 3,
+                "materials": 0,
+                "textures": 0,
+                "objects": 2,
+                "builds": 1
+              },
+              "bear": {
+                "geometries": 5,
+                "materials": 0,
+                "textures": 0,
+                "objects": 0
+              },
+              "ground": {
+                "geometries": 1,
+                "materials": 1,
+                "textures": 1,
+                "objects": 0
+              },
+              "tools": {
+                "projectiles": 0,
+                "geometries": 2,
+                "materials": 0,
+                "textures": 0,
+                "objects": 0
+              },
+              "fire": {
+                "flameCards": 0,
+                "smokeCards": 0,
+                "burstCards": 0,
+                "discharge": {
+                  "active": false,
+                  "rayCount": 0,
+                  "connectRays": false,
+                  "triangles": 0,
+                  "plumeCards": 0,
+                  "capped": false,
+                  "muzzleInsideShape": false,
+                  "visualForwardStart": 0,
+                  "geometryBuilds": 0,
+                  "worldTime": 0.9141666666666692,
+                  "geometries": 2,
+                  "materials": 2,
+                  "textures": 1,
+                  "objects": 0
+                },
+                "eventCount": 2,
+                "trackedCells": 1280,
+                "seenEvents": 2,
+                "capped": false,
+                "worldTime": 0.9141666666666692,
+                "geometries": 3,
+                "materials": 3,
+                "textures": 0,
+                "objects": 0
+              }
+            }
+          },
+          {
+            "name": "Four complete exposition runtime rebuilds dispose original civilian views and keep live resources stable",
+            "status": "pass"
+          }
+        ]
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "passed": 11,
+        "failed": 0,
+        "viewport": {
+          "width": 1366,
+          "height": 768
+        },
+        "results": [
+          {
+            "name": "Production factories load with five direct tools and no manual drug controls",
+            "status": "pass"
+          },
+          {
+            "name": "Direct UI pour and raw joystick preserve the trail during engine-supplied powder",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion reverses the same held stick once and leaves aim and pour intact",
+            "status": "pass"
+          },
+          {
+            "name": "Pause freezes all clocks, stops pour and resumes without stale movement",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied healing updates the authoritative HP, stock and UI readout",
+            "status": "pass"
+          },
+          {
+            "name": "Held flamethrower consumes finite fuel, emits resolved fire and releases",
+            "status": "pass"
+          },
+          {
+            "name": "A nearby wall clips resolved flame before the protruding cosmetic nozzle",
+            "status": "pass"
+          },
+          {
+            "name": "Powder separates bear from a finite front on the same freshly poured line",
+            "status": "pass"
+          },
+          {
+            "name": "Exposition renders original normal civilians and exactly the surviving physical module parts",
+            "status": "pass"
+          },
+          {
+            "name": "Combined exposition UI pours through the open gate, stops at the closed door and slows the original civilians",
+            "status": "pass"
+          },
+          {
+            "name": "Combined resource/performance sample",
+            "status": "observed",
+            "metrics": {
+              "frames": 154,
+              "simulationMs": 1.3999998569488525,
+              "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+              "simulationCpuP95Ms": 1.5,
+              "observedHz": 60.00000000000002,
+              "renderCpuP95Ms": 2.700000047683716,
+              "drawCalls": 187,
+              "geometries": 48,
+              "textures": 28,
+              "viewport": {
+                "width": 1366,
+                "height": 400
+              },
+              "threeRevision": "180"
+            },
+            "art": {
+              "disposed": false,
+              "updates": 154,
+              "lastSnapshot": {
+                "tick": 153,
+                "worldTime": 0.9141666666666692,
+                "playerTime": 3.8083333333333242
+              },
+              "footprintRadius": 0.56,
+              "provisionalBear": true,
+              "actors": 2,
+              "provisionalActors": 0,
+              "civilianKit": {
+                "disposed": false,
+                "species": [
+                  "goat",
+                  "horse"
+                ],
+                "instances": 2,
+                "sourceTextures": 2,
+                "baseUrl": "http://127.0.0.1:4552/nested/ui-review/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+              },
+              "civilians": {
+                "disposed": false,
+                "species": [
+                  "goat",
+                  "horse"
+                ],
+                "instances": 2,
+                "sourceTextures": 2,
+                "baseUrl": "http://127.0.0.1:4552/nested/ui-review/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+              },
+              "civilianActors": [
+                {
+                  "id": "visitor-horse",
+                  "triangles": 10300,
+                  "rifleTriangles": 480,
+                  "weapon": "rifle",
+                  "weaponTriangles": 480,
+                  "bones": 17,
+                  "skinnedMeshes": 8,
+                  "min": [
+                    7.505840904475723,
+                    5.551115123125783e-17,
+                    9.569314038353408
+                  ],
+                  "max": [
+                    8.043703289917008,
+                    1.5770123378662508,
+                    10.430836396490434
+                  ],
+                  "contacts": [],
+                  "sourceTriangles": 856076,
+                  "species": "horse",
+                  "appearance": "normal",
+                  "armed": false,
+                  "bounds": {
+                    "radius": 0.62,
+                    "height": 1.7
+                  }
+                },
+                {
+                  "id": "visitor-goat",
+                  "triangles": 9994,
+                  "rifleTriangles": 480,
+                  "weapon": "rifle",
+                  "weaponTriangles": 480,
+                  "bones": 17,
+                  "skinnedMeshes": 8,
+                  "min": [
+                    13.476380544980424,
+                    4.163336342344337e-17,
+                    11.569344523777481
+                  ],
+                  "max": [
+                    14.043703245213527,
+                    1.5765298978714388,
+                    12.430975132267454
+                  ],
+                  "contacts": [],
+                  "sourceTriangles": 29586,
+                  "species": "goat",
+                  "appearance": "normal",
+                  "armed": false,
+                  "bounds": {
+                    "radius": 0.62,
+                    "height": 1.7
+                  }
+                }
+              ],
+              "exterior": {
+                "modules": 15,
+                "survivingSolidParts": [
+                  "court-gate:pier-left",
+                  "court-gate:pier-right",
+                  "court-front-west:wall",
+                  "court-front-east:wall",
+                  "court-west:wall",
+                  "court-east:wall",
+                  "bay-pilaster-0:pilaster",
+                  "bay-pilaster-1:pilaster",
+                  "bay-pilaster-2:pilaster",
+                  "bay-pilaster-3:pilaster",
+                  "hall-back:wall",
+                  "hall-closed-door:pier-left",
+                  "hall-closed-door:pier-right",
+                  "hall-closed-door:closed-door",
+                  "hall-pilaster:pilaster",
+                  "service-corner:leg-x",
+                  "service-corner:leg-y"
+                ],
+                "suppressedSolidParts": [],
+                "suppressedCosmeticParts": [],
+                "visibleRoofParts": [
+                  "hall-gable:roof-envelope",
+                  "service-hip:roof-envelope"
+                ],
+                "disposed": false,
+                "renderedModuleIds": [
+                  "court-gate",
+                  "court-front-west",
+                  "court-front-east",
+                  "court-west",
+                  "court-east",
+                  "bay-pilaster-0",
+                  "bay-pilaster-1",
+                  "bay-pilaster-2",
+                  "bay-pilaster-3",
+                  "hall-back",
+                  "hall-closed-door",
+                  "hall-pilaster",
+                  "service-corner",
+                  "hall-gable",
+                  "service-hip"
+                ],
+                "renderedPartIds": [
+                  "court-gate:pier-left",
+                  "court-gate:pier-right",
+                  "court-gate:lintel",
+                  "court-front-west:wall",
+                  "court-front-east:wall",
+                  "court-west:wall",
+                  "court-east:wall",
+                  "bay-pilaster-0:pilaster",
+                  "bay-pilaster-1:pilaster",
+                  "bay-pilaster-2:pilaster",
+                  "bay-pilaster-3:pilaster",
+                  "hall-back:wall",
+                  "hall-closed-door:pier-left",
+                  "hall-closed-door:pier-right",
+                  "hall-closed-door:lintel",
+                  "hall-closed-door:closed-door",
+                  "hall-pilaster:pilaster",
+                  "service-corner:leg-x",
+                  "service-corner:leg-y",
+                  "hall-gable:roof-envelope",
+                  "service-hip:roof-envelope"
+                ],
+                "roofIds": [
+                  "hall-gable",
+                  "service-hip"
+                ],
+                "skinBindings": {
+                  "court-gate:pier-left": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-gate:pier-right": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-gate:lintel": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-front-west:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-front-east:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-west:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "court-east:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-0:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-1:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-2:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "bay-pilaster-3:pilaster": {
+                    "facade": "inherited-cream",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-back:wall": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:pier-left": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:pier-right": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:lintel": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-closed-door:closed-door": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-pilaster:pilaster": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "service-corner:leg-x": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "service-corner:leg-y": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "hall-gable:roof-envelope": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  },
+                  "service-hip:roof-envelope": {
+                    "facade": "inherited-plaster",
+                    "trim": "inherited-cream",
+                    "door": "inherited-wood",
+                    "roof": "inherited-roof"
+                  }
+                },
+                "builds": 1,
+                "meshes": 21,
+                "geometries": 21,
+                "materials": 3,
+                "textures": 0,
+                "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+                "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+              },
+              "sharedResources": {
+                "geometries": 2,
+                "materials": 28,
+                "textures": 30,
+                "objects": 0
+              },
+              "world": {
+                "geometries": 3,
+                "materials": 0,
+                "textures": 0,
+                "objects": 2,
+                "builds": 1
+              },
+              "bear": {
+                "geometries": 5,
+                "materials": 0,
+                "textures": 0,
+                "objects": 0
+              },
+              "ground": {
+                "geometries": 1,
+                "materials": 1,
+                "textures": 1,
+                "objects": 0
+              },
+              "tools": {
+                "projectiles": 0,
+                "geometries": 2,
+                "materials": 0,
+                "textures": 0,
+                "objects": 0
+              },
+              "fire": {
+                "flameCards": 0,
+                "smokeCards": 0,
+                "burstCards": 0,
+                "discharge": {
+                  "active": false,
+                  "rayCount": 0,
+                  "connectRays": false,
+                  "triangles": 0,
+                  "plumeCards": 0,
+                  "capped": false,
+                  "muzzleInsideShape": false,
+                  "visualForwardStart": 0,
+                  "geometryBuilds": 0,
+                  "worldTime": 0.9141666666666692,
+                  "geometries": 2,
+                  "materials": 2,
+                  "textures": 1,
+                  "objects": 0
+                },
+                "eventCount": 2,
+                "trackedCells": 1280,
+                "seenEvents": 2,
+                "capped": false,
+                "worldTime": 0.9141666666666692,
+                "geometries": 3,
+                "materials": 3,
+                "textures": 0,
+                "objects": 0
+              }
+            }
+          },
+          {
+            "name": "Four complete exposition runtime rebuilds dispose original civilian views and keep live resources stable",
+            "status": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "path": "evidence/desktop.jpg",
+      "bytes": 66719,
+      "sha256": "13993d8d8b9ccba03dc8452abb6a5e0a09f251c5f735ee04eec3afa4c5c713b6"
+    },
+    {
+      "path": "evidence/landscape.jpg",
+      "bytes": 33045,
+      "sha256": "62dda26735e7cf5dcf4192ed9486354d3d87f88f597c0c7227522ac8660b4be6"
+    },
+    {
+      "path": "evidence/phone-320.jpg",
+      "bytes": 33320,
+      "sha256": "2016dcb66ce7360eb5ca29b744a862cf218cfc8e7329af97e556e65308cae43a"
+    },
+    {
+      "path": "evidence/phone-390.jpg",
+      "bytes": 44767,
+      "sha256": "22fc89b36ff759a407843b015e11b7d7ba31b5fb6e924192a3da2ce74dbc60c7"
+    },
+    {
+      "path": "evidence/phone-menu.jpg",
+      "bytes": 33547,
+      "sha256": "7399737b5cb2c826fc9a2f3c95fde55a952b0a710ca04a36147831626a460e9b"
+    },
+    {
+      "path": "evidence/phone-options.jpg",
+      "bytes": 40103,
+      "sha256": "1c0a2449bcfe35a26a5725741fa74f38479a887d6eb27f9ce636af2ed80df91e"
+    },
+    {
+      "path": "evidence/phone-pouring.jpg",
+      "bytes": 45483,
+      "sha256": "5c493a26f491e3cab71b6080256fa73406e04e23eb4041215f5096c7469d6a7c"
+    }
+  ],
+  "helper": {
+    "status": "stopped",
+    "receipt": {
+      "portReleased": true,
+      "exactProcessExited": true,
+      "owner": "01a17edb-5cf4-7af0-a52e-d28547bb7ede",
+      "checkedAt": "2026-10-28T06:54:02.9458918+00:00",
+      "stopMethod": "Private STOP marker",
+      "pid": 64860,
+      "creationFiletime": "134376429243703306",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "stdoutReceipt": "{\"status\":\"stopped\",\"reason\":\"stop-file\",\"pid\":64860}",
+      "reason": "Direct tool controls and pickup UI handoff checks complete",
+      "purpose": "Six direct tool controls and pickup feedback review",
+      "port": 4552
+    },
+    "restartRecord": "artifacts/six-actions/helper/register.json",
+    "sourceBundle": "artifacts/six-actions/helper/final-source-bundle/source-manifest.json"
+  },
+  "limitations": [
+    "Actual walk-over pickup detection, one-time consumption and ground-item art require coder/artist implementation and combined review.",
+    "Carried oil barrel and approved glass lantern presentation remain artist/coder integration work.",
+    "Unpatched production screenshots: optional zoom remains a separate runtime adapter dependency.",
+    "Actual handset touch/safe areas/performance and OS forced colors not exercised.",
+    "Three original PNG sources total 5285239 bytes; handset download/decode not measured."
+  ]
+}

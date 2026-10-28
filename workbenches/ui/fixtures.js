@@ -40,7 +40,7 @@ export function createFakeSnapshotAdapter({onSnapshot, onCommand = () => {}}) {
     dispatch(command) {
       onCommand(structuredClone(command));
       if (command.type === 'select-tool') {
-        value.player.tool = command.tool; value.player.pouring = false;
+        if (value.player.tool !== command.tool) { value.player.tool = command.tool; value.player.pouring = false; }
       } else if (command.type === 'primary') {
         if (command.pressed && !pressed && value.player.tool === 'jerry-can') value.player.pouring = !value.player.pouring;
         pressed = command.pressed;

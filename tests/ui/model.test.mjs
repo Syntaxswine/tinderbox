@@ -7,8 +7,9 @@ import {createHash} from 'node:crypto';
 import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText} from '../../src/ui/model.js';
 import {fixture} from '../../workbenches/ui/fixtures.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-test('only the five contracted tools and three drug commands are exposed', () => {
+test('five tool IDs and effect definitions preserve the scene contract', () => {
   assert.deepEqual(TOOLS.map(tool => tool.id), ['matches','jerry-can','molotov','torch','flamethrower']);
+  assert.equal(TOOLS[1].label, 'Oil barrel');
   assert.equal(TOOLS[2].label, 'Oil lantern');
   assert.equal(TOOLS[2].stock, 'molotovs');
   assert.equal(TOOLS[2].action, 'Throw');

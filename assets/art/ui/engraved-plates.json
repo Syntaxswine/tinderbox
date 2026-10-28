@@ -134,7 +134,7 @@
   "systemColorFallback": {
     "installedPath": "assets/art/ui/engraved-outline-plates.svg",
     "kind": "Original editable 64-unit contour/hatch drawings made in this task; used in system forced colors.",
-    "sha256": "9730a012eb37f27372cabd8bdd3c3a63232ef5b4ac10084b61702cb37edcc8fe"
+    "sha256": "18604a6d3672ce7737283522d9bc1e626c3980b7f516db00caf0d6ea21820fd0"
   },
   "references": [
     {
@@ -161,13 +161,13 @@
   },
   "reuse": {
     "sourcePin": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
-    "preserved": "Farmyard control grouping/geometry and existing local timber/map frame. Vendor and font files unchanged.",
+    "preserved": "Farmyard central joystick and six-button grouping, timber and map-frame foundation. Vendor and font files unchanged.",
     "previousHandoff": "docs/ui/phone/README.md"
   },
-  "scope": "Presentation and icon rendering only; command vocabulary, game state, input geometry and runtime camera wiring remain as before.",
+  "scope": "UI presentation, direct-action input mapping and review fixtures. Existing command vocabulary, simulation rules and runtime camera wiring are preserved.",
   "rights": "The PNGs are AI-generated for this project, not reproductions of museum images or historical engravings. Fallback vectors and menu styling are original adaptations. Existing donor rights limitations and font OFL notices remain as recorded.",
   "imageGeneration": {
-    "mode": "Built-in image_gen: original atlas plus edited glass oil lantern plate",
+    "mode": "Built-in image_gen: original atlas, edited glass oil lantern and new oil barrel plate",
     "prompt": "Use case: historical-scene / illustration.\nAsset type: ONE production sprite atlas for Tinderbox game menus, a single cohesive plate of 17 Victorian newspaper wood engravings.\nPrimary request: deeply detailed black-ink nineteenth-century wood engravings, like tiny object illustrations in an 1893 newspaper advertisement, with natural contour hatching, cross-hatched shadows, stippling, irregular burin-cut line weights and realistic material detail. These must look like printed illustrations, not modern outlined UI icons, not flat pictograms, not infographic graphics.\nComposition: strict evenly spaced 5-column by 4-row atlas, all cells equal and aligned to the exact grid. Every object isolated and centered in its cell with generous transparent safety margins (at least 12 percent all around), no overlapping cells. Entire atlas landscape aspect 5:4. NO grid lines, no cell borders, no labels, no captions, no decorative shared frame. One object illustration per filled cell.\nRead left to right:\nRow 1: a small matchbox with two long wooden matches; a rectangular metal fuel can with handle and cap; a glass bottle with cloth rag in its neck; a burning wooden hand torch; a flamethrower consisting of a strapped pressure cylinder, hose and small handheld nozzle.\nRow 2: a folded paper powder packet with a few grains beside it; a stoppered apothecary medicine bottle with an unlettered label; a wooden fingerpost with two opposing directional boards; an ornate closed-case pocket watch with exposed dial; a detailed Victorian pointing right hand/manicule with cuff.\nRow 3: an upright open palm meaning stop, with finely drawn natural fingers; an open old book; a quill pen lying diagonally on a sheet of paper; an antique compass rose; a joiner's wooden tool chest with handle.\nRow 4: a handheld magnifying glass with a small plus in the lens; a handheld magnifying glass with a small minus in the lens; EMPTY transparent cell; EMPTY transparent cell; EMPTY transparent cell.\nPalette: monochrome dark brown-black ink only. No color. Shadows expressed ONLY through carved line work and stippling. Strong outer silhouettes and large areas of clear negative space so the cuts remain recognizable at 40 CSS pixels. Fine engraving detail rewards a larger view, but avoid fuzzy grey wash.\nBackground: actual transparent alpha, including all blank cells and all surrounding space. No paper background, no checkerboard, no shadows cast onto a background, no gradients. Highlights and negative spaces inside the drawings should also be transparent as far as possible. No words, letters, numerals, logos or watermarks. The plus and minus on the magnifiers are the only symbols. Preserve all 17 distinct objects and the exact 5x4 order."
   },
   "oilLantern": {
@@ -203,5 +203,51 @@
       "sha256": "0072d2cdbf32acf83cf806d6075e0d00876eea75f82d84eb6111f1643c813bdc",
       "prompt": "Use case: historical-scene / engraving illustration.\nAsset type: a replacement production menu illustration for Tinderbox.\nReference image role: EDIT TARGET — the existing monochrome engraved tin hurricane lantern. Match its fine Victorian newspaper engraving style and detailed contour hatching, but redesign the object as a GLASS-BODIED oil lantern.\nPrimary request: a portable nineteenth-century chamber oil lantern with a broad, clear blown-glass oil reservoir at its base, a small brass wick burner above the reservoir, a tall clear glass chimney enclosing a small lit flame, and a spare thin wire carrying bail. The transparent glass reservoir must be a prominent part of the silhouette, occupying roughly the lower third of the object. A clearly visible horizontal oil level and the submerged wick can be seen through the glass. Give the glass rounded shoulders, restrained cut-glass facets at the base, crisp double contours at glass edges, a few slender curved reflection highlights and broad open areas. Use only fine sparse hatching on the transparent glass; reserve denser hatching for the tiny brass burner and oil below its level.\nComposition: one complete upright lantern centered with generous margin, three-quarter view, compact enough to read at 44px high. Keep the whole bail, chimney and base visible and distinct.\nStyle and palette: same dark brown-black ink-only 1893 newspaper wood engraving as the edit target. Natural fine contour hatching and stipple, realistic object illustration. No modern icon treatment. Preserve the established monochrome print language: oil is indicated with engraving marks, not amber color fill.\nChange requirements: remove the opaque metal fuel tank and heavy metal hurricane frame. The fuel reservoir is visibly transparent glass, not a tin tank with a glass window. Keep metal fittings minimal. No sheet-metal bonnet obscuring the tall glass chimney.\nBackground: preserve genuine transparent alpha; highlights and negative space should be transparent as far as possible. No paper background, colored wash, gradients, scene, shadows on a background, labels, words, numerals or watermark. No modern pressure lamp, electric bulb, LED, rag bottle or decorative flowers. This is an original game object design, not an exact named historical model."
     }
+  },
+  "oilBarrel": {
+    "installedPath": "assets/art/ui/engraved-oil-barrel.png",
+    "source": "Built-in image_gen tool, new engraving for requested oil-barrel action",
+    "generationFile": "exec-b52fc0c9-b992-431d-9e95-d43c596efb7b.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 2227597,
+    "sha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4",
+    "requestedTransparentBackground": true,
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "bytesUnmodified": true,
+    "frame": [
+      232,
+      106,
+      789,
+      1065
+    ],
+    "internalToolId": "jerry-can",
+    "stockField": "gas",
+    "action": "Pour / Stop",
+    "worldArtStatus": "Carried oil barrel is an artist/coder integration follow-up; existing pour behavior is retained.",
+    "prompt": "Asset: one original engraving plate for the Oil barrel button in Tinderbox's period game UI.\nDraw a small upright wooden oil barrel in three-quarter view. Bulging stave-built cask with a closed round wooden head, three dark iron hoops, a small round bung in the head, convincing curved staves and visible wood grain. Whole barrel visible, simple strong silhouette, no spigot, no lettering or oil-drop symbols.\nStyle: detailed 1893 newspaper wood engraving, monochrome dark brown-black ink, natural contour hatching, dense cross-hatched hoop shadows, restrained stippling and open highlights. Match a coherent set of Victorian newspaper tool-advertisement illustrations. Realistic object illustration, not a modern outline icon or infographic. Recognizable at 20 to 44 CSS pixels.\nCentered isolated barrel, square canvas with generous clear margins. Transparent background and transparent negative space where possible. No paper, cast shadow on a background, colored wash, gradient, labels, words, numbers, border or watermark. No modern plastic jerry can, no modern steel drum, no electric objects. Original game adaptation, no claim of an exact historical manufacturer.",
+    "supersedesAtlasFrame": [
+      331,
+      65,
+      203,
+      265
+    ]
+  },
+  "controls": {
+    "left": [
+      "Matches",
+      "Torch",
+      "Flamethrower"
+    ],
+    "right": [
+      "Oil barrel",
+      "Throw lantern",
+      "Menu"
+    ],
+    "input": "Tool buttons select then activate; torch/flamethrower hold, barrel toggles pour.",
+    "drugs": "User requires automatic activation when walked over; manual UI buttons and shortcuts removed. Simulation pickup detection remains coder work."
   }
 }

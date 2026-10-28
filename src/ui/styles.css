@@ -190,3 +190,35 @@
 }
 
 .tb-zoom::before { content:"ZOOM"; position:absolute; top:-13px; left:0; width:44px; text-align:center; font:600 7px/10px var(--label); letter-spacing:1px; color:var(--muted); }
+
+/* Five direct tool actions, in the user's physical top-to-bottom order. */
+.tb-ui .thumb-layout { grid-template-columns:58px minmax(0,1fr) 58px; }
+.tb-ui .square-control.tb-quick { --switch-size:58px; touch-action:none; }
+.tb-ui .square-control.tb-quick .switch-legend { inset:3px 2px; grid-template-rows:20px 20px 9px; align-content:center; gap:0; }
+.tb-ui .square-control.tb-quick .switch-glyph { width:20px; height:20px; }
+.tb-ui .square-control.tb-quick .switch-label { font:700 8px/10px var(--label); white-space:normal; }
+.tb-ui .square-control.tb-quick .switch-cost { font:600 8px/9px var(--label); }
+.tb-ui .square-control.tb-quick[data-tool=matches] .switch-label,
+.tb-ui .square-control.tb-quick[data-tool=torch] .switch-label { align-self:center; }
+@media(max-width:380px) {
+  .tb-ui .thumb-layout { grid-template-columns:52px minmax(0,1fr) 52px; gap:8px; }
+  .tb-ui .square-control.tb-quick { --switch-size:52px; }
+  .tb-ui .square-control.tb-quick .switch-legend { inset:2px 1px; grid-template-rows:18px 18px 8px; }
+  .tb-ui .square-control.tb-quick .switch-glyph { width:18px; height:18px; }
+  .tb-ui .square-control.tb-quick .switch-label { font-size:7px; line-height:9px; }
+  .tb-ui .square-control.tb-quick .switch-cost { font-size:7px; line-height:8px; }
+}
+@media(max-height:580px) and (min-width:600px) {
+  .tb-ui .thumb-layout { grid-template-columns:48px minmax(0,1fr) 48px; }
+  .tb-ui .left-controls,.tb-ui .right-controls { flex-direction:column; }
+  .tb-ui .square-control.tb-quick { --switch-size:48px; }
+  .tb-ui .square-control.tb-quick .switch-legend { inset:1px; grid-template-rows:17px 18px 8px; }
+  .tb-ui .square-control.tb-quick .switch-glyph { width:17px; height:17px; }
+  .tb-ui .square-control.tb-quick .switch-label { font-size:7px; line-height:9px; }
+  .tb-ui .square-control.tb-quick .switch-cost { font-size:7px; line-height:8px; }
+}
+
+/* Keep the menu plate aligned with the two tool banks. */
+.tb-ui .square-control.tb-pause { --switch-size:58px; }
+@media(max-width:380px) { .tb-ui .square-control.tb-pause { --switch-size:52px; } }
+@media(max-height:580px) and (min-width:600px) { .tb-ui .square-control.tb-pause { --switch-size:48px; } }
