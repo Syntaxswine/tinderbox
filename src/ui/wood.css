@@ -1,0 +1,175 @@
+/* Wood material over Farmyard's component geometry. Vendor pixels stay untouched. */
+.tb-ui {
+  --wood-grain:url('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/wood-factory-v2.png');
+  --legend-paint:#fff0d0;
+}
+.tb-ui .tb-wood-panel {
+  border:5px ridge #8c6338;
+  border-radius:5px;
+  background-color:#322015;
+  background-image:linear-gradient(#24140bc9,#29170bd6),var(--wood-grain);
+  background-size:auto,560px;
+  box-shadow:inset 0 0 0 1px #150c08,inset 0 0 18px #0c070788,0 5px 0 #180e09,0 9px 22px #08060488;
+  text-shadow:0 1px 1px #130b06;
+}
+.tb-ui .tb-console {
+  background-image:radial-gradient(circle at 5px 5px,#2b1b0d 1.5px,#aa8050 2px,transparent 3px),radial-gradient(circle at calc(100% - 5px) 5px,#2b1b0d 1.5px,#aa8050 2px,transparent 3px),linear-gradient(#24140bc9,#29170bd6),var(--wood-grain);
+  background-size:auto,auto,auto,560px;
+}
+.tb-ui .tb-effect { background:#291b12f5; box-shadow:0 3px 8px #08060466; border-radius:0 3px 3px 0; }
+.tb-ui .industrial-switch {
+  --legend-paint:#fff0d0; --legend-light:none;
+  border-radius:5px;
+  box-shadow:0 3px 0 #140c07,0 4px 7px #100906a6;
+}
+.tb-ui .industrial-switch::before {
+  background-image:linear-gradient(160deg,#9b754122,#190e085e),var(--wood-grain);
+  background-size:auto,540px;
+  background-position:center,var(--wood-position,35% 24%);
+  background-repeat:no-repeat,repeat;
+  border:2px solid #a27b48;
+  border-color:#bc945e #5b3b22 #432917 #a17a46;
+  box-shadow:inset 0 0 0 2px #27170fa6,inset 0 0 0 3px #c5a16a38;
+}
+.tb-ui .industrial-switch::after {
+  background-image:none;
+  background-color:#bd8b3b18;
+  border:2px solid #f7d68c;
+  box-shadow:inset 0 -4px 0 #e4bd76;
+  opacity:0;
+}
+.tb-ui .industrial-switch[data-face=red]::before { background-image:linear-gradient(#6f291747,#2d130b88),var(--wood-grain); }
+.tb-ui .industrial-switch .switch-legend { text-shadow:0 1px 1px #170d06,0 -1px #ffffff12; }
+.tb-ui .industrial-switch:enabled:hover::before { filter:brightness(1.15); }
+.tb-ui .industrial-switch[aria-pressed=true],.tb-ui .industrial-switch[data-lit=true],.tb-ui .industrial-switch.is-pressed {
+  --legend-paint:#fff6d9; --legend-light:none;
+}
+.tb-ui .industrial-switch:enabled:active,.tb-ui .industrial-switch.is-pressed { box-shadow:0 1px 0 #140c07,inset 0 2px 5px #08040299; }
+.tb-ui .industrial-switch[aria-pressed=true]::after,.tb-ui .industrial-switch[data-lit=true]::after,.tb-ui .industrial-switch.is-pressed::after { opacity:1; }
+.tb-ui .industrial-switch:disabled { --legend-paint:#c8b797; }
+.tb-ui .industrial-switch:disabled::before { filter:saturate(.5) brightness(.65); }
+.tb-ui .industrial-switch[data-empty=true]::before { filter:saturate(.5) brightness(.8); }
+.tb-ui .tb-tool:nth-child(2) { --wood-position:58% 40%; }
+.tb-ui .tb-tool:nth-child(3) { --wood-position:72% 18%; }
+.tb-ui .tb-tool:nth-child(4) { --wood-position:18% 65%; }
+.tb-ui .tb-tool:nth-child(5) { --wood-position:36% 80%; }
+.tb-ui .tb-drug { --wood-position:73% 55%; }
+.tb-ui .tb-drug[data-drug=healing] { --wood-position:43% 68%; }
+.tb-ui .tb-drug[data-drug=inversion] { --wood-position:16% 30%; }
+.tb-ui .tb-pause { --wood-position:73% 20%; }
+.tb-ui .tb-stick {
+  color:#ecd0a1;
+  border:3px ridge #ab8050;
+  background-color:#2b1b12;
+  background-image:radial-gradient(circle,#160e09b3 0 48%,#3d28147a 50% 60%,#150b07ad 70%),var(--wood-grain);
+  background-size:auto,560px;
+  background-position:center,42% 70%;
+  box-shadow:inset 0 3px 12px #090402bf,0 3px 0 #160c07;
+}
+.tb-ui .tb-stick-ring { border-color:#c59e675c; }
+.tb-ui .tb-stick-n { color:#f0d2a2; }
+.tb-ui .tb-stick-thumb {
+  color:#fff0cd;
+  border:3px ridge #d1aa71;
+  background-color:#76502b;
+  background-image:radial-gradient(circle at 32% 20%,#d7af6244,#26150988),var(--wood-grain);
+  background-size:auto,620px;
+  background-position:center,42% 25%;
+  box-shadow:0 5px 8px #100701b3,inset 0 1px 1px #e2bb73;
+}
+.tb-ui .tb-menu-heading { padding-bottom:16px; border-bottom:1px solid #c4a16b77; }
+.tb-ui .tb-menu-button {
+  color:var(--ink);
+  border-color:#a78250 #4f341f #352113 #9c7748;
+  border-width:2px 2px 4px;
+  border-radius:3px;
+  background-image:linear-gradient(#4c2f1773,#26160ba3),var(--wood-grain);
+  background-size:auto,550px;
+  background-position:center,40% 35%;
+  box-shadow:inset 0 0 0 1px #e7c78b22,0 2px 3px #130a0677;
+  text-shadow:0 1px #160c08;
+}
+.tb-ui .tb-menu-button:hover { filter:brightness(1.18); }
+.tb-ui .tb-menu-button:active { border-bottom-width:2px; padding-bottom:14px; }
+.tb-ui .tb-resume { border-color:#dec08b #856132 #775127 #c6a56c; }
+.tb-ui.tb-high-contrast { --ink:#fff9e8; --muted:#fff9e8; }
+.tb-ui.tb-high-contrast .switch-legend { --legend-paint:#fff9e8; background:#160e09e8; border-radius:2px; text-shadow:none; }
+.tb-ui.tb-high-contrast .tb-stick-thumb { color:#fff9e8; }
+
+/* Eastlake follow-up: flat inset panels, reeded rails and shallow geometric carving.
+ * These editable ornaments are original adaptations; research is in docs/ui/eastlake.
+ */
+.tb-ui .tb-wood-panel {
+  border:5px solid #382316;
+  border-radius:1px;
+  background-color:#21180f;
+  background-image:linear-gradient(#1d150dd1,#24180fd9),var(--wood-grain);
+  background-size:auto,560px;
+  box-shadow:inset 0 0 0 1px #c3a17099,inset 0 0 0 3px #140c08,inset 0 0 0 4px #ab885255,0 4px 0 #130b07,0 8px 20px #08060499;
+}
+.tb-ui .tb-vitals,.tb-ui .tb-menu { position:relative; }
+.tb-ui .tb-wood-panel::before {
+  content:'';
+  position:absolute;
+  inset:-6px;
+  z-index:3;
+  background:url('../../assets/art/ui/eastlake-rosette.svg') left top/19px 19px no-repeat,url('../../assets/art/ui/eastlake-rosette.svg') right top/19px 19px no-repeat,url('../../assets/art/ui/eastlake-rosette.svg') left bottom/19px 19px no-repeat,url('../../assets/art/ui/eastlake-rosette.svg') right bottom/19px 19px no-repeat;
+  pointer-events:none;
+}
+.tb-ui .tb-wood-panel::after {
+  content:'';
+  position:absolute;
+  inset:3px;
+  border:1px solid #b6945c66;
+  box-shadow:inset 0 0 0 2px #100b0777;
+  pointer-events:none;
+}
+.tb-ui .tb-console {
+  background-image:linear-gradient(#21160dc7,#24180fdc),var(--wood-grain);
+  background-size:auto,560px;
+}
+.tb-ui .industrial-switch { border-radius:1px; }
+.tb-ui .industrial-switch::before {
+  background-image:url('../../assets/art/ui/eastlake-button.svg'),linear-gradient(160deg,#a1794133,#1b10095e),var(--wood-grain);
+  background-size:100% 100%,auto,540px;
+  background-position:center,center,var(--wood-position,35% 24%);
+  background-repeat:no-repeat,no-repeat,repeat;
+  border-color:#9d7d51 #49301d #322013 #896b40;
+  box-shadow:inset 0 0 0 1px #20140ca6;
+}
+.tb-ui .industrial-switch[data-face=red]::before {
+  background-image:url('../../assets/art/ui/eastlake-button.svg'),linear-gradient(#6f291747,#2d130b88),var(--wood-grain);
+}
+.tb-ui .industrial-switch::after {
+  border:1px solid #f0d79c;
+  box-shadow:inset 0 -3px 0 #ddbf7e,inset 0 0 0 3px #d9b97155;
+  background-color:#bd8b3b0c;
+}
+.tb-ui .tb-stick { border-radius:20%; border:3px ridge #987444; }
+.tb-ui .tb-stick-thumb { border-width:3px; }
+.tb-ui .tb-rack-label { align-items:center; gap:12px; }
+.tb-ui .tb-rack-label::after {
+  content:''; order:1; flex:1; height:12px;
+  background:url('../../assets/art/ui/eastlake-rule.svg') center/100% 12px no-repeat;
+  opacity:.8;
+}
+.tb-ui .tb-rack-label>[data-loadout-state] { order:2; }
+.tb-ui .tb-menu::before { inset:0; background-size:16px 16px; }
+.tb-ui .tb-menu-heading {
+  padding-bottom:24px;
+  border-bottom:0;
+  background:url('../../assets/art/ui/eastlake-rule.svg') center bottom/100% 12px no-repeat;
+}
+.tb-ui .tb-menu-button {
+  border-radius:1px;
+  border-bottom-width:3px;
+  background-image:linear-gradient(#48311d73,#20150ca3),var(--wood-grain);
+}
+.tb-ui .tb-health-meter { border-color:#9c8052; }
+@media(max-width:650px) {
+  .tb-ui .tb-wood-panel::before { background-size:16px 16px; }
+  .tb-ui .tb-rack-label { gap:8px; }
+}
+@media(forced-colors:active) {
+  .tb-ui .tb-wood-panel::before,.tb-ui .tb-wood-panel::after,.tb-ui .tb-rack-label::after { display:none; }
+}

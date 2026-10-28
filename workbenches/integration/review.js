@@ -10,45 +10,47 @@ const step=(ticks=1)=>{let snapshot;for(let i=0;i<ticks;i++)snapshot=game.advanc
 async function open(options={}){game?.dispose();game=await startGame({root,autoStart:false,scenario:'street',...options});return game;}
 const pointer=(target,type,id,x=0,y=0)=>target.dispatchEvent(new PointerEvent(type,{pointerId:id,pointerType:'touch',button:0,clientX:x,clientY:y,bubbles:true,cancelable:true}));
 function move(vector,id=71){const stick=find('[data-stick]'),rect=stick.getBoundingClientRect(),radius=Math.min(rect.width,rect.height)*.36;pointer(stick,'pointerdown',id,rect.x+rect.width/2+vector.x*radius,rect.y+rect.height/2-vector.y*radius);}
-const select=tool=>{find(`[data-tool="${tool}"]`).click();step();};
+const select=tool=>{game.dispatch({type:'select-tool',tool});step();};
+const action=()=>find('[data-tool="'+game.snapshot().player.tool+'"]');
+// QA-only effect setup: these commands do not establish world walk-over pickup behavior.
 const dischargeArt=()=>game.artDiagnostics().fire.discharge;
 async function check(name,run){try{await run();results.push({name,status:'pass'});}catch(error){results.push({name,status:'fail',message:error.message});}output.textContent=JSON.stringify({results},null,2);}
 async function suite(){
   results=[];document.querySelectorAll('#qa button').forEach(button=>button.disabled=true);
   try{
     await open();
-    await check('Shared bear and production factories load together with exactly five tools and three drugs',()=>{ok(root.querySelectorAll('[data-tool]').length===5,'Tool count');ok(root.querySelectorAll('[data-drug]').length===3,'Drug count');ok(find('canvas').width>0,'Canvas did not size');const d=game.artDiagnostics(),bear=d.bearProtagonist;ok(d.updates>0,'Art is not consuming snapshots');ok(d.provisionalBear===false,'Procedural protagonist is still active');ok(bear?.species==='bear'&&bear.appearance==='normal'&&bear.bodyTriangles===10050&&bear.skinnedMeshes===8&&bear.boneCount===17,'Native body identity');ok(bear.paint==='native-normal-projection'&&bear.nativeScale.every(v=>v===1),'Original paint/native scale');});
-    await check('All five actual UI selections fit one native-bear tool with finite anchors and reachable palms',()=>{
+    await check('Shared bear and production factories load together with exactly five direct tools and no manual drug controls',()=>{ok(root.querySelectorAll('[data-tool]').length===5,'Tool count');ok(root.querySelectorAll('[data-drug]').length===0,'Drug count');ok(find('canvas').width>0,'Canvas did not size');const d=game.artDiagnostics(),bear=d.bearProtagonist;ok(d.updates>0,'Art is not consuming snapshots');ok(d.provisionalBear===false,'Procedural protagonist is still active');ok(bear?.species==='bear'&&bear.appearance==='normal'&&bear.bodyTriangles===10050&&bear.skinnedMeshes===8&&bear.boneCount===17,'Native body identity');ok(bear.paint==='native-normal-projection'&&bear.nativeScale.every(v=>v===1),'Original paint/native scale');});
+    await check('All five authoritative tool selections fit one native-bear tool with finite anchors and reachable palms',()=>{
       for(const tool of ['matches','jerry-can','molotov','torch','flamethrower']){select(tool);const bear=game.artDiagnostics().bearProtagonist;ok(bear.selectedTool===tool&&JSON.stringify(bear.visibleTools)===JSON.stringify([tool]),'Wrong or duplicate held tool: '+tool);ok(bear.defaultRifleVisible===false&&bear.finiteAnchors,'Default rifle or invalid anchors: '+tool);ok(bear.contacts.length>0&&bear.contacts.every(c=>c.error<.001),'Unreachable hand contact: '+tool);}
     });
     await check('Real UI pour, raw joystick and powder preserve a continuous distance-accounted trail',()=>{
-      select('jerry-can');find('[data-primary]').click();step();ok(game.snapshot().player.pouring,'Pour edge failed');
-      move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input));find('[data-drug="powder"]').click();
+      select('jerry-can');action().click();step();ok(game.snapshot().player.pouring,'Pour edge failed');
+      move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input));game.dispatch({type:'drug',drug:'powder'});
       const before=game.snapshot();const after=step(30),distance=after.player.travelled-before.player.travelled;
       near(distance,2.25);near(before.player.inventory.gas-after.player.inventory.gas,distance*.08);
       near(game.artDiagnostics().bearProtagonist.position.travelled,after.player.travelled);
       ok(after.player.pouring&&after.effects.powder.active,'Powder cancelled pouring');near(after.clocks.world-before.clocks.world,.175);
       const wet=after.cells.filter(cell=>cell.depositedFuel>0).sort((a,b)=>a.x-b.x);ok(wet.length>=5,'Trail gaps');for(let i=1;i<wet.length;i++)ok(wet[i].x-wet[i-1].x<=.500001,'Dry hole in trail');
-      ok(find('[data-primary-label]').textContent==='STOP','HUD does not show Stop');ok(!find('[data-effect="powder"]').hidden,'Powder feedback hidden');
+      ok(find('[data-tool="jerry-can"] [data-stock]').textContent==='STOP','HUD does not show Stop');ok(!find('[data-effect="powder"]').hidden,'Powder feedback hidden');
     });
     await check('Inversion reverses the same held stick once and leaves aim and pour intact',()=>{
-      const before=game.snapshot();find('[data-drug="inversion"]').click();const after=step(10);ok(after.player.x<before.player.x,'Did not reverse');near(after.aim.x,before.aim.x);near(after.aim.y,before.aim.y);ok(after.player.pouring,'Drug cancelled pour');
+      const before=game.snapshot();game.dispatch({type:'drug',drug:'inversion'});const after=step(10);ok(after.player.x<before.player.x,'Did not reverse');near(after.aim.x,before.aim.x);near(after.aim.y,before.aim.y);ok(after.player.pouring,'Drug cancelled pour');
       pointer(window,'pointerup',71);step();const gas=game.snapshot().player.inventory.gas;step(10);near(game.snapshot().player.inventory.gas,gas);
     });
     await check('Pause freezes all clocks, stops pour and resumes without stale movement',()=>{
       find('[data-pause]').click();step();const before=game.snapshot();step(20);const after=game.snapshot();near(after.clocks.world,before.clocks.world);near(after.clocks.player,before.clocks.player);ok(!after.player.pouring&&after.paused,'Pause failed');find('[data-resume]').click();step();ok(!game.snapshot().paused&&!game.snapshot().player.moving,'Stale input resumed');
     });
-    await check('Healing reads and changes the authoritative HP and pill stock',async()=>{
+    await check('QA healing setup updates authoritative HP and pill stock without a manual UI control',async()=>{
       await open({scenario:{id:'heal-review',width:20,height:16,player:{x:4,y:9,hp:60},obstacles:[],actors:[]}});
-      find('[data-drug="healing"]').click();step();near(game.snapshot().player.hp,95);near(game.snapshot().player.inventory.healing,2);ok(find('[data-health-text]').textContent==='95 / 100','Health display stale');
+      game.dispatch({type:'drug',drug:'healing'});step();near(game.snapshot().player.hp,95);near(game.snapshot().player.inventory.healing,2);ok(find('[data-health-text]').textContent==='95 / 100','Health display stale');
     });
     await check('Held flamethrower consumes finite fuel, emits resolved fire and releases',async()=>{
       await open();select('flamethrower');game.dispatch({type:'aim',x:7,y:9});step();
-      pointer(find('[data-primary]'),'pointerdown',72);const after=step(45);ok(after.player.usingTool,'Held trigger lost');ok(after.player.inventory.flamethrowerFuel<6,'No fuel consumed');ok(after.cells.some(cell=>cell.phase==='burning'),'No ignition');ok(dischargeArt()?.active,'Resolved discharge art is missing');pointer(window,'pointerup',72);step();ok(!game.snapshot().player.usingTool&&!dischargeArt().active,'Release left a stale jet');
+      pointer(action(),'pointerdown',72);const after=step(45);ok(after.player.usingTool,'Held trigger lost');ok(after.player.inventory.flamethrowerFuel<6,'No fuel consumed');ok(after.cells.some(cell=>cell.phase==='burning'),'No ignition');ok(dischargeArt()?.active,'Resolved discharge art is missing');pointer(window,'pointerup',72);step();ok(!game.snapshot().player.usingTool&&!dischargeArt().active,'Release left a stale jet');
     });
     await check('A nearby wall clips resolved flame while the native nozzle remains on the safe side',async()=>{
       await open({scenario:{id:'combined-wall',width:20,height:16,player:{x:4,y:9,tool:'flamethrower'},obstacles:[{id:'front',x:4.65,y:8,width:.1,depth:16,height:3,material:'masonry',kind:'building'}],actors:[]}});
-      game.dispatch({type:'aim',x:8,y:9});step();pointer(find('[data-primary]'),'pointerdown',72);step(2);
+      game.dispatch({type:'aim',x:8,y:9});step();pointer(action(),'pointerdown',72);step(2);
       const snapshot=game.snapshot(),art=dischargeArt(),muzzle=game.artDiagnostics().bearProtagonist.worldAnchors.muzzle;
       ok(snapshot.discharge.active&&snapshot.discharge.rays.every(ray=>ray.x<4.60),'Authoritative wall clipping failed');
       ok(muzzle[0]<4.60&&art.active&&art.muzzleInsideShape===true&&art.longestRay<.65,'Native nozzle or fire crossed the near wall');
@@ -67,8 +69,8 @@ async function suite(){
       ok(d.exterior.visibleRoofParts.length===2,'Roof samples missing');
     });
     await check('Combined exposition UI pours through the open gate, stops at the closed door and slows the original civilians',()=>{
-      select('jerry-can');find('[data-primary]').click();step();const before=game.snapshot();
-      move(worldToStick({x:0,y:-1},DEFAULT_CONFIG.input),79);find('[data-drug="powder"]').click();const after=step(150);
+      select('jerry-can');action().click();step();const before=game.snapshot();
+      move(worldToStick({x:0,y:-1},DEFAULT_CONFIG.input),79);game.dispatch({type:'drug',drug:'powder'});const after=step(150);
       const door=after.world.modules.find(m=>m.form==='doorway'&&m.opening.state==='closed');
       const gate=after.world.modules.find(m=>m.form==='doorway'&&m.opening.state==='open');
       ok(after.player.y<gate.y-.5,'Bear did not cross the visible gate');
@@ -91,14 +93,14 @@ async function suite(){
       ok(game.metrics().camera.followPlayer&&houses.projection.bearHeightPixels>40,'Native bear is too small in the production canvas');
     });
     await check('Catalogue street UI pouring keeps the trail, model gait and follow camera on accepted powder movement',()=>{
-      select('jerry-can');find('[data-primary]').click();step();move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input),83);find('[data-drug="powder"]').click();
+      select('jerry-can');action().click();step();move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input),83);game.dispatch({type:'drug',drug:'powder'});
       const before=game.snapshot(),after=step(30),distance=after.player.travelled-before.player.travelled;near(distance,2.25);near(before.player.inventory.gas-after.player.inventory.gas,distance*.08);near(after.clocks.world-before.clocks.world,.175);
       const art=game.artDiagnostics(),camera=game.metrics().camera;near(art.bearProtagonist.position.travelled,after.player.travelled);near(camera.target[0],after.player.x);near(camera.target[2],after.player.y);
       ok(after.player.pouring&&art.housing.active===6&&art.housing.projection.bearHeightPixels>40,'Lost pouring, houses or readable camera');
       pointer(window,'pointerup',83);step();
     });
     await check('Real UI crosses the road toward the new block and stops pouring distance at its visible porch',async()=>{
-      await open({scenario:'neighborhood'});select('jerry-can');find('[data-primary]').click();step();
+      await open({scenario:'neighborhood'});select('jerry-can');action().click();step();
       move(worldToStick({x:0,y:1},DEFAULT_CONFIG.input),84);
       const before=game.snapshot(),stopped=step(280),gas=stopped.player.inventory.gas;
       ok(stopped.player.y>27&&stopped.player.y<30,'Did not cross the road and reach the new frontage');
@@ -135,8 +137,8 @@ async function suite(){
     output.textContent=JSON.stringify({passed:results.filter(item=>item.status==='pass').length,failed:results.filter(item=>item.status==='fail').length,viewport:{width:innerWidth,height:innerHeight},results},null,2);
   }finally{document.querySelectorAll('#qa button').forEach(button=>button.disabled=false);}
 }
-async function showChase(){await open({scenario:'chase'});find('[data-primary]').click();step();move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input));find('[data-drug="powder"]').click();step(120);pointer(window,'pointerup',71);game.advance(0);return game;}
-async function showJet(){await open();select('flamethrower');game.dispatch({type:'aim',x:8,y:9});step();pointer(find('[data-primary]'),'pointerdown',72);step(35);return game;}
+async function showChase(){await open({scenario:'chase'});action().click();step();move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input));game.dispatch({type:'drug',drug:'powder'});step(120);pointer(window,'pointerup',71);game.advance(0);return game;}
+async function showJet(){await open();select('flamethrower');game.dispatch({type:'aim',x:8,y:9});step();pointer(action(),'pointerdown',72);step(35);return game;}
 document.querySelector('#run').addEventListener('click',()=>suite().catch(error=>output.textContent=error.stack));
 document.querySelector('#street').addEventListener('click',()=>open({scenario:'neighborhood'}).then(()=>output.textContent=JSON.stringify({snapshot:game.snapshot(),metrics:game.metrics(),art:game.artDiagnostics()},null,2)));
 document.querySelector('#kit').addEventListener('click',()=>open({scenario:'exposition'}).then(()=>output.textContent=JSON.stringify({metrics:game.metrics(),art:game.artDiagnostics()},null,2)));

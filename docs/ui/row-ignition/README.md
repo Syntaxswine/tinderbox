@@ -1,5 +1,7 @@
 # TB-020: match and timed-torch HUD
 
+> Presentation superseded by the [Eastlake ignition correction](../eastlake-ignition/README.md). This record and its JPGs describe candidate 35c9f85 only. The current UI restores the user's six-button wooden Eastlake design.
+
 Candidate branch: `codex/row-ignition-ui`, based on `3c6001d5d4035e950f25e500294eaec55bbf81d2`. The delivery message identifies the exact commit containing this record. The architect owns combined review, integration and promotion.
 
 ## Result and ownership

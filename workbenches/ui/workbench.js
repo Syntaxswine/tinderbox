@@ -16,7 +16,10 @@ const adapter = createFakeSnapshotAdapter({
     if (command.type === 'primary' || command.type === 'cancel-input') document.querySelector('#trigger-state').textContent = command.pressed ? 'TRIGGER DOWN' : 'TRIGGER UP';
   }
 });
-ui = mountUI({root, onCommand: command => adapter.dispatch(command)});
+ui = mountUI({root, onCommand: command => adapter.dispatch(command), onZoom: factor => {
+  const item=document.createElement('li');item.textContent=(++commandIndex)+' CAMERA CALLBACK ×'+factor.toFixed(3)+' (diagnostic only)';
+  document.querySelector('#command-log').prepend(item);
+}});
 ui.update(adapter.snapshot());
 document.querySelector('#fixture').addEventListener('change', event => adapter.choose(event.target.value));
 window.addEventListener('pagehide', () => ui.dispose(), {once: true});
