@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/catalogue-block-two` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
-| Artist | `codex/art-assets` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Art sources/exports, visual reuse audit |
-| Coder | `codex/catalogue-block-two-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Second catalogue block; prior neighborhood, bear and `codex/coding` branches preserved |
-| UI designer | `codex/ui-design` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Player controls, HUD, buttons, menus, layout, and interaction states |
+| Architect | `codex/row-houses-and-ignition` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Proposals, source boundaries, integration, final QC |
+| Artist | `codex/art-assets` checkpoint, then assigned `codex/row-ignition-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Safely preserve v2 batch, then joined-house art and carried torch presentation |
+| Coder | `codex/row-ignition-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Row adjacency/collision and authoritative match/torch/fuel behavior; prior branches preserved |
+| UI designer | `codex/row-ignition-ui` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Existing controls/HUD consume ignition state; prior UI branch preserved |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -74,6 +74,12 @@ The new [catalogue-neighborhood brief](milestones/04-catalogue-neighborhood.md) 
 [Milestone 05](milestones/05-catalogue-block-two.md) assigns TB-016 to the existing coder and TB-017 to the architect. It starts from `1a3e2934072f98b7be9f691cf651ee369748d66f`, freezes artist intake at `56b028c2935b5a97fe259618f38e0a1550928ab4`, and adds Hopkins 9, Hopkins 13 and Monroe to the existing three houses. The committed Nautilus window update for Nos. 13 and 15 is deliberately included. The artist's active v2 work remains separate. The architect owns combined checks, JPG previews and promotion.
 
 Coder candidate `143042467aea5780b401d0bf8041ed66a561036d` is copied as `0da02f015d6395dde9f12e8e4d3c16923db6dbd2` on the architect branch. [The combined review](reviews/2026-10-28-catalogue-block-two.md) records 85 passing tests, independent native-geometry/source checks, complete package verification and two JPGs. Browser acceptance and promotion remain pending; the public integration/deployment branch is unchanged.
+
+## Joined row houses and ignition assignments
+
+The user confirmed stackable Monroe houses with no joining-side windows, one-press/one-tile matches, and a torch lit once and carried for a set burn time with press-to-ignite use. The architect's [Milestone 06 proposal](milestones/06-row-houses-and-ignition.md) records those decisions, shared snapshot interfaces, ownership and prototype defaults. It is dispatched to **Coder Tinderbox** (TB-018), **Artist, Tinderbox** (TB-019) and **Set up Tinderbox UI worktree** (TB-020). All new implementation branches start from `3c6001d5d4035e950f25e500294eaec55bbf81d2`; the artist first safely checkpoints its unrelated active v2 work.
+
+The architect owns TB-021: reconcile exact delivered commits, review source and native geometry, independently verify combined behavior/package/visual evidence, save JPGs and decide promotion. Code/art/UI are wired by their assigned workers. This assignment does not approve runtime changes, import v2 houses, promote `master` or publish Pages. New worker deliveries and outstanding implementation/visual checks must be recorded before acceptance.
 
 ## Promotion gate
 

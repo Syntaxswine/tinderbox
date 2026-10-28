@@ -8,10 +8,12 @@
 - Separate artist and coder worktrees, coordinated and reviewed by the architect before promotion.
 - A UI specialist owns the joystick, HUD, buttons and menus in a separate worktree.
 - Tools: matches, jerry cans, Molotov cocktails, torches, and the flamethrower. Pouring toggles on/off while moving and follows the bear's speed; escaping fire advancing along that trail is an intended tactic.
+- Matches ignite one tile per press; subsequent spread depends on fuel. A torch is lit once, burns for a fixed time while carried, and ignites nearby tiles on an action press. The active implementation contract is [Milestone 06](milestones/06-row-houses-and-ignition.md).
 - Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
 - Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. Interiors may come later. Combine tile-based world structure with free movement.
 - Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
 - Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
+- Monroe row houses join consecutively at their native frontage. Joining sides have no windows; side windows belong on exposed row ends.
 
 ## Reuse-first technical direction
 
@@ -55,6 +57,8 @@ The street uses the existing controls and finite ground-fire model. A new house 
 The [second catalogue block](milestones/05-catalogue-block-two.md) adds Hopkins 9, Hopkins 13 and the Monroe Street brick row-house design across the same street, retaining the first three placements. Artist intake deliberately advances to `56b028c2935b5a97fe259618f38e0a1550928ab4`; the centered native sash sculptures for Nos. 13 and 15 retain their original Nautilus pin `90054d07134116a5d9661f8318a76fe68f922aad` and minimal dependency closure. The [additional source record](research/catalogue-block-two/README.md) distinguishes original plates from detached placement and native-grid adaptations. Six source designs enter this candidate; the artist's active v2 collection remains separate. Offline JPGs support visual handoffs alongside the existing runtime promotion gate.
 
 ## Decisions still open
+
+The [joined-row and ignition proposal](milestones/06-row-houses-and-ignition.md) assigns implementation to the existing coder, artist and UI specialist from the six-house checkpoint. It defines shared party-wall and timed-torch snapshots, an exact one-tile match target and a bounded material-response pass. User mechanics are distinguished from architect-selected defaults such as the 1 m target tile, world-time torch lifetime and prototype fuel profiles. The architect owns proposals, combined QC and promotion; the workers own their assigned code/art/UI. Until those deliveries are reviewed, the source code remains the previously checkpointed behavior.
 
 The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, custom protagonist clothing, progression, precise balancing, and later interior gameplay remain open. The bear candidate starts with the source's normal worker painting. Do not import the donor's turn/AP rules as Tinderbox requirements.
 

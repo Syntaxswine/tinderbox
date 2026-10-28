@@ -10,6 +10,8 @@ Hopkins Nos. 9, 12, 13 and 15, the Gross Ashland cottage and the Monroe Street b
 
 JPG previews: [all six houses](docs/reviews/media/2026-10-28-catalogue-block-two-overview.jpg) and [the three additions](docs/reviews/media/2026-10-28-catalogue-block-two-new-houses.jpg). These offline views omit characters, fire and UI.
 
+The next [architect proposal](docs/milestones/06-row-houses-and-ignition.md) is assigned to the existing coder, artist and UI specialist: joined Monroe rows, one-tile matches and a timed carried torch. This proposal branch retains the six-house implementation checkpoint while those worker deliveries are in progress.
+
 The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. The street is a fictional arrangement of [the first catalogue houses](docs/research/catalogue-neighborhood/README.md) and [three further designs](docs/research/catalogue-block-two/README.md), preserving the reusable Farmyard/AFT dimensions. Interiors, stair traversal, wall-climb fire and collapse physics remain separate work.
 
 ## Play and develop
@@ -37,7 +39,8 @@ The architect owns architecture, worktree assignments, integration, and final qu
 
 - [Architecture and reuse decisions](docs/architecture.md)
 - [Architect's reconciled reuse plan](docs/reuse-plan.md)
-- [Current candidate: second catalogue block](docs/milestones/05-catalogue-block-two.md)
+- [Active proposal: joined rows and deliberate ignition](docs/milestones/06-row-houses-and-ignition.md)
+- [Last implementation checkpoint: second catalogue block](docs/milestones/05-catalogue-block-two.md)
 - [First catalogue neighborhood](docs/milestones/04-catalogue-neighborhood.md)
 - [Shared bear protagonist](docs/milestones/03-shared-bear-protagonist.md)
 - [Reviewed exposition construction kit](docs/milestones/02-exposition-foundation.md)
@@ -67,6 +70,6 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 ## Delivery status
 
-The primary checkout is the architect's workspace, currently on `codex/catalogue-block-two`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
+The primary checkout is the architect's workspace, currently on `codex/row-houses-and-ignition`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
 
 The repository is public with the user's approval, and the exposition construction-kit study is live on Pages. The [publication run](https://github.com/Syntaxswine/tinderbox/actions/runs/40606724201) passed both build and deployment; all 70 hosted game files match the reviewed package. Source evidence, checks and remaining art scope are recorded in [the architect's acceptance](docs/reviews/2026-10-27-exposition-foundation.md). The [opening mechanics review](docs/reviews/2026-10-27-burning-trail.md) remains the earlier gameplay baseline.
