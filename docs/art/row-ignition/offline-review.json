@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "images": [
+    {
+      "name": "row-front-left",
+      "path": "docs/art/row-ignition/previews/row-front-left.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 45082,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance."
+      ],
+      "bytes": 412384,
+      "sha256": "d08887de04f61cc7637c99d78199440be9881437395f5e9fe559be50a1ba6797"
+    },
+    {
+      "name": "row-front-right",
+      "path": "docs/art/row-ignition/previews/row-front-right.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 45082,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance."
+      ],
+      "bytes": 401271,
+      "sha256": "8b89ee6a636e85cbb5c48efa0600826e58dc3115a7d0edbd437b4a794b139d07"
+    },
+    {
+      "name": "row-rear-right",
+      "path": "docs/art/row-ignition/previews/row-rear-right.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 45082,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance."
+      ],
+      "bytes": 383978,
+      "sha256": "2305f140ebffb9dce373692a4db61f5d5ebef7e42741d69399d5f3086de369d5"
+    },
+    {
+      "name": "row-neighbor-burnout",
+      "path": "docs/art/row-ignition/previews/row-neighbor-burnout.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 29582,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance."
+      ],
+      "bytes": 417797,
+      "sha256": "e72dbb892295606f1372c7340e05552ce2a9c15531e81cbd4be954a94e67ffcf"
+    },
+    {
+      "name": "torch-lit-idle",
+      "path": "docs/art/row-ignition/previews/torch-lit-idle.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 10132,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance.",
+        "Bear geometry, rig and source base material colors are exact; its multi-view paint projection shader is omitted.",
+        "Carried flame uses the unchanged painted atlas with alpha masking; CPU diffuse lighting substitutes for its unlit browser material."
+      ],
+      "bytes": 297433,
+      "sha256": "9b9b60a9a72e8d763b0a5dc6b10896df07f6b883b9a47cb98652a4e328ebb50a"
+    },
+    {
+      "name": "torch-lit-moving",
+      "path": "docs/art/row-ignition/previews/torch-lit-moving.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 10132,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance.",
+        "Bear geometry, rig and source base material colors are exact; its multi-view paint projection shader is omitted.",
+        "Carried flame uses the unchanged painted atlas with alpha masking; CPU diffuse lighting substitutes for its unlit browser material."
+      ],
+      "bytes": 298291,
+      "sha256": "8b8a65e4505c77dd556ea159884cda72284407e5989a59aecb75311f1ca33610"
+    },
+    {
+      "name": "torch-spent",
+      "path": "docs/art/row-ignition/previews/torch-spent.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 10130,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance.",
+        "Bear geometry, rig and source base material colors are exact; its multi-view paint projection shader is omitted.",
+        "Carried flame uses the unchanged painted atlas with alpha masking; CPU diffuse lighting substitutes for its unlit browser material."
+      ],
+      "bytes": 289251,
+      "sha256": "cd0a73d1ce35f55c75b7aa06eb43811db677a4f3064132cb0a6104d3368bae23"
+    },
+    {
+      "name": "torch-unlit",
+      "path": "docs/art/row-ignition/previews/torch-unlit.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 10130,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance.",
+        "Bear geometry, rig and source base material colors are exact; its multi-view paint projection shader is omitted.",
+        "Carried flame uses the unchanged painted atlas with alpha masking; CPU diffuse lighting substitutes for its unlit browser material."
+      ],
+      "bytes": 289251,
+      "sha256": "cd0a73d1ce35f55c75b7aa06eb43811db677a4f3064132cb0a6104d3368bae23"
+    },
+    {
+      "name": "torch-holstered",
+      "path": "docs/art/row-ignition/previews/torch-holstered.jpg",
+      "width": 1100,
+      "height": 800,
+      "samplesPerPixel": 32,
+      "triangles": 10114,
+      "limitations": [
+        "CPU diffuse path tracing of actual Three meshes; not WebGL shader or performance acceptance.",
+        "Bear geometry, rig and source base material colors are exact; its multi-view paint projection shader is omitted.",
+        "Carried flame uses the unchanged painted atlas with alpha masking; CPU diffuse lighting substitutes for its unlit browser material."
+      ],
+      "bytes": 289025,
+      "sha256": "9baebe0fa1e267c6183b0420e2d97ab81a2db55908e364b7b3868aea2be9a85e"
+    }
+  ],
+  "visualReview": "Inspected all nine final source-mesh proofs: both exposed ends and joined fronts, rear glazing, the retained blank wall after left-neighbor burnout, and idle/moving lit plus spent/unlit/holstered torch states. Coplanar partition ends no longer show through the masonry. Original texture density, native model proportions and visible flame attachment are consistent with the offline checks. Bear multi-view paint and GPU material/performance acceptance remain unverified.",
+  "limits": "CPU geometry proofs; real browser acceptance remains architect-owned.",
+  "reviewedAt": "2026-10-28T20:54:32.847073+00:00"
+}

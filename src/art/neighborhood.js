@@ -1,5 +1,6 @@
 import {loadGrossHousing, createGrossHouse} from './gross-housing.js';
 import {HOPKINS_HOUSING_URL, createHopkinsHouse} from './hopkins-housing.js';
+import {createMonroeRowHouse,monroePartyWalls} from './row-house.js';
 import {removeTree} from './resources.js';
 import {HOUSING_PLANS} from '../content/housing-plans.js';
 
@@ -31,12 +32,13 @@ export function createNeighborhood(T, library) {
       observed.push({id: instance.id, prefabId: instance.prefabId, visible: !instance.destroyed, burnedFraction: instance.burnedFraction});
       if (instance.destroyed) continue;
       active.add(instance.id);
-      const key = JSON.stringify([instance.prefabId, instance.x, instance.y, instance.quarterTurns]);
+      const partyWalls=monroePartyWalls(instance,instances);
+      const key = JSON.stringify([instance.prefabId, instance.x, instance.y, instance.quarterTurns,partyWalls]);
       let record = models.get(instance.id);
       if (record && record.key !== key) { record.model.dispose(); models.delete(instance.id); record = null; }
       if (!record) {
-        const create = instance.collection === 'hopkins' ? createHopkinsHouse : createGrossHouse;
-        const model = create(T, library, instance.prefabId, {furnished: false, partyWalls: false});
+        const create = instance.prefabId==='monroe-row'?createMonroeRowHouse:instance.collection === 'hopkins' ? createHopkinsHouse : createGrossHouse;
+        const model = create(T, library, instance.prefabId, {furnished: false, partyWalls: instance.prefabId==='monroe-row'?partyWalls:false});
         model.setView({view: 'exterior', showFurniture: false});
         model.root.name = 'Catalogue house: ' + instance.id;
         model.root.userData.buildingId = instance.id;
@@ -51,6 +53,7 @@ export function createNeighborhood(T, library) {
         record = {key, model, colors, shadows, meshCount, triangleCount, bounds: new T.Box3().setFromObject(model.root), faded: false};
         models.set(instance.id, record); root.add(model.root); builds++;
       }
+      record.model.setNeighborsVisible?.({left:instances.some(b=>b.id===partyWalls.left&&!b.destroyed),right:instances.some(b=>b.id===partyWalls.right&&!b.destroyed)});
       const amount = Math.min(1, Math.max(0, instance.burnedFraction || 0));
       for (const [material, original] of record.colors) material.color.copy(original.color).lerp(charColor, amount * .85);
     }

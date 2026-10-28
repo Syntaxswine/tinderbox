@@ -1,0 +1,533 @@
+{
+  "version": 1,
+  "task": "TB-019",
+  "kind": "derived artist consumers",
+  "baseCommit": "3c6001d5d4035e950f25e500294eaec55bbf81d2",
+  "artistSourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+  "sourcePins": {
+    "nautilus": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "bear": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+    "farmyard": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083"
+  },
+  "derived": [
+    {
+      "path": "src/art/row-house.js",
+      "bytes": 9899,
+      "sha256": "e694865d026cef47b6a3e89e75c3ccfc0928b7f156253b1e813be9ab0e9c9373",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/art/carried-torch.js",
+      "bytes": 2729,
+      "sha256": "52635a65d5355fe05be7b4fd460d1cfa388ce5715a62d3b0bca1d84c96a608f6",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/art/neighborhood.js",
+      "bytes": 7066,
+      "sha256": "9654ba746c4aa19c6b569b1664f19d636a5a3218a4c9b732959931cef481f7da",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/art/fire.js",
+      "bytes": 8987,
+      "sha256": "17fb8a16845201b50e6412474c850686e73abcab5a860ca57dbc0589c7f9b6f9",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
+      "path": "src/art/index.js",
+      "bytes": 8924,
+      "sha256": "883dcae2229a952c236f164ca153b2dcff7cc421104099835fc1f53df7b2c5eb",
+      "byteRepresentation": "UTF-8 LF"
+    }
+  ],
+  "protectedFiles": [
+    {
+      "path": "src/art/gross-housing.js",
+      "bytes": 28109,
+      "sha256": "6192c6e968ad468474f4ae14397ee9ca519b3a094e3da8e0fca917588b31760f",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "src/art/hopkins-housing.js",
+      "bytes": 8523,
+      "sha256": "6678cf4c5eeeb97bd2b5d6b47ebdeae6ad62682607b76b76e79731348c499d70",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "src/art/gambrel-roof.js",
+      "bytes": 6452,
+      "sha256": "1f215cf7edc7eefb4a0006a5081875bc591fb81ddabe981457524cde675aa0b6",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "src/art/nautilus-windows.js",
+      "bytes": 2963,
+      "sha256": "6a7e4daf7f1ff4d5eb4a8075d5b1863986ad55f0531c41107221e7d99aadc0e1",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "src/content/asset-scale.js",
+      "bytes": 1066,
+      "sha256": "6c8773c1317b6b6e0adead577cd819e21ce1ae93b0f20eed2ae0af5bffb3d0ea",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/houses.json",
+      "bytes": 124421,
+      "sha256": "dbdfbee6d218a8f3f343f6c9305155a88e60f7728bd28e522011e928e80f709c",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/houses.json",
+      "bytes": 135608,
+      "sha256": "1b3dc8520dc47e07167964a7e6201ac7aa01c21c3038a132de3af25f75d63ad9",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-12.json",
+      "bytes": 8274,
+      "sha256": "a467f2cc2342f59dd69de125a04a9c7f161b054974c38f0d2cac819eee31f179",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json",
+      "bytes": 12037,
+      "sha256": "7018c9b10036a9dda6c5c5330ed9e09f042c8374edf0f9a434fb60c55238aec2",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/ashland-worker.json",
+      "bytes": 5797,
+      "sha256": "d469617a34aca63e11cf782ce2c2f8614741a82fdf79a558cd018230148de9a3",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-09.json",
+      "bytes": 8940,
+      "sha256": "5a13314808ba21d6cf26fa29973a448740a331363821196901b4069c2c00de1d",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-13.json",
+      "bytes": 9215,
+      "sha256": "669f3db2dcac4818d94914905f7efd0af7688bbd0caa2f2d8f55cd50db7c18d2",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/monroe-row.json",
+      "bytes": 7884,
+      "sha256": "872e2d8ba8869031edd2f60715db6c801021d2ef5a724fda4a9515357c49392c",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/clapboard-ivory-v1.png",
+      "bytes": 2144158,
+      "sha256": "d5a3ee4fdd75dc82aa3c06b52568fcea70caaa89da0e52f152829230f166e654",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/cedar-shingles-v1.png",
+      "bytes": 2250650,
+      "sha256": "cce3ad634daae358ef319843cc87eee6d0b6df3a58b7cd67d43aae8b624df97c",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/floorboards-oak-v1.png",
+      "bytes": 2663881,
+      "sha256": "9c089b06713a7d252def2d0a383b9419e45f36615eea8c73f633a6aeff1dd464",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
+      "bytes": 3267103,
+      "sha256": "6a953461e4886eaa5b8bf3aefce60ab6f964209d875d91be0f3846c221f2da60",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/exposition-skins-v1/brick-sienna-v1.png",
+      "bytes": 2388078,
+      "sha256": "17066064a1d9dcf8b128615bba1f1472c0921801e440d619d99b49e8e5962853",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "assets/art/exposition-skins-v1/roof-slate-v1.png",
+      "bytes": 2333888,
+      "sha256": "04fd7476c41c5d290350aba957db2a6d9234d38b9634c55a834b5afe4e64c25d",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+      "bytes": 1644,
+      "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/index.js",
+      "bytes": 6173,
+      "sha256": "762a31f19bcb59df01d6e39f84a7df8b304d41f796bbf0a957928bbf55d29562",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js",
+      "bytes": 5433,
+      "sha256": "76020f340a25eb10acf7de9cd75fd35b099b12438fb457a8c016e6d98bd51f00",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "bytes": 4647,
+      "sha256": "2a2ad40e16533b4c30b639e907b9e5c8d967557cb65aa6f05c0c640d4bde0297",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "bytes": 1150,
+      "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/NOTICE.md",
+      "bytes": 2619,
+      "sha256": "4c5e19a0e9224589505445e8c2f693ed89eb8d0e8191f77f9496089d9c9ebb95",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/window-sculptures.md",
+      "bytes": 3913,
+      "sha256": "b5755a3e0b44b20ba2f9a6febf5117c166d16bb946b76ed2c8625e5ad4ed8873",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/aft-provenance.json",
+      "bytes": 96620,
+      "sha256": "84cd1b6e95969ebbdc3ca5cefddce2104054d43bce14c15dbf7e451f4e9e51e3",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/assets/art/gross-housing-v1/manifest.json",
+      "bytes": 13069,
+      "sha256": "c611be146d899017bbe176775d4a76a58056191de6d90701855f99565be8abfc",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/assets/art/hopkins-housing-v1/manifest.json",
+      "bytes": 14634,
+      "sha256": "3b10c789e4d974f7d82c50d5c8dfac5f41a49241dc1a631c3925b08d610d87cd",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/assets/art/exposition-skins-v1/manifest.json",
+      "bytes": 5598,
+      "sha256": "f5c23bdacdb6008d99d39a57fbaf141f8aa4356c29439429ec1be583f9a0275f",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/gross-housing-v1/generation.json",
+      "bytes": 4574,
+      "sha256": "b62efcddb9d16832947c009508dab071b4f2ee7c8feb1acbafe85e39e28275e1",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/exposition-skins-v1/generation.json",
+      "bytes": 9896,
+      "sha256": "b59f788bf17bffe58b68993248c1dd7fdd43199c7ab0a1e1c07115b26df64271",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/gross-housing-v1/sources.json",
+      "bytes": 14296,
+      "sha256": "6f8a7418fff5b49f88a195b18b6ad29fbfc8e69ea4794dcc9096412ce381de8b",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/hopkins-housing-v1/sources.json",
+      "bytes": 18971,
+      "sha256": "f715f0c918e1147453db89e55d7a82a70913375233efaa86584939a54d3d0548",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/hopkins-housing-v1/roof-15.json",
+      "bytes": 4077,
+      "sha256": "ae112f7b80b207a6784ac6f57f1f1882ec8a86a4d0d4060ed8c03ddc68d9ead1",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/housing-siding-review/material-direction.json",
+      "bytes": 2143,
+      "sha256": "6587fcd87799b0753ce7c3a1edf353132ec41499c777656b0406031a4b407497",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/nautilus-windows-v1/import.json",
+      "bytes": 4216,
+      "sha256": "a2f131bc5e3aafd96d6a505fc48da8072799ace391db1c2ff125a358d1ce7b6f",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/art/source/nautilus-windows-v1/adoption.json",
+      "bytes": 1857,
+      "sha256": "6eedfbd4da0708fca95c02f19cab8f2a6d6749bbaf87160b09a1ff689dd44739",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "docs/engineering/catalogue-block-two/intake/docs/art/nautilus-windows-v1/geometry-review.json",
+      "bytes": 599,
+      "sha256": "440e1fbdec5cc611151b1c22b65a4951c87d07d2c9c54379de6ecc8f4c8d6569",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "src/content/housing-plans.js",
+      "bytes": 58285,
+      "sha256": "dc6a79a7ddd3164cc8bce65ce6988b43a98847227dbba7cf73f1da00d8ecdda6",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-worker.js",
+      "bytes": 3040,
+      "sha256": "6c71a33a94d508ba51ff5072277f6c11f2b6825b029c7549693b88dfb85d235b",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-paint.js",
+      "bytes": 2090,
+      "sha256": "4b9380494a20ff9bb3d6d86e073e7c84b6d357015d4d9738eeb392fa0b6975f5",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/clothing-weights.js",
+      "bytes": 1180,
+      "sha256": "ff1ab35315485d8380dcf3b00f427b9cea7615e329cd56ab84b298aa773bb9a9",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/dog-motion.js",
+      "bytes": 10973,
+      "sha256": "7a25bc3be43f5eba8df5f6e4607e4ff28253a6a1c6ef8560775963c85e32a672",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/grenade-model.js",
+      "bytes": 5660,
+      "sha256": "455888f6b7330ee929902276fe4b6f079b5bda884206edbdc12f464c55922790",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/hen-motion.js",
+      "bytes": 6267,
+      "sha256": "e5f6bf905e75bc992aaaca055f8816c928ba3040dac3c817f50a83f513b670ff",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-graphic-paint.js",
+      "bytes": 4279,
+      "sha256": "716ccefe8f989fe8b50828de3afbe60979bf9c8a952b3d6b45871deb3e87e5e6",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-grip-hand-data.js",
+      "bytes": 36325,
+      "sha256": "1abe555c9775bf3e3ce953c5d532cea36ef165c664b41b321ce5f0dd32b512d1",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-grip-hand.js",
+      "bytes": 3379,
+      "sha256": "a715e4761c72d70d35fd13e88463926bfb67ce87e417d70460363760c75209e6",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-light-model.js",
+      "bytes": 25286,
+      "sha256": "9306a065aed75f3408fd1d5799164241fcfe9add59a6d1dad2568a615e469baa",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-model-paint.js",
+      "bytes": 47656,
+      "sha256": "100c1b679cae6f2cc997fd730ca829fe1d057ef06cc55e711ad57b9038844213",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-rifle.js",
+      "bytes": 2708,
+      "sha256": "4435a50527433057aeafc3bbf48a35ac9a69c292302da558a76de914c6b7ce24",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/one-handed.js",
+      "bytes": 1569,
+      "sha256": "7d0e87cbff4694b2cc53fa81d0e49d9b5f3b6111dc3e03fc77882299f4700884",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/roof-mantle-equipment.js",
+      "bytes": 3334,
+      "sha256": "1dc251f49a2bd06f6dfdfc740ef93951709d8492ec7fa5a8b87bb14c5ed78ea9",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/weapon-models.js",
+      "bytes": 19193,
+      "sha256": "d41f0a59d7ac32331e095a5019bb93d8d40f5f2817c24c0a8e0c05ecf412253f",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/worker-locomotion.js",
+      "bytes": 3710,
+      "sha256": "90ceb0418cadde24c97e863c931decc49e7ac8927388aebb91076ec64e9b0d19",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+      "bytes": 419919,
+      "sha256": "3a449fe96a28a712cb1aaf4cdc76d44cc07163ec949aebc2d086dfa48a3a0823",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/assets/characters/lowpoly-proof/bear-worker-model-paint-v1.png",
+      "bytes": 1590125,
+      "sha256": "7b0fd63d06c840497c1a03967f06b9bdce30c0ce119040740e4651fc459fa5a0",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/vendor/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/vendor/three.module.js",
+      "bytes": 188,
+      "sha256": "bfe7fd0f885fe197ec4a56d650fdb22429326172a9a6a972d2dc92023e9793eb",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "adaptations": "none in this task"
+    }
+  ],
+  "existingFlame": {
+    "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/effects/painted-fire/flame-atlas-v1.png",
+    "bytes": 1433363,
+    "sha256": "252f9abe573b8dfade6bc265e7cf097eb2d9bf488039016f072e5bf4f0663d07"
+  },
+  "sourcePlate": {
+    "artistCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+    "originalPath": "art/source/gross-housing-v1/plates/n74.jpg",
+    "installedPath": "art/source/row-ignition/monroe-plate-n74.jpg",
+    "bytes": 553698,
+    "sha256": "72ef094b54bcf9dc843b87dd081f63c2598357ac198ad0425a09025b1ac0b8d8",
+    "adaptations": [],
+    "source": "Gross catalogue, n74 / printed page 71; original Monroe facade and floor plans",
+    "sourceUrl": "https://archive.org/details/TenthAnnualIllustratedCatalogueOfS.e.GrossFamousCitySubdivisionsAnd/page/n74/mode/1up",
+    "rights": "Original catalogue source/rights evidence remains in the preserved intake sources register; no new raster art generated"
+  },
+  "checks": {
+    "passed": true,
+    "rowCases": 12,
+    "houses": 24,
+    "levels": 72,
+    "fixedEnvelopeJoinRays": 108,
+    "derivedVertices": 240024,
+    "nativeUnscaledMeshes": 28512,
+    "physicalUVEdges": 103644,
+    "sourceUVVertices": 17115,
+    "singleOwnerJoinFaces": 60,
+    "torchAnchorSamples": 16,
+    "rawHashes": 61,
+    "quarterTurns": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "nativePitchMetres": 7,
+    "joinedWindows": "none on basement or occupied levels; exposed ends and front/back retained",
+    "joinGeometry": "Source triangles clipped at local X=0/7 with interpolated original attributes; sealed caps have one visible owner while joined",
+    "burnout": "Blank party-wall recipe and neighbor IDs retained; no surviving-house rebuild",
+    "torch": "Authoritative lit phase persists without use; original native muzzle; world-clock freeze, slow time, holster/spent/reset and borrowed ownership checked",
+    "scope": "Art consumers only; simulation, content, raw assets and UI unchanged",
+    "browser": "GPU acceptance remains architect-owned and unavailable on this host"
+  },
+  "adaptations": [
+    "Clone original Monroe plan and derive only joined-side opening omission, including basement. Original front/back and exposed-end opening recipes remain.",
+    "Trim derived triangles at local X=0/7 without scaling; interpolate original attributes, omit zero-area faces, close cuts with metre-UV caps. Right join owns visible caps while neighbor exists; exposed caps appear after neighbor burnout.",
+    "Validate authoritative party-wall IDs, pitch and reciprocal orientation; do not infer gameplay collisions.",
+    "Render one small carried flame at the original torch muzzle from the existing painted atlas. Read player.torch and clocks.world; do not calculate duration, targeting or heat."
+  ],
+  "separateDelivery": {
+    "branch": "codex/art-assets",
+    "commit": "b61fa093e3491fb2f109f1f4b0ca5591d2637cc9",
+    "note": "Hopkins v2 collection preserved separately; no v2 content absorbed into this branch."
+  },
+  "integration": {
+    "candidateBranch": "codex/row-ignition-art",
+    "promoted": false,
+    "realBrowserAcceptance": "architect-owned and pending",
+    "gameplay": "Consumed snapshot contract only; coder implementation remains separate"
+  }
+}
