@@ -18,12 +18,16 @@ async function suite(){
   results=[];document.querySelectorAll('#qa button').forEach(button=>button.disabled=true);
   try{
     await open();
-    await check('Production factories load together with exactly five tools and three drugs',()=>{ok(root.querySelectorAll('[data-tool]').length===5,'Tool count');ok(root.querySelectorAll('[data-drug]').length===3,'Drug count');ok(find('canvas').width>0,'Canvas did not size');ok(game.artDiagnostics().updates>0,'Art is not consuming snapshots');});
+    await check('Shared bear and production factories load together with exactly five tools and three drugs',()=>{ok(root.querySelectorAll('[data-tool]').length===5,'Tool count');ok(root.querySelectorAll('[data-drug]').length===3,'Drug count');ok(find('canvas').width>0,'Canvas did not size');const d=game.artDiagnostics(),bear=d.bearProtagonist;ok(d.updates>0,'Art is not consuming snapshots');ok(d.provisionalBear===false,'Procedural protagonist is still active');ok(bear?.species==='bear'&&bear.appearance==='normal'&&bear.bodyTriangles===10050&&bear.skinnedMeshes===8&&bear.boneCount===17,'Native body identity');ok(bear.paint==='native-normal-projection'&&bear.nativeScale.every(v=>v===1),'Original paint/native scale');});
+    await check('All five actual UI selections fit one native-bear tool with finite anchors and reachable palms',()=>{
+      for(const tool of ['matches','jerry-can','molotov','torch','flamethrower']){select(tool);const bear=game.artDiagnostics().bearProtagonist;ok(bear.selectedTool===tool&&JSON.stringify(bear.visibleTools)===JSON.stringify([tool]),'Wrong or duplicate held tool: '+tool);ok(bear.defaultRifleVisible===false&&bear.finiteAnchors,'Default rifle or invalid anchors: '+tool);ok(bear.contacts.length>0&&bear.contacts.every(c=>c.error<.001),'Unreachable hand contact: '+tool);}
+    });
     await check('Real UI pour, raw joystick and powder preserve a continuous distance-accounted trail',()=>{
       select('jerry-can');find('[data-primary]').click();step();ok(game.snapshot().player.pouring,'Pour edge failed');
       move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input));find('[data-drug="powder"]').click();
       const before=game.snapshot();const after=step(30),distance=after.player.travelled-before.player.travelled;
       near(distance,2.25);near(before.player.inventory.gas-after.player.inventory.gas,distance*.08);
+      near(game.artDiagnostics().bearProtagonist.position.travelled,after.player.travelled);
       ok(after.player.pouring&&after.effects.powder.active,'Powder cancelled pouring');near(after.clocks.world-before.clocks.world,.175);
       const wet=after.cells.filter(cell=>cell.depositedFuel>0).sort((a,b)=>a.x-b.x);ok(wet.length>=5,'Trail gaps');for(let i=1;i<wet.length;i++)ok(wet[i].x-wet[i-1].x<=.500001,'Dry hole in trail');
       ok(find('[data-primary-label]').textContent==='STOP','HUD does not show Stop');ok(!find('[data-effect="powder"]').hidden,'Powder feedback hidden');
@@ -43,12 +47,13 @@ async function suite(){
       await open();select('flamethrower');game.dispatch({type:'aim',x:7,y:9});step();
       pointer(find('[data-primary]'),'pointerdown',72);const after=step(45);ok(after.player.usingTool,'Held trigger lost');ok(after.player.inventory.flamethrowerFuel<6,'No fuel consumed');ok(after.cells.some(cell=>cell.phase==='burning'),'No ignition');ok(dischargeArt()?.active,'Resolved discharge art is missing');pointer(window,'pointerup',72);step();ok(!game.snapshot().player.usingTool&&!dischargeArt().active,'Release left a stale jet');
     });
-    await check('A nearby wall clips resolved flame before the protruding cosmetic nozzle',async()=>{
-      await open({scenario:{id:'combined-wall',width:20,height:16,player:{x:4,y:9,tool:'flamethrower'},obstacles:[{id:'front',x:5.1,y:8,width:.1,depth:16,height:3,material:'masonry',kind:'building'}],actors:[]}});
+    await check('A nearby wall clips resolved flame while the native nozzle remains on the safe side',async()=>{
+      await open({scenario:{id:'combined-wall',width:20,height:16,player:{x:4,y:9,tool:'flamethrower'},obstacles:[{id:'front',x:4.65,y:8,width:.1,depth:16,height:3,material:'masonry',kind:'building'}],actors:[]}});
       game.dispatch({type:'aim',x:8,y:9});step();pointer(find('[data-primary]'),'pointerdown',72);step(2);
-      const snapshot=game.snapshot(),art=dischargeArt();
-      ok(snapshot.discharge.active&&snapshot.discharge.rays.every(ray=>ray.x<5.05),'Authoritative wall clipping failed');
-      ok(art.active&&art.muzzleInsideShape===false&&art.longestRay<1.2,'Art moved discharge to far-side nozzle');
+      const snapshot=game.snapshot(),art=dischargeArt(),muzzle=game.artDiagnostics().bearProtagonist.worldAnchors.muzzle;
+      ok(snapshot.discharge.active&&snapshot.discharge.rays.every(ray=>ray.x<4.60),'Authoritative wall clipping failed');
+      ok(muzzle[0]<4.60&&art.active&&art.muzzleInsideShape===true&&art.longestRay<.65,'Native nozzle or fire crossed the near wall');
+      near(art.visualForwardStart,muzzle[0]-snapshot.player.x);
       find('[data-pause]').click();step();ok(!dischargeArt().active,'Pause left a stale jet');
     });
     await check('Powder separates bear from a finite front on the same freshly poured line',async()=>{

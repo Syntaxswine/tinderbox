@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `master` | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
+| Architect | `codex/review-bear-protagonist` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Architecture, source pins, integration, final QC |
 | Artist | `codex/art-assets` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Art sources/exports, visual reuse audit |
-| Coder | `codex/coding` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Runtime dependency/behavior reuse audit |
+| Coder | `codex/bear-protagonist-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Shared bear protagonist intake and adapter; prior `codex/coding` work preserved |
 | UI designer | `codex/ui-design` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Player controls, HUD, buttons, menus, layout, and interaction states |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -57,9 +57,13 @@ The bounded result, APIs, ownership and acceptance criteria are in [Milestone 02
 | TB-010 | UI specialist | Original site-plan/wayfinding evidence and continued inherited UI foundation; no new menu system |
 | TB-011 | Architect | Reconcile sources, integrate exact candidates, review the actual scene and decide promotion/deployment |
 
-The architect's review branch is `codex/exposition-foundation`. Worker ownership/worktrees remain as recorded above. Historical research is [indexed separately](research/1893-exposition/README.md), with original sources, uncertainties and game adaptations distinguished.
+The exposition review used `codex/exposition-foundation`. Worker ownership/worktrees remain as recorded above. Historical research is [indexed separately](research/1893-exposition/README.md), with original sources, uncertainties and game adaptations distinguished.
 
 All four bounded deliveries passed the architect's combined gate. See the [exposition acceptance](reviews/2026-10-27-exposition-foundation.md) for exact candidates, integration corrections, checks and deployment status. Further custom skins or building reconstructions require a new bounded assignment.
+
+## Shared bear protagonist assignments
+
+The new bounded brief is [Milestone 03: shared bear protagonist](milestones/03-shared-bear-protagonist.md). TB-012 uses the existing coder for source intake and the native-model adapter; TB-013 is the architect's independent combined gate. The review branch is `codex/review-bear-protagonist`, based on `8a84056`. The coder's separate task branch is `codex/bear-protagonist-coder` in its existing checkout, preserving `codex/coding` and its unpromoted work. Candidate `de447b4` is checkpointed for combined review. [The architect's record](reviews/2026-10-28-shared-bear-protagonist.md) reports 67 passing offline tests and package/source checks; real browser acceptance and promotion remain pending because WebGL is disabled in the available browser. The artist's ongoing roof correction remains separate.
 
 ## Promotion gate
 

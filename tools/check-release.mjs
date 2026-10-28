@@ -15,7 +15,9 @@ for (const file of manifest.files) {
   if (/(?:file:\/\/|[A-Z]:\\Users\\|localhost|127\.0\.0\.1)/i.test(text)) fail('Local runtime path in '+file.path);
   const references = [
     ...text.matchAll(/(?:\bfrom\s*|\bimport\s*)['"](\.[^'"]+)['"]/g),
-    ...text.matchAll(/new URL\(['"](\.[^'"]+)['"]/g),
+    // Only import.meta.url establishes a module-relative resource. Asset-base
+    // URLs are checked by their feature's packaged HTTP smoke instead.
+    ...text.matchAll(/new URL\(\s*['"](\.[^'"]+)['"]\s*,\s*import\.meta\.url\b/g),
     ...text.matchAll(/(?:src|href)="([^"#]+)"/g),
     ...text.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/g)
   ];
