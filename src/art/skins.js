@@ -59,6 +59,8 @@ export function makeExpositionMaterials(T,pool,assets,renderer,style={}){
           ${windows?`if(vTbDecor.x>.5){
             float tbBayX=vTbFacade.x/tbFacadeWidths.x,tbWing=0.;
             ${style.entrance?`float tbPanelSpan=min(vTbSpan,tbFacadeWidths.y),tbAcross=vTbPortal.x*vTbSpan;
+            // Keep upper windows over a doorway fixed as its wings grow.
+            if(vTbDecor.y>.5)tbBayX=(tbAcross+tbPanelSpan*.5)/tbFacadeWidths.x;
             tbWing=step(tbPanelSpan*.5,abs(tbAcross))*vTbDecor.y;
             if(tbWing>.5)tbBayX=(tbAcross-sign(tbAcross)*tbPanelSpan*.5)/tbFacadeWidths.x;
             if(vTbDecor.y>.5&&tbWing<.5&&vTbPortal.w+.001>=tbPortalStories&&vTbFacade.y<tbPortalStories){
@@ -88,7 +90,7 @@ export function makeExpositionMaterials(T,pool,assets,renderer,style={}){
           }
         `);
       };
-      material.customProgramCacheKey=()=> 'tinderbox-exposition-facade-v3-'+Number(windows)+'-'+(style.id||'generic');
+      material.customProgramCacheKey=()=> 'tinderbox-exposition-facade-v4-'+Number(windows)+'-'+(style.id||'generic');
     }
     result[id]=material;
   }

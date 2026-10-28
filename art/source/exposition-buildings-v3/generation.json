@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "mode": "built-in image_gen",
+  "task": "Three facade skins redrawn for native Farmyard Commando wall and doorway proportions",
+  "baseArtCommit": "3a104b3f894d45839e1bf604aa8cb4f4acdc7fc9",
+  "notes": [
+    "New sibling v3 PNGs; previous approved images retained unchanged.",
+    "Wall strips contain five bays in a fixed 5x2m appearance repeat, matching five unchanged 1x2m wall modules.",
+    "Ground-floor entrances use fixed 3x2m art regions on native piers/lintel; actual mask bounds are measured and mapped to the unchanged 1x1.65m opening.",
+    "Generative image mask placement is approximate; no pixel resizing, cropping or post-generation editing is performed.",
+    "Additional stories compose source wall modules at 2.12m floor spacing; no wall, door, actor, rig, pivot, source UV or collision change.",
+    "Nautilus contribution candidate; no Nautilus importer, engine manifest schema or consumer integration is claimed."
+  ],
+  "assets": [
+    {
+      "id": "manufactures-bay",
+      "path": "assets/art/exposition-buildings-v3/manufactures-bay-v3.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-e09d004b-8605-4a3d-a42e-312793352c92.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque horizontally repeating diffuse/albedo texture for the shared Nautilus game-asset library, authored directly for the unchanged Farmyard Commando wall geometry.\nInput image 1 is a historical form reference. Input image 2 is the accepted painted style/palette reference. Neither is an edit target.\nTECHNICAL PROPORTIONS: create a flat frontal orthographic 5:2 rectangle representing exactly FIVE METRES wide by TWO METRES high. Exactly FIVE identical narrow bays, each ONE METRE wide; centers at 10%,30%,50%,70%,90% of canvas width. A bay is twice as tall as wide. The original wall mesh is one metre wide, two metres high, 0.16 metre thick. Build the painting to fit that, preserving tall slender windows. Do not compress three broad windows into this strip. Continuous level top entablature and bottom plinth; half of an identical divider at left/right crop edges so copies join. Identical neutral edge colors and continuous trim heights, no exterior border. Pattern must repeat horizontally.\nSUBJECT: Manufactures and Liberal Arts Building, Chicago 1893. Five slender round-headed glazed bays, slim Corinthian dividers, small circular medallions in the spandrels, a narrow geometric quatrefoil frieze and dentil cornice in the top 12% of wall. Subdued blue-grey closed glazing with delicate vertical mullions. Warm ivory staff and pale limestone relief. Each window sits above a short closed balustrade/sill in the bottom 18%.\nWarm carved plaster in the accepted hand-painted game aesthetic: shallow readable relief, economical ornament, restrained weathering and subtle brush texture. Even diffuse illumination; no perspective, directional cast shadows, scenery, sky, people, vegetation, lettering, numbers, labels, border or watermark. No doorway, entrance, roof or whole building. Full-bleed opaque rectangular wall, all recesses sealed. Historical monochrome source informs facade vocabulary; color is an art choice.",
+      "referenceImages": [
+        {
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate003.jpg",
+          "sha256": "ee4902bfc4602fbc5833a85ffe0906bb053d65b06a3a7689b3dac954869cd836",
+          "role": "Historical form reference"
+        },
+        {
+          "path": "assets/art/exposition-buildings-v2/manufactures-bay-v2.png",
+          "sha256": "6c4bacb42ce9cacd7700f0cba04f097ed5341c753ed51f41461c641899d3c2b5",
+          "role": "Accepted style reference"
+        }
+      ],
+      "iterations": []
+    },
+    {
+      "id": "agriculture-bay",
+      "path": "assets/art/exposition-buildings-v3/agriculture-bay-v3.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-e124b3a1-0d65-4f1f-a426-8f7b57204166.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque horizontally repeating diffuse/albedo texture for the shared Nautilus game-asset library, authored directly for the unchanged Farmyard Commando wall geometry.\nInput image 1 is a historical form reference. Input image 2 is the accepted painted style/palette reference. Neither is an edit target.\nTECHNICAL PROPORTIONS: create a flat frontal orthographic 5:2 rectangle representing exactly FIVE METRES wide by TWO METRES high. Exactly FIVE identical narrow bays, each ONE METRE wide; centers at 10%,30%,50%,70%,90% of canvas width. A bay is twice as tall as wide. The original wall mesh is one metre wide, two metres high, 0.16 metre thick. Build the painting to fit that, preserving tall slender windows. Do not compress three broad windows into this strip. Continuous level top entablature and bottom plinth; half of an identical divider at left/right crop edges so copies join. Identical neutral edge colors and continuous trim heights, no exterior border. Pattern must repeat horizontally.\nSUBJECT: Agricultural Building, Chicago 1893. Five slender round-headed glazed bays, paired fine fluted Corinthian dividers with leafy capitals. A shallow harvest garland and rosette frieze runs in the top 12%; small sealed rectangular harvest relief panels below each window in bottom 18%. Honey ivory plaster, restrained ochre relief, dark desaturated olive-grey glazing. Denser vegetal detail than Liberal Arts, still tall and delicate at this scale.\nWarm carved plaster in the accepted hand-painted game aesthetic: shallow readable relief, economical ornament, restrained weathering and subtle brush texture. Even diffuse illumination; no perspective, directional cast shadows, scenery, sky, people, vegetation, lettering, numbers, labels, border or watermark. No doorway, entrance, roof or whole building. Full-bleed opaque rectangular wall, all recesses sealed. Historical monochrome source informs facade vocabulary; color is an art choice.",
+      "referenceImages": [
+        {
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate018.jpg",
+          "sha256": "966f6b139f1b89583e7b6f0d5b3d87246867198c0dbc67505b6f4d6a9ae495fc",
+          "role": "Historical form reference"
+        },
+        {
+          "path": "assets/art/exposition-buildings-v2/agriculture-bay-v2.png",
+          "sha256": "519fccb78a83e82c87aa8e7c2d98bce1c8596b6990003aa76ac51a15e40bab16",
+          "role": "Accepted style reference"
+        }
+      ],
+      "iterations": [
+        {
+          "id": "agriculture-bay",
+          "prompt": "Edit target: the attached new Agriculture wall strip. It currently contains FOUR arched window bays; change the repeat to exactly FIVE equally spaced identical narrow bays across the SAME 5:2 rectangle, matching the requested ONE metre per bay on a FIVE metre by TWO metre wall. Window centres must be at 10%,30%,50%,70%,90% of width. Tall slim windows, five arched heads and five lower harvest relief panels, paired Corinthian dividers, half divider at each crop edge. Keep the same honey-ivory plaster, ochre relief, olive-grey glazing, garland frieze, dentil cornice, level plinth, shallow hand-painted diffuse texture and no perspective. Five bays are mandatory. No labels, lettering, border, entrance or scenery.",
+          "referenceImages": [
+            {
+              "path": "../../../generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-c26d5150-e73d-487e-9871-f59427c0dd39.png",
+              "sha256": "6bc9c027c13589e9b991ab7063585d39c092c368ecb58b5d77d55b239d4a4e0d",
+              "role": "Generated draft/edit target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fine-arts-bay",
+      "path": "assets/art/exposition-buildings-v3/fine-arts-bay-v3.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-9aded42b-02c1-4b6d-87fa-7bafb604e33a.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque horizontally repeating diffuse/albedo texture for the shared Nautilus game-asset library, authored directly for the unchanged Farmyard Commando wall geometry.\nInput image 1 is a historical form reference. Input image 2 is the accepted painted style/palette reference. Neither is an edit target.\nTECHNICAL PROPORTIONS: create a flat frontal orthographic 5:2 rectangle representing exactly FIVE METRES wide by TWO METRES high. Exactly FIVE identical narrow bays, each ONE METRE wide; centers at 10%,30%,50%,70%,90% of canvas width. A bay is twice as tall as wide. The original wall mesh is one metre wide, two metres high, 0.16 metre thick. Build the painting to fit that, preserving tall slender windows. Do not compress three broad windows into this strip. Continuous level top entablature and bottom plinth; half of an identical divider at left/right crop edges so copies join. Identical neutral edge colors and continuous trim heights, no exterior border. Pattern must repeat horizontally.\nSUBJECT: Palace of Fine Arts south front, Chicago 1893. Five slender rectangular sealed window/recess bays between Ionic columns, with clear small paired scroll capitals and straight lintels. Restrained narrow Greek entablature, tiny dentils and star-pattern lattice vents in the top 12%. Cool ivory staff, muted limestone grey, smoky blue-grey closed recesses. Bottom 18% has a low continuous plinth and simple inset panels. No arches or leafy Corinthian capitals.\nWarm carved plaster in the accepted hand-painted game aesthetic: shallow readable relief, economical ornament, restrained weathering and subtle brush texture. Even diffuse illumination; no perspective, directional cast shadows, scenery, sky, people, vegetation, lettering, numbers, labels, border or watermark. No doorway, entrance, roof or whole building. Full-bleed opaque rectangular wall, all recesses sealed. Historical monochrome source informs facade vocabulary; color is an art choice.",
+      "referenceImages": [
+        {
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate060.jpg",
+          "sha256": "e036e59b76d61b75613f2dce9113cc4ed6abdd45b94df24d92886019b7b0007a",
+          "role": "Historical form reference"
+        },
+        {
+          "path": "assets/art/exposition-buildings-v2/fine-arts-bay-v2.png",
+          "sha256": "ade872618c7bba9f366a2e56d725c978a7cdee804c7bc4c3b59b2e2bc99fe2b2",
+          "role": "Accepted style reference"
+        }
+      ],
+      "iterations": []
+    },
+    {
+      "id": "manufactures-portal",
+      "path": "assets/art/exposition-buildings-v3/manufactures-portal-v3.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-06457a7a-c39f-4437-a141-8696fcab26a5.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque game diffuse/albedo entrance panel, authored directly for the unchanged native Farmyard Commando wall/door proportions, for the shared Nautilus art library.\nImage 1 is the original 1893 building photograph, a form reference. Image 2 is our accepted painted wall strip, a style/palette reference. Neither is an edit target.\nGEOMETRY IS FIXED: create a LANDSCAPE 3:2 full-bleed rectangle representing exactly 3 metres wide by 2 metres high, assembled from THREE 1m wall tiles. The middle tile has a rectangular 1m wide by 1.65m high opening, leaving ONLY 0.35m of lintel above. Left and right piers are each exactly 1m wide and 2m high. This is a compact SINGLE STORY human-scale entrance, not a monumental portal.\nTHE MASK: reserve one plain flat dark-blue-grey RECTANGLE, exactly from x=33.333% to66.667% of canvas width, extending from the bottom edge up to82.5% of total height (its top is17.5% below canvas top). Straight vertical sides, straight horizontal top, no sill, no threshold, no steps, no arch cutting into the mask, no extra openings. Actual geometry removes this dark rectangle, so keep every capital, molding and ornament OUTSIDE it. The remaining shallow lintel band above is only17.5% of canvas height. There must be no dark recess above the opening that suggests another taller door.\nBUILDING: Manufactures and Liberal Arts, Chicago1893. Compact entrance with slender fluted Corinthian pilasters on the two full-width side piers, small round medallions at their tops and delicate geometric/quatrefoil banding. Within the shallow lintel, a low coffered arch MOTIF drawn in ivory relief above the rectangular door and fine dentils. No giant attic or tall closed lunette. Pale limestone ivory and subdued blue-grey mask, match Liberal Arts reference.\nKeep the ornament inside the rectangular wall panel. Match the accepted hand-painted carved plaster, warm ivory subtle shallow relief, simplified game-readable details and very restrained weathering. Flat front orthographic albedo, uniform diffuse light, no perspective, deep projecting porch, directional cast shadows, sky, roof, scenery, people, flags, text, dates, numbers, border or watermark. Full-bleed opaque image. Original wall proportions take priority over monumental historical proportions; adapt the ornament rather than shrinking the door in a giant facade.",
+      "referenceImages": [
+        {
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate003.jpg",
+          "sha256": "ee4902bfc4602fbc5833a85ffe0906bb053d65b06a3a7689b3dac954869cd836",
+          "role": "Historical form reference"
+        },
+        {
+          "path": "assets/art/exposition-buildings-v2/manufactures-bay-v2.png",
+          "sha256": "6c4bacb42ce9cacd7700f0cba04f097ed5341c753ed51f41461c641899d3c2b5",
+          "role": "Accepted style reference"
+        }
+      ],
+      "iterations": [
+        {
+          "id": "manufactures-portal",
+          "prompt": "Use case: precise-object-edit. Input image 1 is the EXACT GEOMETRY TEMPLATE and edit target. Input image 2 is our painted manufactures-portal STYLE reference. Paint the beige wall areas of image 1 in the carved ivory plaster style and architectural details from image 2. Preserve image1's landscape 3:2 canvas and dark rectangular doorway EXACTLY, with identical size, location and sharp straight sides. The door's width is precisely the middle third of the image, its top is 17.5% down from the top edge, and it runs flush to the bottom edge. Do not move, narrow, widen, shorten, frame inside or paint over that dark rectangle. Adapt the ornament to the available beige wall areas: a shallow 0.35m lintel ABOVE the tall doorway, two 1m-wide by2m-high side piers. Reduce decorative band heights as needed to fit. Keep the doorway geometry template authoritative; image2 only supplies style and motifs. Do not copy image2's opening size. No sill, steps, threshold, border, writing or scenery. Uniform frontal diffuse albedo, no perspective. Corinthian pilasters, small round medallions, geometric frieze and a very shallow ivory coffered arch motif within the narrow lintel.",
+          "referenceImages": [
+            {
+              "path": "art/source/exposition-buildings-v3/doorway-template.png",
+              "sha256": "60e9be48c5e08625e2812eaccaa1e924a96523d8be26408d60791bc7705bfdbe",
+              "role": "Exact native geometry guide/edit target"
+            },
+            {
+              "path": "../../../generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-404ed2c3-3a76-492a-aca3-e767a22da532.png",
+              "sha256": "230c82ace50fc0c08eb2718d6cf7bec5f875f1ef53e4bbb7df5488724b21a0b5",
+              "role": "Authored style reference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agriculture-portal",
+      "path": "assets/art/exposition-buildings-v3/agriculture-portal-v3.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-06994516-1006-4f23-9371-eadfeef159af.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque game diffuse/albedo entrance panel, authored directly for the unchanged native Farmyard Commando wall/door proportions, for the shared Nautilus art library.\nImage 1 is the original 1893 building photograph, a form reference. Image 2 is our accepted painted wall strip, a style/palette reference. Neither is an edit target.\nGEOMETRY IS FIXED: create a LANDSCAPE 3:2 full-bleed rectangle representing exactly 3 metres wide by 2 metres high, assembled from THREE 1m wall tiles. The middle tile has a rectangular 1m wide by 1.65m high opening, leaving ONLY 0.35m of lintel above. Left and right piers are each exactly 1m wide and 2m high. This is a compact SINGLE STORY human-scale entrance, not a monumental portal.\nTHE MASK: reserve one plain flat dark-blue-grey RECTANGLE, exactly from x=33.333% to66.667% of canvas width, extending from the bottom edge up to82.5% of total height (its top is17.5% below canvas top). Straight vertical sides, straight horizontal top, no sill, no threshold, no steps, no arch cutting into the mask, no extra openings. Actual geometry removes this dark rectangle, so keep every capital, molding and ornament OUTSIDE it. The remaining shallow lintel band above is only17.5% of canvas height. There must be no dark recess above the opening that suggests another taller door.\nBUILDING: Agricultural Building, Chicago1893. Compact entrance with slim paired Corinthian pilasters and leafy capitals painted on the two full-width side piers, small inset harvest reliefs and fine vertical fluting. In the shallow lintel, a tiny low-relief triangular pediment/wreath motif and narrow harvest-garland frieze, all cream plaster outside the mask. No tall porch or full-height giant pediment. Honey ivory and muted ochre, olive-grey mask, match Agriculture reference.\nKeep the ornament inside the rectangular wall panel. Match the accepted hand-painted carved plaster, warm ivory subtle shallow relief, simplified game-readable details and very restrained weathering. Flat front orthographic albedo, uniform diffuse light, no perspective, deep projecting porch, directional cast shadows, sky, roof, scenery, people, flags, text, dates, numbers, border or watermark. Full-bleed opaque image. Original wall proportions take priority over monumental historical proportions; adapt the ornament rather than shrinking the door in a giant facade.",
+      "referenceImages": [
+        {
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate018.jpg",
+          "sha256": "966f6b139f1b89583e7b6f0d5b3d87246867198c0dbc67505b6f4d6a9ae495fc",
+          "role": "Historical form reference"
+        },
+        {
+          "path": "assets/art/exposition-buildings-v2/agriculture-bay-v2.png",
+          "sha256": "519fccb78a83e82c87aa8e7c2d98bce1c8596b6990003aa76ac51a15e40bab16",
+          "role": "Accepted style reference"
+        }
+      ],
+      "iterations": [
+        {
+          "id": "agriculture-portal",
+          "prompt": "Use case: precise-object-edit. Input image 1 is the EXACT GEOMETRY TEMPLATE and edit target. Input image 2 is our painted agriculture-portal STYLE reference. Paint the beige wall areas of image 1 in the carved ivory plaster style and architectural details from image 2. Preserve image1's landscape 3:2 canvas and dark rectangular doorway EXACTLY, with identical size, location and sharp straight sides. The door's width is precisely the middle third of the image, its top is 17.5% down from the top edge, and it runs flush to the bottom edge. Do not move, narrow, widen, shorten, frame inside or paint over that dark rectangle. Adapt the ornament to the available beige wall areas: a shallow 0.35m lintel ABOVE the tall doorway, two 1m-wide by2m-high side piers. Reduce decorative band heights as needed to fit. Keep the doorway geometry template authoritative; image2 only supplies style and motifs. Do not copy image2's opening size. No sill, steps, threshold, border, writing or scenery. Uniform frontal diffuse albedo, no perspective. Paired leafy Corinthian pilasters, harvest garlands, low-relief sheaves and a tiny shallow pediment motif within the narrow lintel.",
+          "referenceImages": [
+            {
+              "path": "art/source/exposition-buildings-v3/doorway-template.png",
+              "sha256": "60e9be48c5e08625e2812eaccaa1e924a96523d8be26408d60791bc7705bfdbe",
+              "role": "Exact native geometry guide/edit target"
+            },
+            {
+              "path": "../../../generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-3d67d9ac-40c9-4e4f-b2ef-67b1275b4e69.png",
+              "sha256": "ac47eb669f00de3c552aacf6a94dedbc3a3ad00a44f997fe018a2e11784e381a",
+              "role": "Authored style reference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fine-arts-portal",
+      "path": "assets/art/exposition-buildings-v3/fine-arts-portal-v3.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-29374fc2-30a3-41d6-b574-673f667d370a.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque game diffuse/albedo entrance panel, authored directly for the unchanged native Farmyard Commando wall/door proportions, for the shared Nautilus art library.\nImage 1 is the original 1893 building photograph, a form reference. Image 2 is our accepted painted wall strip, a style/palette reference. Neither is an edit target.\nGEOMETRY IS FIXED: create a LANDSCAPE 3:2 full-bleed rectangle representing exactly 3 metres wide by 2 metres high, assembled from THREE 1m wall tiles. The middle tile has a rectangular 1m wide by 1.65m high opening, leaving ONLY 0.35m of lintel above. Left and right piers are each exactly 1m wide and 2m high. This is a compact SINGLE STORY human-scale entrance, not a monumental portal.\nTHE MASK: reserve one plain flat dark-blue-grey RECTANGLE, exactly from x=33.333% to66.667% of canvas width, extending from the bottom edge up to82.5% of total height (its top is17.5% below canvas top). Straight vertical sides, straight horizontal top, no sill, no threshold, no steps, no arch cutting into the mask, no extra openings. Actual geometry removes this dark rectangle, so keep every capital, molding and ornament OUTSIDE it. The remaining shallow lintel band above is only17.5% of canvas height. There must be no dark recess above the opening that suggests another taller door.\nBUILDING: Palace of Fine Arts south front, Chicago1893. Compact quiet Greek entrance: two slender Ionic pilasters painted on the side piers, with clearly readable paired scroll capitals; simple rectangular inset panels and small medallions in their lower sections. Shallow straight entablature above the door with tiny dentils and a narrow band of small star-lattice relief squares. No arches or Corinthian leafy capitals. Cool ivory and warm limestone highlights, smoky blue-grey mask, match Fine Arts reference.\nKeep the ornament inside the rectangular wall panel. Match the accepted hand-painted carved plaster, warm ivory subtle shallow relief, simplified game-readable details and very restrained weathering. Flat front orthographic albedo, uniform diffuse light, no perspective, deep projecting porch, directional cast shadows, sky, roof, scenery, people, flags, text, dates, numbers, border or watermark. Full-bleed opaque image. Original wall proportions take priority over monumental historical proportions; adapt the ornament rather than shrinking the door in a giant facade.",
+      "referenceImages": [
+        {
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate060.jpg",
+          "sha256": "e036e59b76d61b75613f2dce9113cc4ed6abdd45b94df24d92886019b7b0007a",
+          "role": "Historical form reference"
+        },
+        {
+          "path": "assets/art/exposition-buildings-v2/fine-arts-bay-v2.png",
+          "sha256": "ade872618c7bba9f366a2e56d725c978a7cdee804c7bc4c3b59b2e2bc99fe2b2",
+          "role": "Accepted style reference"
+        }
+      ],
+      "iterations": [
+        {
+          "id": "fine-arts-portal",
+          "prompt": "Use case: precise-object-edit. Input image 1 is the EXACT GEOMETRY TEMPLATE and edit target. Input image 2 is our painted fine-arts-portal STYLE reference. Paint the beige wall areas of image 1 in the carved ivory plaster style and architectural details from image 2. Preserve image1's landscape 3:2 canvas and dark rectangular doorway EXACTLY, with identical size, location and sharp straight sides. The door's width is precisely the middle third of the image, its top is 17.5% down from the top edge, and it runs flush to the bottom edge. Do not move, narrow, widen, shorten, frame inside or paint over that dark rectangle. Adapt the ornament to the available beige wall areas: a shallow 0.35m lintel ABOVE the tall doorway, two 1m-wide by2m-high side piers. Reduce decorative band heights as needed to fit. Keep the doorway geometry template authoritative; image2 only supplies style and motifs. Do not copy image2's opening size. No sill, steps, threshold, border, writing or scenery. Uniform frontal diffuse albedo, no perspective. Ionic scroll pilasters, rectangular panels, star-lattice relief band and straight dentil entablature within the narrow lintel. No arches.",
+          "referenceImages": [
+            {
+              "path": "art/source/exposition-buildings-v3/doorway-template.png",
+              "sha256": "60e9be48c5e08625e2812eaccaa1e924a96523d8be26408d60791bc7705bfdbe",
+              "role": "Exact native geometry guide/edit target"
+            },
+            {
+              "path": "../../../generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-925e9692-f316-4328-b341-fb2f77223b8c.png",
+              "sha256": "76e7eb9e0ec33b936c0c9b1d66bde04755ca6763458776c688dd20f668fda785",
+              "role": "Authored style reference"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

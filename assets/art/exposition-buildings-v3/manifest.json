@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "owner": "artist",
+  "set": "exposition-buildings-v3",
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "manufactures-bay",
+      "path": "assets/art/exposition-buildings-v3/manufactures-bay-v3.png",
+      "width": 1983,
+      "height": 793,
+      "bytes": 2548452,
+      "sha256": "47490736dc16600330ef268f5515a4dc9016f96332bad0dff5da6f34c48b5144",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v3/generation.json#manufactures-bay",
+      "referenceIds": [
+        "ARNOLD-003"
+      ],
+      "physicalRegion": [
+        5,
+        2
+      ]
+    },
+    {
+      "id": "agriculture-bay",
+      "path": "assets/art/exposition-buildings-v3/agriculture-bay-v3.png",
+      "width": 1983,
+      "height": 793,
+      "bytes": 2459224,
+      "sha256": "6ea82e38653b20d236ab21e1dc0efbc52b806493083961f4397dea434b30a529",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v3/generation.json#agriculture-bay",
+      "referenceIds": [
+        "ARNOLD-018"
+      ],
+      "physicalRegion": [
+        5,
+        2
+      ]
+    },
+    {
+      "id": "fine-arts-bay",
+      "path": "assets/art/exposition-buildings-v3/fine-arts-bay-v3.png",
+      "width": 1983,
+      "height": 793,
+      "bytes": 2464039,
+      "sha256": "6364a8d0c304e3badd7c78971b0692209f9db40beb8cc40c535ed8aeb2c92b5f",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v3/generation.json#fine-arts-bay",
+      "referenceIds": [
+        "ARNOLD-060"
+      ],
+      "physicalRegion": [
+        5,
+        2
+      ]
+    },
+    {
+      "id": "manufactures-portal",
+      "path": "assets/art/exposition-buildings-v3/manufactures-portal-v3.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2138521,
+      "sha256": "ae8fb9d6c9e39956220cbe105509dbe8a2e98c4f409687e7c456c4a929edbb01",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v3/generation.json#manufactures-portal",
+      "referenceIds": [
+        "ARNOLD-003"
+      ],
+      "physicalRegion": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "agriculture-portal",
+      "path": "assets/art/exposition-buildings-v3/agriculture-portal-v3.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2113689,
+      "sha256": "c78e73ec6862f8e9d5fadb33f0728d70f07254640da56f167855dbf359e8e759",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v3/generation.json#agriculture-portal",
+      "referenceIds": [
+        "ARNOLD-018"
+      ],
+      "physicalRegion": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "fine-arts-portal",
+      "path": "assets/art/exposition-buildings-v3/fine-arts-portal-v3.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2067938,
+      "sha256": "22c0a2bf29bc6cb5c920c1430594c27327b431857b2346e2ee9a618ab3c0898d",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v3/generation.json#fine-arts-portal",
+      "referenceIds": [
+        "ARNOLD-060"
+      ],
+      "physicalRegion": [
+        3,
+        2
+      ]
+    }
+  ],
+  "totalBytes": 13791863,
+  "profiles": [
+    {
+      "id": "manufactures",
+      "label": "Manufactures and Liberal Arts",
+      "defaultStories": 2,
+      "portalStories": 1,
+      "bayWidth": 5,
+      "portalWidth": 3,
+      "baysPerRepeat": 5,
+      "bay": "manufacturesBay",
+      "portal": "manufacturesPortal",
+      "openingUV": [
+        0.30859375,
+        0.69140625,
+        0,
+        0.7021484375
+      ],
+      "field": 15852487,
+      "trim": 14930350,
+      "sourceRefs": [
+        "EXPO-P02:plate3"
+      ]
+    },
+    {
+      "id": "agriculture",
+      "label": "Agricultural Building",
+      "defaultStories": 2,
+      "portalStories": 1,
+      "bayWidth": 5,
+      "portalWidth": 3,
+      "baysPerRepeat": 5,
+      "bay": "agricultureBay",
+      "portal": "agriculturePortal",
+      "openingUV": [
+        0.3424479166666667,
+        0.6575520833333334,
+        0.02734375,
+        0.783203125
+      ],
+      "field": 15455921,
+      "trim": 14073234,
+      "sourceRefs": [
+        "EXPO-P02:plate18"
+      ]
+    },
+    {
+      "id": "fine-arts",
+      "label": "Palace of Fine Arts",
+      "defaultStories": 2,
+      "portalStories": 1,
+      "bayWidth": 5,
+      "portalWidth": 3,
+      "baysPerRepeat": 5,
+      "bay": "fineArtsBay",
+      "portal": "fineArtsPortal",
+      "openingUV": [
+        0.328125,
+        0.671875,
+        0.0146484375,
+        0.75
+      ],
+      "field": 15065296,
+      "trim": 13880245,
+      "sourceRefs": [
+        "EXPO-P02:plate60"
+      ]
+    }
+  ],
+  "nativeScale": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "slab": 0.12
+  },
+  "geometryContract": {
+    "source": "Farmyard Commando",
+    "repository": "https://github.com/Syntaxswine/farmyard-commando",
+    "commit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+    "ancestryCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+    "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+    "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+    "templates": [
+      "Left pier",
+      "Door lintel",
+      "Closed door"
+    ],
+    "nativeContractCommit": "60c515110f31c8cd0557a6c540b0a38569a4023c"
+  },
+  "generationRecord": "art/source/exposition-buildings-v3/generation.json",
+  "sourceRecord": "art/source/exposition-buildings-v3/sources.json",
+  "maskMeasurements": [
+    {
+      "id": "manufactures",
+      "path": "assets/art/exposition-buildings-v3/manufactures-portal-v3.png",
+      "width": 1536,
+      "height": 1024,
+      "opaque": true,
+      "maskPixels": [
+        473,
+        305,
+        1063,
+        1024
+      ],
+      "openingUV": [
+        0.30859375,
+        0.69140625,
+        0,
+        0.7021484375
+      ]
+    },
+    {
+      "id": "agriculture",
+      "path": "assets/art/exposition-buildings-v3/agriculture-portal-v3.png",
+      "width": 1536,
+      "height": 1024,
+      "opaque": true,
+      "maskPixels": [
+        525,
+        222,
+        1011,
+        996
+      ],
+      "openingUV": [
+        0.3424479166666667,
+        0.6575520833333334,
+        0.02734375,
+        0.783203125
+      ]
+    },
+    {
+      "id": "fine-arts",
+      "path": "assets/art/exposition-buildings-v3/fine-arts-portal-v3.png",
+      "width": 1536,
+      "height": 1024,
+      "opaque": true,
+      "maskPixels": [
+        503,
+        256,
+        1033,
+        1009
+      ],
+      "openingUV": [
+        0.328125,
+        0.671875,
+        0.0146484375,
+        0.75
+      ]
+    }
+  ],
+  "bindingPolicy": {
+    "appearanceSet": "exposition-v1",
+    "profileIds": "Existing manufactures, agriculture and fine-arts IDs preserved",
+    "horizontal": "Five painted bays across a fixed 5m region; 1m per bay. Wide wings repeat/crop; no entrance stretching.",
+    "entrance": "Single native 2m story and fixed 3m region; native 1x1.65m doorway, 0.35m lintel and 0.12m leaf. Generated image mask bounds aligned in the art shader.",
+    "vertical": "Upper native walls repeat at 2.12m origins; 0.12m slab interval has compatible edge trim.",
+    "geometry": "No changes to donor mesh dimensions, source UV values, pivots, attachments, actor scale or collision."
+  },
+  "nautilus": {
+    "status": "Contribution candidate in Tinderbox artist branch",
+    "integration": "Not imported or validated in Nautilus. This manifest records artwork and Farmyard compatibility, not a Nautilus engine schema."
+  },
+  "scope": "Compact source-inspired facade skins, not complete historically measured buildings."
+}

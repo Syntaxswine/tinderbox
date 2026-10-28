@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 1,
+  "task": "Native Farmyard-proportion facade skins v3",
+  "owner": "artist",
+  "branch": "codex/art-assets",
+  "baseCommit": "3a104b3f894d45839e1bf604aa8cb4f4acdc7fc9",
+  "status": "Passed artist checks; candidate for architect review",
+  "completedAt": "2026-10-28T04:44:32.888Z",
+  "assetManifest": "assets/art/exposition-buildings-v3/manifest.json",
+  "sourceRecord": "art/source/exposition-buildings-v3/sources.json",
+  "generationRecord": "art/source/exposition-buildings-v3/generation.json",
+  "nativeGeometry": {
+    "source": "Farmyard Commando",
+    "repository": "https://github.com/Syntaxswine/farmyard-commando",
+    "commit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+    "ancestryCommit": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+    "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+    "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
+    "templates": [
+      "Left pier",
+      "Door lintel",
+      "Closed door"
+    ],
+    "nativeContractCommit": "60c515110f31c8cd0557a6c540b0a38569a4023c"
+  },
+  "nativeScale": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "slab": 0.12
+  },
+  "artwork": {
+    "profiles": [
+      {
+        "id": "manufactures",
+        "portalStories": 1,
+        "repeatMetres": 5,
+        "baysPerRepeat": 5
+      },
+      {
+        "id": "agriculture",
+        "portalStories": 1,
+        "repeatMetres": 5,
+        "baysPerRepeat": 5
+      },
+      {
+        "id": "fine-arts",
+        "portalStories": 1,
+        "repeatMetres": 5,
+        "baysPerRepeat": 5
+      }
+    ],
+    "textures": 6,
+    "bytes": 13791863,
+    "mode": "built-in image_gen",
+    "priorPNGBytesPreserved": true,
+    "noPostGenerationPixelEditing": true
+  },
+  "checks": {
+    "command": "npm run check",
+    "tests": {
+      "passed": 59,
+      "failed": 0
+    },
+    "ownSyntaxScripts": 69,
+    "staticModules": 77,
+    "sharedThreePairs": 1,
+    "rawInventories": 5,
+    "adapterFingerprints": 9,
+    "visualCommand": "node workbenches/art/review-wide.mjs --playwright PATH_TO_PLAYWRIGHT --out artifacts/art-review/farmyard-v3",
+    "browser": {
+      "passed": true,
+      "captures": 49,
+      "programs": 22,
+      "allProgramLogsEmpty": true,
+      "warnings": [],
+      "errors": [],
+      "failedRequests": [],
+      "viewports": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "namedGeometrySamples": 120,
+          "nativeSamples": 72,
+          "checkedMeshes": 3588,
+          "originalUVVertices": 17088,
+          "pixelChecks": [
+            {
+              "style": "manufactures",
+              "width": 3,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "manufactures",
+              "width": 7,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "manufactures",
+              "width": 13,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "manufactures",
+              "width": 23,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "repeatDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "shiftedPatchDelta": {
+                "max": 59,
+                "mean": 17.562037037037037,
+                "equalFraction": 0.26666666666666666
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 3,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 7,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 13,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 23,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "repeatDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "shiftedPatchDelta": {
+                "max": 54,
+                "mean": 13.388194444444444,
+                "equalFraction": 0.2657407407407407
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 3,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 7,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 13,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 23,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "repeatDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "shiftedPatchDelta": {
+                "max": 55,
+                "mean": 12.238657407407407,
+                "equalFraction": 0.2724537037037037
+              }
+            }
+          ],
+          "closedLeaf": [
+            1,
+            1.649999976158142,
+            0.11999999731779099
+          ],
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          }
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "namedGeometrySamples": 120,
+          "nativeSamples": 72,
+          "checkedMeshes": 3588,
+          "originalUVVertices": 17088,
+          "pixelChecks": [
+            {
+              "style": "manufactures",
+              "width": 3,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "manufactures",
+              "width": 7,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "manufactures",
+              "width": 13,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "manufactures",
+              "width": 23,
+              "portalHash": 554753346,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "repeatDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "shiftedPatchDelta": {
+                "max": 59,
+                "mean": 17.562037037037037,
+                "equalFraction": 0.26666666666666666
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 3,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 7,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 13,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "agriculture",
+              "width": 23,
+              "portalHash": 3780681374,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "repeatDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "shiftedPatchDelta": {
+                "max": 54,
+                "mean": 13.388194444444444,
+                "equalFraction": 0.2657407407407407
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 3,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 7,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 13,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              }
+            },
+            {
+              "style": "fine-arts",
+              "width": 23,
+              "portalHash": 1781643126,
+              "portalDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "repeatDelta": {
+                "max": 0,
+                "mean": 0,
+                "equalFraction": 1
+              },
+              "shiftedPatchDelta": {
+                "max": 55,
+                "mean": 12.238657407407407,
+                "equalFraction": 0.2724537037037037
+              }
+            }
+          ],
+          "closedLeaf": [
+            1,
+            1.649999976158142,
+            0.11999999731779099
+          ],
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          }
+        }
+      ]
+    },
+    "package": {
+      "passed": true,
+      "requests": 104,
+      "nativeAssets": 6,
+      "buildFiles": 106,
+      "buildBytes": 88911946,
+      "privateArtSourcesExcluded": true,
+      "issues": [],
+      "completedAt": "2026-10-28T04:44:29.992Z"
+    }
+  },
+  "fixes": [
+    "Latest three named profiles now use five 1m bays per 5m strip and a single native 2m entrance story.",
+    "Upper windows over the door use a width-independent phase, fixing a 7m frontage mismatch caught by the pixel check."
+  ],
+  "evidence": [
+    {
+      "path": "docs/art/exposition/native-previews/farmyard-entrances.png",
+      "sha256": "037a72da3083df834400f157bec6a951013a0136ca067c3dfa80d366fa33497f",
+      "width": 1800,
+      "height": 680,
+      "kind": "Unedited direct renderer export or browser screenshot"
+    },
+    {
+      "path": "docs/art/exposition/native-previews/liberal-arts-native-wide.png",
+      "sha256": "6831976fe7c5729fcc86ff3c3eaeba03ad62039b3524b3049a97de4c567b9aff",
+      "width": 1280,
+      "height": 500,
+      "kind": "Unedited direct renderer export or browser screenshot"
+    },
+    {
+      "path": "docs/art/exposition/native-previews/new-native-street.png",
+      "sha256": "bd83c9f9e91f04bd6f97fd50661efd9434b559593630d7a7dca6df3ff6b396d1",
+      "width": 1800,
+      "height": 430,
+      "kind": "Unedited direct renderer export or browser screenshot"
+    },
+    {
+      "path": "docs/art/exposition/native-previews/agriculture-one-story-desktop.png",
+      "sha256": "74619c966da1d2b8f9bd7e2a5c2dab394e8f5b3600a3d7ae19632f55e0caa1bb",
+      "width": 1280,
+      "height": 800,
+      "kind": "Unedited direct renderer export or browser screenshot"
+    },
+    {
+      "path": "docs/art/exposition/native-previews/agriculture-five-stories-phone.png",
+      "sha256": "0a62ae1a51197215f906b2f14b1ab1cbbfcef633c65c1d86260020b36c2855b1",
+      "width": 390,
+      "height": 844,
+      "kind": "Unedited direct renderer export or browser screenshot"
+    },
+    {
+      "path": "docs/art/exposition/native-previews/fine-arts-native-door-phone.png",
+      "sha256": "1335b8c4b89080d6db96442867906728767d77fc4cacd4b626a92361696cdaa5",
+      "width": 390,
+      "height": 844,
+      "kind": "Unedited direct renderer export or browser screenshot"
+    },
+    {
+      "path": "docs/art/exposition/native-previews/fine-arts-two-stories-desktop.png",
+      "sha256": "1109992d122d3104cd7415a5b0f34bd7899f65541bab016ea5ad7a617c49c991",
+      "width": 1280,
+      "height": 800,
+      "kind": "Unedited direct renderer export or browser screenshot"
+    }
+  ],
+  "limits": [
+    "Compact facade fragments; artistic colour and ornament from monochrome historical photographs.",
+    "No source geometry, pivot, surface UV, rig, actor scale or collision changes.",
+    "Phone sizes were emulated on the recorded desktop GPU.",
+    "Nautilus intake/catalog integration has not been performed."
+  ],
+  "helper": {
+    "preview": "artifacts/art-preview/farmyard-v3",
+    "browserSession": "artifacts/art-review/farmyard-v3/helper-session.json",
+    "previewMustStopBeforeHandoff": false,
+    "previewStopped": true,
+    "previewPortReleased": true,
+    "stoppedAt": "2026-10-28T04:45:57.059Z",
+    "cleanupReceipt": "artifacts/art-preview/farmyard-v3/cleanup-receipt.json",
+    "restartRecord": "artifacts/art-preview/farmyard-v3/restart-final.json"
+  }
+}

@@ -1,5 +1,7 @@
 # More Exposition facades on native AFT templates
 
+> The current Liberal Arts, Agriculture and Fine Arts artwork is [v3, drawn for Farmyard proportions](building-facades-v3.md). This document preserves the earlier v2 delivery.
+
 The current art standard is the original Animal Factory Tactics 3D / Farmyard Commando scale. Each game's art extends the same reusable library; new Tinderbox work must remain compatible with earlier assets and usable in later games. The [shared art-library rules](../README.md) treat dimensions, pivots, UVs, rigs and attachment points as fixed compatibility interfaces. The user's correction supersedes the previous Tinderbox clearances and 3.2m story presets. The artist changes paint and adds compatible ornament; existing source meshes, attachments, characters and physical texture density stay intact.
 
 This batch adds six opaque sRGB textures, 15,230,250 bytes total:

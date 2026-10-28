@@ -236,8 +236,8 @@
     {
       "path": "src/art/skins.js",
       "source": "Original Tinderbox material/cloth binding around pinned donor projected paint",
-      "processing": "Authored facade repeat and fixed central entrance mapping on added art-only attributes; original surfaceUV, mesh sizes and civilian projected-paint guard preserved. Native scale consumes the corrected shared template contract.",
-      "sha256": "f6360df419843dc2ed185b08a8673943dfaf6c16cd246ac8038c3115ea6d411f",
+      "processing": "Authored facade repeat and fixed central entrance mapping on added art-only attributes; original surfaceUV, mesh sizes and civilian projected-paint guard preserved. Native scale consumes the corrected shared template contract. Upper-story bay phase is anchored to the fixed entrance rather than overall facade width.",
+      "sha256": "ac36b7fcb2ae6c3e4f93d8eeef1892f50db66220766ead66dbc5e470bae546fc",
       "sourceReferences": [],
       "assetManifest": "assets/art/exposition-skins-v1/manifest.json",
       "rawDependencyInventory": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
@@ -245,13 +245,14 @@
     {
       "path": "src/art/building-facades.js",
       "source": "Original Tinderbox appearance profiles from referenced1893 built facades",
-      "processing": "Six named facade profiles, demand-loadable authored texture pairs and source-specific measured image opening bounds. Fixed appearance widths; no mesh/actor scaling.",
-      "sha256": "6925160e5a23b850336995e442af441a986ece97ba38d5aede9d0c28917bd975",
+      "processing": "Six stable facade profile IDs. Latest three use v3 textures drawn for five 1m bays per 5m repeat and a single native 2m entrance story. Measured masks map to unchanged 1x1.65m doors; source geometry/UVs and actors unchanged.",
+      "sha256": "577ddc0509320b94c2cee411855eba14c2da2ad278744343acf8da5925f8fe1a",
       "sourceReferences": [],
       "assetManifest": "assets/art/exposition-buildings-v1/manifest.json",
       "assetManifests": [
         "assets/art/exposition-buildings-v1/manifest.json",
-        "assets/art/exposition-buildings-v2/manifest.json"
+        "assets/art/exposition-buildings-v2/manifest.json",
+        "assets/art/exposition-buildings-v3/manifest.json"
       ]
     }
   ]

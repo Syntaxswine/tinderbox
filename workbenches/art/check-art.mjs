@@ -76,3 +76,27 @@ for(const asset of expanded.assets){
 }
 assert(expanded.nativeScale.wallHeight===2&&expanded.nativeScale.wallThickness===.16&&expanded.nativeScale.doorWidth===1&&expanded.nativeScale.doorHeight===1.65&&expanded.nativeScale.floorSpacing===2.12,'Native source proportion record changed');
 console.log('PASS: 6 additional facade textures, 3 repeating profiles, exact prompts and native-scale provenance.');
+
+const nativePack=JSON.parse(fs.readFileSync(path.join(root,'assets/art/exposition-buildings-v3/manifest.json'),'utf8'));
+const nativePrompts=JSON.parse(fs.readFileSync(path.join(root,nativePack.generationRecord),'utf8'));
+const {ASSET_SCALE}=await import('../../src/content/asset-scale.js');
+const {BUILDING_FACADES,BUILDING_FACADE_ASSETS}=await import('../../src/art/building-facades.js');
+assert(nativePack.assets.length===6&&nativePack.profiles.length===3,'Expected three native Farmyard facade pairs');
+for(const [key,value]of Object.entries(nativePack.nativeScale))assert(value===ASSET_SCALE[key],'Farmyard native contract differs: '+key);
+assert(createHash('sha256').update(fs.readFileSync(path.join(root,nativePack.geometryContract.path))).digest('hex')===nativePack.geometryContract.sha256,'Native source template fingerprint changed');
+for(const asset of nativePack.assets){
+ const bytes=fs.readFileSync(path.join(root,asset.path));
+ assert(createHash('sha256').update(bytes).digest('hex')===asset.sha256&&bytes.length===asset.bytes,'Native skin byte mismatch '+asset.id);
+ assert(bytes.readUInt32BE(16)===asset.width&&bytes.readUInt32BE(20)===asset.height,'Native skin pixel dimensions changed');
+ assert(Math.abs(asset.width/asset.height-asset.physicalRegion[0]/asset.physicalRegion[1])<.01,'Native skin region aspect changed');
+ const prompt=nativePrompts.assets.find(p=>p.id===asset.id);
+ assert(prompt?.prompt&&prompt.referenceImages.length===2,'Native skin missing exact prompt and references');
+ for(const ref of prompt.referenceImages)if(ref.path.startsWith('assets/'))assert(createHash('sha256').update(fs.readFileSync(path.join(root,ref.path))).digest('hex')===ref.sha256,'Native style source changed');
+}
+for(const profile of nativePack.profiles){
+ assert(JSON.stringify(profile)===JSON.stringify(BUILDING_FACADES[profile.id]),'Runtime native profile differs from art manifest');
+ assert(profile.portalStories===1&&profile.portalWidth===3&&profile.bayWidth/profile.baysPerRepeat===ASSET_SCALE.tile,'Skin is not composed at the original wall/door cadence');
+ assert(profile.openingUV.every(Number.isFinite)&&profile.openingUV[0]<profile.openingUV[1]&&profile.openingUV[2]<profile.openingUV[3],'Invalid native door image mask');
+ for(const key of [profile.bay,profile.portal])assert(BUILDING_FACADE_ASSETS[key].includes('/exposition-buildings-v3/'),'Native profile loads an earlier art revision');
+}
+console.log('PASS: 6 native Farmyard facade textures, source dimensions, 1m bay cadence, single-story entrances and matching runtime profiles.');

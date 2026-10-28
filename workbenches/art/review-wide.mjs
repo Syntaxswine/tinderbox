@@ -1,7 +1,7 @@
 import fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';
 const args=process.argv.slice(2),arg=(key,fallback)=>args.includes(key)?args[args.indexOf(key)+1]:fallback;
 const library=arg('--playwright',process.env.TINDERBOX_PLAYWRIGHT),{chromium}=await import(library?pathToFileURL(library).href:'playwright');
-const out=path.resolve(arg('--out','artifacts/art-review/buildings-v2')),url=arg('--url','http://127.0.0.1:4551/workbenches/art/skins.html');
+const out=path.resolve(arg('--out','artifacts/art-review/farmyard-v3')),url=arg('--url','http://127.0.0.1:4551/workbenches/art/skins.html');
 fs.mkdirSync(out,{recursive:true});
 const startedAt=new Date().toISOString(),warnings=[],errors=[],failedRequests=[],images=[],checks=[];let browser,page,deadline;
 try{
@@ -19,7 +19,7 @@ try{
   if(!review.passed)throw Error('Native facade review: '+JSON.stringify(review.errors||review.error));
   await page.evaluate(()=>document.getElementById('review-output').hidden=true);
   const cases=[{study:'avenue',stories:2}];
-  for(const building of ['manufactures','agriculture','fine-arts'])cases.push({study:'wide',building,width:13,stories:2},{study:'wide',building,width:23,stories:2},{study:'wide',building,width:23,stories:5},{study:'facade',building,stories:2});
+  for(const building of ['manufactures','agriculture','fine-arts'])cases.push({study:'wide',building,width:3,stories:1},{study:'wide',building,width:13,stories:1},{study:'wide',building,width:13,stories:2},{study:'wide',building,width:23,stories:2},{study:'wide',building,width:23,stories:5},{study:'facade',building,stories:2});
   cases.push({study:'wide',building:'manufactures',width:3,stories:2},{study:'wide',building:'manufactures',width:7,stories:2},{study:'wide',building:'agriculture',width:13,stories:2,door:'closed'},{study:'courtyard',building:'fine-arts',stories:2});
   for(const options of cases){
    await page.evaluate(options=>window.skinArt.reset({facade:'inherited-plaster',door:'open',...options}),options);
@@ -28,12 +28,19 @@ try{
    if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Horizontal viewport overflow');
   }
  }
- for(const hero of [{file:'new-native-street.png',options:{study:'avenue',stories:2},width:1800,height:430},{file:'liberal-arts-native-wide.png',options:{study:'wide',building:'manufactures',width:23,stories:2},width:1280,height:500}]){
-  const result=await page.evaluate(({options,width,height})=>{
-   const lab=window.skinArt;lab.reset({...options,door:'open',facade:'inherited-plaster'});const T=lab.THREE,scene=lab.panes[1].scene,renderer=lab.renderer;
-   const center=options.study==='avenue'?22:options.width/2+5,spanX=options.study==='avenue'?47:options.width+4,spanY=spanX*height/width;
-   const camera=new T.OrthographicCamera(-spanX/2,spanX/2,spanY/2,-spanY/2,.1,180),target=new T.Vector3(center,2,5.5);
-   camera.position.copy(target).add(new T.Vector3(3,6,27));camera.lookAt(target);camera.updateMatrixWorld();
+ for(const hero of [{file:'farmyard-entrances.png',options:{study:'entrance-gallery',stories:1},width:1800,height:680},{file:'new-native-street.png',options:{study:'avenue',stories:2},width:1800,height:430},{file:'liberal-arts-native-wide.png',options:{study:'wide',building:'manufactures',width:23,stories:2},width:1280,height:500}]){
+  const result=await page.evaluate(async({options,width,height})=>{
+   const lab=window.skinArt,gallery=options.study==='entrance-gallery';lab.reset({...options,study:gallery?'avenue':options.study,door:'open',facade:'inherited-plaster'});
+   if(gallery){
+    const {createSimulation}=await import(new URL('../../src/simulation/index.js',location.href).href);
+    const modules=['manufactures','agriculture','fine-arts'].map((id,index)=>({id:id+'-entry',form:'doorway',x:4+index*5,y:4,width:3,depth:.16,stories:1,heading:0,physicalMaterial:'wood',opening:{width:1,height:1.65,state:'open'},skinSlots:{facade:'inherited-plaster',trim:'inherited-cream',door:'inherited-wood',roof:'inherited-roof'},sourceRefs:['farmyard:hybrid-wall-opening','game:native-facade-preview']}));
+    const simulation=createSimulation({scenario:{width:21,height:14,player:{x:19,y:11},actors:[],modules,obstacles:[]}});
+    try{lab.draw(simulation.snapshot());}finally{simulation.dispose();}
+   }
+   const T=lab.THREE,scene=lab.panes[1].scene,renderer=lab.renderer;
+   const center=gallery?9:options.study==='avenue'?22:options.width/2+5,spanX=gallery?17:options.study==='avenue'?47:options.width+4,spanY=spanX*height/width;
+   const camera=new T.OrthographicCamera(-spanX/2,spanX/2,spanY/2,-spanY/2,.1,180),target=new T.Vector3(center,gallery?1.1:2,gallery?4:5.5);
+   camera.position.copy(target).add(gallery?new T.Vector3(.4,2,25):new T.Vector3(3,6,27));camera.lookAt(target);camera.updateMatrixWorld();
    renderer.setSize(width,height,false);renderer.setScissorTest(false);renderer.setViewport(0,0,width,height);renderer.render(scene,camera);
    const png=renderer.domElement.toDataURL('image/png'),signature=lab.geometrySignature(scene);lab.reset();return{png,signature,camera:{target:target.toArray(),position:camera.position.toArray(),spanX,spanY}};
   },hero);
@@ -43,7 +50,7 @@ try{
  if(programs.some(p=>!p.linked||p.log.trim()||p.shaders.some(s=>s.trim())))throw Error('Shader/program diagnostics');
  const hardware=await page.evaluate(()=>{const gl=window.skinArt.renderer.getContext(),e=gl.getExtension('WEBGL_debug_renderer_info');return{renderer:e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),userAgent:navigator.userAgent};});
  if(errors.length||warnings.length||failedRequests.length)throw Error('Browser output: '+JSON.stringify({warnings,errors,failedRequests}));
- fs.writeFileSync(path.join(out,'review.json'),JSON.stringify({task:'Named facade expansion at native AFT scale',passed:true,startedAt,completedAt:new Date().toISOString(),checks,images,hardware,programs:programs.length,allProgramLogsEmpty:true,warnings,errors,failedRequests,limits:['Facade fragments; adapted colours and ornaments','Native source meshes and actor scale preserved','Desktop GPU with phone viewport emulation']},null,2)+'\n');
+ fs.writeFileSync(path.join(out,'review.json'),JSON.stringify({task:'v3 facade skins authored for native Farmyard wall and doorway proportions',passed:true,startedAt,completedAt:new Date().toISOString(),checks,images,hardware,programs:programs.length,allProgramLogsEmpty:true,warnings,errors,failedRequests,limits:['Facade fragments; adapted colours and ornaments','Native source meshes and actor scale preserved','Desktop GPU with phone viewport emulation']},null,2)+'\n');
  console.log(JSON.stringify({passed:true,images:images.length,viewports:checks.map(c=>({viewport:c.viewport,namedSamples:c.review.named.profileGeometrySamples.length,wideSamples:c.review.samples.length,nativeMeshes:c.review.checkedMeshes,uvVertices:c.review.checkedUVVertices,pixelChecks:c.review.pixelChecks.length,disposed:c.review.disposed})),programs:programs.length,hardware},null,2));
 }catch(error){await page?.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:error.stack,warnings,errors,failedRequests,checks},null,2)+'\n');throw error;}
 finally{clearTimeout(deadline);await browser?.close();fs.writeFileSync(path.join(out,'helper-session.json'),JSON.stringify({pid:process.pid,executable:process.execPath,startedAt,endedAt:new Date().toISOString(),retained:false,stopMethod:'browser.close in finally; 240s forced browser deadline'},null,2)+'\n');}
