@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-28",
-  "task": "Glass-bodied oil lantern menu engraving",
+  "task": "Approved glass oil lantern: remove carrying handle",
   "branch": "codex/ui-design",
-  "baseCommit": "d81ff8fa6cfdd0c2bc2aaa77fb8781bfd4f708af",
+  "baseCommit": "6a0793981862205b72c290f7036f0264bb2606ab",
   "candidate": "Commit containing this record; exact SHA in delivery",
   "sourcePin": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
   "sourceHashes": [
     {
       "path": "assets/art/ui/engraved-oil-lantern.png",
-      "bytes": 1321443,
-      "sha256": "0072d2cdbf32acf83cf806d6075e0d00876eea75f82d84eb6111f1643c813bdc"
+      "bytes": 1063533,
+      "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698"
     },
     {
       "path": "assets/art/ui/engraved-outline-plates.svg",
-      "bytes": 8172,
-      "sha256": "3f66d9bdba16b3d80962c78ce9a57bec3c3000969451b199f54088f7fc42552a"
+      "bytes": 8132,
+      "sha256": "9730a012eb37f27372cabd8bdd3c3a63232ef5b4ac10084b61702cb37edcc8fe"
     },
     {
       "path": "assets/art/ui/engraved-plates.json",
-      "bytes": 12312,
-      "sha256": "0819ba61293d4e548a2f6ccd758fd69111d5aa2132ea179d4d72c1102eae44ee"
+      "bytes": 12380,
+      "sha256": "63df5f88ce97ca176ca62ce367e36c8b7ad213869694ce2651bcc83d08a11b08"
     },
     {
       "path": "src/ui/etching-frames.js",
-      "bytes": 1241,
-      "sha256": "42f7492b01b8d4e1d061ddf7cd19d7b42fbdb7c09d3cc6e281c423f36a937627"
+      "bytes": 1243,
+      "sha256": "a503e93020aa4b5e8ea55c2ea9c424d7bc98c123e0a045cee91d9e7ba56d419b"
     },
     {
       "path": "src/ui/index.js",
@@ -61,7 +61,7 @@
       "status": "passed",
       "command": "node tools/build.mjs",
       "files": 96,
-      "bytes": 29326492
+      "bytes": 29068612
     },
     "release": {
       "status": "passed",
@@ -109,8 +109,8 @@
           "path": "assets/art/ui/engraved-oil-lantern.png",
           "width": 1254,
           "height": 1254,
-          "bytes": 1321443,
-          "sha256": "0072d2cdbf32acf83cf806d6075e0d00876eea75f82d84eb6111f1643c813bdc",
+          "bytes": 1063533,
+          "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
           "unmodifiedGeneration": true
         }
       ],
@@ -145,10 +145,10 @@
           "id": "molotov",
           "label": "Glass oil lantern",
           "frame": [
-            330,
-            2,
-            595,
-            1232
+            356,
+            128,
+            544,
+            1108
           ],
           "source": "assets/art/ui/engraved-oil-lantern.png",
           "width": 1254,
@@ -760,449 +760,9 @@
         "status": "passed"
       }
     ],
-    "integration": [
-      {
-        "width": 390,
-        "height": 844,
-        "passed": 11,
-        "failed": 0,
-        "viewport": {
-          "width": 390,
-          "height": 844
-        },
-        "results": [
-          {
-            "name": "Production factories load together with exactly five tools and three drugs",
-            "status": "pass"
-          },
-          {
-            "name": "Real UI pour, raw joystick and powder preserve a continuous distance-accounted trail",
-            "status": "pass"
-          },
-          {
-            "name": "Inversion reverses the same held stick once and leaves aim and pour intact",
-            "status": "pass"
-          },
-          {
-            "name": "Pause freezes all clocks, stops pour and resumes without stale movement",
-            "status": "pass"
-          },
-          {
-            "name": "Healing reads and changes the authoritative HP and pill stock",
-            "status": "pass"
-          },
-          {
-            "name": "Held flamethrower consumes finite fuel, emits resolved fire and releases",
-            "status": "pass"
-          },
-          {
-            "name": "A nearby wall clips resolved flame before the protruding cosmetic nozzle",
-            "status": "pass"
-          },
-          {
-            "name": "Powder separates bear from a finite front on the same freshly poured line",
-            "status": "pass"
-          },
-          {
-            "name": "Exposition renders original normal civilians and exactly the surviving physical module parts",
-            "status": "pass"
-          },
-          {
-            "name": "Combined exposition UI pours through the open gate, stops at the closed door and slows the original civilians",
-            "status": "pass"
-          },
-          {
-            "name": "Combined resource/performance sample",
-            "status": "observed",
-            "metrics": {
-              "frames": 154,
-              "simulationMs": 2,
-              "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
-              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
-              "simulationCpuP95Ms": 3.0999999046325684,
-              "observedHz": 60.00000000000002,
-              "renderCpuP95Ms": 4,
-              "drawCalls": 187,
-              "geometries": 48,
-              "textures": 28,
-              "viewport": {
-                "width": 390,
-                "height": 476
-              },
-              "threeRevision": "180"
-            },
-            "art": {
-              "disposed": false,
-              "updates": 154,
-              "lastSnapshot": {
-                "tick": 153,
-                "worldTime": 0.9141666666666692,
-                "playerTime": 3.8083333333333242
-              },
-              "footprintRadius": 0.56,
-              "provisionalBear": true,
-              "actors": 2,
-              "provisionalActors": 0,
-              "civilianKit": {
-                "disposed": false,
-                "species": [
-                  "goat",
-                  "horse"
-                ],
-                "instances": 2,
-                "sourceTextures": 2,
-                "baseUrl": "http://127.0.0.1:4552/nested/ui-review/artifacts/phone-ui/combined/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
-              },
-              "civilians": {
-                "disposed": false,
-                "species": [
-                  "goat",
-                  "horse"
-                ],
-                "instances": 2,
-                "sourceTextures": 2,
-                "baseUrl": "http://127.0.0.1:4552/nested/ui-review/artifacts/phone-ui/combined/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
-              },
-              "civilianActors": [
-                {
-                  "id": "visitor-horse",
-                  "triangles": 10300,
-                  "rifleTriangles": 480,
-                  "weapon": "rifle",
-                  "weaponTriangles": 480,
-                  "bones": 17,
-                  "skinnedMeshes": 8,
-                  "min": [
-                    7.505840904475723,
-                    5.551115123125783e-17,
-                    9.569314038353408
-                  ],
-                  "max": [
-                    8.043703289917008,
-                    1.5770123378662508,
-                    10.430836396490434
-                  ],
-                  "contacts": [],
-                  "sourceTriangles": 856076,
-                  "species": "horse",
-                  "appearance": "normal",
-                  "armed": false,
-                  "bounds": {
-                    "radius": 0.62,
-                    "height": 1.7
-                  }
-                },
-                {
-                  "id": "visitor-goat",
-                  "triangles": 9994,
-                  "rifleTriangles": 480,
-                  "weapon": "rifle",
-                  "weaponTriangles": 480,
-                  "bones": 17,
-                  "skinnedMeshes": 8,
-                  "min": [
-                    13.476380544980424,
-                    4.163336342344337e-17,
-                    11.569344523777481
-                  ],
-                  "max": [
-                    14.043703245213527,
-                    1.5765298978714388,
-                    12.430975132267454
-                  ],
-                  "contacts": [],
-                  "sourceTriangles": 29586,
-                  "species": "goat",
-                  "appearance": "normal",
-                  "armed": false,
-                  "bounds": {
-                    "radius": 0.62,
-                    "height": 1.7
-                  }
-                }
-              ],
-              "exterior": {
-                "modules": 15,
-                "survivingSolidParts": [
-                  "court-gate:pier-left",
-                  "court-gate:pier-right",
-                  "court-front-west:wall",
-                  "court-front-east:wall",
-                  "court-west:wall",
-                  "court-east:wall",
-                  "bay-pilaster-0:pilaster",
-                  "bay-pilaster-1:pilaster",
-                  "bay-pilaster-2:pilaster",
-                  "bay-pilaster-3:pilaster",
-                  "hall-back:wall",
-                  "hall-closed-door:pier-left",
-                  "hall-closed-door:pier-right",
-                  "hall-closed-door:closed-door",
-                  "hall-pilaster:pilaster",
-                  "service-corner:leg-x",
-                  "service-corner:leg-y"
-                ],
-                "suppressedSolidParts": [],
-                "suppressedCosmeticParts": [],
-                "visibleRoofParts": [
-                  "hall-gable:roof-envelope",
-                  "service-hip:roof-envelope"
-                ],
-                "disposed": false,
-                "renderedModuleIds": [
-                  "court-gate",
-                  "court-front-west",
-                  "court-front-east",
-                  "court-west",
-                  "court-east",
-                  "bay-pilaster-0",
-                  "bay-pilaster-1",
-                  "bay-pilaster-2",
-                  "bay-pilaster-3",
-                  "hall-back",
-                  "hall-closed-door",
-                  "hall-pilaster",
-                  "service-corner",
-                  "hall-gable",
-                  "service-hip"
-                ],
-                "renderedPartIds": [
-                  "court-gate:pier-left",
-                  "court-gate:pier-right",
-                  "court-gate:lintel",
-                  "court-front-west:wall",
-                  "court-front-east:wall",
-                  "court-west:wall",
-                  "court-east:wall",
-                  "bay-pilaster-0:pilaster",
-                  "bay-pilaster-1:pilaster",
-                  "bay-pilaster-2:pilaster",
-                  "bay-pilaster-3:pilaster",
-                  "hall-back:wall",
-                  "hall-closed-door:pier-left",
-                  "hall-closed-door:pier-right",
-                  "hall-closed-door:lintel",
-                  "hall-closed-door:closed-door",
-                  "hall-pilaster:pilaster",
-                  "service-corner:leg-x",
-                  "service-corner:leg-y",
-                  "hall-gable:roof-envelope",
-                  "service-hip:roof-envelope"
-                ],
-                "roofIds": [
-                  "hall-gable",
-                  "service-hip"
-                ],
-                "skinBindings": {
-                  "court-gate:pier-left": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "court-gate:pier-right": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "court-gate:lintel": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "court-front-west:wall": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "court-front-east:wall": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "court-west:wall": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "court-east:wall": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "bay-pilaster-0:pilaster": {
-                    "facade": "inherited-cream",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "bay-pilaster-1:pilaster": {
-                    "facade": "inherited-cream",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "bay-pilaster-2:pilaster": {
-                    "facade": "inherited-cream",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "bay-pilaster-3:pilaster": {
-                    "facade": "inherited-cream",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "hall-back:wall": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "hall-closed-door:pier-left": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "hall-closed-door:pier-right": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "hall-closed-door:lintel": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "hall-closed-door:closed-door": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "hall-pilaster:pilaster": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "service-corner:leg-x": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "service-corner:leg-y": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "hall-gable:roof-envelope": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  },
-                  "service-hip:roof-envelope": {
-                    "facade": "inherited-plaster",
-                    "trim": "inherited-cream",
-                    "door": "inherited-wood",
-                    "roof": "inherited-roof"
-                  }
-                },
-                "builds": 1,
-                "meshes": 21,
-                "geometries": 21,
-                "materials": 3,
-                "textures": 0,
-                "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
-                "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
-              },
-              "sharedResources": {
-                "geometries": 2,
-                "materials": 28,
-                "textures": 30,
-                "objects": 0
-              },
-              "world": {
-                "geometries": 3,
-                "materials": 0,
-                "textures": 0,
-                "objects": 2,
-                "builds": 1
-              },
-              "bear": {
-                "geometries": 5,
-                "materials": 0,
-                "textures": 0,
-                "objects": 0
-              },
-              "ground": {
-                "geometries": 1,
-                "materials": 1,
-                "textures": 1,
-                "objects": 0
-              },
-              "tools": {
-                "projectiles": 0,
-                "geometries": 2,
-                "materials": 0,
-                "textures": 0,
-                "objects": 0
-              },
-              "fire": {
-                "flameCards": 0,
-                "smokeCards": 0,
-                "burstCards": 0,
-                "discharge": {
-                  "active": false,
-                  "rayCount": 0,
-                  "connectRays": false,
-                  "triangles": 0,
-                  "plumeCards": 0,
-                  "capped": false,
-                  "muzzleInsideShape": false,
-                  "visualForwardStart": 0,
-                  "geometryBuilds": 0,
-                  "worldTime": 0.9141666666666692,
-                  "geometries": 2,
-                  "materials": 2,
-                  "textures": 1,
-                  "objects": 0
-                },
-                "eventCount": 2,
-                "trackedCells": 1280,
-                "seenEvents": 2,
-                "capped": false,
-                "worldTime": 0.9141666666666692,
-                "geometries": 3,
-                "materials": 3,
-                "textures": 0,
-                "objects": 0
-              }
-            }
-          },
-          {
-            "name": "Four complete exposition runtime rebuilds dispose original civilian views and keep live resources stable",
-            "status": "pass"
-          }
-        ]
-      }
-    ],
     "native": [
       {
-        "check": "Glass oil lantern selection and existing Throw",
+        "check": "Native Oil lantern selection and Throw after handle removal",
         "viewport": [
           390,
           844
@@ -1211,82 +771,74 @@
         "action": "Throw — Oil lantern. 3 left",
         "before": "4 left",
         "after": "3 left",
-        "source": "http://127.0.0.1:4552/nested/ui-review/artifacts/phone-ui/combined/assets/art/ui/engraved-oil-lantern.png",
-        "viewportBox": "330 2 595 1232"
+        "source": "http://127.0.0.1:4552/nested/ui-review/dist/assets/art/ui/engraved-oil-lantern.png",
+        "viewportBox": "356 128 544 1108"
       }
     ],
     "console": [],
     "browserCleanup": {
-      "ownedTab": "11",
+      "ownedTab": "12",
       "closed": true,
       "viewportReset": true,
       "userTabsLeftOpen": true
     }
   },
-  "combinedPreview": {
-    "kind": "Generated combined preview; production runtime unchanged",
-    "baseRuntimeSha256": "e5283a03186b76410c582d6ee039923c1ffe57df319518c1102c94e09423d2ee",
-    "adapterSha256": "8efeeae520374d062709e4cdaa57bc0c5933dbdfe410500f10bd6fb045515d0e",
-    "combinedRuntimeSha256": "10dd16e6918816170bbe8612b0af90be9111811d5b71a4c1a03769d81a4f6652",
-    "sourceHead": "d81ff8fa6cfdd0c2bc2aaa77fb8781bfd4f708af",
-    "preparedAt": "2026-10-28T05:57:46.048Z"
-  },
   "evidence": [
     {
       "path": "evidence/desktop-tools.jpg",
-      "bytes": 74827,
-      "sha256": "c26cbbad3d21d32ee77038dc057c80ceb9539bff14866b6a81c5ae3695b291cd"
+      "bytes": 74569,
+      "sha256": "cee543873a059b3cd9662581f4f179240b23a3e81d137377e6f3c33daad4d572"
     },
     {
       "path": "evidence/engraved-plates.jpg",
-      "bytes": 88828,
-      "sha256": "fcf4c4d1e100b13f19a5329e239192ddac8520bf9f2fafe20204612fa0bb6083"
+      "bytes": 88992,
+      "sha256": "76bdb442f11bc18ed8dccc739ab1ba257d091852ded17cc3d1e623882ed25309"
     },
     {
       "path": "evidence/landscape-tools.jpg",
-      "bytes": 42776,
-      "sha256": "a49b40451e0ce7ba5b16da78d72f9288bbb784b291c3b10d6de95c5f0dee76e7"
+      "bytes": 42458,
+      "sha256": "a28e8ce3e3ccdba189a284745a2e16878f2465585cd9285b4929a7bf016eae65"
     },
     {
       "path": "evidence/phone-selected-390.jpg",
-      "bytes": 44200,
-      "sha256": "5b5b0e6796aee1bd844719192d6edb684b8492faefd11ea020ee379518cf69f0"
+      "bytes": 44049,
+      "sha256": "885863c8057c028238b02d4c90218db8fab6b18100c4142543a3bc5b524a98c3"
     },
     {
       "path": "evidence/phone-tools-320.jpg",
-      "bytes": 33971,
-      "sha256": "f6548e170b82244332cf945234c6c60edd250eec83b71a9433b7473914dbd699"
+      "bytes": 33933,
+      "sha256": "615fcf2ec205b4d902745ad1234ae74724a9abd374dc2717554a8dd21003e0bb"
     },
     {
       "path": "evidence/phone-tools-390.jpg",
-      "bytes": 53096,
-      "sha256": "ef6820058f999e2c8972764827e56ce2ac21beda9840f02023c21d7179b62039"
+      "bytes": 52833,
+      "sha256": "c70f9529671a564c6a7f2a38d8a993d45f70212f55413f03517a09dc5f36c704"
     }
   ],
   "helper": {
     "status": "stopped",
     "receipt": {
-      "purpose": "Glass oil lantern menu review",
-      "stdoutReceipt": "{\"status\":\"stopped\",\"reason\":\"stop-file\",\"pid\":36428}",
-      "stopMethod": "Private STOP marker",
-      "pid": 36428,
       "owner": "01a17edb-5cf4-7af0-a52e-d28547bb7ede",
-      "checkedAt": "2026-10-28T06:01:40.2349888+00:00",
-      "port": 4552,
-      "reason": "Glass oil lantern UI checks and screenshots complete",
+      "pid": 57112,
+      "stdoutReceipt": "{\"status\":\"stopped\",\"reason\":\"stop-file\",\"pid\":57112}",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "checkedAt": "2026-10-28T06:13:38.2006590+00:00",
       "exactProcessExited": true,
-      "creationFiletime": "134376406088093011",
+      "reason": "Oil lantern handle removal checks and screenshots complete",
       "portReleased": true,
-      "executable": "C:\\Program Files\\nodejs\\node.exe"
+      "stopMethod": "Private STOP marker",
+      "creationFiletime": "134376413548388697",
+      "port": 4552,
+      "purpose": "Oil lantern menu review after handle removal"
     },
-    "restartRecord": "artifacts/glass-lantern/helper/register.json",
-    "sourceBundle": "artifacts/glass-lantern/helper/final-source-bundle/source-manifest.json"
+    "restartRecord": "artifacts/lantern-no-handle/helper/register.json",
+    "sourceBundle": "artifacts/lantern-no-handle/helper/final-source-bundle/source-manifest.json"
   },
   "limitations": [
-    "Carried/thrown 3D model still needs glass reservoir/chimney, visible oil/wick and minimal brass fittings.",
-    "UI only: no glass material, shattering, fuel, flight or blast rule changes.",
-    "Existing zoom adapter remains a runtime integration dependency; applied only in generated preview.",
-    "Actual handset touch/performance/safe areas and OS forced colors not exercised.",
-    "Original period-inspired design; no exact historical model claim."
+    "Carried/flying 3D lamp still needs glass reservoir/chimney and minimal brass fittings, with no carrying handle or supports.",
+    "Presentation only: no gameplay or glass/shattering rules changed.",
+    "Screenshots are the unpatched production package; optional zoom remains a separate integration dependency.",
+    "Previous combined gameplay suite not rerun for illustration-only correction.",
+    "Actual handset performance/touch/safe areas and OS forced colors not exercised."
   ]
 }

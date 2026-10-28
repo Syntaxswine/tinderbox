@@ -101,4 +101,4 @@ export const ETCHING_FRAMES = {
 
 // Glass-bodied oil lantern requested by the user; internal tool ID stays molotov.
 export const OIL_LANTERN_SIZE = {width:1254,height:1254};
-export const OIL_LANTERN_FRAME = [330,2,595,1232];
+export const OIL_LANTERN_FRAME = [356,128,544,1108];

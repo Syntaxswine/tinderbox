@@ -3,7 +3,7 @@
   "task": "Engraved newspaper menus",
   "date": "2026-10-28",
   "parentUiCommit": "0c52b7f08a8f4bf5e93502810a2751f5de63d444",
-  "direction": "Detailed engraving-style object illustrations, newspaper masthead/rules and lettered sign plates in the existing Eastlake wood frames. The thrown incendiary is a glass-bodied oil lantern per the user’s corrections.",
+  "direction": "Detailed engraving-style object illustrations, newspaper masthead/rules and lettered sign plates in the existing Eastlake wood frames. The thrown incendiary is a glass-bodied oil lantern without a carrying handle per the user’s corrections.",
   "atlas": {
     "installedPath": "assets/art/ui/engraved-atlas.png",
     "source": "Built-in image_gen tool, new image generation",
@@ -134,7 +134,7 @@
   "systemColorFallback": {
     "installedPath": "assets/art/ui/engraved-outline-plates.svg",
     "kind": "Original editable 64-unit contour/hatch drawings made in this task; used in system forced colors.",
-    "sha256": "3f66d9bdba16b3d80962c78ce9a57bec3c3000969451b199f54088f7fc42552a"
+    "sha256": "9730a012eb37f27372cabd8bdd3c3a63232ef5b4ac10084b61702cb37edcc8fe"
   },
   "references": [
     {
@@ -172,12 +172,12 @@
   },
   "oilLantern": {
     "installedPath": "assets/art/ui/engraved-oil-lantern.png",
-    "source": "Built-in image_gen tool, edit of the previous lantern plate",
-    "generationFile": "exec-19fef7cc-f857-4919-b450-0a7afad02146.png",
+    "source": "Built-in image_gen tool, removal of carrying handle from the approved glass lantern",
+    "generationFile": "exec-d2f0f7b2-d482-4a42-ac1f-f334900ce5ed.png",
     "width": 1254,
     "height": 1254,
-    "bytes": 1321443,
-    "sha256": "0072d2cdbf32acf83cf806d6075e0d00876eea75f82d84eb6111f1643c813bdc",
+    "bytes": 1063533,
+    "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
     "requestedTransparentBackground": true,
     "alphaExtrema": [
       0,
@@ -185,23 +185,23 @@
     ],
     "bytesUnmodified": true,
     "frame": [
-      330,
-      2,
-      595,
-      1232
+      356,
+      128,
+      544,
+      1108
     ],
     "internalToolId": "molotov",
     "displayLabel": "Oil lantern",
     "stockField": "molotovs",
     "action": "Throw",
-    "worldArtStatus": "Matching carried/thrown 3D lantern must use a clear glass reservoir and chimney, visible oil/wick and minimal brass fittings. Artist/coder integration remains required; UI only here.",
-    "prompt": "Use case: historical-scene / engraving illustration.\nAsset type: a replacement production menu illustration for Tinderbox.\nReference image role: EDIT TARGET — the existing monochrome engraved tin hurricane lantern. Match its fine Victorian newspaper engraving style and detailed contour hatching, but redesign the object as a GLASS-BODIED oil lantern.\nPrimary request: a portable nineteenth-century chamber oil lantern with a broad, clear blown-glass oil reservoir at its base, a small brass wick burner above the reservoir, a tall clear glass chimney enclosing a small lit flame, and a spare thin wire carrying bail. The transparent glass reservoir must be a prominent part of the silhouette, occupying roughly the lower third of the object. A clearly visible horizontal oil level and the submerged wick can be seen through the glass. Give the glass rounded shoulders, restrained cut-glass facets at the base, crisp double contours at glass edges, a few slender curved reflection highlights and broad open areas. Use only fine sparse hatching on the transparent glass; reserve denser hatching for the tiny brass burner and oil below its level.\nComposition: one complete upright lantern centered with generous margin, three-quarter view, compact enough to read at 44px high. Keep the whole bail, chimney and base visible and distinct.\nStyle and palette: same dark brown-black ink-only 1893 newspaper wood engraving as the edit target. Natural fine contour hatching and stipple, realistic object illustration. No modern icon treatment. Preserve the established monochrome print language: oil is indicated with engraving marks, not amber color fill.\nChange requirements: remove the opaque metal fuel tank and heavy metal hurricane frame. The fuel reservoir is visibly transparent glass, not a tin tank with a glass window. Keep metal fittings minimal. No sheet-metal bonnet obscuring the tall glass chimney.\nBackground: preserve genuine transparent alpha; highlights and negative space should be transparent as far as possible. No paper background, colored wash, gradients, scene, shadows on a background, labels, words, numerals or watermark. No modern pressure lamp, electric bulb, LED, rag bottle or decorative flowers. This is an original game object design, not an exact named historical model.",
-    "material": "Clear glass reservoir and chimney, visible oil level and submerged wick, minimal brass fittings and thin wire carrying bail. Monochrome engraving.",
+    "worldArtStatus": "Artist/coder integration: clear glass reservoir and chimney, visible oil/wick, small brass burner and functional wick-adjustment knob; no carrying handle, bail, side loops or carrying supports. UI only here.",
+    "prompt": "Edit the provided oil-lamp engraving. The user approves everything except the metal carrying handle. Make ONE narrowly scoped alteration: remove the entire thin wire carrying bail/arched handle, its two circular side loops, and the diagonal wire supports/attachment tabs running down to the reservoir. Replace the removed handle area with genuine transparent alpha.\nPreserve the glass oil lamp itself: the exact broad rounded cut-glass oil reservoir, horizontal oil level, submerged wick, small brass burner and its right-side wick-adjustment knob, tall clear glass chimney, lit flame, proportions, perspective, contour hatching, cross-hatching and dark brown-black monochrome ink style. Keep the chimney opening, glass highlights, facets, oil and flame intact. The wick-adjustment knob is functional and must remain; it is not the carrying handle.\nKeep the original square canvas and the lamp's scale and placement. Do not enlarge, reposition, crop or redesign the lamp. No new handle, grip, bail, hanging loop, side frame, chain or other carrying hardware. No other changes, lettering, border, background or cast shadow. Preserve the transparent background. This is the final production newspaper-style engraving for the same game menu.",
+    "material": "Clear glass reservoir and chimney, visible oil level and submerged wick, minimal brass burner and functional wick-adjustment knob. No carrying handle, bail, side loops or diagonal carrying supports.",
     "editTarget": {
-      "gitCommit": "d81ff8fa6cfdd0c2bc2aaa77fb8781bfd4f708af",
+      "gitCommit": "6a0793981862205b72c290f7036f0264bb2606ab",
       "path": "assets/art/ui/engraved-oil-lantern.png",
-      "sha256": "ff847341bcab4cf3cec536cea9a3b489b82ab161ff4fd55ca03e7253d8a0ac85",
-      "prompt": "Use case: historical-scene.\nAsset type: a single isolated engraving plate for a period game menu.\nPrimary request: one late nineteenth-century oil lantern, an old tin-and-glass kerosene hurricane lantern with a tall wire carrying bail, protective curved metal side guards, a clear glass globe, a visible wick with a small flame, and a round oil reservoir at its base. Whole lantern upright, three-quarter view, all parts within frame.\nStyle: a detailed 1893 newspaper wood engraving, dark brown-black ink, very fine contour hatching, dense cross-hatched metal shadows and delicate stippling, realistic material detail. It must look like a printed object illustration, not a modern outline icon or infographic. Strong readable outer silhouette, refined fine lines inside. Same visual language as Victorian newspaper tool advertisements.\nComposition: centered single lantern, generous transparent margin on every side; square image. No other objects, no decorative border, no text, numerals, labels or watermark.\nBackground: genuinely transparent alpha. No paper background and no cast shadow on a background. Highlights and open spaces as transparent as possible. No colored wash, no grey gradient, no electric bulb, no LED, no modern pressure-lamp parts, no rag bottle. Monochrome engraving only."
+      "sha256": "0072d2cdbf32acf83cf806d6075e0d00876eea75f82d84eb6111f1643c813bdc",
+      "prompt": "Use case: historical-scene / engraving illustration.\nAsset type: a replacement production menu illustration for Tinderbox.\nReference image role: EDIT TARGET — the existing monochrome engraved tin hurricane lantern. Match its fine Victorian newspaper engraving style and detailed contour hatching, but redesign the object as a GLASS-BODIED oil lantern.\nPrimary request: a portable nineteenth-century chamber oil lantern with a broad, clear blown-glass oil reservoir at its base, a small brass wick burner above the reservoir, a tall clear glass chimney enclosing a small lit flame, and a spare thin wire carrying bail. The transparent glass reservoir must be a prominent part of the silhouette, occupying roughly the lower third of the object. A clearly visible horizontal oil level and the submerged wick can be seen through the glass. Give the glass rounded shoulders, restrained cut-glass facets at the base, crisp double contours at glass edges, a few slender curved reflection highlights and broad open areas. Use only fine sparse hatching on the transparent glass; reserve denser hatching for the tiny brass burner and oil below its level.\nComposition: one complete upright lantern centered with generous margin, three-quarter view, compact enough to read at 44px high. Keep the whole bail, chimney and base visible and distinct.\nStyle and palette: same dark brown-black ink-only 1893 newspaper wood engraving as the edit target. Natural fine contour hatching and stipple, realistic object illustration. No modern icon treatment. Preserve the established monochrome print language: oil is indicated with engraving marks, not amber color fill.\nChange requirements: remove the opaque metal fuel tank and heavy metal hurricane frame. The fuel reservoir is visibly transparent glass, not a tin tank with a glass window. Keep metal fittings minimal. No sheet-metal bonnet obscuring the tall glass chimney.\nBackground: preserve genuine transparent alpha; highlights and negative space should be transparent as far as possible. No paper background, colored wash, gradients, scene, shadows on a background, labels, words, numerals or watermark. No modern pressure lamp, electric bulb, LED, rag bottle or decorative flowers. This is an original game object design, not an exact named historical model."
     }
   }
 }
