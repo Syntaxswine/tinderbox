@@ -1,0 +1,29 @@
+diff --git a/src/runtime/index.js b/src/runtime/index.js
+index a300f49..3e3410e 100644
+--- a/src/runtime/index.js
++++ b/src/runtime/index.js
+@@ -28,9 +28,14 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
+   const rendererDescription = String(gl.getParameter(debugInfo ? debugInfo.UNMASKED_RENDERER_WEBGL : gl.RENDERER));
+   let lastMetrics = {}, frames = 0;
+   function dispatch(command) { return sim.dispatch(command); }
++  function zoom(factor) {
++    if (disposed || !Number.isFinite(factor) || factor <= 0) return;
++    camera.magnify(factor);
++    renderer.render(scene, camera.camera); // Repaint manual/paused scenes without advancing simulation.
++  }
+   try {
+     art = createArtScene ? await createArtScene({THREE, scene, renderer, assetBaseUrl}) : createDiagnosticScene({THREE, scene, config: configuration(config)});
+-    ui = mountUI?.({root: uiRoot, onCommand: dispatch});
++    ui = mountUI?.({root: uiRoot, onCommand: dispatch, onZoom: zoom});
+   } catch (error) { dispose(); throw error; }
+   function present(next, delta, simulationMs = 0) {
+     const before = performance.now(), previous = snapshot; snapshot = next;
+@@ -63,7 +68,7 @@ export async function createRuntime({root, uiRoot = root, createArtScene, mountU
+   document.addEventListener('visibilitychange', () => { if (document.hidden) loseFocus(); lastTime = null; }, {signal});
+   try { present(snapshot, 0); } catch (error) { dispose(); throw error; } if (autoStart) animation = requestAnimationFrame(frame);
+   return {dispatch, advance, snapshot: () => sim.snapshot(), metrics: () => ({...lastMetrics}),
+-    screenToWorld: camera.screenToWorld, zoom: camera.magnify,
++    screenToWorld: camera.screenToWorld, zoom,
+     dispose};
+   function dispose() {
+     if (disposed) return;

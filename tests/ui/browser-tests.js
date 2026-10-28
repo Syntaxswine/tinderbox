@@ -4,11 +4,11 @@ const host = document.querySelector('#fixture-root'), results = [];
 const equal = (a,b,message='Values differ') => { if(JSON.stringify(a)!==JSON.stringify(b)) throw Error(message + ': ' + JSON.stringify(a) + ' != ' + JSON.stringify(b)); };
 const ok = (condition,message) => { if(!condition) throw Error(message); };
 function deepFreeze(value) { Object.freeze(value); for(const item of Object.values(value)) if(item && typeof item==='object') deepFreeze(item); return value; }
-function make(name='ready') {
+function make(name='ready',connectZoom=true) {
   const root=document.createElement('div'); root.style.cssText='position:absolute;inset:0'; host.append(root);
-  const commands=[]; const ui=mountUI({root,onCommand:command=>commands.push(command)});
+  const commands=[],zooms=[]; const ui=mountUI({root,onCommand:command=>commands.push(command),...(connectZoom?{onZoom:factor=>zooms.push(factor)}:{})});
   ui.update(deepFreeze(fixture(name)));
-  return {root,commands,ui,find:selector=>root.querySelector(selector),close:()=>{ui.dispose();root.remove();}};
+  return {root,commands,zooms,ui,find:selector=>root.querySelector(selector),close:()=>{ui.dispose();root.remove();}};
 }
 const key=(target,type,code,extra={})=>target.dispatchEvent(new KeyboardEvent(type,{code,key:code==='Space'?' ':code,bubbles:true,cancelable:true,...extra}));
 const pointer=(target,type,id,x=0,y=0)=>target.dispatchEvent(new PointerEvent(type,{pointerId:id,pointerType:'touch',button:0,clientX:x,clientY:y,bubbles:true,cancelable:true}));
@@ -24,6 +24,7 @@ async function check(name,run) {
 }
 await check('Five tools and three drugs; selection waits for an authoritative snapshot',s=>{
   equal(s.root.querySelectorAll('[data-tool]').length,5); equal(s.root.querySelectorAll('[data-drug]').length,3);
+  s.find('[data-tools]').click();
   s.find('[data-tool="torch"]').click();
   equal(s.commands.at(-1),{type:'select-tool',tool:'torch'});
   equal(s.find('[data-tool="matches"]').getAttribute('aria-pressed'),'true');
@@ -172,7 +173,8 @@ await check('Hidden-document cancellation releases held input',s=>{
 });
 await check('Every gameplay touch target is at least 44px and stays inside the scene',s=>{
   const frame=s.root.getBoundingClientRect();
-  for(const element of s.root.querySelectorAll('.tb-console button,[data-pause]')){
+  for(const element of s.root.querySelectorAll('.tb-console button,[data-zoom]')){
+    if(element.closest('[hidden]')) continue;
     const rect=element.getBoundingClientRect();
     ok(rect.width>=44&&rect.height>=44,'Undersized touch target: '+element.getAttribute('aria-label'));
     ok(rect.left>=frame.left-0.5&&rect.right<=frame.right+0.5&&rect.top>=frame.top-0.5&&rect.bottom<=frame.bottom+0.5,'Control outside scene: '+element.getAttribute('aria-label'));
@@ -189,6 +191,71 @@ await check('Field-canvas focus keeps keyboard control; leaving the scene clears
     input.focus();equal(s.commands.at(-1),{type:'cancel-input'});
     const count=s.commands.length;key(input,'keydown','KeyD');equal(s.commands.length,count);
   } finally {canvas.remove();input.remove();}
+});
+
+await check('Phone has exactly three persistent actions on each side, upper-right map and left zoom',s=>{
+  const left=[...s.root.querySelectorAll('.left-controls button')],right=[...s.root.querySelectorAll('.right-controls button')];
+  equal(left.length,3);equal(right.length,3);ok(s.find('[data-picker]').hidden,'Tool rack persists');
+  const stick=s.find('[data-stick]').getBoundingClientRect(),frame=s.root.getBoundingClientRect(),map=s.find('.tb-map').getBoundingClientRect();
+  for(const button of left)ok(button.getBoundingClientRect().right<=stick.left,'Left bank crosses joystick');
+  for(const button of right)ok(button.getBoundingClientRect().left>=stick.right,'Right bank crosses joystick');
+  ok(map.left>frame.left+frame.width/2&&map.top<frame.top+30,'Map not upper right');
+  ok(s.find('[data-zoom]').getBoundingClientRect().left<frame.left+70,'Zoom not left');
+  ok(map.bottom<s.find('.tb-console').getBoundingClientRect().top,'Map overlaps console');
+  const vitals=s.find('.tb-vitals').getBoundingClientRect(),health=s.find('.tb-health-meter').getBoundingClientRect();
+  ok(health.right<=vitals.right&&health.bottom<=vitals.bottom,'Health readout leaves its frame');
+});
+await check('Tool picker preserves held movement and pouring, exposes all tools and restores focus',s=>{
+  s.ui.update(deepFreeze(fixture('pouring')));
+  const stick=s.find('[data-stick]');stick.focus();key(stick,'keydown','KeyW');
+  const count=s.commands.length;s.find('[data-tools]').click();
+  ok(!s.find('[data-picker]').hidden,'Picker did not open');equal(s.commands.length,count,'Opening picker dispatched gameplay');
+  ok(document.activeElement===s.find('[data-tool="jerry-can"]'),'Selected tool not focused');
+  for(const tool of s.root.querySelectorAll('[data-tool]')){
+    const r=tool.getBoundingClientRect();ok(r.width>=44&&r.height>=44,'Picker target below 44px');
+    ok(r.left>=s.root.getBoundingClientRect().left&&r.right<=s.root.getBoundingClientRect().right,'Tool clipped');
+  }
+  s.find('[data-tool="flamethrower"]').click();
+  equal(s.commands.at(-1),{type:'select-tool',tool:'flamethrower'});
+  ok(!s.commands.slice(count).some(c=>c.type==='cancel-input'||c.type==='move'),'Picker selection cancelled movement');
+  ok(s.find('[data-picker]').hidden,'Selection left picker open');ok(document.activeElement===s.find('[data-tools]'),'Tools focus not restored');
+  key(stick,'keyup','KeyW');equal(s.commands.at(-1),{type:'move',x:0,y:0});
+});
+await check('Picker Escape closes only the picker; authoritative pause closes it and retains modal trap',s=>{
+  s.find('[data-tools]').click();const count=s.commands.length;
+  key(document.activeElement,'keydown','Escape');equal(s.commands.length,count);
+  ok(s.find('[data-picker]').hidden&&s.find('[data-menu]').hidden,'Escape opened pause');
+  s.find('[data-tools]').click();s.ui.update(deepFreeze(fixture('paused')));
+  ok(s.find('[data-picker]').hidden&&!s.find('[data-menu]').hidden,'Pause left picker exposed');
+});
+await check('Map updates heading/fire without a health or inventory change, letterboxes and accepts no input',s=>{
+  const before=JSON.stringify(fixture()),next=fixture();next.player.x=3;next.player.y=12;next.player.heading=Math.PI/2;
+  next.cells=[{x:2.25,y:4.25,phase:'burning'},{x:3.25,y:4.25,phase:'heating'}];s.ui.update(deepFreeze(next));
+  const map=s.find('[data-map]'),svg=map.querySelector('svg');
+  equal([map.dataset.playerX,map.dataset.playerY,map.dataset.heading,map.dataset.fireCount],['3','12','90','1']);
+  equal(svg.getAttribute('viewBox'),'0 0 20 16');equal(svg.getAttribute('preserveAspectRatio'),'xMidYMid meet');
+  ok(!map.hasAttribute('tabindex'),'Overview should not accept input');equal(s.commands,[]);
+  equal(JSON.stringify(fixture()),before);
+});
+await check('Zoom callback uses reciprocal factors, emits no gameplay, disables when disconnected and disposes',s=>{
+  s.find('[data-zoom="in"]').click();s.find('[data-zoom="out"]').click();
+  equal(s.zooms,[1.15,1/1.15]);equal(s.commands,[]);
+  const stale=s.find('[data-zoom="in"]');s.ui.dispose();stale.click();equal(s.zooms.length,2);
+  const other=make('ready',false);try{ok(other.find('[data-zoom="in"]').disabled,'Unconnected zoom pretends to work');}finally{other.close();}
+});
+await check('Map has truthful loading and picker ARIA IDs resolve independently',s=>{
+  const root=document.createElement('div');host.append(root);const commands=[];const ui=mountUI({root,onCommand:c=>commands.push(c)});
+  try{
+    equal(root.querySelector('[data-map]').dataset.ready,'false');
+    ok(root.querySelector('[data-zoom]').disabled,'Unconnected loading zoom is active');
+    for(const button of root.querySelectorAll('[data-tool]')){ok(button.disabled,'Tool active before first snapshot');button.click();}
+    equal(commands,[]);
+    ok(root.querySelector('[data-map]').getAttribute('aria-label').includes('loading'),'No loading label');
+    const picker=s.find('[data-picker]'),toggle=s.find('[data-tools]');
+    equal(toggle.getAttribute('aria-controls'),picker.id);
+    equal(s.root.querySelector('#'+picker.getAttribute('aria-labelledby')).textContent,'Choose a tool');
+    ok(root.querySelector('[data-picker]').id!==picker.id,'Duplicate picker IDs');
+  }finally{ui.dispose();root.remove();}
 });
 for(const result of results){const item=document.createElement('li');item.dataset.status=result.status;item.textContent=(result.status==='pass'?'PASS ':'FAIL ')+result.name+(result.message?' — '+result.message:'');document.querySelector('#checks').append(item);}
 const passed=results.filter(result=>result.status==='pass').length;

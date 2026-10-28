@@ -1,3 +1,4 @@
+import {mountMap} from './map.js';
 import {TOOLS, DRUGS, normalizeStick, pointerStick, stockText, viewOf} from './model.js';
 const marks = new URL('../../assets/art/ui/control-symbols.svg', import.meta.url).href;
 const donorMarks = new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/symbols.svg', import.meta.url).href;
@@ -7,30 +8,31 @@ const drugButtons = DRUGS.map(drug => '<button type="button" class="square-contr
 let instance = 0;
 // Farmyard live-game grouping, with Tinderbox commands and a separate wood skin.
 const markup = '<header class="tb-top">' +
-  '<div class="hero-strip tb-vitals tb-wood-panel"><span class="hero-identity tb-wordmark">TINDERBOX<span>EXPOSITION</span></span><div class="vitals tb-health"><span class="tb-micro">HEALTH <b data-health-text>—</b></span><div class="tb-health-meter" role="meter" aria-label="Bear health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-health-fill></span></div></div></div></header>' +
+  '<div class="hero-strip tb-vitals tb-wood-panel"><span class="hero-identity tb-wordmark">TINDERBOX<span>EXPOSITION</span></span><div class="vitals tb-health"><span class="tb-micro">HEALTH <b data-health-text>—</b></span><div class="tb-health-meter" role="meter" aria-label="Bear health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-health-fill></span></div></div></div><figure class="tb-map tb-wood-panel"><div class="tb-map-content map-metal-frame" data-map role="img" aria-label="Ground plan loading."><span class="tb-map-loading">Awaiting plan…</span></div><figcaption><b>GROUND PLAN</b><span><i></i>Bear <i></i>Fire</span></figcaption></figure></header>' +
   '<div class="tb-effects" aria-label="Active effects"><div class="tb-effect tb-powder" data-effect="powder" hidden><b>POWDER <span data-time></span></b><span>Bear faster · world & fire slower</span></div><div class="tb-effect tb-inversion" data-effect="inversion" hidden><b>STICK 180° <span data-time></span></b><span>Movement reversed · aim unchanged</span></div></div>' +
+  '<div class="view-controls tb-zoom" role="group" aria-label="Camera zoom"><button type="button" class="industrial-switch" data-zoom="in" aria-label="Zoom in">' + icon('zoom-in', true) + '</button><button type="button" class="industrial-switch" data-zoom="out" aria-label="Zoom out">' + icon('zoom-out', true) + '</button></div>' +
   '<p class="tb-death tb-wood-panel" data-death hidden>BEAR DOWN <span>Open pause to reset the scene.</span></p>' +
   '<section class="battle-bottom tb-console tb-wood-panel" aria-label="Player control deck">' +
-  '<div class="tb-rack-label"><span>TOOLS</span><span data-loadout-state>SELECT A TOOL</span></div><div class="tb-tools" role="group" aria-label="Five tools">' + toolButtons + '</div>' +
-  '<div class="tb-selected"><span class="tb-micro">IN HAND</span><strong data-tool-name>—</strong><span data-tool-hint></span><span class="tb-selected-stock" data-selected-stock></span></div>' +
   '<div class="thumb-layout tb-controls">' +
   '<div class="left-controls tb-drugs" role="group" aria-label="Three drug actions">' + drugButtons + '</div>' +
-  '<div class="stick-column tb-stick-group"><button type="button" class="tb-stick" data-stick aria-label="Movement joystick. Drag to move. Keyboard: W A S D or arrow keys." aria-describedby="tb-movement-help"><span class="stick-ring tb-stick-ring"></span><span class="tb-stick-thumb">' + icon('movement', true) + '</span><span class="stick-north tb-stick-n">▲</span></button><span class="stick-caption tb-micro tb-stick-caption" id="tb-movement-help">MOVE <span>WASD / ↑↓←→</span></span></div>' +
+  '<div class="stick-column tb-stick-group"><div class="tb-selected"><span data-selected-icon aria-hidden="true"></span><strong data-tool-name>—</strong><span class="tb-selected-stock" data-selected-stock></span><span class="tb-sr-only" data-tool-hint></span><span class="tb-loadout-state" data-loadout-state>SELECT A TOOL</span></div><button type="button" class="tb-stick" data-stick aria-label="Movement joystick. Drag to move. Keyboard: W A S D or arrow keys." aria-describedby="tb-movement-help"><span class="stick-ring tb-stick-ring"></span><span class="tb-stick-thumb">' + icon('movement', true) + '</span><span class="stick-north tb-stick-n">▲</span></button><span class="stick-caption tb-micro tb-stick-caption" id="tb-movement-help">MOVE <span>WASD / ↑↓←→</span></span></div>' +
   '<div class="right-controls"><button type="button" class="square-control industrial-switch tb-primary" data-primary data-face="red" aria-label="Primary action" aria-pressed="false"><span class="switch-legend"><span class="tb-primary-icon"></span><span class="switch-label" data-primary-label>—</span><span class="switch-cost" data-primary-mode></span></span><kbd>SPACE</kbd></button>' +
+  '<button type="button" class="square-control industrial-switch tb-picker-toggle" data-tools aria-label="Choose a tool" aria-haspopup="dialog" aria-expanded="false" aria-controls="tb-picker">' + '<span class="switch-legend">' + icon('tools') + '<span class="switch-label">TOOLS</span><span class="switch-cost">1–5</span></span></button>' +
   '<button type="button" class="square-control industrial-switch tb-pause" data-pause aria-label="Pause and open scene menu" aria-expanded="false"><span class="switch-legend">' + icon('pause') + '<span class="switch-label">PAUSE</span></span></button></div></div></section>' +
+  '<section class="tb-picker tb-wood-panel" id="tb-picker" data-picker role="dialog" aria-modal="false" aria-labelledby="tb-picker-title" hidden><div class="tb-picker-heading"><h2 id="tb-picker-title">Choose a tool</h2><button type="button" class="tb-picker-close tb-menu-button" data-close-tools aria-label="Close tool picker">×</button></div><div class="tb-tools" role="group" aria-label="Five tools">' + toolButtons + '</div><p class="tb-picker-note">Choose a tool · 1–5 on keyboard</p></section>' +
   '<div class="tb-menu-backdrop" data-menu hidden><section class="tb-menu tb-wood-panel" role="dialog" aria-modal="true" aria-labelledby="tb-menu-title"><div class="tb-menu-heading"><span class="tb-micro">TINDERBOX / SCENE MENU</span><h1 id="tb-menu-title" tabindex="-1" data-menu-title>Paused</h1></div>' +
   '<div data-pause-panel><p class="tb-menu-note" data-pause-note>The trail can wait.</p><button type="button" class="tb-menu-button tb-resume" data-resume>' + icon('play') + '<span>Resume scene</span><kbd>ESC</kbd></button><button type="button" class="tb-menu-button" data-options>' + icon('options', true) + '<span>Controls & options</span></button><button type="button" class="tb-menu-button" data-reset>' + icon('reset') + '<span>Reset test scene</span></button></div>' +
   '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Space · action button</dd></div><div><dt>Drugs</dt><dd>Q powder · E heal · R invert</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Pour toggles on a press. You can keep moving and take drugs while pouring. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
-export function mountUI({root, onCommand} = {}) {
+export function mountUI({root, onCommand, onZoom} = {}) {
   if (!root?.ownerDocument || typeof onCommand !== 'function') throw new TypeError('mountUI requires a DOM root and onCommand callback.');
   const doc = root.ownerDocument, win = doc.defaultView;
   const shell = doc.createElement('section');
   shell.className = 'tb-ui';
   shell.setAttribute('aria-label', 'Tinderbox player controls');
   const suffix = '-' + (++instance);
-  shell.innerHTML = markup.replaceAll('tb-movement-help', 'tb-movement-help' + suffix).replaceAll('tb-menu-title', 'tb-menu-title' + suffix);
+  shell.innerHTML = markup.replaceAll('tb-movement-help', 'tb-movement-help' + suffix).replaceAll('tb-menu-title', 'tb-menu-title' + suffix).replaceAll('tb-picker-title', 'tb-picker-title' + suffix).replaceAll('tb-picker"', 'tb-picker' + suffix + '"');
   const style = doc.createElement('link');
   style.rel = 'stylesheet';
   style.href = new URL('./styles.css', import.meta.url).href;
@@ -40,10 +42,12 @@ export function mountUI({root, onCommand} = {}) {
   const stick = find('[data-stick]'), thumb = find('.tb-stick-thumb');
   const primary = find('[data-primary]'), pause = find('[data-pause]');
   const menuElement = find('[data-menu]'), listeners = [];
+  const picker = find('[data-picker]'), tools = find('[data-tools]'), map = mountMap(find('[data-map]'));
+  const hasZoom = typeof onZoom === 'function';
   let disposed = false, view = null, keys = new Set();
   let stickPointer = null, stickVector = {x: 0, y: 0}, lastMove = {x: 0, y: 0};
   let primaryPointer = null, primarySources = new Set();
-  let menu = null, awaitingResume = false, previousFocus = null;
+  let menu = null, awaitingResume = false, previousFocus = null, pickerOpen = false;
   let previousAnnouncement = '', wasBlocked = true, renderSignature = '';
 
   const on = (target, type, handler, options) => {
@@ -86,6 +90,16 @@ export function mountUI({root, onCommand} = {}) {
     keys.clear(); stickVector = {x: 0, y: 0}; release(stick, id);
     sendMove({x: 0, y: 0}); releaseTrigger(); emit({type: 'cancel-input'});
   }
+  function closePicker(restore = false) {
+    pickerOpen = false; picker.hidden = true; tools.setAttribute('aria-expanded','false');
+    if (restore && !tools.disabled) tools.focus({preventScroll:true});
+  }
+  function togglePicker() {
+    if (!view || view.locked || menu) return;
+    if (pickerOpen) { closePicker(true); return; }
+    pickerOpen = true; picker.hidden = false; tools.setAttribute('aria-expanded','true');
+    find('[data-tool="'+view.tool.id+'"]').focus({preventScroll:true});
+  }
   function focusMenu() { (menu === 'options' ? find('[data-reduce-motion]') : find('[data-resume]')).focus({preventScroll: true}); }
   function paintMenu() {
     menuElement.hidden = !menu;
@@ -96,7 +110,7 @@ export function mountUI({root, onCommand} = {}) {
     find('[data-pause-note]').textContent = view?.paused ? 'The trail can wait.' : 'Waiting for the scene to pause.';
   }
   function openMenu() {
-    previousFocus = doc.activeElement; menu = 'pause'; awaitingResume = false;
+    closePicker(); previousFocus = doc.activeElement; menu = 'pause'; awaitingResume = false;
     cancelInput(); paint(); focusMenu(); emit({type: 'pause', paused: true});
   }
   function resume() { awaitingResume = true; emit({type: 'pause', paused: false}); }
@@ -106,6 +120,9 @@ export function mountUI({root, onCommand} = {}) {
     if (signature === renderSignature) return;
     renderSignature = signature;
     const gated = blocked();
+    tools.disabled = gated;
+    for (const button of all('[data-zoom]')) { button.disabled = !hasZoom; button.title = hasZoom ? 'Camera framing only' : 'Camera zoom awaits runtime connection'; }
+    if (gated) closePicker();
     stick.disabled = gated; stick.setAttribute('aria-disabled', String(gated));
     primary.disabled = view.primaryDisabled || Boolean(menu);
     primary.setAttribute('aria-pressed', String(view.pouring || primarySources.size > 0));
@@ -115,6 +132,7 @@ export function mountUI({root, onCommand} = {}) {
     find('[data-primary-mode]').textContent = view.pouring ? 'POURING' : view.stock <= 0 ? 'EMPTY' : ['torch', 'flamethrower'].includes(view.tool.id) ? 'HOLD' : 'PRESS';
     find('.tb-primary-icon').innerHTML = icon(view.pouring ? 'stop' : view.tool.id);
     primary.setAttribute('aria-label', view.primaryLabel + ' — ' + view.tool.label + (view.pouring ? '. Pouring is on.' : '. ' + stockText(view.stock) + ' ' + view.tool.unit));
+    find('[data-selected-icon]').innerHTML = icon(view.tool.id);
     find('[data-tool-name]').textContent = view.tool.label;
     find('[data-tool-hint]').textContent = view.pouring ? 'Pouring · tap Stop to finish' : view.tool.hint;
     find('[data-selected-stock]').textContent = stockText(view.stock) + ' ' + view.tool.unit + (view.stock <= 0 ? ' · EMPTY' : '');
@@ -190,7 +208,7 @@ export function mountUI({root, onCommand} = {}) {
     if (event.detail === 0 && !primary.disabled) { trigger('assistive', true); trigger('assistive', false); paint(); }
   });
   for (const button of all('[data-tool]')) on(button, 'click', () => {
-    if (!button.disabled) { releaseTrigger(); emit({type: 'select-tool', tool: button.dataset.tool}); }
+    if (!button.disabled) { releaseTrigger(); emit({type: 'select-tool', tool: button.dataset.tool}); closePicker(pickerOpen); }
   });
   for (const button of all('[data-drug]')) on(button, 'click', () => {
     if (!button.disabled) emit({type: 'drug', drug: button.dataset.drug});
@@ -222,6 +240,7 @@ export function mountUI({root, onCommand} = {}) {
     if (['Escape', 'KeyP'].includes(event.code)) {
       event.preventDefault();
       if (event.repeat) return;
+      if (pickerOpen && !menu) { closePicker(true); return; }
       if (menu === 'options') { menu = 'pause'; paintMenu(); focusMenu(); }
       else if (menu) resume(); else openMenu();
       return;
@@ -244,21 +263,25 @@ export function mountUI({root, onCommand} = {}) {
       event.preventDefault(); trigger('key:' + event.code, false); paint();
     }
   });
-  on(win, 'blur', () => { cancelInput(); paint(); });
-  on(doc, 'visibilitychange', () => { if (doc.hidden) { cancelInput(); paint(); } });
+  on(win, 'blur', () => { closePicker(); cancelInput(); paint(); });
+  on(doc, 'visibilitychange', () => { if (doc.hidden) { closePicker(); cancelInput(); paint(); } });
   on(shell, 'contextmenu', event => { if (event.target.closest('[data-stick], [data-primary]')) event.preventDefault(); });
+  on(tools, 'click', togglePicker); on(find('[data-close-tools]'), 'click', () => closePicker(true));
+  on(shell, 'pointerdown', event => { if (pickerOpen && !picker.contains(event.target) && !tools.contains(event.target)) closePicker(); });
+  for (const button of all('[data-zoom]')) on(button, 'click', () => { if (!disposed && !button.disabled && hasZoom) onZoom(button.dataset.zoom === 'in' ? 1.15 : 1 / 1.15); });
   on(pause, 'click', openMenu); on(find('[data-resume]'), 'click', resume);
   on(find('[data-options]'), 'click', () => { menu = 'options'; paintMenu(); focusMenu(); });
   on(find('[data-back]'), 'click', () => { menu = 'pause'; paintMenu(); focusMenu(); });
   on(find('[data-reset]'), 'click', () => { awaitingResume = true; cancelInput(); emit({type: 'reset'}); });
   on(find('[data-reduce-motion]'), 'change', event => shell.classList.toggle('tb-reduced-motion', event.target.checked));
   on(find('[data-contrast]'), 'change', event => shell.classList.toggle('tb-high-contrast', event.target.checked));
-  for (const control of all('.tb-console button:not([data-pause])')) control.disabled = true;
+  for (const control of all('.tb-console button:not([data-pause]), [data-tool]')) control.disabled = true;
+  for (const button of all('[data-zoom]')) button.disabled = !hasZoom;
   return {
     update(snapshot) {
       if (disposed) return;
       const previouslyPaused = view?.paused;
-      view = viewOf(snapshot);
+      view = viewOf(snapshot); map.update(snapshot);
       if ((awaitingResume || previouslyPaused) && !view.paused) {
         awaitingResume = false; menu = null;
         if (previousFocus?.isConnected && previousFocus !== doc.body && gameplayFocus(previousFocus)) previousFocus.focus({preventScroll: true});
@@ -274,7 +297,7 @@ export function mountUI({root, onCommand} = {}) {
     },
     dispose() {
       if (disposed) return;
-      cancelInput(); disposed = true;
+      closePicker(); cancelInput(); disposed = true;
       for (const remove of listeners.splice(0)) remove();
       shell.remove();
     }

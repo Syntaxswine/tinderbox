@@ -1,0 +1,943 @@
+{
+  "task": "Phone-first Eastlake UI candidate",
+  "date": "2026-10-28",
+  "parentCommit": "40e137618bc22bd18275c13aa8b3009793a27aac",
+  "candidate": "Implementation commit containing this record; exact SHA reported in delivery",
+  "static": {
+    "command": "node tools/check.mjs",
+    "scripts": 65,
+    "staticModules": 72,
+    "tests": 59,
+    "failed": 0,
+    "sharedThreePair": true,
+    "bytePreservedProvenance": true,
+    "artChecks": "passed",
+    "fontAndNoticeHashes": 9
+  },
+  "build": {
+    "command": "node tools/build.mjs; node tools/check-release.mjs",
+    "files": 90,
+    "status": "passed",
+    "buildManifestSha256": "fc258f9a13ed8efb63eb822f69d884b9656effa2178d35585d5ebc0c695ae053",
+    "hosted": {
+      "command": "node tools/check-site.mjs <nested preview URL>/dist/",
+      "files": 88,
+      "status": "passed",
+      "qaAbsent": true
+    },
+    "reviewedFiles": [
+      {
+        "path": "assets/art/ui/control-symbols.svg",
+        "bytes": 1991,
+        "sha256": "e8036e124316a61e98a4bddd822090f1795534f69cdc5f6aca6883720b40b554"
+      },
+      {
+        "path": "assets/art/ui/phone-controls.json",
+        "bytes": 3505,
+        "sha256": "464aa17fd0394856b8270bcf875fef866011bec056833ad254453c6079f32d1d"
+      },
+      {
+        "path": "src/app.css",
+        "bytes": 1912,
+        "sha256": "89a7aaeb72a34e4e8499c11781d6744786a860b72800638e80cec8caf4882d2e"
+      },
+      {
+        "path": "src/ui/index.js",
+        "bytes": 24967,
+        "sha256": "bacb82752c4ccb8f432d6dbd22680b7b059a3c107a027b2c847c2d38d6528a29"
+      },
+      {
+        "path": "src/ui/map.js",
+        "bytes": 4089,
+        "sha256": "413e775b7757d7ee59fcd2193160d2e42115384960ff90863c76f08609a19874"
+      },
+      {
+        "path": "src/ui/styles.css",
+        "bytes": 14315,
+        "sha256": "d404c09436833d473de3d16c89d9786f822cc9b3057882c65d9c2e8d26b05af1"
+      }
+    ]
+  },
+  "runtimeAdapter": {
+    "kind": "Generated combined preview; production runtime unchanged",
+    "baseRuntimeSha256": "e5283a03186b76410c582d6ee039923c1ffe57df319518c1102c94e09423d2ee",
+    "adapterSha256": "8efeeae520374d062709e4cdaa57bc0c5933dbdfe410500f10bd6fb045515d0e",
+    "combinedRuntimeSha256": "10dd16e6918816170bbe8612b0af90be9111811d5b71a4c1a03769d81a4f6652",
+    "sourceHead": "40e137618bc22bd18275c13aa8b3009793a27aac",
+    "preparedAt": "2026-10-28T04:41:38.501Z",
+    "status": "Proposed integration patch; applied only to generated QA preview",
+    "applyCheck": "passed",
+    "productionRuntimeUntouched": true
+  },
+  "browser": {
+    "camera": [
+      {
+        "width": 1366,
+        "height": 768,
+        "results": [
+          {
+            "name": "Runtime supplies zoom callback and UI zoom repaints a manual renderer without advancing simulation",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom clamps at 0.65 and 3 with updated aim projection and unchanged gameplay dimensions",
+            "status": "pass"
+          },
+          {
+            "name": "Paused zoom repaints immediately and leaves the full authoritative snapshot unchanged",
+            "status": "pass"
+          },
+          {
+            "name": "Invalid zoom factors are inert and disposal releases canvas, UI, scene and GPU resources",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "results": [
+          {
+            "name": "Runtime supplies zoom callback and UI zoom repaints a manual renderer without advancing simulation",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom clamps at 0.65 and 3 with updated aim projection and unchanged gameplay dimensions",
+            "status": "pass"
+          },
+          {
+            "name": "Paused zoom repaints immediately and leaves the full authoritative snapshot unchanged",
+            "status": "pass"
+          },
+          {
+            "name": "Invalid zoom factors are inert and disposal releases canvas, UI, scene and GPU resources",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "results": [
+          {
+            "name": "Runtime supplies zoom callback and UI zoom repaints a manual renderer without advancing simulation",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom clamps at 0.65 and 3 with updated aim projection and unchanged gameplay dimensions",
+            "status": "pass"
+          },
+          {
+            "name": "Paused zoom repaints immediately and leaves the full authoritative snapshot unchanged",
+            "status": "pass"
+          },
+          {
+            "name": "Invalid zoom factors are inert and disposal releases canvas, UI, scene and GPU resources",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "results": [
+          {
+            "name": "Runtime supplies zoom callback and UI zoom repaints a manual renderer without advancing simulation",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom clamps at 0.65 and 3 with updated aim projection and unchanged gameplay dimensions",
+            "status": "pass"
+          },
+          {
+            "name": "Paused zoom repaints immediately and leaves the full authoritative snapshot unchanged",
+            "status": "pass"
+          },
+          {
+            "name": "Invalid zoom factors are inert and disposal releases canvas, UI, scene and GPU resources",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      }
+    ],
+    "ui": [
+      {
+        "width": 390,
+        "height": 844,
+        "results": [
+          {
+            "name": "Five tools and three drugs; selection waits for an authoritative snapshot",
+            "status": "pass"
+          },
+          {
+            "name": "Health, inventory, full healing, and empty primary come from snapshots",
+            "status": "pass"
+          },
+          {
+            "name": "Pour/Stop and remaining times change only on snapshot updates",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion leaves raw NE joystick positive on both axes, with no aim command",
+            "status": "pass"
+          },
+          {
+            "name": "Independent pointers preserve movement during primary and drug use",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter press edges ignore key-repeat and release held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Tool/drug keyboard shortcuts preserve held movement and do not repeat drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture neutralize movement and trigger",
+            "status": "pass"
+          },
+          {
+            "name": "Window blur clears keys, trigger and pour without stale input on refocus",
+            "status": "pass"
+          },
+          {
+            "name": "Paused/dead snapshots clear held input and gate gameplay controls",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pause/resume stays authoritative; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus including checkboxes; Escape returns without gameplay",
+            "status": "pass"
+          },
+          {
+            "name": "Native repeated Enter on a drug is suppressed; full-health healing is unavailable",
+            "status": "pass"
+          },
+          {
+            "name": "Every UI listener is removed across repeated mount/dispose; stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts have unique ARIA references and preserve root siblings",
+            "status": "pass"
+          },
+          {
+            "name": "Hidden-document cancellation releases held input",
+            "status": "pass"
+          },
+          {
+            "name": "Every gameplay touch target is at least 44px and stays inside the scene",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus keeps keyboard control; leaving the scene clears held input",
+            "status": "pass"
+          },
+          {
+            "name": "Phone has exactly three persistent actions on each side, upper-right map and left zoom",
+            "status": "pass"
+          },
+          {
+            "name": "Tool picker preserves held movement and pouring, exposes all tools and restores focus",
+            "status": "pass"
+          },
+          {
+            "name": "Picker Escape closes only the picker; authoritative pause closes it and retains modal trap",
+            "status": "pass"
+          },
+          {
+            "name": "Map updates heading/fire without a health or inventory change, letterboxes and accepts no input",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callback uses reciprocal factors, emits no gameplay, disables when disconnected and disposes",
+            "status": "pass"
+          },
+          {
+            "name": "Map has truthful loading and picker ARIA IDs resolve independently",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "results": [
+          {
+            "name": "Five tools and three drugs; selection waits for an authoritative snapshot",
+            "status": "pass"
+          },
+          {
+            "name": "Health, inventory, full healing, and empty primary come from snapshots",
+            "status": "pass"
+          },
+          {
+            "name": "Pour/Stop and remaining times change only on snapshot updates",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion leaves raw NE joystick positive on both axes, with no aim command",
+            "status": "pass"
+          },
+          {
+            "name": "Independent pointers preserve movement during primary and drug use",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter press edges ignore key-repeat and release held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Tool/drug keyboard shortcuts preserve held movement and do not repeat drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture neutralize movement and trigger",
+            "status": "pass"
+          },
+          {
+            "name": "Window blur clears keys, trigger and pour without stale input on refocus",
+            "status": "pass"
+          },
+          {
+            "name": "Paused/dead snapshots clear held input and gate gameplay controls",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pause/resume stays authoritative; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus including checkboxes; Escape returns without gameplay",
+            "status": "pass"
+          },
+          {
+            "name": "Native repeated Enter on a drug is suppressed; full-health healing is unavailable",
+            "status": "pass"
+          },
+          {
+            "name": "Every UI listener is removed across repeated mount/dispose; stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts have unique ARIA references and preserve root siblings",
+            "status": "pass"
+          },
+          {
+            "name": "Hidden-document cancellation releases held input",
+            "status": "pass"
+          },
+          {
+            "name": "Every gameplay touch target is at least 44px and stays inside the scene",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus keeps keyboard control; leaving the scene clears held input",
+            "status": "pass"
+          },
+          {
+            "name": "Phone has exactly three persistent actions on each side, upper-right map and left zoom",
+            "status": "pass"
+          },
+          {
+            "name": "Tool picker preserves held movement and pouring, exposes all tools and restores focus",
+            "status": "pass"
+          },
+          {
+            "name": "Picker Escape closes only the picker; authoritative pause closes it and retains modal trap",
+            "status": "pass"
+          },
+          {
+            "name": "Map updates heading/fire without a health or inventory change, letterboxes and accepts no input",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callback uses reciprocal factors, emits no gameplay, disables when disconnected and disposes",
+            "status": "pass"
+          },
+          {
+            "name": "Map has truthful loading and picker ARIA IDs resolve independently",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "results": [
+          {
+            "name": "Five tools and three drugs; selection waits for an authoritative snapshot",
+            "status": "pass"
+          },
+          {
+            "name": "Health, inventory, full healing, and empty primary come from snapshots",
+            "status": "pass"
+          },
+          {
+            "name": "Pour/Stop and remaining times change only on snapshot updates",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion leaves raw NE joystick positive on both axes, with no aim command",
+            "status": "pass"
+          },
+          {
+            "name": "Independent pointers preserve movement during primary and drug use",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter press edges ignore key-repeat and release held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Tool/drug keyboard shortcuts preserve held movement and do not repeat drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture neutralize movement and trigger",
+            "status": "pass"
+          },
+          {
+            "name": "Window blur clears keys, trigger and pour without stale input on refocus",
+            "status": "pass"
+          },
+          {
+            "name": "Paused/dead snapshots clear held input and gate gameplay controls",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pause/resume stays authoritative; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus including checkboxes; Escape returns without gameplay",
+            "status": "pass"
+          },
+          {
+            "name": "Native repeated Enter on a drug is suppressed; full-health healing is unavailable",
+            "status": "pass"
+          },
+          {
+            "name": "Every UI listener is removed across repeated mount/dispose; stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts have unique ARIA references and preserve root siblings",
+            "status": "pass"
+          },
+          {
+            "name": "Hidden-document cancellation releases held input",
+            "status": "pass"
+          },
+          {
+            "name": "Every gameplay touch target is at least 44px and stays inside the scene",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus keeps keyboard control; leaving the scene clears held input",
+            "status": "pass"
+          },
+          {
+            "name": "Phone has exactly three persistent actions on each side, upper-right map and left zoom",
+            "status": "pass"
+          },
+          {
+            "name": "Tool picker preserves held movement and pouring, exposes all tools and restores focus",
+            "status": "pass"
+          },
+          {
+            "name": "Picker Escape closes only the picker; authoritative pause closes it and retains modal trap",
+            "status": "pass"
+          },
+          {
+            "name": "Map updates heading/fire without a health or inventory change, letterboxes and accepts no input",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callback uses reciprocal factors, emits no gameplay, disables when disconnected and disposes",
+            "status": "pass"
+          },
+          {
+            "name": "Map has truthful loading and picker ARIA IDs resolve independently",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "results": [
+          {
+            "name": "Five tools and three drugs; selection waits for an authoritative snapshot",
+            "status": "pass"
+          },
+          {
+            "name": "Health, inventory, full healing, and empty primary come from snapshots",
+            "status": "pass"
+          },
+          {
+            "name": "Pour/Stop and remaining times change only on snapshot updates",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion leaves raw NE joystick positive on both axes, with no aim command",
+            "status": "pass"
+          },
+          {
+            "name": "Independent pointers preserve movement during primary and drug use",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter press edges ignore key-repeat and release held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Tool/drug keyboard shortcuts preserve held movement and do not repeat drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture neutralize movement and trigger",
+            "status": "pass"
+          },
+          {
+            "name": "Window blur clears keys, trigger and pour without stale input on refocus",
+            "status": "pass"
+          },
+          {
+            "name": "Paused/dead snapshots clear held input and gate gameplay controls",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pause/resume stays authoritative; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus including checkboxes; Escape returns without gameplay",
+            "status": "pass"
+          },
+          {
+            "name": "Native repeated Enter on a drug is suppressed; full-health healing is unavailable",
+            "status": "pass"
+          },
+          {
+            "name": "Every UI listener is removed across repeated mount/dispose; stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts have unique ARIA references and preserve root siblings",
+            "status": "pass"
+          },
+          {
+            "name": "Hidden-document cancellation releases held input",
+            "status": "pass"
+          },
+          {
+            "name": "Every gameplay touch target is at least 44px and stays inside the scene",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus keeps keyboard control; leaving the scene clears held input",
+            "status": "pass"
+          },
+          {
+            "name": "Phone has exactly three persistent actions on each side, upper-right map and left zoom",
+            "status": "pass"
+          },
+          {
+            "name": "Tool picker preserves held movement and pouring, exposes all tools and restores focus",
+            "status": "pass"
+          },
+          {
+            "name": "Picker Escape closes only the picker; authoritative pause closes it and retains modal trap",
+            "status": "pass"
+          },
+          {
+            "name": "Map updates heading/fire without a health or inventory change, letterboxes and accepts no input",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callback uses reciprocal factors, emits no gameplay, disables when disconnected and disposes",
+            "status": "pass"
+          },
+          {
+            "name": "Map has truthful loading and picker ARIA IDs resolve independently",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      }
+    ],
+    "integration": [
+      {
+        "failed": 0,
+        "passed": 11,
+        "results": [
+          {
+            "name": "Production factories load together with exactly five tools and three drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Real UI pour, raw joystick and powder preserve a continuous distance-accounted trail",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion reverses the same held stick once and leaves aim and pour intact",
+            "status": "pass"
+          },
+          {
+            "name": "Pause freezes all clocks, stops pour and resumes without stale movement",
+            "status": "pass"
+          },
+          {
+            "name": "Healing reads and changes the authoritative HP and pill stock",
+            "status": "pass"
+          },
+          {
+            "name": "Held flamethrower consumes finite fuel, emits resolved fire and releases",
+            "status": "pass"
+          },
+          {
+            "name": "A nearby wall clips resolved flame before the protruding cosmetic nozzle",
+            "status": "pass"
+          },
+          {
+            "name": "Powder separates bear from a finite front on the same freshly poured line",
+            "status": "pass"
+          },
+          {
+            "name": "Exposition renders original normal civilians and exactly the surviving physical module parts",
+            "status": "pass"
+          },
+          {
+            "name": "Combined exposition UI pours through the open gate, stops at the closed door and slows the original civilians",
+            "status": "pass"
+          },
+          {
+            "metrics": {
+              "drawCalls": 187,
+              "frames": 154,
+              "geometries": 48,
+              "observedHz": 60.00000000000002,
+              "renderCpuP95Ms": 2.8000001907348633,
+              "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "simulationCpuP95Ms": 2.3999998569488525,
+              "simulationMs": 2.5,
+              "textures": 28,
+              "threeRevision": "180",
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+              "viewport": {
+                "height": 400,
+                "width": 1366
+              }
+            },
+            "name": "Combined resource/performance sample",
+            "status": "observed"
+          },
+          {
+            "name": "Four complete exposition runtime rebuilds dispose original civilian views and keep live resources stable",
+            "status": "pass"
+          }
+        ],
+        "viewport": {
+          "height": 768,
+          "width": 1366
+        }
+      },
+      {
+        "failed": 0,
+        "passed": 11,
+        "results": [
+          {
+            "name": "Production factories load together with exactly five tools and three drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Real UI pour, raw joystick and powder preserve a continuous distance-accounted trail",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion reverses the same held stick once and leaves aim and pour intact",
+            "status": "pass"
+          },
+          {
+            "name": "Pause freezes all clocks, stops pour and resumes without stale movement",
+            "status": "pass"
+          },
+          {
+            "name": "Healing reads and changes the authoritative HP and pill stock",
+            "status": "pass"
+          },
+          {
+            "name": "Held flamethrower consumes finite fuel, emits resolved fire and releases",
+            "status": "pass"
+          },
+          {
+            "name": "A nearby wall clips resolved flame before the protruding cosmetic nozzle",
+            "status": "pass"
+          },
+          {
+            "name": "Powder separates bear from a finite front on the same freshly poured line",
+            "status": "pass"
+          },
+          {
+            "name": "Exposition renders original normal civilians and exactly the surviving physical module parts",
+            "status": "pass"
+          },
+          {
+            "name": "Combined exposition UI pours through the open gate, stops at the closed door and slows the original civilians",
+            "status": "pass"
+          },
+          {
+            "metrics": {
+              "drawCalls": 187,
+              "frames": 154,
+              "geometries": 48,
+              "observedHz": 60.00000000000002,
+              "renderCpuP95Ms": 3,
+              "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "simulationCpuP95Ms": 2.5,
+              "simulationMs": 1.4000000953674316,
+              "textures": 28,
+              "threeRevision": "180",
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+              "viewport": {
+                "height": 476,
+                "width": 390
+              }
+            },
+            "name": "Combined resource/performance sample",
+            "status": "observed"
+          },
+          {
+            "name": "Four complete exposition runtime rebuilds dispose original civilian views and keep live resources stable",
+            "status": "pass"
+          }
+        ],
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      }
+    ],
+    "console": [
+      {
+        "page": "combined-integration-desktop",
+        "logs": []
+      },
+      {
+        "page": "combined-integration-phone",
+        "logs": []
+      },
+      {
+        "page": "camera-adapter",
+        "logs": []
+      },
+      {
+        "page": "final-phone-game",
+        "logs": []
+      }
+    ],
+    "native": [
+      {
+        "case": "Native held flamethrower release",
+        "pressed": "false",
+        "stock": "5.9 fuel"
+      },
+      {
+        "case": "Native pour survives joystick release and powder",
+        "action": "STOP",
+        "stock": "4.0 gas",
+        "x": "10.038239678059668",
+        "y": "11.789633447574019"
+      },
+      {
+        "case": "320px game fit",
+        "buttons": [
+          {
+            "h": 44,
+            "label": "Zoom in",
+            "w": 44
+          },
+          {
+            "h": 44,
+            "label": "Zoom out",
+            "w": 44
+          },
+          {
+            "h": 48,
+            "label": "Powder, 4 left. Bear faster · world and fire slower",
+            "w": 48
+          },
+          {
+            "h": 48,
+            "label": "Healing pills, 3 left. Restore health. Health full.",
+            "w": 48
+          },
+          {
+            "h": 48,
+            "label": "Inversion pills, 3 left. Movement stick reversed 180°",
+            "w": 48
+          },
+          {
+            "h": 124,
+            "label": "Movement joystick. Drag to move. Keyboard: W A S D or arrow keys.",
+            "w": 124
+          },
+          {
+            "h": 48,
+            "label": "Pour — Jerry can. 4 gas",
+            "w": 48
+          },
+          {
+            "h": 48,
+            "label": "Choose a tool",
+            "w": 48
+          },
+          {
+            "h": 48,
+            "label": "Pause and open scene menu",
+            "w": 48
+          }
+        ],
+        "console": {
+          "bottom": 556,
+          "height": 216.59375,
+          "left": 12,
+          "right": 308,
+          "top": 339.40625,
+          "width": 296,
+          "x": 12,
+          "y": 339.40625
+        },
+        "field": {
+          "bottom": 350,
+          "height": 220,
+          "left": 0,
+          "right": 320,
+          "top": 130,
+          "width": 320,
+          "x": 0,
+          "y": 130
+        },
+        "height": 568,
+        "map": {
+          "bottom": 139.78125,
+          "height": 127.78125,
+          "left": 196,
+          "right": 308,
+          "top": 12,
+          "width": 112,
+          "x": 196,
+          "y": 12
+        },
+        "overflow": false,
+        "width": 320
+      },
+      {
+        "case": "Authoritative burning-trail map",
+        "action": "STOP",
+        "map": {
+          "fireCount": "6",
+          "heading": "0",
+          "map": "",
+          "playerX": "13.249999999999915",
+          "playerY": "8.25",
+          "ready": "true"
+        },
+        "powderTime": "6.1s"
+      },
+      {
+        "case": "Native pause and options",
+        "focused": true,
+        "modal": "true",
+        "title": "Controls & options"
+      }
+    ],
+    "checkedAt": "2026-10-28T04:42:26.500Z"
+  },
+  "screenshots": [
+    {
+      "path": "evidence/desktop-game.jpg",
+      "bytes": 67793,
+      "sha256": "c354b4125aaf611dee54e0c3e344e290c00b33ce60233c3d4c8f7a71b865f500"
+    },
+    {
+      "path": "evidence/phone-320-tools.jpg",
+      "bytes": 39611,
+      "sha256": "9ac00aed3fb54ff8410bab11dcdfc4ef53be6ce4c2c01d388078b5f1570f83c2"
+    },
+    {
+      "path": "evidence/phone-320.jpg",
+      "bytes": 33714,
+      "sha256": "4a5fb2af4985f40ac1c68124b6490c407576151b68794bf327487c1afa80536a"
+    },
+    {
+      "path": "evidence/phone-390.jpg",
+      "bytes": 44838,
+      "sha256": "bfb78b1c16d7f98106f03a7fe531aa2834484f6b578ee1000c33978469a7f0f3"
+    },
+    {
+      "path": "evidence/phone-fire.jpg",
+      "bytes": 42112,
+      "sha256": "e6034b9e03b32be087a89320e4a2ae688228dbfd231165bb017648475946e665"
+    },
+    {
+      "path": "evidence/phone-landscape.jpg",
+      "bytes": 32858,
+      "sha256": "54e7ba720ca09725cbd74c529ea03bc09c67014f6728e2d6da7deeb3488b5d57"
+    },
+    {
+      "path": "evidence/phone-options.jpg",
+      "bytes": 44124,
+      "sha256": "14a49bb44783a36f400a24f6e251356199f15306d76c8ae7d080bbf938b73265"
+    },
+    {
+      "path": "evidence/phone-pause.jpg",
+      "bytes": 34041,
+      "sha256": "b9f6249b248904544570f566e63b78817ea06e83d77bfc17ee2e945a4079cc5a"
+    },
+    {
+      "path": "evidence/phone-tools.jpg",
+      "bytes": 57333,
+      "sha256": "3dd7b6a5a4f3cf7e1bd6bc2044edec0887f0982ea8068816c8916c98af518eb0"
+    }
+  ],
+  "sourceEvidence": "assets/art/ui/phone-controls.json",
+  "helper": {
+    "port": 4552,
+    "creationFiletime": "134376353709644528",
+    "exactProcessExited": true,
+    "stopMethod": "Private STOP marker",
+    "owner": "01a17edb-5cf4-7af0-a52e-d28547bb7ede",
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "reason": "Phone UI checks and screenshots complete",
+    "stdoutReceipt": "{\"status\":\"stopped\",\"reason\":\"stop-file\",\"pid\":71240}",
+    "purpose": "Phone interface game and browser review",
+    "checkedAt": "2026-10-28T04:45:49.7248029+00:00",
+    "pid": 71240,
+    "portReleased": true,
+    "finalSourceBundle": "artifacts/phone-ui/helper/final-source-bundle/source-manifest.json",
+    "finalSourceManifestSha256": "58b5c69630c1343d0e01acda481c791f44fd96dc043c3d79d21c401bd8195904",
+    "originalLifetimeRegistration": "artifacts/phone-ui/helper/registration.json",
+    "ownedBrowserTabClosed": true,
+    "viewportOverrideReset": true,
+    "retainedHelpers": []
+  },
+  "limitations": [
+    "Architect/coder must connect the supplied runtime callback before final integrated release; the unpatched UI package disables zoom truthfully.",
+    "Viewport tests ran on desktop Chromium. Real handset touch, nonzero safe-area values, mobile browser chrome and mobile GPU performance remain device-review work.",
+    "Independent touch-pointer combinations were checked by the DOM harness; native browser clicks/drags were also exercised.",
+    "Existing donor license/rights uncertainties remain as recorded by the preserved provenance manifests."
+  ]
+}

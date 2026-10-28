@@ -6,8 +6,8 @@ const base = {
     tool: 'matches', pouring: false,
     inventory: {matches: 9, gas: 24.8, molotovs: 3, torchFuel: 42, flamethrowerFuel: 120, powder: 2, healing: 3, inversion: 1}},
   effects: {powder: {active: false, remaining: 0}, inversion: {active: false, remaining: 0}},
-  world: {width: 20, height: 16, tileSize: 1, fireCellSize: 0.5, tiles: [], obstacles: []},
-  cells: [], actors: [], events: []
+  world: {width: 20, height: 16, tileSize: 1, fireCellSize: 0.5, tiles: Array.from({length:320},(_,i)=>({x:i%20+.5,y:Math.floor(i/20)+.5,size:1,material:Math.floor(i/20)<4?'grass':'paving'})), obstacles: [{id:'fixed-building',x:5,y:3,width:6,depth:3,height:3,material:'masonry'}]},
+  cells: [{x:14.25,y:10.25,size:.5,phase:'burning'},{x:14.75,y:10.25,size:.5,phase:'burning'}], actors: [], events: []
 };
 export const FIXTURE_NAMES = ['ready', 'pouring', 'reversed', 'low-stock', 'empty', 'paused', 'down'];
 export function fixture(name = 'ready') {
