@@ -1,5 +1,7 @@
 # Engraved newspaper menus and oil lantern
 
+Subsequent revision: the lantern image and fallback now use a glass body; see the [glass lantern handoff](../glass-lantern/README.md). The hashes and screenshots below describe this original candidate.
+
 UI candidate on `codex/ui-design`, 2026-10-28, built on `0c52b7f08a8f4bf5e93502810a2751f5de63d444`. The commit containing this handoff is the candidate; the delivery reports its exact SHA. Architect review and promotion remain required.
 
 ## Result

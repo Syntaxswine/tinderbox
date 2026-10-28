@@ -99,6 +99,6 @@ export const ETCHING_FRAMES = {
   ]
 };
 
-// The user replaced the bottle with a period oil lantern; internal tool ID stays molotov.
+// Glass-bodied oil lantern requested by the user; internal tool ID stays molotov.
 export const OIL_LANTERN_SIZE = {width:1254,height:1254};
-export const OIL_LANTERN_FRAME = [351,0,556,1246];
+export const OIL_LANTERN_FRAME = [330,2,595,1232];
