@@ -1,0 +1,439 @@
+{
+  "id": "monroe-row",
+  "label": "Monroe Street / brick row house",
+  "source": {
+    "leaf": 74,
+    "printedPage": 71,
+    "url": "https://archive.org/details/TenthAnnualIllustratedCatalogueOfS.e.GrossFamousCitySubdivisionsAnd/page/n74/mode/1up",
+    "plate": "../../../art/source/gross-housing-v1/plates/n74.jpg"
+  },
+  "width": 7,
+  "depth": 13,
+  "style": {
+    "wall": "brick",
+    "color": "#cba98a",
+    "trim": "#dfcdb2",
+    "accent": "#775944",
+    "roof": "slate",
+    "form": "row",
+    "balcony": true
+  },
+  "plinth": 1.06,
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "parlor",
+          "label": "Parlor",
+          "type": "parlor",
+          "polygon": [
+            [
+              7,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Vestibule & passage",
+          "type": "hall",
+          "polygon": [
+            [
+              2,
+              8
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "dining",
+          "label": "Dining room",
+          "type": "dining",
+          "polygon": [
+            [
+              7,
+              13
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              2,
+              13
+            ],
+            [
+              0,
+              13
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "parlor"
+        ],
+        [
+          "parlor",
+          "dining"
+        ],
+        [
+          "hall",
+          "dining"
+        ],
+        [
+          "hall",
+          "kitchen"
+        ],
+        [
+          "dining",
+          "kitchen"
+        ]
+      ],
+      "entry": [
+        1,
+        0,
+        2,
+        0
+      ],
+      "stairs": {
+        "x": 0.5,
+        "z": 3,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      }
+    },
+    {
+      "label": "Second floor",
+      "rooms": [
+        {
+          "id": "bed-a",
+          "label": "Front bed room",
+          "type": "bedroom",
+          "polygon": [
+            [
+              7,
+              0
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              6,
+              -1
+            ]
+          ]
+        },
+        {
+          "id": "bed-b",
+          "label": "Front bed room",
+          "type": "bedroom",
+          "polygon": [
+            [
+              3,
+              5
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Hall",
+          "type": "hall",
+          "polygon": [
+            [
+              7,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "bath",
+          "label": "Bath room",
+          "type": "bath",
+          "polygon": [
+            [
+              7,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "bed-c",
+          "label": "Rear bed room",
+          "type": "bedroom",
+          "polygon": [
+            [
+              7,
+              13
+            ],
+            [
+              3,
+              13
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "bed-d",
+          "label": "Rear bed room",
+          "type": "bedroom",
+          "polygon": [
+            [
+              3,
+              13
+            ],
+            [
+              0,
+              13
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-a"
+        ],
+        [
+          "hall",
+          "bed-b"
+        ],
+        [
+          "hall",
+          "bath"
+        ],
+        [
+          "hall",
+          "bed-c"
+        ],
+        [
+          "hall",
+          "bed-d"
+        ]
+      ],
+      "entry": null,
+      "stairs": {
+        "x": 0.5,
+        "z": 3,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      }
+    }
+  ],
+  "porch": {
+    "x": 0,
+    "z": -2,
+    "width": 2,
+    "depth": 2
+  },
+  "partyWalls": true,
+  "basement": "Stone cellar stated in the description; no cellar partition plan is printed.",
+  "notes": [
+    "Three main rooms below and four bedrooms above; side stair and upper bath retained.",
+    "The rounded upper front bay is approximated with a separate pair of 45-degree panels. Party-wall variants suppress side windows."
+  ],
+  "basementFloor": {
+    "label": "Basement",
+    "rooms": [
+      {
+        "id": "service",
+        "label": "Basement",
+        "type": "service",
+        "polygon": [
+          [
+            7,
+            13
+          ],
+          [
+            0,
+            13
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            0
+          ]
+        ]
+      }
+    ],
+    "connections": [],
+    "entry": [
+      5,
+      0,
+      6,
+      0
+    ],
+    "stairs": null
+  },
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalSpanMetres": 1.4142135623730951,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "adaptation": "New modular composition from the catalogue, not a measured reconstruction. Room sequence, major bays and facade type are sourced; one-metre plan snapping, colors, furniture, rear elevations and ornament details are artist interpretations.",
+  "integration": {
+    "status": "artist contribution candidate",
+    "requires": [
+      "Tinderbox nautilus-wall-runs-v1 consumer",
+      "interior-floor support",
+      "door and stair gameplay integration",
+      "diagonal gameplay integration in Tinderbox"
+    ],
+    "nautilusImported": false
+  }
+}

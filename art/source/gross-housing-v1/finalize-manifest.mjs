@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(fileURLToPath(new URL('../../../',import.meta.url))),base=path.join(root,'assets/art/gross-housing-v1'),file=path.join(base,'manifest.json'),manifest=JSON.parse(fs.readFileSync(file,'utf8'));
+const relative=file=>path.relative(root,file).split(path.sep).join('/');
+const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).filter(e=>!e.name.startsWith('.')).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
+const digest=file=>{const bytes=fs.readFileSync(file);return{path:relative(file),bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};};
+manifest.files=walk(base).filter(f=>f!==file).map(digest);manifest.assembly=digest(path.join(root,'src/art/gross-housing.js'));manifest.nautilusContract=JSON.parse(fs.readFileSync(path.join(root,'art/source/gross-housing-v1/nautilus-contract.json'),'utf8'));manifest.geometryReview=JSON.parse(fs.readFileSync(path.join(root,'docs/art/gross-housing-v1/geometry-review.json'),'utf8'));manifest.generationRecord='art/source/gross-housing-v1/generation.json';
+fs.writeFileSync(file,JSON.stringify(manifest,null,2)+'\n');console.log('Finalized '+manifest.files.length+' hashed runtime inputs and assembler source.');

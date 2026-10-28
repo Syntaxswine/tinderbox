@@ -1,0 +1,2860 @@
+{
+  "passed": true,
+  "startedAt": "2026-10-28T06:41:57.464Z",
+  "completedAt": "2026-10-28T06:42:00.931Z",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "horizontalOverflow": false,
+  "errors": [],
+  "exteriors": 13,
+  "interiorLevels": 29,
+  "captures": 42,
+  "baseline": {
+    "geometries": 73,
+    "textures": 7
+  },
+  "repeated": {
+    "geometries": 73,
+    "textures": 7
+  },
+  "probe": {
+    "allocated": {
+      "geometries": 108,
+      "textures": 6
+    },
+    "disposed": {
+      "geometries": 0,
+      "textures": 0
+    }
+  },
+  "programs": 4,
+  "allShaderLogsEmpty": true,
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "samples": [
+    {
+      "id": "grossdale-spire",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 140,
+      "diagonalUnits": 6,
+      "doors": 12,
+      "windows": 34,
+      "props": 11,
+      "floorTriangles": 1553,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 108,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 109,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-spire",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 140,
+      "diagonalUnits": 6,
+      "doors": 12,
+      "windows": 34,
+      "props": 11,
+      "floorTriangles": 1553,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 108,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 109,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-spire",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 140,
+      "diagonalUnits": 6,
+      "doors": 12,
+      "windows": 34,
+      "props": 11,
+      "floorTriangles": 1553,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 108,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 109,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-hip",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 126,
+      "diagonalUnits": 6,
+      "doors": 11,
+      "windows": 31,
+      "props": 9,
+      "floorTriangles": 1328,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 92,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 93,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-hip",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 126,
+      "diagonalUnits": 6,
+      "doors": 11,
+      "windows": 31,
+      "props": 9,
+      "floorTriangles": 1328,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 92,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 93,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-hip",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 126,
+      "diagonalUnits": 6,
+      "doors": 11,
+      "windows": 31,
+      "props": 9,
+      "floorTriangles": 1328,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 92,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 93,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-octagon",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 160,
+      "diagonalUnits": 14,
+      "doors": 13,
+      "windows": 38,
+      "props": 12,
+      "floorTriangles": 1520,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 104,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 105,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-octagon",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 160,
+      "diagonalUnits": 14,
+      "doors": 13,
+      "windows": 38,
+      "props": 12,
+      "floorTriangles": 1520,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 104,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 105,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-octagon",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 160,
+      "diagonalUnits": 14,
+      "doors": 13,
+      "windows": 38,
+      "props": 12,
+      "floorTriangles": 1520,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 104,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 105,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-cross-gable",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 123,
+      "diagonalUnits": 4,
+      "doors": 11,
+      "windows": 30,
+      "props": 11,
+      "floorTriangles": 1265,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 101,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 102,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-cross-gable",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 123,
+      "diagonalUnits": 4,
+      "doors": 11,
+      "windows": 30,
+      "props": 11,
+      "floorTriangles": 1265,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 101,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 102,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-cross-gable",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 123,
+      "diagonalUnits": 4,
+      "doors": 11,
+      "windows": 30,
+      "props": 11,
+      "floorTriangles": 1265,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 101,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 102,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-balcony",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 149,
+      "diagonalUnits": 6,
+      "doors": 15,
+      "windows": 36,
+      "props": 11,
+      "floorTriangles": 1683,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 103,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 104,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-balcony",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 149,
+      "diagonalUnits": 6,
+      "doors": 15,
+      "windows": 36,
+      "props": 11,
+      "floorTriangles": 1683,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 103,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 104,
+        "textures": 7
+      }
+    },
+    {
+      "id": "grossdale-balcony",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 149,
+      "diagonalUnits": 6,
+      "doors": 15,
+      "windows": 36,
+      "props": 11,
+      "floorTriangles": 1683,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 103,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 104,
+        "textures": 7
+      }
+    },
+    {
+      "id": "dauphin-park",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 131,
+      "diagonalUnits": 4,
+      "doors": 14,
+      "windows": 30,
+      "props": 11,
+      "floorTriangles": 1313,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 110,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 111,
+        "textures": 7
+      }
+    },
+    {
+      "id": "dauphin-park",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 131,
+      "diagonalUnits": 4,
+      "doors": 14,
+      "windows": 30,
+      "props": 11,
+      "floorTriangles": 1313,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 110,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 111,
+        "textures": 7
+      }
+    },
+    {
+      "id": "dauphin-park",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 131,
+      "diagonalUnits": 4,
+      "doors": 14,
+      "windows": 30,
+      "props": 11,
+      "floorTriangles": 1313,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 110,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 111,
+        "textures": 7
+      }
+    },
+    {
+      "id": "calumet-heights",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 134,
+      "diagonalUnits": 10,
+      "doors": 11,
+      "windows": 43,
+      "props": 8,
+      "floorTriangles": 1761,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 110,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 111,
+        "textures": 7
+      }
+    },
+    {
+      "id": "calumet-heights",
+      "view": "cutaway",
+      "level": -1,
+      "wallUnits": 134,
+      "diagonalUnits": 10,
+      "doors": 11,
+      "windows": 43,
+      "props": 8,
+      "floorTriangles": 1761,
+      "mode": "cutaway",
+      "selected": -1,
+      "resources": {
+        "geometries": 110,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 111,
+        "textures": 7
+      }
+    },
+    {
+      "id": "calumet-heights",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 134,
+      "diagonalUnits": 10,
+      "doors": 11,
+      "windows": 43,
+      "props": 8,
+      "floorTriangles": 1761,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 110,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 111,
+        "textures": 7
+      }
+    },
+    {
+      "id": "calumet-heights",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 134,
+      "diagonalUnits": 10,
+      "doors": 11,
+      "windows": 43,
+      "props": 8,
+      "floorTriangles": 1761,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 110,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 111,
+        "textures": 7
+      }
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 195,
+      "diagonalUnits": 0,
+      "doors": 14,
+      "windows": 50,
+      "props": 13,
+      "floorTriangles": 2664,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 116,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 117,
+        "textures": 7
+      }
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "cutaway",
+      "level": -1,
+      "wallUnits": 195,
+      "diagonalUnits": 0,
+      "doors": 14,
+      "windows": 50,
+      "props": 13,
+      "floorTriangles": 2664,
+      "mode": "cutaway",
+      "selected": -1,
+      "resources": {
+        "geometries": 116,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 117,
+        "textures": 7
+      }
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 195,
+      "diagonalUnits": 0,
+      "doors": 14,
+      "windows": 50,
+      "props": 13,
+      "floorTriangles": 2664,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 116,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 117,
+        "textures": 7
+      }
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 195,
+      "diagonalUnits": 0,
+      "doors": 14,
+      "windows": 50,
+      "props": 13,
+      "floorTriangles": 2664,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 116,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 117,
+        "textures": 7
+      }
+    },
+    {
+      "id": "humboldt-cottage",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 115,
+      "diagonalUnits": 0,
+      "doors": 10,
+      "windows": 30,
+      "props": 8,
+      "floorTriangles": 1344,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 78,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 79,
+        "textures": 7
+      }
+    },
+    {
+      "id": "humboldt-cottage",
+      "view": "cutaway",
+      "level": -1,
+      "wallUnits": 115,
+      "diagonalUnits": 0,
+      "doors": 10,
+      "windows": 30,
+      "props": 8,
+      "floorTriangles": 1344,
+      "mode": "cutaway",
+      "selected": -1,
+      "resources": {
+        "geometries": 78,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 79,
+        "textures": 7
+      }
+    },
+    {
+      "id": "humboldt-cottage",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 115,
+      "diagonalUnits": 0,
+      "doors": 10,
+      "windows": 30,
+      "props": 8,
+      "floorTriangles": 1344,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 78,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 79,
+        "textures": 7
+      }
+    },
+    {
+      "id": "albany-cottage",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 115,
+      "diagonalUnits": 2,
+      "doors": 10,
+      "windows": 30,
+      "props": 8,
+      "floorTriangles": 1360,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 92,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 93,
+        "textures": 7
+      }
+    },
+    {
+      "id": "albany-cottage",
+      "view": "cutaway",
+      "level": -1,
+      "wallUnits": 115,
+      "diagonalUnits": 2,
+      "doors": 10,
+      "windows": 30,
+      "props": 8,
+      "floorTriangles": 1360,
+      "mode": "cutaway",
+      "selected": -1,
+      "resources": {
+        "geometries": 92,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 93,
+        "textures": 7
+      }
+    },
+    {
+      "id": "albany-cottage",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 115,
+      "diagonalUnits": 2,
+      "doors": 10,
+      "windows": 30,
+      "props": 8,
+      "floorTriangles": 1360,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 92,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 93,
+        "textures": 7
+      }
+    },
+    {
+      "id": "ashland-worker",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 75,
+      "diagonalUnits": 0,
+      "doors": 9,
+      "windows": 21,
+      "props": 6,
+      "floorTriangles": 672,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 72,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 73,
+        "textures": 7
+      }
+    },
+    {
+      "id": "ashland-worker",
+      "view": "cutaway",
+      "level": -1,
+      "wallUnits": 75,
+      "diagonalUnits": 0,
+      "doors": 9,
+      "windows": 21,
+      "props": 6,
+      "floorTriangles": 672,
+      "mode": "cutaway",
+      "selected": -1,
+      "resources": {
+        "geometries": 72,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 73,
+        "textures": 7
+      }
+    },
+    {
+      "id": "ashland-worker",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 75,
+      "diagonalUnits": 0,
+      "doors": 9,
+      "windows": 21,
+      "props": 6,
+      "floorTriangles": 672,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 72,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 73,
+        "textures": 7
+      }
+    },
+    {
+      "id": "archer-worker",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 69,
+      "diagonalUnits": 0,
+      "doors": 8,
+      "windows": 20,
+      "props": 5,
+      "floorTriangles": 672,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 71,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 72,
+        "textures": 7
+      }
+    },
+    {
+      "id": "archer-worker",
+      "view": "cutaway",
+      "level": -1,
+      "wallUnits": 69,
+      "diagonalUnits": 0,
+      "doors": 8,
+      "windows": 20,
+      "props": 5,
+      "floorTriangles": 672,
+      "mode": "cutaway",
+      "selected": -1,
+      "resources": {
+        "geometries": 71,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 72,
+        "textures": 7
+      }
+    },
+    {
+      "id": "archer-worker",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 69,
+      "diagonalUnits": 0,
+      "doors": 8,
+      "windows": 20,
+      "props": 5,
+      "floorTriangles": 672,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 71,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 72,
+        "textures": 7
+      }
+    },
+    {
+      "id": "monroe-row",
+      "view": "exterior",
+      "level": 0,
+      "wallUnits": 168,
+      "diagonalUnits": 2,
+      "doors": 12,
+      "windows": 19,
+      "props": 11,
+      "floorTriangles": 2185,
+      "mode": "exterior",
+      "selected": 0,
+      "resources": {
+        "geometries": 115,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 116,
+        "textures": 7
+      }
+    },
+    {
+      "id": "monroe-row",
+      "view": "cutaway",
+      "level": -1,
+      "wallUnits": 168,
+      "diagonalUnits": 2,
+      "doors": 12,
+      "windows": 19,
+      "props": 11,
+      "floorTriangles": 2185,
+      "mode": "cutaway",
+      "selected": -1,
+      "resources": {
+        "geometries": 115,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 116,
+        "textures": 7
+      }
+    },
+    {
+      "id": "monroe-row",
+      "view": "cutaway",
+      "level": 0,
+      "wallUnits": 168,
+      "diagonalUnits": 2,
+      "doors": 12,
+      "windows": 19,
+      "props": 11,
+      "floorTriangles": 2185,
+      "mode": "cutaway",
+      "selected": 0,
+      "resources": {
+        "geometries": 115,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 116,
+        "textures": 7
+      }
+    },
+    {
+      "id": "monroe-row",
+      "view": "cutaway",
+      "level": 1,
+      "wallUnits": 168,
+      "diagonalUnits": 2,
+      "doors": 12,
+      "windows": 19,
+      "props": 11,
+      "floorTriangles": 2185,
+      "mode": "cutaway",
+      "selected": 1,
+      "resources": {
+        "geometries": 115,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      },
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalSpanMetres": 1.4142135623730951,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "disposed": false,
+      "gpu": {
+        "geometries": 116,
+        "textures": 7
+      }
+    }
+  ],
+  "images": [
+    {
+      "id": "grossdale-spire",
+      "view": "exterior",
+      "level": 0,
+      "file": "grossdale-spire-exterior.png",
+      "sha256": "956eeb962778607cd24c254ca70065e8f48cce792db04914975debe1502c73a6",
+      "bytes": 272239
+    },
+    {
+      "id": "grossdale-spire",
+      "view": "cutaway",
+      "level": 0,
+      "file": "grossdale-spire-cutaway-0.png",
+      "sha256": "668e00ccc06e1a08cbaecbccf2cb6eb9918f476f98f46e0fa278120fa1764ad8",
+      "bytes": 299143
+    },
+    {
+      "id": "grossdale-spire",
+      "view": "cutaway",
+      "level": 1,
+      "file": "grossdale-spire-cutaway-1.png",
+      "sha256": "7b1b00e1714e20f211b5d9e445eb15709ed7bff27d2d8ba1200c97bc253c4c2c",
+      "bytes": 295994
+    },
+    {
+      "id": "grossdale-hip",
+      "view": "exterior",
+      "level": 0,
+      "file": "grossdale-hip-exterior.png",
+      "sha256": "52da5043a92cdc26ce2fdaec6da93196565d06f95a20494283e6619fc984becf",
+      "bytes": 325253
+    },
+    {
+      "id": "grossdale-hip",
+      "view": "cutaway",
+      "level": 0,
+      "file": "grossdale-hip-cutaway-0.png",
+      "sha256": "5fe81c110104acf1489f485953c72c6590997015ad4c07b7071c39a6be2d2a0a",
+      "bytes": 288223
+    },
+    {
+      "id": "grossdale-hip",
+      "view": "cutaway",
+      "level": 1,
+      "file": "grossdale-hip-cutaway-1.png",
+      "sha256": "ea3bb4a67fcd331c803be5b9651a87737675c241eed1a9ad6655e5dc55ea7e00",
+      "bytes": 288810
+    },
+    {
+      "id": "grossdale-octagon",
+      "view": "exterior",
+      "level": 0,
+      "file": "grossdale-octagon-exterior.png",
+      "sha256": "2326068f9306b209109e1d6fdcee4c3ac5a5d8eb3e439075de18c09af1d0ed8e",
+      "bytes": 285797
+    },
+    {
+      "id": "grossdale-octagon",
+      "view": "cutaway",
+      "level": 0,
+      "file": "grossdale-octagon-cutaway-0.png",
+      "sha256": "fecd8236815bb638b152cfcb8499cc7b551a15c8214e66b2b5f8187040902ba7",
+      "bytes": 277889
+    },
+    {
+      "id": "grossdale-octagon",
+      "view": "cutaway",
+      "level": 1,
+      "file": "grossdale-octagon-cutaway-1.png",
+      "sha256": "7791d0991b7bca09964122885f7df42c974b7e94c7ef9af01214f6a47513afcc",
+      "bytes": 288115
+    },
+    {
+      "id": "grossdale-cross-gable",
+      "view": "exterior",
+      "level": 0,
+      "file": "grossdale-cross-gable-exterior.png",
+      "sha256": "e9a1d4c085fcd7810e29b2f85203528ae16f3edd028e93f28389c5d03680761c",
+      "bytes": 327185
+    },
+    {
+      "id": "grossdale-cross-gable",
+      "view": "cutaway",
+      "level": 0,
+      "file": "grossdale-cross-gable-cutaway-0.png",
+      "sha256": "1d2d25533805e2eb7e1a73f9657e00e776669f84a0d07c17f3203a2bf062115e",
+      "bytes": 252325
+    },
+    {
+      "id": "grossdale-cross-gable",
+      "view": "cutaway",
+      "level": 1,
+      "file": "grossdale-cross-gable-cutaway-1.png",
+      "sha256": "f73753d5bb37dda5b677792b025d19af96909cb7057c8b9eb6ec43a06cee6860",
+      "bytes": 285198
+    },
+    {
+      "id": "grossdale-balcony",
+      "view": "exterior",
+      "level": 0,
+      "file": "grossdale-balcony-exterior.png",
+      "sha256": "ffed1f890c1e829394484f50f0cfffd4bd45901fd664d942a5bca4387d29b97d",
+      "bytes": 322638
+    },
+    {
+      "id": "grossdale-balcony",
+      "view": "cutaway",
+      "level": 0,
+      "file": "grossdale-balcony-cutaway-0.png",
+      "sha256": "7f4d53e837749b3efc2a43074eedeb13f0c581c2aa13263924124daa66ac5ccf",
+      "bytes": 293505
+    },
+    {
+      "id": "grossdale-balcony",
+      "view": "cutaway",
+      "level": 1,
+      "file": "grossdale-balcony-cutaway-1.png",
+      "sha256": "a28eac213c00fe5733c3decc074a0a73c8094a3ff3b103b0c6b0b7ca6c9ad8b2",
+      "bytes": 299353
+    },
+    {
+      "id": "dauphin-park",
+      "view": "exterior",
+      "level": 0,
+      "file": "dauphin-park-exterior.png",
+      "sha256": "c02120cee53355748f0d2b1faa61e96a3bb5370b1b5c2e867c1d571a78b420f4",
+      "bytes": 275504
+    },
+    {
+      "id": "dauphin-park",
+      "view": "cutaway",
+      "level": 0,
+      "file": "dauphin-park-cutaway-0.png",
+      "sha256": "d8f1934047397f81442ea6904a992da5043098895f710b08071d8f32e3e11214",
+      "bytes": 279551
+    },
+    {
+      "id": "dauphin-park",
+      "view": "cutaway",
+      "level": 1,
+      "file": "dauphin-park-cutaway-1.png",
+      "sha256": "7368e193af1971010d7a8076a39481e3099c994b45929152570c6cb84981bd89",
+      "bytes": 287451
+    },
+    {
+      "id": "calumet-heights",
+      "view": "exterior",
+      "level": 0,
+      "file": "calumet-heights-exterior.png",
+      "sha256": "353b76021f1670586213613f5a7690c20e7c00d5f07b835bdfb37e20cec7b9b0",
+      "bytes": 287796
+    },
+    {
+      "id": "calumet-heights",
+      "view": "cutaway",
+      "level": -1,
+      "file": "calumet-heights-cutaway--1.png",
+      "sha256": "ac5b1eb645fc039cff5bef5d16736ee86b63cab41b04edd4bf4d2cd6bac1df44",
+      "bytes": 301660
+    },
+    {
+      "id": "calumet-heights",
+      "view": "cutaway",
+      "level": 0,
+      "file": "calumet-heights-cutaway-0.png",
+      "sha256": "9249de9b2ec25a8093f778267033a438e26b319f2498817456d09246adb8e5c2",
+      "bytes": 292531
+    },
+    {
+      "id": "calumet-heights",
+      "view": "cutaway",
+      "level": 1,
+      "file": "calumet-heights-cutaway-1.png",
+      "sha256": "6c8aab2cdd36886a77be0a7393934d2c3c58be70221110fa3bf2bb7a4f35151c",
+      "bytes": 295922
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "exterior",
+      "level": 0,
+      "file": "brookdale-villa-exterior.png",
+      "sha256": "19e7c45d7c6fe52b965a35236c1f5114a514259b88c7369dd5eed9486f2b9f57",
+      "bytes": 309086
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "cutaway",
+      "level": -1,
+      "file": "brookdale-villa-cutaway--1.png",
+      "sha256": "78d21588598e2240233ea64d94d377201021c8bc58e74c6a9050dda0a06d3839",
+      "bytes": 306572
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "cutaway",
+      "level": 0,
+      "file": "brookdale-villa-cutaway-0.png",
+      "sha256": "7518cdca34645bb5a66fdd7887552d424f04f14e8dbcb2143bbed41d3c2d4a09",
+      "bytes": 306936
+    },
+    {
+      "id": "brookdale-villa",
+      "view": "cutaway",
+      "level": 1,
+      "file": "brookdale-villa-cutaway-1.png",
+      "sha256": "4015d1ca18133aaa41f584439ebcdc07ef0fae8e4bcac9cf41e3cf6394317201",
+      "bytes": 307814
+    },
+    {
+      "id": "humboldt-cottage",
+      "view": "exterior",
+      "level": 0,
+      "file": "humboldt-cottage-exterior.png",
+      "sha256": "b02b7f2e946ec7e52e972fa104fcc01524a79e79e9444f1a91f4a5fb00174590",
+      "bytes": 315598
+    },
+    {
+      "id": "humboldt-cottage",
+      "view": "cutaway",
+      "level": -1,
+      "file": "humboldt-cottage-cutaway--1.png",
+      "sha256": "42affc37411288b2fa9c4fd0eb45aedcf64d1763a62feaca73e27e9932497368",
+      "bytes": 300527
+    },
+    {
+      "id": "humboldt-cottage",
+      "view": "cutaway",
+      "level": 0,
+      "file": "humboldt-cottage-cutaway-0.png",
+      "sha256": "5e39ef4acf88164c49b2f3af487a7346d342a1626baa27447ade1f462bbf215f",
+      "bytes": 302556
+    },
+    {
+      "id": "albany-cottage",
+      "view": "exterior",
+      "level": 0,
+      "file": "albany-cottage-exterior.png",
+      "sha256": "91aaec05ee8f90c559158c4e30174528d3e85a032c90ac0af82b329345ef55c4",
+      "bytes": 309429
+    },
+    {
+      "id": "albany-cottage",
+      "view": "cutaway",
+      "level": -1,
+      "file": "albany-cottage-cutaway--1.png",
+      "sha256": "d8d998ab329551bf613b8237d200cefa00e0aee8ab17dec6bd2087ecf28ebde0",
+      "bytes": 300236
+    },
+    {
+      "id": "albany-cottage",
+      "view": "cutaway",
+      "level": 0,
+      "file": "albany-cottage-cutaway-0.png",
+      "sha256": "e3a3e6587ba655f6fc68474ffc812148b1c203ed0bc7e349b26645dff95072b5",
+      "bytes": 283091
+    },
+    {
+      "id": "ashland-worker",
+      "view": "exterior",
+      "level": 0,
+      "file": "ashland-worker-exterior.png",
+      "sha256": "993b74cefba3a2abd02d58d063b82d7b80a746c5a5fd4acc8e0d9bdc8a863d51",
+      "bytes": 282887
+    },
+    {
+      "id": "ashland-worker",
+      "view": "cutaway",
+      "level": -1,
+      "file": "ashland-worker-cutaway--1.png",
+      "sha256": "c3c91aff57150371486cda3127d7567d209ad24d12e7d346c9a35d10309a5355",
+      "bytes": 285592
+    },
+    {
+      "id": "ashland-worker",
+      "view": "cutaway",
+      "level": 0,
+      "file": "ashland-worker-cutaway-0.png",
+      "sha256": "7f334dc612b43023f613009e86ba94d565687432dc7ac9581bf60ffd7b3dd72c",
+      "bytes": 286855
+    },
+    {
+      "id": "archer-worker",
+      "view": "exterior",
+      "level": 0,
+      "file": "archer-worker-exterior.png",
+      "sha256": "d4b59142e0fa8f488017d7c482306c68ab9d5662f38c2b4e19bf0ec92231463f",
+      "bytes": 277185
+    },
+    {
+      "id": "archer-worker",
+      "view": "cutaway",
+      "level": -1,
+      "file": "archer-worker-cutaway--1.png",
+      "sha256": "6e2d5327aae6d833bcd91a7f853c9cb0b6b8fc8aa175ebbe494dd362d5913902",
+      "bytes": 290468
+    },
+    {
+      "id": "archer-worker",
+      "view": "cutaway",
+      "level": 0,
+      "file": "archer-worker-cutaway-0.png",
+      "sha256": "cf02be1e92086c8a88ff465e32321faae39b590022794c3ccf0b1d5df03d8883",
+      "bytes": 290494
+    },
+    {
+      "id": "monroe-row",
+      "view": "exterior",
+      "level": 0,
+      "file": "monroe-row-exterior.png",
+      "sha256": "5f4a70c22ca05830631ccb6705951a88b8f4004fd8a3b1269237bdb22e5d59d2",
+      "bytes": 311930
+    },
+    {
+      "id": "monroe-row",
+      "view": "cutaway",
+      "level": -1,
+      "file": "monroe-row-cutaway--1.png",
+      "sha256": "eb3bf884ffccb6b1aaba808eb534e7fb40a64b1f5d7aa61694d3f00e6e551d81",
+      "bytes": 298844
+    },
+    {
+      "id": "monroe-row",
+      "view": "cutaway",
+      "level": 0,
+      "file": "monroe-row-cutaway-0.png",
+      "sha256": "a1e35e5ee00443802b204b9ebbc161e301348a2904166b32734d955dfc101171",
+      "bytes": 296031
+    },
+    {
+      "id": "monroe-row",
+      "view": "cutaway",
+      "level": 1,
+      "file": "monroe-row-cutaway-1.png",
+      "sha256": "bd8a333442c95c8629a2b7362f09dc0230e529e95b4930a6f4ee0edd2f1951c9",
+      "bytes": 284883
+    }
+  ],
+  "limits": [
+    "Desktop GPU; phone viewport emulation does not measure a physical phone.",
+    "Artist models and wall-run authoring traces; no Tinderbox gameplay integration or Nautilus full-prefab intake claimed."
+  ]
+}

@@ -9,3 +9,5 @@ Introduce a new shape as a separately identified library asset with declared dim
 Deliver reusable sources and exports, stable asset IDs, source/provenance records, and evidence that the asset fits its native template or declared module interfaces. Review skins on the unchanged source geometry and verify dimensions, pivots, UV density and attachments alongside appearance.
 
 The [native-scale contract](../engineering/exposition/native-scale.md) records the checked source measurements and module rules. The [current facade guide](exposition/building-facades-v3.md) and [review evidence](exposition/building-facades-v3-review.json) show this rule applied to the new building skins. Earlier enlarged-dimension studies are historical records and do not define the shared library.
+
+The [Gross catalogue housing collection](gross-housing-v1/README.md) adds 13 complete exterior assemblies and 29 interior levels based on paired 1891 exterior/plan plates. Its diagonal wall art pieces retain the native wall height and door opening; gameplay support remains a coder integration task. [Preview sheet](gross-housing-v1/previews/collection.jpg).

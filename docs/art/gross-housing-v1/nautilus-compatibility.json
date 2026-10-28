@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "source": {
+    "repository": "https://github.com/Syntaxswine/nautilus-engine",
+    "commit": "cc52f89de6333a1d94e2dfe45d47d1317369fac0",
+    "contractPath": "packages/map-core/wall-runs.js",
+    "documentationPath": "docs/wall-runs.md",
+    "feature": "nautilus-wall-runs-v1",
+    "inspection": "Read fixed Git objects only; no donor edits or moving branch imports.",
+    "nativeKit": {
+      "panel": 1,
+      "height": 2,
+      "thickness": 0.16,
+      "floorSpacing": 2.12
+    },
+    "traces": 13,
+    "segments": 1226,
+    "apertures": 554,
+    "consumerStatus": "Editor authoring feature exists on the pinned candidate. Tinderbox consumer integration and full Nautilus house intake are separate.",
+    "contractSha256": "fc148cf133b790afe9d53deb9f4eb915d2dc5e509f46e3a74706f3eb3fe1b186"
+  },
+  "traces": [
+    {
+      "asset": "albany-cottage",
+      "segments": 79,
+      "openings": 40,
+      "levels": 2,
+      "lengthMetres": 75.82842712810225
+    },
+    {
+      "asset": "archer-worker",
+      "segments": 41,
+      "openings": 28,
+      "levels": 2,
+      "lengthMetres": 41
+    },
+    {
+      "asset": "ashland-worker",
+      "segments": 45,
+      "openings": 30,
+      "levels": 2,
+      "lengthMetres": 45
+    },
+    {
+      "asset": "brookdale-villa",
+      "segments": 131,
+      "openings": 64,
+      "levels": 3,
+      "lengthMetres": 131
+    },
+    {
+      "asset": "calumet-heights",
+      "segments": 100,
+      "openings": 54,
+      "levels": 3,
+      "lengthMetres": 84.14213564051126
+    },
+    {
+      "asset": "dauphin-park",
+      "segments": 95,
+      "openings": 44,
+      "levels": 2,
+      "lengthMetres": 88.6568542562045
+    },
+    {
+      "asset": "grossdale-balcony",
+      "segments": 110,
+      "openings": 51,
+      "levels": 2,
+      "lengthMetres": 100.48528138430676
+    },
+    {
+      "asset": "grossdale-cross-gable",
+      "segments": 90,
+      "openings": 41,
+      "levels": 2,
+      "lengthMetres": 83.6568542562045
+    },
+    {
+      "asset": "grossdale-hip",
+      "segments": 96,
+      "openings": 42,
+      "levels": 2,
+      "lengthMetres": 86.48528138430675
+    },
+    {
+      "asset": "grossdale-octagon",
+      "segments": 117,
+      "openings": 43,
+      "levels": 2,
+      "lengthMetres": 105.1421356371552
+    },
+    {
+      "asset": "grossdale-spire",
+      "segments": 106,
+      "openings": 46,
+      "levels": 2,
+      "lengthMetres": 96.48528138430676
+    },
+    {
+      "asset": "humboldt-cottage",
+      "segments": 75,
+      "openings": 40,
+      "levels": 2,
+      "lengthMetres": 75
+    },
+    {
+      "asset": "monroe-row",
+      "segments": 141,
+      "openings": 31,
+      "levels": 3,
+      "lengthMetres": 137.82842712810225
+    }
+  ],
+  "panels": 1228,
+  "cuts": 98,
+  "originalPanelMaxWidthMetres": 1,
+  "allAperturesRemainSeparate": true,
+  "nautilusImported": false
+}

@@ -1,0 +1,105 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(fileURLToPath(new URL('../../../',import.meta.url)));
+const R=(id,label,x,z,w,d,type=id)=>({id,label,type,polygon:[[x,z],[x+w,z],[x+w,z+d],[x,z+d]]});
+const P=(id,label,polygon,type=id)=>({id,label,type,polygon});
+const F=(label,rooms,connections,entry,stairs=null)=>({label,rooms,connections:connections.map(pair=>pair.split('/')),entry,stairs});
+const stairs=(x,z)=>({x,z,width:1,run:3,rise:2.12});
+const houses=[];
+function add(id,label,leaf,width,depth,style,floors,extra={}){houses.push({id,label,source:{leaf,printedPage:leaf-3,url:`https://archive.org/details/TenthAnnualIllustratedCatalogueOfS.e.GrossFamousCitySubdivisionsAnd/page/n${leaf}/mode/1up`,plate:`../../../art/source/gross-housing-v1/plates/n${leaf}.jpg`},width,depth,style,plinth:.48,floors,...extra});}
+add('grossdale-spire','Grossdale / Grand Boulevard spire',15,8,12,{wall:'clapboard',color:'#c1c6ac',trim:'#eee1c1',accent:'#5c6555',roof:'slate',form:'cross',spire:[5.5,1.5]},[
+ F('First floor',[P('parlor','Parlor',[[1,0],[5,0],[5,4],[0,4],[0,1]],'parlor'),R('hall','Reception hall',5,0,3,7,'hall'),P('sitting','Sitting room',[[0,4],[5,4],[5,8],[0,8],[-1,7],[-1,5]],'sitting'),R('dining','Dining room',0,8,4,3,'dining'),R('kitchen','Kitchen',4,7,4,4,'kitchen'),R('pantry','Pantry',0,11,4,1,'pantry'),R('entry','Rear entry',4,11,4,1,'hall')],['hall/parlor','hall/sitting','sitting/dining','sitting/kitchen','dining/pantry','kitchen/entry'],[6,0,7,0],stairs(6,3)),
+ F('Second floor',[P('bed-a','Front chamber',[[1,0],[5,0],[5,4],[0,4],[0,1]],'bedroom'),R('hall','Hall',5,0,3,8,'hall'),P('bed-b','Bay chamber',[[0,4],[5,4],[5,8],[0,8],[-1,7],[-1,5]],'bedroom'),R('bed-c','Rear chamber',0,8,4,4,'bedroom'),R('bed-d','Rear chamber',4,8,4,4,'bedroom'),R('bath','Bath',6,6,2,2,'bath')],['hall/bed-a','hall/bed-b','bed-b/bed-c','hall/bed-d','hall/bath'],null,stairs(6,3))
+],{porch:{x:4,z:-2,width:4,depth:2},notes:['Four principal rooms below and four chambers above. The projecting sitting-room bay is retained.','Spire, cross gables and porch follow the exterior plate; ornament is interpreted.']});
+// Bath occupies a corner of the upper hall, represented by a non-overlapping hall polygon.
+houses.at(-1).floors[1].rooms.find(r=>r.id==='hall').polygon=[[5,0],[8,0],[8,6],[6,6],[6,8],[5,8]];
+add('grossdale-hip','Grossdale / Grand Boulevard hipped house',16,7,12,{wall:'clapboard',color:'#ddd1ae',trim:'#f4e6cb',accent:'#635b4b',roof:'cedar',form:'hip'},[
+ F('First floor',[R('parlor','Parlor',0,0,4,4,'parlor'),R('hall','Hall & vestibule',4,0,3,8,'hall'),P('dining','Dining room',[[0,4],[4,4],[4,8],[0,8],[-1,7],[-1,5]],'dining'),R('kitchen','Kitchen',0,8,7,3,'kitchen'),R('pantry','Pantry',0,11,2,1,'pantry'),R('store','Store',2,11,5,1,'pantry')],['hall/parlor','hall/dining','hall/kitchen','kitchen/pantry','kitchen/store'],[5,0,6,0],stairs(5,4)),
+ F('Second floor',[P('bed-a','Chamber A',[[1,0],[3,0],[4,1],[4,4],[0,4],[0,1]],'bedroom'),P('bed-b','Chamber B',[[5,0],[6,0],[7,1],[7,4],[4,4],[4,1]],'bedroom'),R('bed-c','Chamber C',0,4,4,4,'bedroom'),R('hall','Hall',4,4,3,4,'hall'),R('bed-d','Chamber D',0,8,4,4,'bedroom'),R('bath','Bath',4,8,3,4,'bath')],['bed-a/bed-b','hall/bed-b','hall/bed-c','bed-c/bed-d','hall/bath'],null,stairs(5,4))
+],{porch:{x:0,z:-2,width:7,depth:2},notes:['Four upper chambers and rear bathroom; parlor, dining room and kitchen below.','Upper front window seats are adapted as chamfered bays.']});
+add('grossdale-octagon','Grossdale / Fairview octagonal bay',20,8,13,{wall:'clapboard',color:'#aebbac',trim:'#efdfbf',accent:'#654e43',roof:'slate',form:'cross',turret:[4,2]},[
+ F('First floor',[P('parlor','Parlor',[[2,0],[5,0],[6,1],[6,4],[5,5],[2,5],[1,4],[1,1]],'parlor'),P('hall','Hall',[[6,1],[8,1],[8,8],[5,8],[5,5],[6,4]],'hall'),P('sitting','Sitting room',[[1,5],[5,5],[5,8],[0,8],[-1,7],[-1,6],[0,5]],'sitting'),R('kitchen','Kitchen',0,8,4,4,'kitchen'),R('dining','Dining room',4,8,4,4,'dining'),R('pantry','Pantry',0,12,4,1,'pantry'),R('store','Store',4,12,4,1,'pantry')],['hall/parlor','hall/sitting','sitting/kitchen','hall/dining','kitchen/pantry','dining/store'],[7,1,8,1],stairs(6,5)),
+ F('Second floor',[P('bed-a','Front chamber',[[2,0],[5,0],[6,1],[6,4],[5,5],[2,5],[1,4],[1,1]],'bedroom'),P('hall','Hall',[[6,1],[8,1],[8,8],[5,8],[5,5],[6,4]],'hall'),R('bed-b','Chamber',0,5,5,3,'bedroom'),R('bed-c','Chamber',0,8,4,4,'bedroom'),R('bed-d','Chamber',4,8,4,4,'bedroom'),R('bed-e','Small chamber',0,12,4,1,'bedroom'),R('bath','Bath',4,12,4,1,'bath')],['hall/bed-a','hall/bed-b','bed-b/bed-c','hall/bed-d','bed-c/bed-e','bed-d/bath'],null,stairs(6,5))
+],{porch:{x:0,z:-2,width:8,depth:3},notes:['Octagonal front parlor and chamfered side bay preserved as grid polygons.','The compact upper service rooms are enlarged in the adaptation below; source proportions remain in the plate.']});
+// Enlarge narrow rear upper rooms to usable two-metre strips, preserving the room sequence.
+for(const room of houses.at(-1).floors[1].rooms){if(['bed-c','bed-d'].includes(room.id))room.polygon=room.polygon.map(([x,z])=>[x,z===12?11:z]);if(['bed-e','bath'].includes(room.id))room.polygon=room.polygon.map(([x,z])=>[x,z===12?11:z]);}
+add('grossdale-cross-gable','Grossdale / West Grand cross gable',21,7,12,{wall:'clapboard',color:'#c8c1a4',trim:'#ece1c4',accent:'#5e6252',roof:'slate',form:'cross'},[
+ F('First floor',[R('parlor','Parlor',3,0,4,4,'parlor'),R('hall','Hall',3,4,4,4,'hall'),P('dining','Dining room',[[0,4],[3,4],[3,8],[0,8],[-1,7],[-1,5]],'dining'),R('kitchen','Kitchen',3,8,4,4,'kitchen'),R('pantry','Serving pantry',0,8,3,4,'pantry')],['hall/parlor','hall/dining','hall/kitchen','dining/pantry','pantry/kitchen'],[3,4,4,4],stairs(5,4)),
+ F('Second floor',[R('bed-a','Chamber A',4,0,3,4,'bedroom'),R('bed-b','Chamber B',0,0,4,4,'bedroom'),P('bed-c','Chamber C',[[0,4],[3,4],[3,8],[0,8],[-1,7],[-1,5]],'bedroom'),R('hall','Hall',3,4,4,4,'hall'),R('bed-d','Chamber D',0,8,4,4,'bedroom'),R('bath','Bath',4,8,3,4,'bath')],['hall/bed-a','hall/bed-b','hall/bed-c','bed-c/bed-d','hall/bath'],null,stairs(5,4))
+],{porch:{x:0,z:0,width:3,depth:4},notes:['Inset front porch beside the parlor and an angled dining-room projection.','Closets and serving spaces are consolidated without changing the principal room sequence.']});
+add('grossdale-balcony','Grossdale / Grant Avenue balcony house',22,8,13,{wall:'clapboard',color:'#d0bd9f',trim:'#efe3c9',accent:'#696657',roof:'cedar',form:'cross',balcony:true},[
+ F('First floor',[P('parlor','Parlor',[[1,0],[5,0],[5,5],[0,5],[0,1]],'parlor'),R('hall','Reception hall',5,0,3,5,'hall'),P('sitting','Sitting room',[[0,5],[5,5],[5,9],[0,9],[-1,8],[-1,6]],'sitting'),R('pantry','Pantry',5,5,3,3,'pantry'),R('dining','Dining room',0,9,5,4,'dining'),R('kitchen','Kitchen',5,8,3,5,'kitchen')],['hall/parlor','parlor/sitting','hall/pantry','sitting/dining','sitting/pantry','pantry/kitchen','dining/kitchen'],[6,0,7,0],stairs(6,2)),
+ F('Second floor',[P('bed-a','Front chamber',[[1,0],[5,0],[5,5],[0,5],[0,1]],'bedroom'),R('bed-b','Chamber',5,0,3,4,'bedroom'),P('bed-c','Bay chamber',[[0,5],[4,5],[4,9],[0,9],[-1,8],[-1,6]],'bedroom'),R('hall','Hall',4,4,4,5,'hall'),R('bed-d','Chamber',0,9,4,3,'bedroom'),R('bed-e','Chamber',4,9,4,3,'bedroom'),R('store-a','Storage',0,12,4,1,'pantry'),R('store-b','Storage',4,12,4,1,'pantry')],['hall/bed-a','hall/bed-b','hall/bed-c','hall/bed-d','hall/bed-e','bed-d/store-a','bed-e/store-b'],null,stairs(6,5))
+],{porch:{x:5,z:-2,width:3,depth:2},notes:['Catalogue plan faces the opposite way to most plates; front is normalized to z=0 here.','Front balcony, projecting sitting room and rear storage rooms distinguish this design.']});
+add('dauphin-park','Dauphin Park / bracketed porch house',33,7,12,{wall:'clapboard',color:'#bac6ac',trim:'#f0e2bf',accent:'#5e5448',roof:'slate',form:'cross',spire:[6,5]},[
+ F('First floor',[R('hall','Hall',0,0,3,4,'hall'),R('parlor','Parlor',3,0,4,4,'parlor'),R('bed-a','Bed room',0,4,3,4,'bedroom'),P('dining','Dining room',[[3,4],[7,4],[8,5],[8,7],[7,8],[3,8]],'dining'),R('bed-b','Bed room',0,8,3,4,'bedroom'),R('kitchen','Kitchen',3,8,4,4,'kitchen')],['hall/parlor','hall/bed-a','parlor/dining','bed-a/bed-b','bed-a/dining','dining/kitchen','bed-b/kitchen'],[1,0,2,0],stairs(1,1)),
+ F('Second floor',[R('bed-a','Chamber',0,0,3,4,'bedroom'),R('bed-b','Chamber',3,0,4,4,'bedroom'),R('hall','Hall',0,4,3,2,'hall'),R('bed-c','Bed room',0,6,3,3,'bedroom'),P('bed-d','Chamber',[[3,4],[7,4],[8,5],[8,7],[7,8],[3,8]],'bedroom'),R('bath','Bath',0,9,3,2,'bath'),R('closet','Closet',3,8,4,3,'pantry')],['hall/bed-a','hall/bed-b','hall/bed-c','hall/bed-d','bed-c/bath','bed-d/closet'],null,stairs(1,1))
+],{porch:{x:0,z:-2,width:7,depth:2},notes:['Two first-floor bedrooms and four upper chambers follow the published plan.','Unoccupied rear roof footprint is not counted as an additional room.']});
+add('calumet-heights','Calumet Heights / Clark Avenue bay house',40,7,10,{wall:'clapboard',color:'#d5c7a5',trim:'#f3e5c9',accent:'#6b594b',roof:'cedar',form:'cross'},[
+ F('First floor',[P('parlor','Parlor',[[1,0],[4,0],[4,5],[0,5],[-1,4],[-1,2]],'parlor'),R('hall','Hall',4,0,3,5,'hall'),P('dining','Dining room',[[0,5],[4,5],[4,10],[0,10],[-1,9],[-1,6]],'dining'),R('kitchen','Kitchen',4,5,3,5,'kitchen')],['hall/parlor','parlor/dining','hall/kitchen','dining/kitchen'],[5,0,6,0],stairs(5,2)),
+ F('Second floor',[P('bed-a','Front chamber',[[1,0],[7,0],[7,5],[0,5],[-1,4],[-1,2]],'bedroom'),P('bed-b','Chamber',[[0,5],[4,5],[4,10],[0,10],[-1,9],[-1,6]],'bedroom'),R('hall','Hall',4,5,3,2,'hall'),R('bath','Bath',4,7,3,1,'bath'),R('bed-c','Chamber',4,8,3,2,'bedroom')],['bed-a/bed-b','bed-a/hall','hall/bed-b','hall/bath','bath/bed-c'],null,stairs(5,2))
+],{plinth:2.12,porch:{x:4,z:-2,width:3,depth:2},basement:'Undivided brick basement; partition arrangement is inferred because only upper plans are printed.',notes:['Two-storey frame house over a brick basement.','Two angled bays on the left side and the first-floor hall are retained.']});
+add('brookdale-villa','Brookdale / Addison Avenue villa',47,8,14,{wall:'clapboard',color:'#b9b9a8',trim:'#eadab9',accent:'#68513f',roof:'slate',form:'cross',balcony:true},[
+ F('First floor',[R('parlor','Parlor',0,0,5,5,'parlor'),R('hall','Hall',5,0,3,5,'hall'),R('dining','Dining room',0,5,5,5,'dining'),R('library','Library',5,5,3,5,'library'),R('kitchen','Kitchen',0,10,5,4,'kitchen'),R('servant','Servant room',5,10,3,3,'bedroom'),R('pantry','Pantry',5,13,3,1,'pantry')],['hall/parlor','parlor/dining','hall/library','dining/library','dining/kitchen','library/servant','servant/pantry'],[6,0,7,0],stairs(6,2)),
+ F('Second floor',[R('bed-a','Chamber',0,0,4,5,'bedroom'),R('bed-b','Bed room',4,0,4,5,'bedroom'),R('hall','Hall',0,5,8,3,'hall'),R('bed-c','Chamber',0,8,4,6,'bedroom'),R('bed-d','Bed room',4,8,4,6,'bedroom')],['hall/bed-a','hall/bed-b','hall/bed-c','hall/bed-d'],null,stairs(6,5))
+],{plinth:2.12,porch:{x:0,z:-2,width:8,depth:2},basement:'Laundry, drying room and furnace are stated in the description; arrangement below is an interpretation.',notes:['Library and servant room distinguish the lower plan.','Upper closets are included in bedroom areas; basement service functions are sourced from the text.']});
+function largeCottage(id,label,leaf,wall,porch,bay){
+ const first=[R('hall','Vestibule',0,0,3,1,'hall'),R('bed-a','Bed room',0,1,3,3,'bedroom'),bay?P('parlor','Parlor',[[3,0],[4,0],[5,-1],[6,-1],[7,0],[7,4],[3,4]],'parlor'):R('parlor','Parlor',3,0,4,4,'parlor'),R('bed-b','Bed room',0,4,3,4,'bedroom'),R('dining','Dining room',3,4,4,4,'dining'),R('bed-c','Bed room',0,8,3,3,'bedroom'),R('kitchen','Kitchen',3,8,4,4,'kitchen'),R('pantry','Pantry',0,11,3,1,'pantry')];
+ add(id,label,leaf,7,12,{wall,color:wall==='brick'?'#ddbd9d':'#d2c4a6',trim:'#efe2c3',accent:'#665747',roof:'slate',form:porch?'hip':'gable',dormer:porch},[
+ F('First floor',first,['hall/parlor','hall/bed-a','parlor/dining','bed-b/dining','dining/kitchen','bed-c/kitchen','kitchen/pantry'],[1,0,2,0]),
+ ],{plinth:2.12,porch:porch?{x:0,z:-2,width:7,depth:2}:null,basement:'Two basement compartments follow the printed plan. Service furnishings are interpreted.',basementSplit:6,notes:['Six main rooms, with three small bedrooms beside a parlor, dining room and kitchen.','Room sequence and basement split follow the plate; dimensions snap to the native one-metre grid.']});
+}
+largeCottage('humboldt-cottage','Humboldt Park / brick cottage',54,'brick',false,false);
+largeCottage('albany-cottage','Albany Avenue / porch cottage',69,'brick',true,true);
+function worker(id,label,leaf,wall,doorSide){
+ const rooms=[R('hall','Hall',0,0,2,1,'hall'),R('bed-a','Bed room',0,1,2,3,'bedroom'),R('parlor','Parlor',2,0,4,4,'parlor'),R('bed-b','Bed room',0,4,2,2,'bedroom'),R('kitchen','Kitchen',2,4,4,3,'kitchen'),R('pantry','Pantry',0,6,2,1,'pantry')];
+ add(id,label,leaf,6,7,{wall,color:wall==='brick'?'#d6b898':'#d6d0b4',trim:'#f0e3c6',accent:'#656655',roof:'cedar',form:'gable'},[F('First floor',rooms,['hall/bed-a','hall/parlor','bed-a/parlor','parlor/kitchen','bed-b/kitchen','pantry/kitchen'],[0,0,1,0])],{plinth:2.12,porch:{x:0,z:-1,width:2,depth:1},basement:leaf===66?'Two compartments indicated in the printed basement plan.':'One open basement shown in the printed plan.',basementSplit:leaf===66?3:0,mirror:doorSide==='right',notes:['Four main rooms: two bedrooms, parlor and kitchen, plus hall and pantry.','Front door is left for Ashland and right for Archer, following the exterior illustrations.']});
+}
+worker('ashland-worker','Ashland & 47th / frame workers cottage',66,'clapboard','left');
+worker('archer-worker','Archer Avenue / brick workers cottage',72,'brick','right');
+add('monroe-row','Monroe Street / brick row house',74,7,13,{wall:'brick',color:'#cba98a',trim:'#dfcdb2',accent:'#775944',roof:'slate',form:'row',balcony:true},[
+ F('First floor',[R('parlor','Parlor',0,0,5,6,'parlor'),R('hall','Vestibule & passage',5,0,2,8,'hall'),R('dining','Dining room',0,6,5,7,'dining'),R('kitchen','Kitchen',5,8,2,5,'kitchen')],['hall/parlor','parlor/dining','hall/dining','hall/kitchen','dining/kitchen'],[5,0,6,0],stairs(5.5,3)),
+ F('Second floor',[P('bed-a','Front bed room',[[1,-1],[3,-1],[4,0],[4,5],[0,5],[0,0]],'bedroom'),R('bed-b','Front bed room',4,0,3,5,'bedroom'),R('hall','Hall',4,5,3,3,'hall'),R('bath','Bath room',0,5,4,3,'bath'),R('bed-c','Rear bed room',0,8,4,5,'bedroom'),R('bed-d','Rear bed room',4,8,3,5,'bedroom')],['hall/bed-b','bed-a/bath','hall/bath','bath/bed-c','hall/bed-d'],null,stairs(5.5,5))
+],{plinth:1.06,porch:{x:5,z:-2,width:2,depth:2},partyWalls:true,basement:'Stone cellar stated in the description; no cellar partition plan is printed.',notes:['Three main rooms below and four bedrooms above; side stair and upper bath retained.','The rounded upper front bay is approximated with a separate pair of 45-degree panels. Party-wall variants suppress side windows.']});
+// Final grid adjustments keep principal rooms separate and upper stair shafts aligned.
+{
+ const h=houses.find(h=>h.id==='grossdale-spire');h.floors[0].rooms.find(r=>r.id==='hall').polygon=R('','',5,0,3,8).polygon;h.floors[0].rooms.find(r=>r.id==='kitchen').polygon=R('','',4,8,4,3).polygon;
+ const b=houses.find(h=>h.id==='grossdale-balcony');b.floors[1].rooms.find(r=>r.id==='hall').polygon=[[5,4],[8,4],[8,9],[4,9],[4,5],[5,5]];
+ const d=houses.find(h=>h.id==='dauphin-park');d.floors[1].rooms.find(r=>r.id==='bed-a').polygon=R('','',0,0,3,3).polygon;d.floors[1].rooms.find(r=>r.id==='bed-b').polygon=R('','',3,0,4,3).polygon;d.floors[1].rooms.find(r=>r.id==='hall').polygon=[[0,3],[7,3],[7,4],[3,4],[3,6],[0,6]];
+ const c=houses.find(h=>h.id==='calumet-heights');c.floors[1].rooms.find(r=>r.id==='bath').polygon=R('','',4,7,1,1).polygon;c.floors[1].rooms.find(r=>r.id==='hall').polygon=[[4,5],[7,5],[7,8],[5,8],[5,7],[4,7]];c.floors[1].connections=c.floors[1].connections.filter(p=>p.join('/')!=='bath/bed-c');c.floors[1].connections.push(['hall','bed-c']);
+ const v=houses.find(h=>h.id==='brookdale-villa');v.floors[1].rooms.find(r=>r.id==='hall').polygon=R('','',2,5,6,3).polygon;v.floors[1].rooms.push(R('bath','Bath',0,5,2,3,'bath'));v.floors[1].connections.push(['hall','bath']);
+ const m=houses.find(h=>h.id==='monroe-row');m.floors[1].rooms.find(r=>r.id==='bath').polygon=R('','',0,6,2,2).polygon;m.floors[1].rooms.find(r=>r.id==='hall').polygon=[[0,5],[7,5],[7,8],[2,8],[2,6],[0,6]];m.floors[1].connections=[['hall','bed-a'],['hall','bed-b'],['hall','bath'],['hall','bed-c'],['hall','bed-d']];
+ const g=houses.find(h=>h.id==='grossdale-cross-gable');g.floors[0].rooms.find(r=>r.id==='hall').polygon=[[0,4],[7,4],[7,8],[3,8],[3,5],[0,5]];g.floors[0].rooms.find(r=>r.id==='dining').polygon=[[0,5],[3,5],[3,8],[0,8],[-1,7],[-1,6]];g.floors[0].entry=[1,4,2,4];
+ b.floors[1].rooms.find(r=>r.id==='bed-c').polygon=[[0,5],[4,5],[4,8],[3,8],[3,9],[0,9],[-1,8],[-1,6]];b.floors[1].rooms.find(r=>r.id==='hall').polygon=[[5,4],[8,4],[8,9],[3,9],[3,8],[4,8],[4,5],[5,5]];
+ for(const h of houses){if(h.floors[0].stairs)for(const f of h.floors.slice(1))f.stairs={...h.floors[0].stairs};}
+ for(const h of houses.filter(h=>h.mirror||h.id==='humboldt-cottage')){
+  for(const f of h.floors){for(const r of f.rooms)r.polygon=r.polygon.map(([x,z])=>[h.width-x,z]).reverse();if(f.entry)f.entry=[h.width-f.entry[2],f.entry[3],h.width-f.entry[0],f.entry[1]];}
+  if(h.id==='humboldt-cottage'&&!h.porch)h.porch={x:0,z:-1,width:2,depth:1};
+  if(h.porch)h.porch.x=h.width-h.porch.x-h.porch.width;
+  h.notes.push('The plan is mirrored where needed to match the entrance side in its exterior illustration.');
+ }
+}
+
+// Preserve the source basement levels as separate selectable interiors.
+for(const h of houses){
+ if(h.basement){
+  const split=h.basementSplit||0;
+  h.basementFloor=F('Basement',split?[R('service-a','Basement / front',0,0,h.width,split,'service'),R('service-b','Basement / rear',0,split,h.width,h.depth-split,'service')]:[R('service','Basement',0,0,h.width,h.depth,'service')],split?['service-a/service-b']:[],[1,0,2,0]);
+ }
+ // Coordinate convention: viewed from the street toward +Z, positive X is left.
+ for(const f of [...h.floors,...(h.basementFloor?[h.basementFloor]:[])]){for(const r of f.rooms)r.polygon=r.polygon.map(([x,z])=>[h.width-x,z]).reverse();if(f.entry)f.entry=[h.width-f.entry[2],f.entry[3],h.width-f.entry[0],f.entry[1]];if(f.stairs)f.stairs.x=h.width-f.stairs.x-f.stairs.width;}
+ if(h.porch)h.porch.x=h.width-h.porch.x-h.porch.width;
+ for(const field of ['spire','turret'])if(h.style[field])h.style[field][0]=h.width-h.style[field][0];
+ h.nativeContract={units:'metres',wall:[1,2,.16],door:[1,1.65,.12],lintel:[1,.35,.16],floorThickness:.12,floorSpacing:2.12,diagonalSpanMetres:Math.SQRT2,diagonalConstruction:'native 1m panels with a cut end',meshScale:[1,1,1],newVictorianSashOpening:[1,1.2],originalFarmyardWindowOpening:[1,.7]};
+ h.adaptation='New modular composition from the catalogue, not a measured reconstruction. Room sequence, major bays and facade type are sourced; one-metre plan snapping, colors, furniture, rear elevations and ornament details are artist interpretations.';
+ h.integration={status:'artist contribution candidate',requires:['Tinderbox nautilus-wall-runs-v1 consumer','interior-floor support','door and stair gameplay integration',...(h.floors.some(f=>f.rooms.some(r=>r.polygon.some((a,i)=>{const b=r.polygon[(i+1)%r.polygon.length];return a[0]!==b[0]&&a[1]!==b[1];})))?['diagonal gameplay integration in Tinderbox']:[])],nautilusImported:false};
+}
+const out=path.join(root,'assets/art/gross-housing-v1');fs.mkdirSync(path.join(out,'prefabs'),{recursive:true});
+const json=x=>JSON.stringify(x,null,2)+'\n';
+fs.writeFileSync(path.join(out,'houses.json'),json({version:1,collection:'Gross catalogue housing',sourceDate:1891,front:'negative Z',houses}));
+for(const h of houses)fs.writeFileSync(path.join(out,'prefabs',h.id+'.json'),json(h));
+const inventory=fs.readdirSync(out).filter(f=>f.endsWith('.png')).map(file=>{const b=fs.readFileSync(path.join(out,file));return{file,bytes:b.length,sha256:createHash('sha256').update(b).digest('hex'),repeatMetres:[1,1],pixelEdits:'none'};});
+fs.writeFileSync(path.join(out,'manifest.json'),json({version:1,kind:'artist-housing-contribution',source:'art/source/gross-housing-v1',houses:houses.map(h=>({id:h.id,path:'prefabs/'+h.id+'.json',leaf:h.source.leaf,floors:h.floors.length,basement:!!h.basement})),materials:inventory,reusedMaterials:[{path:'../exposition-skins-v1/brick-sienna-v1.png',repeatMetres:[2,2]},{path:'../exposition-skins-v1/roof-slate-v1.png',repeatMetres:[2,2]}],contract:houses[0].nativeContract,nautilusImported:false}));
+console.log('Wrote '+houses.length+' house prefabs, '+houses.reduce((s,h)=>s+h.floors.length+(h.basement?1:0),0)+' interior levels, '+inventory.length+' new material textures.');
