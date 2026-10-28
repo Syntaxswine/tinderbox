@@ -128,8 +128,8 @@
   "files": [
     {
       "path": "assets/art/hopkins-housing-v1/houses.json",
-      "bytes": 133937,
-      "sha256": "a15e7e25c9a3cd2b98f28065f78d2aa2a3579efb2c9001bfe70327196a46edfb"
+      "bytes": 135608,
+      "sha256": "1b3dc8520dc47e07167964a7e6201ac7aa01c21c3038a132de3af25f75d63ad9"
     },
     {
       "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-09.json",
@@ -153,8 +153,8 @@
     },
     {
       "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-13.json",
-      "bytes": 37777,
-      "sha256": "44699209e7cae2c73ed2aa09dd0f0c3a45b5b74490414a3d40162dbf829a6be9"
+      "bytes": 38171,
+      "sha256": "57be6795e061a21d3ca71c0c4ca938bc863b93f5843df72103ea7d8cbc58b5e7"
     },
     {
       "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-14.json",
@@ -163,8 +163,8 @@
     },
     {
       "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-15.json",
-      "bytes": 49859,
-      "sha256": "74cdd6b8893fba8c67d9cf00f421dedf3d75dbb1bdd488c0a95e69ea6e0e2ddd"
+      "bytes": 50257,
+      "sha256": "b3cf2b1c40b1f12c0669201107c85c48adc46b466fcc5a0afb774d1614951bdd"
     },
     {
       "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-16.json",
@@ -213,8 +213,8 @@
     },
     {
       "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-13.json",
-      "bytes": 8286,
-      "sha256": "f735ef937bf742421775cc9c7682525a0baa59877fd41da384c795ab94abcaf3"
+      "bytes": 9215,
+      "sha256": "669f3db2dcac4818d94914905f7efd0af7688bbd0caa2f2d8f55cd50db7c18d2"
     },
     {
       "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-14.json",
@@ -223,8 +223,8 @@
     },
     {
       "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json",
-      "bytes": 11447,
-      "sha256": "b04dfcd8dead9dcd5947af1b003d0bd3e061b992af5c9f013ed7a7fb6071461e"
+      "bytes": 12037,
+      "sha256": "7018c9b10036a9dda6c5c5330ed9e09f042c8374edf0f9a434fb60c55238aec2"
     },
     {
       "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-16.json",
@@ -254,6 +254,12 @@
   ],
   "assembly": [
     {
+      "path": "src/art/nautilus-windows.js",
+      "bytes": 2963,
+      "sha256": "6a7e4daf7f1ff4d5eb4a8075d5b1863986ad55f0531c41107221e7d99aadc0e1",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
       "path": "src/art/gambrel-roof.js",
       "bytes": 6452,
       "sha256": "1f215cf7edc7eefb4a0006a5081875bc591fb81ddabe981457524cde675aa0b6",
@@ -261,14 +267,14 @@
     },
     {
       "path": "src/art/hopkins-housing.js",
-      "bytes": 8233,
-      "sha256": "74cd074e4e776f44dea1aa2a16ef75264024dd9f9bc42145d27c38d97100f818",
+      "bytes": 8523,
+      "sha256": "6678cf4c5eeeb97bd2b5d6b47ebdeae6ad62682607b76b76e79731348c499d70",
       "byteRepresentation": "UTF-8 LF"
     },
     {
       "path": "src/art/gross-housing.js",
-      "bytes": 27589,
-      "sha256": "1de78796776499718866895c893782a6824df1196722e31989f825b5deb344e2",
+      "bytes": 28109,
+      "sha256": "6192c6e968ad468474f4ae14397ee9ca519b3a094e3da8e0fca917588b31760f",
       "byteRepresentation": "UTF-8 LF"
     },
     {
@@ -346,7 +352,43 @@
       "pixelEdits": "none"
     }
   ],
+  "windowKit": {
+    "import": "art/source/nautilus-windows-v1/import.json",
+    "adoption": "art/source/nautilus-windows-v1/adoption.json",
+    "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "geometryReview": "docs/art/nautilus-windows-v1/geometry-review.json",
+    "scope": "Artist placement only; traversal deferred"
+  },
+  "runtimeDependencies": [
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/index.js",
+      "bytes": 6173,
+      "sha256": "762a31f19bcb59df01d6e39f84a7df8b304d41f796bbf0a957928bbf55d29562"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js",
+      "bytes": 5433,
+      "sha256": "76020f340a25eb10acf7de9cd75fd35b099b12438fb457a8c016e6d98bd51f00"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "bytes": 4647,
+      "sha256": "2a2ad40e16533b4c30b639e907b9e5c8d967557cb65aa6f05c0c640d4bde0297"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "bytes": 1150,
+      "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb"
+    }
+  ],
   "provenance": [
+    "art/source/nautilus-windows-v1/import.json",
+    "art/source/nautilus-windows-v1/adoption.json",
     "art/source/gross-housing-v1/generation.json",
     "art/source/exposition-skins-v1/generation.json",
     "art/source/hopkins-housing-v1/sources.json",
@@ -357,11 +399,11 @@
     "houses": 12,
     "levels": 24,
     "rooms": 112,
-    "units": 1202,
+    "units": 1200,
     "diagonals": 11,
-    "meshes": 8753,
-    "vertices": 269024,
-    "nativeAttributeChecks": 1333,
+    "meshes": 8815,
+    "vertices": 277598,
+    "nativeAttributeChecks": 1329,
     "roofCoverageSamples": 792,
     "sourcePlates": 12,
     "materialHashes": 0,
@@ -382,7 +424,7 @@
       "floorSpacing": 2.12
     },
     "traces": 12,
-    "segments": 914,
+    "segments": 916,
     "apertures": 288,
     "consumerStatus": "Editor authoring feature exists on the pinned candidate. Tinderbox consumer integration and full Nautilus house intake are separate."
   },
@@ -414,13 +456,14 @@
     "centerRidgeInsteadOfNotch": true,
     "cutawayHidesEntireRoof": true,
     "disposal": true,
-    "windowRequest": "Centered two-space window deferred to the map editor; original openings remain."
+    "windowRequest": "Nautilus period sash: centered 1 m aperture in a 2 m bay from 90054d07134116a5d9661f8318a76fe68f922aad; traversal deferred.",
+    "bodyComparison": "Original native body hash after normalizing only the explicitly recorded centered-window declaration."
   },
   "sidingReview": {
     "source": "art/source/housing-siding-review/material-direction.json",
     "report": "docs/art/housing-siding-review/geometry-review.json",
     "baselineCommit": "ec77f460e539d2bf114c806ed520c0a7945edabc",
-    "geometryAndOpenings": "unchanged",
+    "geometryAndOpenings": "23 houses unchanged; Nos. 13/15 use explicitly recorded centered-window adoptions",
     "roofCovering": "unchanged"
   }
 }

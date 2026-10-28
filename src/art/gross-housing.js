@@ -1,3 +1,4 @@
+import {mergeCenteredWindowEdges,addCenteredWindow} from './nautilus-windows.js';
 import {Resources} from './resources.js';
 import {ASSET_SCALE as S} from '../content/asset-scale.js';
 
@@ -50,14 +51,14 @@ export function housePlanEdges(house,floor,{partyWalls=true}={}){
  const edges=planEdges(floor);
  if(Array.isArray(floor.windows)){
   for(const opening of floor.windows){const edge=edges.find(e=>e.id===key(opening.slice(0,2),opening.slice(2)));if(!edge||edge.rooms.length!==1||edge.opening)throw Error('Invalid declared window in '+house.id);edge.opening='window';}
-  return edges;
+  return mergeCenteredWindowEdges(edges,floor.windowBays);
  }
  for(const e of edges){
   if(e.opening||e.rooms.length!==1)continue;
   const dx=e.b[0]-e.a[0],dz=e.b[1]-e.a[1],side=!!dz&&!dx,party=house.partyWalls&&partyWalls&&side,index=Math.round((e.a[0]+e.b[0]+e.a[1]+e.b[1])/2),front=!dz&&Math.min(e.a[1],e.b[1])<=0;
   if(!party&&(dx&&dz||(front?Math.round(Math.min(e.a[0],e.b[0]))%2===0:index%3===1)))e.opening='window';
  }
- return edges;
+ return mergeCenteredWindowEdges(edges,floor.windowBays);
 }
 function bounds(p){const xs=p.map(p=>p[0]),zs=p.map(p=>p[1]);return{minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};}
 
@@ -144,7 +145,12 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true,ro
     const opening=e.opening;
     const external=m.exterior,internal=m.paper;
     if(basement){m.exterior=house.id==='ashland-worker'?m.exterior:m.stone;m.paper=m.plaster;}else if(e.rooms.length===2)m.exterior=m.paper;
-    frame(group,length,opening,basement);m.exterior=external;m.paper=internal;
+    if(e.windowProfile){
+      m.brass??=mat('Window brass','#a88a4f',null,{wall:true,roughness:.5,metalness:.45});
+      const window=addCenteredWindow(T,group,pool,e.windowProfile,{wall:m.exterior,inside:m.paper,trim:m.trim,sash:m.accent,brass:m.brass,glass:m.glass});
+      window.root.userData.windowBayId=e.windowBayId;stats.windows++;
+    }else frame(group,length,opening,basement);
+    m.exterior=external;m.paper=internal;
     if(basement&&['ashland-worker','archer-worker','humboldt-cottage'].includes(house.id)){for(const x of [-length/2,length/2])box(group,'Basement framing',.055,2,.035,x,1,-.1,m.accent);for(const yy of [.08,1,1.94])box(group,'Basement framing',length,.055,.035,0,yy,-.1,m.accent);}
     stats.wallUnits++;if(dx&&dz)stats.diagonalUnits++;
     e.presentationOpening=opening||'wall';

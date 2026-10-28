@@ -1,6 +1,6 @@
 # Hopkins small houses, first set
 
-Current finish review: [25-house siding audit](../housing-siding-review/README.md). Vertical gable/closure faces, dormer walls and tower drums match the house wall finish. Cedar/slate remain on the sloped roofs. Geometry, windows and native dimensions are unchanged.
+Current finish review: [25-house siding audit](../housing-siding-review/README.md). Vertical gable/closure faces, dormer walls and tower drums match the house wall finish. Cedar/slate remain on the sloped roofs. The [centered-window follow-up](../nautilus-windows-v1/README.md) imports the corrected 2 m Nautilus bays for Nos. 13 and 15; shared native dimensions and all roof coverings are preserved.
 
 Twelve reusable artist prefabs from D. S. Hopkins's **Houses and cottages, Book No. 4 (1891)**: designs 9-20, with twelve complete exterior assemblies, 24 furnished interior levels and 112 labeled spaces. The source exterior and floor diagrams are paired for every asset. This is the first Hopkins set; the ordered [build queue](../../../art/source/hopkins-housing-v1/build-queue.json) records the remaining books and designs.
 
@@ -34,7 +34,7 @@ The native kit takes precedence: plans snap to whole metres and two full native 
 - Wall: **1 x 2 x 0.16 m**. Door: **1 x 1.65 x 0.12 m**. Lintel: **1 x 0.35 x 0.16 m**.
 - Floor spacing: **2.12 m**, including the **0.12 m** slab. Every mesh retains scale **[1, 1, 1]**.
 - Original box positions, normals, indices and UVs remain unchanged; the separate `grossUV` channel carries physical texture coordinates. Diagonals use rotated 1 m panels and separate cut ends.
-- The already declared Victorian sash insert remains a separate **1 x 1.2 m** opening. It does not replace the original Farmyard window recipe.
+- The Victorian sash opening remains **1 x 1.2 m**. Nos. 13 and 15 use the native Nautilus period sash in a **2 m** bay, with **0.5 m** wall piers. Other window recipes retain their prior geometry.
 - Native geometry, origins and door hinges come through the same shared assembler as the Gross collection. Farmyard pin: `30a3b8cae5f36bb0c1df3685b7fba16f701c2083`. No donor files are modified.
 - Roofs, roof closures, porches, balcony and furnishings are new art forms; their shapes do not define new engine wall standards.
 
@@ -66,6 +66,7 @@ node art/source/hopkins-housing-v1/build-layouts.mjs
 node art/source/hopkins-housing-v1/build-nautilus-traces.mjs
 node workbenches/art/check-hopkins-housing.mjs
 node workbenches/art/check-hopkins-roof.mjs
+node workbenches/art/check-nautilus-windows.mjs
 node workbenches/art/check-hopkins-nautilus.mjs --nautilus-source PATH_TO_PINNED_CHECKOUT
 node art/source/hopkins-housing-v1/finalize-manifest.mjs
 node art/source/hopkins-housing-v1/export-render-scenes.mjs
@@ -77,6 +78,6 @@ The offline renderer requires Mitsuba, drjit, numpy and Pillow, installed only i
 
 ## Nautilus handoff boundary
 
-Twelve [wall-run extension fragments](../../../assets/art/hopkins-housing-v1/nautilus-traces/) validate against the immutable `nautilus-wall-runs-v1` implementation at `cc52f89de6333a1d94e2dfe45d47d1317369fac0`. There are 914 wall segments, 288 separately measured apertures and eleven diagonal cut ends. The [compatibility report](nautilus-compatibility.json) records the exact source hash and panel checks.
+Twelve [wall-run extension fragments](../../../assets/art/hopkins-housing-v1/nautilus-traces/) validate against the immutable `nautilus-wall-runs-v1` implementation at `cc52f89de6333a1d94e2dfe45d47d1317369fac0`. There are 916 wall segments, 288 separately measured apertures and fifteen cut ends (eleven diagonal ends plus four half-metre window piers). The [compatibility report](nautilus-compatibility.json) records the exact source hash and panel checks.
 
 These are portable extension fragments, not complete Nautilus map/block documents or an already imported house library. Apertures are full-height trace gaps; their metadata records native inserts, clear heights, sills and lintels separately. Roofs, floors, furniture and stairs remain in the artist prefab. Tinderbox consumer support, navigation, collisions, fire, floor traversal, door behavior and the existing bear/door fit limitation remain integration work. `nautilusImported` stays false. Only the architect promotes this artist candidate.

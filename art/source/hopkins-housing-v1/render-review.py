@@ -10,7 +10,7 @@ import mitsuba as mi
 import numpy as np
 from PIL import Image
 mi.set_variant('scalar_rgb')
-parser=argparse.ArgumentParser();parser.add_argument('--id');parser.add_argument('--exclude-id');parser.add_argument('--collection',choices=['hopkins','gross'],default='hopkins');parser.add_argument('--width',type=int,default=800);parser.add_argument('--spp',type=int,default=24);parser.add_argument('--only-exterior',action='store_true');parser.add_argument('--camera',choices=['source','front','rear','side'],default='source');parser.add_argument('--output-root',type=Path);args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--id');parser.add_argument('--exclude-id');parser.add_argument('--view',choices=['exterior','cutaway']);parser.add_argument('--level',type=int);parser.add_argument('--collection',choices=['hopkins','gross'],default='hopkins');parser.add_argument('--width',type=int,default=800);parser.add_argument('--spp',type=int,default=24);parser.add_argument('--only-exterior',action='store_true');parser.add_argument('--camera',choices=['source','front','rear','side'],default='source');parser.add_argument('--output-root',type=Path);args=parser.parse_args()
 base=ROOT/('artifacts/'+args.collection+'-renders');output_root=ROOT/args.output_root if args.output_root else base;out=output_root/'images';out.mkdir(parents=True,exist_ok=True)
 texture_cache={};results=[]
 def color_texture(m):
@@ -24,6 +24,8 @@ def color_texture(m):
 for entry in json.loads((base/'scenes/index.json').read_text(encoding='utf-8')):
  if args.id and entry['house']!=args.id:continue
  if args.exclude_id and entry['house']==args.exclude_id:continue
+ if args.view and entry['view']!=args.view:continue
+ if args.level is not None and entry['level']!=args.level:continue
  if args.only_exterior and entry['view']!='exterior':continue
  started=time.time();directory=base/'scenes'/entry['id'];data=json.loads((directory/'scene.json').read_text(encoding='utf-8'));lo=np.array(data['bounds']['min']);hi=np.array(data['bounds']['max']);target=(lo+hi)/2
  direction=np.array({'source':[-19,37 if entry['view']=='cutaway' else 16,-22],'front':[0,8,-28],'rear':[15,12,22],'side':[-28,8,0]}[args.camera],dtype=float);origin=target+direction

@@ -93,6 +93,15 @@ for(const h of houses){
  h.nativeContract={...native};h.integration={status:'artist contribution candidate',nautilusImported:false,requires:['Tinderbox nautilus-wall-runs-v1 consumer','interior-floor support','door and stair gameplay integration']};
  h.adaptation='One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes above the native courses. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors.';
  if(h.roofAssembly)h.adaptation=h.adaptation.replace('new roof envelopes above the native courses','new roof envelopes around the full upper native course; eaves, roof panels and removable clapboard gable facings are new art');
+ if([13,15].includes(h.designNumber)){
+  const f=h.floors[1],a=h.designNumber===13?[1,0]:[4,-1],b=h.designNumber===13?[3,0]:[6,-1],old=h.designNumber===13?[1,0,2,0]:[4,-1,5,-1];
+  f.windows=f.windows.filter(w=>JSON.stringify(w)!==JSON.stringify(old));
+  f.windowBays=[{id:h.id+'-upper-front',a,b,profile:'window-bay-period',sourceCommit:'90054d07134116a5d9661f8318a76fe68f922aad'}];
+  if(h.designNumber===13)h.notes.push('The chimney shaft now intersects the existing roof surface; its previously floating base was corrected during the centered-window visual review. Roof planes and silhouette are unchanged.');
+  h.integration.windowArt={source:'nautilus-window-sculpture-v1',commit:'90054d07134116a5d9661f8318a76fe68f922aad',bayWidth:2,openingWidth:1,flankWidth:.5,traversal:'deferred',scope:'Artist prefab only'};
+  h.notes=h.notes.filter(n=>!n.startsWith('The centered two-space window is deferred'));
+  h.notes.push('The upper front period sash uses the corrected Nautilus 2 m bay: 0.5 m wall + 1 m opening + 0.5 m wall. It is centered without scaling the source sculpture. Placement/traversal gameplay remains deferred.');
+ }
  h.notes.push('Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled.');
 }
 const base=path.join(root,'assets/art/hopkins-housing-v1');fs.mkdirSync(path.join(base,'prefabs'),{recursive:true});

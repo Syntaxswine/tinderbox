@@ -89,6 +89,13 @@
     "otherElevenHouses": "No model changes",
     "nautilusWallRunFragments": "No changes"
   },
-  "deferred": "The centered two-space window remains with the map-editor work requested separately by the user. Existing openings remain unchanged.",
-  "integration": "Artist prefab contribution. No engine editor tile palette, Nautilus importer, collisions or gameplay changes."
+  "deferred": "Traversal and engine editor placement remain deferred. The later art-only centered-window adoption supersedes the original window deferral.",
+  "integration": "Artist prefab contribution. No engine editor tile palette, Nautilus importer, collisions or gameplay changes.",
+  "recordScope": "Historical roof revision; preserved body hash refers to the pre-window layout. The later centered-window adoption is recorded separately.",
+  "windowFollowUp": {
+    "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "record": "art/source/nautilus-windows-v1/adoption.json",
+    "bayWidthMetres": 2,
+    "openingWidthMetres": 1
+  }
 }

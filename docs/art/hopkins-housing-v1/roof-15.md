@@ -22,12 +22,12 @@ This is a reusable artist mesh kit and prefab recipe. It does not add an editor 
 
 ## Checks
 
-- `node workbenches/art/check-hopkins-roof.mjs`: prior native-body hash preserved; 1,152 headroom rays find exactly one roof surface; 453 physical UV edge checks; three gable window apertures clear; distinct slope profiles; metre runs and cut ends; cutaway hiding and disposal pass.
-- `node workbenches/art/check-hopkins-housing.mjs`: all twelve houses, 24 levels and 112 rooms; 1,333 exact native attribute comparisons and 792 roof coverage samples pass.
-- Pinned Nautilus trace validation and the thirteen-house Gross regression pass. Other eleven Hopkins models and all twelve wall-run fragments remain unchanged.
+- `node workbenches/art/check-hopkins-roof.mjs`: prior native-body hash preserved after normalizing only the recorded centered-window declaration; 1,152 headroom rays find exactly one roof surface; 453 physical UV edge checks; three gable window apertures clear; distinct slope profiles; metre runs and cut ends; cutaway hiding and disposal pass.
+- `node workbenches/art/check-hopkins-housing.mjs`: all twelve houses, 24 levels and 112 rooms; 1,329 exact native attribute comparisons and 792 roof coverage samples pass.
+- Pinned Nautilus trace validation and the thirteen-house Gross regression pass. The current follow-up adopts centered windows in Nos. 13 and 15 and updates their two wall-run fragments; the other ten Hopkins models are unchanged.
 - Full repository tests, build and package hashes are recorded in [package-review.json](package-review.json). Saved exterior, front and rear images use the actual exported meshes and unchanged textures in Mitsuba scalar_rgb. Browser GPU review remains unavailable on this host; the static gallery is reviewed separately.
 
-Wall 1 x 2 x 0.16 m; door 1 x 1.65 x 0.12 m; floor pitch 2.12 m; mesh scale [1, 1, 1]. Floor plans, furnishings and opening positions are unchanged. **The centered two-space window is deferred to the user's separate map-editor request.**
+Wall 1 x 2 x 0.16 m; door 1 x 1.65 x 0.12 m; floor pitch 2.12 m; mesh scale [1, 1, 1]. Room plans and furnishings are unchanged. The front upper sash now uses the corrected Nautilus **2 m bay: 0.5 m wall + 1 m window + 0.5 m wall**, centered at x=5 on the 2 m front face. See [window import and checks](../nautilus-windows-v1/README.md). Placement/traversal gameplay remains deferred.
 
 Reproduce the selected exterior and review angles after exporting `--id hopkins-4-15`:
 

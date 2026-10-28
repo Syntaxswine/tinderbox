@@ -22,7 +22,11 @@ for(const file of code){
   assert(check.status===0,'Syntax failure '+file+'\n'+check.stderr);
   const text=fs.readFileSync(file,'utf8');
   if(file.includes(path.join('src','art'))){
-    assert(!/(?:from|import)\s*['"][^'"]*three[^'"]*['"]/.test(text),'Production art imported a second THREE instance');
+    // Nautilus names its host-injected renderer "three.js"; it does not import Three.
+    // Permit only this pinned adapter. Direct engine imports remain forbidden here,
+    // and tools/check.mjs verifies the complete graph has exactly one Three pair.
+    const injectedRenderer='../../vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js';
+    for(const dependency of text.matchAll(/(?:from|import)\s*['"]([^'"]*three[^'"]*)['"]/g))assert(dependency[1]===injectedRenderer,'Production art imported a second THREE instance: '+dependency[1]);
     assert(!/Tactical Animal|C:\\|https?:\/\//.test(text),'External runtime dependency in '+file);
   }
   for(const match of text.matchAll(/(?:from\s*|import\s*)['"](\.[^'"]+)['"]/g)){

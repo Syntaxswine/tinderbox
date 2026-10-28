@@ -10,9 +10,9 @@ The No. 15 material issue also appeared in eleven other Hopkins houses and twelv
 
 This follows artist candidate `ec77f460e539d2bf114c806ed520c0a7945edabc`. [The captured baseline](baseline.json) fingerprints every prefab JSON, mesh attribute, transform, UV channel and roof material binding before the correction. [Art direction and source registers](../../../art/source/housing-siding-review/material-direction.json) distinguish the user's current finish choice from the unchanged historical source scans. No new raster textures were generated or edited.
 
-All 25 prefabs and all geometry/UV fingerprints match that baseline. All 25 roof-covering fingerprints and six texture-file hashes also match. The audit checks 1,058 vertical enclosure triangles. No vertical enclosure retains a roof texture. The 48 tiny vertical faces on No. 15's ridge/break caps remain correctly assigned as roof trim.
+The original siding correction preserved all 25 prefabs and geometry/UV fingerprints. The subsequent [centered-window adoption](../nautilus-windows-v1/README.md) deliberately changes Nos. 13 and 15; the other 23 still match that baseline. All 25 roof-covering fingerprints and six texture-file hashes also match. The audit checks 1,060 vertical enclosure triangles in the current meshes. No vertical enclosure retains a roof texture. The 48 tiny vertical faces on No. 15's ridge/break caps remain correctly assigned as roof trim.
 
-Walls remain 1 x 2 x 0.16 m; doors 1 x 1.65 x 0.12 m; floor pitch 2.12 m; every mesh scale remains [1, 1, 1]. Room plans, windows, hinges, diagonal cut ends and Nautilus wall-run fragments are unchanged. This task does not alter physics, fire, collisions, imports or gameplay. The user will handle the new Nautilus window discussion/import; Nos. 13 and 15 retain their existing windows.
+Walls remain 1 x 2 x 0.16 m; doors 1 x 1.65 x 0.12 m; floor pitch 2.12 m; every mesh scale remains [1, 1, 1]. Room/door/stair plans and hinges are preserved. The window follow-up replaces two off-center upper sashes with corrected Nautilus period bays and updates those two trace fragments. No. 13’s chimney is seated into its existing rear roof. Physics, fire, collisions and traversal remain outside these art changes.
 
 ## Changes and checks
 

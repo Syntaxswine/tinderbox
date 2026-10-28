@@ -1,0 +1,866 @@
+{
+  "commit": "14d18d7de667c7b83955150313347e198869f5ee",
+  "houses": {
+    "hopkins-4-13": {
+      "floors": [
+        {
+          "label": "First floor",
+          "rooms": [
+            {
+              "id": "bed-a",
+              "label": "Chamber",
+              "type": "bedroom",
+              "polygon": [
+                [
+                  8,
+                  4
+                ],
+                [
+                  5,
+                  4
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  8,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "living",
+              "label": "Living room",
+              "type": "sitting",
+              "polygon": [
+                [
+                  5,
+                  4
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "closet",
+              "label": "Closet",
+              "type": "pantry",
+              "polygon": [
+                [
+                  7,
+                  6
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  7,
+                  4
+                ]
+              ]
+            },
+            {
+              "id": "pantry",
+              "label": "Pantry",
+              "type": "pantry",
+              "polygon": [
+                [
+                  7,
+                  8
+                ],
+                [
+                  6,
+                  8
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  7,
+                  6
+                ]
+              ]
+            },
+            {
+              "id": "kitchen",
+              "label": "Kitchen",
+              "type": "kitchen",
+              "polygon": [
+                [
+                  6,
+                  8
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  6,
+                  4
+                ]
+              ]
+            },
+            {
+              "id": "hall",
+              "label": "Stair passage",
+              "type": "hall",
+              "polygon": [
+                [
+                  2,
+                  8
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  1,
+                  4
+                ],
+                [
+                  2,
+                  4
+                ]
+              ]
+            }
+          ],
+          "connections": [
+            [
+              "bed-a",
+              "living"
+            ],
+            [
+              "living",
+              "kitchen"
+            ],
+            [
+              "living",
+              "hall"
+            ],
+            [
+              "kitchen",
+              "hall"
+            ],
+            [
+              "kitchen",
+              "closet"
+            ],
+            [
+              "kitchen",
+              "pantry"
+            ]
+          ],
+          "entry": [
+            3,
+            0,
+            4,
+            0
+          ],
+          "stairs": {
+            "x": 1,
+            "z": 4,
+            "width": 1,
+            "run": 3,
+            "rise": 2.12
+          },
+          "windows": [
+            [
+              6,
+              0,
+              7,
+              0
+            ],
+            [
+              8,
+              1,
+              8,
+              2
+            ],
+            [
+              1,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              3,
+              0,
+              2
+            ],
+            [
+              5,
+              8,
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "label": "Second floor",
+          "rooms": [
+            {
+              "id": "bed-b",
+              "label": "Chamber",
+              "type": "bedroom",
+              "polygon": [
+                [
+                  8,
+                  4
+                ],
+                [
+                  5,
+                  4
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  8,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "bed-c",
+              "label": "Chamber",
+              "type": "bedroom",
+              "polygon": [
+                [
+                  4,
+                  4
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "hall",
+              "label": "Landing",
+              "type": "hall",
+              "polygon": [
+                [
+                  5,
+                  7
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ]
+              ]
+            }
+          ],
+          "connections": [
+            [
+              "hall",
+              "bed-b"
+            ],
+            [
+              "hall",
+              "bed-c"
+            ]
+          ],
+          "entry": null,
+          "stairs": {
+            "x": 1,
+            "z": 4,
+            "width": 1,
+            "run": 3,
+            "rise": 2.12
+          },
+          "windows": [
+            [
+              6,
+              0,
+              7,
+              0
+            ],
+            [
+              7,
+              4,
+              6,
+              4
+            ],
+            [
+              8,
+              1,
+              8,
+              2
+            ],
+            [
+              1,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              3,
+              0,
+              2
+            ]
+          ]
+        }
+      ],
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "source": {
+        "book": 4,
+        "date": 1891,
+        "leaf": 24,
+        "scanNumber": 25,
+        "printedPage": null,
+        "descriptionPrintedPage": 22,
+        "descriptionLeaf": 23,
+        "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n24/mode/1up",
+        "plate": "../../../art/source/hopkins-housing-v1/plates/n24.jpg",
+        "type": "Published pattern-book design; no as-built survey"
+      },
+      "width": 8,
+      "depth": 8,
+      "plinth": 0.48
+    },
+    "hopkins-4-15": {
+      "floors": [
+        {
+          "label": "First floor",
+          "rooms": [
+            {
+              "id": "living",
+              "label": "Living room",
+              "type": "sitting",
+              "polygon": [
+                [
+                  10,
+                  6
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  0
+                ],
+                [
+                  10,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "dining",
+              "label": "Dining end",
+              "type": "dining",
+              "polygon": [
+                [
+                  10,
+                  10
+                ],
+                [
+                  6,
+                  10
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  10,
+                  6
+                ]
+              ]
+            },
+            {
+              "id": "hall",
+              "label": "Stair hall",
+              "type": "hall",
+              "polygon": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  4,
+                  7
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  6,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "parlor",
+              "label": "Parlor",
+              "type": "parlor",
+              "polygon": [
+                [
+                  4,
+                  5
+                ],
+                [
+                  0,
+                  5
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "kitchen",
+              "label": "Kitchen",
+              "type": "kitchen",
+              "polygon": [
+                [
+                  4,
+                  10
+                ],
+                [
+                  0,
+                  10
+                ],
+                [
+                  0,
+                  5
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            },
+            {
+              "id": "pantry",
+              "label": "Pantry",
+              "type": "pantry",
+              "polygon": [
+                [
+                  6,
+                  10
+                ],
+                [
+                  4,
+                  10
+                ],
+                [
+                  4,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ]
+              ]
+            }
+          ],
+          "connections": [
+            [
+              "hall",
+              "living"
+            ],
+            [
+              "living",
+              "dining"
+            ],
+            [
+              "hall",
+              "parlor"
+            ],
+            [
+              "hall",
+              "kitchen"
+            ],
+            [
+              "hall",
+              "pantry"
+            ],
+            [
+              "dining",
+              "pantry"
+            ],
+            [
+              "pantry",
+              "kitchen"
+            ],
+            [
+              "parlor",
+              "kitchen"
+            ]
+          ],
+          "entry": [
+            5,
+            0,
+            6,
+            0
+          ],
+          "stairs": {
+            "x": 5,
+            "z": 4,
+            "width": 1,
+            "run": 3,
+            "rise": 2.12
+          },
+          "openConnections": [
+            [
+              "living",
+              "dining"
+            ]
+          ],
+          "windows": [
+            [
+              7,
+              0,
+              8,
+              0
+            ],
+            [
+              10,
+              2,
+              10,
+              3
+            ],
+            [
+              9,
+              10,
+              8,
+              10
+            ],
+            [
+              10,
+              7,
+              10,
+              8
+            ],
+            [
+              1,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              3,
+              0,
+              2
+            ],
+            [
+              0,
+              8,
+              0,
+              7
+            ],
+            [
+              3,
+              10,
+              2,
+              10
+            ]
+          ]
+        },
+        {
+          "label": "Second floor",
+          "rooms": [
+            {
+              "id": "bed-a",
+              "label": "Chamber",
+              "type": "bedroom",
+              "polygon": [
+                [
+                  10,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  0
+                ],
+                [
+                  10,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "bed-b",
+              "label": "Chamber",
+              "type": "bedroom",
+              "polygon": [
+                [
+                  4,
+                  7
+                ],
+                [
+                  0,
+                  7
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "bed-c",
+              "label": "Front chamber",
+              "type": "bedroom",
+              "polygon": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  4,
+                  -1
+                ],
+                [
+                  6,
+                  -1
+                ]
+              ]
+            },
+            {
+              "id": "hall",
+              "label": "Landing",
+              "type": "hall",
+              "polygon": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  4,
+                  7
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ]
+              ]
+            }
+          ],
+          "connections": [
+            [
+              "hall",
+              "bed-a"
+            ],
+            [
+              "hall",
+              "bed-b"
+            ],
+            [
+              "hall",
+              "bed-c"
+            ]
+          ],
+          "entry": null,
+          "stairs": {
+            "x": 5,
+            "z": 4,
+            "width": 1,
+            "run": 3,
+            "rise": 2.12
+          },
+          "windows": [
+            [
+              7,
+              0,
+              8,
+              0
+            ],
+            [
+              9,
+              7,
+              8,
+              7
+            ],
+            [
+              10,
+              3,
+              10,
+              4
+            ],
+            [
+              1,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              4,
+              0,
+              3
+            ],
+            [
+              3,
+              7,
+              2,
+              7
+            ],
+            [
+              4,
+              -1,
+              5,
+              -1
+            ]
+          ]
+        }
+      ],
+      "nativeContract": {
+        "units": "metres",
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "lintel": [
+          1,
+          0.35,
+          0.16
+        ],
+        "floorThickness": 0.12,
+        "floorSpacing": 2.12,
+        "diagonalConstruction": "native 1m panels with a cut end",
+        "meshScale": [
+          1,
+          1,
+          1
+        ],
+        "newVictorianSashOpening": [
+          1,
+          1.2
+        ],
+        "originalFarmyardWindowOpening": [
+          1,
+          0.7
+        ]
+      },
+      "source": {
+        "book": 4,
+        "date": 1891,
+        "leaf": 26,
+        "scanNumber": 27,
+        "printedPage": null,
+        "descriptionPrintedPage": 24,
+        "descriptionLeaf": 25,
+        "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n26/mode/1up",
+        "plate": "../../../art/source/hopkins-housing-v1/plates/n26.jpg",
+        "type": "Published pattern-book design; no as-built survey"
+      },
+      "width": 10,
+      "depth": 10,
+      "plinth": 0.48
+    }
+  }
+}

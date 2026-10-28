@@ -348,8 +348,8 @@
   ],
   "assembly": {
     "path": "src/art/gross-housing.js",
-    "bytes": 27589,
-    "sha256": "1de78796776499718866895c893782a6824df1196722e31989f825b5deb344e2"
+    "bytes": 28109,
+    "sha256": "6192c6e968ad468474f4ae14397ee9ca519b3a094e3da8e0fca917588b31760f"
   },
   "nautilusContract": {
     "repository": "https://github.com/Syntaxswine/nautilus-engine",
@@ -391,5 +391,38 @@
     "baselineCommit": "ec77f460e539d2bf114c806ed520c0a7945edabc",
     "geometryAndOpenings": "unchanged",
     "roofCovering": "unchanged"
-  }
+  },
+  "runtimeDependencies": [
+    {
+      "path": "src/art/nautilus-windows.js",
+      "bytes": 2963,
+      "sha256": "6a7e4daf7f1ff4d5eb4a8075d5b1863986ad55f0531c41107221e7d99aadc0e1"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/index.js",
+      "bytes": 6173,
+      "sha256": "762a31f19bcb59df01d6e39f84a7df8b304d41f796bbf0a957928bbf55d29562"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js",
+      "bytes": 5433,
+      "sha256": "76020f340a25eb10acf7de9cd75fd35b099b12438fb457a8c016e6d98bd51f00"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "bytes": 4647,
+      "sha256": "2a2ad40e16533b4c30b639e907b9e5c8d967557cb65aa6f05c0c640d4bde0297"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "bytes": 1150,
+      "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb"
+    }
+  ],
+  "windowDependency": "Shared assembler imports the pinned Nautilus adapter; no Gross house opts into its centered bay."
 }

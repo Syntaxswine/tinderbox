@@ -1800,9 +1800,29 @@
         "sourceEdge": "4,-1|4,0"
       },
       {
-        "id": "hopkins-4-15:L1:W48",
+        "id": "hopkins-4-15:L1:W47:a",
         "a": [
-          12,
+          11,
+          6
+        ],
+        "b": [
+          11.5,
+          6
+        ],
+        "z": 1,
+        "stories": 1,
+        "material": "wood",
+        "sourceAssetId": "hopkins-4-15",
+        "sourceFloorIndex": 1,
+        "sourceRoomIds": [
+          "bed-c"
+        ],
+        "sourceEdge": "4,-1|6,-1"
+      },
+      {
+        "id": "hopkins-4-15:L1:W47:b",
+        "a": [
+          12.5,
           6
         ],
         "b": [
@@ -1817,10 +1837,10 @@
         "sourceRoomIds": [
           "bed-c"
         ],
-        "sourceEdge": "5,-1|6,-1"
+        "sourceEdge": "4,-1|6,-1"
       },
       {
-        "id": "hopkins-4-15:L1:W49",
+        "id": "hopkins-4-15:L1:W48",
         "a": [
           13,
           6
@@ -1840,7 +1860,7 @@
         "sourceEdge": "6,-1|6,0"
       },
       {
-        "id": "hopkins-4-15:L1:W50",
+        "id": "hopkins-4-15:L1:W49",
         "a": [
           13,
           14
@@ -1860,7 +1880,7 @@
         "sourceEdge": "5,7|6,7"
       },
       {
-        "id": "hopkins-4-15:L1:W51",
+        "id": "hopkins-4-15:L1:W50",
         "a": [
           12,
           14
@@ -2507,11 +2527,11 @@
       {
         "id": "hopkins-4-15:L1:O47",
         "a": [
-          11,
+          11.5,
           6
         ],
         "b": [
-          12,
+          12.5,
           6
         ],
         "z": 1,
@@ -2523,7 +2543,7 @@
         "sourceRoomIds": [
           "bed-c"
         ],
-        "sourceEdge": "4,-1|5,-1"
+        "sourceEdge": "4,-1|6,-1"
       }
     ],
     "sourceContract": {

@@ -128,12 +128,12 @@
     {
       "id": "hopkins-4-13-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-13-exterior-0.png",
-      "width": 800,
-      "height": 600,
+      "width": 1200,
+      "height": 900,
       "camera": "source",
-      "samplesPerPixel": 48,
-      "seconds": 2.584,
-      "triangles": 9342
+      "samplesPerPixel": 64,
+      "seconds": 6.772,
+      "triangles": 10706
     },
     {
       "id": "hopkins-4-13-cutaway-0",
@@ -148,12 +148,12 @@
     {
       "id": "hopkins-4-13-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-13-cutaway-1.png",
-      "seconds": 1.613,
-      "triangles": 2625,
-      "samplesPerPixel": 32,
-      "width": 800,
-      "height": 600,
-      "camera": "source"
+      "width": 1000,
+      "height": 750,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 3.485,
+      "triangles": 3209
     },
     {
       "id": "hopkins-4-14-exterior-0",
@@ -192,8 +192,8 @@
       "height": 900,
       "camera": "source",
       "samplesPerPixel": 64,
-      "seconds": 7.87,
-      "triangles": 11829
+      "seconds": 8.18,
+      "triangles": 13195
     },
     {
       "id": "hopkins-4-15-cutaway-0",
@@ -208,12 +208,12 @@
     {
       "id": "hopkins-4-15-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-15-cutaway-1.png",
-      "seconds": 1.777,
-      "triangles": 3578,
-      "samplesPerPixel": 32,
-      "width": 800,
-      "height": 600,
-      "camera": "source"
+      "width": 1000,
+      "height": 750,
+      "camera": "source",
+      "samplesPerPixel": 48,
+      "seconds": 3.414,
+      "triangles": 4162
     },
     {
       "id": "hopkins-4-16-exterior-0",
@@ -369,7 +369,7 @@
   "limits": "Actual exported geometry, material tints, shared source texture bytes and Three cut planes; diffuse path tracing substitutes for WebGL shaders. WebGL review remains unavailable on this host.",
   "imageCount": 36,
   "passed": true,
-  "visualReview": "Inspected all twelve exteriors after matching vertical gable/closure faces to the house clapboard. No. 15 exterior and all 24 interior cutaways remain unchanged from the prior review. Roof coverings and geometry are unchanged across all twelve.",
+  "visualReview": "Inspected updated Nos. 13/15 exteriors, front/rear No. 15 views and both upper cutaways. Period sashes are centered; half-metre piers align with the clapboard; the No. 15 gable facing leaves the window clear; No. 13 chimney is seated in its rear roof. Other collection views retain prior reviewed geometry (two exterior and two upper-cutaway images refreshed; 32 retained).",
   "roof15Revision": {
     "geometryReport": "roof-15-geometry-review.json",
     "sourceDecisions": "art/source/hopkins-housing-v1/roof-15.json",
@@ -381,8 +381,8 @@
         "height": 750,
         "camera": "front",
         "samplesPerPixel": 48,
-        "seconds": 4.988,
-        "triangles": 11829
+        "seconds": 4.538,
+        "triangles": 13195
       },
       {
         "id": "hopkins-4-15-exterior-0-rear",
@@ -391,11 +391,12 @@
         "height": 750,
         "camera": "rear",
         "samplesPerPixel": 48,
-        "seconds": 4.774,
-        "triangles": 11829
+        "seconds": 4.153,
+        "triangles": 13195
       }
     ]
   },
-  "reviewedAt": "2026-10-28T16:31:07.261663+00:00",
+  "reviewedAt": "2026-10-28T18:20:41.053271+00:00",
+  "windowAdoption": "docs/art/nautilus-windows-v1/README.md",
   "sidingReview": "docs/art/housing-siding-review/geometry-review.json"
 }
