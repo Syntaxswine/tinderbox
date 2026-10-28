@@ -3,8 +3,8 @@ import {ASSET_SCALE as S} from '../content/asset-scale.js';
 
 export const GROSS_HOUSING_URL=new URL('../../assets/art/gross-housing-v1/houses.json',import.meta.url).href;
 const textureFiles={clapboard:'gross-housing-v1/clapboard-ivory-v1.png',cedar:'gross-housing-v1/cedar-shingles-v1.png',oak:'gross-housing-v1/floorboards-oak-v1.png',paper:'gross-housing-v1/wallpaper-botanical-v1.png',brick:'exposition-skins-v1/brick-sienna-v1.png',slate:'exposition-skins-v1/roof-slate-v1.png'};
-export async function loadGrossHousing(T,{renderer}={}){
-  const response=await fetch(GROSS_HOUSING_URL);if(!response.ok)throw Error('Housing catalogue '+response.status);
+export async function loadGrossHousing(T,{renderer,catalogueUrl=GROSS_HOUSING_URL}={}){
+  const response=await fetch(catalogueUrl);if(!response.ok)throw Error('Housing catalogue '+response.status);
   const catalogue=await response.json(),pool=new Resources(),textures={};
   try{const loads=await Promise.allSettled(Object.entries(textureFiles).map(async([id,file])=>{
     const texture=pool.texture(await new T.TextureLoader().loadAsync(new URL('../../assets/art/'+file,import.meta.url).href));
@@ -40,7 +40,7 @@ export function planEdges(floor){
     if(!candidates.length)throw Error('Unconnected plan rooms '+floor.label+': '+pair.join('/'));
     const center=candidates.reduce((s,e)=>[s[0]+(e.a[0]+e.b[0])/2,s[1]+(e.a[1]+e.b[1])/2],[0,0]).map(x=>x/candidates.length);
     candidates.sort((a,b)=>Math.hypot((a.a[0]+a.b[0])/2-center[0],(a.a[1]+a.b[1])/2-center[1])-Math.hypot((b.a[0]+b.b[0])/2-center[0],(b.a[1]+b.b[1])/2-center[1]));
-    candidates[0].opening='door';
+    if(floor.openConnections?.some(other=>pair.every(id=>other.includes(id))))for(const edge of candidates)edge.opening='arch';else candidates[0].opening='door';
   }
   if(floor.entry){const e=edges.get(key(floor.entry.slice(0,2),floor.entry.slice(2)));if(!e||e.rooms.length!==1)throw Error('Entry must be an exterior unit edge');e.opening='entry';}
   for(const e of edges.values())if(e.rooms.length>2)throw Error('Overlapping wall ownership '+e.id);
@@ -48,6 +48,10 @@ export function planEdges(floor){
 }
 export function housePlanEdges(house,floor,{partyWalls=true}={}){
  const edges=planEdges(floor);
+ if(Array.isArray(floor.windows)){
+  for(const opening of floor.windows){const edge=edges.find(e=>e.id===key(opening.slice(0,2),opening.slice(2)));if(!edge||edge.rooms.length!==1||edge.opening)throw Error('Invalid declared window in '+house.id);edge.opening='window';}
+  return edges;
+ }
  for(const e of edges){
   if(e.opening||e.rooms.length!==1)continue;
   const dx=e.b[0]-e.a[0],dz=e.b[1]-e.a[1],side=!!dz&&!dx,party=house.partyWalls&&partyWalls&&side,index=Math.round((e.a[0]+e.b[0]+e.a[1]+e.b[1])/2),front=!dz&&Math.min(e.a[1],e.b[1])<=0;
@@ -59,7 +63,7 @@ function bounds(p){const xs=p.map(p=>p[0]),zs=p.map(p=>p[1]);return{minX:Math.mi
 
 // This is a visual asset assembler. It does not compile gameplay walls, collision,
 // navigation, stairs or fire. Diagonal meshes are newly declared art pieces.
-export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true}={}){
+export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true,roofBuilder=null}={}){
   const house=library.catalogue.houses.find(h=>h.id===id);if(!house)throw Error('Unknown Gross house '+id);
   const pool=new Resources(),root=new T.Group(),geometryCache=new Map(),wallMaterials=[],levelRecords=[];
   root.name='Gross housing: '+id;root.userData={assetId:id,artistPrefab:true,nativeContract:house.nativeContract,integration:house.integration};
@@ -116,11 +120,12 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true}={
       for(const y of [sillHeight-.04,centerY,1.59])box(parent,'Sash rail',1.13,.055,.23,0,y,0,m.trim);
       box(parent,'Sash mullion',.035,openingHeight+.03,.12,0,centerY,-.055,m.accent);
       box(parent,'Window apron',1.18,.095,.22,0,sillHeight-.11,-.03,m.trim);stats.windows++;
-    }else if(kind==='door'||kind==='entry'){
+    }else if(kind==='door'||kind==='entry'||kind==='arch'){
       box(parent,'Native door lintel',1,S.wallHeight-S.doorHeight,S.wallThickness,0,(S.wallHeight+S.doorHeight)/2,0,[m.trim,m.trim,m.trim,m.trim,m.paper,m.exterior]);
       if(length>1){const w=(length-1)/2;for(const sign of [-1,1])box(parent,'Nautilus cut door pier',w,S.wallHeight,S.wallThickness,sign*(.5+w/2),S.wallHeight/2,0,m.exterior);}
       for(const sign of [-1,1])box(parent,'Door casing',.065,1.74,.21,sign*.54,.87,0,m.trim);
       box(parent,'Door header',1.14,.08,.21,0,1.72,0,m.trim);
+      if(kind==='arch')return;
       const hinge=new T.Group();hinge.position.x=-.5;parent.add(hinge);if(kind==='door')hinge.rotation.y=Math.PI*.42;
       const leaf=box(hinge,'Native closed-door leaf',S.doorWidth,S.doorHeight,S.doorThickness,.5,S.doorHeight/2,0,m.accent);leaf.userData.sourceAsset='roomBoxes:Closed door';
       for(const y of [.35,1.12])box(hinge,'Raised door panel',.74,.49,.025,.5,y,-.073,m.doorWood);
@@ -215,6 +220,7 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true}={
     for(const x of [x0,x1])line(parent,'Eaves fascia',[x,y,z0],[x,y,z1],.11,m.trim);
   }
   const roofs=new T.Group();roofs.name='Removable roofs';root.add(roofs);
+  if(!roofBuilder){
   const roofHeight=house.style.form==='row'?1:Math.min(2.1,house.width*.24);
   const rearStart=house.style.turret?5:0;
   roof(roofs,house.width/2,(house.depth+rearStart)/2,house.width+.5,house.depth-rearStart+.5,top+.08,roofHeight,house.style.form==='hip'?'hip':'gable');
@@ -248,6 +254,7 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true}={
     for(let i=0;i<16;i++){const a=i*Math.PI/16,b=(i+1)*Math.PI/16;line(roofs,'Fanlight arch',[cx+Math.cos(a)*.55,y+.45+Math.sin(a)*.55,z-.08],[cx+Math.cos(b)*.55,y+.45+Math.sin(b)*.55,z-.08],.06,m.trim);}
     for(const a of [Math.PI/4,Math.PI/2,Math.PI*3/4])line(roofs,'Fanlight radial bar',[cx,y+.45,z-.1],[cx+Math.cos(a)*.5,y+.45+Math.sin(a)*.5,z-.1],.025,m.trim);
   }
+  }
   function porch(){
     const p=house.porch;if(!p)return;const y=house.plinth;
     box(ornament,'Porch deck',p.width,.12,p.depth,p.x+p.width/2,y-.06,p.z+p.depth/2,m.floor);
@@ -265,8 +272,9 @@ export function createGrossHouse(T,library,id,{furnished=true,partyWalls=true}={
     const n=Math.max(3,Math.ceil(y/.18)),run=n*.22;
     for(let i=0;i<n;i++){const h=y*(i+1)/n;box(ornament,'New entry stair',1.16,h,.22,entryX,h/2,p.z-run+(i+.5)*.22,m.earth);}
     for(const side of [-.61,.61])line(ornament,'Entry stair rail',[entryX+side,.75,p.z-run],[entryX+side,y+.75,p.z],.055,m.accent);
-    if(!stoop)roof(roofs,p.x+p.width/2,p.z+p.depth/2,p.width+.35,p.depth+.35,y+2.02,.35,'hip');
+    if(!stoop&&!roofBuilder)roof(roofs,p.x+p.width/2,p.z+p.depth/2,p.width+.35,p.depth+.35,y+2.02,.35,'hip');
   }porch();
+  if(roofBuilder)roofBuilder({roof,box,line,cylinder,project,pool,roofs,ornament,materials:m,top,house});
   if(house.style.balcony&&house.porch){const p=house.porch;for(let x=p.x+.1;x<p.x+p.width;x+=.3)box(roofs,'Balcony baluster',.05,.55,.05,x,house.plinth+2.38,p.z+.1,m.trim);box(roofs,'Balcony top rail',p.width,.07,.08,p.x+p.width/2,house.plinth+2.66,p.z+.1,m.trim);}
   function setView({view='exterior',level=0,showFurniture=true}={}){
     if(closed)return;mode=view;selected=level;const cut=view==='cutaway';

@@ -1,0 +1,464 @@
+{
+  "id": "hopkins-4-13",
+  "designNumber": 13,
+  "label": "No. 13 / Laborers cottage",
+  "source": {
+    "book": 4,
+    "date": 1891,
+    "leaf": 24,
+    "scanNumber": 25,
+    "printedPage": null,
+    "descriptionPrintedPage": 22,
+    "descriptionLeaf": 23,
+    "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n24/mode/1up",
+    "plate": "../../../art/source/hopkins-housing-v1/plates/n24.jpg",
+    "type": "Published pattern-book design; no as-built survey"
+  },
+  "sourceDimensions": {
+    "overallFeet": [
+      25,
+      26
+    ],
+    "qualifier": "Published overall; see description for porch inclusion.",
+    "floorHeightsFeet": [
+      9,
+      7.5
+    ]
+  },
+  "width": 8,
+  "depth": 8,
+  "plinth": 0.48,
+  "style": {
+    "wall": "clapboard",
+    "color": "#d5cdb4",
+    "trim": "#eee3cb",
+    "accent": "#665648",
+    "roof": "cedar",
+    "form": "custom"
+  },
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "bed-a",
+          "label": "Chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              8,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "living",
+          "label": "Living room",
+          "type": "sitting",
+          "polygon": [
+            [
+              5,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "closet",
+          "label": "Closet",
+          "type": "pantry",
+          "polygon": [
+            [
+              7,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "pantry",
+          "label": "Pantry",
+          "type": "pantry",
+          "polygon": [
+            [
+              7,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              6,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Stair passage",
+          "type": "hall",
+          "polygon": [
+            [
+              2,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "bed-a",
+          "living"
+        ],
+        [
+          "living",
+          "kitchen"
+        ],
+        [
+          "living",
+          "hall"
+        ],
+        [
+          "kitchen",
+          "hall"
+        ],
+        [
+          "kitchen",
+          "closet"
+        ],
+        [
+          "kitchen",
+          "pantry"
+        ]
+      ],
+      "entry": [
+        3,
+        0,
+        4,
+        0
+      ],
+      "stairs": {
+        "x": 1,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          6,
+          0,
+          7,
+          0
+        ],
+        [
+          8,
+          1,
+          8,
+          2
+        ],
+        [
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          5,
+          8,
+          4,
+          8
+        ]
+      ]
+    },
+    {
+      "label": "Second floor",
+      "rooms": [
+        {
+          "id": "bed-b",
+          "label": "Chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              8,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-c",
+          "label": "Chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              4,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Landing",
+          "type": "hall",
+          "polygon": [
+            [
+              5,
+              7
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-b"
+        ],
+        [
+          "hall",
+          "bed-c"
+        ]
+      ],
+      "entry": null,
+      "stairs": {
+        "x": 1,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          6,
+          0,
+          7,
+          0
+        ],
+        [
+          7,
+          4,
+          6,
+          4
+        ],
+        [
+          8,
+          1,
+          8,
+          2
+        ],
+        [
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          2
+        ]
+      ]
+    }
+  ],
+  "porch": {
+    "x": 2,
+    "z": -1,
+    "width": 3,
+    "depth": 1
+  },
+  "roofPieces": [
+    {
+      "x": 4,
+      "z": 2,
+      "width": 8.5,
+      "depth": 4.5,
+      "axis": "x",
+      "base": 4.12,
+      "rise": 1.7,
+      "form": "gable"
+    },
+    {
+      "x": 3.5,
+      "z": 5.5,
+      "width": 5.5,
+      "depth": 3.5,
+      "axis": "z",
+      "base": 4.12,
+      "rise": 1.7,
+      "form": "gable"
+    }
+  ],
+  "notes": [
+    "Published as a laborers cottage costing $450-$575 in 1891; the printed 25 x 26 ft overall is visually verified.",
+    "One lower chamber and two upper chambers retained; the tiny stair landing is enlarged to fit the shared flight.",
+    "Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled."
+  ],
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "integration": {
+    "status": "artist contribution candidate",
+    "nautilusImported": false,
+    "requires": [
+      "Tinderbox nautilus-wall-runs-v1 consumer",
+      "interior-floor support",
+      "door and stair gameplay integration"
+    ]
+  },
+  "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes above the native courses. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
+}

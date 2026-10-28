@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(fileURLToPath(new URL('../../../',import.meta.url))),base=path.join(root,'assets/art/hopkins-housing-v1');
+const read=f=>JSON.parse(fs.readFileSync(path.join(root,f),'utf8'));
+const hash=(relative,text=false)=>{let bytes=fs.readFileSync(path.join(root,relative));if(text)bytes=Buffer.from(bytes.toString('utf8').replace(/\r\n/g,'\n'));return{path:relative,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),...(text?{byteRepresentation:'UTF-8 LF'}:{})};};
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).filter(e=>!e.name.startsWith('.')).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
+const manifest=read('assets/art/hopkins-housing-v1/manifest.json');
+manifest.files=walk(base).filter(f=>!f.endsWith('manifest.json')).map(f=>hash(path.relative(root,f).split(path.sep).join('/')));
+manifest.assembly=['src/art/hopkins-housing.js','src/art/gross-housing.js','src/art/resources.js','src/content/asset-scale.js'].map(file=>hash(file,true));
+manifest.reusedMaterials=['gross-housing-v1/clapboard-ivory-v1.png','gross-housing-v1/cedar-shingles-v1.png','gross-housing-v1/floorboards-oak-v1.png','gross-housing-v1/wallpaper-botanical-v1.png','exposition-skins-v1/brick-sienna-v1.png','exposition-skins-v1/roof-slate-v1.png'].map(file=>({...hash('assets/art/'+file),repeatMetres:file.startsWith('gross')?[1,1]:[2,2],pixelEdits:'none'}));
+manifest.provenance=['art/source/gross-housing-v1/generation.json','art/source/exposition-skins-v1/generation.json','art/source/hopkins-housing-v1/sources.json'];manifest.geometryReview=read('docs/art/hopkins-housing-v1/geometry-review.json');manifest.nautilusContract=read('art/source/hopkins-housing-v1/nautilus-contract.json');manifest.preview='docs/art/hopkins-housing-v1/previews/collection.jpg';
+fs.writeFileSync(path.join(base,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');console.log('Finalized '+manifest.files.length+' inputs, '+manifest.assembly.length+' assembly files and '+manifest.reusedMaterials.length+' reused material hashes.');

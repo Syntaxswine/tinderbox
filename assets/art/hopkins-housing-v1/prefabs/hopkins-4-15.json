@@ -1,0 +1,538 @@
+{
+  "id": "hopkins-4-15",
+  "designNumber": 15,
+  "label": "No. 15 / Gambrel family cottage",
+  "source": {
+    "book": 4,
+    "date": 1891,
+    "leaf": 26,
+    "scanNumber": 27,
+    "printedPage": null,
+    "descriptionPrintedPage": 24,
+    "descriptionLeaf": 25,
+    "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n26/mode/1up",
+    "plate": "../../../art/source/hopkins-housing-v1/plates/n26.jpg",
+    "type": "Published pattern-book design; no as-built survey"
+  },
+  "sourceDimensions": {
+    "overallFeet": [
+      26,
+      33
+    ],
+    "qualifier": "Printed 26 x 33 ft conflicts with the sum of room widths in the plan; native composition follows the room arrangement.",
+    "floorHeightsFeet": [
+      9,
+      8
+    ]
+  },
+  "width": 10,
+  "depth": 10,
+  "plinth": 0.48,
+  "style": {
+    "wall": "clapboard",
+    "color": "#c9b295",
+    "trim": "#eee3cb",
+    "accent": "#52604e",
+    "roof": "cedar",
+    "form": "custom"
+  },
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "living",
+          "label": "Living room",
+          "type": "sitting",
+          "polygon": [
+            [
+              10,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              10,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "dining",
+          "label": "Dining end",
+          "type": "dining",
+          "polygon": [
+            [
+              10,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              10,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Stair hall",
+          "type": "hall",
+          "polygon": [
+            [
+              6,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "parlor",
+          "label": "Parlor",
+          "type": "parlor",
+          "polygon": [
+            [
+              4,
+              5
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              4,
+              10
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "pantry",
+          "label": "Pantry",
+          "type": "pantry",
+          "polygon": [
+            [
+              6,
+              10
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "living"
+        ],
+        [
+          "living",
+          "dining"
+        ],
+        [
+          "hall",
+          "parlor"
+        ],
+        [
+          "hall",
+          "kitchen"
+        ],
+        [
+          "hall",
+          "pantry"
+        ],
+        [
+          "dining",
+          "pantry"
+        ],
+        [
+          "pantry",
+          "kitchen"
+        ],
+        [
+          "parlor",
+          "kitchen"
+        ]
+      ],
+      "entry": [
+        5,
+        0,
+        6,
+        0
+      ],
+      "stairs": {
+        "x": 5,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "openConnections": [
+        [
+          "living",
+          "dining"
+        ]
+      ],
+      "windows": [
+        [
+          7,
+          0,
+          8,
+          0
+        ],
+        [
+          10,
+          2,
+          10,
+          3
+        ],
+        [
+          9,
+          10,
+          8,
+          10
+        ],
+        [
+          10,
+          7,
+          10,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          0,
+          8,
+          0,
+          7
+        ],
+        [
+          3,
+          10,
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "label": "Second floor",
+      "rooms": [
+        {
+          "id": "bed-a",
+          "label": "Chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              10,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              10,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-b",
+          "label": "Chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              4,
+              7
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-c",
+          "label": "Front chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              6,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              6,
+              -1
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Landing",
+          "type": "hall",
+          "polygon": [
+            [
+              6,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-a"
+        ],
+        [
+          "hall",
+          "bed-b"
+        ],
+        [
+          "hall",
+          "bed-c"
+        ]
+      ],
+      "entry": null,
+      "stairs": {
+        "x": 5,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          7,
+          0,
+          8,
+          0
+        ],
+        [
+          9,
+          7,
+          8,
+          7
+        ],
+        [
+          10,
+          3,
+          10,
+          4
+        ],
+        [
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          3,
+          7,
+          2,
+          7
+        ],
+        [
+          4,
+          -1,
+          5,
+          -1
+        ]
+      ]
+    }
+  ],
+  "porch": {
+    "x": 3,
+    "z": -2,
+    "width": 4,
+    "depth": 2
+  },
+  "roofPieces": [
+    {
+      "x": 5,
+      "z": 3,
+      "width": 10.5,
+      "depth": 8.5,
+      "axis": "x",
+      "base": 4.12,
+      "rise": 2,
+      "form": "gambrel"
+    },
+    {
+      "x": 5,
+      "z": 0,
+      "width": 2.5,
+      "depth": 3.5,
+      "axis": "z",
+      "base": 4.12,
+      "rise": 1.7,
+      "form": "gable"
+    },
+    {
+      "x": 5,
+      "z": 8.5,
+      "width": 10.5,
+      "depth": 3.5,
+      "axis": "z",
+      "base": 2.05,
+      "rise": 1,
+      "form": "hip"
+    }
+  ],
+  "notes": [
+    "Gambrel roof, central porch and front upper chamber distinguish this house.",
+    "The source living room has a grille dividing its dining end; that transition is kept as an open framed span.",
+    "Printed 26 ft width and individual room widths disagree; the 10 m composition follows the illustrated arrangement, not a claimed measured reproduction.",
+    "Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled."
+  ],
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "integration": {
+    "status": "artist contribution candidate",
+    "nautilusImported": false,
+    "requires": [
+      "Tinderbox nautilus-wall-runs-v1 consumer",
+      "interior-floor support",
+      "door and stair gameplay integration"
+    ]
+  },
+  "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes above the native courses. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
+}

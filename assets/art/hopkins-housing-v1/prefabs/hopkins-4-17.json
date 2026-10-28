@@ -1,0 +1,457 @@
+{
+  "id": "hopkins-4-17",
+  "designNumber": 17,
+  "label": "No. 17 / Veranda and wood-house cottage",
+  "source": {
+    "book": 4,
+    "date": 1891,
+    "leaf": 28,
+    "scanNumber": 29,
+    "printedPage": null,
+    "descriptionPrintedPage": 26,
+    "descriptionLeaf": 27,
+    "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n28/mode/1up",
+    "plate": "../../../art/source/hopkins-housing-v1/plates/n28.jpg",
+    "type": "Published pattern-book design; no as-built survey"
+  },
+  "sourceDimensions": {
+    "overallFeet": [
+      24,
+      29
+    ],
+    "qualifier": "Published overall includes porches.",
+    "floorHeightsFeet": [
+      9,
+      8
+    ]
+  },
+  "width": 5,
+  "depth": 9,
+  "plinth": 0.48,
+  "style": {
+    "wall": "clapboard",
+    "color": "#d2c3a3",
+    "trim": "#eee3cb",
+    "accent": "#715647",
+    "roof": "cedar",
+    "form": "custom"
+  },
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "parlor",
+          "label": "Parlor",
+          "type": "parlor",
+          "polygon": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "dining",
+          "label": "Dining room",
+          "type": "dining",
+          "polygon": [
+            [
+              5,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              5,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              2,
+              7
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "wood",
+          "label": "Wood house",
+          "type": "service",
+          "polygon": [
+            [
+              5,
+              9
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "id": "pantry",
+          "label": "Pantry",
+          "type": "pantry",
+          "polygon": [
+            [
+              2,
+              9
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              2,
+              7
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "parlor",
+          "dining"
+        ],
+        [
+          "parlor",
+          "kitchen"
+        ],
+        [
+          "dining",
+          "kitchen"
+        ],
+        [
+          "dining",
+          "wood"
+        ],
+        [
+          "kitchen",
+          "pantry"
+        ],
+        [
+          "wood",
+          "pantry"
+        ]
+      ],
+      "entry": [
+        2,
+        0,
+        3,
+        0
+      ],
+      "stairs": {
+        "x": 1,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          6,
+          1,
+          6,
+          2
+        ],
+        [
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          0,
+          6,
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "label": "Second floor",
+      "rooms": [
+        {
+          "id": "bed-a",
+          "label": "Front chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              5,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-b",
+          "label": "Rear chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              5,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Landing",
+          "type": "hall",
+          "polygon": [
+            [
+              5,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-a"
+        ],
+        [
+          "hall",
+          "bed-b"
+        ]
+      ],
+      "entry": null,
+      "stairs": {
+        "x": 1,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          2,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          5,
+          1,
+          5,
+          2
+        ],
+        [
+          4,
+          7,
+          3,
+          7
+        ],
+        [
+          5,
+          5,
+          5,
+          6
+        ]
+      ]
+    }
+  ],
+  "porch": {
+    "x": -2,
+    "z": -2,
+    "width": 7,
+    "depth": 2
+  },
+  "roofPieces": [
+    {
+      "x": 2.5,
+      "z": 3.5,
+      "width": 5.5,
+      "depth": 7.5,
+      "axis": "z",
+      "base": 4.12,
+      "rise": 1.7,
+      "form": "gable"
+    },
+    {
+      "x": 2.5,
+      "z": 8,
+      "width": 5.5,
+      "depth": 2.5,
+      "axis": "z",
+      "base": 2.05,
+      "rise": 0.8,
+      "form": "hip"
+    }
+  ],
+  "notes": [
+    "Uses the leftmost principal dwelling plan, not the more densely partitioned summer-cottage alternative.",
+    "Two upper chambers, a side parlor bay, rear wood house and two-sided veranda are retained.",
+    "Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled."
+  ],
+  "sidePorches": [
+    {
+      "x": -2,
+      "z": 0,
+      "width": 2,
+      "depth": 7
+    }
+  ],
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "integration": {
+    "status": "artist contribution candidate",
+    "nautilusImported": false,
+    "requires": [
+      "Tinderbox nautilus-wall-runs-v1 consumer",
+      "interior-floor support",
+      "door and stair gameplay integration"
+    ]
+  },
+  "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes above the native courses. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
+}

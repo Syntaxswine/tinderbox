@@ -1,1 +1,8 @@
 /vendor/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Stable source bytes for the shared pattern-house assemblers and Hopkins review.
+/src/art/gross-housing.js text eol=lf
+/src/art/hopkins-housing.js text eol=lf
+/workbenches/art/hopkins-housing.* text eol=lf
+/workbenches/art/housing-static-review.js text eol=lf
+/workbenches/art/check-hopkins-*.mjs text eol=lf

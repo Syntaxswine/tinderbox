@@ -1,0 +1,556 @@
+{
+  "id": "hopkins-4-10",
+  "designNumber": 10,
+  "label": "No. 10 / Narrow cross-gable cottage",
+  "source": {
+    "book": 4,
+    "date": 1891,
+    "leaf": 20,
+    "scanNumber": 21,
+    "printedPage": null,
+    "descriptionPrintedPage": 18,
+    "descriptionLeaf": 19,
+    "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n20/mode/1up",
+    "plate": "../../../art/source/hopkins-housing-v1/plates/n20.jpg",
+    "type": "Published pattern-book design; no as-built survey"
+  },
+  "sourceDimensions": {
+    "overallFeet": [
+      23,
+      43
+    ],
+    "qualifier": "Published overall; see description for porch inclusion.",
+    "floorHeightsFeet": [
+      9,
+      8.5
+    ]
+  },
+  "width": 7,
+  "depth": 13,
+  "plinth": 0.48,
+  "style": {
+    "wall": "clapboard",
+    "color": "#d0c0a1",
+    "trim": "#eee3cb",
+    "accent": "#665648",
+    "roof": "cedar",
+    "form": "custom"
+  },
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "parlor",
+          "label": "Parlor",
+          "type": "parlor",
+          "polygon": [
+            [
+              7,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "vest",
+          "label": "Vestibule",
+          "type": "hall",
+          "polygon": [
+            [
+              3,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "id": "living",
+          "label": "Living room",
+          "type": "sitting",
+          "polygon": [
+            [
+              7,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Stair hall",
+          "type": "hall",
+          "polygon": [
+            [
+              3,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "pantry",
+          "label": "Pantry",
+          "type": "pantry",
+          "polygon": [
+            [
+              7,
+              10
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "fuel",
+          "label": "Fuel room",
+          "type": "service",
+          "polygon": [
+            [
+              7,
+              13
+            ],
+            [
+              5,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              7,
+              10
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              5,
+              13
+            ],
+            [
+              0,
+              13
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              5,
+              9
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "vest",
+          "parlor"
+        ],
+        [
+          "vest",
+          "hall"
+        ],
+        [
+          "parlor",
+          "living"
+        ],
+        [
+          "living",
+          "hall"
+        ],
+        [
+          "living",
+          "pantry"
+        ],
+        [
+          "pantry",
+          "fuel"
+        ],
+        [
+          "pantry",
+          "kitchen"
+        ],
+        [
+          "fuel",
+          "kitchen"
+        ],
+        [
+          "hall",
+          "kitchen"
+        ]
+      ],
+      "entry": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "stairs": {
+        "x": 2,
+        "z": 5,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          4,
+          0,
+          5,
+          0
+        ],
+        [
+          3,
+          2,
+          3,
+          1
+        ],
+        [
+          7,
+          1,
+          7,
+          2
+        ],
+        [
+          7,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          12,
+          0,
+          11
+        ],
+        [
+          3,
+          13,
+          2,
+          13
+        ]
+      ]
+    },
+    {
+      "label": "Second floor",
+      "rooms": [
+        {
+          "id": "bed-a",
+          "label": "Front chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              7,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-b",
+          "label": "Side chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              7,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "bed-c",
+          "label": "Side chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              2,
+              8
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Landing",
+          "type": "hall",
+          "polygon": [
+            [
+              4,
+              9
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-a"
+        ],
+        [
+          "hall",
+          "bed-b"
+        ],
+        [
+          "hall",
+          "bed-c"
+        ]
+      ],
+      "entry": null,
+      "stairs": {
+        "x": 2,
+        "z": 5,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          5,
+          0,
+          6,
+          0
+        ],
+        [
+          7,
+          1,
+          7,
+          2
+        ],
+        [
+          6,
+          8,
+          5,
+          8
+        ],
+        [
+          7,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          4,
+          1,
+          4
+        ],
+        [
+          0,
+          7,
+          0,
+          6
+        ]
+      ]
+    }
+  ],
+  "porch": {
+    "x": 0,
+    "z": 0,
+    "width": 3,
+    "depth": 2
+  },
+  "roofPieces": [
+    {
+      "x": 5,
+      "z": 4.5,
+      "width": 4.5,
+      "depth": 9.5,
+      "axis": "z",
+      "base": 4.12,
+      "rise": 1.7,
+      "form": "gable"
+    },
+    {
+      "x": 3.5,
+      "z": 6,
+      "width": 7.5,
+      "depth": 4.5,
+      "axis": "x",
+      "base": 4.12,
+      "rise": 1.7,
+      "form": "gable"
+    },
+    {
+      "x": 3.5,
+      "z": 11,
+      "width": 7.5,
+      "depth": 4.5,
+      "axis": "z",
+      "base": 2.05,
+      "rise": 1.1,
+      "form": "gable"
+    }
+  ],
+  "notes": [
+    "Separate fuel room and rear kitchen wing are retained.",
+    "The dual-access source stair is consolidated into one flight, with a widened upper landing.",
+    "Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled."
+  ],
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "integration": {
+    "status": "artist contribution candidate",
+    "nautilusImported": false,
+    "requires": [
+      "Tinderbox nautilus-wall-runs-v1 consumer",
+      "interior-floor support",
+      "door and stair gameplay integration"
+    ]
+  },
+  "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes above the native courses. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
+}
