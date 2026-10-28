@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-28T20:15:19.346Z",
+  "browser": "Codex in-app browser; temporary review tab closed",
+  "scope": "Static actual-mesh renders, gallery and selection controls",
+  "defaultDesign": 21,
+  "designSelections": 15,
+  "publishedInteriorSelections": 29,
+  "sourceAndPrefabLinks": "Matched each selected house and its exact plate",
+  "no26PublishedLevels": 1,
+  "reviewRecords": {
+    "geometry-review.json": true,
+    "offline-review.json": true,
+    "nautilus-compatibility.json": true
+  },
+  "desktop": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "sections": 15,
+    "images": 44,
+    "loaded": 44,
+    "broken": 0,
+    "scrollWidth": 1265
+  },
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "sections": 15,
+    "images": 44,
+    "loaded": 44,
+    "scrollWidth": 375
+  },
+  "previousCollection": {
+    "designs": 12,
+    "defaultDesign": 13,
+    "nextBatchLinkVerified": true
+  },
+  "webgl": {
+    "status": "unavailable",
+    "reason": "GL_VENDOR and GL_RENDERER Disabled; Error creating WebGL context.",
+    "limits": "GPU shaders, live orbit, furnishing toggles and performance remain unverified. Static views use exported actual Three meshes and diffuse path tracing."
+  },
+  "viewportRestored": true,
+  "userCatalogueTabPreserved": true,
+  "temporaryTabClosed": true
+}

@@ -1,9 +1,9 @@
 import {planEdges} from '../../src/art/gross-housing.js';
 // Static review keeps the artist collection inspectable when WebGL is unavailable.
 // Images are offline renders of the same exported meshes, UVs and cut planes.
-export async function openStaticHousingReview({catalogueUrl,error}){
+export async function openStaticHousingReview({catalogueUrl,error,defaultHouse='hopkins-4-13',previewBaseUrl=new URL('../../docs/art/hopkins-housing-v1/previews/',import.meta.url).href,reviewBaseUrl=new URL('../../docs/art/hopkins-housing-v1/',import.meta.url).href}){
  const $=id=>document.getElementById(id),response=await fetch(catalogueUrl);if(!response.ok)throw Error('Catalogue '+response.status);
- const catalogue=await response.json();let house=catalogue.houses.find(h=>h.id===new URLSearchParams(location.search).get('house'))||catalogue.houses.find(h=>h.id==='hopkins-4-13'),view='exterior',level=0;
+ const catalogue=await response.json();let house=catalogue.houses.find(h=>h.id===new URLSearchParams(location.search).get('house'))||catalogue.houses.find(h=>h.id===defaultHouse)||catalogue.houses[0],view='exterior',level=0;
  document.documentElement.dataset.reviewMode='static';$('stage').setAttribute('aria-label','Saved three-dimensional house renders');
  const preview=document.createElement('img');preview.id='static-preview';preview.style.cssText='width:100%;height:100%;object-fit:contain;display:block';$('stage').prepend(preview);$('loading')?.remove();
  $('rotate').disabled=true;$('rotate').title='Rotation is available in the live 3D view';$('furniture').disabled=true;
@@ -18,7 +18,7 @@ export async function openStaticHousingReview({catalogueUrl,error}){
   svg+='</svg>';$('plan').innerHTML=svg;$('plan-title').textContent=f.label+' · adapted plan';
  }
  function draw(){
-  preview.src=new URL(`../../docs/art/hopkins-housing-v1/previews/${house.id}-${view}-${view==='exterior'?0:level}.jpg`,import.meta.url).href;preview.alt=house.label+' / '+(view==='exterior'?'exterior':house.floors[level].label+' cutaway');
+  preview.src=new URL(`${house.id}-${view}-${view==='exterior'?0:level}.jpg`,previewBaseUrl).href;preview.alt=house.label+' / '+(view==='exterior'?'exterior':house.floors[level].label+' cutaway');
   $('house-title').textContent=house.label;$('source-label').textContent='HOPKINS BOOK 4 · 1891 / DESIGN '+house.designNumber;
   $('view-caption').textContent=(view==='exterior'?'EXTERIOR':house.floors[level].label.toUpperCase()+' / CUTAWAY')+' · STATIC RENDER';
   $('exterior').setAttribute('aria-pressed',String(view==='exterior'));$('cutaway').setAttribute('aria-pressed',String(view==='cutaway'));$('level').value=level;
@@ -30,7 +30,7 @@ export async function openStaticHousingReview({catalogueUrl,error}){
  for(const h of catalogue.houses){const button=document.createElement('button');button.dataset.house=h.id;button.innerHTML='<strong>'+h.label.split(' / ')[1]+'</strong><small>No. '+h.designNumber+' · Book 4</small>';button.onclick=()=>select(h.id);$('houses').append(button);}
  $('exterior').onclick=()=>{view='exterior';draw();};$('cutaway').onclick=()=>{view='cutaway';draw();};$('level').onchange=()=>{view='cutaway';level=Number($('level').value);draw();};
  $('review').textContent='Show collection review';$('review').onclick=async()=>{
-  const paths=['geometry-review.json','offline-review.json','nautilus-compatibility.json'],records={};for(const p of paths){const r=await fetch(new URL('../../docs/art/hopkins-housing-v1/'+p,import.meta.url));records[p]=r.ok?await r.json():{status:'not yet available'};}
+  const paths=['geometry-review.json','offline-review.json','nautilus-compatibility.json'],records={};for(const p of paths){const r=await fetch(new URL(p,reviewBaseUrl));records[p]=r.ok?await r.json():{status:'not yet available'};}
   const result={scope:'static render and geometry review',webgl:{status:'unavailable',reason:String(error?.message||error)},records};$('review-output').textContent=JSON.stringify(result,null,2);$('review-download').href=URL.createObjectURL(new Blob([JSON.stringify(result)],{type:'application/json'}));$('review-download').hidden=false;
  };
  select(house.id);window.hopkinsLab={mode:'static',ready:Promise.resolve(true),catalogue,webglUnavailable:String(error?.message||error)};

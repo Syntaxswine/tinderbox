@@ -1,5 +1,7 @@
 # Hopkins small houses, first set
 
+The next [fifteen Hopkins houses](../hopkins-housing-v2/README.md), designs 21–35, add 29 published interior levels using the same native kit.
+
 Current finish review: [25-house siding audit](../housing-siding-review/README.md). Vertical gable/closure faces, dormer walls and tower drums match the house wall finish. Cedar/slate remain on the sloped roofs. The [centered-window follow-up](../nautilus-windows-v1/README.md) imports the corrected 2 m Nautilus bays for Nos. 13 and 15; shared native dimensions and all roof coverings are preserved.
 
 Twelve reusable artist prefabs from D. S. Hopkins's **Houses and cottages, Book No. 4 (1891)**: designs 9-20, with twelve complete exterior assemblies, 24 furnished interior levels and 112 labeled spaces. The source exterior and floor diagrams are paired for every asset. This is the first Hopkins set; the ordered [build queue](../../../art/source/hopkins-housing-v1/build-queue.json) records the remaining books and designs.

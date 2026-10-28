@@ -13,7 +13,9 @@ export function mergeCenteredWindowEdges(edges,bays=[]){
   if(!WINDOW_BAYS.some(p=>p.id===profile))throw Error('Unknown centred window profile');
   const mid=[(a[0]+b[0])/2,(a[1]+b[1])/2],ids=[edgeKey(a,mid),edgeKey(mid,b)],parts=ids.map(id=>result.find(e=>e.id===id));
   if(parts.some(e=>!e||e.rooms.length!==1||e.opening&&e.opening!=='window')||parts[0].rooms[0]!==parts[1].rooms[0])throw Error('Window bay overlaps a door, interior wall or room boundary');
-  const merged={id:edgeKey(a,b),a:[...a],b:[...b],rooms:[...parts[0].rooms],opening:'window',windowProfile:profile,windowBayId:bay.id,sourceEdges:ids};
+  // Keep the room boundary's direction so siding stays outside and wallpaper inside.
+  const sameDirection=(parts[0].b[0]-parts[0].a[0])*dx+(parts[0].b[1]-parts[0].a[1])*dz>0;
+  const merged={id:edgeKey(a,b),a:[...(sameDirection?a:b)],b:[...(sameDirection?b:a)],rooms:[...parts[0].rooms],opening:'window',windowProfile:profile,windowBayId:bay.id,sourceEdges:ids};
   const first=Math.min(...parts.map(e=>result.indexOf(e)));result=result.flatMap((e,i)=>i===first?[merged]:ids.includes(e.id)?[]:[e]);
  }
  return result;

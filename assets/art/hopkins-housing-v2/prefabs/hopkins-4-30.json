@@ -1,0 +1,890 @@
+{
+  "id": "hopkins-4-30",
+  "designNumber": 30,
+  "label": "No. 30 / Broad T-plan family cottage",
+  "source": {
+    "book": 4,
+    "date": 1891,
+    "leaf": 48,
+    "scanNumber": 49,
+    "printedPage": null,
+    "descriptionLeaf": 47,
+    "descriptionPrintedPage": 46,
+    "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n48/mode/1up",
+    "plate": "../../../art/source/hopkins-housing-v2/plates/n48.jpg",
+    "type": "Original published design and floor diagrams; not an as-built Chicago survey"
+  },
+  "sourceDimensions": {
+    "overallFeet": [
+      38,
+      48
+    ],
+    "floorHeightsFeet": [
+      9,
+      8.5
+    ],
+    "qualifier": "Written source dimensions remain separate; native plans use one-metre modules. Porch inclusion follows the source description."
+  },
+  "width": 11,
+  "depth": 15,
+  "plinth": 0.48,
+  "style": {
+    "wall": "clapboard",
+    "color": "#c8b49a",
+    "trim": "#eee3cb",
+    "accent": "#52604e",
+    "roof": "cedar",
+    "form": "custom"
+  },
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "parlor",
+          "label": "Parlor",
+          "type": "parlor",
+          "polygon": [
+            [
+              11,
+              1
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              10,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "vest",
+          "label": "Vestibule",
+          "type": "hall",
+          "polygon": [
+            [
+              6,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              6,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "dining",
+          "label": "Dining room",
+          "type": "dining",
+          "polygon": [
+            [
+              11,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              11,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Stair hall",
+          "type": "hall",
+          "polygon": [
+            [
+              7,
+              11
+            ],
+            [
+              5,
+              11
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "bed-a",
+          "label": "Chamber / sitting",
+          "type": "bedroom",
+          "polygon": [
+            [
+              5,
+              9
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "pantry",
+          "label": "Pantry",
+          "type": "pantry",
+          "polygon": [
+            [
+              9,
+              11
+            ],
+            [
+              7,
+              11
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              9,
+              9
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              9,
+              15
+            ],
+            [
+              5,
+              15
+            ],
+            [
+              5,
+              11
+            ],
+            [
+              9,
+              11
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "vest",
+          "parlor"
+        ],
+        [
+          "vest",
+          "hall"
+        ],
+        [
+          "parlor",
+          "dining"
+        ],
+        [
+          "dining",
+          "hall"
+        ],
+        [
+          "hall",
+          "bed-a"
+        ],
+        [
+          "dining",
+          "pantry"
+        ],
+        [
+          "hall",
+          "pantry"
+        ],
+        [
+          "hall",
+          "kitchen"
+        ],
+        [
+          "pantry",
+          "kitchen"
+        ]
+      ],
+      "entry": [
+        5,
+        3,
+        6,
+        3
+      ],
+      "stairs": {
+        "x": 6,
+        "z": 6,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          6,
+          1,
+          7,
+          0
+        ],
+        [
+          10,
+          0,
+          11,
+          1
+        ],
+        [
+          8,
+          0,
+          9,
+          0
+        ],
+        [
+          1,
+          9,
+          0,
+          8
+        ],
+        [
+          0,
+          6,
+          1,
+          5
+        ],
+        [
+          2,
+          5,
+          3,
+          5
+        ]
+      ],
+      "windowBays": [
+        {
+          "id": "hopkins-4-30-L0-parlor-0",
+          "a": [
+            11,
+            2
+          ],
+          "b": [
+            11,
+            4
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-parlor-1",
+          "a": [
+            6,
+            1
+          ],
+          "b": [
+            6,
+            3
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-dining-2",
+          "a": [
+            9,
+            9
+          ],
+          "b": [
+            11,
+            9
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-dining-3",
+          "a": [
+            11,
+            6
+          ],
+          "b": [
+            11,
+            8
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-bed-a-4",
+          "a": [
+            2,
+            9
+          ],
+          "b": [
+            4,
+            9
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-bed-a-5",
+          "a": [
+            0,
+            6
+          ],
+          "b": [
+            0,
+            8
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-kitchen-6",
+          "a": [
+            6,
+            15
+          ],
+          "b": [
+            8,
+            15
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-kitchen-7",
+          "a": [
+            5,
+            12
+          ],
+          "b": [
+            5,
+            14
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L0-kitchen-8",
+          "a": [
+            9,
+            12
+          ],
+          "b": [
+            9,
+            14
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        }
+      ]
+    },
+    {
+      "label": "Second floor",
+      "rooms": [
+        {
+          "id": "bed-b",
+          "label": "Front chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              11,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              11,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-c",
+          "label": "Side chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              11,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              11,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "bed-d",
+          "label": "Side chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              5,
+              9
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Landing",
+          "type": "hall",
+          "polygon": [
+            [
+              7,
+              11
+            ],
+            [
+              5,
+              11
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "bath",
+          "label": "Bathroom",
+          "type": "bath",
+          "polygon": [
+            [
+              9,
+              11
+            ],
+            [
+              7,
+              11
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              9,
+              9
+            ]
+          ]
+        },
+        {
+          "id": "servant",
+          "label": "Servants room",
+          "type": "bedroom",
+          "polygon": [
+            [
+              9,
+              15
+            ],
+            [
+              5,
+              15
+            ],
+            [
+              5,
+              11
+            ],
+            [
+              9,
+              11
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-b"
+        ],
+        [
+          "hall",
+          "bed-c"
+        ],
+        [
+          "hall",
+          "bed-d"
+        ],
+        [
+          "hall",
+          "bath"
+        ],
+        [
+          "hall",
+          "servant"
+        ]
+      ],
+      "entry": null,
+      "stairs": {
+        "x": 6,
+        "z": 6,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          6,
+          2,
+          6,
+          3
+        ],
+        [
+          8,
+          0,
+          9,
+          0
+        ],
+        [
+          11,
+          2,
+          11,
+          3
+        ]
+      ],
+      "windowBays": [
+        {
+          "id": "hopkins-4-30-L1-bed-c-0",
+          "a": [
+            9,
+            9
+          ],
+          "b": [
+            11,
+            9
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-bed-c-1",
+          "a": [
+            11,
+            6
+          ],
+          "b": [
+            11,
+            8
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-bed-d-2",
+          "a": [
+            2,
+            9
+          ],
+          "b": [
+            4,
+            9
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-bed-d-3",
+          "a": [
+            1,
+            6
+          ],
+          "b": [
+            1,
+            8
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-bed-d-4",
+          "a": [
+            2,
+            5
+          ],
+          "b": [
+            4,
+            5
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-bath-5",
+          "a": [
+            9,
+            9
+          ],
+          "b": [
+            9,
+            11
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-servant-6",
+          "a": [
+            6,
+            15
+          ],
+          "b": [
+            8,
+            15
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-servant-7",
+          "a": [
+            5,
+            12
+          ],
+          "b": [
+            5,
+            14
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-30-L1-servant-8",
+          "a": [
+            9,
+            12
+          ],
+          "b": [
+            9,
+            14
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        }
+      ]
+    }
+  ],
+  "porch": {
+    "x": 4,
+    "z": 1,
+    "width": 2,
+    "depth": 2
+  },
+  "roofKit": {
+    "kit": "pattern-roof-v1",
+    "runModule": 1,
+    "pieces": [
+      {
+        "id": "front",
+        "x": 8.5,
+        "z": 4.5,
+        "width": 5.5,
+        "depth": 9.5,
+        "axis": "z",
+        "base": 4.12,
+        "rise": 1.85,
+        "form": "gable"
+      },
+      {
+        "id": "entrance",
+        "x": 5,
+        "z": 3.5,
+        "width": 2.5,
+        "depth": 3.5,
+        "axis": "z",
+        "base": 2,
+        "rise": 0.6,
+        "form": "hip"
+      },
+      {
+        "id": "side",
+        "x": 3.5,
+        "z": 7,
+        "width": 7.5,
+        "depth": 4.5,
+        "axis": "x",
+        "base": 4.12,
+        "rise": 1.7,
+        "form": "hip"
+      },
+      {
+        "id": "rear",
+        "x": 7,
+        "z": 12,
+        "width": 4.5,
+        "depth": 6.5,
+        "axis": "z",
+        "base": 4.12,
+        "rise": 1.5,
+        "form": "gable"
+      }
+    ]
+  },
+  "notes": [
+    "Broad T-shaped plan, front and side porches, angled lower side bay, four upper sleeping rooms and bath follow n48.",
+    "Side roof is simplified to a hipped branch; the street-facing entrance sits in the source recess.",
+    "Centered period sashes use native 2 m bays (0.5 m wall + 1 m window + 0.5 m wall) wherever an even exterior run allows; odd runs retain centered single-unit sashes. Native dimensions are never stretched."
+  ],
+  "sourceFacts": {
+    "observations": [
+      "Broad T-shaped plan, front and side porches, angled lower side bay, four upper sleeping rooms and bath follow n48."
+    ],
+    "unverified": [
+      "Rear elevations",
+      "Measured roof pitches",
+      "Precise opening schedule and colors"
+    ]
+  },
+  "adaptationNotes": [
+    "Side roof is simplified to a hipped branch; the street-facing entrance sits in the source recess."
+  ],
+  "sidePorches": [
+    {
+      "x": 9,
+      "z": 9,
+      "width": 2,
+      "depth": 2
+    }
+  ],
+  "chimneys": [
+    {
+      "x": 9,
+      "z": 6.7,
+      "height": 1.5
+    },
+    {
+      "x": 3.5,
+      "z": 7,
+      "height": 1.1
+    },
+    {
+      "x": 7,
+      "z": 12.5,
+      "height": 1.1
+    }
+  ],
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalSpanMetres": 1.4142135623730951,
+    "diagonalConstruction": "native 1 m panels with cut ends",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "integration": {
+    "status": "artist prefab candidate",
+    "nautilusImported": false,
+    "gameplayReady": false,
+    "requires": [
+      "House library intake",
+      "Interior navigation and stair support",
+      "Collision and fire integration"
+    ],
+    "windowSourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "traversal": "deferred"
+  },
+  "adaptation": "Published plan relationships are interpreted on a whole-metre grid. Full native 2 m wall courses and 2.12 m floor spacing take precedence over the source story heights. Colors, room consolidation, opening spacing, roof pitches/overhangs, unseen rear surfaces, furnishings and simplified ornament are art decisions. Vertical gables continue horizontal clapboard per user direction. No source scan is used as a runtime texture."
+}

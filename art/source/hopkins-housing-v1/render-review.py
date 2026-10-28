@@ -10,7 +10,7 @@ import mitsuba as mi
 import numpy as np
 from PIL import Image
 mi.set_variant('scalar_rgb')
-parser=argparse.ArgumentParser();parser.add_argument('--id');parser.add_argument('--exclude-id');parser.add_argument('--view',choices=['exterior','cutaway']);parser.add_argument('--level',type=int);parser.add_argument('--collection',choices=['hopkins','gross'],default='hopkins');parser.add_argument('--width',type=int,default=800);parser.add_argument('--spp',type=int,default=24);parser.add_argument('--only-exterior',action='store_true');parser.add_argument('--camera',choices=['source','front','rear','side'],default='source');parser.add_argument('--output-root',type=Path);args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--id');parser.add_argument('--exclude-id');parser.add_argument('--view',choices=['exterior','cutaway']);parser.add_argument('--level',type=int);parser.add_argument('--collection',choices=['hopkins','gross','hopkins2'],default='hopkins');parser.add_argument('--width',type=int,default=800);parser.add_argument('--spp',type=int,default=24);parser.add_argument('--only-exterior',action='store_true');parser.add_argument('--camera',choices=['source','front','rear','side'],default='source');parser.add_argument('--output-root',type=Path);args=parser.parse_args()
 base=ROOT/('artifacts/'+args.collection+'-renders');output_root=ROOT/args.output_root if args.output_root else base;out=output_root/'images';out.mkdir(parents=True,exist_ok=True)
 texture_cache={};results=[]
 def color_texture(m):

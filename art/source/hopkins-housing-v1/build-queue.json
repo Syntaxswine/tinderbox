@@ -1,7 +1,10 @@
 {
   "version": 1,
   "completed": {
-    "collection": "hopkins-housing-v1",
+    "collections": [
+      "hopkins-housing-v1",
+      "hopkins-housing-v2"
+    ],
     "source": "Hopkins Book 4, 1891",
     "designs": [
       9,
@@ -15,10 +18,25 @@
       17,
       18,
       19,
-      20
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
     ],
-    "houses": 12,
-    "interiorLevels": 24
+    "houses": 27,
+    "interiorLevels": 53
   },
   "next": [
     {
@@ -26,24 +44,11 @@
       "source": "Hopkins Book 4, 1891",
       "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001",
       "designs": [
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33,
-        34,
-        35
+        36,
+        37
       ],
-      "status": "unbuilt; pages must be individually inspected before adaptation",
-      "focus": "Larger family cottages; preserve the existing native kit"
+      "status": "Located on n58; not yet individually adapted",
+      "focus": "Finish the final two Book 4 designs, then the eight early smaller variants"
     },
     {
       "order": 2,
@@ -91,5 +96,50 @@
       "focus": "More elaborate neighborhood landmarks and useful nonresidential designs"
     }
   ],
-  "scheduling": "Ordered asset backlog only; no background worker or automation is running."
+  "scheduling": "Ordered asset backlog only; no background worker or automation is running.",
+  "completedBatches": [
+    {
+      "collection": "hopkins-housing-v1",
+      "source": "Hopkins Book 4, 1891",
+      "designs": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "houses": 12,
+      "interiorLevels": 24
+    },
+    {
+      "collection": "hopkins-housing-v2",
+      "source": "Hopkins Book 4, 1891",
+      "designs": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "houses": 15,
+      "interiorLevels": 29
+    }
+  ]
 }

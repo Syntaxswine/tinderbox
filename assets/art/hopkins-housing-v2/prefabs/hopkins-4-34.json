@@ -1,0 +1,619 @@
+{
+  "id": "hopkins-4-34",
+  "designNumber": 34,
+  "label": "No. 34 / Southern pier-foundation cottage",
+  "source": {
+    "book": 4,
+    "date": 1891,
+    "leaf": 56,
+    "scanNumber": 57,
+    "printedPage": null,
+    "descriptionLeaf": 55,
+    "descriptionPrintedPage": 54,
+    "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n56/mode/1up",
+    "plate": "../../../art/source/hopkins-housing-v2/plates/n56.jpg",
+    "type": "Original published design and floor diagrams; not an as-built Chicago survey"
+  },
+  "sourceDimensions": {
+    "overallFeet": [
+      31,
+      35
+    ],
+    "floorHeightsFeet": [
+      10,
+      9.666666666666666
+    ],
+    "qualifier": "Written source dimensions remain separate; native plans use one-metre modules. Porch inclusion follows the source description."
+  },
+  "width": 7,
+  "depth": 9,
+  "plinth": 0.65,
+  "style": {
+    "wall": "clapboard",
+    "color": "#c8b79d",
+    "trim": "#eee3cb",
+    "accent": "#69564b",
+    "roof": "cedar",
+    "form": "custom"
+  },
+  "floors": [
+    {
+      "label": "First floor",
+      "rooms": [
+        {
+          "id": "sitting",
+          "label": "Sitting room",
+          "type": "sitting",
+          "polygon": [
+            [
+              7,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "alcove",
+          "label": "Bed alcove",
+          "type": "bedroom",
+          "polygon": [
+            [
+              3,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "dining",
+          "label": "Dining room",
+          "type": "dining",
+          "polygon": [
+            [
+              7,
+              9
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Stair hall",
+          "type": "hall",
+          "polygon": [
+            [
+              4,
+              9
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "pantry",
+          "label": "Pantry",
+          "type": "pantry",
+          "polygon": [
+            [
+              3,
+              6
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "type": "kitchen",
+          "polygon": [
+            [
+              3,
+              9
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "sitting",
+          "alcove"
+        ],
+        [
+          "sitting",
+          "dining"
+        ],
+        [
+          "sitting",
+          "hall"
+        ],
+        [
+          "alcove",
+          "pantry"
+        ],
+        [
+          "dining",
+          "hall"
+        ],
+        [
+          "hall",
+          "pantry"
+        ],
+        [
+          "hall",
+          "kitchen"
+        ],
+        [
+          "pantry",
+          "kitchen"
+        ]
+      ],
+      "entry": [
+        4,
+        0,
+        5,
+        0
+      ],
+      "stairs": {
+        "x": 3,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          9,
+          6,
+          9
+        ],
+        [
+          7,
+          6,
+          7,
+          7
+        ],
+        [
+          1,
+          9,
+          2,
+          9
+        ],
+        [
+          0,
+          7,
+          0,
+          8
+        ]
+      ],
+      "windowBays": [
+        {
+          "id": "hopkins-4-34-L0-sitting-0",
+          "a": [
+            5,
+            0
+          ],
+          "b": [
+            7,
+            0
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-34-L0-sitting-1",
+          "a": [
+            7,
+            1
+          ],
+          "b": [
+            7,
+            3
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-34-L0-alcove-2",
+          "a": [
+            0,
+            1
+          ],
+          "b": [
+            0,
+            3
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        }
+      ]
+    },
+    {
+      "label": "Second floor",
+      "rooms": [
+        {
+          "id": "bed-a",
+          "label": "Front chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              7,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-b",
+          "label": "Front chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              4,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "bed-c",
+          "label": "Rear chamber",
+          "type": "bedroom",
+          "polygon": [
+            [
+              7,
+              9
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "hall",
+          "label": "Landing",
+          "type": "hall",
+          "polygon": [
+            [
+              4,
+              9
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              4,
+              3
+            ]
+          ]
+        }
+      ],
+      "connections": [
+        [
+          "hall",
+          "bed-a"
+        ],
+        [
+          "hall",
+          "bed-b"
+        ],
+        [
+          "hall",
+          "bed-c"
+        ]
+      ],
+      "entry": null,
+      "stairs": {
+        "x": 3,
+        "z": 4,
+        "width": 1,
+        "run": 3,
+        "rise": 2.12
+      },
+      "windows": [
+        [
+          5,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          5,
+          9,
+          6,
+          9
+        ],
+        [
+          7,
+          6,
+          7,
+          7
+        ]
+      ],
+      "windowBays": [
+        {
+          "id": "hopkins-4-34-L1-bed-a-0",
+          "a": [
+            7,
+            1
+          ],
+          "b": [
+            7,
+            3
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        },
+        {
+          "id": "hopkins-4-34-L1-bed-b-1",
+          "a": [
+            1,
+            0
+          ],
+          "b": [
+            3,
+            0
+          ],
+          "profile": "window-bay-period",
+          "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+        }
+      ]
+    }
+  ],
+  "porch": {
+    "x": 0,
+    "z": -2,
+    "width": 9,
+    "depth": 2
+  },
+  "roofKit": {
+    "kit": "pattern-roof-v1",
+    "runModule": 1,
+    "pieces": [
+      {
+        "id": "main",
+        "x": 5,
+        "z": 4.5,
+        "width": 4.5,
+        "depth": 9.5,
+        "axis": "z",
+        "base": 4.12,
+        "rise": 1.65,
+        "form": "gable"
+      },
+      {
+        "id": "cross",
+        "x": 3.5,
+        "z": 2,
+        "width": 7.5,
+        "depth": 4.5,
+        "axis": "x",
+        "base": 4.12,
+        "rise": 1.85,
+        "form": "gable"
+      },
+      {
+        "id": "back-kitchen",
+        "x": 1.5,
+        "z": 6.5,
+        "width": 3.5,
+        "depth": 5.5,
+        "axis": "z",
+        "base": 2,
+        "rise": 0.8,
+        "form": "gable"
+      }
+    ]
+  },
+  "notes": [
+    "Southern-style cottage, wraparound porch, bed alcove and three upper chambers follow n56 left.",
+    "The primary porch entry into the sitting room is an art adaptation; the separate outside service-hall door is omitted.",
+    "The description explicitly says no cellar and posts or piers; the foundation is shown with individual piers and an open undercroft.",
+    "Centered period sashes use native 2 m bays (0.5 m wall + 1 m window + 0.5 m wall) wherever an even exterior run allows; odd runs retain centered single-unit sashes. Native dimensions are never stretched."
+  ],
+  "sourceFacts": {
+    "observations": [
+      "Southern-style cottage, wraparound porch, bed alcove and three upper chambers follow n56 left."
+    ],
+    "unverified": [
+      "Rear elevations",
+      "Measured roof pitches",
+      "Precise opening schedule and colors"
+    ]
+  },
+  "adaptationNotes": [
+    "The primary porch entry into the sitting room is an art adaptation; the separate outside service-hall door is omitted.",
+    "The description explicitly says no cellar and posts or piers; the foundation is shown with individual piers and an open undercroft."
+  ],
+  "foundation": "piers",
+  "sidePorches": [
+    {
+      "x": 7,
+      "z": 0,
+      "width": 2,
+      "depth": 9
+    }
+  ],
+  "chimneys": [
+    {
+      "x": 4.7,
+      "z": 4.7,
+      "height": 1.4
+    },
+    {
+      "x": 1.5,
+      "z": 7,
+      "height": 1
+    }
+  ],
+  "nativeContract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalSpanMetres": 1.4142135623730951,
+    "diagonalConstruction": "native 1 m panels with cut ends",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "integration": {
+    "status": "artist prefab candidate",
+    "nautilusImported": false,
+    "gameplayReady": false,
+    "requires": [
+      "House library intake",
+      "Interior navigation and stair support",
+      "Collision and fire integration"
+    ],
+    "windowSourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "traversal": "deferred"
+  },
+  "adaptation": "Published plan relationships are interpreted on a whole-metre grid. Full native 2 m wall courses and 2.12 m floor spacing take precedence over the source story heights. Colors, room consolidation, opening spacing, roof pitches/overhangs, unseen rear surfaces, furnishings and simplified ornament are art decisions. Vertical gables continue horizontal clapboard per user direction. No source scan is used as a runtime texture."
+}
