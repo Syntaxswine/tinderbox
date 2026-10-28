@@ -1,0 +1,94 @@
+{
+  "asset": "hopkins-4-15",
+  "revision": "Gambrel roof correction",
+  "priorArtistCommit": "e49465128970ea02d2a3a1b9040548d4d136cda3",
+  "primarySource": {
+    "book": "Houses and cottages, Book No. 4",
+    "author": "D. S. Hopkins",
+    "date": 1891,
+    "illustrationLeaf": 26,
+    "illustrationScanPage": 27,
+    "descriptionLeaf": 25,
+    "descriptionPrintedPage": 24,
+    "url": "https://archive.org/details/DSHopkinsHousesandcottagesbookno40001/page/n26/mode/1up",
+    "plates": [
+      {
+        "file": "art/source/hopkins-housing-v1/plates/n25.jpg",
+        "sha256": "326e688f3180b0fdd91eaacf2701e06ea18359a58b408b6fd51bec021945bc39",
+        "kind": "description"
+      },
+      {
+        "file": "art/source/hopkins-housing-v1/plates/n26.jpg",
+        "sha256": "f257ca70bdbeddfc4c1e5ab76504a3099c63273e45c88d442e64f118ecaaf77a",
+        "kind": "exterior-and-floor-plans"
+      }
+    ],
+    "rights": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "observed": [
+    "The written description calls No. 15 a frame one-story gambrel-roof cottage.",
+    "The perspective shows steep lower slopes, shallower crowns, a projecting front roof over the central porch, shingled gable faces and a brick chimney."
+  ],
+  "notPublished": {
+    "roofPitchDegrees": null,
+    "kneeLocations": null,
+    "eaveProjectionMetres": null,
+    "rearRoofElevation": null
+  },
+  "artDecisions": {
+    "kit": "gambrel-v1",
+    "mainPitchesDegrees": [
+      70.02,
+      21.8
+    ],
+    "frontPitchesDegrees": [
+      77.2,
+      34.99
+    ],
+    "eaveHeightMetres": 2.53,
+    "mainRidgeHeightMetres": 6.25,
+    "frontRidgeHeightMetres": 5.92,
+    "mainEaveExtensionBeyondUpperRoomsMetres": 1.1,
+    "frontRoofWidthMetres": 4.4,
+    "frontRoomWidthMetres": 2,
+    "frontRoofSideExtensionBeyondRoomMetres": 1.2,
+    "porchRoofRiseMetres": 0.18,
+    "reason": "A flared roof envelope encloses the unchanged full-height native upper rooms. The slightly lower front ridge and exaggerated skirt clearances simplify the perspective into reusable planar modules. Pitches and extensions are artist choices, not measured historic dimensions.",
+    "verticalGables": "Horizontal clapboard on the front and side gable faces, requested by the user; shingles retained on sloped roof planes."
+  },
+  "construction": {
+    "runModuleMetres": 1,
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "panels": 52,
+    "standardRunPanels": 48,
+    "cutEndPanels": 4,
+    "valleyCutPanels": 24,
+    "textureCoordinates": "Metres along the ridge and true sloped surface length; existing texture bytes unchanged.",
+    "valleys": "Convex-volume clipping removes roof faces buried inside the other gambrel; no notched height field.",
+    "gableFacings": "Removable horizontal clapboard veneers and closures with holes matching the three existing gable sash apertures; user art direction overrides the source shingled gable finish.",
+    "chimney": "Shaft extends below the minimum new roof height under its footprint.",
+    "runtimeModule": "src/art/gambrel-roof.js"
+  },
+  "preserved": {
+    "wallMetres": [
+      1,
+      2,
+      0.16
+    ],
+    "doorMetres": [
+      1,
+      1.65,
+      0.12
+    ],
+    "floorSpacingMetres": 2.12,
+    "floorPlanRoomsAndWindowLayoutSha256": "8c5623c27330a1616aa75086123f9953fc7c9384975931588c26e6b8045d09b7",
+    "otherElevenHouses": "No model changes",
+    "nautilusWallRunFragments": "No changes"
+  },
+  "deferred": "The centered two-space window remains with the map-editor work requested separately by the user. Existing openings remain unchanged.",
+  "integration": "Artist prefab contribution. No engine editor tile palette, Nautilus importer, collisions or gameplay changes."
+}

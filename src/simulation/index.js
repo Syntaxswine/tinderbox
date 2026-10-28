@@ -11,7 +11,7 @@ const EPS = 1e-9;
 export function createSimulation({seed = 1947, scenario, config: override} = {}) {
   const config = configuration(override), definition = scenarioDefinition(scenario);
   if (!Number.isSafeInteger(seed)) throw Error('Seed must be a safe integer');
-  let state, field, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  let state, field, buildingFuel, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
@@ -37,6 +37,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
         tool: start.tool ?? 'matches', pouring: false, usingTool: false, inventory, travelled: 0},
       effects: {powder: {expiresAt: 0}, inversion: {expiresAt: 0}},
       obstacles: def.obstacles.map(o => ({...o, destroyed: false})),
+      buildings: def.buildings.map(building => ({...building, destroyed: false, burnedFraction: 0})),
       actors: def.actors.map(a => ({...a, route: a.route?.map(p => ({...p})) ?? [{x: a.x, y: a.y}],
         routeIndex: a.route?.length > 1 ? 1 : 0, heading: 0, moving: false, hp: a.hp ?? 100, travelled: 0})),
       aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y},
@@ -49,6 +50,13 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       state.tiles.push({...point, size: def.tileSize, material: materialAt(def, point)});
     }
     field = new HeatField(def, config, state.obstacles);
+    buildingFuel = state.buildings.map(building => {
+      const colliders = state.obstacles.filter(obstacle => obstacle.buildingId === building.id);
+      const cells = field.cells.filter(cell => colliders.some(obstacle => inBox(cell, obstacle)));
+      const initialSurfaceFuel = cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
+      if (!cells.length || initialSurfaceFuel <= EPS) throw Error('Building needs a finite dry-wood footprint');
+      return {building, colliders, cells, initialSurfaceFuel};
+    });
   }
   initialize();
   const activeEffect = name => state.effects[name].expiresAt > state.clocks.active + EPS;
@@ -161,8 +169,19 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     projectilesStep(state, field, config, worldDelta, event);
     field.step(worldDelta, state.clocks.world, event); barrels();
     for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');
-    // Wood remains collision-solid until its own footprint's fuel has burned out.
-    for (const o of state.obstacles) if (!o.destroyed && o.material === 'wood') {
+    // A catalogue prefab is one coarse ground-fuel group. Keep every footprint
+    // until the whole group is spent, then remove its collision and art together.
+    for (const group of buildingFuel) if (!group.building.destroyed) {
+      const surface = group.cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
+      group.building.burnedFraction = clamp(1 - surface / group.initialSurfaceFuel, 0, 1);
+      if (group.cells.every(cell => cell.surfaceFuel + cell.depositedFuel <= EPS)) {
+        group.building.destroyed = true;
+        for (const collider of group.colliders) collider.destroyed = true;
+        event('building-burnout', {x: group.building.x, y: group.building.y}, {buildingId: group.building.id});
+      }
+    }
+    // Legacy ungrouped wood keeps its reviewed individual-footprint behavior.
+    for (const o of state.obstacles) if (!o.buildingId && !o.destroyed && o.material === 'wood') {
       const cells = field.cells.filter(c => inBox(c, o));
       if (cells.length && cells.every(c => c.surfaceFuel + c.depositedFuel <= EPS)) { o.destroyed = true; event('obstacle-burnout', o, {objectId: o.id}); }
     }
@@ -187,6 +206,8 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       effects: Object.fromEntries(['powder', 'inversion'].map(name => [name,
         {active: activeEffect(name), remaining: Math.max(0, state.effects[name].expiresAt - state.clocks.active)}])),
       world: {width: definition.width, height: definition.height, tileSize: definition.tileSize, modules,
+        buildings: state.buildings.map(building => structuredClone(building)),
+        ...(definition.camera ? {camera: structuredClone(definition.camera)} : {}),
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
         obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => ({...o}))},
       cells, actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
@@ -219,7 +240,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
       return snapshot();
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2; }

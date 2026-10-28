@@ -10,7 +10,7 @@ export async function startGame({root = document.querySelector('#game'), autoSta
   function showError(error) {
     if (!loading) return;
     loading.hidden = false;
-    loading.querySelector('span').textContent = 'The fair could not open. Check that WebGL 2 is enabled, then reload to try again.';
+    loading.querySelector('span').textContent = 'The street could not open. Check that WebGL 2 is enabled, then reload to try again.';
     if (!loading.querySelector('button')) {
       const retry = document.createElement('button'); retry.type = 'button'; retry.textContent = 'Reload';
       retry.addEventListener('click', () => location.reload(), {once:true}); loading.append(retry);
@@ -18,10 +18,10 @@ export async function startGame({root = document.querySelector('#game'), autoSta
     console.error(error);
   }
   try {
-    runtime = await createRuntime({root:viewport, uiRoot:hud, scenario:'exposition', seed:1893, ...options,
+    runtime = await createRuntime({root:viewport, uiRoot:hud, scenario:'neighborhood', seed:1893, ...options,
       autoStart, mountUI, createArtScene:async args => (art = await createArtScene(args)), onSnapshot, onError:showError});
     const canvas = viewport.querySelector('canvas');
-    canvas.tabIndex = 0; canvas.setAttribute('aria-label', 'Exposition exterior study. Point or tap to aim. Move with WASD or arrows.');
+    canvas.tabIndex = 0; canvas.setAttribute('aria-label', 'Tinderbox exterior street. Point or tap to aim. Move with WASD or arrows.');
     if (loading) loading.hidden = true;
   } catch (error) { showError(error); throw error; }
   const onPageHide = event => { if (!event.persisted) runtime.dispose(); };

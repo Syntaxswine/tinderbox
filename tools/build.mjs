@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 const root = fs.realpathSync(process.cwd()), output = path.resolve(root, 'dist'), marker = '.tinderbox-build';
+const intake = JSON.parse(fs.readFileSync(path.join(root, 'assets/art/neighborhood-intake.json'), 'utf8'));
+const imported = new Set(intake.runtimeFiles.map(file => file.installedPath));
 if (path.dirname(output) !== root || output === root) throw Error('Unsafe build destination');
 if (fs.existsSync(output)) {
   if (fs.lstatSync(output).isSymbolicLink() || ![marker, '.tinderbox-diagnostic-build'].some(name => fs.existsSync(path.join(output, name)))) throw Error('Refusing to replace an unowned dist directory');
@@ -24,7 +26,7 @@ function inventory(directory) {
     let bytes = fs.readFileSync(file);
     // Git checkouts use different line endings on Windows and Linux. Canonicalize
     // our packaged text so a reviewed local artifact matches CI; preserve vendor bytes.
-    if (!relative.startsWith('vendor/') && /\.(?:html|js|css|json|svg)$/.test(relative)) {
+    if (!relative.startsWith('vendor/') && !imported.has(relative) && /\.(?:html|js|css|json|svg)$/.test(relative)) {
       const canonical = Buffer.from(bytes.toString('utf8').replace(/\r\n/g,'\n'));
       if (!canonical.equals(bytes)) fs.writeFileSync(file,canonical);
       bytes = canonical;
@@ -33,5 +35,5 @@ function inventory(directory) {
   });
 }
 const files = inventory(output);
-fs.writeFileSync(path.join(output, 'build-manifest.json'), JSON.stringify({game:'Tinderbox',milestone:'03-shared-bear-protagonist',files},null,2)+'\n');
+fs.writeFileSync(path.join(output, 'build-manifest.json'), JSON.stringify({game:'Tinderbox',milestone:'04-catalogue-neighborhood',files},null,2)+'\n');
 console.log(`Built playable Tinderbox in dist/: ${files.length} files, ${files.reduce((n,file)=>n+file.bytes,0)} bytes. All resource URLs are relative to the project path.`);
