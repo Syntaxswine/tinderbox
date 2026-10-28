@@ -11,6 +11,7 @@
 - Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
 - Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. Interiors may come later. Combine tile-based world structure with free movement.
 - Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
+- Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
 
 ## Reuse-first technical direction
 
@@ -20,9 +21,9 @@ The opening mechanics test uses that stack with one pinned Three.js instance and
 
 The source of record is the locally available `origin/main` commit recorded in `source-baseline.json`, not the donor's stale local `main` branch or an arbitrary active worktree. This pin records what was inspected; it is not a claim that a remote was freshly fetched. Farmyard has inherited Animal Factory Tactics snapshots with their own provenance manifests; preserve that chain.
 
-## Candidate boundaries
+## Reuse boundaries
 
-These boundaries guide the audit and first implementation, rather than describe modules already built:
+These boundaries guide implementation and later extraction. A reuse target is not a claim that every listed subsystem is already implemented:
 
 | Area | Reuse target | Tinderbox responsibility |
 | --- | --- | --- |
@@ -37,14 +38,16 @@ Simulation must own gameplay outcomes; rendering consumes state and events. Shar
 
 Imports will be small, pinned, reproducible snapshots with preserved licenses and explicit adapters. Runtime imports must resolve inside Tinderbox. New snapshots should include only the files and dependencies needed by the reviewed feature. Farmyard hosting configuration, save namespaces, and release automation must not be copied as Tinderbox defaults.
 
-## First milestone: verified reuse inventory
+## Reviewed reuse inventory
 
-The artist inventories visual assets and conventions. The coder inventories module dependencies and gameplay behavior, especially flame, barrel, camera, UI, and storage paths. The architect reconciles both audits against source and sets the first implementation brief.
+The artist inventoried visual assets and conventions. The coder inventoried module dependencies and gameplay behavior, especially flame, barrel, camera, UI, and storage paths. The architect reconciled both audits against source before the first implementation brief.
 
 The resulting [architect reuse plan](reuse-plan.md) resolves the audits' layout proposals and defines the next handoff boundary. Historical recommendations in individual audits remain evidence; use the reconciled plan for implementation.
 
-A useful subsequent validation scene would put a bear, inherited UI, a flamethrower, and explosive barrels into one small isometric environment. Its acceptance criteria must distinguish artwork from collision and actual fire/explosion behavior. It remains a proposed next milestone, not a completed or fully specified game.
+The opening mechanics test combined a provisional bear, inherited painted UI surfaces, five tools, spreading fire and explosive barrels in one small isometric environment. Its [review](reviews/2026-10-27-burning-trail.md) records the tested behaviours and limits. The exposition kit extends that reviewed foundation with more direct wall/door and civilian reuse; it does not turn prototype visuals into final historical art.
 
 ## Decisions still open
 
 The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, bear appearance, progression, precise balancing, and later interior gameplay remain open. Do not import the donor's turn/AP rules as Tinderbox requirements.
+
+The reviewed [exposition foundation](milestones/02-exposition-foundation.md) establishes shared wall/door/roof forms, skin slots and direct normal-animal reuse. The [source dossier](research/1893-exposition/README.md) is the authority for historical evidence; prototype game arrangements are labelled separately from exact named-building reconstructions. The [acceptance record](reviews/2026-10-27-exposition-foundation.md) defines the verified result and remaining scope.

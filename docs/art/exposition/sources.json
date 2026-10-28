@@ -1,0 +1,182 @@
+{
+  "task": "TB-009",
+  "recordedOn": "2026-10-27",
+  "scope": "Source facts, derived unit/clearance calculations and game adaptations kept distinct; no scans used as runtime art",
+  "sources": [
+    {
+      "id": "TB009-R01",
+      "sharedLedgerId": "EXPO-P01",
+      "title": "Plans and diagrams of all exhibit buildings in the World's Columbian exposition",
+      "creator": "World's Columbian Exposition; Department of Publicity and Promotion; Moses P. Handy",
+      "publication": "Chicago: W. B. Conkey Company, 1893",
+      "kind": "Original published exhibit-installation diagrams with companion descriptions",
+      "repository": "Library of Congress / Internet Archive",
+      "itemId": "LCCN 05028673; IA plansdiagramsofa00worl; ark:/13960/t8nc6vd53",
+      "catalogUrl": "https://www.loc.gov/item/05028673/",
+      "viewerUrl": "https://archive.org/details/plansdiagramsofa00worl",
+      "locators": [
+        {
+          "page": "printed p. 9",
+          "pdfScan": 29,
+          "subject": "Horticulture description"
+        },
+        {
+          "page": "unpaginated Horticulture floor diagram",
+          "pdfScan": 31,
+          "subject": "Complete installation plan"
+        }
+      ],
+      "facts": [
+        "Description gives 1000 ft length, 250 ft extreme width, two 88 by 270 ft courts.",
+        "Floor diagram locates central/end pavilions and connecting curtains. Installation labels do not supply measured structural bays."
+      ],
+      "rightsEvidence": "LOC catalog public-domain statement recorded by architect; IA metadata states LOC is unaware of copyright restrictions.",
+      "cache": {
+        "owner": "architect worktree",
+        "path": "artifacts/research/exposition/plans-diagrams-1893.pdf",
+        "sha256": "abdb76059a5e4af190f2a9c00398835a29427cf6e913703d521da960c09ad69e",
+        "pdfPages": 98
+      },
+      "inspection": "Artist read description and visually inspected complete scan31 using shared cache; no second PDF copy made.",
+      "limits": "Not a construction set or as-built certification; no pixel scale or exact bay/roof-pitch measurement."
+    },
+    {
+      "id": "TB009-R02",
+      "title": "A monograph of the work of McKim, Mead & White, 1879-1915, volume I",
+      "creator": "McKim, Mead & White",
+      "publication": "New York: Architectural Book Publishing Co.; title spans1879-1915, IA catalog date1914, exact edition/imprint date unresolved; building caption1893",
+      "kind": "Architect-published original-work record containing plan, elevation and photograph",
+      "repository": "Getty Research Institute / Internet Archive",
+      "itemId": "gri_33125006526145; ark:/13960/t54f8mn1c; LCCN 14018045",
+      "viewerUrl": "https://archive.org/details/gri_33125006526145/page/n98/mode/1up",
+      "scanUrl": "https://archive.org/download/gri_33125006526145/gri_33125006526145.pdf",
+      "locators": [
+        {
+          "plate": 44,
+          "pdfScan": 99,
+          "subject": "New York State Building elevation and first-floor plan; graduated foot scales and dimension chains"
+        },
+        {
+          "plate": 43,
+          "pdfScan": 97,
+          "subject": "Matching building photograph"
+        }
+      ],
+      "rightsEvidence": "IA/Gettty metadata possible-copyright-status: NOT_IN_COPYRIGHT. Credit architect, publication and Getty scan. No source image is a runtime asset.",
+      "cache": {
+        "path": "artifacts/exposition-research/raw/gri_33125006526145.pdf",
+        "sha256": "1813cc4963681df8a6357c1553ffd4116522a19137afa6381e6b35f209f62fa0",
+        "pdfPages": 208
+      },
+      "inspection": "Both plates visually inspected; plan/elevation plate rendered at 2600 px and plan detail at 5200 px page scale.",
+      "facts": [
+        "Plan shows entrance vestibule, central hall, reception/side rooms, stairs and curved end porches.",
+        "Front elevation and photo show symmetrical central entrance, repeated windows/niches, parapets and two capped roof towers.",
+        "The original floor-plan sheet includes a graduated scale marked in feet."
+      ],
+      "limits": "Published after the fair, not an 1893 printing. Not a complete construction/as-built set. Some fine dimension numerals are ambiguous; no exact bay dimensions transcribed. Roof-back details remain incompletely evidenced."
+    },
+    {
+      "id": "TB009-R03",
+      "sharedLedgerId": "EXPO-P02",
+      "title": "Official views of the World's Columbian Exposition",
+      "creator": "C. D. Arnold and H. D. Higinbotham; Department of Photography",
+      "publication": "Chicago Photo-Gravure Co., 1893",
+      "kind": "Original built photographs in a digitally treated public-domain reproduction",
+      "repository": "Project Gutenberg, ebook 22847",
+      "itemId": "22847",
+      "catalogUrl": "https://www.gutenberg.org/ebooks/22847",
+      "viewerUrl": "https://www.gutenberg.org/cache/epub/22847/pg22847-images.html",
+      "locators": [
+        {
+          "plate": 43,
+          "subject": "Horticultural Building from Wooded Island"
+        },
+        {
+          "plate": 53,
+          "subject": "Fisheries Building from Wooded Island"
+        },
+        {
+          "plate": 64,
+          "subject": "New York State Building"
+        }
+      ],
+      "images": [
+        {
+          "plate": 43,
+          "url": "https://www.gutenberg.org/cache/epub/22847/images/043_25.jpg",
+          "cachePath": "artifacts/exposition-research/raw/arnold-plate043-gutenberg.jpg",
+          "sha256": "dfd6244ac5ed8e7d7d544c8ed8b0c6bcf6a1c7ed4f9f2ac1e73224d92c643150"
+        },
+        {
+          "plate": 53,
+          "url": "https://www.gutenberg.org/cache/epub/22847/images/053_25.jpg",
+          "cachePath": "artifacts/exposition-research/raw/arnold-plate053-gutenberg.jpg",
+          "sha256": "8b1e56a647132783599376f75a1702bca46b617fb3451ecfbd6b3b044eb82fce"
+        },
+        {
+          "plate": 64,
+          "url": "https://www.gutenberg.org/cache/epub/22847/images/064_25.jpg",
+          "cachePath": "artifacts/exposition-research/raw/arnold-plate064-gutenberg.jpg",
+          "sha256": "d6b033a84bfdd8eddff663ae6019caa294328f2cf896b031fbdda14693edb541"
+        }
+      ],
+      "rightsEvidence": "1893 public-domain publication reproduced by Gutenberg with stated ebook license. Preserve attribution; no photo imported as game art.",
+      "digitalTreatment": "Transcriber records gamma 0.8 adjustment, repairs to obvious specks/voids and resized derivatives; not untouched negatives. Appended 1905 history is a separate later text.",
+      "inspection": "Artist visually inspected plates43,53,64. Architect additionally inspected plate97 Midway; artist has not independently used that plate for a measurement.",
+      "limits": "Perspective monochrome views establish visible form and rhythm, not exact pitch, size or original colour. Trees obscure parts of New York ground floor."
+    },
+    {
+      "id": "TB009-R04",
+      "title": "Report [Massachusetts Board of World's Fair Managers]",
+      "creator": "Massachusetts Board of Managers, World's Fair, 1893",
+      "publication": "Boston: Wright & Potter Printing Co., 1894",
+      "kind": "Original official retrospective report with architect testimony and photographs",
+      "repository": "Library of Congress / Internet Archive",
+      "itemId": "report01mass; ark:/13960/t59c7tb95; LCCN 53052895",
+      "viewerUrl": "https://archive.org/details/report01mass",
+      "scanUrl": "https://archive.org/download/report01mass/report01mass.pdf",
+      "locators": [
+        {
+          "pages": "printed pp.31-33",
+          "subject": "Architects Peabody & Stearns letter dated January16,1894; historical adaptations and staff appearance"
+        }
+      ],
+      "rightsEvidence": "IA metadata: LOC is unaware of copyright restrictions for this item.",
+      "cache": {
+        "path": "artifacts/exposition-research/raw/report01mass.pdf",
+        "sha256": "eb86d34845d53cbc8d6da005ca556fe50c0c7ae22ad953587131426ee37a2528",
+        "pdfPages": 316
+      },
+      "inspection": "Report text read; selected original interior photographic plates inspected. No scaled floor plan identified in inspected report.",
+      "facts": [
+        "Architects describe an enlarged/enriched adaptation, not a strict Hancock-house copy.",
+        "Account distinguishes apparent granite from staff."
+      ],
+      "limits": "Useful source criticism and secondary form reference. Not the dimensional basis of the first kit; OCR hits for submitted plans do not prove an included scaled plan."
+    },
+    {
+      "id": "TB009-L01",
+      "sharedLedgerId": "EXPO-A02",
+      "title": "Administration Building elevation and ground-floor front half",
+      "repository": "Library of Congress, Hunt collection",
+      "itemId": "2024636088; ppmsca.73183",
+      "catalogUrl": "https://www.loc.gov/item/2024636088/",
+      "imageUrl": "https://hdl.loc.gov/loc.pnp/ppmsca.73183",
+      "kind": "Original published architectural drawing, verified by architect",
+      "inspection": "Architect visually verified in browser; artist web fetch returned403. Do not claim independent artist image inspection.",
+      "limits": "French caption identifies only front half of ground floor. Scale units not calibrated by this artist; no values transcribed."
+    },
+    {
+      "id": "TB009-L02",
+      "sharedLedgerId": "EXPO-A03",
+      "title": "Administration Building published plan, September1891",
+      "repository": "Columbia University Libraries",
+      "itemId": "10.7916/d8-ktxw-7q10",
+      "catalogUrl": "https://dlc.library.columbia.edu/mmw_photographs/10.7916/d8-ktxw-7q10",
+      "kind": "Archival discovery lead",
+      "inspection": "Access denied by archive bot protection; no attempt to bypass.",
+      "limits": "No measurements or built-detail claims from uninspected content."
+    }
+  ]
+}

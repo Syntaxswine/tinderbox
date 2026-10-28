@@ -36,4 +36,6 @@ The Pages workflow checks and packages code changes on `master`. Its deployment 
 
 ## Current milestone
 
-Read `docs/milestones/01-burning-trail.md` for the accepted user requirements, shared APIs, file ownership, bounded TB-004/TB-005/TB-006 assignments, and acceptance evidence. Its prototype defaults are tunable implementation choices, not new user requirements. Keep the movement joystick's 180-degree inversion in the simulation/input adapter exactly once. Pouring follows the bear's accepted movement; fire propagation follows world time.
+Read `docs/milestones/02-exposition-foundation.md` for the reviewed wall/door/roof kit and non-Red-Hat civilian foundation, and its linked acceptance for delivery status and remaining scope. Follow `docs/research/1893-exposition/README.md` when recording original-plan evidence, derived dimensions, uncertainties and game adaptations. Preserve shared physical dimensions when swapping skins.
+
+The reviewed `docs/milestones/01-burning-trail.md` remains the gameplay baseline. Its prototype defaults are tunable implementation choices, not new user requirements. Keep the movement joystick's 180-degree inversion in the simulation/input adapter exactly once. Pouring follows the bear's accepted movement; fire propagation follows world time.

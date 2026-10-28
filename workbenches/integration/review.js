@@ -1,13 +1,14 @@
 import {startGame} from '../../src/main.js';
 import {worldToStick} from '../../src/simulation/geometry.js';
 import {DEFAULT_CONFIG} from '../../src/simulation/config.js';
+import {EXPOSITION_SCENARIO} from '../../src/content/exposition.js';
 const output=document.querySelector('#results'), root=document.querySelector('#game');
 let game, results=[];
 const find=selector=>root.querySelector(selector);
 const ok=(value,message)=>{if(!value)throw Error(message);};
 const near=(a,b,tolerance=1e-6)=>ok(Math.abs(a-b)<tolerance,`${a} differs from ${b}`);
 const step=(ticks=1)=>{let snapshot;for(let i=0;i<ticks;i++)snapshot=game.advance(1/60);return snapshot;};
-async function open(options={}){game?.dispose();game=await startGame({root,autoStart:false,...options});return game;}
+async function open(options={}){game?.dispose();game=await startGame({root,autoStart:false,scenario:'street',...options});return game;}
 const pointer=(target,type,id,x=0,y=0)=>target.dispatchEvent(new PointerEvent(type,{pointerId:id,pointerType:'touch',button:0,clientX:x,clientY:y,bubbles:true,cancelable:true}));
 function move(vector,id=71){const stick=find('[data-stick]'),rect=stick.getBoundingClientRect(),radius=Math.min(rect.width,rect.height)*.36;pointer(stick,'pointerdown',id,rect.x+rect.width/2+vector.x*radius,rect.y+rect.height/2-vector.y*radius);}
 const select=tool=>{find(`[data-tool="${tool}"]`).click();step();};
@@ -53,25 +54,48 @@ async function suite(){
     await check('Powder separates bear from a finite front on the same freshly poured line',async()=>{
       await showChase();const snapshot=game.snapshot();ok(snapshot.player.x-snapshot.diagnostics.frontX>7,'No escape separation');ok(snapshot.player.pouring,'Chase lost pour');ok(snapshot.diagnostics.burningCells>0,'No chasing fire');ok(game.artDiagnostics().fire.flameCards>0,'Authoritative fire has no art');
     });
+    await check('Exposition renders original normal civilians and exactly the surviving physical module parts',async()=>{
+      await open({scenario:'exposition'});const s=game.snapshot(),d=game.artDiagnostics();
+      ok(s.actors.length===2&&s.actors.every(a=>['horse','goat'].includes(a.species)&&a.appearance==='normal'&&a.headgear==='none'&&a.equipment==='none'),'Civilian identity');
+      ok(d.civilianKit?.instances===2&&d.provisionalActors===0,'Actual donor factory is not in the combined scene');
+      const expected=s.world.modules.flatMap(m=>m.parts.filter(p=>p.solid&&!p.destroyed)).map(p=>p.id).sort();
+      ok(JSON.stringify([...d.exterior.survivingSolidParts].sort())===JSON.stringify(expected),'Rendered solids differ from the authoritative parts');
+      ok(d.exterior.visibleRoofParts.length===2,'Roof samples missing');
+    });
+    await check('Combined exposition UI pours through the open gate, stops at the closed door and slows the original civilians',()=>{
+      select('jerry-can');find('[data-primary]').click();step();const before=game.snapshot();
+      move(worldToStick({x:0,y:-1},DEFAULT_CONFIG.input),79);find('[data-drug="powder"]').click();const after=step(150);
+      const door=after.world.modules.find(m=>m.form==='doorway'&&m.opening.state==='closed');
+      const gate=after.world.modules.find(m=>m.form==='doorway'&&m.opening.state==='open');
+      ok(after.player.y<gate.y-.5,'Bear did not cross the visible gate');
+      ok(after.player.y>=door.y+.06+after.player.radius-1e-6&&after.player.y<door.y+.75,'Visible closed door did not stop the bear');
+      near(before.player.inventory.gas-after.player.inventory.gas,(after.player.travelled-before.player.travelled)*.08);
+      for(let i=0;i<after.actors.length;i++)near(after.actors[i].travelled-before.actors[i].travelled,.7);
+      ok(after.player.pouring&&after.effects.powder.active,'Powder interrupted pouring');
+      const d=game.artDiagnostics();ok(d.civilianActors?.length===2&&d.civilianActors.every(a=>a.armed===false&&a.appearance==='normal'),'Civilian gear changed during movement');
+      pointer(window,'pointerup',79);step();
+    });
     results.push({name:'Combined resource/performance sample',status:'observed',metrics:game.metrics(),art:game.artDiagnostics()});
     const cycles=[];
-    await check('Four complete runtime rebuilds dispose views and keep live resource counts stable',async()=>{for(let i=0;i<4;i++){const previous=game;previous.dispose();ok(previous.artDiagnostics().disposed,'Art did not dispose');await open();cycles.push(game.metrics());}ok(cycles.every(value=>value.geometries===cycles[0].geometries&&value.textures===cycles[0].textures),'Resources grew across rebuilds');ok(root.querySelectorAll('canvas').length===1&&root.querySelectorAll('.tb-ui').length===1,'Duplicate composition');});
+    await check('Four complete exposition runtime rebuilds dispose original civilian views and keep live resources stable',async()=>{for(let i=0;i<4;i++){const previous=game;previous.dispose();ok(previous.artDiagnostics().disposed&&previous.artDiagnostics().civilianKit?.disposed,'Art/civilian kit did not dispose');await open({scenario:'exposition'});cycles.push(game.metrics());}ok(cycles.every(value=>value.geometries===cycles[0].geometries&&value.textures===cycles[0].textures),'Resources grew across rebuilds');ok(root.querySelectorAll('canvas').length===1&&root.querySelectorAll('.tb-ui').length===1,'Duplicate composition');});
     output.textContent=JSON.stringify({passed:results.filter(item=>item.status==='pass').length,failed:results.filter(item=>item.status==='fail').length,viewport:{width:innerWidth,height:innerHeight},results},null,2);
   }finally{document.querySelectorAll('#qa button').forEach(button=>button.disabled=false);}
 }
 async function showChase(){await open({scenario:'chase'});find('[data-primary]').click();step();move(worldToStick({x:1,y:0},DEFAULT_CONFIG.input));find('[data-drug="powder"]').click();step(120);pointer(window,'pointerup',71);game.advance(0);return game;}
 async function showJet(){await open();select('flamethrower');game.dispatch({type:'aim',x:8,y:9});step();pointer(find('[data-primary]'),'pointerdown',72);step(35);return game;}
 document.querySelector('#run').addEventListener('click',()=>suite().catch(error=>output.textContent=error.stack));
+document.querySelector('#kit').addEventListener('click',()=>open({scenario:'exposition'}).then(()=>output.textContent=JSON.stringify({metrics:game.metrics(),art:game.artDiagnostics()},null,2)));
 document.querySelector('#chase').addEventListener('click',()=>showChase().then(()=>output.textContent=JSON.stringify({snapshot:game.snapshot().clocks,metrics:game.metrics(),art:game.artDiagnostics()},null,2)));
 document.querySelector('#jet').addEventListener('click',()=>showJet().then(()=>output.textContent=JSON.stringify({metrics:game.metrics(),art:game.artDiagnostics()},null,2)));
 document.querySelector('#sample').addEventListener('click',async()=>{
   let complete=false;output.textContent='Sampling 260 actual animation frames…';
-  await open({autoStart:true,onSnapshot:(_snapshot,metrics)=>{
+  const scene=structuredClone(EXPOSITION_SCENARIO);scene.player={...scene.player,x:10,y:8,tool:'flamethrower'};
+  await open({scenario:scene,autoStart:true,onSnapshot:(_snapshot,metrics)=>{
     if(metrics.frames<260||complete)return;complete=true;
     output.textContent=JSON.stringify({mode:'real RAF, warm final 240-frame window',metrics,art:game.artDiagnostics()},null,2);
     game.dispatch({type:'pause',paused:true});
   }});
-  game.dispatch({type:'select-tool',tool:'flamethrower'});game.dispatch({type:'aim',x:8,y:9});game.dispatch({type:'primary',pressed:true});
+  game.dispatch({type:'select-tool',tool:'flamethrower'});game.dispatch({type:'aim',x:10,y:5});game.dispatch({type:'primary',pressed:true});
 });
 document.querySelector('#export').addEventListener('click',()=>{
   const url=URL.createObjectURL(new Blob([output.textContent],{type:'application/json'})),anchor=document.createElement('a');
@@ -79,5 +103,5 @@ document.querySelector('#export').addEventListener('click',()=>{
 });
 document.querySelector('#hide').addEventListener('click',()=>document.querySelector('#qa').hidden=true);
 window.addEventListener('keydown',event=>{if(event.code==='F2'){event.preventDefault();document.querySelector('#qa').hidden=false;}});
-await open();
+await open({scenario:'exposition'});
 document.querySelectorAll('#qa button').forEach(button=>button.disabled=false);output.textContent='Ready';

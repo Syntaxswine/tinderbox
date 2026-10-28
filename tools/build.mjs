@@ -33,5 +33,5 @@ function inventory(directory) {
   });
 }
 const files = inventory(output);
-fs.writeFileSync(path.join(output, 'build-manifest.json'), JSON.stringify({game:'Tinderbox',milestone:'01-burning-trail',files},null,2)+'\n');
+fs.writeFileSync(path.join(output, 'build-manifest.json'), JSON.stringify({game:'Tinderbox',milestone:'02-exposition-foundation',files},null,2)+'\n');
 console.log(`Built playable Tinderbox in dist/: ${files.length} files, ${files.reduce((n,file)=>n+file.bytes,0)} bytes. All resource URLs are relative to the project path.`);

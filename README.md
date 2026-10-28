@@ -2,9 +2,11 @@
 
 An isometric 3D game about a pyromaniac anthropomorphic bear who does drugs and sets things on fire.
 
-The opening **Burning Trail** test combines a small exterior scene, five tools, three drug effects, continuous gasoline trails, spreading fire and explosive drums. It runs in a browser with WebGL 2.
+The **Exposition Study** combines a small exterior construction kit, original Farmyard horse/goat civilians, five tools, three drug effects, continuous gasoline trails and spreading fire. It runs in a browser with WebGL 2.
 
-This is a mechanics test with provisional character/environment art. The next visual pass must use Farmyard Commando's actual game assets and interface as its direct foundation. The current atlas/painted-control reuse does not establish the final visual direction.
+The walls use Farmyard Commando's actual brick, wood and concrete surfaces; civilians use its original normal models, paint and walking rigs. The bear, pale facade finish and roof finishes remain provisional. The existing interface still uses the imported Farmyard control assets; a future UI pass must begin with the donor's actual component layout and recipes.
+
+The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. This first arrangement is a game adaptation demonstrating reusable forms and skin slots, rather than a named historic building or a surveyed piece of the fair.
 
 ## Play and develop
 
@@ -29,11 +31,14 @@ The architect owns architecture, worktree assignments, integration, and final qu
 
 - [Architecture and reuse decisions](docs/architecture.md)
 - [Architect's reconciled reuse plan](docs/reuse-plan.md)
-- [Current milestone: the burning trail](docs/milestones/01-burning-trail.md)
+- [Current milestone: researched exposition construction kit](docs/milestones/02-exposition-foundation.md)
+- [Exposition research and original sources](docs/research/1893-exposition/README.md)
+- [Original burning-trail mechanics](docs/milestones/01-burning-trail.md)
 - [Art reuse audit](docs/art/farmyard-reuse-audit.md)
 - [Runtime reuse audit](docs/engineering/farmyard-reuse-audit.md)
 - [Assignments and promotion gate](docs/workflow.md)
-- [Architect review record](docs/reviews/2026-10-27-reuse-foundation.md)
+- [Reuse foundation review](docs/reviews/2026-10-27-reuse-foundation.md)
+- [Exposition construction-kit acceptance](docs/reviews/2026-10-27-exposition-foundation.md)
 - [Pinned Farmyard source](docs/source-baseline.json)
 - [Repository instructions](AGENTS.md)
 
@@ -52,4 +57,4 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 The primary checkout is the architect's integration workspace on `master`. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
 
-The repository is public with the user's approval, and the opening mechanics test is live on Pages. The [publication run](https://github.com/Syntaxswine/tinderbox/actions/runs/40596420252) passed both build and deployment; all 46 hosted game files match the reviewed package. The checks and remaining visual direction are recorded in [the architect's acceptance](docs/reviews/2026-10-27-burning-trail.md).
+The repository is public with the user's approval, and the exposition construction-kit study is live on Pages. The [publication run](https://github.com/Syntaxswine/tinderbox/actions/runs/40606724201) passed both build and deployment; all 70 hosted game files match the reviewed package. Source evidence, checks and remaining art scope are recorded in [the architect's acceptance](docs/reviews/2026-10-27-exposition-foundation.md). The [opening mechanics review](docs/reviews/2026-10-27-burning-trail.md) remains the earlier gameplay baseline.

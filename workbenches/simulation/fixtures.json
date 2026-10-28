@@ -1,4 +1,353 @@
 {
+  "exposition": {
+    "id": "exposition",
+    "width": 20,
+    "height": 16,
+    "player": {
+      "x": 10,
+      "y": 12,
+      "tool": "jerry-can"
+    },
+    "patches": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 3,
+        "depth": 16,
+        "material": "grass"
+      }
+    ],
+    "modules": [
+      {
+        "id": "court-gate",
+        "form": "doorway",
+        "x": 10,
+        "y": 9,
+        "width": 4,
+        "depth": 0.3,
+        "height": 3.2,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ],
+        "opening": {
+          "width": 1.4,
+          "height": 2.3,
+          "state": "open"
+        }
+      },
+      {
+        "id": "court-front-west",
+        "form": "wall",
+        "x": 6,
+        "y": 9,
+        "width": 4,
+        "depth": 0.3,
+        "height": 3.2,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ]
+      },
+      {
+        "id": "court-front-east",
+        "form": "wall",
+        "x": 14,
+        "y": 9,
+        "width": 4,
+        "depth": 0.3,
+        "height": 3.2,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ]
+      },
+      {
+        "id": "court-west",
+        "form": "wall",
+        "x": 4,
+        "y": 6,
+        "width": 6,
+        "depth": 0.3,
+        "height": 3.2,
+        "heading": 1.5707963267948966,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ]
+      },
+      {
+        "id": "court-east",
+        "form": "wall",
+        "x": 16,
+        "y": 6,
+        "width": 6,
+        "depth": 0.3,
+        "height": 3.2,
+        "heading": 1.5707963267948966,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ]
+      },
+      {
+        "id": "hall-back",
+        "form": "wall",
+        "x": 10,
+        "y": 3,
+        "width": 12,
+        "depth": 0.3,
+        "height": 3.6,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ]
+      },
+      {
+        "id": "hall-closed-door",
+        "form": "doorway",
+        "x": 10,
+        "y": 5,
+        "width": 4,
+        "depth": 0.3,
+        "height": 3.2,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ],
+        "opening": {
+          "width": 1.4,
+          "height": 2.3,
+          "state": "closed"
+        }
+      },
+      {
+        "id": "hall-pilaster",
+        "form": "pilaster",
+        "x": 6,
+        "y": 5,
+        "width": 0.45,
+        "depth": 0.55,
+        "height": 3.4,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ]
+      },
+      {
+        "id": "service-corner",
+        "form": "corner",
+        "x": 18,
+        "y": 5,
+        "width": 2,
+        "depth": 2,
+        "height": 3,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "farmyard:hybrid-wall-opening",
+          "EXPO-P01:scan31",
+          "EXPO-P02:plate43",
+          "game:frontage-fragment"
+        ],
+        "thickness": 0.3
+      },
+      {
+        "id": "hall-gable",
+        "form": "roof-gable",
+        "x": 10,
+        "y": 4,
+        "width": 12,
+        "depth": 2.4,
+        "height": 1.6,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "EXPO-P02:plate53",
+          "EXPO-P02:plate97",
+          "game:roof-primitive-adaptation"
+        ],
+        "baseHeight": 3.6,
+        "supportModuleIds": [
+          "hall-back",
+          "hall-closed-door"
+        ]
+      },
+      {
+        "id": "service-hip",
+        "form": "roof-hip",
+        "x": 18,
+        "y": 5,
+        "width": 2.4,
+        "depth": 2.4,
+        "height": 0.8,
+        "heading": 0,
+        "physicalMaterial": "wood",
+        "skinSlots": {
+          "facade": "inherited-plaster",
+          "trim": "inherited-cream",
+          "door": "inherited-wood",
+          "roof": "inherited-roof"
+        },
+        "sourceRefs": [
+          "EXPO-P02:plate53",
+          "EXPO-P02:plate97",
+          "game:roof-primitive-adaptation"
+        ],
+        "baseHeight": 3.2,
+        "supportModuleIds": [
+          "service-corner"
+        ]
+      }
+    ],
+    "obstacles": [],
+    "actors": [
+      {
+        "id": "visitor-horse",
+        "species": "horse",
+        "appearance": "normal",
+        "radius": 0.62,
+        "height": 1.7,
+        "model": "../tactics/horse-10k-data.json",
+        "paint": "characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+        "sourceRef": "farmyard:normal-horse",
+        "x": 7,
+        "y": 7,
+        "route": [
+          {
+            "x": 7,
+            "y": 7
+          },
+          {
+            "x": 13,
+            "y": 7
+          }
+        ],
+        "hp": 100,
+        "speed": 0.8,
+        "team": "civilian",
+        "headgear": "none",
+        "equipment": "none"
+      },
+      {
+        "id": "visitor-goat",
+        "species": "goat",
+        "appearance": "normal",
+        "radius": 0.62,
+        "height": 1.7,
+        "model": "../tactics/goat-10k-data.json",
+        "paint": "characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+        "sourceRef": "farmyard:normal-goat",
+        "x": 13,
+        "y": 12,
+        "route": [
+          {
+            "x": 13,
+            "y": 12
+          },
+          {
+            "x": 17,
+            "y": 12
+          }
+        ],
+        "hp": 100,
+        "speed": 0.8,
+        "team": "civilian",
+        "headgear": "none",
+        "equipment": "none"
+      }
+    ]
+  },
   "street": {
     "id": "street",
     "width": 20,
