@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {compileModules, CIVILIAN_PROFILES} from '../../src/content/exterior-kit.js';
+import {compileModules, CIVILIAN_PROFILES, DEFAULT_STORY_HEIGHT, WALL_STORY_OPTIONS} from '../../src/content/exterior-kit.js';
 import {createSimulation} from '../../src/simulation/index.js';
 import {createCivilianRig, loadCivilianKit} from '../../src/reuse/civilians.js';
 const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-8, `${a} != ${b}`);
@@ -125,4 +125,54 @@ test('wood burnout marks individual parts dead and hides unsupported lintel/roof
   assert.equal(m.parts.find(p => p.role === 'lintel').destroyed, true);
   assert.equal(s.world.modules[1].destroyed, true); assert.equal(s.world.modules[1].parts[0].destroyed, true);
   const bad = scenario(gate()); bad.modules.push({...def.modules[1], supportModuleIds: ['missing']}); assert.throws(() => createSimulation({scenario: bad}), /supportModuleIds/);
+});
+
+test('one-through-five-story facades reuse the exact explicit-height wall parts at every heading', () => {
+  assert.deepEqual(WALL_STORY_OPTIONS.map(p => p.stories), [1, 2, 3, 4, 5]);
+  assert.equal(DEFAULT_STORY_HEIGHT, 3.2);
+  assert.ok(Object.isFrozen(WALL_STORY_OPTIONS) && WALL_STORY_OPTIONS.every(Object.isFrozen));
+  for (const option of WALL_STORY_OPTIONS) for (const heading of [0, Math.PI / 2, Math.PI, 3 * Math.PI / 2]) {
+    for (const form of ['wall', 'doorway', 'pilaster', 'corner']) {
+      const explicit = {...gate('open', heading), form, height: option.height, thickness: 0.2};
+      if (form !== 'doorway') delete explicit.opening;
+      const counted = {...explicit, stories: option.stories}; delete counted.height;
+      const a = compileModules([explicit], {width: 12, height: 10});
+      const b = compileModules([counted], {width: 12, height: 10});
+      assert.deepEqual(b.obstacles, a.obstacles); assert.deepEqual(b.modules[0].parts, a.modules[0].parts);
+      assert.equal(b.modules[0].stories, option.stories); close(b.modules[0].storyHeight, 3.2); close(b.modules[0].height, option.height);
+      const top = Math.max(...b.modules[0].parts.map(p => p.h + p.height / 2)); close(top, option.height);
+      close(Math.min(...b.modules[0].parts.map(p => p.h - p.height / 2)), 0);
+      assert.equal(b.modules[0].parts.length, a.modules[0].parts.length);
+    }
+  }
+});
+
+test('all story presets keep ground-door clearance and leaf height while supporting an elevated roof', () => {
+  for (const option of WALL_STORY_OPTIONS) for (const state of ['open', 'closed']) {
+    const door = {...gate(state), stories: option.stories}; delete door.height;
+    const roof = {...gate(), id: 'roof', form: 'roof-hip', depth: 3, height: 1.6, baseHeight: option.height, supportModuleIds: ['gate']}; delete roof.opening;
+    const def = scenario(door); def.modules.push(roof);
+    const sim = createSimulation({scenario: def, config: {input: {cameraRelative: false}}});
+    const before = sim.snapshot(), frame = before.world.modules[0];
+    close(frame.parts.find(p => p.role === 'lintel').h - frame.parts.find(p => p.role === 'lintel').height / 2, 2.3);
+    if (state === 'closed') close(frame.parts.find(p => p.role === 'closed-door').height, 2.3);
+    const envelope = before.world.modules[1].parts[0]; close(envelope.h - envelope.height / 2, option.height); assert.equal(envelope.solid, false);
+    assert.equal(before.world.obstacles.length, state === 'open' ? 2 : 3);
+    sim.dispatch({type: 'move', x: 0, y: -1}); for (let i = 0; i < 90; i++) sim.advance(1 / 60);
+    assert.equal(sim.snapshot().player.y < 4, state === 'open');
+    assert.equal(sim.snapshot().world.modules[0].stories, option.stories);
+    sim.dispose();
+  }
+});
+
+test('story metadata validates counts and dimensions without changing legacy arbitrary-height modules', () => {
+  for (const stories of [0, 6, -1, 1.5, null, '3', Infinity]) assert.throws(() => compileModules([{...gate(), stories}], {width: 12, height: 10}), /stories/);
+  for (const change of [{stories: 2, height: 3.2}, {storyHeight: 3.2}, {stories: 2, storyHeight: 0}, {stories: 2, storyHeight: NaN}, {stories: 2, storyHeight: Number.MAX_VALUE}]) {
+    assert.throws(() => compileModules([{...gate(), ...change}], {width: 12, height: 10}));
+  }
+  const custom = {...gate(), stories: 3, storyHeight: 4.1}; delete custom.height;
+  close(compileModules([custom], {width: 12, height: 10}).modules[0].height, 12.3);
+  const legacy = compileModules([{...gate(), height: 3.7}], {width: 12, height: 10}).modules[0];
+  close(legacy.height, 3.7); assert.equal(legacy.stories, undefined); assert.equal(legacy.storyHeight, undefined);
+  assert.throws(() => compileModules([{...gate(), form: 'roof-gable', stories: 2}], {width: 12, height: 10}), /stories/);
 });
