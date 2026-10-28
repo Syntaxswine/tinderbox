@@ -1,0 +1,363 @@
+{
+  "hosted": {
+    "qaExcluded": true,
+    "files": 127,
+    "command": "node tools/check-site.mjs http://127.0.0.1:4552/nested/row-ui/dist/",
+    "moduleMime": true,
+    "status": "pass"
+  },
+  "date": "2026-10-28",
+  "base": "3c6001d5d4035e950f25e500294eaec55bbf81d2",
+  "branch": "codex/row-ignition-ui",
+  "preservedUiCandidate": "997a12470b05c7cda1db675f667967a67ef97cbf",
+  "browser": {
+    "logs": [],
+    "desktop": {
+      "report": {
+        "results": [
+          {
+            "name": "Five tools and three drugs; selection waits for an authoritative snapshot",
+            "status": "pass"
+          },
+          {
+            "name": "Health, inventory, full healing, and empty primary come from snapshots",
+            "status": "pass"
+          },
+          {
+            "name": "Pour/Stop and remaining times change only on snapshot updates",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion leaves raw NE joystick positive on both axes, with no aim command",
+            "status": "pass"
+          },
+          {
+            "name": "Independent pointers preserve movement during primary and drug use",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter press edges ignore key-repeat and release held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Tool/drug keyboard shortcuts preserve held movement and do not repeat drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture neutralize movement and trigger",
+            "status": "pass"
+          },
+          {
+            "name": "Window blur clears keys, trigger and pour without stale input on refocus",
+            "status": "pass"
+          },
+          {
+            "name": "Paused/dead snapshots clear held input and gate gameplay controls",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pause/resume stays authoritative; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus including checkboxes; Escape returns without gameplay",
+            "status": "pass"
+          },
+          {
+            "name": "Native repeated Enter on a drug is suppressed; full-health healing is unavailable",
+            "status": "pass"
+          },
+          {
+            "name": "Every UI listener is removed across repeated mount/dispose; stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts have unique ARIA references and preserve root siblings",
+            "status": "pass"
+          },
+          {
+            "name": "Hidden-document cancellation releases held input",
+            "status": "pass"
+          },
+          {
+            "name": "Every gameplay touch target is at least 44px and stays inside the scene",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus keeps keyboard control; leaving the scene clears held input",
+            "status": "pass"
+          },
+          {
+            "name": "Torch phases and rack show authoritative seconds, spent disables only use",
+            "status": "pass"
+          },
+          {
+            "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+            "status": "pass"
+          },
+          {
+            "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+            "status": "pass"
+          },
+          {
+            "name": "Switching away and back preserves aged torch state without relighting",
+            "status": "pass"
+          },
+          {
+            "name": "Spent transition releases held input and repeats cannot relight it",
+            "status": "pass"
+          },
+          {
+            "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+            "status": "pass"
+          },
+          {
+            "name": "Initial old events are not announced and tool feedback stays with its tool",
+            "status": "pass"
+          },
+          {
+            "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      "viewport": {
+        "height": 800,
+        "width": 1280
+      }
+    },
+    "ownedTabClosed": true,
+    "userMuseumTabPreserved": true,
+    "native": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fixture": "torch-unlit",
+      "commandLog": "2 {\"type\":\"primary\",\"pressed\":false}\n1 {\"type\":\"primary\",\"pressed\":true}",
+      "state": "IN HAND\nTorch\nPress once to light. Keeps burning until spent.\nUNLIT · 41.7s left",
+      "note": "Native Enter sends one press/release pair; fixed example remains unlit. No UI-owned lighting or timer."
+    },
+    "phone": {
+      "report": {
+        "results": [
+          {
+            "name": "Five tools and three drugs; selection waits for an authoritative snapshot",
+            "status": "pass"
+          },
+          {
+            "name": "Health, inventory, full healing, and empty primary come from snapshots",
+            "status": "pass"
+          },
+          {
+            "name": "Pour/Stop and remaining times change only on snapshot updates",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion leaves raw NE joystick positive on both axes, with no aim command",
+            "status": "pass"
+          },
+          {
+            "name": "Independent pointers preserve movement during primary and drug use",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter press edges ignore key-repeat and release held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Tool/drug keyboard shortcuts preserve held movement and do not repeat drugs",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture neutralize movement and trigger",
+            "status": "pass"
+          },
+          {
+            "name": "Window blur clears keys, trigger and pour without stale input on refocus",
+            "status": "pass"
+          },
+          {
+            "name": "Paused/dead snapshots clear held input and gate gameplay controls",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pause/resume stays authoritative; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus including checkboxes; Escape returns without gameplay",
+            "status": "pass"
+          },
+          {
+            "name": "Native repeated Enter on a drug is suppressed; full-health healing is unavailable",
+            "status": "pass"
+          },
+          {
+            "name": "Every UI listener is removed across repeated mount/dispose; stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts have unique ARIA references and preserve root siblings",
+            "status": "pass"
+          },
+          {
+            "name": "Hidden-document cancellation releases held input",
+            "status": "pass"
+          },
+          {
+            "name": "Every gameplay touch target is at least 44px and stays inside the scene",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus keeps keyboard control; leaving the scene clears held input",
+            "status": "pass"
+          },
+          {
+            "name": "Torch phases and rack show authoritative seconds, spent disables only use",
+            "status": "pass"
+          },
+          {
+            "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+            "status": "pass"
+          },
+          {
+            "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+            "status": "pass"
+          },
+          {
+            "name": "Switching away and back preserves aged torch state without relighting",
+            "status": "pass"
+          },
+          {
+            "name": "Spent transition releases held input and repeats cannot relight it",
+            "status": "pass"
+          },
+          {
+            "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+            "status": "pass"
+          },
+          {
+            "name": "Initial old events are not announced and tool feedback stays with its tool",
+            "status": "pass"
+          },
+          {
+            "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    "viewportReset": true
+  },
+  "node": {
+    "staticModules": 106,
+    "uiModelTests": 9,
+    "status": "pass",
+    "tests": 89,
+    "artDependencyChecks": 25,
+    "ownScripts": 82,
+    "command": "node tools/check.mjs",
+    "artImports": 5
+  },
+  "build": {
+    "bytes": 43140987,
+    "manifestSha256": "33114e549f7bb03e04cdd44dc35669c59f25370af3bbe8f68edec66eec974f4d",
+    "files": 129,
+    "command": "node tools/build.mjs",
+    "status": "pass"
+  },
+  "task": "TB-020",
+  "helper": {
+    "registered": true,
+    "creationFiletime": "134376929133350677",
+    "cleanup": "Stopped and verified; exact-identity stop_file receipt in ignored artifacts/row-ignition-ui/helper/cleanup-receipt.json",
+    "expiresAt": "2026-10-28T16:58:33.3546566-04:00",
+    "pid": 60580,
+    "port": 4552,
+    "originalExited": true,
+    "portReleased": true,
+    "preservedFiles": 39,
+    "retained": false
+  },
+  "limitations": [
+    "DOM-only fixed snapshots; no live burn clock or solver proof.",
+    "Coder branch was at common base at final inspection; exact delivered event payloads need combined confirmation.",
+    "Legacy runtime safely waits without player.torch.",
+    "Combined desktop/phone WebGL review and architect promotion remain pending.",
+    "Actual walk-over pickups remain coder/artist work; prior six-action UI candidate already removes manual drug controls."
+  ],
+  "sources": [
+    {
+      "path": "src/ui/model.js",
+      "sha256": "cd4d0198925e1cf571816d84debb0bb3064d340c075b905490c57fa5ab35ce97"
+    },
+    {
+      "path": "src/ui/index.js",
+      "sha256": "4b694056c3b5b21062c128ab49c10aac2c3ce5667b96f93b9b6a014c7f05d930"
+    },
+    {
+      "path": "src/ui/styles.css",
+      "sha256": "8e7dc8fd37a85a7b651319e7e12a915c29466c8cd2ff36bbd0d0be586ebf47a0"
+    },
+    {
+      "path": "tests/ui/model.test.mjs",
+      "sha256": "999d3eb27b1b30c0a0e885dd0ec1a3363f89ed7fb02d9d739567cdfc5926b105"
+    },
+    {
+      "path": "tests/ui/browser-tests.js",
+      "sha256": "9d5fd76a9dc59193183854c8b422a018aea8af0c2bda22a1408a4ce840b2fc72"
+    },
+    {
+      "path": "workbenches/ui/fixtures.js",
+      "sha256": "4d7035912a53185aeeb49c48561bb6b313b6016779dd8289ba7d819646ac3174"
+    },
+    {
+      "path": "workbenches/ui/index.html",
+      "sha256": "d2c5598a12a611094264273f47d785792dd78f3b56aaa6bf84918569e5a8a68d"
+    }
+  ],
+  "release": {
+    "files": 129,
+    "command": "node tools/check-release.mjs",
+    "status": "pass"
+  },
+  "images": [
+    {
+      "bytes": 86757,
+      "path": "evidence/desktop-lit.jpg",
+      "sha256": "7b950fe39810d54778c00968626e766eaf3010682fcbb74e329bdf4070321acc"
+    },
+    {
+      "bytes": 49742,
+      "path": "evidence/phone-blocked.jpg",
+      "sha256": "7fa32672afea7c444309ac995bdf9678d2337aaba03732e5c27661215d92daeb"
+    },
+    {
+      "bytes": 49040,
+      "path": "evidence/phone-match-no-fuel.jpg",
+      "sha256": "2a5fc7288d243e6d7a2bc7855e7ff0ddd0adebe7fe664f4214280a7d735dae31"
+    },
+    {
+      "bytes": 47801,
+      "path": "evidence/phone-pending.jpg",
+      "sha256": "5f2f4df4e78c97f28fd0617aea0ee820bc486f7ea3ef3a999747a0526cb74d50"
+    },
+    {
+      "bytes": 47997,
+      "path": "evidence/phone-spent.jpg",
+      "sha256": "dd99a02ff119c1ef0ec4983ea40ab4fdb0c1cdd06b36bc0bf8a7fe357393bb2c"
+    },
+    {
+      "bytes": 48625,
+      "path": "evidence/phone-unlit.jpg",
+      "sha256": "8b78558c598f6f0fa64bdae35fd3219fc804fb2664bca9a6f625c6911e1be397"
+    }
+  ]
+}
