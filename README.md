@@ -12,6 +12,8 @@ JPG previews: [all six houses](docs/reviews/media/2026-10-28-catalogue-block-two
 
 The next [architect proposal](docs/milestones/06-row-houses-and-ignition.md) is assigned to the existing coder, artist and UI specialist: joined Monroe rows, one-tile matches and a timed carried torch. This proposal branch retains the six-house implementation checkpoint while those worker deliveries are in progress.
 
+The artist's following [New York State Building assignment](docs/milestones/07-new-york-state-building.md) uses the original published plan, elevation and photograph for one reusable exterior, measured source comparisons and JPG previews. Administration follows review of that asset. Production placement remains a separate integration step.
+
 The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. The street is a fictional arrangement of [the first catalogue houses](docs/research/catalogue-neighborhood/README.md) and [three further designs](docs/research/catalogue-block-two/README.md), preserving the reusable Farmyard/AFT dimensions. Interiors, stair traversal, wall-climb fire and collapse physics remain separate work.
 
 ## Play and develop
@@ -40,6 +42,7 @@ The architect owns architecture, worktree assignments, integration, and final qu
 - [Architecture and reuse decisions](docs/architecture.md)
 - [Architect's reconciled reuse plan](docs/reuse-plan.md)
 - [Active proposal: joined rows and deliberate ignition](docs/milestones/06-row-houses-and-ignition.md)
+- [Artist proposal: New York State Building exterior](docs/milestones/07-new-york-state-building.md)
 - [Last implementation checkpoint: second catalogue block](docs/milestones/05-catalogue-block-two.md)
 - [First catalogue neighborhood](docs/milestones/04-catalogue-neighborhood.md)
 - [Shared bear protagonist](docs/milestones/03-shared-bear-protagonist.md)

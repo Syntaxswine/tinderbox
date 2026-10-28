@@ -5,7 +5,7 @@
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
 | Architect | `codex/row-houses-and-ignition` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Proposals, source boundaries, integration, final QC |
-| Artist | `codex/art-assets` checkpoint, then assigned `codex/row-ignition-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Safely preserve v2 batch, then joined-house art and carried torch presentation |
+| Artist | `codex/row-ignition-art` checkpoint, then assigned `codex/new-york-state-building-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Preserve completed row/torch candidate; build the measured New York State Building exterior |
 | Coder | `codex/row-ignition-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Row adjacency/collision and authoritative match/torch/fuel behavior; prior branches preserved |
 | UI designer | `codex/row-ignition-ui` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Existing controls/HUD consume ignition state; prior UI branch preserved |
 
@@ -80,6 +80,12 @@ Coder candidate `143042467aea5780b401d0bf8041ed66a561036d` is copied as `0da02f0
 The user confirmed stackable Monroe houses with no joining-side windows, one-press/one-tile matches, and a torch lit once and carried for a set burn time with press-to-ignite use. The architect's [Milestone 06 proposal](milestones/06-row-houses-and-ignition.md) records those decisions, shared snapshot interfaces, ownership and prototype defaults. It is dispatched to **Coder Tinderbox** (TB-018), **Artist, Tinderbox** (TB-019) and **Set up Tinderbox UI worktree** (TB-020). All new implementation branches start from `3c6001d5d4035e950f25e500294eaec55bbf81d2`; the artist first safely checkpoints its unrelated active v2 work.
 
 The architect owns TB-021: reconcile exact delivered commits, review source and native geometry, independently verify combined behavior/package/visual evidence, save JPGs and decide promotion. Code/art/UI are wired by their assigned workers. This assignment does not approve runtime changes, import v2 houses, promote `master` or publish Pages. New worker deliveries and outstanding implementation/visual checks must be recorded before acceptance.
+
+## New York State Building assignment
+
+The user accepted the original-plan approach and asked the architect to send the next proposal to the artist. [Milestone 07](milestones/07-new-york-state-building.md) assigns TB-022 to **Artist, Tinderbox** in its existing worktree, on `codex/new-york-state-building-art` from its clean `f25fd7b28a9aee1d1abaef1ad65acd64d67a50e6` checkpoint. The original McKim, Mead & White plan, elevation and photograph govern one reusable exterior asset, a measurement/adaptation record and JPG previews. Administration follows architect review of this first building. Scene placement, collision/fuel wiring and UI are separate assignments.
+
+TB-023 is the architect's source/geometry/visual acceptance and later integration contract. The artist's row/torch and Hopkins v2 branches remain preserved candidates; starting this asset does not promote either. Coder/UI ignition assignments continue separately. The registry records the assigned next branch; Git worktree metadata records when the artist switches.
 
 ## Promotion gate
 
