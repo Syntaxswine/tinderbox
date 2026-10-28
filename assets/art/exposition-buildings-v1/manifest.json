@@ -99,6 +99,8 @@
       "label": "New York State Building",
       "defaultStories": 2,
       "portalStories": 2,
+      "bayWidth": 2.5,
+      "portalWidth": 3,
       "bay": "nyBay",
       "portal": "nyPortal",
       "openingUV": [
@@ -119,6 +121,8 @@
       "label": "Fisheries Building",
       "defaultStories": 1,
       "portalStories": 1,
+      "bayWidth": 2.5,
+      "portalWidth": 3,
       "bay": "fisheriesBay",
       "portal": "fisheriesPortal",
       "openingUV": [
@@ -139,6 +143,8 @@
       "label": "Transportation · Golden Door",
       "defaultStories": 2,
       "portalStories": 2,
+      "bayWidth": 2.5,
+      "portalWidth": 3,
       "bay": "transportationBay",
       "portal": "transportationPortal",
       "openingUV": [
@@ -161,10 +167,23 @@
     "appearanceSet": "exposition-v1",
     "slotIds": "Existing inherited-* slots preserved",
     "moduleSelection": "Artist-owned facadeStyles map, keyed by module ID; no new simulation fields",
-    "doorway": "Actual 1.4 x2.3m rectangle preserved; piecewise art UV maps measured generated-image opening bounds to the unchanged gap",
+    "doorway": "Native 1 x1.65m opening and .12m leaf; piecewise art mapping changes no source mesh dimensions",
     "oneStory": "NY and Transportation full portals require >=2 stories; smaller variants keep a plain frame",
-    "upperStories": "Repeat one complete source-specific bay per story; portal remains at ground, fixed at one/two stories",
-    "roof": "Existing roof cap/finish retained; source towers, balustrades and roof geometry are not reconstructed"
+    "upperStories": "Compose unchanged 2m wall units at 2.12m floor origins; one complete painted story per wall",
+    "roof": "Existing roof cap/finish retained; source towers, balustrades and roof geometry are not reconstructed",
+    "horizontal": "Fixed 2.5m bay repeat with a fixed 3m entrance material region; width never stretches the portal"
   },
-  "scope": "Named-building facade fragments, with stylized colour, sculpture and scaled proportions; not complete measured reconstructions"
+  "scope": "Named-building facade fragments, with stylized colour, sculpture and scaled proportions; not complete measured reconstructions",
+  "nativeScale": {
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "slab": 0.12
+  },
+  "nativeContractCommit": "60c515110f31c8cd0557a6c540b0a38569a4023c",
+  "scaleCorrection": "User instruction supersedes original enlarged-dimension prompts and v1 review images; all PNG bytes preserved."
 }

@@ -61,3 +61,18 @@ for(const asset of named.assets){
   assert(namedPrompts.assets.some(p=>p.id===asset.id&&p.prompt&&p.referenceImages.length),'Named facade missing prompt/primary reference');
 }
 console.log('PASS: 6 named-building textures, 3 facade profiles and exact primary-reference/prompt bindings.');
+
+const expanded=JSON.parse(fs.readFileSync(path.join(root,'assets/art/exposition-buildings-v2/manifest.json'),'utf8'));
+const expandedPrompts=JSON.parse(fs.readFileSync(path.join(root,expanded.generationRecord),'utf8'));
+assert(expanded.assets.length===6&&expanded.profiles.length===3,'Expected three additional facade pairs');
+for(const asset of expanded.assets){
+  const bytes=fs.readFileSync(path.join(root,asset.path));
+  assert(asset.path.startsWith('assets/art/exposition-buildings-v2/'),'Expanded art must stay outside vendor');
+  assert(createHash('sha256').update(bytes).digest('hex')===asset.sha256&&bytes.length===asset.bytes,'Expanded facade bytes changed '+asset.id);
+  assert(bytes.readUInt32BE(16)===asset.width&&bytes.readUInt32BE(20)===asset.height,'Expanded facade dimensions changed');
+  const prompt=expandedPrompts.assets.find(p=>p.id===asset.id);
+  assert(prompt?.prompt&&prompt.referenceImages.length===2,'Missing exact prompt and primary/style references');
+  for(const ref of prompt.referenceImages)if(ref.path.startsWith('assets/'))assert(createHash('sha256').update(fs.readFileSync(path.join(root,ref.path))).digest('hex')===ref.sha256,'Generated style reference changed');
+}
+assert(expanded.nativeScale.wallHeight===2&&expanded.nativeScale.wallThickness===.16&&expanded.nativeScale.doorWidth===1&&expanded.nativeScale.doorHeight===1.65&&expanded.nativeScale.floorSpacing===2.12,'Native source proportion record changed');
+console.log('PASS: 6 additional facade textures, 3 repeating profiles, exact prompts and native-scale provenance.');

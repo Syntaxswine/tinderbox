@@ -6,34 +6,36 @@ import {WALL_STORY_OPTIONS} from '../../src/content/exterior-kit.js';
 import {createCameraRig} from '../../src/runtime/camera.js';
 import {BUILDING_FACADES} from '../../src/art/building-facades.js';
 import {runBuildingReview} from './building-review.js';
+import {runWideReview} from './wide-review.js';
 const $=id=>document.getElementById(id),stage=$('stage'),renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.outputColorSpace=THREE.SRGBColorSpace;
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;stage.append(renderer.domElement);
 const panes=[0,1].map(()=>{const scene=new THREE.Scene();scene.background=new THREE.Color(0xb4bba3);return{scene,art:null,camera:new THREE.OrthographicCamera()};});
-let simulation,snapshot,study='buildings',building='new-york-state',stories=2,facade='inherited-plaster',door='open',alive=true,reversed=false,validating=false;
+let simulation,snapshot,study='wide',building='manufactures',stories=2,width=23,facade='inherited-plaster',door='open',alive=true,reversed=false,validating=false;
 const slots=()=>({facade,trim:'inherited-cream',door:'inherited-wood',roof:'inherited-roof'});
 function civilian(species,x,y){return{id:species,species,appearance:'normal',team:'civilian',headgear:'none',equipment:'none',radius:.62,x,y,heading:0,hp:100,speed:.8,route:[{x,y},{x:x+2,y}]};}
+const streetProfiles=()=>study==='avenue'?['manufactures','agriculture','fine-arts']:['new-york-state','fisheries','transportation'];
 function buildingStreet(){
   const modules=[];
-  for(const [index,id]of ['new-york-state','fisheries','transportation'].entries()){
-    const profile=BUILDING_FACADES[id],count=profile.defaultStories,x=6+index*10,preset=WALL_STORY_OPTIONS[count-1];
-    const panel=(suffix,form,dx,width,extra={})=>({id:id+'-'+suffix,form,x:x+dx,y:4,width,depth:.3,heading:0,...preset,physicalMaterial:'wood',skinSlots:slots(),sourceRefs:[...profile.sourceRefs,'game:facade-fragment'],...extra});
-    modules.push(panel('entry','doorway',0,6,{opening:{width:1.4,height:2.3,state:door}}),
-      panel('west','wall',-4,2),panel('east','wall',4,2),
-      panel('pilaster-west','pilaster',-4.9,.25,{y:4.12,depth:.45}),
-      panel('pilaster-east','pilaster',4.9,.25,{y:4.12,depth:.45}),
-      {id:id+'-roof',form:'roof-hip',x,y:3,width:10.25,depth:2.5,height:.8,baseHeight:preset.height,heading:0,physicalMaterial:'wood',skinSlots:slots(),supportModuleIds:[id+'-entry',id+'-west',id+'-east'],sourceRefs:['game:existing-roof-cap']});
+  for(const [index,id]of streetProfiles().entries()){
+    const profile=BUILDING_FACADES[id],count=profile.defaultStories,x=8+index*14,preset=WALL_STORY_OPTIONS[count-1];
+    const panel=(suffix,form,dx,width,extra={})=>({id:id+'-'+suffix,form,x:x+dx,y:4,width,depth:.16,heading:0,...preset,physicalMaterial:'wood',skinSlots:slots(),sourceRefs:[...profile.sourceRefs,'game:facade-fragment'],...extra});
+    modules.push(panel('entry','doorway',0,13,{opening:{width:1,height:1.65,state:door}}));
   }
-  return{width:32,height:16,player:{x:10,y:11},actors:[civilian('horse',6,9),civilian('goat',20,9)],modules,obstacles:[]};
+  return{width:44,height:16,player:{x:12,y:11},actors:[civilian('horse',8,9),civilian('goat',34,9)],modules,obstacles:[]};
 }
 function configureFacades(){
-  panes[0].art.setFacadeStyle('generic');panes[1].art.setFacadeStyle(study==='buildings'?'generic':building);
-  if(study==='buildings')for(const id of ['new-york-state','fisheries','transportation'])
+  panes[0].art.setFacadeStyle('generic');panes[1].art.setFacadeStyle(['buildings','avenue'].includes(study)?'generic':building);
+  if(['buildings','avenue'].includes(study))for(const id of streetProfiles())
     panes[1].art.setFacadeStyle(id,snapshot.world.modules.filter(m=>m.id.startsWith(id+'-')).map(m=>m.id));
 }
 
 function scenario(){
-  if(study==='buildings')return buildingStreet();
+  if(['buildings','avenue'].includes(study))return buildingStreet();
+  if(study==='wide'){
+    const x=width/2+5,preset=WALL_STORY_OPTIONS[stories-1];
+    return{width:width+10,height:16,player:{x,y:11},actors:[civilian('horse',x-2,8),civilian('goat',x+2,8)],obstacles:[],modules:[{id:'wide-entry',form:'doorway',x,y:4,width,depth:.16,heading:0,...preset,physicalMaterial:'wood',opening:{width:1,height:1.65,state:door},skinSlots:slots(),sourceRefs:['farmyard:hybrid-wall-opening','game:native-facade-composition']}]};
+  }
   if(study==='courtyard'){
     const s=structuredClone(EXPOSITION_SCENARIO);
     for(const m of s.modules){
@@ -50,26 +52,26 @@ function scenario(){
   const counts=study==='gallery'?[1,2,3,4,5]:[stories],modules=[];
   for(const [index,count]of counts.entries()){
     const x=study==='gallery'?5+index*8:10,id='canvas-'+count,preset=WALL_STORY_OPTIONS[count-1];
-    modules.push({id,form:'doorway',x,y:4,width:6,depth:.3,heading:0,...preset,physicalMaterial:'wood',opening:{width:1.4,height:2.3,state:door},skinSlots:slots(),sourceRefs:['game:1893-skin-canvas']});
-    for(const sign of [-1,1])modules.push({id:id+'-pilaster-'+sign,form:'pilaster',x:x+sign*2.9,y:4.12,width:.30,depth:.48,heading:0,...preset,physicalMaterial:'wood',skinSlots:{...slots(),facade:'inherited-cream'},sourceRefs:['game:1893-skin-canvas']});
-    modules.push({id:id+'-roof',form:count%2?'roof-gable':'roof-hip',x,y:3,width:6.25,depth:2.5,height:.95,heading:0,baseHeight:preset.height,physicalMaterial:'wood',skinSlots:slots(),supportModuleIds:[id],sourceRefs:['game:1893-skin-canvas']});
+    modules.push({id,form:'doorway',x,y:4,width:5,depth:.16,heading:0,...preset,physicalMaterial:'wood',opening:{width:1,height:1.65,state:door},skinSlots:slots(),sourceRefs:['game:1893-skin-canvas']});
+    modules.push({id:id+'-roof',form:count%2?'roof-gable':'roof-hip',x,y:3,width:5.2,depth:2.5,height:.95,heading:0,baseHeight:preset.height,physicalMaterial:'wood',skinSlots:slots(),supportModuleIds:[id],sourceRefs:['game:1893-skin-canvas']});
   }
   return{width:study==='gallery'?44:20,height:16,player:{x:study==='gallery'?20:7,y:10},actors:study==='gallery'?[]:[civilian('horse',8,8),civilian('goat',12,8)],modules,obstacles:[]};
 }
 function dimensions(){const w=stage.clientWidth,h=stage.clientHeight,stack=w<=600;return{w,h,stack,pw:stack?w:Math.floor(w/2),ph:stack?Math.floor(h/2):h};}
-function cameraFor(camera,width,height){
-  const aspect=width/height;
+function cameraFor(camera,viewWidth,viewHeight){
+  const aspect=viewWidth/viewHeight;
   if(study==='courtyard'){
-    const proxy={clientWidth:width,clientHeight:height},rig=createCameraRig(proxy,{setSize(){}},{width:20,height:16});rig.resize();camera.copy(rig.camera);return;
+    const proxy={clientWidth:viewWidth,clientHeight:viewHeight},rig=createCameraRig(proxy,{setSize(){}},{width:20,height:16});rig.resize();camera.copy(rig.camera);return;
   }
-  if(study==='buildings'){
-    const target=new THREE.Vector3(16,2.9,4),span=Math.max(13.5,35/aspect);
+  if(['buildings','avenue'].includes(study)){
+    const target=new THREE.Vector3(22,2.1,4),span=Math.max(10.5,47/aspect);
     camera.left=-span*aspect/2;camera.right=span*aspect/2;camera.top=span/2;camera.bottom=-span/2;camera.near=.1;camera.far=180;camera.position.copy(target).add(new THREE.Vector3(6,8,21));camera.lookAt(target);camera.updateProjectionMatrix();camera.updateMatrixWorld();return;
   }
-  const target=study==='gallery'?new THREE.Vector3(21,7,4):study==='facade'?new THREE.Vector3(10,stories*1.6,4):new THREE.Vector3(10,1.0,9);
-  const span=study==='gallery'?Math.max(23,45/aspect):study==='facade'?Math.max(stories*3.2+3.2,10/aspect):Math.max(4.6,6.6/aspect);
+  const facadeHeight=WALL_STORY_OPTIONS[stories-1].height;
+  const target=study==='gallery'?new THREE.Vector3(21,4.5,4):study==='wide'?new THREE.Vector3(width/2+5,facadeHeight/2,4):study==='facade'?new THREE.Vector3(10,facadeHeight/2,4):new THREE.Vector3(10,1.0,9);
+  const span=study==='gallery'?Math.max(16,45/aspect):study==='wide'?Math.max(facadeHeight+2.5,(width+4)/aspect):study==='facade'?Math.max(facadeHeight+2.5,10/aspect):Math.max(4.6,6.6/aspect);
   camera.left=-span*aspect/2;camera.right=span*aspect/2;camera.top=span/2;camera.bottom=-span/2;camera.near=.1;camera.far=180;
-  camera.position.copy(target).add(study==='civilians'?new THREE.Vector3(9,4.5,14):new THREE.Vector3(8,6,16));
+  camera.position.copy(target).add(study==='civilians'?new THREE.Vector3(9,4.5,14):study==='wide'?new THREE.Vector3(5,6,24):new THREE.Vector3(8,6,16));
   camera.lookAt(target);camera.updateProjectionMatrix();camera.updateMatrixWorld();
 }
 function resize(){const d=dimensions();renderer.setSize(d.w,d.h,false);for(const p of panes)cameraFor(p.camera,d.pw,d.ph);}
@@ -84,11 +86,11 @@ function draw(value=snapshot){
   renderer.setScissorTest(false);$('status').textContent=study+' · '+value.world.modules.length+' modules · original model sizes · GPU '+renderer.info.memory.geometries+' geometries / '+renderer.info.memory.textures+' textures';
 }
 function reset(options={}){
-  study=options.study||study;building=options.building||building;stories=Number(options.stories||stories);facade=options.facade||facade;door=options.door||door;
-  if(!['buildings','courtyard','gallery','facade','civilians'].includes(study)||!WALL_STORY_OPTIONS[stories-1])throw Error('Invalid art study');
+  study=options.study||study;building=options.building||building;stories=Number(options.stories||stories);width=Number(options.width||width);facade=options.facade||facade;door=options.door||door;
+  if(!['buildings','avenue','wide','courtyard','gallery','facade','civilians'].includes(study)||!WALL_STORY_OPTIONS[stories-1])throw Error('Invalid art study');
   simulation?.dispose();simulation=createSimulation({scenario:scenario()});snapshot=simulation.snapshot();
-  for(const [key,value]of Object.entries({study,building,stories,facade,door}))$(key).value=value;
-  configureFacades();$('stories').disabled=study!=='facade';$('building').disabled=study==='buildings';
+  for(const [key,value]of Object.entries({study,building,stories,width,facade,door}))$(key).value=value;
+  configureFacades();$('stories').disabled=!['facade','wide'].includes(study);$('width').disabled=study!=='wide';$('building').disabled=['buildings','avenue'].includes(study);
   resize();draw();return snapshot;
 }
 function advance(seconds){for(let t=0;t<seconds-1e-9;t+=1/60)simulation.advance(Math.min(1/60,seconds-t));draw(simulation.snapshot());return snapshot;}
@@ -133,13 +135,12 @@ async function validate(){
     check(JSON.stringify(signatures[0])===JSON.stringify(signatures[1]),'Geometry/pose differs between skins at '+count+' stories');
     const m=snapshot.world.modules.find(m=>m.form==='doorway'),clear=new THREE.Vector3(m.x,1.1,m.y);
     for(const p of panes){const root=p.scene.getObjectByName('Exposition construction kit');let filled=false;root.traverse(o=>{if(o.isMesh&&new THREE.Box3().setFromObject(o).containsPoint(clear))filled=true;});check(!filled,'Open ground doorway filled');}
-    const coordinates=panes[1].scene.getObjectByName('module-part:'+m.id+':lintel').geometry.attributes.tbFacadeCoord;
-    let maxV=0;for(let i=0;i<coordinates.count;i++)maxV=Math.max(maxV,coordinates.getY(i));
+    let maxV=0;panes[1].scene.getObjectByName('Exposition construction kit').traverse(o=>{const a=o.geometry?.attributes.tbFacadeCoord;if(a)for(let i=0;i<a.count;i++)maxV=Math.max(maxV,a.getY(i));});
     check(Math.abs(maxV-count)<1e-5,'Upper lintel did not receive repeated story coordinates');
-    check(m.opening.width===1.4&&m.opening.height===2.3,'Ground opening scaled with stories');
+    check(m.opening.width===1&&m.opening.height===1.65,'Ground opening scaled with stories');
     result.storyCanvases.push({stories:count,height:m.height,storyHeight:m.storyHeight,maxStoryUV:maxV,signatures,opening:{...m.opening}});
   }
-  reset({study:'facade',stories:5,door:'closed'});for(const p of panes){const leaf=p.scene.getObjectByName('module-part:canvas-5:closed-door'),box=new THREE.Box3().setFromObject(leaf);check(Math.abs(box.max.y-2.3)<1e-5,'Closed leaf stretched');}
+  reset({study:'facade',stories:5,door:'closed'});for(const p of panes){const leaf=p.scene.getObjectByName('module-part:canvas-5:closed-door'),box=new THREE.Box3().setFromObject(leaf);check(Math.abs(box.max.y-1.65)<1e-5,'Closed leaf stretched');}
   reset({study:'courtyard',facade:'inherited-plaster',door:'open'});for(const id of ['inherited-brick','inherited-wood','inherited-plaster'])reset({facade:id});
   // Warm both palette directions before recording steady-state GPU usage.
   swap(true);swap(false);
@@ -151,7 +152,7 @@ async function validate(){
   reset({study:'civilians'});advance(1);result.motion={normal:snapshot.actors[0].travelled};simulation.dispatch({type:'drug',drug:'powder'});advance(1);result.motion.powder=snapshot.actors[0].travelled-result.motion.normal;
   check(Math.abs(result.motion.normal-.8)<1e-7&&Math.abs(result.motion.powder-.28)<1e-7,'Skins changed world-time gait');
   const poses=panes.map(p=>geometrySignature(p.scene));check(JSON.stringify(poses[0])===JSON.stringify(poses[1]),'Walking pose differs');
-  const burnSpec={width:10,height:10,player:{x:5,y:7},actors:[],obstacles:[],modules:[{id:'burn-gate',form:'doorway',x:5,y:5,width:4,depth:.3,stories:5,heading:0,physicalMaterial:'wood',opening:{width:1.4,height:2.3,state:'open'},skinSlots:slots(),sourceRefs:['game:skin-burn-review']},{id:'burn-roof',form:'roof-gable',x:5,y:5,width:5,depth:3,height:1,baseHeight:16,heading:0,physicalMaterial:'wood',skinSlots:slots(),supportModuleIds:['burn-gate'],sourceRefs:['game:skin-burn-review']}],ignitions:[{x:4.15,y:5,radius:1.5,heat:4}]};
+  const burnSpec={width:10,height:10,player:{x:5,y:7},actors:[],obstacles:[],modules:[{id:'burn-gate',form:'doorway',x:5,y:5,width:3,depth:.16,stories:5,heading:0,physicalMaterial:'wood',opening:{width:1,height:1.65,state:'open'},skinSlots:slots(),sourceRefs:['game:skin-burn-review']},{id:'burn-roof',form:'roof-gable',x:5,y:5,width:5,depth:3,height:1,baseHeight:WALL_STORY_OPTIONS[4].height,heading:0,physicalMaterial:'wood',skinSlots:slots(),supportModuleIds:['burn-gate'],sourceRefs:['game:skin-burn-review']}],ignitions:[{x:4,y:5,radius:.45,heat:4}]};
   const burn=createSimulation({scenario:burnSpec,config:{fuel:{surfaceBurnRate:1000},fire:{damagePerSecond:0}}});let burnt;try{burn.advance(1/60);burnt=burn.advance(1/60);}finally{burn.dispose();}
   draw(freeze(burnt));result.damage=panes.map(p=>p.art.diagnostics().exterior);
   check(result.damage.every(d=>!d.renderedPartIds.includes('burn-gate:pier-left')&&!d.renderedPartIds.includes('burn-gate:lintel')&&!d.renderedPartIds.includes('burn-roof:roof-envelope')&&d.renderedPartIds.includes('burn-gate:pier-right')),'Skins resurrected destroyed or unsupported parts');
@@ -161,10 +162,11 @@ async function validate(){
 const observer=new ResizeObserver(()=>{if(alive){resize();draw();}});observer.observe(stage);
 try{
   await createPanes();$('loading').remove();reset();
-  for(const id of ['study','building','stories','facade','door'])$(id).onchange=e=>reset({[id]:e.target.value,...(id==='building'&&e.target.value!=='generic'?{stories:BUILDING_FACADES[e.target.value].defaultStories}:{})});
+  for(const id of ['study','building','stories','width','facade','door'])$(id).onchange=e=>reset({[id]:e.target.value,...(id==='building'&&e.target.value!=='generic'?{stories:BUILDING_FACADES[e.target.value].defaultStories}:{})});
   $('step').onclick=()=>advance(1);$('reset').onclick=()=>reset();
   $('review').onclick=async()=>{if(validating)return;validating=true;$('review').disabled=true;$('review-output').hidden=false;$('review-output').textContent='Running paired-scene review…';try{$('review-output').textContent=JSON.stringify(await validate(),null,2);}catch(e){$('review-output').textContent=JSON.stringify({passed:false,error:e.stack},null,2);}finally{validating=false;$('review').disabled=false;}};
-  window.skinArt={ready:true,THREE,renderer,panes,reset,draw,advance,swap,validate,validateBuildings:()=>runBuildingReview(window.skinArt),async renewArt(){for(const p of panes){p.art.dispose();p.art.dispose();renderer.render(p.scene,p.camera);}const disposed={...renderer.info.memory};await createPanes();reset();return disposed;},headIdentity,geometrySignature,get snapshot(){return structuredClone(snapshot);},diagnostics:()=>({study,building,stories,facade,door,reversed,memory:{...renderer.info.memory},panes:panes.map(p=>p.art.diagnostics()),canvas:dimensions()}),dispose(){if(!alive)return;alive=false;observer.disconnect();simulation?.dispose();for(const p of panes)p.art?.dispose();renderer.dispose();renderer.forceContextLoss();}};
+  window.skinArt={ready:true,THREE,renderer,panes,reset,draw,advance,swap,validate,validateBuildings:()=>runBuildingReview(window.skinArt),validateWide:()=>runWideReview(window.skinArt),async renewArt(){for(const p of panes){p.art.dispose();p.art.dispose();renderer.render(p.scene,p.camera);}const disposed={...renderer.info.memory};await createPanes();reset();return disposed;},headIdentity,geometrySignature,get snapshot(){return structuredClone(snapshot);},diagnostics:()=>({study,building,stories,width,facade,door,reversed,memory:{...renderer.info.memory},panes:panes.map(p=>p.art.diagnostics()),canvas:dimensions()}),dispose(){if(!alive)return;alive=false;observer.disconnect();simulation?.dispose();for(const p of panes)p.art?.dispose();renderer.dispose();renderer.forceContextLoss();}};
   $('review-buildings').onclick=async()=>{if(validating)return;validating=true;$('review-buildings').disabled=true;$('review-output').hidden=false;$('review-output').textContent='Reviewing all named facades…';try{$('review-output').textContent=JSON.stringify(await window.skinArt.validateBuildings(),null,2);}catch(e){$('review-output').textContent=JSON.stringify({passed:false,error:e.stack},null,2);}finally{validating=false;$('review-buildings').disabled=false;}};
+  $('review-wide').onclick=async()=>{if(validating)return;validating=true;$('review-wide').disabled=true;$('review-output').hidden=false;$('review-output').textContent='Reviewing unchanged native templates and rendered repeats…';try{$('review-output').textContent=JSON.stringify(await window.skinArt.validateWide(),null,2);}catch(e){$('review-output').textContent=JSON.stringify({passed:false,error:e.stack},null,2);}finally{validating=false;$('review-wide').disabled=false;}};
   addEventListener('pagehide',()=>window.skinArt.dispose(),{once:true});
 }catch(e){console.error(e);$('loading').textContent=e.message;window.skinArt={ready:false,error:e.stack};}

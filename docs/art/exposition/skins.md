@@ -1,5 +1,8 @@
 # Exposition skins v1
 
+> Native-scale correction: the enlarged dimensions and review images below describe the original delivery. Current bindings use unchanged 2m AFT walls, 1 × 1.65m doors and 2.12m floor spacing. See [current native facades and checks](building-facades-v2.md).
+
+
 Artist candidate on `codex/art-assets`, incorporating checked coder checkpoint `c3b7ec415366df09733c97146a3cfc10622ef4c4` through normal merges. The first set gives the existing wall/door/roof kit and normal horse/goat a coherent fictional 1893 Exposition finish. Architect review selects the production default and promotes the candidate.
 
 ## Delivered artwork

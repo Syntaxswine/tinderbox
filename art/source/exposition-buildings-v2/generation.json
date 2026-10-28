@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "mode": "built-in image_gen",
+  "task": "More named 1893 facades with repeating bays at original AFT scale",
+  "baseArtCommit": "93f9b484106713d451d5f908724637da0a7ea140",
+  "notes": [
+    "Exact prompts retained as issued. Their initial 3.2m-story descriptions predate the user correction and are superseded by the native binding below. Bitmaps have no intrinsic metre scale.",
+    "No generated image was resized or edited after creation. Native wall, opening, actor, origin and original UV geometry remain unchanged.",
+    "Taller facades must compose native 2m wall units at 2.12m floor spacing; never stretch a source wall.",
+    "Colours, simplified ornament and entrance placement are game art adaptations from original photographs."
+  ],
+  "assets": [
+    {
+      "id": "manufactures-bay",
+      "path": "assets/art/exposition-buildings-v2/manufactures-bay-v2.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-d5c0a080-c9ca-4014-a5c3-a7acb5d61186.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque, horizontally tileable game facade diffuse/albedo strip for Tinderbox, based specifically on the Manufactures and Liberal Arts Building at the Chicago 1893 fair.\nInput image 1 is Arnold's original plate 3, a historical form reference. Image 2 is the accepted Tinderbox facade texture, a STYLE reference only. Neither image is an edit target.\nCreate a NEW flat frontal orthographic wall strip, wide 5:2 aspect representing 8 metres wide by one 3.2 metre game story. Exactly THREE evenly spaced matching round-headed CLOSED glazed window bays, centres at 16.67%, 50%, 83.33% width. Source identity: long rhythmic round-arched arcade, slim classical piers, circular medallions in the spandrels, dentil cornice, delicate geometric parapet/frieze compressed into the upper band. Restrained grey-blue closed glazing with vertical mullions, creamy ivory staff, pale limestone details. Horizontal sill and frieze run unbroken from left edge to right edge. Crop a half pier at both lateral edges so repeating copies join as one full pier. Same colour and height at both lateral edges; keep matching flat edge strips. NO main entrance, no doorway, no roof, no skyline, no freestanding objects.\nMatch the accepted image's warm carved plaster, shallow painted relief, readable simplified ornament and restrained hand-painted game material. Even neutral diffuse illumination, no perspective, no cast shadows, no scenery, no labels or text, no border or watermark. Fill the entire rectangular canvas. This is a source-based game adaptation; colours are artistic choices from monochrome references.",
+      "referenceImages": [
+        {
+          "id": "ARNOLD-003",
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate003.jpg",
+          "sha256": "ee4902bfc4602fbc5833a85ffe0906bb053d65b06a3a7689b3dac954869cd836",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "STYLE-manufactures-bay",
+          "path": "assets/art/exposition-buildings-v1/new-york-state-bay-v1.png",
+          "sha256": "0c63e0b2b2fe070a78ffd2cb00696602d97baa258e9d0d01e82440a5e48bd8fe",
+          "role": "style/palette reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "agriculture-bay",
+      "path": "assets/art/exposition-buildings-v2/agriculture-bay-v2.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-72d19e30-d797-44f4-a0c3-3f7c03df9268.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque, horizontally tileable game facade diffuse/albedo strip for Tinderbox, based specifically on the Agricultural Building at Chicago's 1893 fair.\nInput image 1 is Arnold's original plate 18, a historical form reference. Image 2 is the accepted Tinderbox facade texture, a STYLE reference only. Neither image is an edit target.\nCreate a NEW flat frontal orthographic wall strip, wide 5:2 aspect representing 8 metres by one 3.2 metre game story. Exactly THREE identical evenly spaced bays, centres 16.67%, 50%, 83.33% width. Source-specific details: close-set Corinthian pilasters and columns dividing tall rectangular lower panels, round-arched glazed upper openings, rich leafy capitals, a continuous harvest garland and rosette frieze, deep dentil cornice. Compress the original two-tier facade rhythm into one readable game-story panel: a dark round-headed closed window within each bay, low square relief panel underneath, slim paired fluted columns between bays. Warm honey-ivory staff, subdued ochre relief, dark desaturated olive-grey glazing. Richer vegetal relief than the Liberal Arts arcade. Unbroken sill and frieze across entire width.\nCrop half of the same dividing pier at both lateral edges, aligned and same colour, so copies join seamlessly. There is NO main entrance or doorway in this strip. No sculptures above the rectangle, no roof or dome, no whole building, no scene.\nMatch accepted image's finely carved but simplified shallow painted plaster relief and hand-painted game texture. Neutral diffuse light, no perspective or cast shadows. No sky, steps, people, flags, labels, text, border or watermark. Fill canvas. Original monochrome photograph informs forms, not exact colour.",
+      "referenceImages": [
+        {
+          "id": "ARNOLD-018",
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate018.jpg",
+          "sha256": "966f6b139f1b89583e7b6f0d5b3d87246867198c0dbc67505b6f4d6a9ae495fc",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "STYLE-agriculture-bay",
+          "path": "assets/art/exposition-buildings-v1/new-york-state-bay-v1.png",
+          "sha256": "0c63e0b2b2fe070a78ffd2cb00696602d97baa258e9d0d01e82440a5e48bd8fe",
+          "role": "style/palette reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "fine-arts-bay",
+      "path": "assets/art/exposition-buildings-v2/fine-arts-bay-v2.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-ca8d5e9a-69f4-4f70-870c-27acdf5c261a.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque, horizontally tileable game facade diffuse/albedo strip for Tinderbox, based specifically on the Palace of Fine Arts south-front colonnade at Chicago's 1893 fair.\nInput image 1 is Arnold's original plate 60, a historical form reference. Image 2 is the accepted Tinderbox facade texture, a STYLE reference only. Neither image is an edit target.\nCreate a NEW flat frontal orthographic wall strip, wide 5:2 aspect representing 8 metres by one 3.2 metre game story. THREE identical evenly spaced Ionic intercolumniation bays, centres at 16.67%, 50%, 83.33% of width. Source-specific details: slender straight fluted columns with obvious paired Ionic scroll capitals, long horizontal Greek entablature and small dentils, restrained rectangular coffered recesses and small circular sculpted medallions between columns, small square star-pattern lattice vents in an upper band. Closed shallow rectangular recesses in smoky blue-grey, pale cool ivory staff, muted stone-grey relief and warm cream highlights. These are SEALED wall recesses, not open passages. Quiet classical colonnade rhythm; no arches. The bottom plinth and upper frieze must run continuously edge to edge.\nPlace half of an identical column at each lateral crop edge so repeated copies join into full columns. Matching edge colour and vertical features. NO main doorway or portal in this repeat strip. No roof, dome, pediment silhouette or freestanding sculpture.\nMatch accepted image's warm finely carved yet simplified hand-painted low-poly game material. Restrained shallow relief shading, even diffuse lighting; no directional cast shadows or perspective. No sky, water, visitors, plants, flags, text, labels, border or watermark. Fill the rectangular canvas. Colour is an art choice, not a claim from the monochrome source.",
+      "referenceImages": [
+        {
+          "id": "ARNOLD-060",
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate060.jpg",
+          "sha256": "e036e59b76d61b75613f2dce9113cc4ed6abdd45b94df24d92886019b7b0007a",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "STYLE-fine-arts-bay",
+          "path": "assets/art/exposition-buildings-v1/new-york-state-bay-v1.png",
+          "sha256": "0c63e0b2b2fe070a78ffd2cb00696602d97baa258e9d0d01e82440a5e48bd8fe",
+          "role": "style/palette reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "manufactures-portal",
+      "path": "assets/art/exposition-buildings-v2/manufactures-portal-v2.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-65943e42-420f-44b5-b336-d57f87abc0f5.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque game entrance-facade texture for the Manufactures and Liberal Arts Building, Chicago 1893.\nInput image 1 is Arnold plate 3 showing the actual west entrance, a historical form reference. Image 2 is the new Tinderbox Liberal Arts arcade strip, a style and palette reference. Neither is an edit target.\nCreate the distinctive monumental round-arch west entrance: one tall coffered central arch with a subdued dark lunette above the small real door; two Corinthian columns to each side with leafy capitals; round medallions in the spandrels, a broad rectangular attic with shallow sculpted winged relief and a strong dentil cornice. Source-specific large triumphal arch and pairs of giant columns, pale ivory staff, warm carved limestone, blue-grey sealed recesses. Omit the enormous hall roof and unrelated building wings.\nTechnical layout: portrait 15:16 aspect, representing a 6m wide by 6.4m high central facade fragment. Put a SINGLE plain dark rectangular real-door mask exactly at x38.33–61.67%, from the bottom edge to 35.94% of height. It must reach the bottom edge with NO threshold, steps or foreground. Actual mesh removes that rectangle. All remaining dark recesses above are sealed painted wall detail. Keep uniform ivory plaster at both lateral edges to join repeat wings.\nKeep all ornament inside the rectangle; flat front orthographic albedo, same carved warm plaster and shallow hand-painted game relief as reference 2. Uniform neutral illumination, no perspective or cast shadows. No sky, roof silhouette, people, flags, statues protruding beyond rectangle, text, dates, border or watermark. Full-bleed opaque rectangle. This is an authored facade adaptation with artistic colour and compressed source dimensions.",
+      "referenceImages": [
+        {
+          "id": "ARNOLD-003",
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate003.jpg",
+          "sha256": "ee4902bfc4602fbc5833a85ffe0906bb053d65b06a3a7689b3dac954869cd836",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "STYLE-manufactures-portal",
+          "path": "assets/art/exposition-buildings-v2/manufactures-bay-v2.png",
+          "sha256": "6c4bacb42ce9cacd7700f0cba04f097ed5341c753ed51f41461c641899d3c2b5",
+          "role": "style/palette reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "agriculture-portal",
+      "path": "assets/art/exposition-buildings-v2/agriculture-portal-v2.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-b8d9a9b2-5f31-4e35-a18e-bb7e29316252.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque game entrance-facade texture for the Agricultural Building, Chicago 1893.\nInput image 1 is Arnold plate 18 showing the actual Agricultural Building, a historical form reference. Image 2 is the new Tinderbox Agriculture repeat strip, a style and palette reference. Neither is an edit target.\nCreate an entrance fragment drawn from the source's pedimented Corinthian porch: four tall fluted Corinthian columns, two on either side of a central rectangular recessed entry; rich harvest-fruit garlands and leafy capitals; triangular pediment within the upper rectangle with shallow relief of sheaves and a small central round wreath, horizontal dentil entablature. Broad shallow rectangular plaster wall panels around the doorway. Source-specific classical porch proportions adapted to this compact game fragment. Warm honey-ivory staff, ochre carved relief, dark olive-grey rectangular closed recess ABOVE the real small doorway. No round triumphal arch; distinguish this from Liberal Arts.\nTechnical layout: portrait 15:16 aspect, representing a 6m wide by 6.4m high central facade fragment. Put a SINGLE plain dark rectangular real-door mask exactly at x38.33–61.67%, from the bottom edge to 35.94% of height. It must reach the bottom edge with NO threshold, steps or foreground. Actual mesh removes that rectangle. All remaining dark recesses above are sealed painted wall detail. Keep uniform ivory plaster at both lateral edges to join repeat wings.\nKeep all ornament inside the rectangle; flat front orthographic albedo, same carved warm plaster and shallow hand-painted game relief as reference 2. Uniform neutral illumination, no perspective or cast shadows. No sky, roof silhouette, people, flags, statues protruding beyond rectangle, text, dates, border or watermark. Full-bleed opaque rectangle. This is an authored facade adaptation with artistic colour and compressed source dimensions.",
+      "referenceImages": [
+        {
+          "id": "ARNOLD-018",
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate018.jpg",
+          "sha256": "966f6b139f1b89583e7b6f0d5b3d87246867198c0dbc67505b6f4d6a9ae495fc",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "STYLE-agriculture-portal",
+          "path": "assets/art/exposition-buildings-v2/agriculture-bay-v2.png",
+          "sha256": "519fccb78a83e82c87aa8e7c2d98bce1c8596b6990003aa76ac51a15e40bab16",
+          "role": "style/palette reference, not edit target"
+        }
+      ]
+    },
+    {
+      "id": "fine-arts-portal",
+      "path": "assets/art/exposition-buildings-v2/fine-arts-portal-v2.png",
+      "generatedPath": "C:\\Users\\baals\\.codex\\generated_images\\01a17ea0-1362-7d13-a42d-f4a5fcff8902\\exec-2f961b2f-3adc-4361-8b81-6fc1753f931e.png",
+      "prompt": "Use case: historical-scene. Asset type: ONE opaque game entrance-facade texture for the Palace of Fine Arts, Chicago 1893.\nInput image 1 is Arnold plate 60 showing the south-front colonnade and pedimented flank, a historical form reference. Image 2 is the new Tinderbox Fine Arts Ionic repeat strip, a style and palette reference. Neither is an edit target.\nCreate a quiet Greek entrance fragment adapted from this south-front architecture: two tall slender fluted Ionic columns with clear paired scroll capitals, one each side of a central tall RECTANGULAR recess; simple small triangular pediment over the recess, strong horizontal entablature with tiny dentils, shallow circular medallions, three small star-pattern square lattice vents across a top band. Cool ivory stone/staff with cream highlights and smoky grey-blue closed panels. Straight lintels and rectangular forms; NO round arch. The small real ground-level doorway sits centrally inside the taller sealed dark recess. Pediment must remain fully inside the rectangular canvas. Source-specific calm Ionic character; no Corinthian leafy capitals, harvest garlands or dome.\nTechnical layout: portrait 15:16 aspect, representing a 6m wide by 6.4m high central facade fragment. Put a SINGLE plain dark rectangular real-door mask exactly at x38.33–61.67%, from the bottom edge to 35.94% of height. It must reach the bottom edge with NO threshold, steps or foreground. Actual mesh removes that rectangle. All remaining dark recesses above are sealed painted wall detail. Keep uniform ivory plaster at both lateral edges to join repeat wings.\nKeep all ornament inside the rectangle; flat front orthographic albedo, same carved warm plaster and shallow hand-painted game relief as reference 2. Uniform neutral illumination, no perspective or cast shadows. No sky, roof silhouette, people, flags, statues protruding beyond rectangle, text, dates, border or watermark. Full-bleed opaque rectangle. This is an authored facade adaptation with artistic colour and compressed source dimensions.",
+      "referenceImages": [
+        {
+          "id": "ARNOLD-060",
+          "path": "artifacts/exposition-buildings-v2/raw/arnold-plate060.jpg",
+          "sha256": "e036e59b76d61b75613f2dce9113cc4ed6abdd45b94df24d92886019b7b0007a",
+          "role": "historical form reference, not edit target"
+        },
+        {
+          "id": "STYLE-fine-arts-portal",
+          "path": "assets/art/exposition-buildings-v2/fine-arts-bay-v2.png",
+          "sha256": "ade872618c7bba9f366a2e56d725c978a7cdee804c7bc4c3b59b2e2bc99fe2b2",
+          "role": "style/palette reference, not edit target"
+        }
+      ]
+    }
+  ]
+}

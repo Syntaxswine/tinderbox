@@ -22,7 +22,7 @@ function scenarioFor(){
       if(m.id==='service-corner'||m.id==='service-hip')m.y=3;
     }
     const frontage=s.modules.find(m=>m.id==='court-front-west');
-    for(const [i,x]of [4,8,12,16].entries())s.modules.push({...structuredClone(frontage),id:'bay-pilaster-'+i,form:'pilaster',x,y:5.10,width:.30,depth:.45,height:3.40,skinSlots:{...frontage.skinSlots,facade:'inherited-cream'},sourceRefs:[...frontage.sourceRefs,'game:bay-articulation']});
+    for(const [i,x]of [4,8,12,16].entries())s.modules.push({...structuredClone(frontage),id:'bay-pilaster-'+i,form:'pilaster',x,y:5.10,width:1,depth:.16,height:2,skinSlots:{...frontage.skinSlots,facade:'inherited-cream'},sourceRefs:[...frontage.sourceRefs,'game:bay-articulation']});
     const horse=s.actors.find(a=>a.species==='horse');horse.x=7;horse.y=10;horse.route=[{x:7,y:10},{x:13,y:10}];
   }
   for(const m of s.modules)m.skinSlots.facade=m.id.startsWith('bay-pilaster-')?'inherited-cream':skin;
@@ -114,8 +114,8 @@ try{
       check(skinCounts.every(c=>c.geometries===baseline.geometries&&c.textures===baseline.textures),'Skin swap retained resources');
       const actorCycles=[];for(let i=0;i<4;i++){draw({...snapshot,actors:[]});draw(s);actorCycles.push({...renderer.info.memory});}
       check(actorCycles.every(c=>c.geometries===baseline.geometries&&c.textures===baseline.textures),'Civilian recreation grew GPU memory');
-      const frame={id:'burn-gate',form:'doorway',x:5,y:5,width:4,depth:.3,height:3.2,heading:0,physicalMaterial:'wood',opening:{width:1.4,height:2.3,state:'open'},skinSlots:{...gate.skinSlots},sourceRefs:['game:authoritative-burn-review']};
-      const burn=createSimulation({scenario:{width:10,height:10,player:{x:5,y:7},actors:[],obstacles:[],modules:[frame,{...frame,id:'burn-roof',form:'roof-gable',width:6,depth:3,height:1.6,baseHeight:3.2,supportModuleIds:['burn-gate']}],ignitions:[{x:4.15,y:5,radius:1.5,heat:4}]},config:{fuel:{surfaceBurnRate:1000},fire:{damagePerSecond:0}}});
+      const frame={id:'burn-gate',form:'doorway',x:5,y:5,width:3,depth:.16,height:2,heading:0,physicalMaterial:'wood',opening:{width:1,height:1.65,state:'open'},skinSlots:{...gate.skinSlots},sourceRefs:['game:authoritative-burn-review']};
+      const burn=createSimulation({scenario:{width:10,height:10,player:{x:5,y:7},actors:[],obstacles:[],modules:[frame,{...frame,id:'burn-roof',form:'roof-gable',width:6,depth:3,height:1.6,baseHeight:2,supportModuleIds:['burn-gate']}],ignitions:[{x:4,y:5,radius:.45,heat:4}]},config:{fuel:{surfaceBurnRate:1000},fire:{damagePerSecond:0}}});
       let burned;try{burn.advance(1/60);burned=burn.advance(1/60);}finally{burn.dispose();}
       draw(freeze(burned));const damage=art.diagnostics().exterior;
       check(!scene.getObjectByName('module-part:burn-gate:pier-left')&&!scene.getObjectByName('module-part:burn-gate:lintel')&&!scene.getObjectByName('module-part:burn-roof:roof-envelope'),'Destroyed/unsupported art resurrected');

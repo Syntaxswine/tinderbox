@@ -1,5 +1,8 @@
 # Building-specific Exposition facades
 
+> Native-scale correction: the enlarged dimensions and review images below describe the original delivery. Current bindings use unchanged 2m AFT walls, 1 × 1.65m doors and 2.12m floor spacing. See [current native facades and checks](building-facades-v2.md).
+
+
 This artist expansion adds six authored textures for three identifiable 1893 buildings. It builds on art candidate `3f3291565178ff66accecf6914957a05263cbc15` and the existing 1–5-story kit. Architect review selects production composition and promotion.
 
 | Facade profile | Source identity carried into the art | Entrance canvas |

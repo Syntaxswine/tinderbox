@@ -97,7 +97,7 @@ export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=
           if(expositionAssets)addFacadeCoordinates(T,geometry,mesh,module,part);
         }
         mesh.name='module-part:'+part.id;mesh.castShadow=mesh.receiveShadow=true;
-        mesh.userData={moduleId:module.id,partId:part.id,role:part.role,solid:part.solid,physicalMaterial:module.physicalMaterial,researchBasedKit:true,stories:module.stories,storyHeight:module.storyHeight};
+        mesh.userData={moduleId:module.id,partId:part.id,role:part.role,solid:part.solid,physicalMaterial:module.physicalMaterial,researchBasedKit:true,stories:module.stories,storyHeight:module.storyHeight,floorSpacing:module.floorSpacing,sourceAssetId:part.sourceAssetId};
         root.add(mesh);const record={moduleId:module.id,part,roof,mesh,style:null};records.push(record);applySkin(record,module);
         if(part.solid)state.survivingSolidParts.push(part.id);
       }
@@ -106,7 +106,7 @@ export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=
   return{root,update(world){
     if(closed)return;const modules=world.modules||[];if(!Array.isArray(modules)||modules.length>128)throw new Error('Exterior module budget exceeded');
     const surviving=new Set((world.obstacles||[]).filter(o=>!o.destroyed).map(o=>o.id));
-    const next=JSON.stringify(modules.map(m=>[m.id,m.form,m.x,m.y,m.width,m.depth,m.height,m.heading,m.baseHeight,m.stories,m.storyHeight,m.destroyed,m.parts?.map(p=>[p.id,p.x,p.y,p.h,p.width,p.depth,p.height,p.solid,p.skinSlot,p.destroyed,surviving.has(p.id)])]));
+    const next=JSON.stringify(modules.map(m=>[m.id,m.form,m.x,m.y,m.width,m.depth,m.height,m.heading,m.baseHeight,m.stories,m.storyHeight,m.floorSpacing,m.destroyed,m.parts?.map(p=>[p.id,p.x,p.y,p.h,p.width,p.depth,p.height,p.solid,p.skinSlot,p.destroyed,surviving.has(p.id)])]));
     if(next!==signature){signature=next;rebuild(modules,surviving);}
     const byId=new Map(modules.map(m=>[m.id,m]));for(const record of records)applySkin(record,byId.get(record.moduleId));
   },setSkinSet(id){validateSkinSet(id);if(id==='exposition-v1'&&!expositionMaterials)throw new Error('Exposition assets were not loaded');activeSkinSet=id;},setFacadeStyle(id,moduleIds){validateFacadeStyle(id);if(id!=='generic'&&!buildingMaterials[id])throw new Error('Facade assets not loaded: '+id);if(moduleIds===undefined){activeFacade=id;moduleStyles.clear();}else{if(!Array.isArray(moduleIds)||moduleIds.some(v=>typeof v!=='string'||!v))throw new Error('Invalid facade module IDs');for(const moduleId of moduleIds)moduleStyles.set(moduleId,id);}},dispose(){if(closed)return;closed=true;root.removeFromParent();root.clear();records=[];state={modules:0,survivingSolidParts:[],suppressedSolidParts:[],suppressedCosmeticParts:[],visibleRoofParts:[]};geometryPool.dispose();materialPool.dispose();},

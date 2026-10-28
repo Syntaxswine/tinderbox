@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "owner": "artist",
+  "set": "exposition-buildings-v2",
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "manufactures-bay",
+      "path": "assets/art/exposition-buildings-v2/manufactures-bay-v2.png",
+      "width": 1983,
+      "height": 793,
+      "bytes": 2637687,
+      "sha256": "6c4bacb42ce9cacd7700f0cba04f097ed5341c753ed51f41461c641899d3c2b5",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v2/generation.json#manufactures-bay",
+      "referenceIds": [
+        "ARNOLD-003",
+        "STYLE-manufactures-bay"
+      ]
+    },
+    {
+      "id": "agriculture-bay",
+      "path": "assets/art/exposition-buildings-v2/agriculture-bay-v2.png",
+      "width": 1983,
+      "height": 793,
+      "bytes": 2678826,
+      "sha256": "519fccb78a83e82c87aa8e7c2d98bce1c8596b6990003aa76ac51a15e40bab16",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v2/generation.json#agriculture-bay",
+      "referenceIds": [
+        "ARNOLD-018",
+        "STYLE-agriculture-bay"
+      ]
+    },
+    {
+      "id": "fine-arts-bay",
+      "path": "assets/art/exposition-buildings-v2/fine-arts-bay-v2.png",
+      "width": 1983,
+      "height": 793,
+      "bytes": 2559507,
+      "sha256": "ade872618c7bba9f366a2e56d725c978a7cdee804c7bc4c3b59b2e2bc99fe2b2",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v2/generation.json#fine-arts-bay",
+      "referenceIds": [
+        "ARNOLD-060",
+        "STYLE-fine-arts-bay"
+      ]
+    },
+    {
+      "id": "manufactures-portal",
+      "path": "assets/art/exposition-buildings-v2/manufactures-portal-v2.png",
+      "width": 1214,
+      "height": 1295,
+      "bytes": 2539551,
+      "sha256": "4fa4e1c8b1368e7d85390302a643dbdf8e0bb87bc1ed7082077291d8c60c23a5",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v2/generation.json#manufactures-portal",
+      "referenceIds": [
+        "ARNOLD-003",
+        "STYLE-manufactures-portal"
+      ]
+    },
+    {
+      "id": "agriculture-portal",
+      "path": "assets/art/exposition-buildings-v2/agriculture-portal-v2.png",
+      "width": 1214,
+      "height": 1295,
+      "bytes": 2373725,
+      "sha256": "567c35f7dd3131aa6e8c69a68020063eb5194820a916a63da23e5de7df0f4127",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v2/generation.json#agriculture-portal",
+      "referenceIds": [
+        "ARNOLD-018",
+        "STYLE-agriculture-portal"
+      ]
+    },
+    {
+      "id": "fine-arts-portal",
+      "path": "assets/art/exposition-buildings-v2/fine-arts-portal-v2.png",
+      "width": 1214,
+      "height": 1296,
+      "bytes": 2440954,
+      "sha256": "a7a0c788187d758b37fc494077331e131f3180d6d2591f242a4553787ab1140e",
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "promptRef": "art/source/exposition-buildings-v2/generation.json#fine-arts-portal",
+      "referenceIds": [
+        "ARNOLD-060",
+        "STYLE-fine-arts-portal"
+      ]
+    }
+  ],
+  "totalBytes": 15230250,
+  "profiles": [
+    {
+      "id": "manufactures",
+      "label": "Manufactures and Liberal Arts",
+      "defaultStories": 2,
+      "portalStories": 2,
+      "bayWidth": 5,
+      "portalWidth": 3,
+      "baysPerRepeat": 3,
+      "bay": "manufacturesBay",
+      "portal": "manufacturesPortal",
+      "openingUV": [
+        0.397,
+        0.602,
+        0,
+        0.369
+      ],
+      "field": 15852487,
+      "trim": 14930350,
+      "sourceRefs": [
+        "EXPO-P02:plate3"
+      ]
+    },
+    {
+      "id": "agriculture",
+      "label": "Agricultural Building",
+      "defaultStories": 2,
+      "portalStories": 2,
+      "bayWidth": 5,
+      "portalWidth": 3,
+      "baysPerRepeat": 3,
+      "bay": "agricultureBay",
+      "portal": "agriculturePortal",
+      "openingUV": [
+        0.371,
+        0.622,
+        0,
+        0.46
+      ],
+      "field": 15455921,
+      "trim": 14073234,
+      "sourceRefs": [
+        "EXPO-P02:plate18"
+      ]
+    },
+    {
+      "id": "fine-arts",
+      "label": "Palace of Fine Arts",
+      "defaultStories": 2,
+      "portalStories": 2,
+      "bayWidth": 5,
+      "portalWidth": 3,
+      "baysPerRepeat": 3,
+      "bay": "fineArtsBay",
+      "portal": "fineArtsPortal",
+      "openingUV": [
+        0.39,
+        0.611,
+        0,
+        0.378
+      ],
+      "field": 15065296,
+      "trim": 13880245,
+      "sourceRefs": [
+        "EXPO-P02:plate60"
+      ]
+    }
+  ],
+  "nativeScale": {
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "slab": 0.12
+  },
+  "generationRecord": "art/source/exposition-buildings-v2/generation.json",
+  "sourceRecord": "art/source/exposition-buildings-v2/sources.json",
+  "bindingPolicy": {
+    "appearanceSet": "exposition-v1",
+    "moduleSelection": "Existing artist facadeStyles map; same skin-slot IDs",
+    "horizontal": "Each authored repeat strip has three bays. Fixed 5m strip cadence; width adds copies or crops at the ends rather than stretching.",
+    "entrance": "Fixed central material region; actual native door opening remains 1 x 1.65m and leaf .12m thick",
+    "vertical": "Native 2m wall units, 2.12m floor spacing, .12m slab intervals; geometry must be composed without stretching",
+    "uv": "Inherited surfaceUV and position/normal data preserved; separate art-only facade coordinates",
+    "actors": "No character resizing. Provisional bear does not fit the native doorway."
+  },
+  "scope": "Painted facade fragments on compatible native templates; no complete historical reconstruction.",
+  "nativeContractCommit": "60c515110f31c8cd0557a6c540b0a38569a4023c"
+}
