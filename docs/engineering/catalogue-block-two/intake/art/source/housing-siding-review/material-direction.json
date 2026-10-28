@@ -1,0 +1,31 @@
+{
+  "baselineCommit": "ec77f460e539d2bf114c806ed520c0a7945edabc",
+  "userDirection": "Check the other buildings for the No. 15 issue: horizontal siding on vertical window-bearing wall/gable faces instead of roof texture.",
+  "scope": "Twelve Hopkins and thirteen Gross artist house prefabs.",
+  "adaptation": "Vertical roof closures, gable infills, dormer fronts and spire drums match the house wall finish: clapboard for timber houses, brick for masonry houses. Sloped roof covering and thin ridge/break caps stay unchanged. This is the user art direction, not a new assertion about historical finishes.",
+  "sourceRegisters": [
+    "art/source/hopkins-housing-v1/sources.json",
+    "art/source/gross-housing-v1/sources.json"
+  ],
+  "unchangedMaterials": [
+    "assets/art/gross-housing-v1/clapboard-ivory-v1.png",
+    "assets/art/gross-housing-v1/cedar-shingles-v1.png",
+    "assets/art/gross-housing-v1/floorboards-oak-v1.png",
+    "assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
+    "assets/art/exposition-skins-v1/brick-sienna-v1.png",
+    "assets/art/exposition-skins-v1/roof-slate-v1.png"
+  ],
+  "geometryBaseline": "docs/art/housing-siding-review/baseline.json",
+  "nativeContracts": "All 25 prefab JSONs, mesh attributes, transforms and UVs remain byte/number-identical to the baseline; roof material bindings are fingerprinted separately.",
+  "windows": {
+    "status": "Unchanged at user request; user will handle the Nautilus builder discussion/import.",
+    "inspectedCandidate": "17479ad78fda8ed43c53bc4776f8509de3c81b68",
+    "paths": [
+      "packages/window-kit/index.js",
+      "docs/window-sculptures.md"
+    ],
+    "finding": "The preview-only Nautilus sculpture has a 1 m opening centered between two equal 1 m wall panels: 3 m overall, native 2 m wall height and 0.16 m thickness. It is not a 2 m opening. No code, asset or schema from that candidate is imported in this task."
+  },
+  "recordScope": "Original siding correction at 14d18d7; its original window finding below is historical. The corrected window follow-up is pinned separately.",
+  "windowFollowUp": "art/source/nautilus-windows-v1/import.json"
+}

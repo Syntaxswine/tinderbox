@@ -1,5 +1,5 @@
 import {addGambrelRoof,addGambrelEnd,gambrelProfile,gambrelHeight} from './gambrel-roof.js';
-import {loadGrossHousing,createGrossHouse,pointInRoom,planEdges} from './gross-housing.js';
+import {loadGrossHousing,createGrossHouse,pointInRoom,planEdges,housePlanEdges} from './gross-housing.js';
 export const HOPKINS_HOUSING_URL=new URL('../../assets/art/hopkins-housing-v1/houses.json',import.meta.url).href;
 export const loadHopkinsHousing=(T,options={})=>loadGrossHousing(T,{...options,catalogueUrl:HOPKINS_HOUSING_URL});
 // Reuses the tested native wall/door/floor/furnishing assembler and its resource owner.
@@ -50,15 +50,15 @@ function exterior(T,{house:h,roof,box,line,cylinder,project,pool,roofs,ornament,
    for(const end of piece.ends||[]){
     const facing=end.run===piece.ends[0].run?-1:1,skinRun=end.run+facing*.086;
     addGambrelEnd(T,{parent:roofs,pool,line,project,material:gableMaterial,trim:m.trim,roof:result,run:skinRun,trimRun:facing<0?piece.runStart:piece.runEnd,wallMin:end.wallMin,wallMax:end.wallMax,wallTop:4.12-piece.base,name:'Gambrel '+piece.id+' gable closure'});
-    const points=[],floor=h.floors[1],windows=floor.windows||[];
-    const quad=(u,v,low,high)=>{const q=[result.point(skinRun,u,low),result.point(skinRun,v,low),result.point(skinRun,v,high),result.point(skinRun,u,high)];points.push(...[0,1,2,0,2,3].flatMap(i=>q[i]));};
-    for(const edge of planEdges(floor).filter(e=>e.rooms.length===1)){
+    const points=[],floor=h.floors[1];
+    const quad=(u,v,low,high)=>{if(v-u<1e-8||high-low<1e-8)return;const q=[result.point(skinRun,u,low),result.point(skinRun,v,low),result.point(skinRun,v,high),result.point(skinRun,u,high)];points.push(...[0,1,2,0,2,3].flatMap(i=>q[i]));};
+    for(const edge of housePlanEdges(h,floor).filter(e=>e.rooms.length===1)){
      const across=p=>piece.axis==='x'?p[1]-piece.z:p[0]-piece.x,along=p=>piece.axis==='x'?p[0]:p[1];
      if(Math.abs(along(edge.a)-end.run)>.001||Math.abs(along(edge.b)-end.run)>.001)continue;
      const u=Math.min(across(edge.a),across(edge.b)),v=Math.max(across(edge.a),across(edge.b));
-     const hasWindow=windows.some(w=>[w.slice(0,2),w.slice(2)].every(p=>[edge.a,edge.b].some(e=>e[0]===p[0]&&e[1]===p[1])));
+     const hasWindow=edge.opening==='window';
      const low=2.12-piece.base;
-     if(hasWindow){quad(u,v,low,low+.35);quad(u,v,low+1.55,low+2);}else quad(u,v,low,low+2);
+     if(hasWindow){quad(u,v,low,low+.35);quad(u,v,low+1.55,low+2);const mid=(u+v)/2;quad(u,mid-.5,low+.35,low+1.55);quad(mid+.5,v,low+.35,low+1.55);}else quad(u,v,low,low+2);
     }
     if(points.length){const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(points,3));geometry.computeVertexNormals();project(geometry);geometry.setAttribute('uv',geometry.attributes.grossUV.clone());const skin=new T.Mesh(pool.geometry(geometry),gableMaterial);skin.name='Removable gambrel gable siding';skin.castShadow=skin.receiveShadow=true;roofs.add(skin);}
    }
@@ -83,11 +83,12 @@ function exterior(T,{house:h,roof,box,line,cylinder,project,pool,roofs,ornament,
  }
  // Chimneys and small trim are interpreted from the visible plate, not new native modules.
  const chimneyTop=h.plinth+Math.max(...h.roofPieces.map(p=>p.base+p.rise));
- for(const x of (h.designNumber===17?[h.width*.28,h.width*.72]:[h.width*.68])){
+ // No. 13's rear upper wing stops at x=5; seat its shaft inside that footprint.
+ for(const x of (h.designNumber===17?[h.width*.28,h.width*.72]:[h.designNumber===13?4.6:h.width*.68])){
   const z=h.depth*.63;
   let shaftHeight=1.35,shaftCenter=chimneyTop-.1;
-  if(h.roofAssembly){
-   const surface=(xx,zz)=>Math.max(...h.roofAssembly.pieces.map(p=>{const run=p.axis==='x'?xx:zz,q=p.axis==='x'?zz-p.z:xx-p.x,height=gambrelHeight(gambrelProfile(p),q);return run>=p.runStart&&run<=p.runEnd&&height!==null?h.plinth+p.base+height:-Infinity;}));
+  if(h.roofAssembly||h.designNumber===13){
+   const surface=(xx,zz)=>h.roofAssembly?Math.max(...h.roofAssembly.pieces.map(p=>{const run=p.axis==='x'?xx:zz,q=p.axis==='x'?zz-p.z:xx-p.x,height=gambrelHeight(gambrelProfile(p),q);return run>=p.runStart&&run<=p.runEnd&&height!==null?h.plinth+p.base+height:-Infinity;})):h.plinth+Math.max(...h.roofPieces.filter(p=>Math.abs(p.base-4.12)<.2).map(p=>profile(p,xx,zz)).filter(y=>y!==null));
    const bottom=Math.min(...[-.25,.25].flatMap(dx=>[-.3,.3].map(dz=>surface(x+dx,z+dz))))-.12,top=chimneyTop+.575;
    shaftHeight=top-bottom;shaftCenter=(top+bottom)/2;
   }

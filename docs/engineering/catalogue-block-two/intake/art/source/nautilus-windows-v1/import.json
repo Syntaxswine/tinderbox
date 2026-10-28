@@ -1,0 +1,73 @@
+{
+  "repository": "https://github.com/Syntaxswine/nautilus-engine",
+  "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "reason": "User supplied the corrected two-metre centered window sculptures for Tinderbox Nos. 13 and 15.",
+  "branchAtReview": "codex/editor-assets; explicit user-selected candidate, not a silent moving-branch baseline change.",
+  "runtimeFiles": 5,
+  "files": [
+    {
+      "originalPath": "packages/window-kit/index.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/index.js",
+      "bytes": 6173,
+      "sha256": "762a31f19bcb59df01d6e39f84a7df8b304d41f796bbf0a957928bbf55d29562",
+      "adaptations": "none; byte-preserved",
+      "role": "runtime dependency"
+    },
+    {
+      "originalPath": "packages/window-kit/three.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js",
+      "bytes": 5433,
+      "sha256": "76020f340a25eb10acf7de9cd75fd35b099b12438fb457a8c016e6d98bd51f00",
+      "adaptations": "none; byte-preserved",
+      "role": "runtime dependency"
+    },
+    {
+      "originalPath": "packages/map-core/wall-runs.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d",
+      "adaptations": "none; byte-preserved",
+      "role": "runtime dependency"
+    },
+    {
+      "originalPath": "vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "bytes": 4647,
+      "sha256": "2a2ad40e16533b4c30b639e907b9e5c8d967557cb65aa6f05c0c640d4bde0297",
+      "adaptations": "none; byte-preserved",
+      "role": "runtime dependency"
+    },
+    {
+      "originalPath": "vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "bytes": 1150,
+      "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+      "adaptations": "none; byte-preserved",
+      "role": "runtime dependency"
+    },
+    {
+      "originalPath": "NOTICE.md",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/NOTICE.md",
+      "bytes": 2619,
+      "sha256": "4c5e19a0e9224589505445e8c2f693ed89eb8d0e8191f77f9496089d9c9ebb95",
+      "role": "notice/source evidence; not a runtime dependency"
+    },
+    {
+      "originalPath": "docs/window-sculptures.md",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/window-sculptures.md",
+      "bytes": 3913,
+      "sha256": "b5755a3e0b44b20ba2f9a6febf5117c166d16bb946b76ed2c8625e5ad4ed8873",
+      "role": "notice/source evidence; not a runtime dependency"
+    },
+    {
+      "originalPath": "vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/provenance.json",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/aft-provenance.json",
+      "bytes": 96620,
+      "sha256": "84cd1b6e95969ebbdc3ca5cefddce2104054d43bce14c15dbf7e451f4e9e51e3",
+      "role": "notice/source evidence; not a runtime dependency"
+    }
+  ],
+  "transitiveSource": "The unmodified renderer references two AFT helper modules at 781246a668c723d5a4c5463e70534cc04b6a5641. They are preserved inside this Nautilus snapshot; host materials are injected, so their default pixel generator is not called by the Tinderbox adapter. The Farmyard/Three baseline stays 30a3b8cae5f36bb0c1df3685b7fba16f701c2083.",
+  "rights": "Original Nautilus NOTICE.md is preserved. It records mixed or unspecified per-file licensing and adds no blanket grant. User-directed reuse; provenance alone is not a license grant.",
+  "scope": "Art assembly only. No placement, traversal, collisions, glass breakage or gameplay imported."
+}

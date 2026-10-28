@@ -3,7 +3,7 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 const root = fs.realpathSync(process.cwd()), output = path.resolve(root, 'dist'), marker = '.tinderbox-build';
 const intake = JSON.parse(fs.readFileSync(path.join(root, 'assets/art/neighborhood-intake.json'), 'utf8'));
-const imported = new Set(intake.runtimeFiles.map(file => file.installedPath));
+const imported = new Set([...intake.runtimeFiles, ...(intake.supportFiles || [])].map(file => file.installedPath));
 if (path.dirname(output) !== root || output === root) throw Error('Unsafe build destination');
 if (fs.existsSync(output)) {
   if (fs.lstatSync(output).isSymbolicLink() || ![marker, '.tinderbox-diagnostic-build'].some(name => fs.existsSync(path.join(output, name)))) throw Error('Refusing to replace an unowned dist directory');
@@ -35,5 +35,5 @@ function inventory(directory) {
   });
 }
 const files = inventory(output);
-fs.writeFileSync(path.join(output, 'build-manifest.json'), JSON.stringify({game:'Tinderbox',milestone:'04-catalogue-neighborhood',files},null,2)+'\n');
+fs.writeFileSync(path.join(output, 'build-manifest.json'), JSON.stringify({game:'Tinderbox',milestone:'05-catalogue-block-two',files},null,2)+'\n');
 console.log(`Built playable Tinderbox in dist/: ${files.length} files, ${files.reduce((n,file)=>n+file.bytes,0)} bytes. All resource URLs are relative to the project path.`);

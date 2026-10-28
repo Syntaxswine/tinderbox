@@ -4,7 +4,8 @@ import {DEFAULT_CONFIG} from '../../src/simulation/config.js';
 import {scenarioDefinition} from '../../src/simulation/fixtures.js';
 let runtime, closed = false, busy = false, startupError = null;
 const positions = {street: [20, 18], twelve: [5.5, 13.8], fifteen: [18.5, 16.4], ashland: [27.5, 14.5],
-  'back-twelve': [7, 1.7], 'back-fifteen': [19, 1.7], 'back-ashland': [30, 1.7], 'gap-west': [12.5, 7], 'gap-east': [25.5, 7]};
+  'back-twelve': [7, 1.7], 'back-fifteen': [19, 1.7], 'back-ashland': [30, 1.7], 'gap-west': [12.5, 7], 'gap-east': [25.5, 7],
+  nine: [4.5, 27.5], thirteen: [18.5, 27.5], monroe: [28.5, 26.9], 'gap-south-west': [12.5, 35], 'gap-south-east': [25.5, 35], 'route-south': [20, 45.5]};
 const nextFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
 async function rebuild({position = 'street', autoStart = true, burnout = false} = {}) {
   if (closed) throw Error('Review page closed');
@@ -33,7 +34,7 @@ async function run() {
   try {
     for (const position of Object.keys(positions)) {
       await rebuild({position, autoStart: false}); const result = sample();
-      requireCheck(result.rendered && result.housing.active === 3 && result.bear.species === 'bear', 'Actual scene missing at ' + position);
+      requireCheck(result.rendered && result.housing.active === 6 && result.bear.species === 'bear', 'Actual scene missing at ' + position);
       requireCheck(result.housing.projection.bearHeightPixels > 45, 'Native bear projects too small at ' + position);
       if (position.startsWith('back-') || position.startsWith('gap-')) requireCheck(result.housing.occludingBuildingIds.length > 0, 'Occlusion fade missing at ' + position);
       checks.push({position, rendered: result.rendered, housing: result.housing, camera: result.metrics.camera}); await nextFrame();

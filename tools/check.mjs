@@ -35,7 +35,7 @@ for (const name of ['engine', 'code', 'art', 'ui', 'city', 'native-units']) {
   }
 }
 const housingIntake = JSON.parse(fs.readFileSync('assets/art/neighborhood-intake.json', 'utf8'));
-for (const file of [...housingIntake.runtimeFiles, ...housingIntake.evidenceFiles, ...housingIntake.derivedFiles]) {
+for (const file of [...housingIntake.runtimeFiles, ...(housingIntake.supportFiles || []), ...housingIntake.evidenceFiles, ...housingIntake.derivedFiles]) {
   const bytes = fs.readFileSync(file.installedPath);
   if (bytes.length !== file.bytes || createHash('sha256').update(bytes).digest('hex') !== file.sha256) throw Error('Changed housing intake bytes: ' + file.installedPath);
 }

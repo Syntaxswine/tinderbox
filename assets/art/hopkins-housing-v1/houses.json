@@ -2553,17 +2553,26 @@
               2
             ],
             [
-              1,
-              0,
-              2,
-              0
-            ],
-            [
               0,
               3,
               0,
               2
             ]
+          ],
+          "windowBays": [
+            {
+              "id": "hopkins-4-13-upper-front",
+              "a": [
+                1,
+                0
+              ],
+              "b": [
+                3,
+                0
+              ],
+              "profile": "window-bay-period",
+              "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+            }
           ]
         }
       ],
@@ -2598,6 +2607,8 @@
       "notes": [
         "Published as a laborers cottage costing $450-$575 in 1891; the printed 25 x 26 ft overall is visually verified.",
         "One lower chamber and two upper chambers retained; the tiny stair landing is enlarged to fit the shared flight.",
+        "The chimney shaft now intersects the existing roof surface; its previously floating base was corrected during the centered-window visual review. Roof planes and silhouette are unchanged.",
+        "The upper front period sash uses the corrected Nautilus 2 m bay: 0.5 m wall + 1 m opening + 0.5 m wall. It is centered without scaling the source sculpture. Placement/traversal gameplay remains deferred.",
         "Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled."
       ],
       "nativeContract": {
@@ -2641,7 +2652,16 @@
           "Tinderbox nautilus-wall-runs-v1 consumer",
           "interior-floor support",
           "door and stair gameplay integration"
-        ]
+        ],
+        "windowArt": {
+          "source": "nautilus-window-sculpture-v1",
+          "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+          "bayWidth": 2,
+          "openingWidth": 1,
+          "flankWidth": 0.5,
+          "traversal": "deferred",
+          "scope": "Artist prefab only"
+        }
       },
       "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes above the native courses. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
     },
@@ -3527,13 +3547,22 @@
               7,
               2,
               7
-            ],
-            [
-              4,
-              -1,
-              5,
-              -1
             ]
+          ],
+          "windowBays": [
+            {
+              "id": "hopkins-4-15-upper-front",
+              "a": [
+                4,
+                -1
+              ],
+              "b": [
+                6,
+                -1
+              ],
+              "profile": "window-bay-period",
+              "sourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad"
+            }
           ]
         }
       ],
@@ -3582,7 +3611,7 @@
         "Printed 26 ft width and individual room widths disagree; the 10 m composition follows the illustrated arrangement, not a claimed measured reproduction.",
         "Roof correction: continuous steep skirts and shallow crowns replace the notched footprint roof. Extended eaves clear the two full native wall courses. Roof angles, overhangs and the lower front ridge are artistic adaptations, not source measurements.",
         "Per user art direction, vertical gable faces carry horizontal clapboard; cedar shingles remain on the sloped roof surfaces.",
-        "The centered two-space window is deferred to the map-editor work requested separately by the user. Existing window openings are retained.",
+        "The upper front period sash uses the corrected Nautilus 2 m bay: 0.5 m wall + 1 m opening + 0.5 m wall. It is centered without scaling the source sculpture. Placement/traversal gameplay remains deferred.",
         "Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled."
       ],
       "roofAssembly": {
@@ -3681,7 +3710,16 @@
           "Tinderbox nautilus-wall-runs-v1 consumer",
           "interior-floor support",
           "door and stair gameplay integration"
-        ]
+        ],
+        "windowArt": {
+          "source": "nautilus-window-sculpture-v1",
+          "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+          "bayWidth": 2,
+          "openingWidth": 1,
+          "flankWidth": 0.5,
+          "traversal": "deferred",
+          "scope": "Artist prefab only"
+        }
       },
       "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes around the full upper native course; eaves, roof panels and removable clapboard gable facings are new art. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
     },
