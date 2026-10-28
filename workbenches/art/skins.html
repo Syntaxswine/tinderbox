@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tinderbox · Exposition skins</title><link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#26352f;color:#eee4cd;font:13px system-ui}body{display:grid;grid-template-rows:auto minmax(220px,1fr) auto}header,footer{padding:12px 18px}h1{margin:0;font-size:16px;letter-spacing:.08em}p{margin:5px 0;color:#c7c9b5;font-size:12px}#stage{position:relative;min-height:0;min-width:0}canvas{display:block;width:100%;height:100%}.label{position:absolute;z-index:2;background:#20332ce8;padding:6px 10px;pointer-events:none;font-size:11px;letter-spacing:.06em}#original-label{top:8px;left:8px}#new-label{top:8px;left:calc(50% + 8px)}.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}button,select{font:inherit;color:inherit;background:#354c3f;padding:7px 9px;border:1px solid #7c8970;border-radius:3px}label{display:flex;align-items:center;gap:5px}#status{font:11px monospace;overflow-wrap:anywhere;margin-top:8px}#review-output{white-space:pre-wrap;overflow-wrap:anywhere;max-height:24vh;overflow:auto;font:11px monospace;background:#1b2922;padding:10px}a{color:#f0dba5}#loading{position:absolute;top:42%;width:100%;text-align:center;padding:20px;background:#30493f}
+@media(max-width:600px){header,footer{padding:9px 12px}h1{font-size:14px}.controls{gap:6px}button,select{padding:6px;max-width:100%}label{font-size:12px}#new-label{top:calc(50% + 8px);left:8px}.label{font-size:10px}}
+</style>
+<header><h1>TINDERBOX / EXPOSITION SKINS</h1><p>Same original Farmyard meshes, rigs and simulation · authored appearance study</p></header>
+<main id="stage"><div class="label" id="original-label">ORIGINAL FINISHES</div><div class="label" id="new-label">TINDERBOX · EXPOSITION V1</div><div id="loading">Loading original assets and new paint…</div></main>
+<footer><div class="controls">
+<label>Study <select id="study"><option value="courtyard">Courtyard · game camera</option><option value="gallery">1–5 stories · canvas overview</option><option value="facade">Single facade · detail camera</option><option value="civilians">Civilian clothing · detail camera</option></select></label>
+<label>Stories <select id="stories"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+<label>Facade <select id="facade"><option value="inherited-plaster">Staff / plaster</option><option value="inherited-brick">Brick</option><option value="inherited-wood">Timber</option></select></label>
+<label>Door <select id="door"><option value="open">Open</option><option value="closed">Closed</option></select></label>
+<button id="step">+1 second</button><button id="reset">Reset</button><button id="review">Run skin review</button>
+</div><p>Windows and cornices are surface paint. Story options add exterior height. <a href="../../docs/art/exposition/skins.md">Art sources, bindings and limits</a></p><div id="status">Preparing paired views.</div><pre id="review-output" hidden aria-live="polite"></pre></footer>
+<script type="module" src="./skins.js"></script></html>

@@ -1,5 +1,6 @@
 
 import {Resources} from './resources.js';
+import {addFacadeCoordinates,makeExpositionMaterials,validateSkinSet} from './skins.js';
 
 // Adapted from pinned AFT hybrid-materials.surfaceUV and hybrid-room-art's
 // vertical-face/cap assignment. Raw surface imports stay in coder city.json.
@@ -7,7 +8,8 @@ function surfaceUV(position,normal){
   if(Math.abs(normal[1])>.5)return [position[0],position[2]];
   return [Math.abs(normal[0])>.5?position[2]:position[0],position[1]];
 }
-export function createExteriorKit(T,materials,assets,renderer){
+export function createExteriorKit(T,materials,assets,renderer,{expositionAssets=null,skinSet='inherited'}={}){
+  let activeSkinSet=validateSkinSet(skinSet);
   const root=new T.Group();root.name='Exposition construction kit';
   const materialPool=new Resources();let geometryPool=new Resources(),signature='',builds=0,closed=false;
   const specs={
@@ -24,10 +26,11 @@ export function createExteriorKit(T,materials,assets,renderer){
       value.material=materialPool.material(new T.MeshStandardMaterial({map:value.map,color:value.color,roughness:.95,side:T.DoubleSide}));
     }
   }
+  const expositionMaterials=expositionAssets?makeExpositionMaterials(T,materialPool,expositionAssets,renderer):null;
   let records=[],state={modules:0,survivingSolidParts:[],suppressedSolidParts:[],suppressedCosmeticParts:[],visibleRoofParts:[]};
-  function spec(id){const value=specs[id];if(!value)throw new Error('Unsupported exterior skin '+id);return value;}
+  function spec(id){const value=specs[id];if(!value)throw new Error('Unsupported exterior skin '+id);return activeSkinSet==='exposition-v1'?{...value,material:expositionMaterials[id]}:value;}
   function applySkin(record,module){
-    const slots=module.skinSlots,style=JSON.stringify(slots);if(record.style===style)return;
+    const slots=module.skinSlots,style=JSON.stringify([activeSkinSet,slots]);if(record.style===style)return;
     const {mesh,part,roof}=record,geometry=mesh.geometry,p=geometry.attributes.position,n=geometry.attributes.normal,uv=geometry.attributes.uv;
     let faces;
     if(roof)faces=[spec(slots.roof)];
@@ -43,7 +46,7 @@ export function createExteriorKit(T,materials,assets,renderer){
       const q=surfaceUV(point,normal),period=faces[roof?0:Math.floor(i/4)].period;
       uv.setXY(i,q[0]/period,q[1]/period);
     }
-    uv.needsUpdate=true;record.style=style;mesh.userData.skinSlots={...slots};
+    uv.needsUpdate=true;record.style=style;mesh.userData.skinSlots={...slots};mesh.userData.skinSet=activeSkinSet;
   }
   function roofGeometry(module){
     const hip=module.form==='roof-hip',swap=hip&&module.depth>module.width;
@@ -86,9 +89,10 @@ export function createExteriorKit(T,materials,assets,renderer){
         else{
           geometry=geometryPool.geometry(new T.BoxGeometry(part.width,part.height,part.depth));
           mesh=new T.Mesh(geometry,spec(module.skinSlots.facade).material);mesh.position.set(part.x,part.h,part.y);
+          if(expositionAssets)addFacadeCoordinates(T,geometry,mesh,module,part);
         }
         mesh.name='module-part:'+part.id;mesh.castShadow=mesh.receiveShadow=true;
-        mesh.userData={moduleId:module.id,partId:part.id,role:part.role,solid:part.solid,physicalMaterial:module.physicalMaterial,researchBasedKit:true};
+        mesh.userData={moduleId:module.id,partId:part.id,role:part.role,solid:part.solid,physicalMaterial:module.physicalMaterial,researchBasedKit:true,stories:module.stories,storyHeight:module.storyHeight};
         root.add(mesh);const record={moduleId:module.id,part,roof,mesh,style:null};records.push(record);applySkin(record,module);
         if(part.solid)state.survivingSolidParts.push(part.id);
       }
@@ -97,9 +101,9 @@ export function createExteriorKit(T,materials,assets,renderer){
   return{root,update(world){
     if(closed)return;const modules=world.modules||[];if(!Array.isArray(modules)||modules.length>128)throw new Error('Exterior module budget exceeded');
     const surviving=new Set((world.obstacles||[]).filter(o=>!o.destroyed).map(o=>o.id));
-    const next=JSON.stringify(modules.map(m=>[m.id,m.form,m.x,m.y,m.width,m.depth,m.height,m.heading,m.baseHeight,m.destroyed,m.parts?.map(p=>[p.id,p.x,p.y,p.h,p.width,p.depth,p.height,p.solid,p.skinSlot,p.destroyed,surviving.has(p.id)])]));
+    const next=JSON.stringify(modules.map(m=>[m.id,m.form,m.x,m.y,m.width,m.depth,m.height,m.heading,m.baseHeight,m.stories,m.storyHeight,m.destroyed,m.parts?.map(p=>[p.id,p.x,p.y,p.h,p.width,p.depth,p.height,p.solid,p.skinSlot,p.destroyed,surviving.has(p.id)])]));
     if(next!==signature){signature=next;rebuild(modules,surviving);}
     const byId=new Map(modules.map(m=>[m.id,m]));for(const record of records)applySkin(record,byId.get(record.moduleId));
-  },dispose(){if(closed)return;closed=true;root.removeFromParent();root.clear();records=[];state={modules:0,survivingSolidParts:[],suppressedSolidParts:[],suppressedCosmeticParts:[],visibleRoofParts:[]};geometryPool.dispose();materialPool.dispose();},
-  diagnostics:()=>({...state,disposed:closed,renderedModuleIds:[...new Set(records.map(r=>r.moduleId))],renderedPartIds:records.map(r=>r.part.id),roofIds:records.filter(r=>r.roof).map(r=>r.moduleId),skinBindings:Object.fromEntries(records.map(r=>[r.part.id,{...r.mesh.userData.skinSlots}])),builds,meshes:records.length,geometries:geometryPool.geometries.size,materials:materialPool.materials.size,textures:0,roofPolicy:'Consumes authoritative support/destroyed flags; no inferred collapse or roof fire',lintelPolicy:'Consumes authoritative pier-support/destroyed flags'})};
+  },setSkinSet(id){validateSkinSet(id);if(id==='exposition-v1'&&!expositionMaterials)throw new Error('Exposition assets were not loaded');activeSkinSet=id;},dispose(){if(closed)return;closed=true;root.removeFromParent();root.clear();records=[];state={modules:0,survivingSolidParts:[],suppressedSolidParts:[],suppressedCosmeticParts:[],visibleRoofParts:[]};geometryPool.dispose();materialPool.dispose();},
+  diagnostics:()=>({...state,skinSet:activeSkinSet,disposed:closed,renderedModuleIds:[...new Set(records.map(r=>r.moduleId))],renderedPartIds:records.map(r=>r.part.id),roofIds:records.filter(r=>r.roof).map(r=>r.moduleId),skinBindings:Object.fromEntries(records.map(r=>[r.part.id,{...r.mesh.userData.skinSlots}])),builds,meshes:records.length,geometries:geometryPool.geometries.size,materials:materialPool.materials.size,textures:0,roofPolicy:'Consumes authoritative support/destroyed flags; no inferred collapse or roof fire',lintelPolicy:'Consumes authoritative pier-support/destroyed flags'})};
 }

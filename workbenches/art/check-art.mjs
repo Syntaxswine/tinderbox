@@ -30,3 +30,22 @@ for(const file of code){
   }
 }
 console.log('PASS: '+manifest.files.length+' byte-preserved imports; '+code.length+' syntax/dependency checks; injected shared THREE.');
+
+const authoredPath='assets/art/exposition-skins-v1/manifest.json';
+const authored=JSON.parse(fs.readFileSync(path.join(root,authoredPath),'utf8'));
+assert(authored.assets.length===7&&authored.appearanceSet==='exposition-v1','Expected the bounded Exposition skin set');
+const generation=JSON.parse(fs.readFileSync(path.join(root,authored.generationRecord),'utf8').replace(/^\uFEFF/,''));
+for(const asset of authored.assets){
+  assert(asset.path.startsWith('assets/art/exposition-skins-v1/'),'Authored art must remain separate from vendor');
+  const bytes=fs.readFileSync(path.join(root,asset.path)),digest=createHash('sha256').update(bytes).digest('hex');
+  assert(digest===asset.sha256&&bytes.length===asset.bytes,'Authored skin bytes changed '+asset.path);
+  assert(bytes.readUInt32BE(16)===asset.width&&bytes.readUInt32BE(20)===asset.height,'Skin dimensions changed '+asset.id);
+  assert(generation.assets.some(a=>a.id===asset.id&&a.file===asset.path&&a.prompt),'Missing exact built-in generation prompt');
+  if(asset.source){
+    const source=fs.readFileSync(path.join(root,asset.source.path));
+    assert(createHash('sha256').update(source).digest('hex')===asset.source.sha256,'Original paint source changed');
+    assert(asset.width===source.readUInt32BE(16)&&asset.height===source.readUInt32BE(20),'Projected paint layout dimensions changed');
+  }
+}
+for(const adapted of manifest.adaptations)assert(createHash('sha256').update(fs.readFileSync(path.join(root,adapted.path))).digest('hex')===adapted.sha256,'Art adapter fingerprint mismatch '+adapted.path);
+console.log('PASS: 7 authored skins, exact prompt/source records, projected sheet dimensions and 8 adapter fingerprints.');

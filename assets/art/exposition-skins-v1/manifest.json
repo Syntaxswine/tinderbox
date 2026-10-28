@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "owner": "artist",
+  "appearanceSet": "exposition-v1",
+  "assetRoot": "assets/art/exposition-skins-v1",
+  "mode": "built-in image_gen",
+  "generationRecord": "art/source/exposition-skins-v1/generation.json",
+  "sourcePin": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "inheritedSourcePin": "a20b343a0234b5d8b365a4e1668961ca1bf37653",
+  "assets": [
+    {
+      "id": "horse",
+      "path": "assets/art/exposition-skins-v1/horse-exposition-worker-v1.png",
+      "bytes": 1844312,
+      "sha256": "21abf03d09a37055b59fceb903a703fd7063e519b89d9b67907905719874b0fa",
+      "width": 1774,
+      "height": 887,
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "creation": "built-in image_gen edit",
+      "source": {
+        "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+        "sha256": "468ce2d133019dfbcf9ee69439ecb0eb92fecdc20c1306b83536d2a440329b89",
+        "commit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083"
+      },
+      "promptRef": "art/source/exposition-skins-v1/generation.json#horse"
+    },
+    {
+      "id": "goat",
+      "path": "assets/art/exposition-skins-v1/goat-exposition-worker-v1.png",
+      "bytes": 1872122,
+      "sha256": "1095ff1dd6defce3e7dc86d48fe05684931e23cbdf011d64dd983675107cd47a",
+      "width": 1774,
+      "height": 887,
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "creation": "built-in image_gen edit",
+      "source": {
+        "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+        "sha256": "50e63428f990f31cdb2f6df0bee6a9ccb678860bf12dbc95a3fd6e87db73afea",
+        "commit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083"
+      },
+      "promptRef": "art/source/exposition-skins-v1/generation.json#goat"
+    },
+    {
+      "id": "staff",
+      "path": "assets/art/exposition-skins-v1/staff-ivory-v1.png",
+      "bytes": 2782023,
+      "sha256": "1a6caebccc908329891a49c5c3802b6d054f8fcfb859b6e82ac26d87ec76a9c9",
+      "width": 1254,
+      "height": 1254,
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "creation": "built-in image_gen generate",
+      "source": null,
+      "promptRef": "art/source/exposition-skins-v1/generation.json#staff"
+    },
+    {
+      "id": "bay",
+      "path": "assets/art/exposition-skins-v1/staff-window-bay-v1.png",
+      "bytes": 2544811,
+      "sha256": "4f48a41179ee5d53f3a65553e22befce88b9b7dba949790da4ef7ab2b047776c",
+      "width": 1402,
+      "height": 1122,
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "creation": "built-in image_gen generate",
+      "source": null,
+      "promptRef": "art/source/exposition-skins-v1/generation.json#bay"
+    },
+    {
+      "id": "timber",
+      "path": "assets/art/exposition-skins-v1/timber-ochre-v1.png",
+      "bytes": 1889600,
+      "sha256": "b7f457024d1b13dce1420f201f46c09f6f8f4d1bc5433ba30499f61a31171db5",
+      "width": 1254,
+      "height": 1254,
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "creation": "built-in image_gen generate",
+      "source": null,
+      "promptRef": "art/source/exposition-skins-v1/generation.json#timber"
+    },
+    {
+      "id": "brick",
+      "path": "assets/art/exposition-skins-v1/brick-sienna-v1.png",
+      "bytes": 2388078,
+      "sha256": "17066064a1d9dcf8b128615bba1f1472c0921801e440d619d99b49e8e5962853",
+      "width": 1254,
+      "height": 1254,
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "creation": "built-in image_gen generate",
+      "source": null,
+      "promptRef": "art/source/exposition-skins-v1/generation.json#brick"
+    },
+    {
+      "id": "roof",
+      "path": "assets/art/exposition-skins-v1/roof-slate-v1.png",
+      "bytes": 2333888,
+      "sha256": "04fd7476c41c5d290350aba957db2a6d9234d38b9634c55a834b5afe4e64c25d",
+      "width": 1254,
+      "height": 1254,
+      "colourSpace": "sRGB",
+      "opaque": true,
+      "creation": "built-in image_gen generate",
+      "source": null,
+      "promptRef": "art/source/exposition-skins-v1/generation.json#roof"
+    }
+  ],
+  "totalBytes": 15654834,
+  "bindings": {
+    "facade": {
+      "inherited-plaster": [
+        "staff",
+        "bay"
+      ],
+      "inherited-brick": [
+        "brick"
+      ],
+      "inherited-wood": [
+        "timber"
+      ]
+    },
+    "trim": {
+      "inherited-cream": {
+        "asset": "staff",
+        "tint": "#f2dfb8",
+        "detail": "Surface cornice, floor course and pilaster flutes in the artist shader"
+      }
+    },
+    "door": {
+      "inherited-wood": [
+        "timber"
+      ]
+    },
+    "roof": {
+      "inherited-roof": [
+        "roof"
+      ]
+    },
+    "civilians": {
+      "horse": "horse",
+      "goat": "goat"
+    }
+  },
+  "preserved": [
+    "Original donor roomBoxes and compiled part positions/IDs",
+    "Original mesh, skin weights, bones, projection PAINT_FRAME and source validity mask",
+    "Original ground openings, civilian envelope and authoritative fire/support/liveness state"
+  ],
+  "notes": [
+    "Legacy inherited-* slot IDs are retained; appearanceSet chooses the palette",
+    "Clothing edits are guarded to shirt/bib, cuffs and source-red scarf; heads/fur/hooves use source paint",
+    "Five material maps plus two projected clothing sheets; cream trim shares staff with a tint",
+    "Generated finishes are fictional period-inspired art, not photographic primary evidence",
+    "Raw donor originals and their provenance inventories remain separate"
+  ]
+}

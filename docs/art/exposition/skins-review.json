@@ -1,0 +1,1325 @@
+{
+  "schemaVersion": 1,
+  "task": "Exposition skin pass v1",
+  "owner": "artist",
+  "branch": "codex/art-assets",
+  "coderCheckpoint": "c3b7ec415366df09733c97146a3cfc10622ef4c4",
+  "previousArtCheckpoint": "c80db1da0ccc6c62ccd6bb0c865e2802a21fefa4",
+  "passed": true,
+  "assetManifest": "assets/art/exposition-skins-v1/manifest.json",
+  "promptSet": "art/source/exposition-skins-v1/generation.json",
+  "mode": "built-in image_gen",
+  "assets": 7,
+  "authoredBytes": 15654834,
+  "checks": {
+    "node": {
+      "tests": 56,
+      "passed": 56,
+      "ownScripts": 63,
+      "staticModules": 71,
+      "rawInventories": 5,
+      "authoredAssetIntegrity": true,
+      "artistFingerprints": 8
+    },
+    "browser": {
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 800
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "checks": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "storyCanvases": [
+            {
+              "stories": 1,
+              "height": 3.2,
+              "storyHeight": 3.2,
+              "maxStoryUV": 1,
+              "signatures": [
+                {
+                  "hash": 3193536294,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 3193536294,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 2,
+              "height": 6.4,
+              "storyHeight": 3.2,
+              "maxStoryUV": 2,
+              "signatures": [
+                {
+                  "hash": 2098814138,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 2098814138,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 3,
+              "height": 9.600000000000001,
+              "storyHeight": 3.2,
+              "maxStoryUV": 3,
+              "signatures": [
+                {
+                  "hash": 2747919142,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 2747919142,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 4,
+              "height": 12.8,
+              "storyHeight": 3.2,
+              "maxStoryUV": 4,
+              "signatures": [
+                {
+                  "hash": 3638642874,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 3638642874,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 5,
+              "height": 16,
+              "storyHeight": 3.2,
+              "maxStoryUV": 5,
+              "signatures": [
+                {
+                  "hash": 2057609574,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 2057609574,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            }
+          ],
+          "skinCycles": [
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            }
+          ],
+          "actorCycles": [
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            }
+          ],
+          "headIdentity": {
+            "passed": true,
+            "hashes": [
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              },
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              }
+            ],
+            "clipHeight": 1.33
+          },
+          "motion": {
+            "normal": 0.8000000000000185,
+            "powder": 0.28000000000002245
+          },
+          "damage": [
+            {
+              "modules": 2,
+              "survivingSolidParts": [
+                "burn-gate:pier-right"
+              ],
+              "suppressedSolidParts": [
+                "burn-gate:pier-left"
+              ],
+              "suppressedCosmeticParts": [
+                "burn-gate:lintel",
+                "burn-roof:roof-envelope"
+              ],
+              "visibleRoofParts": [],
+              "skinSet": "inherited",
+              "disposed": false,
+              "renderedModuleIds": [
+                "burn-gate"
+              ],
+              "renderedPartIds": [
+                "burn-gate:pier-right"
+              ],
+              "roofIds": [],
+              "skinBindings": {
+                "burn-gate:pier-right": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                }
+              },
+              "builds": 11,
+              "meshes": 1,
+              "geometries": 1,
+              "materials": 8,
+              "textures": 0,
+              "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+              "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+            },
+            {
+              "modules": 2,
+              "survivingSolidParts": [
+                "burn-gate:pier-right"
+              ],
+              "suppressedSolidParts": [
+                "burn-gate:pier-left"
+              ],
+              "suppressedCosmeticParts": [
+                "burn-gate:lintel",
+                "burn-roof:roof-envelope"
+              ],
+              "visibleRoofParts": [],
+              "skinSet": "exposition-v1",
+              "disposed": false,
+              "renderedModuleIds": [
+                "burn-gate"
+              ],
+              "renderedPartIds": [
+                "burn-gate:pier-right"
+              ],
+              "roofIds": [],
+              "skinBindings": {
+                "burn-gate:pier-right": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                }
+              },
+              "builds": 11,
+              "meshes": 1,
+              "geometries": 1,
+              "materials": 8,
+              "textures": 0,
+              "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+              "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+            }
+          ],
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "passed": true,
+          "errors": [],
+          "fixedClockPixels": true,
+          "snapshotImmutable": true
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "storyCanvases": [
+            {
+              "stories": 1,
+              "height": 3.2,
+              "storyHeight": 3.2,
+              "maxStoryUV": 1,
+              "signatures": [
+                {
+                  "hash": 3193536294,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 3193536294,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 2,
+              "height": 6.4,
+              "storyHeight": 3.2,
+              "maxStoryUV": 2,
+              "signatures": [
+                {
+                  "hash": 2098814138,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 2098814138,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 3,
+              "height": 9.600000000000001,
+              "storyHeight": 3.2,
+              "maxStoryUV": 3,
+              "signatures": [
+                {
+                  "hash": 2747919142,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 2747919142,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 4,
+              "height": 12.8,
+              "storyHeight": 3.2,
+              "maxStoryUV": 4,
+              "signatures": [
+                {
+                  "hash": 3638642874,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 3638642874,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            },
+            {
+              "stories": 5,
+              "height": 16,
+              "storyHeight": 3.2,
+              "maxStoryUV": 5,
+              "signatures": [
+                {
+                  "hash": 2057609574,
+                  "meshes": 129,
+                  "vertices": 38912
+                },
+                {
+                  "hash": 2057609574,
+                  "meshes": 129,
+                  "vertices": 38912
+                }
+              ],
+              "opening": {
+                "width": 1.4,
+                "height": 2.3,
+                "state": "open"
+              }
+            }
+          ],
+          "skinCycles": [
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            }
+          ],
+          "actorCycles": [
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            },
+            {
+              "geometries": 86,
+              "textures": 76
+            }
+          ],
+          "headIdentity": {
+            "passed": true,
+            "hashes": [
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              },
+              {
+                "hash": 1235647038,
+                "marked": 2496
+              }
+            ],
+            "clipHeight": 1.33
+          },
+          "motion": {
+            "normal": 0.8000000000000185,
+            "powder": 0.28000000000002245
+          },
+          "damage": [
+            {
+              "modules": 2,
+              "survivingSolidParts": [
+                "burn-gate:pier-right"
+              ],
+              "suppressedSolidParts": [
+                "burn-gate:pier-left"
+              ],
+              "suppressedCosmeticParts": [
+                "burn-gate:lintel",
+                "burn-roof:roof-envelope"
+              ],
+              "visibleRoofParts": [],
+              "skinSet": "inherited",
+              "disposed": false,
+              "renderedModuleIds": [
+                "burn-gate"
+              ],
+              "renderedPartIds": [
+                "burn-gate:pier-right"
+              ],
+              "roofIds": [],
+              "skinBindings": {
+                "burn-gate:pier-right": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                }
+              },
+              "builds": 19,
+              "meshes": 1,
+              "geometries": 1,
+              "materials": 8,
+              "textures": 0,
+              "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+              "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+            },
+            {
+              "modules": 2,
+              "survivingSolidParts": [
+                "burn-gate:pier-right"
+              ],
+              "suppressedSolidParts": [
+                "burn-gate:pier-left"
+              ],
+              "suppressedCosmeticParts": [
+                "burn-gate:lintel",
+                "burn-roof:roof-envelope"
+              ],
+              "visibleRoofParts": [],
+              "skinSet": "exposition-v1",
+              "disposed": false,
+              "renderedModuleIds": [
+                "burn-gate"
+              ],
+              "renderedPartIds": [
+                "burn-gate:pier-right"
+              ],
+              "roofIds": [],
+              "skinBindings": {
+                "burn-gate:pier-right": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                }
+              },
+              "builds": 19,
+              "meshes": 1,
+              "geometries": 1,
+              "materials": 8,
+              "textures": 0,
+              "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+              "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+            }
+          ],
+          "disposed": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "passed": true,
+          "errors": [],
+          "fixedClockPixels": true,
+          "snapshotImmutable": true
+        }
+      ],
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+      },
+      "programs": 17,
+      "allProgramLogsEmpty": true,
+      "warnings": [],
+      "errors": [],
+      "failedRequests": []
+    },
+    "compatibility": {
+      "originalExposition": true,
+      "legacyArt": true
+    },
+    "package": {
+      "files": 83,
+      "bytes": 40972140,
+      "servedFilesVerified": 81,
+      "skinLoad": {
+        "passed": true,
+        "startedAt": "2026-10-28T00:34:09.637Z",
+        "completedAt": "2026-10-28T00:34:12.195Z",
+        "diagnostics": {
+          "ready": true,
+          "diagnostics": {
+            "disposed": false,
+            "updates": 1,
+            "skinSet": "exposition-v1",
+            "skinBindings": [
+              {
+                "species": "horse",
+                "skinSet": "exposition-v1",
+                "clothOnly": true,
+                "projection": "original PAINT_FRAME",
+                "originalIdentityParts": [
+                  4,
+                  6,
+                  8
+                ],
+                "editedClothParts": [
+                  1,
+                  2
+                ],
+                "cuffParts": [
+                  3,
+                  5
+                ],
+                "scarfPart": 7,
+                "protectedRegions": [
+                  "head above 1.305m",
+                  "forearms below 0.918m",
+                  "hooves",
+                  "mane, horns and beard"
+                ],
+                "paintSize": [
+                  1774,
+                  887
+                ]
+              },
+              {
+                "species": "goat",
+                "skinSet": "exposition-v1",
+                "clothOnly": true,
+                "projection": "original PAINT_FRAME",
+                "originalIdentityParts": [
+                  4,
+                  6,
+                  8
+                ],
+                "editedClothParts": [
+                  1,
+                  2
+                ],
+                "cuffParts": [
+                  3,
+                  5
+                ],
+                "scarfPart": 7,
+                "protectedRegions": [
+                  "head above 1.305m",
+                  "forearms below 0.918m",
+                  "hooves",
+                  "mane, horns and beard"
+                ],
+                "paintSize": [
+                  1774,
+                  887
+                ]
+              }
+            ],
+            "lastSnapshot": {
+              "tick": 0,
+              "worldTime": 0,
+              "playerTime": 0
+            },
+            "footprintRadius": 0.56,
+            "provisionalBear": true,
+            "actors": 2,
+            "provisionalActors": 0,
+            "civilianKit": {
+              "disposed": false,
+              "species": [
+                "goat",
+                "horse"
+              ],
+              "instances": 2,
+              "sourceTextures": 2,
+              "baseUrl": "http://127.0.0.1:4551/dist/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+            },
+            "civilians": {
+              "disposed": false,
+              "species": [
+                "goat",
+                "horse"
+              ],
+              "instances": 2,
+              "sourceTextures": 2,
+              "baseUrl": "http://127.0.0.1:4551/dist/vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/"
+            },
+            "civilianActors": [
+              {
+                "id": "visitor-horse",
+                "triangles": 10300,
+                "rifleTriangles": 480,
+                "weapon": "rifle",
+                "weaponTriangles": 480,
+                "bones": 17,
+                "skinnedMeshes": 8,
+                "min": [
+                  6.7745075547957585,
+                  0,
+                  9.569314038353408
+                ],
+                "max": [
+                  7.278973833941505,
+                  1.649999976158142,
+                  10.430836396490434
+                ],
+                "contacts": [],
+                "sourceTriangles": 856076,
+                "species": "horse",
+                "appearance": "normal",
+                "armed": false,
+                "bounds": {
+                  "radius": 0.62,
+                  "height": 1.7
+                }
+              },
+              {
+                "id": "visitor-goat",
+                "triangles": 9994,
+                "rifleTriangles": 480,
+                "weapon": "rifle",
+                "weaponTriangles": 480,
+                "bones": 17,
+                "skinnedMeshes": 8,
+                "min": [
+                  12.745047211647034,
+                  0,
+                  11.569344523777481
+                ],
+                "max": [
+                  13.211673602461815,
+                  1.64951753616333,
+                  12.430975132267454
+                ],
+                "contacts": [],
+                "sourceTriangles": 29586,
+                "species": "goat",
+                "appearance": "normal",
+                "armed": false,
+                "bounds": {
+                  "radius": 0.62,
+                  "height": 1.7
+                }
+              }
+            ],
+            "exterior": {
+              "modules": 11,
+              "survivingSolidParts": [
+                "court-gate:pier-left",
+                "court-gate:pier-right",
+                "court-front-west:wall",
+                "court-front-east:wall",
+                "court-west:wall",
+                "court-east:wall",
+                "hall-back:wall",
+                "hall-closed-door:pier-left",
+                "hall-closed-door:pier-right",
+                "hall-closed-door:closed-door",
+                "hall-pilaster:pilaster",
+                "service-corner:leg-x",
+                "service-corner:leg-y"
+              ],
+              "suppressedSolidParts": [],
+              "suppressedCosmeticParts": [],
+              "visibleRoofParts": [
+                "hall-gable:roof-envelope",
+                "service-hip:roof-envelope"
+              ],
+              "skinSet": "exposition-v1",
+              "disposed": false,
+              "renderedModuleIds": [
+                "court-gate",
+                "court-front-west",
+                "court-front-east",
+                "court-west",
+                "court-east",
+                "hall-back",
+                "hall-closed-door",
+                "hall-pilaster",
+                "service-corner",
+                "hall-gable",
+                "service-hip"
+              ],
+              "renderedPartIds": [
+                "court-gate:pier-left",
+                "court-gate:pier-right",
+                "court-gate:lintel",
+                "court-front-west:wall",
+                "court-front-east:wall",
+                "court-west:wall",
+                "court-east:wall",
+                "hall-back:wall",
+                "hall-closed-door:pier-left",
+                "hall-closed-door:pier-right",
+                "hall-closed-door:lintel",
+                "hall-closed-door:closed-door",
+                "hall-pilaster:pilaster",
+                "service-corner:leg-x",
+                "service-corner:leg-y",
+                "hall-gable:roof-envelope",
+                "service-hip:roof-envelope"
+              ],
+              "roofIds": [
+                "hall-gable",
+                "service-hip"
+              ],
+              "skinBindings": {
+                "court-gate:pier-left": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "court-gate:pier-right": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "court-gate:lintel": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "court-front-west:wall": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "court-front-east:wall": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "court-west:wall": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "court-east:wall": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "hall-back:wall": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "hall-closed-door:pier-left": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "hall-closed-door:pier-right": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "hall-closed-door:lintel": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "hall-closed-door:closed-door": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "hall-pilaster:pilaster": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "service-corner:leg-x": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "service-corner:leg-y": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "hall-gable:roof-envelope": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                },
+                "service-hip:roof-envelope": {
+                  "facade": "inherited-plaster",
+                  "trim": "inherited-cream",
+                  "door": "inherited-wood",
+                  "roof": "inherited-roof"
+                }
+              },
+              "builds": 1,
+              "meshes": 17,
+              "geometries": 17,
+              "materials": 8,
+              "textures": 0,
+              "roofPolicy": "Consumes authoritative support/destroyed flags; no inferred collapse or roof fire",
+              "lintelPolicy": "Consumes authoritative pier-support/destroyed flags"
+            },
+            "sharedResources": {
+              "geometries": 2,
+              "materials": 28,
+              "textures": 37,
+              "objects": 0
+            },
+            "world": {
+              "geometries": 3,
+              "materials": 0,
+              "textures": 0,
+              "objects": 2,
+              "builds": 1
+            },
+            "bear": {
+              "geometries": 5,
+              "materials": 0,
+              "textures": 0,
+              "objects": 0
+            },
+            "ground": {
+              "geometries": 1,
+              "materials": 1,
+              "textures": 1,
+              "objects": 0
+            },
+            "tools": {
+              "projectiles": 0,
+              "geometries": 2,
+              "materials": 0,
+              "textures": 0,
+              "objects": 0
+            },
+            "fire": {
+              "flameCards": 0,
+              "smokeCards": 0,
+              "burstCards": 0,
+              "discharge": {
+                "active": false,
+                "rayCount": 0,
+                "connectRays": false,
+                "triangles": 0,
+                "plumeCards": 0,
+                "capped": false,
+                "muzzleInsideShape": false,
+                "visualForwardStart": 0,
+                "geometryBuilds": 0,
+                "worldTime": 0,
+                "geometries": 2,
+                "materials": 2,
+                "textures": 1,
+                "objects": 0
+              },
+              "eventCount": 0,
+              "trackedCells": 1280,
+              "seenEvents": 0,
+              "capped": false,
+              "worldTime": 0,
+              "geometries": 3,
+              "materials": 3,
+              "textures": 0,
+              "objects": 0
+            }
+          },
+          "memory": {
+            "geometries": 43,
+            "textures": 31
+          }
+        },
+        "disposed": {
+          "geometries": 0,
+          "textures": 0
+        },
+        "errors": [],
+        "basePath": "/dist/",
+        "usesOnlyPackagedRuntimeAssets": true
+      }
+    }
+  },
+  "sourceFingerprints": [
+    {
+      "path": "src/art/index.js",
+      "sha256": "a5cf862857e5fb8606fc04a5d878304fd8d5aa32fdc0348e87c5137ff9117c7c"
+    },
+    {
+      "path": "src/art/exterior-kit.js",
+      "sha256": "323a15cc30d514fbfbbf97dd0f4ffa83b9213dbc346dae9856d9dfe20e85107d"
+    },
+    {
+      "path": "src/art/skins.js",
+      "sha256": "0753dc7d5583fe37b7495b684f5668dfec1630923373fe96aa89df89d833b344"
+    },
+    {
+      "path": "workbenches/art/skins.html",
+      "sha256": "a5e7dfaa5858172088291f3684f54f6bd915999e35504f9a281dac3acb6d5c4b"
+    },
+    {
+      "path": "workbenches/art/skins.js",
+      "sha256": "91b6517f84ec7cec3bb762ac2ab62e12e4a8cdb3371faa8be83fd90b409c5758"
+    },
+    {
+      "path": "workbenches/art/review-skins.mjs",
+      "sha256": "5be348b3dcb3293455e12af367fcc1c690ea18cf892f3a567265e5dedc686c36"
+    },
+    {
+      "path": "workbenches/art/check-art.mjs",
+      "sha256": "ec3c038af8312188125be545997f3ff235496d4e5a32046045a0d6295e798a68"
+    }
+  ],
+  "previews": [
+    {
+      "path": "docs/art/exposition/skin-previews/gallery-desktop.png",
+      "sha256": "44ea1f4a2ea8dc76219719b1db2889bed74e273434502080d4118d95dc14346c"
+    },
+    {
+      "path": "docs/art/exposition/skin-previews/facade-3-desktop.png",
+      "sha256": "4b32835613b88add2f52bfd677eeb3786b0ff4e3f7c00a35036a9774a26d5d18"
+    },
+    {
+      "path": "docs/art/exposition/skin-previews/civilians-desktop.png",
+      "sha256": "3bfa1414e490b684831bd245076471fae51de39454aaee249ee21aabe5a0f219"
+    },
+    {
+      "path": "docs/art/exposition/skin-previews/facade-5-phone.png",
+      "sha256": "8e48ef3790b13ea8c264738f5cf184481eb3cf31dc89aa7cd5dbed454539c9ec"
+    },
+    {
+      "path": "docs/art/exposition/skin-previews/courtyard-phone.png",
+      "sha256": "4a6bfc41fc14c38f4110b8dfcd4d8908117308dfd9e140672535eb42c152d94a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/art-review/skins-v1/courtyard-inherited-plaster-1280x800.png",
+      "sha256": "6482f2a051ce7cc9c9a91651ec9e87cf8fda66cdc6a52cc82d7f895a2d154d9f",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "courtyard",
+        "facade": "inherited-plaster"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/gallery-1280x800.png",
+      "sha256": "44ea1f4a2ea8dc76219719b1db2889bed74e273434502080d4118d95dc14346c",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "gallery"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-1-1280x800.png",
+      "sha256": "34ef209e1d0fb24b738cb0841937a027b91775749cc9f90697f42a93d6ca5b4c",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "stories": 1
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-2-1280x800.png",
+      "sha256": "7f9961a2c748db14d5be36d9b962ec9f147ef40eb053c5bb9e4a5e92cbcf4b54",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "stories": 2
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-3-1280x800.png",
+      "sha256": "4b32835613b88add2f52bfd677eeb3786b0ff4e3f7c00a35036a9774a26d5d18",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "stories": 3
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-4-1280x800.png",
+      "sha256": "98b93900e72a06a15910fdf31970f766cc3845810de6ac1c0ad9d8adf28457ba",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "stories": 4
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-5-1280x800.png",
+      "sha256": "8ccd43128eef4cc8a0018d2a88925a298ce2d1503be44e9a4d261f3b87e69a5c",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "facade",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/civilians-1280x800.png",
+      "sha256": "3bfa1414e490b684831bd245076471fae51de39454aaee249ee21aabe5a0f219",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "civilians"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/courtyard-inherited-brick-1280x800.png",
+      "sha256": "6d5f98e51c55f23a806835514e4fa40bb47cc5493ad4afc12b88533f7f16085d",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "courtyard",
+        "facade": "inherited-brick"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/courtyard-inherited-wood-1280x800.png",
+      "sha256": "6f2a0dbbc55384b3167487427e638732ff2035747dc99bb61dcd5b618791f56c",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "study": {
+        "study": "courtyard",
+        "facade": "inherited-wood"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/courtyard-inherited-plaster-390x844.png",
+      "sha256": "4a6bfc41fc14c38f4110b8dfcd4d8908117308dfd9e140672535eb42c152d94a",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "courtyard",
+        "facade": "inherited-plaster"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/gallery-390x844.png",
+      "sha256": "19212ba4d97e655cf0d4645f807ba16e367fd5d51967cb8e31cfd6de754852ea",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "gallery"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-1-390x844.png",
+      "sha256": "23097756866a92313fa49af5f7f9bd81e7d361d8ea689a1e1eb9b45e3a28f352",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "stories": 1
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-2-390x844.png",
+      "sha256": "a8da6c5828f8a5dc44a853a3b12fd8693011a000973da2c8705f8495976dd961",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "stories": 2
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-3-390x844.png",
+      "sha256": "57eedf38f0d7630f6c97dfd519d6999a710e978ce580039109af09cacc7e0804",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "stories": 3
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-4-390x844.png",
+      "sha256": "26a084f64080959a4f828db7ca128471f9d50e74ea86a621a9d6cc34ba624c76",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "stories": 4
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/facade-5-390x844.png",
+      "sha256": "8e48ef3790b13ea8c264738f5cf184481eb3cf31dc89aa7cd5dbed454539c9ec",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "facade",
+        "stories": 5
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/civilians-390x844.png",
+      "sha256": "b6fbd24a0414b5aad3e49f7486cf7b027fac5a951f3b1d385311661d6f1a81d4",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "civilians"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/courtyard-inherited-brick-390x844.png",
+      "sha256": "2d82ec679e0b99f8633aa2d3dd146baf8ee80d724ba1fa8c912ca32a4cbf76a8",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "courtyard",
+        "facade": "inherited-brick"
+      }
+    },
+    {
+      "path": "artifacts/art-review/skins-v1/courtyard-inherited-wood-390x844.png",
+      "sha256": "2b57bb1788c22f717fa87793eeedd9135eba91c1ff30203399da6e53adacb11f",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "study": {
+        "study": "courtyard",
+        "facade": "inherited-wood"
+      }
+    }
+  ],
+  "helper": {
+    "retained": false,
+    "registration": "afadbc4e5bbd445e8bbbdabe49aee48e",
+    "cleanupReceipt": "artifacts/art-preview/skins-01/cleanup-receipt.json"
+  },
+  "limits": [
+    "Fictional period-inspired painted finishes, not measured historic reconstructions",
+    "Windows are closed painted glazing on existing solid wall parts",
+    "Viewport emulation, not physical phone",
+    "Production skin selection and scene promotion are architect-owned"
+  ]
+}
