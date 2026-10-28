@@ -3541,28 +3541,29 @@
         "x": 3,
         "z": -2,
         "width": 4,
-        "depth": 2
+        "depth": 2,
+        "roofRise": 0.18
       },
       "roofPieces": [
         {
           "x": 5,
-          "z": 3,
-          "width": 10.5,
-          "depth": 8.5,
+          "z": 3.5,
+          "width": 10.44,
+          "depth": 9.2,
           "axis": "x",
-          "base": 4.12,
-          "rise": 2,
+          "base": 2.05,
+          "rise": 3.72,
           "form": "gambrel"
         },
         {
           "x": 5,
-          "z": 0,
-          "width": 2.5,
-          "depth": 3.5,
+          "z": 0.91,
+          "width": 4.4,
+          "depth": 4.18,
           "axis": "z",
-          "base": 4.12,
-          "rise": 1.7,
-          "form": "gable"
+          "base": 2.05,
+          "rise": 3.39,
+          "form": "gambrel"
         },
         {
           "x": 5,
@@ -3579,8 +3580,66 @@
         "Gambrel roof, central porch and front upper chamber distinguish this house.",
         "The source living room has a grille dividing its dining end; that transition is kept as an open framed span.",
         "Printed 26 ft width and individual room widths disagree; the 10 m composition follows the illustrated arrangement, not a claimed measured reproduction.",
+        "Roof correction: continuous steep skirts and shallow crowns replace the notched footprint roof. Extended eaves clear the two full native wall courses. Roof angles, overhangs and the lower front ridge are artistic adaptations, not source measurements.",
+        "Per user art direction, vertical gable faces carry horizontal clapboard; cedar shingles remain on the sloped roof surfaces.",
+        "The centered two-space window is deferred to the map-editor work requested separately by the user. Existing window openings are retained.",
         "Historical floor heights and overall feet are recorded separately; native wall and door geometry is never rescaled."
       ],
+      "roofAssembly": {
+        "kit": "gambrel-v1",
+        "runModule": 1,
+        "gableMaterial": "clapboard",
+        "pieces": [
+          {
+            "id": "main",
+            "axis": "x",
+            "x": 5,
+            "z": 3.5,
+            "base": 2.05,
+            "span": 9.2,
+            "kneeRun": 0.8,
+            "kneeRise": 2.2,
+            "upperPitch": 0.4,
+            "runStart": -0.22,
+            "runEnd": 10.22,
+            "ends": [
+              {
+                "run": 0,
+                "wallMin": -3.5,
+                "wallMax": 3.5
+              },
+              {
+                "run": 10,
+                "wallMin": -3.5,
+                "wallMax": 3.5
+              }
+            ]
+          },
+          {
+            "id": "front",
+            "axis": "z",
+            "x": 5,
+            "z": 0.91,
+            "base": 2.05,
+            "span": 4.4,
+            "kneeRun": 0.5,
+            "kneeRise": 2.2,
+            "upperPitch": 0.7,
+            "runStart": -1.18,
+            "runEnd": 3,
+            "ends": [
+              {
+                "run": -1,
+                "wallMin": -1,
+                "wallMax": 1
+              }
+            ]
+          }
+        ],
+        "junction": "Exact planar valley cuts remove roof faces buried inside the intersecting gambrel. Front rear-end cap omitted below main roof.",
+        "source": "n26 / facing description page 24",
+        "nativeWalls": "unchanged"
+      },
       "nativeContract": {
         "units": "metres",
         "wall": [
@@ -3624,7 +3683,7 @@
           "door and stair gameplay integration"
         ]
       },
-      "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes above the native courses. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
+      "adaptation": "One-metre plan snapping and two full native wall courses preserve reuse. Published one-and-half-storey proportions are interpreted with new roof envelopes around the full upper native course; eaves, roof panels and removable clapboard gable facings are new art. Colors, rear surfaces, furnishings, opening spacing and consolidated closets/circulation are interpretations. Cellars are described but no cellar partition plans are published for these designs; none are invented as extra interiors."
     },
     {
       "id": "hopkins-4-16",

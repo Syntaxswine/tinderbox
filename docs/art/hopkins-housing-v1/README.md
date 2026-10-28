@@ -2,7 +2,7 @@
 
 Twelve reusable artist prefabs from D. S. Hopkins's **Houses and cottages, Book No. 4 (1891)**: designs 9-20, with twelve complete exterior assemblies, 24 furnished interior levels and 112 labeled spaces. The source exterior and floor diagrams are paired for every asset. This is the first Hopkins set; the ordered [build queue](../../../art/source/hopkins-housing-v1/build-queue.json) records the remaining books and designs.
 
-[Exterior collection](previews/collection.jpg) · [first floors](previews/all-first-floors.jpg) · [second floors](previews/all-second-floors.jpg) · [source comparisons](previews/source-to-prefab.jpg).
+[Exterior collection](previews/collection.jpg) · [first floors](previews/all-first-floors.jpg) · [second floors](previews/all-second-floors.jpg) · [source comparisons](previews/source-to-prefab.jpg) · [No. 15 roof revision](roof-15.md).
 
 | Asset | Source design | Character |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ The primary source is the [original 1891 pattern book](https://archive.org/detai
 
 These are interpretations of published designs, not as-built reconstructions of identified Chicago addresses. The source contains perspectives and plan diagrams rather than every rear elevation or full construction drawing. Written overall feet and story heights remain in each prefab separately from game dimensions. No. 15's stated width conflicts with the sum of its dimensioned rooms; the composition follows the illustrated arrangement and records the discrepancy. No. 17 uses the principal dwelling plan; No. 19 remains explicitly a summer cottage. No cellar partition plans are published for this set, so no basement interiors are invented.
 
-The native kit takes precedence: plans snap to whole metres and two full native wall courses replace the published one-and-half-storey heights. Closets and tiny stair passages are consolidated or enlarged. Roof skins follow the highest room footprint with separately authored shingled closures and connecting roofs. The silhouettes are compositions from the illustrated gables, gambrels, porches and bays, with this height adaptation explicitly retained. Unseen rear surfaces, opening spacing, colors and furnishings are interpretations. Source scans are never runtime textures.
+The native kit takes precedence: plans snap to whole metres and two full native wall courses replace the published one-and-half-storey heights. Closets and tiny stair passages are consolidated or enlarged. Eleven roofs follow the highest room footprint with separately authored closures and connecting roofs. No. 15 now uses continuous intersecting gambrels: steep skirts and shallow crowns enclose the unchanged upper native course. The user requested horizontal clapboard on its vertical gable faces; cedar shingles remain on the sloped surfaces. The silhouettes are compositions from the illustrated gables, gambrels, porches and bays, with this height adaptation explicitly retained. Unseen rear surfaces, opening spacing, colors and furnishings are interpretations. Source scans are never runtime textures.
 
 ## Shared asset contract
 
@@ -63,6 +63,7 @@ Rebuild from the artist worktree:
 node art/source/hopkins-housing-v1/build-layouts.mjs
 node art/source/hopkins-housing-v1/build-nautilus-traces.mjs
 node workbenches/art/check-hopkins-housing.mjs
+node workbenches/art/check-hopkins-roof.mjs
 node workbenches/art/check-hopkins-nautilus.mjs --nautilus-source PATH_TO_PINNED_CHECKOUT
 node art/source/hopkins-housing-v1/finalize-manifest.mjs
 node art/source/hopkins-housing-v1/export-render-scenes.mjs

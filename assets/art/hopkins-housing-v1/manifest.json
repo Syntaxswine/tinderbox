@@ -128,8 +128,8 @@
   "files": [
     {
       "path": "assets/art/hopkins-housing-v1/houses.json",
-      "bytes": 131809,
-      "sha256": "b419113f13bc4ca8cabbd48c257e84cfa90f887991247fdba28b07ef627cdc4d"
+      "bytes": 133937,
+      "sha256": "a15e7e25c9a3cd2b98f28065f78d2aa2a3579efb2c9001bfe70327196a46edfb"
     },
     {
       "path": "assets/art/hopkins-housing-v1/nautilus-traces/hopkins-4-09.json",
@@ -223,8 +223,8 @@
     },
     {
       "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json",
-      "bytes": 9555,
-      "sha256": "724ee3dfc67635dbc94e23c2ca60720d9080d3bd23dfb345f7593ef3e9297d49"
+      "bytes": 11447,
+      "sha256": "b04dfcd8dead9dcd5947af1b003d0bd3e061b992af5c9f013ed7a7fb6071461e"
     },
     {
       "path": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-16.json",
@@ -254,9 +254,15 @@
   ],
   "assembly": [
     {
+      "path": "src/art/gambrel-roof.js",
+      "bytes": 6452,
+      "sha256": "1f215cf7edc7eefb4a0006a5081875bc591fb81ddabe981457524cde675aa0b6",
+      "byteRepresentation": "UTF-8 LF"
+    },
+    {
       "path": "src/art/hopkins-housing.js",
-      "bytes": 5317,
-      "sha256": "f42ca3cb78e5ccec221e2b6479bee38d90d484b2fc6604993cacc596a0468802",
+      "bytes": 8232,
+      "sha256": "2483f5926a0e4ebd2fbb1864ddc390c82b4e2c0bacea9e54bf87a2d394c57eeb",
       "byteRepresentation": "UTF-8 LF"
     },
     {
@@ -343,7 +349,8 @@
   "provenance": [
     "art/source/gross-housing-v1/generation.json",
     "art/source/exposition-skins-v1/generation.json",
-    "art/source/hopkins-housing-v1/sources.json"
+    "art/source/hopkins-housing-v1/sources.json",
+    "art/source/hopkins-housing-v1/roof-15.json"
   ],
   "geometryReview": {
     "passed": true,
@@ -352,8 +359,8 @@
     "rooms": 112,
     "units": 1202,
     "diagonals": 11,
-    "meshes": 8726,
-    "vertices": 271727,
+    "meshes": 8753,
+    "vertices": 269024,
     "nativeAttributeChecks": 1333,
     "roofCoverageSamples": 792,
     "sourcePlates": 12,
@@ -379,5 +386,34 @@
     "apertures": 288,
     "consumerStatus": "Editor authoring feature exists on the pinned candidate. Tinderbox consumer integration and full Nautilus house intake are separate."
   },
-  "preview": "docs/art/hopkins-housing-v1/previews/collection.jpg"
+  "preview": "docs/art/hopkins-housing-v1/previews/collection.jpg",
+  "roof15Review": {
+    "passed": true,
+    "asset": "hopkins-4-15",
+    "baselineCommit": "e49465128970ea02d2a3a1b9040548d4d136cda3",
+    "unchangedBodySha256": "8c5623c27330a1616aa75086123f9953fc7c9384975931588c26e6b8045d09b7",
+    "roofPanels": 52,
+    "oneMetrePanels": 48,
+    "cutEndPanels": 4,
+    "valleyCutPanels": 24,
+    "pitchesDegrees": {
+      "main": [
+        21.8,
+        70.02
+      ],
+      "front": [
+        34.99,
+        77.2
+      ]
+    },
+    "physicalUVEdges": 453,
+    "clearanceSamples": 1152,
+    "gableWindowAperturesPreserved": 3,
+    "verticalGablesMaterial": "horizontal clapboard",
+    "slopedRoofMaterial": "cedar shingles",
+    "centerRidgeInsteadOfNotch": true,
+    "cutawayHidesEntireRoof": true,
+    "disposal": true,
+    "windowRequest": "Centered two-space window deferred to the map editor; original openings remain."
+  }
 }

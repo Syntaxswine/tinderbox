@@ -1,3 +1,4 @@
+import {addGambrelRoof,addGambrelEnd,gambrelProfile,gambrelHeight} from './gambrel-roof.js';
 import {loadGrossHousing,createGrossHouse,pointInRoom,planEdges} from './gross-housing.js';
 export const HOPKINS_HOUSING_URL=new URL('../../assets/art/hopkins-housing-v1/houses.json',import.meta.url).href;
 export const loadHopkinsHousing=(T,options={})=>loadGrossHousing(T,{...options,catalogueUrl:HOPKINS_HOUSING_URL});
@@ -18,7 +19,8 @@ function exterior(T,{house:h,roof,box,line,cylinder,project,pool,roofs,ornament,
   return p.base+p.rise*Math.max(0,1-u);
  }
  const occupied=(floor,p)=>floor.rooms.some(r=>pointInRoom(p,r.polygon));
- for(let level=0;level<h.floors.length;level++){
+ if(h.roofAssembly?.kit==='gambrel-v1')gambrelAssembly();
+ else for(let level=0;level<h.floors.length;level++){
   const floor=h.floors[level],higher=h.floors.slice(level+1),base=level*2.12+2,recipes=h.roofPieces.filter(p=>Math.abs(p.base-base)<.2),positions=[],infills=[];
   const height=(x,z)=>{const values=recipes.map(p=>profile(p,x,z)).filter(n=>n!==null);return h.plinth+(values.length?Math.max(...values):base+.12);};
   function triangle(a,b,c){
@@ -41,7 +43,30 @@ function exterior(T,{house:h,roof,box,line,cylinder,project,pool,roofs,ornament,
   }
   mesh(infills,m.shingle,'New Hopkins roof closure / level '+level);
  }
- function porchRoof(p){roof(roofs,p.x+p.width/2,p.z+p.depth/2,p.width+.3,p.depth+.3,h.plinth+2.04,.42,'hip');}
+ function gambrelAssembly(){
+  const gableMaterial=h.roofAssembly.gableMaterial==='clapboard'?m.exterior:m.shingle;
+  for(const piece of h.roofAssembly.pieces){
+   const result=addGambrelRoof(T,{parent:roofs,pool,line,material:m.roof,trim:m.trim,piece,occluders:h.roofAssembly.pieces,plinth:h.plinth});
+   for(const end of piece.ends||[]){
+    const facing=end.run===piece.ends[0].run?-1:1,skinRun=end.run+facing*.086;
+    addGambrelEnd(T,{parent:roofs,pool,line,project,material:gableMaterial,trim:m.trim,roof:result,run:skinRun,trimRun:facing<0?piece.runStart:piece.runEnd,wallMin:end.wallMin,wallMax:end.wallMax,wallTop:4.12-piece.base,name:'Gambrel '+piece.id+' gable closure'});
+    const points=[],floor=h.floors[1],windows=floor.windows||[];
+    const quad=(u,v,low,high)=>{const q=[result.point(skinRun,u,low),result.point(skinRun,v,low),result.point(skinRun,v,high),result.point(skinRun,u,high)];points.push(...[0,1,2,0,2,3].flatMap(i=>q[i]));};
+    for(const edge of planEdges(floor).filter(e=>e.rooms.length===1)){
+     const across=p=>piece.axis==='x'?p[1]-piece.z:p[0]-piece.x,along=p=>piece.axis==='x'?p[0]:p[1];
+     if(Math.abs(along(edge.a)-end.run)>.001||Math.abs(along(edge.b)-end.run)>.001)continue;
+     const u=Math.min(across(edge.a),across(edge.b)),v=Math.max(across(edge.a),across(edge.b));
+     const hasWindow=windows.some(w=>[w.slice(0,2),w.slice(2)].every(p=>[edge.a,edge.b].some(e=>e[0]===p[0]&&e[1]===p[1])));
+     const low=2.12-piece.base;
+     if(hasWindow){quad(u,v,low,low+.35);quad(u,v,low+1.55,low+2);}else quad(u,v,low,low+2);
+    }
+    if(points.length){const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(points,3));geometry.computeVertexNormals();project(geometry);geometry.setAttribute('uv',geometry.attributes.grossUV.clone());const skin=new T.Mesh(pool.geometry(geometry),gableMaterial);skin.name='Removable gambrel gable siding';skin.castShadow=skin.receiveShadow=true;roofs.add(skin);}
+   }
+  }
+  // Exact plane clipping removes buried roof faces at the cross-gambrel valleys.
+  for(const piece of h.roofPieces.filter(p=>p.form==='hip'))roof(roofs,piece.x,piece.z,piece.width,piece.depth,h.plinth+piece.base,piece.rise,'hip');
+ }
+ function porchRoof(p){roof(roofs,p.x+p.width/2,p.z+p.depth/2,p.width+.3,p.depth+.3,h.plinth+2.04,p.roofRise??.42,'hip');}
  if(h.porch&&!h.frontBalcony)porchRoof(h.porch);
  for(const p of h.sidePorches||[]){
   const y=h.plinth;b(ornament,'New side veranda deck',p.width,.12,p.depth,p.x+p.width/2,y-.06,p.z+p.depth/2,m.floor);
@@ -59,7 +84,14 @@ function exterior(T,{house:h,roof,box,line,cylinder,project,pool,roofs,ornament,
  // Chimneys and small trim are interpreted from the visible plate, not new native modules.
  const chimneyTop=h.plinth+Math.max(...h.roofPieces.map(p=>p.base+p.rise));
  for(const x of (h.designNumber===17?[h.width*.28,h.width*.72]:[h.width*.68])){
-  b(roofs,'New Hopkins brick chimney',.5,1.35,.6,x,chimneyTop-.1,h.depth*.63,m.stone);
+  const z=h.depth*.63;
+  let shaftHeight=1.35,shaftCenter=chimneyTop-.1;
+  if(h.roofAssembly){
+   const surface=(xx,zz)=>Math.max(...h.roofAssembly.pieces.map(p=>{const run=p.axis==='x'?xx:zz,q=p.axis==='x'?zz-p.z:xx-p.x,height=gambrelHeight(gambrelProfile(p),q);return run>=p.runStart&&run<=p.runEnd&&height!==null?h.plinth+p.base+height:-Infinity;}));
+   const bottom=Math.min(...[-.25,.25].flatMap(dx=>[-.3,.3].map(dz=>surface(x+dx,z+dz))))-.12,top=chimneyTop+.575;
+   shaftHeight=top-bottom;shaftCenter=(top+bottom)/2;
+  }
+  b(roofs,'New Hopkins brick chimney',.5,shaftHeight,.6,x,shaftCenter,z,m.stone);
   b(roofs,'Chimney cap',.62,.12,.72,x,chimneyTop+.6,h.depth*.63,m.stone);
  }
  // The source grille is preserved without introducing a replacement door size.

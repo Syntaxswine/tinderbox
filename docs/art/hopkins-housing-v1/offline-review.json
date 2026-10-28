@@ -1,267 +1,401 @@
 {
   "renderer": "Mitsuba 3.9.1 scalar_rgb",
   "drjit": "1.5.0",
-  "width": 800,
-  "height": 600,
-  "samplesPerPixel": "48 exterior / 32 cutaway",
+  "width": null,
+  "height": null,
+  "samplesPerPixel": null,
   "images": [
     {
       "id": "hopkins-4-09-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-09-exterior-0.png",
       "seconds": 3.69,
       "triangles": 10184,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-09-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-09-cutaway-0.png",
       "seconds": 1.885,
       "triangles": 3466,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-09-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-09-cutaway-1.png",
       "seconds": 1.788,
       "triangles": 3322,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-10-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-10-exterior-0.png",
       "seconds": 2.924,
       "triangles": 11825,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-10-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-10-cutaway-0.png",
       "seconds": 1.833,
       "triangles": 4419,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-10-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-10-cutaway-1.png",
       "seconds": 1.723,
       "triangles": 3215,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-11-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-11-exterior-0.png",
       "seconds": 2.86,
       "triangles": 11603,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-11-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-11-cutaway-0.png",
       "seconds": 1.862,
       "triangles": 3831,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-11-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-11-cutaway-1.png",
       "seconds": 1.924,
       "triangles": 3868,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-12-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-12-exterior-0.png",
       "seconds": 2.94,
       "triangles": 9879,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-12-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-12-cutaway-0.png",
       "seconds": 1.874,
       "triangles": 3777,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-12-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-12-cutaway-1.png",
       "seconds": 1.684,
       "triangles": 2288,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-13-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-13-exterior-0.png",
       "seconds": 3.095,
       "triangles": 9342,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-13-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-13-cutaway-0.png",
       "seconds": 1.742,
       "triangles": 3456,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-13-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-13-cutaway-1.png",
       "seconds": 1.613,
       "triangles": 2625,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-14-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-14-exterior-0.png",
       "seconds": 3.013,
       "triangles": 10076,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-14-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-14-cutaway-0.png",
       "seconds": 1.875,
       "triangles": 3440,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-14-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-14-cutaway-1.png",
       "seconds": 1.771,
       "triangles": 3269,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-15-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-15-exterior-0.png",
-      "seconds": 3.143,
-      "triangles": 12842,
-      "samplesPerPixel": 48
+      "width": 1200,
+      "height": 900,
+      "camera": "source",
+      "samplesPerPixel": 64,
+      "seconds": 7.87,
+      "triangles": 11829
     },
     {
       "id": "hopkins-4-15-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-15-cutaway-0.png",
       "seconds": 1.952,
       "triangles": 4732,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-15-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-15-cutaway-1.png",
       "seconds": 1.777,
       "triangles": 3578,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-16-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-16-exterior-0.png",
       "seconds": 3.085,
       "triangles": 10237,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-16-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-16-cutaway-0.png",
       "seconds": 1.902,
       "triangles": 3517,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-16-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-16-cutaway-1.png",
       "seconds": 1.76,
       "triangles": 3257,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-17-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-17-exterior-0.png",
       "seconds": 3.233,
       "triangles": 9072,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-17-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-17-cutaway-0.png",
       "seconds": 1.812,
       "triangles": 2900,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-17-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-17-cutaway-1.png",
       "seconds": 1.687,
       "triangles": 2299,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-18-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-18-exterior-0.png",
       "seconds": 3.336,
       "triangles": 8808,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-18-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-18-cutaway-0.png",
       "seconds": 1.797,
       "triangles": 3140,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-18-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-18-cutaway-1.png",
       "seconds": 1.757,
       "triangles": 2690,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-19-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-19-exterior-0.png",
       "seconds": 3.239,
       "triangles": 13853,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-19-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-19-cutaway-0.png",
       "seconds": 1.884,
       "triangles": 3907,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-19-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-19-cutaway-1.png",
       "seconds": 1.781,
       "triangles": 3674,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-20-exterior-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-20-exterior-0.png",
       "seconds": 3.237,
       "triangles": 11308,
-      "samplesPerPixel": 48
+      "samplesPerPixel": 48,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-20-cutaway-0",
       "file": "artifacts/hopkins-renders/images/hopkins-4-20-cutaway-0.png",
       "seconds": 1.92,
       "triangles": 4556,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     },
     {
       "id": "hopkins-4-20-cutaway-1",
       "file": "artifacts/hopkins-renders/images/hopkins-4-20-cutaway-1.png",
       "seconds": 1.702,
       "triangles": 2692,
-      "samplesPerPixel": 32
+      "samplesPerPixel": 32,
+      "width": 800,
+      "height": 600,
+      "camera": "source"
     }
   ],
   "limits": "Actual exported geometry, material tints, shared source texture bytes and Three cut planes; diffuse path tracing substitutes for WebGL shaders. WebGL review remains unavailable on this host.",
   "imageCount": 36,
   "passed": true,
-  "visualReview": "Inspected all twelve final exteriors and both complete interior contact sheets; source comparison for designs 13, 15 and 17. Roof gaps from the initial pass were repaired and 792 coverage rays now pass.",
-  "finalRoofGeometry": "The final exterior renders use footprint-bound roofs and shingled closures; interiors are unchanged by this exterior-only repair.",
-  "reviewedAt": "2026-10-28T15:08:05.995289+00:00"
+  "visualReview": "The prior eleven houses and all 24 unchanged cutaways retain their previous review. Inspected the corrected No. 15 exterior, front and rear: continuous dual slopes, clear valleys, roof-seated chimney and user-requested horizontal clapboard gables.",
+  "finalRoofGeometry": "No. 15 uses a clipped cross-gambrel kit. The other eleven houses keep their prior footprint-bound roofs.",
+  "reviewedAt": "2026-10-28T16:05:21.508843+00:00",
+  "roof15Revision": {
+    "geometryReport": "roof-15-geometry-review.json",
+    "sourceDecisions": "art/source/hopkins-housing-v1/roof-15.json",
+    "angles": [
+      {
+        "id": "hopkins-4-15-exterior-0-front",
+        "file": "artifacts/hopkins-roof-15/images/hopkins-4-15-exterior-0-front.png",
+        "width": 1000,
+        "height": 750,
+        "camera": "front",
+        "samplesPerPixel": 48,
+        "seconds": 4.988,
+        "triangles": 11829
+      },
+      {
+        "id": "hopkins-4-15-exterior-0-rear",
+        "file": "artifacts/hopkins-roof-15/images/hopkins-4-15-exterior-0-rear.png",
+        "width": 1000,
+        "height": 750,
+        "camera": "rear",
+        "samplesPerPixel": 48,
+        "seconds": 4.774,
+        "triangles": 11829
+      }
+    ]
+  }
 }
