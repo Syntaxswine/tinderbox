@@ -1,0 +1,14 @@
+{
+  "task": "TB-016",
+  "rendered": false,
+  "visualAcceptance": "pending",
+  "browserAttemptRepeated": false,
+  "reason": "The assignment retains the known disabled-WebGL gate and forbids unsupported recovery. No new preview/browser helper was started for this slice.",
+  "previousObservedBlocker": "Error creating WebGL context; GL_VENDOR = Disabled; GL_RENDERER = Disabled",
+  "previousEvidence": "../neighborhood/browser-review.json",
+  "currentOfflineEvidence": "offline-review.json",
+  "reviewEntryPoint": "workbenches/art/neighborhood.html",
+  "requiredFrames": [{"width": 1280, "height": 800}, {"width": 390, "height": 844}],
+  "scope": "CPU geometry, source-window aperture rays, projection, renderer API fixtures and package HTTP checks passed. None establishes current GPU appearance, browser gameplay acceptance or frame performance.",
+  "architectOwned": ["Final combined review", "Integration workbench updates", "Overview/detail JPGs", "Promotion and publication"]
+}

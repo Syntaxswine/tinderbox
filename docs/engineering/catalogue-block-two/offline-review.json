@@ -1,0 +1,945 @@
+{
+  "task": "TB-016",
+  "kind": "Offline native source mesh/projection review; no WebGL",
+  "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+  "rendered": false,
+  "sourceHashEncoding": "UTF-8 with CRLF normalized to LF; immutable intake hashes remain raw bytes",
+  "sources": [
+    {
+      "path": "src/content/neighborhood.js",
+      "sha256": "a1e693f74530ed13cca643c96e41f839db0d7b50c3e8a50dd39e433d052ecc0d"
+    },
+    {
+      "path": "src/content/buildings.js",
+      "sha256": "95a3dbb1ffa5e07711419082742cd16b2d032a2fc2472145676b04f22a69f4bf"
+    },
+    {
+      "path": "src/art/neighborhood.js",
+      "sha256": "51e00b61ab5db67d282cc6b88933fca65132fb2cfcf83249758c719376565ccf"
+    },
+    {
+      "path": "src/runtime/camera.js",
+      "sha256": "9386c1ab16cf6484deb8d37cd9317bcdc7d9c1df4a772d3d9934b7aa45687e2f"
+    }
+  ],
+  "models": [
+    {
+      "id": "hopkins-4-12",
+      "instanceId": "hopkins-twelve",
+      "sourceMeshCount": 623,
+      "sourceTriangleCount": 8867,
+      "sourceBounds": {
+        "min": [
+          2.739559416368639,
+          -0.11999999463558197,
+          2.8600000005960466
+        ],
+        "max": [
+          11.260440583631361,
+          7.0599999986588955,
+          12.676174733202165
+        ]
+      },
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "resources": {
+        "geometries": 69,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      }
+    },
+    {
+      "id": "hopkins-4-15",
+      "instanceId": "hopkins-fifteen",
+      "sourceMeshCount": 829,
+      "sourceTriangleCount": 12003,
+      "sourceBounds": {
+        "min": [
+          13.695000000298021,
+          -0.11999999463558197,
+          2.75
+        ],
+        "max": [
+          24.304999999701977,
+          6.909999998658895,
+          15.676174733202165
+        ]
+      },
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "resources": {
+        "geometries": 132,
+        "materials": 20,
+        "textures": 0,
+        "objects": 1
+      }
+    },
+    {
+      "id": "ashland-worker",
+      "instanceId": "ashland-cottage",
+      "sourceMeshCount": 714,
+      "sourceTriangleCount": 9306,
+      "sourceBounds": {
+        "min": [
+          26.695000000298023,
+          -0.11999999865889549,
+          2.699999999254942
+        ],
+        "max": [
+          33.30499999970198,
+          6.3600000119209295,
+          13.65721866246345
+        ]
+      },
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "resources": {
+        "geometries": 54,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      }
+    },
+    {
+      "id": "hopkins-4-09",
+      "instanceId": "hopkins-nine",
+      "sourceMeshCount": 621,
+      "sourceTriangleCount": 9076,
+      "sourceBounds": {
+        "min": [
+          2.73955941636864,
+          -0.11999999463558197,
+          28.32382526679784
+        ],
+        "max": [
+          10.139999999403953,
+          6.959999998658896,
+          40.139999999403955
+        ]
+      },
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "resources": {
+        "geometries": 71,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      }
+    },
+    {
+      "id": "hopkins-4-13",
+      "instanceId": "hopkins-thirteen",
+      "sourceMeshCount": 614,
+      "sourceTriangleCount": 9766,
+      "sourceBounds": {
+        "min": [
+          14.860000000596047,
+          -0.11999999463558197,
+          28.32382526679784
+        ],
+        "max": [
+          23.139999999403955,
+          6.959999998658896,
+          38.139999999403955
+        ]
+      },
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "resources": {
+        "geometries": 71,
+        "materials": 20,
+        "textures": 0,
+        "objects": 1
+      }
+    },
+    {
+      "id": "monroe-row",
+      "instanceId": "monroe-row-house",
+      "sourceMeshCount": 1213,
+      "sourceTriangleCount": 16906,
+      "sourceBounds": {
+        "min": [
+          26.695000000298023,
+          -1.1799999986588956,
+          27.66278131670085
+        ],
+        "max": [
+          34.30499999970198,
+          6.980000011920929,
+          44.30000000074506
+        ]
+      },
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "resources": {
+        "geometries": 88,
+        "materials": 19,
+        "textures": 0,
+        "objects": 0
+      }
+    }
+  ],
+  "samples": [
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "street",
+      "projection": {
+        "playerNdc": [
+          2.720486975023945e-16,
+          5.639228061588096e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [],
+      "camera": {
+        "target": [
+          20,
+          0,
+          18
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "backTwelve",
+      "projection": {
+        "playerNdc": [
+          5.44097395004789e-17,
+          7.0490350769851205e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.75750229574717,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-twelve"
+      ],
+      "camera": {
+        "target": [
+          7,
+          0,
+          1.7
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "backFifteen",
+      "projection": {
+        "playerNdc": [
+          -1.088194790009578e-16,
+          8.458842092382145e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.75750229574717,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-fifteen"
+      ],
+      "camera": {
+        "target": [
+          19,
+          0,
+          1.7
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "backAshland",
+      "projection": {
+        "playerNdc": [
+          2.176389580019156e-16,
+          5.639228061588096e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "ashland-cottage"
+      ],
+      "camera": {
+        "target": [
+          30,
+          0,
+          1.7
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "gapWest",
+      "projection": {
+        "playerNdc": [
+          1.088194790009578e-16,
+          8.458842092382145e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.75750229574717,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-fifteen"
+      ],
+      "camera": {
+        "target": [
+          12.5,
+          0,
+          7
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "gapEast",
+      "projection": {
+        "playerNdc": [
+          3.264584370028734e-16,
+          2.819614030794048e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "ashland-cottage"
+      ],
+      "camera": {
+        "target": [
+          25.5,
+          0,
+          7
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "frontNine",
+      "projection": {
+        "playerNdc": [
+          2.176389580019156e-16,
+          5.639228061588096e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-nine"
+      ],
+      "camera": {
+        "target": [
+          4.5,
+          0,
+          27.5
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "frontThirteen",
+      "projection": {
+        "playerNdc": [
+          4.896876555043101e-16,
+          -5.639228061588096e-16,
+          -0.7214652840106331
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-thirteen"
+      ],
+      "camera": {
+        "target": [
+          18.5,
+          0,
+          27.5
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "frontMonroe",
+      "projection": {
+        "playerNdc": [
+          7.073266135062257e-16,
+          0,
+          -0.7214652840106331
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "monroe-row-house"
+      ],
+      "camera": {
+        "target": [
+          28.5,
+          0,
+          26.9
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "southGapWest",
+      "projection": {
+        "playerNdc": [
+          3.264584370028734e-16,
+          0,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-thirteen"
+      ],
+      "camera": {
+        "target": [
+          12.5,
+          0,
+          35
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "southGapEast",
+      "projection": {
+        "playerNdc": [
+          5.713022647550284e-16,
+          0,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "monroe-row-house"
+      ],
+      "camera": {
+        "target": [
+          25.5,
+          0,
+          35
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 1280,
+        "height": 800,
+        "canvasWidth": 1280,
+        "canvasHeight": 494
+      },
+      "position": "southBackRoute",
+      "projection": {
+        "playerNdc": [
+          2.176389580019156e-16,
+          5.639228061588096e-16,
+          -0.721465284010633
+        ],
+        "bearHeightPixels": 48.757502295747166,
+        "samples": 3
+      },
+      "occludingBuildingIds": [],
+      "camera": {
+        "target": [
+          20,
+          0,
+          45.5
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "street",
+      "projection": {
+        "playerNdc": [
+          9.109522253334617e-16,
+          6.767073673905716e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.74449626934529,
+        "samples": 3
+      },
+      "occludingBuildingIds": [],
+      "camera": {
+        "target": [
+          20,
+          0,
+          18
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "backTwelve",
+      "projection": {
+        "playerNdc": [
+          1.8219044506669235e-16,
+          8.458842092382145e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.74449626934529,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-twelve"
+      ],
+      "camera": {
+        "target": [
+          7,
+          0,
+          1.7
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "backFifteen",
+      "projection": {
+        "playerNdc": [
+          -3.643808901333847e-16,
+          1.0150610510858574e-15,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.744496269345284,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-fifteen"
+      ],
+      "camera": {
+        "target": [
+          19,
+          0,
+          1.7
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "backAshland",
+      "projection": {
+        "playerNdc": [
+          7.287617802667694e-16,
+          6.767073673905716e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.74449626934529,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "ashland-cottage"
+      ],
+      "camera": {
+        "target": [
+          30,
+          0,
+          1.7
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "gapWest",
+      "projection": {
+        "playerNdc": [
+          3.643808901333847e-16,
+          1.0150610510858574e-15,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.744496269345284,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-fifteen"
+      ],
+      "camera": {
+        "target": [
+          12.5,
+          0,
+          7
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "gapEast",
+      "projection": {
+        "playerNdc": [
+          1.0931426704001542e-15,
+          3.383536836952858e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.744496269345284,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "ashland-cottage"
+      ],
+      "camera": {
+        "target": [
+          25.5,
+          0,
+          7
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "frontNine",
+      "projection": {
+        "playerNdc": [
+          7.287617802667694e-16,
+          6.767073673905716e-16,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.74449626934529,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-nine"
+      ],
+      "camera": {
+        "target": [
+          4.5,
+          0,
+          27.5
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "frontThirteen",
+      "projection": {
+        "playerNdc": [
+          1.639714005600231e-15,
+          -6.767073673905716e-16,
+          -0.7214652840106331
+        ],
+        "bearHeightPixels": 49.744496269345284,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-thirteen"
+      ],
+      "camera": {
+        "target": [
+          18.5,
+          0,
+          27.5
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "frontMonroe",
+      "projection": {
+        "playerNdc": [
+          2.3684757858670005e-15,
+          0,
+          -0.7214652840106331
+        ],
+        "bearHeightPixels": 49.744496269345284,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "monroe-row-house"
+      ],
+      "camera": {
+        "target": [
+          28.5,
+          0,
+          26.9
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "southGapWest",
+      "projection": {
+        "playerNdc": [
+          1.0931426704001542e-15,
+          0,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.744496269345284,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "hopkins-thirteen"
+      ],
+      "camera": {
+        "target": [
+          12.5,
+          0,
+          35
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "southGapEast",
+      "projection": {
+        "playerNdc": [
+          1.9129996732002696e-15,
+          0,
+          -0.7214652840106333
+        ],
+        "bearHeightPixels": 49.744496269345284,
+        "samples": 3
+      },
+      "occludingBuildingIds": [
+        "monroe-row-house"
+      ],
+      "camera": {
+        "target": [
+          25.5,
+          0,
+          35
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    },
+    {
+      "frame": {
+        "width": 390,
+        "height": 844,
+        "canvasWidth": 390,
+        "canvasHeight": 420
+      },
+      "position": "southBackRoute",
+      "projection": {
+        "playerNdc": [
+          7.287617802667694e-16,
+          6.767073673905716e-16,
+          -0.721465284010633
+        ],
+        "bearHeightPixels": 49.74449626934529,
+        "samples": 3
+      },
+      "occludingBuildingIds": [],
+      "camera": {
+        "target": [
+          20,
+          0,
+          45.5
+        ],
+        "span": 10.5,
+        "zoom": 1,
+        "followPlayer": true
+      }
+    }
+  ],
+  "burnoutFixture": {
+    "surfaceBurnRate": 0.1,
+    "worldSeconds": 6,
+    "allSixGroupsRemoved": true
+  },
+  "passed": true
+}

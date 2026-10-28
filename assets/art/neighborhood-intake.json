@@ -1,43 +1,57 @@
 {
   "schemaVersion": 1,
-  "task": "TB-014",
+  "task": "TB-016",
   "sourceRepository": "https://github.com/Syntaxswine/tinderbox.git",
-  "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+  "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+  "previousSourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+  "revisionReason": "Approved second block adds Hopkins 9, Hopkins 13 and Monroe; deliberately adopt the committed centered-window correction on Hopkins 13 and 15.",
+  "windowSourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
   "selectedPrefabs": [
     "hopkins-4-12",
     "hopkins-4-15",
-    "ashland-worker"
+    "ashland-worker",
+    "hopkins-4-09",
+    "hopkins-4-13",
+    "monroe-row"
   ],
-  "cataloguePolicy": "Both original catalogues remain byte-identical; only the three selected prefabs are instantiated.",
+  "cataloguePolicy": "Both original catalogues remain byte-identical; only the six selected prefabs are instantiated.",
   "runtimeFiles": [
     {
       "originalPath": "src/art/gross-housing.js",
       "installedPath": "src/art/gross-housing.js",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 27589,
-      "sha256": "1de78796776499718866895c893782a6824df1196722e31989f825b5deb344e2",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 28109,
+      "sha256": "6192c6e968ad468474f4ae14397ee9ca519b3a094e3da8e0fca917588b31760f",
       "adaptations": []
     },
     {
       "originalPath": "src/art/hopkins-housing.js",
       "installedPath": "src/art/hopkins-housing.js",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 8233,
-      "sha256": "74cd074e4e776f44dea1aa2a16ef75264024dd9f9bc42145d27c38d97100f818",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 8523,
+      "sha256": "6678cf4c5eeeb97bd2b5d6b47ebdeae6ad62682607b76b76e79731348c499d70",
       "adaptations": []
     },
     {
       "originalPath": "src/art/gambrel-roof.js",
       "installedPath": "src/art/gambrel-roof.js",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 6452,
       "sha256": "1f215cf7edc7eefb4a0006a5081875bc591fb81ddabe981457524cde675aa0b6",
       "adaptations": []
     },
     {
+      "originalPath": "src/art/nautilus-windows.js",
+      "installedPath": "src/art/nautilus-windows.js",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 2963,
+      "sha256": "6a7e4daf7f1ff4d5eb4a8075d5b1863986ad55f0531c41107221e7d99aadc0e1",
+      "adaptations": []
+    },
+    {
       "originalPath": "src/content/asset-scale.js",
       "installedPath": "src/content/asset-scale.js",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 1066,
       "sha256": "6c8773c1317b6b6e0adead577cd819e21ce1ae93b0f20eed2ae0af5bffb3d0ea",
       "adaptations": []
@@ -45,7 +59,7 @@
     {
       "originalPath": "assets/art/gross-housing-v1/houses.json",
       "installedPath": "assets/art/gross-housing-v1/houses.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 124421,
       "sha256": "dbdfbee6d218a8f3f343f6c9305155a88e60f7728bd28e522011e928e80f709c",
       "adaptations": []
@@ -53,15 +67,15 @@
     {
       "originalPath": "assets/art/hopkins-housing-v1/houses.json",
       "installedPath": "assets/art/hopkins-housing-v1/houses.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 133937,
-      "sha256": "a15e7e25c9a3cd2b98f28065f78d2aa2a3579efb2c9001bfe70327196a46edfb",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 135608,
+      "sha256": "1b3dc8520dc47e07167964a7e6201ac7aa01c21c3038a132de3af25f75d63ad9",
       "adaptations": []
     },
     {
       "originalPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-12.json",
       "installedPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-12.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 8274,
       "sha256": "a467f2cc2342f59dd69de125a04a9c7f161b054974c38f0d2cac819eee31f179",
       "adaptations": []
@@ -69,23 +83,47 @@
     {
       "originalPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json",
       "installedPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 11447,
-      "sha256": "b04dfcd8dead9dcd5947af1b003d0bd3e061b992af5c9f013ed7a7fb6071461e",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 12037,
+      "sha256": "7018c9b10036a9dda6c5c5330ed9e09f042c8374edf0f9a434fb60c55238aec2",
       "adaptations": []
     },
     {
       "originalPath": "assets/art/gross-housing-v1/prefabs/ashland-worker.json",
       "installedPath": "assets/art/gross-housing-v1/prefabs/ashland-worker.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 5797,
       "sha256": "d469617a34aca63e11cf782ce2c2f8614741a82fdf79a558cd018230148de9a3",
       "adaptations": []
     },
     {
+      "originalPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-09.json",
+      "installedPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-09.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 8940,
+      "sha256": "5a13314808ba21d6cf26fa29973a448740a331363821196901b4069c2c00de1d",
+      "adaptations": []
+    },
+    {
+      "originalPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-13.json",
+      "installedPath": "assets/art/hopkins-housing-v1/prefabs/hopkins-4-13.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 9215,
+      "sha256": "669f3db2dcac4818d94914905f7efd0af7688bbd0caa2f2d8f55cd50db7c18d2",
+      "adaptations": []
+    },
+    {
+      "originalPath": "assets/art/gross-housing-v1/prefabs/monroe-row.json",
+      "installedPath": "assets/art/gross-housing-v1/prefabs/monroe-row.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 7884,
+      "sha256": "872e2d8ba8869031edd2f60715db6c801021d2ef5a724fda4a9515357c49392c",
+      "adaptations": []
+    },
+    {
       "originalPath": "assets/art/gross-housing-v1/clapboard-ivory-v1.png",
       "installedPath": "assets/art/gross-housing-v1/clapboard-ivory-v1.png",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 2144158,
       "sha256": "d5a3ee4fdd75dc82aa3c06b52568fcea70caaa89da0e52f152829230f166e654",
       "adaptations": []
@@ -93,7 +131,7 @@
     {
       "originalPath": "assets/art/gross-housing-v1/cedar-shingles-v1.png",
       "installedPath": "assets/art/gross-housing-v1/cedar-shingles-v1.png",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 2250650,
       "sha256": "cce3ad634daae358ef319843cc87eee6d0b6df3a58b7cd67d43aae8b624df97c",
       "adaptations": []
@@ -101,7 +139,7 @@
     {
       "originalPath": "assets/art/gross-housing-v1/floorboards-oak-v1.png",
       "installedPath": "assets/art/gross-housing-v1/floorboards-oak-v1.png",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 2663881,
       "sha256": "9c089b06713a7d252def2d0a383b9419e45f36615eea8c73f633a6aeff1dd464",
       "adaptations": []
@@ -109,7 +147,7 @@
     {
       "originalPath": "assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
       "installedPath": "assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 3267103,
       "sha256": "6a953461e4886eaa5b8bf3aefce60ab6f964209d875d91be0f3846c221f2da60",
       "adaptations": []
@@ -117,7 +155,7 @@
     {
       "originalPath": "assets/art/exposition-skins-v1/brick-sienna-v1.png",
       "installedPath": "assets/art/exposition-skins-v1/brick-sienna-v1.png",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 2388078,
       "sha256": "17066064a1d9dcf8b128615bba1f1472c0921801e440d619d99b49e8e5962853",
       "adaptations": []
@@ -125,7 +163,7 @@
     {
       "originalPath": "assets/art/exposition-skins-v1/roof-slate-v1.png",
       "installedPath": "assets/art/exposition-skins-v1/roof-slate-v1.png",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 2333888,
       "sha256": "04fd7476c41c5d290350aba957db2a6d9234d38b9634c55a834b5afe4e64c25d",
       "adaptations": []
@@ -133,84 +171,222 @@
     {
       "originalPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
       "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 1644,
       "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed",
       "adaptations": []
+    },
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/index.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/index.js",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 6173,
+      "sha256": "762a31f19bcb59df01d6e39f84a7df8b304d41f796bbf0a957928bbf55d29562",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "packages/window-kit/index.js",
+        "role": "runtime dependency"
+      }
+    },
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 5433,
+      "sha256": "76020f340a25eb10acf7de9cd75fd35b099b12438fb457a8c016e6d98bd51f00",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "packages/window-kit/three.js",
+        "role": "runtime dependency"
+      }
+    },
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "packages/map-core/wall-runs.js",
+        "role": "runtime dependency"
+      }
+    },
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 4647,
+      "sha256": "2a2ad40e16533b4c30b639e907b9e5c8d967557cb65aa6f05c0c640d4bde0297",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+        "role": "runtime dependency"
+      }
+    },
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 1150,
+      "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+        "role": "runtime dependency"
+      }
     }
   ],
   "evidenceFiles": [
     {
       "originalPath": "assets/art/gross-housing-v1/manifest.json",
-      "installedPath": "docs/engineering/neighborhood/intake/assets/art/gross-housing-v1/manifest.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 11507,
-      "sha256": "17c2f4e62437f2b09393784ef817238742f7f7876117388bb6ce762352bcc773",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/assets/art/gross-housing-v1/manifest.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 13069,
+      "sha256": "c611be146d899017bbe176775d4a76a58056191de6d90701855f99565be8abfc",
       "adaptations": []
     },
     {
       "originalPath": "assets/art/hopkins-housing-v1/manifest.json",
-      "installedPath": "docs/engineering/neighborhood/intake/assets/art/hopkins-housing-v1/manifest.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 12467,
-      "sha256": "6b31d1b60171794ea207e70ae842c987e980b62a0a854f3ede34a9e9d0833dd7",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/assets/art/hopkins-housing-v1/manifest.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 14634,
+      "sha256": "3b10c789e4d974f7d82c50d5c8dfac5f41a49241dc1a631c3925b08d610d87cd",
       "adaptations": []
     },
     {
       "originalPath": "assets/art/exposition-skins-v1/manifest.json",
-      "installedPath": "docs/engineering/neighborhood/intake/assets/art/exposition-skins-v1/manifest.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/assets/art/exposition-skins-v1/manifest.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 5598,
       "sha256": "f5c23bdacdb6008d99d39a57fbaf141f8aa4356c29439429ec1be583f9a0275f",
       "adaptations": []
     },
     {
       "originalPath": "art/source/gross-housing-v1/generation.json",
-      "installedPath": "docs/engineering/neighborhood/intake/art/source/gross-housing-v1/generation.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/gross-housing-v1/generation.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 4574,
       "sha256": "b62efcddb9d16832947c009508dab071b4f2ee7c8feb1acbafe85e39e28275e1",
       "adaptations": []
     },
     {
       "originalPath": "art/source/exposition-skins-v1/generation.json",
-      "installedPath": "docs/engineering/neighborhood/intake/art/source/exposition-skins-v1/generation.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/exposition-skins-v1/generation.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 9896,
       "sha256": "b59f788bf17bffe58b68993248c1dd7fdd43199c7ab0a1e1c07115b26df64271",
       "adaptations": []
     },
     {
       "originalPath": "art/source/gross-housing-v1/sources.json",
-      "installedPath": "docs/engineering/neighborhood/intake/art/source/gross-housing-v1/sources.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/gross-housing-v1/sources.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 14296,
       "sha256": "6f8a7418fff5b49f88a195b18b6ad29fbfc8e69ea4794dcc9096412ce381de8b",
       "adaptations": []
     },
     {
       "originalPath": "art/source/hopkins-housing-v1/sources.json",
-      "installedPath": "docs/engineering/neighborhood/intake/art/source/hopkins-housing-v1/sources.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/hopkins-housing-v1/sources.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
       "bytes": 18971,
       "sha256": "f715f0c918e1147453db89e55d7a82a70913375233efaa86584939a54d3d0548",
       "adaptations": []
     },
     {
       "originalPath": "art/source/hopkins-housing-v1/roof-15.json",
-      "installedPath": "docs/engineering/neighborhood/intake/art/source/hopkins-housing-v1/roof-15.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 3706,
-      "sha256": "ba55a422be916cf6f322f44895479c3de8f97fc676dca59ee002d9ee47603714",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/hopkins-housing-v1/roof-15.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 4077,
+      "sha256": "ae112f7b80b207a6784ac6f57f1f1882ec8a86a4d0d4060ed8c03ddc68d9ead1",
       "adaptations": []
     },
     {
       "originalPath": "art/source/housing-siding-review/material-direction.json",
-      "installedPath": "docs/engineering/neighborhood/intake/art/source/housing-siding-review/material-direction.json",
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 1916,
-      "sha256": "94537f3664b9f91c911a4724cb11442f81f9e1630ec2b5038d7db076a919119a",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/housing-siding-review/material-direction.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 2143,
+      "sha256": "6587fcd87799b0753ce7c3a1edf353132ec41499c777656b0406031a4b407497",
       "adaptations": []
+    },
+    {
+      "originalPath": "art/source/nautilus-windows-v1/import.json",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/nautilus-windows-v1/import.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 4216,
+      "sha256": "a2f131bc5e3aafd96d6a505fc48da8072799ace391db1c2ff125a358d1ce7b6f",
+      "adaptations": []
+    },
+    {
+      "originalPath": "art/source/nautilus-windows-v1/adoption.json",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/art/source/nautilus-windows-v1/adoption.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 1857,
+      "sha256": "6eedfbd4da0708fca95c02f19cab8f2a6d6749bbaf87160b09a1ff689dd44739",
+      "adaptations": []
+    },
+    {
+      "originalPath": "docs/art/nautilus-windows-v1/geometry-review.json",
+      "installedPath": "docs/engineering/catalogue-block-two/intake/docs/art/nautilus-windows-v1/geometry-review.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 599,
+      "sha256": "440e1fbdec5cc611151b1c22b65a4951c87d07d2c9c54379de6ecc8f4c8d6569",
+      "adaptations": []
+    }
+  ],
+  "supportFiles": [
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/NOTICE.md",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/NOTICE.md",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 2619,
+      "sha256": "4c5e19a0e9224589505445e8c2f693ed89eb8d0e8191f77f9496089d9c9ebb95",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "NOTICE.md",
+        "role": "notice/source evidence; not a runtime dependency"
+      }
+    },
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/window-sculptures.md",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/window-sculptures.md",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 3913,
+      "sha256": "b5755a3e0b44b20ba2f9a6febf5117c166d16bb946b76ed2c8625e5ad4ed8873",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "docs/window-sculptures.md",
+        "role": "notice/source evidence; not a runtime dependency"
+      }
+    },
+    {
+      "originalPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/aft-provenance.json",
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/source-evidence/aft-provenance.json",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 96620,
+      "sha256": "84cd1b6e95969ebbdc3ca5cefddce2104054d43bce14c15dbf7e451f4e9e51e3",
+      "adaptations": [],
+      "upstream": {
+        "repository": "https://github.com/Syntaxswine/nautilus-engine",
+        "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "originalPath": "vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/provenance.json",
+        "role": "notice/source evidence; not a runtime dependency"
+      }
     }
   ],
   "derivedFiles": [
@@ -219,11 +395,14 @@
       "originalPaths": [
         "assets/art/hopkins-housing-v1/prefabs/hopkins-4-12.json",
         "assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json",
-        "assets/art/gross-housing-v1/prefabs/ashland-worker.json"
+        "assets/art/gross-housing-v1/prefabs/ashland-worker.json",
+        "assets/art/hopkins-housing-v1/prefabs/hopkins-4-09.json",
+        "assets/art/hopkins-housing-v1/prefabs/hopkins-4-13.json",
+        "assets/art/gross-housing-v1/prefabs/monroe-row.json"
       ],
-      "sourceCommit": "14d18d7de667c7b83955150313347e198869f5ee",
-      "bytes": 28709,
-      "sha256": "e21fdfd381518f29f0c2dba44422f2bc3bde1098f9b6b51532012fcb8205d2ae",
+      "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+      "bytes": 58285,
+      "sha256": "dc6a79a7ddd3164cc8bce65ce6988b43a98847227dbba7cf73f1da00d8ecdda6",
       "adaptation": "JavaScript serialization of the unchanged selected JSON records for the synchronous simulation; no changed plan values."
     }
   ],

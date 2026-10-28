@@ -1,0 +1,428 @@
+{
+  "version": 1,
+  "kind": "artist-housing-contribution",
+  "source": "art/source/gross-housing-v1",
+  "houses": [
+    {
+      "id": "grossdale-spire",
+      "path": "prefabs/grossdale-spire.json",
+      "leaf": 15,
+      "floors": 2,
+      "basement": false
+    },
+    {
+      "id": "grossdale-hip",
+      "path": "prefabs/grossdale-hip.json",
+      "leaf": 16,
+      "floors": 2,
+      "basement": false
+    },
+    {
+      "id": "grossdale-octagon",
+      "path": "prefabs/grossdale-octagon.json",
+      "leaf": 20,
+      "floors": 2,
+      "basement": false
+    },
+    {
+      "id": "grossdale-cross-gable",
+      "path": "prefabs/grossdale-cross-gable.json",
+      "leaf": 21,
+      "floors": 2,
+      "basement": false
+    },
+    {
+      "id": "grossdale-balcony",
+      "path": "prefabs/grossdale-balcony.json",
+      "leaf": 22,
+      "floors": 2,
+      "basement": false
+    },
+    {
+      "id": "dauphin-park",
+      "path": "prefabs/dauphin-park.json",
+      "leaf": 33,
+      "floors": 2,
+      "basement": false
+    },
+    {
+      "id": "calumet-heights",
+      "path": "prefabs/calumet-heights.json",
+      "leaf": 40,
+      "floors": 2,
+      "basement": true
+    },
+    {
+      "id": "brookdale-villa",
+      "path": "prefabs/brookdale-villa.json",
+      "leaf": 47,
+      "floors": 2,
+      "basement": true
+    },
+    {
+      "id": "humboldt-cottage",
+      "path": "prefabs/humboldt-cottage.json",
+      "leaf": 54,
+      "floors": 1,
+      "basement": true
+    },
+    {
+      "id": "albany-cottage",
+      "path": "prefabs/albany-cottage.json",
+      "leaf": 69,
+      "floors": 1,
+      "basement": true
+    },
+    {
+      "id": "ashland-worker",
+      "path": "prefabs/ashland-worker.json",
+      "leaf": 66,
+      "floors": 1,
+      "basement": true
+    },
+    {
+      "id": "archer-worker",
+      "path": "prefabs/archer-worker.json",
+      "leaf": 72,
+      "floors": 1,
+      "basement": true
+    },
+    {
+      "id": "monroe-row",
+      "path": "prefabs/monroe-row.json",
+      "leaf": 74,
+      "floors": 2,
+      "basement": true
+    }
+  ],
+  "materials": [
+    {
+      "file": "cedar-shingles-v1.png",
+      "bytes": 2250650,
+      "sha256": "cce3ad634daae358ef319843cc87eee6d0b6df3a58b7cd67d43aae8b624df97c",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "file": "clapboard-ivory-v1.png",
+      "bytes": 2144158,
+      "sha256": "d5a3ee4fdd75dc82aa3c06b52568fcea70caaa89da0e52f152829230f166e654",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "file": "floorboards-oak-v1.png",
+      "bytes": 2663881,
+      "sha256": "9c089b06713a7d252def2d0a383b9419e45f36615eea8c73f633a6aeff1dd464",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    },
+    {
+      "file": "wallpaper-botanical-v1.png",
+      "bytes": 3267103,
+      "sha256": "6a953461e4886eaa5b8bf3aefce60ab6f964209d875d91be0f3846c221f2da60",
+      "repeatMetres": [
+        1,
+        1
+      ],
+      "pixelEdits": "none"
+    }
+  ],
+  "reusedMaterials": [
+    {
+      "path": "../exposition-skins-v1/brick-sienna-v1.png",
+      "repeatMetres": [
+        2,
+        2
+      ]
+    },
+    {
+      "path": "../exposition-skins-v1/roof-slate-v1.png",
+      "repeatMetres": [
+        2,
+        2
+      ]
+    }
+  ],
+  "contract": {
+    "units": "metres",
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "lintel": [
+      1,
+      0.35,
+      0.16
+    ],
+    "floorThickness": 0.12,
+    "floorSpacing": 2.12,
+    "diagonalSpanMetres": 1.4142135623730951,
+    "diagonalConstruction": "native 1m panels with a cut end",
+    "meshScale": [
+      1,
+      1,
+      1
+    ],
+    "newVictorianSashOpening": [
+      1,
+      1.2
+    ],
+    "originalFarmyardWindowOpening": [
+      1,
+      0.7
+    ]
+  },
+  "nautilusImported": false,
+  "files": [
+    {
+      "path": "assets/art/gross-housing-v1/cedar-shingles-v1.png",
+      "bytes": 2250650,
+      "sha256": "cce3ad634daae358ef319843cc87eee6d0b6df3a58b7cd67d43aae8b624df97c"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/clapboard-ivory-v1.png",
+      "bytes": 2144158,
+      "sha256": "d5a3ee4fdd75dc82aa3c06b52568fcea70caaa89da0e52f152829230f166e654"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/floorboards-oak-v1.png",
+      "bytes": 2663881,
+      "sha256": "9c089b06713a7d252def2d0a383b9419e45f36615eea8c73f633a6aeff1dd464"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/houses.json",
+      "bytes": 124421,
+      "sha256": "dbdfbee6d218a8f3f343f6c9305155a88e60f7728bd28e522011e928e80f709c"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/albany-cottage.json",
+      "bytes": 50088,
+      "sha256": "2144ff47d9a6ab2070fd46b7eb272b6dc3c46a2523778282b7d3d89871662de0"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/archer-worker.json",
+      "bytes": 29349,
+      "sha256": "275d04ca8ea7cbe6bee328e4a9bd0b3db9862eacf54f1706d3a2823e263d771c"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/ashland-worker.json",
+      "bytes": 32045,
+      "sha256": "269ae7437a29ac31f292cb160bd727a028f4fd4cdf7b248522b9535dc38a7e64"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/brookdale-villa.json",
+      "bytes": 80088,
+      "sha256": "c9d02c5ee2e736df3f4c8dfd44c1d11ebafbf260e42d027894cd45b31beb1afd"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/calumet-heights.json",
+      "bytes": 64539,
+      "sha256": "419c4c10b77dbfdcc7bd04a42283690ccbd3afdae8a477a6abca132d62a78c77"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/dauphin-park.json",
+      "bytes": 57652,
+      "sha256": "f51918db3a4cbac4c2d60898d2a1e642ca28c7cd3aeb4ddb5938c2fed2f60fae"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/grossdale-balcony.json",
+      "bytes": 68127,
+      "sha256": "0da8fed85e26eaff1cd05cc8f78572ed9d7be31c0181f49121e32b1e3efa6799"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/grossdale-cross-gable.json",
+      "bytes": 56324,
+      "sha256": "1015c7b2be8a9519a98cb6dfffbf010af511dc863a4442ecf259cb50158ff2f0"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/grossdale-hip.json",
+      "bytes": 57529,
+      "sha256": "b7c1ccea6eb2d61e87666b8d54ad85277537947c8421131032689087c5097977"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/grossdale-octagon.json",
+      "bytes": 67660,
+      "sha256": "fc816f8954e980be7b66157a1ac1d16177278b8fc455bd82b15da40e0b0e5fc8"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/grossdale-spire.json",
+      "bytes": 63259,
+      "sha256": "b3d207f4378a381d260bd531e031a14938536cc5bd40d1ec1c8a916606a676de"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/humboldt-cottage.json",
+      "bytes": 48748,
+      "sha256": "e3e19be342207866894fb275111b66fd6a3b81b55f040cf97df8e101151e10c8"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/nautilus-traces/monroe-row.json",
+      "bytes": 70350,
+      "sha256": "39a587fe7bcd3880bb50e954cc4eb94e189415107e736c4e763a27b94bc137ba"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/albany-cottage.json",
+      "bytes": 6926,
+      "sha256": "0c9d53b23d7a792769c6465e844c85b85fdedfd2b546afbe1b74bc9ad218af71"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/archer-worker.json",
+      "bytes": 5451,
+      "sha256": "e3e5379e69d26ba127757b2b4d1c414a11eb186960c31f820ae1f292de271d3a"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/ashland-worker.json",
+      "bytes": 5797,
+      "sha256": "d469617a34aca63e11cf782ce2c2f8614741a82fdf79a558cd018230148de9a3"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/brookdale-villa.json",
+      "bytes": 8797,
+      "sha256": "6c1228daa43597e7f2a4f4125a33f03d4ba4b733177e8740b45d41eb76a3fb61"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/calumet-heights.json",
+      "bytes": 7669,
+      "sha256": "6cd04bc0aa94328493204a607115cdd1f526ef57ab1b94cc4ad232455bd516dc"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/dauphin-park.json",
+      "bytes": 8630,
+      "sha256": "8a32e1ec77b242d7e3cb2e183aa4b34c5bd21b2c04893bbc4cc23c964b0b390b"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/grossdale-balcony.json",
+      "bytes": 9513,
+      "sha256": "523f4e0ab67179bff721f4e89869521263730da1123cd69b3feaf9feb8d2e2ff"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/grossdale-cross-gable.json",
+      "bytes": 7675,
+      "sha256": "d3930a5619b3d0f69b4fc3ac088cd41f330f5c944ebe2a4f923ec8ee47a4da99"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/grossdale-hip.json",
+      "bytes": 8037,
+      "sha256": "686d6c0269fe2aa39a99e61ce88fa5f618ab4fa0b3b87dcd0ba58652b0410033"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/grossdale-octagon.json",
+      "bytes": 9587,
+      "sha256": "9aecfbe4a2a09d489402f4c2b272cd2b9ed84967fa140311b4dd0b01da147718"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/grossdale-spire.json",
+      "bytes": 8718,
+      "sha256": "862d1343bbde82931fd2eb22af3043a14f7fa5dd1e195d5f0c7b3509e0047b52"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/humboldt-cottage.json",
+      "bytes": 6789,
+      "sha256": "21fa59a98a2856cbffa0a30c94c8140964e5a6dc1f5d13dec415e45a121b70a8"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/prefabs/monroe-row.json",
+      "bytes": 7884,
+      "sha256": "872e2d8ba8869031edd2f60715db6c801021d2ef5a724fda4a9515357c49392c"
+    },
+    {
+      "path": "assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
+      "bytes": 3267103,
+      "sha256": "6a953461e4886eaa5b8bf3aefce60ab6f964209d875d91be0f3846c221f2da60"
+    }
+  ],
+  "assembly": {
+    "path": "src/art/gross-housing.js",
+    "bytes": 28109,
+    "sha256": "6192c6e968ad468474f4ae14397ee9ca519b3a094e3da8e0fca917588b31760f"
+  },
+  "nautilusContract": {
+    "repository": "https://github.com/Syntaxswine/nautilus-engine",
+    "commit": "cc52f89de6333a1d94e2dfe45d47d1317369fac0",
+    "contractPath": "packages/map-core/wall-runs.js",
+    "documentationPath": "docs/wall-runs.md",
+    "feature": "nautilus-wall-runs-v1",
+    "inspection": "Read fixed Git objects only; no donor edits or moving branch imports.",
+    "nativeKit": {
+      "panel": 1,
+      "height": 2,
+      "thickness": 0.16,
+      "floorSpacing": 2.12
+    },
+    "traces": 13,
+    "segments": 1226,
+    "apertures": 554,
+    "consumerStatus": "Editor authoring feature exists on the pinned candidate. Tinderbox consumer integration and full Nautilus house intake are separate."
+  },
+  "geometryReview": {
+    "passed": true,
+    "houses": 13,
+    "levels": 29,
+    "rooms": 147,
+    "units": 1700,
+    "diagonals": 54,
+    "meshes": 13390,
+    "vertices": 388634,
+    "nativeAttributeChecks": 1935,
+    "sourcePlates": 13,
+    "materialHashes": 4,
+    "nativeScale": true,
+    "disposal": true
+  },
+  "generationRecord": "art/source/gross-housing-v1/generation.json",
+  "sidingReview": {
+    "source": "art/source/housing-siding-review/material-direction.json",
+    "report": "docs/art/housing-siding-review/geometry-review.json",
+    "baselineCommit": "ec77f460e539d2bf114c806ed520c0a7945edabc",
+    "geometryAndOpenings": "unchanged",
+    "roofCovering": "unchanged"
+  },
+  "runtimeDependencies": [
+    {
+      "path": "src/art/nautilus-windows.js",
+      "bytes": 2963,
+      "sha256": "6a7e4daf7f1ff4d5eb4a8075d5b1863986ad55f0531c41107221e7d99aadc0e1"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/index.js",
+      "bytes": 6173,
+      "sha256": "762a31f19bcb59df01d6e39f84a7df8b304d41f796bbf0a957928bbf55d29562"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js",
+      "bytes": 5433,
+      "sha256": "76020f340a25eb10acf7de9cd75fd35b099b12438fb457a8c016e6d98bd51f00"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/hybrid-materials.js",
+      "bytes": 4647,
+      "sha256": "2a2ad40e16533b4c30b639e907b9e5c8d967557cb65aa6f05c0c640d4bde0297"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/vendor/aft/781246a668c723d5a4c5463e70534cc04b6a5641/dist/tactics/diagonal-roads.js",
+      "bytes": 1150,
+      "sha256": "427e412356e9cdaa72a4ec581af1e2eb4b203357456f5ed562c7b4bdf99acaeb"
+    }
+  ],
+  "windowDependency": "Shared assembler imports the pinned Nautilus adapter; no Gross house opts into its centered bay."
+}

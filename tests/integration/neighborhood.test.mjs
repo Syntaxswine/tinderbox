@@ -10,10 +10,12 @@ import {compileBuildings, buildingPoint, localHousingFootprints} from '../../src
 import {NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
 import {scenarioDefinition} from '../../src/simulation/fixtures.js';
 import {createSimulation, SCENARIOS} from '../../src/simulation/index.js';
-import {freePoint, lineClear, inObstacle} from '../../src/simulation/geometry.js';
+import {freePoint, lineClear, inObstacle, moveDisc} from '../../src/simulation/geometry.js';
 import {createNeighborhood, loadNeighborhoodKit} from '../../src/art/neighborhood.js';
 import {createCameraRig} from '../../src/runtime/camera.js';
 import {createArtScene} from '../../src/art/index.js';
+import {WINDOW_KIT, compileWindowBay} from '../../src/art/nautilus-windows.js';
+import {createWindowBayModel} from '../../vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js';
 
 const intake = JSON.parse(fs.readFileSync('assets/art/neighborhood-intake.json'));
 const catalogue = {houses: ['gross', 'hopkins'].flatMap(name => JSON.parse(fs.readFileSync(`assets/art/${name}-housing-v1/houses.json`)).houses)};
@@ -28,10 +30,10 @@ const burnScenario = extra => ({id: 'catalogue-burnout', width: 16, height: 16, 
 
 test('bounded intake preserves selected source bytes, catalogue identities and original plan values', () => {
   assert.equal(intake.sourceCommit, HOUSING_SOURCE_COMMIT);
-  assert.equal(intake.runtimeFiles.length, 16);
+  assert.equal(intake.runtimeFiles.length, 25); assert.equal(intake.supportFiles.length, 3);
   assert.equal(intake.runtimeFiles.filter(file => file.installedPath.endsWith('.png')).length, 6);
-  assert.deepEqual(intake.selectedPrefabs, ['hopkins-4-12', 'hopkins-4-15', 'ashland-worker']);
-  for (const file of [...intake.runtimeFiles, ...intake.evidenceFiles, ...intake.derivedFiles]) {
+  assert.deepEqual(intake.selectedPrefabs, ['hopkins-4-12', 'hopkins-4-15', 'ashland-worker', 'hopkins-4-09', 'hopkins-4-13', 'monroe-row']);
+  for (const file of [...intake.runtimeFiles, ...intake.supportFiles, ...intake.evidenceFiles, ...intake.derivedFiles]) {
     const bytes = fs.readFileSync(file.installedPath);
     assert.equal(bytes.length, file.bytes, file.installedPath);
     assert.equal(createHash('sha256').update(bytes).digest('hex'), file.sha256, file.installedPath);
@@ -191,11 +193,11 @@ test('actual source geometry resources retire once during repeated scene rebuild
   const simulation = createSimulation({scenario: 'neighborhood'}), view = createNeighborhood(T, library);
   let disposedGeometry = 0, firstGeometry;
   try {
-    const world = simulation.snapshot().world; view.update(world); assert.equal(view.diagnostics().active, 3);
+    const world = simulation.snapshot().world; view.update(world); assert.equal(view.diagnostics().active, 6);
     view.root.traverse(object => { if (!firstGeometry && object.isMesh) firstGeometry = object.geometry; });
     firstGeometry.addEventListener('dispose', () => disposedGeometry++);
     for (let i = 0; i < 3; i++) { view.update({buildings: []}); view.update(world); }
-    assert.equal(disposedGeometry, 1); assert.equal(view.diagnostics().active, 3); assert.equal(view.diagnostics().builds, 12);
+    assert.equal(disposedGeometry, 1); assert.equal(view.diagnostics().active, 6); assert.equal(view.diagnostics().builds, 24);
     view.dispose(); view.dispose(); assert.equal(view.root.children.length, 0); assert.equal(view.diagnostics().active, 0);
   } finally { view.dispose(); simulation.dispose(); }
 });
@@ -251,11 +253,11 @@ test('source-bounds occlusion fades houses behind the bear and in gaps, restores
     view.root.traverse(mesh => { if (mesh.isMesh) for (const material of [mesh.material].flat()) {
       near(material.opacity, 1); assert.equal(material.transparent, false); assert.equal(material.depthWrite, true);
     } });
-    assert.equal(JSON.stringify(world), before); assert.equal(view.diagnostics().builds, 3);
+    assert.equal(JSON.stringify(world), before); assert.equal(view.diagnostics().builds, 6);
   } finally { view.dispose(); simulation.dispose(); }
 });
 
-test('production art composes the actual three houses, painted native bear and civilians, without generic duplicate boxes (renderer API fixture; no WebGL)', async () => {
+test('production art composes all six houses, painted native bear and civilians, without generic duplicate boxes (renderer API fixture; no WebGL)', async () => {
   const oldFetch = globalThis.fetch, oldLoad = T.TextureLoader.prototype.loadAsync, oldDocument = globalThis.document;
   const renderer = Object.create(T.WebGLRenderer.prototype), rendererState = {target: null, projections: 0, disposed: 0};
   Object.defineProperty(renderer, 'outputColorSpace', {value: T.SRGBColorSpace, writable: true});
@@ -279,7 +281,7 @@ test('production art composes the actual three houses, painted native bear and c
     const rig = createCameraRig({clientWidth: 390, clientHeight: 420}, {setSize() {}}, snapshot.world); rig.update(snapshot.player);
     art.update(snapshot, {camera: rig.camera, viewport: {width: 390, height: 420}});
     const diagnostics = art.diagnostics();
-    assert.equal(diagnostics.housing.active, 3); assert.equal(diagnostics.bearProtagonist.species, 'bear');
+    assert.equal(diagnostics.housing.active, 6); assert.equal(diagnostics.bearProtagonist.species, 'bear');
     assert.equal(diagnostics.bearProtagonist.paint, 'native-normal-projection');
     assert.deepEqual(diagnostics.civilianActors.map(actor => actor.species).sort(), ['goat', 'horse']);
     assert.ok(diagnostics.housing.projection.bearHeightPixels > 45); assert.equal(rendererState.projections, 12);
@@ -299,4 +301,116 @@ test('production art composes the actual three houses, painted native bear and c
     art?.dispose(); simulation.dispose(); globalThis.fetch = oldFetch; T.TextureLoader.prototype.loadAsync = oldLoad;
     if (oldDocument === undefined) delete globalThis.document; else globalThis.document = oldDocument;
   }
+});
+
+test('second row preserves the original street and has a continuous native-bear route to every frontage, both side gaps and the back lane', () => {
+  assert.deepEqual(NEIGHBORHOOD_SCENARIO.buildings.slice(0, 3), [
+    {id: 'hopkins-twelve', prefabId: 'hopkins-4-12', x: 11, y: 10, quarterTurns: 2},
+    {id: 'hopkins-fifteen', prefabId: 'hopkins-4-15', x: 24, y: 13, quarterTurns: 2},
+    {id: 'ashland-cottage', prefabId: 'ashland-worker', x: 33, y: 10, quarterTurns: 2}
+  ]);
+  assert.deepEqual(NEIGHBORHOOD_SCENARIO.player, {x: 20, y: 18, tool: 'jerry-can'});
+  assert.deepEqual(NEIGHBORHOOD_SCENARIO.actors.map(({id, x, y, route}) => ({id, x, y, route})), [
+    {id: 'neighbor-horse', x: 7, y: 17, route: [{x: 7, y: 17}, {x: 17, y: 17}]},
+    {id: 'neighbor-goat', x: 29, y: 24.5, route: [{x: 29, y: 24.5}, {x: 19, y: 24.5}]}
+  ]);
+  const simulation = createSimulation({scenario: 'neighborhood'});
+  try {
+    const {world, player} = simulation.snapshot(); assert.deepEqual([world.width, world.height], [36, 47]);
+    const route = [[4.5, 18], [4.5, 27.5], [4.5, 18], [18.5, 18], [18.5, 27.5], [18.5, 18],
+      [28.5, 18], [28.5, 26.9], [25.5, 26.9], [25.5, 45.5], [12.5, 45.5], [12.5, 35], [12.5, 45.5],
+      [1.2, 45.5], [1.2, 18], [35, 18], [35, 45.5], [20, 45.5]];
+    let current = {x: player.x, y: player.y};
+    for (const [x, y] of route) {
+      const path = moveDisc(current, x - current.x, y - current.y, player.radius, world, world.obstacles, world.fireCellSize);
+      near(path.at(-1).x, x); near(path.at(-1).y, y);
+      for (const point of path) assert.ok(freePoint(point, .56, world, world.obstacles));
+      current = path.at(-1);
+    }
+    // A real full plinth blocks even where the room outlines are chamfered or set back.
+    assert.equal(freePoint({x: 3.5, y: 30.2}, .01, world, world.obstacles), false);
+    assert.equal(freePoint({x: 22.7, y: 37.7}, .01, world, world.obstacles), false);
+    // Monroe's elevated front bay has no ground foundation at this point.
+    assert.equal(freePoint({x: 32, y: 30.2}, .56, world, world.obstacles), true);
+    assert.equal(lineClear({x: 31.5, y: 30}, {x: 33, y: 30}, world.obstacles), true);
+    assert.equal(world.buildings.length, new Set(world.buildings.map(building => building.prefabId)).size);
+    assert.deepEqual(world.buildings.filter(building => building.windowBays.length).map(building => [building.prefabId, building.windowBays[0].sourceCommit]),
+      [['hopkins-4-15', intake.windowSourceCommit], ['hopkins-4-13', intake.windowSourceCommit]]);
+    const detached = simulation.snapshot(); detached.world.buildings.find(building => building.windowBays.length).windowBays[0].a[0] = 999;
+    assert.notEqual(simulation.snapshot().world.buildings[1].windowBays[0].a[0], 999);
+  } finally { simulation.dispose(); }
+});
+
+test('corrected Hopkins 13/15 sash bays retain native source geometry/UVs and clear glass apertures through every quarter turn (offline rays)', () => {
+  assert.equal(intake.windowSourceCommit, '90054d07134116a5d9661f8318a76fe68f922aad');
+  assert.deepEqual([WINDOW_KIT.span, WINDOW_KIT.openingWidth, WINDOW_KIT.segmentWidth, WINDOW_KIT.wallHeight, WINDOW_KIT.wallThickness], [2, 1, .5, 2, .16]);
+  const sculpture = compileWindowBay('window-bay-period');
+  assert.deepEqual([sculpture.opening.width, sculpture.opening.bottom, sculpture.opening.top], [1, .35, 1.55]);
+  const materials = Object.fromEntries(['wall', 'trim', 'sash', 'brass', 'glass'].map(kind => [kind, new T.MeshStandardMaterial()]));
+  const native = createWindowBayModel(T, 'window-bay-period', {materials});
+  const sourceParts = new Map([...native.parts.values()].map(mesh => [mesh.userData.group + ':' + mesh.userData.part, mesh]));
+  let borrowedReleases = 0;
+  for (const material of Object.values(materials)) material.addEventListener('dispose', () => borrowedReleases++);
+  try {
+    for (const prefabId of ['hopkins-4-13', 'hopkins-4-15']) for (let quarterTurns = 0; quarterTurns < 4; quarterTurns++) {
+      const {buildings} = compileBuildings([{id: 'window-review', prefabId, x: 15, y: 15, quarterTurns}]);
+      const view = createNeighborhood(T, library); const geometries = new Map();
+      try {
+        view.update({buildings}); view.root.updateMatrixWorld(true);
+        const house = view.root.children[0], bay = house.getObjectByName('Nautilus centered window bay'), declaration = HOUSING_PLANS[prefabId].floors[1].windowBays[0];
+        assert.ok(bay); assert.equal(bay.userData.sourceCommit, intake.windowSourceCommit); assert.equal(bay.userData.windowBayId, declaration.id);
+        const center = buildingPoint(buildings[0], {x: (declaration.a[0] + declaration.b[0]) / 2, y: (declaration.a[1] + declaration.b[1]) / 2});
+        const position = bay.getWorldPosition(new T.Vector3()); near(position.x, center.x); near(position.z, center.y); near(position.y, HOUSING_PLANS[prefabId].plinth + 2.12);
+        bay.traverse(mesh => {
+          if (!mesh.isMesh) return; assert.deepEqual(mesh.scale.toArray(), [1, 1, 1]);
+          const source = sourceParts.get(mesh.userData.group + ':' + mesh.userData.part); assert.ok(source);
+          for (const attribute of ['position', 'normal', 'uv']) assert.deepEqual(mesh.geometry.attributes[attribute].array, source.geometry.attributes[attribute].array);
+          assert.deepEqual(mesh.geometry.attributes.grossUV.array, mesh.geometry.attributes.uv.array);
+          const record = {releases: 0}; geometries.set(mesh.geometry, record); mesh.geometry.addEventListener('dispose', () => record.releases++);
+        });
+        const pane = sculpture.parts.find(part => part.material === 'glass');
+        const origin = bay.localToWorld(new T.Vector3(pane.center[0], pane.center[1], .5));
+        const target = bay.localToWorld(new T.Vector3(pane.center[0], pane.center[1], -.2));
+        const ray = new T.Raycaster(origin, target.sub(origin).normalize(), 0, .7);
+        const hits = ray.intersectObject(house, true);
+        assert.ok(hits.length, prefabId + ' has no glass surface');
+        assert.equal(hits[0].object.userData.material, 'glass', prefabId + ' aperture is covered by wall/roof geometry');
+        view.dispose(); view.dispose(); for (const record of geometries.values()) assert.equal(record.releases, 1);
+      } finally { view.dispose(); }
+    }
+    native.dispose(); native.dispose(); assert.equal(borrowedReleases, 0);
+  } finally { native.dispose(); for (const material of Object.values(materials)) material.dispose(); }
+});
+
+test('all six source houses keep complete collider membership on partial burn and retire their own visible group exactly once', () => {
+  for (const prefabId of intake.selectedPrefabs) {
+    const instance = {id: 'individual-house', prefabId, x: 4, y: 6, quarterTurns: 0};
+    const {obstacles} = compileBuildings([instance]);
+    const scenario = {width: 24, height: 24, player: {x: 22, y: 22}, buildings: [instance], obstacles: [], actors: [],
+      ignitions: obstacles.map(box => ({x: box.x, y: box.y, radius: 40, heat: 4}))};
+    const simulation = createSimulation({scenario, config: {fuel: {surfaceBurnRate: 1}, fire: {damagePerSecond: 0}}}), view = createNeighborhood(T, library);
+    try {
+      const partial = advance(simulation, .15), building = partial.world.buildings[0];
+      assert.ok(building.burnedFraction > 0 && building.burnedFraction < 1, prefabId + ' partial char');
+      assert.equal(building.destroyed, false); assert.deepEqual(partial.world.obstacles.map(box => box.id), building.colliderIds);
+      view.update(partial.world); assert.equal(view.diagnostics().active, 1); assert.equal(view.diagnostics().instances[0].burnedFraction, building.burnedFraction);
+      const spent = advance(simulation, 2); view.update(spent.world);
+      assert.equal(spent.world.buildings[0].destroyed, true, prefabId); assert.equal(spent.world.obstacles.length, 0); assert.equal(view.diagnostics().active, 0);
+      assert.equal(spent.events.filter(event => event.type === 'building-burnout').length, 1);
+      simulation.dispatch({type: 'reset'}); const reset = simulation.advance(1 / 60); view.update(reset.world);
+      assert.equal(reset.world.buildings[0].destroyed, false); assert.equal(view.diagnostics().active, 1);
+    } finally { simulation.dispose(); view.dispose(); view.dispose(); }
+  }
+});
+
+test('a stale catalogue/window revision fails loading and releases all six borrowed source textures', async () => {
+  const oldFetch = globalThis.fetch, oldLoad = T.TextureLoader.prototype.loadAsync; let releases = 0;
+  globalThis.fetch = async url => ({ok: true, json: async () => {
+    const data = JSON.parse(fs.readFileSync(fileURLToPath(new URL(url))));
+    const house = data.houses.find(house => house.id === 'hopkins-4-15'); if (house) delete house.floors[1].windowBays;
+    return data;
+  }});
+  T.TextureLoader.prototype.loadAsync = async () => { const texture = new T.Texture(); texture.addEventListener('dispose', () => releases++); return texture; };
+  try { await assert.rejects(loadNeighborhoodKit(T), /source identity mismatch/); assert.equal(releases, 6); }
+  finally { globalThis.fetch = oldFetch; T.TextureLoader.prototype.loadAsync = oldLoad; }
 });

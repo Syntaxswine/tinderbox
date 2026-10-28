@@ -3,38 +3,58 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
-export const ARTIST_COMMIT = '14d18d7de667c7b83955150313347e198869f5ee';
+export const ARTIST_COMMIT = '56b028c2935b5a97fe259618f38e0a1550928ab4';
+export const NAUTILUS_COMMIT = '90054d07134116a5d9661f8318a76fe68f922aad';
 const FARMYARD_COMMIT = '30a3b8cae5f36bb0c1df3685b7fba16f701c2083';
 const source = path.resolve(process.argv[2] || '.');
 const git = (...args) => execFileSync('git', ['-c', 'safe.directory=' + source, '-C', source, ...args], {maxBuffer: 20 * 1024 * 1024});
 const read = file => git('show', ARTIST_COMMIT + ':' + file);
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const nativePath = `vendor/farmyard-commando/${FARMYARD_COMMIT}/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js`;
+const windowRoot = `vendor/nautilus-engine/${NAUTILUS_COMMIT}/`;
+const windowImport = JSON.parse(read('art/source/nautilus-windows-v1/import.json'));
+if (windowImport.commit !== NAUTILUS_COMMIT || windowImport.runtimeFiles !== 5) throw Error('Unexpected centered-window source closure');
+const windowModules = windowImport.files.filter(file => file.role === 'runtime dependency');
+const windowNotices = windowImport.files.filter(file => file.role !== 'runtime dependency');
 const prefabs = [
-  ['hopkins', 'hopkins-4-12'], ['hopkins', 'hopkins-4-15'], ['gross', 'ashland-worker']
+  ['hopkins', 'hopkins-4-12'], ['hopkins', 'hopkins-4-15'], ['gross', 'ashland-worker'],
+  ['hopkins', 'hopkins-4-09'], ['hopkins', 'hopkins-4-13'], ['gross', 'monroe-row']
 ].map(([collection, id]) => `assets/art/${collection}-housing-v1/prefabs/${id}.json`);
 const runtime = [
-  'src/art/gross-housing.js', 'src/art/hopkins-housing.js', 'src/art/gambrel-roof.js', 'src/content/asset-scale.js',
+  'src/art/gross-housing.js', 'src/art/hopkins-housing.js', 'src/art/gambrel-roof.js', 'src/art/nautilus-windows.js', 'src/content/asset-scale.js',
   'assets/art/gross-housing-v1/houses.json', 'assets/art/hopkins-housing-v1/houses.json', ...prefabs,
   ...['clapboard-ivory', 'cedar-shingles', 'floorboards-oak', 'wallpaper-botanical'].map(id => `assets/art/gross-housing-v1/${id}-v1.png`),
-  'assets/art/exposition-skins-v1/brick-sienna-v1.png', 'assets/art/exposition-skins-v1/roof-slate-v1.png', nativePath
+  'assets/art/exposition-skins-v1/brick-sienna-v1.png', 'assets/art/exposition-skins-v1/roof-slate-v1.png', nativePath,
+  ...windowModules.map(file => file.installedPath)
 ];
+const support = windowNotices.map(file => file.installedPath);
 const evidence = [
   'assets/art/gross-housing-v1/manifest.json', 'assets/art/hopkins-housing-v1/manifest.json',
   'assets/art/exposition-skins-v1/manifest.json', 'art/source/gross-housing-v1/generation.json',
   'art/source/exposition-skins-v1/generation.json', 'art/source/gross-housing-v1/sources.json',
   'art/source/hopkins-housing-v1/sources.json', 'art/source/hopkins-housing-v1/roof-15.json',
-  'art/source/housing-siding-review/material-direction.json'
+  'art/source/housing-siding-review/material-direction.json',
+  'art/source/nautilus-windows-v1/import.json', 'art/source/nautilus-windows-v1/adoption.json',
+  'docs/art/nautilus-windows-v1/geometry-review.json'
 ];
 const records = [];
-for (const originalPath of [...runtime, ...evidence]) {
-  const bytes = read(originalPath), installedPath = runtime.includes(originalPath) ? originalPath : 'docs/engineering/neighborhood/intake/' + originalPath;
+// Read/verify every object before replacing any installed file.
+const sources = [...runtime, ...support, ...evidence].map(originalPath => ({originalPath, bytes: read(originalPath)}));
+for (const file of windowImport.files) {
+  if (!file.installedPath.startsWith(windowRoot)) throw Error('Window source escaped its fixed snapshot');
+  const bytes = sources.find(source => source.originalPath === file.installedPath)?.bytes;
+  if (!bytes || bytes.length !== file.bytes || hash(bytes) !== file.sha256) throw Error('Window source bytes disagree with pinned evidence: ' + file.originalPath);
+}
+for (const {originalPath, bytes} of sources) {
+  const installedPath = runtime.includes(originalPath) || support.includes(originalPath) ? originalPath : 'docs/engineering/catalogue-block-two/intake/' + originalPath;
   fs.mkdirSync(path.dirname(installedPath), {recursive: true}); fs.writeFileSync(installedPath, bytes);
-  records.push({originalPath, installedPath, sourceCommit: ARTIST_COMMIT, bytes: bytes.length, sha256: hash(bytes), adaptations: []});
+  const upstream = windowImport.files.find(file => file.installedPath === originalPath);
+  records.push({originalPath, installedPath, sourceCommit: ARTIST_COMMIT, bytes: bytes.length, sha256: hash(bytes), adaptations: [],
+    ...(upstream ? {upstream: {repository: windowImport.repository, commit: NAUTILUS_COMMIT, originalPath: upstream.originalPath, role: upstream.role}} : {})});
 }
 const plans = Object.fromEntries(prefabs.map(file => { const plan = JSON.parse(read(file)); return [plan.id, plan]; }));
 const generated = 'src/content/housing-plans.js';
-const generatedBytes = Buffer.from('// Generated by tools/import-neighborhood.mjs from the three pinned original prefab records.\n' +
+const generatedBytes = Buffer.from('// Generated by tools/import-neighborhood.mjs from the six pinned original prefab records.\n' +
   `export const HOUSING_SOURCE_COMMIT = '${ARTIST_COMMIT}';\n` +
   'function freeze(value) { if (value && typeof value === \'object\') { Object.values(value).forEach(freeze); Object.freeze(value); } return value; }\n' +
   'export const HOUSING_PLANS = freeze(' + JSON.stringify(plans, null, 2) + ');\n');
@@ -50,13 +70,16 @@ const nativeManifest = {
 };
 fs.writeFileSync(`vendor/farmyard-commando/${FARMYARD_COMMIT}/provenance/native-units.json`, JSON.stringify(nativeManifest, null, 2) + '\n');
 const manifest = {
-  schemaVersion: 1, task: 'TB-014', sourceRepository: 'https://github.com/Syntaxswine/tinderbox.git', sourceCommit: ARTIST_COMMIT,
-  selectedPrefabs: Object.keys(plans), cataloguePolicy: 'Both original catalogues remain byte-identical; only the three selected prefabs are instantiated.',
+  schemaVersion: 1, task: 'TB-016', sourceRepository: 'https://github.com/Syntaxswine/tinderbox.git', sourceCommit: ARTIST_COMMIT,
+  previousSourceCommit: '14d18d7de667c7b83955150313347e198869f5ee',
+  revisionReason: 'Approved second block adds Hopkins 9, Hopkins 13 and Monroe; deliberately adopt the committed centered-window correction on Hopkins 13 and 15.',
+  windowSourceCommit: NAUTILUS_COMMIT, selectedPrefabs: Object.keys(plans), cataloguePolicy: 'Both original catalogues remain byte-identical; only the six selected prefabs are instantiated.',
   runtimeFiles: records.filter(file => runtime.includes(file.originalPath)), evidenceFiles: records.filter(file => evidence.includes(file.originalPath)),
+  supportFiles: records.filter(file => support.includes(file.originalPath)),
   derivedFiles: [{installedPath: generated, originalPaths: prefabs, sourceCommit: ARTIST_COMMIT, bytes: generatedBytes.length, sha256: hash(generatedBytes),
     adaptation: 'JavaScript serialization of the unchanged selected JSON records for the synchronous simulation; no changed plan values.'}],
   borrowedDependencies: ['src/art/resources.js', `vendor/farmyard-commando/${FARMYARD_COMMIT}/provenance/engine.json`],
   rightsStatus: 'Artist generation/source records retained. Source evidence and user-requested reuse do not constitute an independent license grant.'
 };
 fs.writeFileSync('assets/art/neighborhood-intake.json', JSON.stringify(manifest, null, 2) + '\n');
-console.log(`Installed ${runtime.length} runtime files, ${evidence.length} evidence records and ${Object.keys(plans).length} unchanged selected plan records from ${ARTIST_COMMIT}.`);
+console.log(`Installed ${runtime.length} runtime files, ${support.length} notices/source-chain records, ${evidence.length} evidence records and ${Object.keys(plans).length} unchanged selected plan records from ${ARTIST_COMMIT}.`);

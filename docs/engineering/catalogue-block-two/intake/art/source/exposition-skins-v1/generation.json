@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "mode": "built-in image_gen",
+  "createdOn": "2026-10-27",
+  "purpose": "Tinderbox fictionalized 1893 Exposition appearance set on existing Farmyard/AFT assets",
+  "sourcePin": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "projectionPolicy": "Original PAINT_FRAME, mesh and source validity mask remain unchanged; runtime cloth-only paint sampling preserves original animal identity.",
+  "assets": [
+    {
+      "id": "horse",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-5d8831ea-3cca-476f-a1b8-80f1b1f917b6.png",
+      "file": "assets/art/exposition-skins-v1/horse-exposition-worker-v1.png",
+      "prompt": "Use case: identity-preserve.\nAsset type: Tinderbox 1893 Exposition civilian horse projected model-paint sheet, an EDIT of the supplied exact sheet.\nEdit target: the supplied 1774 by 887 pixel four-view horse texture. Preserve its 2:1 canvas aspect, full edge-to-edge gray background, four equal-width front/right/back/left view cells, every character's exact size, pose, silhouette, position, camera and shading style. This is a functional texture, not a new character concept.\nChange ONLY the existing clothing colours and surface paint, consistently in all four views: bib overalls and their existing straps become dark faded indigo cotton duck with warm brown stitching and small worn brass buttons; rolled-sleeve shirt stays ivory linen with restrained weave; red neckcloth becomes a subdued dusty blue. Retain the existing cut of overalls, cuffs, chest pocket and rolled sleeves. Civilian fair labourer around 1893.\nKeep the chestnut fur, white blaze, dark mane, eyes, muzzle, hands and hooves exactly as in the source. Keep all seams and clothing boundaries aligned with the original. No new geometry-dependent garments, headgear, equipment, weapons, labels, text, watermark, borders, extra views, scenery or props. Gray background remains opaque and neutral, unchanged. Do not crop or reposition anything.",
+      "source": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png"
+    },
+    {
+      "id": "goat",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-2b134a36-17b5-452c-afd2-018ff2ef0543.png",
+      "file": "assets/art/exposition-skins-v1/goat-exposition-worker-v1.png",
+      "prompt": "Use case: identity-preserve.\nAsset type: Tinderbox 1893 Exposition civilian goat projected model-paint sheet, EDIT of the supplied exact sheet.\nEdit target: supplied 1774 by 887 pixel four-view goat texture. Preserve the exact 2:1 canvas, neutral opaque gray background, four equal-width front/right/back/left views, all character sizes, positions, silhouettes, poses, projection alignment and painted angular shading. A functional texture sheet, not a character redesign.\nChange ONLY the existing clothing paint in every view: rolled-sleeve shirt becomes pale faded powder-blue cotton; bib overalls, cuffs, chest pocket and existing straps become tobacco-brown cotton duck with restrained warm stitching and the same small brass buttons. The red neckcloth becomes muted burgundy. Keep all original garment cuts, seam positions and cloth boundaries unchanged. Civilian fair labourer around 1893.\nKeep ivory fur, beard, eyes, face, swept brown horns, ears and black hooves exactly as the source. No caps, hats, uniforms, equipment, weapons, extra clothes, new objects, text, labels, watermark, borders, scenery or extra views. Do not crop or reposition anything.",
+      "source": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png"
+    },
+    {
+      "id": "staff",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-f87a9443-d3ac-40c8-92a2-e3841f712b62.png",
+      "file": "assets/art/exposition-skins-v1/staff-ivory-v1.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE seamless square game diffuse/albedo texture, warm ivory staff plaster for Tinderbox's fictional 1893 Columbian Exposition architecture.\nPrimary request: a 1024 by 1024 edge-to-edge flat material swatch. Finely trowelled off-white plaster with sparse hairline wear, pale warm cream mineral variation, very restrained tiny imperfections and a little hand-painted planar texture. Read clean and luminous at an isometric game scale, not dirty ruined concrete. No bricks, windows, trim, objects, scenery, borders or text.\nComposition: perfectly orthographic, uniformly lit, no directional shadows, no perspective, no vignette, no baked highlights. Continuous material matching opposite edges, equally useful on walls and cornices. Painterly albedo rather than photograph. Very low contrast, ivory dominant. Opaque.",
+      "source": null
+    },
+    {
+      "id": "bay",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-1aaaadf0-e985-45e1-8d14-d9200715b169.png",
+      "file": "assets/art/exposition-skins-v1/staff-window-bay-v1.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE tileable facade-bay albedo texture for an existing low-poly wall mesh in Tinderbox, inspired by classical white staff buildings at the 1893 Chicago exposition.\nPrimary request: a flat, straight-on elevation texture of ONE story and ONE repeat bay, aspect ratio 5:4 (4m wide by 3.2m tall in game). Warm ivory plaster, two slender equally sized round-arched dark slate-blue glazed windows with simple cream arch surrounds and fine pale mullions. A quiet cream horizontal sill/string course near the bottom, restrained rectangular plaster panels between bays. At left and right leave plain matching ivory plaster margins; upper and lower edges match the same ivory so another story can repeat without stretched windows.\nStyle: hand-painted readable low-poly game surface, restrained muted colours, clean 1893 temporary classical exhibition facade, small wear. Flat orthographic texture only, all details painted in the plane, no roof, no cornice extending outside tile, no doors, no columns in perspective, no terrain or sky.\nLighting: neutral diffuse albedo, no cast shadows, no dramatic lighting, no reflections of scenery. These are closed glazed windows on solid wall geometry. Edge-to-edge texture, no text, captions, numbers, border, watermark or extra tiles.",
+      "source": null
+    },
+    {
+      "id": "timber",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-283a2d9d-3ab3-41d9-9917-96d486d9a148.png",
+      "file": "assets/art/exposition-skins-v1/timber-ochre-v1.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE seamless square game diffuse/albedo texture for 1893 exposition timber doors, siding and service structures.\nPrimary request: 1024 by 1024 flat edge-to-edge repeating weathered ochre-brown wood planks. Five or six straight vertical boards of even width, narrow dark joints, restrained warm amber endgrain strokes, old dark umber stain with subtle wear exposing tawny timber. Match Tinderbox's hand-painted angular material style; medium low contrast and readable from an isometric camera.\nNo door handle, hinges, locks, frame, nails arranged as a door, signs, text, borders, objects or scenery. Material only. Uniform neutral lighting, no cast shadows, no perspective, no vignette, no baked specular. Vertical grain and joints tile continuously both directions. Opaque.",
+      "source": null
+    },
+    {
+      "id": "brick",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-de0542e6-2936-4692-8691-c5793be967b3.png",
+      "file": "assets/art/exposition-skins-v1/brick-sienna-v1.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE seamless square diffuse/albedo game texture of late nineteenth-century brick for Tinderbox's exposition service buildings.\nPrimary request: edge-to-edge flat 1024 by 1024 repeating running-bond brickwork. Muted warm red-brown fired bricks, slightly irregular handmade surfaces, pale warm grey lime-mortar joints, restrained sienna and umber variation. Eight horizontal courses; each brick about twice as wide as tall, staggered half a brick. Hand-painted angular texture, medium-low contrast, readable at isometric game scale.\nUniform neutral lighting, no directional cast shadows or perspective, no vignette. Material only: no windows, doors, trim, signs, text, objects, borders, watermarks, plants, graffiti or severe damage. Opposite edges continue the bond seamlessly. Opaque.",
+      "source": null
+    },
+    {
+      "id": "roof",
+      "generatedPath": "C:/Users/baals/.codex/generated_images/01a17ea0-1362-7d13-a42d-f4a5fcff8902/exec-8d6b1063-672f-42eb-a2b0-3ff06c8751dc.png",
+      "file": "assets/art/exposition-skins-v1/roof-slate-v1.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE seamless square diffuse/albedo game texture of muted slate roofing for Tinderbox's fictional 1893 exposition.\nPrimary request: edge-to-edge flat 1024 by 1024 repeating small rectangular blue-grey slate roof tiles, straight horizontal staggered courses, subtle blue charcoal and desaturated green-grey variation. Clean restrained hand-painted angular surfaces with a few worn edges. About eight courses, no scallops. Low contrast so the silhouette and fire remain readable at isometric game scale.\nTop-down orthographic material swatch, uniformly lit diffuse albedo. No roof structure or ridge, no building, sky, perspective, dramatic lighting, cast shadows, baked specular, vignette, text, border, objects or watermark. Opposite edges continue seamlessly. Opaque.",
+      "source": null
+    }
+  ]
+}

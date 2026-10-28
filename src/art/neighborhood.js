@@ -1,6 +1,7 @@
 import {loadGrossHousing, createGrossHouse} from './gross-housing.js';
 import {HOPKINS_HOUSING_URL, createHopkinsHouse} from './hopkins-housing.js';
 import {removeTree} from './resources.js';
+import {HOUSING_PLANS} from '../content/housing-plans.js';
 
 // One six-texture owner serves both immutable source catalogues.
 export async function loadNeighborhoodKit(T, {renderer} = {}) {
@@ -10,8 +11,9 @@ export async function loadNeighborhoodKit(T, {renderer} = {}) {
     if (!response.ok) throw Error('Hopkins housing catalogue ' + response.status);
     const hopkins = await response.json();
     library.catalogue = {...library.catalogue, houses: [...library.catalogue.houses, ...hopkins.houses]};
-    for (const id of ['hopkins-4-12', 'hopkins-4-15', 'ashland-worker']) {
+    for (const id of Object.keys(HOUSING_PLANS)) {
       if (library.catalogue.houses.filter(house => house.id === id).length !== 1) throw Error('Missing or duplicate selected house: ' + id);
+      if (JSON.stringify(library.catalogue.houses.find(house => house.id === id)) !== JSON.stringify(HOUSING_PLANS[id])) throw Error('Catalogue/physics source identity mismatch: ' + id);
     }
     return library;
   } catch (error) { library.dispose(); throw error; }

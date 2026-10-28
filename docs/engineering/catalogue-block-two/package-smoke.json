@@ -1,0 +1,34 @@
+{
+  "task": "TB-016",
+  "purpose": "One-shot nested-path HTTP, actual loader and offline source-mesh package smoke; no WebGL",
+  "pid": 7304,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-10-28T19:31:14.941Z",
+  "port": 59851,
+  "sourceCommit": "56b028c2935b5a97fe259618f38e0a1550928ab4",
+  "resources": 36,
+  "loaderRequests": [
+    "/nested/tinderbox/assets/art/gross-housing-v1/houses.json",
+    "/nested/tinderbox/assets/art/gross-housing-v1/clapboard-ivory-v1.png",
+    "/nested/tinderbox/assets/art/gross-housing-v1/cedar-shingles-v1.png",
+    "/nested/tinderbox/assets/art/gross-housing-v1/floorboards-oak-v1.png",
+    "/nested/tinderbox/assets/art/gross-housing-v1/wallpaper-botanical-v1.png",
+    "/nested/tinderbox/assets/art/exposition-skins-v1/brick-sienna-v1.png",
+    "/nested/tinderbox/assets/art/exposition-skins-v1/roof-slate-v1.png",
+    "/nested/tinderbox/assets/art/hopkins-housing-v1/houses.json"
+  ],
+  "selectedPrefabs": [
+    "hopkins-4-12",
+    "hopkins-4-15",
+    "ashland-worker",
+    "hopkins-4-09",
+    "hopkins-4-13",
+    "monroe-row"
+  ],
+  "centeredWindows": 2,
+  "windowSourceCommit": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "rendered": false,
+  "passed": true,
+  "stoppedAt": "2026-10-28T19:31:15.357Z",
+  "serverClosed": true
+}

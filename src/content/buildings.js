@@ -4,8 +4,10 @@ import {HOUSING_PLANS, HOUSING_SOURCE_COMMIT} from './housing-plans.js';
 const finite = value => Number.isFinite(value);
 const EPS = 1e-8;
 // Coordinates follow the source prefab: X/Z on the ground, front toward -Z.
-// These three source foundations are rectangular, including the full low plinth
-// on the two Hopkins houses. No roof or upper-storey bounding box is used here.
+// Selected houses have a full rectangular source plinth or basement foundation.
+// In particular the Hopkins 9/13 low plinths fill the irregular room-plan bounds;
+// Monroe's projecting upper bay does not enlarge its ground basement rectangle.
+// The .09m exterior slab/wall rim allowance is the retained coarse envelope.
 export function localHousingFootprints(prefabId) {
   const plan = HOUSING_PLANS[prefabId];
   if (!Object.hasOwn(HOUSING_PLANS, prefabId)) throw Error('Unreviewed house prefab: ' + prefabId);
@@ -54,6 +56,7 @@ export function compileBuildings(instances = [], world) {
     obstacles.push(...footprints);
     buildings.push({...instance, collection: input.prefabId.startsWith('hopkins-') ? 'hopkins' : 'gross', label: plan.label,
       material: 'wood', meshScale: [1, 1, 1], sourceCommit: HOUSING_SOURCE_COMMIT, source: structuredClone(plan.source),
+      windowBays: plan.floors.flatMap((floor, level) => (floor.windowBays || []).map(bay => ({...structuredClone(bay), level}))),
       door: {width: ASSET_SCALE.doorWidth, height: ASSET_SCALE.doorHeight, state: 'closed', traversable: false},
       footprints: structuredClone(footprints), colliderIds: footprints.map(box => box.id)});
   }
