@@ -1,5 +1,7 @@
 # Eastlake UI with authoritative torch state
 
+> Palette follow-up: [warm ochre, burnt sienna and burnt umber](../ochre-palette/README.md). The JPGs in this record show candidate ba599f6 before that color pass.
+
 Branch: `codex/row-ignition-ui`. This correction builds on `35c9f85c0564eb301d2185f0d6b22ebcf10a9387` and restores the user's UI source from `997a12470b05c7cda1db675f667967a67ef97cbf`. The delivery message supplies the exact resulting commit. Architect review and promotion remain required.
 
 The previous handoff screenshot showed the old industrial control deck. This candidate replaces that presentation with the preserved wooden Eastlake panels, rosettes/rules, engraved paper buttons, local period-inspired type and newspaper menu. It carries the authoritative timed-torch update into that design. The prior row-ignition images describe the earlier candidate only.

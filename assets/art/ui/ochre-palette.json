@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "task": "User-directed warm ochre and sepia UI palette",
+  "baseCommit": "ba599f655ffb953238518a814666f7d274aee14e",
+  "direction": "Warm yellow ochre and parchment, with burnt sienna accents and burnt umber structure/ink. Retain the wooden Eastlake interface and engraved paper plates.",
+  "historicScope": "An original game color direction requested by the user, not a measured historical paint specification or an assertion that nineteenth-century scenes were monochrome.",
+  "colors": {
+    "parchment": {
+      "hex": "#f3dfb1",
+      "role": "Printed controls, menu paper and diagnostic input surfaces"
+    },
+    "yellowOchre": {
+      "hex": "#c39849",
+      "role": "Core hue and palette guide; warmer tonal variations in wood finish and plan"
+    },
+    "selectedOchre": {
+      "hex": "#d9b374",
+      "role": "Selected/lit paper plate"
+    },
+    "burntSienna": {
+      "hex": "#a65d39",
+      "role": "Accent family; restrained warm red-brown cues"
+    },
+    "burntUmber": {
+      "hex": "#593820",
+      "role": "Wood finish, boundaries, plan outlines and outer preview ground"
+    },
+    "umberInk": {
+      "hex": "#352314",
+      "role": "Paper text, loading screen ground and browser theme color"
+    },
+    "healthHoney": {
+      "hex": "#d5ab55",
+      "role": "Health fill; numerical HP remains visible"
+    },
+    "lowHealthSienna": {
+      "hex": "#cf7b48",
+      "role": "Low-health fill with existing numeric/state feedback"
+    },
+    "planBase": {
+      "hex": "#b69258",
+      "role": "Ground-plan empty/loading surface"
+    },
+    "fireCopper": {
+      "hex": "#d98747",
+      "role": "Ground-plan fire and key; dark umber outline preserves separation"
+    },
+    "disabledUmber": {
+      "hex": "#593820",
+      "role": "Readable inactive/empty/spent ink on parchment or a selected ochre plate"
+    }
+  },
+  "mapMaterials": {
+    "paving": "#d3ba87",
+    "grass": "#b39352",
+    "wood": "#996036",
+    "masonry": "#c7a97c",
+    "concrete": "#c7a97c",
+    "asphalt": "#795236",
+    "water": "#9a886b",
+    "unknown": "#ab8c5c"
+  },
+  "implementation": [
+    "src/ui/wood.css",
+    "src/ui/print.css",
+    "src/ui/styles.css",
+    "src/ui/map.js",
+    "src/app.css",
+    "index.html",
+    "workbenches/ui/workbench.css",
+    "workbenches/ui/review.html"
+  ],
+  "boundaries": [
+    "CSS color/tint layers preserve the pinned wood texture and engraving/font bytes.",
+    "No canvas-wide sepia filter or material/gameplay recoloring is applied.",
+    "The UI workbench uses warm illustrative ground only; the world art team can use this guide for its own palette pass.",
+    "Controls, button order, input, timers, snapshots and automatic-pickup requirement are unchanged."
+  ]
+}

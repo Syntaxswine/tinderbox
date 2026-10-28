@@ -1,5 +1,6 @@
 // Snapshot-only ground plan. Logical +x is right and +y is down, as in v1.
-const colors = {paving:'#8a927c', grass:'#64765a', wood:'#8c754c', masonry:'#95917c', concrete:'#95917c', asphalt:'#4b5650', water:'#64878a'};
+// Warm printed-plan palette; material identity and geometry remain authoritative.
+const colors = {paving:'#d3ba87', grass:'#b39352', wood:'#996036', masonry:'#c7a97c', concrete:'#c7a97c', asphalt:'#795236', water:'#9a886b'};
 const finitePoint = p => Number.isFinite(p?.x) && Number.isFinite(p?.y);
 export function mapView(snapshot) {
   const world = snapshot?.world, player = snapshot?.player;
@@ -7,7 +8,7 @@ export function mapView(snapshot) {
   const cellSize = Number.isFinite(world.fireCellSize) && world.fireCellSize > 0 ? world.fireCellSize : 0;
   return {
     width:world.width, height:world.height,
-    tiles:(world.tiles ?? []).filter(t => finitePoint(t) && t.size > 0).map(t => ({x:t.x-t.size/2,y:t.y-t.size/2,width:t.size,height:t.size,color:colors[t.material] ?? '#677365'})),
+    tiles:(world.tiles ?? []).filter(t => finitePoint(t) && t.size > 0).map(t => ({x:t.x-t.size/2,y:t.y-t.size/2,width:t.size,height:t.size,color:colors[t.material] ?? '#ab8c5c'})),
     obstacles:(world.obstacles ?? []).filter(o => finitePoint(o) && o.width > 0 && o.depth > 0 && !o.destroyed).map(o => ({x:o.x-o.width/2,y:o.y-o.depth/2,width:o.width,height:o.depth})),
     fire:(snapshot.cells ?? []).filter(c => cellSize > 0 && c.phase === 'burning' && finitePoint(c)).map(c => ({x:c.x-cellSize/2,y:c.y-cellSize/2,width:cellSize,height:cellSize})),
     player:{x:player.x,y:player.y,heading:Number.isFinite(player.heading) ? player.heading * 180 / Math.PI : 0},

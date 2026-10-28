@@ -1,17 +1,17 @@
-:root { color-scheme:dark; font-family:system-ui,sans-serif; background:#172126; color:#eee7cf; }
+:root { color-scheme:dark; font-family:system-ui,sans-serif; background:#352314; color:#f3dfb1; }
 * { box-sizing:border-box; }
 html,body { margin:0; width:100%; height:100%; overflow:hidden; }
 #game { position:relative; width:100%; height:100%; height:100dvh; isolation:isolate; }
 #viewport { position:absolute; inset:82px 0 224px; outline:none; }
 #viewport canvas { display:block; width:100%; height:100%; touch-action:none; }
 #hud { position:absolute; inset:0; pointer-events:none; }
-.field-help { position:absolute; top:76px; left:50%; transform:translateX(-50%); margin:0; width:max-content; max-width:95%; text-align:center; font-size:10px; letter-spacing:.6px; color:#b9c0b5; pointer-events:none; }
-.field-help span { padding:0 6px; color:#ed9b44; }
-#load-state { position:absolute; inset:0; z-index:20; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px; background:#172126; padding:25px; text-align:center; }
+.field-help { position:absolute; top:76px; left:50%; transform:translateX(-50%); margin:0; width:max-content; max-width:95%; text-align:center; font-size:10px; letter-spacing:.6px; color:#e8ca87; pointer-events:none; }
+.field-help span { padding:0 6px; color:#d2924a; }
+#load-state { position:absolute; inset:0; z-index:20; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px; background:#352314; padding:25px; text-align:center; }
 #load-state[hidden] { display:none; }
-#load-state strong { font-family:Georgia,serif; font-size:clamp(24px,7vw,48px); letter-spacing:5px; color:#ebbc6a; }
+#load-state strong { font-family:Georgia,serif; font-size:clamp(24px,7vw,48px); letter-spacing:5px; color:#e8bc68; }
 #load-state span { max-width:42em; line-height:1.6; }
-#load-state button { padding:12px 24px; border:1px solid #b9a16e; border-radius:3px; background:#453d2c; color:#fff1d5; font:inherit; cursor:pointer; }
+#load-state button { padding:12px 24px; border:1px solid #b78a4a; border-radius:3px; background:#78502b; color:#fff0cb; font:inherit; cursor:pointer; }
 @media(max-width:650px) {
   #viewport { inset:100px 0 324px; }
   .field-help { top:87px; font-size:8px; letter-spacing:0; }

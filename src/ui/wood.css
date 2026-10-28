@@ -1,6 +1,11 @@
 /* Wood material over Farmyard's component geometry. Vendor pixels stay untouched. */
 .tb-ui {
   --wood-grain:url('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/environment/hybrid-surfaces/wood-factory-v2.png');
+  --parchment:#f3dfb1;
+  --ochre:#c39849;
+  --sienna:#a65d39;
+  --umber:#593820;
+  --ink-dark:#352314;
   --legend-paint:#fff0d0;
 }
 .tb-ui .tb-wood-panel {
@@ -60,8 +65,8 @@
 .tb-ui .tb-stick {
   color:#ecd0a1;
   border:3px ridge #ab8050;
-  background-color:#2b1b12;
-  background-image:radial-gradient(circle,#160e09b3 0 48%,#3d28147a 50% 60%,#150b07ad 70%),var(--wood-grain);
+  background-color:#593820;
+  background-image:radial-gradient(circle,#422818cc 0 48%,#b1813970 50% 60%,#382011b8 70%),var(--wood-grain);
   background-size:auto,560px;
   background-position:center,42% 70%;
   box-shadow:inset 0 3px 12px #090402bf,0 3px 0 #160c07;
@@ -71,8 +76,8 @@
 .tb-ui .tb-stick-thumb {
   color:#fff0cd;
   border:3px ridge #d1aa71;
-  background-color:#76502b;
-  background-image:radial-gradient(circle at 32% 20%,#d7af6244,#26150988),var(--wood-grain);
+  background-color:#9b6b31;
+  background-image:radial-gradient(circle at 32% 20%,#e6b65b5c,#59301888),var(--wood-grain);
   background-size:auto,620px;
   background-position:center,42% 25%;
   box-shadow:0 5px 8px #100701b3,inset 0 1px 1px #e2bb73;
@@ -102,8 +107,8 @@
 .tb-ui .tb-wood-panel {
   border:5px solid #382316;
   border-radius:1px;
-  background-color:#21180f;
-  background-image:linear-gradient(#1d150dd1,#24180fd9),var(--wood-grain);
+  background-color:#593820;
+  background-image:linear-gradient(#6c431f99,#3f2414b8),var(--wood-grain);
   background-size:auto,560px;
   box-shadow:inset 0 0 0 1px #c3a17099,inset 0 0 0 3px #140c08,inset 0 0 0 4px #ab885255,0 4px 0 #130b07,0 8px 20px #08060499;
 }
@@ -125,7 +130,7 @@
   pointer-events:none;
 }
 .tb-ui .tb-console {
-  background-image:linear-gradient(#21160dc7,#24180fdc),var(--wood-grain);
+  background-image:linear-gradient(#6b401c9e,#422511b8),var(--wood-grain);
   background-size:auto,560px;
 }
 .tb-ui .industrial-switch { border-radius:1px; }
