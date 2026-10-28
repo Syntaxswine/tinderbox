@@ -3,6 +3,7 @@
 ## Established requirements
 
 - Isometric 3D presentation.
+- Phone-first layout using Farmyard Commando's central joystick, three buttons on either side, upper-right mini-map and left-side zoom controls. See the [phone layout handoff](engineering/phone-layout.md); its proposed action mapping preserves existing gameplay commands.
 - One anthropomorphic bear protagonist, with drug use and setting things on fire central to the premise.
 - Substantial reuse from Farmyard Commando: UI, art assets, and systems such as the flamethrower and explosive barrels.
 - Separate artist and coder worktrees, coordinated and reviewed by the architect before promotion.
@@ -47,4 +48,4 @@ A useful subsequent validation scene would put a bear, inherited UI, a flamethro
 
 ## Decisions still open
 
-The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, bear appearance, progression, precise balancing, and later interior gameplay remain open. Do not import the donor's turn/AP rules as Tinderbox requirements.
+The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Specific phone hardware/performance targets, bear appearance, progression, precise balancing, and later interior gameplay remain open. Do not import the donor's turn/AP rules as Tinderbox requirements.
