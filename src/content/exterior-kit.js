@@ -2,6 +2,10 @@ import {reusedWallParts} from '../reuse/walls.js';
 // TB-008: shared metre-based schema; walls come from the pinned Farmyard builder.
 // Original builder bytes and ancestry: provenance/city.json. Dimensions are adapted separately.
 export const KIT_VERSION = 1;
+// Game-scale presets, using the existing 3.2m frontage height per story.
+export const DEFAULT_STORY_HEIGHT = 3.2;
+export const WALL_STORY_OPTIONS = Object.freeze([1, 2, 3, 4, 5].map(stories =>
+  Object.freeze({stories, storyHeight: DEFAULT_STORY_HEIGHT, height: stories * DEFAULT_STORY_HEIGHT})));
 export const OPENING_CLEARANCE = Object.freeze({width: 1.4, height: 2.3});
 export const MODULE_FORMS = Object.freeze(['wall', 'doorway', 'pilaster', 'corner', 'roof-gable', 'roof-hip']);
 export const SKIN_IDS = Object.freeze(['inherited-plaster', 'inherited-brick', 'inherited-wood', 'inherited-cream', 'inherited-roof']);
@@ -26,6 +30,13 @@ export function compileModules(input = [], world) {
     const m = structuredClone(source);
     if (typeof m.id !== 'string' || !m.id || ids.has(m.id)) throw Error('Duplicate/invalid module ID'); ids.add(m.id);
     if (!MODULE_FORMS.includes(m.form)) throw Error('Unsupported module form: ' + m.form);
+    if (m.stories !== undefined || m.storyHeight !== undefined) {
+      if (m.form.startsWith('roof-') || !Number.isInteger(m.stories) || m.stories < 1 || m.stories > 5) throw Error('Wall stories must be an integer from 1 to 5');
+      m.storyHeight ??= DEFAULT_STORY_HEIGHT; positive(m.storyHeight, 'story height');
+      const height = m.stories * m.storyHeight; positive(height, 'height');
+      if (m.height !== undefined && (!Number.isFinite(m.height) || Math.abs(m.height - height) > 1e-8)) throw Error('Module height must equal stories * storyHeight');
+      m.height = height;
+    }
     for (const key of ['width', 'depth', 'height']) positive(m[key], key);
     if (![m.x, m.y, m.heading].every(Number.isFinite) || Math.abs(m.heading / (Math.PI / 2) - Math.round(m.heading / (Math.PI / 2))) > 1e-9) throw Error('Modules require finite positions and quarter-turn headings');
     m.heading = ((Math.round(m.heading / (Math.PI / 2)) % 4 + 4) % 4) * Math.PI / 2;

@@ -6,7 +6,7 @@ Wall construction now directly calls the unchanged pinned `hybrid-geometry.js::r
 
 ## Module data
 
-Entry: `src/content/exterior-kit.js`. Exports `compileModules(input,world)`, `KIT_VERSION`, `MODULE_FORMS`, `OPENING_CLEARANCE`, `SKIN_IDS`, `SKIN_SLOTS`, `CIVILIAN_PROFILES` and `validateCivilian(actor)`. Fixture: `src/content/exposition.js::EXPOSITION_SCENARIO`, selectable via `createSimulation({scenario:'exposition'})`. Existing street/chase/chain/tiny remain.
+Entry: `src/content/exterior-kit.js`. Exports `compileModules(input,world)`, `KIT_VERSION`, `MODULE_FORMS`, `DEFAULT_STORY_HEIGHT`, `WALL_STORY_OPTIONS`, `OPENING_CLEARANCE`, `SKIN_IDS`, `SKIN_SLOTS`, `CIVILIAN_PROFILES` and `validateCivilian(actor)`. Fixture: `src/content/exposition.js::EXPOSITION_SCENARIO`, selectable via `createSimulation({scenario:'exposition'})`. Existing street/chase/chain/tiny remain.
 
 `world.modules` is always an array. Module ground-centre `(x,y)` and all dimensions use metres; Three positions are `(x,h,y)`. `heading` is radians from +X toward +Y, restricted to multiples of pi/2 and normalized to 0,pi/2,pi,3pi/2. Positive heading rotates local +X toward ground +Y; art wrapper rotation is Three Y = -heading. Width is local X, depth local Y, height vertical. Do not globally scale characters to match architecture.
 
@@ -24,6 +24,10 @@ Entry: `src/content/exterior-kit.js`. Exports `compileModules(input,world)`, `KI
 ```
 
 Forms: `wall`, `doorway`, `pilaster`, `corner`, `roof-gable`, `roof-hip`. Corner adds `thickness`; roof adds `baseHeight` (>=2.3) and nonempty `supportModuleIds` naming existing solid modules. Roof height is its rise above baseHeight. Gable ridge runs along local X; hip uses the same bounding envelope with slopes on all four sides. Roofs are decorative overhead descriptors; this slice adds no roof walking, climbing, vertical fire or collapse simulation. Gable/hip are game primitives referencing EXPO-P02 plates53/97; their presence is not a claim about any specific 1893 building.
+
+Walls, doorways, pilasters and corners may opt into **one through five stories** with `stories:1|2|3|4|5`. `WALL_STORY_OPTIONS` exports the five frozen presets: 3.2, 6.4, 9.6, 12.8 and 16.0 metres, based on the existing 3.2 m game frontage. These are game dimensions, not historical measurements. Omit `height` to derive it from `stories * storyHeight`; `storyHeight` defaults to `DEFAULT_STORY_HEIGHT=3.2` and can be a positive researched/adapted dimension. When an explicit `height` is also supplied it must agree with that product. Counted modules retain `stories` and resolved `storyHeight` in snapshots so art can arrange floor bands, window rhythms and a top cornice without stretching one-story ornament. Story metadata is for vertical wall forms; roof height remains its rise and roof `baseHeight` should follow its supporting facade height. Existing arbitrary-height modules without story metadata retain their original geometry and snapshot shape.
+
+Every option uses the same unchanged donor builder and the same number/IDs of wall parts. The opening stays ground-level at its supplied clearance: increasing the facade does not stretch the door leaf or scale any character. Upper-story facade details consume the height/metadata as appearance; this count adds no navigable floors or vertical fire model. Ground footprints and physical material remain authoritative, and skin changes remain cosmetic. See [story-option verification](wall-stories.md).
 
 A resolved `parts[]` entry is `{id,moduleId,role,x,y,h,width,depth,height,material,skinSlot,solid,blocksHeat,destroyed}`. Its coordinates and extents are already rotated to world axes; use them directly for rectangular wall/piers/lintel/closed leaf/pilaster/corner pieces. Do not rotate those resolved parts a second time. Roof envelopes are guides for the artist's roof mesh; use source module local dimensions/heading for slopes. Non-solid `roof-envelope` is never a filled gameplay obstruction.
 
