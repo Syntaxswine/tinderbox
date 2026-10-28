@@ -1,5 +1,5 @@
 /* Original newspaper / engraved-sign skin. Native Farmyard control geometry stays in place. */
-.tb-ui { --print-ink:#30251b; --print-paper:#f0e3c1; }
+.tb-ui { --print-ink:var(--ink-dark); --print-paper:var(--parchment); }
 .tb-ui .industrial-switch .switch-legend {
   color:var(--print-ink); --legend-paint:var(--print-ink); --legend-light:none;
   background:var(--print-paper); text-shadow:none; filter:none;
@@ -7,16 +7,16 @@
 }
 .tb-ui .industrial-switch[aria-pressed=true] .switch-legend,
 .tb-ui .industrial-switch[data-lit=true] .switch-legend {
-  background:#e2c796; box-shadow:inset 0 0 0 1px #59391e,inset 0 -2px 0 #59391e;
+  background:#d9b374; box-shadow:inset 0 0 0 1px #59391e,inset 0 -2px 0 #59391e;
 }
-.tb-ui .industrial-switch:disabled .switch-legend { color:#715f49; }
+.tb-ui .industrial-switch:disabled .switch-legend { color:var(--umber); }
 .tb-ui .tb-controls .industrial-switch[data-empty=true] .switch-cost,
-.tb-ui .tb-picker .industrial-switch[data-empty=true] .switch-cost { color:#73381e; }
+.tb-ui .tb-picker .industrial-switch[data-empty=true] .switch-cost { color:var(--umber); }
 .tb-ui .tb-zoom .switch-glyph { width:32px; height:32px; padding:4px; color:var(--print-ink); background:var(--print-paper); }
 .tb-ui .tb-zoom button:disabled .switch-glyph { opacity:.5; }
 .tb-ui .tb-controls kbd { display:none; }
 .tb-ui .tb-menu,.tb-ui .tb-picker {
-  --ink:#30251b; --muted:#685039; --paper:#f0e3c1;
+  --ink:var(--ink-dark); --muted:#68472a; --paper:var(--parchment);
   color:var(--ink); color-scheme:light; text-shadow:none;
   border:10px solid #4b301c;
   background-color:var(--paper);
@@ -37,7 +37,7 @@
 .tb-ui .tb-menu .tb-menu-button {
   min-height:72px; margin-top:8px; padding:8px 10px; gap:14px;
   border:1px solid #7a6040; border-bottom-width:2px; border-radius:0;
-  color:var(--ink); background:transparent; box-shadow:inset 0 0 0 2px #f0e3c1,inset 0 0 0 3px #7a604044;
+  color:var(--ink); background:transparent; box-shadow:inset 0 0 0 2px var(--parchment),inset 0 0 0 3px #7a604044;
   text-shadow:none; font:700 13px/1.3 var(--label)!important;
 }
 .tb-ui .tb-menu .tb-menu-button>.switch-glyph { width:60px; height:60px; }
@@ -114,8 +114,8 @@
 .tb-ui .tb-etch-fallback { display:none; }
 .tb-ui .tb-engraved-image { overflow:hidden; }
 .tb-ui :is(.tb-menu,.tb-picker,.tb-controls,.tb-zoom) .switch-glyph { mix-blend-mode:multiply; }
-.tb-ui .tb-stick-thumb .switch-glyph { mix-blend-mode:normal; background:#f0e3c1; border-radius:50%; padding:1px; }
-.tb-ui .tb-selected .switch-glyph { background:#f0e3c1; }
+.tb-ui .tb-stick-thumb .switch-glyph { mix-blend-mode:normal; background:var(--parchment); border-radius:50%; padding:1px; }
+.tb-ui .tb-selected .switch-glyph { background:var(--parchment); }
 @media(forced-colors:active) {
   .tb-ui .tb-engraved-image { display:none; }
   .tb-ui .tb-etch-fallback { display:block; }

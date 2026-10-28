@@ -1,0 +1,836 @@
+{
+  "branch": "codex/row-ignition-ui",
+  "base": "ba599f655ffb953238518a814666f7d274aee14e",
+  "fonts": {
+    "files": 9,
+    "command": "node workbenches/ui/check-typography.mjs",
+    "notices": 2,
+    "status": "pass"
+  },
+  "date": "2026-10-28",
+  "task": "Warm ochre, burnt sienna and burnt umber UI palette",
+  "contrastAndAssets": {
+    "method": "sRGB relative luminance for opaque solid color pairs; textured/tinted surfaces reviewed in browser, not a complete accessibility certification.",
+    "pairs": [
+      {
+        "role": "Paper labels",
+        "foreground": "#352314",
+        "background": "#f3dfb1",
+        "minimum": 4.5,
+        "ratio": 11.41
+      },
+      {
+        "role": "Selected plate",
+        "foreground": "#352314",
+        "background": "#d9b374",
+        "minimum": 4.5,
+        "ratio": 7.6
+      },
+      {
+        "role": "Inactive/spent selected plate",
+        "foreground": "#593820",
+        "background": "#d9b374",
+        "minimum": 4.5,
+        "ratio": 5.3
+      },
+      {
+        "role": "Menu secondary text",
+        "foreground": "#68472a",
+        "background": "#f3dfb1",
+        "minimum": 4.5,
+        "ratio": 6.34
+      },
+      {
+        "role": "Workbench labels at darkest backdrop edge",
+        "foreground": "#352314",
+        "background": "#b28b54",
+        "minimum": 4.5,
+        "ratio": 4.79
+      },
+      {
+        "role": "Health fill / track",
+        "foreground": "#d5ab55",
+        "background": "#1c120c",
+        "minimum": 3,
+        "ratio": 8.57
+      },
+      {
+        "role": "Low-health fill / track",
+        "foreground": "#cf7b48",
+        "background": "#1c120c",
+        "minimum": 3,
+        "ratio": 5.77
+      },
+      {
+        "role": "Loading help",
+        "foreground": "#e8ca87",
+        "background": "#352314",
+        "minimum": 4.5,
+        "ratio": 9.44
+      },
+      {
+        "role": "Zoom legend",
+        "foreground": "#352314",
+        "background": "#f3dfb1",
+        "minimum": 4.5,
+        "ratio": 11.41
+      }
+    ],
+    "sourceAssets": [
+      {
+        "path": "assets/art/ui/engraved-atlas.png",
+        "bytes": 1994109,
+        "sha256": "e1be50ce8a5afc92e535730d24ac9ad19ac416119275cb345eafe4c8cfe6502a",
+        "unchanged": true
+      },
+      {
+        "path": "assets/art/ui/engraved-oil-lantern.png",
+        "bytes": 1063533,
+        "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
+        "unchanged": true
+      },
+      {
+        "path": "assets/art/ui/engraved-oil-barrel.png",
+        "bytes": 2227597,
+        "sha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4",
+        "unchanged": true
+      }
+    ]
+  },
+  "images": [
+    {
+      "bytes": 83662,
+      "path": "evidence/desktop-low-health.jpg",
+      "sha256": "861827a2a33b2fb88c746460cf3bd2eb5b3fe0eb173577fa7c10c8b65e66ac7c"
+    },
+    {
+      "bytes": 34210,
+      "path": "evidence/phone-menu.jpg",
+      "sha256": "fe449fb2915afa565c21189a3de59c094ff709545920777ecea497558fdddeed"
+    },
+    {
+      "bytes": 49350,
+      "path": "evidence/phone-ochre.jpg",
+      "sha256": "b87aec24779a2fbc1dcc7297fba5535b9c397db7dd173d3a1bf8ebe85397077d"
+    },
+    {
+      "bytes": 49440,
+      "path": "evidence/phone-spent.jpg",
+      "sha256": "e5344fd41e6e9a0ce5024df7edc6a1896cac8add59ae1c8fa43ba60349101dad"
+    }
+  ],
+  "release": {
+    "files": 155,
+    "command": "node tools/check-release.mjs",
+    "status": "pass"
+  },
+  "limitations": [
+    "Fixed UI workbench omits world and character art.",
+    "World-art palette adoption remains with artist/coder.",
+    "Combined gameplay/WebGL and physical-handset acceptance remain pending."
+  ],
+  "helper": {
+    "creationFiletime": "134377032935997264",
+    "port": 4552,
+    "pid": 46180,
+    "expiresAt": "2026-10-28T19:51:33.6304571-04:00",
+    "registered": true,
+    "cleanup": "Stopped and verified; exact-identity stop_file receipt in artifacts/ochre-palette/helper/cleanup-receipt.json",
+    "originalExited": true,
+    "portReleased": true,
+    "retained": false,
+    "preservedFiles": 79
+  },
+  "node": {
+    "ownScripts": 86,
+    "tests": 92,
+    "command": "node tools/check.mjs",
+    "staticModules": 110,
+    "status": "pass",
+    "artImports": 5,
+    "artDependencyChecks": 25
+  },
+  "build": {
+    "bytes": 49145474,
+    "files": 155,
+    "manifestSha256": "3b948397b998956c3d038f001618d01dd1663166787c61ec09e11837a919aaca",
+    "command": "node tools/build.mjs",
+    "status": "pass"
+  },
+  "browser": {
+    "lowHealthAudit": {
+      "fill": "rgb(207, 123, 72)",
+      "health": "21 / 100",
+      "track": "rgb(28, 18, 12)"
+    },
+    "userMuseumTabPreserved": true,
+    "logs": [],
+    "viewportReset": true,
+    "menuAudit": {
+      "ink": "rgb(53, 35, 20)",
+      "paper": "rgb(243, 223, 177)"
+    },
+    "ownedTabClosed": true,
+    "spentAudit": {
+      "disabled": true,
+      "fixture": "torch-spent",
+      "ink": "rgb(89, 56, 32)",
+      "label": "Spent — Torch. spent",
+      "paper": "rgb(217, 179, 116)",
+      "text": "0.0s"
+    },
+    "reports": [
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower send one edge until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          },
+          {
+            "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+            "status": "pass"
+          },
+          {
+            "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+            "status": "pass"
+          },
+          {
+            "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+            "status": "pass"
+          },
+          {
+            "name": "Switching away and back preserves aged torch state without relighting",
+            "status": "pass"
+          },
+          {
+            "name": "Spent transition releases held input and repeats cannot relight it",
+            "status": "pass"
+          },
+          {
+            "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+            "status": "pass"
+          },
+          {
+            "name": "Initial old events are not announced and tool feedback stays with its tool",
+            "status": "pass"
+          },
+          {
+            "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower send one edge until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          },
+          {
+            "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+            "status": "pass"
+          },
+          {
+            "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+            "status": "pass"
+          },
+          {
+            "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+            "status": "pass"
+          },
+          {
+            "name": "Switching away and back preserves aged torch state without relighting",
+            "status": "pass"
+          },
+          {
+            "name": "Spent transition releases held input and repeats cannot relight it",
+            "status": "pass"
+          },
+          {
+            "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+            "status": "pass"
+          },
+          {
+            "name": "Initial old events are not announced and tool feedback stays with its tool",
+            "status": "pass"
+          },
+          {
+            "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower send one edge until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          },
+          {
+            "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+            "status": "pass"
+          },
+          {
+            "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+            "status": "pass"
+          },
+          {
+            "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+            "status": "pass"
+          },
+          {
+            "name": "Switching away and back preserves aged torch state without relighting",
+            "status": "pass"
+          },
+          {
+            "name": "Spent transition releases held input and repeats cannot relight it",
+            "status": "pass"
+          },
+          {
+            "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+            "status": "pass"
+          },
+          {
+            "name": "Initial old events are not announced and tool feedback stays with its tool",
+            "status": "pass"
+          },
+          {
+            "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "results": [
+          {
+            "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+            "status": "pass"
+          },
+          {
+            "name": "Each direct click selects its own tool then sends exactly one press and release",
+            "status": "pass"
+          },
+          {
+            "name": "Selection and stock remain authoritative until snapshots arrive",
+            "status": "pass"
+          },
+          {
+            "name": "An empty selected tool does not block a different tool that has stock",
+            "status": "pass"
+          },
+          {
+            "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+            "status": "pass"
+          },
+          {
+            "name": "Torch and flamethrower send one edge until the matching pointer releases",
+            "status": "pass"
+          },
+          {
+            "name": "Independent joystick and action pointers preserve held movement",
+            "status": "pass"
+          },
+          {
+            "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+            "status": "pass"
+          },
+          {
+            "name": "Q E R and increased drug stock emit no manual consumption command",
+            "status": "pass"
+          },
+          {
+            "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+            "status": "pass"
+          },
+          {
+            "name": "Space and Enter on a tool suppress repeat and release their own action",
+            "status": "pass"
+          },
+          {
+            "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+            "status": "pass"
+          },
+          {
+            "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+            "status": "pass"
+          },
+          {
+            "name": "Switching by number releases an old held action and leaves the joystick active",
+            "status": "pass"
+          },
+          {
+            "name": "Pointer cancellation and lost capture clear movement and held tools",
+            "status": "pass"
+          },
+          {
+            "name": "Blur and hidden document neutralize input with no stale release",
+            "status": "pass"
+          },
+          {
+            "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+            "status": "pass"
+          },
+          {
+            "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+            "status": "pass"
+          },
+          {
+            "name": "Options trap focus and Escape returns without triggering tools",
+            "status": "pass"
+          },
+          {
+            "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+            "status": "pass"
+          },
+          {
+            "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+            "status": "pass"
+          },
+          {
+            "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+            "status": "pass"
+          },
+          {
+            "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+            "status": "pass"
+          },
+          {
+            "name": "Map heading/fire updates independently and loading state exposes no active controls",
+            "status": "pass"
+          },
+          {
+            "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+            "status": "pass"
+          },
+          {
+            "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+            "status": "pass"
+          },
+          {
+            "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+            "status": "pass"
+          },
+          {
+            "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+            "status": "pass"
+          },
+          {
+            "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+            "status": "pass"
+          },
+          {
+            "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+            "status": "pass"
+          },
+          {
+            "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+            "status": "pass"
+          },
+          {
+            "name": "Switching away and back preserves aged torch state without relighting",
+            "status": "pass"
+          },
+          {
+            "name": "Spent transition releases held input and repeats cannot relight it",
+            "status": "pass"
+          },
+          {
+            "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+            "status": "pass"
+          },
+          {
+            "name": "Initial old events are not announced and tool feedback stays with its tool",
+            "status": "pass"
+          },
+          {
+            "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+            "status": "pass"
+          }
+        ],
+        "status": "passed"
+      }
+    ]
+  },
+  "hosted": {
+    "files": 153,
+    "qaExcluded": true,
+    "command": "node tools/check-site.mjs http://127.0.0.1:4552/nested/ochre-ui/dist/",
+    "moduleMime": true,
+    "status": "pass"
+  }
+}
