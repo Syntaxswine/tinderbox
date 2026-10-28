@@ -1,0 +1,143 @@
+{
+  "task": "User-requested wooden UI",
+  "integrationBase": "8a8405681614662a92f9b98fb9b9600bd06d3ad1",
+  "candidateBranch": "codex/ui-design",
+  "node": {
+    "command": "node tools/check.mjs",
+    "passed": 56,
+    "failed": 0,
+    "ownScripts": 60,
+    "staticModules": 67,
+    "provenance": "All existing raw import bytes pass; one shared Three pair."
+  },
+  "browser": [
+    {
+      "viewport": {
+        "height": 800,
+        "width": 1280
+      },
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "height": 568,
+        "width": 320
+      },
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "height": 390,
+        "width": 844
+      },
+      "passed": 18,
+      "failed": 0
+    }
+  ],
+  "combined": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "passed": 11,
+      "failed": 0
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "passed": 11,
+      "failed": 0
+    }
+  ],
+  "nativeInput": {
+    "pointer": {
+      "commands": [
+        "9 {\"type\":\"move\",\"x\":0,\"y\":0}",
+        "8 {\"type\":\"move\",\"x\":0.7071067811865475,\"y\":0.7071067811865475}",
+        "7 {\"type\":\"move\",\"x\":0.7151872024010242,\"y\":0.6989329478010008}",
+        "6 {\"type\":\"move\",\"x\":0.7071067811865475,\"y\":0.7071067811865475}",
+        "5 {\"type\":\"move\",\"x\":0.5837359098228664,\"y\":0.5837359098228664}",
+        "4 {\"type\":\"move\",\"x\":0.4428341384863124,\"y\":0.4428341384863124}",
+        "3 {\"type\":\"move\",\"x\":0.30193236714975846,\"y\":0.28180354267310787}",
+        "2 {\"type\":\"move\",\"x\":0.14090177133655393,\"y\":0.14090177133655393}"
+      ],
+      "inversion": true,
+      "powder": true,
+      "primary": "STOP",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    "keyboard": {
+      "commands": [
+        "13 {\"type\":\"primary\",\"pressed\":false}",
+        "12 {\"type\":\"primary\",\"pressed\":true}",
+        "11 {\"type\":\"move\",\"x\":0,\"y\":0}",
+        "10 {\"type\":\"move\",\"x\":0,\"y\":1}",
+        "9 {\"type\":\"move\",\"x\":0,\"y\":0}",
+        "8 {\"type\":\"move\",\"x\":0.7071067811865475,\"y\":0.7071067811865475}",
+        "7 {\"type\":\"move\",\"x\":0.7151872024010242,\"y\":0.6989329478010008}",
+        "6 {\"type\":\"move\",\"x\":0.7071067811865475,\"y\":0.7071067811865475}"
+      ],
+      "primary": "POUR"
+    }
+  },
+  "production": {
+    "packagedFiles": 75,
+    "hostedNonHiddenFiles": 73,
+    "checks": [
+      "node tools/build.mjs",
+      "node tools/check-release.mjs",
+      "node tools/check-site.mjs http://127.0.0.1:4552/nested/ui-review/dist/"
+    ],
+    "results": "All packaged hashes, relative URLs and hosted bytes/MIME pass; QA workbench absent from package.",
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "evidence": [
+    {
+      "path": "docs/ui/wood/evidence/desktop-game.jpg",
+      "bytes": 77638,
+      "sha256": "efacc64e9655733028e7858debaf6761d79db67d1f6c5badb37ded6954315dd2"
+    },
+    {
+      "path": "docs/ui/wood/evidence/phone-game.jpg",
+      "bytes": 49137,
+      "sha256": "933b29b956626316e058031090f926e497d407348a0150f2d7375823967a5f87"
+    },
+    {
+      "path": "docs/ui/wood/evidence/phone-pause.jpg",
+      "bytes": 33680,
+      "sha256": "6270ba6f2008085de5b91988d41c4838fd151a582429a2c8fe3f506b1cc39849"
+    },
+    {
+      "path": "docs/ui/wood/evidence/phone-pouring-inverted.jpg",
+      "bytes": 57146,
+      "sha256": "999d70a7b12624031e4a4c312e60ff1f29ed3b2bd3415cdf13a76a347610a186"
+    },
+    {
+      "path": "docs/ui/wood/evidence/farmyard-reference-phone.jpg",
+      "bytes": 17022,
+      "sha256": "30d0c7ef89810428e0b53c7a63c463e9d31b9c53746bfd515e0aaeb9564d8bc5"
+    }
+  ],
+  "limitations": [
+    "Browser viewport review on this Windows host; physical phone and external assistive-technology review remain unperformed.",
+    "Game-designed timber skin; no claim of a historically reconstructed 1893 interface.",
+    "Inherited rights status is retained in the existing source manifests."
+  ]
+}

@@ -65,6 +65,7 @@ try {
   $imports = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
   $sourceFiles += $manifestPath
   $sourceFiles += @($imports.files | ForEach-Object { Join-Path $uiRoot $_.installedPath })
+  $sourceFiles += @($imports.sharedAssets | ForEach-Object { Join-Path $uiRoot $_.installedPath })
   $spec = @{pid=$uiProcess.Id;kind='task_owned';purpose='TB-006 temporary loopback UI workbench review';ownershipEvidence='Launched hidden by preview.ps1; exact PID/start/executable in identity.json';owners=@($OwnerThreadId);state='stateless';sourceFiles=$sourceFiles;ports=@($Port);expiresAt=$info.expiresAt;helperDirectory=$helperDirectory;stop=@{method='stop_file';path=$stopPath};restart=@{cwd=$uiRoot;executable=$nodeExecutable;args=@('workbenches/ui/serve.mjs');dependencies=@("$nodeVersion; no packages");inputs=@('UI sources, fixture snapshots and provenance/ui.json closure');outputs=@('artifacts/ui-preview','artifacts/ui-review');pendingWork='UI review only. Stop immediately when finished. Deliberate restarts must run preview.ps1 and register the new lifetime.';secretReferences=@();environment=@{TINDERBOX_UI_OWNER=$OwnerThreadId;TINDERBOX_UI_PORT=$Port;TINDERBOX_UI_MINUTES=$Minutes}}}
   $specPath = Join-Path $helperDirectory 'register.json'
   $spec | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $specPath -Encoding utf8

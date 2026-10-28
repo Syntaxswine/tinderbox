@@ -1,0 +1,48 @@
+/*
+ * Farmyard Commando live controls, adapted from the approved source pin:
+ * 30a3b8cae5f36bb0c1df3685b7fba16f701c2083
+ * sites/tactical-animal/dist/{game.html,touch-controls.css,field-hardware.css}.
+ * Keep the actual thumb-layout / left-controls / stick-column / right-controls
+ * composition and 155/112/65px well/ring/knob. Scoped classes replace global IDs
+ * so multiple Tinderbox mounts remain independent. Material lives in wood.css.
+ */
+.tb-ui .thumb-layout { display:grid; grid-template-columns:68px minmax(0,1fr) 78px; align-items:end; gap:10px; }
+.tb-ui .left-controls { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.tb-ui .right-controls { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.tb-ui .stick-column { display:flex; flex-direction:column; align-items:center; position:relative; }
+.tb-stick { width:155px; height:155px; border:1px solid; border-radius:34%; position:relative; padding:0; touch-action:none; user-select:none; -webkit-tap-highlight-color:transparent; }
+.tb-stick-ring { position:absolute; width:112px; height:112px; border:1px solid; border-radius:50%; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:none; }
+.tb-stick-ring::before,.tb-stick-ring::after { content:''; position:absolute; top:50%; left:0; width:100%; height:1px; background:currentColor; opacity:.2; }
+.tb-stick-ring::after { transform:rotate(90deg); }
+.tb-stick-n { position:absolute; top:10px; left:50%; transform:translateX(-50%); font-size:8px; pointer-events:none; }
+.tb-stick-thumb { position:absolute; left:calc(50% - 32.5px); top:calc(50% - 32.5px); width:65px; height:65px; border:1px solid; border-radius:50%; display:grid; place-items:center; transform:translate(calc(var(--stick-x,0) * 34px),calc(var(--stick-y,0) * 34px)); pointer-events:none; transition:transform 60ms linear; }
+.tb-stick-thumb .switch-glyph { width:28px; height:28px; fill:currentColor; }
+.tb-stick-caption { text-align:center; margin-top:8px; font-size:9px; letter-spacing:3px; }
+.tb-stick-caption>span { display:block; font-size:8px; letter-spacing:0; margin-top:4px; }
+.tb-ui .square-control { --switch-size:58px; }
+.tb-ui .square-control .switch-legend { inset:7px 5px; grid-template-rows:22px 11px 10px; }
+.tb-ui .square-control .switch-glyph { width:22px; height:22px; }
+.tb-ui .square-control .switch-label { font:700 9px/11px var(--mono); }
+.tb-ui .square-control .switch-cost { font:700 9px/10px var(--mono); }
+@media(min-width:800px) {
+  .tb-ui .thumb-layout { grid-template-columns:95px minmax(0,1fr) 85px; }
+  .tb-stick { width:160px; height:160px; }
+}
+@media(max-width:380px) {
+  .tb-ui .thumb-layout { grid-template-columns:58px minmax(0,1fr) 66px; gap:7px; }
+  .tb-stick { width:138px; height:138px; }
+  .tb-stick-ring { width:100px; height:100px; }
+  .tb-stick-thumb { width:59px; height:59px; left:calc(50% - 29.5px); top:calc(50% - 29.5px); }
+}
+@media(max-height:580px) and (min-width:600px) {
+  .tb-ui .thumb-layout { grid-template-columns:150px minmax(0,1fr) 135px; align-items:center; }
+  .tb-ui .left-controls,.tb-ui .right-controls { flex-direction:row; gap:6px; }
+  .tb-stick { width:92px; height:92px; border-radius:50%; }
+  .tb-stick-ring { width:76px; height:76px; }
+  .tb-stick-thumb { width:44px; height:44px; left:calc(50% - 22px); top:calc(50% - 22px); transform:translate(calc(var(--stick-x,0) * 22px),calc(var(--stick-y,0) * 22px)); }
+  .tb-stick-caption { display:none; }
+  .tb-ui .square-control { --switch-size:46px; }
+  .tb-ui .square-control .switch-legend { inset:4px; grid-template-rows:18px 9px 9px; }
+  .tb-ui .square-control .switch-glyph { width:18px; height:18px; }
+  .tb-ui .square-control .switch-label,.tb-ui .square-control .switch-cost { font-size:8px; line-height:9px; }
+}

@@ -21,7 +21,7 @@ npm run serve -- --root dist --port 4550 --ttl 1800
 
 Open `http://127.0.0.1:4550/`. The loopback preview expires after 30 minutes; stop it immediately when finished. Agents must register retained previews under the user's helper policy.
 
-Move with WASD/arrows or the joystick. Point or tap the ground to aim. Select tools with 1–5; use Space or the red action button. Jerry-can pouring toggles on a press and continues while moving. Torch and flamethrower require holding the action. Q uses powder, E heals, R reverses the movement stick; Esc/P opens pause, options and reset.
+Move with WASD/arrows or the joystick. Point or tap the ground to aim. Select tools with 1–5; use Space or the action button. Jerry-can pouring toggles on a press and continues while moving. Torch and flamethrower require holding the action. Q uses powder, E heals, R reverses the movement stick; Esc/P opens pause, options and reset.
 
 For the reproducible browser acceptance page, serve the source root and open `/workbenches/integration/`. It runs the actual simulation, art and UI together. Workbenches and evidence are excluded from the public build.
 

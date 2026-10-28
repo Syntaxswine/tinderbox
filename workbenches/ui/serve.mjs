@@ -11,7 +11,8 @@ fs.mkdirSync(helperDirectory, {recursive: true});
 const stopFile = path.join(helperDirectory, 'STOP');
 if (fs.existsSync(stopFile)) throw Error('An existing STOP marker is present. Review the prior helper before restarting.');
 const vendor = 'vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/';
-const allowed = name => ['src/ui/', 'assets/art/ui/', 'workbenches/ui/', 'tests/ui/', vendor + 'assets/ui/'].some(prefix => name.startsWith(prefix)) || [vendor + 'industrial-switches.css', vendor + 'map-frame.css'].includes(name);
+const woodTexture = vendor + 'aft/assets/environment/hybrid-surfaces/wood-factory-v2.png';
+const allowed = name => ['src/ui/', 'assets/art/ui/', 'workbenches/ui/', 'tests/ui/', vendor + 'assets/ui/'].some(prefix => name.startsWith(prefix)) || [vendor + 'industrial-switches.css', vendor + 'map-frame.css', woodTexture].includes(name);
 const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png'};
 const server = http.createServer((request, response) => {
   try {
