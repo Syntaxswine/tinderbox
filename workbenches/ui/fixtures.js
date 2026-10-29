@@ -74,3 +74,30 @@ export function createFakeSnapshotAdapter({onSnapshot, onCommand = () => {}}) {
     }
   };
 }
+
+
+// App-owned examples for the existing UI workbench; these never load a scene.
+export const PLACE_FIXTURES=Object.freeze([
+  {id:'catalogue-street',title:'Catalogue Street',description:'Return to the wooden-house street, with matches, oil and a trail of fire.',previewUrl:''},
+  {id:'new-york',title:'New York State Building',description:'Explore the grounds, halls and connected upper rooms of the New York pavilion.',previewUrl:new URL('../../assets/art/place-previews/new-york.jpg',import.meta.url).href},
+  {id:'administration',title:'Administration Building',description:'Walk through the rotunda, pavilion rooms and connected galleries.',previewUrl:new URL('../../assets/art/place-previews/administration.jpg',import.meta.url).href},
+  {id:'horticulture',title:'Horticultural Building',description:'Visit the waterfront, glass halls and upper galleries of the Horticultural Building.',previewUrl:new URL('../../assets/art/place-previews/horticulture.jpg',import.meta.url).href}
+].map(Object.freeze));
+
+export const CHARACTER_FIXTURES=Object.freeze([
+  {id:'goat',title:'Goat',description:'Visit the exposition as a goat.'},
+  {id:'horse',title:'Horse',description:'Visit the exposition as a horse.'},
+  {id:'bear',title:'Bear',description:'Visit the exposition as the current bear.'}
+].map(Object.freeze));
+
+export function explorationFixture(name='entrance',characterId='goat'){
+  const value=fixture('ready');
+  value.player.characterId=characterId;
+  value.player.locationLabel=name==='gallery'?'Upper gallery':name==='stairs'?'Main stair':'Entrance hall';
+  value.player.level=name==='gallery'?3:1;
+  value.player.elevation=name==='gallery'?6.36:name==='stairs'?3.18:2.12;
+  value.player.interaction=name==='door'?{label:'Open door',enabled:true}:undefined;
+  delete value.player.inventory;delete value.player.hp;delete value.player.maxHp;delete value.player.tool;delete value.player.torch;
+  value.events=[];value.cells=[];
+  return value;
+}

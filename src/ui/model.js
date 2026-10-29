@@ -80,7 +80,7 @@ export function viewOf(snapshot) {
   const pouring = Boolean(player.pouring && tool.id === 'jerry-can');
   const torch=torchViewOf(player),torchSelected=tool.id==='torch';
   return {
-    torch, player, tool, inventory, dead, locked, paused: Boolean(snapshot.paused), stock, pouring,
+    characterName:characterNameOf(player)||'Bear',torch, player, tool, inventory, dead, locked, paused: Boolean(snapshot.paused), stock, pouring,
     hp: Math.max(0, Math.min(player.maxHp || 100, player.hp || 0)),
     maxHp: Math.max(1, player.maxHp || 100),
     primaryLabel: pouring ? 'Stop' : torchSelected ? torch.label : tool.action,
@@ -93,4 +93,21 @@ export function viewOf(snapshot) {
       inversion: {active: Boolean(effects.inversion?.active), remaining: remainingText(effects.inversion?.remaining)}
     }
   };
+}
+
+
+export function characterNameOf(player) {
+  const names = {goat:'Goat',horse:'Horse',bear:'Bear'};
+  const id = typeof player?.characterId === 'string' ? player.characterId.toLowerCase() : '';
+  const species = typeof player?.species === 'string' ? player.species.toLowerCase() : '';
+  return Object.hasOwn(names,id) ? names[id] : Object.hasOwn(names,species) ? names[species] : null;
+}
+
+// Navigation-only projection. Native level indexes are metadata, never floor names.
+export function navigationOf(snapshot) {
+  if(!snapshot || snapshot.version!==1 || !snapshot.player)throw new TypeError('Tinderbox navigation requires a v1 snapshot.');
+  const player=snapshot.player,label=typeof player.locationLabel==='string'?player.locationLabel.trim():'';
+  const action=player.interaction,actionLabel=typeof action?.label==='string'?action.label.trim():'';
+  return {characterName:characterNameOf(player),locationLabel:label||'Location pending',level:Number.isInteger(player.level)?player.level:null,
+    interaction:{label:actionLabel||'Interact',enabled:Boolean(actionLabel&&action?.enabled===true)}};
 }

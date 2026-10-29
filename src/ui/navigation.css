@@ -1,0 +1,32 @@
+/* Navigation reuses the same joystick, paper plates and Eastlake panel. */
+.tb-visit-title { margin:0; font:600 12px/1.3 var(--display); color:var(--ink); overflow-wrap:anywhere; }
+.tb-visit-context { display:grid; gap:3px; width:100%; max-width:230px; margin:0 0 8px; text-align:center; }
+.tb-visit-context .tb-micro { font-size:7px; letter-spacing:1px; }
+.tb-visit-context strong { font:600 13px/1.2 var(--display); overflow-wrap:anywhere; }
+.tb-visit-context>span:last-child { font:400 11px/1.3 var(--text); color:#ffe3ad; overflow-wrap:anywhere; }
+.tb-ui .square-control.tb-nav { --switch-size:58px; }
+.tb-ui .square-control.tb-nav .switch-legend { inset:3px 2px; grid-template-rows:20px 20px 9px; align-content:center; gap:0; }
+.tb-ui .square-control.tb-nav .switch-label { font:700 8px/10px var(--label); white-space:normal; overflow-wrap:anywhere; min-height:0; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.tb-ui .square-control.tb-nav .switch-glyph { width:20px; height:20px; }
+.tb-ui .square-control.tb-nav .switch-cost { font:600 8px/9px var(--label); }
+.tb-ui[data-mode=explore] .tb-vitals { gap:6px; }
+.tb-ui[data-mode=explore] .left-controls,.tb-ui[data-mode=explore] .right-controls { align-self:end; }
+@media(max-width:380px) {
+  .tb-ui .square-control.tb-nav { --switch-size:52px; }
+  .tb-ui .square-control.tb-nav .switch-legend { inset:2px 1px; grid-template-rows:18px 18px 8px; }
+  .tb-ui .square-control.tb-nav .switch-glyph { width:18px; height:18px; }
+  .tb-ui .square-control.tb-nav .switch-label { font-size:7px; line-height:9px; }
+  .tb-visit-context strong { font-size:12px; }
+  .tb-visit-context>span:last-child { font-size:10px; }
+}
+@media(max-height:580px) and (min-width:600px) {
+  .tb-ui .square-control.tb-nav { --switch-size:48px; }
+  .tb-ui .square-control.tb-nav .switch-legend { inset:1px; grid-template-rows:17px 18px 8px; }
+  .tb-ui .square-control.tb-nav .switch-glyph { width:17px; height:17px; }
+  .tb-ui .square-control.tb-nav .switch-label { font-size:7px; line-height:9px; }
+  .tb-visit-context { margin-bottom:5px; }
+  .tb-visit-context strong { font-size:11px; }
+  .tb-visit-context>span:last-child { font-size:10px; }
+}
+
+.tb-visit-character { margin:0; color:var(--muted); font:italic 11px/1.3 var(--text); }

@@ -4,6 +4,9 @@
 @import url('./wood.css');
 @import url('./typography.css');
 @import url('./print.css');
+@import url('./main-menu.css');
+@import url('./title-screen.css');
+@import url('./navigation.css');
 
 .tb-ui { --ink:#fff0d0; --muted:#e5d0aa; position:absolute; inset:0; z-index:20; color:var(--ink); font-family:var(--text); font-size:12px; pointer-events:none; color-scheme:dark; }
 .tb-ui *, .tb-ui *::before, .tb-ui *::after { box-sizing:border-box; }

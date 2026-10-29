@@ -1,0 +1,34 @@
+/* A title leaf composed from the inherited timber and engraved pointing hand. */
+.tb-ui.tb-title-screen { --ink:var(--ink-dark); --muted:#68472a; display:grid; grid-template-columns:minmax(0,1fr); place-items:center; pointer-events:auto; overflow:auto; padding:20px 16px; background:radial-gradient(ellipse at 40% 15%,#d9b877,#a17942 80%); color:var(--ink); color-scheme:light; }
+.tb-ui .tb-title-book { position:relative; min-width:0; width:min(740px,100%); margin:auto; padding:12px; border-width:6px; }
+.tb-title-paper { padding:clamp(26px,5vh,48px) 22px; background:var(--parchment); background-image:linear-gradient(115deg,#c3984917,transparent 50%,#fff1cc40); box-shadow:inset 0 0 0 1px #805633; text-align:center; text-shadow:none; }
+.tb-title-kicker { margin:0; font:600 10px/1.5 var(--label); letter-spacing:2px; }
+.tb-title-rule { height:6px; border-block:1px solid #775532; margin:20px 0; }
+.tb-title-paper h1 { margin:28px 0 12px; font:800 clamp(32px,8.8vw,76px)/1.1 var(--display); letter-spacing:1px; }
+.tb-title-invitation { margin:0 0 30px; font:italic 20px/1.4 var(--text); }
+.tb-ui .tb-title-play { display:flex; align-items:center; justify-content:center; gap:18px; width:min(280px,100%); min-height:70px; margin:0 auto 30px; padding:8px 18px; border:1px solid #79502b; border-bottom-width:4px; color:var(--ink); background:#e9cd92; box-shadow:inset 0 0 0 3px #f7e7bd; font:700 25px/1.2 var(--display); }
+.tb-title-hand { width:46px; height:46px; flex:none; }
+.tb-title-hand svg { width:100%; height:100%; display:block; overflow:hidden; mix-blend-mode:multiply; }
+.tb-ui .tb-title-play:hover { background:#dfba78; }
+.tb-ui .tb-title-play:active { border-bottom-width:2px; padding-top:10px; }
+.tb-ui .tb-title-play:focus-visible { outline:3px solid #683a1d; outline-offset:5px; }
+.tb-title-edition { margin:0; color:var(--muted); font:600 9px/1.5 var(--label); letter-spacing:2px; }
+@media(max-width:380px) {
+  .tb-ui.tb-title-screen { padding:14px 10px; }
+  .tb-ui .tb-title-book { padding:8px; border-width:5px; }
+  .tb-title-paper { padding:24px 10px; }
+  .tb-title-kicker { font-size:7px; letter-spacing:1px; }
+  .tb-title-invitation { font-size:17px; }
+}
+@media(max-height:450px) and (min-width:600px) {
+  .tb-title-paper { padding:14px 22px; }
+  .tb-title-rule { margin:10px 0; }
+  .tb-title-paper h1 { margin:12px 0 8px; font-size:48px; }
+  .tb-title-invitation { margin-bottom:14px; font-size:17px; }
+  .tb-ui .tb-title-play { margin-bottom:12px; min-height:56px; font-size:21px; }
+  .tb-title-hand { width:34px; height:34px; }
+}
+@media(forced-colors:active) {
+  .tb-ui.tb-title-screen,.tb-ui .tb-title-paper { color:CanvasText; background:Canvas; border-color:CanvasText; box-shadow:none; }
+  .tb-ui .tb-title-play { color:ButtonText; background:ButtonFace; border-color:ButtonText; box-shadow:none; }
+}
