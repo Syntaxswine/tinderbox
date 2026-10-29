@@ -52,7 +52,10 @@ for(const [i,bay] of source.bayComparison.entries()){const expected=(bay.sourceP
 assert.ok(hits([.5,2.7,-1],[0,0,1],2).some(h=>h.object.userData.appearanceSlot==='door'),'Closed front leaves missing');
 assert.ok(hits([-20.45,4.0,-.5],[0,0,1],1).some(h=>h.object.userData.appearanceSlot==='glazing'),'Window hole misses glass');
 assert.ok(!hits([-20.45,4.0,-.5],[0,0,1],1).some(h=>h.object.userData.appearanceSlot==='facade'),'Opaque wall behind opening');
-const a=Math.PI/16;assert.equal(hits([23.5+10.5*Math.cos(a),5,13.5+10.5*Math.sin(a)],[-Math.cos(a),0,-Math.sin(a)],2.2).length,0,'Porch void blocked');assert.ok(hits([34,5,13.5],[-1,0,0],2.2).length>0,'Porch column missing');
+assert.equal(model.metadata.porchColumns.length,44,'Source has 14 outer + 8 inner columns on each porch');
+assert.equal(hits([34,5,13.5],[-1,0,0],10).length,0,'Side stair approach blocked on its centre axis');
+const sourceColumn=model.metadata.porchColumns.find(c=>c.id==='porch-east/col-0-6');assert.ok(hits([sourceColumn.centre[0]+1.5,5,sourceColumn.centre[1]],[-1,0,0],2).length>0,'Measured paired porch column missing');
+for(const [i,row] of source.plan.curvedPorches.columns.entries())for(const c of row.columns){const actual=model.metadata.porchColumns.find(p=>p.id==='porch-east/col-'+i+'-'+c.index);near(actual.centre[0],23.5+c.authoredLocalMetres[0],'column X');near(actual.centre[1],13.5+c.authoredLocalMetres[1],'column Z');assert.ok(c.maximumCoordinateDelta<.1,'Column-centroid adjustment exceeds recorded .1 m');}
 // Appearance adapters preserve all geometry, metadata and borrowed resources.
 const alternate=new T.MeshStandardMaterial({color:0x669977});alternate.addEventListener('dispose',()=>borrowedDisposals++);
 model.setAppearance({materials:{facade:alternate},textures:{roof:hostTexture}});

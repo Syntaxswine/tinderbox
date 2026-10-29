@@ -12,7 +12,7 @@ The plan uses 6.2 original pixels/foot; elevation uses6.15. Each ruler is calibr
 | rear-envelope-depth | 105.323 | 32.1023 | 32.00 | -0.1023 | 0.84 | medium / plan ruler |
 | rear-intermediate-width | 86.290 | 26.3013 | 26.50 | +0.1987 | 0.73 | medium / plan ruler |
 | rear-central-width | 47.742 | 14.5517 | 14.50 | -0.0517 | 0.49 | medium / plan ruler |
-| porch-radius | 30.484 | 9.2915 | 9.25 | -0.0415 | 0.39 | medium / plan ruler |
+| porch-projection | 30.484 | 9.2915 | 9.25 | -0.0415 | 0.39 | medium / plan ruler |
 | envelope-width-with-side-stairs | 231.290 | 70.4973 | 70.50 | +0.0027 | 1.61 | medium / plan ruler |
 | terrace-width | 87.097 | 26.5471 | 26.50 | -0.0471 | 0.73 | medium / plan ruler |
 | terrace-projection | 14.194 | 4.3262 | 4.50 | +0.1738 | 0.29 | medium / plan ruler |
@@ -29,6 +29,8 @@ The plan uses 6.2 original pixels/foot; elevation uses6.15. Each ruler is calibr
 | entry-field-height | 13.821 | 4.2127 | 4.42 | +0.2073 | 0.29 | medium / elevation ruler |
 | lower-window-glazing-width | 4.878 | 1.4868 | 1.36 | -0.1268 | 0.23 | medium / elevation ruler |
 | lower-window-glazing-height | 8.780 | 2.6763 | 2.78 | +0.1037 | 0.26 | medium / elevation ruler |
+| porch-curve-radius | 26.532 | 8.0870 | 8.00 | -0.0870 | 0.36 | medium / plan ruler |
+| porch-straight-neck | 3.952 | 1.2045 | 1.25 | +0.0455 | 0.23 | medium / plan ruler |
 
 The 154 ft facade is the printed 77 ft + 77 ft chain. Remaining feet values are ruler calculations, not exact readings of the small dimension numerals. The source record retains each pixel span, locator, conversion and adaptation. Main facade grid adjustment: +.0608 m total; native tile size remains1m. Front stair clear flight is 14 m; its 18.3 m envelope includes the cheeks. Turned ornament and fine sculpture are simplified for isometric scale.
 
@@ -50,3 +52,7 @@ Signed X from the central entrance; source points are on the original elevation 
 | lower-5 | 971 | 9.7140 | 9.75 | +0.0360 |
 | lower-6 | 1075 | 14.8683 | 14.75 | -0.1183 |
 | lower-7 | 1195 | 20.8156 | 20.75 | -0.0656 |
+
+## Porch profile and paired columns
+
+The 9.291 m source projection includes its straight neck. The independently measured front-to-back curve diameter is about 16.175 m; the authored curve diameter is 16 m with a 1.25 m connector. Each porch uses 14 outer columns (paired groups) and eight inner columns, preserving the central stair approach. The [source detail](../../../art/source/exposition-new-york/porch-column-source.jpg) and `plan.curvedPorches.columns` record every source centroid and authored position. Authored pairs are mirrored and rounded to .05 m; maximum coordinate adjustment is under .1 m. Column cross-sections and capitals are simplified art forms.

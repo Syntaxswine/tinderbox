@@ -1,6 +1,6 @@
 {
   "task": "TB-022",
-  "reviewedAtUTC": "2026-10-29T00:05:14.746776+00:00",
+  "reviewedAtUTC": "2026-10-29T00:26:52.840469+00:00",
   "offlineVisualReviewPassed": true,
   "runtimeBrowserAcceptance": "pending architect gate",
   "renderer": "Mitsuba 3.9.1 scalar_rgb; Python 3.12.14 / NumPy 2.3.5 / Pillow 12.3.0",
@@ -12,7 +12,8 @@
     "Repeated sash windows / glazing, closed native door leaves and jambs",
     "Native bear + accurately dimensioned wall and leaf references",
     "Roof geometry / metre UV density; inherited texture periods retained",
-    "Rear inference and missing elements clearly captioned; source photo upright; comparison text readable"
+    "Rear inference and missing elements clearly captioned; source photo upright; comparison text readable",
+    "Source-measured paired outer / inner colonnades, separate porch neck / radius, and clear centre stair approaches"
   ],
   "images": [
     {
@@ -21,8 +22,8 @@
         1600,
         1200
       ],
-      "bytes": 925100,
-      "sha256": "1130322fb6ddb130572022a810d4638307a92728bc68297536c07ac72ca1fa15",
+      "bytes": 925209,
+      "sha256": "e727c73d666ed51063bd103289e8547165e4fbb68709e5ca079859eadee6ccc0",
       "offlineVisualInspection": "passed at full image and isometric scale",
       "camera": {
         "target": [
@@ -46,8 +47,8 @@
         1600,
         1200
       ],
-      "bytes": 417415,
-      "sha256": "34ce63a4a3789427be498f21ef10f557125a77fd1fa9dc73e5865e90fd4d67da",
+      "bytes": 426002,
+      "sha256": "fe31a735686482fa27ae00eb5fdc6d25a9206b39951265cae28673e316f9315d",
       "offlineVisualInspection": "passed at full image and isometric scale",
       "camera": {
         "target": [
@@ -71,8 +72,8 @@
         1600,
         1200
       ],
-      "bytes": 872547,
-      "sha256": "2aae65e1f71a20e9ab71662c019fa11bfd584fe90f43655c24afa597781aacff",
+      "bytes": 873075,
+      "sha256": "312f99981c1c5b93c1ab2cfcd243d93a286d6db6a01442346961c264546542d6",
       "offlineVisualInspection": "passed at full image and isometric scale",
       "camera": {
         "target": [
@@ -96,8 +97,8 @@
         1600,
         1200
       ],
-      "bytes": 843326,
-      "sha256": "6c5910ce5ba518d2855d7479adb4f893c8eaaa556959ce6010f35bb03ea2231c",
+      "bytes": 844240,
+      "sha256": "bb0d1a7ceb0217fe001f8c2d52204693fea08a3270fd9173176f1e113b0436fe",
       "offlineVisualInspection": "passed at full image and isometric scale",
       "camera": {
         "target": [
@@ -121,8 +122,8 @@
         1600,
         1200
       ],
-      "bytes": 780021,
-      "sha256": "7a8575aa1903d54e21d32aa1641d0069db07ced4287e863ba31ae033f269d4b2",
+      "bytes": 780215,
+      "sha256": "79cdd300640e38903e6e0b6194873c32bf4522379d28e731c204613ba298559d",
       "offlineVisualInspection": "passed at full image and isometric scale",
       "camera": {
         "target": [
@@ -151,8 +152,8 @@
         2700,
         3070
       ],
-      "bytes": 2356271,
-      "sha256": "41ae72e87a5d216b2b4fe067308be412efdc4d20ebbf9c79a243786c672d64a8",
+      "bytes": 2360083,
+      "sha256": "bdf74fc98750ea88224400e7cc0acc16f4403f51885e8d5e19ed80589832020d",
       "offlineVisualInspection": "passed at full image and isometric scale"
     }
   ],
@@ -166,18 +167,19 @@
   ],
   "diagnostics": {
     "disposed": false,
-    "meshes": 316,
-    "triangles": 178224,
-    "sourceParts": 7041,
-    "instanceBatches": 164,
-    "geometries": 316,
+    "meshes": 318,
+    "triangles": 177872,
+    "sourceParts": 7085,
+    "instanceBatches": 166,
+    "geometries": 318,
     "materials": 7,
     "ownedTextures": 0,
     "borrowedTextureCount": 0,
     "nativeWalls": 322,
     "nativeDoors": 6,
-    "components": 7112,
+    "components": 7156,
     "quarterTurns": 0
   },
-  "retainedHelpers": []
+  "retainedHelpers": [],
+  "geometryRevision": 2
 }

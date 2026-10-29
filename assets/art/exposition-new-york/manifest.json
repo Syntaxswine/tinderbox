@@ -2,6 +2,7 @@
   "assetId": "exposition-new-york-1893",
   "task": "TB-022",
   "version": 1,
+  "geometryRevision": 2,
   "branch": "codex/new-york-state-building-art",
   "baseCommit": "f25fd7b28a9aee1d1abaef1ad65acd64d67a50e6",
   "factory": "createNewYorkStateBuilding",
@@ -10,8 +11,8 @@
   "runtimeFiles": [
     {
       "path": "assets/art/exposition-new-york/index.js",
-      "bytes": 23124,
-      "sha256": "721976f625266d3ce93c0d309ea6f6dbdad145fe342f7d323c82baad92ed75d1"
+      "bytes": 24086,
+      "sha256": "b232d6b284e53ddd9fafefd739b7e86c6bcae8ce91ecf3101bccf821ac81c6c3"
     },
     {
       "path": "assets/art/exposition-new-york/forms.js",
@@ -25,8 +26,8 @@
     },
     {
       "path": "assets/art/exposition-new-york/metadata.json",
-      "bytes": 31062,
-      "sha256": "841b3ce8ec79ad49237a5009023f851ef103bcf850eba6ed27bde8d2fe3d7c0b"
+      "bytes": 35501,
+      "sha256": "bf14626da647cf460e672bd0e7feae5c412c0d2552801c2152cf3d168b0c0d51"
     }
   ],
   "dependencies": [],
@@ -85,17 +86,17 @@
   },
   "diagnostics": {
     "disposed": false,
-    "meshes": 316,
-    "triangles": 178224,
-    "sourceParts": 7041,
-    "instanceBatches": 164,
-    "geometries": 316,
+    "meshes": 318,
+    "triangles": 177872,
+    "sourceParts": 7085,
+    "instanceBatches": 166,
+    "geometries": 318,
     "materials": 7,
     "ownedTextures": 0,
     "borrowedTextureCount": 0,
     "nativeWalls": 322,
     "nativeDoors": 6,
-    "components": 7112,
+    "components": 7156,
     "quarterTurns": 0
   },
   "appearance": {

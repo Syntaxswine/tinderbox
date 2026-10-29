@@ -38,8 +38,8 @@ text(65,2780,'Visible awnings / urn displays used; plants omitted.',24);text(65,
 text(1040,2095,'MEASUREMENT / ADAPTATION REGISTER',29)
 cols=[1040,1440,1680,1920,2160,2390];headers=['Feature','Feet*','Source m','Authored m','Delta m','Allow. m']
 for x,h in zip(cols,headers):text(x,2155,h,25)
-ids=['main-facade','main-body-depth','porch-radius','envelope-width-with-side-stairs','front-stair-width','main-parapet-height','clerestory-cornice-height','upper-roof-balustrade-height','tower-cap-height']
-labels=['Main facade','Body depth','Porch radius','Ground width','Stair + cheeks','Main parapet','Clerestory cornice','Upper roof rail','Tower cap']
+ids=['main-facade','main-body-depth','porch-projection','envelope-width-with-side-stairs','front-stair-width','main-parapet-height','clerestory-cornice-height','upper-roof-balustrade-height','tower-cap-height']
+labels=['Main facade','Body depth','Porch projection','Ground width','Stair + cheeks','Main parapet','Clerestory cornice','Upper roof rail','Tower cap']
 for i,(ident,label) in enumerate(zip(ids,labels)):
  row=next(r for r in data['measurements'] if r['id']==ident);values=[label,format(row['sourceFeet'],'.2f')+(' P' if ident=='main-facade' else ' R'),format(row['sourceMetres'],'.3f'),format(row['authoredMetres'],'.2f'),format(row['authoredMetres']-row['sourceMetres'],'+.3f'),format(row['readingUncertaintyMetres'],'.2f')];y=2207+i*53
  for x,v in zip(cols,values):text(x,y,v,24)
