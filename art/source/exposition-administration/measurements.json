@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "sourceIds": [
+    "ADMIN-HUNT-1893",
+    "ADMIN-FLINN-1893"
+  ],
+  "planCalibration": {
+    "pixels": [
+      4944,
+      5348
+    ],
+    "unit": "metres (printed, not feet)",
+    "points": [
+      [
+        1584,
+        4890
+      ],
+      [
+        3203,
+        4890
+      ]
+    ],
+    "value": 50,
+    "pixelsPerMetre": 32.38,
+    "independentCheck": {
+      "points": [
+        [
+          1908,
+          4890
+        ],
+        [
+          2880,
+          4890
+        ]
+      ],
+      "value": 30,
+      "pixelsPerMetre": 32.4
+    },
+    "equation": "sourceMetres=featurePixels/1619*50",
+    "uncertainty": "Feature endpoints +/-4 pixels; allow1% sheet/line interpretation; do not report survey precision."
+  },
+  "elevationBasis": {
+    "statement": "No separate elevation ruler is printed. Indicative elevation readings use the same-sheet plan ruler, checked against Flinn stage/overall descriptions; this is not an independent surveyed elevation calibration.",
+    "groundY": 3190,
+    "apexY": 680,
+    "frontX": [
+      1110,
+      3693
+    ]
+  },
+  "rulerReadings": [
+    {
+      "id": "front-width",
+      "points": [
+        [
+          1110,
+          4745
+        ],
+        [
+          3693,
+          4745
+        ]
+      ],
+      "pixels": 2583,
+      "sourceMetres": 79.77146386658431,
+      "authoredMetres": 80,
+      "uncertaintyMetres": 1.1,
+      "adaptation": "Whole-metre four-pavilion layout; outer nominal span80 m."
+    },
+    {
+      "id": "indicative-overall-height",
+      "points": [
+        [
+          2395,
+          3190
+        ],
+        [
+          2395,
+          680
+        ]
+      ],
+      "pixels": 2510,
+      "sourceMetres": 77.51698579369982,
+      "authoredMetres": 76.32,
+      "uncertaintyMetres": 1.4,
+      "adaptation": "Same-sheet indicative height; prefer the explicit250 ft guide description and native crown level36."
+    }
+  ],
+  "printedMeasurements": [
+    {
+      "id": "pavilion-width",
+      "sourceFeet": 84,
+      "sourceMetres": 25.6032,
+      "authoredMetres": 26,
+      "differenceMetres": 0.39679999999999893,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Whole even-metre pavilion width."
+    },
+    {
+      "id": "dome-diameter",
+      "sourceFeet": 120,
+      "sourceMetres": 36.576,
+      "authoredMetres": 40.6,
+      "differenceMetres": 4.024000000000001,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Hunt drawn outer dome and native16 m octagon control the external envelope; differs from the guide's nominal120 ft diameter."
+    },
+    {
+      "id": "overall-height",
+      "sourceFeet": 250,
+      "sourceMetres": 76.2,
+      "authoredMetres": 76.32,
+      "differenceMetres": 0.11999999999999034,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Custom crown lands at native grid marker36; not36 occupied stories."
+    },
+    {
+      "id": "first-stage",
+      "sourceFeet": 65,
+      "sourceMetres": 19.812,
+      "authoredMetres": 19.08,
+      "differenceMetres": -0.7320000000000029,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Pavilion roof at level9."
+    },
+    {
+      "id": "upper-terrace-total",
+      "sourceFeet": 130,
+      "sourceMetres": 39.624,
+      "authoredMetres": 40.28,
+      "differenceMetres": 0.6559999999999988,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Upper terrace at level19.",
+      "basis": "Derived sum of the two described 65 ft stages, not a separate printed 130 ft dimension."
+    },
+    {
+      "id": "upper-stage-width",
+      "sourceFeet": 175,
+      "sourceMetres": 53.34,
+      "authoredMetres": 54,
+      "differenceMetres": 0.6599999999999966,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Even54 m colonnade footprint."
+    },
+    {
+      "id": "column-shaft-height",
+      "sourceFeet": 40,
+      "sourceMetres": 12.192,
+      "authoredMetres": 12.08,
+      "differenceMetres": -0.1120000000000001,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Custom unscaled shaft fits standard-level capital/footing."
+    },
+    {
+      "id": "column-bottom-diameter",
+      "sourceFeet": 4,
+      "sourceMetres": 1.2192,
+      "authoredMetres": 1.22,
+      "differenceMetres": 0.0007999999999999119,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Source4 ft diameter retained to .0008 m."
+    },
+    {
+      "id": "grand-entrance-width",
+      "sourceFeet": 50,
+      "sourceMetres": 15.24,
+      "authoredMetres": 16,
+      "differenceMetres": 0.7599999999999998,
+      "source": "Flinn printed45 / scan51",
+      "adaptation": "Even16 m arch field with native ordinary leaves."
+    },
+    {
+      "id": "grand-entrance-height",
+      "sourceFeet": 50,
+      "sourceMetres": 15.24,
+      "authoredMetres": 14.84,
+      "differenceMetres": -0.40000000000000036,
+      "source": "Flinn printed45 / scan51",
+      "adaptation": "Opening spans7 native pitches, with custom arch infill."
+    }
+  ],
+  "roomLegend": {
+    "4": "Post office",
+    "5": "Exchange",
+    "6": "Public waiting room",
+    "7": "Toilet (repeated)",
+    "8": "Ante-room (repeated)",
+    "9": "Vault",
+    "10": "Foreign visitors office",
+    "11": "Information office",
+    "12": "Ambulance service",
+    "13": "Doctor",
+    "14": "Pharmacy"
+  },
+  "floorInterpretation": "Four pavilion floors at native levels1,3,5,7. Exact historic upper-floor heights/partitions are unknown. Gallery/terrace levels9,19,23. The rotunda remains open; local circular stairs connect the pavilion plates.",
+  "heightDecision": "Flinn printed43 says250 ft; early descriptions elsewhere differ. Candidate crown76.32 m is a game-grid choice, not a claim to resolve historical height discrepancies."
+}

@@ -1,0 +1,284 @@
+{
+  "assetId": "exposition-administration-1893",
+  "version": 1,
+  "factory": "createAdministrationBuilding",
+  "branch": "codex/administration-building-art",
+  "baseCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+  "hostThreeRevisionTested": "180",
+  "units": "metres",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/exposition-administration/index.js",
+      "bytes": 23952,
+      "sha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a"
+    },
+    {
+      "path": "assets/art/exposition-administration/engine.js",
+      "bytes": 2487,
+      "sha256": "9ec987a5acf5b580f89f7a4722ead5a3fa2930ab647e45ce71517142146b5743"
+    },
+    {
+      "path": "assets/art/exposition-administration/plan.js",
+      "bytes": 6651,
+      "sha256": "363b1fb4396cb549df1d4ce9b09325bd3c405db05b09df239e4794476ec04cac"
+    },
+    {
+      "path": "assets/art/exposition-administration/floors.js",
+      "bytes": 2417,
+      "sha256": "4f6a61e0e559a3ae875cd3612cbffa9a8c7a56170ac602560a579a51dfa28ee5"
+    },
+    {
+      "path": "assets/art/exposition-administration/stairs.js",
+      "bytes": 2012,
+      "sha256": "0c816cd152b814a0c3bfb453e6f42102e9331f084f8504e848b47dcb3915f707"
+    },
+    {
+      "path": "assets/art/exposition-administration/metadata.json",
+      "bytes": 149604,
+      "sha256": "8b90bc1725f3a949b2174871770e54ea0c660afc355d7592c55732cd63644cd7"
+    },
+    {
+      "path": "assets/art/exposition-administration/nautilus-assembly.json",
+      "bytes": 52094,
+      "sha256": "293049e01f59ce50c6821c6df743b1b0db8fbff8cf8d3f0044fcea8a1ec37ec0"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    }
+  ],
+  "engine": {
+    "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "implementation": "Actual Nautilus wallPanels, measureWallRun and wallRunErrors; five validated native layer tiers with standard-height offsets.",
+    "newDonorImports": [],
+    "nativePanels": 7968,
+    "tierCount": 5,
+    "editorLimits": "One native map supports six layers. This full landmark remains a separate native building assembly; no unsupported full-map export is claimed."
+  },
+  "nativeContract": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "sourceRecords": [
+    "art/source/exposition-administration/sources.json",
+    "art/source/exposition-administration/measurements.json"
+  ],
+  "sourceIds": [
+    "ADMIN-HUNT-1893",
+    "ADMIN-FLINN-1893",
+    "ADMIN-ARNOLD-1893"
+  ],
+  "sourceRights": "Original source rights/evidence are recorded separately from existing mixed/unknown donor rights. No new blanket license grant.",
+  "authored": {
+    "bodyWidth": 80,
+    "bodyDepth": 80,
+    "crownHeight": 76.32,
+    "wallRunLengths": [
+      4,
+      6,
+      10,
+      12,
+      14,
+      16,
+      26,
+      28,
+      54
+    ],
+    "floorLevels": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      19,
+      23
+    ],
+    "pavilionFloorLevels": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "frontSourceRooms": 13,
+    "spiralStairs": 4
+  },
+  "measuredAdaptations": [
+    {
+      "id": "pavilion-width",
+      "sourceFeet": 84,
+      "sourceMetres": 25.6032,
+      "authoredMetres": 26,
+      "differenceMetres": 0.39679999999999893,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Whole even-metre pavilion width."
+    },
+    {
+      "id": "dome-diameter",
+      "sourceFeet": 120,
+      "sourceMetres": 36.576,
+      "authoredMetres": 40.6,
+      "differenceMetres": 4.024000000000001,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Hunt drawn outer dome and native16 m octagon control the external envelope; differs from the guide's nominal120 ft diameter."
+    },
+    {
+      "id": "overall-height",
+      "sourceFeet": 250,
+      "sourceMetres": 76.2,
+      "authoredMetres": 76.32,
+      "differenceMetres": 0.11999999999999034,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Custom crown lands at native grid marker36; not36 occupied stories."
+    },
+    {
+      "id": "first-stage",
+      "sourceFeet": 65,
+      "sourceMetres": 19.812,
+      "authoredMetres": 19.08,
+      "differenceMetres": -0.7320000000000029,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Pavilion roof at level9."
+    },
+    {
+      "id": "upper-terrace-total",
+      "sourceFeet": 130,
+      "sourceMetres": 39.624,
+      "authoredMetres": 40.28,
+      "differenceMetres": 0.6559999999999988,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Upper terrace at level19.",
+      "basis": "Derived sum of the two described 65 ft stages, not a separate printed 130 ft dimension."
+    },
+    {
+      "id": "upper-stage-width",
+      "sourceFeet": 175,
+      "sourceMetres": 53.34,
+      "authoredMetres": 54,
+      "differenceMetres": 0.6599999999999966,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Even54 m colonnade footprint."
+    },
+    {
+      "id": "column-shaft-height",
+      "sourceFeet": 40,
+      "sourceMetres": 12.192,
+      "authoredMetres": 12.08,
+      "differenceMetres": -0.1120000000000001,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Custom unscaled shaft fits standard-level capital/footing."
+    },
+    {
+      "id": "column-bottom-diameter",
+      "sourceFeet": 4,
+      "sourceMetres": 1.2192,
+      "authoredMetres": 1.22,
+      "differenceMetres": 0.0007999999999999119,
+      "source": "Flinn printed43 / scan49",
+      "adaptation": "Source4 ft diameter retained to .0008 m."
+    },
+    {
+      "id": "grand-entrance-width",
+      "sourceFeet": 50,
+      "sourceMetres": 15.24,
+      "authoredMetres": 16,
+      "differenceMetres": 0.7599999999999998,
+      "source": "Flinn printed45 / scan51",
+      "adaptation": "Even16 m arch field with native ordinary leaves."
+    },
+    {
+      "id": "grand-entrance-height",
+      "sourceFeet": 50,
+      "sourceMetres": 15.24,
+      "authoredMetres": 14.84,
+      "differenceMetres": -0.40000000000000036,
+      "source": "Flinn printed45 / scan51",
+      "adaptation": "Opening spans7 native pitches, with custom arch infill."
+    }
+  ],
+  "uncertainties": [
+    "Hunt plan is only the front half; rear office subdivisions are not invented.",
+    "Full exterior uses the source four-pavilion description and four entrances; hidden rear joins remain adaptations.",
+    "Reported heights vary across early period descriptions; this candidate uses Flinn250 ft /76.2 m and the Hunt silhouette, not an asserted surveyed as-built height.",
+    "Exact face ornament, dome mural, elevator mechanics and upper-room partitions are not reproduced."
+  ],
+  "physicalMaterial": {
+    "structure": "unassigned",
+    "finish": "unassigned"
+  },
+  "bounds": {
+    "min": [
+      -46,
+      -2.7020772286334704e-8,
+      -6
+    ],
+    "max": [
+      46,
+      76.32000000596045,
+      86
+    ]
+  },
+  "diagnostics": {
+    "disposed": false,
+    "meshes": 412,
+    "triangles": 614274,
+    "sourceParts": 37867,
+    "instanceBatches": 229,
+    "geometries": 411,
+    "materials": 10,
+    "ownedTextures": 0,
+    "borrowedTextureCount": 0,
+    "enginePanels": 7968,
+    "nativeWalls": 5645,
+    "nativeDoors": 8,
+    "components": 38296,
+    "floorTiles": 20441,
+    "wallPieces": 5912,
+    "levelClosures": 5848,
+    "quarterTurns": 0
+  },
+  "appearanceSlots": [
+    "facade",
+    "trim",
+    "door",
+    "roof",
+    "glazing",
+    "shadow",
+    "awning",
+    "dome",
+    "floor",
+    "interior"
+  ],
+  "ownership": {
+    "owned": "Generated geometry, cloned/default material adapters and instancing allocations. Dispose once using returned idempotent dispose().",
+    "borrowed": "Host Three namespace, input materials and all input maps/textures; input materials cloned, originals and texture transforms remain unchanged."
+  },
+  "previewResources": [
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/environment/ground-concrete.png",
+      "bytes": 3308630,
+      "sha256": "a55fefded481abfce45866984caa9495884416f6273d65e6a95de1ff8e6598f1"
+    },
+    {
+      "path": "assets/art/exposition-skins-v1/roof-slate-v1.png",
+      "bytes": 2333888,
+      "sha256": "04fd7476c41c5d290350aba957db2a6d9234d38b9634c55a834b5afe4e64c25d"
+    }
+  ],
+  "uv": "Native geometry position/normal/UV/index arrays unchanged. Separate grossUV supplies physical metres on planar parts. Dome ribs use tangent width and meridian arclength; turned curved sculpture uses the inherited local/circumference approximations.",
+  "integration": "Native Nautilus geometry assembly for later building-library intake. Not placed into the production street or registered in the fixed engine catalogue. Collision, traversal, fire and collapse remain consumer-owned."
+}

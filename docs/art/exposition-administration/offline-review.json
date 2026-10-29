@@ -1,0 +1,73 @@
+{
+  "assetId": "exposition-administration-1893",
+  "reviewedAt": "2026-10-29T08:20:20.272582+00:00",
+  "method": "Direct visual inspection of final CPU renders of actual exported Three geometry, preserved source drawings/photos and annotated comparisons.",
+  "webglReviewed": false,
+  "views": [
+    {
+      "name": "front-isometric",
+      "path": "docs/art/exposition-administration/previews/front-isometric.jpg",
+      "sha256": "adb650eb36bcf2d8315b860dab484814669bfc3d660635d1cede3ec711d231ab",
+      "findings": "Complete exterior, four-pavilion massing, connected entry landing and native-scale bear; custom gold dome reads clearly."
+    },
+    {
+      "name": "rear-isometric",
+      "path": "docs/art/exposition-administration/previews/rear-isometric.jpg",
+      "sha256": "a5325dc6d45dc1b4046d317694a4ac012aa1ebb6bd9b366f047c24cb1d5c3dec",
+      "findings": "Rear/side exterior is complete; no missing shell faces; inferred symmetry is documented."
+    },
+    {
+      "name": "front-elevation",
+      "path": "docs/art/exposition-administration/previews/front-elevation.jpg",
+      "sha256": "9fd453fa047c84afde7bf04db8bae32ea53ecca7dd13801bbe281ffefebd7fa8",
+      "findings": "Source silhouette and custom ornament reviewed; crown and stages checked against native-level overlay."
+    },
+    {
+      "name": "roof-plan",
+      "path": "docs/art/exposition-administration/previews/roof-plan.jpg",
+      "sha256": "93ee443f0b016fcff65899c67642a51e3d8edb1b66daf210eea6f3a5130f92d6",
+      "findings": "Full footprint, recesses, parapets, cupolas and roof terraces remain distinct and in frame."
+    },
+    {
+      "name": "structural-cutaway",
+      "path": "docs/art/exposition-administration/previews/structural-cutaway.jpg",
+      "sha256": "98c3da0ec75bd41e6e6250f44f0a140a28d948e5ac3740cce10a695e709dbb5b",
+      "findings": "Actual slabs/walls exposed; rotunda remains open and rear circular stairs meet pavilion floor plates."
+    },
+    {
+      "name": "ground-floor",
+      "path": "docs/art/exposition-administration/previews/ground-floor.jpg",
+      "sha256": "780f96bbd4f5fe58f09479c73ab25ffb60f6ea99e7b34338bf270a3425ab89b3",
+      "findings": "First wall course exposes source-derived front rooms; unverified rear layout remains open."
+    },
+    {
+      "name": "stair-detail",
+      "path": "docs/art/exposition-administration/previews/stair-detail.jpg",
+      "sha256": "ceb10ab5fe98d492d3d0f5eecba9b99618524f778927a7b975e100066ec7cecc",
+      "findings": "Circular treads and upper-floor apertures are visible; landings meet native floor tops. Review box is a deliberate cutaway."
+    },
+    {
+      "name": "entry-detail",
+      "path": "docs/art/exposition-administration/previews/entry-detail.jpg",
+      "sha256": "2c7f61508704d1611b36f3bc0755c0880ea312dadd359ed8bd61e68fa6f5766e",
+      "findings": "Raised landing joins arch, ordinary native leaves and approach stairs; native reference parts and bear provide scale."
+    }
+  ],
+  "comparisonSheets": [
+    {
+      "path": "docs/art/exposition-administration/previews/source-comparison.jpg",
+      "sha256": "eb81bb8e6ba223056133f38530c9c37c361070885584de558cb03381c2afb313",
+      "findings": "Same 12 px/m plan/elevation comparison. Source elevation uses the explicitly indicative same-sheet ruler; plan is source-aligned by mirroring model camera. Office labels fit and adaptations are stated."
+    },
+    {
+      "path": "docs/art/exposition-administration/previews/grid-review.jpg",
+      "sha256": "954eeab4bdc600147fdd319dbaa24a30f2d148d2992a1edcf476008b6dc28d68",
+      "findings": "Selected native levels line up with actual elevation; lower labels corrected for overlap. Cutaway and stair views show true slab holes and open rotunda."
+    }
+  ],
+  "limitations": [
+    "CPU diffuse render; WebGL shaders, GPU memory and performance remain pending.",
+    "Geometry interiors are present; exact rear and upper room partitions are not documented.",
+    "No character traversal, collision, fire or collapse acceptance is claimed."
+  ]
+}

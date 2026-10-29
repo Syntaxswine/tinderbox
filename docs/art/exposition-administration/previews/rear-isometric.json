@@ -1,0 +1,35 @@
+{
+  "name": "rear-isometric",
+  "path": "docs/art/exposition-administration/previews/rear-isometric.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      30,
+      40
+    ],
+    "origin": [
+      -145,
+      120,
+      195
+    ],
+    "halfWidth": 80
+  },
+  "triangles": 614274,
+  "caption": "Full exterior follows the four-pavilion form. Rear rooms and hidden roof joins are inferred.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "No effects, crowds, gameplay or UI; exterior only.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T08:20:20.272582+00:00",
+  "findings": "Rear/side exterior is complete; no missing shell faces; inferred symmetry is documented."
+}
