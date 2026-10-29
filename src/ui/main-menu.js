@@ -1,4 +1,5 @@
 import {ETCHING_SIZE, ETCHING_FRAMES} from './etching-frames.js';
+import {bindInterfacePreferences, interfacePreferences} from './preferences.js';
 
 const engraving = new URL('../../assets/art/ui/engraved-atlas.png', import.meta.url).href;
 let instance = 0;
@@ -14,7 +15,7 @@ function visitMark(doc, suffix, number) {
 }
 
 // DOM-only presentation. The application owns catalogue data, loading and scene lifetime.
-export function mountMainMenu({root, places = [], onSelect, characters = [], selectedCharacterId = null, onSelectCharacter, onBackToTitle} = {}) {
+export function mountMainMenu({root, places = [], onSelect, characters = [], selectedCharacterId = null, onSelectCharacter, onBackToTitle, preferences = interfacePreferences} = {}) {
   if (!root?.ownerDocument || !Array.isArray(places) || typeof onSelect !== 'function') throw new TypeError('mountMainMenu requires a root, places and onSelect.');
   const seen = new Set();
   const entries = places.map(place => {
@@ -32,9 +33,10 @@ export function mountMainMenu({root, places = [], onSelect, characters = [], sel
   let selectedAnimal = characterIds.has(selectedCharacterId) ? selectedCharacterId : null;
   const doc = root.ownerDocument, shell = doc.createElement('section'), suffix = String(++instance);
   shell.className = 'tb-ui tb-main-menu'; shell.setAttribute('aria-labelledby', 'tb-places-title-' + suffix);
-  shell.innerHTML = '<div class="tb-place-book tb-wood-panel"><div class="tb-place-paper"><header class="tb-place-heading"><p class="tb-place-kicker">AN EXPOSITION FIELD GUIDE · 1893</p><div class="tb-place-masthead" aria-hidden="true">TINDERBOX</div><div class="tb-place-rule"></div><h1 id="tb-places-title-' + suffix + '" tabindex="-1">Choose a place</h1><p>A street and three landmarks to explore.</p></header><fieldset class="tb-character-choice" data-character-choice hidden><legend>Travel as</legend><p class="tb-character-note">Your choice accompanies your next visit.</p><div class="tb-character-options" data-character-options></div><p class="tb-character-description" data-character-description></p></fieldset><p class="tb-place-status" role="status" aria-live="polite" data-place-status>Choose a place.</p><section class="tb-place-error" data-place-error hidden aria-labelledby="tb-place-error-title-' + suffix + '"><h2 id="tb-place-error-title-' + suffix + '" aria-describedby="tb-place-error-message-' + suffix + '" tabindex="-1">Unable to open this place</h2><p id="tb-place-error-message-' + suffix + '" data-place-error-message></p><div class="tb-place-recovery"><button type="button" data-place-retry>Try again</button><button type="button" data-place-back>Back to places</button></div></section><div class="tb-place-grid" data-place-grid></div><p class="tb-place-empty" data-place-empty hidden>No places are available yet.</p><footer class="tb-place-footer"><span>Choose a destination to begin your visit.</span><button type="button" data-back-to-title hidden>Title screen</button></footer></div></div>';
+  shell.innerHTML = '<div class="tb-place-book tb-wood-panel"><div class="tb-place-paper"><header class="tb-place-heading"><p class="tb-place-kicker">AN EXPOSITION FIELD GUIDE · 1893</p><div class="tb-place-masthead" aria-hidden="true">TINDERBOX</div><div class="tb-place-rule"></div><h1 id="tb-places-title-' + suffix + '" tabindex="-1">Choose a map</h1><p>Select a map to test.</p></header><fieldset class="tb-character-choice" data-character-choice hidden><legend>Travel as</legend><p class="tb-character-note">Your choice accompanies your next visit.</p><div class="tb-character-options" data-character-options></div><p class="tb-character-description" data-character-description></p></fieldset><p class="tb-place-status" role="status" aria-live="polite" data-place-status>Choose a map.</p><section class="tb-place-error" data-place-error hidden aria-labelledby="tb-place-error-title-' + suffix + '"><h2 id="tb-place-error-title-' + suffix + '" aria-describedby="tb-place-error-message-' + suffix + '" tabindex="-1">Unable to open this place</h2><p id="tb-place-error-message-' + suffix + '" data-place-error-message></p><div class="tb-place-recovery"><button type="button" data-place-retry>Try again</button><button type="button" data-place-back>Back to places</button></div></section><div class="tb-place-grid" data-place-grid></div><p class="tb-place-empty" data-place-empty hidden>No places are available yet.</p><footer class="tb-place-footer"><span>Each destination opens as its own map.</span><button type="button" data-back-to-title hidden>Title screen</button></footer></div></div>';
   const style = doc.createElement('link'); style.rel = 'stylesheet'; style.href = new URL('./styles.css', import.meta.url).href;
   shell.prepend(style); root.append(shell);
+  const unbindPreferences = bindInterfacePreferences(shell, preferences);
   const find = selector => shell.querySelector(selector), listeners = [], cards = new Map(), characterButtons = new Map();
   const on = (target, type, handler) => { target.addEventListener(type, handler); listeners.push(() => target.removeEventListener(type, handler)); };
   const grid = find('[data-place-grid]'), status = find('[data-place-status]'), errorPanel = find('[data-place-error]');
@@ -82,7 +84,7 @@ export function mountMainMenu({root, places = [], onSelect, characters = [], sel
     const heading = doc.createElement('h2'); heading.id = 'tb-place-' + suffix + '-' + index; heading.textContent = place.title;
     const description = doc.createElement('p'); description.id = heading.id + '-description'; description.textContent = place.description;
     const button = doc.createElement('button'); button.type = 'button'; button.className = 'tb-place-visit'; button.dataset.selectPlace = place.id; button.setAttribute('aria-describedby', description.id);
-    const label = doc.createElement('span'); label.className = 'tb-place-action-text'; label.textContent = place.id === 'catalogue-street' ? 'Enter street' : 'Visit';
+    const label = doc.createElement('span'); label.className = 'tb-place-action-text'; label.textContent = 'Open map';
     button.append(visitMark(doc, suffix, index), label);
     details.append(heading, description, button); card.append(figure, details); grid.append(card);
     cards.set(place.id, {place, card, button, label});
@@ -107,8 +109,8 @@ export function mountMainMenu({root, places = [], onSelect, characters = [], sel
     for (const {place, card, button, label} of cards.values()) {
       const opening = loadingId === place.id;
       button.disabled = Boolean(loadingId); card.dataset.loading = String(opening);
-      button.setAttribute('aria-label', (opening ? 'Opening ' : 'Visit ') + place.title);
-      text(label, opening ? 'Opening…' : place.id === 'catalogue-street' ? 'Enter street' : 'Visit');
+      button.setAttribute('aria-label', (opening ? 'Opening ' : 'Open ') + place.title + (opening ? '' : ' map'));
+      text(label, opening ? 'Opening…' : 'Open map');
     }
     const animal = animals.find(entry => entry.id === selectedAnimal);
     for (const [id, button] of characterButtons) {
@@ -122,7 +124,7 @@ export function mountMainMenu({root, places = [], onSelect, characters = [], sel
     text(find('[data-place-error-message]'), message);
     find('[data-place-retry]').hidden = !failedId;
     const openingTitle = cards.get(loadingId)?.place.title ?? 'your destination';
-    text(status, loadingId ? 'Opening ' + openingTitle + (animal ? ' as ' + animal.title : '') + '…' : errorVisible ? 'Unable to open this place. Try again or choose another destination.' : animal ? 'Travel as ' + animal.title + '. Choose a place.' : 'Choose a place.');
+    text(status, loadingId ? 'Opening ' + openingTitle + (animal ? ' as ' + animal.title : '') + '…' : errorVisible ? 'Unable to open this place. Try again or choose another destination.' : animal ? 'Travel as ' + animal.title + '. Choose a map.' : 'Choose a map.');
   }
   paint();
   if (shell.isConnected && (doc.activeElement === doc.body || root.contains(doc.activeElement))) find('h1').focus({preventScroll:true});
@@ -140,6 +142,6 @@ export function mountMainMenu({root, places = [], onSelect, characters = [], sel
       if (message && !loadingId && !dismissed && (previousError !== message + '\n' + failedId || wasLoading)) find('.tb-place-error h2').focus();
     },
     focusPlace,
-    dispose() { if (disposed) return; disposed = true; for (const remove of listeners.splice(0)) remove(); shell.remove(); }
+    dispose() { if (disposed) return; disposed = true; unbindPreferences(); for (const remove of listeners.splice(0)) remove(); shell.remove(); }
   };
 }

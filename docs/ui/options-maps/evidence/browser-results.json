@@ -1,0 +1,1098 @@
+[
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "results": [
+      {
+        "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+        "status": "pass"
+      },
+      {
+        "name": "Each direct click selects its own tool then sends exactly one press and release",
+        "status": "pass"
+      },
+      {
+        "name": "Selection and stock remain authoritative until snapshots arrive",
+        "status": "pass"
+      },
+      {
+        "name": "An empty selected tool does not block a different tool that has stock",
+        "status": "pass"
+      },
+      {
+        "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+        "status": "pass"
+      },
+      {
+        "name": "Torch and flamethrower send one edge until the matching pointer releases",
+        "status": "pass"
+      },
+      {
+        "name": "Independent joystick and action pointers preserve held movement",
+        "status": "pass"
+      },
+      {
+        "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+        "status": "pass"
+      },
+      {
+        "name": "Q E R and increased drug stock emit no manual consumption command",
+        "status": "pass"
+      },
+      {
+        "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+        "status": "pass"
+      },
+      {
+        "name": "Space and Enter on a tool suppress repeat and release their own action",
+        "status": "pass"
+      },
+      {
+        "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+        "status": "pass"
+      },
+      {
+        "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+        "status": "pass"
+      },
+      {
+        "name": "Switching by number releases an old held action and leaves the joystick active",
+        "status": "pass"
+      },
+      {
+        "name": "Pointer cancellation and lost capture clear movement and held tools",
+        "status": "pass"
+      },
+      {
+        "name": "Blur and hidden document neutralize input with no stale release",
+        "status": "pass"
+      },
+      {
+        "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+        "status": "pass"
+      },
+      {
+        "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+        "status": "pass"
+      },
+      {
+        "name": "Options trap focus and Escape returns without triggering tools",
+        "status": "pass"
+      },
+      {
+        "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+        "status": "pass"
+      },
+      {
+        "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+        "status": "pass"
+      },
+      {
+        "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+        "status": "pass"
+      },
+      {
+        "name": "Map heading/fire updates independently and loading state exposes no active controls",
+        "status": "pass"
+      },
+      {
+        "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+        "status": "pass"
+      },
+      {
+        "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+        "status": "pass"
+      },
+      {
+        "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+        "status": "pass"
+      },
+      {
+        "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+        "status": "pass"
+      },
+      {
+        "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+        "status": "pass"
+      },
+      {
+        "name": "Switching away and back preserves aged torch state without relighting",
+        "status": "pass"
+      },
+      {
+        "name": "Spent transition releases held input and repeats cannot relight it",
+        "status": "pass"
+      },
+      {
+        "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+        "status": "pass"
+      },
+      {
+        "name": "Initial old events are not announced and tool feedback stays with its tool",
+        "status": "pass"
+      },
+      {
+        "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+        "status": "pass"
+      },
+      {
+        "name": "Title screen creates no graphics context and has a contained native Play action",
+        "status": "pass"
+      },
+      {
+        "name": "Title Play emits one start intent, suppresses native repeats and is inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Title mounts scope their engraving clips, remove listeners and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "Places offers optional repeat-safe title return and locks it while loading",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu renders all catalogue metadata and real preview URLs without a canvas",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu requests an ID; loading remains application-owned and blocks duplicate selection",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu error, retry and back recovery keep the catalogue usable and focus the failed place",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu focus restoration and repeated error updates do not steal current focus",
+        "status": "pass"
+      },
+      {
+        "name": "A failed below-fold visit scrolls the recovery heading into view",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu escapes catalogue/error strings and handles empty or unavailable previews",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu scopes descriptions/etching clips and removes all listeners and stale callbacks",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu is horizontally contained with native 44px actions and a scrollable phone sheet",
+        "status": "pass"
+      },
+      {
+        "name": "Animal choice uses catalogue text and application-owned selection without optimistic state",
+        "status": "pass"
+      },
+      {
+        "name": "Optional animal selection preserves old menus, scoped descriptions, touch targets and safe text",
+        "status": "pass"
+      },
+      {
+        "name": "Animal requests stop after disposal and repeated activation remains a native button edge",
+        "status": "pass"
+      },
+      {
+        "name": "Street snapshots can name a selected animal while retaining the six gameplay controls",
+        "status": "pass"
+      },
+      {
+        "name": "Explore identity, follow control and map use authoritative animal names with a safe fallback",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration HUD accepts noncombat snapshots and shows no usable street tools, health or reset",
+        "status": "pass"
+      },
+      {
+        "name": "Human floor/location transitions announce once; coordinates, elevation and native indexes stay quiet",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration camera requests preserve the raw held joystick and do not choose scene state",
+        "status": "pass"
+      },
+      {
+        "name": "Contextual interaction, Space and E send one edge without changing the location or movement",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration ignores combat number keys and preserves repeat-safe contextual button activation",
+        "status": "pass"
+      },
+      {
+        "name": "Return requests cancel movement first; pause-menu return does not reset or resume the visit",
+        "status": "pass"
+      },
+      {
+        "name": "Optional return/navigation arguments preserve old callers and exploration targets fit intended viewports",
+        "status": "pass"
+      },
+      {
+        "name": "Title Options opens without starting a map and Back or Escape restores its button",
+        "status": "pass"
+      },
+      {
+        "name": "Interface choices carry between title, map picker and HUDs and detach after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Options has native 44px actions, readable labels and scrolls Back into the phone viewport",
+        "status": "pass"
+      },
+      {
+        "name": "The four current test maps request distinct IDs and restore their own focus after each return",
+        "status": "pass"
+      }
+    ],
+    "status": "passed",
+    "summary": "66 / 66 passed"
+  },
+  {
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "results": [
+      {
+        "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+        "status": "pass"
+      },
+      {
+        "name": "Each direct click selects its own tool then sends exactly one press and release",
+        "status": "pass"
+      },
+      {
+        "name": "Selection and stock remain authoritative until snapshots arrive",
+        "status": "pass"
+      },
+      {
+        "name": "An empty selected tool does not block a different tool that has stock",
+        "status": "pass"
+      },
+      {
+        "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+        "status": "pass"
+      },
+      {
+        "name": "Torch and flamethrower send one edge until the matching pointer releases",
+        "status": "pass"
+      },
+      {
+        "name": "Independent joystick and action pointers preserve held movement",
+        "status": "pass"
+      },
+      {
+        "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+        "status": "pass"
+      },
+      {
+        "name": "Q E R and increased drug stock emit no manual consumption command",
+        "status": "pass"
+      },
+      {
+        "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+        "status": "pass"
+      },
+      {
+        "name": "Space and Enter on a tool suppress repeat and release their own action",
+        "status": "pass"
+      },
+      {
+        "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+        "status": "pass"
+      },
+      {
+        "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+        "status": "pass"
+      },
+      {
+        "name": "Switching by number releases an old held action and leaves the joystick active",
+        "status": "pass"
+      },
+      {
+        "name": "Pointer cancellation and lost capture clear movement and held tools",
+        "status": "pass"
+      },
+      {
+        "name": "Blur and hidden document neutralize input with no stale release",
+        "status": "pass"
+      },
+      {
+        "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+        "status": "pass"
+      },
+      {
+        "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+        "status": "pass"
+      },
+      {
+        "name": "Options trap focus and Escape returns without triggering tools",
+        "status": "pass"
+      },
+      {
+        "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+        "status": "pass"
+      },
+      {
+        "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+        "status": "pass"
+      },
+      {
+        "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+        "status": "pass"
+      },
+      {
+        "name": "Map heading/fire updates independently and loading state exposes no active controls",
+        "status": "pass"
+      },
+      {
+        "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+        "status": "pass"
+      },
+      {
+        "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+        "status": "pass"
+      },
+      {
+        "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+        "status": "pass"
+      },
+      {
+        "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+        "status": "pass"
+      },
+      {
+        "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+        "status": "pass"
+      },
+      {
+        "name": "Switching away and back preserves aged torch state without relighting",
+        "status": "pass"
+      },
+      {
+        "name": "Spent transition releases held input and repeats cannot relight it",
+        "status": "pass"
+      },
+      {
+        "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+        "status": "pass"
+      },
+      {
+        "name": "Initial old events are not announced and tool feedback stays with its tool",
+        "status": "pass"
+      },
+      {
+        "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+        "status": "pass"
+      },
+      {
+        "name": "Title screen creates no graphics context and has a contained native Play action",
+        "status": "pass"
+      },
+      {
+        "name": "Title Play emits one start intent, suppresses native repeats and is inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Title mounts scope their engraving clips, remove listeners and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "Places offers optional repeat-safe title return and locks it while loading",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu renders all catalogue metadata and real preview URLs without a canvas",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu requests an ID; loading remains application-owned and blocks duplicate selection",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu error, retry and back recovery keep the catalogue usable and focus the failed place",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu focus restoration and repeated error updates do not steal current focus",
+        "status": "pass"
+      },
+      {
+        "name": "A failed below-fold visit scrolls the recovery heading into view",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu escapes catalogue/error strings and handles empty or unavailable previews",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu scopes descriptions/etching clips and removes all listeners and stale callbacks",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu is horizontally contained with native 44px actions and a scrollable phone sheet",
+        "status": "pass"
+      },
+      {
+        "name": "Animal choice uses catalogue text and application-owned selection without optimistic state",
+        "status": "pass"
+      },
+      {
+        "name": "Optional animal selection preserves old menus, scoped descriptions, touch targets and safe text",
+        "status": "pass"
+      },
+      {
+        "name": "Animal requests stop after disposal and repeated activation remains a native button edge",
+        "status": "pass"
+      },
+      {
+        "name": "Street snapshots can name a selected animal while retaining the six gameplay controls",
+        "status": "pass"
+      },
+      {
+        "name": "Explore identity, follow control and map use authoritative animal names with a safe fallback",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration HUD accepts noncombat snapshots and shows no usable street tools, health or reset",
+        "status": "pass"
+      },
+      {
+        "name": "Human floor/location transitions announce once; coordinates, elevation and native indexes stay quiet",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration camera requests preserve the raw held joystick and do not choose scene state",
+        "status": "pass"
+      },
+      {
+        "name": "Contextual interaction, Space and E send one edge without changing the location or movement",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration ignores combat number keys and preserves repeat-safe contextual button activation",
+        "status": "pass"
+      },
+      {
+        "name": "Return requests cancel movement first; pause-menu return does not reset or resume the visit",
+        "status": "pass"
+      },
+      {
+        "name": "Optional return/navigation arguments preserve old callers and exploration targets fit intended viewports",
+        "status": "pass"
+      },
+      {
+        "name": "Title Options opens without starting a map and Back or Escape restores its button",
+        "status": "pass"
+      },
+      {
+        "name": "Interface choices carry between title, map picker and HUDs and detach after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Options has native 44px actions, readable labels and scrolls Back into the phone viewport",
+        "status": "pass"
+      },
+      {
+        "name": "The four current test maps request distinct IDs and restore their own focus after each return",
+        "status": "pass"
+      }
+    ],
+    "status": "passed",
+    "summary": "66 / 66 passed"
+  },
+  {
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "results": [
+      {
+        "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+        "status": "pass"
+      },
+      {
+        "name": "Each direct click selects its own tool then sends exactly one press and release",
+        "status": "pass"
+      },
+      {
+        "name": "Selection and stock remain authoritative until snapshots arrive",
+        "status": "pass"
+      },
+      {
+        "name": "An empty selected tool does not block a different tool that has stock",
+        "status": "pass"
+      },
+      {
+        "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+        "status": "pass"
+      },
+      {
+        "name": "Torch and flamethrower send one edge until the matching pointer releases",
+        "status": "pass"
+      },
+      {
+        "name": "Independent joystick and action pointers preserve held movement",
+        "status": "pass"
+      },
+      {
+        "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+        "status": "pass"
+      },
+      {
+        "name": "Q E R and increased drug stock emit no manual consumption command",
+        "status": "pass"
+      },
+      {
+        "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+        "status": "pass"
+      },
+      {
+        "name": "Space and Enter on a tool suppress repeat and release their own action",
+        "status": "pass"
+      },
+      {
+        "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+        "status": "pass"
+      },
+      {
+        "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+        "status": "pass"
+      },
+      {
+        "name": "Switching by number releases an old held action and leaves the joystick active",
+        "status": "pass"
+      },
+      {
+        "name": "Pointer cancellation and lost capture clear movement and held tools",
+        "status": "pass"
+      },
+      {
+        "name": "Blur and hidden document neutralize input with no stale release",
+        "status": "pass"
+      },
+      {
+        "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+        "status": "pass"
+      },
+      {
+        "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+        "status": "pass"
+      },
+      {
+        "name": "Options trap focus and Escape returns without triggering tools",
+        "status": "pass"
+      },
+      {
+        "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+        "status": "pass"
+      },
+      {
+        "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+        "status": "pass"
+      },
+      {
+        "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+        "status": "pass"
+      },
+      {
+        "name": "Map heading/fire updates independently and loading state exposes no active controls",
+        "status": "pass"
+      },
+      {
+        "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+        "status": "pass"
+      },
+      {
+        "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+        "status": "pass"
+      },
+      {
+        "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+        "status": "pass"
+      },
+      {
+        "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+        "status": "pass"
+      },
+      {
+        "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+        "status": "pass"
+      },
+      {
+        "name": "Switching away and back preserves aged torch state without relighting",
+        "status": "pass"
+      },
+      {
+        "name": "Spent transition releases held input and repeats cannot relight it",
+        "status": "pass"
+      },
+      {
+        "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+        "status": "pass"
+      },
+      {
+        "name": "Initial old events are not announced and tool feedback stays with its tool",
+        "status": "pass"
+      },
+      {
+        "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+        "status": "pass"
+      },
+      {
+        "name": "Title screen creates no graphics context and has a contained native Play action",
+        "status": "pass"
+      },
+      {
+        "name": "Title Play emits one start intent, suppresses native repeats and is inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Title mounts scope their engraving clips, remove listeners and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "Places offers optional repeat-safe title return and locks it while loading",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu renders all catalogue metadata and real preview URLs without a canvas",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu requests an ID; loading remains application-owned and blocks duplicate selection",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu error, retry and back recovery keep the catalogue usable and focus the failed place",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu focus restoration and repeated error updates do not steal current focus",
+        "status": "pass"
+      },
+      {
+        "name": "A failed below-fold visit scrolls the recovery heading into view",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu escapes catalogue/error strings and handles empty or unavailable previews",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu scopes descriptions/etching clips and removes all listeners and stale callbacks",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu is horizontally contained with native 44px actions and a scrollable phone sheet",
+        "status": "pass"
+      },
+      {
+        "name": "Animal choice uses catalogue text and application-owned selection without optimistic state",
+        "status": "pass"
+      },
+      {
+        "name": "Optional animal selection preserves old menus, scoped descriptions, touch targets and safe text",
+        "status": "pass"
+      },
+      {
+        "name": "Animal requests stop after disposal and repeated activation remains a native button edge",
+        "status": "pass"
+      },
+      {
+        "name": "Street snapshots can name a selected animal while retaining the six gameplay controls",
+        "status": "pass"
+      },
+      {
+        "name": "Explore identity, follow control and map use authoritative animal names with a safe fallback",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration HUD accepts noncombat snapshots and shows no usable street tools, health or reset",
+        "status": "pass"
+      },
+      {
+        "name": "Human floor/location transitions announce once; coordinates, elevation and native indexes stay quiet",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration camera requests preserve the raw held joystick and do not choose scene state",
+        "status": "pass"
+      },
+      {
+        "name": "Contextual interaction, Space and E send one edge without changing the location or movement",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration ignores combat number keys and preserves repeat-safe contextual button activation",
+        "status": "pass"
+      },
+      {
+        "name": "Return requests cancel movement first; pause-menu return does not reset or resume the visit",
+        "status": "pass"
+      },
+      {
+        "name": "Optional return/navigation arguments preserve old callers and exploration targets fit intended viewports",
+        "status": "pass"
+      },
+      {
+        "name": "Title Options opens without starting a map and Back or Escape restores its button",
+        "status": "pass"
+      },
+      {
+        "name": "Interface choices carry between title, map picker and HUDs and detach after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Options has native 44px actions, readable labels and scrolls Back into the phone viewport",
+        "status": "pass"
+      },
+      {
+        "name": "The four current test maps request distinct IDs and restore their own focus after each return",
+        "status": "pass"
+      }
+    ],
+    "status": "passed",
+    "summary": "66 / 66 passed"
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "results": [
+      {
+        "name": "Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu",
+        "status": "pass"
+      },
+      {
+        "name": "Each direct click selects its own tool then sends exactly one press and release",
+        "status": "pass"
+      },
+      {
+        "name": "Selection and stock remain authoritative until snapshots arrive",
+        "status": "pass"
+      },
+      {
+        "name": "An empty selected tool does not block a different tool that has stock",
+        "status": "pass"
+      },
+      {
+        "name": "Oil barrel exposes authoritative Stop even at zero gas and keeps its image node",
+        "status": "pass"
+      },
+      {
+        "name": "Torch and flamethrower send one edge until the matching pointer releases",
+        "status": "pass"
+      },
+      {
+        "name": "Independent joystick and action pointers preserve held movement",
+        "status": "pass"
+      },
+      {
+        "name": "Inversion feedback never pre-inverts the raw NE stick or changes aim",
+        "status": "pass"
+      },
+      {
+        "name": "Q E R and increased drug stock emit no manual consumption command",
+        "status": "pass"
+      },
+      {
+        "name": "Engine-supplied medicine and timed effects update feedback without reapplying effects",
+        "status": "pass"
+      },
+      {
+        "name": "Space and Enter on a tool suppress repeat and release their own action",
+        "status": "pass"
+      },
+      {
+        "name": "Number keys select without firing; Space uses the selected tool without stopping movement",
+        "status": "pass"
+      },
+      {
+        "name": "Pending selection survives an old snapshot until the requested tool is acknowledged",
+        "status": "pass"
+      },
+      {
+        "name": "Switching by number releases an old held action and leaves the joystick active",
+        "status": "pass"
+      },
+      {
+        "name": "Pointer cancellation and lost capture clear movement and held tools",
+        "status": "pass"
+      },
+      {
+        "name": "Blur and hidden document neutralize input with no stale release",
+        "status": "pass"
+      },
+      {
+        "name": "Paused, dead and depleted snapshots gate tool actions and release holds",
+        "status": "pass"
+      },
+      {
+        "name": "Menu pauses and resumes authoritatively; reset emits the contract command",
+        "status": "pass"
+      },
+      {
+        "name": "Options trap focus and Escape returns without triggering tools",
+        "status": "pass"
+      },
+      {
+        "name": "Repeated mount/dispose removes every UI listener and stale controls are inert",
+        "status": "pass"
+      },
+      {
+        "name": "Independent mounts scope ARIA and clipping and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "All controls are at least 44px, contained, correctly flanking the joystick and map",
+        "status": "pass"
+      },
+      {
+        "name": "Field-canvas focus survives menu resume; leaving the game cancels input",
+        "status": "pass"
+      },
+      {
+        "name": "Map heading/fire updates independently and loading state exposes no active controls",
+        "status": "pass"
+      },
+      {
+        "name": "Zoom callbacks stay separate, reciprocal, optional and inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Synchronous snapshot callbacks can acknowledge selection and pour without reentrant loss",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: matches and lantern clicks consume exactly one item each",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: barrel toggle pours while moving and stops without cancelling movement",
+        "status": "pass"
+      },
+      {
+        "name": "Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases",
+        "status": "pass"
+      },
+      {
+        "name": "Real simulation: authoritative effect updates preserve pour and never emit UI drug commands",
+        "status": "pass"
+      },
+      {
+        "name": "Torch phases show authoritative seconds and spent or missing schema disables use",
+        "status": "pass"
+      },
+      {
+        "name": "Lighting during a held press does not emit an extra Ignite edge or timer update",
+        "status": "pass"
+      },
+      {
+        "name": "Torch countdown, pause and powder come only from supplied snapshots without live spam",
+        "status": "pass"
+      },
+      {
+        "name": "Switching away and back preserves aged torch state without relighting",
+        "status": "pass"
+      },
+      {
+        "name": "Spent transition releases held input and repeats cannot relight it",
+        "status": "pass"
+      },
+      {
+        "name": "Action events update visible/accessibility feedback once, without replaying countdown history",
+        "status": "pass"
+      },
+      {
+        "name": "Initial old events are not announced and tool feedback stays with its tool",
+        "status": "pass"
+      },
+      {
+        "name": "Torch discrete keypress and cancellation preserve the existing raw joystick contract",
+        "status": "pass"
+      },
+      {
+        "name": "Title screen creates no graphics context and has a contained native Play action",
+        "status": "pass"
+      },
+      {
+        "name": "Title Play emits one start intent, suppresses native repeats and is inert after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Title mounts scope their engraving clips, remove listeners and preserve caller siblings",
+        "status": "pass"
+      },
+      {
+        "name": "Places offers optional repeat-safe title return and locks it while loading",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu renders all catalogue metadata and real preview URLs without a canvas",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu requests an ID; loading remains application-owned and blocks duplicate selection",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu error, retry and back recovery keep the catalogue usable and focus the failed place",
+        "status": "pass"
+      },
+      {
+        "name": "Main-menu focus restoration and repeated error updates do not steal current focus",
+        "status": "pass"
+      },
+      {
+        "name": "A failed below-fold visit scrolls the recovery heading into view",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu escapes catalogue/error strings and handles empty or unavailable previews",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu scopes descriptions/etching clips and removes all listeners and stale callbacks",
+        "status": "pass"
+      },
+      {
+        "name": "Main menu is horizontally contained with native 44px actions and a scrollable phone sheet",
+        "status": "pass"
+      },
+      {
+        "name": "Animal choice uses catalogue text and application-owned selection without optimistic state",
+        "status": "pass"
+      },
+      {
+        "name": "Optional animal selection preserves old menus, scoped descriptions, touch targets and safe text",
+        "status": "pass"
+      },
+      {
+        "name": "Animal requests stop after disposal and repeated activation remains a native button edge",
+        "status": "pass"
+      },
+      {
+        "name": "Street snapshots can name a selected animal while retaining the six gameplay controls",
+        "status": "pass"
+      },
+      {
+        "name": "Explore identity, follow control and map use authoritative animal names with a safe fallback",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration HUD accepts noncombat snapshots and shows no usable street tools, health or reset",
+        "status": "pass"
+      },
+      {
+        "name": "Human floor/location transitions announce once; coordinates, elevation and native indexes stay quiet",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration camera requests preserve the raw held joystick and do not choose scene state",
+        "status": "pass"
+      },
+      {
+        "name": "Contextual interaction, Space and E send one edge without changing the location or movement",
+        "status": "pass"
+      },
+      {
+        "name": "Exploration ignores combat number keys and preserves repeat-safe contextual button activation",
+        "status": "pass"
+      },
+      {
+        "name": "Return requests cancel movement first; pause-menu return does not reset or resume the visit",
+        "status": "pass"
+      },
+      {
+        "name": "Optional return/navigation arguments preserve old callers and exploration targets fit intended viewports",
+        "status": "pass"
+      },
+      {
+        "name": "Title Options opens without starting a map and Back or Escape restores its button",
+        "status": "pass"
+      },
+      {
+        "name": "Interface choices carry between title, map picker and HUDs and detach after disposal",
+        "status": "pass"
+      },
+      {
+        "name": "Options has native 44px actions, readable labels and scrolls Back into the phone viewport",
+        "status": "pass"
+      },
+      {
+        "name": "The four current test maps request distinct IDs and restore their own focus after each return",
+        "status": "pass"
+      }
+    ],
+    "status": "passed",
+    "summary": "66 / 66 passed"
+  }
+]

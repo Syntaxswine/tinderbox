@@ -1,0 +1,5 @@
+/* Paper stays dark-on-light when the shared high-contrast preference is on. */
+.tb-ui.tb-title-screen.tb-high-contrast,.tb-ui.tb-main-menu.tb-high-contrast { --ink:#211409; --muted:#352314; --parchment:#fff1ca; }
+.tb-ui.tb-title-screen.tb-high-contrast .tb-title-paper,.tb-ui.tb-main-menu.tb-high-contrast .tb-place-paper { background:#fff1ca; box-shadow:inset 0 0 0 2px #352314; }
+.tb-ui.tb-main-menu.tb-high-contrast .tb-place-details>p { color:#211409; }
+.tb-ui.tb-title-screen.tb-high-contrast .tb-title-controls,.tb-ui.tb-title-screen.tb-high-contrast fieldset { border-color:#352314; }

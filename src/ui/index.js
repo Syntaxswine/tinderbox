@@ -1,8 +1,10 @@
 import {ETCHING_SIZE, ETCHING_FRAMES, OIL_LANTERN_SIZE, OIL_LANTERN_FRAME, OIL_BARREL_SIZE, OIL_BARREL_FRAME} from './etching-frames.js';
 import {mountMap} from './map.js';
+import {bindInterfacePreferences, interfacePreferences} from './preferences.js';
 import {TOOLS, normalizeStick, pointerStick, stockText, viewOf, toolFeedbackOf, navigationOf} from './model.js';
 export {mountMainMenu} from './main-menu.js';
 export {mountTitleScreen} from './title-screen.js';
+export {createInterfacePreferences} from './preferences.js';
 const marks = new URL('../../assets/art/ui/engraved-outline-plates.svg', import.meta.url).href;
 const engraving = new URL('../../assets/art/ui/engraved-atlas.png', import.meta.url).href;
 const oilLantern = new URL('../../assets/art/ui/engraved-oil-lantern.png', import.meta.url).href;
@@ -42,7 +44,7 @@ const markup = '<header class="tb-top">' +
   '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Tap tool · Space for selected tool</dd></div><div><dt>Medicine</dt><dd>Walk over it to use it</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Tap Oil barrel to start or stop pouring. Tap Torch to light, then tap to ignite nearby fuel. Hold Flamethrower. Walk over drugs or medicine to use them. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
-export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay', placeTitle=''} = {}) {
+export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
   if (!root?.ownerDocument || typeof onCommand !== 'function') throw new TypeError('mountUI requires a DOM root and onCommand callback.');
   if(!['gameplay','explore'].includes(mode))throw new TypeError('Unknown UI mode.');
   const exploring=mode==='explore',hasExit=typeof onExitToMenu==='function';
@@ -58,6 +60,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
   shell.innerHTML=content.replaceAll('tb-engraving-','tb-engraving'+suffix+'-').replaceAll('tb-movement-help','tb-movement-help'+suffix).replaceAll('tb-menu-title','tb-menu-title'+suffix).replaceAll('tb-tool-resource','tb-tool-resource'+suffix).replaceAll('id="tb-tool-feedback"','id="tb-tool-feedback'+suffix+'"');
   const style=doc.createElement('link');style.rel='stylesheet';style.href=new URL('./styles.css',import.meta.url).href;shell.prepend(style);root.append(shell);
   const find=s=>shell.querySelector(s), all=s=>[...shell.querySelectorAll(s)];
+  const unbindPreferences=bindInterfacePreferences(shell,preferences);
   const stick=find('[data-stick]'),thumb=find('.tb-stick-thumb'),pause=find('[data-pause]'),menuElement=find('[data-menu]'),map=mountMap(find('[data-map]'),{label:exploring?'Place plan':'Ground plan',playerLabel:exploring?'Player':'Bear'});
   if(exploring){
     find('.tb-health').hidden=true;find('.tb-effects').hidden=true;find('.tb-zoom').hidden=true;find('.tb-selected').hidden=true;
@@ -252,8 +255,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
   on(find('[data-options]'),'click',()=>{menu='options';paintMenu();focusMenu();});
   on(find('[data-back]'),'click',()=>{menu='pause';paintMenu();focusMenu();});
   on(find('[data-reset]'),'click',()=>{if(exploring)return;awaitingResume=true;cancelInput();emit({type:'reset'});});
-  on(find('[data-reduce-motion]'),'change',event=>shell.classList.toggle('tb-reduced-motion',event.target.checked));
-  on(find('[data-contrast]'),'change',event=>shell.classList.toggle('tb-high-contrast',event.target.checked));
+
   for(const button of all('.tb-console button'))button.disabled=true;
   for(const button of all('[data-zoom]'))button.disabled=!hasZoom;
   return{
@@ -268,6 +270,6 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
       if(!exploring&&primarySources.size&&((!awaitingSelection&&primaryTool!==view.tool.id)||(primaryTool===view.tool.id&&view.primaryDisabled)))releaseTrigger();
       paint();
     },
-    dispose(){if(disposed)return;cancelInput();disposed=true;for(const remove of listeners.splice(0))remove();shell.remove();}
+    dispose(){if(disposed)return;cancelInput();disposed=true;unbindPreferences();for(const remove of listeners.splice(0))remove();shell.remove();}
   };
 }

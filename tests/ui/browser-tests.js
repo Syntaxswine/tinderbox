@@ -1,13 +1,13 @@
-import {mountUI,mountMainMenu,mountTitleScreen} from '../../src/ui/index.js';
+import {mountUI,mountMainMenu,mountTitleScreen,createInterfacePreferences} from '../../src/ui/index.js';
 import {fixture,createFakeSnapshotAdapter,PLACE_FIXTURES,CHARACTER_FIXTURES,explorationFixture} from '../../workbenches/ui/fixtures.js';
 import {createSimulation} from '../../src/simulation/index.js';
 const host=document.querySelector('#fixture-root'),results=[];
 const equal=(a,b,message='Values differ')=>{if(JSON.stringify(a)!==JSON.stringify(b))throw Error(message+': '+JSON.stringify(a)+' != '+JSON.stringify(b));};
 const ok=(value,message)=>{if(!value)throw Error(message);};
 function deepFreeze(value){Object.freeze(value);for(const item of Object.values(value))if(item&&typeof item==='object'&&!Object.isFrozen(item))deepFreeze(item);return value;}
-function make(name='ready',zoom=true){
+function make(name='ready',zoom=true,preferences){
   const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
-  const commands=[],zooms=[],ui=mountUI({root,onCommand:c=>commands.push(c),...(zoom?{onZoom:f=>zooms.push(f)}:{})});
+  const commands=[],zooms=[],ui=mountUI({root,preferences,onCommand:c=>commands.push(c),...(zoom?{onZoom:f=>zooms.push(f)}:{})});
   ui.update(deepFreeze(fixture(name)));return{root,commands,zooms,ui,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
 }
 const key=(target,type,code,extra={})=>target.dispatchEvent(new KeyboardEvent(type,{code,key:code==='Space'?' ':code,bubbles:true,cancelable:true,...extra}));
@@ -215,9 +215,9 @@ function makeMenu(places=PLACE_FIXTURES,options={}){
   const selections=[],ui=mountMainMenu({root,places,onSelect:id=>selections.push(id),...options});
   return{root,ui,selections,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
 }
-function makeTitle(){
+function makeTitle(options={}){
   const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
-  const starts=[],ui=mountTitleScreen({root,onStart:()=>starts.push('start')});
+  const starts=[],ui=mountTitleScreen({root,onStart:()=>starts.push('start'),...options});
   return{root,ui,starts,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
 }
 await check('Title screen creates no graphics context and has a contained native Play action',()=>{
@@ -257,9 +257,9 @@ await check('Places offers optional repeat-safe title return and locks it while 
     menu.ui.update({loadingId:null});button.click();equal(requests,['title']);menu.ui.dispose();button.click();equal(requests,['title']);
   }finally{menu.close();}
 });
-function makeExplore(name='entrance',withExit=true){
+function makeExplore(name='entrance',withExit=true,preferences){
   const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
-  const commands=[],exits=[],ui=mountUI({root,mode:'explore',placeTitle:'New York State Building',onCommand:c=>commands.push(c),...(withExit?{onExitToMenu:()=>exits.push(commands.slice())}:{})});
+  const commands=[],exits=[],ui=mountUI({root,preferences,mode:'explore',placeTitle:'New York State Building',onCommand:c=>commands.push(c),...(withExit?{onExitToMenu:()=>exits.push(commands.slice())}:{})});
   ui.update(explorationFixture(name));return{root,ui,commands,exits,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
 }
 await check('Main menu renders all catalogue metadata and real preview URLs without a canvas',()=>{
@@ -443,6 +443,58 @@ await check('Optional return/navigation arguments preserve old callers and explo
   }finally{nav.close();}
 });
 
+
+await check('Title Options opens without starting a map and Back or Escape restores its button',()=>{
+  const title=makeTitle({preferences:createInterfacePreferences()});try{
+    const open=title.find('[data-title-options-open]');open.click();
+    ok(!title.find('[data-title-options]').hidden,'Options did not open');
+    equal(document.activeElement,title.find('.tb-title-options h2'));
+    title.find('[data-title-start]').click();equal(title.starts,[],'Hidden Play started a map');
+    title.find('[data-title-options-back]').click();equal(document.activeElement,open);
+    open.click();key(title.find('.tb-title-options h2'),'keydown','Escape');
+    ok(title.find('[data-title-options]').hidden,'Escape left Options open');equal(document.activeElement,open);
+    open.click();title.ui.focusStart();equal(document.activeElement,title.find('[data-title-start]'));ok(title.find('[data-title-options]').hidden,'focusStart left Play hidden');
+  }finally{title.close();}
+});
+await check('Interface choices carry between title, map picker and HUDs and detach after disposal',()=>{
+  const preferences=createInterfacePreferences(),title=makeTitle({preferences}),menu=makeMenu(PLACE_FIXTURES,{preferences}),street=make('ready',true,preferences),nav=makeExplore('door',true,preferences);
+  try{
+    title.find('[data-title-options-open]').click();title.find('[data-contrast]').click();
+    for(const view of [title,menu,street,nav])ok(view.find('.tb-ui').classList.contains('tb-high-contrast'),'A mounted screen missed contrast');
+    ok(street.find('[data-contrast]').checked&&nav.find('[data-contrast]').checked,'HUD controls missed shared state');
+    const before=street.commands.length;title.find('[data-reduce-motion]').click();equal(street.commands.length,before,'Interface choice emitted a gameplay command');
+    const old=title.find('.tb-ui'),staleInput=title.find('[data-contrast]');title.ui.dispose();
+    preferences.update({highContrast:false});ok(old.classList.contains('tb-high-contrast'),'Disposed title kept subscribing');
+    ok(!menu.find('.tb-ui').classList.contains('tb-high-contrast'),'Live map picker stopped subscribing');
+    staleInput.click();equal(preferences.get(),{reduceMotion:true,highContrast:false},'Stale input changed preferences');
+    const next=makeTitle({preferences});try{ok(next.find('.tb-ui').classList.contains('tb-reduced-motion'),'Next title forgot session choice');}finally{next.close();}
+  }finally{title.close();menu.close();street.close();nav.close();}
+});
+await check('Options has native 44px actions, readable labels and scrolls Back into the phone viewport',()=>{
+  const title=makeTitle({preferences:createInterfacePreferences()});try{
+    const frame=title.root.getBoundingClientRect(),open=title.find('[data-title-options-open]').getBoundingClientRect();
+    ok(open.width>=44&&open.height>=44&&open.left>=frame.left&&open.right<=frame.right,'Options action is too small or clipped');
+    title.find('[data-title-options-open]').click();
+    for(const label of title.root.querySelectorAll('.tb-title-option')){
+      const r=label.getBoundingClientRect();ok(r.height>=44&&r.left>=frame.left&&r.right<=frame.right,'Small or clipped option label');
+    }
+    const back=title.find('[data-title-options-back]');back.focus();const r=back.getBoundingClientRect(),fresh=title.root.getBoundingClientRect();
+    ok(r.width>=44&&r.height>=44&&r.top>=fresh.top&&r.bottom<=fresh.bottom+1,'Back cannot be reached by keyboard');
+    ok(title.find('.tb-title-screen').scrollWidth<=title.find('.tb-title-screen').clientWidth+1,'Options has horizontal overflow');
+  }finally{title.close();}
+});
+await check('The four current test maps request distinct IDs and restore their own focus after each return',()=>{
+  const menu=makeMenu();try{
+    equal([...menu.root.querySelectorAll('[data-select-place]')].map(b=>b.dataset.selectPlace),['catalogue-street','new-york','administration','horticulture']);
+    equal(menu.find('h1').textContent,'Choose a map');
+    for(const place of PLACE_FIXTURES){
+      menu.ui.focusPlace(place.id);menu.find('[data-select-place="'+place.id+'"]').click();
+      menu.ui.update({loadingId:place.id,error:null});ok(menu.find('[data-place-status]').textContent.includes(place.title),'Loading names another map');
+      menu.ui.update({loadingId:null,error:null});menu.ui.focusPlace(place.id);equal(document.activeElement.dataset.selectPlace,place.id);
+    }
+    equal(menu.selections,PLACE_FIXTURES.map(place=>place.id));equal(menu.root.querySelectorAll('canvas').length,0);
+  }finally{menu.close();}
+});
 
 for(const r of results){const li=document.createElement('li');li.dataset.status=r.status;li.textContent=(r.status==='pass'?'PASS ':'FAIL ')+r.name+(r.message?' — '+r.message:'');document.querySelector('#checks').append(li);}
 document.querySelector('#summary').textContent=results.filter(r=>r.status==='pass').length+' / '+results.length+' passed';

@@ -4,6 +4,8 @@ Candidate branch: `codex/explorable-places-ui`, from UI checkpoint `6659b9c19248
 
 This implements the UI-owned portion of the `docs/milestones/08-explorable-places.md` contract, read from architect commit `d281ce91af27b32ffab4dc17390cf986f11ef881` on 2026-10-29, including selectable animals and the later title → places → individual map flow. Contract SHA-256: `bf2b651d1b6c29c683a5b20d4fd5dd75c9960a9a94d64eb54e7e5d303c6e68ca`.
 
+Follow-up: [Options and the confirmed four-map selector](../options-maps/README.md) builds on this candidate.
+
 ## Result and ownership
 
 A dedicated TINDERBOX title leaf leads through a native Play button to destination/animal selection. The application then opens one destination as its own map; returning from that map restores selection. The selector presents Catalogue Street, New York State Building, Administration Building and Horticultural Building as a warm newspaper field guide in the existing Eastlake timber. It retains the ochre, burnt-sienna and burnt-umber direction, Besley/Old Standard TT typography, pointing-hand engraving and native buttons. Phones use one scrollable column; desktop uses two. Goat, Horse and Bear use text choices with a visible Selected state. The application supplies the initial selection; the workbench uses the architect's provisional Goat default.

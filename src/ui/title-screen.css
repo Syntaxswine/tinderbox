@@ -1,34 +1,59 @@
-/* A title leaf composed from the inherited timber and engraved pointing hand. */
+/* Title and Options use the inherited timber, type and engraved atlas. */
 .tb-ui.tb-title-screen { --ink:var(--ink-dark); --muted:#68472a; display:grid; grid-template-columns:minmax(0,1fr); place-items:center; pointer-events:auto; overflow:auto; padding:20px 16px; background:radial-gradient(ellipse at 40% 15%,#d9b877,#a17942 80%); color:var(--ink); color-scheme:light; }
 .tb-ui .tb-title-book { position:relative; min-width:0; width:min(740px,100%); margin:auto; padding:12px; border-width:6px; }
 .tb-title-paper { padding:clamp(26px,5vh,48px) 22px; background:var(--parchment); background-image:linear-gradient(115deg,#c3984917,transparent 50%,#fff1cc40); box-shadow:inset 0 0 0 1px #805633; text-align:center; text-shadow:none; }
 .tb-title-kicker { margin:0; font:600 10px/1.5 var(--label); letter-spacing:2px; }
 .tb-title-rule { height:6px; border-block:1px solid #775532; margin:20px 0; }
 .tb-title-paper h1 { margin:28px 0 12px; font:800 clamp(32px,8.8vw,76px)/1.1 var(--display); letter-spacing:1px; }
-.tb-title-invitation { margin:0 0 30px; font:italic 20px/1.4 var(--text); }
-.tb-ui .tb-title-play { display:flex; align-items:center; justify-content:center; gap:18px; width:min(280px,100%); min-height:70px; margin:0 auto 30px; padding:8px 18px; border:1px solid #79502b; border-bottom-width:4px; color:var(--ink); background:#e9cd92; box-shadow:inset 0 0 0 3px #f7e7bd; font:700 25px/1.2 var(--display); }
+.tb-title-invitation { margin:0 0 26px; font:italic 20px/1.4 var(--text); }
+.tb-title-actions { display:grid; gap:12px; width:min(280px,100%); margin:0 auto 24px; }
+.tb-ui .tb-title-action { display:flex; align-items:center; justify-content:center; gap:18px; width:100%; min-height:70px; margin:0; padding:8px 18px; border:1px solid #79502b; border-bottom-width:4px; color:var(--ink); background:#e9cd92; box-shadow:inset 0 0 0 3px #f7e7bd; font:700 25px/1.2 var(--display); }
+.tb-ui .tb-title-options-button { min-height:56px; font-size:18px; }
 .tb-title-hand { width:46px; height:46px; flex:none; }
+.tb-title-options-button .tb-title-hand { width:34px; height:34px; }
 .tb-title-hand svg { width:100%; height:100%; display:block; overflow:hidden; mix-blend-mode:multiply; }
-.tb-ui .tb-title-play:hover { background:#dfba78; }
-.tb-ui .tb-title-play:active { border-bottom-width:2px; padding-top:10px; }
-.tb-ui .tb-title-play:focus-visible { outline:3px solid #683a1d; outline-offset:5px; }
+.tb-ui .tb-title-action:hover,.tb-ui .tb-title-back:hover { background:#dfba78; }
+.tb-ui .tb-title-action:active { border-bottom-width:2px; padding-top:10px; }
+.tb-ui.tb-title-screen button:focus-visible,.tb-ui.tb-title-screen input:focus-visible,.tb-title-options h2:focus-visible,.tb-title-controls summary:focus-visible { outline:3px solid #683a1d; outline-offset:4px; }
 .tb-title-edition { margin:0; color:var(--muted); font:600 9px/1.5 var(--label); letter-spacing:2px; }
+.tb-title-map-note { margin:0; color:var(--muted); font:italic 12px/1.4 var(--text); }
+.tb-title-screen[data-screen=options] .tb-title-paper h1 { margin:0 0 10px; font-size:clamp(25px,5vw,40px); }
+.tb-title-options { width:min(440px,100%); margin:0 auto; text-align:left; }
+.tb-title-options h2 { margin:0; text-align:center; font:700 24px/1.3 var(--display); }
+.tb-title-options-note { margin:7px 0 14px; text-align:center; color:var(--muted); font:italic 13px/1.4 var(--text); }
+.tb-title-options fieldset { margin:0; padding:5px 12px 10px; border:1px solid #997243; }
+.tb-title-options legend { padding:0 7px; font:700 13px/1.4 var(--display); }
+.tb-title-option { display:flex; align-items:center; gap:12px; min-height:56px; padding:8px 0; font:600 15px/1.3 var(--display); cursor:pointer; }
+.tb-title-option input { width:20px; height:20px; flex:none; margin:0; accent-color:#784625; }
+.tb-title-option small { display:block; margin-top:3px; font:400 12px/1.4 var(--text); color:var(--muted); }
+.tb-title-controls { margin:12px 0; border-block:1px solid #997243; }
+.tb-title-controls summary { min-height:44px; padding:12px 5px; cursor:pointer; font:700 14px/1.4 var(--display); }
+.tb-title-controls dl { display:grid; gap:8px; margin:0 5px 14px; font:400 13px/1.4 var(--text); }
+.tb-title-controls dl>div { display:grid; grid-template-columns:82px minmax(0,1fr); gap:10px; }
+.tb-title-controls dt { font-weight:700; }
+.tb-title-controls dd { margin:0; }
+.tb-ui .tb-title-back { display:block; min-height:44px; margin:14px auto 0; padding:10px 20px; border:1px solid #79502b; background:#e9cd92; color:var(--ink); font:600 13px/1.3 var(--label); }
 @media(max-width:380px) {
   .tb-ui.tb-title-screen { padding:14px 10px; }
   .tb-ui .tb-title-book { padding:8px; border-width:5px; }
   .tb-title-paper { padding:24px 10px; }
   .tb-title-kicker { font-size:7px; letter-spacing:1px; }
   .tb-title-invitation { font-size:17px; }
+  .tb-title-option { font-size:13px; }
+  .tb-title-option small { font-size:11px; }
 }
 @media(max-height:450px) and (min-width:600px) {
-  .tb-title-paper { padding:14px 22px; }
-  .tb-title-rule { margin:10px 0; }
-  .tb-title-paper h1 { margin:12px 0 8px; font-size:48px; }
-  .tb-title-invitation { margin-bottom:14px; font-size:17px; }
-  .tb-ui .tb-title-play { margin-bottom:12px; min-height:56px; font-size:21px; }
-  .tb-title-hand { width:34px; height:34px; }
+  .tb-title-paper { padding:12px 22px; }
+  .tb-title-rule { margin:8px 0; }
+  .tb-title-paper h1 { margin:8px 0 5px; font-size:40px; }
+  .tb-title-invitation { margin-bottom:10px; font-size:16px; }
+  .tb-title-actions { gap:8px; margin-bottom:10px; }
+  .tb-ui .tb-title-action { min-height:48px; padding:5px 16px; font-size:20px; }
+  .tb-ui .tb-title-options-button { min-height:44px; font-size:16px; }
+  .tb-title-hand { width:32px; height:32px; }
+  .tb-title-options-button .tb-title-hand { width:28px; height:28px; }
 }
 @media(forced-colors:active) {
   .tb-ui.tb-title-screen,.tb-ui .tb-title-paper { color:CanvasText; background:Canvas; border-color:CanvasText; box-shadow:none; }
-  .tb-ui .tb-title-play { color:ButtonText; background:ButtonFace; border-color:ButtonText; box-shadow:none; }
+  .tb-ui .tb-title-action,.tb-ui .tb-title-back { color:ButtonText; background:ButtonFace; border-color:ButtonText; box-shadow:none; }
 }
