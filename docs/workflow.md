@@ -5,7 +5,7 @@
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
 | Architect | `codex/explorable-places` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Place contract, exact intake, combined QC and promotion |
-| Artist | `codex/horticultural-building-art` checkpoint | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Preserve landmarks/waterfront; address returned art findings |
+| Artist | Assigned `codex/exploration-access-art` from `c428733` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Preserve landmarks; additive playable entry/stair/floor-opening art |
 | Coder | Assigned `codex/explorable-places-coder` from `ad80e2c` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Place loading, bear navigation, camera, lifecycle and immutable asset intake |
 | UI designer | Assigned `codex/explorable-places-ui` from `6659b9c` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Main-menu selection, navigation HUD and return controls |
 
@@ -89,7 +89,7 @@ TB-023 is the architect's source/geometry/visual acceptance and later integratio
 
 ## Explorable places assignment
 
-The user requested completed buildings as main-menu destinations. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to the coder, TB-025 to UI, TB-026 for returned art fixes and TB-027 to the architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share menu/return lifecycle. Outdoor exploration is the initial scope; incorporate any interior clarification before acceptance. Worker branches preserve completed ignition/UI candidates; the architect reconciles exact commits before the combined gate.
+The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
 
