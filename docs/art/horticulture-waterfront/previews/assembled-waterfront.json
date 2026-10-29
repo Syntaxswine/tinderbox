@@ -1,0 +1,37 @@
+{
+  "name": "assembled-waterfront",
+  "path": "docs/art/horticulture-waterfront/previews/assembled-waterfront.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      7,
+      1.4,
+      1
+    ],
+    "origin": [
+      25,
+      18,
+      -22
+    ],
+    "halfWidth": 11
+  },
+  "triangles": 36206,
+  "caption": "1 m repeating pieces; deck at 2.12 m; actual native bear. Building, planting and boats omitted.",
+  "limitations": [
+    "Actual exported meshes in CPU diffuse lighting; WebGL shader/performance review remains pending.",
+    "Horticultural Building, source planting, boats, crowds and UI are omitted.",
+    "Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Water and land fill are review-only geometry; water height0.92 m is an art choice, not an engine or historical requirement.",
+    "Corners, ends and stairs are useful game adaptations; no exact historic placement is claimed."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T13:51:37.852680+00:00",
+  "findings": "Complete repeated shoreline; terminal posts close both back ends and stair shoulders. Native floor level and bear scale preserved. Front planting/building omitted."
+}

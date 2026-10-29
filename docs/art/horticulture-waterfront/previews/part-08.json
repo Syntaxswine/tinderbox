@@ -1,0 +1,37 @@
+{
+  "name": "part-08",
+  "path": "docs/art/horticulture-waterfront/previews/part-08.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      4.5649999967217445,
+      1.6800000002980233,
+      12.435000003278255
+    ],
+    "origin": [
+      9.564999996721745,
+      5.6800000002980235,
+      6.435000003278255
+    ],
+    "halfWidth": 3.1
+  },
+  "triangles": 302,
+  "caption": "1 x 1 m floor cell; retaining panels remain 1 x 2 x 0.16 m.",
+  "limitations": [
+    "Actual exported meshes in CPU diffuse lighting; WebGL shader/performance review remains pending.",
+    "Horticultural Building, source planting, boats, crowds and UI are omitted.",
+    "Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Water and land fill are review-only geometry; water height0.92 m is an art choice, not an engine or historical requirement.",
+    "Corners, ends and stairs are useful game adaptations; no exact historic placement is claimed."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T13:51:37.852680+00:00",
+  "findings": "Individual tile reviewed through the full-resolution catalogue: complete geometry and clear silhouette, with native deck height and explicit custom trim."
+}
