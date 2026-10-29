@@ -3,6 +3,8 @@ import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import * as T from '../../src/runtime/three.js';
 import {createMedicinePickups, MEDICINE_KINDS, APPEARANCE_SLOTS} from '../../assets/art/medicine-pickups/index.js';
+import {MARKS} from '../../assets/art/medicine-pickups/marks.js';
+import {deriveMarks, PRESERVED_MARK_SOURCE, readPreservedMarkSource} from '../../art/source/medicine-pickups/build-marks.mjs';
 const records = MEDICINE_KINDS.map((kind, i) => Object.freeze({id: 'test-' + kind, kind, x: i * 2, y: 3, radius: .22, consumed: false}));
 const jsonBefore = JSON.stringify(records), a = createMedicinePickups(T), measured = {};
 assert.equal(a.root.children.length, 0); assert.equal(a.diagnostics().ownedGeometries, 0);
@@ -69,10 +71,21 @@ const c = createMedicinePickups(T); c.update(records.map(p => ({...p, consumed: 
 assert.equal(c.diagnostics().ownedGeometries, 0); c.dispose();
 assert.throws(() => createMedicinePickups(T, {materials: {ivory: {}}}), /material/);
 const source = JSON.parse(fs.readFileSync('art/source/medicine-pickups/mark-source.json'));
-const bytes = Buffer.from(fs.readFileSync(source.path, 'utf8').replace(/\r\n/g, '\n')); assert.equal(createHash('sha256').update(bytes).digest('hex'), source.sha256);
+const bytes = readPreservedMarkSource();
+for (const [key, value] of Object.entries(PRESERVED_MARK_SOURCE)) assert.equal(source[key], value, 'Pinned source metadata: ' + key);
+const selected = deriveMarks(bytes.toString('utf8'));
+assert.deepEqual(MARKS, selected, 'Runtime glyph contours must match the immutable preserved SVG');
+assert.deepEqual(source.marks, selected, 'Recorded selected glyph contours must match the immutable preserved SVG');
+// Independent locks from the reviewed b35a279 contour data prevent silent derivation drift.
+const approvedContourHashes = {
+  powder: '5b8ddc2d1ff96d05ef477337a22d4e8c268374bc27f5c4f034e977ac7a489014',
+  healing: '2ffc9a222cd46e319ea31837fe0d26c8ab5ee688abeb073aeea19e74258187f9',
+  inversion: '276aae086143055116c917bd0f4e565d751ebcbb1415a34b7322b31184b2911f'
+};
+for (const kind of MEDICINE_KINDS) assert.equal(createHash('sha256').update(JSON.stringify(MARKS[kind].contours)).digest('hex'), approvedContourHashes[kind], 'Approved contour identity: ' + kind);
 const report = {passed: true, nativeUnits: 'metres; static geometry at scale 1', measured,
   construction: counts, transitions: ['snapshot placement', 'stable identity on reorder/move', 'consumed while paused', 'reset/reappearance', 'kind replacement', 'missing ID removal', '80 snapshots of 64 changing IDs without resource growth', 'invalid snapshots leave last valid state intact'],
   resources: {ownedGeometriesDisposedExactlyOnce: ownGeometry.size, clonedMaterialsDisposedExactlyOnce: ownMaterial.size, borrowedMaterialsDisposed: 0, borrowedTexturesDisposed: 0, synchronousNoDOM: true},
-  sourceMarksUnchanged: true, limitations: ['Art-only headless geometry/state checks. Actual collection, native paint, phone readability and WebGL performance require combined review.']};
+  sourceMarksUnchanged: true, preservedSource: {...PRESERVED_MARK_SOURCE, byteExact: true, selectedRuntimeContoursMatch: true, approvedContourHashes}, limitations: ['Art-only headless geometry/state checks. Actual collection, native paint, phone readability and WebGL performance require combined review.']};
 if (process.argv.includes('--write')) { fs.mkdirSync('docs/art/medicine-pickups', {recursive: true}); fs.writeFileSync('docs/art/medicine-pickups/check-results.json', JSON.stringify(report, null, 2) + '\n'); }
 console.log(JSON.stringify(report, null, 2));
