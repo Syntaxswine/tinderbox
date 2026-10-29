@@ -1,0 +1,429 @@
+{
+  "date": "2026-10-29",
+  "task": "UI follow-up: Options and the four current test maps",
+  "branch": "codex/explorable-places-ui",
+  "base": "2b506544c41beed60a0504d34113ca23c00abee9",
+  "acceptedMaps": [
+    "catalogue-street",
+    "new-york",
+    "administration",
+    "horticulture"
+  ],
+  "preferences": {
+    "keys": [
+      "reduceMotion",
+      "highContrast"
+    ],
+    "scope": "browser page session; no OS/save/storage writes",
+    "optionalFactories": [
+      "mountTitleScreen",
+      "mountMainMenu",
+      "mountUI"
+    ],
+    "defaultShared": true,
+    "gameplayCommandsEmitted": false
+  },
+  "repository": {
+    "command": "node tools/check.mjs",
+    "status": "pass",
+    "tests": 99,
+    "ownScripts": 90,
+    "staticModules": 114,
+    "artImports": 5,
+    "artSyntaxChecks": 25,
+    "sharedThreeAndProvenance": "pass",
+    "log": "artifacts/ui-options-maps/check.log"
+  },
+  "browser": {
+    "command": "tests/ui/index.html in the supported IAB browser",
+    "status": "pass",
+    "checksPerViewport": 66,
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844,
+        "passed": 66
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "passed": 66
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "passed": 66
+      },
+      {
+        "width": 1280,
+        "height": 800,
+        "passed": 66
+      }
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "report": "evidence/browser-results.json",
+    "nativeReview": [
+      "Enter opens Options and focuses its heading",
+      "Checkbox clicks update both actual interface settings",
+      "Controls expands natively; Tab reaches Back and Space activates it",
+      "Escape restores the Options action without opening a map",
+      "Both preferences persist from title into map selection and the exploration HUD",
+      "Horticulture Enter activation emits its exact ID and named loading state"
+    ],
+    "teardown": {
+      "ownedTab": 20,
+      "closed": true,
+      "viewportReset": true,
+      "userMuseumTabUntouched": true,
+      "architectChromeWindowUntouched": true
+    }
+  },
+  "typography": {
+    "command": "node workbenches/ui/check-typography.mjs",
+    "status": "pass",
+    "files": 9,
+    "notices": 2
+  },
+  "retainedAssets": {
+    "base": "2b506544c41beed60a0504d34113ca23c00abee9",
+    "verifiedAt": "2026-10-29T19:17:33.71Z",
+    "assets": [
+      {
+        "path": "assets/art/place-previews/administration.jpg",
+        "bytes": 902062,
+        "sha256": "adb650eb36bcf2d8315b860dab484814669bfc3d660635d1cede3ec711d231ab",
+        "sourceBlobSha256": "adb650eb36bcf2d8315b860dab484814669bfc3d660635d1cede3ec711d231ab",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/place-previews/horticulture.jpg",
+        "bytes": 746426,
+        "sha256": "9dc1891da190bdb86cbd3e4c294b23cdb50965e1ffea5e0c6ec0e3b6dcf01182",
+        "sourceBlobSha256": "9dc1891da190bdb86cbd3e4c294b23cdb50965e1ffea5e0c6ec0e3b6dcf01182",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/place-previews/new-york.jpg",
+        "bytes": 881701,
+        "sha256": "380921050d2cbd124a137b2c5d38e7e114d506d99f48624c5edb6da36ede9f36",
+        "sourceBlobSha256": "380921050d2cbd124a137b2c5d38e7e114d506d99f48624c5edb6da36ede9f36",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/place-previews/provenance.json",
+        "bytes": 2370,
+        "sha256": "021ddabcf70e56563cf18f8a54b1787a6af046b1c77331184715c21f6effa428",
+        "sourceBlobSha256": "021ddabcf70e56563cf18f8a54b1787a6af046b1c77331184715c21f6effa428",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/control-symbols.svg",
+        "bytes": 2007,
+        "sha256": "6c7093bfce874593008aeac76be5d1f2ec3dd5988cc16806a8835cee9e02b028",
+        "sourceBlobSha256": "e8036e124316a61e98a4bddd822090f1795534f69cdc5f6aca6883720b40b554",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/eastlake-button.svg",
+        "bytes": 562,
+        "sha256": "40a53878910ba41417e3b04312d85f0aaddcc345bad78c6ed570e271dbb2eff5",
+        "sourceBlobSha256": "586ec0949b07c75d89bb31661ae61e0a168a26db557706b0934096922a860598",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/eastlake-controls.json",
+        "bytes": 4852,
+        "sha256": "c2adfb3c119627a098695fc5c7cf4858a2b2a382e1dfec71d5c72b1261804c80",
+        "sourceBlobSha256": "c48519a4f366aeb2b04500e22e571d54c94d3ac096a9c20d173c6858445c077f",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/eastlake-rosette.svg",
+        "bytes": 488,
+        "sha256": "825f939f7d79f557665215dd359a26d1293f63ff38e81633735d86e2266a2a6b",
+        "sourceBlobSha256": "ed15dac870382eeaa106c4f1f962ab24f9c0b56371fb75eddbfd2673bb27c055",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/eastlake-rule.svg",
+        "bytes": 458,
+        "sha256": "4240e76ea22fad9276e941c64de8522ac8fea01a35e27ea318ce70b6a74c80ae",
+        "sourceBlobSha256": "4c861935859ec12f7e7af3e15749cc4c783f0dc2198da5ed48e0e4debb6b8361",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/engraved-atlas.png",
+        "bytes": 1994109,
+        "sha256": "e1be50ce8a5afc92e535730d24ac9ad19ac416119275cb345eafe4c8cfe6502a",
+        "sourceBlobSha256": "e1be50ce8a5afc92e535730d24ac9ad19ac416119275cb345eafe4c8cfe6502a",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/engraved-oil-barrel.png",
+        "bytes": 2227597,
+        "sha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4",
+        "sourceBlobSha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/engraved-oil-lantern.png",
+        "bytes": 1063533,
+        "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
+        "sourceBlobSha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/engraved-outline-plates.svg",
+        "bytes": 8190,
+        "sha256": "67ed8b737340f0fe8d15913a489ea907206529b0f43e0872e97c7e91da0f63d1",
+        "sourceBlobSha256": "18604a6d3672ce7737283522d9bc1e626c3980b7f516db00caf0d6ea21820fd0",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/engraved-plates.json",
+        "bytes": 15164,
+        "sha256": "49c5b1b633e013f45c48a0de318e5801fd3e97fbeaff67c99647d853abd65c07",
+        "sourceBlobSha256": "c4c65a6d6a2bf46e176241bd77bb621bfb743a3d279e5436e8495ac521db4215",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/ochre-palette.json",
+        "bytes": 2732,
+        "sha256": "e48dffe7f8feed27f8a0ca5a931ee8447534251ec92fa504902bee7c193c526c",
+        "sourceBlobSha256": "e48dffe7f8feed27f8a0ca5a931ee8447534251ec92fa504902bee7c193c526c",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/phone-controls.json",
+        "bytes": 3566,
+        "sha256": "2f09d5066054b6a7dfff456ff37befe2dd68f0bf1d76d4b4cc545252caeea5e5",
+        "sourceBlobSha256": "464aa17fd0394856b8270bcf875fef866011bec056833ad254453c6079f32d1d",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      },
+      {
+        "path": "assets/art/ui/typography/besley/Besley[wght].ttf",
+        "bytes": 108640,
+        "sha256": "71f352d8859c787631a0978161d48497a72caa69dcae6996d6712a564df86c1e",
+        "sourceBlobSha256": "71f352d8859c787631a0978161d48497a72caa69dcae6996d6712a564df86c1e",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/typography/besley/METADATA.pb",
+        "bytes": 1269,
+        "sha256": "4246965c38a01d82c5c8b7a7f3eeda869423bedf66f69191093ab1fdb74af30f",
+        "sourceBlobSha256": "4246965c38a01d82c5c8b7a7f3eeda869423bedf66f69191093ab1fdb74af30f",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/typography/besley/OFL.txt",
+        "bytes": 4393,
+        "sha256": "e8d81ba3b06080b764626d4385f319344e102ddf2c08bb4209412ac22d695f69",
+        "sourceBlobSha256": "e8d81ba3b06080b764626d4385f319344e102ddf2c08bb4209412ac22d695f69",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/typography/manifest.json",
+        "bytes": 6555,
+        "sha256": "3924b18192ef0df315fc90e55392dc3e2309762faf1c853eb2f9efcde3e7702f",
+        "sourceBlobSha256": "3924b18192ef0df315fc90e55392dc3e2309762faf1c853eb2f9efcde3e7702f",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/typography/oldstandardtt/METADATA.pb",
+        "bytes": 1205,
+        "sha256": "c2893bc801b26ce6017f8983b8c5c7fb3198d0b6b4f2bde2c185201921eba91d",
+        "sourceBlobSha256": "c2893bc801b26ce6017f8983b8c5c7fb3198d0b6b4f2bde2c185201921eba91d",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/typography/oldstandardtt/OFL.txt",
+        "bytes": 4373,
+        "sha256": "4faa2d9e2ce0a4b5b37e62ee6fafe474a539b31578f7214ed97cc3503aeb8ebd",
+        "sourceBlobSha256": "4faa2d9e2ce0a4b5b37e62ee6fafe474a539b31578f7214ed97cc3503aeb8ebd",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/typography/oldstandardtt/OldStandard-Italic.ttf",
+        "bytes": 272692,
+        "sha256": "4b9522f4711317fc06e2413a58b4662c249cb707df193d682b9d640e365ef564",
+        "sourceBlobSha256": "4b9522f4711317fc06e2413a58b4662c249cb707df193d682b9d640e365ef564",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/typography/oldstandardtt/OldStandard-Regular.ttf",
+        "bytes": 249668,
+        "sha256": "42717a1280b523a506ca2b0285cca380e77fe214b1f6e3d75a8b925005f19eac",
+        "sourceBlobSha256": "42717a1280b523a506ca2b0285cca380e77fe214b1f6e3d75a8b925005f19eac",
+        "baseBytesMatch": true,
+        "gitCleanContentMatches": true,
+        "comparison": "Exact bytes"
+      },
+      {
+        "path": "assets/art/ui/wooden-controls.json",
+        "bytes": 4097,
+        "sha256": "01b78126f570c27130e9ac8affadf4e301c616beee8d182a2e22f729573ac070",
+        "sourceBlobSha256": "8ed2527aa729ca631a9d4d8804fab9cc524ef4ed930bf9dc110ae37df10a67a9",
+        "baseBytesMatch": false,
+        "gitCleanContentMatches": true,
+        "comparison": "Existing checkout line endings; Git clean-filter content matches"
+      }
+    ]
+  },
+  "build": {
+    "command": "node tools/build.mjs",
+    "status": "pass",
+    "files": 166,
+    "bytes": 51722016
+  },
+  "release": {
+    "command": "node tools/check-release.mjs",
+    "status": "pass",
+    "files": 166
+  },
+  "nestedHTTP": {
+    "command": "node tools/check-site.mjs http://127.0.0.1:4552/nested/options-ui/dist/",
+    "status": "pass",
+    "publicFiles": 164,
+    "moduleMIME": "pass",
+    "qaWorkbenchAbsent": true,
+    "manifestSha256": "68970c45b76ae686e3a79682bc4bed274f669bb9f5de27b8b9d52017c38f34a5"
+  },
+  "evidence": [
+    {
+      "path": "evidence/browser-results.json",
+      "bytes": 38411,
+      "sha256": "af3a840da79c5ad9db27c0bcae989aedb60bef2cdada64f49b43885275efd185"
+    },
+    {
+      "path": "evidence/four-maps-contrast-desktop.jpg",
+      "bytes": 113622,
+      "sha256": "e6f4d1f85fec2b1a22fa57a9ead2916f62345fec61bd30e3e3bcc475bc580cd4"
+    },
+    {
+      "path": "evidence/four-maps-desktop.jpg",
+      "bytes": 108149,
+      "sha256": "2178fece593ca056132738578e936681d061704496f69d5b61b8bb2080f21026"
+    },
+    {
+      "path": "evidence/hud-options-shared-desktop.jpg",
+      "bytes": 61166,
+      "sha256": "a36fd188bd28e22460c0bff9c8d47e071b321c0b9092a1d7551b9d2e9fdf12fb"
+    },
+    {
+      "path": "evidence/options-controls-contrast-desktop.jpg",
+      "bytes": 61311,
+      "sha256": "26443c3b512bcae3a7fd0545c8dedea565ddf94fb49014ad94d0d30ea7137b58"
+    },
+    {
+      "path": "evidence/options-controls-phone.jpg",
+      "bytes": 44476,
+      "sha256": "46dd372a8a8db8d822ce8bbdbc4591bd8de94d8ab29934f28e3d8fef20d99d66"
+    },
+    {
+      "path": "evidence/options-desktop.jpg",
+      "bytes": 54608,
+      "sha256": "a1e3b9f253740ffd505e862f26464c0ddf8e514a8d03b4a2686c3bdb43285ae1"
+    },
+    {
+      "path": "evidence/options-landscape-back.jpg",
+      "bytes": 28684,
+      "sha256": "54b621b6f7addb8a382f03a2fc0f6d8c7f82587045cdefc237fd0ef0e227661a"
+    },
+    {
+      "path": "evidence/options-phone.jpg",
+      "bytes": 35393,
+      "sha256": "948fd1e2c9eef60fee509905a598294fe2bcb6636c3741963402cdae13356034"
+    },
+    {
+      "path": "evidence/options-small-phone.jpg",
+      "bytes": 27625,
+      "sha256": "e90eb0df948d66aff8cb0b0a8ae56eaaaf5eff46db586136cb53e5d98eaa40ad"
+    },
+    {
+      "path": "evidence/title-options-desktop.jpg",
+      "bytes": 48743,
+      "sha256": "e737fe61ae807707e88df9091aab60ab32dec280357695b762b9bf2c08f9b3c8"
+    },
+    {
+      "path": "evidence/title-options-landscape.jpg",
+      "bytes": 34079,
+      "sha256": "d2ab2b908c4e2605b352943d3182dd5ac2a8d462b3686417a8977260791cec0b"
+    },
+    {
+      "path": "evidence/title-options-phone.jpg",
+      "bytes": 29210,
+      "sha256": "2de40a80a81af240a3d8d843464c302e22f354c1fb1a7ecf3f15a516b74cc49c"
+    },
+    {
+      "path": "evidence/title-options-small-phone.jpg",
+      "bytes": 22297,
+      "sha256": "8dc432ba2edf0249daaec45abda3076dbd01d87ac799a939b69c7f869ccf273b"
+    }
+  ],
+  "limitations": [
+    "UI-owned candidate; production application/map loading is coder-owned and awaits combined integration",
+    "HUD picture uses fixed workbench state; no claim of live building traversal or streaming",
+    "Options contains implemented interface preferences and controls, without invented audio/gameplay settings"
+  ],
+  "helper": {
+    "pid": 70912,
+    "creationFiletime": "134377746846887295",
+    "port": 4552,
+    "registered": true,
+    "ttlSeconds": 1800,
+    "expiresAt": "2026-10-29T19:41:24.7037466Z",
+    "cleanup": "Stopped and verified; source restart bundle saved before signaling.",
+    "retained": false,
+    "originalExited": true,
+    "portReleased": true,
+    "preservedFiles": 161,
+    "receipt": "evidence/helper-cleanup.json"
+  }
+}
