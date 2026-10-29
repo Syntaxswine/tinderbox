@@ -1,0 +1,183 @@
+{
+  "task": "TB-022",
+  "reviewedAtUTC": "2026-10-29T00:05:14.746776+00:00",
+  "offlineVisualReviewPassed": true,
+  "runtimeBrowserAcceptance": "pending architect gate",
+  "renderer": "Mitsuba 3.9.1 scalar_rgb; Python 3.12.14 / NumPy 2.3.5 / Pillow 12.3.0",
+  "sourceOfModel": "Actual Three r180 mesh export including instanced transforms; native bear geometry unscaled.",
+  "inspection": [
+    "Full silhouette / paired hipped towers / curved open porches",
+    "Source footprint overlay and same-metre elevation comparison",
+    "Cornice miter joins, supported upper terrace and parapet rails",
+    "Repeated sash windows / glazing, closed native door leaves and jambs",
+    "Native bear + accurately dimensioned wall and leaf references",
+    "Roof geometry / metre UV density; inherited texture periods retained",
+    "Rear inference and missing elements clearly captioned; source photo upright; comparison text readable"
+  ],
+  "images": [
+    {
+      "path": "docs/art/exposition-new-york/previews/entry-detail.jpg",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "bytes": 925100,
+      "sha256": "1130322fb6ddb130572022a810d4638307a92728bc68297536c07ac72ca1fa15",
+      "offlineVisualInspection": "passed at full image and isometric scale",
+      "camera": {
+        "target": [
+          0,
+          5.5,
+          -1
+        ],
+        "origin": [
+          21,
+          16,
+          -29
+        ],
+        "halfWidth": 15
+      },
+      "samplesPerPixel": 24,
+      "caption": "Two native 1 x 1.65 m door leaves below fixed transoms; native bear and wall/door references."
+    },
+    {
+      "path": "docs/art/exposition-new-york/previews/front-elevation.jpg",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "bytes": 417415,
+      "sha256": "34ce63a4a3789427be498f21ef10f557125a77fd1fa9dc73e5865e90fd4d67da",
+      "offlineVisualInspection": "passed at full image and isometric scale",
+      "camera": {
+        "target": [
+          0,
+          17,
+          0
+        ],
+        "origin": [
+          0,
+          17,
+          -160
+        ],
+        "halfWidth": 38
+      },
+      "samplesPerPixel": 24,
+      "caption": "Front elevation: source-calibrated 47 m facade and 33.5 m tower caps."
+    },
+    {
+      "path": "docs/art/exposition-new-york/previews/front-isometric.jpg",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "bytes": 872547,
+      "sha256": "2aae65e1f71a20e9ab71662c019fa11bfd584fe90f43655c24afa597781aacff",
+      "offlineVisualInspection": "passed at full image and isometric scale",
+      "camera": {
+        "target": [
+          0,
+          11,
+          11
+        ],
+        "origin": [
+          80,
+          62,
+          -90
+        ],
+        "halfWidth": 43
+      },
+      "samplesPerPixel": 24,
+      "caption": "47 m facade; 70.5 m full ground envelope. Native 1.67 m bear and 2 m wall / 1.65 m door at front."
+    },
+    {
+      "path": "docs/art/exposition-new-york/previews/rear-isometric.jpg",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "bytes": 843326,
+      "sha256": "6c5910ce5ba518d2855d7479adb4f893c8eaaa556959ce6010f35bb03ea2231c",
+      "offlineVisualInspection": "passed at full image and isometric scale",
+      "camera": {
+        "target": [
+          0,
+          11,
+          11
+        ],
+        "origin": [
+          -86,
+          68,
+          105
+        ],
+        "halfWidth": 43
+      },
+      "samplesPerPixel": 24,
+      "caption": "Stepped rear follows the plan. Rear openings, roof depth and back joins are inferred."
+    },
+    {
+      "path": "docs/art/exposition-new-york/previews/roof-plan.jpg",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "bytes": 780021,
+      "sha256": "7a8575aa1903d54e21d32aa1641d0069db07ced4287e863ba31ae033f269d4b2",
+      "offlineVisualInspection": "passed at full image and isometric scale",
+      "camera": {
+        "target": [
+          0,
+          0,
+          11
+        ],
+        "origin": [
+          0,
+          160,
+          11
+        ],
+        "up": [
+          0,
+          0,
+          1
+        ],
+        "halfWidth": 38
+      },
+      "samplesPerPixel": 24,
+      "caption": "Top view of the actual model. Raised roof depth and rear roof joins are inferred."
+    },
+    {
+      "path": "docs/art/exposition-new-york/previews/source-comparison.jpg",
+      "pixels": [
+        2700,
+        3070
+      ],
+      "bytes": 2356271,
+      "sha256": "41ae72e87a5d216b2b4fe067308be412efdc4d20ebbf9c79a243786c672d64a8",
+      "offlineVisualInspection": "passed at full image and isometric scale"
+    }
+  ],
+  "limitations": [
+    "CPU diffuse appearance proof; no WebGL shader/performance claim.",
+    "Native bear multi-view paint shader omitted; original geometry/base colours retained.",
+    "No interiors, crowds, landscaping, effects, gameplay or UI.",
+    "Fine sculpture simplified; photographed urn plants omitted.",
+    "Rear opening rhythm, tower rear faces, roof depth/plan and rear joins inferred.",
+    "Historical colours and construction/combustion materials unresolved."
+  ],
+  "diagnostics": {
+    "disposed": false,
+    "meshes": 316,
+    "triangles": 178224,
+    "sourceParts": 7041,
+    "instanceBatches": 164,
+    "geometries": 316,
+    "materials": 7,
+    "ownedTextures": 0,
+    "borrowedTextureCount": 0,
+    "nativeWalls": 322,
+    "nativeDoors": 6,
+    "components": 7112,
+    "quarterTurns": 0
+  },
+  "retainedHelpers": []
+}

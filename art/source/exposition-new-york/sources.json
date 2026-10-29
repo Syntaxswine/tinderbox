@@ -1,0 +1,86 @@
+{
+  "task": "TB-022",
+  "sourceId": "TB009-R02",
+  "creator": "McKim, Mead & White",
+  "title": "A monograph of the work of McKim, Mead & White, 1879-1915, volume I",
+  "repository": "Getty Research Institute / Internet Archive",
+  "itemId": "gri_33125006526145",
+  "viewerPlan": "https://archive.org/details/gri_33125006526145/page/n98/mode/1up",
+  "viewerPhoto": "https://archive.org/details/gri_33125006526145/page/n96/mode/1up",
+  "dates": "Later publication of original 1893 building. Title spans 1879-1915; IA catalogue1914 discrepancy remains unresolved.",
+  "rightsEvidence": "Cached IA metadata possible-copyright-status: NOT_IN_COPYRIGHT. Credit architects, publication and Getty scan; no source image is a runtime asset.",
+  "pdf": {
+    "url": "https://archive.org/download/gri_33125006526145/gri_33125006526145.pdf",
+    "cachePath": "artifacts/exposition-research/raw/gri_33125006526145.pdf",
+    "sha256": "1813cc4963681df8a6357c1553ffd4116522a19137afa6381e6b35f209f62fa0",
+    "bytes": 7367606,
+    "pages": 208
+  },
+  "jp2": {
+    "url": "https://archive.org/download/gri_33125006526145/gri_33125006526145_jp2.zip",
+    "bytes": 38419298,
+    "sha256": "dddd19dad3ca5c68e4fe3651e0ab7611e8ea5dcd9eee99bf0a63d283cc171cc8",
+    "archiveSha1": "db6deaa6be1b7e83de2a2120f18dd65ecbcc15dc",
+    "purpose": "Same-volume original JP2 pages, avoiding the PDF JBIG2 numeral artifacts",
+    "pages": [
+      {
+        "scan": 97,
+        "member": "gri_33125006526145_jp2/gri_33125006526145_0096.jp2",
+        "bytes": 279370,
+        "sha256": "06680e0795a55afb54f3fa10bbbafda1aefd084c474ca2d0e763e213e352d31b",
+        "pixels": [
+          2005,
+          3000
+        ]
+      },
+      {
+        "scan": 99,
+        "member": "gri_33125006526145_jp2/gri_33125006526145_0098.jp2",
+        "bytes": 305407,
+        "sha256": "5ccafac6721cdd090e701a7bf1b264ee70ddf1f965bb2d4454953422ea0fe8c0",
+        "pixels": [
+          2010,
+          3000
+        ]
+      }
+    ]
+  },
+  "transforms": "JP2 decoded with Pillow. Scan97 rotated 270 degrees to upright, retaining full plate. Scan99 unrotated. JPEG derivatives use quality96/97, no retouching. Crops and annotation specified in measurements.json. Original JP2 avoids PDF JBIG2 small-glyph damage.",
+  "files": [
+    {
+      "path": "art/source/exposition-new-york/annotated-calibration.jpg",
+      "bytes": 1755116,
+      "sha256": "c1b7c05e121018669b5e394e5c05eca59ed5e8a7d757dd28c5da9d8ac902fddd"
+    },
+    {
+      "path": "art/source/exposition-new-york/plate-43-built.jpg",
+      "bytes": 1352924,
+      "sha256": "0f0aebe71871851b5370326b633184d11abb901987873a01c4471505244fe868"
+    },
+    {
+      "path": "art/source/exposition-new-york/plate-44.jpg",
+      "bytes": 1375951,
+      "sha256": "cdff2e1af3a1afb5a2b0028ea419e52bd5d0c09480d8d8b257840636089d6972"
+    },
+    {
+      "path": "art/source/exposition-new-york/raw/plate-43.jp2",
+      "bytes": 279370,
+      "sha256": "06680e0795a55afb54f3fa10bbbafda1aefd084c474ca2d0e763e213e352d31b"
+    },
+    {
+      "path": "art/source/exposition-new-york/raw/plate-44.jp2",
+      "bytes": 305407,
+      "sha256": "5ccafac6721cdd090e701a7bf1b264ee70ddf1f965bb2d4454953422ea0fe8c0"
+    },
+    {
+      "path": "art/source/exposition-new-york/source-elevation.jpg",
+      "bytes": 449225,
+      "sha256": "64677a8b940ffa5d5c636953f58cdb41ae0309eefb3614e158000d7fdf384c9e"
+    },
+    {
+      "path": "art/source/exposition-new-york/source-plan.jpg",
+      "bytes": 658402,
+      "sha256": "95f23614433d08d0288061c18eebd4ae709dcfbed575aa89fd11d9148f34cedf"
+    }
+  ]
+}

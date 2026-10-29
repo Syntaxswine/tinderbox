@@ -1,0 +1,695 @@
+{
+  "task": "TB-022",
+  "source": "TB009-R02; McKim, Mead & White / Getty / Internet Archive gri_33125006526145",
+  "plan": {
+    "id": "plan",
+    "pagePixels": [
+      2010,
+      3000
+    ],
+    "crop": [
+      150,
+      1410,
+      1748,
+      2520
+    ],
+    "coordinates": "pixels in original-plan.png crop; x right, y down",
+    "ruler": {
+      "feet": [
+        20,
+        40
+      ],
+      "points": [
+        [
+          790,
+          1035
+        ],
+        [
+          914,
+          1035
+        ]
+      ],
+      "crossCheckFeet": [
+        10,
+        30
+      ],
+      "crossCheckPoints": [
+        [
+          728,
+          1035
+        ],
+        [
+          852,
+          1035
+        ]
+      ],
+      "pixelsPerFoot": 6.2
+    },
+    "origin": [
+      781,
+      778
+    ],
+    "outlinePixels": [
+      [
+        303,
+        778
+      ],
+      [
+        303,
+        229
+      ],
+      [
+        513,
+        229
+      ],
+      [
+        513,
+        157
+      ],
+      [
+        635,
+        157
+      ],
+      [
+        635,
+        125
+      ],
+      [
+        931,
+        125
+      ],
+      [
+        931,
+        157
+      ],
+      [
+        1048,
+        157
+      ],
+      [
+        1048,
+        229
+      ],
+      [
+        1259,
+        229
+      ],
+      [
+        1259,
+        778
+      ]
+    ],
+    "mainFacadePixels": [
+      303,
+      1259
+    ],
+    "curvedPorches": {
+      "leftCenter": [
+        303,
+        505
+      ],
+      "rightCenter": [
+        1259,
+        505
+      ],
+      "radiusPixels": 189,
+      "stairExtremePixels": [
+        64,
+        1498
+      ]
+    },
+    "entrance": {
+      "terrace": [
+        [
+          510,
+          778
+        ],
+        [
+          1050,
+          866
+        ]
+      ],
+      "stair": [
+        [
+          594,
+          866
+        ],
+        [
+          972,
+          992
+        ]
+      ]
+    },
+    "printedFacts": [
+      {
+        "text": "77 ft 0 in on each side of centre",
+        "totalFeet": 154,
+        "locator": "Top and bottom overall horizontal dimension chains"
+      }
+    ],
+    "unresolvedNumerals": [
+      "Long vertical overall chains and small room dimensions are not used as exact transcriptions."
+    ]
+  },
+  "elevation": {
+    "id": "elevation",
+    "pagePixels": [
+      2010,
+      3000
+    ],
+    "crop": [
+      140,
+      480,
+      1748,
+      1305
+    ],
+    "coordinates": "pixels in original-elevation.png crop; x right, y down",
+    "ruler": {
+      "feet": [
+        20,
+        40
+      ],
+      "points": [
+        [
+          775,
+          757
+        ],
+        [
+          898,
+          757
+        ]
+      ],
+      "crossCheckFeet": [
+        10,
+        30
+      ],
+      "crossCheckPoints": [
+        [
+          714,
+          757
+        ],
+        [
+          837,
+          757
+        ]
+      ],
+      "pixelsPerFoot": 6.15
+    },
+    "origin": [
+      775,
+      714
+    ],
+    "mainFacadePixels": [
+      299,
+      1250
+    ],
+    "levels": {
+      "mainFloor": 673,
+      "porchBalustrade": 517,
+      "friezeBase": 425,
+      "corniceTop": 359,
+      "mainParapet": 326,
+      "clerestoryCornice": 281,
+      "lowerRoofBalustrade": 254,
+      "upperRoofBalustrade": 212,
+      "towerCap": 39
+    },
+    "frontBaysPixels": {
+      "windows": [
+        354,
+        477,
+        579,
+        676,
+        874,
+        971,
+        1075,
+        1195
+      ],
+      "niches": [
+        415,
+        1135
+      ],
+      "upperMedallions": [
+        676,
+        874
+      ],
+      "towerCenters": [
+        580,
+        971
+      ]
+    },
+    "towerBodyWidthPixels": 108
+  },
+  "calculation": "metres = featurePixels / calibrationPixels * calibrationFeet * 0.3048",
+  "uncertainty": "Scale-derived values include +/-2 pixels at each feature endpoint plus 2% span allowance for scan/reproduction distortion; rounded upward. This is a drawing-reading allowance, not surveyed accuracy. Printed 154 ft takes priority for facade width. No source fitted to the game outline.",
+  "sourceMeasuredUncompressedOutlineMetres": [
+    [
+      -23.4991,
+      0.0
+    ],
+    [
+      -23.4991,
+      26.98955
+    ],
+    [
+      -13.17523,
+      26.98955
+    ],
+    [
+      -13.17523,
+      30.52916
+    ],
+    [
+      -7.17755,
+      30.52916
+    ],
+    [
+      -7.17755,
+      32.10232
+    ],
+    [
+      7.37419,
+      32.10232
+    ],
+    [
+      7.37419,
+      30.52916
+    ],
+    [
+      13.12606,
+      30.52916
+    ],
+    [
+      13.12606,
+      26.98955
+    ],
+    [
+      23.4991,
+      26.98955
+    ],
+    [
+      23.4991,
+      0.0
+    ]
+  ],
+  "authoredBodyOutlineMetres": [
+    [
+      -23.5,
+      0
+    ],
+    [
+      -23.5,
+      27
+    ],
+    [
+      -13.25,
+      27
+    ],
+    [
+      -13.25,
+      30.5
+    ],
+    [
+      -7.25,
+      30.5
+    ],
+    [
+      -7.25,
+      32
+    ],
+    [
+      7.25,
+      32
+    ],
+    [
+      7.25,
+      30.5
+    ],
+    [
+      13.25,
+      30.5
+    ],
+    [
+      13.25,
+      27
+    ],
+    [
+      23.5,
+      27
+    ],
+    [
+      23.5,
+      0
+    ]
+  ],
+  "measurements": [
+    {
+      "id": "main-facade",
+      "method": "printed dimension chain",
+      "sourceFeet": 154,
+      "sourceMetres": 46.9392,
+      "authoredMetres": 47,
+      "readingUncertaintyMetres": 0.0,
+      "locator": "Plate 44 plan; 77 ft + 77 ft",
+      "confidence": "high",
+      "adaptation": "+0.0608 m across facade; 47 unchanged 1 m tile widths."
+    },
+    {
+      "id": "facade-ruler-cross-check",
+      "method": "plan ruler",
+      "sourceFeet": 154.19355,
+      "sourceMetres": 46.99819,
+      "authoredMetres": 47,
+      "readingUncertaintyMetres": 1.14,
+      "locator": "plan x303..1259",
+      "confidence": "medium",
+      "adaptation": "Independent scale agrees with printed width within 0.2%; no uniform rescaling."
+    },
+    {
+      "id": "main-body-depth",
+      "method": "plan ruler",
+      "sourceFeet": 88.54839,
+      "sourceMetres": 26.98955,
+      "authoredMetres": 27,
+      "readingUncertaintyMetres": 0.74,
+      "locator": "plan y229..778",
+      "confidence": "medium",
+      "adaptation": "Rounded to 27 m; native wall widths composed."
+    },
+    {
+      "id": "rear-envelope-depth",
+      "method": "plan ruler",
+      "sourceFeet": 105.32258,
+      "sourceMetres": 32.10232,
+      "authoredMetres": 32,
+      "readingUncertaintyMetres": 0.84,
+      "locator": "plan y125..778",
+      "confidence": "medium",
+      "adaptation": "Rear two steps at z27,30.5,32 m; rear roof inferred."
+    },
+    {
+      "id": "rear-intermediate-width",
+      "method": "plan ruler",
+      "sourceFeet": 86.29032,
+      "sourceMetres": 26.30129,
+      "authoredMetres": 26.5,
+      "readingUncertaintyMetres": 0.73,
+      "locator": "plan x513..1048",
+      "confidence": "medium",
+      "adaptation": "Symmetric stepped mass."
+    },
+    {
+      "id": "rear-central-width",
+      "method": "plan ruler",
+      "sourceFeet": 47.74194,
+      "sourceMetres": 14.55174,
+      "authoredMetres": 14.5,
+      "readingUncertaintyMetres": 0.49,
+      "locator": "plan x635..931",
+      "confidence": "medium",
+      "adaptation": "Symmetric stair projection; doors not connected to traversal."
+    },
+    {
+      "id": "porch-radius",
+      "method": "plan ruler",
+      "sourceFeet": 30.48387,
+      "sourceMetres": 9.29148,
+      "authoredMetres": 9.25,
+      "readingUncertaintyMetres": 0.39,
+      "locator": "plan curved outline x1259..1448",
+      "confidence": "medium",
+      "adaptation": "Explicit semicircular module; no native wall stretched."
+    },
+    {
+      "id": "envelope-width-with-side-stairs",
+      "method": "plan ruler",
+      "sourceFeet": 231.29032,
+      "sourceMetres": 70.49729,
+      "authoredMetres": 70.5,
+      "readingUncertaintyMetres": 1.61,
+      "locator": "plan stair extremes x64..1498",
+      "confidence": "medium",
+      "adaptation": "Includes open colonnades and stairs. Larger than 51 m street."
+    },
+    {
+      "id": "terrace-width",
+      "method": "plan ruler",
+      "sourceFeet": 87.09677,
+      "sourceMetres": 26.5471,
+      "authoredMetres": 26.5,
+      "readingUncertaintyMetres": 0.73,
+      "locator": "plan x510..1050",
+      "confidence": "medium",
+      "adaptation": "Front terrace follows centre block, 26.5 m."
+    },
+    {
+      "id": "terrace-projection",
+      "method": "plan ruler",
+      "sourceFeet": 14.19355,
+      "sourceMetres": 4.32619,
+      "authoredMetres": 4.5,
+      "readingUncertaintyMetres": 0.29,
+      "locator": "plan y778..866",
+      "confidence": "medium",
+      "adaptation": "Custom terrace slab and balustrade."
+    },
+    {
+      "id": "front-stair-run",
+      "method": "plan ruler",
+      "sourceFeet": 20.32258,
+      "sourceMetres": 6.19432,
+      "authoredMetres": 6.1,
+      "readingUncertaintyMetres": 0.33,
+      "locator": "plan y866..992",
+      "confidence": "medium",
+      "adaptation": "Ten visual steps; rise follows 2.12 m landing. Traversal deferred."
+    },
+    {
+      "id": "front-stair-width",
+      "method": "plan ruler",
+      "sourceFeet": 60.96774,
+      "sourceMetres": 18.58297,
+      "authoredMetres": 18.3,
+      "readingUncertaintyMetres": 0.57,
+      "locator": "plan x594..972",
+      "confidence": "medium",
+      "adaptation": "Outer stair cheek envelope; clear stair flight 14 m per inner outline."
+    },
+    {
+      "id": "main-floor-height",
+      "method": "elevation ruler",
+      "sourceFeet": 6.66667,
+      "sourceMetres": 2.032,
+      "authoredMetres": 2.12,
+      "readingUncertaintyMetres": 0.24,
+      "locator": "elevation y714..673",
+      "confidence": "medium",
+      "adaptation": "Native 2.12 m floor pitch retained; +0.088 m."
+    },
+    {
+      "id": "porch-balustrade-height",
+      "method": "elevation ruler",
+      "sourceFeet": 32.03252,
+      "sourceMetres": 9.76351,
+      "authoredMetres": 9.8,
+      "readingUncertaintyMetres": 0.4,
+      "locator": "elevation y714..517",
+      "confidence": "medium",
+      "adaptation": "Built from unscaled columns with custom capitals, cornice and rails."
+    },
+    {
+      "id": "main-parapet-height",
+      "method": "elevation ruler",
+      "sourceFeet": 63.08943,
+      "sourceMetres": 19.22966,
+      "authoredMetres": 19.2,
+      "readingUncertaintyMetres": 0.59,
+      "locator": "elevation y714..326",
+      "confidence": "medium",
+      "adaptation": "Independent elevation calibration; detailed balusters simplified."
+    },
+    {
+      "id": "clerestory-cornice-height",
+      "method": "elevation ruler",
+      "sourceFeet": 70.4065,
+      "sourceMetres": 21.4599,
+      "authoredMetres": 21.45,
+      "readingUncertaintyMetres": 0.63,
+      "locator": "elevation y714..281",
+      "confidence": "medium",
+      "adaptation": "Five clerestory windows; depth inferred behind main hall."
+    },
+    {
+      "id": "upper-roof-balustrade-height",
+      "method": "elevation ruler",
+      "sourceFeet": 81.62602,
+      "sourceMetres": 24.87961,
+      "authoredMetres": 24.9,
+      "readingUncertaintyMetres": 0.7,
+      "locator": "elevation y714..212",
+      "confidence": "medium",
+      "adaptation": "Roof terrace and simple repeating rails."
+    },
+    {
+      "id": "tower-cap-height",
+      "method": "elevation ruler",
+      "sourceFeet": 109.7561,
+      "sourceMetres": 33.45366,
+      "authoredMetres": 33.5,
+      "readingUncertaintyMetres": 0.87,
+      "locator": "elevation y714..39",
+      "confidence": "medium",
+      "adaptation": "Low hipped caps and tiny terminal; rear cap depth inferred."
+    },
+    {
+      "id": "tower-body-width",
+      "method": "elevation ruler",
+      "sourceFeet": 17.56098,
+      "sourceMetres": 5.35259,
+      "authoredMetres": 5.4,
+      "readingUncertaintyMetres": 0.31,
+      "locator": "elevation approximately x526..634",
+      "confidence": "medium",
+      "adaptation": "Explicit 5.4 m pavilion; caps/ledge extend beyond body."
+    },
+    {
+      "id": "entry-field-width",
+      "method": "elevation ruler",
+      "sourceFeet": 6.82927,
+      "sourceMetres": 2.08156,
+      "authoredMetres": 2,
+      "readingUncertaintyMetres": 0.24,
+      "locator": "elevation x754..796, lower central door field",
+      "confidence": "medium",
+      "adaptation": "Two native 1 m leaves; jambs close the 2.3 m wall aperture."
+    },
+    {
+      "id": "entry-field-height",
+      "method": "elevation ruler",
+      "sourceFeet": 13.82114,
+      "sourceMetres": 4.21268,
+      "authoredMetres": 4.42,
+      "readingUncertaintyMetres": 0.29,
+      "locator": "elevation y585..670, lower central door field",
+      "confidence": "medium",
+      "adaptation": "Native 1.65 m leaves plus fixed 2.75 m transom and .02 m joint."
+    },
+    {
+      "id": "lower-window-glazing-width",
+      "method": "elevation ruler",
+      "sourceFeet": 4.87805,
+      "sourceMetres": 1.48683,
+      "authoredMetres": 1.36,
+      "readingUncertaintyMetres": 0.23,
+      "locator": "elevation x340..370, first lower window",
+      "confidence": "medium",
+      "adaptation": "New historic glazing/frame assembly around a 1.5 m wall aperture."
+    },
+    {
+      "id": "lower-window-glazing-height",
+      "method": "elevation ruler",
+      "sourceFeet": 8.78049,
+      "sourceMetres": 2.67629,
+      "authoredMetres": 2.78,
+      "readingUncertaintyMetres": 0.26,
+      "locator": "elevation y596..650, first lower window",
+      "confidence": "medium",
+      "adaptation": "New sash geometry; width/height are not borrowed window deformations."
+    }
+  ],
+  "appearanceEvidence": {
+    "supported": "Symmetry, paired capped towers, classical window/niche rhythm, arched central relief, curved colonnades; striped awnings and rooftop urn/plant displays visible in built plate43.",
+    "palette": "Warm ivory, muted olive slate, deep teal glazing and brown doors are game art choices. Exact historical colours and structural/combustion materials remain unknown.",
+    "rearInference": "Rear opening rhythm, roof plan/depth, service treatment and tower rear faces are simplified inferences; this is an exterior study."
+  },
+  "bayComparison": [
+    {
+      "id": "lower-0",
+      "sourcePixel": 354,
+      "sourceFeet": -68.45528,
+      "sourceMetres": -20.86517,
+      "authoredMetres": -20.75,
+      "deltaMetres": 0.11517,
+      "readingUncertaintyMetres": 0.62,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    },
+    {
+      "id": "lower-1",
+      "sourcePixel": 477,
+      "sourceFeet": -48.45528,
+      "sourceMetres": -14.76917,
+      "authoredMetres": -14.75,
+      "deltaMetres": 0.01917,
+      "readingUncertaintyMetres": 0.5,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    },
+    {
+      "id": "lower-2",
+      "sourcePixel": 579,
+      "sourceFeet": -31.86992,
+      "sourceMetres": -9.71395,
+      "authoredMetres": -9.75,
+      "deltaMetres": -0.03605,
+      "readingUncertaintyMetres": 0.4,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    },
+    {
+      "id": "lower-3",
+      "sourcePixel": 676,
+      "sourceFeet": -16.09756,
+      "sourceMetres": -4.90654,
+      "authoredMetres": -4.9,
+      "deltaMetres": 0.00654,
+      "readingUncertaintyMetres": 0.3,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    },
+    {
+      "id": "lower-4",
+      "sourcePixel": 874,
+      "sourceFeet": 16.09756,
+      "sourceMetres": 4.90654,
+      "authoredMetres": 4.9,
+      "deltaMetres": -0.00654,
+      "readingUncertaintyMetres": 0.3,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    },
+    {
+      "id": "lower-5",
+      "sourcePixel": 971,
+      "sourceFeet": 31.86992,
+      "sourceMetres": 9.71395,
+      "authoredMetres": 9.75,
+      "deltaMetres": 0.03605,
+      "readingUncertaintyMetres": 0.4,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    },
+    {
+      "id": "lower-6",
+      "sourcePixel": 1075,
+      "sourceFeet": 48.78049,
+      "sourceMetres": 14.86829,
+      "authoredMetres": 14.75,
+      "deltaMetres": -0.11829,
+      "readingUncertaintyMetres": 0.5,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    },
+    {
+      "id": "lower-7",
+      "sourcePixel": 1195,
+      "sourceFeet": 68.29268,
+      "sourceMetres": 20.81561,
+      "authoredMetres": 20.75,
+      "deltaMetres": -0.06561,
+      "readingUncertaintyMetres": 0.62,
+      "locator": "plate44 elevation; signed X from central entrance",
+      "confidence": "medium"
+    }
+  ]
+}

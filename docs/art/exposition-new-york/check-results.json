@@ -1,0 +1,97 @@
+{
+  "task": "TB-022",
+  "scope": "Artist offline candidate checks; architect source review and runtime browser acceptance remain pending.",
+  "recordedAtUTC": "2026-10-29T00:05:14.746776+00:00",
+  "passed": true,
+  "baseCommit": "f25fd7b28a9aee1d1abaef1ad65acd64d67a50e6",
+  "branch": "codex/new-york-state-building-art",
+  "commands": [
+    {
+      "command": "node tools/check.mjs",
+      "passed": true,
+      "result": "87 scripts; 114 resolved static modules; one shared Three pair; donor/bear/housing provenance; 85 tests passed; existing art check passed."
+    },
+    {
+      "command": "node workbenches/art/check-exposition-new-york.mjs --package",
+      "passed": true,
+      "result": "23 calibrated measurements; 8 front bay centres; 328 unscaled native parts; 295665 finite bounded vertices; 1158 ground-contact vertices; 258444 metric planar edges including132 roof edges; actual open/closed geometry probes; four placements; appearance invariance; borrowed ownership; 489 owned disposal checks; native reference / texture / runtime hashes."
+    },
+    {
+      "command": "node tools/build.mjs",
+      "passed": true,
+      "result": "137 packaged files; 43245066 bytes; source/JP2/docs excluded."
+    },
+    {
+      "command": "nested-path package check (same focused check --package)",
+      "passed": true,
+      "result": "7 HTTP resources hash-verified below /nested/review/tinderbox/; packaged standalone factory constructed with packaged host Three; private listener closed and port-release probe passed."
+    },
+    {
+      "command": "Actual-mesh export / five CPU renders / source comparison / final image inspection",
+      "passed": true,
+      "result": "Five1600x1200 model JPGs and one2700x3070 source/model sheet. Cameras, shader approximations and per-image hashes in offline-review.json."
+    }
+  ],
+  "resolvedIssue": "Initial package check exposed CRLF source hashes versus canonical-LF package bytes. New task text was normalized to LF, protected by local .gitattributes; manifest generator now rejects CR in runtime text. Rebuilt package passed. Pinned donor/source bytes were not changed.",
+  "physicalMaterial": "Unassigned; no gameplay integration or implied combustion classification.",
+  "helperCompletion": {
+    "task": "TB-022",
+    "checkedAt": "2026-10-29T00:02:27.9159185Z",
+    "renderProcesses": [
+      {
+        "pid": 36092,
+        "creationFiletime": "134377028939023670",
+        "finishedAt": "2026-10-28T19:14:59.351126-04:00",
+        "exited": true,
+        "purpose": "Finite actual-model CPU render",
+        "port": null
+      },
+      {
+        "pid": 53556,
+        "creationFiletime": "134377030378805752",
+        "finishedAt": "2026-10-28T19:17:44.490989-04:00",
+        "exited": true,
+        "purpose": "Finite actual-model CPU render",
+        "port": null
+      },
+      {
+        "pid": 57100,
+        "creationFiletime": "134377042550177167",
+        "finishedAt": "2026-10-28T19:38:00.090497-04:00",
+        "exited": true,
+        "purpose": "Finite actual-model CPU render",
+        "port": null
+      },
+      {
+        "pid": 59600,
+        "creationFiletime": "134377053731872874",
+        "finishedAt": "2026-10-28T19:56:37.784447-04:00",
+        "exited": true,
+        "purpose": "Finite actual-model CPU render",
+        "port": null
+      },
+      {
+        "pid": 59960,
+        "creationFiletime": "134377045366998701",
+        "finishedAt": "2026-10-28T19:42:41.368493-04:00",
+        "exited": true,
+        "purpose": "Finite actual-model CPU render",
+        "port": null
+      },
+      {
+        "pid": 63896,
+        "creationFiletime": "134377036253504650",
+        "finishedAt": "2026-10-28T19:27:30.037018-04:00",
+        "exited": true,
+        "purpose": "Finite actual-model CPU render",
+        "port": null
+      }
+    ],
+    "packagePid": 4900,
+    "packagePort": 64940,
+    "packageReleased": true,
+    "noPackageListener": true,
+    "retainedHelpers": []
+  },
+  "promotion": "Not performed; worker candidate only."
+}
