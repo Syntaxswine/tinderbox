@@ -1,0 +1,331 @@
+{
+  "assetId": "exploration-access-v1",
+  "version": 1,
+  "branch": "codex/exploration-access-art",
+  "baseCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+  "contractCommit": "d281ce91af27b32ffab4dc17390cf986f11ef881",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/exploration-access/index.js",
+      "bytes": 11624,
+      "sha256": "cf8eca00afc7e0ddb0494fd8865817ea1154bc1335197cf3bd54e5b08dc5a031"
+    },
+    {
+      "path": "assets/art/exploration-access/plans.js",
+      "bytes": 804624,
+      "sha256": "ccbd6892679a71fd34e0a3cadcf83aa3168227eb4581989b647873d74baf0933"
+    },
+    {
+      "path": "assets/art/exploration-access/fragments.js",
+      "bytes": 6026775,
+      "sha256": "92835289c9757862e14503e20e3ac2046cd0ce3a3cf28b7623e44bc50f7b81bc"
+    },
+    {
+      "path": "assets/art/exploration-access/polygons.js",
+      "bytes": 2121,
+      "sha256": "9c4a6093908aee22323b2fee13d5d937d53bdb3bcf2e5f3dd17b3e8e3f03f07d"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "assets/art/exposition-new-york/native-contract.js",
+      "bytes": 349,
+      "sha256": "80ab2a77fddbfe2a311501cfb06bb689b9618a16004d96231f7dd346e84d12e4"
+    },
+    {
+      "path": "src/content/asset-scale.js",
+      "bytes": 1066,
+      "sha256": "6c8773c1317b6b6e0adead577cd819e21ce1ae93b0f20eed2ae0af5bffb3d0ea"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+      "bytes": 1644,
+      "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed"
+    }
+  ],
+  "places": {
+    "new-york": {
+      "sourcePins": [
+        {
+          "assetId": "exposition-new-york-1893-tile",
+          "commit": "b689f5501ab06f54822f2aa724ac77de106e3b71"
+        }
+      ],
+      "bounds": {
+        "min": [
+          -39.02250000089407,
+          -2.7020772286334704e-8,
+          -4
+        ],
+        "max": [
+          39.02250000089407,
+          12.600000381469727,
+          28.31999969482422
+        ]
+      },
+      "construction": {
+        "nativeLeaves": 10,
+        "sourceFragments": 41,
+        "newTreads": 60,
+        "nativeSlabs": 12,
+        "boundarySlabs": 0,
+        "meshes": 157,
+        "sourceParts": 316
+      },
+      "portals": 5,
+      "stairs": [
+        {
+          "id": "ny-front-approach",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "ny-side-approach--1",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": true,
+          "kind": "straight"
+        },
+        {
+          "id": "ny-side-approach-1",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": true,
+          "kind": "straight"
+        },
+        {
+          "id": "ny-main-flight-1",
+          "fromLevel": 1,
+          "toLevel": 2,
+          "build": true,
+          "kind": "straight"
+        },
+        {
+          "id": "ny-main-flight-2",
+          "fromLevel": 2,
+          "toLevel": 4,
+          "build": true,
+          "kind": "straight"
+        }
+      ],
+      "floorOpenings": 1,
+      "hiddenSourceParts": 89
+    },
+    "administration": {
+      "sourcePins": [
+        {
+          "assetId": "exposition-administration-1893",
+          "commit": "43337a33ddfe4dff6849654c827c56e1f24e1acc"
+        }
+      ],
+      "bounds": {
+        "min": [
+          -37,
+          0,
+          4.840000001788139
+        ],
+        "max": [
+          37,
+          41.43000030517578,
+          70.45000457763672
+        ]
+      },
+      "construction": {
+        "nativeLeaves": 8,
+        "sourceFragments": 210,
+        "newTreads": 708,
+        "nativeSlabs": 76,
+        "boundarySlabs": 462,
+        "meshes": 1193,
+        "sourceParts": 4679
+      },
+      "portals": 15,
+      "stairs": [
+        {
+          "id": "admin-approach-front",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "admin-approach-east",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "admin-approach-rear",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "admin-approach-west",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "admin-front-west",
+          "fromLevel": 1,
+          "toLevel": 9,
+          "build": true,
+          "kind": "spiral"
+        },
+        {
+          "id": "admin-front-east",
+          "fromLevel": 1,
+          "toLevel": 9,
+          "build": true,
+          "kind": "spiral"
+        },
+        {
+          "id": "admin-rear-west",
+          "fromLevel": 1,
+          "toLevel": 9,
+          "build": true,
+          "kind": "spiral"
+        },
+        {
+          "id": "admin-rear-east",
+          "fromLevel": 1,
+          "toLevel": 9,
+          "build": true,
+          "kind": "spiral"
+        },
+        {
+          "id": "admin-upper-west",
+          "fromLevel": 9,
+          "toLevel": 19,
+          "build": true,
+          "kind": "spiral"
+        },
+        {
+          "id": "admin-upper-east",
+          "fromLevel": 9,
+          "toLevel": 19,
+          "build": true,
+          "kind": "spiral"
+        }
+      ],
+      "floorOpenings": 20,
+      "hiddenSourceParts": 1249
+    },
+    "horticulture": {
+      "sourcePins": [
+        {
+          "assetId": "exposition-horticulture-1893",
+          "commit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f"
+        }
+      ],
+      "bounds": {
+        "min": [
+          -159.02250000089407,
+          -2.7020772286334704e-8,
+          -10
+        ],
+        "max": [
+          159.02250000089407,
+          14.84000015258789,
+          88
+        ]
+      },
+      "construction": {
+        "nativeLeaves": 10,
+        "sourceFragments": 61,
+        "newTreads": 24,
+        "nativeSlabs": 0,
+        "boundarySlabs": 0,
+        "meshes": 132,
+        "sourceParts": 162
+      },
+      "portals": 5,
+      "stairs": [
+        {
+          "id": "hort-west-gallery",
+          "fromLevel": 1,
+          "toLevel": 3,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "hort-east-gallery",
+          "fromLevel": 1,
+          "toLevel": 3,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "hort-rotunda-gallery",
+          "fromLevel": 1,
+          "toLevel": 3,
+          "build": false,
+          "kind": "straight"
+        },
+        {
+          "id": "hort-dry-approach--1",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": true,
+          "kind": "straight"
+        },
+        {
+          "id": "hort-dry-approach-1",
+          "fromLevel": 0,
+          "toLevel": 1,
+          "build": true,
+          "kind": "straight"
+        }
+      ],
+      "floorOpenings": 2,
+      "hiddenSourceParts": 115
+    }
+  },
+  "sourceRecords": [
+    "art/source/exploration-access/source-pins.json",
+    "art/source/exploration-access/animal-envelopes.json"
+  ],
+  "nativeDimensions": {
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "door": [
+      1,
+      1.65,
+      0.12
+    ],
+    "slab": [
+      1,
+      0.12,
+      1
+    ],
+    "floorPitch": 2.12
+  },
+  "opening": {
+    "nominalWidth": 2,
+    "clearWidth": 1.88,
+    "clearHeight": 2.8,
+    "leafExtension": [
+      1,
+      1.15,
+      0.12
+    ]
+  },
+  "integration": "Apply hiddenSourceParts, source-floor cuts and access geometry together; source-local metres and host Three only. Permissions, collision, traversal, streaming and production placement remain coder-owned.",
+  "history": "All access additions are game adaptations. Raw landmark sources and previous independent candidates stay unchanged.",
+  "rights": "Existing source licenses/provenance remain authoritative; no new blanket license grant.",
+  "ownership": "Own generated geometry, cloned/default materials and instances; borrow input materials/maps and host namespace. Idempotent disposal."
+}

@@ -1,0 +1,40 @@
+{
+  "name": "administration-upper",
+  "path": "docs/art/exploration-access/previews/administration-upper.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      -29,
+      35,
+      40
+    ],
+    "origin": [
+      -61,
+      57,
+      11
+    ],
+    "halfWidth": 20
+  },
+  "triangles": 638049,
+  "caption": "New spiral stays outside the original colonnade; supported base, open landing and guarded bridge meet the L19 terrace.",
+  "limitations": [
+    "Actual derived source and additive access meshes. CPU transparency is approximate; WebGL/browser acceptance remains pending.",
+    "Review cutaways/sections are presentation only; the shipped geometry remains complete.",
+    "Native source bear base colours, unscaled body and rig; projection-paint shader and gameplay are omitted.",
+    "Routes, tall leaf extensions, stair revisions and gallery bridges are game adaptations, not historical as-built claims."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "104e8587cda5447626991213c469eac7068522bf85de613ed33caa82d7e7d9fe",
+  "reviewedAt": "2026-10-29T22:58:39.128618+00:00",
+  "criteria": [
+    "Guarded bridge meets the L19 terrace through an actual rail opening.",
+    "Unscaled source bear and new exterior stair show usable scale."
+  ]
+}

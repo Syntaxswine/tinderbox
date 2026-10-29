@@ -1,0 +1,40 @@
+{
+  "name": "administration-access",
+  "path": "docs/art/exploration-access/previews/administration-access.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      30,
+      40
+    ],
+    "origin": [
+      125,
+      105,
+      -130
+    ],
+    "halfWidth": 83
+  },
+  "triangles": 665575,
+  "caption": "Four pavilion stairs connect L1/L3/L5/L7/L9. Added side stairs and bridges connect L9 to L19; all are game adaptations.",
+  "limitations": [
+    "Actual derived source and additive access meshes. CPU transparency is approximate; WebGL/browser acceptance remains pending.",
+    "Review cutaways/sections are presentation only; the shipped geometry remains complete.",
+    "Native source bear base colours, unscaled body and rig; projection-paint shader and gameplay are omitted.",
+    "Routes, tall leaf extensions, stair revisions and gallery bridges are game adaptations, not historical as-built claims."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "d2cf9eddaf6c8eab4b61f3982608da3c3816cd905ccb78d469e341a8fc0766c0",
+  "reviewedAt": "2026-10-29T22:58:39.128618+00:00",
+  "criteria": [
+    "Both new exterior gallery stair connections coexist with original pavilions, colonnade and golden dome.",
+    "Major original columns/piers remain intact; new route is labelled a game adaptation."
+  ]
+}
