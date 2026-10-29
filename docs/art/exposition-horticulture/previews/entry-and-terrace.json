@@ -1,0 +1,41 @@
+{
+  "name": "entry-and-terrace",
+  "path": "docs/art/exposition-horticulture/previews/entry-and-terrace.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      -1,
+      3,
+      -7
+    ],
+    "origin": [
+      20,
+      15,
+      -30
+    ],
+    "halfWidth": 15
+  },
+  "triangles": 1164394,
+  "caption": "Unscaled native bear, two 1 m door leaves and a 2 m landing. Central boat stair is a reusable game adaptation.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
+    "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "a90f431fb39337c5ab52e81b2071230595de169e16cfeffd70b378a50800af2d",
+  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "criteria": [
+    "Unscaled source bear, two ordinary native leaves beneath a larger fixed screen, coping, rail and water stair are visible.",
+    "Source bear base colours only; projection paint and gameplay omitted."
+  ]
+}

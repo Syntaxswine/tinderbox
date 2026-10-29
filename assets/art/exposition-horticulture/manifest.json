@@ -1,0 +1,247 @@
+{
+  "assetId": "exposition-horticulture-1893",
+  "version": 1,
+  "factory": "createHorticulturalBuilding",
+  "branch": "codex/horticultural-building-art",
+  "baseCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+  "hostThreeRevisionTested": "180",
+  "units": "metres",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/exposition-horticulture/index.js",
+      "bytes": 26733,
+      "sha256": "49ccfada5562819a6fa9eb0d5aa250a32a45b6559588614b1388bfe380e52ac2"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/engine.js",
+      "bytes": 2223,
+      "sha256": "f9824878e0484622fa902c7b729a23d7ab3cc3c69082f8879499037dba60e958"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/plan.js",
+      "bytes": 6910,
+      "sha256": "656f6aed5dce93a4a2b7dc970f4c3510d698d36d95b8d326f5c396dd5468dbe0"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/floors.js",
+      "bytes": 2516,
+      "sha256": "ec491447d9f387dcbf4fd62cc3993af4fd19292f27936a2b7932ca6277ae8598"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/terrace.js",
+      "bytes": 6955,
+      "sha256": "fcf2d20786bc49d6603246b22aa21bedfa56110031959bff48347538ea480fb4"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/metadata.json",
+      "bytes": 182513,
+      "sha256": "a319e905c511fad8c1965359a4ee9f523c15f0bb015a3ac07f9ceb0ea186f469"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/nautilus-assembly.json",
+      "bytes": 31748,
+      "sha256": "d5115d2924e855f224445ad0976a94499861fcba0b2bd9e37528240309f1069e"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/terrace-assembly.json",
+      "bytes": 1570213,
+      "sha256": "0f0ac024f31f228b84d13473e1f8c24df49d070edebf1d98dbc5d7487c95642f"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/art/horticulture-waterfront/index.js",
+      "bytes": 12641,
+      "sha256": "34ca5dfced13cd6cdcf0259a53a35030fb3a2e924df21c5ad201e6e252b012f6"
+    },
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    }
+  ],
+  "engine": {
+    "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "implementation": "Actual Nautilus wallPanels, measureWallRun and wallRunErrors; validated native wall fragments with standard-height offsets.",
+    "newDonorImports": [],
+    "nativePanels": 6076,
+    "tierCount": 1,
+    "editorLimits": "One native map supports six layers. This full landmark remains a separate native building assembly; no unsupported full-map export is claimed."
+  },
+  "nativeContract": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "sourceRecords": [
+    "art/source/exposition-horticulture/sources.json",
+    "art/source/exposition-horticulture/measurements.json"
+  ],
+  "sourceIds": [
+    "HORT-CONKEY-1893",
+    "HORT-ARNOLD-1893",
+    "HORT-WALKER-1893"
+  ],
+  "sourceRights": "Original source rights/evidence are recorded separately from existing mixed/unknown donor rights. No new blanket license grant.",
+  "authored": {
+    "bodyWidth": 306,
+    "endBodyDepth": 76,
+    "fullProjection": 88,
+    "crownHeight": 33.92,
+    "domeDiameter": 56,
+    "wallRunLengths": [
+      2,
+      6,
+      8,
+      12,
+      16,
+      20,
+      28,
+      36,
+      50,
+      64
+    ],
+    "floorLevels": [
+      1,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5
+    ],
+    "pavilionFloorLevels": [
+      1,
+      3
+    ],
+    "stairs": 3,
+    "terrace": {
+      "disposed": false,
+      "prototypes": 7,
+      "drawMeshes": 46,
+      "sourceParts": 15257,
+      "nativeSlabs": 10404,
+      "tiles": 10403,
+      "triangles": 182598,
+      "borrowedTextures": true
+    }
+  },
+  "measuredAdaptations": [
+    {
+      "id": "frontage",
+      "sourceFeet": 1000,
+      "sourceMetres": 304.8,
+      "authoredMetres": 306,
+      "differenceMetres": 1.1999999999999886
+    },
+    {
+      "id": "end-body-depth",
+      "sourceFeet": 250,
+      "sourceMetres": 76.2,
+      "authoredMetres": 76,
+      "differenceMetres": -0.20000000000000284
+    },
+    {
+      "id": "great-dome-diameter",
+      "sourceFeet": 187,
+      "sourceMetres": 56.997600000000006,
+      "authoredMetres": 56,
+      "differenceMetres": -0.9976000000000056
+    },
+    {
+      "id": "overall-crown",
+      "sourceFeet": 113,
+      "sourceMetres": 34.4424,
+      "authoredMetres": 33.92,
+      "differenceMetres": -0.5223999999999975
+    },
+    {
+      "id": "court-length",
+      "sourceFeet": 270,
+      "sourceMetres": 82.296,
+      "authoredMetres": 84,
+      "differenceMetres": 1.7039999999999935
+    },
+    {
+      "id": "court-depth",
+      "sourceFeet": 88,
+      "sourceMetres": 26.822400000000002,
+      "authoredMetres": 28,
+      "differenceMetres": 1.1775999999999982
+    }
+  ],
+  "uncertainties": [
+    "The source plan is an exhibit-installation diagram. No complete as-built structural/elevation set was inspected.",
+    "Text extreme width250 ft conflicts with the deeper projecting diagram envelope. The76 m end body and88 m full projection are separate authored decisions.",
+    "Rear/end roof profiles, gallery openings, foyer-to-dome joints and concealed service layout are incomplete evidence; no exact as-built reconstruction claimed.",
+    "Cream staff has period text support; exact glass/frame/roof/foliage colours, fine sculpture and planting layout are art choices.",
+    "Rumsey Cram text record required Verify Access; it was not bypassed or used as measurement evidence. Other unseen rear-elevation leads are unverified.",
+    "Historical construction and simulation materials remain unassigned."
+  ],
+  "physicalMaterial": {
+    "structure": "unassigned",
+    "finish": "unassigned"
+  },
+  "bounds": {
+    "min": [
+      -153.47999572753906,
+      0,
+      -0.6499999940395356
+    ],
+    "max": [
+      153.47999572753906,
+      33.91999994277954,
+      88.4800033569336
+    ]
+  },
+  "diagnostics": {
+    "disposed": false,
+    "meshes": 504,
+    "triangles": 971732,
+    "sourceParts": 48484,
+    "instanceBatches": 173,
+    "geometries": 503,
+    "materials": 13,
+    "ownedTextures": 0,
+    "enginePanels": 6076,
+    "nativeWalls": 4464,
+    "nativeDoors": 2,
+    "floorTiles": 29957,
+    "wallPieces": 5976,
+    "closures": 5240,
+    "plants": 22
+  },
+  "appearanceSlots": [
+    "facade",
+    "trim",
+    "glazing",
+    "frame",
+    "roof",
+    "cupola",
+    "door",
+    "floor",
+    "foliage",
+    "trunk",
+    "soil",
+    "water",
+    "fruit"
+  ],
+  "ownership": {
+    "owned": "Generated geometry, cloned/default material adapters and instancing allocations. Dispose once using returned idempotent dispose().",
+    "borrowed": "Host Three namespace, input materials and all input maps/textures; input materials cloned, originals and texture transforms remain unchanged."
+  },
+  "previewResources": [],
+  "uv": "Native geometry position/normal/UV/index arrays unchanged. Separate grossUV supplies physical metres on planar parts. Dome ribs use tangent width and meridian arclength; turned curved sculpture uses the inherited local/circumference approximations.",
+  "integration": "Whole-building native art assembly for later Nautilus/Tinderbox provider intake. Not registered in the fixed catalogue or production world; simulation, collision, fire and traversal remain consumer-owned."
+}

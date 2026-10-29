@@ -1,0 +1,41 @@
+{
+  "name": "waterfront-exterior",
+  "path": "docs/art/exposition-horticulture/previews/waterfront-exterior.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      0,
+      7,
+      31
+    ],
+    "origin": [
+      250,
+      200,
+      -295
+    ],
+    "halfWidth": 180
+  },
+  "triangles": 1164394,
+  "caption": "306 m frontage; 56 m glass dome; 33.92 m crown. Native walls and floors; terrace from the reusable shoreline kit.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
+    "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "9dc1891da190bdb86cbd3e4c294b23cdb50965e1ffea5e0c6ec0e3b6dcf01182",
+  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "criteria": [
+    "Whole frontage, end pavilions, two courts and complete water-edge assembly fit the view.",
+    "Native slab approach joins the galleries; no grass gap remains."
+  ]
+}

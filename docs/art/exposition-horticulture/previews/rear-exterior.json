@@ -1,0 +1,41 @@
+{
+  "name": "rear-exterior",
+  "path": "docs/art/exposition-horticulture/previews/rear-exterior.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      0,
+      7,
+      46
+    ],
+    "origin": [
+      -230,
+      215,
+      320
+    ],
+    "halfWidth": 177
+  },
+  "triangles": 1164394,
+  "caption": "Two open courts, orange trees and aquatic basins. Rear and end roof profiles are documented simplifications.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
+    "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "db31409152a62caba53fe41b7bc0a143fd00b92e67c0defa7ac10716c038cf1d",
+  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "criteria": [
+    "Rear ordinary-light curtain, courts and end-pavilion roofs are shown; unseen historic profiles remain labelled simplifications.",
+    "Native upper end-pavilion wall bands now meet the taller roof eaves; ray checks sample their closure."
+  ]
+}
