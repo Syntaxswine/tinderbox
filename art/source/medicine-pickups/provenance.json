@@ -1,0 +1,59 @@
+{
+  "hashEncoding": "UTF-8 project text normalized to LF, matching committed Git bytes",
+  "project": "Tinderbox",
+  "repository": "https://github.com/Syntaxswine/tinderbox.git",
+  "branch": "codex/medicine-pickup-art",
+  "baseCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+  "contract": {
+    "commit": "1447206df7a2e156c637e92aa3610577f8b39a1e",
+    "path": "docs/milestones/08-explorable-places.md",
+    "section": "Shared catalogue and UI API: world pickups and artist adapter"
+  },
+  "acceptedUserRequirement": {
+    "date": "2026-10-28",
+    "threadId": "01a17edb-5cf4-7af0-a52e-d28547bb7ede",
+    "threadTitle": "Set up Tinderbox UI worktree",
+    "messages": [
+      {
+        "id": "01a1812c-00e1-7ce2-810e-57ebb120f62b",
+        "text": "the drugs or medicine should be used automatically when they are picked up"
+      },
+      {
+        "id": "01a1812c-3d40-7d33-9ae9-ceba39ea9851",
+        "text": "walk over them to use them"
+      }
+    ]
+  },
+  "vectors": {
+    "path": "assets/art/ui/control-symbols.svg",
+    "bytes": 1836,
+    "sha256": "d3e36191867deeff14a624cc98d01992333034b87669de9721a0a5bd2d38cd5c",
+    "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+    "lastChangeCommit": "2b33b528de724adec3ddf3b7227dfed0ec2210d5",
+    "details": "art/source/medicine-pickups/mark-source.json"
+  },
+  "palette": {
+    "path": "src/art/materials.js",
+    "bytes": 3544,
+    "sha256": "e67136dbb1f713e787f6fa57b40ba102ccb36d8ad1552dbf61cc96544b520c37",
+    "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+    "lastChangeCommit": "b3c7c009706dc48a10cd97951df36f79a4d5fb21",
+    "reuse": "Existing shirt, leather, brass, steel, ivory, dark and glass material recipes; supplied project materials/maps are cloned or borrowed without mutation."
+  },
+  "imports": "No additional donor import. Existing Farmyard/AFT source licenses and provenance remain authoritative; this record grants no new blanket rights.",
+  "reviewOnly": {
+    "bearSourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+    "bearData": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "appearance": "CPU base colours; native projection-paint shader omitted"
+  },
+  "adaptations": [
+    "Existing polygon contours become shallow upward-facing 3D marks.",
+    "Physical packet, jar and tin use the existing shared material slots.",
+    "New art is a source-local metre-scale ground presentation, not use/collision logic."
+  ]
+}

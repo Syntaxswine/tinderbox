@@ -1,0 +1,30 @@
+{
+  "name": "medicine-kit",
+  "path": "docs/art/medicine-pickups/previews/medicine-kit.jpg",
+  "dimensions": [
+    1600,
+    1160
+  ],
+  "camera": {
+    "target": [
+      0,
+      0.09,
+      0
+    ],
+    "origin": [
+      0,
+      2,
+      -2.4
+    ],
+    "halfWidth": 1.02
+  },
+  "triangles": 988,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 24,
+  "caption": "Left to right: inversion tin, medicine jar, folded powder packet. Maximum physical radius 0.22 m; fixed size, grounded origin.",
+  "limitations": [
+    "Actual factory meshes, CPU diffuse approximation of source material colours. Borrowed project maps and native bear projection paint omitted.",
+    "No browser, gameplay, input, collision or collection proof."
+  ],
+  "visualReview": "Reviewed actual JPG: full intended subjects, readable marks, grounded silhouettes, correct caption order and complete consumed-state removal. CPU limits remain explicit."
+}

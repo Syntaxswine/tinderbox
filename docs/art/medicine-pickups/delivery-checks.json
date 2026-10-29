@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "branch": "codex/medicine-pickup-art",
+  "baseCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+  "focused": {
+    "command": "node workbenches/art/check-medicine-pickups.mjs --write",
+    "passed": true,
+    "report": "docs/art/medicine-pickups/check-results.json"
+  },
+  "repository": {
+    "command": "node tools/check.mjs",
+    "passed": true,
+    "tests": 85,
+    "failures": 0,
+    "syntaxScripts": 93,
+    "staticModules": 139,
+    "sharedThreeImplementations": 1,
+    "existingProvenance": "pass",
+    "previousTrackedFiles": "git diff --exit-code passed before staging; all frozen access/source files unchanged",
+    "pinnedGitSourceHashes": "Palette and original vector hashes match immutable Git-object bytes"
+  },
+  "build": {
+    "command": "node tools/build.mjs",
+    "passed": true,
+    "files": 169,
+    "bytes": 52371147
+  },
+  "package": {
+    "passed": true,
+    "method": "Packaged factory instantiated with packaged host Three; static URL resolution under /tinderbox/; no HTTP server",
+    "modules": [
+      "assets/art/medicine-pickups/index.js",
+      "src/art/materials.js",
+      "src/art/resources.js",
+      "assets/art/medicine-pickups/marks.js"
+    ],
+    "runtimeAndDependencyHashes": "pass",
+    "files": 169,
+    "bytes": 52371147,
+    "privateAuthoringAndEvidenceExcluded": true,
+    "browserAcceptance": "pending combined review"
+  },
+  "previews": [
+    {
+      "path": "docs/art/medicine-pickups/previews/medicine-kit.jpg",
+      "sha256": "919d860c06be22fdb9b22edd4d646f981f34ddc11496eb101e289668f8ebef5c",
+      "bytes": 698945,
+      "reviewed": true
+    },
+    {
+      "path": "docs/art/medicine-pickups/previews/native-scale.jpg",
+      "sha256": "d1b3d68c5dd96b97b150f0b2d35b906aabc6f6c56ef78b6636481ba2b9ed1393",
+      "bytes": 688049,
+      "reviewed": true
+    },
+    {
+      "path": "docs/art/medicine-pickups/previews/consumed-state.jpg",
+      "sha256": "e3defc73108f064a259465c6dde264ba82c558cb5b2493c550116014a16e50b9",
+      "bytes": 684984,
+      "reviewed": true
+    }
+  ],
+  "helpers": {
+    "retained": 0,
+    "renderProcessesVerifiedExited": 2,
+    "portsUsed": [],
+    "actualRenderDeadlineSeconds": 120,
+    "restartSource": "art/source/medicine-pickups/render-review.py",
+    "localReceipts": "artifacts/medicine-pickups/helper-completion.json"
+  },
+  "limitations": [
+    "Actual-mesh CPU review; borrowed texture maps and native bear projection paint omitted.",
+    "Automatic use/collision, HUD agreement, phone WebGL readability and runtime performance need coder/architect combined review.",
+    "No architect promotion or deployment performed."
+  ]
+}

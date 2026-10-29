@@ -1,0 +1,134 @@
+{
+  "assetId": "medicine-pickups-v1",
+  "version": 1,
+  "hashEncoding": "UTF-8 project text normalized to LF, matching committed Git bytes",
+  "units": "metres",
+  "up": "+Y",
+  "recordAxes": "x -> X, y -> Z; ground foot Y=0",
+  "entryPoint": "assets/art/medicine-pickups/index.js",
+  "factory": "createMedicinePickups(THREE,{materials,textures})",
+  "result": [
+    "root",
+    "update",
+    "dispose",
+    "diagnostics"
+  ],
+  "update": "update(pickups,{worldTime,paused})",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/medicine-pickups/index.js",
+      "bytes": 8246,
+      "sha256": "ad935baa3c66be99ba9f6b7ee347f438590e328b97bb41ab595f47d41d7396fc"
+    },
+    {
+      "path": "assets/art/medicine-pickups/marks.js",
+      "bytes": 3161,
+      "sha256": "d9dc486aa8c27349ba87e88062910306c0c170ec6f3cdc97b5283d3739b686d3"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "src/art/materials.js",
+      "bytes": 3544,
+      "sha256": "e67136dbb1f713e787f6fa57b40ba102ccb36d8ad1552dbf61cc96544b520c37"
+    },
+    {
+      "path": "src/art/resources.js",
+      "bytes": 1291,
+      "sha256": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1"
+    }
+  ],
+  "appearanceSlots": [
+    "shirt",
+    "leather",
+    "brass",
+    "steel",
+    "ivory",
+    "dark",
+    "glass"
+  ],
+  "kinds": {
+    "powder": {
+      "bounds": {
+        "min": [
+          -0.17799999994039536,
+          -1.1026859286777935e-9,
+          -0.11999999731779099
+        ],
+        "max": [
+          0.17799999994039536,
+          0.11649999994412065,
+          0.11999999731779099
+        ]
+      },
+      "size": [
+        0.35599999988079073,
+        0.11650000104680658,
+        0.23999999463558197
+      ],
+      "radius": 0.21467184103894624,
+      "meshes": 9,
+      "triangles": 312
+    },
+    "healing": {
+      "bounds": {
+        "min": [
+          -0.18000000715255737,
+          3.8743019036002746e-10,
+          -0.18000000715255737
+        ],
+        "max": [
+          0.18000000715255737,
+          0.2924999999441206,
+          0.18000000715255737
+        ]
+      },
+      "size": [
+        0.36000001430511475,
+        0.2924999995566904,
+        0.36000001430511475
+      ],
+      "radius": 0.18000000715255737,
+      "meshes": 6,
+      "triangles": 444
+    },
+    "inversion": {
+      "bounds": {
+        "min": [
+          -0.20200000703334808,
+          3.8743019036002746e-10,
+          -0.20200000703334808
+        ],
+        "max": [
+          0.20200000703334808,
+          0.12049999994412064,
+          0.20200000703334808
+        ]
+      },
+      "size": [
+        0.40400001406669617,
+        0.12049999955669045,
+        0.40400001406669617
+      ],
+      "radius": 0.20200000703334808,
+      "meshes": 8,
+      "triangles": 232
+    }
+  },
+  "maximumCount": 64,
+  "construction": {
+    "disposed": false,
+    "visiblePickups": 3,
+    "meshes": 23,
+    "templates": 3,
+    "ownedGeometries": 23,
+    "ownedMaterials": 7,
+    "ownedTextures": 0
+  },
+  "geometry": "Fixed physical dimensions and unit scale; all three fit the current default 0.22 m pickup radius. No bobbing, timeouts, billboards or independent use rules. Record radius is retained as authoritative metadata and never rescales a prop.",
+  "state": "Each call is a complete snapshot. Consumed and absent IDs have no visible group, even while paused. False consumed state on reset restores the item. Stable IDs reuse their group; templates share owned geometry/materials.",
+  "ownership": "Host Three is injected. Input material values are cloned; input textures/maps are borrowed unchanged. Only generated geometry and cloned/default materials are disposed, exactly once. Unknown host slots are ignored.",
+  "rights": "No additional donor import. Existing Farmyard/AFT source licenses and provenance remain authoritative; this record grants no new blanket rights.",
+  "provenance": "art/source/medicine-pickups/provenance.json",
+  "integration": "Artist candidate only. Coder owns Catalogue Street composition, accepted movement, effect application and consumption. Landmark exploration does not use pickups. Combined WebGL acceptance and architect promotion remain pending."
+}

@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "nativeUnits": "metres; static geometry at scale 1",
+  "measured": {
+    "powder": {
+      "bounds": {
+        "min": [
+          -0.17799999994039536,
+          -1.1026859286777935e-9,
+          -0.11999999731779099
+        ],
+        "max": [
+          0.17799999994039536,
+          0.11649999994412065,
+          0.11999999731779099
+        ]
+      },
+      "size": [
+        0.35599999988079073,
+        0.11650000104680658,
+        0.23999999463558197
+      ],
+      "radius": 0.21467184103894624,
+      "meshes": 9,
+      "triangles": 312
+    },
+    "healing": {
+      "bounds": {
+        "min": [
+          -0.18000000715255737,
+          3.8743019036002746e-10,
+          -0.18000000715255737
+        ],
+        "max": [
+          0.18000000715255737,
+          0.2924999999441206,
+          0.18000000715255737
+        ]
+      },
+      "size": [
+        0.36000001430511475,
+        0.2924999995566904,
+        0.36000001430511475
+      ],
+      "radius": 0.18000000715255737,
+      "meshes": 6,
+      "triangles": 444
+    },
+    "inversion": {
+      "bounds": {
+        "min": [
+          -0.20200000703334808,
+          3.8743019036002746e-10,
+          -0.20200000703334808
+        ],
+        "max": [
+          0.20200000703334808,
+          0.12049999994412064,
+          0.20200000703334808
+        ]
+      },
+      "size": [
+        0.40400001406669617,
+        0.12049999955669045,
+        0.40400001406669617
+      ],
+      "radius": 0.20200000703334808,
+      "meshes": 8,
+      "triangles": 232
+    }
+  },
+  "construction": {
+    "disposed": false,
+    "visiblePickups": 3,
+    "meshes": 23,
+    "templates": 3,
+    "ownedGeometries": 23,
+    "ownedMaterials": 7,
+    "ownedTextures": 0
+  },
+  "transitions": [
+    "snapshot placement",
+    "stable identity on reorder/move",
+    "consumed while paused",
+    "reset/reappearance",
+    "kind replacement",
+    "missing ID removal",
+    "80 snapshots of 64 changing IDs without resource growth",
+    "invalid snapshots leave last valid state intact"
+  ],
+  "resources": {
+    "ownedGeometriesDisposedExactlyOnce": 23,
+    "clonedMaterialsDisposedExactlyOnce": 7,
+    "borrowedMaterialsDisposed": 0,
+    "borrowedTexturesDisposed": 0,
+    "synchronousNoDOM": true
+  },
+  "sourceMarksUnchanged": true,
+  "limitations": [
+    "Art-only headless geometry/state checks. Actual collection, native paint, phone readability and WebGL performance require combined review."
+  ]
+}
