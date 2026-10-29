@@ -15,6 +15,8 @@ The user explicitly selected **playable interiors and stairs** and authorized br
 
 These are three landmarks; the two New York versions depict the same building. Keep the unrelated Hopkins v2 batch separate. Preserve authored metre scale: Horticulture has a 306 m frontage. One shared Three namespace and renderer serve each active visit. Donor checkouts remain read-only.
 
+The user additionally requires the bear asset from Nautilus instead of the older direct AFT intake. Identify and pin its actual committed model/paint/rig/attachment closure before final acceptance; do not rename the existing AFT source as a new Nautilus import. Inspected Nautilus main `8c4670450cb2b38c1e1abd811d633c22de9e2b7c` still records the bear as incoming, and the user has been asked for its asset location. Menu/navigation work continues independently. The coder owns the minimal self-contained intake and provenance; all clearance, support, camera and tool-anchor checks use the chosen model's measured native envelope. The previous .56 m radius/~2.02 m height are provisional reference values, with no character resizing.
+
 New York and Administration passed the architect's independent offline source/geometry/package reviews, including 85 tests and preservation of original assets. Horticulture and waterfront need their focused checks during intake. Existing source manifests, rights, uncertainties and adaptations remain authoritative. Menu thumbnails use the artist's actual-model JPGs, with provenance.
 
 ## Assignments and bases
