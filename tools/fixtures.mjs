@@ -1,6 +1,34 @@
 import fs from 'node:fs';
 import {createSimulation, SCENARIOS} from '../src/simulation/index.js';
-if (process.argv.includes('--row-ignition')) {
+if(process.argv.includes('--characters')){
+  const {createCharacterRig,CHARACTER_SOURCE_COMMITS}=await import('../src/reuse/characters.js');
+  const {CHARACTERS,CHARACTER_PROFILES}=await import('../src/content/characters.js');const reports=[];
+  for(const {id}of CHARACTERS){
+    const dataPath=id==='bear'?'vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json':'vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/'+id+'-10k-data.json';
+    const rig=createCharacterRig(id,JSON.parse(fs.readFileSync(dataPath)));let height=0,radius=0,contactError=0,samples=0;
+    try{for(const tool of ['matches','jerry-can','molotov','torch','flamethrower'])for(const heading of [0,Math.PI/2,Math.PI,Math.PI*1.5])for(const distance of [0,...Array.from({length:20},(_,i)=>(i+1)*.1)]){
+      rig.update({x:0,y:0,heading,tool,travelled:distance,moving:distance>0},distance);const b=rig.sampleBodyBounds();height=Math.max(height,b.max[1]);radius=Math.max(radius,b.radius);contactError=Math.max(contactError,...rig.diagnostics().contacts.map(c=>c.error));samples++;
+    }}finally{rig.dispose();}
+    if(height>CHARACTER_PROFILES[id].height||radius>CHARACTER_PROFILES[id].radius)throw Error('Player envelope exceeds its native profile: '+id);
+    reports.push({id,sourceCommit:CHARACTER_SOURCE_COMMITS[id],dataPath,samples,height,radius,contactError,nativeScale:[1,1,1],collision:CHARACTER_PROFILES[id]});
+  }
+  fs.mkdirSync('docs/engineering/explorable-places',{recursive:true});fs.writeFileSync('docs/engineering/explorable-places/characters.json',JSON.stringify({task:'TB-024',method:'Evaluated original skinned vertices at idle and 20 gait distances, four headings, five fitted tools; mesh scale remains 1. Collision includes a documented safety margin.',reports,passed:true},null,2)+'\n');console.log(JSON.stringify(reports));
+} else if(process.argv.includes('--place-sections')){
+  const T=await import('../src/runtime/three.js'),{createSectionStreamer}=await import('../src/runtime/sections.js'),{pathToFileURL,fileURLToPath}=await import('node:url'),path=await import('node:path');
+  const diagnostic=process.argv.includes('--source-only'),reports=[];
+  for(const id of ['new-york','administration','horticulture']){
+    const directory=path.resolve((diagnostic?'artifacts/TB-024/source-sections/':'assets/art/place-scenes/')+id),manifest=JSON.parse(fs.readFileSync(directory+'/index.json')),nav=JSON.parse(fs.readFileSync(directory+'/navigation.json')),root=new T.Group();
+    const stream=createSectionStreamer({THREE:T,root,manifest,baseUrl:pathToFileURL(directory+'/index.json').href,loadJSON:async url=>JSON.parse(fs.readFileSync(fileURLToPath(url)))});
+    const samples=id==='new-york'?[[0,0,-12],[40,0,14],[0,0,40],[-40,0,14],[0,2.12,14],[0,8.48,14],[0,14.84,14],[0,0,-12]]:id==='administration'?[[0,0,-10],[52,0,40],[0,0,94],[-52,0,40],[0,2.12,40],[27,6.36,14],[0,19.08,20],[20,40.28,20],[0,0,-10]]:[[5,2.12,-8],[155,2.12,4],[160,2.12,80],[0,2.12,105],[-160,2.12,30],[0,2.12,36],[135,6.36,47],[-135,6.36,47],[5,2.12,-8]];
+    const trace=[];
+    try{for(const [x,elevation,z]of samples){const player={x:x+nav.sourceOffset[0],y:z+nav.sourceOffset[2],elevation};stream.update(player);await stream.settled();if(!stream.isReadyAt(player))throw Error('Sample missing section: '+id);trace.push({sourcePosition:[x,elevation,z],...stream.metrics()});}
+      stream.update(nav.spawn,{viewMode:'overview'});await stream.settled();if(stream.metrics().geometries||stream.metrics().materials||root.children.length)throw Error('Overview retained detailed ownership');
+      reports.push({placeId:id,trace,afterOverview:stream.metrics()});
+    }finally{stream.dispose();}
+  }
+  fs.writeFileSync('docs/engineering/explorable-places/'+(diagnostic?'source-':'')+'streaming.json',JSON.stringify({task:'TB-024',diagnostic,method:'Source section loader at sampled positions/heights, then overview release. Resource sampling only, not a player route or WebGL acceptance.',reports,passed:true},null,2)+'\n');
+  console.log(JSON.stringify(reports.map(r=>({placeId:r.placeId,peakSections:Math.max(...r.trace.map(t=>t.peakSections)),peakGeometries:Math.max(...r.trace.map(t=>t.peakGeometries)),final:r.afterOverview}))));
+} else if (process.argv.includes('--row-ignition')) {
   const advance = (sim, seconds) => { for (let i=0;i<Math.round(seconds*60);i++)sim.advance(1/60);return sim.snapshot(); };
   const traces = [];
   for (const material of ['gas','grass','wood']) for (const powder of [false,true]) {

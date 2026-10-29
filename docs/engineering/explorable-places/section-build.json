@@ -1,0 +1,119 @@
+{
+  "task": "TB-024",
+  "diagnostic": false,
+  "sources": [
+    {
+      "id": "new-york",
+      "directory": "exposition-new-york-tile",
+      "commit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "preservation": "preserved-original.json"
+    },
+    {
+      "id": "administration",
+      "directory": "exposition-administration",
+      "commit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "preservation": "preserved-and-engine.json"
+    },
+    {
+      "id": "waterfront",
+      "directory": "horticulture-waterfront",
+      "commit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "preservation": "preserved.json"
+    },
+    {
+      "id": "horticulture",
+      "directory": "exposition-horticulture",
+      "commit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "preservation": "preserved-and-engine.json"
+    }
+  ],
+  "accessSource": {
+    "commit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+    "path": "assets/art/exploration-access/index.js",
+    "purpose": "Additive native entry/stair/landing/floor-opening geometry; raw landmarks remain frozen"
+  },
+  "reports": [
+    {
+      "placeId": "new-york",
+      "sourceParts": 12987,
+      "sourceTriangles": 254642,
+      "emittedParts": 12858,
+      "renderParts": 12840,
+      "mergedFloorFragments": 18,
+      "emittedTriangles": 252406,
+      "sections": 148,
+      "geometries": 416,
+      "cutFloorParts": 60,
+      "collisionShapes": 164,
+      "detailedColliders": 1207,
+      "navigationBytes": 1495072,
+      "width": 112,
+      "height": 78,
+      "occupiedLevels": [
+        1,
+        4
+      ],
+      "sourceOffset": [
+        56,
+        0,
+        26
+      ]
+    },
+    {
+      "placeId": "administration",
+      "sourceParts": 42546,
+      "sourceTriangles": 678191,
+      "emittedParts": 41522,
+      "renderParts": 39801,
+      "mergedFloorFragments": 1721,
+      "emittedTriangles": 655739,
+      "sections": 653,
+      "geometries": 943,
+      "cutFloorParts": 484,
+      "collisionShapes": 580,
+      "detailedColliders": 6324,
+      "navigationBytes": 7010545,
+      "width": 124,
+      "height": 124,
+      "occupiedLevels": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        19
+      ],
+      "sourceOffset": [
+        62,
+        0,
+        22
+      ]
+    },
+    {
+      "placeId": "horticulture",
+      "sourceParts": 63903,
+      "sourceTriangles": 1157534,
+      "emittedParts": 63788,
+      "renderParts": 61954,
+      "mergedFloorFragments": 1834,
+      "emittedTriangles": 1154962,
+      "sections": 445,
+      "geometries": 629,
+      "cutFloorParts": 0,
+      "collisionShapes": 470,
+      "detailedColliders": 7673,
+      "navigationBytes": 8131307,
+      "width": 352,
+      "height": 144,
+      "occupiedLevels": [
+        1,
+        3
+      ],
+      "sourceOffset": [
+        176,
+        0,
+        39
+      ]
+    }
+  ]
+}

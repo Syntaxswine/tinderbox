@@ -3,25 +3,28 @@ import {createBearWorker,BEAR_PROFILE,BEAR_PAINT_FRAME} from '../../vendor/anima
 import {createBearPaint} from '../../vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-paint.js';
 import {createWorkerLocomotion} from '../../vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/worker-locomotion.js';
 import {createBearTools} from './bear-tools.js';
+import {loadOwnedPair} from './loading.js';
 export const BEAR_SOURCE_COMMIT='4f5f53917990ec03b2f14c65f067e4b99ec8fcaa';
 export const BEAR_ASSET_BASE_URL=new URL('../../vendor/animal-factory-tactics-3d/'+BEAR_SOURCE_COMMIT+'/dist/assets/',import.meta.url).href;
 export const BEAR_SPEC=Object.freeze({height:1.6708452701568604,shoulderWidth:.9717451984373255,neutralForward:'+X',provisional:false,species:'bear',appearance:'normal',sourceCommit:BEAR_SOURCE_COMMIT,bodyTriangles:10050,bones:17,anchors:['grip','support','muzzle','spout','backpack']});
 const TOOLS=['matches','jerry-can','molotov','torch','flamethrower'];
 // The source projection temporarily borrows the renderer. Also restore it and
 // release captured projection allocations if setup throws before returning.
-function paintWithOwnership(renderer,worker,texture){
+export function paintWithOwnership(renderer,worker,texture,paintFactory=createBearPaint){
   const render=renderer.render,setTarget=renderer.setRenderTarget,targets=new Set(),materials=new Set(),state={target:renderer.getRenderTarget(),color:renderer.getClearColor(new T.Color()),alpha:renderer.getClearAlpha(),tone:renderer.toneMapping,space:renderer.outputColorSpace,viewport:renderer.getViewport(new T.Vector4()),scissor:renderer.getScissor(new T.Vector4()),scissorTest:renderer.getScissorTest()};
-  try{renderer.setRenderTarget=function(target,...args){if(target&&target!==state.target)targets.add(target);return setTarget.call(renderer,target,...args);};renderer.render=function(scene,camera){for(const node of scene.children)if(node.material?.isShaderMaterial)materials.add(node.material);return render.call(renderer,scene,camera);};return createBearPaint(renderer,worker,texture,{sceneLighting:true});}
+  try{renderer.setRenderTarget=function(target,...args){if(target&&target!==state.target)targets.add(target);return setTarget.call(renderer,target,...args);};renderer.render=function(scene,camera){for(const node of scene.children)if(node.material?.isShaderMaterial)materials.add(node.material);return render.call(renderer,scene,camera);};return paintFactory(renderer,worker,texture,{sceneLighting:true});}
   catch(error){for(const target of targets)target.dispose();for(const material of materials)material.dispose();throw error;}
   finally{renderer.render=render;renderer.setRenderTarget=setTarget;renderer.outputColorSpace=state.space;renderer.toneMapping=state.tone;renderer.setRenderTarget(state.target);renderer.setClearColor(state.color,state.alpha);renderer.setViewport(state.viewport);renderer.setScissor(state.scissor);renderer.setScissorTest(state.scissorTest);}
 }
 function assertData(d){if(d?.species!=='bear'||d.triangles!==10050||d.sourceTriangles!==27298||d.parts?.length!==8||d.parts.some(p=>/cap|hat|helmet|uniform/i.test(p.name)))throw Error('Expected the reviewed native bear body and normal-outfit geometry.');}
 function bodyBounds(w,space){const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity],v=new T.Vector3();let radius=0;w.root.updateMatrixWorld(true);w.skeleton.update();const inverse=space.matrixWorld.clone().invert();for(const m of w.parts){const relative=new T.Matrix4().multiplyMatrices(inverse,m.matrixWorld);for(let i=0;i<m.geometry.attributes.position.count;i++){m.getVertexPosition(i,v).applyMatrix4(relative);for(let a=0;a<3;a++){const n=v.getComponent(a);min[a]=Math.min(min[a],n);max[a]=Math.max(max[a],n);}radius=Math.max(radius,Math.hypot(v.x,v.z));}}return {min,max,size:max.map((n,i)=>n-min[i]),radius};}
-export function createBearRig(data,{materials}={}) {
-  assertData(data);const root=new T.Group();root.name='Tinderbox shared bear';root.userData={species:'bear',appearance:'normal',sourceCommit:BEAR_SOURCE_COMMIT};
-  const worker=createBearWorker(structuredClone(data)),equipment=createBearTools(materials),anchors=Object.fromEntries(BEAR_SPEC.anchors.map(name=>{const node=new T.Object3D();node.name='bear:'+name;root.add(node);return [name,node];}));
-  let motion,paint,closed=false,selected='matches',signature='',lastTime=0,lastBlend=0,evaluations=0,localBounds,lastPlayer={x:0,y:0,heading:0,travelled:0},heldVisible=true;
-  try{worker.equipWeapon(equipment.tools[selected]);motion=createWorkerLocomotion(worker,BEAR_PROFILE);root.add(worker.root);}catch(error){equipment.dispose();worker.dispose();throw error;}
+export function createBearRig(data,{materials,unarmed=false,nativeFactory=createBearWorker,species='bear',sourceCommit=BEAR_SOURCE_COMMIT,locomotionFactory=createWorkerLocomotion,profile=BEAR_PROFILE}={}) {
+  if(species==='bear')assertData(data);else if((data.species??'horse')!==species||!Array.isArray(data.parts)||data.parts.some(p=>/cap|hat|helmet|uniform/i.test(p.name)))throw Error('Expected the selected native normal character');
+  const root=new T.Group();root.name='Tinderbox shared '+species;root.userData={species,appearance:'normal',sourceCommit,role:'player'};
+  const worker=nativeFactory(structuredClone(data)),equipment=createBearTools(materials),anchors=Object.fromEntries(BEAR_SPEC.anchors.map(name=>{const node=new T.Object3D();node.name=species+':'+name;root.add(node);return [name,node];}));
+  if(unarmed){const pose=worker.pose;worker.pose=(mode,heading)=>pose('neutral',heading);}
+  let motion,paint,closed=false,selected='matches',signature='',lastTime=0,lastBlend=0,evaluations=0,localBounds,lastPlayer={x:0,y:0,heading:0,travelled:0},heldVisible=!unarmed;
+  try{worker.equipWeapon(equipment.tools[selected]);motion=locomotionFactory(worker,profile);root.add(worker.root);}catch(error){equipment.dispose();worker.dispose();throw error;}
   const worldPoint=new T.Vector3(),palm=new T.Vector3(.052,-.010,0);
   function copyAnchor(name,node){node.getWorldPosition(worldPoint);anchors[name].position.copy(root.worldToLocal(worldPoint));}
   function update(player,time=0,{paused=false}={}) {
@@ -29,7 +32,7 @@ export function createBearRig(data,{materials}={}) {
     if(!player||![player.x,player.y,player.heading,player.travelled,time].every(Number.isFinite)||player.travelled<0||!TOOLS.includes(player.tool))throw Error('Bear view needs a finite authoritative player, accepted distance and valid tool.');
     const tool=player.tool,asset=equipment.tools[tool],blend=paused?lastBlend:player.moving?1:0,next=JSON.stringify([tool,player.travelled,blend,player.heading]);
     if(next!==signature){worker.root.removeFromParent();try{if(tool!==selected){worker.equipWeapon(asset);selected=tool;heldVisible=true;}motion.apply({distance:player.travelled,blend,heading:0});worker.rifle.root.visible=false;for(const hand of worker.gripHands)hand.visible=false;localBounds=null;worker.root.rotation.y=-player.heading;worker.root.updateMatrixWorld(true);worker.skeleton.update();}finally{root.add(worker.root);}signature=next;evaluations++;}
-    root.position.set(player.x,0,player.y);root.updateMatrixWorld(true);asset.root.visible=heldVisible;copyAnchor('grip',asset.anchors.grip);
+    root.position.set(player.x,player.elevation||0,player.y);root.updateMatrixWorld(true);asset.root.visible=heldVisible;copyAnchor('grip',asset.anchors.grip);
     if(asset.anchors.support)copyAnchor('support',asset.anchors.support);else{worker.bones.find(b=>b.name==='hand-1').localToWorld(worldPoint.copy(palm));anchors.support.position.copy(root.worldToLocal(worldPoint));}
     copyAnchor('muzzle',asset.anchors.muzzle);copyAnchor('spout',asset.anchors.spout||asset.anchors.grip);copyAnchor('backpack',asset.mount||worker.bones.find(b=>b.name==='spine'));
     root.updateMatrixWorld(true);lastTime=time;lastBlend=blend;lastPlayer={x:player.x,y:player.y,heading:player.heading,travelled:player.travelled};
@@ -40,11 +43,11 @@ export function createBearRig(data,{materials}={}) {
   update({x:0,y:0,heading:0,travelled:0,moving:false,tool:'matches'},0);
   return {root,anchors,worker,update,counts,diagnostics,sampleBodyBounds,setPaint(value){if(paint)throw Error('Bear paint already installed');paint=value;for(const p of worker.parts){p.material=paint.material;p.castShadow=p.receiveShadow=true;}},setHeldVisible(value){heldVisible=!!value;if(!closed)equipment.tools[selected].root.visible=heldVisible;},dispose(){if(closed)return;closed=true;root.removeFromParent();motion.dispose();paint?.dispose();worker.equipWeapon();equipment.dispose();worker.dispose();root.clear();}};
 }
-export async function loadBearKit({THREE,renderer,assetBaseUrl=BEAR_ASSET_BASE_URL,materials}={}) {
+export async function loadBearKit({THREE,renderer,assetBaseUrl=BEAR_ASSET_BASE_URL,materials,unarmed=false,signal}={}) {
   if(THREE?.SkinnedMesh!==T.SkinnedMesh||!(renderer instanceof T.WebGLRenderer))throw Error('Bear kit requires the existing shared THREE namespace and borrowed WebGLRenderer.');
+  if(signal?.aborted)throw new DOMException('Character load cancelled','AbortError');
   const base=new URL(assetBaseUrl,import.meta.url);if(!base.pathname.endsWith('/'))base.pathname+='/';const loader=new T.TextureLoader();
-  const results=await Promise.allSettled([fetch(new URL('../tactics/bear-10k-data.json',base)).then(r=>{if(!r.ok)throw Error('Bear model HTTP '+r.status);return r.json();}),loader.loadAsync(new URL('characters/lowpoly-proof/bear-worker-model-paint-v1.png',base).href)]),texture=results[1].status==='fulfilled'?results[1].value:null;
-  if(results.some(r=>r.status==='rejected')){texture?.dispose();throw Error('Native bear model/normal paint could not load.',{cause:results.find(r=>r.status==='rejected').reason});}
-  const data=results[0].value,instances=new Set();let disposed=false;try{assertData(data);}catch(error){texture.dispose();throw error;}
-  return {create(){if(disposed)throw Error('Bear kit disposed');let rig,paint,copy;try{rig=createBearRig(data,{materials});copy=texture.clone();paint=paintWithOwnership(renderer,rig.worker,copy);rig.setPaint(paint);const release=rig.dispose;rig.dispose=()=>{release();instances.delete(rig);};instances.add(rig);return rig;}catch(error){if(!paint)copy?.dispose();rig?.dispose();throw error;}},diagnostics:()=>({disposed,sourceCommit:BEAR_SOURCE_COMMIT,appearance:'normal',baseUrl:base.href,instances:instances.size}),dispose(){if(disposed)return;disposed=true;for(const rig of [...instances])rig.dispose();texture.dispose();}};
+  let loaded;try{loaded=await loadOwnedPair(fetch(new URL('../tactics/bear-10k-data.json',base),{signal}).then(r=>{if(!r.ok)throw Error('Bear model HTTP '+r.status);return r.json();}),loader.loadAsync(new URL('characters/lowpoly-proof/bear-worker-model-paint-v1.png',base).href),signal);}catch(error){if(error.name==='AbortError')throw error;throw Error('Native bear model/normal paint could not load.',{cause:error});}
+  const data=loaded.model,texture=loaded.texture,instances=new Set();let disposed=false;try{assertData(data);}catch(error){texture.dispose();throw error;}
+  return {create(){if(disposed)throw Error('Bear kit disposed');let rig,paint,copy;try{rig=createBearRig(data,{materials,unarmed});copy=texture.clone();paint=paintWithOwnership(renderer,rig.worker,copy);rig.setPaint(paint);const release=rig.dispose;rig.dispose=()=>{release();instances.delete(rig);};instances.add(rig);return rig;}catch(error){if(!paint)copy?.dispose();rig?.dispose();throw error;}},diagnostics:()=>({disposed,sourceCommit:BEAR_SOURCE_COMMIT,appearance:'normal',baseUrl:base.href,instances:instances.size}),dispose(){if(disposed)return;disposed=true;for(const rig of [...instances])rig.dispose();texture.dispose();}};
 }

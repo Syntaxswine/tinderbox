@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#352314">
-  <meta name="description" content="Tinderbox: a painted bear, dry wooden catalogue houses, and a dangerously flammable street.">
-  <title>Tinderbox — Catalogue Street</title>
+  <meta name="description" content="Explore the exposition's halls and galleries or visit Tinderbox's flammable catalogue street.">
+  <title>Tinderbox — Places</title>
   <link rel="icon" href="./assets/art/ui/control-symbols.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./src/app.css">
   <link rel="stylesheet" href="./src/ui/styles.css">
@@ -13,13 +13,15 @@
   <link rel="preload" as="image" href="./vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/assets/ui/industrial-switches/switch-skins-v2.webp">
 </head>
 <body>
-  <main id="game" aria-label="Tinderbox: catalogue street" data-autostart>
-    <div id="viewport" aria-label="Isometric catalogue street. Point or tap the ground to aim."></div>
+  <main id="game" aria-label="Tinderbox: explorable places" data-autostart>
+    <div id="viewport" aria-label="Isometric visit. Move with the joystick, WASD or arrows."></div>
     <div id="hud"></div>
+    <div id="title-screen"></div>
+    <div id="main-menu"></div>
     <p class="field-help">MOVE: WASD / stick <span>·</span> AIM: point / tap ground <span>·</span> USE: Space / tool button</p>
-    <section id="load-state" role="status"><strong>TINDERBOX</strong><span>Opening the street…</span></section>
+    <section id="load-state" role="status"><strong>TINDERBOX</strong><span>Opening Tinderbox…</span></section>
   </main>
-  <noscript>Tinderbox needs JavaScript and a browser with WebGL 2.</noscript>
+  <noscript>Tinderbox needs JavaScript. The maps also need WebGL 2.</noscript>
   <script type="module" src="./src/main.js"></script>
 </body>
 </html>

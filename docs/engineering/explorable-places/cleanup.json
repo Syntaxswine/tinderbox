@@ -1,0 +1,27 @@
+{
+  "task": "TB-024",
+  "owner": "01a17ea3-b99b-74d2-8a74-56d2556a19cb",
+  "checkedAt": "2026-10-29T19:47:27.3563282Z",
+  "helpers": [
+    {
+      "pid": 5352,
+      "creationFiletime": "134377767679149198",
+      "port": 64853,
+      "liveProcess": [],
+      "recordedPortReleased": true,
+      "serverClosed": true
+    },
+    {
+      "pid": 61892,
+      "creationFiletime": "134377767390097054",
+      "port": 53277,
+      "liveProcess": [],
+      "recordedPortReleased": true,
+      "serverClosed": true
+    }
+  ],
+  "listeners": [],
+  "stopMethod": "Finite child commands exited after finally closing their servers. Exact recorded PIDs and ports were independently checked; no termination issued.",
+  "retainedHelpers": [],
+  "passed": true
+}

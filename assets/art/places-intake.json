@@ -1,0 +1,2316 @@
+{
+  "task": "TB-024",
+  "repository": "https://github.com/Syntaxswine/tinderbox.git",
+  "sources": [
+    {
+      "id": "new-york",
+      "directory": "exposition-new-york-tile",
+      "commit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "preservation": "preserved-original.json"
+    },
+    {
+      "id": "administration",
+      "directory": "exposition-administration",
+      "commit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "preservation": "preserved-and-engine.json"
+    },
+    {
+      "id": "waterfront",
+      "directory": "horticulture-waterfront",
+      "commit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "preservation": "preserved.json"
+    },
+    {
+      "id": "horticulture",
+      "directory": "exposition-horticulture",
+      "commit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "preservation": "preserved-and-engine.json"
+    }
+  ],
+  "policy": "Immutable Git-object intake. Original focused checker/preservation closure retained; only selected runtime dependencies are public. No Hopkins v2 or moving donor imports.",
+  "accessSource": {
+    "commit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+    "path": "assets/art/exploration-access/index.js",
+    "purpose": "Additive native entry/stair/landing/floor-opening geometry; raw landmarks remain frozen"
+  },
+  "medicineSource": {
+    "commit": "988b4aca32343c9f2e566db74bb018c705820742",
+    "path": "assets/art/medicine-pickups/index.js",
+    "purpose": "Ground presentation for authoritative Catalogue Street walk-over medicine/drugs"
+  },
+  "publicFiles": [
+    "assets/art/exploration-access/fragments.js",
+    "assets/art/exploration-access/index.js",
+    "assets/art/exploration-access/manifest.json",
+    "assets/art/exploration-access/plans.js",
+    "assets/art/exploration-access/polygons.js",
+    "assets/art/exposition-administration/engine.js",
+    "assets/art/exposition-administration/floors.js",
+    "assets/art/exposition-administration/index.js",
+    "assets/art/exposition-administration/manifest.json",
+    "assets/art/exposition-administration/metadata.json",
+    "assets/art/exposition-administration/nautilus-assembly.json",
+    "assets/art/exposition-administration/plan.js",
+    "assets/art/exposition-administration/stairs.js",
+    "assets/art/exposition-horticulture/engine.js",
+    "assets/art/exposition-horticulture/floors.js",
+    "assets/art/exposition-horticulture/index.js",
+    "assets/art/exposition-horticulture/manifest.json",
+    "assets/art/exposition-horticulture/metadata.json",
+    "assets/art/exposition-horticulture/nautilus-assembly.json",
+    "assets/art/exposition-horticulture/plan.js",
+    "assets/art/exposition-horticulture/terrace-assembly.json",
+    "assets/art/exposition-horticulture/terrace.js",
+    "assets/art/exposition-new-york-tile/index.js",
+    "assets/art/exposition-new-york-tile/manifest.json",
+    "assets/art/exposition-new-york-tile/metadata.json",
+    "assets/art/exposition-new-york-tile/plan.js",
+    "assets/art/exposition-new-york/forms.js",
+    "assets/art/exposition-new-york/native-contract.js",
+    "assets/art/horticulture-waterfront/index.js",
+    "assets/art/horticulture-waterfront/kit.json",
+    "assets/art/horticulture-waterfront/manifest.json",
+    "assets/art/medicine-pickups/index.js",
+    "assets/art/medicine-pickups/manifest.json",
+    "assets/art/medicine-pickups/marks.js",
+    "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js"
+  ],
+  "files": [
+    {
+      "installedPath": "art/source/exploration-access/.gitattributes",
+      "sourcePath": "art/source/exploration-access/.gitattributes",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/animal-envelopes.json",
+      "sourcePath": "art/source/exploration-access/animal-envelopes.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 2532,
+      "sha256": "bb0fdcf46c32e3e618c8c315800c8716b2abf94c3984e19e7a31b8731ff88544",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/architect-contract.md",
+      "sourcePath": "art/source/exploration-access/architect-contract.md",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 16238,
+      "sha256": "bf2b651d1b6c29c683a5b20d4fd5dd75c9960a9a94d64eb54e7e5d303c6e68ca",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/build-access.mjs",
+      "sourcePath": "art/source/exploration-access/build-access.mjs",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 17147,
+      "sha256": "30f0e31a266cc92f530150e32c924f0e29c5d91e8e8cddfd6a08394b44811164",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/build-manifest.mjs",
+      "sourcePath": "art/source/exploration-access/build-manifest.mjs",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 2496,
+      "sha256": "cadb9361c11adddf78cdd6ce5a8f1c56de29c34e9e2036b30ac7b90f7d145e8e",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/derived-review.mjs",
+      "sourcePath": "art/source/exploration-access/derived-review.mjs",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 3265,
+      "sha256": "cdb4919a0e329faca08d0f4e4815489a296564222e12aaf400ca1964cf7ebb98",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/export-review.mjs",
+      "sourcePath": "art/source/exploration-access/export-review.mjs",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 7302,
+      "sha256": "0a5380f76c7dd06b2f8dd6fb9a1fe9ca2b0a500a402f4733dfd049a23e84ecfc",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/finish-review.py",
+      "sourcePath": "art/source/exploration-access/finish-review.py",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 6187,
+      "sha256": "82900e228db6b1201da81e551db60149b173a9e880ea805a402dbe2d73d4fcce",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/measure-animals.mjs",
+      "sourcePath": "art/source/exploration-access/measure-animals.mjs",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 2130,
+      "sha256": "c1b3be8de8a27801626436188a4f9a473fa74bc5853b940a902eee83117a478b",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/plan-summary.json",
+      "sourcePath": "art/source/exploration-access/plan-summary.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 51819,
+      "sha256": "9a4a2504ebb20f7d285c55d2bce0ef975be0a942095b5971808383b08ef09b4c",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/render-review.py",
+      "sourcePath": "art/source/exploration-access/render-review.py",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 5194,
+      "sha256": "5c21580154e8a1e6f33d89b70412089575524ddd9e6d7ad6b7f928f3ebda9aa3",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/source-geometry.mjs",
+      "sourcePath": "art/source/exploration-access/source-geometry.mjs",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 4259,
+      "sha256": "1b61d7e449e911c9ad7c2d8cadaaf07d9e6dd410ce70010579ec513634002711",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exploration-access/source-pins.json",
+      "sourcePath": "art/source/exploration-access/source-pins.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 23968,
+      "sha256": "ed98315d119acabc0b1843f2a1b32d1a79e606d14453ea5d2e45763a5aa294cc",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/.gitattributes",
+      "sourcePath": "art/source/exposition-administration/.gitattributes",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 128,
+      "sha256": "c39bf8a912128e28b5393ac6ec5eaa6a96efc8dedb48c2794fdb4be54dec74dc",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/build-manifest.mjs",
+      "sourcePath": "art/source/exposition-administration/build-manifest.mjs",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 4874,
+      "sha256": "9dc5e8fc75e42e262d2d3f48de5924f35ac117e8bdb61b136a748d5121725bf0",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/compare-source.py",
+      "sourcePath": "art/source/exposition-administration/compare-source.py",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 6712,
+      "sha256": "c6c31e0f62af0a1d2787af153729eed6748e65a85b456b2816949915b5d3cfbe",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/arnold-plate023.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/arnold-plate023.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1802685,
+      "sha256": "e80298ad3f1400434fee74ea292167daebf021ccb7e59ef7c54adc108b40cde9",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/arnold-plate025.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/arnold-plate025.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1387306,
+      "sha256": "1ecfb12cadffc42945336fb0b76a37b337391a2820990817cece7859744aa7e1",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/arnold-plate033.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/arnold-plate033.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1893567,
+      "sha256": "83039ea173def37221bbd8d30f5af0551f751c6a4aedf957a7e4266e89efcaeb",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/flinn-scan049.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/flinn-scan049.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 636765,
+      "sha256": "5230dcd355d4e4235d84c6e550f98a66c5338a8848c375943b5b8a68216e00ac",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/flinn-scan051.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/flinn-scan051.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 693030,
+      "sha256": "10d4d7c4bd6083b161bd77aed4921973db3c10c51b3bc101b6b0d94cd730f488",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/hunt-calibration.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/hunt-calibration.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 3291163,
+      "sha256": "a94c6d6ff6d4efe646cbcd1577f8dee321bba466f5dbeb352e8154cf9180c688",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/hunt-front-elevation.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/hunt-front-elevation.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 5995879,
+      "sha256": "eab132e10e614b2912536d239b837dbbace2fe1255c38ec050bdbf8ca2380a82",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/hunt-front-half-plan.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/hunt-front-half-plan.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 2913568,
+      "sha256": "69b2c5bfac6a8af93dbd326ea539c6581482654d515ac4dcc53278e95fa47af5",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/hunt-library-jpeg.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/hunt-library-jpeg.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 566536,
+      "sha256": "bfb6cf49176c0a1c65ef1ad2cf9952253e41b2a60a9bec83aaabd7206565a8df",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/evidence/hunt-sheet-full.jpg",
+      "sourcePath": "art/source/exposition-administration/evidence/hunt-sheet-full.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 11453643,
+      "sha256": "60ac7800249c2d0828d6f8745102c845e5730c5f07cb931165dcc1392bfac683",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/export-review.mjs",
+      "sourcePath": "art/source/exposition-administration/export-review.mjs",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 8282,
+      "sha256": "b7a896e5a4e18d83c8aca2c5caa31ae85c9f256a3eb7f4829698db5dfca269b9",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/measurements.json",
+      "sourcePath": "art/source/exposition-administration/measurements.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 5741,
+      "sha256": "93a322473bb33f5a9a8231152aac986452a304cafa612c60eefb7e2cf0914268",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/prepare-evidence.py",
+      "sourcePath": "art/source/exposition-administration/prepare-evidence.py",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 5023,
+      "sha256": "b43a1ed0af65386b2a0f3b75679a5013a8c9097907b56ee2d20ad18faec04355",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/preserved-and-engine.json",
+      "sourcePath": "art/source/exposition-administration/preserved-and-engine.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 10177,
+      "sha256": "c8b9c2d56b21a32a3b20098b06c6571d6973a14a6c58730bbea867d170d7f18c",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/render-review.py",
+      "sourcePath": "art/source/exposition-administration/render-review.py",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 5496,
+      "sha256": "af15f519d47db83a1c710f6cbc6d2238d4783606cd052f5f62a9b21aa6d000b6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-administration/sources.json",
+      "sourcePath": "art/source/exposition-administration/sources.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 6455,
+      "sha256": "7df52725b2d9480e4837d0588bda7af8e7fdf6964bb5113cafb69ef3ac79acb0",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/.gitattributes",
+      "sourcePath": "art/source/exposition-horticulture/.gitattributes",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/build-manifest.mjs",
+      "sourcePath": "art/source/exposition-horticulture/build-manifest.mjs",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 5069,
+      "sha256": "a396d5f9067a2d0e5579b70e8280c918feae7a562504bf7272680f3d75212443",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/compose-review.py",
+      "sourcePath": "art/source/exposition-horticulture/compose-review.py",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 5466,
+      "sha256": "d7cdb9f320aeab70ec3b50c154a93506aef3debec8db43c05878bba850340ee2",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/evidence/arnold-plate057.jpg",
+      "sourcePath": "art/source/exposition-horticulture/evidence/arnold-plate057.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1852027,
+      "sha256": "e5955b7ce687204dbe634b7b8b6d3b0f47b43f803db8a492b5e95d1ce8d49f36",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/evidence/conkey-calibration.jpg",
+      "sourcePath": "art/source/exposition-horticulture/evidence/conkey-calibration.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1971772,
+      "sha256": "7a7834ff01c595be66aae32b5e49efb51157ec9535f408c258f20d84d7010883",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/evidence/conkey-plan-oriented.jpg",
+      "sourcePath": "art/source/exposition-horticulture/evidence/conkey-plan-oriented.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 3176587,
+      "sha256": "e703544f00052280004eb8ffaf195a363b0e02b2730903cdd41b45b6274fb1de",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/evidence/conkey-scan029.jpg",
+      "sourcePath": "art/source/exposition-horticulture/evidence/conkey-scan029.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1499721,
+      "sha256": "164be032f61ee52b6e1e07a34837aea2e281e2e87d2493bf6d6b2e9507775512",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/export-review.mjs",
+      "sourcePath": "art/source/exposition-horticulture/export-review.mjs",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 7681,
+      "sha256": "20224059e92ddee6e7a9579de90c6471200fba6b38d2c67b93559e6798b42eb5",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/finish-review.py",
+      "sourcePath": "art/source/exposition-horticulture/finish-review.py",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 6126,
+      "sha256": "6c3a6b9c8e18adf9707d67d7a9078b361ab63c3952af0d830cf69c27f7baafe8",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/measurements.json",
+      "sourcePath": "art/source/exposition-horticulture/measurements.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 3743,
+      "sha256": "b05484060982506576f193bacde217e4804329ec0ed4707b1672cc8ab837a213",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/prepare-evidence.py",
+      "sourcePath": "art/source/exposition-horticulture/prepare-evidence.py",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 9812,
+      "sha256": "a49ee73cd16aa41ba987ef39b01bace4b175060d650b392dedc35e2a583044a2",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/preserved-and-engine.json",
+      "sourcePath": "art/source/exposition-horticulture/preserved-and-engine.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 24709,
+      "sha256": "b98669ea79f84af8e6a11745dceb265d0ca05dbd8e22d754810ca3b3a1558f9d",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/render-review.py",
+      "sourcePath": "art/source/exposition-horticulture/render-review.py",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 5205,
+      "sha256": "2fe6fd718da08c85d8e30a49c966891f49db3c545122a75139a9e42317c6a44f",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-horticulture/sources.json",
+      "sourcePath": "art/source/exposition-horticulture/sources.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 6715,
+      "sha256": "03a9caea4710b75422ed35961b83a6b5acd3e8ab2658880d50b1653128011a67",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york-tile/.gitattributes",
+      "sourcePath": "art/source/exposition-new-york-tile/.gitattributes",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 54,
+      "sha256": "d41b40693d5504f6fdbcc9943c1329e4b791207064e8e2ad76835a28894316c0",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york-tile/build-manifest.mjs",
+      "sourcePath": "art/source/exposition-new-york-tile/build-manifest.mjs",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 4308,
+      "sha256": "c187117cb82a9a4c2bc1048123f47f0d47a0a44f36ab826e135ccb1800a96e04",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york-tile/compare-grid.py",
+      "sourcePath": "art/source/exposition-new-york-tile/compare-grid.py",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 4041,
+      "sha256": "6d8d7470b13462a2ed6a59b4277e5064df0df734354106c6d2bdaefefb97a57b",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york-tile/derivation.json",
+      "sourcePath": "art/source/exposition-new-york-tile/derivation.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 2537,
+      "sha256": "3a90644a8bb963a99cb2b10eb91904c5ad9155eb33eb4bae248ffe2e2b95177d",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york-tile/export-review.mjs",
+      "sourcePath": "art/source/exposition-new-york-tile/export-review.mjs",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 6672,
+      "sha256": "4a3806575f0965b9a450988933a700a802de3f0031e80d7fc00966e827f2b90b",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york-tile/preserved-original.json",
+      "sourcePath": "art/source/exposition-new-york-tile/preserved-original.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 5927,
+      "sha256": "bd06125f1b1a0f5cfc1b29941f1df0e9aa74eb0cb0bad9501211f790ea293dc9",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york-tile/render-review.py",
+      "sourcePath": "art/source/exposition-new-york-tile/render-review.py",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 5333,
+      "sha256": "4ca45523fce24798581fb791bd40138fd8e140896b2c583ab022f0d2836ce325",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/.gitattributes",
+      "sourcePath": "art/source/exposition-new-york/.gitattributes",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 112,
+      "sha256": "b76780d71f60cc7a316f630fa57158b8bef9ef2ee1e76517aefa55d96f96d2ae",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/annotated-calibration.jpg",
+      "sourcePath": "art/source/exposition-new-york/annotated-calibration.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 1755116,
+      "sha256": "c1b7c05e121018669b5e394e5c05eca59ed5e8a7d757dd28c5da9d8ac902fddd",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/build-manifest.mjs",
+      "sourcePath": "art/source/exposition-new-york/build-manifest.mjs",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 4305,
+      "sha256": "a732d311e6eddc2e6b123b6a9d55a6085e9e4949b220a40793687b741ad42e51",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/compare-source.py",
+      "sourcePath": "art/source/exposition-new-york/compare-source.py",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 6284,
+      "sha256": "737f7a11df8ff1bf91e3e1a561f75f100723bde6c0299c9b96ffe14f6e3b114e",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/export-review.mjs",
+      "sourcePath": "art/source/exposition-new-york/export-review.mjs",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 6048,
+      "sha256": "24e9bf289532340c0ee390deacc9949d56af3909ded04ad42c189ded64912457",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/measurements.json",
+      "sourcePath": "art/source/exposition-new-york/measurements.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 27262,
+      "sha256": "ce20d4ea40e7173248a8bcc6cf4225ca8c0279bab25f0c7df122ed1bc442082c",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/plate-43-built.jpg",
+      "sourcePath": "art/source/exposition-new-york/plate-43-built.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 1352924,
+      "sha256": "0f0aebe71871851b5370326b633184d11abb901987873a01c4471505244fe868",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/plate-44.jpg",
+      "sourcePath": "art/source/exposition-new-york/plate-44.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 1375951,
+      "sha256": "cdff2e1af3a1afb5a2b0028ea419e52bd5d0c09480d8d8b257840636089d6972",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/porch-column-source.jpg",
+      "sourcePath": "art/source/exposition-new-york/porch-column-source.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 299536,
+      "sha256": "de6a9fedaba16fc63c6b26590e6e0044479e1db26e5c6ab8b95c0993f9aafa40",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/prepare-evidence.py",
+      "sourcePath": "art/source/exposition-new-york/prepare-evidence.py",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 3691,
+      "sha256": "f74aba67c9451584d37993493bc571c06da44470eb301f762a0ac7e400f1daa8",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/raw/plate-43.jp2",
+      "sourcePath": "art/source/exposition-new-york/raw/plate-43.jp2",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 279370,
+      "sha256": "06680e0795a55afb54f3fa10bbbafda1aefd084c474ca2d0e763e213e352d31b",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/raw/plate-44.jp2",
+      "sourcePath": "art/source/exposition-new-york/raw/plate-44.jp2",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 305407,
+      "sha256": "5ccafac6721cdd090e701a7bf1b264ee70ddf1f965bb2d4454953422ea0fe8c0",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/README.md",
+      "sourcePath": "art/source/exposition-new-york/README.md",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 3822,
+      "sha256": "f501f4f483cd8249678da6d36f28c01fb7bb79107e3b1ffce5f43b6f3b379c35",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/render-review.py",
+      "sourcePath": "art/source/exposition-new-york/render-review.py",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 5166,
+      "sha256": "fccf470a019e2679ddea102a93a665380f1efdfdc4cf37c352965114c970d98d",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/source-elevation.jpg",
+      "sourcePath": "art/source/exposition-new-york/source-elevation.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 449225,
+      "sha256": "64677a8b940ffa5d5c636953f58cdb41ae0309eefb3614e158000d7fdf384c9e",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/source-plan.jpg",
+      "sourcePath": "art/source/exposition-new-york/source-plan.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 658402,
+      "sha256": "95f23614433d08d0288061c18eebd4ae709dcfbed575aa89fd11d9148f34cedf",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/exposition-new-york/sources.json",
+      "sourcePath": "art/source/exposition-new-york/sources.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 3765,
+      "sha256": "07e3820fc94515d59cac5f94ee4122c291599cda20a54bf11f32423fbeb66450",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/.gitattributes",
+      "sourcePath": "art/source/horticulture-waterfront/.gitattributes",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/build-manifest.mjs",
+      "sourcePath": "art/source/horticulture-waterfront/build-manifest.mjs",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 2459,
+      "sha256": "fa1c5f8bde15ff71b62bf7f88c4d3f72074c338e10a20e611ab29c33c7abe63f",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/compose-review.py",
+      "sourcePath": "art/source/horticulture-waterfront/compose-review.py",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 3571,
+      "sha256": "bbbc3c8e49cb66d4eaea5e2c6a2c3efecb07d6cb6ec6b5381ec7eb660625053b",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/evidence/arnold-plate043.jpg",
+      "sourcePath": "art/source/horticulture-waterfront/evidence/arnold-plate043.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1826570,
+      "sha256": "95f4c5b96691060062af6c60b04c7e9faebca6893d5178f58a78e7ac8f247977",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/evidence/waterfront-detail.jpg",
+      "sourcePath": "art/source/horticulture-waterfront/evidence/waterfront-detail.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 847075,
+      "sha256": "f4924687cbf7f18f79123607dc3896229414b250a95c83d4d3d783988dca6d2a",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/export-review.mjs",
+      "sourcePath": "art/source/horticulture-waterfront/export-review.mjs",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 7071,
+      "sha256": "85db9df4cc24be8c53ba569ab4008e3c085da14a9083c794827201e1b8954fe3",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/prepare-evidence.py",
+      "sourcePath": "art/source/horticulture-waterfront/prepare-evidence.py",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 4372,
+      "sha256": "a23d5880b789b9380c48aa4ced708f368ccd1c1714548dacb6976cd8ae6db8a9",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/preserved.json",
+      "sourcePath": "art/source/horticulture-waterfront/preserved.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 17758,
+      "sha256": "9434489fc520e2ed4ad3704d3a71fb284616964044abd7ffe395486203456c91",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/render-review.py",
+      "sourcePath": "art/source/horticulture-waterfront/render-review.py",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 5091,
+      "sha256": "b935f3eacf93db2ab430add854441013f8bf2f798f3ceeb97add7115dd90b6b1",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/horticulture-waterfront/sources.json",
+      "sourcePath": "art/source/horticulture-waterfront/sources.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 3005,
+      "sha256": "bce4f5d92fd0a51bf73a79916d52db7c69ee63aad89b5d45c7d747435581e2c2",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/.gitattributes",
+      "sourcePath": "art/source/medicine-pickups/.gitattributes",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 33,
+      "sha256": "1a6579926e89564bf9d5c81aa4f4b3173133f295f067a3854a2d49afadd5613d",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/build-manifest.mjs",
+      "sourcePath": "art/source/medicine-pickups/build-manifest.mjs",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4796,
+      "sha256": "4c55c8e6c563e39f02ebf3cdd4e6a3d182b6bdea460141ceb2827c7e058dff73",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/build-marks.mjs",
+      "sourcePath": "art/source/medicine-pickups/build-marks.mjs",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4117,
+      "sha256": "025c9e8b3ca12022da4ece6e94befd06622bb6c4bd26cb216e1eeff124700995",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/check-package.mjs",
+      "sourcePath": "art/source/medicine-pickups/check-package.mjs",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 2712,
+      "sha256": "b0c7233582b44062b8facce978ef39bb7328f7681e9ba06a3c12fca159e8bae7",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/check-provenance-compatibility.mjs",
+      "sourcePath": "art/source/medicine-pickups/check-provenance-compatibility.mjs",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4410,
+      "sha256": "351e57242ec8e0dc74a59df0c296b5f5fd730db6dfff1fd10f9e87da245762b8",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/control-symbols-source.svg",
+      "sourcePath": "art/source/medicine-pickups/control-symbols-source.svg",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 1836,
+      "sha256": "d3e36191867deeff14a624cc98d01992333034b87669de9721a0a5bd2d38cd5c",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/export-review.mjs",
+      "sourcePath": "art/source/medicine-pickups/export-review.mjs",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4613,
+      "sha256": "38504e439c38ee7d7b1253d5fac356d9263049fbb9abe2cbbdf72a7a755ef5dc",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/mark-source.json",
+      "sourcePath": "art/source/medicine-pickups/mark-source.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4274,
+      "sha256": "f398bd831aaa81c35d7e46207e2318c8d3f44cfda2dcf78f295e8cdc7c24ae63",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/provenance.json",
+      "sourcePath": "art/source/medicine-pickups/provenance.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 2740,
+      "sha256": "4a8b3f6ae111d194b630dd93442010cec0363962002ca1af74e715beb44fd83b",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "art/source/medicine-pickups/render-review.py",
+      "sourcePath": "art/source/medicine-pickups/render-review.py",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4135,
+      "sha256": "65aa44ce5e160ffffe8b1c1c5187d26159efd6ccf0fdccdb58a8e9f2c641258d",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "assets/art/exploration-access/.gitattributes",
+      "sourcePath": "assets/art/exploration-access/.gitattributes",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "assets/art/exploration-access/fragments.js",
+      "sourcePath": "assets/art/exploration-access/fragments.js",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 6026775,
+      "sha256": "92835289c9757862e14503e20e3ac2046cd0ce3a3cf28b7623e44bc50f7b81bc",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "assets/art/exploration-access/index.js",
+      "sourcePath": "assets/art/exploration-access/index.js",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 11624,
+      "sha256": "cf8eca00afc7e0ddb0494fd8865817ea1154bc1335197cf3bd54e5b08dc5a031",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "assets/art/exploration-access/manifest.json",
+      "sourcePath": "assets/art/exploration-access/manifest.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 8384,
+      "sha256": "bd95b9bbe6ca5ed28aa32263d4b8f7c39419490f6c63d446f96328af7a1c9ac8",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "assets/art/exploration-access/plans.js",
+      "sourcePath": "assets/art/exploration-access/plans.js",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 804624,
+      "sha256": "ccbd6892679a71fd34e0a3cadcf83aa3168227eb4581989b647873d74baf0933",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "assets/art/exploration-access/polygons.js",
+      "sourcePath": "assets/art/exploration-access/polygons.js",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 2121,
+      "sha256": "9c4a6093908aee22323b2fee13d5d937d53bdb3bcf2e5f3dd17b3e8e3f03f07d",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/.gitattributes",
+      "sourcePath": "assets/art/exposition-administration/.gitattributes",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 128,
+      "sha256": "c39bf8a912128e28b5393ac6ec5eaa6a96efc8dedb48c2794fdb4be54dec74dc",
+      "kind": "source-attributes"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/engine.js",
+      "sourcePath": "assets/art/exposition-administration/engine.js",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 2487,
+      "sha256": "9ec987a5acf5b580f89f7a4722ead5a3fa2930ab647e45ce71517142146b5743",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/floors.js",
+      "sourcePath": "assets/art/exposition-administration/floors.js",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 2417,
+      "sha256": "4f6a61e0e559a3ae875cd3612cbffa9a8c7a56170ac602560a579a51dfa28ee5",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/index.js",
+      "sourcePath": "assets/art/exposition-administration/index.js",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 23952,
+      "sha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/manifest.json",
+      "sourcePath": "assets/art/exposition-administration/manifest.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 9250,
+      "sha256": "8a72abd6a718dde2bae28f59c905b14058d5d12e77b906d7b46c34bfac87cd51",
+      "kind": "source-manifest"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/metadata.json",
+      "sourcePath": "assets/art/exposition-administration/metadata.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 149604,
+      "sha256": "8b90bc1725f3a949b2174871770e54ea0c660afc355d7592c55732cd63644cd7",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/nautilus-assembly.json",
+      "sourcePath": "assets/art/exposition-administration/nautilus-assembly.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 52094,
+      "sha256": "293049e01f59ce50c6821c6df743b1b0db8fbff8cf8d3f0044fcea8a1ec37ec0",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/plan.js",
+      "sourcePath": "assets/art/exposition-administration/plan.js",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 6651,
+      "sha256": "363b1fb4396cb549df1d4ce9b09325bd3c405db05b09df239e4794476ec04cac",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-administration/stairs.js",
+      "sourcePath": "assets/art/exposition-administration/stairs.js",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 2012,
+      "sha256": "0c816cd152b814a0c3bfb453e6f42102e9331f084f8504e848b47dcb3915f707",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/.gitattributes",
+      "sourcePath": "assets/art/exposition-horticulture/.gitattributes",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "source-attributes"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/engine.js",
+      "sourcePath": "assets/art/exposition-horticulture/engine.js",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 2223,
+      "sha256": "f9824878e0484622fa902c7b729a23d7ab3cc3c69082f8879499037dba60e958",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/floors.js",
+      "sourcePath": "assets/art/exposition-horticulture/floors.js",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 2516,
+      "sha256": "ec491447d9f387dcbf4fd62cc3993af4fd19292f27936a2b7932ca6277ae8598",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/index.js",
+      "sourcePath": "assets/art/exposition-horticulture/index.js",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 26733,
+      "sha256": "49ccfada5562819a6fa9eb0d5aa250a32a45b6559588614b1388bfe380e52ac2",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/manifest.json",
+      "sourcePath": "assets/art/exposition-horticulture/manifest.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 7724,
+      "sha256": "a59fec79ee5ed63675032f0b899bc26f6e90f02e5dbc8d1a685ac3e82e9f67ef",
+      "kind": "source-manifest"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/metadata.json",
+      "sourcePath": "assets/art/exposition-horticulture/metadata.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 182513,
+      "sha256": "a319e905c511fad8c1965359a4ee9f523c15f0bb015a3ac07f9ceb0ea186f469",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/nautilus-assembly.json",
+      "sourcePath": "assets/art/exposition-horticulture/nautilus-assembly.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 31748,
+      "sha256": "d5115d2924e855f224445ad0976a94499861fcba0b2bd9e37528240309f1069e",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/plan.js",
+      "sourcePath": "assets/art/exposition-horticulture/plan.js",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 6910,
+      "sha256": "656f6aed5dce93a4a2b7dc970f4c3510d698d36d95b8d326f5c396dd5468dbe0",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/terrace-assembly.json",
+      "sourcePath": "assets/art/exposition-horticulture/terrace-assembly.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1570213,
+      "sha256": "0f0ac024f31f228b84d13473e1f8c24df49d070edebf1d98dbc5d7487c95642f",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-horticulture/terrace.js",
+      "sourcePath": "assets/art/exposition-horticulture/terrace.js",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 6955,
+      "sha256": "fcf2d20786bc49d6603246b22aa21bedfa56110031959bff48347538ea480fb4",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york-tile/.gitattributes",
+      "sourcePath": "assets/art/exposition-new-york-tile/.gitattributes",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 36,
+      "sha256": "99cfa011746962f1711ef13fc955a1debaa0f81dc832ad6bf65f1c45baa2ba68",
+      "kind": "source-attributes"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york-tile/index.js",
+      "sourcePath": "assets/art/exposition-new-york-tile/index.js",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 19786,
+      "sha256": "a9a04accd2d3fb38320d4e5f30fbb8f99e5c6bdc115d4de208ae2c239ec82eae",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york-tile/manifest.json",
+      "sourcePath": "assets/art/exposition-new-york-tile/manifest.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 6936,
+      "sha256": "99e6529c415c2ddaaf946b7109b4d7afcc0028a093890b3944633bfdcd5eb3db",
+      "kind": "source-manifest"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york-tile/metadata.json",
+      "sourcePath": "assets/art/exposition-new-york-tile/metadata.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 64413,
+      "sha256": "35be3d5b9638aa4df513e8aade12f4d1588da9b40e5bf58db80081445534d8ab",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york-tile/plan.js",
+      "sourcePath": "assets/art/exposition-new-york-tile/plan.js",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 6048,
+      "sha256": "9ab69d9a4b029ca40c1d19d9c35324cc89fe45598fc51de25eeefcdea5138cbd",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york/.gitattributes",
+      "sourcePath": "assets/art/exposition-new-york/.gitattributes",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 100,
+      "sha256": "085cd40db5867dfe2d2178858b0bfd5d440dc2ed8816988e28e40efafe7c5879",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york/forms.js",
+      "sourcePath": "assets/art/exposition-new-york/forms.js",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york/index.js",
+      "sourcePath": "assets/art/exposition-new-york/index.js",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 24086,
+      "sha256": "b232d6b284e53ddd9fafefd739b7e86c6bcae8ce91ecf3101bccf821ac81c6c3",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york/manifest.json",
+      "sourcePath": "assets/art/exposition-new-york/manifest.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 6487,
+      "sha256": "d19dc1d39e62cbc9a599a01945e8e6bc21fc8b5ba61910302355cd57dd8dda2d",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york/metadata.json",
+      "sourcePath": "assets/art/exposition-new-york/metadata.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 35501,
+      "sha256": "bf14626da647cf460e672bd0e7feae5c412c0d2552801c2152cf3d168b0c0d51",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "assets/art/exposition-new-york/native-contract.js",
+      "sourcePath": "assets/art/exposition-new-york/native-contract.js",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 349,
+      "sha256": "80ab2a77fddbfe2a311501cfb06bb689b9618a16004d96231f7dd346e84d12e4",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/horticulture-waterfront/.gitattributes",
+      "sourcePath": "assets/art/horticulture-waterfront/.gitattributes",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "source-attributes"
+    },
+    {
+      "installedPath": "assets/art/horticulture-waterfront/index.js",
+      "sourcePath": "assets/art/horticulture-waterfront/index.js",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 12641,
+      "sha256": "34ca5dfced13cd6cdcf0259a53a35030fb3a2e924df21c5ad201e6e252b012f6",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/horticulture-waterfront/kit.json",
+      "sourcePath": "assets/art/horticulture-waterfront/kit.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 49225,
+      "sha256": "472604b68c2e561d0d2b23b0822769c128bf44d8780a5d3fb56510ba79af1199",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "assets/art/horticulture-waterfront/manifest.json",
+      "sourcePath": "assets/art/horticulture-waterfront/manifest.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 6501,
+      "sha256": "051a2dcb6e6a655073455b021b9b87ba1100e217a67449c068e5bc7517c8f323",
+      "kind": "source-manifest"
+    },
+    {
+      "installedPath": "assets/art/medicine-pickups/.gitattributes",
+      "sourcePath": "assets/art/medicine-pickups/.gitattributes",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 36,
+      "sha256": "99cfa011746962f1711ef13fc955a1debaa0f81dc832ad6bf65f1c45baa2ba68",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "assets/art/medicine-pickups/index.js",
+      "sourcePath": "assets/art/medicine-pickups/index.js",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 8246,
+      "sha256": "ad935baa3c66be99ba9f6b7ee347f438590e328b97bb41ab595f47d41d7396fc",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "assets/art/medicine-pickups/manifest.json",
+      "sourcePath": "assets/art/medicine-pickups/manifest.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4168,
+      "sha256": "db53f32da16c6b7fb3dceb0170861a45a3f0000b934b5a4c3641e40eac79f297",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "assets/art/medicine-pickups/marks.js",
+      "sourcePath": "assets/art/medicine-pickups/marks.js",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 3161,
+      "sha256": "d9dc486aa8c27349ba87e88062910306c0c170ec6f3cdc97b5283d3739b686d3",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/.gitattributes",
+      "sourcePath": "docs/art/exploration-access/.gitattributes",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/check-results.json",
+      "sourcePath": "docs/art/exploration-access/check-results.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 5493,
+      "sha256": "b3627dc100af04702c4a68bcd6bd54be121ded89930102a511db702423716043",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/handoff.md",
+      "sourcePath": "docs/art/exploration-access/handoff.md",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 11481,
+      "sha256": "8edef6e86b7a7884d167c76870c128baea0f57829d4fbc75b536836b98987149",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/administration-access.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/administration-access.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 900076,
+      "sha256": "d2cf9eddaf6c8eab4b61f3982608da3c3816cd905ccb78d469e341a8fc0766c0",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/administration-access.json",
+      "sourcePath": "docs/art/exploration-access/previews/administration-access.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1493,
+      "sha256": "83dd152d322d65ef1329f5ba2e9bda36ecc06ce8046c8c5541a318a4e3a04999",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/administration-upper.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/administration-upper.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 992466,
+      "sha256": "104e8587cda5447626991213c469eac7068522bf85de613ed33caa82d7e7d9fe",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/administration-upper.json",
+      "sourcePath": "docs/art/exploration-access/previews/administration-upper.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1432,
+      "sha256": "038c2d444b4fef40d171329acfdf92a6178512fd78a3600e5859a6e54182c63f",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/administration-well.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/administration-well.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 844793,
+      "sha256": "7767ad30dde1908a9b2f5a59169ba284c0f06a579ba438ec800dab6ec6cc33b6",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/administration-well.json",
+      "sourcePath": "docs/art/exploration-access/previews/administration-well.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1461,
+      "sha256": "34f1113ae1aff666bd02d6e188f7b6bf61b5457005ca461d7e66e5926728cefa",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/horticulture-approach.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/horticulture-approach.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 858943,
+      "sha256": "feda69948fade36a04bc640f9e7ebf637e9e334a8475bf903ab6dec43be83a01",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/horticulture-approach.json",
+      "sourcePath": "docs/art/exploration-access/previews/horticulture-approach.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1446,
+      "sha256": "50df2cf4062e6a33967b012042a1c5a0b6717409b1e22f7452603157729838ea",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/horticulture-entry.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/horticulture-entry.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 933132,
+      "sha256": "7018980aae99393c9cd6ee21af35974c55db1d09d7d63ea44d2cfaad81295c2e",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/horticulture-entry.json",
+      "sourcePath": "docs/art/exploration-access/previews/horticulture-entry.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1427,
+      "sha256": "22ab86f9390c8cfdffb0476bbf483b5771bcbb12af4fba22f7e651b7d9253cf1",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/horticulture-gallery.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/horticulture-gallery.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 914700,
+      "sha256": "6d7642c3ad3df4f6054919518b30efda50d5583f84d617df1ef86bb6d81a70cd",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/horticulture-gallery.json",
+      "sourcePath": "docs/art/exploration-access/previews/horticulture-gallery.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1452,
+      "sha256": "269be936f7f241077b5366344f836550862f6b58076d689d91ebcfcdbdfc543e",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/new-york-entry.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/new-york-entry.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 973250,
+      "sha256": "3c5a03f3dac85c4d3cf34c668f56befa81e4816ef17bcfbf4d8021fdd2085710",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/new-york-entry.json",
+      "sourcePath": "docs/art/exploration-access/previews/new-york-entry.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1439,
+      "sha256": "91df12e1e5c660131d6c7d64176e318d37228feae738c691369a195af34f3ea6",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/new-york-stair.jpg",
+      "sourcePath": "docs/art/exploration-access/previews/new-york-stair.jpg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 935180,
+      "sha256": "c7a114ba0a0efebc183002600a06cfb1f7a535aad8dac417a4e0a2bc206a519e",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/previews/new-york-stair.json",
+      "sourcePath": "docs/art/exploration-access/previews/new-york-stair.json",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1437,
+      "sha256": "f498c2274a7937f71230a88b2828c6771bf4ad7cb43ed2355bfa18810b1da389",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exploration-access/README.md",
+      "sourcePath": "docs/art/exploration-access/README.md",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 1451,
+      "sha256": "ee41e82405647cdba3cccc1543cdf2c49416efabd1fedef8c44a547b8734130f",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/.gitattributes",
+      "sourcePath": "docs/art/exposition-administration/.gitattributes",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 128,
+      "sha256": "c39bf8a912128e28b5393ac6ec5eaa6a96efc8dedb48c2794fdb4be54dec74dc",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/check-results.json",
+      "sourcePath": "docs/art/exposition-administration/check-results.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 2315,
+      "sha256": "867008a6a26ff65a0866a48382b98be6eb8b6ad3f504eb5f15f3e8d38739415b",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/handoff.md",
+      "sourcePath": "docs/art/exposition-administration/handoff.md",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 10135,
+      "sha256": "fa112d468d5ae5cf36005cc908fe2afbe88b7946458985686640f7af6decba23",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/offline-review.json",
+      "sourcePath": "docs/art/exposition-administration/offline-review.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 4026,
+      "sha256": "86c8e215622da46cac5de171f8608442f358f0684f829b06e78bfb7aa8b25fb6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/entry-detail.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/entry-detail.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 924647,
+      "sha256": "2c7f61508704d1611b36f3bc0755c0880ea312dadd359ed8bd61e68fa6f5766e",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/entry-detail.json",
+      "sourcePath": "docs/art/exposition-administration/previews/entry-detail.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1035,
+      "sha256": "ebff29ff2acf50bdf725c5aafa28e57ece436c82cb7919f3142419d93ff62ba8",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/front-elevation.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/front-elevation.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 400946,
+      "sha256": "9fd453fa047c84afde7bf04db8bae32ea53ecca7dd13801bbe281ffefebd7fa8",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/front-elevation.json",
+      "sourcePath": "docs/art/exposition-administration/previews/front-elevation.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1029,
+      "sha256": "799f01fcc2474339cb4ee31177f53221ce46febb6f2d2c1a02bb5a6f6d0db7f9",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/front-isometric.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/front-isometric.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 902062,
+      "sha256": "adb650eb36bcf2d8315b860dab484814669bfc3d660635d1cede3ec711d231ab",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/front-isometric.json",
+      "sourcePath": "docs/art/exposition-administration/previews/front-isometric.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1050,
+      "sha256": "73d3006cb6784d0f620a31c0a605f4162857d410c2596aaa4ffe8811e0b5e040",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/grid-review.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/grid-review.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1046044,
+      "sha256": "954eeab4bdc600147fdd319dbaa24a30f2d148d2992a1edcf476008b6dc28d68",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/ground-floor.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/ground-floor.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 788781,
+      "sha256": "780f96bbd4f5fe58f09479c73ab25ffb60f6ea99e7b34338bf270a3425ab89b3",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/ground-floor.json",
+      "sourcePath": "docs/art/exposition-administration/previews/ground-floor.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1075,
+      "sha256": "50d4e8951d70733a03d6b957ccb36a8cda6fe2e43e3ad6d5c9b1a7998e28d202",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/rear-isometric.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/rear-isometric.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 902256,
+      "sha256": "a5325dc6d45dc1b4046d317694a4ac012aa1ebb6bd9b366f047c24cb1d5c3dec",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/rear-isometric.json",
+      "sourcePath": "docs/art/exposition-administration/previews/rear-isometric.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1013,
+      "sha256": "184cff246b214eb6699d8197783c73938d7619fb055dc53fd9c5fa0f5f3d85e2",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/roof-plan.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/roof-plan.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 834115,
+      "sha256": "93ee443f0b016fcff65899c67642a51e3d8edb1b66daf210eea6f3a5130f92d6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/roof-plan.json",
+      "sourcePath": "docs/art/exposition-administration/previews/roof-plan.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1051,
+      "sha256": "5e365a58925b8e61bbd0434e20a6868efbc3cd8dc47fb36c6976e9b291889d67",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/source-comparison.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/source-comparison.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 2177762,
+      "sha256": "eb81bb8e6ba223056133f38530c9c37c361070885584de558cb03381c2afb313",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/stair-detail.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/stair-detail.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 819600,
+      "sha256": "ceb10ab5fe98d492d3d0f5eecba9b99618524f778927a7b975e100066ec7cecc",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/stair-detail.json",
+      "sourcePath": "docs/art/exposition-administration/previews/stair-detail.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1074,
+      "sha256": "3b2ae062cd9fa8e81015303d5f73e13904a966d0f37f4ee9596c359d76588489",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/structural-cutaway.jpg",
+      "sourcePath": "docs/art/exposition-administration/previews/structural-cutaway.jpg",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 796775,
+      "sha256": "98c3da0ec75bd41e6e6250f44f0a140a28d948e5ac3740cce10a695e709dbb5b",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/previews/structural-cutaway.json",
+      "sourcePath": "docs/art/exposition-administration/previews/structural-cutaway.json",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1063,
+      "sha256": "89ce57ca6d67442cc8642d0c5ea02dabbcdf567df0b75a2e2ec2edfc71ed8574",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-administration/README.md",
+      "sourcePath": "docs/art/exposition-administration/README.md",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 1323,
+      "sha256": "0a3a2df9f70b21a670fc90928561fd4a534d8bfae8aa2264d97e26fdca7f492e",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/.gitattributes",
+      "sourcePath": "docs/art/exposition-horticulture/.gitattributes",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/check-results.json",
+      "sourcePath": "docs/art/exposition-horticulture/check-results.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1831,
+      "sha256": "2fbdd65d6561a1ea52620b7428c01d07cbccad5d8aa43af8395160172bf98a87",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/handoff.md",
+      "sourcePath": "docs/art/exposition-horticulture/handoff.md",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 9970,
+      "sha256": "0b8d9b82eea74df57ed52da2c38ec16562ab22cebd7fa8f821a78acb7005fd21",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/offline-review.md",
+      "sourcePath": "docs/art/exposition-horticulture/offline-review.md",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 5786,
+      "sha256": "0d60aa355b3ef04bfff6f13d5a333077ba87c69a31f959fd1a3f1d188b93fb0a",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/central-pavilion.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/central-pavilion.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 848789,
+      "sha256": "0f863fc212c6c8e632dd131f1f7e9b99c43a580a1301675983d75db172869891",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/central-pavilion.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/central-pavilion.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1703,
+      "sha256": "0e65a147788222b5292a1a636be528e3e229a5c27c913d6cb104bb4278c66546",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/entry-and-terrace.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/entry-and-terrace.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 852523,
+      "sha256": "a90f431fb39337c5ab52e81b2071230595de169e16cfeffd70b378a50800af2d",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/entry-and-terrace.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/entry-and-terrace.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1658,
+      "sha256": "381f430caafd15fbbe4ae7eecce08fae63136ff9ee66015cb4ad1c630badf004",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/gallery-stair.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/gallery-stair.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 821235,
+      "sha256": "eeed4e14a463ec84b43fdc37e1775569382db5d756fdf4642b0f89087f264889",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/gallery-stair.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/gallery-stair.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1668,
+      "sha256": "5bf3dced2d8d6273f3bb1cd6396296dd461210605998e202faa5c56e92eb2c58",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/interior-cutaway.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/interior-cutaway.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 807670,
+      "sha256": "8f6eae70a452fd35268115b564a34b94ece4b4ecc90ef12123ad95035c239588",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/interior-cutaway.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/interior-cutaway.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1657,
+      "sha256": "830038b7c0e57152af3dc6facf48b58279728f0383d586c7934e43c9dbb3e23b",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/native-floor-audit.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/native-floor-audit.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 268176,
+      "sha256": "eb350c30945e015bce2ef7d91f00f2712b608dd5abfcc2fb7dfb11f9ee35bca5",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/native-floor-audit.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/native-floor-audit.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 583,
+      "sha256": "37555713c242a40d09b1a2f5ff9f9133b990ffd88b8f4c761b0663f976aac222",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/rear-exterior.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/rear-exterior.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 748358,
+      "sha256": "db31409152a62caba53fe41b7bc0a143fd00b92e67c0defa7ac10716c038cf1d",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/rear-exterior.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/rear-exterior.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1689,
+      "sha256": "81adb0702f523d895f47a5172263c726999971eb4a86f300cb582685ababf05b",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/roof-plan.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/roof-plan.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 739230,
+      "sha256": "171d87eddb4c5ee6f138535ec4b526a06ac7c1ef24e885f9afff99d2bda651ae",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/roof-plan.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/roof-plan.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1592,
+      "sha256": "84396abdce99ba0fd9244bf0ac8862af0201cf03e5fdfbcd8dc97510a49d3dbc",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/source-plan-comparison.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/source-plan-comparison.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1871253,
+      "sha256": "11e44e2f7333a8b59d61a6d2d91c8b23a0b6efbae5db99ea948f172674570650",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/source-plan-comparison.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/source-plan-comparison.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 654,
+      "sha256": "6e2b79bb5988a2bbeb397725a04c6fc3ef279ebd99b59f3f13a60b4c5d0d6990",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/waterfront-exterior.jpg",
+      "sourcePath": "docs/art/exposition-horticulture/previews/waterfront-exterior.jpg",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 746426,
+      "sha256": "9dc1891da190bdb86cbd3e4c294b23cdb50965e1ffea5e0c6ec0e3b6dcf01182",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/previews/waterfront-exterior.json",
+      "sourcePath": "docs/art/exposition-horticulture/previews/waterfront-exterior.json",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1629,
+      "sha256": "698a2abfedceec0d26386adb01ef4153d2e09ada293555f4f9a7034b97bb0bfc",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-horticulture/README.md",
+      "sourcePath": "docs/art/exposition-horticulture/README.md",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 1680,
+      "sha256": "181791fadb32db3714af83820608b2cfd04af1f0e8705dda8312545edc55f493",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/.gitattributes",
+      "sourcePath": "docs/art/exposition-new-york-tile/.gitattributes",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 49,
+      "sha256": "0670fed901185b5b55ea7c8641d2c6842e0c1e1b63a95cab392bbac6173b1b04",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/check-results.json",
+      "sourcePath": "docs/art/exposition-new-york-tile/check-results.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 2108,
+      "sha256": "b54612cd4c1e8eed2d45ce0c645ad84a5bf02ba85da834781fa7645edd942778",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/handoff.md",
+      "sourcePath": "docs/art/exposition-new-york-tile/handoff.md",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 9316,
+      "sha256": "d57202ed774c65f4daefb2ad8fb657d1470fa17fd8a20939b6cb5a94346fe4cd",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/offline-review.json",
+      "sourcePath": "docs/art/exposition-new-york-tile/offline-review.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 2805,
+      "sha256": "7f625f7b182ed1d29899c83baebab29bee2b83e51cdec80b18b04cbe8a2825f1",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/front-elevation.jpg",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/front-elevation.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 434381,
+      "sha256": "4f9dbedc68277dfda9c4e78422365ce3b3c3736e099a51329ff92c9cce7323be",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/front-elevation.json",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/front-elevation.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 938,
+      "sha256": "0bc03cadb00090f35a0cceb3d25045756e736d648dfac27e9b36f410f465436d",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/front-isometric.jpg",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/front-isometric.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 881701,
+      "sha256": "380921050d2cbd124a137b2c5d38e7e114d506d99f48624c5edb6da36ede9f36",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/front-isometric.json",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/front-isometric.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 983,
+      "sha256": "3629c73e45e07b41689f42020bb45fee0fd55647a44698d53e8bd58aa9a30bc3",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/grid-audit.jpg",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/grid-audit.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 2292369,
+      "sha256": "3a6cfe6ca7fc2b721f7b8c5b12ee9269ee7a278d950d2fd13add08220d96fb24",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/rear-isometric.jpg",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/rear-isometric.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 849263,
+      "sha256": "6e0e80f8bb4afd294c382a78b938a0dd760c40dc796fa64e71c0e5472df2825e",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/rear-isometric.json",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/rear-isometric.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 942,
+      "sha256": "b431f2c2f62abfe1844062412937b18b692cc41c0b7b00e9b223df49bfd20587",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/structural-cutaway.jpg",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/structural-cutaway.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 830656,
+      "sha256": "bf130e156ae9ad9b6810f1553e7cb5c6377e62f96a733cff1625524186a1d842",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/previews/structural-cutaway.json",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/structural-cutaway.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 1039,
+      "sha256": "1295e4012ac2f95958f7019495a85cbe5bbaf7c7e12b6b23fd0a0003cd47ea20",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york-tile/README.md",
+      "sourcePath": "docs/art/exposition-new-york-tile/README.md",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 1003,
+      "sha256": "e3107738a7726c99238c683fec4928f99f4d76f21c51b453f7af3a2037a84021",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/.gitattributes",
+      "sourcePath": "docs/art/exposition-new-york/.gitattributes",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 100,
+      "sha256": "085cd40db5867dfe2d2178858b0bfd5d440dc2ed8816988e28e40efafe7c5879",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/check-results.json",
+      "sourcePath": "docs/art/exposition-new-york/check-results.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 4295,
+      "sha256": "4b8eaac79a2ff18c8d342d9f4105cf6481abc858c4584fa142a5d430c17add9c",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/handoff.md",
+      "sourcePath": "docs/art/exposition-new-york/handoff.md",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 8745,
+      "sha256": "7ac2aec2406eedf752a27cc978d12eeff30825e8a626e40dae3746b2942f843f",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/offline-review.json",
+      "sourcePath": "docs/art/exposition-new-york/offline-review.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 5596,
+      "sha256": "99a910d4446f358120cf7c4ff165d7787e9c0e785c88cddc6adc28f12023d8b7",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/entry-detail.jpg",
+      "sourcePath": "docs/art/exposition-new-york/previews/entry-detail.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 925209,
+      "sha256": "e727c73d666ed51063bd103289e8547165e4fbb68709e5ca079859eadee6ccc0",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/entry-detail.json",
+      "sourcePath": "docs/art/exposition-new-york/previews/entry-detail.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 884,
+      "sha256": "4ef29dd1ef49e61613d327a69c95a3549bda382aa92f947103b0895c9d56994c",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/front-elevation.jpg",
+      "sourcePath": "docs/art/exposition-new-york/previews/front-elevation.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 426002,
+      "sha256": "fe31a735686482fa27ae00eb5fdc6d25a9206b39951265cae28673e316f9315d",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/front-elevation.json",
+      "sourcePath": "docs/art/exposition-new-york/previews/front-elevation.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 864,
+      "sha256": "e2500d2732ec611dc10baed3eb6acfb09b7ac72c5ba0d4e21d6b786b5d4df596",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/front-isometric.jpg",
+      "sourcePath": "docs/art/exposition-new-york/previews/front-isometric.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 873075,
+      "sha256": "312f99981c1c5b93c1ab2cfcd243d93a286d6db6a01442346961c264546542d6",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/front-isometric.json",
+      "sourcePath": "docs/art/exposition-new-york/previews/front-isometric.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 893,
+      "sha256": "1e5d979f6ac82d0dfe1b26a4d1bb296c24ab3415798a736c1b710d105c4ffae7",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/rear-isometric.jpg",
+      "sourcePath": "docs/art/exposition-new-york/previews/rear-isometric.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 844240,
+      "sha256": "bb0d1a7ceb0217fe001f8c2d52204693fea08a3270fd9173176f1e113b0436fe",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/rear-isometric.json",
+      "sourcePath": "docs/art/exposition-new-york/previews/rear-isometric.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 880,
+      "sha256": "0a15f4276f6a6b32509c853d286d7924fdc0d45760c986fa279dc5561cc6d73f",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/roof-plan.jpg",
+      "sourcePath": "docs/art/exposition-new-york/previews/roof-plan.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 780215,
+      "sha256": "79cdd300640e38903e6e0b6194873c32bf4522379d28e731c204613ba298559d",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/roof-plan.json",
+      "sourcePath": "docs/art/exposition-new-york/previews/roof-plan.json",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 908,
+      "sha256": "7eba471a29a846b846d90a4c78dce108da77868c1e271bb8f277bcc3b930bb08",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/previews/source-comparison.jpg",
+      "sourcePath": "docs/art/exposition-new-york/previews/source-comparison.jpg",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 2360083,
+      "sha256": "bdf74fc98750ea88224400e7cc0acc16f4403f51885e8d5e19ed80589832020d",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/README.md",
+      "sourcePath": "docs/art/exposition-new-york/README.md",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 1023,
+      "sha256": "c3d0b071366df1326e8dbcb9fa68a81b94c85df1d4de72ad54f711f49d01f308",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/exposition-new-york/source-comparison.md",
+      "sourcePath": "docs/art/exposition-new-york/source-comparison.md",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 5672,
+      "sha256": "c34925d46cf84452f2c5a9bb8a248aadc7e47849f27b9a9216a689a2fca9478b",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/.gitattributes",
+      "sourcePath": "docs/art/horticulture-waterfront/.gitattributes",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 127,
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/check-results.json",
+      "sourcePath": "docs/art/horticulture-waterfront/check-results.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1817,
+      "sha256": "c4d2bda329e247c696fa08be4cf45281c44153e7b9551c04dc598e0d58e169e3",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/handoff.md",
+      "sourcePath": "docs/art/horticulture-waterfront/handoff.md",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 11018,
+      "sha256": "3e3b5fc7dd752f54dba7306fda4a20c13e985a985843767e7782ed0fb9e72626",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/offline-review.json",
+      "sourcePath": "docs/art/horticulture-waterfront/offline-review.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 5632,
+      "sha256": "e6f8ac31753fee948dba981eff0c16e156053b27543a0e8ea48d7de6b2f1f6f9",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/assembled-waterfront.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/assembled-waterfront.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 677223,
+      "sha256": "250e669c5b9cae4cd3bf581679d41bf0f3a6e1daea93f846ee4d22a0448d665c",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/assembled-waterfront.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/assembled-waterfront.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1361,
+      "sha256": "d79f60f4658b51637002786539dc2f72dd415727ebf5ad0abba618afb29b79e3",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-01.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-01.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 736626,
+      "sha256": "757c19cce5381667046e75a80d8c3ece12e01a27e9c70de72a73b26947c8ac78",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-01.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-01.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1310,
+      "sha256": "a78787efcff8bf1b6b40ebf098461d6ed8846e9aab89579dd38758bd53b1f694",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-02.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-02.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 732523,
+      "sha256": "1f62bcf27df0e59be8a7a294b9765b6a5f5bfe5ef0fe27fac1e7b897c4a7ea73",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-02.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-02.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1353,
+      "sha256": "1da71cda38a8d6930bb49780bae6bf206c6bb9b7d1ec9a4b12c38a62d3efffc3",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-03.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-03.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 735510,
+      "sha256": "9237cc27656e7128573fa0096d6116ecd7e06b66b160d7077c5e04948190cf8d",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-03.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-03.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1354,
+      "sha256": "3f9be4859ac90f13699f266cb6bd3ace583569f3fbe07f4d5bd8e2670faf8763",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-04.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-04.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 739781,
+      "sha256": "a92489f804d5473db1e2c575ce2c166743ddc03f8f304d9777be720792425ee1",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-04.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-04.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1353,
+      "sha256": "bcb26c8e30db5a2ab3defade1f5c9b56b253f427017dc7009042e7736a2466e7",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-05.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-05.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 744617,
+      "sha256": "b8be97dbcfc9504ffa77bf7ccfdef3b7f19902c7f93716611d9bd05886183bc5",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-05.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-05.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1383,
+      "sha256": "2a374fb576ff41b23c601cf4410bc9d752792e2bcd5f1e8f2abd6fa02bbbe1d6",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-06.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-06.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 751427,
+      "sha256": "fa73ffeabafd74561be1d382906ec26465b0630bec3327309d2109f9ec06ce88",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-06.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-06.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1325,
+      "sha256": "5b3e71c5c6f3df7415a38ab50a767aeea8f6a0a341411adb10cb998bd1028999",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-07.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-07.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 739195,
+      "sha256": "bc45875afaf35a93418f8209bd9fc0b0a609fd87c4755dc5b91d2ec9463cff49",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-07.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-07.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1383,
+      "sha256": "cf6fbdd5724ee326acd92ed6c0525eb2510961e631e2a0cbc21cbe3f833ac208",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-08.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-08.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 734847,
+      "sha256": "aa4dccd59ba83cedc7ea41c35b5f574f7509cd82ffa336507cb901bca99decb7",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-08.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-08.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1382,
+      "sha256": "5a6127362908e0457c363098e4437a724c481483eb59208564fe92bbaedac390",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-09.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-09.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 803460,
+      "sha256": "64852ade0e798f1c2aa215563c1138610c040a74dc3b61f4730c4cc21e0a2f79",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/part-09.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/part-09.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1363,
+      "sha256": "0c8eacf896dcbc789e04e86abb4177276f86b17c077d79637251aa6f08d2fd44",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/pier-and-stairs.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/pier-and-stairs.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 783361,
+      "sha256": "f3afd33ae75d443e615874b94deed75a8fd67eb9221b0d81fd4fd5389d194991",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/pier-and-stairs.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/pier-and-stairs.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1394,
+      "sha256": "6b05b285da210e05b2788626324d97dec00b8f09b1a9d5f077c4e92c355f8d05",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/source-comparison.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/source-comparison.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1339686,
+      "sha256": "f51764cd43f0b614eb95e2c0f7d007054205d09ee8f21eddcb6459750fbe377a",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/tile-catalogue.jpg",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/tile-catalogue.jpg",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 986038,
+      "sha256": "17a0840458c8ef7d974c0791cfad6eba797df5b6ba3d373fe82d5c4b42be0014",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/previews/tile-catalogue.json",
+      "sourcePath": "docs/art/horticulture-waterfront/previews/tile-catalogue.json",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1824,
+      "sha256": "f4b36d368898bff197ca6b61d1ddf9c4eaaee12da56cefa9bdc7a91472b5c6c9",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/horticulture-waterfront/README.md",
+      "sourcePath": "docs/art/horticulture-waterfront/README.md",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 1063,
+      "sha256": "4a4f3fdd129500797e0fca2a1c792662e169589490275976df3da6eb569ac9ef",
+      "kind": "source-evidence"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/check-results.json",
+      "sourcePath": "docs/art/medicine-pickups/check-results.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 3212,
+      "sha256": "88c967bc2e02219181ed82e1149d9bbd50aff37c568d24537c3240aeb192333a",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/delivery-checks.json",
+      "sourcePath": "docs/art/medicine-pickups/delivery-checks.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 4213,
+      "sha256": "82a729aaacb93c6e4a731995d9ffe451a3946babdcc23bb322627d0df5b12738",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/handoff.md",
+      "sourcePath": "docs/art/medicine-pickups/handoff.md",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 6996,
+      "sha256": "0062360fcc82dec825a829ffed2589d7665a8bccf88ea1f227496d00bd4d4af5",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/previews/consumed-state.jpg",
+      "sourcePath": "docs/art/medicine-pickups/previews/consumed-state.jpg",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 684984,
+      "sha256": "e3defc73108f064a259465c6dde264ba82c558cb5b2493c550116014a16e50b9",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/previews/consumed-state.json",
+      "sourcePath": "docs/art/medicine-pickups/previews/consumed-state.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 937,
+      "sha256": "8648e6125cc325e313283a7c17deb233ca646f30b5ed5bee60c85ded948f7c1b",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/previews/medicine-kit.jpg",
+      "sourcePath": "docs/art/medicine-pickups/previews/medicine-kit.jpg",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 698945,
+      "sha256": "919d860c06be22fdb9b22edd4d646f981f34ddc11496eb101e289668f8ebef5c",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/previews/medicine-kit.json",
+      "sourcePath": "docs/art/medicine-pickups/previews/medicine-kit.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 940,
+      "sha256": "658787d7d81cf3c470a7806db326451d8272beb484454fdae2f8f86cdb192b36",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/previews/native-scale.jpg",
+      "sourcePath": "docs/art/medicine-pickups/previews/native-scale.jpg",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 688049,
+      "sha256": "d1b3d68c5dd96b97b150f0b2d35b906aabc6f6c56ef78b6636481ba2b9ed1393",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/previews/native-scale.json",
+      "sourcePath": "docs/art/medicine-pickups/previews/native-scale.json",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 946,
+      "sha256": "94ff03a4b2f2b586f72ed71eda18e4335f2325bd351a09c65abec9101a6d6905",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "docs/art/medicine-pickups/README.md",
+      "sourcePath": "docs/art/medicine-pickups/README.md",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 1296,
+      "sha256": "e659ec0e40846a914b06044fcbd9d95ef11505c33e62d396f4b89d3acf7eeb0d",
+      "kind": "medicine-source"
+    },
+    {
+      "installedPath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "sourcePath": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d",
+      "kind": "runtime"
+    },
+    {
+      "installedPath": "workbenches/art/check-exploration-access.mjs",
+      "sourcePath": "workbenches/art/check-exploration-access.mjs",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "bytes": 11608,
+      "sha256": "1d8ec40d42bfc91870241a4b952accba7978d6a232acc339c90556b4d84c9688",
+      "kind": "access-source"
+    },
+    {
+      "installedPath": "workbenches/art/check-exposition-administration.mjs",
+      "sourcePath": "workbenches/art/check-exposition-administration.mjs",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "bytes": 17842,
+      "sha256": "ffc211c7786f0b03e616ea3d52c99c033ddae862229b0c44834d04f8e3152f2d",
+      "kind": "original-checker"
+    },
+    {
+      "installedPath": "workbenches/art/check-exposition-horticulture.mjs",
+      "sourcePath": "workbenches/art/check-exposition-horticulture.mjs",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "bytes": 20749,
+      "sha256": "3a06944d1d5f46dd2d1eeb511606b2498426bec12fc423fc782379ce42618ff3",
+      "kind": "original-checker"
+    },
+    {
+      "installedPath": "workbenches/art/check-exposition-new-york-tile.mjs",
+      "sourcePath": "workbenches/art/check-exposition-new-york-tile.mjs",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 15805,
+      "sha256": "ee29b1dc2d0e1105b7f8b7f8c921f2c00d5b6afd505e332da3c454dc517252e9",
+      "kind": "original-checker"
+    },
+    {
+      "installedPath": "workbenches/art/check-exposition-new-york.mjs",
+      "sourcePath": "workbenches/art/check-exposition-new-york.mjs",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "bytes": 15995,
+      "sha256": "9fe30b263a3e92ede62eecbbedfd79b16e059e3e094ff3223e4e5bc4414799e2",
+      "kind": "checker-preservation-dependency"
+    },
+    {
+      "installedPath": "workbenches/art/check-horticulture-waterfront.mjs",
+      "sourcePath": "workbenches/art/check-horticulture-waterfront.mjs",
+      "sourceCommit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "bytes": 12423,
+      "sha256": "3c0e713a551c4f98a43cc0b4f49c9dc878944d2c75c9e649728b8bd22e572ec4",
+      "kind": "original-checker"
+    },
+    {
+      "installedPath": "workbenches/art/check-medicine-pickups.mjs",
+      "sourcePath": "workbenches/art/check-medicine-pickups.mjs",
+      "sourceCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+      "bytes": 8328,
+      "sha256": "9ac4fcc3a18b7f526c6b50092167fff48a99fd6c4ddd44eecea1241254b5944a",
+      "kind": "medicine-source"
+    }
+  ],
+  "adaptations": [
+    "Application, navigation and streamed-scene adapters live separately under src/runtime and src/content; generated scene data records its source hashes."
+  ],
+  "rights": "Original source rights/uncertainties and notices are preserved in each source manifest; provenance does not grant a license."
+}

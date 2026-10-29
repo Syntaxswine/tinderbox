@@ -1,0 +1,115 @@
+{
+  "task": "TB-024",
+  "diagnostic": true,
+  "sources": [
+    {
+      "id": "new-york",
+      "directory": "exposition-new-york-tile",
+      "commit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "preservation": "preserved-original.json"
+    },
+    {
+      "id": "administration",
+      "directory": "exposition-administration",
+      "commit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "preservation": "preserved-and-engine.json"
+    },
+    {
+      "id": "waterfront",
+      "directory": "horticulture-waterfront",
+      "commit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "preservation": "preserved.json"
+    },
+    {
+      "id": "horticulture",
+      "directory": "exposition-horticulture",
+      "commit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "preservation": "preserved-and-engine.json"
+    }
+  ],
+  "accessSource": null,
+  "reports": [
+    {
+      "placeId": "new-york",
+      "sourceParts": 12671,
+      "sourceTriangles": 249708,
+      "emittedParts": 12671,
+      "renderParts": 12671,
+      "mergedFloorFragments": 0,
+      "emittedTriangles": 249708,
+      "sections": 129,
+      "geometries": 325,
+      "cutFloorParts": 0,
+      "collisionShapes": 131,
+      "detailedColliders": 1171,
+      "navigationBytes": 1325954,
+      "width": 102,
+      "height": 78,
+      "occupiedLevels": [
+        1,
+        4
+      ],
+      "sourceOffset": [
+        51,
+        0,
+        26
+      ]
+    },
+    {
+      "placeId": "administration",
+      "sourceParts": 37867,
+      "sourceTriangles": 614274,
+      "emittedParts": 37867,
+      "renderParts": 36646,
+      "mergedFloorFragments": 1221,
+      "emittedTriangles": 614274,
+      "sections": 621,
+      "geometries": 449,
+      "cutFloorParts": 0,
+      "collisionShapes": 219,
+      "detailedColliders": 4952,
+      "navigationBytes": 4423477,
+      "width": 124,
+      "height": 124,
+      "occupiedLevels": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        19
+      ],
+      "sourceOffset": [
+        62,
+        0,
+        22
+      ]
+    },
+    {
+      "placeId": "horticulture",
+      "sourceParts": 63741,
+      "sourceTriangles": 1154330,
+      "emittedParts": 63741,
+      "renderParts": 61916,
+      "mergedFloorFragments": 1825,
+      "emittedTriangles": 1154330,
+      "sections": 459,
+      "geometries": 555,
+      "cutFloorParts": 0,
+      "collisionShapes": 411,
+      "detailedColliders": 7625,
+      "navigationBytes": 7957180,
+      "width": 340,
+      "height": 144,
+      "occupiedLevels": [
+        1,
+        3
+      ],
+      "sourceOffset": [
+        170,
+        0,
+        39
+      ]
+    }
+  ]
+}

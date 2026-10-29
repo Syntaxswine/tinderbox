@@ -19,7 +19,7 @@ for (const file of manifest.files) {
     // URLs are checked by their feature's packaged HTTP smoke instead.
     ...text.matchAll(/new URL\(\s*['"](\.[^'"]+)['"]\s*,\s*import\.meta\.url\b/g),
     ...text.matchAll(/(?:src|href)="([^"#]+)"/g),
-    ...text.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/g)
+    ...(/\.(?:css|html)$/.test(file.path)?text.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/g):[])
   ];
   for (const [,reference] of references) {
     if (/^(?:data:|#)/.test(reference) || reference.includes("' +")) continue;

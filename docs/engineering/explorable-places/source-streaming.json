@@ -1,0 +1,559 @@
+{
+  "task": "TB-024",
+  "diagnostic": true,
+  "method": "Source section loader at sampled positions/heights, then overview release. Resource sampling only, not a player route or WebGL acceptance.",
+  "reports": [
+    {
+      "placeId": "new-york",
+      "trace": [
+        {
+          "sourcePosition": [
+            0,
+            0,
+            -12
+          ],
+          "activeSections": 22,
+          "pendingSections": 0,
+          "geometries": 107,
+          "materials": 6,
+          "peakSections": 22,
+          "peakGeometries": 107,
+          "sectionLoads": 22,
+          "sectionReleases": 0,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            40,
+            0,
+            14
+          ],
+          "activeSections": 19,
+          "pendingSections": 0,
+          "geometries": 111,
+          "materials": 6,
+          "peakSections": 22,
+          "peakGeometries": 111,
+          "sectionLoads": 30,
+          "sectionReleases": 11,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            0,
+            40
+          ],
+          "activeSections": 25,
+          "pendingSections": 0,
+          "geometries": 96,
+          "materials": 5,
+          "peakSections": 25,
+          "peakGeometries": 111,
+          "sectionLoads": 45,
+          "sectionReleases": 20,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            -40,
+            0,
+            14
+          ],
+          "activeSections": 25,
+          "pendingSections": 0,
+          "geometries": 124,
+          "materials": 6,
+          "peakSections": 25,
+          "peakGeometries": 124,
+          "sectionLoads": 57,
+          "sectionReleases": 32,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            2.12,
+            14
+          ],
+          "activeSections": 50,
+          "pendingSections": 0,
+          "geometries": 157,
+          "materials": 6,
+          "peakSections": 50,
+          "peakGeometries": 157,
+          "sectionLoads": 82,
+          "sectionReleases": 32,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            8.48,
+            14
+          ],
+          "activeSections": 68,
+          "pendingSections": 0,
+          "geometries": 180,
+          "materials": 7,
+          "peakSections": 68,
+          "peakGeometries": 180,
+          "sectionLoads": 112,
+          "sectionReleases": 44,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            14.84,
+            14
+          ],
+          "activeSections": 60,
+          "pendingSections": 0,
+          "geometries": 163,
+          "materials": 6,
+          "peakSections": 68,
+          "peakGeometries": 180,
+          "sectionLoads": 134,
+          "sectionReleases": 74,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            0,
+            -12
+          ],
+          "activeSections": 26,
+          "pendingSections": 0,
+          "geometries": 119,
+          "materials": 6,
+          "peakSections": 68,
+          "peakGeometries": 180,
+          "sectionLoads": 156,
+          "sectionReleases": 130,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        }
+      ],
+      "afterOverview": {
+        "activeSections": 0,
+        "pendingSections": 0,
+        "geometries": 0,
+        "materials": 0,
+        "peakSections": 68,
+        "peakGeometries": 180,
+        "sectionLoads": 156,
+        "sectionReleases": 156,
+        "maxSections": 192,
+        "view": "overview",
+        "cutaway": false,
+        "failed": false
+      }
+    },
+    {
+      "placeId": "administration",
+      "trace": [
+        {
+          "sourcePosition": [
+            0,
+            0,
+            -10
+          ],
+          "activeSections": 29,
+          "pendingSections": 0,
+          "geometries": 84,
+          "materials": 8,
+          "peakSections": 29,
+          "peakGeometries": 84,
+          "sectionLoads": 29,
+          "sectionReleases": 0,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            52,
+            0,
+            40
+          ],
+          "activeSections": 31,
+          "pendingSections": 0,
+          "geometries": 84,
+          "materials": 8,
+          "peakSections": 31,
+          "peakGeometries": 84,
+          "sectionLoads": 54,
+          "sectionReleases": 23,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            0,
+            94
+          ],
+          "activeSections": 27,
+          "pendingSections": 0,
+          "geometries": 75,
+          "materials": 7,
+          "peakSections": 31,
+          "peakGeometries": 84,
+          "sectionLoads": 79,
+          "sectionReleases": 52,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            -52,
+            0,
+            40
+          ],
+          "activeSections": 17,
+          "pendingSections": 0,
+          "geometries": 72,
+          "materials": 8,
+          "peakSections": 31,
+          "peakGeometries": 84,
+          "sectionLoads": 94,
+          "sectionReleases": 77,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            2.12,
+            40
+          ],
+          "activeSections": 86,
+          "pendingSections": 0,
+          "geometries": 109,
+          "materials": 8,
+          "peakSections": 86,
+          "peakGeometries": 109,
+          "sectionLoads": 165,
+          "sectionReleases": 79,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            27,
+            6.36,
+            14
+          ],
+          "activeSections": 73,
+          "pendingSections": 0,
+          "geometries": 115,
+          "materials": 8,
+          "peakSections": 86,
+          "peakGeometries": 115,
+          "sectionLoads": 208,
+          "sectionReleases": 135,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            19.08,
+            20
+          ],
+          "activeSections": 98,
+          "pendingSections": 0,
+          "geometries": 191,
+          "materials": 8,
+          "peakSections": 98,
+          "peakGeometries": 191,
+          "sectionLoads": 271,
+          "sectionReleases": 173,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            20,
+            40.28,
+            20
+          ],
+          "activeSections": 28,
+          "pendingSections": 0,
+          "geometries": 67,
+          "materials": 4,
+          "peakSections": 98,
+          "peakGeometries": 191,
+          "sectionLoads": 299,
+          "sectionReleases": 271,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            0,
+            -10
+          ],
+          "activeSections": 29,
+          "pendingSections": 0,
+          "geometries": 84,
+          "materials": 8,
+          "peakSections": 98,
+          "peakGeometries": 191,
+          "sectionLoads": 328,
+          "sectionReleases": 299,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        }
+      ],
+      "afterOverview": {
+        "activeSections": 0,
+        "pendingSections": 0,
+        "geometries": 0,
+        "materials": 0,
+        "peakSections": 98,
+        "peakGeometries": 191,
+        "sectionLoads": 328,
+        "sectionReleases": 328,
+        "maxSections": 192,
+        "view": "overview",
+        "cutaway": false,
+        "failed": false
+      }
+    },
+    {
+      "placeId": "horticulture",
+      "trace": [
+        {
+          "sourcePosition": [
+            5,
+            2.12,
+            -8
+          ],
+          "activeSections": 48,
+          "pendingSections": 0,
+          "geometries": 281,
+          "materials": 11,
+          "peakSections": 48,
+          "peakGeometries": 281,
+          "sectionLoads": 48,
+          "sectionReleases": 0,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            155,
+            2.12,
+            4
+          ],
+          "activeSections": 31,
+          "pendingSections": 0,
+          "geometries": 64,
+          "materials": 11,
+          "peakSections": 48,
+          "peakGeometries": 281,
+          "sectionLoads": 79,
+          "sectionReleases": 48,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            160,
+            2.12,
+            80
+          ],
+          "activeSections": 19,
+          "pendingSections": 0,
+          "geometries": 49,
+          "materials": 6,
+          "peakSections": 48,
+          "peakGeometries": 281,
+          "sectionLoads": 95,
+          "sectionReleases": 76,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            2.12,
+            105
+          ],
+          "activeSections": 12,
+          "pendingSections": 0,
+          "geometries": 34,
+          "materials": 6,
+          "peakSections": 48,
+          "peakGeometries": 281,
+          "sectionLoads": 106,
+          "sectionReleases": 94,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            -160,
+            2.12,
+            30
+          ],
+          "activeSections": 18,
+          "pendingSections": 0,
+          "geometries": 66,
+          "materials": 10,
+          "peakSections": 48,
+          "peakGeometries": 281,
+          "sectionLoads": 124,
+          "sectionReleases": 106,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            0,
+            2.12,
+            36
+          ],
+          "activeSections": 52,
+          "pendingSections": 0,
+          "geometries": 222,
+          "materials": 8,
+          "peakSections": 52,
+          "peakGeometries": 281,
+          "sectionLoads": 176,
+          "sectionReleases": 124,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            135,
+            6.36,
+            47
+          ],
+          "activeSections": 36,
+          "pendingSections": 0,
+          "geometries": 77,
+          "materials": 8,
+          "peakSections": 52,
+          "peakGeometries": 281,
+          "sectionLoads": 212,
+          "sectionReleases": 176,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            -135,
+            6.36,
+            47
+          ],
+          "activeSections": 30,
+          "pendingSections": 0,
+          "geometries": 80,
+          "materials": 8,
+          "peakSections": 52,
+          "peakGeometries": 281,
+          "sectionLoads": 242,
+          "sectionReleases": 212,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        },
+        {
+          "sourcePosition": [
+            5,
+            2.12,
+            -8
+          ],
+          "activeSections": 48,
+          "pendingSections": 0,
+          "geometries": 281,
+          "materials": 11,
+          "peakSections": 52,
+          "peakGeometries": 281,
+          "sectionLoads": 290,
+          "sectionReleases": 242,
+          "maxSections": 192,
+          "view": "follow",
+          "cutaway": false,
+          "failed": false
+        }
+      ],
+      "afterOverview": {
+        "activeSections": 0,
+        "pendingSections": 0,
+        "geometries": 0,
+        "materials": 0,
+        "peakSections": 52,
+        "peakGeometries": 281,
+        "sectionLoads": 290,
+        "sectionReleases": 290,
+        "maxSections": 192,
+        "view": "overview",
+        "cutaway": false,
+        "failed": false
+      }
+    }
+  ],
+  "passed": true
+}

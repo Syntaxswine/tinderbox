@@ -8,6 +8,12 @@ const civilian = (id, species, x, y, route) => ({id, ...CIVILIAN_PROFILES[specie
 export const NEIGHBORHOOD_SCENARIO = {
   id: 'neighborhood', width: 51, height: 47, player: {x: 20, y: 18, tool: 'jerry-can'},
   camera: {followPlayer: true, span: 12, phoneSpan: 10},
+  // Bounded prototype placements on the open street; use one existing dose.
+  pickups:[
+    {id:'street-powder-west',kind:'powder',x:17,y:21},
+    {id:'street-healing-centre',kind:'healing',x:21,y:23},
+    {id:'street-inversion-east',kind:'inversion',x:27,y:21}
+  ],
   patches: [
     {x: 0, y: 0, width: 51, depth: 16, material: 'grass'},
     {x: 0, y: 19, width: 51, depth: 5, material: 'road'},

@@ -1,0 +1,30 @@
+{
+  "task": "TB-024",
+  "method": "Explicit HTTP/API failure fixture. Section load and subsequent settled cleanup both reject. The smoke must record failure, exit with code 1, and still close its owned server. No production-asset or WebGL acceptance is claimed.",
+  "fixture": "C:\\Users\\baals\\.codex\\worktrees\\coding\\tinderbox\\artifacts\\TB-024\\package-cleanup-krk9SI",
+  "source": "tools/smoke-places-package.mjs",
+  "sourceSha256": "82db38c451ed9fd76289a5c7c1578807fa727c3e7698c24f5bb1fa5bf81cf9e5",
+  "expectedExitCode": 1,
+  "actualExitCode": 1,
+  "childProcessExited": true,
+  "parentVerifiedPortReleased": true,
+  "receipt": {
+    "task": "TB-024",
+    "owner": "01a17ea3-b99b-74d2-8a74-56d2556a19cb",
+    "pid": 5352,
+    "creationFiletime": "134377767679149198",
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "startedAt": "2026-10-29T19:46:08.003Z",
+    "port": 64853,
+    "purpose": "Finite nested-path public package/source-section/character verification",
+    "intendedExpirySeconds": 30,
+    "stopMethod": "Server finally close plus real 30-second abort and shutdown timeout",
+    "passed": false,
+    "error": "Intentional section load/cleanup failure fixture",
+    "cleanupError": "Intentional section load/cleanup failure fixture",
+    "stoppedAt": "2026-10-29T19:46:08.407Z",
+    "serverClosed": true,
+    "portReleased": true
+  },
+  "passed": true
+}

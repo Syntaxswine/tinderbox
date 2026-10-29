@@ -40,6 +40,8 @@ for (const file of [...housingIntake.runtimeFiles, ...(housingIntake.supportFile
   if (bytes.length !== file.bytes || createHash('sha256').update(bytes).digest('hex') !== file.sha256) throw Error('Changed housing intake bytes: ' + file.installedPath);
 }
 const bearManifest=JSON.parse(fs.readFileSync('vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json','utf8'));
+const placeIntake=JSON.parse(fs.readFileSync('assets/art/places-intake.json','utf8'));
+for(const file of placeIntake.files){const bytes=fs.readFileSync(file.installedPath);if(bytes.length!==file.bytes||createHash('sha256').update(bytes).digest('hex')!==file.sha256)throw Error('Changed frozen landmark/checker bytes: '+file.installedPath);}
 for(const file of [...bearManifest.files,...bearManifest.adaptations]){const bytes=fs.readFileSync(file.installedPath);if(bytes.length!==file.bytes||createHash('sha256').update(bytes).digest('hex')!==file.sha256)throw Error('Changed bear intake bytes: '+file.installedPath);}
 const facade=path.resolve(bearManifest.adaptations.find(a=>a.kind==='three-facade').installedPath);
 const three = [...visited].filter(p => /three\.(?:module|core)\.js$/.test(p)&&p!==facade);

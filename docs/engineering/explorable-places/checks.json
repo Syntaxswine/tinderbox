@@ -1,0 +1,186 @@
+{
+  "task": "TB-024",
+  "checkedAt": "2026-10-29T22:28:59.062Z",
+  "baseCommit": "ad80e2cf059a06cb30638db8069b2a56348d914e",
+  "branch": "codex/explorable-places-coder",
+  "status": "Implementation active: automatic pickup model, title return/focus fixes, geometry probes and finite live route workbench complete in code; exact access/medicine art intake still required",
+  "repository": {
+    "command": "node tools/check.mjs",
+    "passed": true,
+    "tests": 144,
+    "syntaxSummary": "119 own scripts pass syntax; 150 static modules resolve; one shared Three pair and provenance pass.",
+    "log": "artifacts/TB-024/repository-check.txt"
+  },
+  "sourceCompiler": {
+    "command": "node tools/compile-places.mjs --source-only",
+    "passed": true,
+    "diagnosticOnly": true,
+    "report": "source-section-build.json",
+    "reports": [
+      {
+        "placeId": "new-york",
+        "sourceParts": 12671,
+        "sourceTriangles": 249708,
+        "emittedParts": 12671,
+        "renderParts": 12671,
+        "mergedFloorFragments": 0,
+        "emittedTriangles": 249708,
+        "sections": 129,
+        "geometries": 325,
+        "cutFloorParts": 0,
+        "width": 102,
+        "height": 78,
+        "occupiedLevels": [
+          1,
+          4,
+          7
+        ],
+        "sourceOffset": [
+          51,
+          0,
+          26
+        ]
+      },
+      {
+        "placeId": "administration",
+        "sourceParts": 37867,
+        "sourceTriangles": 614274,
+        "emittedParts": 37867,
+        "renderParts": 36646,
+        "mergedFloorFragments": 1221,
+        "emittedTriangles": 614274,
+        "sections": 621,
+        "geometries": 449,
+        "cutFloorParts": 0,
+        "width": 124,
+        "height": 124,
+        "occupiedLevels": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          19
+        ],
+        "sourceOffset": [
+          62,
+          0,
+          22
+        ]
+      },
+      {
+        "placeId": "horticulture",
+        "sourceParts": 63741,
+        "sourceTriangles": 1154330,
+        "emittedParts": 63741,
+        "renderParts": 61916,
+        "mergedFloorFragments": 1825,
+        "emittedTriangles": 1154330,
+        "sections": 459,
+        "geometries": 555,
+        "cutFloorParts": 0,
+        "width": 340,
+        "height": 144,
+        "occupiedLevels": [
+          1,
+          3
+        ],
+        "sourceOffset": [
+          170,
+          0,
+          39
+        ]
+      }
+    ]
+  },
+  "sourceStreaming": {
+    "command": "node tools/fixtures.mjs --place-sections --source-only",
+    "passed": true,
+    "diagnosticOnly": true,
+    "report": "source-streaming.json",
+    "reports": [
+      {
+        "placeId": "new-york",
+        "peakSections": 68,
+        "peakGeometries": 180,
+        "afterOverview": {
+          "activeSections": 0,
+          "pendingSections": 0,
+          "geometries": 0,
+          "materials": 0,
+          "peakSections": 68,
+          "peakGeometries": 180,
+          "sectionLoads": 156,
+          "sectionReleases": 156,
+          "maxSections": 192,
+          "view": "overview",
+          "cutaway": false,
+          "failed": false
+        }
+      },
+      {
+        "placeId": "administration",
+        "peakSections": 98,
+        "peakGeometries": 191,
+        "afterOverview": {
+          "activeSections": 0,
+          "pendingSections": 0,
+          "geometries": 0,
+          "materials": 0,
+          "peakSections": 98,
+          "peakGeometries": 191,
+          "sectionLoads": 328,
+          "sectionReleases": 328,
+          "maxSections": 192,
+          "view": "overview",
+          "cutaway": false,
+          "failed": false
+        }
+      },
+      {
+        "placeId": "horticulture",
+        "peakSections": 52,
+        "peakGeometries": 281,
+        "afterOverview": {
+          "activeSections": 0,
+          "pendingSections": 0,
+          "geometries": 0,
+          "materials": 0,
+          "peakSections": 52,
+          "peakGeometries": 281,
+          "sectionLoads": 290,
+          "sectionReleases": 290,
+          "maxSections": 192,
+          "view": "overview",
+          "cutaway": false,
+          "failed": false
+        }
+      }
+    ]
+  },
+  "packageFailureCleanup": {
+    "command": "node tools/check-package-cleanup.mjs",
+    "passed": true,
+    "expectedChildExit": 1,
+    "actualChildExit": 1,
+    "portReleased": true,
+    "report": "package-cleanup-fixture.json"
+  },
+  "notRun": [
+    "Frozen access/medicine original checkers and actual production room/stair/geometry routes: artist is building the delivery",
+    "Production build and nested-path smoke: require accepted compiled access/medicine intake",
+    "Combined title/menu/map/pickup WebGL review: architect owns the fresh real-Chrome gate"
+  ],
+  "pushed": false,
+  "combinedUiSource": {
+    "command": "node tools/check.mjs",
+    "workingDirectory": "C:\\Users\\baals\\.codex\\worktrees\\coding\\tinderbox\\artifacts\\TB-024\\combined-review-wCeKSR",
+    "uiCommit": "d099011d5cbaa6892703485ae635ac056e4bf51a",
+    "workingSourceFingerprint": "9504efc0baefc4624bf6613e52f17763fe3459a374d57a5e55278b8bb4277fc7",
+    "tests": 158,
+    "ownScriptSyntax": 128,
+    "staticModules": 158,
+    "passed": true,
+    "scope": "Source/provenance/behavior checks with exact UI originals; actual map routes, production build and WebGL acceptance remain pending frozen access/medicine art."
+  }
+}

@@ -4,12 +4,15 @@ import {HeatField, materialAt} from './field.js';
 import {clamp, normalized, movementVector, moveDisc, distance, lineClear, freePoint} from './geometry.js';
 import {discreteTool, heldTool, projectilesStep, ageTorch} from './tools.js';
 import {inactiveDischarge} from './discharge.js';
+import {CHARACTER_PROFILES} from '../content/characters.js';
+import {pickupContacts} from './pickups.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
 const EPS = 1e-9;
-export function createSimulation({seed = 1947, scenario, config: override} = {}) {
-  const config = configuration(override), definition = scenarioDefinition(scenario);
+export function createSimulation({seed = 1947, scenario, config: override,characterId='bear'} = {}) {
+  const profile=CHARACTER_PROFILES[characterId];if(!profile)throw Error('Unknown player character');
+  const config = configuration(characterId==='bear'?override:{...override,player:{...override?.player,radius:profile.radius}}), definition = scenarioDefinition(scenario);
   if (!Number.isSafeInteger(seed)) throw Error('Seed must be a safe integer');
   let state, field, buildingFuel, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
@@ -36,10 +39,11 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     if (!Number.isFinite(torchDuration)) throw Error('Invalid initial torch duration');
     state = {tick, paused: false, seed, events: [], input: {move: {x: 0, y: 0}, primary: false},
       clocks: {active: 0, player: 0, world: 0, playerScale: 1, worldScale: 1},
-      player: {id: 'bear', x: start.x, y: start.y, radius: config.player.radius, heading: 0, moving: false,
+      player: {id:characterId==='bear'?'bear':'hero',characterId,species:characterId,height:profile.height, x: start.x, y: start.y, radius: config.player.radius, heading: 0, moving: false,
         hp: clamp(start.hp ?? config.player.maxHp, 0, config.player.maxHp), maxHp: config.player.maxHp,
         tool: start.tool ?? 'matches', pouring: false, usingTool: false, inventory, travelled: 0},
       effects: {powder: {expiresAt: 0}, inversion: {expiresAt: 0}},
+      pickups:def.pickups.map(pickup=>({...pickup,consumed:false})),
       obstacles: def.obstacles.map(o => ({...o, destroyed: false})),
       buildings: def.buildings.map(building => ({...building, destroyed: false, burnedFraction: 0})),
       actors: def.actors.map(a => ({...a, route: a.route?.map(p => ({...p})) ?? [{x: a.x, y: a.y}],
@@ -65,6 +69,12 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
   }
   initialize();
   const activeEffect = name => state.effects[name].expiresAt > state.clocks.active + EPS;
+  function useDrug(kind,point=state.player,extra={}){
+    const p=state.player;if(kind==='healing'&&p.hp>=p.maxHp)return false;
+    if(kind==='healing')p.hp=Math.min(p.maxHp,p.hp+config.drugs.healing);
+    else state.effects[kind].expiresAt=state.clocks.active+config.drugs.duration;
+    event('drug',point,{drug:kind,...extra});return true;
+  }
   function apply(command) {
     const p = state.player;
     if (command.type === 'reset') { const tick = state.tick, held = state.input.primary || state.primaryNeedsRelease; commands = []; initialize(tick); state.primaryNeedsRelease = held; event('reset', state.player, {generation}); return 'reset'; }
@@ -99,10 +109,8 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
       const kind = command.drug;
       if (p.inventory[kind] < 1 || kind === 'healing' && p.hp >= p.maxHp) { event('drug-rejected', p, {drug: kind}); return; }
       p.inventory[kind]--;
-      if (kind === 'healing') p.hp = Math.min(p.maxHp, p.hp + config.drugs.healing);
-      else state.effects[kind].expiresAt = state.clocks.active + config.drugs.duration;
       // Intentionally leave tool, movement, held trigger and pouring untouched.
-      event('drug', p, {drug: kind});
+      useDrug(kind);
     }
   }
   function hurt(target, amount, cause) {
@@ -153,7 +161,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
     state.player.moving = state.player.usingTool = false; state.discharge = inactiveDischarge(state.tick); state.ignitionResults = [];
     const due = commands.filter(c => c.atTick <= state.tick).sort((a, b) => a.atTick - b.atTick || a.sequence - b.sequence);
     commands = commands.filter(c => c.atTick > state.tick);
-    for (const command of due) if (apply(command) === 'reset') break;
+    let resetting=false;for (const command of due) if (apply(command) === 'reset') {resetting=true;break;}
     const p = state.player;
     if (state.paused) return;
     const powder = activeEffect('powder'), inverted = activeEffect('inversion');
@@ -175,6 +183,11 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
         }
       }
       if (walked > EPS) { const end = path.at(-1); p.heading = Math.atan2(end.y - p.y, end.x - p.x); p.x = end.x; p.y = end.y; p.moving = true; p.travelled += walked; }
+      for(const {pickup,point}of resetting?[]:pickupContacts(state.pickups,path,p.radius,state.obstacles)){
+        if(useDrug(pickup.kind,point,{source:'pickup',pickupId:pickup.id})){
+          pickup.consumed=true;event('pickup-used',pickup,{pickupId:pickup.id,kind:pickup.kind,actorId:p.id});
+        }
+      }
       heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition);
     }
     for (const actor of state.actors) actorStep(actor, worldDelta);
@@ -226,7 +239,7 @@ export function createSimulation({seed = 1947, scenario, config: override} = {})
         ...(definition.camera ? {camera: structuredClone(definition.camera)} : {}),
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
         obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => structuredClone(o))},
-      cells, actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
+      cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
       discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
         acceptedPath: state.acceptedPath.map(p => ({...p})), fuel: {...field.stats,

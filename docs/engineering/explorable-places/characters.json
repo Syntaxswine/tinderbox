@@ -1,0 +1,67 @@
+{
+  "task": "TB-024",
+  "method": "Evaluated original skinned vertices at idle and 20 gait distances, four headings, five fitted tools; mesh scale remains 1. Collision includes a documented safety margin.",
+  "reports": [
+    {
+      "id": "goat",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "dataPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "samples": 420,
+      "height": 1.64951753616333,
+      "radius": 0.4385786072129898,
+      "contactError": 5.760112674884681e-16,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "collision": {
+        "radius": 0.5,
+        "height": 1.66,
+        "maxStep": 0.22,
+        "provisional": false
+      }
+    },
+    {
+      "id": "horse",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "dataPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "samples": 420,
+      "height": 1.649999976158142,
+      "radius": 0.4472685029298394,
+      "contactError": 5.760112674884681e-16,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "collision": {
+        "radius": 0.5,
+        "height": 1.66,
+        "maxStep": 0.22,
+        "provisional": false
+      }
+    },
+    {
+      "id": "bear",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "dataPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+      "samples": 420,
+      "height": 1.6708452701568604,
+      "radius": 0.504701858156153,
+      "contactError": 3.3491300502207164e-16,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "collision": {
+        "radius": 0.56,
+        "height": 1.68,
+        "maxStep": 0.22,
+        "provisional": false
+      }
+    }
+  ],
+  "passed": true
+}

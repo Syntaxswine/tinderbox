@@ -2,6 +2,7 @@ import {EXPOSITION_SCENARIO} from '../content/exposition.js';
 import {NEIGHBORHOOD_SCENARIO} from '../content/neighborhood.js';
 import {compileBuildings} from '../content/buildings.js';
 import {compileModules, validateCivilian} from '../content/exterior-kit.js';
+import {preparePickups} from './pickups.js';
 const obstacle = (id, x, y, width, depth, height, material, kind = 'building') =>
   ({id, x, y, width, depth, height, material, kind});
 export const SCENARIOS = Object.freeze({
@@ -49,6 +50,7 @@ export function scenarioDefinition(scenario = 'street') {
   result.player ??= {x: 2, y: 2}; result.obstacles ??= []; result.actors ??= [];
   const compiled = compileModules(result.modules, result); result.modules = compiled.modules; result.obstacles.push(...compiled.obstacles);
   const housing = compileBuildings(result.buildings, result); result.buildings = housing.buildings; result.obstacles.push(...housing.obstacles);
+  result.pickups=preparePickups(result.pickups,result,result.obstacles);
   if (result.camera && (Object.keys(result.camera).some(key => !['followPlayer', 'span', 'phoneSpan'].includes(key)) ||
       result.camera.followPlayer !== true || ![result.camera.span, result.camera.phoneSpan].every(value => Number.isFinite(value) && value >= 10 && value <= 30))) throw Error('Invalid scenario camera');
   if (result.player.hp !== undefined && (!Number.isFinite(result.player.hp) || result.player.hp < 0)) throw Error('Invalid player health');
@@ -63,9 +65,9 @@ export function scenarioDefinition(scenario = 'street') {
     if (actor.speed !== undefined && (!Number.isFinite(actor.speed) || actor.speed < 0)) throw Error('Invalid actor speed');
     if (actor.route?.some(p => ![p.x, p.y].every(Number.isFinite))) throw Error('Invalid actor route');
   }
-  const ids = new Set(['bear']);
+  const ids = new Set(['bear','hero']);
   for (const building of result.buildings) { if (ids.has(building.id)) throw Error('Scenario IDs must be unique'); ids.add(building.id); }
-  for (const object of [...result.obstacles, ...result.actors]) {
+  for (const object of [...result.obstacles, ...result.actors,...result.pickups]) {
     if (!object.id || ids.has(object.id)) throw Error('Scenario IDs must be unique'); ids.add(object.id);
     if (![object.x, object.y].every(Number.isFinite)) throw Error('Invalid scene position');
   }
