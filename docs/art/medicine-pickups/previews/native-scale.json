@@ -1,0 +1,30 @@
+{
+  "name": "native-scale",
+  "path": "docs/art/medicine-pickups/previews/native-scale.jpg",
+  "dimensions": [
+    1600,
+    1160
+  ],
+  "camera": {
+    "target": [
+      0,
+      0.9,
+      0.45
+    ],
+    "origin": [
+      3.3,
+      4.5,
+      -6
+    ],
+    "halfWidth": 2
+  },
+  "triangles": 11038,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 24,
+  "caption": "Unscaled native AFT bear; props keep their measured dimensions. CPU base colours only. This is an art scale review, not gameplay.",
+  "limitations": [
+    "Actual factory meshes, CPU diffuse approximation of source material colours. Borrowed project maps and native bear projection paint omitted.",
+    "No browser, gameplay, input, collision or collection proof."
+  ],
+  "visualReview": "Reviewed actual JPG: full intended subjects, readable marks, grounded silhouettes, correct caption order and complete consumed-state removal. CPU limits remain explicit."
+}
