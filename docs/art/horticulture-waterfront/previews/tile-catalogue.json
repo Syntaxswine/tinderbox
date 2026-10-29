@@ -1,0 +1,68 @@
+{
+  "name": "tile-catalogue",
+  "path": "docs/art/horticulture-waterfront/previews/tile-catalogue.jpg",
+  "width": 2020,
+  "height": 1800,
+  "method": "Three by three contact sheet; each tile rendered separately from actual exported geometry to avoid overlap.",
+  "views": [
+    "part-01.json",
+    "part-02.json",
+    "part-03.json",
+    "part-04.json",
+    "part-05.json",
+    "part-06.json",
+    "part-07.json",
+    "part-08.json",
+    "part-09.json"
+  ],
+  "labels": [
+    {
+      "number": 1,
+      "name": "Promenade slab",
+      "dimensions": "1 x 1 m; native 0.12 m slab"
+    },
+    {
+      "number": 2,
+      "name": "Retaining wall + coping",
+      "dimensions": "1 x 1 m cell; native 2 m wall"
+    },
+    {
+      "number": 3,
+      "name": "Railed section",
+      "dimensions": "1 x 1 m cell; dark horizontal bars"
+    },
+    {
+      "number": 4,
+      "name": "Rusticated pier + capped post",
+      "dimensions": "1 x 1 m cell"
+    },
+    {
+      "number": 5,
+      "name": "Outside corner",
+      "dimensions": "1 x 1 m cell; 90-degree turn"
+    },
+    {
+      "number": 6,
+      "name": "Inside corner",
+      "dimensions": "2 x 2 m envelope; three land cells"
+    },
+    {
+      "number": 7,
+      "name": "Left terminal",
+      "dimensions": "1 x 1 m cell; closed end return"
+    },
+    {
+      "number": 8,
+      "name": "Right terminal",
+      "dimensions": "1 x 1 m cell; closed end return"
+    },
+    {
+      "number": 9,
+      "name": "Water-access stair",
+      "dimensions": "2 x 5 m including native landing"
+    }
+  ],
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T13:51:37.852680+00:00",
+  "findings": "Nine isolated actual-mesh views; all labels and dimensional captions fit. Concave water notch, mirrored terminal returns and full stair projection are readable."
+}

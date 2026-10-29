@@ -1,0 +1,35 @@
+{
+  "assetId": "horticulture-waterfront",
+  "checkedAt": "2026-10-29T13:47:46.219317+00:00",
+  "baseCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+  "results": [
+    {
+      "command": "node tools/check.mjs",
+      "exitCode": 0,
+      "result": "90 own scripts; 125 static modules; single shared Three/provenance; 85/85 tests; five byte-preserved imports and 33 extra syntax/dependency checks."
+    },
+    {
+      "command": "node tools/build.mjs",
+      "exitCode": 0,
+      "result": "152 files; 43,664,509 bytes; relative resource URLs."
+    },
+    {
+      "command": "node workbenches/art/check-horticulture-waterfront.mjs --package",
+      "exitCode": 0,
+      "result": "120 protected files; nine types; 36 poses; 13 actual Nautilus panels; twelve native slabs; 5,190 bounded vertices; 2,522 triangles; 243 owned disposals; actual corner/coping/rail/floor joins; empty water notch; twelve tread rays plus upper landing; physical-metre shader; appearance rollback; borrowed resources unchanged; source/runtime hashes; nested-path package and released helper port."
+    },
+    {
+      "command": "Actual-mesh export, eleven CPU views and compose-review.py",
+      "exitCode": 0,
+      "result": "Final assembly, detail and nine isolated tile views rendered; contact sheet and source comparison visually inspected."
+    }
+  ],
+  "limits": [
+    "Main Horticultural Building, planting and boats are outside this shoreline kit.",
+    "CPU diffuse lighting and source base colours; native bear paint shader omitted.",
+    "Water/land fill are preview-only; water line0.92 m is an art choice.",
+    "Corners, terminal returns and stairs are game adaptations; no surveyed historic dimensions claimed.",
+    "Catalogue intake, collision/traversal and WebGL review remain separate."
+  ],
+  "helpersRetained": []
+}
