@@ -16,8 +16,8 @@
     "staticModules": 139,
     "sharedThreeImplementations": 1,
     "existingProvenance": "pass",
-    "previousTrackedFiles": "git diff --exit-code passed before staging; all frozen access/source files unchanged",
-    "pinnedGitSourceHashes": "Palette and original vector hashes match immutable Git-object bytes"
+    "previousTrackedFiles": "All runtime assets, src/vendor/tools, frozen access kit and medicine JPGs unchanged from b35a2790fc640fe881ef535c013b947b43ffaeff",
+    "pinnedGitSourceHashes": "Preserved SVG equals the exact 26e1b130:assets/art/ui/control-symbols.svg Git blob; selected runtime/recorded contours match that input and reviewed b35a279 contour hashes"
   },
   "build": {
     "command": "node tools/build.mjs",
@@ -72,5 +72,35 @@
     "Actual-mesh CPU review; borrowed texture maps and native bear projection paint omitted.",
     "Automatic use/collision, HUD agreement, phone WebGL readability and runtime performance need coder/architect combined review.",
     "No architect promotion or deployment performed."
-  ]
+  ],
+  "provenanceCorrection": {
+    "baseCommit": "b35a2790fc640fe881ef535c013b947b43ffaeff",
+    "source": {
+      "path": "art/source/medicine-pickups/control-symbols-source.svg",
+      "originalPath": "assets/art/ui/control-symbols.svg",
+      "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "lastSourceChangeCommit": "2b33b528de724adec3ddf3b7227dfed0ec2210d5",
+      "sha256": "d3e36191867deeff14a624cc98d01992333034b87669de9721a0a5bd2d38cd5c",
+      "bytes": 1836
+    },
+    "ui": {
+      "commit": "d099011d5cbaa6892703485ae635ac056e4bf51a",
+      "sourceSha256": "e8036e124316a61e98a4bddd822090f1795534f69cdc5f6aca6883720b40b554",
+      "exercisedSha256": "e8036e124316a61e98a4bddd822090f1795534f69cdc5f6aca6883720b40b554",
+      "differsFromPreserved": true,
+      "leftUnchanged": true
+    },
+    "cases": [
+      "Actual generator and full art checker pass beside different/newer UI bytes",
+      "Actual generator and full art checker pass with runtime UI SVG absent",
+      "Regenerated runtime marks remain byte-identical",
+      "Changed preserved SVG rejected",
+      "Changed selected glyph contour rejected"
+    ],
+    "exactPreservedGitBytes": true,
+    "runtimeAssetsUnchanged": true,
+    "existingJpgsUnchanged": true,
+    "retainedHelpers": 0,
+    "command": "node art/source/medicine-pickups/check-provenance-compatibility.mjs --ui-commit d099011d5cbaa6892703485ae635ac056e4bf51a"
+  }
 }

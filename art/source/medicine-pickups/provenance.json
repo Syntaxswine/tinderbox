@@ -1,5 +1,5 @@
 {
-  "hashEncoding": "UTF-8 project text normalized to LF, matching committed Git bytes",
+  "hashEncoding": "Project text normalized to LF; preserved SVG retains exact original Git bytes",
   "project": "Tinderbox",
   "repository": "https://github.com/Syntaxswine/tinderbox.git",
   "branch": "codex/medicine-pickup-art",
@@ -25,11 +25,13 @@
     ]
   },
   "vectors": {
-    "path": "assets/art/ui/control-symbols.svg",
-    "bytes": 1836,
-    "sha256": "d3e36191867deeff14a624cc98d01992333034b87669de9721a0a5bd2d38cd5c",
+    "path": "art/source/medicine-pickups/control-symbols-source.svg",
+    "originalPath": "assets/art/ui/control-symbols.svg",
     "sourceCommit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
-    "lastChangeCommit": "2b33b528de724adec3ddf3b7227dfed0ec2210d5",
+    "lastSourceChangeCommit": "2b33b528de724adec3ddf3b7227dfed0ec2210d5",
+    "sha256": "d3e36191867deeff14a624cc98d01992333034b87669de9721a0a5bd2d38cd5c",
+    "bytes": 1836,
+    "preservation": "Byte-identical archived Git blob; no dependency on the evolving UI SVG",
     "details": "art/source/medicine-pickups/mark-source.json"
   },
   "palette": {

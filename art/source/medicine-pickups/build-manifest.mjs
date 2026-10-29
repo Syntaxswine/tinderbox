@@ -1,17 +1,19 @@
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
+import {PRESERVED_MARK_SOURCE, readPreservedMarkSource} from './build-marks.mjs';
+readPreservedMarkSource();
 const sha = b => createHash('sha256').update(b).digest('hex');
 const record = path => { const b = Buffer.from(fs.readFileSync(path, 'utf8').replace(/\r\n/g, '\n')); return {path, bytes: b.length, sha256: sha(b)}; };
 const check = JSON.parse(fs.readFileSync('docs/art/medicine-pickups/check-results.json'));
 const source = {
-  hashEncoding: 'UTF-8 project text normalized to LF, matching committed Git bytes',
+  hashEncoding: 'Project text normalized to LF; preserved SVG retains exact original Git bytes',
   project: 'Tinderbox', repository: 'https://github.com/Syntaxswine/tinderbox.git',
   branch: 'codex/medicine-pickup-art', baseCommit: '26e1b1301ce577ab8ed26afa32fdafa93d7d44e4',
   contract: {commit: '1447206df7a2e156c637e92aa3610577f8b39a1e', path: 'docs/milestones/08-explorable-places.md', section: 'Shared catalogue and UI API: world pickups and artist adapter'},
   acceptedUserRequirement: {date: '2026-10-28', threadId: '01a17edb-5cf4-7af0-a52e-d28547bb7ede', threadTitle: 'Set up Tinderbox UI worktree', messages: [
     {id: '01a1812c-00e1-7ce2-810e-57ebb120f62b', text: 'the drugs or medicine should be used automatically when they are picked up'},
     {id: '01a1812c-3d40-7d33-9ae9-ceba39ea9851', text: 'walk over them to use them'}]},
-  vectors: {...record('assets/art/ui/control-symbols.svg'), sourceCommit: '26e1b1301ce577ab8ed26afa32fdafa93d7d44e4', lastChangeCommit: '2b33b528de724adec3ddf3b7227dfed0ec2210d5', details: 'art/source/medicine-pickups/mark-source.json'},
+  vectors: {...PRESERVED_MARK_SOURCE, preservation: 'Byte-identical archived Git blob; no dependency on the evolving UI SVG', details: 'art/source/medicine-pickups/mark-source.json'},
   palette: {...record('src/art/materials.js'), sourceCommit: '26e1b1301ce577ab8ed26afa32fdafa93d7d44e4', lastChangeCommit: 'b3c7c009706dc48a10cd97951df36f79a4d5fb21', reuse: 'Existing shirt, leather, brass, steel, ivory, dark and glass material recipes; supplied project materials/maps are cloned or borrowed without mutation.'},
   imports: 'No additional donor import. Existing Farmyard/AFT source licenses and provenance remain authoritative; this record grants no new blanket rights.',
   reviewOnly: {bearSourceCommit: '4f5f53917990ec03b2f14c65f067e4b99ec8fcaa', bearData: 'vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json', scale: [1,1,1], appearance: 'CPU base colours; native projection-paint shader omitted'},

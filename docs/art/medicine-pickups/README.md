@@ -4,7 +4,7 @@ Three grounded, reusable presentations for the accepted walk-over medicine requi
 
 - [Coder handoff](handoff.md)
 - [Runtime manifest and measured footprints](../../../assets/art/medicine-pickups/manifest.json)
-- [Source/provenance record](../../../art/source/medicine-pickups/provenance.json)
+- [Preserved original SVG](../../../art/source/medicine-pickups/control-symbols-source.svg) and [source/provenance record](../../../art/source/medicine-pickups/provenance.json)
 - [Focused check results](check-results.json)
 - [Kit JPG](previews/medicine-kit.jpg), [native bear scale JPG](previews/native-scale.jpg), [consumed snapshot JPG](previews/consumed-state.jpg)
 

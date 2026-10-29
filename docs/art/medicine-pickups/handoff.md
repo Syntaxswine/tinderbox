@@ -30,13 +30,13 @@ Unconsumed stable IDs retain their group across moves/reordering. Consumed or om
 
 All geometry fits the coder candidate's current default 0.22 m radius. The radius field is a collection envelope rather than a request to stretch the art; a materially smaller future envelope needs review against these footprints. Actual vertex bounds are recorded in the manifest and focused check report.
 
-The reused marks are exact contours from `assets/art/ui/control-symbols.svg`: powder's lightning inset, healing's cross counterform rendered as positive ink, and all inversion arrow contours. The symbols are shallow upward-facing geometry, so this adapter needs no additional texture or font. The physical forms also distinguish the kinds without relying on colour alone.
+The reused marks are exact contours from the [preserved original SVG](../../../art/source/medicine-pickups/control-symbols-source.svg), copied byte-for-byte from `26e1b1301ce577ab8ed26afa32fdafa93d7d44e4:assets/art/ui/control-symbols.svg`: powder's lightning inset, healing's cross counterform rendered as positive ink, and all inversion arrow contours. Their historical `sourceSymbol` IDs identify that original asset path; they do not read the evolving UI file. The symbols are shallow upward-facing geometry, so this adapter needs no additional texture or font. The physical forms also distinguish the kinds without relying on colour alone.
 
 Borrowed host material slots are `shirt`, `leather`, `brass`, `steel`, `ivory`, `dark`, `glass`. Matching optional texture slots override a clone's map. Unrelated material/texture keys are ignored, so the existing full `materials` and loaded `assets` dictionaries can be passed unchanged. Default material colours and recipes come from `src/art/materials.js`. Factory templates share geometry/materials across IDs. `dispose` is idempotent, removes its root and disposes generated geometry and cloned/default materials once. Input materials, maps and textures remain owned by the caller. No input repeat, offset, wrap or shader source is changed.
 
 ## Sources and verification
 
-The [provenance record](../../../art/source/medicine-pickups/provenance.json) pins the project palette, original control marks, source hashes, contract and direct human request. It also identifies the native AFT bear used only as a review scale reference. Project text hashes use UTF-8 with LF line endings, matching committed Git bytes. The runtime folder explicitly keeps LF on checkout; its hashes also match the packaged files. No additional donor files were imported and all existing licenses/provenance remain in effect.
+The [provenance record](../../../art/source/medicine-pickups/provenance.json) pins the project palette, original control marks, source hashes, contract and direct human request. It also identifies the native AFT bear used only as a review scale reference. Project text hashes use UTF-8 with LF line endings, matching committed Git bytes. The preserved SVG is checked as exact raw Git-blob bytes, with text conversion disabled locally; the generator and checker never read the evolving UI SVG. The checker also compares the actual selected runtime/recorded contours with the preserved input and independent hashes of the reviewed `b35a279` contours. The runtime folder explicitly keeps LF on checkout; its hashes also match the packaged files. No additional donor files were imported and all existing licenses/provenance remain in effect.
 
 Reproduce from this branch:
 
@@ -44,6 +44,7 @@ Reproduce from this branch:
 node art/source/medicine-pickups/build-marks.mjs
 node workbenches/art/check-medicine-pickups.mjs --write
 node art/source/medicine-pickups/build-manifest.mjs
+node art/source/medicine-pickups/check-provenance-compatibility.mjs
 node art/source/medicine-pickups/export-review.mjs
 python art/source/medicine-pickups/render-review.py
 node tools/check.mjs
@@ -51,6 +52,8 @@ node tools/build.mjs
 ```
 
 The render uses the existing ignored `artifacts/render-deps` Mitsuba/Pillow dependencies and Windows Arial for evidence captions. No package installation is needed for runtime or focused checks. The render source and ignored per-run records preserve launch inputs, process identity, outputs, exit time and its actual 120-second deadline. No service or helper is retained.
+
+The provenance regression runs the actual generator and full art checker beside changed UI bytes and with the UI SVG absent. It verifies byte-identical regenerated runtime marks and rejects both source-byte and selected-contour tampering. To exercise the exact newer UI intake, pass `--ui-commit d099011d5cbaa6892703485ae635ac056e4bf51a` when that immutable Git object is available.
 
 The focused check covers measured physical footprints, ground contact, unit scale, exact state-driven removal/restoration, stable identities, kind changes, invalid snapshot preservation, 80 snapshots of 64 changing IDs without resource growth, DOM-free construction and idempotent ownership-safe disposal. Repository and packaged-path results are recorded in [delivery checks](delivery-checks.json).
 
