@@ -13,7 +13,7 @@ The release boundary is [Milestone 08](../milestones/08-explorable-places.md): t
 | Access art | `26e1b1301ce577ab8ed26afa32fdafa93d7d44e4` | `91681ea` |
 | Medicine ground art | `b35a2790fc640fe881ef535c013b947b43ffaeff` | `efad5cf` |
 | Immutable medicine symbol source | `988b4aca32343c9f2e566db74bb018c705820742` | `3deb7de` |
-| Runtime, navigation and packaging | Awaiting final committed TB-024 delivery | Pending |
+| Runtime, navigation and packaging review checkpoint | `b46ef4e66581983e307eb7932e7253c4f2c92064` | `7ab5a8c` (unfinished, unpromoted) |
 
 Earlier exact street, row, ignition and landmark intakes are preserved on the review branch and in their manifests. Donor pins remain unchanged. Historical source drawings and uncertainty records govern the landmark exteriors; added playable door surrounds, openings, stairs, supports and cutaways are game adaptations rather than claims about original construction.
 
@@ -29,8 +29,12 @@ Earlier exact street, row, ignition and landmark intakes are preserved on the re
 
 ## Completed checks and remaining gates
 
-The architect's pre-runtime combined check passed 109 tests. The original access checker passes: 1,084 stair/landing samples, 25 portal records, native leaves/slabs, immutable source, section-filtered construction and resource disposal. The medicine checker passes geometry, snapshots, consumption/reset presentation, borrowed-resource ownership and immutable symbol provenance. CPU cutaway and ground-prop JPGs were visually reviewed; these do not establish live traversal or GPU acceptance.
+The architect's pre-runtime combined check passed 109 tests. After exact runtime intake and shell conflict reconciliation, the combined check passes **169 tests** with frozen provenance. The original access checker passes: 1,084 stair/landing samples, 25 portal records, native leaves/slabs, immutable source, section-filtered construction and resource disposal. The medicine checker passes geometry, snapshots, consumption/reset presentation, borrowed-resource ownership and immutable symbol provenance. The new immutable intake additionally exposed 19 Windows checkout line-ending mismatches; exact source-commit bytes were restored and the full check passed without changing expected hashes. CPU cutaway and ground-prop JPGs were visually reviewed; these do not establish live traversal or GPU acceptance.
 
-Remaining: exact runtime intake; combined source/behavior checks; actual required routes for every animal; production build and nested-path package verification; live Chrome WebGL title/menu/gameplay/interior review at desktop and phone sizes; real section/resource/performance observations; actual visit JPGs; final promotion decision and deployment verification. A successful worker check is evidence for its scope, not architect approval of the combined release.
+The architect's production build contains **3,454 files / 163,289,760 bytes**. Release hashes and relative resources pass. The independent actual nested HTTP replay verifies every file, all three landmark loaders, native animal rigs, private-path exclusion and section resource disposal. Its finite server exited and port 52629 was confirmed released. The preview snapshot is the immutable `7ab5a8c` archive under ignored `artifacts/qa/explorable-places/combined-review-01`.
+
+Remaining: final TB-024 follow-up; actual required routes for every animal; live Chrome WebGL title/menu/gameplay/interior review at desktop and phone sizes; real section/resource/performance observations; actual visit JPGs; final promotion decision and deployment verification. A successful worker check is evidence for its scope, not architect approval of the combined release.
+
+The live review ended on 2026-10-29 at 23:45 UTC: Computer Use stopped the turn because it could not determine the current Chrome URL confidently enough to enforce its policy. The existing public game was visible before navigation, but no successful review of the new local title/map runtime or new JPG capture is claimed. No further app input was issued. The architect's registered hidden preview (PID 15884, exact creation identity recorded) stopped through its private marker; process exit and port 64190 release were verified. Restart inputs, source archive and cleanup receipt remain under `artifacts/helpers/explorable-combined-01/`. No root preview remains running, no gate is waived and no master/Pages promotion occurred.
 
 Local diagnostic logs are under ignored `artifacts/qa/explorable-places/`. Disposable preview helpers must stop and release their ports after review. Hosting is already configured as workflow Pages with `PAGES_ENABLED=true`; no hosting repair or new visibility change is required.
