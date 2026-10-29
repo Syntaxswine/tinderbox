@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "parentCommit": "5e8d64b8b41637637d57ed762eb5157e5d521b4f",
+  "userDirection": "Preserve the detailed model; create a separate copy with fixed simulator floor levels and even-metre structural wall runs.",
+  "derivedFrom": [
+    {
+      "path": "assets/art/exposition-new-york/index.js",
+      "bytes": 24086,
+      "sha256": "b232d6b284e53ddd9fafefd739b7e86c6bcae8ce91ecf3101bccf821ac81c6c3",
+      "sourceCommit": "5e8d64b8b41637637d57ed762eb5157e5d521b4f",
+      "adaptation": "Appearance adapter, window trim, architectural motifs and resource lifecycle reused in a newly authored tile layout; no original geometry uniformly scaled."
+    },
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084",
+      "sourceCommit": "5e8d64b8b41637637d57ed762eb5157e5d521b4f",
+      "adaptation": "Unchanged shared local form/instancing dependency."
+    },
+    {
+      "path": "assets/art/exposition-new-york/native-contract.js",
+      "bytes": 349,
+      "sha256": "80ab2a77fddbfe2a311501cfb06bb689b9618a16004d96231f7dd346e84d12e4",
+      "sourceCommit": "5e8d64b8b41637637d57ed762eb5157e5d521b4f",
+      "adaptation": "Unchanged shared native profile dependency."
+    },
+    {
+      "path": "art/source/exposition-new-york/export-review.mjs",
+      "bytes": 6048,
+      "sha256": "24e9bf289532340c0ee390deacc9949d56af3909ded04ad42c189ded64912457",
+      "sourceCommit": "5e8d64b8b41637637d57ed762eb5157e5d521b4f",
+      "adaptation": "Review exporter adapted to new factory and clipped actual-geometry cutaway."
+    },
+    {
+      "path": "art/source/exposition-new-york/render-review.py",
+      "bytes": 5166,
+      "sha256": "fccf470a019e2679ddea102a93a665380f1efdfdc4cf37c352965114c970d98d",
+      "sourceCommit": "5e8d64b8b41637637d57ed762eb5157e5d521b4f",
+      "adaptation": "Existing finite CPU review recipe adapted to new output directory and captions."
+    }
+  ],
+  "originalEvidence": {
+    "path": "art/source/exposition-new-york/sources.json",
+    "bytes": 3765,
+    "sha256": "07e3820fc94515d59cac5f94ee4122c291599cda20a54bf11f32423fbeb66450"
+  },
+  "nativeSourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "newDonorImports": [],
+  "rights": "Existing source and donor provenance/rights records remain authoritative; no new license grant inferred.",
+  "newAdaptations": "New manifest adaptations, explicit plan.js and handoff record changes to widths, openings and fixed floor levels."
+}

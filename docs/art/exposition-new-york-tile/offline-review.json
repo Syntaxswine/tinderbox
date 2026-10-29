@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-29T00:58:11.866405+00:00",
+  "renderer": "Mitsuba3.9.1 scalar_rgb",
+  "samplesPerPixel": 24,
+  "actualModel": true,
+  "images": [
+    {
+      "path": "docs/art/exposition-new-york-tile/previews/front-isometric.jpg",
+      "bytes": 881701,
+      "sha256": "380921050d2cbd124a137b2c5d38e7e114d506d99f48624c5edb6da36ede9f36",
+      "visualReview": "inspected",
+      "notes": "Inspected full silhouette, native reference/bear, paired porches, facade rhythm, roof/tower joins and material density."
+    },
+    {
+      "path": "docs/art/exposition-new-york-tile/previews/rear-isometric.jpg",
+      "bytes": 849263,
+      "sha256": "6e0e80f8bb4afd294c382a78b938a0dd760c40dc796fa64e71c0e5472df2825e",
+      "visualReview": "inspected",
+      "notes": "Inspected integer rear steps, side/rear opening rhythm, porch stairs and inferred roof treatment."
+    },
+    {
+      "path": "docs/art/exposition-new-york-tile/previews/front-elevation.jpg",
+      "bytes": 434381,
+      "sha256": "4f9dbedc68277dfda9c4e78422365ce3b3c3736e099a51329ff92c9cce7323be",
+      "visualReview": "inspected",
+      "notes": "Inspected symmetry, native door/transom proportions and elevation hierarchy before the level overlay."
+    },
+    {
+      "path": "docs/art/exposition-new-york-tile/previews/structural-cutaway.jpg",
+      "bytes": 830656,
+      "sha256": "bf130e156ae9ad9b6810f1553e7cb5c6377e62f96a733cff1625524186a1d842",
+      "visualReview": "inspected",
+      "notes": "Inspected actual floor slabs and open three-level main rooms, clerestory void and tower voids; diagnostic clipping/green floors are explicit."
+    },
+    {
+      "path": "docs/art/exposition-new-york-tile/previews/grid-audit.jpg",
+      "bytes": 2292369,
+      "sha256": "3a6cfe6ca7fc2b721f7b8c5b12ee9269ee7a278d950d2fd13add08220d96fb24",
+      "visualReview": "inspected",
+      "notes": "Inspected original/new comparison, fixed-level overlay with clear SLAB/VOID labels and original/new plan centre-line overlay."
+    }
+  ],
+  "exportStability": {
+    "checkedAt": "2026-10-29T00:58:11.854286+00:00",
+    "passed": true,
+    "files": 41,
+    "meaning": "All exported PLY geometry, materials, cameras and structural records remain byte-identical after final placement validation. Existing inspected renders still represent the final asset."
+  },
+  "limitations": [
+    "CPU diffuse appearance evidence; WebGL shader/performance acceptance remains pending.",
+    "Historical colours, fine sculpture and rear details retain recorded uncertainty.",
+    "Native bear base colours shown; source multi-view paint shader omitted.",
+    "Cutaway clips actual geometry at Z=14 m, hides ornament and applies green diagnostic floor colours.",
+    "No gameplay, collision, traversal, crowds, fire or UI is shown."
+  ]
+}

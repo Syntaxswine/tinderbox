@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-29T00:58:11.867406+00:00",
+  "preservedOriginalFiles": 41,
+  "grid": {
+    "tile": 1,
+    "wallHeight": 2,
+    "slab": 0.12,
+    "floorPitch": 2.12,
+    "evenWallRuns": 24,
+    "wallLengths": [
+      2,
+      4,
+      6,
+      10,
+      16,
+      28,
+      48
+    ],
+    "actualWallFragments": 1732,
+    "nativeWallFragments": 1420,
+    "floorTiles": 6744,
+    "curvedSlabs": 4,
+    "perimeterClosures": 1590,
+    "finiteBoundedVertices": 381587,
+    "ownedDisposalChecks": 541
+  },
+  "checks": [
+    {
+      "command": "node workbenches/art/check-exposition-new-york-tile.mjs --package",
+      "passed": true,
+      "coverage": "Original blob preservation; source native geometry arrays; actual grid cell placement/complete coverage; slab thickness, levels and complete floor coverage; void/opening rays; four poses; appearance and borrowed ownership; static compilation digest; nested-path built resources/factory; private listener released."
+    },
+    {
+      "command": "node tools/check.mjs",
+      "passed": true,
+      "tests": 85,
+      "ownScripts": 88,
+      "resolvedStaticModules": 117,
+      "existingArtSyntaxDependencyChecks": 31
+    },
+    {
+      "command": "node tools/build.mjs",
+      "passed": true,
+      "files": 141,
+      "bytes": 43347675
+    },
+    {
+      "command": "Node --check for new source/check scripts; Python compile() without pyc; local Markdown reference review; LF runtime review",
+      "passed": true
+    },
+    {
+      "command": "Final export stability check",
+      "passed": true,
+      "files": 41
+    }
+  ],
+  "visualEvidence": "offline-review.json",
+  "runtimeWebGL": "pending",
+  "productionPlacement": "not integrated",
+  "helperPolicy": "Finite render processes and private package listener only; all disposable helpers must be verified exited/released in the completion receipt; no retained service.",
+  "helpers": {
+    "renderLifetimes": 4,
+    "allVerifiedExited": true,
+    "privateListenerReleased": true,
+    "retained": [],
+    "receipt": "artifacts/exposition-new-york-tile/helper-completion.json"
+  }
+}

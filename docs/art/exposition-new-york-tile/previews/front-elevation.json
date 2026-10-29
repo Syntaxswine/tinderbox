@@ -1,0 +1,34 @@
+{
+  "name": "front-elevation",
+  "path": "docs/art/exposition-new-york-tile/previews/front-elevation.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      17,
+      0
+    ],
+    "origin": [
+      0,
+      17,
+      -160
+    ],
+    "halfWidth": 38
+  },
+  "triangles": 249708,
+  "caption": "All floors/decks on n x 2.12 m; custom ornament and pitched roof profiles.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "No effects, crowds, gameplay or UI; exterior only.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "inspected",
+  "reviewNotes": "Inspected symmetry, native door/transom proportions and elevation hierarchy before the level overlay."
+}

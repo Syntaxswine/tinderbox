@@ -1,0 +1,257 @@
+{
+  "assetId": "exposition-new-york-1893-tile",
+  "version": 1,
+  "factory": "createNewYorkStateBuildingTile",
+  "units": "metres",
+  "hostThreeRevisionTested": "180",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/exposition-new-york-tile/index.js",
+      "bytes": 19786,
+      "sha256": "a9a04accd2d3fb38320d4e5f30fbb8f99e5c6bdc115d4de208ae2c239ec82eae"
+    },
+    {
+      "path": "assets/art/exposition-new-york-tile/plan.js",
+      "bytes": 6048,
+      "sha256": "9ab69d9a4b029ca40c1d19d9c35324cc89fe45598fc51de25eeefcdea5138cbd"
+    },
+    {
+      "path": "assets/art/exposition-new-york-tile/metadata.json",
+      "bytes": 64413,
+      "sha256": "35be3d5b9638aa4df513e8aade12f4d1588da9b40e5bf58db80081445534d8ab"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "assets/art/exposition-new-york/native-contract.js",
+      "bytes": 349,
+      "sha256": "80ab2a77fddbfe2a311501cfb06bb689b9618a16004d96231f7dd346e84d12e4"
+    }
+  ],
+  "nativeContract": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "nativeReferenceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "nativeReferenceFiles": [
+    {
+      "path": "src/content/asset-scale.js",
+      "bytes": 1066,
+      "sha256": "6c8773c1317b6b6e0adead577cd819e21ce1ae93b0f20eed2ae0af5bffb3d0ea"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+      "bytes": 1644,
+      "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed"
+    }
+  ],
+  "original": {
+    "assetId": "exposition-new-york-1893",
+    "commit": "5e8d64b8b41637637d57ed762eb5157e5d521b4f",
+    "changed": false
+  },
+  "preservationRecord": "art/source/exposition-new-york-tile/preserved-original.json",
+  "sourceRecord": "art/source/exposition-new-york/sources.json",
+  "source": "TB009-R02: McKim, Mead & White, plates43/44, Getty / Internet Archive gri_33125006526145; source image hashes and rights evidence retained in the unchanged original record.",
+  "sourceStatus": "Derived tile adaptation, not an as-built plan. Historical room subdivisions remain unimplemented.",
+  "adaptations": [
+    {
+      "feature": "main facade",
+      "original": 47,
+      "tiled": 48
+    },
+    {
+      "feature": "main depth",
+      "original": 27,
+      "tiled": 28
+    },
+    {
+      "feature": "rear projection",
+      "original": 32,
+      "tiled": 34
+    },
+    {
+      "feature": "rear shoulder half-width",
+      "original": 13.25,
+      "tiled": 14
+    },
+    {
+      "feature": "rear centre half-width",
+      "original": 7.25,
+      "tiled": 8
+    },
+    {
+      "feature": "main upper floor",
+      "original": "No full interior slab authored; facade bands at7.85/8.12/8.43",
+      "tiled": 8.48
+    },
+    {
+      "feature": "attic floor",
+      "original": "No interior slab authored; facade band at14.22",
+      "tiled": 14.84
+    },
+    {
+      "feature": "main roof slab",
+      "original": "No full interior slab; low hip at17.72",
+      "tiled": 16.96
+    },
+    {
+      "feature": "clerestory roof slab",
+      "original": "No floor recipe; hip at21.65",
+      "tiled": 21.2
+    },
+    {
+      "feature": "upper terrace",
+      "original": 24.02,
+      "tiled": 23.32
+    },
+    {
+      "feature": "porch upper deck",
+      "original": 8.84,
+      "tiled": 8.48
+    },
+    {
+      "feature": "tower roof slab",
+      "original": "No floor recipe; cap hip at31.59",
+      "tiled": 31.8
+    }
+  ],
+  "plan": {
+    "path": "assets/art/exposition-new-york-tile/plan.js",
+    "wallRuns": 24,
+    "wallLengths": [
+      2,
+      4,
+      6,
+      10,
+      16,
+      28,
+      48
+    ],
+    "floorPitch": 2.12,
+    "floorLevels": [
+      1,
+      4,
+      7,
+      8,
+      10,
+      11,
+      15
+    ],
+    "tallRooms": [
+      {
+        "zone": "main",
+        "fromLevel": 1,
+        "toLevel": 4,
+        "emptyLevels": [
+          2,
+          3
+        ],
+        "floorToFloor": 6.36
+      },
+      {
+        "zone": "main",
+        "fromLevel": 4,
+        "toLevel": 7,
+        "emptyLevels": [
+          5,
+          6
+        ],
+        "floorToFloor": 6.36
+      },
+      {
+        "zone": "clerestory",
+        "fromLevel": 8,
+        "toLevel": 10,
+        "emptyLevels": [
+          9
+        ],
+        "floorToFloor": 4.24
+      },
+      {
+        "zone": "towers",
+        "fromLevel": 11,
+        "toLevel": 15,
+        "emptyLevels": [
+          12,
+          13,
+          14
+        ],
+        "floorToFloor": 8.48
+      }
+    ],
+    "exceptions": [
+      "Window/door cuts and lintels stay inside native wall-cell envelopes; native door leaves remain 1 x 1.65 x .12 m.",
+      "Curved portico decks and columns are custom parts attached to standard levels, not curved structural wall runs.",
+      "Roof slopes, arches, cornices, balustrades and visual stair treads are custom decorative geometry; roof/deck slabs remain on standard levels."
+    ]
+  },
+  "bounds": {
+    "min": [
+      -35,
+      -4.132588693472883e-8,
+      -10
+    ],
+    "max": [
+      35,
+      34.33999999731779,
+      35.04999999932945
+    ]
+  },
+  "diagnostics": {
+    "disposed": false,
+    "meshes": 325,
+    "triangles": 249708,
+    "sourceParts": 12671,
+    "instanceBatches": 207,
+    "geometries": 325,
+    "materials": 7,
+    "ownedTextures": 0,
+    "borrowedTextureCount": 0,
+    "nativeWalls": 1420,
+    "nativeDoors": 6,
+    "components": 12734,
+    "floorTiles": 6744,
+    "wallPieces": 1732,
+    "levelClosures": 1590,
+    "quarterTurns": 0
+  },
+  "appearanceSlots": [
+    "facade",
+    "trim",
+    "door",
+    "roof",
+    "glazing",
+    "shadow",
+    "awning"
+  ],
+  "ownership": {
+    "owned": "Geometry, instancing allocations and cloned/default materials; returned dispose() is idempotent.",
+    "borrowed": "Host Three namespace, supplied materials and maps/textures. Supplied materials are cloned; originals/maps are never changed or disposed."
+  },
+  "previewResources": [
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/environment/ground-concrete.png",
+      "bytes": 3308630,
+      "sha256": "a55fefded481abfce45866984caa9495884416f6273d65e6a95de1ff8e6598f1"
+    },
+    {
+      "path": "assets/art/exposition-skins-v1/roof-slate-v1.png",
+      "bytes": 2333888,
+      "sha256": "04fd7476c41c5d290350aba957db2a6d9234d38b9634c55a834b5afe4e64c25d"
+    }
+  ],
+  "integration": "Geometry and explicit tile/level recipe only; not a simulator save or gameplay collider. Runtime placement, interiors, collision and traversal remain coder-owned."
+}

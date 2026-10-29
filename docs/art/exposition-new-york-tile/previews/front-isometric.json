@@ -1,0 +1,34 @@
+{
+  "name": "front-isometric",
+  "path": "docs/art/exposition-new-york-tile/previews/front-isometric.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      11,
+      12
+    ],
+    "origin": [
+      80,
+      62,
+      -90
+    ],
+    "halfWidth": 43
+  },
+  "triangles": 259782,
+  "caption": "Separate 48 x 28 m tile adaptation. Floors follow the native 2.12 m pitch; original model preserved.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "No effects, crowds, gameplay or UI; exterior only.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "inspected",
+  "reviewNotes": "Inspected full silhouette, native reference/bear, paired porches, facade rhythm, roof/tower joins and material density."
+}
