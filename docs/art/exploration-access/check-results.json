@@ -1,0 +1,194 @@
+{
+  "checkedAt": "2026-10-29T22:58:39.128618+00:00",
+  "repositoryChecks": {
+    "passed": true,
+    "tests": 85,
+    "syntaxScripts": 92,
+    "staticModules": 136
+  },
+  "build": {
+    "passed": true,
+    "files": 166,
+    "bytes": 52355572,
+    "nestedPathResources": true
+  },
+  "geometry": {
+    "passed": true,
+    "preservedFiles": 101,
+    "animals": [
+      {
+        "species": "goat",
+        "source": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "samples": 100,
+        "min": [
+          -0.43097490875003674,
+          -1.8041124150158794e-16,
+          -0.43097490875003674
+        ],
+        "max": [
+          0.43097490875003674,
+          1.64951753616333,
+          0.43097490875003674
+        ],
+        "heightAboveGround": 1.64951753616333,
+        "fullHeight": 1.6495175361633303,
+        "radialEnvelope": 0.437896113824915,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "note": "Actual evaluated source body vertices; normal neutral/walking gait, four headings,25 phases; no character scaling or substitute body."
+      },
+      {
+        "species": "horse",
+        "source": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "samples": 100,
+        "min": [
+          -0.43083669451365747,
+          -1.6653345369377348e-16,
+          -0.43083669451365747
+        ],
+        "max": [
+          0.43083669451365747,
+          1.649999976158142,
+          0.43083669451365747
+        ],
+        "heightAboveGround": 1.649999976158142,
+        "fullHeight": 1.6499999761581423,
+        "radialEnvelope": 0.4506623293728638,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "note": "Actual evaluated source body vertices; normal neutral/walking gait, four headings,25 phases; no character scaling or substitute body."
+      },
+      {
+        "species": "bear",
+        "source": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+        "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+        "samples": 100,
+        "min": [
+          -0.48577028151027646,
+          -1.8041124150158794e-16,
+          -0.48577028151027646
+        ],
+        "max": [
+          0.48577028151027646,
+          1.6708452701568604,
+          0.48577028151027646
+        ],
+        "heightAboveGround": 1.6708452701568604,
+        "fullHeight": 1.6708452701568606,
+        "radialEnvelope": 0.5077758660803056,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "note": "Actual evaluated source body vertices; normal neutral/walking gait, four headings,25 phases; no character scaling or substitute body."
+      }
+    ],
+    "results": [
+      {
+        "placeId": "new-york",
+        "passed": true,
+        "portals": 5,
+        "stairSamples": 82,
+        "hiddenSourceParts": 89,
+        "floorOpenings": 1,
+        "construction": {
+          "nativeLeaves": 10,
+          "sourceFragments": 41,
+          "newTreads": 60,
+          "nativeSlabs": 12,
+          "boundarySlabs": 0,
+          "meshes": 157,
+          "sourceParts": 316
+        },
+        "triangles": 252230,
+        "indexCells": 2328,
+        "largestBodyRadius": 0.62,
+        "largestHeightWithMargin": 2.3
+      },
+      {
+        "placeId": "administration",
+        "passed": true,
+        "portals": 15,
+        "stairSamples": 896,
+        "hiddenSourceParts": 1249,
+        "floorOpenings": 20,
+        "construction": {
+          "nativeLeaves": 8,
+          "sourceFragments": 210,
+          "newTreads": 708,
+          "nativeSlabs": 76,
+          "boundarySlabs": 462,
+          "meshes": 1193,
+          "sourceParts": 4679
+        },
+        "triangles": 655525,
+        "indexCells": 6836,
+        "largestBodyRadius": 0.62,
+        "largestHeightWithMargin": 2.3
+      },
+      {
+        "placeId": "horticulture",
+        "passed": true,
+        "portals": 5,
+        "stairSamples": 106,
+        "hiddenSourceParts": 115,
+        "floorOpenings": 2,
+        "construction": {
+          "nativeLeaves": 10,
+          "sourceFragments": 61,
+          "newTreads": 24,
+          "nativeSlabs": 0,
+          "boundarySlabs": 0,
+          "meshes": 132,
+          "sourceParts": 162
+        },
+        "triangles": 1154962,
+        "indexCells": 33352,
+        "largestBodyRadius": 0.62,
+        "largestHeightWithMargin": 2.3
+      }
+    ]
+  },
+  "factory": {
+    "passed": true,
+    "nativeDoors": 28,
+    "nativeSlabs": 88,
+    "sectionCounts": {
+      "new-york": {
+        "full": 157,
+        "selected": 44
+      },
+      "administration": {
+        "full": 1193,
+        "selected": 175
+      },
+      "horticulture": {
+        "full": 132,
+        "selected": 7
+      }
+    },
+    "borrowedDisposalsBeforeCleanup": 0,
+    "idempotentOwnedDisposal": true,
+    "nativeUVBuffers": "Exact",
+    "shaderFixture": true
+  },
+  "helpers": {
+    "retained": 0,
+    "rendererLifetimesChecked": 3,
+    "packagePortReleased": true
+  },
+  "visual": {
+    "reviewedJPGs": 8,
+    "renderer": "Mitsuba3.9.1 scalar_rgb; actual derived source/access meshes",
+    "gpuAcceptance": "Pending combined runtime/browser gate"
+  }
+}

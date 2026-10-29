@@ -1,0 +1,40 @@
+{
+  "name": "new-york-entry",
+  "path": "docs/art/exploration-access/previews/new-york-entry.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      3,
+      0
+    ],
+    "origin": [
+      13,
+      12,
+      -21
+    ],
+    "halfWidth": 12
+  },
+  "triangles": 262280,
+  "caption": "Native 1 m leaf bodies plus explicit upper panels; 2.8 m opening height, 1.88 m measured open clearance. Source model preserved.",
+  "limitations": [
+    "Actual derived source and additive access meshes. CPU transparency is approximate; WebGL/browser acceptance remains pending.",
+    "Review cutaways/sections are presentation only; the shipped geometry remains complete.",
+    "Native source bear base colours, unscaled body and rig; projection-paint shader and gameplay are omitted.",
+    "Routes, tall leaf extensions, stair revisions and gallery bridges are game adaptations, not historical as-built claims."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "3c5a03f3dac85c4d3cf34c668f56befa81e4816ef17bcfbf4d8021fdd2085710",
+  "reviewedAt": "2026-10-29T22:58:39.128618+00:00",
+  "criteria": [
+    "Native bear and open composed paired leaves fit the original entry surround.",
+    "Fixed screen and former short header do not cross the2.8 m passage."
+  ]
+}

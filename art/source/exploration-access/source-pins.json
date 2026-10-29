@@ -1,0 +1,535 @@
+{
+  "baseCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+  "architectContractCommit": "d281ce91af27b32ffab4dc17390cf986f11ef881",
+  "architectContractPath": "docs/milestones/08-explorable-places.md",
+  "sources": [
+    {
+      "place": "new-york",
+      "commit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "factory": "createNewYorkStateBuildingTile"
+    },
+    {
+      "place": "administration",
+      "commit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "factory": "createAdministrationBuilding"
+    },
+    {
+      "place": "horticulture",
+      "commit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "factory": "createHorticulturalBuilding + createHorticultureTerrace"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/source/exposition-administration/.gitattributes",
+      "gitBlob": "33605d81179ecc8e161006e87d54e53a22408806",
+      "sha256": "c39bf8a912128e28b5393ac6ec5eaa6a96efc8dedb48c2794fdb4be54dec74dc"
+    },
+    {
+      "path": "art/source/exposition-administration/build-manifest.mjs",
+      "gitBlob": "55725f702ab241f12907a40da20f9c1f8b31b9c3",
+      "sha256": "9dc5e8fc75e42e262d2d3f48de5924f35ac117e8bdb61b136a748d5121725bf0"
+    },
+    {
+      "path": "art/source/exposition-administration/compare-source.py",
+      "gitBlob": "5b18306abfd3e08c22b1d9e579eb867b3945075c",
+      "sha256": "c6c31e0f62af0a1d2787af153729eed6748e65a85b456b2816949915b5d3cfbe"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/arnold-plate023.jpg",
+      "gitBlob": "fc7a9f53272550b4b333f9f2f350a05a3d5cd24c",
+      "sha256": "e80298ad3f1400434fee74ea292167daebf021ccb7e59ef7c54adc108b40cde9"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/arnold-plate025.jpg",
+      "gitBlob": "ed76b83b9b97131fd208b926b35aad1195648767",
+      "sha256": "1ecfb12cadffc42945336fb0b76a37b337391a2820990817cece7859744aa7e1"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/arnold-plate033.jpg",
+      "gitBlob": "f029e1211c4e0d0944e6f32305ffc48aa3bbe057",
+      "sha256": "83039ea173def37221bbd8d30f5af0551f751c6a4aedf957a7e4266e89efcaeb"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/flinn-scan049.jpg",
+      "gitBlob": "d3b5dd67b97778bf1990f77f8f94ee4c7b2083bc",
+      "sha256": "5230dcd355d4e4235d84c6e550f98a66c5338a8848c375943b5b8a68216e00ac"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/flinn-scan051.jpg",
+      "gitBlob": "e9a0e3289f9265046a2602c65147af6574eede08",
+      "sha256": "10d4d7c4bd6083b161bd77aed4921973db3c10c51b3bc101b6b0d94cd730f488"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-calibration.jpg",
+      "gitBlob": "e6616344bc8746529a8623ea7a6c6b516687194f",
+      "sha256": "a94c6d6ff6d4efe646cbcd1577f8dee321bba466f5dbeb352e8154cf9180c688"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-front-elevation.jpg",
+      "gitBlob": "b4a6ac96eac9d2a07c83a30d2196d7770d816b3b",
+      "sha256": "eab132e10e614b2912536d239b837dbbace2fe1255c38ec050bdbf8ca2380a82"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-front-half-plan.jpg",
+      "gitBlob": "cb2fdad3bbdfa5b13b6df0d8809a3aab8811c59c",
+      "sha256": "69b2c5bfac6a8af93dbd326ea539c6581482654d515ac4dcc53278e95fa47af5"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-library-jpeg.jpg",
+      "gitBlob": "d4456d5ffc0b77585ed37cb886cb45497eb03d5c",
+      "sha256": "bfb6cf49176c0a1c65ef1ad2cf9952253e41b2a60a9bec83aaabd7206565a8df"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-sheet-full.jpg",
+      "gitBlob": "73b89aada12f7f2e253ef785e9fd843a82e21bbf",
+      "sha256": "60ac7800249c2d0828d6f8745102c845e5730c5f07cb931165dcc1392bfac683"
+    },
+    {
+      "path": "art/source/exposition-administration/export-review.mjs",
+      "gitBlob": "6b32f84e5e63428f926ea6e655f664322187e3dc",
+      "sha256": "b7a896e5a4e18d83c8aca2c5caa31ae85c9f256a3eb7f4829698db5dfca269b9"
+    },
+    {
+      "path": "art/source/exposition-administration/measurements.json",
+      "gitBlob": "7cb0b46b0f9e67122fd527f09a34bbfaedff2e1a",
+      "sha256": "93a322473bb33f5a9a8231152aac986452a304cafa612c60eefb7e2cf0914268"
+    },
+    {
+      "path": "art/source/exposition-administration/prepare-evidence.py",
+      "gitBlob": "47cdced5abfbc3e93e1a766645983bdf12f12f63",
+      "sha256": "b43a1ed0af65386b2a0f3b75679a5013a8c9097907b56ee2d20ad18faec04355"
+    },
+    {
+      "path": "art/source/exposition-administration/preserved-and-engine.json",
+      "gitBlob": "b18e48b4c12499c1a6ea7eb25ec0234df3117a0a",
+      "sha256": "c8b9c2d56b21a32a3b20098b06c6571d6973a14a6c58730bbea867d170d7f18c"
+    },
+    {
+      "path": "art/source/exposition-administration/render-review.py",
+      "gitBlob": "3a80fb8f25707cd152682f8be437ce70747fb00b",
+      "sha256": "af15f519d47db83a1c710f6cbc6d2238d4783606cd052f5f62a9b21aa6d000b6"
+    },
+    {
+      "path": "art/source/exposition-administration/sources.json",
+      "gitBlob": "7aeb634c16ef43fe94ad3417e9e05cb7da3e497e",
+      "sha256": "7df52725b2d9480e4837d0588bda7af8e7fdf6964bb5113cafb69ef3ac79acb0"
+    },
+    {
+      "path": "art/source/exposition-horticulture/.gitattributes",
+      "gitBlob": "9931a78d36a06fc87834ea0aa509102b90f30363",
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6"
+    },
+    {
+      "path": "art/source/exposition-horticulture/build-manifest.mjs",
+      "gitBlob": "78ba43e3cd507536a25a1ca71c618b1da2e9e064",
+      "sha256": "a396d5f9067a2d0e5579b70e8280c918feae7a562504bf7272680f3d75212443"
+    },
+    {
+      "path": "art/source/exposition-horticulture/compose-review.py",
+      "gitBlob": "55483a727cdf48c1fce3a03a2a75bff9cacb6189",
+      "sha256": "d7cdb9f320aeab70ec3b50c154a93506aef3debec8db43c05878bba850340ee2"
+    },
+    {
+      "path": "art/source/exposition-horticulture/evidence/arnold-plate057.jpg",
+      "gitBlob": "1ccbed7c995f01ccc0b3756bfa7258a8fb2c1d06",
+      "sha256": "e5955b7ce687204dbe634b7b8b6d3b0f47b43f803db8a492b5e95d1ce8d49f36"
+    },
+    {
+      "path": "art/source/exposition-horticulture/evidence/conkey-calibration.jpg",
+      "gitBlob": "3f025dfdec73969fda77a03bd990c01a3619b3b8",
+      "sha256": "7a7834ff01c595be66aae32b5e49efb51157ec9535f408c258f20d84d7010883"
+    },
+    {
+      "path": "art/source/exposition-horticulture/evidence/conkey-plan-oriented.jpg",
+      "gitBlob": "38736522ee6bf99e782802a04e40c8414c952ff9",
+      "sha256": "e703544f00052280004eb8ffaf195a363b0e02b2730903cdd41b45b6274fb1de"
+    },
+    {
+      "path": "art/source/exposition-horticulture/evidence/conkey-scan029.jpg",
+      "gitBlob": "45fe08e69ae3b660c244e8088f2d84c8717a4a53",
+      "sha256": "164be032f61ee52b6e1e07a34837aea2e281e2e87d2493bf6d6b2e9507775512"
+    },
+    {
+      "path": "art/source/exposition-horticulture/export-review.mjs",
+      "gitBlob": "131f1ddb636d04471e1194d1535cc52707b425f0",
+      "sha256": "20224059e92ddee6e7a9579de90c6471200fba6b38d2c67b93559e6798b42eb5"
+    },
+    {
+      "path": "art/source/exposition-horticulture/finish-review.py",
+      "gitBlob": "95b1393768c313a22fb5d18bfa0252995fd00ccf",
+      "sha256": "6c3a6b9c8e18adf9707d67d7a9078b361ab63c3952af0d830cf69c27f7baafe8"
+    },
+    {
+      "path": "art/source/exposition-horticulture/measurements.json",
+      "gitBlob": "d5c5334645edcbc40ba715bab1881fa83e3d0a94",
+      "sha256": "b05484060982506576f193bacde217e4804329ec0ed4707b1672cc8ab837a213"
+    },
+    {
+      "path": "art/source/exposition-horticulture/prepare-evidence.py",
+      "gitBlob": "c7b8e1e01e7e569f5889dd7afd7175d08bca914c",
+      "sha256": "a49ee73cd16aa41ba987ef39b01bace4b175060d650b392dedc35e2a583044a2"
+    },
+    {
+      "path": "art/source/exposition-horticulture/preserved-and-engine.json",
+      "gitBlob": "53f3449b889ecf5b8a1277f6dca3862fa126659d",
+      "sha256": "b98669ea79f84af8e6a11745dceb265d0ca05dbd8e22d754810ca3b3a1558f9d"
+    },
+    {
+      "path": "art/source/exposition-horticulture/render-review.py",
+      "gitBlob": "584b2bb385b110272f9e9e498be487d353532f47",
+      "sha256": "2fe6fd718da08c85d8e30a49c966891f49db3c545122a75139a9e42317c6a44f"
+    },
+    {
+      "path": "art/source/exposition-horticulture/sources.json",
+      "gitBlob": "b7ee2116a7724ec4ff5b62d122573a5aa14a6ffa",
+      "sha256": "03a9caea4710b75422ed35961b83a6b5acd3e8ab2658880d50b1653128011a67"
+    },
+    {
+      "path": "art/source/exposition-new-york-tile/.gitattributes",
+      "gitBlob": "d99d986d06f25d39f3af5b04afc2665e01333861",
+      "sha256": "d41b40693d5504f6fdbcc9943c1329e4b791207064e8e2ad76835a28894316c0"
+    },
+    {
+      "path": "art/source/exposition-new-york-tile/build-manifest.mjs",
+      "gitBlob": "e80fa3a24487b3d077c4dee87f20a51990da0007",
+      "sha256": "c187117cb82a9a4c2bc1048123f47f0d47a0a44f36ab826e135ccb1800a96e04"
+    },
+    {
+      "path": "art/source/exposition-new-york-tile/compare-grid.py",
+      "gitBlob": "9fff23f89c16eafd9bbbb2e37b3b9f6d687dbc80",
+      "sha256": "6d8d7470b13462a2ed6a59b4277e5064df0df734354106c6d2bdaefefb97a57b"
+    },
+    {
+      "path": "art/source/exposition-new-york-tile/derivation.json",
+      "gitBlob": "2f6f3c356a1f3835be517786e35bba38eca8bde0",
+      "sha256": "3a90644a8bb963a99cb2b10eb91904c5ad9155eb33eb4bae248ffe2e2b95177d"
+    },
+    {
+      "path": "art/source/exposition-new-york-tile/export-review.mjs",
+      "gitBlob": "810225a1df8e6d4bfecc2b4ddde6a434122d8953",
+      "sha256": "4a3806575f0965b9a450988933a700a802de3f0031e80d7fc00966e827f2b90b"
+    },
+    {
+      "path": "art/source/exposition-new-york-tile/preserved-original.json",
+      "gitBlob": "5429420a52d80dca110dab3877952f9efdc85ee1",
+      "sha256": "bd06125f1b1a0f5cfc1b29941f1df0e9aa74eb0cb0bad9501211f790ea293dc9"
+    },
+    {
+      "path": "art/source/exposition-new-york-tile/render-review.py",
+      "gitBlob": "698993b0eaaf6b3889941c2c4019c177dc57872e",
+      "sha256": "4ca45523fce24798581fb791bd40138fd8e140896b2c583ab022f0d2836ce325"
+    },
+    {
+      "path": "art/source/exposition-new-york/.gitattributes",
+      "gitBlob": "8e47d72319bc0a07445b2d7f3e04beb80781e548",
+      "sha256": "b76780d71f60cc7a316f630fa57158b8bef9ef2ee1e76517aefa55d96f96d2ae"
+    },
+    {
+      "path": "art/source/exposition-new-york/README.md",
+      "gitBlob": "eca566425e2b62deb9f65dd6ec1df8039611a2d2",
+      "sha256": "f501f4f483cd8249678da6d36f28c01fb7bb79107e3b1ffce5f43b6f3b379c35"
+    },
+    {
+      "path": "art/source/exposition-new-york/annotated-calibration.jpg",
+      "gitBlob": "4ef61ea2993b46ae55afbe2b322a37d106630476",
+      "sha256": "c1b7c05e121018669b5e394e5c05eca59ed5e8a7d757dd28c5da9d8ac902fddd"
+    },
+    {
+      "path": "art/source/exposition-new-york/build-manifest.mjs",
+      "gitBlob": "688de0e098f03194f062aca55105cc98a6dedade",
+      "sha256": "a732d311e6eddc2e6b123b6a9d55a6085e9e4949b220a40793687b741ad42e51"
+    },
+    {
+      "path": "art/source/exposition-new-york/compare-source.py",
+      "gitBlob": "199a6ecbfd7b6558ffbd869ff1bdb094db42ccf7",
+      "sha256": "737f7a11df8ff1bf91e3e1a561f75f100723bde6c0299c9b96ffe14f6e3b114e"
+    },
+    {
+      "path": "art/source/exposition-new-york/export-review.mjs",
+      "gitBlob": "c4fc537884669336ab88154dbfc8789eaa3204a5",
+      "sha256": "24e9bf289532340c0ee390deacc9949d56af3909ded04ad42c189ded64912457"
+    },
+    {
+      "path": "art/source/exposition-new-york/measurements.json",
+      "gitBlob": "eeb183608661c328f29e65021ceb880cfa7a5a9d",
+      "sha256": "ce20d4ea40e7173248a8bcc6cf4225ca8c0279bab25f0c7df122ed1bc442082c"
+    },
+    {
+      "path": "art/source/exposition-new-york/plate-43-built.jpg",
+      "gitBlob": "b1db81782d5cb0a732ab0efa698b4ef2654d80aa",
+      "sha256": "0f0aebe71871851b5370326b633184d11abb901987873a01c4471505244fe868"
+    },
+    {
+      "path": "art/source/exposition-new-york/plate-44.jpg",
+      "gitBlob": "8b8c9f759f835f65474dd3623fe6cebc0ea6ebd1",
+      "sha256": "cdff2e1af3a1afb5a2b0028ea419e52bd5d0c09480d8d8b257840636089d6972"
+    },
+    {
+      "path": "art/source/exposition-new-york/porch-column-source.jpg",
+      "gitBlob": "ba327cc61ac68be13ffa3a6b6613f86bc1991b3d",
+      "sha256": "de6a9fedaba16fc63c6b26590e6e0044479e1db26e5c6ab8b95c0993f9aafa40"
+    },
+    {
+      "path": "art/source/exposition-new-york/prepare-evidence.py",
+      "gitBlob": "18408d5efcfc44e9f352701dddd4c22d2abcafa8",
+      "sha256": "f74aba67c9451584d37993493bc571c06da44470eb301f762a0ac7e400f1daa8"
+    },
+    {
+      "path": "art/source/exposition-new-york/raw/plate-43.jp2",
+      "gitBlob": "cfdae91cdce1f71930812d2f338638a8ce652599",
+      "sha256": "06680e0795a55afb54f3fa10bbbafda1aefd084c474ca2d0e763e213e352d31b"
+    },
+    {
+      "path": "art/source/exposition-new-york/raw/plate-44.jp2",
+      "gitBlob": "99d36450f1e818e88cc655eecc66510086041022",
+      "sha256": "5ccafac6721cdd090e701a7bf1b264ee70ddf1f965bb2d4454953422ea0fe8c0"
+    },
+    {
+      "path": "art/source/exposition-new-york/render-review.py",
+      "gitBlob": "1c11bd486ad330afac997bc336ffda1bdeeafa8a",
+      "sha256": "fccf470a019e2679ddea102a93a665380f1efdfdc4cf37c352965114c970d98d"
+    },
+    {
+      "path": "art/source/exposition-new-york/source-elevation.jpg",
+      "gitBlob": "00119ec33b74e9551b3ba7d767994af676ac8597",
+      "sha256": "64677a8b940ffa5d5c636953f58cdb41ae0309eefb3614e158000d7fdf384c9e"
+    },
+    {
+      "path": "art/source/exposition-new-york/source-plan.jpg",
+      "gitBlob": "22a2a06009feed06d43f381d6a873d31f5ad192c",
+      "sha256": "95f23614433d08d0288061c18eebd4ae709dcfbed575aa89fd11d9148f34cedf"
+    },
+    {
+      "path": "art/source/exposition-new-york/sources.json",
+      "gitBlob": "5f82578af0081e45ed4146b36081fed64c00e9d6",
+      "sha256": "07e3820fc94515d59cac5f94ee4122c291599cda20a54bf11f32423fbeb66450"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/.gitattributes",
+      "gitBlob": "9931a78d36a06fc87834ea0aa509102b90f30363",
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/build-manifest.mjs",
+      "gitBlob": "b56ca111a685371a1a1cccb5dbfbb26a14364419",
+      "sha256": "fa1c5f8bde15ff71b62bf7f88c4d3f72074c338e10a20e611ab29c33c7abe63f"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/compose-review.py",
+      "gitBlob": "08b26082671308d575615ea41474c05fbaf35b99",
+      "sha256": "bbbc3c8e49cb66d4eaea5e2c6a2c3efecb07d6cb6ec6b5381ec7eb660625053b"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/evidence/arnold-plate043.jpg",
+      "gitBlob": "dc4be42c584f0c1d03eb2ed6a61894278551ea42",
+      "sha256": "95f4c5b96691060062af6c60b04c7e9faebca6893d5178f58a78e7ac8f247977"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/evidence/waterfront-detail.jpg",
+      "gitBlob": "88bb8c37a89a03b2c7cd8125b80f18238a4c2ada",
+      "sha256": "f4924687cbf7f18f79123607dc3896229414b250a95c83d4d3d783988dca6d2a"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/export-review.mjs",
+      "gitBlob": "3b2b444bc8344a17255098ebcd29370b6da36033",
+      "sha256": "85db9df4cc24be8c53ba569ab4008e3c085da14a9083c794827201e1b8954fe3"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/prepare-evidence.py",
+      "gitBlob": "fcc551390507b778d5a2567b8003c05ffb65bfed",
+      "sha256": "a23d5880b789b9380c48aa4ced708f368ccd1c1714548dacb6976cd8ae6db8a9"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/preserved.json",
+      "gitBlob": "f9bdd62f64128ec53929b302ed1172305d0643bb",
+      "sha256": "9434489fc520e2ed4ad3704d3a71fb284616964044abd7ffe395486203456c91"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/render-review.py",
+      "gitBlob": "d56ceeb4d34919a59cdb678be5d936f6586e8ca7",
+      "sha256": "b935f3eacf93db2ab430add854441013f8bf2f798f3ceeb97add7115dd90b6b1"
+    },
+    {
+      "path": "art/source/horticulture-waterfront/sources.json",
+      "gitBlob": "395e15857c8519993fbe89801eaa914eacdc6df9",
+      "sha256": "bce4f5d92fd0a51bf73a79916d52db7c69ee63aad89b5d45c7d747435581e2c2"
+    },
+    {
+      "path": "assets/art/exposition-administration/.gitattributes",
+      "gitBlob": "33605d81179ecc8e161006e87d54e53a22408806",
+      "sha256": "c39bf8a912128e28b5393ac6ec5eaa6a96efc8dedb48c2794fdb4be54dec74dc"
+    },
+    {
+      "path": "assets/art/exposition-administration/engine.js",
+      "gitBlob": "357e626ccaab4df4c03f931f600138ed73b24581",
+      "sha256": "9ec987a5acf5b580f89f7a4722ead5a3fa2930ab647e45ce71517142146b5743"
+    },
+    {
+      "path": "assets/art/exposition-administration/floors.js",
+      "gitBlob": "7a231f97813be460e0cff83124927dddcd1c1a25",
+      "sha256": "4f6a61e0e559a3ae875cd3612cbffa9a8c7a56170ac602560a579a51dfa28ee5"
+    },
+    {
+      "path": "assets/art/exposition-administration/index.js",
+      "gitBlob": "5f365f963c34b5b8af81ac22d60c8b11533cb6bf",
+      "sha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a"
+    },
+    {
+      "path": "assets/art/exposition-administration/manifest.json",
+      "gitBlob": "7c731789b68d39cdc356703c4c69053ee324cf59",
+      "sha256": "8a72abd6a718dde2bae28f59c905b14058d5d12e77b906d7b46c34bfac87cd51"
+    },
+    {
+      "path": "assets/art/exposition-administration/metadata.json",
+      "gitBlob": "8b5cfa72c8497aaf4ccf70a9cc88ee5fe7c8ac34",
+      "sha256": "8b90bc1725f3a949b2174871770e54ea0c660afc355d7592c55732cd63644cd7"
+    },
+    {
+      "path": "assets/art/exposition-administration/nautilus-assembly.json",
+      "gitBlob": "4476ec83a28fb107350acdd0d85c71aa626dc6aa",
+      "sha256": "293049e01f59ce50c6821c6df743b1b0db8fbff8cf8d3f0044fcea8a1ec37ec0"
+    },
+    {
+      "path": "assets/art/exposition-administration/plan.js",
+      "gitBlob": "d4a9dd673abf1be6adb5911d37646938ea0984f8",
+      "sha256": "363b1fb4396cb549df1d4ce9b09325bd3c405db05b09df239e4794476ec04cac"
+    },
+    {
+      "path": "assets/art/exposition-administration/stairs.js",
+      "gitBlob": "76a41fbd0f539b8dd897ab44c2ca07cdab223a4f",
+      "sha256": "0c816cd152b814a0c3bfb453e6f42102e9331f084f8504e848b47dcb3915f707"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/.gitattributes",
+      "gitBlob": "9931a78d36a06fc87834ea0aa509102b90f30363",
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/engine.js",
+      "gitBlob": "b70e14f02735d6b197da9ea942f3c7374cbea97a",
+      "sha256": "f9824878e0484622fa902c7b729a23d7ab3cc3c69082f8879499037dba60e958"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/floors.js",
+      "gitBlob": "e7b93fda7809f3e9147334b21d663ce87cc9bde6",
+      "sha256": "ec491447d9f387dcbf4fd62cc3993af4fd19292f27936a2b7932ca6277ae8598"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/index.js",
+      "gitBlob": "13a4f8d1e16314e656a807ae05bdd4756ccbdf60",
+      "sha256": "49ccfada5562819a6fa9eb0d5aa250a32a45b6559588614b1388bfe380e52ac2"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/manifest.json",
+      "gitBlob": "fb879e7cf1200ac2d972a00d3f3e30704afdd56c",
+      "sha256": "a59fec79ee5ed63675032f0b899bc26f6e90f02e5dbc8d1a685ac3e82e9f67ef"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/metadata.json",
+      "gitBlob": "927d09162244208c415a42b94b35e18e77fec85d",
+      "sha256": "a319e905c511fad8c1965359a4ee9f523c15f0bb015a3ac07f9ceb0ea186f469"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/nautilus-assembly.json",
+      "gitBlob": "86eb1b179ec85fffa0aa29ccd932a64750d583b6",
+      "sha256": "d5115d2924e855f224445ad0976a94499861fcba0b2bd9e37528240309f1069e"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/plan.js",
+      "gitBlob": "491f866088d472ac6cd81b323f25be7e484acbdf",
+      "sha256": "656f6aed5dce93a4a2b7dc970f4c3510d698d36d95b8d326f5c396dd5468dbe0"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/terrace-assembly.json",
+      "gitBlob": "a49a02ed27d160065d1774e657fd06f5e151b994",
+      "sha256": "0f0ac024f31f228b84d13473e1f8c24df49d070edebf1d98dbc5d7487c95642f"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/terrace.js",
+      "gitBlob": "3bd60c0064235d1b05c5dd1194d3c78f401d40ec",
+      "sha256": "fcf2d20786bc49d6603246b22aa21bedfa56110031959bff48347538ea480fb4"
+    },
+    {
+      "path": "assets/art/exposition-new-york-tile/.gitattributes",
+      "gitBlob": "c6bb200804b8bf3a24c6fc33a9eff07e8ca8ae5d",
+      "sha256": "99cfa011746962f1711ef13fc955a1debaa0f81dc832ad6bf65f1c45baa2ba68"
+    },
+    {
+      "path": "assets/art/exposition-new-york-tile/index.js",
+      "gitBlob": "806daf1bcc41d661d1ddae2ef95e5620db15f028",
+      "sha256": "a9a04accd2d3fb38320d4e5f30fbb8f99e5c6bdc115d4de208ae2c239ec82eae"
+    },
+    {
+      "path": "assets/art/exposition-new-york-tile/manifest.json",
+      "gitBlob": "604362163d57da772dc620c5d0621083d3f40fb0",
+      "sha256": "99e6529c415c2ddaaf946b7109b4d7afcc0028a093890b3944633bfdcd5eb3db"
+    },
+    {
+      "path": "assets/art/exposition-new-york-tile/metadata.json",
+      "gitBlob": "4aff9d257b7045bec248b9b3b53e9074caa51144",
+      "sha256": "35be3d5b9638aa4df513e8aade12f4d1588da9b40e5bf58db80081445534d8ab"
+    },
+    {
+      "path": "assets/art/exposition-new-york-tile/plan.js",
+      "gitBlob": "76fd982431503bb1ea99d904e64c24921b6a4578",
+      "sha256": "9ab69d9a4b029ca40c1d19d9c35324cc89fe45598fc51de25eeefcdea5138cbd"
+    },
+    {
+      "path": "assets/art/exposition-new-york/.gitattributes",
+      "gitBlob": "e263788e492fa62f76105d3ba509078ea2463df6",
+      "sha256": "085cd40db5867dfe2d2178858b0bfd5d440dc2ed8816988e28e40efafe7c5879"
+    },
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "gitBlob": "a4589d2a783ec2b53f04f8d54d18c7797596f0cd",
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "assets/art/exposition-new-york/index.js",
+      "gitBlob": "d81f980fc5fd30cccf81661d4f5a93b7bfe0d0e6",
+      "sha256": "b232d6b284e53ddd9fafefd739b7e86c6bcae8ce91ecf3101bccf821ac81c6c3"
+    },
+    {
+      "path": "assets/art/exposition-new-york/manifest.json",
+      "gitBlob": "3529d451f73cc36c46d269a26fcf629ca9cfcce3",
+      "sha256": "d19dc1d39e62cbc9a599a01945e8e6bc21fc8b5ba61910302355cd57dd8dda2d"
+    },
+    {
+      "path": "assets/art/exposition-new-york/metadata.json",
+      "gitBlob": "a6fc9f1b7e071550436aea70ae18f8544f01b445",
+      "sha256": "bf14626da647cf460e672bd0e7feae5c412c0d2552801c2152cf3d168b0c0d51"
+    },
+    {
+      "path": "assets/art/exposition-new-york/native-contract.js",
+      "gitBlob": "115fd760d97a076b53a2f28edba84b65bd4b3922",
+      "sha256": "80ab2a77fddbfe2a311501cfb06bb689b9618a16004d96231f7dd346e84d12e4"
+    },
+    {
+      "path": "assets/art/horticulture-waterfront/.gitattributes",
+      "gitBlob": "9931a78d36a06fc87834ea0aa509102b90f30363",
+      "sha256": "54a3caca88287751492e0e1cf425d58a095df5cec1599e58528136c1448634d6"
+    },
+    {
+      "path": "assets/art/horticulture-waterfront/index.js",
+      "gitBlob": "f34ade15e69c73ce65e309923d4a81259fe186b7",
+      "sha256": "34ca5dfced13cd6cdcf0259a53a35030fb3a2e924df21c5ad201e6e252b012f6"
+    },
+    {
+      "path": "assets/art/horticulture-waterfront/kit.json",
+      "gitBlob": "fe124daa2335e3e7b91d1c3f594ce70f00cde07f",
+      "sha256": "472604b68c2e561d0d2b23b0822769c128bf44d8780a5d3fb56510ba79af1199"
+    },
+    {
+      "path": "assets/art/horticulture-waterfront/manifest.json",
+      "gitBlob": "56bd1479a2a29d11f6ccfc4a371354fe4a74ec74",
+      "sha256": "051a2dcb6e6a655073455b021b9b87ba1100e217a67449c068e5bc7517c8f323"
+    }
+  ],
+  "preservedCandidates": {
+    "fisheries": "f75499a3ef60d6446a3885d0eb5c21882f27466b",
+    "warmHorticulture": "a019fcf7254cebe24002441d7c7fdf77d6fc9812"
+  },
+  "newDonorImports": [],
+  "historicalClaim": "All access changes are game adaptations of already documented assets. Original source/rights registers remain authoritative."
+}
