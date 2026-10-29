@@ -25,15 +25,15 @@
   "caption": "Review cutaway: roofs and walls above level3 hidden. Floors at 2.12 m and 6.36 m; open gallery wells and palm hall.",
   "limitations": [
     "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
-    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Source photograph is monochrome and period text supports cream staff. Current peach finishes and soda-green glazing follow the user art direction; exact historic colours remain unverified.",
     "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
     "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
     "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
   ],
   "renderer": "Mitsuba 3.9.1 scalar_rgb",
   "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
-  "sha256": "8f6eae70a452fd35268115b564a34b94ece4b4ecc90ef12123ad95035c239588",
-  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "sha256": "61c33a8da714191a25ff442f620a56199fdf3b6fb06c249ed40278af2e5c566e",
+  "reviewedAt": "2026-10-29T18:11:00.056670+00:00",
   "criteria": [
     "Review-only roof/high-wall removal exposes the gallery voids, central stair and palm hall.",
     "No upper full floor seals the central vertical axis; first and upper floors use native levels."

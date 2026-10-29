@@ -8,8 +8,8 @@ Artist candidate on `codex/horticultural-building-art`, from `c6ddd51d7dd47a2ec1
 | --- | --- |
 | `python art/source/exposition-horticulture/prepare-evidence.py` | Public-domain evidence, raw/derived hashes, explicit measurements and 165 preserved prior-delivery files recorded |
 | `node art/source/exposition-horticulture/build-manifest.mjs` | Runtime closure and metadata hashed; 6,076 actual Nautilus panels in validated wall fragments |
-| `node tools/check.mjs` | 91 own scripts pass syntax, 131 static modules resolve, 85 tests pass; shared renderer/provenance checks pass |
-| `node tools/build.mjs` | 161 packaged files, 45,502,044 bytes; relative resource paths; research/preview sources excluded |
+| `node tools/check.mjs` | 91 own scripts pass syntax, 132 static modules resolve, 85 tests pass; shared renderer/provenance checks pass |
+| `node tools/build.mjs` | 162 packaged files; relative resource paths; research/preview sources excluded |
 | `node workbenches/art/check-exposition-horticulture.mjs --package` | Pass: dimensions, topology, native buffer identity, openings, eave closures, floor/landing rays, all four poses, ownership and nested-path package |
 | Actual-mesh export and Mitsuba scalar render | Seven final building views rendered at 32 samples per pixel |
 | Source-plan comparison / height audit | Two additional JPGs reviewed |
@@ -25,7 +25,7 @@ The assembled terrace preserves the original shoreline recipes. Its 10,404 nativ
 
 Nine final JPGs have individual SHA-256/review receipts in [previews](previews/). Reviewed views are the full waterfront exterior, central pavilion, rear, roof plan, structural interior cutaway, gallery stair, native bear/entry/water stair, period plan comparison and native height audit. See the [gallery](README.md) and [handoff](handoff.md).
 
-The complete building has a glazed great dome and lantern, twin low ribbed front caps, cream arcades and floral friezes. The long galleries, open courts and end roofs remain legible at whole-building scale; detail views retain native bear/door proportions. The upper end-pavilion wall bands and cornices meet their taller roof eaves. The open ground-level side in the gallery cutaway is the connection to the front curtain, revealed by review-only roof/high-wall removal.
+The complete building has a glazed great dome and lantern, twin low ribbed front caps, peach arcades, ivory details and floral friezes. The long galleries, open courts and end roofs remain legible at whole-building scale; detail views retain native bear/door proportions. The upper end-pavilion wall bands and cornices meet their taller roof eaves. The open ground-level side in the gallery cutaway is the connection to the front curtain, revealed by review-only roof/high-wall removal.
 
 CPU glass uses null/diffuse alpha blending to approximate the actual default Three material. The render proves the submitted geometry's stated appearance only. It does not establish WebGL shader compilation, alpha sorting, interactive performance, navigation or game-scale acceptance. The inherited workflow records disabled WebGL in the available review browser; no real browser acceptance or production promotion is claimed here.
 
@@ -38,3 +38,9 @@ Unknown rear profiles, concealed services, exact exhibits, material physics, fin
 Changed paths are confined to `assets/art/exposition-horticulture/`, `art/source/exposition-horticulture/`, `docs/art/exposition-horticulture/` and the focused art workbench. The production game/editor is not wired to this whole-building asset. Provider registration, placement, multilevel fire, collision/traversal, GPU review and performance/LOD decisions remain with the architect/coder contract.
 
 Temporary render/package helpers have durable source and restart instructions in the [handoff](handoff.md). Exact PID/creation receipts and released-port checks are under ignored `artifacts/exposition-horticulture/`. No service is retained; no unrelated process was stopped.
+
+## Soda-green / warm peach palette revision
+
+The user requested greener soda glass and peach warmth like waning sunlight. The building now defaults to palette `soda-green-waning-sun-v1`; its assembled terrace uses matching warm materials. The palette changes actual material colours. All seven mesh views use the original camera/light setup. Historical source records retain the original cream-staff statement; current colours are an explicit art adaptation.
+
+A direct comparison against `c4287338ff93907900a94a86b6c7e3bed0ae7c2f` verifies identical building and terrace mesh buffers, indices, instance transforms, bounds and structural recipes. Consumer material overrides remain borrowed/cloned and survive later texture-only updates; default terrace colours also survive texture-only updates. No new geometry or gameplay behavior is introduced. Final commands/metrics remain recorded in `check-results.json`; package and helper receipts remain ignored locally.

@@ -1,10 +1,12 @@
+import {HORTICULTURE_PALETTE,HORTICULTURE_PALETTE_ID} from './palette.js';
+export {HORTICULTURE_PALETTE,HORTICULTURE_PALETTE_ID};
 import {createForms} from '../exposition-new-york/forms.js';
 import {PLAN,ROTUNDA,SMALL_PAVILIONS} from './plan.js';
 import {PROFILE as S,levelY,compileNautilusStructure,ENGINE_PIN} from './engine.js';
 import {compileFloor} from './floors.js';
 export {PLAN} from './plan.js';
 export const APPEARANCE_SLOTS=Object.freeze(['facade','trim','glazing','frame','roof','cupola','door','floor','foliage','trunk','soil','water','fruit']);
-const DEFAULTS={facade:0xe2d8bd,trim:0xeee5cc,glazing:0x92b9b2,frame:0xb2bdac,roof:0x707d77,cupola:0x5e7068,door:0x795a3d,floor:0xc0af8e,foliage:0x4a7448,trunk:0x705339,soil:0x695740,water:0x5c9690,fruit:0xca8b38};
+const DEFAULTS=HORTICULTURE_PALETTE;
 const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 export function createHorticulturalBuilding(T,{materials={},textures={},quarterTurns=0,position=[0,0,0],includePlanting=true}={}){
  if(!Number.isInteger(quarterTurns)||quarterTurns<0||quarterTurns>3)throw Error('quarterTurns must be0..3');
@@ -170,7 +172,7 @@ export function createHorticulturalBuilding(T,{materials={},textures={},quarterT
     const id=floor.id+'/boundary-assembly',mesh=new T.Mesh(geometry,slots[floor.slot]);mesh.name=id;mesh.userData={componentId:id,appearanceSlot:floor.slot,form:'boundary-slab-assembly',role:'floor',floorId:floor.id,level:floor.level,parts:ranges};root.add(mesh);f.meshes.push(mesh);f.components.push(id);f.geometries.set(id,geometry);mergedBoundaryParts+=parts.length;boundaryAssemblies++;
   }
  root.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(root),assembly=f.finalize(root);for(const mesh of f.meshes)if(mesh.userData.appearanceSlot==='glazing')mesh.castShadow=false;
- const metadata=freeze({assetId:'exposition-horticulture-1893',version:1,units:'metres',nativeContract:S,plan:PLAN,localBounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},appearanceSlots:APPEARANCE_SLOTS,
+ const metadata=freeze({assetId:'exposition-horticulture-1893',version:1,units:'metres',nativeContract:S,plan:PLAN,localBounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},appearanceSlots:APPEARANCE_SLOTS,palette:{id: HORTICULTURE_PALETTE_ID,swatches: HORTICULTURE_PALETTE,interpretation:"User-directed soda-green glazing and warm sunset-peach finishes; historical cream staff remains documented separately."},
   nautilus:{enginePin:ENGINE_PIN,compiler:compiled.compiler,panels:compiled.panels.length,tiers:compiled.tiers,materialToken:compiled.materialToken},structuralPieces,seamPieces,floorTiles,floors:floorMeshes,stairs,domes,plants,passages,physicalMaterial:{structure:'unassigned',finish:'unassigned'},sourceIds:['HORT-CONKEY-1893','HORT-ARNOLD-1893','HORT-WALKER-1893'],
   interiors:'Native first floor, two court gardens, pavilion galleries with open wells, central gallery ring, three straight stairs and interpretive palm/fern/orange planting. No exact exhibit layout, concealed service-room plan or navigation acceptance.',
   integration:'Whole-building native art assembly for later Nautilus/Tinderbox provider intake. Not registered in the fixed catalogue or production world; simulation, collision, fire and traversal remain consumer-owned.',

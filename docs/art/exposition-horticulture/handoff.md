@@ -22,7 +22,7 @@ The generator calls unchanged Nautilus `wallPanels`, `measureWallRun` and `wallR
 
 The crown is a height marker, **not 16 occupied storeys**. Tall rooms contain empty intermediate levels. No full floor seals the central vertical axis above L1. The front foyer roofs do extend over their own hall volumes near the rotunda perimeter. Two stair locations follow the diagram's end-pavilion arrangement; the rear central stair, straight flights, upper gallery wells and ring dimensions are explicit access adaptations.
 
-The asset's `.16 m` physical wall thickness is retained. Cream staff is a visual finish; the authoring `concrete` enum only validates the wall fragment. Structure, finish physics, fuel, collision and fire remain unassigned.
+The asset's `.16 m` physical wall thickness is retained. Staff colour is a visual finish; the authoring `concrete` enum only validates the wall fragment. Structure, finish physics, fuel, collision and fire remain unassigned.
 
 ## Source evidence and uncertainty
 
@@ -36,7 +36,22 @@ Arnold/Higinbotham's 1893 plate 43 establishes the dome, lantern, glazed galleri
 
 E. R. Walker's 1893 front photograph (Chicago archive `apf3-00081`) was inspected to check the paired cupolas, arch and frieze. Its commercial reproduction terms are unresolved; **none of those image pixels are redistributed**. The raw cached research image stays ignored. The public Arnold source independently supports the major visible forms.
 
-Rear/end roof profiles, hidden foyer joins, exact upper subdivisions, individual sculpture, service rooms and historic exhibit placement remain incomplete evidence. End hips, repeated arch rhythm, floral bosses/swags, planting arrangement, cafe furniture, roof/glass/frame hues, railing rhythm and the central water stair are simplified art choices. Cream staff alone has period colour support. No complete as-built reconstruction is claimed.
+Rear/end roof profiles, hidden foyer joins, exact upper subdivisions, individual sculpture, service rooms and historic exhibit placement remain incomplete evidence. End hips, repeated arch rhythm, floral bosses/swags, planting arrangement, cafe furniture, roof/glass/frame hues, railing rhythm and the central water stair are simplified art choices. Cream staff alone has period colour support. The current peach/soda-green finish follows the later user art direction recorded below. No complete as-built reconstruction is claimed.
+
+## Warm colour revision
+
+The user requested warmer colour, greener glass like soda glass, and a peach tone like waning sunlight. Palette `soda-green-waning-sun-v1` now supplies the default building and assembled terrace materials through `assets/art/exposition-horticulture/palette.js`.
+
+| Slot / group | sRGB colour |
+| --- | --- |
+| Soda-green glazing | `#69b88a` |
+| Peach plaster | `#ebc1a5` |
+| Warm ivory trim | `#ffe4c6` |
+| Muted green cupolas | `#52765e` |
+| Terrace paving | `#d6b38f` |
+| Terrace coping / ornament | `#f9dcba` |
+
+These are user-directed game colours, separate from the period cream-staff evidence. The [palette preservation audit](palette-review.json) records direct geometry/structure digest comparisons with the original frozen commit. Building and terrace geometry, native units, openings, anchors, glass opacity and floor heights are preserved. Review lighting/cameras are the same as the original delivery. The original standalone shoreline recipes retain their original defaults; the companion assembly tints only its owned material instances and respects consumer material overrides, including after a texture swap. This palette file can be reused by later Nautilus art.
 
 ## Factory and ownership contract
 

@@ -4,6 +4,8 @@ Native Nautilus art candidate on `codex/horticultural-building-art`, built from 
 
 ![Horticultural Building and waterfront](previews/waterfront-exterior.jpg)
 
+The current palette pairs soda-green glass with sunset-peach plaster, warm ivory details and a matching terrace. These are the user’s art-directed colours.
+
 The building has a great glass dome and lantern, twin ribbed front cupolas, long glazed galleries, two planted courts, pavilion galleries and three stairs. Its companion terrace uses the unchanged shoreline recipes. Ordinary walls, doors and floor slabs preserve native geometry; the dome, curved ornament, boundary cuts and stairs are explicit custom forms.
 
 - [Central pavilion](previews/central-pavilion.jpg), [rear exterior](previews/rear-exterior.jpg), [roof plan](previews/roof-plan.jpg).

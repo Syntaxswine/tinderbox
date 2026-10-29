@@ -9,8 +9,8 @@
   "runtimeFiles": [
     {
       "path": "assets/art/exposition-horticulture/index.js",
-      "bytes": 26733,
-      "sha256": "49ccfada5562819a6fa9eb0d5aa250a32a45b6559588614b1388bfe380e52ac2"
+      "bytes": 26890,
+      "sha256": "b65b759fa513b6fa3e78f55fd56591e9aa18bf2d9303db977897b0116ed75336"
     },
     {
       "path": "assets/art/exposition-horticulture/engine.js",
@@ -29,13 +29,18 @@
     },
     {
       "path": "assets/art/exposition-horticulture/terrace.js",
-      "bytes": 6955,
-      "sha256": "fcf2d20786bc49d6603246b22aa21bedfa56110031959bff48347538ea480fb4"
+      "bytes": 7589,
+      "sha256": "5d062f50372d1cf3d22c78f44420333a7aac2b864d434a00759eda744fcc6e5c"
+    },
+    {
+      "path": "assets/art/exposition-horticulture/palette.js",
+      "bytes": 624,
+      "sha256": "f2d2df4b0f772c2512d654873ecdf31e040f174357ced5071d0c51fc02b29b2d"
     },
     {
       "path": "assets/art/exposition-horticulture/metadata.json",
-      "bytes": 182513,
-      "sha256": "a319e905c511fad8c1965359a4ee9f523c15f0bb015a3ac07f9ceb0ea186f469"
+      "bytes": 183058,
+      "sha256": "6ea2e632fb8c671316da30773500289bc5a29832d3db2a062dce7a5c57c63e0b"
     },
     {
       "path": "assets/art/exposition-horticulture/nautilus-assembly.json",
@@ -44,8 +49,8 @@
     },
     {
       "path": "assets/art/exposition-horticulture/terrace-assembly.json",
-      "bytes": 1570213,
-      "sha256": "0f0ac024f31f228b84d13473e1f8c24df49d070edebf1d98dbc5d7487c95642f"
+      "bytes": 1570443,
+      "sha256": "9d06639b116e682f1beff21259b50e1204d4fb10996dca8335b34ea615bd9388"
     }
   ],
   "dependencies": [
@@ -237,6 +242,25 @@
     "water",
     "fruit"
   ],
+  "palette": {
+    "id": "soda-green-waning-sun-v1",
+    "swatches": {
+      "facade": 15450533,
+      "trim": 16770246,
+      "glazing": 6928522,
+      "frame": 11054986,
+      "roof": 8094825,
+      "cupola": 5404254,
+      "door": 10184005,
+      "floor": 13873548,
+      "foliage": 4879432,
+      "trunk": 7361337,
+      "soil": 6903616,
+      "water": 7446409,
+      "fruit": 13273912
+    },
+    "interpretation": "User-directed soda-green glazing and warm sunset-peach finishes; historical cream staff remains documented separately."
+  },
   "ownership": {
     "owned": "Generated geometry, cloned/default material adapters and instancing allocations. Dispose once using returned idempotent dispose().",
     "borrowed": "Host Three namespace, input materials and all input maps/textures; input materials cloned, originals and texture transforms remain unchanged."
