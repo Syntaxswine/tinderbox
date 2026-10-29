@@ -1,5 +1,5 @@
-import {mountUI} from '../../src/ui/index.js';
-import {fixture,createFakeSnapshotAdapter} from '../../workbenches/ui/fixtures.js';
+import {mountUI,mountMainMenu,mountTitleScreen} from '../../src/ui/index.js';
+import {fixture,createFakeSnapshotAdapter,PLACE_FIXTURES,CHARACTER_FIXTURES,explorationFixture} from '../../workbenches/ui/fixtures.js';
 import {createSimulation} from '../../src/simulation/index.js';
 const host=document.querySelector('#fixture-root'),results=[];
 const equal=(a,b,message='Values differ')=>{if(JSON.stringify(a)!==JSON.stringify(b))throw Error(message+': '+JSON.stringify(a)+' != '+JSON.stringify(b));};
@@ -209,6 +209,240 @@ await check('Torch discrete keypress and cancellation preserve the existing raw 
   equal(s.commands.filter(c=>c.type==='primary'&&c.pressed).length,1);key(p,'keyup','Enter');
   ok(!s.commands.some(c=>c.type==='move'&&c.x===0&&c.y===0),'Ignite stopped movement');window.dispatchEvent(new Event('blur'));equal(s.commands.at(-1),{type:'cancel-input'});
 });
+
+function makeMenu(places=PLACE_FIXTURES,options={}){
+  const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
+  const selections=[],ui=mountMainMenu({root,places,onSelect:id=>selections.push(id),...options});
+  return{root,ui,selections,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
+}
+function makeTitle(){
+  const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
+  const starts=[],ui=mountTitleScreen({root,onStart:()=>starts.push('start')});
+  return{root,ui,starts,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
+}
+await check('Title screen creates no graphics context and has a contained native Play action',()=>{
+  const canvas=HTMLCanvasElement.prototype.getContext;let calls=0,title;
+  HTMLCanvasElement.prototype.getContext=function(){calls++;throw Error('Title requested a graphics context');};
+  try{
+    title=makeTitle();equal(calls,0);equal(title.root.querySelectorAll('canvas').length,0);equal(title.find('h1').textContent,'TINDERBOX');
+    title.ui.focusStart();equal(document.activeElement,title.find('[data-title-start]'));
+    const r=title.find('[data-title-start]').getBoundingClientRect(),frame=title.root.getBoundingClientRect();
+    ok(r.width>=44&&r.height>=44&&r.left>=frame.left&&r.right<=frame.right&&r.top>=frame.top&&r.bottom<=frame.bottom,'Title Play is clipped or too small');
+    ok(title.find('.tb-title-screen').scrollWidth<=title.find('.tb-title-screen').clientWidth+1,'Title has horizontal overflow');
+  }finally{title?.close();HTMLCanvasElement.prototype.getContext=canvas;}
+});
+await check('Title Play emits one start intent, suppresses native repeats and is inert after disposal',()=>{
+  const title=makeTitle();try{
+    const button=title.find('[data-title-start]'),repeat=new KeyboardEvent('keydown',{code:'Enter',repeat:true,bubbles:true,cancelable:true});
+    button.dispatchEvent(repeat);ok(repeat.defaultPrevented,'Held Play not suppressed');
+    button.click();button.click();equal(title.starts,['start']);title.ui.dispose();button.click();equal(title.starts,['start']);ok(!title.ui.focusStart(),'Disposed title stole focus');
+  }finally{title.close();}
+});
+await check('Title mounts scope their engraving clips, remove listeners and preserve caller siblings',()=>{
+  const add=EventTarget.prototype.addEventListener,remove=EventTarget.prototype.removeEventListener,active=[];let title;
+  EventTarget.prototype.addEventListener=function(type,fn,opts){active.push({target:this,type,fn});return add.call(this,type,fn,opts);};
+  EventTarget.prototype.removeEventListener=function(type,fn,opts){const i=active.findIndex(x=>x.target===this&&x.type===type&&x.fn===fn);if(i>=0)active.splice(i,1);return remove.call(this,type,fn,opts);};
+  try{
+    title=makeTitle();const other=makeTitle();try{
+      const ids=[...document.querySelectorAll('.tb-title-screen [id]')].map(e=>e.id);equal(ids.length,new Set(ids).size);
+    }finally{other.close();}
+    const sibling=document.createElement('p');title.root.append(sibling);title.ui.dispose();ok(sibling.isConnected,'Title removed caller content');equal(active.length,0,'Title listener leak');
+  }finally{title?.close();EventTarget.prototype.addEventListener=add;EventTarget.prototype.removeEventListener=remove;}
+});
+await check('Places offers optional repeat-safe title return and locks it while loading',()=>{
+  const old=makeMenu();try{ok(old.find('[data-back-to-title]').hidden,'Old caller gained title navigation');}finally{old.close();}
+  const requests=[],menu=makeMenu(PLACE_FIXTURES,{onBackToTitle:()=>requests.push('title')});try{
+    const button=menu.find('[data-back-to-title]');ok(!button.hidden,'Title return omitted');
+    menu.ui.update({loadingId:'new-york'});ok(button.disabled,'Loading can return behind the application');button.click();equal(requests,[]);
+    menu.ui.update({loadingId:null});button.click();equal(requests,['title']);menu.ui.dispose();button.click();equal(requests,['title']);
+  }finally{menu.close();}
+});
+function makeExplore(name='entrance',withExit=true){
+  const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
+  const commands=[],exits=[],ui=mountUI({root,mode:'explore',placeTitle:'New York State Building',onCommand:c=>commands.push(c),...(withExit?{onExitToMenu:()=>exits.push(commands.slice())}:{})});
+  ui.update(explorationFixture(name));return{root,ui,commands,exits,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
+}
+await check('Main menu renders all catalogue metadata and real preview URLs without a canvas',()=>{
+  const canvas=HTMLCanvasElement.prototype.getContext;let calls=0,menu;
+  HTMLCanvasElement.prototype.getContext=function(){calls++;throw Error('Menu requested a graphics context');};
+  try{
+    menu=makeMenu();equal([...menu.root.querySelectorAll('[data-select-place]')].map(b=>b.dataset.selectPlace),PLACE_FIXTURES.map(p=>p.id));
+    equal([...menu.root.querySelectorAll('h2')].filter(h=>!h.closest('[hidden]')).map(h=>h.textContent),PLACE_FIXTURES.map(p=>p.title));
+    equal(menu.root.querySelectorAll('img').length,3);equal(menu.root.querySelectorAll('canvas').length,0);equal(calls,0);
+    for(const place of PLACE_FIXTURES)ok(menu.root.textContent.includes(place.description),'Catalogue description omitted');
+  }finally{menu?.close();HTMLCanvasElement.prototype.getContext=canvas;}
+});
+await check('Main menu requests an ID; loading remains application-owned and blocks duplicate selection',()=>{
+  const menu=makeMenu();try{
+    const button=menu.find('[data-select-place="new-york"]');button.click();equal(menu.selections,['new-york']);ok(!button.disabled,'Invented a loading state');
+    menu.ui.update({loadingId:'new-york',error:null});ok([...menu.root.querySelectorAll('[data-select-place]')].every(b=>b.disabled),'Busy selection enabled');
+    const live=menu.find('[data-place-status]'),node=live.firstChild;menu.ui.update({loadingId:'new-york',error:null});ok(live.firstChild===node,'Repeated loading announcement');
+    button.click();equal(menu.selections,['new-york']);ok(live.textContent.includes('New York State Building'),'Loading lacks destination');
+    menu.ui.update({loadingId:null,error:null});ok(!button.disabled,'Idle menu stuck busy');
+  }finally{menu.close();}
+});
+await check('Main-menu error, retry and back recovery keep the catalogue usable and focus the failed place',()=>{
+  const menu=makeMenu();try{
+    menu.find('[data-select-place="administration"]').click();menu.ui.update({loadingId:'administration'});menu.ui.update({loadingId:null,error:'Graphics could not be opened on this device.'});
+    ok(!menu.find('[data-place-error]').hidden,'Error hidden');equal(document.activeElement,menu.find('.tb-place-error h2'));
+    equal(menu.find('[data-place-error-message]').textContent,'Graphics could not be opened on this device.');
+    menu.find('[data-place-retry]').click();equal(menu.selections,['administration','administration']);
+    menu.ui.update({loadingId:'administration',error:null});menu.ui.update({loadingId:null,error:'Graphics could not be opened on this device.'});
+    menu.find('[data-place-back]').click();ok(menu.find('[data-place-error]').hidden,'Back did not return to places');equal(document.activeElement,menu.find('[data-select-place="administration"]'));
+    menu.find('[data-select-place="horticulture"]').click();equal(menu.selections.at(-1),'horticulture');
+  }finally{menu.close();}
+});
+await check('Main-menu focus restoration and repeated error updates do not steal current focus',()=>{
+  const menu=makeMenu();try{
+    menu.ui.update({loadingId:null,error:{placeId:'new-york',message:'Please try again.'}});
+    const retry=menu.find('[data-place-retry]');retry.focus();menu.ui.update({loadingId:null,error:{placeId:'new-york',message:'Please try again.'}});equal(document.activeElement,retry);
+    menu.ui.update({loadingId:null,error:null});ok(menu.ui.focusPlace('horticulture'),'Focus not restored');equal(document.activeElement,menu.find('[data-select-place="horticulture"]'));
+    menu.ui.focusPlace('missing');equal(document.activeElement,menu.find('[data-select-place="catalogue-street"]'));
+  }finally{menu.close();}
+});
+await check('A failed below-fold visit scrolls the recovery heading into view',()=>{
+  const menu=makeMenu();try{
+    menu.ui.focusPlace('horticulture');menu.ui.update({loadingId:null,error:{placeId:'horticulture',message:'Please try again.'}});
+    const frame=menu.root.getBoundingClientRect(),error=menu.find('.tb-place-error h2').getBoundingClientRect();
+    ok(error.top>=frame.top-1&&error.bottom<=frame.bottom+1,'Recovery stayed outside the menu viewport');
+  }finally{menu.close();}
+});
+await check('Main menu escapes catalogue/error strings and handles empty or unavailable previews',()=>{
+  const menu=makeMenu([{id:'safe',title:'<img src=x>',description:'<b>Grounds and halls</b>',previewUrl:PLACE_FIXTURES[1].previewUrl}]);try{
+    equal(menu.find('.tb-place-card h2').textContent,'<img src=x>');equal(menu.root.querySelectorAll('b').length,0);
+    menu.find('img').dispatchEvent(new Event('error'));ok(menu.find('img').hidden,'Broken preview still visible');ok(menu.find('[data-select-place]').isConnected,'Missing preview disabled visit');
+    menu.ui.update({error:{placeId:'safe',message:'<script>unsafe</script>'}});equal(menu.root.querySelectorAll('script').length,0);
+    const empty=makeMenu([]);try{ok(!empty.find('[data-place-empty]').hidden,'No empty-state guidance');}finally{empty.close();}
+  }finally{menu.close();}
+});
+await check('Main menu scopes descriptions/etching clips and removes all listeners and stale callbacks',()=>{
+  const add=EventTarget.prototype.addEventListener,remove=EventTarget.prototype.removeEventListener,active=[];let menu;
+  EventTarget.prototype.addEventListener=function(type,fn,opts){active.push({target:this,type,fn});return add.call(this,type,fn,opts);};
+  EventTarget.prototype.removeEventListener=function(type,fn,opts){const i=active.findIndex(x=>x.target===this&&x.type===type&&x.fn===fn);if(i>=0)active.splice(i,1);return remove.call(this,type,fn,opts);};
+  try{
+    menu=makeMenu();const other=makeMenu();try{
+      const ids=[...document.querySelectorAll('.tb-ui [id]')].map(e=>e.id);equal(new Set(ids).size,ids.length,'Shared menu IDs');
+      for(const b of menu.root.querySelectorAll('[aria-describedby]'))for(const id of b.getAttribute('aria-describedby').split(' '))ok(menu.root.querySelector('[id="'+id+'"]'),'Description outside mount');
+    }finally{other.close();}
+    const stale=menu.find('[data-select-place="new-york"]'),sibling=document.createElement('canvas');menu.root.append(sibling);
+    menu.ui.dispose();stale.click();equal(menu.selections,[]);ok(sibling.isConnected,'Caller sibling removed');ok(!menu.ui.focusPlace('new-york'),'Disposed focus succeeded');menu.ui.update({error:'stale'});equal(active.length,0,'Menu listener leak');
+  }finally{menu?.close();EventTarget.prototype.addEventListener=add;EventTarget.prototype.removeEventListener=remove;}
+});
+await check('Main menu is horizontally contained with native 44px actions and a scrollable phone sheet',()=>{
+  const menu=makeMenu();try{
+    const frame=menu.root.getBoundingClientRect(),shell=menu.find('.tb-main-menu');
+    ok(shell.scrollWidth<=shell.clientWidth+1,'Menu has horizontal overflow');
+    for(const b of menu.root.querySelectorAll('[data-select-place]')){const r=b.getBoundingClientRect();ok(r.width>=44&&r.height>=44,'Small visit action');ok(r.left>=frame.left-.5&&r.right<=frame.right+.5,'Visit action crosses viewport');}
+    menu.ui.focusPlace('horticulture');const last=menu.find('[data-select-place="horticulture"]').getBoundingClientRect();ok(last.bottom<=menu.root.getBoundingClientRect().bottom+1&&last.top>=menu.root.getBoundingClientRect().top-1,'Restored place not scrolled into view');
+  }finally{menu.close();}
+});
+await check('Animal choice uses catalogue text and application-owned selection without optimistic state',()=>{
+  const requests=[],menu=makeMenu(PLACE_FIXTURES,{characters:CHARACTER_FIXTURES,selectedCharacterId:'goat',onSelectCharacter:id=>requests.push(id)});
+  try{
+    equal([...menu.root.querySelectorAll('[data-select-character]')].map(b=>b.textContent.includes('Selected')), [true,false,false]);
+    const horse=menu.find('[data-select-character="horse"]');horse.click();equal(requests,['horse']);
+    equal(horse.getAttribute('aria-pressed'),'false','Invented selection before app acknowledgement');
+    menu.ui.update({selectedCharacterId:'horse'});equal(horse.getAttribute('aria-pressed'),'true');
+    ok(menu.find('[data-character-description]').textContent.includes('horse'),'Selected description missing');
+    menu.ui.update({loadingId:'new-york'});ok([...menu.root.querySelectorAll('[data-select-character]')].every(b=>b.disabled),'Loading can change animal');
+    menu.find('[data-select-character="bear"]').click();equal(requests,['horse']);ok(menu.find('[data-place-status]').textContent.includes('as Horse'),'Loading animal ambiguous');
+    menu.ui.update({loadingId:null});equal(horse.getAttribute('aria-pressed'),'true','Selection lost during app updates');
+  }finally{menu.close();}
+});
+await check('Optional animal selection preserves old menus, scoped descriptions, touch targets and safe text',()=>{
+  const old=makeMenu();try{ok(old.find('[data-character-choice]').hidden,'Old caller grew a selector');}finally{old.close();}
+  const menu=makeMenu(PLACE_FIXTURES,{characters:[{id:'safe',title:'<b>Goat</b>',description:'<img>safe'}],selectedCharacterId:'safe'});
+  try{
+    equal(menu.root.querySelectorAll('b').length,0);equal(menu.root.querySelectorAll('img').length,3);
+    const button=menu.find('[data-select-character]');ok(button.disabled,'Missing callback advertises selection');
+    ok(menu.root.querySelector('[id="'+button.getAttribute('aria-describedby')+'"]'),'Unscoped animal description');
+    const r=button.getBoundingClientRect();ok(r.width>=44&&r.height>=44,'Small animal target');
+    menu.ui.update({selectedCharacterId:'missing'});equal(button.getAttribute('aria-pressed'),'false','Unknown app selection guessed an animal');
+  }finally{menu.close();}
+});
+await check('Animal requests stop after disposal and repeated activation remains a native button edge',()=>{
+  const requests=[],menu=makeMenu(PLACE_FIXTURES,{characters:CHARACTER_FIXTURES,selectedCharacterId:'goat',onSelectCharacter:id=>requests.push(id)});
+  try{
+    const horse=menu.find('[data-select-character="horse"]');horse.focus();
+    const repeat=new KeyboardEvent('keydown',{code:'Enter',repeat:true,bubbles:true,cancelable:true});horse.dispatchEvent(repeat);ok(repeat.defaultPrevented,'Native repeat not suppressed');
+    horse.click();equal(requests,['horse']);menu.ui.dispose();horse.click();equal(requests,['horse']);
+  }finally{menu.close();}
+});
+await check('Street snapshots can name a selected animal while retaining the six gameplay controls',()=>{
+  const street=make();try{
+    const next=fixture('down');next.player.characterId='horse';street.ui.update(next);
+    equal(street.find('.tb-health-meter').getAttribute('aria-label'),'Horse health');
+    ok(street.find('[data-death]').textContent.startsWith('HORSE DOWN'),'Wrong animal on death notice');
+    equal(street.root.querySelectorAll('[data-tool]').length,5);ok(street.find('.tb-map figcaption>span').textContent.includes('Horse'),'Wrong plan legend');
+    ok(street.find('[data-map]').getAttribute('aria-label').includes('Horse at'),'Wrong map identity');
+  }finally{street.close();}
+});
+await check('Explore identity, follow control and map use authoritative animal names with a safe fallback',()=>{
+  const nav=makeExplore();try{
+    equal(nav.find('[data-character-name]').textContent,'Goat');
+    const next=explorationFixture('gallery','horse');nav.ui.update(next);
+    equal(nav.find('[data-character-name]').textContent,'Horse');equal(nav.find('[data-view="view-follow"]').getAttribute('aria-label'),'Follow the horse');
+    ok(nav.find('[data-map]').getAttribute('aria-label').includes('Horse at'),'Map still calls the animal Bear');
+    delete next.player.characterId;nav.ui.update(next);ok(nav.find('[data-character-name]').hidden,'Guessed missing identity');
+    equal(nav.find('[data-view="view-follow"]').getAttribute('aria-label'),'Follow player');
+  }finally{nav.close();}
+});
+await check('Exploration HUD accepts noncombat snapshots and shows no usable street tools, health or reset',()=>{
+  const nav=makeExplore();try{
+    equal(nav.root.querySelectorAll('[data-tool],[data-drug]').length,0);ok(nav.find('.tb-health').hidden,'Exploration advertised health');ok(nav.find('[data-reset]').hidden&&nav.find('[data-reset]').disabled,'Exploration advertised scene reset');
+    equal(nav.find('.tb-visit-title').textContent,'New York State Building');equal(nav.find('[data-location-label]').textContent,'Entrance hall');
+    ok(!nav.find('[data-stick]').disabled,'Missing combat fields disabled movement');ok(nav.find('[data-map]').getAttribute('aria-label').startsWith('Place plan.'),'Wrong plan scope');
+  }finally{nav.close();}
+});
+await check('Human floor/location transitions announce once; coordinates, elevation and native indexes stay quiet',()=>{
+  const nav=makeExplore();try{
+    const live=nav.find('[data-announcement]'),node=live.firstChild,next=explorationFixture();
+    next.player.x+=1;next.player.y+=2;next.player.elevation+=.2;next.player.level=36;nav.ui.update(next);
+    ok(live.firstChild===node,'Movement/tread metadata rewrote status');equal(nav.find('.tb-ui').dataset.nativeLevel,'36');ok(!live.textContent.includes('36'),'Invented occupied storey');
+    next.player.locationLabel='Upper gallery';next.player.level=3;nav.ui.update(next);ok(live.textContent.includes('Upper gallery'),'Floor transition silent');
+    const galleryNode=live.firstChild;for(let i=0;i<8;i++){next.player.elevation+=.1;next.player.x+=.1;nav.ui.update(next);}ok(live.firstChild===galleryNode,'Gallery movement spammed status');
+  }finally{nav.close();}
+});
+await check('Exploration camera requests preserve the raw held joystick and do not choose scene state',()=>{
+  const nav=makeExplore();try{
+    downStick(nav,11);const n=nav.commands.length;nav.find('[data-view="view-overview"]').click();nav.find('[data-view="view-follow"]').click();
+    equal(nav.commands.slice(n),[{type:'view-overview'},{type:'view-follow'}]);ok(!nav.commands.some(c=>c.type==='aim'||c.type==='select-tool'||c.type==='primary'),'Navigation emitted combat/aim');
+    pointer(window,'pointerup',11);equal(nav.commands.at(-1),{type:'move',x:0,y:0});
+  }finally{nav.close();}
+});
+await check('Contextual interaction, Space and E send one edge without changing the location or movement',()=>{
+  const nav=makeExplore('door');try{
+    const stick=nav.find('[data-stick]');stick.focus();key(stick,'keydown','KeyW');key(stick,'keydown','KeyE');key(stick,'keydown','KeyE',{repeat:true});key(stick,'keyup','KeyE');
+    key(stick,'keydown','Space');key(stick,'keydown','Space',{repeat:true});key(stick,'keyup','Space');nav.find('[data-interact]').click();
+    equal(nav.commands.filter(c=>c.type==='interact').length,3);ok(!nav.commands.some(c=>['primary','select-tool','drug'].includes(c.type)),'Interaction leaked to gameplay');
+    equal(nav.find('[data-location-label]').textContent,'Entrance hall');ok(!nav.commands.some(c=>c.type==='move'&&c.x===0&&c.y===0),'Interaction stopped walking');
+    const none=explorationFixture();nav.ui.update(none);ok(nav.find('[data-interact]').disabled,'Absent interaction enabled');key(stick,'keydown','KeyE');equal(nav.commands.filter(c=>c.type==='interact').length,3);
+  }finally{nav.close();}
+});
+await check('Exploration ignores combat number keys and preserves repeat-safe contextual button activation',()=>{
+  const nav=makeExplore('door');try{
+    const action=nav.find('[data-interact]');action.focus();key(action,'keydown','Enter');key(action,'keydown','Enter',{repeat:true});key(action,'keyup','Enter');
+    equal(nav.commands,[{type:'interact'}]);for(const code of ['Digit1','Digit2','Digit3','Digit4','Digit5','KeyQ','KeyR'])key(action,'keydown',code);
+    equal(nav.commands,[{type:'interact'}]);
+  }finally{nav.close();}
+});
+await check('Return requests cancel movement first; pause-menu return does not reset or resume the visit',()=>{
+  const nav=makeExplore();try{
+    downStick(nav,11);nav.find('.tb-console [data-exit-to-menu]').click();equal(nav.exits.length,1);equal(nav.exits[0].slice(-2),[{type:'move',x:0,y:0},{type:'cancel-input'}]);
+    nav.find('[data-pause]').click();const paused=explorationFixture();paused.paused=true;nav.ui.update(paused);
+    nav.find('[data-pause-panel] [data-exit-to-menu]').click();equal(nav.exits.length,2);ok(!nav.commands.some(c=>c.type==='reset'||c.type==='pause'&&c.paused===false),'Return changed scene state');
+    const stale=nav.find('.tb-console [data-exit-to-menu]');nav.ui.dispose();stale.click();equal(nav.exits.length,2);
+  }finally{nav.close();}
+});
+await check('Optional return/navigation arguments preserve old callers and exploration targets fit intended viewports',()=>{
+  const nav=makeExplore('door',false);try{
+    ok(nav.find('.tb-console [data-exit-to-menu]').disabled,'Missing return callback advertised an action');
+    const frame=nav.root.getBoundingClientRect();
+    for(const b of nav.root.querySelectorAll('.tb-console button')){const r=b.getBoundingClientRect();ok(r.width>=44&&r.height>=44,'Small nav target');ok(r.left>=frame.left-.5&&r.right<=frame.right+.5&&r.top>=frame.top-.5&&r.bottom<=frame.bottom+.5,'Clipped navigation');}
+    const stick=nav.find('[data-stick]');stick.focus();key(stick,'keydown','KeyW');window.dispatchEvent(new Event('blur'));equal(nav.commands.at(-1),{type:'cancel-input'});
+  }finally{nav.close();}
+});
+
 
 for(const r of results){const li=document.createElement('li');li.dataset.status=r.status;li.textContent=(r.status==='pass'?'PASS ':'FAIL ')+r.name+(r.message?' — '+r.message:'');document.querySelector('#checks').append(li);}
 document.querySelector('#summary').textContent=results.filter(r=>r.status==='pass').length+' / '+results.length+' passed';

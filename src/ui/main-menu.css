@@ -1,0 +1,79 @@
+/* A printed field guide, framed by the existing Eastlake timber. */
+.tb-ui.tb-main-menu { --ink:var(--ink-dark); --muted:#68472a; color:var(--ink); color-scheme:light; pointer-events:auto; overflow:auto; overscroll-behavior:contain; padding:28px 24px; background:radial-gradient(ellipse at 40% 15%,#d9b877,#a17942 80%); }
+.tb-ui .tb-place-book { position:relative; width:min(1050px,100%); margin:0 auto; padding:11px; border-width:6px; }
+.tb-ui .tb-place-paper { padding:22px 26px 15px; background:var(--parchment); background-image:linear-gradient(115deg,#c3984917,transparent 50%,#fff1cc40); box-shadow:inset 0 0 0 1px #805633; text-shadow:none; }
+.tb-place-heading { text-align:center; }
+.tb-place-kicker { margin:0 0 5px; font:600 8px/1.4 var(--label); letter-spacing:1.8px; }
+.tb-place-masthead { font:800 clamp(32px,6vw,51px)/1.05 var(--display); letter-spacing:1px; }
+.tb-place-rule { height:5px; margin:12px 0 11px; border-block:1px solid #775532; }
+.tb-place-heading h1 { margin:0; font:600 23px/1.2 var(--display); outline-offset:5px; }
+.tb-place-heading>p:last-child { margin:6px 0 0; font:400 14px/1.4 var(--text); }
+.tb-character-choice { margin:16px 0 10px; padding:10px 12px; border:1px solid #997243; }
+.tb-character-choice legend { padding:0 8px; font:700 14px/1.3 var(--display); }
+.tb-character-note,.tb-character-description { margin:0; text-align:center; color:var(--muted); font:400 12px/1.4 var(--text); }
+.tb-character-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; width:min(440px,100%); margin:8px auto; }
+.tb-ui .tb-character-button { min-width:0; min-height:48px; display:grid; place-items:center; gap:2px; border:1px solid #79502b; padding:6px; color:var(--ink); background:#eddbb0; font:700 15px/1.2 var(--display); box-shadow:inset 0 0 0 2px #f7e7bd; }
+.tb-character-button small { font:600 8px/1.2 var(--label); letter-spacing:.3px; text-transform:uppercase; }
+.tb-ui .tb-character-button[aria-pressed=true] { color:#fff0d0; background:#784625; box-shadow:inset 0 0 0 2px #bd8b4e; }
+.tb-ui .tb-character-button:enabled:hover { outline:1px solid #79502b; outline-offset:1px; }
+.tb-ui .tb-character-button:disabled { opacity:.75; }
+.tb-place-status { min-height:18px; margin:10px 0 13px; text-align:center; color:var(--muted); font:italic 13px/1.4 var(--text); }
+.tb-place-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.tb-place-card { min-width:0; display:grid; grid-template-columns:minmax(0,44%) minmax(0,1fr); border:1px solid #997243; background:#fff2cf44; }
+.tb-place-preview { position:relative; overflow:hidden; align-self:center; aspect-ratio:1600/1060; margin:8px 0 8px 8px; background:#dfc99f; border:1px solid #a28051; }
+/* All three pinned 1600×1200 sources have review captions below y=1060. */
+.tb-place-preview>img { display:block; width:100%; height:auto; max-width:none; }
+.tb-place-preview-missing { display:grid; place-items:center; position:absolute; inset:0; text-align:center; padding:12px; font:italic 14px/1.4 var(--text); }
+.tb-place-sign { display:grid; place-items:center; padding:12px; background:linear-gradient(135deg,#ae804526,#f3dfb1),var(--wood-grain); box-shadow:inset 0 0 0 4px var(--parchment),inset 0 0 0 5px #996d3d; }
+.tb-place-sign>span { display:block; text-align:center; font:700 clamp(14px,2vw,21px)/1.2 var(--display); text-transform:uppercase; letter-spacing:.2px; }
+.tb-place-details { min-width:0; padding:14px 12px 12px; display:flex; flex-direction:column; }
+.tb-place-details h2 { margin:0; font:700 17px/1.2 var(--display); }
+.tb-place-details>p { flex:1; margin:8px 0 10px; color:#5c3e24; font:400 13px/1.4 var(--text); }
+.tb-ui .tb-place-visit { min-height:44px; width:100%; display:flex; align-items:center; gap:9px; border:1px solid #79502b; border-bottom-width:3px; padding:4px 10px; color:var(--ink); background:#e9cd92; font:700 12px/1.3 var(--label); text-align:left; box-shadow:inset 0 0 0 2px #f7e7bd; }
+.tb-place-hand { display:block; flex:none; width:30px; height:30px; }
+.tb-place-hand svg { display:block; width:100%; height:100%; overflow:hidden; mix-blend-mode:multiply; }
+.tb-ui .tb-place-visit:enabled:hover { background:#dfba78; }
+.tb-ui .tb-place-visit:enabled:active { border-bottom-width:1px; padding-top:6px; }
+.tb-ui .tb-place-visit:disabled { color:#654522; background:#e1c793; }
+.tb-place-card[data-loading=true] { box-shadow:inset 0 0 0 2px #93612e; }
+.tb-ui.tb-main-menu button:focus-visible,.tb-ui.tb-main-menu h1:focus-visible,.tb-ui .tb-place-error h2:focus-visible { outline:3px solid #683a1d; outline-offset:3px; }
+.tb-place-footer { border-top:1px solid #937044; margin-top:17px; padding-top:10px; text-align:center; font:italic 12px/1.4 var(--text); color:var(--muted); }
+.tb-place-empty { text-align:center; padding:30px 10px; font:400 16px/1.5 var(--text); }
+.tb-place-error { margin:0 0 15px; padding:14px; border:2px solid #8e4928; background:#f9eac8; }
+.tb-place-error h2 { margin:0; font:700 18px/1.3 var(--display); }
+.tb-place-error>p { margin:7px 0 10px; overflow-wrap:anywhere; font:400 14px/1.4 var(--text); }
+.tb-place-recovery { display:flex; flex-wrap:wrap; gap:8px; }
+.tb-ui .tb-place-recovery button { min-height:44px; border:1px solid #79502b; color:var(--ink); background:#e9cd92; padding:9px 15px; font:600 12px/1.3 var(--label); }
+@media(max-width:650px) {
+  .tb-ui.tb-main-menu { padding:16px 12px; }
+  .tb-ui .tb-place-book { padding:8px; border-width:5px; }
+  .tb-ui .tb-place-paper { padding:16px 12px 12px; }
+  .tb-place-kicker { font-size:7px; letter-spacing:1.1px; }
+  .tb-place-heading h1 { font-size:21px; }
+  .tb-place-grid { grid-template-columns:minmax(0,1fr); gap:12px; }
+  .tb-place-card { grid-template-columns:minmax(0,42%) minmax(0,1fr); }
+  .tb-place-details { padding:11px 9px; }
+  .tb-place-details h2 { font-size:15px; }
+  .tb-place-details>p { font-size:12px; line-height:1.35; margin:6px 0 8px; }
+  .tb-ui .tb-place-visit { padding-inline:6px; gap:5px; font-size:11px; }
+  .tb-place-hand { width:25px; height:25px; }
+  .tb-place-sign { padding:8px; }
+  .tb-place-sign>span { font-size:12px; }
+}
+@media(max-width:350px) {
+  .tb-ui.tb-main-menu { padding:12px 8px; }
+  .tb-ui .tb-place-paper { padding:13px 9px 10px; }
+  .tb-place-card { grid-template-columns:minmax(0,36%) minmax(0,1fr); }
+  .tb-place-details h2 { font-size:14px; }
+  .tb-place-sign { padding:4px; }
+  .tb-place-sign>span { font-size:10px; }
+}
+@media(forced-colors:active) {
+  .tb-ui .tb-character-button[aria-pressed=true] { color:HighlightText; background:Highlight; }
+  .tb-ui.tb-main-menu,.tb-ui .tb-place-paper,.tb-ui .tb-place-sign,.tb-ui .tb-place-card,.tb-ui .tb-place-error { background:Canvas; color:CanvasText; border-color:CanvasText; box-shadow:none; }
+  .tb-ui .tb-character-button,.tb-ui .tb-place-visit,.tb-ui .tb-place-recovery button { background:ButtonFace; color:ButtonText; border-color:ButtonText; box-shadow:none; }
+}
+
+.tb-ui .tb-place-footer button { display:block; min-height:44px; margin:10px auto 0; border:1px solid #79502b; padding:8px 18px; color:var(--ink); background:#e9cd92; font:600 12px/1.3 var(--label); }
+
+@media(forced-colors:active) { .tb-ui .tb-place-footer button { color:ButtonText; background:ButtonFace; border-color:ButtonText; } }

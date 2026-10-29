@@ -1,0 +1,25 @@
+{
+  "validation": {
+    "quiescence": "Check exited successfully; static server has no write/export state.",
+    "command": "node tools/check-site.mjs http://127.0.0.1:4552/nested/places-ui/dist/",
+    "manifestSha256": "d902b79ed3821575c241faa4a3e6fc5e3c36c4eb118859b98668cbd8595edbad",
+    "status": "pass",
+    "registeredSourceSnapshot": "C:\\Users\\baals\\Local Storage\\AI\\GTP\\helper-lifecycle\\restart-records\\38dddfd447314fa29df527554c620825\\registration\\restart.json"
+  },
+  "stopMethod": "Exact-identity private stop_file",
+  "portReleased": true,
+  "retained": false,
+  "originalExited": true,
+  "verifiedAt": "2026-10-29T18:47:50.2557473+00:00",
+  "sourcePreservation": "cleanup.py registration snapshot; local registration.json and preservation.json",
+  "process": {
+    "pid": 57080,
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "port": 4552,
+    "owner": "01a17edb-5cf4-7af0-a52e-d28547bb7ede",
+    "creationFiletime": "134377732680593708",
+    "creationTime": "2026-10-29T18:47:48.0593708Z",
+    "purpose": "One final nested-path byte check after text newline normalization",
+    "expiresAt": "2026-10-29T18:49:48.0753875+00:00"
+  }
+}

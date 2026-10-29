@@ -1,0 +1,335 @@
+{
+  "task": "TB-025 title, explorable places menu, animal selector and navigation HUD",
+  "date": "2026-10-29",
+  "branch": "codex/explorable-places-ui",
+  "base": "6659b9c19248e869b208993e15f0e80ff065ec14",
+  "contract": {
+    "commit": "d281ce91af27b32ffab4dc17390cf986f11ef881",
+    "path": "docs/milestones/08-explorable-places.md",
+    "sha256": "bf2b651d1b6c29c683a5b20d4fd5dd75c9960a9a94d64eb54e7e5d303c6e68ca"
+  },
+  "repository": {
+    "command": "node tools/check.mjs",
+    "status": "pass",
+    "tests": 96,
+    "ownScripts": 88,
+    "staticModules": 112,
+    "sharedThreeAndProvenance": "pass",
+    "artImports": 5,
+    "artSyntaxDependencies": 25,
+    "log": "artifacts/explorable-places-ui/check.log"
+  },
+  "typography": {
+    "command": "node workbenches/ui/check-typography.mjs",
+    "status": "pass",
+    "files": 9,
+    "notices": 2
+  },
+  "browser": {
+    "command": "tests/ui/index.html in the supported IAB browser",
+    "status": "pass",
+    "checksPerViewport": 62,
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844,
+        "passed": 62
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "passed": 62
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "passed": 62
+      },
+      {
+        "width": 1280,
+        "height": 800,
+        "passed": 62
+      }
+    ],
+    "finalConsoleErrors": 0,
+    "finalConsoleWarnings": 0,
+    "report": "evidence/browser-results.json",
+    "nativeReview": [
+      "Title native Enter/Space/click Play requests selection with zero canvas/context creation",
+      "Title-return button restores Play focus; confirmed Horse choice persists when selection reopens",
+      "Enter on Horse updates the authoritative selected state and description",
+      "Tab through all seven choices/destinations scrolls Horticulture into the phone viewport without horizontal overflow",
+      "Enter on the last destination locks animal/place selection and names the confirmed animal",
+      "Failure focuses and reveals the recovery heading; Retry requests the same ID",
+      "Back dismisses error and focuses Horticulture",
+      "Overview/Follow clicks and E interaction emit their contract requests",
+      "Pause acknowledges the supplied snapshot and Return cancels input before restoring New York menu focus"
+    ],
+    "teardown": {
+      "ownedTabs": [
+        18,
+        19
+      ],
+      "closed": true,
+      "viewportOverrideReset": true,
+      "userMuseumTabUntouched": true,
+      "architectChromeWindowUntouched": true
+    }
+  },
+  "sourceAudit": {
+    "recordedAt": "2026-10-29T18:43:03.216Z",
+    "method": "Byte comparison to immutable Git objects. Opaque solid sRGB contrast pairs; textures and responsive layouts reviewed in browser.",
+    "thumbnails": [
+      {
+        "id": "new-york",
+        "repository": "https://github.com/Syntaxswine/tinderbox.git",
+        "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+        "sourcePath": "docs/art/exposition-new-york-tile/previews/front-isometric.jpg",
+        "installedPath": "assets/art/place-previews/new-york.jpg",
+        "bytes": 881701,
+        "sha256": "380921050d2cbd124a137b2c5d38e7e114d506d99f48624c5edb6da36ede9f36",
+        "adaptations": "None to image bytes; CSS framing only.",
+        "dependencies": [],
+        "notes": "Actual native-grid New York model preview; the separate original source-study version is not a second destination.",
+        "gitObjectBytesMatch": true
+      },
+      {
+        "id": "administration",
+        "repository": "https://github.com/Syntaxswine/tinderbox.git",
+        "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+        "sourcePath": "docs/art/exposition-administration/previews/front-isometric.jpg",
+        "installedPath": "assets/art/place-previews/administration.jpg",
+        "bytes": 902062,
+        "sha256": "adb650eb36bcf2d8315b860dab484814669bfc3d660635d1cede3ec711d231ab",
+        "adaptations": "None to image bytes; CSS framing only.",
+        "dependencies": [],
+        "notes": "Actual Administration model exterior; image alone does not establish playable floors or stairs.",
+        "gitObjectBytesMatch": true
+      },
+      {
+        "id": "horticulture",
+        "repository": "https://github.com/Syntaxswine/tinderbox.git",
+        "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+        "sourcePath": "docs/art/exposition-horticulture/previews/waterfront-exterior.jpg",
+        "installedPath": "assets/art/place-previews/horticulture.jpg",
+        "bytes": 746426,
+        "sha256": "9dc1891da190bdb86cbd3e4c294b23cdb50965e1ffea5e0c6ec0e3b6dcf01182",
+        "adaptations": "None to image bytes; CSS framing only.",
+        "dependencies": [],
+        "notes": "Actual Horticultural Building and companion waterfront preview; source parent c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9.",
+        "gitObjectBytesMatch": true
+      }
+    ],
+    "uiAssets": [
+      {
+        "path": "assets/art/ui/engraved-atlas.png",
+        "bytes": 1994109,
+        "sha256": "e1be50ce8a5afc92e535730d24ac9ad19ac416119275cb345eafe4c8cfe6502a",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "assets/art/ui/engraved-oil-lantern.png",
+        "bytes": 1063533,
+        "sha256": "0bbd7272471c21ca34d97065f9c25d1799d726facdd7e3a0feb09461f755d698",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "assets/art/ui/engraved-oil-barrel.png",
+        "bytes": 2227597,
+        "sha256": "13f5e8567003f7627216176fb8c510a67e0be53547bd6977fae63da4a1e706c4",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "assets/art/ui/typography/manifest.json",
+        "bytes": 6555,
+        "sha256": "3924b18192ef0df315fc90e55392dc3e2309762faf1c853eb2f9efcde3e7702f",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "assets/art/ui/ochre-palette.json",
+        "bytes": 2732,
+        "sha256": "e48dffe7f8feed27f8a0ca5a931ee8447534251ec92fa504902bee7c193c526c",
+        "unchangedFromBase": true
+      }
+    ],
+    "colorPairs": [
+      {
+        "role": "Printed labels",
+        "foreground": "#352314",
+        "background": "#f3dfb1",
+        "minimum": 4.5,
+        "ratio": 11.41
+      },
+      {
+        "role": "Selected animal",
+        "foreground": "#fff0d0",
+        "background": "#784625",
+        "minimum": 4.5,
+        "ratio": 6.9
+      },
+      {
+        "role": "Character descriptions",
+        "foreground": "#68472a",
+        "background": "#f3dfb1",
+        "minimum": 4.5,
+        "ratio": 6.34
+      },
+      {
+        "role": "Visit buttons",
+        "foreground": "#352314",
+        "background": "#e9cd92",
+        "minimum": 4.5,
+        "ratio": 9.71
+      },
+      {
+        "role": "Focus outline against paper",
+        "foreground": "#683a1d",
+        "background": "#f3dfb1",
+        "minimum": 3,
+        "ratio": 7.24
+      }
+    ]
+  },
+  "build": {
+    "command": "node tools/build.mjs",
+    "status": "pass",
+    "files": 164,
+    "bytes": 51714284,
+    "log": "artifacts/explorable-places-ui/build.log"
+  },
+  "release": {
+    "command": "node tools/check-release.mjs",
+    "status": "pass",
+    "files": 164,
+    "log": "artifacts/explorable-places-ui/release.log"
+  },
+  "nestedHTTP": {
+    "command": "node tools/check-site.mjs http://127.0.0.1:4552/nested/places-ui/dist/",
+    "status": "pass",
+    "publicFiles": 162,
+    "moduleMIME": "pass",
+    "qaWorkbenchAbsent": true,
+    "log": "artifacts/explorable-places-ui/nested-site.log",
+    "manifestSha256": "d902b79ed3821575c241faa4a3e6fc5e3c36c4eb118859b98668cbd8595edbad"
+  },
+  "evidence": [
+    {
+      "path": "evidence/browser-results.json",
+      "bytes": 36031,
+      "sha256": "8e933e022208c8ce626a2576c1bbefcf3d58ee558713990c3921dc7ae591a502"
+    },
+    {
+      "path": "evidence/explore-gallery-desktop.jpg",
+      "bytes": 72706,
+      "sha256": "9d7d6cd976b3ff85572f1ee9524ae7771fccfdb0e0af732450748788b0324b25"
+    },
+    {
+      "path": "evidence/explore-landscape.jpg",
+      "bytes": 36757,
+      "sha256": "2f12726e0c8ff1e160f1d7ee6f2ff98d5716abc69cd7bc7ec9ee9016a92cdde3"
+    },
+    {
+      "path": "evidence/explore-pause-phone.jpg",
+      "bytes": 33633,
+      "sha256": "873adcdd3216f1758095981eadac9319d131c33b4d2cc6fb7db0b97446aec05f"
+    },
+    {
+      "path": "evidence/explore-phone.jpg",
+      "bytes": 42430,
+      "sha256": "cd3246a30d8633d6bef1ea349e03448ace6a1e698cb966391ae82c2a978725e5"
+    },
+    {
+      "path": "evidence/explore-small-phone.jpg",
+      "bytes": 31139,
+      "sha256": "862a8d98b7a6d10338f7178075d951a26241e0fd4f0cab1e66bb606145386161"
+    },
+    {
+      "path": "evidence/menu-desktop.jpg",
+      "bytes": 108862,
+      "sha256": "6c539a3ef079495a76784c5ed7068bb0a5e57bc184fe31c58f999c72913f8019"
+    },
+    {
+      "path": "evidence/menu-keyboard-focus-phone.jpg",
+      "bytes": 59158,
+      "sha256": "6e597ec16c713af99a8ef6084f0d80e498b0eb2c37cdfa86d463e60e71963f0e"
+    },
+    {
+      "path": "evidence/menu-phone-bottom.jpg",
+      "bytes": 55005,
+      "sha256": "5f5f568a634262a6a2acae8e540c7eba52fc257f6f3a788dff77d5d8752c7365"
+    },
+    {
+      "path": "evidence/menu-phone-error.jpg",
+      "bytes": 58075,
+      "sha256": "e295274e2b5887e1bf06d5d359d36ff16cf0411067a3a921fad1acac50747fd2"
+    },
+    {
+      "path": "evidence/menu-phone.jpg",
+      "bytes": 59986,
+      "sha256": "01e0b5b11d4e84cb3430776480e0aaac481293a0f28741239798e293679e9d30"
+    },
+    {
+      "path": "evidence/menu-small-phone.jpg",
+      "bytes": 36581,
+      "sha256": "8fff5a92027d2519c1e80a8fef4e95bee5ebcc33b23c98be5c31c208429bfb14"
+    },
+    {
+      "path": "evidence/menu-title-return-desktop.jpg",
+      "bytes": 103607,
+      "sha256": "8f6b4f8dfd0f84c61468ceeb5dea012244e5ca7a186ea82e30597baf3e15defa"
+    },
+    {
+      "path": "evidence/title-desktop.jpg",
+      "bytes": 45376,
+      "sha256": "1b4745816b1a4ca64983a6a8bd5f14ea00d316f66faba469c0d342dbf12a3bd0"
+    },
+    {
+      "path": "evidence/title-landscape.jpg",
+      "bytes": 30032,
+      "sha256": "92845e29f456f7535ce4b6c73e8f68786401f967cac18cac88b53e8b5036e710"
+    },
+    {
+      "path": "evidence/title-phone.jpg",
+      "bytes": 26792,
+      "sha256": "55fae6982efd532c8f5ff64a28f16f5975a88dd4618145eaebf8327b3afe55ff"
+    },
+    {
+      "path": "evidence/title-small-phone.jpg",
+      "bytes": 20029,
+      "sha256": "babec53a544958b574da51b7d9fdd153e394b0836d4b8b2dcebc326063acb1df"
+    }
+  ],
+  "limits": [
+    "UI-owned candidate only; no production application or scene composition changed",
+    "HUD JPGs show fixed diagnostic snapshots/backdrop, not live landmark visits",
+    "Actual selected native models, interiors, stairs, streaming, occlusion and performance await the architect combined WebGL gate",
+    "Artist images preserve original source bytes/rights records; provenance grants no new license"
+  ],
+  "helper": {
+    "port": 4552,
+    "pid": 26508,
+    "creationFiletime": "134377716773563654",
+    "executable": "C:/Program Files/nodejs/node.exe",
+    "ttlSeconds": 2700,
+    "expiresAt": "2026-10-29T19:06:17.46Z",
+    "registered": true,
+    "cleanup": "Stopped and verified; source restart bundle saved before signaling.",
+    "retained": false,
+    "originalExited": true,
+    "portReleased": true,
+    "preservedFiles": 169,
+    "receipt": "evidence/helper-cleanup.json"
+  },
+  "packageHelper": {
+    "purpose": "Final nested-path check after newline normalization",
+    "pid": 57080,
+    "creationFiletime": "134377732680593708",
+    "ttlSeconds": 120,
+    "registered": true,
+    "originalExited": true,
+    "portReleased": true,
+    "retained": false,
+    "receipt": "evidence/package-helper-cleanup.json",
+    "sourceRecord": "artifacts/explorable-places-ui/package-helper/registration.json"
+  }
+}

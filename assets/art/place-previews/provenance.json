@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "task": "TB-025 main-menu thumbnails",
+  "recordedOn": "2026-10-29",
+  "kind": "Artist actual-model CPU-rendered JPGs; no research scans or invented thumbnails",
+  "files": [
+    {
+      "id": "new-york",
+      "repository": "https://github.com/Syntaxswine/tinderbox.git",
+      "sourceCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "sourcePath": "docs/art/exposition-new-york-tile/previews/front-isometric.jpg",
+      "installedPath": "assets/art/place-previews/new-york.jpg",
+      "bytes": 881701,
+      "sha256": "380921050d2cbd124a137b2c5d38e7e114d506d99f48624c5edb6da36ede9f36",
+      "adaptations": "None to image bytes; CSS framing only.",
+      "dependencies": [],
+      "notes": "Actual native-grid New York model preview; the separate original source-study version is not a second destination."
+    },
+    {
+      "id": "administration",
+      "repository": "https://github.com/Syntaxswine/tinderbox.git",
+      "sourceCommit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "sourcePath": "docs/art/exposition-administration/previews/front-isometric.jpg",
+      "installedPath": "assets/art/place-previews/administration.jpg",
+      "bytes": 902062,
+      "sha256": "adb650eb36bcf2d8315b860dab484814669bfc3d660635d1cede3ec711d231ab",
+      "adaptations": "None to image bytes; CSS framing only.",
+      "dependencies": [],
+      "notes": "Actual Administration model exterior; image alone does not establish playable floors or stairs."
+    },
+    {
+      "id": "horticulture",
+      "repository": "https://github.com/Syntaxswine/tinderbox.git",
+      "sourceCommit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "sourcePath": "docs/art/exposition-horticulture/previews/waterfront-exterior.jpg",
+      "installedPath": "assets/art/place-previews/horticulture.jpg",
+      "bytes": 746426,
+      "sha256": "9dc1891da190bdb86cbd3e4c294b23cdb50965e1ffea5e0c6ec0e3b6dcf01182",
+      "adaptations": "None to image bytes; CSS framing only.",
+      "dependencies": [],
+      "notes": "Actual Horticultural Building and companion waterfront preview; source parent c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9."
+    }
+  ],
+  "rights": "User-directed project reuse. Original artist sources/manifests and their rights/uncertainty records at each immutable source commit remain authoritative; this intake adds no license grant."
+}
