@@ -1,0 +1,41 @@
+{
+  "name": "gallery-stair",
+  "path": "docs/art/exposition-horticulture/previews/gallery-stair.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      -135,
+      5,
+      43
+    ],
+    "origin": [
+      -108,
+      30,
+      20
+    ],
+    "halfWidth": 25
+  },
+  "triangles": 131224,
+  "caption": "2 m stair connects level1 to level3; upper slab has a true opening. End gallery cafe and railings are interpretive.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
+    "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "eeed4e14a463ec84b43fdc37e1775569382db5d756fdf4642b0f89087f264889",
+  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "criteria": [
+    "Actual upper slab stair opening, top landing, rear gallery well, balustrade and cafe furniture are visible.",
+    "The open ground-level side is the gallery-to-curtain connection, not an omitted exterior wall."
+  ]
+}

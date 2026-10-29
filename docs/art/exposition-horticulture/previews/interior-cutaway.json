@@ -1,0 +1,41 @@
+{
+  "name": "interior-cutaway",
+  "path": "docs/art/exposition-horticulture/previews/interior-cutaway.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      0,
+      3,
+      42
+    ],
+    "origin": [
+      160,
+      255,
+      -155
+    ],
+    "halfWidth": 174
+  },
+  "triangles": 996246,
+  "caption": "Review cutaway: roofs and walls above level3 hidden. Floors at 2.12 m and 6.36 m; open gallery wells and palm hall.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
+    "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "8f6eae70a452fd35268115b564a34b94ece4b4ecc90ef12123ad95035c239588",
+  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "criteria": [
+    "Review-only roof/high-wall removal exposes the gallery voids, central stair and palm hall.",
+    "No upper full floor seals the central vertical axis; first and upper floors use native levels."
+  ]
+}

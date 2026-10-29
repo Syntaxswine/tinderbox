@@ -1,0 +1,41 @@
+{
+  "name": "central-pavilion",
+  "path": "docs/art/exposition-horticulture/previews/central-pavilion.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      0,
+      12,
+      23
+    ],
+    "origin": [
+      85,
+      65,
+      -115
+    ],
+    "halfWidth": 69
+  },
+  "triangles": 1164394,
+  "caption": "Source-supported glass dome and front galleries; twin ribbed foyers, cream arcades and simplified floral ornament.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
+    "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "0f863fc212c6c8e632dd131f1f7e9b99c43a580a1301675983d75db172869891",
+  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "criteria": [
+    "Great dome and lantern, twin low ribbed foyers, central entry, long glazed galleries and cream ornament are readable.",
+    "No incorrect opaque backing covers roof glass or cupola vent cells; final geometry/rays provide independent checks."
+  ]
+}

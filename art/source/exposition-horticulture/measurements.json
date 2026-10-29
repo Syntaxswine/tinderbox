@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "source": "HORT-CONKEY-1893",
+  "planCalibration": {
+    "image": "art/source/exposition-horticulture/evidence/conkey-plan-oriented.jpg",
+    "imagePixels": [
+      4200,
+      2714
+    ],
+    "points": [
+      [
+        108,
+        675
+      ],
+      [
+        4090,
+        675
+      ]
+    ],
+    "pixels": 3982,
+    "writtenFeet": 1000,
+    "metres": 304.8,
+    "pixelsPerMetre": 13.064304461942257,
+    "equation": "metres = pixels /3982 *1000 *.3048",
+    "uncertainty": "Endpoints approximately +/-8 pixels; diagram line interpretation/anisotropy about3-5 percent. Published overall length provides calibration, not a printed plan scale ruler.",
+    "independentChecks": [
+      {
+        "id": "west-court-width",
+        "pixels": 1088,
+        "writtenFeet": 270,
+        "pixelsPerMetre": 13.220569651015845
+      },
+      {
+        "id": "east-court-width",
+        "pixels": 1092,
+        "writtenFeet": 270,
+        "pixelsPerMetre": 13.26917468649752
+      },
+      {
+        "id": "court-depth",
+        "pixels": 368,
+        "writtenFeet": 88,
+        "pixelsPerMetre": 13.719875924600332
+      }
+    ]
+  },
+  "printedMeasurements": [
+    {
+      "id": "frontage",
+      "sourceFeet": 1000,
+      "sourceMetres": 304.8,
+      "authoredMetres": 306,
+      "differenceMetres": 1.1999999999999886
+    },
+    {
+      "id": "end-body-depth",
+      "sourceFeet": 250,
+      "sourceMetres": 76.2,
+      "authoredMetres": 76,
+      "differenceMetres": -0.20000000000000284
+    },
+    {
+      "id": "great-dome-diameter",
+      "sourceFeet": 187,
+      "sourceMetres": 56.997600000000006,
+      "authoredMetres": 56,
+      "differenceMetres": -0.9976000000000056
+    },
+    {
+      "id": "overall-crown",
+      "sourceFeet": 113,
+      "sourceMetres": 34.4424,
+      "authoredMetres": 33.92,
+      "differenceMetres": -0.5223999999999975
+    },
+    {
+      "id": "court-length",
+      "sourceFeet": 270,
+      "sourceMetres": 82.296,
+      "authoredMetres": 84,
+      "differenceMetres": 1.7039999999999935
+    },
+    {
+      "id": "court-depth",
+      "sourceFeet": 88,
+      "sourceMetres": 26.822400000000002,
+      "authoredMetres": 28,
+      "differenceMetres": 1.1775999999999982
+    }
+  ],
+  "rulerReadings": [
+    {
+      "id": "end-body-depth",
+      "pixels": 997,
+      "sourceMetres": 76.31481667503768,
+      "authoredMetres": 76
+    },
+    {
+      "id": "full-projection",
+      "pixels": 1142,
+      "sourceMetres": 87.41376192867907,
+      "authoredMetres": 88
+    },
+    {
+      "id": "end-pavilion-width",
+      "pixels": 468,
+      "sourceMetres": 35.82280261175289,
+      "authoredMetres": 36
+    },
+    {
+      "id": "central-pavilion-width",
+      "pixels": 874,
+      "sourceMetres": 66.89984932194878,
+      "authoredMetres": 66
+    },
+    {
+      "id": "diagram-dome-width",
+      "pixels": 701,
+      "sourceMetres": 53.65765946760422,
+      "authoredMetres": 56
+    }
+  ],
+  "adaptations": [
+    "Written187 ft dome diameter takes precedence over approximate53.66 m diagram circle; authored56 m is explicit grid adaptation.",
+    "No perspective photograph was used for a numerical height or roof pitch. Written113 ft becomes33.92 m /16 native floor-pitch markers, not16 occupied storeys.",
+    "Ordinary walls are unscaled1 x2 x.16 m; all plan runs have even whole-metre lengths. Circular arcades use24 x8 m and12 x6 m segments.",
+    "Full first floor at native level1, galleries at level3, dome spring/foyer roofs at level5; dome/glass ribs are explicit custom forms.",
+    "Two end-gallery stair positions follow the diagram. A third rear rotunda stair is an explicit access adaptation; straight24-tread construction, gallery wells and upper ring shapes are game adaptations."
+  ]
+}

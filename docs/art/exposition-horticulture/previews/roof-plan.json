@@ -1,0 +1,45 @@
+{
+  "name": "roof-plan",
+  "path": "docs/art/exposition-horticulture/previews/roof-plan.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "camera": {
+    "target": [
+      0,
+      0,
+      35
+    ],
+    "origin": [
+      0,
+      330,
+      35
+    ],
+    "up": [
+      0,
+      0,
+      -1
+    ],
+    "halfWidth": 173
+  },
+  "triangles": 1164394,
+  "caption": "Three pavilions joined around two open courts. Source installation grid is not treated as a structural bay schedule.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome: cream staff is text-supported; roof/glass/frame/plant hues are art choices.",
+    "Crowds, boats, exact historical exhibits, concealed services and fine sculpture are omitted.",
+    "Water at0.92 m, bulk terrace fill and ground are review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "171d87eddb4c5ee6f138535ec4b526a06ac7c1ef24e885f9afff99d2bda651ae",
+  "reviewedAt": "2026-10-29T17:29:27.624484+00:00",
+  "criteria": [
+    "Three-pavilion/two-court layout, glazed front curtains, twin foyer caps and lantern are distinct."
+  ]
+}
