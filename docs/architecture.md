@@ -60,6 +60,8 @@ The user approved a first named exposition building based on original architectu
 
 ## Decisions still open
 
+The active [explorable-places contract](milestones/08-explorable-places.md) adds New York, Administration and Horticulture as actual bear-controlled visits from a production main menu, retaining Catalogue Street. Coder owns lifecycle, native-scale navigation and intake; UI owns selector/navigation HUD. Large landmarks load independently with overview/follow views and disposal on exit. Unassigned fuel materials stay separate from street fire gameplay. Outdoor exploration is the first-pass scope while the optional interior clarification is pending.
+
 The [joined-row and ignition proposal](milestones/06-row-houses-and-ignition.md) assigns implementation to the existing coder, artist and UI specialist from the six-house checkpoint. It defines shared party-wall and timed-torch snapshots, an exact one-tile match target and a bounded material-response pass. User mechanics are distinguished from architect-selected defaults such as the 1 m target tile, world-time torch lifetime and prototype fuel profiles. The architect owns proposals, combined QC and promotion; the workers own their assigned code/art/UI. Until those deliveries are reviewed, the source code remains the previously checkpointed behavior.
 
 The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, custom protagonist clothing, progression, precise balancing, and later interior gameplay remain open. The bear candidate starts with the source's normal worker painting. Do not import the donor's turn/AP rules as Tinderbox requirements.

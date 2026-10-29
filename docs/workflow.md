@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/row-houses-and-ignition` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Proposals, source boundaries, integration, final QC |
-| Artist | `codex/row-ignition-art` checkpoint, then assigned `codex/new-york-state-building-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Preserve completed row/torch candidate; build the measured New York State Building exterior |
-| Coder | `codex/row-ignition-coder` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Row adjacency/collision and authoritative match/torch/fuel behavior; prior branches preserved |
-| UI designer | `codex/row-ignition-ui` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Existing controls/HUD consume ignition state; prior UI branch preserved |
+| Architect | `codex/explorable-places` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Place contract, exact intake, combined QC and promotion |
+| Artist | `codex/horticultural-building-art` checkpoint | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Preserve landmarks/waterfront; address returned art findings |
+| Coder | Assigned `codex/explorable-places-coder` from `ad80e2c` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Place loading, bear navigation, camera, lifecycle and immutable asset intake |
+| UI designer | Assigned `codex/explorable-places-ui` from `6659b9c` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Main-menu selection, navigation HUD and return controls |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -86,6 +86,10 @@ The architect owns TB-021: reconcile exact delivered commits, review source and 
 The user accepted the original-plan approach and asked the architect to send the next proposal to the artist. [Milestone 07](milestones/07-new-york-state-building.md) assigns TB-022 to **Artist, Tinderbox** in its existing worktree, on `codex/new-york-state-building-art` from its clean `f25fd7b28a9aee1d1abaef1ad65acd64d67a50e6` checkpoint. The original McKim, Mead & White plan, elevation and photograph govern one reusable exterior asset, a measurement/adaptation record and JPG previews. Administration follows architect review of this first building. Scene placement, collision/fuel wiring and UI are separate assignments.
 
 TB-023 is the architect's source/geometry/visual acceptance and later integration contract. The artist's row/torch and Hopkins v2 branches remain preserved candidates; starting this asset does not promote either. Coder/UI ignition assignments continue separately. The registry records the assigned next branch; Git worktree metadata records when the artist switches.
+
+## Explorable places assignment
+
+The user requested completed buildings as main-menu destinations. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to the coder, TB-025 to UI, TB-026 for returned art fixes and TB-027 to the architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share menu/return lifecycle. Outdoor exploration is the initial scope; incorporate any interior clarification before acceptance. Worker branches preserve completed ignition/UI candidates; the architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
 

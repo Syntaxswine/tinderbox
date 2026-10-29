@@ -37,6 +37,8 @@ The focused production-street review is `/workbenches/art/neighborhood.html`, wi
 
 ## Project coordination
 
+The active [explorable-places assignment](docs/milestones/08-explorable-places.md) adds the completed exposition landmarks to a production main menu and retains Catalogue Street. This branch currently contains the proposal; worker implementation and combined acceptance are pending.
+
 The architect owns architecture, worktree assignments, integration, and final quality control. The artist and coder deliver separate commits from their own worktrees. Work enters the integration branch only after the architect reviews the exact candidate.
 
 - [Architecture and reuse decisions](docs/architecture.md)
@@ -73,6 +75,6 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 ## Delivery status
 
-The primary checkout is the architect's workspace, currently on `codex/row-houses-and-ignition`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
+The primary checkout is the architect's workspace, currently on `codex/explorable-places`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
 
 The repository is public with the user's approval, and the exposition construction-kit study is live on Pages. The [publication run](https://github.com/Syntaxswine/tinderbox/actions/runs/40606724201) passed both build and deployment; all 70 hosted game files match the reviewed package. Source evidence, checks and remaining art scope are recorded in [the architect's acceptance](docs/reviews/2026-10-27-exposition-foundation.md). The [opening mechanics review](docs/reviews/2026-10-27-burning-trail.md) remains the earlier gameplay baseline.
