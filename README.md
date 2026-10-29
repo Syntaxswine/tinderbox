@@ -2,19 +2,13 @@
 
 An isometric 3D game about a pyromaniac anthropomorphic bear who does drugs and sets things on fire.
 
-The current **Catalogue Street** candidate extends the first three-house street to six original artist designs, with the native painted bear, original Farmyard horse/goat civilians, five tools, three drug effects, continuous gasoline trails and spreading fire. It runs in a browser with WebGL 2.
+The development release is being assembled around a warm brown, period title screen: **Play → animal and destination selection → one separate map**. Options contains shared interface preferences and controls. Choose the native Farmyard goat, horse or existing AFT bear. The delayed Nautilus bear is a later addition.
 
-Hopkins Nos. 9, 12, 13 and 15, the Gross Ashland cottage and the Monroe Street brick row-house design retain the artist's actual native geometry, siding, shingles and window/porch details. The committed Nautilus sash update supplies the centered upper windows on Nos. 13 and 15. A following camera and conservative house fading keep the bear visible around the buildings. Ground footprints govern movement and fire; each house chars and retires with its collider group when its finite fuel is spent. The existing interface still uses the imported Farmyard control assets; a future UI pass must begin with the donor's actual component layout and recipes.
+The four destinations are Catalogue Street, New York State Building, Administration Building and Horticultural Building. Catalogue Street retains the six original house designs, joined Monroe rows, five tools, walk-over medicine, continuous gasoline trails and spreading fire. The three landmark visits add exploration, contextual doors and real stairs, loading nearby geometry as needed. Fire remains a street mechanic in this release.
 
-[Browser acceptance is pending](docs/reviews/2026-10-28-catalogue-block-two.md). The public Pages build remains the reviewed **Exposition Study**, with its provisional bear; this review branch contains the shared AFT bear and new houses.
+[Combined acceptance is in progress](docs/reviews/2026-10-29-explorable-places.md). The public Pages build remains the earlier **Exposition Study** until that review approves publication. Development checks and source JPGs do not imply a live release.
 
-JPG previews: [all six houses](docs/reviews/media/2026-10-28-catalogue-block-two-overview.jpg) and [the three additions](docs/reviews/media/2026-10-28-catalogue-block-two-new-houses.jpg). These offline views omit characters, fire and UI.
-
-The next [architect proposal](docs/milestones/06-row-houses-and-ignition.md) is assigned to the existing coder, artist and UI specialist: joined Monroe rows, one-tile matches and a timed carried torch. This proposal branch retains the six-house implementation checkpoint while those worker deliveries are in progress.
-
-The artist's following [New York State Building assignment](docs/milestones/07-new-york-state-building.md) uses the original published plan, elevation and photograph for one reusable exterior, measured source comparisons and JPG previews. Administration follows review of that asset. Production placement remains a separate integration step.
-
-The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. The street is a fictional arrangement of [the first catalogue houses](docs/research/catalogue-neighborhood/README.md) and [three further designs](docs/research/catalogue-block-two/README.md), preserving the reusable Farmyard/AFT dimensions. Interiors, stair traversal, wall-climb fire and collapse physics remain separate work.
+The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. The fictional street combines [the first catalogue houses](docs/research/catalogue-neighborhood/README.md) and [three further designs](docs/research/catalogue-block-two/README.md). Native dimensions, source painting and provenance are preserved; playable access additions and cutaways are identified game adaptations. New York's attic stays closed; wall-climb fire and collapse physics remain later work.
 
 ## Play and develop
 
@@ -29,7 +23,9 @@ npm run serve -- --root dist --port 4550 --ttl 1800
 
 Open `http://127.0.0.1:4550/`. The loopback preview expires after 30 minutes; stop it immediately when finished. Agents must register retained previews under the user's helper policy.
 
-Move with WASD/arrows or the joystick. Point or tap the ground to aim. Select tools with 1–5; use Space or the red action button. Jerry-can pouring toggles on a press and continues while moving. Torch and flamethrower require holding the action. Q uses powder, E heals, R reverses the movement stick; Esc/P opens pause, options and reset.
+Move with WASD/arrows or the joystick. In Catalogue Street, point or tap the ground to aim, select tools with 1–5, and use Space or the action button. Matches ignite one target tile per press. Jerry-can pouring toggles on a press and follows accepted movement. Light a torch once, carry it for its finite burn time, then press its action to ignite nearby fuel. Hold the flamethrower action to discharge it.
+
+Walk over powder or pills to use them automatically. Powder increases player speed while slowing world time, including fire. Healing restores HP and stays on the ground at full health. Inversion reverses movement by 180 degrees. In landmark visits, E/Space or the contextual action opens nearby doors; walk along the actual stairs. Overview/Follow changes the camera, not the player's position. Pause and Return to Places cancel held input and dispose the current visit.
 
 For the reproducible browser acceptance page, serve the source root and open `/workbenches/integration/`. It runs the actual simulation, art and UI together. Workbenches and evidence are excluded from the public build.
 
@@ -37,7 +33,7 @@ The focused production-street review is `/workbenches/art/neighborhood.html`, wi
 
 ## Project coordination
 
-The active [explorable-places assignment](docs/milestones/08-explorable-places.md) adds a dedicated title screen, then destination/animal selection with the completed exposition landmarks and retained Catalogue Street as separate maps. The user requires warm browns, 1890s typography, playable interiors/stairs and nearby section loading. Workers are implementing the new visits; combined acceptance is pending.
+The active [explorable-places assignment](docs/milestones/08-explorable-places.md) combines the title, four maps, selectable animals, playable interiors/stairs and nearby sections. Its [architect review](docs/reviews/2026-10-29-explorable-places.md) records exact worker intakes, corrections, checks and publication status.
 
 The architect owns architecture, worktree assignments, integration, and final quality control. The artist and coder deliver separate commits from their own worktrees. Work enters the integration branch only after the architect reviews the exact candidate.
 
