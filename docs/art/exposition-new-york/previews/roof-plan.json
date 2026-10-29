@@ -1,0 +1,38 @@
+{
+  "name": "roof-plan",
+  "path": "docs/art/exposition-new-york/previews/roof-plan.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      0,
+      11
+    ],
+    "origin": [
+      0,
+      160,
+      11
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ],
+    "halfWidth": 38
+  },
+  "triangles": 178224,
+  "caption": "Top view of the actual model. Raised roof depth and rear roof joins are inferred.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "No effects, crowds, gameplay or UI; exterior only.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist offline appearance passed; runtime WebGL acceptance pending."
+}

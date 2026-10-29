@@ -1,0 +1,170 @@
+{
+  "assetId": "exposition-new-york-1893",
+  "task": "TB-022",
+  "version": 1,
+  "branch": "codex/new-york-state-building-art",
+  "baseCommit": "f25fd7b28a9aee1d1abaef1ad65acd64d67a50e6",
+  "factory": "createNewYorkStateBuilding",
+  "hostThreeRevisionTested": "180",
+  "units": "metres",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/exposition-new-york/index.js",
+      "bytes": 23124,
+      "sha256": "721976f625266d3ce93c0d309ea6f6dbdad145fe342f7d323c82baad92ed75d1"
+    },
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "assets/art/exposition-new-york/native-contract.js",
+      "bytes": 349,
+      "sha256": "80ab2a77fddbfe2a311501cfb06bb689b9618a16004d96231f7dd346e84d12e4"
+    },
+    {
+      "path": "assets/art/exposition-new-york/metadata.json",
+      "bytes": 31062,
+      "sha256": "841b3ce8ec79ad49237a5009023f851ef103bcf850eba6ed27bde8d2fe3d7c0b"
+    }
+  ],
+  "dependencies": [],
+  "ownership": {
+    "created": "Geometry, cloned/default materials and instancing GPU allocations; dispose once through returned dispose().",
+    "borrowed": "Host Three namespace and textures/maps. Supplied materials are cloned as owned adapters; originals and maps remain unchanged and undisposed."
+  },
+  "nativeContract": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "nativeReferenceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "nativeReferenceFiles": [
+    {
+      "path": "src/content/asset-scale.js",
+      "bytes": 1066,
+      "sha256": "6c8773c1317b6b6e0adead577cd819e21ce1ae93b0f20eed2ae0af5bffb3d0ea"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js",
+      "bytes": 1644,
+      "sha256": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed"
+    }
+  ],
+  "bounds": {
+    "min": [
+      -35.25,
+      -2.4795532183041757e-8,
+      -10.599999952316285
+    ],
+    "max": [
+      35.25,
+      33.49999999731779,
+      32.5099983215332
+    ]
+  },
+  "overhangBounds": {
+    "min": [
+      -35.25,
+      2.12,
+      -10.599999952316285
+    ],
+    "max": [
+      35.25,
+      33.49999999731779,
+      32.5099983215332
+    ],
+    "meaning": "Conservative bounds of all above-deck geometry, including porch cornices, rails and urns; not gameplay collision."
+  },
+  "diagnostics": {
+    "disposed": false,
+    "meshes": 316,
+    "triangles": 178224,
+    "sourceParts": 7041,
+    "instanceBatches": 164,
+    "geometries": 316,
+    "materials": 7,
+    "ownedTextures": 0,
+    "borrowedTextureCount": 0,
+    "nativeWalls": 322,
+    "nativeDoors": 6,
+    "components": 7112,
+    "quarterTurns": 0
+  },
+  "appearance": {
+    "slots": [
+      "facade",
+      "trim",
+      "door",
+      "roof",
+      "glazing",
+      "shadow",
+      "awning"
+    ],
+    "palette": "Warm ivory painted finish, muted olive/slate roof, teal glazing, brown leaves and striped awnings are game choices; historical colours unresolved.",
+    "uv": "Original native BoxGeometry UV/positions/normals retained. Separate grossUV uses metres. Native walls and all authored planar triangles, including sloped roofs, have metric UVs; curved turned ornaments use local projections/circumference approximations.",
+    "mapPeriod": "Caller supplies repeat-ready maps. Reviews use a 2 m period (repeat .5) for existing facade and roof maps; keep a consistent period when replacing a skin. Texture transforms are never mutated.",
+    "defaultTextureTransfer": {
+      "facade": 0.12,
+      "roof": 0.45,
+      "other": 1,
+      "note": "Default material mixes inherited map with the base painted colour in linear space. Borrowed material adapters preserve the supplied material response (blend1). These transfers are reproduced in CPU export."
+    },
+    "physicalMaterial": {
+      "structure": "unassigned",
+      "finish": "unassigned",
+      "reason": "Monochrome plates establish appearance; combustion properties require later content evidence."
+    }
+  },
+  "previewResources": [
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/environment/ground-concrete.png",
+      "bytes": 3308630,
+      "sha256": "a55fefded481abfce45866984caa9495884416f6273d65e6a95de1ff8e6598f1"
+    },
+    {
+      "path": "assets/art/exposition-skins-v1/roof-slate-v1.png",
+      "bytes": 2333888,
+      "sha256": "04fd7476c41c5d290350aba957db2a6d9234d38b9634c55a834b5afe4e64c25d"
+    }
+  ],
+  "previewTextureCount": 2,
+  "source": {
+    "id": "TB009-R02",
+    "creator": "McKim, Mead & White",
+    "itemId": "gri_33125006526145",
+    "plan": "https://archive.org/details/gri_33125006526145/page/n98/mode/1up",
+    "photo": "https://archive.org/details/gri_33125006526145/page/n96/mode/1up",
+    "pdfSha256": "1813cc4963681df8a6357c1553ffd4116522a19137afa6381e6b35f209f62fa0",
+    "jp2ZipSha256": "dddd19dad3ca5c68e4fe3651e0ab7611e8ea5dcd9eee99bf0a63d283cc171cc8",
+    "originalPages": [
+      {
+        "scan": 97,
+        "member": "gri_33125006526145_jp2/gri_33125006526145_0096.jp2",
+        "sha256": "06680e0795a55afb54f3fa10bbbafda1aefd084c474ca2d0e763e213e352d31b"
+      },
+      {
+        "scan": 99,
+        "member": "gri_33125006526145_jp2/gri_33125006526145_0098.jp2",
+        "sha256": "5ccafac6721cdd090e701a7bf1b264ee70ddf1f965bb2d4454953422ea0fe8c0"
+      }
+    ],
+    "rights": "Cached IA metadata possible-copyright-status: NOT_IN_COPYRIGHT. Credit architects, publication and Getty scan; no source image is a runtime asset.",
+    "publicationDate": "Later publication of original 1893 building. Title spans 1879-1915; IA catalogue1914 discrepancy remains unresolved.",
+    "sourceRecord": "art/source/exposition-new-york/sources.json"
+  },
+  "adaptations": [
+    "Rear opening rhythm and service faces",
+    "Roof plan, depth, back joins and tower back faces",
+    "Exact colours; awning stripe colour",
+    "Fine sculpture simplified to repeated garlands, medallions, empty urns"
+  ],
+  "integration": "Separate exterior landmark at full scale; not placed into the 51 m street. Gameplay, interiors, collision, fire, traversal and runtime browser acceptance remain later work."
+}

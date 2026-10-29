@@ -1,0 +1,1444 @@
+{
+  "assetId": "exposition-new-york-1893",
+  "version": 1,
+  "units": "metres",
+  "groundAnchor": "centre of main front wall at ground; +X right, +Z rear, +Y up",
+  "nativeContract": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "authoredBodyOutline": [
+    [
+      -23.5,
+      0
+    ],
+    [
+      -23.5,
+      27
+    ],
+    [
+      -13.25,
+      27
+    ],
+    [
+      -13.25,
+      30.5
+    ],
+    [
+      -7.25,
+      30.5
+    ],
+    [
+      -7.25,
+      32
+    ],
+    [
+      7.25,
+      32
+    ],
+    [
+      7.25,
+      30.5
+    ],
+    [
+      13.25,
+      30.5
+    ],
+    [
+      13.25,
+      27
+    ],
+    [
+      23.5,
+      27
+    ],
+    [
+      23.5,
+      0
+    ]
+  ],
+  "groundContact": [
+    {
+      "id": "main-plinth",
+      "polygon": [
+        [
+          -23.75,
+          -0.25
+        ],
+        [
+          -23.75,
+          27.25
+        ],
+        [
+          -13.5,
+          27.25
+        ],
+        [
+          -13.5,
+          30.75
+        ],
+        [
+          -7.5,
+          30.75
+        ],
+        [
+          -7.5,
+          32.25
+        ],
+        [
+          7.5,
+          32.25
+        ],
+        [
+          7.5,
+          30.75
+        ],
+        [
+          13.5,
+          30.75
+        ],
+        [
+          13.5,
+          27.25
+        ],
+        [
+          23.75,
+          27.25
+        ],
+        [
+          23.75,
+          -0.25
+        ]
+      ],
+      "minY": 0,
+      "maxY": 2.12,
+      "intent": "raised closed mass"
+    },
+    {
+      "id": "terrace",
+      "polygon": [
+        [
+          -13.25,
+          -4.5
+        ],
+        [
+          13.25,
+          -4.5
+        ],
+        [
+          13.25,
+          0
+        ],
+        [
+          -13.25,
+          0
+        ]
+      ],
+      "minY": 0,
+      "maxY": 2.12,
+      "intent": "raised terrace"
+    },
+    {
+      "id": "front-stair",
+      "polygon": [
+        [
+          -9.15,
+          -10.6
+        ],
+        [
+          9.15,
+          -10.6
+        ],
+        [
+          9.15,
+          -4.5
+        ],
+        [
+          -9.15,
+          -4.5
+        ]
+      ],
+      "minY": 0,
+      "maxY": 2.37,
+      "intent": "visual steps / cheeks; traversal deferred"
+    },
+    {
+      "id": "porch-east",
+      "polygon": [
+        [
+          23.5,
+          4.25
+        ],
+        [
+          24.225746635482565,
+          4.278514662968567
+        ],
+        [
+          24.947018801622136,
+          4.363882849494976
+        ],
+        [
+          25.659369615667124,
+          4.505578236321492
+        ],
+        [
+          26.358407197968262,
+          4.702727224269831
+        ],
+        [
+          27.039821749377083,
+          4.9541143242705985
+        ],
+        [
+          27.699412122590807,
+          5.258189651257599
+        ],
+        [
+          28.33311172362253,
+          5.613078479724647
+        ],
+        [
+          28.937013583705376,
+          6.016592802031736
+        ],
+        [
+          29.5073944470542,
+          6.466244818199714
+        ],
+        [
+          30.040737725975564,
+          6.959262274024436
+        ],
+        [
+          30.533755181800288,
+          7.4926055529458
+        ],
+        [
+          30.983407197968262,
+          8.062986416294624
+        ],
+        [
+          31.386921520275354,
+          8.666888276377474
+        ],
+        [
+          31.741810348742405,
+          9.300587877409193
+        ],
+        [
+          32.0458856757294,
+          9.96017825062292
+        ],
+        [
+          32.29727277573017,
+          10.641592802031736
+        ],
+        [
+          32.49442176367851,
+          11.340630384332876
+        ],
+        [
+          32.63611715050502,
+          12.052981198377864
+        ],
+        [
+          32.72148533703143,
+          12.774253364517435
+        ],
+        [
+          32.75,
+          13.5
+        ],
+        [
+          32.72148533703143,
+          14.225746635482565
+        ],
+        [
+          32.63611715050502,
+          14.947018801622134
+        ],
+        [
+          32.49442176367851,
+          15.659369615667124
+        ],
+        [
+          32.29727277573017,
+          16.358407197968262
+        ],
+        [
+          32.0458856757294,
+          17.03982174937708
+        ],
+        [
+          31.741810348742405,
+          17.699412122590807
+        ],
+        [
+          31.386921520275354,
+          18.333111723622526
+        ],
+        [
+          30.983407197968262,
+          18.937013583705376
+        ],
+        [
+          30.533755181800288,
+          19.5073944470542
+        ],
+        [
+          30.040737725975564,
+          20.040737725975564
+        ],
+        [
+          29.5073944470542,
+          20.533755181800288
+        ],
+        [
+          28.937013583705376,
+          20.983407197968262
+        ],
+        [
+          28.33311172362253,
+          21.38692152027535
+        ],
+        [
+          27.699412122590807,
+          21.7418103487424
+        ],
+        [
+          27.039821749377083,
+          22.0458856757294
+        ],
+        [
+          26.358407197968262,
+          22.29727277573017
+        ],
+        [
+          25.659369615667124,
+          22.49442176367851
+        ],
+        [
+          24.947018801622136,
+          22.636117150505022
+        ],
+        [
+          24.225746635482565,
+          22.72148533703143
+        ],
+        [
+          23.5,
+          22.75
+        ]
+      ],
+      "minY": 0,
+      "maxY": 2.12,
+      "intent": "raised open colonnade; voids between columns above deck"
+    },
+    {
+      "id": "porch-east-stair",
+      "polygon": [
+        [
+          32.75,
+          12
+        ],
+        [
+          35.25,
+          12
+        ],
+        [
+          35.25,
+          15
+        ],
+        [
+          32.75,
+          15
+        ]
+      ],
+      "minY": 0,
+      "maxY": 2.12,
+      "intent": "visual stairs; traversal deferred"
+    },
+    {
+      "id": "porch-west",
+      "polygon": [
+        [
+          -23.5,
+          22.75
+        ],
+        [
+          -24.225746635482565,
+          22.72148533703143
+        ],
+        [
+          -24.947018801622136,
+          22.636117150505022
+        ],
+        [
+          -25.659369615667124,
+          22.49442176367851
+        ],
+        [
+          -26.358407197968262,
+          22.29727277573017
+        ],
+        [
+          -27.039821749377083,
+          22.0458856757294
+        ],
+        [
+          -27.699412122590807,
+          21.7418103487424
+        ],
+        [
+          -28.33311172362253,
+          21.38692152027535
+        ],
+        [
+          -28.937013583705376,
+          20.983407197968262
+        ],
+        [
+          -29.5073944470542,
+          20.533755181800288
+        ],
+        [
+          -30.040737725975564,
+          20.040737725975564
+        ],
+        [
+          -30.533755181800288,
+          19.5073944470542
+        ],
+        [
+          -30.983407197968262,
+          18.937013583705376
+        ],
+        [
+          -31.386921520275354,
+          18.333111723622526
+        ],
+        [
+          -31.741810348742405,
+          17.699412122590807
+        ],
+        [
+          -32.0458856757294,
+          17.03982174937708
+        ],
+        [
+          -32.29727277573017,
+          16.358407197968262
+        ],
+        [
+          -32.49442176367851,
+          15.659369615667124
+        ],
+        [
+          -32.63611715050502,
+          14.947018801622136
+        ],
+        [
+          -32.72148533703143,
+          14.225746635482565
+        ],
+        [
+          -32.75,
+          13.5
+        ],
+        [
+          -32.72148533703143,
+          12.774253364517435
+        ],
+        [
+          -32.63611715050502,
+          12.052981198377866
+        ],
+        [
+          -32.49442176367851,
+          11.340630384332876
+        ],
+        [
+          -32.29727277573017,
+          10.641592802031736
+        ],
+        [
+          -32.0458856757294,
+          9.96017825062292
+        ],
+        [
+          -31.741810348742405,
+          9.300587877409193
+        ],
+        [
+          -31.386921520275354,
+          8.666888276377474
+        ],
+        [
+          -30.983407197968262,
+          8.062986416294624
+        ],
+        [
+          -30.533755181800288,
+          7.492605552945801
+        ],
+        [
+          -30.040737725975564,
+          6.959262274024436
+        ],
+        [
+          -29.5073944470542,
+          6.466244818199714
+        ],
+        [
+          -28.937013583705376,
+          6.016592802031736
+        ],
+        [
+          -28.33311172362253,
+          5.613078479724647
+        ],
+        [
+          -27.699412122590807,
+          5.258189651257599
+        ],
+        [
+          -27.039821749377083,
+          4.9541143242705985
+        ],
+        [
+          -26.358407197968262,
+          4.702727224269831
+        ],
+        [
+          -25.659369615667124,
+          4.505578236321492
+        ],
+        [
+          -24.947018801622136,
+          4.363882849494976
+        ],
+        [
+          -24.225746635482565,
+          4.278514662968567
+        ],
+        [
+          -23.5,
+          4.25
+        ]
+      ],
+      "minY": 0,
+      "maxY": 2.12,
+      "intent": "raised open colonnade; voids between columns above deck"
+    },
+    {
+      "id": "porch-west-stair",
+      "polygon": [
+        [
+          -35.25,
+          12
+        ],
+        [
+          -32.75,
+          12
+        ],
+        [
+          -32.75,
+          15
+        ],
+        [
+          -35.25,
+          15
+        ]
+      ],
+      "minY": 0,
+      "maxY": 2.12,
+      "intent": "visual stairs; traversal deferred"
+    }
+  ],
+  "porchColumns": [
+    {
+      "id": "porch-east/col-0-0",
+      "centre": [
+        23.5,
+        4.800000000000001
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-1",
+      "centre": [
+        26.829345861576282,
+        5.4622480671518066
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-2",
+      "centre": [
+        29.651828996322962,
+        7.348171003677038
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-3",
+      "centre": [
+        31.537751932848195,
+        10.17065413842372
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-4",
+      "centre": [
+        32.2,
+        13.5
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-5",
+      "centre": [
+        31.537751932848195,
+        16.829345861576282
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-6",
+      "centre": [
+        29.651828996322962,
+        19.651828996322962
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-7",
+      "centre": [
+        26.829345861576282,
+        21.537751932848195
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-0-8",
+      "centre": [
+        23.5,
+        22.2
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-1-0",
+      "centre": [
+        23.5,
+        7.6
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-1-1",
+      "centre": [
+        26.45,
+        8.390450117671811
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-1-2",
+      "centre": [
+        28.60954988232819,
+        10.55
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-1-3",
+      "centre": [
+        29.4,
+        13.5
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-1-4",
+      "centre": [
+        28.60954988232819,
+        16.45
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-1-5",
+      "centre": [
+        26.45,
+        18.60954988232819
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-east/col-1-6",
+      "centre": [
+        23.5,
+        19.4
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-0",
+      "centre": [
+        -23.5,
+        22.2
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-1",
+      "centre": [
+        -26.829345861576282,
+        21.537751932848195
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-2",
+      "centre": [
+        -29.651828996322962,
+        19.651828996322962
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-3",
+      "centre": [
+        -31.537751932848195,
+        16.829345861576282
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-4",
+      "centre": [
+        -32.2,
+        13.5
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-5",
+      "centre": [
+        -31.537751932848195,
+        10.17065413842372
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-6",
+      "centre": [
+        -29.651828996322962,
+        7.348171003677038
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-7",
+      "centre": [
+        -26.829345861576282,
+        5.4622480671518066
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-0-8",
+      "centre": [
+        -23.5,
+        4.800000000000001
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-1-0",
+      "centre": [
+        -23.5,
+        19.4
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-1-1",
+      "centre": [
+        -26.45,
+        18.60954988232819
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-1-2",
+      "centre": [
+        -28.60954988232819,
+        16.45
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-1-3",
+      "centre": [
+        -29.4,
+        13.5
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-1-4",
+      "centre": [
+        -28.60954988232819,
+        10.55
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-1-5",
+      "centre": [
+        -26.45,
+        8.390450117671811
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    },
+    {
+      "id": "porch-west/col-1-6",
+      "centre": [
+        -23.5,
+        7.6
+      ],
+      "radius": 0.48,
+      "minY": 2.12,
+      "maxY": 8.07
+    }
+  ],
+  "passages": [
+    {
+      "id": "east-entry",
+      "centre": [
+        23.5,
+        2.12,
+        13.5
+      ],
+      "clearWidth": 2,
+      "visualIntent": "closed leaves at raised porch; no traversal",
+      "nativeLeaves": 2
+    },
+    {
+      "id": "west-entry",
+      "centre": [
+        -23.5,
+        2.12,
+        13.5
+      ],
+      "clearWidth": 2,
+      "visualIntent": "closed leaves at raised porch; no traversal",
+      "nativeLeaves": 2
+    },
+    {
+      "id": "front-entry",
+      "centre": [
+        0,
+        2.12,
+        0
+      ],
+      "clearWidth": 2,
+      "visualIntent": "closed native leaves below fixed transom; no traversal",
+      "nativeLeaves": 2
+    },
+    {
+      "id": "porch-east-arc",
+      "visualIntent": "open between declared columns above 2.12 m deck",
+      "columnIds": [
+        "porch-east/col-0-0",
+        "porch-east/col-0-1",
+        "porch-east/col-0-2",
+        "porch-east/col-0-3",
+        "porch-east/col-0-4",
+        "porch-east/col-0-5",
+        "porch-east/col-0-6",
+        "porch-east/col-0-7",
+        "porch-east/col-0-8",
+        "porch-east/col-1-0",
+        "porch-east/col-1-1",
+        "porch-east/col-1-2",
+        "porch-east/col-1-3",
+        "porch-east/col-1-4",
+        "porch-east/col-1-5",
+        "porch-east/col-1-6"
+      ]
+    },
+    {
+      "id": "porch-west-arc",
+      "visualIntent": "open between declared columns above 2.12 m deck",
+      "columnIds": [
+        "porch-west/col-0-0",
+        "porch-west/col-0-1",
+        "porch-west/col-0-2",
+        "porch-west/col-0-3",
+        "porch-west/col-0-4",
+        "porch-west/col-0-5",
+        "porch-west/col-0-6",
+        "porch-west/col-0-7",
+        "porch-west/col-0-8",
+        "porch-west/col-1-0",
+        "porch-west/col-1-1",
+        "porch-west/col-1-2",
+        "porch-west/col-1-3",
+        "porch-west/col-1-4",
+        "porch-west/col-1-5",
+        "porch-west/col-1-6"
+      ]
+    }
+  ],
+  "upperEnvelope": [
+    {
+      "id": "roof-envelope",
+      "min": [
+        -23.75,
+        17.72,
+        -0.25
+      ],
+      "max": [
+        23.75,
+        18.36999997615814,
+        32.44999995231628
+      ],
+      "inference": "front height/profile from plate44; roof plan and rear joins inferred"
+    },
+    {
+      "id": "clerestory",
+      "min": [
+        -13.75,
+        18.299999952316284,
+        8.149999618530273
+      ],
+      "max": [
+        13.75,
+        24.05000009536743,
+        24.350000381469727
+      ],
+      "inference": "plate44 elevation; depth inferred"
+    },
+    {
+      "id": "clerestory/front",
+      "min": [
+        -13.25,
+        18.29999998688698,
+        8.110000006556511
+      ],
+      "max": [
+        13.25,
+        21.450000002384186,
+        8.57999999821186
+      ],
+      "inference": "plate44 outline / elevation"
+    },
+    {
+      "id": "tower-west",
+      "min": [
+        -13.427791893240304,
+        22.299999988079072,
+        9.772208106759695
+      ],
+      "max": [
+        -5.972208106759695,
+        33.49999999731779,
+        17.227791893240305
+      ],
+      "inference": "plate44 height/front profile and plate43 cap form; rear depth inferred"
+    },
+    {
+      "id": "tower-east",
+      "min": [
+        5.972208106759695,
+        22.299999988079072,
+        9.772208106759695
+      ],
+      "max": [
+        13.427791893240304,
+        33.49999999731779,
+        17.227791893240305
+      ],
+      "inference": "plate44 height/front profile and plate43 cap form; rear depth inferred"
+    }
+  ],
+  "overhangBounds": {
+    "min": [
+      -35.25,
+      2.12,
+      -10.599999952316285
+    ],
+    "max": [
+      35.25,
+      33.49999999731779,
+      32.5099983215332
+    ],
+    "meaning": "Conservative bounds of all above-deck geometry, including porch cornices, rails and urns; not gameplay collision."
+  },
+  "localBounds": {
+    "min": [
+      -35.25,
+      -2.4795532183041757e-8,
+      -10.599999952316285
+    ],
+    "max": [
+      35.25,
+      33.49999999731779,
+      32.5099983215332
+    ]
+  },
+  "appearanceSlots": [
+    "facade",
+    "trim",
+    "door",
+    "roof",
+    "glazing",
+    "shadow",
+    "awning"
+  ],
+  "physicalMaterial": {
+    "structure": "unassigned",
+    "finish": "unassigned",
+    "reason": "Monochrome plates establish appearance; combustion properties require later content evidence."
+  },
+  "sourceId": "TB009-R02",
+  "sourceBays": [
+    {
+      "id": "lower-0",
+      "x": -20.75,
+      "y": 3,
+      "source": "plate44 elevation"
+    },
+    {
+      "id": "lower-1",
+      "x": -14.75,
+      "y": 3,
+      "source": "plate44 elevation"
+    },
+    {
+      "id": "lower-2",
+      "x": -9.75,
+      "y": 3,
+      "source": "plate44 elevation"
+    },
+    {
+      "id": "lower-3",
+      "x": -4.9,
+      "y": 3,
+      "source": "plate44 elevation"
+    },
+    {
+      "id": "lower-4",
+      "x": 4.9,
+      "y": 3,
+      "source": "plate44 elevation"
+    },
+    {
+      "id": "lower-5",
+      "x": 9.75,
+      "y": 3,
+      "source": "plate44 elevation"
+    },
+    {
+      "id": "lower-6",
+      "x": 14.75,
+      "y": 3,
+      "source": "plate44 elevation"
+    },
+    {
+      "id": "lower-7",
+      "x": 20.75,
+      "y": 3,
+      "source": "plate44 elevation"
+    }
+  ],
+  "inferred": [
+    "Rear opening rhythm and service faces",
+    "Roof plan, depth, back joins and tower back faces",
+    "Exact colours; awning stripe colour",
+    "Fine sculpture simplified to repeated garlands, medallions, empty urns"
+  ],
+  "integration": "Exterior art only; simulation owns collisions, fire, traversal, collapse and placement.",
+  "measuredReference": {
+    "method": "metres = featurePixels / calibrationPixels * calibrationFeet * 0.3048",
+    "uncertainty": "Scale-derived values include +/-2 pixels at each feature endpoint plus 2% span allowance for scan/reproduction distortion; rounded upward. This is a drawing-reading allowance, not surveyed accuracy. Printed 154 ft takes priority for facade width. No source fitted to the game outline.",
+    "uncompressedBodyOutlineMetres": [
+      [
+        -23.4991,
+        0
+      ],
+      [
+        -23.4991,
+        26.98955
+      ],
+      [
+        -13.17523,
+        26.98955
+      ],
+      [
+        -13.17523,
+        30.52916
+      ],
+      [
+        -7.17755,
+        30.52916
+      ],
+      [
+        -7.17755,
+        32.10232
+      ],
+      [
+        7.37419,
+        32.10232
+      ],
+      [
+        7.37419,
+        30.52916
+      ],
+      [
+        13.12606,
+        30.52916
+      ],
+      [
+        13.12606,
+        26.98955
+      ],
+      [
+        23.4991,
+        26.98955
+      ],
+      [
+        23.4991,
+        0
+      ]
+    ],
+    "measurements": [
+      {
+        "id": "main-facade",
+        "method": "printed dimension chain",
+        "sourceFeet": 154,
+        "sourceMetres": 46.9392,
+        "authoredMetres": 47,
+        "readingUncertaintyMetres": 0,
+        "locator": "Plate 44 plan; 77 ft + 77 ft",
+        "confidence": "high",
+        "adaptation": "+0.0608 m across facade; 47 unchanged 1 m tile widths."
+      },
+      {
+        "id": "facade-ruler-cross-check",
+        "method": "plan ruler",
+        "sourceFeet": 154.19355,
+        "sourceMetres": 46.99819,
+        "authoredMetres": 47,
+        "readingUncertaintyMetres": 1.14,
+        "locator": "plan x303..1259",
+        "confidence": "medium",
+        "adaptation": "Independent scale agrees with printed width within 0.2%; no uniform rescaling."
+      },
+      {
+        "id": "main-body-depth",
+        "method": "plan ruler",
+        "sourceFeet": 88.54839,
+        "sourceMetres": 26.98955,
+        "authoredMetres": 27,
+        "readingUncertaintyMetres": 0.74,
+        "locator": "plan y229..778",
+        "confidence": "medium",
+        "adaptation": "Rounded to 27 m; native wall widths composed."
+      },
+      {
+        "id": "rear-envelope-depth",
+        "method": "plan ruler",
+        "sourceFeet": 105.32258,
+        "sourceMetres": 32.10232,
+        "authoredMetres": 32,
+        "readingUncertaintyMetres": 0.84,
+        "locator": "plan y125..778",
+        "confidence": "medium",
+        "adaptation": "Rear two steps at z27,30.5,32 m; rear roof inferred."
+      },
+      {
+        "id": "rear-intermediate-width",
+        "method": "plan ruler",
+        "sourceFeet": 86.29032,
+        "sourceMetres": 26.30129,
+        "authoredMetres": 26.5,
+        "readingUncertaintyMetres": 0.73,
+        "locator": "plan x513..1048",
+        "confidence": "medium",
+        "adaptation": "Symmetric stepped mass."
+      },
+      {
+        "id": "rear-central-width",
+        "method": "plan ruler",
+        "sourceFeet": 47.74194,
+        "sourceMetres": 14.55174,
+        "authoredMetres": 14.5,
+        "readingUncertaintyMetres": 0.49,
+        "locator": "plan x635..931",
+        "confidence": "medium",
+        "adaptation": "Symmetric stair projection; doors not connected to traversal."
+      },
+      {
+        "id": "porch-radius",
+        "method": "plan ruler",
+        "sourceFeet": 30.48387,
+        "sourceMetres": 9.29148,
+        "authoredMetres": 9.25,
+        "readingUncertaintyMetres": 0.39,
+        "locator": "plan curved outline x1259..1448",
+        "confidence": "medium",
+        "adaptation": "Explicit semicircular module; no native wall stretched."
+      },
+      {
+        "id": "envelope-width-with-side-stairs",
+        "method": "plan ruler",
+        "sourceFeet": 231.29032,
+        "sourceMetres": 70.49729,
+        "authoredMetres": 70.5,
+        "readingUncertaintyMetres": 1.61,
+        "locator": "plan stair extremes x64..1498",
+        "confidence": "medium",
+        "adaptation": "Includes open colonnades and stairs. Larger than 51 m street."
+      },
+      {
+        "id": "terrace-width",
+        "method": "plan ruler",
+        "sourceFeet": 87.09677,
+        "sourceMetres": 26.5471,
+        "authoredMetres": 26.5,
+        "readingUncertaintyMetres": 0.73,
+        "locator": "plan x510..1050",
+        "confidence": "medium",
+        "adaptation": "Front terrace follows centre block, 26.5 m."
+      },
+      {
+        "id": "terrace-projection",
+        "method": "plan ruler",
+        "sourceFeet": 14.19355,
+        "sourceMetres": 4.32619,
+        "authoredMetres": 4.5,
+        "readingUncertaintyMetres": 0.29,
+        "locator": "plan y778..866",
+        "confidence": "medium",
+        "adaptation": "Custom terrace slab and balustrade."
+      },
+      {
+        "id": "front-stair-run",
+        "method": "plan ruler",
+        "sourceFeet": 20.32258,
+        "sourceMetres": 6.19432,
+        "authoredMetres": 6.1,
+        "readingUncertaintyMetres": 0.33,
+        "locator": "plan y866..992",
+        "confidence": "medium",
+        "adaptation": "Ten visual steps; rise follows 2.12 m landing. Traversal deferred."
+      },
+      {
+        "id": "front-stair-width",
+        "method": "plan ruler",
+        "sourceFeet": 60.96774,
+        "sourceMetres": 18.58297,
+        "authoredMetres": 18.3,
+        "readingUncertaintyMetres": 0.57,
+        "locator": "plan x594..972",
+        "confidence": "medium",
+        "adaptation": "Outer stair cheek envelope; clear stair flight 14 m per inner outline."
+      },
+      {
+        "id": "main-floor-height",
+        "method": "elevation ruler",
+        "sourceFeet": 6.66667,
+        "sourceMetres": 2.032,
+        "authoredMetres": 2.12,
+        "readingUncertaintyMetres": 0.24,
+        "locator": "elevation y714..673",
+        "confidence": "medium",
+        "adaptation": "Native 2.12 m floor pitch retained; +0.088 m."
+      },
+      {
+        "id": "porch-balustrade-height",
+        "method": "elevation ruler",
+        "sourceFeet": 32.03252,
+        "sourceMetres": 9.76351,
+        "authoredMetres": 9.8,
+        "readingUncertaintyMetres": 0.4,
+        "locator": "elevation y714..517",
+        "confidence": "medium",
+        "adaptation": "Built from unscaled columns with custom capitals, cornice and rails."
+      },
+      {
+        "id": "main-parapet-height",
+        "method": "elevation ruler",
+        "sourceFeet": 63.08943,
+        "sourceMetres": 19.22966,
+        "authoredMetres": 19.2,
+        "readingUncertaintyMetres": 0.59,
+        "locator": "elevation y714..326",
+        "confidence": "medium",
+        "adaptation": "Independent elevation calibration; detailed balusters simplified."
+      },
+      {
+        "id": "clerestory-cornice-height",
+        "method": "elevation ruler",
+        "sourceFeet": 70.4065,
+        "sourceMetres": 21.4599,
+        "authoredMetres": 21.45,
+        "readingUncertaintyMetres": 0.63,
+        "locator": "elevation y714..281",
+        "confidence": "medium",
+        "adaptation": "Five clerestory windows; depth inferred behind main hall."
+      },
+      {
+        "id": "upper-roof-balustrade-height",
+        "method": "elevation ruler",
+        "sourceFeet": 81.62602,
+        "sourceMetres": 24.87961,
+        "authoredMetres": 24.9,
+        "readingUncertaintyMetres": 0.7,
+        "locator": "elevation y714..212",
+        "confidence": "medium",
+        "adaptation": "Roof terrace and simple repeating rails."
+      },
+      {
+        "id": "tower-cap-height",
+        "method": "elevation ruler",
+        "sourceFeet": 109.7561,
+        "sourceMetres": 33.45366,
+        "authoredMetres": 33.5,
+        "readingUncertaintyMetres": 0.87,
+        "locator": "elevation y714..39",
+        "confidence": "medium",
+        "adaptation": "Low hipped caps and tiny terminal; rear cap depth inferred."
+      },
+      {
+        "id": "tower-body-width",
+        "method": "elevation ruler",
+        "sourceFeet": 17.56098,
+        "sourceMetres": 5.35259,
+        "authoredMetres": 5.4,
+        "readingUncertaintyMetres": 0.31,
+        "locator": "elevation approximately x526..634",
+        "confidence": "medium",
+        "adaptation": "Explicit 5.4 m pavilion; caps/ledge extend beyond body."
+      },
+      {
+        "id": "entry-field-width",
+        "method": "elevation ruler",
+        "sourceFeet": 6.82927,
+        "sourceMetres": 2.08156,
+        "authoredMetres": 2,
+        "readingUncertaintyMetres": 0.24,
+        "locator": "elevation x754..796, lower central door field",
+        "confidence": "medium",
+        "adaptation": "Two native 1 m leaves; jambs close the 2.3 m wall aperture."
+      },
+      {
+        "id": "entry-field-height",
+        "method": "elevation ruler",
+        "sourceFeet": 13.82114,
+        "sourceMetres": 4.21268,
+        "authoredMetres": 4.42,
+        "readingUncertaintyMetres": 0.29,
+        "locator": "elevation y585..670, lower central door field",
+        "confidence": "medium",
+        "adaptation": "Native 1.65 m leaves plus fixed 2.75 m transom and .02 m joint."
+      },
+      {
+        "id": "lower-window-glazing-width",
+        "method": "elevation ruler",
+        "sourceFeet": 4.87805,
+        "sourceMetres": 1.48683,
+        "authoredMetres": 1.36,
+        "readingUncertaintyMetres": 0.23,
+        "locator": "elevation x340..370, first lower window",
+        "confidence": "medium",
+        "adaptation": "New historic glazing/frame assembly around a 1.5 m wall aperture."
+      },
+      {
+        "id": "lower-window-glazing-height",
+        "method": "elevation ruler",
+        "sourceFeet": 8.78049,
+        "sourceMetres": 2.67629,
+        "authoredMetres": 2.78,
+        "readingUncertaintyMetres": 0.26,
+        "locator": "elevation y596..650, first lower window",
+        "confidence": "medium",
+        "adaptation": "New sash geometry; width/height are not borrowed window deformations."
+      }
+    ]
+  }
+}
