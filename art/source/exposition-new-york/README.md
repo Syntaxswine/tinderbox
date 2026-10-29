@@ -4,6 +4,8 @@ This directory preserves the original plate44 plan/elevation and plate43 photogr
 
 [sources.json](sources.json) identifies McKim, Mead & White / Getty / Internet Archive item `gri_33125006526145`, source PDF/ZIP/page SHA-256 values, JP2 member names, source URLs and the catalogued public-domain evidence. `raw/plate-44.jp2` is the exact original scan99 page (0098 member); `raw/plate-43.jp2` is scan97 (0096). The PDF's small JBIG2 glyphs were less legible; original JP2 pages support the recorded77 ft chain and ruler readings. The full PDF/ZIP are ignored research caches, reused rather than committed.
 
+[The porch detail](porch-column-source.jpg) shows the paired outer columns and clear side-stair axis; the measurement record preserves all 22 centroids per porch and the separate connector/curve profile.
+
 [measurements.json](measurements.json) separates printed facts, ruler-derived dimensions, the uncompressed source outline, authored dimensions and uncertainty/inference. Crop coordinates refer to the2010 ×3000 original page. JPEG evidence is compressed only for review, not used as runtime art. Plate43 is rotated270 degrees to upright; the source remains unretouched.
 
 Run from the project root, using Node 22+ (24.15.0 checked) and Python 3.12 with Pillow 12.3.0. Offline renders additionally require Mitsuba 3.9.1 and NumPy 2.3.5. The existing local installation is `artifacts/render-deps`; dependencies are not vendored or installed by these recipes.

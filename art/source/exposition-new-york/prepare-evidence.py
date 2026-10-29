@@ -16,6 +16,7 @@ for scan,filename,rotation in [(99,'plate-44.jpg',0),(97,'plate-43-built.jpg',27
 page=Image.open(out/'raw/plate-44.jp2').convert('RGB');crops={}
 for kind in ['plan','elevation']:
  crops[kind]=page.crop(data[kind]['crop']);crops[kind].save(out/('source-'+kind+'.jpg'),quality=97,subsampling=0)
+crops['plan'].crop((1210,320,1515,685)).resize((915,1095),Image.Resampling.LANCZOS).save(out/'porch-column-source.jpg',quality=97,subsampling=0)
 font=lambda n:ImageFont.truetype('C:/Windows/Fonts/arial.ttf',n)
 sheet=Image.new('RGB',(2300,3200),'#f3edde');d=ImageDraw.Draw(sheet)
 d.text((65,35),'NEW YORK STATE BUILDING | source calibration',font=font(44),fill='#253b34');d.text((65,97),'McKim, Mead & White - plates 44 and 43 - Getty / Internet Archive',font=font(27),fill='#48544a')
@@ -35,5 +36,5 @@ d.text((90,3110),'Published after the fair; not a complete construction or as-bu
 sheet.save(out/'annotated-calibration.jpg',quality=96,subsampling=0)
 provenance['files']=[]
 for p in sorted([*out.glob('*.jpg'),*out.glob('raw/*.jp2')]):provenance['files'].append(dict(path=p.relative_to(ROOT).as_posix(),bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()))
-(out/'sources.json').write_text(json.dumps(provenance,indent=2)+'\n',encoding='utf-8')
+(out/'sources.json').write_text(json.dumps(provenance,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('Prepared',len(provenance['files']),'source files with exact hashes.')

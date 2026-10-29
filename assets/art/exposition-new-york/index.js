@@ -14,7 +14,10 @@ function offsetVertex(poly,index,distance){
   return[p[0]+distance*(u[0]+v[0])/den,p[1]+distance*(u[1]+v[1])/den];
 }
 const halfDisc=r=>Array.from({length:41},(_,i)=>{const a=-Math.PI/2+i*Math.PI/40;return[r*Math.cos(a),r*Math.sin(a)];});
-const annulus=(r,w)=>[...halfDisc(r),...halfDisc(r-w).reverse()];
+const annulus=(r,w,neck=0)=>[...halfDisc(r).map(([x,z])=>[x+neck,z]),...halfDisc(r-w).reverse().map(([x,z])=>[x+neck,z])];
+const porchOutline=(r,neck=1.25)=>[[0,-r],...halfDisc(r).map(([x,z])=>[x+neck,z]),[0,r]];
+// Plate44: fourteen paired outer columns and eight inner columns, in source metres.
+const PORCH_COLUMNS={"outer":[[2.15,7.25],[4.4,6.85],[5.3,6.45],[7.1,5.0],[7.75,4.3],[8.7,2.1],[8.95,1.1],[8.95,-1.1],[8.7,-2.1],[7.75,-4.3],[7.1,-5.0],[5.3,-6.45],[4.4,-6.85],[2.15,-7.25]],"inner":[[1.85,4.3],[3.65,3.85],[5.1,2.65],[6.05,0.95],[6.05,-0.95],[5.1,-2.65],[3.65,-3.85],[1.85,-4.3]]};
 
 /** Exterior-only landmark. Borrowed materials are cloned as owned UV adapters;
  * maps/textures and the supplied Three namespace always remain host-owned.
@@ -141,20 +144,21 @@ export function createNewYorkStateBuilding(T,{materials={},textures={},quarterTu
   for(const s of [-1,1])for(let i=0;i<10;i++){const h=(i+1)*2.12/10,d=(10-i)*.61;box(root,'front-cheek-'+s+'-'+i,1.9,h+.25,d,s*8.2,(h+.25)/2,-4.5-d/2);}
   groundContact.push({id:'front-stair',polygon:rectangle(-9.15,9.15,-10.6,-4.5),minY:0,maxY:2.37,intent:'visual steps / cheeks; traversal deferred'});
   for(const [label,s,angle] of [['east',1,0],['west',-1,Math.PI]]){
-    const g=group(root,'porch-'+label,[s*23.5,0,13.5],angle,{evidence:'plate44 first-floor plan; plate43 visible curved colonnade'}),r=9.25;
-    prism(g,'porch-'+label+'/base',halfDisc(r),2.12,0,1.06,0,'facade');
-    for(const [i,radius,count] of [[0,8.7,9],[1,5.9,7]])for(let j=0;j<count;j++){
-      const a=-Math.PI/2+Math.PI*j/(count-1),x=radius*Math.cos(a),z=radius*Math.sin(a),id='porch-'+label+'/col-'+i+'-'+j;
+    const g=group(root,'porch-'+label,[s*23.5,0,13.5],angle,{evidence:'plate44 paired colonnades and clear stair axis; plate43 curved porch'}),r=8,neck=1.25;
+    prism(g,'porch-'+label+'/base',porchOutline(r,neck),2.12,0,1.06,0,'facade');
+    for(const [i,row] of ['outer','inner'].entries())for(const [j,[x,z]] of PORCH_COLUMNS[row].entries()){
+      const id='porch-'+label+'/col-'+i+'-'+j;
       cylinder(g,id+'/base',.44,.48,.28,x,2.26,z);cylinder(g,id+'/shaft',.25,.32,5.1,x,4.95,z);cylinder(g,id+'/neck',.32,.3,.2,x,7.6,z);box(g,id+'/capital',.78,.37,.78,x,7.885,z);
       f.columns.push({id,centre:[s*(23.5+x),z*s+13.5],radius:.48,minY:2.12,maxY:8.07});
     }
-    for(const [i,rr,y,h] of [[0,9.15,8.18,.36],[1,9.5,8.48,.24],[2,9.6,8.67,.14]])prism(g,'porch-'+label+'/cornice-'+i,halfDisc(rr),h,0,y,0,'trim');
-    prism(g,'porch-'+label+'/deck',halfDisc(9.25),.12,0,8.78,0,'roof');
-    prism(g,'porch-'+label+'/rail-base',annulus(9.25,.28),.14,0,8.91,0);prism(g,'porch-'+label+'/rail-cap',annulus(9.32,.31),.16,0,9.72,0);
-    const n=43;for(let i=0;i<=n;i++){const a=-Math.PI/2+Math.PI*i/n;f.lathe(g,'porch-'+label+'/baluster-'+i,f.balusterProfile,9.1*Math.cos(a),8.98,9.1*Math.sin(a));}
-    for(let i=0;i<=4;i++){const a=-Math.PI/2+Math.PI*i/4;box(g,'porch-'+label+'/pier-'+i,.52,.96,.52,9.1*Math.cos(a),9.32,9.1*Math.sin(a));urn(g,'porch-'+label+'/urn-'+i,9.1*Math.cos(a),9.8,9.1*Math.sin(a));}
+    for(const [i,rr,y,h] of [[0,7.9,8.18,.36],[1,8.25,8.48,.24],[2,8.35,8.67,.14]])prism(g,'porch-'+label+'/cornice-'+i,porchOutline(rr,neck),h,0,y,0,'trim');
+    prism(g,'porch-'+label+'/deck',porchOutline(r,neck),.12,0,8.78,0,'roof');
+    prism(g,'porch-'+label+'/rail-base',annulus(r,.28,neck),.14,0,8.91,0);prism(g,'porch-'+label+'/rail-cap',annulus(r+.07,.31,neck),.16,0,9.72,0);
+    for(const t of [-1,1]){box(g,'porch-'+label+'/neck-rail-base-'+t,neck,.14,.28,neck/2,8.91,t*(r-.14));box(g,'porch-'+label+'/neck-rail-cap-'+t,neck,.16,.31,neck/2,9.72,t*(r-.085));}
+    const n=37;for(let i=0;i<=n;i++){const a=-Math.PI/2+Math.PI*i/n;f.lathe(g,'porch-'+label+'/baluster-'+i,f.balusterProfile,neck+(r-.15)*Math.cos(a),8.98,(r-.15)*Math.sin(a));}
+    for(let i=0;i<=4;i++){const a=-Math.PI/2+Math.PI*i/4;box(g,'porch-'+label+'/pier-'+i,.52,.96,.52,neck+(r-.15)*Math.cos(a),9.32,(r-.15)*Math.sin(a));urn(g,'porch-'+label+'/urn-'+i,neck+(r-.15)*Math.cos(a),9.8,(r-.15)*Math.sin(a));}
     for(let i=0;i<10;i++){const h=(i+1)*.212,w=(10-i)*.25;box(g,'porch-'+label+'/step-'+i,w,h,3,9.25+w/2,h/2,0,'facade');}
-    const polygon=halfDisc(9.25).map(([x,z])=>[s*(23.5+x),13.5+s*z]);groundContact.push({id:'porch-'+label,polygon,minY:0,maxY:2.12,intent:'raised open colonnade; voids between columns above deck'});
+    const polygon=porchOutline(r,neck).map(([x,z])=>[s*(23.5+x),13.5+s*z]);groundContact.push({id:'porch-'+label,polygon,minY:0,maxY:2.12,intent:'raised open colonnade; voids between columns above deck'});
     groundContact.push({id:'porch-'+label+'-stair',polygon:rectangle(s>0?32.75:-35.25,s>0?35.25:-32.75,12,15),minY:0,maxY:2.12,intent:'visual stairs; traversal deferred'});
     passages.push({id:'porch-'+label+'-arc',visualIntent:'open between declared columns above 2.12 m deck',columnIds:f.columns.filter(c=>c.id.startsWith('porch-'+label)).map(c=>c.id)});
   }
@@ -199,7 +203,7 @@ export function createNewYorkStateBuilding(T,{materials={},textures={},quarterTu
   }
   root.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(root),localBounds={min:bounds.min.toArray(),max:bounds.max.toArray()},overhangs=roofGroups.map(g=>{const b=new T.Box3().setFromObject(g);return{id:g.name,min:b.min.toArray(),max:b.max.toArray(),inference:g.userData.evidence};});
   const assembly=f.finalize(root);
-  const metadata=freeze({assetId:NEW_YORK_ASSET_ID,version:1,units:'metres',groundAnchor:'centre of main front wall at ground; +X right, +Z rear, +Y up',nativeContract:{...S},authoredBodyOutline:BODY.map(p=>[...p]),groundContact,porchColumns:f.columns,passages,upperEnvelope:overhangs,overhangBounds:{min:[localBounds.min[0],2.12,localBounds.min[2]],max:[...localBounds.max],meaning:'Conservative bounds of all above-deck geometry, including porch cornices, rails and urns; not gameplay collision.'},localBounds,appearanceSlots:[...APPEARANCE_SLOTS],physicalMaterial:{structure:'unassigned',finish:'unassigned',reason:'Monochrome plates establish appearance; combustion properties require later content evidence.'},sourceId:'TB009-R02',sourceBays,inferred:['Rear opening rhythm and service faces','Roof plan, depth, back joins and tower back faces','Exact colours; awning stripe colour','Fine sculpture simplified to repeated garlands, medallions, empty urns'],integration:'Exterior art only; simulation owns collisions, fire, traversal, collapse and placement.'});
+  const metadata=freeze({assetId:NEW_YORK_ASSET_ID,version:1,units:'metres',groundAnchor:'centre of main front wall at ground; +X right, +Z rear, +Y up',nativeContract:{...S},authoredBodyOutline:BODY.map(p=>[...p]),porchProfile:{neckDepth:1.25,curveRadius:8,projection:9.25,diameter:16,outerColumns:14,innerColumns:8,layout:PORCH_COLUMNS,evidence:'Plate44 original plan; paired columns preserve the side-stair axis'},groundContact,porchColumns:f.columns,passages,upperEnvelope:overhangs,overhangBounds:{min:[localBounds.min[0],2.12,localBounds.min[2]],max:[...localBounds.max],meaning:'Conservative bounds of all above-deck geometry, including porch cornices, rails and urns; not gameplay collision.'},localBounds,appearanceSlots:[...APPEARANCE_SLOTS],physicalMaterial:{structure:'unassigned',finish:'unassigned',reason:'Monochrome plates establish appearance; combustion properties require later content evidence.'},sourceId:'TB009-R02',sourceBays,inferred:['Rear opening rhythm and service faces','Roof plan, depth, back joins and tower back faces','Exact colours; awning stripe colour','Fine sculpture simplified to repeated garlands, medallions, empty urns'],integration:'Exterior art only; simulation owns collisions, fire, traversal, collapse and placement.'});
   root.userData={assetId:NEW_YORK_ASSET_ID,metadata};root.rotation.y=-quarterTurns*Math.PI/2;root.position.fromArray(position);root.updateMatrixWorld(true);
   function setAppearance(next={}){
     if(closed)throw Error('Building is disposed');

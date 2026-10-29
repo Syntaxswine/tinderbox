@@ -1,7 +1,7 @@
 {
   "task": "TB-022",
   "scope": "Artist offline candidate checks; architect source review and runtime browser acceptance remain pending.",
-  "recordedAtUTC": "2026-10-29T00:05:14.746776+00:00",
+  "recordedAtUTC": "2026-10-29T00:26:52.840469+00:00",
   "passed": true,
   "baseCommit": "f25fd7b28a9aee1d1abaef1ad65acd64d67a50e6",
   "branch": "codex/new-york-state-building-art",
@@ -14,12 +14,12 @@
     {
       "command": "node workbenches/art/check-exposition-new-york.mjs --package",
       "passed": true,
-      "result": "23 calibrated measurements; 8 front bay centres; 328 unscaled native parts; 295665 finite bounded vertices; 1158 ground-contact vertices; 258444 metric planar edges including132 roof edges; actual open/closed geometry probes; four placements; appearance invariance; borrowed ownership; 489 owned disposal checks; native reference / texture / runtime hashes."
+      "result": "25 calibrated measurements; 8 front bay centres; 44 source-positioned porch columns and clear side-stair axes; 328 unscaled native parts; 297669 finite bounded vertices; 1182 ground-contact vertices; 259404 metric planar edges including132 roof edges; four placements; appearance/borrowed ownership; 493 owned resource disposals; source/runtime/texture hashes."
     },
     {
       "command": "node tools/build.mjs",
       "passed": true,
-      "result": "137 packaged files; 43245066 bytes; source/JP2/docs excluded."
+      "result": "137 packaged files; 43250492 bytes; source/JP2/docs excluded."
     },
     {
       "command": "nested-path package check (same focused check --package)",
@@ -36,8 +36,16 @@
   "physicalMaterial": "Unassigned; no gameplay integration or implied combustion classification.",
   "helperCompletion": {
     "task": "TB-022",
-    "checkedAt": "2026-10-29T00:02:27.9159185Z",
+    "checkedAt": "2026-10-29T00:26:52.7470328Z",
     "renderProcesses": [
+      {
+        "pid": 35248,
+        "creationFiletime": "134377069636223167",
+        "finishedAt": "2026-10-28T20:23:09.211934-04:00",
+        "exited": true,
+        "purpose": "Finite actual-model CPU render",
+        "port": null
+      },
       {
         "pid": 36092,
         "creationFiletime": "134377028939023670",
@@ -87,11 +95,12 @@
         "port": null
       }
     ],
-    "packagePid": 4900,
-    "packagePort": 64940,
+    "packagePid": 46164,
+    "packagePort": 61689,
     "packageReleased": true,
     "noPackageListener": true,
     "retainedHelpers": []
   },
-  "promotion": "Not performed; worker candidate only."
+  "promotion": "Not performed; worker candidate only.",
+  "geometryRevision": 2
 }
