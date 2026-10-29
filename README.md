@@ -37,7 +37,7 @@ The focused production-street review is `/workbenches/art/neighborhood.html`, wi
 
 ## Project coordination
 
-The active [explorable-places assignment](docs/milestones/08-explorable-places.md) adds the completed exposition landmarks to a production main menu and retains Catalogue Street. This branch currently contains the proposal; worker implementation and combined acceptance are pending.
+The active [explorable-places assignment](docs/milestones/08-explorable-places.md) adds a dedicated title screen, then destination/animal selection with the completed exposition landmarks and retained Catalogue Street as separate maps. The user requires warm browns, 1890s typography, playable interiors/stairs and nearby section loading. Workers are implementing the new visits; combined acceptance is pending.
 
 The architect owns architecture, worktree assignments, integration, and final quality control. The artist and coder deliver separate commits from their own worktrees. Work enters the integration branch only after the architect reviews the exact candidate.
 
