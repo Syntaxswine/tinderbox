@@ -1,0 +1,35 @@
+{
+  "name": "front-isometric",
+  "path": "docs/art/exposition-administration/previews/front-isometric.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      30,
+      40
+    ],
+    "origin": [
+      135,
+      110,
+      -150
+    ],
+    "halfWidth": 80
+  },
+  "triangles": 624348,
+  "caption": "Native Nautilus assembly. 80 m footprint; standard floors and open rotunda; custom gilded dome.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "No effects, crowds, gameplay or UI; exterior only.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T08:20:20.272582+00:00",
+  "findings": "Complete exterior, four-pavilion massing, connected entry landing and native-scale bear; custom gold dome reads clearly."
+}

@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "sourceIds": [
+    "ADMIN-HUNT-1893",
+    "ADMIN-FLINN-1893",
+    "ADMIN-ARNOLD-1893"
+  ],
+  "hunt": {
+    "creator": "Richard Morris Hunt, architect; A. Riquois, delineator; Semaine des Constructeurs; Hunt collection, AIA/AAF / Library of Congress",
+    "date": 1893,
+    "item": "2024636088",
+    "folio": "11",
+    "catalog": "https://www.loc.gov/item/2024636088/",
+    "viewer": "https://www.loc.gov/resource/ppmsca.73183/",
+    "rawURL": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/73100/73183u.tif",
+    "raw": {
+      "path": "artifacts/exposition-administration/raw/hunt-sheet.tif",
+      "bytes": 79409185,
+      "sha256": "762dbfc6c2594671f8231cfc446bb1946a3b27e050ffd8b3ce7235a16b8b03ce"
+    },
+    "pixels": [
+      4944,
+      5348
+    ],
+    "meaning": "Geometrical facade elevation and ground-floor FRONT HALF only; lower legend labels front office functions.",
+    "rights": "Existing inspected LOC catalog records No known restrictions on publication; parent registry docs/research/1893-exposition/sources.json, EXPO-A02. Current catalog fetch returned403; public original TIFF/JPEG succeeded."
+  },
+  "flinn": {
+    "creator": "John J. Flinn; Columbian Guide Company, issued under authority of the exposition",
+    "title": "Official guide to the World's Columbian Exposition, handbook edition",
+    "date": 1893,
+    "item": "officialguidetow00flin",
+    "url": "https://archive.org/details/officialguidetow00flin",
+    "pdfURL": "https://archive.org/download/officialguidetow00flin/officialguidetow00flin.pdf",
+    "raw": {
+      "path": "artifacts/exposition-administration/raw/flinn-official-guide.pdf",
+      "bytes": 15084645,
+      "sha256": "7ec382225cde5e2d998c6fb5901a379704d4221fb3d2456280fc36b16bd6e615"
+    },
+    "pages": [
+      {
+        "printed": 43,
+        "scan": 49,
+        "supports": "84 ft square corner pavilions, 120 ft central dome diameter, 250 ft height, 65 ft stages, 175 ft upper stage, 40 ft columns, gilded dome."
+      },
+      {
+        "printed": 45,
+        "scan": 51,
+        "supports": "Four stories in each corner pavilion, four50 ft entrances, circular stairs/elevators and octagonal interior."
+      }
+    ],
+    "rights": "1893 publication; inherited archive/source evidence preserved in docs/ui/exposition/sources.json. No new blanket rights grant inferred."
+  },
+  "arnold": {
+    "creators": "C. D. Arnold and H. D. Higinbotham, official photographers",
+    "title": "Official Views of the World's Columbian Exposition",
+    "date": 1893,
+    "url": "https://www.gutenberg.org/cache/epub/22847/pg22847-images.html",
+    "plates": [
+      {
+        "path": "artifacts/exposition-administration/raw/arnold-plate023.jpg",
+        "bytes": 5506851,
+        "sha256": "9a1cc435cab5a0c00f4200e1dccda297a3d72f6478019c47161f276a7bd3219c",
+        "plate": 23,
+        "rawURL": "https://www.gutenberg.org/cache/epub/22847/images/023.jpg"
+      },
+      {
+        "path": "artifacts/exposition-administration/raw/arnold-plate025.jpg",
+        "bytes": 4066173,
+        "sha256": "336a80525d941967ab04c02a058f127c39ea1617ae251b757aeac12ce1109eec",
+        "plate": 25,
+        "rawURL": "https://www.gutenberg.org/cache/epub/22847/images/025.jpg"
+      },
+      {
+        "path": "artifacts/exposition-administration/raw/arnold-plate033.jpg",
+        "bytes": 5599714,
+        "sha256": "861a42c6f1b658c42e71adb47c388e08322a9cd1d9ef560a1c415b212eae3e52",
+        "plate": 33,
+        "rawURL": "https://www.gutenberg.org/cache/epub/22847/images/033.jpg"
+      }
+    ],
+    "notes": "1893 plates; Gutenberg explains gamma .8 adjustment and repair of some damage. Later appended1905 text is not used for building measurements.",
+    "rights": "Historical public-domain images; the preserved source register identifies Gutenberg reproduction terms. Source pixels are research evidence, outside runtime."
+  },
+  "files": [
+    {
+      "path": "art/source/exposition-administration/evidence/arnold-plate023.jpg",
+      "bytes": 1802685,
+      "sha256": "e80298ad3f1400434fee74ea292167daebf021ccb7e59ef7c54adc108b40cde9"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/arnold-plate025.jpg",
+      "bytes": 1387306,
+      "sha256": "1ecfb12cadffc42945336fb0b76a37b337391a2820990817cece7859744aa7e1"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/arnold-plate033.jpg",
+      "bytes": 1893567,
+      "sha256": "83039ea173def37221bbd8d30f5af0551f751c6a4aedf957a7e4266e89efcaeb"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/flinn-scan049.jpg",
+      "bytes": 636765,
+      "sha256": "5230dcd355d4e4235d84c6e550f98a66c5338a8848c375943b5b8a68216e00ac"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/flinn-scan051.jpg",
+      "bytes": 693030,
+      "sha256": "10d4d7c4bd6083b161bd77aed4921973db3c10c51b3bc101b6b0d94cd730f488"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-calibration.jpg",
+      "bytes": 3291163,
+      "sha256": "a94c6d6ff6d4efe646cbcd1577f8dee321bba466f5dbeb352e8154cf9180c688"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-front-elevation.jpg",
+      "bytes": 5995879,
+      "sha256": "eab132e10e614b2912536d239b837dbbace2fe1255c38ec050bdbf8ca2380a82"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-front-half-plan.jpg",
+      "bytes": 2913568,
+      "sha256": "69b2c5bfac6a8af93dbd326ea539c6581482654d515ac4dcc53278e95fa47af5"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-library-jpeg.jpg",
+      "bytes": 566536,
+      "sha256": "bfb6cf49176c0a1c65ef1ad2cf9952253e41b2a60a9bec83aaabd7206565a8df"
+    },
+    {
+      "path": "art/source/exposition-administration/evidence/hunt-sheet-full.jpg",
+      "bytes": 11453643,
+      "sha256": "60ac7800249c2d0828d6f8745102c845e5730c5f07cb931165dcc1392bfac683"
+    }
+  ],
+  "limitations": [
+    "Hunt plan is only the front half; rear office subdivisions are not invented.",
+    "Full exterior uses the source four-pavilion description and four entrances; hidden rear joins remain adaptations.",
+    "Reported heights vary across early period descriptions; this candidate uses Flinn250 ft /76.2 m and the Hunt silhouette, not an asserted surveyed as-built height.",
+    "Exact face ornament, dome mural, elevator mechanics and upper-room partitions are not reproduced."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "structural-cutaway",
+  "path": "docs/art/exposition-administration/previews/structural-cutaway.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      25,
+      52
+    ],
+    "origin": [
+      105,
+      87,
+      -145
+    ],
+    "halfWidth": 72
+  },
+  "triangles": 198248,
+  "caption": "Actual Nautilus walls and slabs, clipped at Z=40 m. Open rotunda; green floor slabs.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "Actual structural geometry clipped at Z=40 m; ornament hidden and floors coloured green.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T08:20:20.272582+00:00",
+  "findings": "Actual slabs/walls exposed; rotunda remains open and rear circular stairs meet pavilion floor plates."
+}

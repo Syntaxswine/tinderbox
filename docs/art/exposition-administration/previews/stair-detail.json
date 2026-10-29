@@ -1,0 +1,35 @@
+{
+  "name": "stair-detail",
+  "path": "docs/art/exposition-administration/previews/stair-detail.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      -15,
+      7.5,
+      25
+    ],
+    "origin": [
+      8,
+      23,
+      -3
+    ],
+    "halfWidth": 15
+  },
+  "triangles": 16377,
+  "caption": "Actual circular stair and floor openings. Four pavilion floors; landings use standard Nautilus levels.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "Actual stair-corner geometry clipped to a local review box; floors green.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T08:20:20.272582+00:00",
+  "findings": "Circular treads and upper-floor apertures are visible; landings meet native floor tops. Review box is a deliberate cutaway."
+}

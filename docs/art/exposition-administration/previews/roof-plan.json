@@ -1,0 +1,40 @@
+{
+  "name": "roof-plan",
+  "path": "docs/art/exposition-administration/previews/roof-plan.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 24,
+  "camera": {
+    "target": [
+      0,
+      0,
+      40
+    ],
+    "origin": [
+      0,
+      200,
+      40
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ],
+    "halfWidth": 76
+  },
+  "triangles": 614274,
+  "caption": "Actual model plan: four pavilions, recessed entrances, upper colonnade and eight-sided dome base.",
+  "limitations": [
+    "CPU diffuse render of actual exported meshes; WebGL shader/performance acceptance remains pending.",
+    "No effects, crowds, gameplay or UI; exterior only.",
+    "Native bear geometry and source base colours; multi-view painted shader omitted."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "passed with recorded limits",
+  "reviewedAt": "2026-10-29T08:20:20.272582+00:00",
+  "findings": "Full footprint, recesses, parapets, cupolas and roof terraces remain distinct and in frame."
+}

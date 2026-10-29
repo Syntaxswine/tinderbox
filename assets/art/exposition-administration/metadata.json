@@ -1,0 +1,6888 @@
+{
+  "assetId": "exposition-administration-1893",
+  "version": 1,
+  "units": "metres",
+  "groundAnchor": "centre of front footprint at ground; +X right, +Z rear, +Y up",
+  "nativeContract": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "plan": {
+    "version": 1,
+    "assetId": "exposition-administration-1893",
+    "units": "metres",
+    "nativeProfile": {
+      "worldUnitsPerMetre": 1,
+      "tile": 1,
+      "wallHeight": 2,
+      "wallThickness": 0.16,
+      "slab": 0.12,
+      "floorSpacing": 2.12,
+      "doorWidth": 1,
+      "doorHeight": 1.65,
+      "doorThickness": 0.12
+    },
+    "body": [
+      [
+        -40,
+        0
+      ],
+      [
+        -14,
+        0
+      ],
+      [
+        -14,
+        10
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        14,
+        0
+      ],
+      [
+        40,
+        0
+      ],
+      [
+        40,
+        26
+      ],
+      [
+        30,
+        26
+      ],
+      [
+        30,
+        54
+      ],
+      [
+        40,
+        54
+      ],
+      [
+        40,
+        80
+      ],
+      [
+        14,
+        80
+      ],
+      [
+        14,
+        70
+      ],
+      [
+        -14,
+        70
+      ],
+      [
+        -14,
+        80
+      ],
+      [
+        -40,
+        80
+      ],
+      [
+        -40,
+        54
+      ],
+      [
+        -30,
+        54
+      ],
+      [
+        -30,
+        26
+      ],
+      [
+        -40,
+        26
+      ]
+    ],
+    "rotunda": [
+      [
+        -8,
+        20.68629150101524
+      ],
+      [
+        8,
+        20.68629150101524
+      ],
+      [
+        19.31370849898476,
+        32
+      ],
+      [
+        19.31370849898476,
+        48
+      ],
+      [
+        8,
+        59.31370849898476
+      ],
+      [
+        -8,
+        59.31370849898476
+      ],
+      [
+        -19.31370849898476,
+        48
+      ],
+      [
+        -19.31370849898476,
+        32
+      ]
+    ],
+    "innerRotunda": [
+      [
+        -7.966862915010152,
+        20.766291501015242
+      ],
+      [
+        7.966862915010152,
+        20.766291501015242
+      ],
+      [
+        19.233708498984758,
+        32.033137084989846
+      ],
+      [
+        19.233708498984758,
+        47.966862915010154
+      ],
+      [
+        7.966862915010152,
+        59.233708498984754
+      ],
+      [
+        -7.966862915010152,
+        59.233708498984754
+      ],
+      [
+        -19.233708498984758,
+        47.966862915010154
+      ],
+      [
+        -19.233708498984758,
+        32.033137084989846
+      ]
+    ],
+    "runs": [
+      {
+        "id": "body-0",
+        "a": [
+          -40,
+          0
+        ],
+        "b": [
+          -14,
+          0
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-0-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-0-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "body-1",
+        "a": [
+          -14,
+          0
+        ],
+        "b": [
+          -14,
+          10
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-1-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-2",
+        "a": [
+          -14,
+          10
+        ],
+        "b": [
+          14,
+          10
+        ],
+        "length": 28,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-2-entrance",
+            "kind": "entrance",
+            "x": 0,
+            "width": 16,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 8
+          }
+        ]
+      },
+      {
+        "id": "body-3",
+        "a": [
+          14,
+          10
+        ],
+        "b": [
+          14,
+          0
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-3-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-4",
+        "a": [
+          14,
+          0
+        ],
+        "b": [
+          40,
+          0
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-4-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-4-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "body-5",
+        "a": [
+          40,
+          0
+        ],
+        "b": [
+          40,
+          26
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-5-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-5-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "body-6",
+        "a": [
+          40,
+          26
+        ],
+        "b": [
+          30,
+          26
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-6-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-7",
+        "a": [
+          30,
+          26
+        ],
+        "b": [
+          30,
+          54
+        ],
+        "length": 28,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-7-entrance",
+            "kind": "entrance",
+            "x": 0,
+            "width": 16,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 8
+          }
+        ]
+      },
+      {
+        "id": "body-8",
+        "a": [
+          30,
+          54
+        ],
+        "b": [
+          40,
+          54
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-8-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-9",
+        "a": [
+          40,
+          54
+        ],
+        "b": [
+          40,
+          80
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-9-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-9-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "body-10",
+        "a": [
+          40,
+          80
+        ],
+        "b": [
+          14,
+          80
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-10-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-10-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "body-11",
+        "a": [
+          14,
+          80
+        ],
+        "b": [
+          14,
+          70
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-11-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-12",
+        "a": [
+          14,
+          70
+        ],
+        "b": [
+          -14,
+          70
+        ],
+        "length": 28,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-12-entrance",
+            "kind": "entrance",
+            "x": 0,
+            "width": 16,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 8
+          }
+        ]
+      },
+      {
+        "id": "body-13",
+        "a": [
+          -14,
+          70
+        ],
+        "b": [
+          -14,
+          80
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-13-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-14",
+        "a": [
+          -14,
+          80
+        ],
+        "b": [
+          -40,
+          80
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-14-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-14-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "body-15",
+        "a": [
+          -40,
+          80
+        ],
+        "b": [
+          -40,
+          54
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-15-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-15-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "body-16",
+        "a": [
+          -40,
+          54
+        ],
+        "b": [
+          -30,
+          54
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-16-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-17",
+        "a": [
+          -30,
+          54
+        ],
+        "b": [
+          -30,
+          26
+        ],
+        "length": 28,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-17-entrance",
+            "kind": "entrance",
+            "x": 0,
+            "width": 16,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 8
+          }
+        ]
+      },
+      {
+        "id": "body-18",
+        "a": [
+          -30,
+          26
+        ],
+        "b": [
+          -40,
+          26
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-18-basement-sash",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 2.47,
+            "height": 1.3
+          }
+        ]
+      },
+      {
+        "id": "body-19",
+        "a": [
+          -40,
+          26
+        ],
+        "b": [
+          -40,
+          0
+        ],
+        "length": 26,
+        "startLevel": 0,
+        "endLevel": 9,
+        "role": "exterior",
+        "openings": [
+          {
+            "id": "body-19-sash-0",
+            "kind": "arched-window",
+            "x": -6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          },
+          {
+            "id": "body-19-sash-1",
+            "kind": "arched-window",
+            "x": 6,
+            "width": 8,
+            "bottom": 4.24,
+            "height": 13.020000000000001,
+            "archRadius": 4
+          }
+        ]
+      },
+      {
+        "id": "rotunda-0",
+        "a": [
+          -8,
+          20.68629150101524
+        ],
+        "b": [
+          8,
+          20.68629150101524
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-0-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 12,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 6
+          },
+          {
+            "id": "rotunda-0-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-0-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-0-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "rotunda-1",
+        "a": [
+          8,
+          20.68629150101524
+        ],
+        "b": [
+          19.31370849898476,
+          32
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-1-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 10,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 5
+          },
+          {
+            "id": "rotunda-1-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-1-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-1-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "rotunda-2",
+        "a": [
+          19.31370849898476,
+          32
+        ],
+        "b": [
+          19.31370849898476,
+          48
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-2-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 12,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 6
+          },
+          {
+            "id": "rotunda-2-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-2-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-2-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "rotunda-3",
+        "a": [
+          19.31370849898476,
+          48
+        ],
+        "b": [
+          8,
+          59.31370849898476
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-3-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 10,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 5
+          },
+          {
+            "id": "rotunda-3-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-3-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-3-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "rotunda-4",
+        "a": [
+          8,
+          59.31370849898476
+        ],
+        "b": [
+          -8,
+          59.31370849898476
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-4-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 12,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 6
+          },
+          {
+            "id": "rotunda-4-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-4-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-4-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "rotunda-5",
+        "a": [
+          -8,
+          59.31370849898476
+        ],
+        "b": [
+          -19.31370849898476,
+          48
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-5-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 10,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 5
+          },
+          {
+            "id": "rotunda-5-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-5-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-5-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "rotunda-6",
+        "a": [
+          -19.31370849898476,
+          48
+        ],
+        "b": [
+          -19.31370849898476,
+          32
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-6-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 12,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 6
+          },
+          {
+            "id": "rotunda-6-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-6-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-6-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "rotunda-7",
+        "a": [
+          -19.31370849898476,
+          32
+        ],
+        "b": [
+          -8,
+          20.68629150101524
+        ],
+        "length": 16,
+        "startLevel": 1,
+        "endLevel": 23,
+        "role": "rotunda",
+        "openings": [
+          {
+            "id": "rotunda-7-lower-arch",
+            "kind": "interior-arch",
+            "x": 0,
+            "width": 10,
+            "bottom": 2.12,
+            "height": 14.84,
+            "archRadius": 5
+          },
+          {
+            "id": "rotunda-7-upper-window-0",
+            "kind": "window",
+            "x": -5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-7-upper-window-1",
+            "kind": "window",
+            "x": 0,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          },
+          {
+            "id": "rotunda-7-upper-window-2",
+            "kind": "window",
+            "x": 5,
+            "width": 2,
+            "bottom": 21.599999999999998,
+            "height": 14.04
+          }
+        ]
+      },
+      {
+        "id": "colonnade-pier--27-13-0",
+        "a": [
+          -27,
+          13
+        ],
+        "b": [
+          -23,
+          13
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier--27-13-1",
+        "a": [
+          -23,
+          13
+        ],
+        "b": [
+          -23,
+          17
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier--27-13-2",
+        "a": [
+          -23,
+          17
+        ],
+        "b": [
+          -27,
+          17
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier--27-13-3",
+        "a": [
+          -27,
+          17
+        ],
+        "b": [
+          -27,
+          13
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier--27-63-0",
+        "a": [
+          -27,
+          63
+        ],
+        "b": [
+          -23,
+          63
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier--27-63-1",
+        "a": [
+          -23,
+          63
+        ],
+        "b": [
+          -23,
+          67
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier--27-63-2",
+        "a": [
+          -23,
+          67
+        ],
+        "b": [
+          -27,
+          67
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier--27-63-3",
+        "a": [
+          -27,
+          67
+        ],
+        "b": [
+          -27,
+          63
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-13-0",
+        "a": [
+          23,
+          13
+        ],
+        "b": [
+          27,
+          13
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-13-1",
+        "a": [
+          27,
+          13
+        ],
+        "b": [
+          27,
+          17
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-13-2",
+        "a": [
+          27,
+          17
+        ],
+        "b": [
+          23,
+          17
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-13-3",
+        "a": [
+          23,
+          17
+        ],
+        "b": [
+          23,
+          13
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-63-0",
+        "a": [
+          23,
+          63
+        ],
+        "b": [
+          27,
+          63
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-63-1",
+        "a": [
+          27,
+          63
+        ],
+        "b": [
+          27,
+          67
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-63-2",
+        "a": [
+          27,
+          67
+        ],
+        "b": [
+          23,
+          67
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-pier-23-63-3",
+        "a": [
+          23,
+          67
+        ],
+        "b": [
+          23,
+          63
+        ],
+        "length": 4,
+        "startLevel": 9,
+        "endLevel": 19,
+        "role": "colonnade-pier",
+        "openings": []
+      },
+      {
+        "id": "colonnade-entablature-0",
+        "a": [
+          -27,
+          13
+        ],
+        "b": [
+          27,
+          13
+        ],
+        "length": 54,
+        "startLevel": 17,
+        "endLevel": 19,
+        "role": "entablature",
+        "openings": []
+      },
+      {
+        "id": "colonnade-entablature-1",
+        "a": [
+          27,
+          13
+        ],
+        "b": [
+          27,
+          67
+        ],
+        "length": 54,
+        "startLevel": 17,
+        "endLevel": 19,
+        "role": "entablature",
+        "openings": []
+      },
+      {
+        "id": "colonnade-entablature-2",
+        "a": [
+          27,
+          67
+        ],
+        "b": [
+          -27,
+          67
+        ],
+        "length": 54,
+        "startLevel": 17,
+        "endLevel": 19,
+        "role": "entablature",
+        "openings": []
+      },
+      {
+        "id": "colonnade-entablature-3",
+        "a": [
+          -27,
+          67
+        ],
+        "b": [
+          -27,
+          13
+        ],
+        "length": 54,
+        "startLevel": 17,
+        "endLevel": 19,
+        "role": "entablature",
+        "openings": []
+      },
+      {
+        "id": "approach-0-0",
+        "a": [
+          -8,
+          0
+        ],
+        "b": [
+          8,
+          0
+        ],
+        "length": 16,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-0-1",
+        "a": [
+          8,
+          0
+        ],
+        "b": [
+          8,
+          10
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-0-3",
+        "a": [
+          -8,
+          10
+        ],
+        "b": [
+          -8,
+          0
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-1-0",
+        "a": [
+          30,
+          32
+        ],
+        "b": [
+          40,
+          32
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-1-1",
+        "a": [
+          40,
+          32
+        ],
+        "b": [
+          40,
+          48
+        ],
+        "length": 16,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-1-2",
+        "a": [
+          40,
+          48
+        ],
+        "b": [
+          30,
+          48
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-2-1",
+        "a": [
+          8,
+          70
+        ],
+        "b": [
+          8,
+          80
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-2-2",
+        "a": [
+          8,
+          80
+        ],
+        "b": [
+          -8,
+          80
+        ],
+        "length": 16,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-2-3",
+        "a": [
+          -8,
+          80
+        ],
+        "b": [
+          -8,
+          70
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-3-0",
+        "a": [
+          -40,
+          32
+        ],
+        "b": [
+          -30,
+          32
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-3-2",
+        "a": [
+          -30,
+          48
+        ],
+        "b": [
+          -40,
+          48
+        ],
+        "length": 10,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "approach-3-3",
+        "a": [
+          -40,
+          48
+        ],
+        "b": [
+          -40,
+          32
+        ],
+        "length": 16,
+        "startLevel": 0,
+        "endLevel": 1,
+        "role": "foundation",
+        "openings": []
+      },
+      {
+        "id": "office-partition-0",
+        "a": [
+          -30,
+          0
+        ],
+        "b": [
+          -30,
+          12
+        ],
+        "length": 12,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-0",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-1",
+        "a": [
+          -40,
+          12
+        ],
+        "b": [
+          -14,
+          12
+        ],
+        "length": 26,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-1",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-2",
+        "a": [
+          -26,
+          12
+        ],
+        "b": [
+          -26,
+          26
+        ],
+        "length": 14,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-2",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-3",
+        "a": [
+          -26,
+          20
+        ],
+        "b": [
+          -14,
+          20
+        ],
+        "length": 12,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-3",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-4",
+        "a": [
+          -20,
+          20
+        ],
+        "b": [
+          -20,
+          26
+        ],
+        "length": 6,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-4",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-5",
+        "a": [
+          20,
+          0
+        ],
+        "b": [
+          20,
+          12
+        ],
+        "length": 12,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-5",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-6",
+        "a": [
+          28,
+          0
+        ],
+        "b": [
+          28,
+          26
+        ],
+        "length": 26,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-6",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-7",
+        "a": [
+          14,
+          12
+        ],
+        "b": [
+          40,
+          12
+        ],
+        "length": 26,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-7",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-8",
+        "a": [
+          34,
+          12
+        ],
+        "b": [
+          34,
+          26
+        ],
+        "length": 14,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-8",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-9",
+        "a": [
+          14,
+          20
+        ],
+        "b": [
+          28,
+          20
+        ],
+        "length": 14,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-9",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      },
+      {
+        "id": "office-partition-10",
+        "a": [
+          20,
+          20
+        ],
+        "b": [
+          20,
+          26
+        ],
+        "length": 6,
+        "startLevel": 1,
+        "endLevel": 3,
+        "role": "interior",
+        "openings": [
+          {
+            "id": "office-door-10",
+            "kind": "open-door",
+            "x": 0.5,
+            "width": 1,
+            "bottom": 2.12,
+            "height": 1.65
+          }
+        ]
+      }
+    ],
+    "floors": [
+      {
+        "id": "ground-floor",
+        "level": 1,
+        "polygons": [
+          [
+            [
+              -40,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -14,
+              10
+            ],
+            [
+              14,
+              10
+            ],
+            [
+              14,
+              0
+            ],
+            [
+              40,
+              0
+            ],
+            [
+              40,
+              26
+            ],
+            [
+              30,
+              26
+            ],
+            [
+              30,
+              54
+            ],
+            [
+              40,
+              54
+            ],
+            [
+              40,
+              80
+            ],
+            [
+              14,
+              80
+            ],
+            [
+              14,
+              70
+            ],
+            [
+              -14,
+              70
+            ],
+            [
+              -14,
+              80
+            ],
+            [
+              -40,
+              80
+            ],
+            [
+              -40,
+              54
+            ],
+            [
+              -30,
+              54
+            ],
+            [
+              -30,
+              26
+            ],
+            [
+              -40,
+              26
+            ]
+          ],
+          [
+            [
+              -8,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              -8,
+              10
+            ]
+          ],
+          [
+            [
+              30,
+              32
+            ],
+            [
+              40,
+              32
+            ],
+            [
+              40,
+              48
+            ],
+            [
+              30,
+              48
+            ]
+          ],
+          [
+            [
+              -8,
+              70
+            ],
+            [
+              8,
+              70
+            ],
+            [
+              8,
+              80
+            ],
+            [
+              -8,
+              80
+            ]
+          ],
+          [
+            [
+              -40,
+              32
+            ],
+            [
+              -30,
+              32
+            ],
+            [
+              -30,
+              48
+            ],
+            [
+              -40,
+              48
+            ]
+          ]
+        ],
+        "holes": [],
+        "use": "ground floor, source-supported front offices and rotunda; rear rooms unknown"
+      },
+      {
+        "id": "pavilion-floor-3",
+        "level": 3,
+        "polygons": [
+          [
+            [
+              -40,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -14,
+              26
+            ],
+            [
+              -40,
+              26
+            ]
+          ],
+          [
+            [
+              14,
+              0
+            ],
+            [
+              40,
+              0
+            ],
+            [
+              40,
+              26
+            ],
+            [
+              14,
+              26
+            ]
+          ],
+          [
+            [
+              -40,
+              54
+            ],
+            [
+              -14,
+              54
+            ],
+            [
+              -14,
+              80
+            ],
+            [
+              -40,
+              80
+            ]
+          ],
+          [
+            [
+              14,
+              54
+            ],
+            [
+              40,
+              54
+            ],
+            [
+              40,
+              80
+            ],
+            [
+              14,
+              80
+            ]
+          ]
+        ],
+        "holes": [
+          [
+            [
+              -11.6,
+              25
+            ],
+            [
+              -11.715852190617168,
+              25.87998475334857
+            ],
+            [
+              -12.055513627132909,
+              26.7
+            ],
+            [
+              -12.595836943965738,
+              27.40416305603426
+            ],
+            [
+              -13.299999999999999,
+              27.94448637286709
+            ],
+            [
+              -14.12001524665143,
+              28.284147809382834
+            ],
+            [
+              -15,
+              28.4
+            ],
+            [
+              -15.87998475334857,
+              28.284147809382834
+            ],
+            [
+              -16.7,
+              27.94448637286709
+            ],
+            [
+              -17.40416305603426,
+              27.40416305603426
+            ],
+            [
+              -17.94448637286709,
+              26.7
+            ],
+            [
+              -18.28414780938283,
+              25.879984753348573
+            ],
+            [
+              -18.4,
+              25
+            ],
+            [
+              -18.284147809382834,
+              24.12001524665143
+            ],
+            [
+              -17.944486372867093,
+              23.3
+            ],
+            [
+              -17.404163056034264,
+              22.59583694396574
+            ],
+            [
+              -16.700000000000003,
+              22.05551362713291
+            ],
+            [
+              -15.87998475334857,
+              21.715852190617166
+            ],
+            [
+              -15,
+              21.6
+            ],
+            [
+              -14.12001524665143,
+              21.715852190617166
+            ],
+            [
+              -13.299999999999999,
+              22.05551362713291
+            ],
+            [
+              -12.59583694396574,
+              22.595836943965736
+            ],
+            [
+              -12.05551362713291,
+              23.299999999999997
+            ],
+            [
+              -11.715852190617168,
+              24.120015246651427
+            ]
+          ],
+          [
+            [
+              18.4,
+              25
+            ],
+            [
+              18.284147809382834,
+              25.87998475334857
+            ],
+            [
+              17.94448637286709,
+              26.7
+            ],
+            [
+              17.40416305603426,
+              27.40416305603426
+            ],
+            [
+              16.7,
+              27.94448637286709
+            ],
+            [
+              15.87998475334857,
+              28.284147809382834
+            ],
+            [
+              15,
+              28.4
+            ],
+            [
+              14.12001524665143,
+              28.284147809382834
+            ],
+            [
+              13.3,
+              27.94448637286709
+            ],
+            [
+              12.59583694396574,
+              27.40416305603426
+            ],
+            [
+              12.055513627132909,
+              26.7
+            ],
+            [
+              11.715852190617168,
+              25.879984753348573
+            ],
+            [
+              11.6,
+              25
+            ],
+            [
+              11.715852190617168,
+              24.12001524665143
+            ],
+            [
+              12.055513627132909,
+              23.3
+            ],
+            [
+              12.595836943965738,
+              22.59583694396574
+            ],
+            [
+              13.299999999999999,
+              22.05551362713291
+            ],
+            [
+              14.12001524665143,
+              21.715852190617166
+            ],
+            [
+              15,
+              21.6
+            ],
+            [
+              15.87998475334857,
+              21.715852190617166
+            ],
+            [
+              16.7,
+              22.05551362713291
+            ],
+            [
+              17.40416305603426,
+              22.595836943965736
+            ],
+            [
+              17.94448637286709,
+              23.299999999999997
+            ],
+            [
+              18.28414780938283,
+              24.120015246651427
+            ]
+          ],
+          [
+            [
+              -11.6,
+              55
+            ],
+            [
+              -11.715852190617168,
+              55.87998475334857
+            ],
+            [
+              -12.055513627132909,
+              56.7
+            ],
+            [
+              -12.595836943965738,
+              57.404163056034264
+            ],
+            [
+              -13.299999999999999,
+              57.94448637286709
+            ],
+            [
+              -14.12001524665143,
+              58.28414780938283
+            ],
+            [
+              -15,
+              58.4
+            ],
+            [
+              -15.87998475334857,
+              58.28414780938283
+            ],
+            [
+              -16.7,
+              57.94448637286709
+            ],
+            [
+              -17.40416305603426,
+              57.404163056034264
+            ],
+            [
+              -17.94448637286709,
+              56.7
+            ],
+            [
+              -18.28414780938283,
+              55.87998475334857
+            ],
+            [
+              -18.4,
+              55
+            ],
+            [
+              -18.284147809382834,
+              54.12001524665143
+            ],
+            [
+              -17.944486372867093,
+              53.300000000000004
+            ],
+            [
+              -17.404163056034264,
+              52.595836943965736
+            ],
+            [
+              -16.700000000000003,
+              52.05551362713291
+            ],
+            [
+              -15.87998475334857,
+              51.71585219061717
+            ],
+            [
+              -15,
+              51.6
+            ],
+            [
+              -14.12001524665143,
+              51.71585219061717
+            ],
+            [
+              -13.299999999999999,
+              52.05551362713291
+            ],
+            [
+              -12.59583694396574,
+              52.595836943965736
+            ],
+            [
+              -12.05551362713291,
+              53.3
+            ],
+            [
+              -11.715852190617168,
+              54.12001524665143
+            ]
+          ],
+          [
+            [
+              18.4,
+              55
+            ],
+            [
+              18.284147809382834,
+              55.87998475334857
+            ],
+            [
+              17.94448637286709,
+              56.7
+            ],
+            [
+              17.40416305603426,
+              57.404163056034264
+            ],
+            [
+              16.7,
+              57.94448637286709
+            ],
+            [
+              15.87998475334857,
+              58.28414780938283
+            ],
+            [
+              15,
+              58.4
+            ],
+            [
+              14.12001524665143,
+              58.28414780938283
+            ],
+            [
+              13.3,
+              57.94448637286709
+            ],
+            [
+              12.59583694396574,
+              57.404163056034264
+            ],
+            [
+              12.055513627132909,
+              56.7
+            ],
+            [
+              11.715852190617168,
+              55.87998475334857
+            ],
+            [
+              11.6,
+              55
+            ],
+            [
+              11.715852190617168,
+              54.12001524665143
+            ],
+            [
+              12.055513627132909,
+              53.300000000000004
+            ],
+            [
+              12.595836943965738,
+              52.595836943965736
+            ],
+            [
+              13.299999999999999,
+              52.05551362713291
+            ],
+            [
+              14.12001524665143,
+              51.71585219061717
+            ],
+            [
+              15,
+              51.6
+            ],
+            [
+              15.87998475334857,
+              51.71585219061717
+            ],
+            [
+              16.7,
+              52.05551362713291
+            ],
+            [
+              17.40416305603426,
+              52.595836943965736
+            ],
+            [
+              17.94448637286709,
+              53.3
+            ],
+            [
+              18.28414780938283,
+              54.12001524665143
+            ]
+          ]
+        ],
+        "use": "four-story pavilion floor plates; exact upper subdivisions are inferred"
+      },
+      {
+        "id": "pavilion-floor-5",
+        "level": 5,
+        "polygons": [
+          [
+            [
+              -40,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -14,
+              26
+            ],
+            [
+              -40,
+              26
+            ]
+          ],
+          [
+            [
+              14,
+              0
+            ],
+            [
+              40,
+              0
+            ],
+            [
+              40,
+              26
+            ],
+            [
+              14,
+              26
+            ]
+          ],
+          [
+            [
+              -40,
+              54
+            ],
+            [
+              -14,
+              54
+            ],
+            [
+              -14,
+              80
+            ],
+            [
+              -40,
+              80
+            ]
+          ],
+          [
+            [
+              14,
+              54
+            ],
+            [
+              40,
+              54
+            ],
+            [
+              40,
+              80
+            ],
+            [
+              14,
+              80
+            ]
+          ]
+        ],
+        "holes": [
+          [
+            [
+              -11.6,
+              25
+            ],
+            [
+              -11.715852190617168,
+              25.87998475334857
+            ],
+            [
+              -12.055513627132909,
+              26.7
+            ],
+            [
+              -12.595836943965738,
+              27.40416305603426
+            ],
+            [
+              -13.299999999999999,
+              27.94448637286709
+            ],
+            [
+              -14.12001524665143,
+              28.284147809382834
+            ],
+            [
+              -15,
+              28.4
+            ],
+            [
+              -15.87998475334857,
+              28.284147809382834
+            ],
+            [
+              -16.7,
+              27.94448637286709
+            ],
+            [
+              -17.40416305603426,
+              27.40416305603426
+            ],
+            [
+              -17.94448637286709,
+              26.7
+            ],
+            [
+              -18.28414780938283,
+              25.879984753348573
+            ],
+            [
+              -18.4,
+              25
+            ],
+            [
+              -18.284147809382834,
+              24.12001524665143
+            ],
+            [
+              -17.944486372867093,
+              23.3
+            ],
+            [
+              -17.404163056034264,
+              22.59583694396574
+            ],
+            [
+              -16.700000000000003,
+              22.05551362713291
+            ],
+            [
+              -15.87998475334857,
+              21.715852190617166
+            ],
+            [
+              -15,
+              21.6
+            ],
+            [
+              -14.12001524665143,
+              21.715852190617166
+            ],
+            [
+              -13.299999999999999,
+              22.05551362713291
+            ],
+            [
+              -12.59583694396574,
+              22.595836943965736
+            ],
+            [
+              -12.05551362713291,
+              23.299999999999997
+            ],
+            [
+              -11.715852190617168,
+              24.120015246651427
+            ]
+          ],
+          [
+            [
+              18.4,
+              25
+            ],
+            [
+              18.284147809382834,
+              25.87998475334857
+            ],
+            [
+              17.94448637286709,
+              26.7
+            ],
+            [
+              17.40416305603426,
+              27.40416305603426
+            ],
+            [
+              16.7,
+              27.94448637286709
+            ],
+            [
+              15.87998475334857,
+              28.284147809382834
+            ],
+            [
+              15,
+              28.4
+            ],
+            [
+              14.12001524665143,
+              28.284147809382834
+            ],
+            [
+              13.3,
+              27.94448637286709
+            ],
+            [
+              12.59583694396574,
+              27.40416305603426
+            ],
+            [
+              12.055513627132909,
+              26.7
+            ],
+            [
+              11.715852190617168,
+              25.879984753348573
+            ],
+            [
+              11.6,
+              25
+            ],
+            [
+              11.715852190617168,
+              24.12001524665143
+            ],
+            [
+              12.055513627132909,
+              23.3
+            ],
+            [
+              12.595836943965738,
+              22.59583694396574
+            ],
+            [
+              13.299999999999999,
+              22.05551362713291
+            ],
+            [
+              14.12001524665143,
+              21.715852190617166
+            ],
+            [
+              15,
+              21.6
+            ],
+            [
+              15.87998475334857,
+              21.715852190617166
+            ],
+            [
+              16.7,
+              22.05551362713291
+            ],
+            [
+              17.40416305603426,
+              22.595836943965736
+            ],
+            [
+              17.94448637286709,
+              23.299999999999997
+            ],
+            [
+              18.28414780938283,
+              24.120015246651427
+            ]
+          ],
+          [
+            [
+              -11.6,
+              55
+            ],
+            [
+              -11.715852190617168,
+              55.87998475334857
+            ],
+            [
+              -12.055513627132909,
+              56.7
+            ],
+            [
+              -12.595836943965738,
+              57.404163056034264
+            ],
+            [
+              -13.299999999999999,
+              57.94448637286709
+            ],
+            [
+              -14.12001524665143,
+              58.28414780938283
+            ],
+            [
+              -15,
+              58.4
+            ],
+            [
+              -15.87998475334857,
+              58.28414780938283
+            ],
+            [
+              -16.7,
+              57.94448637286709
+            ],
+            [
+              -17.40416305603426,
+              57.404163056034264
+            ],
+            [
+              -17.94448637286709,
+              56.7
+            ],
+            [
+              -18.28414780938283,
+              55.87998475334857
+            ],
+            [
+              -18.4,
+              55
+            ],
+            [
+              -18.284147809382834,
+              54.12001524665143
+            ],
+            [
+              -17.944486372867093,
+              53.300000000000004
+            ],
+            [
+              -17.404163056034264,
+              52.595836943965736
+            ],
+            [
+              -16.700000000000003,
+              52.05551362713291
+            ],
+            [
+              -15.87998475334857,
+              51.71585219061717
+            ],
+            [
+              -15,
+              51.6
+            ],
+            [
+              -14.12001524665143,
+              51.71585219061717
+            ],
+            [
+              -13.299999999999999,
+              52.05551362713291
+            ],
+            [
+              -12.59583694396574,
+              52.595836943965736
+            ],
+            [
+              -12.05551362713291,
+              53.3
+            ],
+            [
+              -11.715852190617168,
+              54.12001524665143
+            ]
+          ],
+          [
+            [
+              18.4,
+              55
+            ],
+            [
+              18.284147809382834,
+              55.87998475334857
+            ],
+            [
+              17.94448637286709,
+              56.7
+            ],
+            [
+              17.40416305603426,
+              57.404163056034264
+            ],
+            [
+              16.7,
+              57.94448637286709
+            ],
+            [
+              15.87998475334857,
+              58.28414780938283
+            ],
+            [
+              15,
+              58.4
+            ],
+            [
+              14.12001524665143,
+              58.28414780938283
+            ],
+            [
+              13.3,
+              57.94448637286709
+            ],
+            [
+              12.59583694396574,
+              57.404163056034264
+            ],
+            [
+              12.055513627132909,
+              56.7
+            ],
+            [
+              11.715852190617168,
+              55.87998475334857
+            ],
+            [
+              11.6,
+              55
+            ],
+            [
+              11.715852190617168,
+              54.12001524665143
+            ],
+            [
+              12.055513627132909,
+              53.300000000000004
+            ],
+            [
+              12.595836943965738,
+              52.595836943965736
+            ],
+            [
+              13.299999999999999,
+              52.05551362713291
+            ],
+            [
+              14.12001524665143,
+              51.71585219061717
+            ],
+            [
+              15,
+              51.6
+            ],
+            [
+              15.87998475334857,
+              51.71585219061717
+            ],
+            [
+              16.7,
+              52.05551362713291
+            ],
+            [
+              17.40416305603426,
+              52.595836943965736
+            ],
+            [
+              17.94448637286709,
+              53.3
+            ],
+            [
+              18.28414780938283,
+              54.12001524665143
+            ]
+          ]
+        ],
+        "use": "four-story pavilion floor plates; exact upper subdivisions are inferred"
+      },
+      {
+        "id": "pavilion-floor-7",
+        "level": 7,
+        "polygons": [
+          [
+            [
+              -40,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -14,
+              26
+            ],
+            [
+              -40,
+              26
+            ]
+          ],
+          [
+            [
+              14,
+              0
+            ],
+            [
+              40,
+              0
+            ],
+            [
+              40,
+              26
+            ],
+            [
+              14,
+              26
+            ]
+          ],
+          [
+            [
+              -40,
+              54
+            ],
+            [
+              -14,
+              54
+            ],
+            [
+              -14,
+              80
+            ],
+            [
+              -40,
+              80
+            ]
+          ],
+          [
+            [
+              14,
+              54
+            ],
+            [
+              40,
+              54
+            ],
+            [
+              40,
+              80
+            ],
+            [
+              14,
+              80
+            ]
+          ]
+        ],
+        "holes": [
+          [
+            [
+              -11.6,
+              25
+            ],
+            [
+              -11.715852190617168,
+              25.87998475334857
+            ],
+            [
+              -12.055513627132909,
+              26.7
+            ],
+            [
+              -12.595836943965738,
+              27.40416305603426
+            ],
+            [
+              -13.299999999999999,
+              27.94448637286709
+            ],
+            [
+              -14.12001524665143,
+              28.284147809382834
+            ],
+            [
+              -15,
+              28.4
+            ],
+            [
+              -15.87998475334857,
+              28.284147809382834
+            ],
+            [
+              -16.7,
+              27.94448637286709
+            ],
+            [
+              -17.40416305603426,
+              27.40416305603426
+            ],
+            [
+              -17.94448637286709,
+              26.7
+            ],
+            [
+              -18.28414780938283,
+              25.879984753348573
+            ],
+            [
+              -18.4,
+              25
+            ],
+            [
+              -18.284147809382834,
+              24.12001524665143
+            ],
+            [
+              -17.944486372867093,
+              23.3
+            ],
+            [
+              -17.404163056034264,
+              22.59583694396574
+            ],
+            [
+              -16.700000000000003,
+              22.05551362713291
+            ],
+            [
+              -15.87998475334857,
+              21.715852190617166
+            ],
+            [
+              -15,
+              21.6
+            ],
+            [
+              -14.12001524665143,
+              21.715852190617166
+            ],
+            [
+              -13.299999999999999,
+              22.05551362713291
+            ],
+            [
+              -12.59583694396574,
+              22.595836943965736
+            ],
+            [
+              -12.05551362713291,
+              23.299999999999997
+            ],
+            [
+              -11.715852190617168,
+              24.120015246651427
+            ]
+          ],
+          [
+            [
+              18.4,
+              25
+            ],
+            [
+              18.284147809382834,
+              25.87998475334857
+            ],
+            [
+              17.94448637286709,
+              26.7
+            ],
+            [
+              17.40416305603426,
+              27.40416305603426
+            ],
+            [
+              16.7,
+              27.94448637286709
+            ],
+            [
+              15.87998475334857,
+              28.284147809382834
+            ],
+            [
+              15,
+              28.4
+            ],
+            [
+              14.12001524665143,
+              28.284147809382834
+            ],
+            [
+              13.3,
+              27.94448637286709
+            ],
+            [
+              12.59583694396574,
+              27.40416305603426
+            ],
+            [
+              12.055513627132909,
+              26.7
+            ],
+            [
+              11.715852190617168,
+              25.879984753348573
+            ],
+            [
+              11.6,
+              25
+            ],
+            [
+              11.715852190617168,
+              24.12001524665143
+            ],
+            [
+              12.055513627132909,
+              23.3
+            ],
+            [
+              12.595836943965738,
+              22.59583694396574
+            ],
+            [
+              13.299999999999999,
+              22.05551362713291
+            ],
+            [
+              14.12001524665143,
+              21.715852190617166
+            ],
+            [
+              15,
+              21.6
+            ],
+            [
+              15.87998475334857,
+              21.715852190617166
+            ],
+            [
+              16.7,
+              22.05551362713291
+            ],
+            [
+              17.40416305603426,
+              22.595836943965736
+            ],
+            [
+              17.94448637286709,
+              23.299999999999997
+            ],
+            [
+              18.28414780938283,
+              24.120015246651427
+            ]
+          ],
+          [
+            [
+              -11.6,
+              55
+            ],
+            [
+              -11.715852190617168,
+              55.87998475334857
+            ],
+            [
+              -12.055513627132909,
+              56.7
+            ],
+            [
+              -12.595836943965738,
+              57.404163056034264
+            ],
+            [
+              -13.299999999999999,
+              57.94448637286709
+            ],
+            [
+              -14.12001524665143,
+              58.28414780938283
+            ],
+            [
+              -15,
+              58.4
+            ],
+            [
+              -15.87998475334857,
+              58.28414780938283
+            ],
+            [
+              -16.7,
+              57.94448637286709
+            ],
+            [
+              -17.40416305603426,
+              57.404163056034264
+            ],
+            [
+              -17.94448637286709,
+              56.7
+            ],
+            [
+              -18.28414780938283,
+              55.87998475334857
+            ],
+            [
+              -18.4,
+              55
+            ],
+            [
+              -18.284147809382834,
+              54.12001524665143
+            ],
+            [
+              -17.944486372867093,
+              53.300000000000004
+            ],
+            [
+              -17.404163056034264,
+              52.595836943965736
+            ],
+            [
+              -16.700000000000003,
+              52.05551362713291
+            ],
+            [
+              -15.87998475334857,
+              51.71585219061717
+            ],
+            [
+              -15,
+              51.6
+            ],
+            [
+              -14.12001524665143,
+              51.71585219061717
+            ],
+            [
+              -13.299999999999999,
+              52.05551362713291
+            ],
+            [
+              -12.59583694396574,
+              52.595836943965736
+            ],
+            [
+              -12.05551362713291,
+              53.3
+            ],
+            [
+              -11.715852190617168,
+              54.12001524665143
+            ]
+          ],
+          [
+            [
+              18.4,
+              55
+            ],
+            [
+              18.284147809382834,
+              55.87998475334857
+            ],
+            [
+              17.94448637286709,
+              56.7
+            ],
+            [
+              17.40416305603426,
+              57.404163056034264
+            ],
+            [
+              16.7,
+              57.94448637286709
+            ],
+            [
+              15.87998475334857,
+              58.28414780938283
+            ],
+            [
+              15,
+              58.4
+            ],
+            [
+              14.12001524665143,
+              58.28414780938283
+            ],
+            [
+              13.3,
+              57.94448637286709
+            ],
+            [
+              12.59583694396574,
+              57.404163056034264
+            ],
+            [
+              12.055513627132909,
+              56.7
+            ],
+            [
+              11.715852190617168,
+              55.87998475334857
+            ],
+            [
+              11.6,
+              55
+            ],
+            [
+              11.715852190617168,
+              54.12001524665143
+            ],
+            [
+              12.055513627132909,
+              53.300000000000004
+            ],
+            [
+              12.595836943965738,
+              52.595836943965736
+            ],
+            [
+              13.299999999999999,
+              52.05551362713291
+            ],
+            [
+              14.12001524665143,
+              51.71585219061717
+            ],
+            [
+              15,
+              51.6
+            ],
+            [
+              15.87998475334857,
+              51.71585219061717
+            ],
+            [
+              16.7,
+              52.05551362713291
+            ],
+            [
+              17.40416305603426,
+              52.595836943965736
+            ],
+            [
+              17.94448637286709,
+              53.3
+            ],
+            [
+              18.28414780938283,
+              54.12001524665143
+            ]
+          ]
+        ],
+        "use": "four-story pavilion floor plates; exact upper subdivisions are inferred"
+      },
+      {
+        "id": "pavilion-roof-and-gallery",
+        "level": 9,
+        "polygons": [
+          [
+            [
+              -40,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -14,
+              10
+            ],
+            [
+              14,
+              10
+            ],
+            [
+              14,
+              0
+            ],
+            [
+              40,
+              0
+            ],
+            [
+              40,
+              26
+            ],
+            [
+              30,
+              26
+            ],
+            [
+              30,
+              54
+            ],
+            [
+              40,
+              54
+            ],
+            [
+              40,
+              80
+            ],
+            [
+              14,
+              80
+            ],
+            [
+              14,
+              70
+            ],
+            [
+              -14,
+              70
+            ],
+            [
+              -14,
+              80
+            ],
+            [
+              -40,
+              80
+            ],
+            [
+              -40,
+              54
+            ],
+            [
+              -30,
+              54
+            ],
+            [
+              -30,
+              26
+            ],
+            [
+              -40,
+              26
+            ]
+          ]
+        ],
+        "holes": [
+          [
+            [
+              -7.966862915010152,
+              20.766291501015242
+            ],
+            [
+              7.966862915010152,
+              20.766291501015242
+            ],
+            [
+              19.233708498984758,
+              32.033137084989846
+            ],
+            [
+              19.233708498984758,
+              47.966862915010154
+            ],
+            [
+              7.966862915010152,
+              59.233708498984754
+            ],
+            [
+              -7.966862915010152,
+              59.233708498984754
+            ],
+            [
+              -19.233708498984758,
+              47.966862915010154
+            ],
+            [
+              -19.233708498984758,
+              32.033137084989846
+            ]
+          ]
+        ],
+        "use": "roof deck and lower gallery; open rotunda void"
+      },
+      {
+        "id": "upper-colonnade-terrace",
+        "level": 19,
+        "polygons": [
+          [
+            [
+              -27,
+              13
+            ],
+            [
+              27,
+              13
+            ],
+            [
+              27,
+              67
+            ],
+            [
+              -27,
+              67
+            ]
+          ]
+        ],
+        "holes": [
+          [
+            [
+              -7.966862915010152,
+              20.766291501015242
+            ],
+            [
+              7.966862915010152,
+              20.766291501015242
+            ],
+            [
+              19.233708498984758,
+              32.033137084989846
+            ],
+            [
+              19.233708498984758,
+              47.966862915010154
+            ],
+            [
+              7.966862915010152,
+              59.233708498984754
+            ],
+            [
+              -7.966862915010152,
+              59.233708498984754
+            ],
+            [
+              -19.233708498984758,
+              47.966862915010154
+            ],
+            [
+              -19.233708498984758,
+              32.033137084989846
+            ]
+          ]
+        ],
+        "use": "upper terrace; open rotunda void"
+      },
+      {
+        "id": "dome-spring-ring",
+        "level": 23,
+        "polygons": [
+          [
+            [
+              -8.44,
+              19.62403753357108
+            ],
+            [
+              8.44,
+              19.62403753357108
+            ],
+            [
+              20.37596246642892,
+              31.560000000000002
+            ],
+            [
+              20.37596246642892,
+              48.44
+            ],
+            [
+              8.44,
+              60.375962466428916
+            ],
+            [
+              -8.44,
+              60.375962466428916
+            ],
+            [
+              -20.37596246642892,
+              48.44
+            ],
+            [
+              -20.37596246642892,
+              31.560000000000002
+            ]
+          ]
+        ],
+        "holes": [
+          [
+            [
+              -7.966862915010152,
+              20.766291501015242
+            ],
+            [
+              7.966862915010152,
+              20.766291501015242
+            ],
+            [
+              19.233708498984758,
+              32.033137084989846
+            ],
+            [
+              19.233708498984758,
+              47.966862915010154
+            ],
+            [
+              7.966862915010152,
+              59.233708498984754
+            ],
+            [
+              -7.966862915010152,
+              59.233708498984754
+            ],
+            [
+              -19.233708498984758,
+              47.966862915010154
+            ],
+            [
+              -19.233708498984758,
+              32.033137084989846
+            ]
+          ]
+        ],
+        "use": "narrow dome spring ring; open rotunda void"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "west-post",
+        "label": "Post office",
+        "polygon": [
+          [
+            -30,
+            0
+          ],
+          [
+            -14,
+            0
+          ],
+          [
+            -14,
+            12
+          ],
+          [
+            -30,
+            12
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 4"
+      },
+      {
+        "id": "west-public",
+        "label": "Public waiting room",
+        "polygon": [
+          [
+            -40,
+            0
+          ],
+          [
+            -30,
+            0
+          ],
+          [
+            -30,
+            12
+          ],
+          [
+            -40,
+            12
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 6"
+      },
+      {
+        "id": "west-exchange",
+        "label": "Exchange",
+        "polygon": [
+          [
+            -40,
+            12
+          ],
+          [
+            -26,
+            12
+          ],
+          [
+            -26,
+            26
+          ],
+          [
+            -40,
+            26
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 5"
+      },
+      {
+        "id": "west-foyer",
+        "label": "Ante-room",
+        "polygon": [
+          [
+            -26,
+            12
+          ],
+          [
+            -14,
+            12
+          ],
+          [
+            -14,
+            20
+          ],
+          [
+            -26,
+            20
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 8"
+      },
+      {
+        "id": "west-vault",
+        "label": "Vault",
+        "polygon": [
+          [
+            -26,
+            20
+          ],
+          [
+            -20,
+            20
+          ],
+          [
+            -20,
+            26
+          ],
+          [
+            -26,
+            26
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 9"
+      },
+      {
+        "id": "west-wc",
+        "label": "Toilet",
+        "polygon": [
+          [
+            -20,
+            20
+          ],
+          [
+            -14,
+            20
+          ],
+          [
+            -14,
+            26
+          ],
+          [
+            -20,
+            26
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 7; squared native adaptation"
+      },
+      {
+        "id": "east-foreign",
+        "label": "Foreign visitors office",
+        "polygon": [
+          [
+            14,
+            0
+          ],
+          [
+            20,
+            0
+          ],
+          [
+            20,
+            12
+          ],
+          [
+            14,
+            12
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 10"
+      },
+      {
+        "id": "east-information",
+        "label": "Information office",
+        "polygon": [
+          [
+            20,
+            0
+          ],
+          [
+            28,
+            0
+          ],
+          [
+            28,
+            12
+          ],
+          [
+            20,
+            12
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 11"
+      },
+      {
+        "id": "east-ambulance",
+        "label": "Ambulance service",
+        "polygon": [
+          [
+            28,
+            0
+          ],
+          [
+            40,
+            0
+          ],
+          [
+            40,
+            12
+          ],
+          [
+            28,
+            12
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 12"
+      },
+      {
+        "id": "east-foyer",
+        "label": "Ante-room",
+        "polygon": [
+          [
+            14,
+            12
+          ],
+          [
+            28,
+            12
+          ],
+          [
+            28,
+            20
+          ],
+          [
+            14,
+            20
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 8"
+      },
+      {
+        "id": "east-doctor",
+        "label": "Doctor",
+        "polygon": [
+          [
+            28,
+            12
+          ],
+          [
+            34,
+            12
+          ],
+          [
+            34,
+            26
+          ],
+          [
+            28,
+            26
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 13"
+      },
+      {
+        "id": "east-pharmacy",
+        "label": "Pharmacy",
+        "polygon": [
+          [
+            34,
+            12
+          ],
+          [
+            40,
+            12
+          ],
+          [
+            40,
+            26
+          ],
+          [
+            34,
+            26
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 14"
+      },
+      {
+        "id": "east-wc",
+        "label": "Toilet",
+        "polygon": [
+          [
+            14,
+            20
+          ],
+          [
+            20,
+            20
+          ],
+          [
+            20,
+            26
+          ],
+          [
+            14,
+            26
+          ]
+        ],
+        "level": 1,
+        "source": "Hunt 7; squared native adaptation"
+      }
+    ],
+    "stairs": [
+      {
+        "id": "front-west",
+        "x": -15,
+        "z": 25,
+        "heading": 3.9269908169872414
+      },
+      {
+        "id": "front-east",
+        "x": 15,
+        "z": 25,
+        "heading": 5.497787143782138
+      },
+      {
+        "id": "rear-west",
+        "x": -15,
+        "z": 55,
+        "heading": 2.356194490192345
+      },
+      {
+        "id": "rear-east",
+        "x": 15,
+        "z": 55,
+        "heading": 0.7853981633974483
+      }
+    ],
+    "levels": [
+      {
+        "index": 0,
+        "elevation": 0,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 1,
+        "elevation": 2.12,
+        "floors": [
+          "ground-floor"
+        ],
+        "rotunda": "floor"
+      },
+      {
+        "index": 2,
+        "elevation": 4.24,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 3,
+        "elevation": 6.36,
+        "floors": [
+          "pavilion-floor-3"
+        ],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 4,
+        "elevation": 8.48,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 5,
+        "elevation": 10.6,
+        "floors": [
+          "pavilion-floor-5"
+        ],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 6,
+        "elevation": 12.72,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 7,
+        "elevation": 14.84,
+        "floors": [
+          "pavilion-floor-7"
+        ],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 8,
+        "elevation": 16.96,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 9,
+        "elevation": 19.08,
+        "floors": [
+          "pavilion-roof-and-gallery"
+        ],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 10,
+        "elevation": 21.2,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 11,
+        "elevation": 23.32,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 12,
+        "elevation": 25.44,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 13,
+        "elevation": 27.56,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 14,
+        "elevation": 29.68,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 15,
+        "elevation": 31.8,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 16,
+        "elevation": 33.92,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 17,
+        "elevation": 36.04,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 18,
+        "elevation": 38.16,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 19,
+        "elevation": 40.28,
+        "floors": [
+          "upper-colonnade-terrace"
+        ],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 20,
+        "elevation": 42.4,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 21,
+        "elevation": 44.52,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 22,
+        "elevation": 46.64,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 23,
+        "elevation": 48.76,
+        "floors": [
+          "dome-spring-ring"
+        ],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 24,
+        "elevation": 50.88,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 25,
+        "elevation": 53,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 26,
+        "elevation": 55.12,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 27,
+        "elevation": 57.24,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 28,
+        "elevation": 59.36,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 29,
+        "elevation": 61.48,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 30,
+        "elevation": 63.6,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 31,
+        "elevation": 65.72,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 32,
+        "elevation": 67.84,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 33,
+        "elevation": 69.96,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 34,
+        "elevation": 72.08,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 35,
+        "elevation": 74.2,
+        "floors": [],
+        "rotunda": "void: no slab across the rotunda"
+      },
+      {
+        "index": 36,
+        "elevation": 76.32,
+        "floors": [],
+        "rotunda": "custom dome crown"
+      }
+    ],
+    "groundAnchor": "centre of front footprint at ground; +X right, +Z rear, +Y up",
+    "exceptions": [
+      "Custom dome, columns, arches, cornices, carved figures, stairs and slab boundary cuts.",
+      "Rotunda wall endpoints are the exact regular octagon; all eight runs are exactly 16 m and all native panels are 1 m, rotated without scaling."
+    ],
+    "sourceStatus": "A tile adaptation of the Hunt published front-half plan/elevation and contemporary photographs. Complete exterior footprint uses the four-pavilion description and source symmetry; rear rooms, upper partitions and hidden roof joins remain unverified."
+  },
+  "nautilus": {
+    "enginePin": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "compiler": "Nautilus wallPanels / wallRunErrors",
+    "wallPanels": 7968,
+    "tierCount": 5,
+    "bands": [
+      {
+        "id": "administration-tier-0",
+        "levelOffset": 0,
+        "translation": [
+          -64,
+          0,
+          -16
+        ],
+        "map": {
+          "width": 240,
+          "levels": 6,
+          "wallRuns": {
+            "version": 1,
+            "segments": [
+              {
+                "id": "body-0-tier-0",
+                "a": [
+                  24,
+                  16
+                ],
+                "b": [
+                  50,
+                  16
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-1-tier-0",
+                "a": [
+                  50,
+                  16
+                ],
+                "b": [
+                  50,
+                  26
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-2-tier-0",
+                "a": [
+                  50,
+                  26
+                ],
+                "b": [
+                  78,
+                  26
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-3-tier-0",
+                "a": [
+                  78,
+                  26
+                ],
+                "b": [
+                  78,
+                  16
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-4-tier-0",
+                "a": [
+                  78,
+                  16
+                ],
+                "b": [
+                  104,
+                  16
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-5-tier-0",
+                "a": [
+                  104,
+                  16
+                ],
+                "b": [
+                  104,
+                  42
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-6-tier-0",
+                "a": [
+                  104,
+                  42
+                ],
+                "b": [
+                  94,
+                  42
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-7-tier-0",
+                "a": [
+                  94,
+                  42
+                ],
+                "b": [
+                  94,
+                  70
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-8-tier-0",
+                "a": [
+                  94,
+                  70
+                ],
+                "b": [
+                  104,
+                  70
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-9-tier-0",
+                "a": [
+                  104,
+                  70
+                ],
+                "b": [
+                  104,
+                  96
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-10-tier-0",
+                "a": [
+                  104,
+                  96
+                ],
+                "b": [
+                  78,
+                  96
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-11-tier-0",
+                "a": [
+                  78,
+                  96
+                ],
+                "b": [
+                  78,
+                  86
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-12-tier-0",
+                "a": [
+                  78,
+                  86
+                ],
+                "b": [
+                  50,
+                  86
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-13-tier-0",
+                "a": [
+                  50,
+                  86
+                ],
+                "b": [
+                  50,
+                  96
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-14-tier-0",
+                "a": [
+                  50,
+                  96
+                ],
+                "b": [
+                  24,
+                  96
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-15-tier-0",
+                "a": [
+                  24,
+                  96
+                ],
+                "b": [
+                  24,
+                  70
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-16-tier-0",
+                "a": [
+                  24,
+                  70
+                ],
+                "b": [
+                  34,
+                  70
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-17-tier-0",
+                "a": [
+                  34,
+                  70
+                ],
+                "b": [
+                  34,
+                  42
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-18-tier-0",
+                "a": [
+                  34,
+                  42
+                ],
+                "b": [
+                  24,
+                  42
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "body-19-tier-0",
+                "a": [
+                  24,
+                  42
+                ],
+                "b": [
+                  24,
+                  16
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-0-tier-0",
+                "a": [
+                  56,
+                  36.68629150101524
+                ],
+                "b": [
+                  72,
+                  36.68629150101524
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-1-tier-0",
+                "a": [
+                  72,
+                  36.68629150101524
+                ],
+                "b": [
+                  83.31370849898477,
+                  48
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-2-tier-0",
+                "a": [
+                  83.31370849898477,
+                  48
+                ],
+                "b": [
+                  83.31370849898477,
+                  64
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-3-tier-0",
+                "a": [
+                  83.31370849898477,
+                  64
+                ],
+                "b": [
+                  72,
+                  75.31370849898477
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-4-tier-0",
+                "a": [
+                  72,
+                  75.31370849898477
+                ],
+                "b": [
+                  56,
+                  75.31370849898477
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-5-tier-0",
+                "a": [
+                  56,
+                  75.31370849898477
+                ],
+                "b": [
+                  44.68629150101524,
+                  64
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-6-tier-0",
+                "a": [
+                  44.68629150101524,
+                  64
+                ],
+                "b": [
+                  44.68629150101524,
+                  48
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-7-tier-0",
+                "a": [
+                  44.68629150101524,
+                  48
+                ],
+                "b": [
+                  56,
+                  36.68629150101524
+                ],
+                "z": 1,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "approach-0-0-tier-0",
+                "a": [
+                  56,
+                  16
+                ],
+                "b": [
+                  72,
+                  16
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-0-1-tier-0",
+                "a": [
+                  72,
+                  16
+                ],
+                "b": [
+                  72,
+                  26
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-0-3-tier-0",
+                "a": [
+                  56,
+                  26
+                ],
+                "b": [
+                  56,
+                  16
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-1-0-tier-0",
+                "a": [
+                  94,
+                  48
+                ],
+                "b": [
+                  104,
+                  48
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-1-1-tier-0",
+                "a": [
+                  104,
+                  48
+                ],
+                "b": [
+                  104,
+                  64
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-1-2-tier-0",
+                "a": [
+                  104,
+                  64
+                ],
+                "b": [
+                  94,
+                  64
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-2-1-tier-0",
+                "a": [
+                  72,
+                  86
+                ],
+                "b": [
+                  72,
+                  96
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-2-2-tier-0",
+                "a": [
+                  72,
+                  96
+                ],
+                "b": [
+                  56,
+                  96
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-2-3-tier-0",
+                "a": [
+                  56,
+                  96
+                ],
+                "b": [
+                  56,
+                  86
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-3-0-tier-0",
+                "a": [
+                  24,
+                  48
+                ],
+                "b": [
+                  34,
+                  48
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-3-2-tier-0",
+                "a": [
+                  34,
+                  64
+                ],
+                "b": [
+                  24,
+                  64
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "approach-3-3-tier-0",
+                "a": [
+                  24,
+                  64
+                ],
+                "b": [
+                  24,
+                  48
+                ],
+                "z": 0,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-0-tier-0",
+                "a": [
+                  34,
+                  16
+                ],
+                "b": [
+                  34,
+                  28
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-1-tier-0",
+                "a": [
+                  24,
+                  28
+                ],
+                "b": [
+                  50,
+                  28
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-2-tier-0",
+                "a": [
+                  38,
+                  28
+                ],
+                "b": [
+                  38,
+                  42
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-3-tier-0",
+                "a": [
+                  38,
+                  36
+                ],
+                "b": [
+                  50,
+                  36
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-4-tier-0",
+                "a": [
+                  44,
+                  36
+                ],
+                "b": [
+                  44,
+                  42
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-5-tier-0",
+                "a": [
+                  84,
+                  16
+                ],
+                "b": [
+                  84,
+                  28
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-6-tier-0",
+                "a": [
+                  92,
+                  16
+                ],
+                "b": [
+                  92,
+                  42
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-7-tier-0",
+                "a": [
+                  78,
+                  28
+                ],
+                "b": [
+                  104,
+                  28
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-8-tier-0",
+                "a": [
+                  98,
+                  28
+                ],
+                "b": [
+                  98,
+                  42
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-9-tier-0",
+                "a": [
+                  78,
+                  36
+                ],
+                "b": [
+                  92,
+                  36
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "office-partition-10-tier-0",
+                "a": [
+                  84,
+                  36
+                ],
+                "b": [
+                  84,
+                  42
+                ],
+                "z": 1,
+                "stories": 2,
+                "material": "wood"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "administration-tier-1",
+        "levelOffset": 5,
+        "translation": [
+          -64,
+          10.6,
+          -16
+        ],
+        "map": {
+          "width": 240,
+          "levels": 6,
+          "wallRuns": {
+            "version": 1,
+            "segments": [
+              {
+                "id": "body-0-tier-1",
+                "a": [
+                  24,
+                  16
+                ],
+                "b": [
+                  50,
+                  16
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-1-tier-1",
+                "a": [
+                  50,
+                  16
+                ],
+                "b": [
+                  50,
+                  26
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-2-tier-1",
+                "a": [
+                  50,
+                  26
+                ],
+                "b": [
+                  78,
+                  26
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-3-tier-1",
+                "a": [
+                  78,
+                  26
+                ],
+                "b": [
+                  78,
+                  16
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-4-tier-1",
+                "a": [
+                  78,
+                  16
+                ],
+                "b": [
+                  104,
+                  16
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-5-tier-1",
+                "a": [
+                  104,
+                  16
+                ],
+                "b": [
+                  104,
+                  42
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-6-tier-1",
+                "a": [
+                  104,
+                  42
+                ],
+                "b": [
+                  94,
+                  42
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-7-tier-1",
+                "a": [
+                  94,
+                  42
+                ],
+                "b": [
+                  94,
+                  70
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-8-tier-1",
+                "a": [
+                  94,
+                  70
+                ],
+                "b": [
+                  104,
+                  70
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-9-tier-1",
+                "a": [
+                  104,
+                  70
+                ],
+                "b": [
+                  104,
+                  96
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-10-tier-1",
+                "a": [
+                  104,
+                  96
+                ],
+                "b": [
+                  78,
+                  96
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-11-tier-1",
+                "a": [
+                  78,
+                  96
+                ],
+                "b": [
+                  78,
+                  86
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-12-tier-1",
+                "a": [
+                  78,
+                  86
+                ],
+                "b": [
+                  50,
+                  86
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-13-tier-1",
+                "a": [
+                  50,
+                  86
+                ],
+                "b": [
+                  50,
+                  96
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-14-tier-1",
+                "a": [
+                  50,
+                  96
+                ],
+                "b": [
+                  24,
+                  96
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-15-tier-1",
+                "a": [
+                  24,
+                  96
+                ],
+                "b": [
+                  24,
+                  70
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-16-tier-1",
+                "a": [
+                  24,
+                  70
+                ],
+                "b": [
+                  34,
+                  70
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-17-tier-1",
+                "a": [
+                  34,
+                  70
+                ],
+                "b": [
+                  34,
+                  42
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-18-tier-1",
+                "a": [
+                  34,
+                  42
+                ],
+                "b": [
+                  24,
+                  42
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "body-19-tier-1",
+                "a": [
+                  24,
+                  42
+                ],
+                "b": [
+                  24,
+                  16
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-0-tier-1",
+                "a": [
+                  56,
+                  36.68629150101524
+                ],
+                "b": [
+                  72,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-1-tier-1",
+                "a": [
+                  72,
+                  36.68629150101524
+                ],
+                "b": [
+                  83.31370849898477,
+                  48
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-2-tier-1",
+                "a": [
+                  83.31370849898477,
+                  48
+                ],
+                "b": [
+                  83.31370849898477,
+                  64
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-3-tier-1",
+                "a": [
+                  83.31370849898477,
+                  64
+                ],
+                "b": [
+                  72,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-4-tier-1",
+                "a": [
+                  72,
+                  75.31370849898477
+                ],
+                "b": [
+                  56,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-5-tier-1",
+                "a": [
+                  56,
+                  75.31370849898477
+                ],
+                "b": [
+                  44.68629150101524,
+                  64
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-6-tier-1",
+                "a": [
+                  44.68629150101524,
+                  64
+                ],
+                "b": [
+                  44.68629150101524,
+                  48
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-7-tier-1",
+                "a": [
+                  44.68629150101524,
+                  48
+                ],
+                "b": [
+                  56,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-0-tier-1",
+                "a": [
+                  37,
+                  29
+                ],
+                "b": [
+                  41,
+                  29
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-1-tier-1",
+                "a": [
+                  41,
+                  29
+                ],
+                "b": [
+                  41,
+                  33
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-2-tier-1",
+                "a": [
+                  41,
+                  33
+                ],
+                "b": [
+                  37,
+                  33
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-3-tier-1",
+                "a": [
+                  37,
+                  33
+                ],
+                "b": [
+                  37,
+                  29
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-0-tier-1",
+                "a": [
+                  37,
+                  79
+                ],
+                "b": [
+                  41,
+                  79
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-1-tier-1",
+                "a": [
+                  41,
+                  79
+                ],
+                "b": [
+                  41,
+                  83
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-2-tier-1",
+                "a": [
+                  41,
+                  83
+                ],
+                "b": [
+                  37,
+                  83
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-3-tier-1",
+                "a": [
+                  37,
+                  83
+                ],
+                "b": [
+                  37,
+                  79
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-0-tier-1",
+                "a": [
+                  87,
+                  29
+                ],
+                "b": [
+                  91,
+                  29
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-1-tier-1",
+                "a": [
+                  91,
+                  29
+                ],
+                "b": [
+                  91,
+                  33
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-2-tier-1",
+                "a": [
+                  91,
+                  33
+                ],
+                "b": [
+                  87,
+                  33
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-3-tier-1",
+                "a": [
+                  87,
+                  33
+                ],
+                "b": [
+                  87,
+                  29
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-0-tier-1",
+                "a": [
+                  87,
+                  79
+                ],
+                "b": [
+                  91,
+                  79
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-1-tier-1",
+                "a": [
+                  91,
+                  79
+                ],
+                "b": [
+                  91,
+                  83
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-2-tier-1",
+                "a": [
+                  91,
+                  83
+                ],
+                "b": [
+                  87,
+                  83
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-3-tier-1",
+                "a": [
+                  87,
+                  83
+                ],
+                "b": [
+                  87,
+                  79
+                ],
+                "z": 4,
+                "stories": 1,
+                "material": "wood"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "administration-tier-2",
+        "levelOffset": 10,
+        "translation": [
+          -64,
+          21.2,
+          -16
+        ],
+        "map": {
+          "width": 240,
+          "levels": 6,
+          "wallRuns": {
+            "version": 1,
+            "segments": [
+              {
+                "id": "rotunda-0-tier-2",
+                "a": [
+                  56,
+                  36.68629150101524
+                ],
+                "b": [
+                  72,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-1-tier-2",
+                "a": [
+                  72,
+                  36.68629150101524
+                ],
+                "b": [
+                  83.31370849898477,
+                  48
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-2-tier-2",
+                "a": [
+                  83.31370849898477,
+                  48
+                ],
+                "b": [
+                  83.31370849898477,
+                  64
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-3-tier-2",
+                "a": [
+                  83.31370849898477,
+                  64
+                ],
+                "b": [
+                  72,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-4-tier-2",
+                "a": [
+                  72,
+                  75.31370849898477
+                ],
+                "b": [
+                  56,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-5-tier-2",
+                "a": [
+                  56,
+                  75.31370849898477
+                ],
+                "b": [
+                  44.68629150101524,
+                  64
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-6-tier-2",
+                "a": [
+                  44.68629150101524,
+                  64
+                ],
+                "b": [
+                  44.68629150101524,
+                  48
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-7-tier-2",
+                "a": [
+                  44.68629150101524,
+                  48
+                ],
+                "b": [
+                  56,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-0-tier-2",
+                "a": [
+                  37,
+                  29
+                ],
+                "b": [
+                  41,
+                  29
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-1-tier-2",
+                "a": [
+                  41,
+                  29
+                ],
+                "b": [
+                  41,
+                  33
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-2-tier-2",
+                "a": [
+                  41,
+                  33
+                ],
+                "b": [
+                  37,
+                  33
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-3-tier-2",
+                "a": [
+                  37,
+                  33
+                ],
+                "b": [
+                  37,
+                  29
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-0-tier-2",
+                "a": [
+                  37,
+                  79
+                ],
+                "b": [
+                  41,
+                  79
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-1-tier-2",
+                "a": [
+                  41,
+                  79
+                ],
+                "b": [
+                  41,
+                  83
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-2-tier-2",
+                "a": [
+                  41,
+                  83
+                ],
+                "b": [
+                  37,
+                  83
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-3-tier-2",
+                "a": [
+                  37,
+                  83
+                ],
+                "b": [
+                  37,
+                  79
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-0-tier-2",
+                "a": [
+                  87,
+                  29
+                ],
+                "b": [
+                  91,
+                  29
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-1-tier-2",
+                "a": [
+                  91,
+                  29
+                ],
+                "b": [
+                  91,
+                  33
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-2-tier-2",
+                "a": [
+                  91,
+                  33
+                ],
+                "b": [
+                  87,
+                  33
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-3-tier-2",
+                "a": [
+                  87,
+                  33
+                ],
+                "b": [
+                  87,
+                  29
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-0-tier-2",
+                "a": [
+                  87,
+                  79
+                ],
+                "b": [
+                  91,
+                  79
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-1-tier-2",
+                "a": [
+                  91,
+                  79
+                ],
+                "b": [
+                  91,
+                  83
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-2-tier-2",
+                "a": [
+                  91,
+                  83
+                ],
+                "b": [
+                  87,
+                  83
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-3-tier-2",
+                "a": [
+                  87,
+                  83
+                ],
+                "b": [
+                  87,
+                  79
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "administration-tier-3",
+        "levelOffset": 15,
+        "translation": [
+          -64,
+          31.8,
+          -16
+        ],
+        "map": {
+          "width": 240,
+          "levels": 6,
+          "wallRuns": {
+            "version": 1,
+            "segments": [
+              {
+                "id": "rotunda-0-tier-3",
+                "a": [
+                  56,
+                  36.68629150101524
+                ],
+                "b": [
+                  72,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-1-tier-3",
+                "a": [
+                  72,
+                  36.68629150101524
+                ],
+                "b": [
+                  83.31370849898477,
+                  48
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-2-tier-3",
+                "a": [
+                  83.31370849898477,
+                  48
+                ],
+                "b": [
+                  83.31370849898477,
+                  64
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-3-tier-3",
+                "a": [
+                  83.31370849898477,
+                  64
+                ],
+                "b": [
+                  72,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-4-tier-3",
+                "a": [
+                  72,
+                  75.31370849898477
+                ],
+                "b": [
+                  56,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-5-tier-3",
+                "a": [
+                  56,
+                  75.31370849898477
+                ],
+                "b": [
+                  44.68629150101524,
+                  64
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-6-tier-3",
+                "a": [
+                  44.68629150101524,
+                  64
+                ],
+                "b": [
+                  44.68629150101524,
+                  48
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-7-tier-3",
+                "a": [
+                  44.68629150101524,
+                  48
+                ],
+                "b": [
+                  56,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 5,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-0-tier-3",
+                "a": [
+                  37,
+                  29
+                ],
+                "b": [
+                  41,
+                  29
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-1-tier-3",
+                "a": [
+                  41,
+                  29
+                ],
+                "b": [
+                  41,
+                  33
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-2-tier-3",
+                "a": [
+                  41,
+                  33
+                ],
+                "b": [
+                  37,
+                  33
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-13-3-tier-3",
+                "a": [
+                  37,
+                  33
+                ],
+                "b": [
+                  37,
+                  29
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-0-tier-3",
+                "a": [
+                  37,
+                  79
+                ],
+                "b": [
+                  41,
+                  79
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-1-tier-3",
+                "a": [
+                  41,
+                  79
+                ],
+                "b": [
+                  41,
+                  83
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-2-tier-3",
+                "a": [
+                  41,
+                  83
+                ],
+                "b": [
+                  37,
+                  83
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier--27-63-3-tier-3",
+                "a": [
+                  37,
+                  83
+                ],
+                "b": [
+                  37,
+                  79
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-0-tier-3",
+                "a": [
+                  87,
+                  29
+                ],
+                "b": [
+                  91,
+                  29
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-1-tier-3",
+                "a": [
+                  91,
+                  29
+                ],
+                "b": [
+                  91,
+                  33
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-2-tier-3",
+                "a": [
+                  91,
+                  33
+                ],
+                "b": [
+                  87,
+                  33
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-13-3-tier-3",
+                "a": [
+                  87,
+                  33
+                ],
+                "b": [
+                  87,
+                  29
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-0-tier-3",
+                "a": [
+                  87,
+                  79
+                ],
+                "b": [
+                  91,
+                  79
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-1-tier-3",
+                "a": [
+                  91,
+                  79
+                ],
+                "b": [
+                  91,
+                  83
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-2-tier-3",
+                "a": [
+                  91,
+                  83
+                ],
+                "b": [
+                  87,
+                  83
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-pier-23-63-3-tier-3",
+                "a": [
+                  87,
+                  83
+                ],
+                "b": [
+                  87,
+                  79
+                ],
+                "z": 0,
+                "stories": 4,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-entablature-0-tier-3",
+                "a": [
+                  37,
+                  29
+                ],
+                "b": [
+                  91,
+                  29
+                ],
+                "z": 2,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-entablature-1-tier-3",
+                "a": [
+                  91,
+                  29
+                ],
+                "b": [
+                  91,
+                  83
+                ],
+                "z": 2,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-entablature-2-tier-3",
+                "a": [
+                  91,
+                  83
+                ],
+                "b": [
+                  37,
+                  83
+                ],
+                "z": 2,
+                "stories": 2,
+                "material": "wood"
+              },
+              {
+                "id": "colonnade-entablature-3-tier-3",
+                "a": [
+                  37,
+                  83
+                ],
+                "b": [
+                  37,
+                  29
+                ],
+                "z": 2,
+                "stories": 2,
+                "material": "wood"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "administration-tier-4",
+        "levelOffset": 20,
+        "translation": [
+          -64,
+          42.4,
+          -16
+        ],
+        "map": {
+          "width": 240,
+          "levels": 6,
+          "wallRuns": {
+            "version": 1,
+            "segments": [
+              {
+                "id": "rotunda-0-tier-4",
+                "a": [
+                  56,
+                  36.68629150101524
+                ],
+                "b": [
+                  72,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-1-tier-4",
+                "a": [
+                  72,
+                  36.68629150101524
+                ],
+                "b": [
+                  83.31370849898477,
+                  48
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-2-tier-4",
+                "a": [
+                  83.31370849898477,
+                  48
+                ],
+                "b": [
+                  83.31370849898477,
+                  64
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-3-tier-4",
+                "a": [
+                  83.31370849898477,
+                  64
+                ],
+                "b": [
+                  72,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-4-tier-4",
+                "a": [
+                  72,
+                  75.31370849898477
+                ],
+                "b": [
+                  56,
+                  75.31370849898477
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-5-tier-4",
+                "a": [
+                  56,
+                  75.31370849898477
+                ],
+                "b": [
+                  44.68629150101524,
+                  64
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-6-tier-4",
+                "a": [
+                  44.68629150101524,
+                  64
+                ],
+                "b": [
+                  44.68629150101524,
+                  48
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              },
+              {
+                "id": "rotunda-7-tier-4",
+                "a": [
+                  44.68629150101524,
+                  48
+                ],
+                "b": [
+                  56,
+                  36.68629150101524
+                ],
+                "z": 0,
+                "stories": 3,
+                "material": "wood"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "materialToken": "wood is the required authoring token for these geometry fragments; it is not a game combustion assignment. Runtime physical material remains unassigned.",
+    "integration": "Whole-building art assembly. These are validated local six-layer wall fragments with standard-level offsets, not one legacy editor map. Catalogue registration and consumer gameplay adapters remain separate."
+  },
+  "floors": [
+    {
+      "id": "ground-floor",
+      "level": 1,
+      "top": 2.12,
+      "thickness": 0.12,
+      "fullTiles": 5920,
+      "boundaryTiles": 0,
+      "surfaceArea": 5920
+    },
+    {
+      "id": "pavilion-floor-3",
+      "level": 3,
+      "top": 6.36,
+      "thickness": 0.12,
+      "fullTiles": 2604,
+      "boundaryTiles": 149,
+      "surfaceArea": 2637.439511707109
+    },
+    {
+      "id": "pavilion-floor-5",
+      "level": 5,
+      "top": 10.6,
+      "thickness": 0.12,
+      "fullTiles": 2604,
+      "boundaryTiles": 149,
+      "surfaceArea": 2637.439511707109
+    },
+    {
+      "id": "pavilion-floor-7",
+      "level": 7,
+      "top": 14.84,
+      "thickness": 0.12,
+      "fullTiles": 2604,
+      "boundaryTiles": 149,
+      "surfaceArea": 2637.439511707109
+    },
+    {
+      "id": "pavilion-roof-and-gallery",
+      "level": 9,
+      "top": 19.08,
+      "thickness": 0.12,
+      "fullTiles": 3890,
+      "boundaryTiles": 278,
+      "surfaceArea": 4054.14144833058
+    },
+    {
+      "id": "upper-colonnade-terrace",
+      "level": 19,
+      "top": 40.28,
+      "thickness": 0.12,
+      "fullTiles": 1526,
+      "boundaryTiles": 278,
+      "surfaceArea": 1690.1414483305857
+    },
+    {
+      "id": "dome-spring-ring",
+      "level": 23,
+      "top": 48.76,
+      "thickness": 0.12,
+      "fullTiles": 0,
+      "boundaryTiles": 290,
+      "surfaceArea": 149.92643406386276
+    }
+  ],
+  "stairs": [
+    {
+      "id": "front-west",
+      "centre": [
+        -15,
+        25
+      ],
+      "fromLevel": 1,
+      "toLevel": 7,
+      "fromY": 2.12,
+      "toY": 14.84,
+      "landingLevels": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "steps": 72,
+      "rise": 0.17666666666666667,
+      "outerRadius": 3.4,
+      "innerRadius": 1.3,
+      "interpretation": "Three full turns connect the four pavilion floor plates. Treads and handrails are custom art; no navigation/collision promise."
+    },
+    {
+      "id": "front-east",
+      "centre": [
+        15,
+        25
+      ],
+      "fromLevel": 1,
+      "toLevel": 7,
+      "fromY": 2.12,
+      "toY": 14.84,
+      "landingLevels": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "steps": 72,
+      "rise": 0.17666666666666667,
+      "outerRadius": 3.4,
+      "innerRadius": 1.3,
+      "interpretation": "Three full turns connect the four pavilion floor plates. Treads and handrails are custom art; no navigation/collision promise."
+    },
+    {
+      "id": "rear-west",
+      "centre": [
+        -15,
+        55
+      ],
+      "fromLevel": 1,
+      "toLevel": 7,
+      "fromY": 2.12,
+      "toY": 14.84,
+      "landingLevels": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "steps": 72,
+      "rise": 0.17666666666666667,
+      "outerRadius": 3.4,
+      "innerRadius": 1.3,
+      "interpretation": "Three full turns connect the four pavilion floor plates. Treads and handrails are custom art; no navigation/collision promise."
+    },
+    {
+      "id": "rear-east",
+      "centre": [
+        15,
+        55
+      ],
+      "fromLevel": 1,
+      "toLevel": 7,
+      "fromY": 2.12,
+      "toY": 14.84,
+      "landingLevels": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "steps": 72,
+      "rise": 0.17666666666666667,
+      "outerRadius": 3.4,
+      "innerRadius": 1.3,
+      "interpretation": "Three full turns connect the four pavilion floor plates. Treads and handrails are custom art; no navigation/collision promise."
+    }
+  ],
+  "passages": [
+    {
+      "id": "body-2-entrance",
+      "runId": "body-2",
+      "level": 1,
+      "width": 2,
+      "nativeLeaves": 2,
+      "intent": "Closed native leaves below fixed screen; no gameplay traversal."
+    },
+    {
+      "id": "body-7-entrance",
+      "runId": "body-7",
+      "level": 1,
+      "width": 2,
+      "nativeLeaves": 2,
+      "intent": "Closed native leaves below fixed screen; no gameplay traversal."
+    },
+    {
+      "id": "body-12-entrance",
+      "runId": "body-12",
+      "level": 1,
+      "width": 2,
+      "nativeLeaves": 2,
+      "intent": "Closed native leaves below fixed screen; no gameplay traversal."
+    },
+    {
+      "id": "body-17-entrance",
+      "runId": "body-17",
+      "level": 1,
+      "width": 2,
+      "nativeLeaves": 2,
+      "intent": "Closed native leaves below fixed screen; no gameplay traversal."
+    }
+  ],
+  "localBounds": {
+    "min": [
+      -46,
+      -2.7020772286334704e-8,
+      -6
+    ],
+    "max": [
+      46,
+      76.32000000596045,
+      86
+    ]
+  },
+  "appearanceSlots": [
+    "facade",
+    "trim",
+    "door",
+    "roof",
+    "glazing",
+    "shadow",
+    "awning",
+    "dome",
+    "floor",
+    "interior"
+  ],
+  "sourceIds": [
+    "ADMIN-HUNT-1893",
+    "ADMIN-FLINN-1893",
+    "ADMIN-ARNOLD-1893"
+  ],
+  "historicalStatus": "A tile adaptation of the Hunt published front-half plan/elevation and contemporary photographs. Complete exterior footprint uses the four-pavilion description and source symmetry; rear rooms, upper partitions and hidden roof joins remain unverified.",
+  "physicalMaterial": {
+    "structure": "unassigned",
+    "finish": "unassigned"
+  },
+  "integration": "Native Nautilus geometry assembly for later building-library intake. Not placed into the production street or registered in the fixed engine catalogue. Collision, traversal, fire and collapse remain consumer-owned.",
+  "interiors": "Hunt front ground-floor office partitions/labels adapted to whole metres; four pavilion floor plates, upper gallery and open rotunda. Circular stairs are a native-level interpretation. Rear rooms, exact upper partitions, elevator details and the interior dome mural remain unverified or omitted.",
+  "compiledStructure": {
+    "wallFragments": 5912,
+    "closureFragments": 5848,
+    "floorFragments": 20441,
+    "sha256": "68745c9de350dd43a78d3608cdc7490108748981ad47b99ea77974eb694d75f5",
+    "records": "Full native panel/cell records are returned by factory.metadata."
+  }
+}

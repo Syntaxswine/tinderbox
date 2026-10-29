@@ -1,0 +1,2289 @@
+{
+  "kind": "tinderbox-nautilus-building-assembly",
+  "version": 1,
+  "assetId": "exposition-administration-1893",
+  "enginePin": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "role": "Candidate whole-building provider data, not an aft-map-v2 or aft-block-v1 save.",
+  "profile": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "tiers": [
+    {
+      "id": "administration-tier-0",
+      "levelOffset": 0,
+      "translation": [
+        -64,
+        0,
+        -16
+      ],
+      "map": {
+        "width": 240,
+        "levels": 6,
+        "wallRuns": {
+          "version": 1,
+          "segments": [
+            {
+              "id": "body-0-tier-0",
+              "a": [
+                24,
+                16
+              ],
+              "b": [
+                50,
+                16
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-1-tier-0",
+              "a": [
+                50,
+                16
+              ],
+              "b": [
+                50,
+                26
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-2-tier-0",
+              "a": [
+                50,
+                26
+              ],
+              "b": [
+                78,
+                26
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-3-tier-0",
+              "a": [
+                78,
+                26
+              ],
+              "b": [
+                78,
+                16
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-4-tier-0",
+              "a": [
+                78,
+                16
+              ],
+              "b": [
+                104,
+                16
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-5-tier-0",
+              "a": [
+                104,
+                16
+              ],
+              "b": [
+                104,
+                42
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-6-tier-0",
+              "a": [
+                104,
+                42
+              ],
+              "b": [
+                94,
+                42
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-7-tier-0",
+              "a": [
+                94,
+                42
+              ],
+              "b": [
+                94,
+                70
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-8-tier-0",
+              "a": [
+                94,
+                70
+              ],
+              "b": [
+                104,
+                70
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-9-tier-0",
+              "a": [
+                104,
+                70
+              ],
+              "b": [
+                104,
+                96
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-10-tier-0",
+              "a": [
+                104,
+                96
+              ],
+              "b": [
+                78,
+                96
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-11-tier-0",
+              "a": [
+                78,
+                96
+              ],
+              "b": [
+                78,
+                86
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-12-tier-0",
+              "a": [
+                78,
+                86
+              ],
+              "b": [
+                50,
+                86
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-13-tier-0",
+              "a": [
+                50,
+                86
+              ],
+              "b": [
+                50,
+                96
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-14-tier-0",
+              "a": [
+                50,
+                96
+              ],
+              "b": [
+                24,
+                96
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-15-tier-0",
+              "a": [
+                24,
+                96
+              ],
+              "b": [
+                24,
+                70
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-16-tier-0",
+              "a": [
+                24,
+                70
+              ],
+              "b": [
+                34,
+                70
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-17-tier-0",
+              "a": [
+                34,
+                70
+              ],
+              "b": [
+                34,
+                42
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-18-tier-0",
+              "a": [
+                34,
+                42
+              ],
+              "b": [
+                24,
+                42
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "body-19-tier-0",
+              "a": [
+                24,
+                42
+              ],
+              "b": [
+                24,
+                16
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-0-tier-0",
+              "a": [
+                56,
+                36.68629150101524
+              ],
+              "b": [
+                72,
+                36.68629150101524
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-1-tier-0",
+              "a": [
+                72,
+                36.68629150101524
+              ],
+              "b": [
+                83.31370849898477,
+                48
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-2-tier-0",
+              "a": [
+                83.31370849898477,
+                48
+              ],
+              "b": [
+                83.31370849898477,
+                64
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-3-tier-0",
+              "a": [
+                83.31370849898477,
+                64
+              ],
+              "b": [
+                72,
+                75.31370849898477
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-4-tier-0",
+              "a": [
+                72,
+                75.31370849898477
+              ],
+              "b": [
+                56,
+                75.31370849898477
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-5-tier-0",
+              "a": [
+                56,
+                75.31370849898477
+              ],
+              "b": [
+                44.68629150101524,
+                64
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-6-tier-0",
+              "a": [
+                44.68629150101524,
+                64
+              ],
+              "b": [
+                44.68629150101524,
+                48
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-7-tier-0",
+              "a": [
+                44.68629150101524,
+                48
+              ],
+              "b": [
+                56,
+                36.68629150101524
+              ],
+              "z": 1,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "approach-0-0-tier-0",
+              "a": [
+                56,
+                16
+              ],
+              "b": [
+                72,
+                16
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-0-1-tier-0",
+              "a": [
+                72,
+                16
+              ],
+              "b": [
+                72,
+                26
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-0-3-tier-0",
+              "a": [
+                56,
+                26
+              ],
+              "b": [
+                56,
+                16
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-1-0-tier-0",
+              "a": [
+                94,
+                48
+              ],
+              "b": [
+                104,
+                48
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-1-1-tier-0",
+              "a": [
+                104,
+                48
+              ],
+              "b": [
+                104,
+                64
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-1-2-tier-0",
+              "a": [
+                104,
+                64
+              ],
+              "b": [
+                94,
+                64
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-2-1-tier-0",
+              "a": [
+                72,
+                86
+              ],
+              "b": [
+                72,
+                96
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-2-2-tier-0",
+              "a": [
+                72,
+                96
+              ],
+              "b": [
+                56,
+                96
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-2-3-tier-0",
+              "a": [
+                56,
+                96
+              ],
+              "b": [
+                56,
+                86
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-3-0-tier-0",
+              "a": [
+                24,
+                48
+              ],
+              "b": [
+                34,
+                48
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-3-2-tier-0",
+              "a": [
+                34,
+                64
+              ],
+              "b": [
+                24,
+                64
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "approach-3-3-tier-0",
+              "a": [
+                24,
+                64
+              ],
+              "b": [
+                24,
+                48
+              ],
+              "z": 0,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-0-tier-0",
+              "a": [
+                34,
+                16
+              ],
+              "b": [
+                34,
+                28
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-1-tier-0",
+              "a": [
+                24,
+                28
+              ],
+              "b": [
+                50,
+                28
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-2-tier-0",
+              "a": [
+                38,
+                28
+              ],
+              "b": [
+                38,
+                42
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-3-tier-0",
+              "a": [
+                38,
+                36
+              ],
+              "b": [
+                50,
+                36
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-4-tier-0",
+              "a": [
+                44,
+                36
+              ],
+              "b": [
+                44,
+                42
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-5-tier-0",
+              "a": [
+                84,
+                16
+              ],
+              "b": [
+                84,
+                28
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-6-tier-0",
+              "a": [
+                92,
+                16
+              ],
+              "b": [
+                92,
+                42
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-7-tier-0",
+              "a": [
+                78,
+                28
+              ],
+              "b": [
+                104,
+                28
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-8-tier-0",
+              "a": [
+                98,
+                28
+              ],
+              "b": [
+                98,
+                42
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-9-tier-0",
+              "a": [
+                78,
+                36
+              ],
+              "b": [
+                92,
+                36
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "office-partition-10-tier-0",
+              "a": [
+                84,
+                36
+              ],
+              "b": [
+                84,
+                42
+              ],
+              "z": 1,
+              "stories": 2,
+              "material": "wood"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "administration-tier-1",
+      "levelOffset": 5,
+      "translation": [
+        -64,
+        10.6,
+        -16
+      ],
+      "map": {
+        "width": 240,
+        "levels": 6,
+        "wallRuns": {
+          "version": 1,
+          "segments": [
+            {
+              "id": "body-0-tier-1",
+              "a": [
+                24,
+                16
+              ],
+              "b": [
+                50,
+                16
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-1-tier-1",
+              "a": [
+                50,
+                16
+              ],
+              "b": [
+                50,
+                26
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-2-tier-1",
+              "a": [
+                50,
+                26
+              ],
+              "b": [
+                78,
+                26
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-3-tier-1",
+              "a": [
+                78,
+                26
+              ],
+              "b": [
+                78,
+                16
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-4-tier-1",
+              "a": [
+                78,
+                16
+              ],
+              "b": [
+                104,
+                16
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-5-tier-1",
+              "a": [
+                104,
+                16
+              ],
+              "b": [
+                104,
+                42
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-6-tier-1",
+              "a": [
+                104,
+                42
+              ],
+              "b": [
+                94,
+                42
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-7-tier-1",
+              "a": [
+                94,
+                42
+              ],
+              "b": [
+                94,
+                70
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-8-tier-1",
+              "a": [
+                94,
+                70
+              ],
+              "b": [
+                104,
+                70
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-9-tier-1",
+              "a": [
+                104,
+                70
+              ],
+              "b": [
+                104,
+                96
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-10-tier-1",
+              "a": [
+                104,
+                96
+              ],
+              "b": [
+                78,
+                96
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-11-tier-1",
+              "a": [
+                78,
+                96
+              ],
+              "b": [
+                78,
+                86
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-12-tier-1",
+              "a": [
+                78,
+                86
+              ],
+              "b": [
+                50,
+                86
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-13-tier-1",
+              "a": [
+                50,
+                86
+              ],
+              "b": [
+                50,
+                96
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-14-tier-1",
+              "a": [
+                50,
+                96
+              ],
+              "b": [
+                24,
+                96
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-15-tier-1",
+              "a": [
+                24,
+                96
+              ],
+              "b": [
+                24,
+                70
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-16-tier-1",
+              "a": [
+                24,
+                70
+              ],
+              "b": [
+                34,
+                70
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-17-tier-1",
+              "a": [
+                34,
+                70
+              ],
+              "b": [
+                34,
+                42
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-18-tier-1",
+              "a": [
+                34,
+                42
+              ],
+              "b": [
+                24,
+                42
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "body-19-tier-1",
+              "a": [
+                24,
+                42
+              ],
+              "b": [
+                24,
+                16
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-0-tier-1",
+              "a": [
+                56,
+                36.68629150101524
+              ],
+              "b": [
+                72,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-1-tier-1",
+              "a": [
+                72,
+                36.68629150101524
+              ],
+              "b": [
+                83.31370849898477,
+                48
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-2-tier-1",
+              "a": [
+                83.31370849898477,
+                48
+              ],
+              "b": [
+                83.31370849898477,
+                64
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-3-tier-1",
+              "a": [
+                83.31370849898477,
+                64
+              ],
+              "b": [
+                72,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-4-tier-1",
+              "a": [
+                72,
+                75.31370849898477
+              ],
+              "b": [
+                56,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-5-tier-1",
+              "a": [
+                56,
+                75.31370849898477
+              ],
+              "b": [
+                44.68629150101524,
+                64
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-6-tier-1",
+              "a": [
+                44.68629150101524,
+                64
+              ],
+              "b": [
+                44.68629150101524,
+                48
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-7-tier-1",
+              "a": [
+                44.68629150101524,
+                48
+              ],
+              "b": [
+                56,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-0-tier-1",
+              "a": [
+                37,
+                29
+              ],
+              "b": [
+                41,
+                29
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-1-tier-1",
+              "a": [
+                41,
+                29
+              ],
+              "b": [
+                41,
+                33
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-2-tier-1",
+              "a": [
+                41,
+                33
+              ],
+              "b": [
+                37,
+                33
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-3-tier-1",
+              "a": [
+                37,
+                33
+              ],
+              "b": [
+                37,
+                29
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-0-tier-1",
+              "a": [
+                37,
+                79
+              ],
+              "b": [
+                41,
+                79
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-1-tier-1",
+              "a": [
+                41,
+                79
+              ],
+              "b": [
+                41,
+                83
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-2-tier-1",
+              "a": [
+                41,
+                83
+              ],
+              "b": [
+                37,
+                83
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-3-tier-1",
+              "a": [
+                37,
+                83
+              ],
+              "b": [
+                37,
+                79
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-0-tier-1",
+              "a": [
+                87,
+                29
+              ],
+              "b": [
+                91,
+                29
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-1-tier-1",
+              "a": [
+                91,
+                29
+              ],
+              "b": [
+                91,
+                33
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-2-tier-1",
+              "a": [
+                91,
+                33
+              ],
+              "b": [
+                87,
+                33
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-3-tier-1",
+              "a": [
+                87,
+                33
+              ],
+              "b": [
+                87,
+                29
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-0-tier-1",
+              "a": [
+                87,
+                79
+              ],
+              "b": [
+                91,
+                79
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-1-tier-1",
+              "a": [
+                91,
+                79
+              ],
+              "b": [
+                91,
+                83
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-2-tier-1",
+              "a": [
+                91,
+                83
+              ],
+              "b": [
+                87,
+                83
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-3-tier-1",
+              "a": [
+                87,
+                83
+              ],
+              "b": [
+                87,
+                79
+              ],
+              "z": 4,
+              "stories": 1,
+              "material": "wood"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "administration-tier-2",
+      "levelOffset": 10,
+      "translation": [
+        -64,
+        21.2,
+        -16
+      ],
+      "map": {
+        "width": 240,
+        "levels": 6,
+        "wallRuns": {
+          "version": 1,
+          "segments": [
+            {
+              "id": "rotunda-0-tier-2",
+              "a": [
+                56,
+                36.68629150101524
+              ],
+              "b": [
+                72,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-1-tier-2",
+              "a": [
+                72,
+                36.68629150101524
+              ],
+              "b": [
+                83.31370849898477,
+                48
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-2-tier-2",
+              "a": [
+                83.31370849898477,
+                48
+              ],
+              "b": [
+                83.31370849898477,
+                64
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-3-tier-2",
+              "a": [
+                83.31370849898477,
+                64
+              ],
+              "b": [
+                72,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-4-tier-2",
+              "a": [
+                72,
+                75.31370849898477
+              ],
+              "b": [
+                56,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-5-tier-2",
+              "a": [
+                56,
+                75.31370849898477
+              ],
+              "b": [
+                44.68629150101524,
+                64
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-6-tier-2",
+              "a": [
+                44.68629150101524,
+                64
+              ],
+              "b": [
+                44.68629150101524,
+                48
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-7-tier-2",
+              "a": [
+                44.68629150101524,
+                48
+              ],
+              "b": [
+                56,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-0-tier-2",
+              "a": [
+                37,
+                29
+              ],
+              "b": [
+                41,
+                29
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-1-tier-2",
+              "a": [
+                41,
+                29
+              ],
+              "b": [
+                41,
+                33
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-2-tier-2",
+              "a": [
+                41,
+                33
+              ],
+              "b": [
+                37,
+                33
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-3-tier-2",
+              "a": [
+                37,
+                33
+              ],
+              "b": [
+                37,
+                29
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-0-tier-2",
+              "a": [
+                37,
+                79
+              ],
+              "b": [
+                41,
+                79
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-1-tier-2",
+              "a": [
+                41,
+                79
+              ],
+              "b": [
+                41,
+                83
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-2-tier-2",
+              "a": [
+                41,
+                83
+              ],
+              "b": [
+                37,
+                83
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-3-tier-2",
+              "a": [
+                37,
+                83
+              ],
+              "b": [
+                37,
+                79
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-0-tier-2",
+              "a": [
+                87,
+                29
+              ],
+              "b": [
+                91,
+                29
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-1-tier-2",
+              "a": [
+                91,
+                29
+              ],
+              "b": [
+                91,
+                33
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-2-tier-2",
+              "a": [
+                91,
+                33
+              ],
+              "b": [
+                87,
+                33
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-3-tier-2",
+              "a": [
+                87,
+                33
+              ],
+              "b": [
+                87,
+                29
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-0-tier-2",
+              "a": [
+                87,
+                79
+              ],
+              "b": [
+                91,
+                79
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-1-tier-2",
+              "a": [
+                91,
+                79
+              ],
+              "b": [
+                91,
+                83
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-2-tier-2",
+              "a": [
+                91,
+                83
+              ],
+              "b": [
+                87,
+                83
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-3-tier-2",
+              "a": [
+                87,
+                83
+              ],
+              "b": [
+                87,
+                79
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "administration-tier-3",
+      "levelOffset": 15,
+      "translation": [
+        -64,
+        31.8,
+        -16
+      ],
+      "map": {
+        "width": 240,
+        "levels": 6,
+        "wallRuns": {
+          "version": 1,
+          "segments": [
+            {
+              "id": "rotunda-0-tier-3",
+              "a": [
+                56,
+                36.68629150101524
+              ],
+              "b": [
+                72,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-1-tier-3",
+              "a": [
+                72,
+                36.68629150101524
+              ],
+              "b": [
+                83.31370849898477,
+                48
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-2-tier-3",
+              "a": [
+                83.31370849898477,
+                48
+              ],
+              "b": [
+                83.31370849898477,
+                64
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-3-tier-3",
+              "a": [
+                83.31370849898477,
+                64
+              ],
+              "b": [
+                72,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-4-tier-3",
+              "a": [
+                72,
+                75.31370849898477
+              ],
+              "b": [
+                56,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-5-tier-3",
+              "a": [
+                56,
+                75.31370849898477
+              ],
+              "b": [
+                44.68629150101524,
+                64
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-6-tier-3",
+              "a": [
+                44.68629150101524,
+                64
+              ],
+              "b": [
+                44.68629150101524,
+                48
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-7-tier-3",
+              "a": [
+                44.68629150101524,
+                48
+              ],
+              "b": [
+                56,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 5,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-0-tier-3",
+              "a": [
+                37,
+                29
+              ],
+              "b": [
+                41,
+                29
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-1-tier-3",
+              "a": [
+                41,
+                29
+              ],
+              "b": [
+                41,
+                33
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-2-tier-3",
+              "a": [
+                41,
+                33
+              ],
+              "b": [
+                37,
+                33
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-13-3-tier-3",
+              "a": [
+                37,
+                33
+              ],
+              "b": [
+                37,
+                29
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-0-tier-3",
+              "a": [
+                37,
+                79
+              ],
+              "b": [
+                41,
+                79
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-1-tier-3",
+              "a": [
+                41,
+                79
+              ],
+              "b": [
+                41,
+                83
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-2-tier-3",
+              "a": [
+                41,
+                83
+              ],
+              "b": [
+                37,
+                83
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier--27-63-3-tier-3",
+              "a": [
+                37,
+                83
+              ],
+              "b": [
+                37,
+                79
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-0-tier-3",
+              "a": [
+                87,
+                29
+              ],
+              "b": [
+                91,
+                29
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-1-tier-3",
+              "a": [
+                91,
+                29
+              ],
+              "b": [
+                91,
+                33
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-2-tier-3",
+              "a": [
+                91,
+                33
+              ],
+              "b": [
+                87,
+                33
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-13-3-tier-3",
+              "a": [
+                87,
+                33
+              ],
+              "b": [
+                87,
+                29
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-0-tier-3",
+              "a": [
+                87,
+                79
+              ],
+              "b": [
+                91,
+                79
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-1-tier-3",
+              "a": [
+                91,
+                79
+              ],
+              "b": [
+                91,
+                83
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-2-tier-3",
+              "a": [
+                91,
+                83
+              ],
+              "b": [
+                87,
+                83
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-pier-23-63-3-tier-3",
+              "a": [
+                87,
+                83
+              ],
+              "b": [
+                87,
+                79
+              ],
+              "z": 0,
+              "stories": 4,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-entablature-0-tier-3",
+              "a": [
+                37,
+                29
+              ],
+              "b": [
+                91,
+                29
+              ],
+              "z": 2,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-entablature-1-tier-3",
+              "a": [
+                91,
+                29
+              ],
+              "b": [
+                91,
+                83
+              ],
+              "z": 2,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-entablature-2-tier-3",
+              "a": [
+                91,
+                83
+              ],
+              "b": [
+                37,
+                83
+              ],
+              "z": 2,
+              "stories": 2,
+              "material": "wood"
+            },
+            {
+              "id": "colonnade-entablature-3-tier-3",
+              "a": [
+                37,
+                83
+              ],
+              "b": [
+                37,
+                29
+              ],
+              "z": 2,
+              "stories": 2,
+              "material": "wood"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "administration-tier-4",
+      "levelOffset": 20,
+      "translation": [
+        -64,
+        42.4,
+        -16
+      ],
+      "map": {
+        "width": 240,
+        "levels": 6,
+        "wallRuns": {
+          "version": 1,
+          "segments": [
+            {
+              "id": "rotunda-0-tier-4",
+              "a": [
+                56,
+                36.68629150101524
+              ],
+              "b": [
+                72,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-1-tier-4",
+              "a": [
+                72,
+                36.68629150101524
+              ],
+              "b": [
+                83.31370849898477,
+                48
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-2-tier-4",
+              "a": [
+                83.31370849898477,
+                48
+              ],
+              "b": [
+                83.31370849898477,
+                64
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-3-tier-4",
+              "a": [
+                83.31370849898477,
+                64
+              ],
+              "b": [
+                72,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-4-tier-4",
+              "a": [
+                72,
+                75.31370849898477
+              ],
+              "b": [
+                56,
+                75.31370849898477
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-5-tier-4",
+              "a": [
+                56,
+                75.31370849898477
+              ],
+              "b": [
+                44.68629150101524,
+                64
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-6-tier-4",
+              "a": [
+                44.68629150101524,
+                64
+              ],
+              "b": [
+                44.68629150101524,
+                48
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            },
+            {
+              "id": "rotunda-7-tier-4",
+              "a": [
+                44.68629150101524,
+                48
+              ],
+              "b": [
+                56,
+                36.68629150101524
+              ],
+              "z": 0,
+              "stories": 3,
+              "material": "wood"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "appearanceFactory": "createAdministrationBuilding",
+  "factoryModule": "./index.js",
+  "floorRecipe": "./plan.js",
+  "materialToken": "wood is the required authoring token for these geometry fragments; it is not a game combustion assignment. Runtime physical material remains unassigned.",
+  "requires": [
+    "Whole-building provider registration / source pin",
+    "Consumer capability adapter for floors, openings and custom sculpture"
+  ],
+  "integration": "Native Nautilus geometry assembly for later building-library intake. Not placed into the production street or registered in the fixed engine catalogue. Collision, traversal, fire and collapse remain consumer-owned."
+}

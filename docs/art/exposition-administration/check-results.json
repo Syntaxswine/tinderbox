@@ -1,0 +1,54 @@
+{
+  "assetId": "exposition-administration-1893",
+  "checkedAt": "2026-10-29T08:20:20.272582+00:00",
+  "branch": "codex/administration-building-art",
+  "baseCommit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+  "results": [
+    {
+      "command": "node tools/check.mjs",
+      "exitCode": 0,
+      "result": "89 own scripts; 123 static modules; one shared Three pair and provenance; 85/85 tests passed; five byte-preserved imports and 32 extra syntax/dependency checks passed."
+    },
+    {
+      "command": "node tools/build.mjs",
+      "exitCode": 0,
+      "result": "149 packaged files; 43,596,142 bytes; resource URLs relative to project path."
+    },
+    {
+      "command": "node workbenches/art/check-exposition-administration.mjs --package",
+      "exitCode": 0,
+      "result": "68 preserved Git blobs; 7,968 actual Nautilus panels; five native tiers; 5,645 native walls; eight leaves; 5,912 structural fragments; 5,848 closures; 1,842,822 bounded vertices; independent floor areas; open rotunda and landing rays; 288 stair treads; four poses; skins and 651 owned disposals. Built package fetched under nested URL with identical hashes and shared Three; research excluded; helper port released."
+    },
+    {
+      "command": "Eight render-review.py runs plus compare-source.py",
+      "exitCode": 0,
+      "result": "Eight final 1600x1200 views, source comparison and grid review generated and visually inspected."
+    }
+  ],
+  "diagnostics": {
+    "disposed": false,
+    "meshes": 412,
+    "triangles": 614274,
+    "sourceParts": 37867,
+    "instanceBatches": 229,
+    "geometries": 411,
+    "materials": 10,
+    "ownedTextures": 0,
+    "borrowedTextureCount": 0,
+    "enginePanels": 7968,
+    "nativeWalls": 5645,
+    "nativeDoors": 8,
+    "components": 38296,
+    "floorTiles": 20441,
+    "wallPieces": 5912,
+    "levelClosures": 5848,
+    "quarterTurns": 0
+  },
+  "limits": [
+    "CPU diffuse render; WebGL shaders, GPU memory and performance remain pending.",
+    "Geometry interiors are present; exact rear and upper room partitions are not documented.",
+    "No character traversal, collision, fire or collapse acceptance is claimed.",
+    "Provider catalogue registration, production street intake and current six-layer editor capability acceptance remain separate."
+  ],
+  "helpersRetained": []
+}
