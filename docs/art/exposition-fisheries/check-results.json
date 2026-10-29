@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-10-29T19:09:49.577215+00:00",
+  "repositoryChecks": {
+    "passed": true,
+    "tests": 85,
+    "syntaxScripts": 92,
+    "staticModules": 138
+  },
+  "build": {
+    "passed": true,
+    "files": 170,
+    "nestedPathResources": true
+  },
+  "focused": {
+    "passed": true,
+    "preservedFiles": 215,
+    "enginePanels": 5228,
+    "native": {
+      "walls": 3612,
+      "doors": 8,
+      "slabs": 11192
+    },
+    "wallFragments": 5528,
+    "closureFragments": 4476,
+    "boundedVertices": 3234102,
+    "stairTreads": 144,
+    "roofFaces": 416,
+    "floorAreas": {
+      "main-first": 6169.734994474235,
+      "main-gallery": 2329.7349944742346,
+      "upper-drum-balcony": 386.0996757404355,
+      "west-arcade/deck": 183.73861041317286,
+      "east-arcade/deck": 183.73861041317286,
+      "angling/first": 1286.9988824041884,
+      "aquarium/first": 1286.9988824041884
+    },
+    "building": {
+      "disposed": false,
+      "meshes": 1166,
+      "triangles": 1078034,
+      "sourceParts": 37065,
+      "instanceBatches": 689,
+      "geometries": 1144,
+      "materials": 14,
+      "enginePanels": 5228,
+      "nativeWalls": 3612,
+      "nativeDoors": 8,
+      "floorTiles": 12545,
+      "wallPieces": 5528,
+      "closures": 4476,
+      "roofTiles": 57855,
+      "portals": 4,
+      "occupiedLevels": [
+        1,
+        3
+      ]
+    },
+    "poses": 4,
+    "sections": 5,
+    "portalStates": 8,
+    "packageChecked": true
+  },
+  "helpers": {
+    "retained": 0,
+    "rendererLifetimesChecked": 5,
+    "packagePortReleased": true
+  },
+  "visual": {
+    "reviewedJPGs": 11,
+    "renderer": "Mitsuba3.9.1 scalar_rgb; actual exported meshes",
+    "gpuAcceptance": "Pending; CPU alpha approximation does not establish WebGL/browser acceptance"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "planCalibration": {
+    "image": "artifacts/exposition-fisheries/raw/conkey-ground-oriented.jpg",
+    "sourceDerivative": "art/source/exposition-fisheries/evidence/conkey-ground-oriented.jpg",
+    "imagePixels": [
+      4200,
+      2714
+    ],
+    "points": [
+      [
+        376,
+        414
+      ],
+      [
+        3884,
+        414
+      ]
+    ],
+    "pixels": 3508,
+    "writtenFeet": 365,
+    "metres": 111.25200000000001,
+    "pixelsPerMetre": 31.532017401934343,
+    "equation": "metres = pixels /3508 *365 *.3048",
+    "uncertainty": "Approximate exterior-wall centres +/-16 pixels; drawing distortion, thick lines and orientation imply about2-4 percent uncertainty. This is written-dimension calibration, not a printed scale ruler.",
+    "independentChecks": [
+      {
+        "id": "body-depth",
+        "points": [
+          [
+            376,
+            414
+          ],
+          [
+            376,
+            1987
+          ]
+        ],
+        "pixels": 1573,
+        "writtenFeet": 165,
+        "pixelsPerMetre": 31.27734033245844
+      }
+    ]
+  },
+  "printedMeasurements": [
+    {
+      "id": "main-length",
+      "sourceFeet": 365,
+      "sourceMetres": 111.25200000000001,
+      "authoredMetres": 112,
+      "differenceMetres": 0.7479999999999905
+    },
+    {
+      "id": "main-depth",
+      "sourceFeet": 165,
+      "sourceMetres": 50.292,
+      "authoredMetres": 50,
+      "differenceMetres": -0.2920000000000016
+    },
+    {
+      "id": "entry-envelope",
+      "sourceFeet": 102,
+      "sourceMetres": 31.0896,
+      "authoredMetres": 32,
+      "differenceMetres": 0.9103999999999992
+    },
+    {
+      "id": "entry-projection",
+      "sourceFeet": 41,
+      "sourceMetres": 12.4968,
+      "authoredMetres": 12,
+      "differenceMetres": -0.49680000000000035
+    },
+    {
+      "id": "annex-diameter",
+      "sourceFeet": 133.5,
+      "sourceMetres": 40.6908,
+      "authoredMetres": 41.0066471638641,
+      "differenceMetres": 0.31584716386409895
+    },
+    {
+      "id": "aquarium-alternative-diameter",
+      "sourceFeet": 135,
+      "sourceMetres": 41.148,
+      "authoredMetres": 41.0066471638641,
+      "differenceMetres": -0.14135283613590133
+    },
+    {
+      "id": "aquarium-rotunda",
+      "sourceFeet": 60,
+      "sourceMetres": 18.288,
+      "authoredMetres": 18.2,
+      "differenceMetres": -0.08800000000000097
+    },
+    {
+      "id": "aquarium-pool",
+      "sourceFeet": 26,
+      "sourceMetres": 7.9248,
+      "authoredMetres": 8,
+      "differenceMetres": 0.07519999999999971
+    }
+  ],
+  "unresolvedOverall": {
+    "source": "FISH-CONKEY-1893:scan34",
+    "feet": 1100,
+    "metres": 335.28,
+    "status": "Unreconciled; not used to scale or claim the compound footprint."
+  },
+  "adaptations": [
+    "Main body112 x50 m;16 m entry core plus four2 m-side12-gon turrets, approximately32 m entrance envelope.",
+    "Polygonal annexes use16 unscaled8 m edges. Central drum uses16 x8 m edges; annex drums use16 x4 m edges.",
+    "Four8 m chords per curved connector; widths6 m. Joint placement and spacing are artistic, not surveyed.",
+    "First floor L1=2.12 m; main gallery L3=6.36 m; decorative external drum balcony L8=16.96 m; crown at L20=42.40 m plus tile relief. Only L1 and L3 are occupied floor layers.",
+    "Main upper roof rise12.72 m; annex cone rise6.36 m. These are game pitches, not perspective-photo measurements.",
+    "Four adapted2.4 m-wide24-tread flights connect L1 to L3. Four4 m-wide12-tread approaches connect ground to L1. No navigation acceptance claimed.",
+    "Native1 x1.65 x.12 m leaves remain unscaled; explicit1 x1.07 x.12 m top panels make paired2 m-wide,2.72 m-high openings.",
+    "Aquarium clear rotunda diameter18.2 m is nominal between tank base inner faces;8 m pool and ten tank locations are text-informed adaptations.",
+    "Slabs are1 x.12 x1 m native cells, clipped at polygon boundaries and unioned without overlap; upper hall void remains open."
+  ]
+}

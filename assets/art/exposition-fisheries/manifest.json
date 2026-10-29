@@ -1,0 +1,242 @@
+{
+  "assetId": "exposition-fisheries-1893",
+  "version": 1,
+  "factory": "createFisheriesBuilding",
+  "branch": "codex/fisheries-building-art",
+  "baseCommit": "a019fcf7254cebe24002441d7c7fdf77d6fc9812",
+  "hostThreeRevisionTested": "180",
+  "units": "metres",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/exposition-fisheries/index.js",
+      "bytes": 29566,
+      "sha256": "7f00fa99e4454389fa0ec31acc3e9b49ab98f7d41fb1a39bdc7e885b2c33b59b"
+    },
+    {
+      "path": "assets/art/exposition-fisheries/engine.js",
+      "bytes": 2220,
+      "sha256": "abad298b3839d80047895f9c8f8298127010d81592423925e9551c8bc139c1c5"
+    },
+    {
+      "path": "assets/art/exposition-fisheries/plan.js",
+      "bytes": 9155,
+      "sha256": "d330b3cceb293fc99058c664b730d21507a6ec99b93485d06fc8c0b1bce64e56"
+    },
+    {
+      "path": "assets/art/exposition-fisheries/floors.js",
+      "bytes": 2680,
+      "sha256": "5cd171717b2be90b8ebfd6907a5f151c17c6878d616e98048be83ccb1f84f957"
+    },
+    {
+      "path": "assets/art/exposition-fisheries/palette.js",
+      "bytes": 335,
+      "sha256": "2d30b2dba00305851d86d7c64cb80dc330e6eb8b2713bd98f7894230ba91a466"
+    },
+    {
+      "path": "assets/art/exposition-fisheries/metadata.json",
+      "bytes": 318921,
+      "sha256": "9857359333aa3b85db5c1a01d2ca79da4915d5a2985d8bf154c816b2e2dc1c9c"
+    },
+    {
+      "path": "assets/art/exposition-fisheries/nautilus-assembly.json",
+      "bytes": 80697,
+      "sha256": "1b77e35c4ee16e3449c904a6f7ec8f919f72e0e11dafd63e94eed71c60f45ab8"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    }
+  ],
+  "engine": {
+    "commit": "90054d07134116a5d9661f8318a76fe68f922aad",
+    "implementation": "Actual unchanged Nautilus wallPanels, measureWallRun and wallRunErrors with native-level offsets.",
+    "newDonorImports": [],
+    "nativePanels": 5228,
+    "tierCount": 3,
+    "editorLimits": "A native map supports six layers. This is a separate measured art assembly; full building provider, floors and portal integration require later review."
+  },
+  "nativeContract": {
+    "worldUnitsPerMetre": 1,
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "slab": 0.12,
+    "floorSpacing": 2.12,
+    "doorWidth": 1,
+    "doorHeight": 1.65,
+    "doorThickness": 0.12
+  },
+  "authored": {
+    "mainLength": 112,
+    "mainDepth": 50,
+    "entranceEnvelope": 32,
+    "entranceProjection": 12,
+    "wingDiameter": 41.0066471638641,
+    "crown": 42.4,
+    "occupiedLevels": [
+      1,
+      3
+    ],
+    "decorativeRingLevel": 8
+  },
+  "sourceIds": [
+    "FISH-CONKEY-1893",
+    "FISH-FLINN-1893",
+    "FISH-ARNOLD-1893"
+  ],
+  "sourceRecords": [
+    "art/source/exposition-fisheries/sources.json",
+    "art/source/exposition-fisheries/measurements.json"
+  ],
+  "sourceRights": "1893 public-domain research derivatives are separate from existing mixed/unknown donor rights; no new blanket license grant.",
+  "measuredAdaptations": [
+    {
+      "id": "main-length",
+      "sourceFeet": 365,
+      "sourceMetres": 111.25200000000001,
+      "authoredMetres": 112,
+      "differenceMetres": 0.7479999999999905
+    },
+    {
+      "id": "main-depth",
+      "sourceFeet": 165,
+      "sourceMetres": 50.292,
+      "authoredMetres": 50,
+      "differenceMetres": -0.2920000000000016
+    },
+    {
+      "id": "entry-envelope",
+      "sourceFeet": 102,
+      "sourceMetres": 31.0896,
+      "authoredMetres": 32,
+      "differenceMetres": 0.9103999999999992
+    },
+    {
+      "id": "entry-projection",
+      "sourceFeet": 41,
+      "sourceMetres": 12.4968,
+      "authoredMetres": 12,
+      "differenceMetres": -0.49680000000000035
+    },
+    {
+      "id": "annex-diameter",
+      "sourceFeet": 133.5,
+      "sourceMetres": 40.6908,
+      "authoredMetres": 41.0066471638641,
+      "differenceMetres": 0.31584716386409895
+    },
+    {
+      "id": "aquarium-alternative-diameter",
+      "sourceFeet": 135,
+      "sourceMetres": 41.148,
+      "authoredMetres": 41.0066471638641,
+      "differenceMetres": -0.14135283613590133
+    },
+    {
+      "id": "aquarium-rotunda",
+      "sourceFeet": 60,
+      "sourceMetres": 18.288,
+      "authoredMetres": 18.2,
+      "differenceMetres": -0.08800000000000097
+    },
+    {
+      "id": "aquarium-pool",
+      "sourceFeet": 26,
+      "sourceMetres": 7.9248,
+      "authoredMetres": 8,
+      "differenceMetres": 0.07519999999999971
+    }
+  ],
+  "uncertainties": [
+    "Original main ground/gallery and angling installation diagrams, not complete as-built construction/elevation drawings. No aquarium construction diagram inspected.",
+    "Conkey1100 ft overall remains unresolved. Annex diameters133.5 and135 ft differ slightly; whole compound spacing is an authored choice.",
+    "Rear elevations, hidden joins, service rooms, structural engineering, exact roof pitches/heights and sculpture remain incomplete evidence.",
+    "Warm peach, ivory, soda-green glass and terracotta hues follow the user art direction; exact historical colours are unverified.",
+    "Aquarium tank footprints, rod displays, boats, railings and ornament are simplified interpretations, not exact historic exhibit placements.",
+    "Source wood/iron/steel/staff descriptions do not select collision, fuel or fire behaviour. Physical materials remain unassigned."
+  ],
+  "physicalMaterial": {
+    "structure": "unassigned",
+    "finish": "unassigned"
+  },
+  "bounds": {
+    "min": [
+      -124.84118255972862,
+      0,
+      -4.02250000089407
+    ],
+    "max": [
+      124.84118255972862,
+      42.446475982666016,
+      78.02250000089407
+    ]
+  },
+  "boundsState": "Conservative local union of all closed and fully open leaf poses, before quarterTurns / position.",
+  "diagnostics": {
+    "disposed": false,
+    "meshes": 1166,
+    "triangles": 1078034,
+    "sourceParts": 37065,
+    "instanceBatches": 689,
+    "geometries": 1144,
+    "materials": 14,
+    "enginePanels": 5228,
+    "nativeWalls": 3612,
+    "nativeDoors": 8,
+    "floorTiles": 12545,
+    "wallPieces": 5528,
+    "closures": 4476,
+    "roofTiles": 57855,
+    "portals": 4,
+    "occupiedLevels": [
+      1,
+      3
+    ]
+  },
+  "appearanceSlots": [
+    "facade",
+    "trim",
+    "glazing",
+    "frame",
+    "roof",
+    "roofShadow",
+    "door",
+    "floor",
+    "water",
+    "rock",
+    "foliage",
+    "fish",
+    "iron",
+    "exhibit"
+  ],
+  "palette": {
+    "facade": 15450533,
+    "trim": 16770246,
+    "glazing": 6928522,
+    "frame": 11054986,
+    "roof": 11824456,
+    "roofShadow": 7557693,
+    "door": 10184005,
+    "floor": 13873548,
+    "water": 6004103,
+    "rock": 8945512,
+    "foliage": 4879432,
+    "fish": 13868361,
+    "iron": 5463116,
+    "exhibit": 10320212
+  },
+  "ownership": {
+    "owned": "Generated geometry, cloned/default material adapters and instancing buffers. Use returned idempotent dispose().",
+    "borrowed": "Host Three namespace, input materials and all input maps/textures; originals and texture transforms stay unchanged."
+  },
+  "uv": "Native module position/normal/UV/index buffers are unchanged. Separate grossUV carries physical metres. Real barrel-tile geometry uses .4 x.5 m rhythm; turned ornament retains inherited circumference/local approximations.",
+  "integration": "Native art candidate only; no production map, fixed catalogue/provider registration, simulation, collision or navigation adapter. Section IDs skip construction of unrequested art sections; no claim to the separate nearby-map streaming contract."
+}

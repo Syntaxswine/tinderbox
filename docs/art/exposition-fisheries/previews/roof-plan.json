@@ -1,0 +1,46 @@
+{
+  "name": "roof-plan",
+  "path": "docs/art/exposition-fisheries/previews/roof-plan.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "assetManifestSha256": "973c44c2083256c39658df417d68a85e233f07c858378d2af6ba466a59b39d5d",
+  "camera": {
+    "target": [
+      0,
+      0,
+      37
+    ],
+    "origin": [
+      0,
+      330,
+      37
+    ],
+    "up": [
+      0,
+      0,
+      -1
+    ],
+    "halfWidth": 140
+  },
+  "triangles": 1088084,
+  "caption": "Even-metre native wall chords; .4 x.5 m curved tile rhythm. Overall compound placement is an art adaptation.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome. Peach finishes, soda-green glass and terracotta hues follow the user art direction; exact historic colours remain unverified.",
+    "Crowds, exact historical exhibits, concealed services and fine sculpture are omitted. Boats, rods, marine reliefs and tank details are simplified interpretations.",
+    "Ground is review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted. Vertex-colour tile variation is omitted by the CPU adapter.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "ef8bdadf0b5d7fd3c3ca4ce1b3e8720b558d57da510096eeb7829d1dc8e72d3f",
+  "reviewedAt": "2026-10-29T19:09:49.577215+00:00",
+  "criteria": [
+    "Main rectangular hips, central cone, paired entrance roofs, annex cones and curved connectors fit the native trace."
+  ]
+}

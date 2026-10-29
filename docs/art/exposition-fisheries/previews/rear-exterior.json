@@ -1,0 +1,41 @@
+{
+  "name": "rear-exterior",
+  "path": "docs/art/exposition-fisheries/previews/rear-exterior.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "assetManifestSha256": "973c44c2083256c39658df417d68a85e233f07c858378d2af6ba466a59b39d5d",
+  "camera": {
+    "target": [
+      0,
+      9,
+      35
+    ],
+    "origin": [
+      -170,
+      150,
+      260
+    ],
+    "halfWidth": 144
+  },
+  "triangles": 1088084,
+  "caption": "Rear entry mirrors the source plan. Hidden elevations and exact connector spacing remain documented interpretations.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome. Peach finishes, soda-green glass and terracotta hues follow the user art direction; exact historic colours remain unverified.",
+    "Crowds, exact historical exhibits, concealed services and fine sculpture are omitted. Boats, rods, marine reliefs and tank details are simplified interpretations.",
+    "Ground is review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted. Vertex-colour tile variation is omitted by the CPU adapter.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "ee7d0f5a7e216b443e6816435a4e09b213353fed28a22a90d0fe7d3e496c1cb6",
+  "reviewedAt": "2026-10-29T19:09:49.577215+00:00",
+  "criteria": [
+    "Rear entry, roofs and connector joins visible; hidden historic elevations remain declared interpretations."
+  ]
+}

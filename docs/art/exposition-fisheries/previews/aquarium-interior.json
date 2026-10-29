@@ -1,0 +1,42 @@
+{
+  "name": "aquarium-interior",
+  "path": "docs/art/exposition-fisheries/previews/aquarium-interior.jpg",
+  "width": 1600,
+  "height": 1200,
+  "renderPixels": [
+    1600,
+    1060
+  ],
+  "samplesPerPixel": 32,
+  "assetManifestSha256": "973c44c2083256c39658df417d68a85e233f07c858378d2af6ba466a59b39d5d",
+  "camera": {
+    "target": [
+      104.42,
+      3.8,
+      25.27
+    ],
+    "origin": [
+      137,
+      48,
+      -12
+    ],
+    "halfWidth": 26
+  },
+  "triangles": 60092,
+  "caption": "Ten tanks around a rock-and-water rotunda. Layout follows period text; no aquarium construction plan was inspected.",
+  "limitations": [
+    "Actual model meshes; CPU alpha blending approximates the default transparent glazing. WebGL shader, frame sorting, performance and gameplay acceptance remain pending.",
+    "Source photograph is monochrome. Peach finishes, soda-green glass and terracotta hues follow the user art direction; exact historic colours remain unverified.",
+    "Crowds, exact historical exhibits, concealed services and fine sculpture are omitted. Boats, rods, marine reliefs and tank details are simplified interpretations.",
+    "Ground is review-only. Native bear source geometry/base colours retained; source projection-paint shader omitted. Vertex-colour tile variation is omitted by the CPU adapter.",
+    "Cutaways hide roofs/high walls only for review; they do not alter the runtime asset."
+  ],
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "visualReview": "Artist inspected final JPG at intended size; CPU evidence only",
+  "sha256": "4c9540194a6e63ab176912fa68b71f86053ad7978abab5156fcce6934b89927c",
+  "reviewedAt": "2026-10-29T19:09:49.577215+00:00",
+  "criteria": [
+    "Ten large tanks with two viewing faces surround the pool, rock and reeds.",
+    "Cutaway has no floating cornice fish; exact tank and service layout remains an interpretation from text."
+  ]
+}
