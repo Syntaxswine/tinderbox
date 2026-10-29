@@ -6,8 +6,8 @@
 | --- | --- | --- | --- |
 | Architect | `codex/explorable-places` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Place contract, exact intake, combined QC and promotion |
 | Artist | Assigned `codex/exploration-access-art` from `c428733` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Preserve landmarks; additive playable entry/stair/floor-opening art |
-| Coder | Assigned `codex/explorable-places-coder` from `ad80e2c` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Place loading, bear navigation, camera, lifecycle and immutable asset intake |
-| UI designer | Assigned `codex/explorable-places-ui` from `6659b9c` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Main-menu selection, navigation HUD and return controls |
+| Coder | Assigned `codex/explorable-places-coder` from `ad80e2c` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Place loading, selected-character navigation, camera, lifecycle and immutable asset intake |
+| UI designer | Assigned `codex/explorable-places-ui` from `6659b9c` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Main-menu destination/animal selection, navigation HUD and return controls |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -89,7 +89,7 @@ TB-023 is the architect's source/geometry/visual acceptance and later integratio
 
 ## Explorable places assignment
 
-The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
+The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. The user accepted the delayed Nautilus bear and requires selectable animals; the existing native goat, horse and AFT bear apply to every destination. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
 

@@ -3,14 +3,14 @@
 ## Established requirements
 
 - Isometric 3D presentation.
-- One anthropomorphic bear protagonist, with drug use and setting things on fire central to the premise.
+- An anthropomorphic animal protagonist, originally a bear, with drug use and setting things on fire central to the premise. The user now permits selectable animals while the Nautilus bear is delayed; retain the existing native goat, horse and AFT bear choices.
 - Substantial reuse from Farmyard Commando: UI, art assets, and systems such as the flamethrower and explosive barrels.
 - Separate artist and coder worktrees, coordinated and reviewed by the architect before promotion.
 - A UI specialist owns the joystick, HUD, buttons and menus in a separate worktree.
 - Tools: matches, jerry cans, Molotov cocktails, torches, and the flamethrower. Pouring toggles on/off while moving and follows the bear's speed; escaping fire advancing along that trail is an intended tactic.
 - Matches ignite one tile per press; subsequent spread depends on fuel. A torch is lit once, burns for a fixed time while carried, and ignites nearby tiles on an action press. The active implementation contract is [Milestone 06](milestones/06-row-houses-and-ignition.md).
 - Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
-- Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. Interiors may come later. Combine tile-based world structure with free movement.
+- Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. The user has now requested playable interiors and stairs for the landmark visits. Combine tile-based world structure with free movement.
 - Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
 - Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
 - Monroe row houses join consecutively at their native frontage. Joining sides have no windows; side windows belong on exposed row ends.
@@ -60,10 +60,10 @@ The user approved a first named exposition building based on original architectu
 
 ## Decisions still open
 
-The active [explorable-places contract](milestones/08-explorable-places.md) adds New York, Administration and Horticulture as bear-controlled visits from a production main menu, retaining Catalogue Street. The user requires playable interiors/stairs and allows nearby sections to load as needed. Coder owns lifecycle, elevation-aware navigation and streaming; UI owns selector/navigation HUD; artist supplies additive access geometry without changing raw landmarks. Unassigned fuel materials remain separate from street fire gameplay.
+The active [explorable-places contract](milestones/08-explorable-places.md) adds New York, Administration and Horticulture as player-controlled visits from a production main menu, retaining Catalogue Street. The user requires playable interiors/stairs, allows nearby sections to load as needed, and accepted selectable animals while Nautilus's bear is delayed. The main menu offers the existing goat, horse and AFT bear; the choice applies to every visit with each model's native dimensions and attachments. Coder owns lifecycle, elevation-aware navigation and streaming; UI owns destination/animal selection and navigation HUD; artist supplies additive access geometry without changing raw landmarks. Unassigned fuel materials remain separate from street fire gameplay.
 
 The [joined-row and ignition proposal](milestones/06-row-houses-and-ignition.md) assigns implementation to the existing coder, artist and UI specialist from the six-house checkpoint. It defines shared party-wall and timed-torch snapshots, an exact one-tile match target and a bounded material-response pass. User mechanics are distinguished from architect-selected defaults such as the 1 m target tile, world-time torch lifetime and prototype fuel profiles. The architect owns proposals, combined QC and promotion; the workers own their assigned code/art/UI. Until those deliveries are reviewed, the source code remains the previously checkpointed behavior.
 
-The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, custom protagonist clothing, progression, precise balancing, and later interior gameplay remain open. The bear candidate starts with the source's normal worker painting. Do not import the donor's turn/AP rules as Tinderbox requirements.
+The [burning-trail milestone](milestones/01-burning-trail.md) establishes a real-time test scene and explicit tunable defaults for initial implementation. Final target hardware, custom protagonist clothing, progression and precise balancing remain open. The native character choices retain their source's normal worker painting. Do not import the donor's turn/AP rules as Tinderbox requirements.
 
 The reviewed [exposition foundation](milestones/02-exposition-foundation.md) establishes shared wall/door/roof forms, skin slots and direct normal-animal reuse. The [source dossier](research/1893-exposition/README.md) is the authority for historical evidence; prototype game arrangements are labelled separately from exact named-building reconstructions. The [acceptance record](reviews/2026-10-27-exposition-foundation.md) defines the verified result and remaining scope.
