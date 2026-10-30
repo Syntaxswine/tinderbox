@@ -93,6 +93,8 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
+For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
+
 1. Identify the exact candidate commit, assigned owner, and changed paths. Review against the intended integration base; preserve other workers' changes.
 2. Confirm that the work satisfies its brief and does not silently decide open product questions. Reject unrelated changes and accidental donor writes.
 3. Verify source pins, imported file hashes, dependency closure, licenses/provenance, and asset-to-gameplay footprints where relevant. Do not treat unknowns as verified.

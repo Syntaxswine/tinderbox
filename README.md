@@ -2,11 +2,11 @@
 
 An isometric 3D game about a pyromaniac anthropomorphic bear who does drugs and sets things on fire.
 
-The development release is being assembled around a warm brown, period title screen: **Play → animal and destination selection → one separate map**. Options contains shared interface preferences and controls. Choose the native Farmyard goat, horse or existing AFT bear. The delayed Nautilus bear is a later addition.
+The current preview opens on a warm brown, period title screen: **Play → animal and destination selection → one separate map**. Options contains shared interface preferences and controls. Choose the native Farmyard goat, horse or existing AFT bear. The delayed Nautilus bear is a later addition.
 
 The four destinations are Catalogue Street, New York State Building, Administration Building and Horticultural Building. Catalogue Street retains the six original house designs, joined Monroe rows, five tools, walk-over medicine, continuous gasoline trails and spreading fire. The three landmark visits add exploration, contextual doors and real stairs, loading nearby geometry as needed. Fire remains a street mechanic in this release.
 
-[Combined acceptance is in progress](docs/reviews/2026-10-29-explorable-places.md). The public Pages build remains the earlier **Exposition Study** until that review approves publication. Development checks and source JPGs do not imply a live release.
+This preview is [published with the user's explicit approval](docs/reviews/2026-10-29-explorable-places.md) before final stair-route and desktop/phone visual acceptance. Automated tests and package checks pass; doorway, stair and cutaway corrections may follow. The review record distinguishes completed checks from deferred gameplay acceptance.
 
 The setting reference is the 1893 World's Columbian Exposition. The [research dossier](docs/research/1893-exposition/README.md) links original plans, architectural drawings, photographs, maps and guides, with exact locators and uncertainties. The fictional street combines [the first catalogue houses](docs/research/catalogue-neighborhood/README.md) and [three further designs](docs/research/catalogue-block-two/README.md). Native dimensions, source painting and provenance are preserved; playable access additions and cutaways are identified game adaptations. New York's attic stays closed; wall-climb fire and collapse physics remain later work.
 
@@ -73,4 +73,4 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 The primary checkout is the architect's workspace, currently on `codex/explorable-places`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
 
-The repository is public with the user's approval, and the exposition construction-kit study is live on Pages. The [publication run](https://github.com/Syntaxswine/tinderbox/actions/runs/40606724201) passed both build and deployment; all 70 hosted game files match the reviewed package. Source evidence, checks and remaining art scope are recorded in [the architect's acceptance](docs/reviews/2026-10-27-exposition-foundation.md). The [opening mechanics review](docs/reviews/2026-10-27-burning-trail.md) remains the earlier gameplay baseline.
+The repository is public with the user's approval. The [explorable-places release record](docs/reviews/2026-10-29-explorable-places.md) contains the current preview's publication, verification and deferred corrections. The [exposition acceptance](docs/reviews/2026-10-27-exposition-foundation.md) and [opening mechanics review](docs/reviews/2026-10-27-burning-trail.md) preserve the earlier releases.

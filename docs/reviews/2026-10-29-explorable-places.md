@@ -1,6 +1,6 @@
 # Explorable places: architect integration review
 
-Status: **combined review in progress; not approved for publication**. The public release is still the earlier Exposition Study. This record supersedes no historical acceptance until the remaining gates below pass.
+Status: **user-authorized preview publication; full acceptance remains pending**. After the interrupted live review, the user explicitly instructed: "lets publish as is now and then you can do a correction later". That instruction authorizes publishing the existing `d889ddb1d03af26c4af8be9a62c32baf8916e086` checkpoint with the deferred checks recorded here. It is a release-specific exception to the usual promotion gate, not a claim that unfinished checks passed. No later worker changes enter this preview automatically.
 
 The release boundary is [Milestone 08](../milestones/08-explorable-places.md): title and Options, destination/animal selection, Catalogue Street and three separate landmark visits, real doors/stairs, nearby sections, and reliable return navigation. New York requires L1/L4; its attic remains closed. Administration requires pavilion L1/L3/L5/L7 and galleries L9/L19. Horticulture requires L1/L3 and both dry ground approaches. Goat, horse and the existing native AFT bear apply throughout. Fisheries, Hopkins v2 and later palette candidates are excluded.
 
@@ -13,7 +13,7 @@ The release boundary is [Milestone 08](../milestones/08-explorable-places.md): t
 | Access art | `26e1b1301ce577ab8ed26afa32fdafa93d7d44e4` | `91681ea` |
 | Medicine ground art | `b35a2790fc640fe881ef535c013b947b43ffaeff` | `efad5cf` |
 | Immutable medicine symbol source | `988b4aca32343c9f2e566db74bb018c705820742` | `3deb7de` |
-| Runtime, navigation and packaging review checkpoint | `b46ef4e66581983e307eb7932e7253c4f2c92064` | `7ab5a8c` (unfinished, unpromoted) |
+| Runtime, navigation and packaging review checkpoint | `b46ef4e66581983e307eb7932e7253c4f2c92064` | `7ab5a8c` (preview; full acceptance pending) |
 
 Earlier exact street, row, ignition and landmark intakes are preserved on the review branch and in their manifests. Donor pins remain unchanged. Historical source drawings and uncertainty records govern the landmark exteriors; added playable door surrounds, openings, stairs, supports and cutaways are game adaptations rather than claims about original construction.
 
@@ -33,8 +33,12 @@ The architect's pre-runtime combined check passed 109 tests. After exact runtime
 
 The architect's production build contains **3,454 files / 163,289,760 bytes**. Release hashes and relative resources pass. The independent actual nested HTTP replay verifies every file, all three landmark loaders, native animal rigs, private-path exclusion and section resource disposal. Its finite server exited and port 52629 was confirmed released. The preview snapshot is the immutable `7ab5a8c` archive under ignored `artifacts/qa/explorable-places/combined-review-01`.
 
-Remaining: final TB-024 follow-up; actual required routes for every animal; live Chrome WebGL title/menu/gameplay/interior review at desktop and phone sizes; real section/resource/performance observations; actual visit JPGs; final promotion decision and deployment verification. A successful worker check is evidence for its scope, not architect approval of the combined release.
+Deferred corrections and acceptance: final TB-024 follow-up; actual required routes for every animal; live Chrome WebGL title/menu/gameplay/interior review at desktop and phone sizes; real section/resource/performance observations; actual visit JPGs. Doorway, stair or cutaway issues may remain in the preview. The user authorized publication before these are complete. Deployment and hosted-byte verification are still required for this publication; a successful deployment does not establish gameplay acceptance.
 
 The live review ended on 2026-10-29 at 23:45 UTC: Computer Use stopped the turn because it could not determine the current Chrome URL confidently enough to enforce its policy. The existing public game was visible before navigation, but no successful review of the new local title/map runtime or new JPG capture is claimed. No further app input was issued. The architect's registered hidden preview (PID 15884, exact creation identity recorded) stopped through its private marker; process exit and port 64190 release were verified. Restart inputs, source archive and cleanup receipt remain under `artifacts/helpers/explorable-combined-01/`. No root preview remains running, no gate is waived and no master/Pages promotion occurred.
 
 Local diagnostic logs are under ignored `artifacts/qa/explorable-places/`. Disposable preview helpers must stop and release their ports after review. Hosting is already configured as workflow Pages with `PAGES_ENABLED=true`; no hosting repair or new visibility change is required.
+
+## Preview publication
+
+Publication is being performed from the exact existing runtime checkpoint, with documentation updates only. Automated source, behavior and package results above remain applicable. The architect will record the deployment SHA, workflow result and hosted-byte verification here after completion. Subsequent corrections require a separate exact intake and review.
