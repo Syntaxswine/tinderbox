@@ -1,3 +1,4 @@
+import {measurementTrial as trial} from '../fixtures/fire-profile.mjs';
 import {createFixedFirePose} from '../../tools/fire-realism/fixed-pose.js';
 import {createFireReviewEffect} from '../../src/art/fire-review-effect.js';
 import test from 'node:test';
@@ -53,7 +54,6 @@ test('GPU absence and quality flags never become rendering-cost or quality accep
   assert.equal(validateQualityReceipt(valid,{kind:valid.kind,sourceCommit:'abc',runtimeFiles:{a:{sha256:'x',verified:true}}}),true);
   assert.equal(validateQualityReceipt(valid,{kind:valid.kind,sourceCommit:'abc',runtimeFiles:{a:{sha256:'changed',verified:true}}}),false);
 });
-const trial=(mode,ms,forMode=mode)=>({mode,forMode,trialIndex:0,sampleFrames:3,gpu:[0,1,2].map(index=>({index,gpuMs:ms})),rejected:[],workloadTrace:[{burning:4}]});
 test('paired no-fire subtraction rejects negative/noisy/mismatched work and separates GPU ratio from quality',()=>{
   const trials=[trial('reference',5),trial('no-fire',1,'reference'),trial('optimized',2),trial('no-fire',1,'optimized')];
   const result=summarizeFireMeasurements({trials,modes:['reference','optimized'],referenceAcceptance:null});assert.equal(result.comparison.optimizedReferenceRatio,.25);assert.equal(result.comparison.targetMet,null);assert.deepEqual(result.reasons,[]);

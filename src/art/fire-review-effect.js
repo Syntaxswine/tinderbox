@@ -31,10 +31,11 @@ export function createFireReviewEffect(T,assets,fieldUniforms,{renderer,scene,ar
       if(mode==='no-fire'||!factoryForMode())return;
       frame=frameAdapter.update({...snapshot,clocks:{...snapshot.clocks,world:time,player:Number.isFinite(anchors.firePlayerTime)?anchors.firePlayerTime:snapshot.clocks.player}},{camera:anchors.camera,viewport:anchors.viewport,anchors,fieldUniforms,
         buildingVisuals:burningBuildingVisuals(snapshot,anchors.housing)});
-      if(frame.eventReceipts.reset)for(const v of variants.values())v.reset();
+      if(frame.eventReceipts.reset){transients.reset();for(const v of variants.values())v.reset();}
       // A separate, labelled legacy component retains transients without double
       // ground, carried torch or discharge emissions. Its costs are included.
-      transients.update({...snapshot,cells:[],discharge:inactive(snapshot.tick),player:{...snapshot.player,tool:'matches',torch:{phase:'unlit',remainingSeconds:0}}},time,anchors);
+      const acceptedEvents=frame.eventReceipts.events.map(event=>({...event,worldTime:Number.isFinite(event.worldTime)?event.worldTime:event.receivedWorldTime}));
+      transients.update({...snapshot,events:acceptedEvents,cells:[],discharge:inactive(snapshot.tick),player:{...snapshot.player,tool:'matches',torch:{phase:'unlit',remainingSeconds:0}}},time,anchors);
     },
     beforeRender(camera){
       if(closed||!frame||!['reference','optimized'].includes(mode))return;
