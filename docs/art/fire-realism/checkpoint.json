@@ -1,0 +1,45 @@
+{
+  "task": "TB-034",
+  "recordedAt": "2026-10-30T03:55:14.100420+00:00",
+  "baseCommit": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
+  "offline": {
+    "fireContract": "pass",
+    "npmTest": {
+      "passed": 176,
+      "failed": 0
+    },
+    "projectCheck": {
+      "passed": 186,
+      "failed": 0,
+      "provenance": "pass"
+    },
+    "build": {
+      "files": 3460,
+      "bytes": 163324026,
+      "sourcePhotosDistributed": false
+    }
+  },
+  "webgl": {
+    "status": "blocked",
+    "observedAt": "2026-10-30T03:46:26.508Z",
+    "browser": "Codex in-app browser",
+    "url": "http://127.0.0.1:8766/workbenches/art/fire-realism/",
+    "error": "GL_VENDOR = Disabled, GL_RENDERER = Disabled; Error creating WebGL context",
+    "shaderCompiled": false,
+    "motionReviewed": false,
+    "gpuTimed": false
+  },
+  "helper": {
+    "pid": 70428,
+    "creationFiletime": "134378055638814383",
+    "finishedAt": "2026-10-30T03:47:19.117174+00:00",
+    "exitCode": 0,
+    "port": 8766,
+    "released": true
+  },
+  "claims": {
+    "qualityAccepted": false,
+    "costTargetAchieved": false,
+    "overallGoalComplete": false
+  }
+}
