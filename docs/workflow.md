@@ -5,11 +5,13 @@
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
 | Architect | `codex/fire-realism` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | TB-037: reference contract, exact intake, independent visual/cost QC and promotion |
-| Artist | Assigned `codex/fire-realism-art` from `dc7f537` after preserving active aquarium work | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | TB-034: reference evidence and high/optimized visual factories |
-| Coder | Assigned `codex/fire-realism-coder` from `dc7f537` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-035: fire adapters, reproducible scene driver, profiling and performance optimization; preserve exterior-ghost/gallery candidates |
+| Artist / reference research | `codex/fire-realism-art`, candidate `3f7b8f3` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | TB-034: original source dossier; factory/fixture edits paused while correction helper owns them; aquarium candidate preserved |
+| Original coder / read-only proposal | Actual branch remains `codex/exterior-ghost-coder`, `20baf4c` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-035: contract analysis only while branch mutation remains denied; no duplicate implementation |
+| Runtime helper | `codex/fire-realism-runtime` from `93b59fa` | `C:/Users/baals/.codex/worktrees/tinderbox-code/tinderbox` | TB-035-H: adapter, depth capture, real-scene driver and measurements; old `codex/runtime-reuse` preserved at `71d445e` |
+| Art correction helper | `codex/fire-realism-art-corrections` from `93b59fa` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | TB-034-H: factory/shader/manifest/fixture fixes from hostile review; no source-dossier overlap |
 | UI designer | Assigned `codex/fire-realism-ui` from `dc7f537` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-036: reference/A-B review UI, independent visual critique and HUD readability |
 
-The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Direct helpers are subtasks of this architect chat, not additional user-owned chats. The runtime helper reuses a dormant root-attached checkout; the managed correction checkout isolates factory work while the original artist's browser action is stalled. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change. The independent hostile reviewer writes ignored QA evidence only and does not implement the candidate it judges.
 
 The UI designer works from the dedicated UI worktree. Coordinate new asset exports with the artist and gameplay/runtime contracts with the coder. Follow the [reconciled reuse plan](reuse-plan.md) for Farmyard UI reuse; unresolved gameplay and device choices remain proposals. UI candidates follow the same architect promotion gate.
 
