@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/movement-input` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Focused correction contract, exact intake, combined QC and promotion |
-| Artist | `codex/medicine-pickup-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Completed access/medicine candidates; no new art assigned for movement correction |
-| Coder | Assigned `codex/movement-input-coder` from `38f6e80` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-028: 9 m/s player speed and source-stair analog/keyboard reliability; preserve earlier gallery WIP separately |
-| UI designer | Assigned `codex/joystick-input-ui` from `38f6e80` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-029: pointer lifecycle, stable joystick geometry, real browser input evidence |
+| Architect | `codex/contextual-doors` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | TB-033: contextual-door contract, exact intake, combined QC and promotion |
+| Artist | `codex/medicine-pickup-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Completed access/medicine candidates; no new art assigned for door correction |
+| Coder | Assigned `codex/contextual-doors-coder` from `99b95b0` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-031: authoritative reachable door actions and camera projection; preserve gallery WIP separately |
+| UI designer | Assigned `codex/contextual-doors-ui` from `99b95b0` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-032: floating Open/Close button and actual browser input evidence |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -92,6 +92,8 @@ TB-023 is the architect's source/geometry/visual acceptance and later integratio
 The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. The user accepted the delayed Nautilus bear and requires selectable animals; the existing native goat, horse and AFT bear apply to every destination. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
+
+The current focused correction is [Milestone 10](milestones/10-contextual-doors.md), from published `99b95b0`. TB-031 and TB-032 are assigned to the existing coder/UI workers; TB-033 is the architect's combined gate. The completed movement correction remains part of the base. No gallery WIP or new asset intake belongs to this task.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
