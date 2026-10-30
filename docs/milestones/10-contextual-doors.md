@@ -35,3 +35,5 @@ Remove the permanent Interact plate from the exploration control deck; Places/Me
 - Run appropriate source/static/behavior checks, production build and nested-path release verification. Deliver exact scoped commit(s), changed paths, donor evidence, checks/results, visual/interaction evidence and helper cleanup receipts. Failed relevant checks block promotion. Workers may push passing candidates; architect alone promotes to `master` and verifies Pages.
 
 This contract accepts the user's contextual door behavior and the architect's bounded implementation choices above; it does not itself promote candidate code.
+
+The [architect review](../reviews/2026-10-29-contextual-doors.md) records exact intakes, checks, limitations and the later promotion decision.
