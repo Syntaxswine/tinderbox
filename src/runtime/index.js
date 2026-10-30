@@ -15,10 +15,12 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
   function dispatch(command){
     if(disposed)return false;
     if(command?.type==='view-overview'||command?.type==='view-follow'){
-      const mode=command.type==='view-overview'?'overview':'follow';camera.setMode(mode);sim.setView?.(mode);return true;
+      const mode=command.type==='view-overview'?'overview':'follow';camera.setMode(mode);sim.setView?.(mode);if(art)present(sim.snapshot(),0);return true;
     }
     return sim.dispatch(command);
   }
+  function projectInteraction(anchor){return disposed?{x:0,y:0,visible:false}:camera.projectInteraction(anchor,uiRoot);}
+  function zoom(factor){if(disposed)return;camera.magnify(factor);if(art)present(snapshot,0);}
   function present(next,delta,simulationMs=0){
     const before=performance.now(),previous=snapshot;snapshot=next;
     const timing={alpha:snapshot.diagnostics.alpha,playerDelta:Math.max(0,snapshot.clocks.player-previous.clocks.player),worldDelta:Math.max(0,snapshot.clocks.world-previous.clocks.world),
@@ -54,12 +56,12 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     if(doc?.hidden||typeof doc?.hasFocus==='function'&&!doc.hasFocus())loseFocus();
     const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal}):createDiagnosticScene({THREE,scene,config:settings});
     if(disposed||externalSignal?.aborted){created.dispose();throw new DOMException('Visit cancelled','AbortError');}art=created;
-    ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:camera.magnify,...uiOptions});
+    ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});
     renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Move with the joystick, WASD or arrows.');
     const aim=event=>{const point=camera.screenToWorld(event.clientX,event.clientY);if(point)dispatch({type:'aim',...point});};
     renderer.domElement.addEventListener('pointermove',aim,{signal});renderer.domElement.addEventListener('pointerdown',event=>{if(event.button===0)aim(event);},{signal});
     present(snapshot,0);if(autoStart)animation=win.requestAnimationFrame(frame);
-    return {dispatch,advance,snapshot:()=>sim.snapshot(),metrics:()=>({...lastMetrics}),screenToWorld:camera.screenToWorld,zoom:camera.magnify,artDiagnostics:()=>art?.diagnostics?.(),dispose};
+    return {dispatch,advance,snapshot:()=>sim.snapshot(),metrics:()=>({...lastMetrics}),screenToWorld:camera.screenToWorld,projectInteraction,zoom,artDiagnostics:()=>art?.diagnostics?.(),dispose};
   }catch(error){dispose();throw error;}
   function dispose(){
     if(disposed)return;disposed=true;

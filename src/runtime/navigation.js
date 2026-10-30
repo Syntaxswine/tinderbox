@@ -3,6 +3,7 @@ import {movementVector,normalized,sweptDiscClear,distance} from '../simulation/g
 import {CHARACTER_PROFILES} from '../content/characters.js';
 import {inactiveDischarge} from '../simulation/discharge.js';
 import {transformCollisionShape,sweptCylinderClear} from './collision.js';
+import {doorName} from './door-labels.js';
 const EPS=1e-6;
 const PLAN_EPS=.0001; // Native Float32 surfaces meet within 0.1 mm.
 const polygonBounds=new WeakMap();
@@ -99,7 +100,24 @@ export function createExploration({definition,config,isSectionReady=()=>true,str
     return true;
   }
   function setSupport(surface){player.elevation=surface.height;player.level=surface.level;player.locationLabel=surface.label;player.surfaceId=surface.id;player.interior=!!surface.interior;}
-  function nearestPortal(){return portals.filter(p=>p.stateful!==false&&Math.abs(p.position[1]-player.elevation)<1&&Math.hypot(p.position[0]-player.x,p.position[2]-player.y)<=p.reach).sort((a,b)=>Math.hypot(a.position[0]-player.x,a.position[2]-player.y)-Math.hypot(b.position[0]-player.x,b.position[2]-player.y))[0];}
+  function reachablePortal(portal){
+    if(!portal||typeof portal.id!=='string'||!portal.id||portal.stateful===false||!Array.isArray(portal.position)||portal.position.length!==3||![0,1,2].every(i=>Number.isFinite(portal.position[i])))return false;
+    const target={x:portal.position[0],y:portal.position[2],elevation:portal.position[1]},reach=distance(player,target);
+    if(!Number.isFinite(portal.reach)||reach>portal.reach||Math.abs(target.elevation-player.elevation)>=1||!isSectionReady(player)||!isSectionReady(target))return false;
+    // Farmyard's rounded clear reach excludes only the target's own leaves.
+    // In native 3D, test that corridor at torso/hand height so actual stairs
+    // and low sills do not become an invented vertical interaction wall.
+    const height=Math.max(player.elevation,target.elevation)+body.height/2,centre={x:(player.x+target.x)/2,y:(player.y+target.y)/2};
+    for(const item of blockers(centre,reach/2+body.radius)){
+      if(item.portalId===portal.id)continue;
+      const open=!!portalStates[item.portalId],b=open?item.openBounds:item.bounds;
+      if(!b||b.max[1]<=height-.01||b.min[1]>=height+.01)continue;
+      if(item.shapeId){const shape=sourceShape(item,open);if(shape&&!sweptCylinderClear(player,target,body.radius,height-.01,height+.01,shape))return false;}
+      else if(!sweptDiscClear(player,target,body.radius,world,[{x:(b.min[0]+b.max[0])/2,y:(b.min[2]+b.max[2])/2,width:b.max[0]-b.min[0],depth:b.max[2]-b.min[2],solid:true}]))return false;
+    }
+    return true;
+  }
+  function nearestPortal(){return portals.filter(reachablePortal).sort((a,b)=>Math.hypot(a.position[0]-player.x,a.position[2]-player.y)-Math.hypot(b.position[0]-player.x,b.position[2]-player.y))[0];}
   function transitionBlocked(portal,open){
     return (portalLeaves.get(portal.id)||[]).some(leaf=>{
       const b=open?leaf.openBounds:leaf.bounds;if(!b||b.max[1]<=player.elevation+.025||b.min[1]>=player.elevation+body.height-EPS)return false;
@@ -112,6 +130,7 @@ export function createExploration({definition,config,isSectionReady=()=>true,str
     if(closed||!command||!['move','aim','pause','cancel-input','reset','interact'].includes(command.type))return false;
     if(['move','aim'].includes(command.type)&&![command.x,command.y].every(Number.isFinite))return false;
     if(command.type==='pause'&&typeof command.paused!=='boolean')return false;
+    if(command.type==='interact'&&(Object.hasOwn(command,'portalId')||Object.hasOwn(command,'action'))&&(typeof command.portalId!=='string'||!command.portalId||!['open','close'].includes(command.action)))return false;
     commands.push({...command});return true;
   }
   function step(){
@@ -123,7 +142,9 @@ export function createExploration({definition,config,isSectionReady=()=>true,str
       if(paused)continue;
       if(command.type==='move')input=normalized(command.x,command.y);
       if(command.type==='interact'){
-        const portal=nearestPortal();if(portal&&!transitionBlocked(portal,!portalStates[portal.id])){portalStates[portal.id]=!portalStates[portal.id];emit('portal-state',{portalId:portal.id,open:portalStates[portal.id]});}
+        const targeted=Object.hasOwn(command,'portalId'),portal=targeted?portals.find(p=>p.id===command.portalId):nearestPortal();
+        const open=targeted?command.action==='open':!portalStates[portal?.id];
+        if(reachablePortal(portal)&&portalStates[portal.id]!==open&&!transitionBlocked(portal,open)){portalStates[portal.id]=open;emit('portal-state',{portalId:portal.id,open});}
       }
     }commands=[];if(paused)return;activeTime+=settings.step;
     const direction=movementVector(input,false,settings.input),dx=direction.x*settings.player.speed*settings.step,dy=direction.y*settings.player.speed*settings.step;
@@ -139,9 +160,9 @@ export function createExploration({definition,config,isSectionReady=()=>true,str
     }
   }
   function snapshot(){
-    if(closed)throw Error('Exploration disposed');const portal=nearestPortal();
+    if(closed)throw Error('Exploration disposed');const portal=nearestPortal(),action=portalStates[portal?.id]?'close':'open',reason=paused?'Paused.':portal&&transitionBlocked(portal,action==='open')?'Move clear of the door.':'';
     return {version:1,mode:'explore',tick,paused,clocks:{active:activeTime,player:activeTime,world:activeTime,playerScale:1,worldScale:1},
-      player:{...player,locationLabel:view==='overview'?'Overview plan · '+player.locationLabel:player.locationLabel,inventory:{...player.inventory},torch:{...player.torch},interaction:portal?{label:(portalStates[portal.id]?'Close ':'Open ')+portal.label,enabled:!paused&&!transitionBlocked(portal,!portalStates[portal.id])}:null},
+      player:{...player,locationLabel:view==='overview'?'Overview plan · '+player.locationLabel:player.locationLabel,inventory:{...player.inventory},torch:{...player.torch},interaction:portal?{id:portal.id,kind:'door',action,label:(action==='open'?'Open ':'Close ')+doorName(portal),enabled:!reason,reason,anchor:[portal.position[0],portal.position[1]+2.15,portal.position[2]]}:null},
       world:{...world,modules:[],buildings:[],tiles:[],camera:structuredClone(world.camera),obstacles:(data.mapObstacles||[]).filter(wall=>wall.fromLevel<=player.level&&wall.toLevel>player.level).map(wall=>({...wall}))},actors:[],cells:[],projectiles:[],events:structuredClone(events),aim:{x:player.x,y:player.y},
       pickups:[],effects:{powder:{active:false,remaining:0},inversion:{active:false,remaining:0}},discharge:inactiveDischarge(tick),
       navigation:{placeId:data.placeId,view,waitingForSection:waiting,portalStates:{...portalStates},collision:collisionMetrics(),...streamMetrics()},

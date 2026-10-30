@@ -1,0 +1,107 @@
+{
+  "task": "TB-031",
+  "branch": "codex/contextual-doors-coder",
+  "base": "99b95b0888298a53791db3fc5657c4de3002d488",
+  "architectContract": "92ec5d16c1129676502f61786506f3c0e2e742f7",
+  "checks": [
+    {
+      "command": "node tools/check.mjs",
+      "tests": 185,
+      "syntaxScripts": 144,
+      "staticModules": 179,
+      "sourceProvenance": true,
+      "passed": true
+    },
+    {
+      "command": "tests/integration/contextual-doors.test.mjs",
+      "nativeDoorVisits": 42,
+      "distinctSourceDoors": 14,
+      "nativeUnsafeOccupancyCases": 6,
+      "passed": true
+    },
+    {
+      "command": "tests/integration/interaction-camera.test.mjs",
+      "realOrthographicCamera": true,
+      "rendererAPIInjected": true,
+      "desktop": [
+        1280,
+        720
+      ],
+      "phone": [
+        390,
+        844
+      ],
+      "passed": true
+    },
+    {
+      "command": "node tools/build.mjs && node tools/check-release.mjs",
+      "files": 3455,
+      "bytes": 163294843,
+      "passed": true
+    },
+    {
+      "command": "node tools/smoke-places-package.mjs",
+      "passed": true,
+      "verifiedFiles": 3455,
+      "serverClosed": true,
+      "portReleased": true
+    }
+  ],
+  "navigation": [
+    {
+      "path": "assets/art/place-scenes/new-york/navigation.json",
+      "sha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73",
+      "matchesPublishedBase": true
+    },
+    {
+      "path": "assets/art/place-scenes/administration/navigation.json",
+      "sha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54",
+      "matchesPublishedBase": true
+    },
+    {
+      "path": "assets/art/place-scenes/horticulture/navigation.json",
+      "sha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6",
+      "matchesPublishedBase": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/engineering/contextual-doors/donor.json",
+      "sha256": "fe29d81dd917f4fe4fcc941244b66c0cf4a25062d8d6a47eb9e82c6c285819cd"
+    },
+    {
+      "path": "docs/engineering/contextual-doors/source-doors.json",
+      "sha256": "f010e14ea24f568f063c9c78831a6b1114c47386bdf0863cf7fdd03319408635"
+    },
+    {
+      "path": "docs/engineering/contextual-doors/source-occupancy.json",
+      "sha256": "1d9d9333baeea5ad9e814eefcffbdc40974f63f7f86b9a31349e052aa545db64"
+    },
+    {
+      "path": "docs/engineering/contextual-doors/package-smoke.json",
+      "sha256": "1d9bb0cdc8018a8f0997dfede5c612edfc1900857a306692d773da4c44dd1e4e"
+    }
+  ],
+  "scopeUnchanged": [
+    "src/ui/",
+    "src/simulation/",
+    "src/content/",
+    "art/",
+    "assets/",
+    "vendor/"
+  ],
+  "cleanup": {
+    "pid": 48484,
+    "creationFiletime": "134377967394545938",
+    "port": 52515,
+    "independentlyVerifiedLifetimeExited": true,
+    "independentlyVerifiedPortReleased": true,
+    "retainedHelpers": []
+  },
+  "limits": [
+    "Exact new UI candidate and desktop/phone combined browser review remain with UI specialist/architect",
+    "Source visits use controlled fresh near-door starts and ready sections; not whole-map navigation or WebGL performance acceptance",
+    "Older gallery work remains separate and unabsorbed"
+  ],
+  "passed": true
+}

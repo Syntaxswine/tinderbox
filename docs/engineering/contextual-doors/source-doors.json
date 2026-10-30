@@ -1,0 +1,637 @@
+{
+  "task": "TB-031",
+  "method": "Fresh controlled native source approach; original supports, closed/open leaf collision, public movement/exact target actions, all sections ready. Not whole-map or WebGL acceptance.",
+  "reports": [
+    {
+      "placeId": "new-york",
+      "portalId": "ny-front",
+      "characterId": "goat",
+      "label": "Open front doors",
+      "anchor": [
+        56,
+        4.27,
+        26
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-front",
+      "characterId": "horse",
+      "label": "Open front doors",
+      "anchor": [
+        56,
+        4.27,
+        26
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-front",
+      "characterId": "bear",
+      "label": "Open front doors",
+      "anchor": [
+        56,
+        4.27,
+        26
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-east",
+      "characterId": "goat",
+      "label": "Open east doors",
+      "anchor": [
+        80,
+        4.27,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-east",
+      "characterId": "horse",
+      "label": "Open east doors",
+      "anchor": [
+        80,
+        4.27,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-east",
+      "characterId": "bear",
+      "label": "Open east doors",
+      "anchor": [
+        80,
+        4.27,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-west",
+      "characterId": "goat",
+      "label": "Open west doors",
+      "anchor": [
+        32,
+        4.27,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-west",
+      "characterId": "horse",
+      "label": "Open west doors",
+      "anchor": [
+        32,
+        4.27,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-west",
+      "characterId": "bear",
+      "label": "Open west doors",
+      "anchor": [
+        32,
+        4.27,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-east-upper",
+      "characterId": "goat",
+      "label": "Open upper east doors",
+      "anchor": [
+        80,
+        10.63,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-east-upper",
+      "characterId": "horse",
+      "label": "Open upper east doors",
+      "anchor": [
+        80,
+        10.63,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-east-upper",
+      "characterId": "bear",
+      "label": "Open upper east doors",
+      "anchor": [
+        80,
+        10.63,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-west-upper",
+      "characterId": "goat",
+      "label": "Open upper west doors",
+      "anchor": [
+        32,
+        10.63,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-west-upper",
+      "characterId": "horse",
+      "label": "Open upper west doors",
+      "anchor": [
+        32,
+        10.63,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "new-york",
+      "portalId": "ny-west-upper",
+      "characterId": "bear",
+      "label": "Open upper west doors",
+      "anchor": [
+        32,
+        10.63,
+        40
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-front",
+      "characterId": "goat",
+      "label": "Open front doors",
+      "anchor": [
+        62,
+        4.27,
+        32
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-front",
+      "characterId": "horse",
+      "label": "Open front doors",
+      "anchor": [
+        62,
+        4.27,
+        32
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-front",
+      "characterId": "bear",
+      "label": "Open front doors",
+      "anchor": [
+        62,
+        4.27,
+        32
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-east",
+      "characterId": "goat",
+      "label": "Open east doors",
+      "anchor": [
+        92,
+        4.27,
+        62
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-east",
+      "characterId": "horse",
+      "label": "Open east doors",
+      "anchor": [
+        92,
+        4.27,
+        62
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-east",
+      "characterId": "bear",
+      "label": "Open east doors",
+      "anchor": [
+        92,
+        4.27,
+        62
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-rear",
+      "characterId": "goat",
+      "label": "Open rear doors",
+      "anchor": [
+        62,
+        4.27,
+        92
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-rear",
+      "characterId": "horse",
+      "label": "Open rear doors",
+      "anchor": [
+        62,
+        4.27,
+        92
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-rear",
+      "characterId": "bear",
+      "label": "Open rear doors",
+      "anchor": [
+        62,
+        4.27,
+        92
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-west",
+      "characterId": "goat",
+      "label": "Open west doors",
+      "anchor": [
+        32,
+        4.27,
+        62
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-west",
+      "characterId": "horse",
+      "label": "Open west doors",
+      "anchor": [
+        32,
+        4.27,
+        62
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "administration",
+      "portalId": "admin-west",
+      "characterId": "bear",
+      "label": "Open west doors",
+      "anchor": [
+        32,
+        4.27,
+        62
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-main",
+      "characterId": "goat",
+      "label": "Open main doors",
+      "anchor": [
+        176,
+        4.27,
+        39
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-main",
+      "characterId": "horse",
+      "label": "Open main doors",
+      "anchor": [
+        176,
+        4.27,
+        39
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-main",
+      "characterId": "bear",
+      "label": "Open main doors",
+      "anchor": [
+        176,
+        4.27,
+        39
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court--1-front",
+      "characterId": "goat",
+      "label": "Open west court front doors",
+      "anchor": [
+        101,
+        4.27,
+        83
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court--1-front",
+      "characterId": "horse",
+      "label": "Open west court front doors",
+      "anchor": [
+        101,
+        4.27,
+        83
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court--1-front",
+      "characterId": "bear",
+      "label": "Open west court front doors",
+      "anchor": [
+        101,
+        4.27,
+        83
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court--1-rear",
+      "characterId": "goat",
+      "label": "Open west court rear doors",
+      "anchor": [
+        101,
+        4.27,
+        111
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court--1-rear",
+      "characterId": "horse",
+      "label": "Open west court rear doors",
+      "anchor": [
+        101,
+        4.27,
+        111
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court--1-rear",
+      "characterId": "bear",
+      "label": "Open west court rear doors",
+      "anchor": [
+        101,
+        4.27,
+        111
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court-1-front",
+      "characterId": "goat",
+      "label": "Open east court front doors",
+      "anchor": [
+        251,
+        4.27,
+        83
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court-1-front",
+      "characterId": "horse",
+      "label": "Open east court front doors",
+      "anchor": [
+        251,
+        4.27,
+        83
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court-1-front",
+      "characterId": "bear",
+      "label": "Open east court front doors",
+      "anchor": [
+        251,
+        4.27,
+        83
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court-1-rear",
+      "characterId": "goat",
+      "label": "Open east court rear doors",
+      "anchor": [
+        251,
+        4.27,
+        111
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court-1-rear",
+      "characterId": "horse",
+      "label": "Open east court rear doors",
+      "anchor": [
+        251,
+        4.27,
+        111
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    },
+    {
+      "placeId": "horticulture",
+      "portalId": "hort-court-1-rear",
+      "characterId": "bear",
+      "label": "Open east court rear doors",
+      "anchor": [
+        251,
+        4.27,
+        111
+      ],
+      "closedBlocked": true,
+      "traversed": true,
+      "closedSafely": true,
+      "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6"
+    }
+  ],
+  "passed": true
+}

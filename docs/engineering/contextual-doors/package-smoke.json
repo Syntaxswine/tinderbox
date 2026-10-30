@@ -1,0 +1,129 @@
+{
+  "task": "TB-024",
+  "owner": "01a17ea3-b99b-74d2-8a74-56d2556a19cb",
+  "pid": 48484,
+  "creationFiletime": "134377967394545938",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-10-30T01:18:59.543Z",
+  "port": 52515,
+  "purpose": "Finite nested-path public package/source-section/character verification",
+  "intendedExpirySeconds": 30,
+  "stopMethod": "Server finally close plus real 30-second abort and shutdown timeout",
+  "passed": true,
+  "verifiedFiles": 3455,
+  "places": [
+    {
+      "placeId": "new-york",
+      "statistics": {
+        "sourceParts": 12987,
+        "sourceTriangles": 254642,
+        "emittedParts": 12858,
+        "renderParts": 12840,
+        "mergedFloorFragments": 18,
+        "emittedTriangles": 252406,
+        "sections": 148,
+        "geometries": 416,
+        "cutFloorParts": 60,
+        "collisionShapes": 164,
+        "detailedColliders": 1207,
+        "navigationBytes": 1495072
+      },
+      "loaded": {
+        "activeSections": 19,
+        "pendingSections": 0,
+        "geometries": 140,
+        "materials": 8,
+        "peakSections": 19,
+        "peakGeometries": 140,
+        "sectionLoads": 19,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      }
+    },
+    {
+      "placeId": "administration",
+      "statistics": {
+        "sourceParts": 42546,
+        "sourceTriangles": 678191,
+        "emittedParts": 41522,
+        "renderParts": 39801,
+        "mergedFloorFragments": 1721,
+        "emittedTriangles": 655739,
+        "sections": 653,
+        "geometries": 943,
+        "cutFloorParts": 484,
+        "collisionShapes": 580,
+        "detailedColliders": 6324,
+        "navigationBytes": 7010545
+      },
+      "loaded": {
+        "activeSections": 29,
+        "pendingSections": 0,
+        "geometries": 217,
+        "materials": 11,
+        "peakSections": 29,
+        "peakGeometries": 217,
+        "sectionLoads": 29,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      }
+    },
+    {
+      "placeId": "horticulture",
+      "statistics": {
+        "sourceParts": 63903,
+        "sourceTriangles": 1157534,
+        "emittedParts": 63788,
+        "renderParts": 61954,
+        "mergedFloorFragments": 1834,
+        "emittedTriangles": 1154962,
+        "sections": 445,
+        "geometries": 629,
+        "cutFloorParts": 0,
+        "collisionShapes": 470,
+        "detailedColliders": 7673,
+        "navigationBytes": 8131307
+      },
+      "loaded": {
+        "activeSections": 45,
+        "pendingSections": 0,
+        "geometries": 296,
+        "materials": 11,
+        "peakSections": 45,
+        "peakGeometries": 296,
+        "sectionLoads": 45,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      }
+    }
+  ],
+  "characters": [
+    "goat",
+    "horse",
+    "bear"
+  ],
+  "menuEntries": [
+    "catalogue-street",
+    "new-york",
+    "administration",
+    "horticulture"
+  ],
+  "rendered": false,
+  "browserAcceptance": "Not performed by this HTTP/source loader check",
+  "uiIntegration": "Architect must reconcile exact TB-025 UI candidate; no UI files changed by TB-024",
+  "stoppedAt": "2026-10-30T01:19:04.658Z",
+  "serverClosed": true,
+  "portReleased": true,
+  "verificationTask": "TB-031",
+  "checker": "tools/smoke-places-package.mjs",
+  "scope": "Published UI plus contextual-door runtime; exact new UI integration/browser review remains separate"
+}
