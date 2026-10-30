@@ -9,7 +9,11 @@
   "actualPreviousCandidateReview": {
     "candidate": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
     "evidence": "Architect primary checkout artifacts/qa/fire-realism/render-round-02/",
-    "imagesOpened": ["contact-isometric-bright-world0.jpg", "contact-isometric-bright-world2.jpg", "jet-isometric-bright-world0.jpg"],
+    "imagesOpened": [
+      "contact-isometric-bright-world0.jpg",
+      "contact-isometric-bright-world2.jpg",
+      "jet-isometric-bright-world0.jpg"
+    ],
     "backend": "Chrome155 / ANGLE Direct3D11 / NVIDIA RTX3080",
     "shaderFailure": null,
     "qualityDecision": "Contact rejected at world0/2: active source is almost only faint fragments. Jet visibly improved with connected core and irregular edges/dark gaps; not accepted as a baseline.",
@@ -33,19 +37,39 @@
     "documentation": "docs/art/fire-realism/exterior-reference-intake.md",
     "bytes": 194342,
     "sha256": "9d1f412ddb76f6825b1adbd05aefe0e55e21d934407663bcadf71578d662c991",
-    "dimensions": [1000, 667],
+    "dimensions": [
+      1000,
+      667
+    ],
     "originalAcquired": false,
-    "originalRecordDimensions": [4368, 2912],
+    "originalRecordDimensions": [
+      4368,
+      2912
+    ],
     "totalReferencePhotos": 5,
     "originalFourBytesAndMetadataPreserved": true,
     "checks": {
       "sourceIntegrity": "pass; five exact byte/hash records, original four metadata objects unchanged, selected acquisition identical",
       "realUIPhotoAdapter": "pass; actual primary photoReferences maps five verified records",
-      "combinedUIReferenceCount": "expected failure reproduced; primary tests/ui/fire-review.test.mjs:39 asserts4 while accepted dossier has5",
+      "combinedUIReferenceCount": "pass; UI-owned correction follows the dossier count, preserves original identities and verifies all five source records",
       "runtimeGeometryShaderFixtureDiff": "none"
     },
-    "pushHeldForUIOwnedCorrection": true,
-    "photoPixelsInRuntime": false
+    "pushHeldForUIOwnedCorrection": false,
+    "photoPixelsInRuntime": false,
+    "initialCombinedUIReferenceCountFailure": "expected failure reproduced; primary tests/ui/fire-review.test.mjs:39 asserts4 while accepted dossier has5",
+    "resolution": {
+      "recordedAt": "2026-10-30T11:32:06Z",
+      "artistSourceCandidate": "2fd6b6388c59d4746601c37b0f4ba63271836e38",
+      "uiOwnerCandidate": "bbe55221e03c4f0603296b08484953c5235c191e",
+      "architectUiIntake": "b3fd334c3781e5f9920dda7b5fdeef57d5c5da97",
+      "architectSourceIntake": "a872b5edf727f6d46b59d19fac40a30809f40ff1",
+      "acceptedPrimaryCheckpoint": "e1ae14ba9465c8801231dff34ca356f11da55ba2",
+      "targetedCheck": "node --test --test-name-pattern=reference [primary]/tests/ui/fire-review.test.mjs, executed from the assigned art checkout",
+      "passed": 2,
+      "failed": 0,
+      "priorFailurePreserved": true,
+      "scope": "Documentation only; original five photos and all effect/fixture/UI source unchanged; no visual or GPU acceptance claim"
+    }
   },
   "offline": {
     "fireContract": "pass; actual shared Three and unchanged resolver/control",
