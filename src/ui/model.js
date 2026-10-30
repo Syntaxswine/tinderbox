@@ -107,7 +107,12 @@ export function characterNameOf(player) {
 export function navigationOf(snapshot) {
   if(!snapshot || snapshot.version!==1 || !snapshot.player)throw new TypeError('Tinderbox navigation requires a v1 snapshot.');
   const player=snapshot.player,label=typeof player.locationLabel==='string'?player.locationLabel.trim():'';
-  const action=player.interaction,actionLabel=typeof action?.label==='string'?action.label.trim():'';
   return {characterName:characterNameOf(player),locationLabel:label||'Location pending',level:Number.isInteger(player.level)?player.level:null,
-    interaction:{label:actionLabel||'Interact',enabled:Boolean(actionLabel&&action?.enabled===true)}};
+    interaction:doorInteractionOf(player.interaction)};
+}
+
+// Copy the authoritative target; legacy/partial records never become actions.
+export function doorInteractionOf(value){
+  if(value?.kind!=='door'||typeof value.id!=='string'||!value.id.trim()||!['open','close'].includes(value.action)||typeof value.label!=='string'||!value.label.trim()||typeof value.enabled!=='boolean'||!Array.isArray(value.anchor)||value.anchor.length!==3||!value.anchor.every(Number.isFinite))return null;
+  return {id:value.id,kind:'door',action:value.action,label:value.label.trim(),enabled:value.enabled,reason:typeof value.reason==='string'?value.reason:'',anchor:[...value.anchor]};
 }

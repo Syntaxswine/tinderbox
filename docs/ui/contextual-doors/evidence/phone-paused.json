@@ -1,0 +1,104 @@
+{
+  "mode": "Actual source navigation/camera, SVG diagnostic",
+  "candidateRuntime": true,
+  "updates": 1614,
+  "paused": true,
+  "player": {
+    "x": 62,
+    "y": 33.20000000000012,
+    "elevation": 2.12
+  },
+  "interaction": {
+    "id": "admin-front",
+    "kind": "door",
+    "action": "open",
+    "label": "Open front doors",
+    "enabled": false,
+    "reason": "Paused.",
+    "anchor": [
+      62,
+      4.27,
+      32
+    ]
+  },
+  "portalOpen": false,
+  "camera": {
+    "target": [
+      62,
+      2.12,
+      33.20000000000012
+    ],
+    "span": 11.55,
+    "zoom": 1,
+    "mode": "follow",
+    "followPlayer": true
+  },
+  "commands": [
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "open"
+    },
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "close"
+    },
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "open"
+    },
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "close"
+    },
+    {
+      "type": "cancel-input"
+    },
+    {
+      "type": "pause",
+      "paused": true
+    },
+    {
+      "type": "cancel-input"
+    }
+  ],
+  "activations": [
+    {
+      "type": "click",
+      "code": "",
+      "trusted": true
+    },
+    {
+      "type": "click",
+      "code": "",
+      "trusted": true
+    }
+  ],
+  "uiRoot": {
+    "x": 12,
+    "y": 6,
+    "width": 370,
+    "height": 828
+  },
+  "button": {
+    "hidden": true,
+    "disabled": true,
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "projection": {
+    "anchor": [
+      62,
+      4.27,
+      32
+    ],
+    "x": 204.21754010316673,
+    "y": 362.2869961170653,
+    "visible": true
+  }
+}

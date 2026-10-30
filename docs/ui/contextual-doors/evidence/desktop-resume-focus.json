@@ -1,0 +1,126 @@
+{
+  "focusedDoor": true,
+  "record": {
+    "activations": [
+      {
+        "code": "",
+        "trusted": true,
+        "type": "click"
+      },
+      {
+        "code": "Enter",
+        "trusted": true,
+        "type": "keydown"
+      },
+      {
+        "code": "",
+        "trusted": true,
+        "type": "click"
+      },
+      {
+        "code": "Space",
+        "trusted": true,
+        "type": "keydown"
+      },
+      {
+        "code": "",
+        "trusted": true,
+        "type": "click"
+      },
+      {
+        "code": "Escape",
+        "trusted": true,
+        "type": "keydown"
+      }
+    ],
+    "button": {
+      "disabled": false,
+      "height": 57.796875,
+      "hidden": false,
+      "width": 197.875,
+      "x": 506.296875,
+      "y": 255.453125
+    },
+    "camera": {
+      "followPlayer": true,
+      "mode": "follow",
+      "span": 13.65,
+      "target": [
+        62,
+        2.12,
+        30.05
+      ],
+      "zoom": 1
+    },
+    "candidateRuntime": true,
+    "commands": [
+      {
+        "action": "open",
+        "portalId": "admin-front",
+        "type": "interact"
+      },
+      {
+        "action": "close",
+        "portalId": "admin-front",
+        "type": "interact"
+      },
+      {
+        "action": "open",
+        "portalId": "admin-front",
+        "type": "interact"
+      },
+      {
+        "type": "cancel-input"
+      },
+      {
+        "paused": true,
+        "type": "pause"
+      },
+      {
+        "type": "cancel-input"
+      },
+      {
+        "paused": false,
+        "type": "pause"
+      }
+    ],
+    "interaction": {
+      "action": "close",
+      "anchor": [
+        62,
+        4.27,
+        32
+      ],
+      "enabled": true,
+      "id": "admin-front",
+      "kind": "door",
+      "label": "Close front doors",
+      "reason": ""
+    },
+    "mode": "Actual source navigation/camera, SVG diagnostic",
+    "paused": false,
+    "player": {
+      "elevation": 2.12,
+      "x": 62,
+      "y": 30.05
+    },
+    "portalOpen": true,
+    "projection": {
+      "anchor": [
+        62,
+        4.27,
+        32
+      ],
+      "visible": true,
+      "x": 605.2471325896421,
+      "y": 323.2622945843003
+    },
+    "uiRoot": {
+      "height": 800,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "updates": 516
+  }
+}

@@ -1,3 +1,4 @@
+import {mountDoorAction} from './door-action.js';
 import {ETCHING_SIZE, ETCHING_FRAMES, OIL_LANTERN_SIZE, OIL_LANTERN_FRAME, OIL_BARREL_SIZE, OIL_BARREL_FRAME} from './etching-frames.js';
 import {mountMap} from './map.js';
 import {bindInterfacePreferences, interfacePreferences} from './preferences.js';
@@ -44,7 +45,7 @@ const markup = '<header class="tb-top">' +
   '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Tap tool · Space for selected tool</dd></div><div><dt>Medicine</dt><dd>Walk over it to use it</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Tap Oil barrel to start or stop pouring. Tap Torch to light, then tap to ignite nearby fuel. Hold Flamethrower. Walk over drugs or medicine to use them. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
-export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
+export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
   if (!root?.ownerDocument || typeof onCommand !== 'function') throw new TypeError('mountUI requires a DOM root and onCommand callback.');
   if(!['gameplay','explore'].includes(mode))throw new TypeError('Unknown UI mode.');
   const exploring=mode==='explore',hasExit=typeof onExitToMenu==='function';
@@ -55,7 +56,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
   let content=markup;
   if(exploring){
     content=content.replace(leftButtons,navButton('data-view="view-overview" aria-label="Show place overview"','zoom-out','OVERVIEW')+navButton('data-view="view-follow" aria-label="Follow player"','movement','FOLLOW','<span data-follow-character>PLAYER</span>'));
-    content=content.replace(rightButtons,navButton('data-interact aria-label="Interact"','play','<span data-interact-label>INTERACT</span>','E / SPACE')+navButton('data-exit-to-menu aria-label="Return to places"','reset','PLACES','RETURN'));
+    content=content.replace(rightButtons,navButton('data-exit-to-menu aria-label="Return to places"','reset','PLACES','RETURN'));
   }
   shell.innerHTML=content.replaceAll('tb-engraving-','tb-engraving'+suffix+'-').replaceAll('tb-movement-help','tb-movement-help'+suffix).replaceAll('tb-menu-title','tb-menu-title'+suffix).replaceAll('tb-tool-resource','tb-tool-resource'+suffix).replaceAll('id="tb-tool-feedback"','id="tb-tool-feedback'+suffix+'"');
   const style=doc.createElement('link');style.rel='stylesheet';style.href=new URL('./styles.css',import.meta.url).href;shell.prepend(style);root.append(shell);
@@ -68,7 +69,6 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
     const character=doc.createElement('p');character.className='tb-visit-character';character.dataset.characterName='';character.hidden=true;find('.tb-vitals').append(character);
     find('.tb-stick-group').insertAdjacentHTML('afterbegin','<div class="tb-visit-context"><span class="tb-micro">LOCATION</span><strong data-location-label id="tb-visit-location'+suffix+'" aria-live="off">Location pending</strong><span data-interaction-hint id="tb-interaction-hint'+suffix+'">Drag the stick or use WASD to explore.</span></div>');
     stick.setAttribute('aria-describedby','tb-movement-help'+suffix+' tb-visit-location'+suffix);
-    find('[data-interact]').setAttribute('aria-describedby','tb-interaction-hint'+suffix);
     find('.left-controls').setAttribute('aria-label','Camera view');find('.right-controls').setAttribute('aria-label','Visit navigation');
     find('.tb-map figcaption b').textContent='PLACE PLAN';find('.tb-map figcaption>span').innerHTML='<i></i><span data-map-character>Player</span>';
     find('[data-reset]').hidden=true;find('[data-reset]').disabled=true;
@@ -82,7 +82,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
   const buttons=new Map(all('[data-tool]').map(b=>[b.dataset.tool,b])),listeners=[],hasZoom=typeof onZoom==='function';
   let disposed=false,view=null,keys=new Set(),stickPointer=null,stickPointerType=null,stickRect=null,stickVector={x:0,y:0},lastMove={x:0,y:0};
   let primaryPointer=null,primaryElement=null,primaryTool=null,awaitingSelection=false,primarySources=new Set();
-  let menu=null,awaitingResume=false,previousFocus=null,wasBlocked=true,renderSignature='',previousAnnouncement='';
+  let menu=null,exiting=false,awaitingResume=false,previousFocus=null,wasBlocked=true,renderSignature='',previousAnnouncement='';
   let feedback=null,eventCursor=0,eventInitialized=false,eventGeneration,lastTick;
   function readToolEvents(snapshot){
     const generation=snapshot.diagnostics?.generation,rewound=lastTick!==undefined&&snapshot.tick<lastTick;
@@ -97,7 +97,8 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
   for(const [id,button] of buttons)button.querySelector('[data-stock]').id='tb-stock-'+id+suffix;
   const on=(target,type,handler,options)=>{target.addEventListener(type,handler,options);listeners.push(()=>target.removeEventListener(type,handler,options));};
   const emit=command=>{if(!disposed)onCommand(command);};
-  const blocked=()=>!view||view.locked||Boolean(menu);
+  const blocked=()=>!view||view.locked||Boolean(menu)||exiting;
+  const doorAction=exploring?mountDoorAction({shell,onProjectInteraction,onCommand:emit,isBlocked:blocked,mark:icon('play')}):null;
   const capture=(element,id)=>{try{element.setPointerCapture(id);}catch{/* Window listeners cover unavailable capture. */}};
   const release=(element,id)=>{if(element&&id!==null)try{if(element.hasPointerCapture(id))element.releasePointerCapture(id);}catch{/* Already released. */}};
   function sendMove(vector){
@@ -136,13 +137,14 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
   function paintIcon(element,id){if(element.dataset.plate===id)return;element.innerHTML=icon(id);element.dataset.plate=id;}
   function paint(){
     if(!view)return;
-    const signature=exploring?JSON.stringify([view.paused,view.navigation,menu]):JSON.stringify([view.characterName,view.tool.id,view.hp,view.maxHp,view.inventory,view.pouring,view.paused,view.effects,view.torch,feedback,menu,primaryTool,primarySources.size]);
+    doorAction?.update(view.navigation?.interaction,blocked());
+    const signature=exploring?JSON.stringify([view.paused,view.navigation,menu,exiting,doorAction?.isVisible()]):JSON.stringify([view.characterName,view.tool.id,view.hp,view.maxHp,view.inventory,view.pouring,view.paused,view.effects,view.torch,feedback,menu,primaryTool,primarySources.size]);
     if(signature===renderSignature)return;renderSignature=signature;
     const gated=blocked();stick.disabled=gated;stick.setAttribute('aria-disabled',String(gated));pause.disabled=false;
     for(const button of all('[data-zoom]')){button.disabled=!hasZoom;button.title=hasZoom?'Camera framing only':'Camera zoom awaits runtime connection';}
     for(const button of all('[data-exit-to-menu]'))button.disabled=!hasExit;
     if(exploring){
-      const navigation=view.navigation,location=find('[data-location-label]'),hint=find('[data-interaction-hint]'),action=find('[data-interact]');
+      const navigation=view.navigation,location=find('[data-location-label]'),hint=find('[data-interaction-hint]');
       const character=navigation.characterName,identity=find('[data-character-name]');
       identity.hidden=!character;
       if(identity.textContent!==character)identity.textContent=character||'';
@@ -151,15 +153,11 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
       if(find('[data-map-character]').textContent!==(character||'Player'))find('[data-map-character]').textContent=character||'Player';
       if(location.textContent!==navigation.locationLabel)location.textContent=navigation.locationLabel;
       shell.dataset.nativeLevel=navigation.level===null?'':String(navigation.level);
-      const actionHint=navigation.interaction.enabled?navigation.interaction.label+' · E / Space':'Drag the stick or use WASD to explore.';
+      const actionHint=doorAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?navigation.interaction.label+' · E / Space':navigation.interaction.reason):'Drag the stick or use WASD to explore.';
       if(hint.textContent!==actionHint)hint.textContent=actionHint;
-      const label=navigation.interaction.label.toUpperCase();
-      if(find('[data-interact-label]').textContent!==label)find('[data-interact-label]').textContent=label;
-      action.disabled=gated||!navigation.interaction.enabled;action.title=navigation.interaction.label;
-      action.setAttribute('aria-label',navigation.interaction.label+'. E or Space.');
       for(const button of all('[data-view]'))button.disabled=gated;
       find('[data-death]').hidden=true;paintMenu();
-      const announcement='Location: '+navigation.locationLabel+'.'+(navigation.interaction.enabled?' '+navigation.interaction.label+' available.':'')+(view.paused?' Paused.':'');
+      const announcement='Location: '+navigation.locationLabel+'.'+(!view.paused&&doorAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?' '+navigation.interaction.label+' available.':' '+navigation.interaction.reason):'')+(view.paused?' Paused.':'');
       if(announcement!==previousAnnouncement){find('[data-announcement]').textContent=announcement;previousAnnouncement=announcement;}
       return;
     }
@@ -253,33 +251,32 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
   on(doc,'visibilitychange',()=>{if(doc.hidden){cancelInput();paint();}});
   on(shell,'contextmenu',event=>{if(event.target.closest('[data-stick],[data-tool]'))event.preventDefault();});
   for(const button of all('[data-zoom]'))on(button,'click',()=>{if(!disposed&&!button.disabled&&hasZoom)onZoom(button.dataset.zoom==='in'?1.15:1/1.15);});
-  function requestInteraction(){if(!blocked()&&view.navigation?.interaction.enabled)emit({type:'interact'});}
+  function requestInteraction(){doorAction?.request();}
   for(const button of all('[data-view]'))on(button,'click',()=>{if(!blocked())emit({type:button.dataset.view});});
-  const interact=find('[data-interact]');
-  if(interact){
-    on(interact,'click',requestInteraction);
-    on(interact,'keydown',event=>{if(['Enter','Space'].includes(event.code)){event.preventDefault();if(!event.repeat)requestInteraction();}});
-  }
-  for(const button of all('[data-exit-to-menu]'))on(button,'click',()=>{if(disposed||!hasExit)return;cancelInput();paint();onExitToMenu();});
+  for(const button of all('[data-exit-to-menu]'))on(button,'click',()=>{if(disposed||!hasExit)return;exiting=true;cancelInput();paint();onExitToMenu();});
   on(pause,'click',openMenu);on(find('[data-resume]'),'click',resume);
   on(find('[data-options]'),'click',()=>{menu='options';paintMenu();focusMenu();});
   on(find('[data-back]'),'click',()=>{menu='pause';paintMenu();focusMenu();});
   on(find('[data-reset]'),'click',()=>{if(exploring)return;awaitingResume=true;cancelInput();emit({type:'reset'});});
 
+  on(win,'resize',()=>paint());
+  on(win,'scroll',()=>paint(),true);
+
   for(const button of all('.tb-console button'))button.disabled=true;
   for(const button of all('[data-zoom]'))button.disabled=!hasZoom;
   return{
     update(snapshot){
-      if(disposed)return;const previouslyPaused=view?.paused;
+      if(disposed)return;const previouslyPaused=view?.paused;let restoreFocus=false;
       view=exploring?{paused:Boolean(snapshot?.paused),locked:Boolean(snapshot?.paused),navigation:navigationOf(snapshot)}:viewOf(snapshot);
       if(!exploring)readToolEvents(snapshot);map.update(snapshot);
-      if((awaitingResume||previouslyPaused)&&!view.paused){awaitingResume=false;menu=null;if(previousFocus?.isConnected&&previousFocus!==doc.body&&gameplayFocus(previousFocus))previousFocus.focus({preventScroll:true});else pause.focus({preventScroll:true});}
+      if((awaitingResume||previouslyPaused)&&!view.paused){awaitingResume=false;menu=null;restoreFocus=true;}
       else if(view.paused&&!menu){previousFocus=doc.activeElement;menu='pause';paintMenu();focusMenu();}
       const nowBlocked=blocked(),cancel=!wasBlocked&&nowBlocked;wasBlocked=nowBlocked;if(cancel)cancelInput();
       if(!exploring&&primaryTool===view.tool.id)awaitingSelection=false;
       if(!exploring&&primarySources.size&&((!awaitingSelection&&primaryTool!==view.tool.id)||(primaryTool===view.tool.id&&view.primaryDisabled)))releaseTrigger();
       paint();
+      if(restoreFocus){if(previousFocus?.isConnected&&previousFocus!==doc.body&&gameplayFocus(previousFocus)&&!previousFocus.disabled&&!previousFocus.closest('[hidden]'))previousFocus.focus({preventScroll:true});else pause.focus({preventScroll:true});}
     },
-    dispose(){if(disposed)return;cancelInput();disposed=true;unbindPreferences();for(const remove of listeners.splice(0))remove();shell.remove();}
+    dispose(){if(disposed)return;cancelInput();disposed=true;doorAction?.dispose();unbindPreferences();for(const remove of listeners.splice(0))remove();shell.remove();}
   };
 }

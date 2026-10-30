@@ -1,0 +1,104 @@
+{
+  "mode": "Actual source navigation/camera, SVG diagnostic",
+  "candidateRuntime": true,
+  "updates": 489,
+  "paused": false,
+  "player": {
+    "x": 62,
+    "y": 30.05,
+    "elevation": 2.12
+  },
+  "interaction": {
+    "id": "admin-front",
+    "kind": "door",
+    "action": "close",
+    "label": "Close front doors",
+    "enabled": true,
+    "reason": "",
+    "anchor": [
+      62,
+      4.27,
+      32
+    ]
+  },
+  "portalOpen": true,
+  "camera": {
+    "target": [
+      62,
+      2.12,
+      30.05
+    ],
+    "span": 13.65,
+    "zoom": 1,
+    "mode": "follow",
+    "followPlayer": true
+  },
+  "commands": [
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "open"
+    },
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "close"
+    },
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "open"
+    }
+  ],
+  "activations": [
+    {
+      "type": "click",
+      "code": "",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "code": "Enter",
+      "trusted": true
+    },
+    {
+      "type": "click",
+      "code": "",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "code": "Space",
+      "trusted": true
+    },
+    {
+      "type": "click",
+      "code": "",
+      "trusted": true
+    }
+  ],
+  "uiRoot": {
+    "x": 0,
+    "y": 0,
+    "width": 1280,
+    "height": 800
+  },
+  "button": {
+    "hidden": false,
+    "disabled": false,
+    "x": 506.296875,
+    "y": 255.453125,
+    "width": 197.875,
+    "height": 57.796875
+  },
+  "projection": {
+    "anchor": [
+      62,
+      4.27,
+      32
+    ],
+    "x": 605.2471325896421,
+    "y": 323.2622945843003,
+    "visible": true
+  }
+}

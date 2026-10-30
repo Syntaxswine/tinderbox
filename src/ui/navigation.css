@@ -30,3 +30,15 @@
 }
 
 .tb-visit-character { margin:0; color:var(--muted); font:italic 11px/1.3 var(--text); }
+
+/* Farmyard nearby-object pattern, using Tinderbox's existing timber and print. */
+.tb-ui .tb-door-action { position:absolute; z-index:5; display:flex; align-items:center; gap:9px; width:max-content; min-width:132px; min-height:56px; padding:8px 12px; pointer-events:auto; touch-action:manipulation; color:var(--ink); text-align:left; }
+.tb-door-action .switch-glyph { width:30px; height:30px; flex:0 0 30px; background:var(--parchment); border:1px solid var(--ochre); padding:2px; mix-blend-mode:normal; }
+.tb-door-copy { min-width:0; display:grid; gap:3px; }
+.tb-door-copy strong { font:600 14px/1.2 var(--display); overflow-wrap:anywhere; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.tb-door-copy small { font:400 10px/1.2 var(--text); color:var(--muted); }
+.tb-door-copy [data-door-reason] { font:400 11px/1.25 var(--text); color:#f1bd8d; overflow-wrap:anywhere; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.tb-door-action .tb-door-pointer { position:absolute; width:0; height:0; top:calc(100% + 4px); left:calc(var(--door-pointer-x,50%) - 6px); border:6px solid transparent; border-top-color:var(--ochre); pointer-events:none; }
+.tb-ui .tb-door-action:disabled { cursor:default; border-color:#a66b48; }
+.tb-ui.tb-high-contrast .tb-door-action { color:#fff9e8; border-color:#ffdf9a; }
+@media(forced-colors:active) { .tb-ui .tb-door-action { background:Canvas; color:CanvasText; border:2px solid CanvasText; } .tb-door-action .switch-glyph { background:Canvas; } .tb-door-copy small,.tb-door-copy [data-door-reason] { color:CanvasText; } }
