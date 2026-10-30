@@ -1,6 +1,6 @@
 # Faster movement and joystick correction
 
-Status: **focused correction approved for publication; deployment pending below**. This is [Milestone 09](../milestones/09-movement-and-joystick.md), from published checkpoint `38f6e803bf43493fdcd641f62f8644d13b99488f`. The [earlier preview review](2026-10-29-explorable-places.md) retains its broader deferred gallery and WebGL acceptance.
+Status: **focused correction published and verified**. This is [Milestone 09](../milestones/09-movement-and-joystick.md), from published checkpoint `38f6e803bf43493fdcd641f62f8644d13b99488f`. The [earlier preview review](2026-10-29-explorable-places.md) retains its broader deferred gallery and WebGL acceptance.
 
 The user requests three times the preview's movement speed and reports unreliable joystick movement on Administration stairs, using a mouse. The accepted shared base speed is 9 m/s; powder retains its existing multiplier and world-time slowdown. Character geometry, source stairs, fire/tool clocks and the four-map release boundary remain governed by their existing contracts.
 
@@ -32,8 +32,12 @@ These browser checks use the production controls and actual source navigation mo
 
 The combined production build and release check pass **3,454 files / 163,290,368 bytes**. Actual nested-path HTTP verification checks every packaged byte, all three landmark loaders, native rigs, private-path exclusions and resource disposal. Its server exited and port 49197 was confirmed released. The architect's registered browser preview (PID 70380, exact lifetime recorded) stopped through its private marker and released port 64191. The temporary browser tab closed and its viewport override was reset. No architect helper remains running.
 
-Local finite diagnostic scripts and receipts are under ignored `artifacts/qa/movement-input/`. Publication status will be recorded below after deployment verification. Future gallery work remains a separate candidate.
+Local finite diagnostic scripts and receipts are under ignored `artifacts/qa/movement-input/`. Future gallery work remains a separate candidate.
 
 ## Publication
 
-Pending push, workflow completion and hosted-file verification for this exact combined correction.
+Published commit: [`91fb03afb5c84e997d3e09963c61710f45d4e101`](https://github.com/Syntaxswine/tinderbox/commit/91fb03afb5c84e997d3e09963c61710f45d4e101). Normal fast-forward pushes updated `master` and `codex/movement-input` without a force push. [Pages workflow 40983227818](https://github.com/Syntaxswine/tinderbox/actions/runs/40983227818) passed build and deployment; deployment completed at **2026-10-30 01:01:49 UTC** (October 29 locally).
+
+The architect verified the hosted build manifest and all **3,452 hosted game files** byte-for-byte against the approved package, including the shared 9 m/s configuration and corrected mouse handler. The package's two nonruntime build/hosting dotfiles are recorded separately from browser dependencies. The finite public verifier exited with success and opened no listener; no preview/helper remains running.
+
+Play the corrected release at [Tinderbox](https://syntaxswine.github.io/tinderbox/). A page reload loads the new modules. The exact original interior-stair incident remains unconfirmed; the published correction addresses the requested speed and the three reproduced mouse gesture faults. This publication receipt changes documentation only.
