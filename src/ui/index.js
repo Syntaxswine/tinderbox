@@ -80,7 +80,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
     const back=doc.createElement('button');back.type='button';back.className='tb-menu-button';back.dataset.exitToMenu='';back.innerHTML=icon('play')+'<span>Return to places</span>';find('[data-pause-panel]').append(back);
   }
   const buttons=new Map(all('[data-tool]').map(b=>[b.dataset.tool,b])),listeners=[],hasZoom=typeof onZoom==='function';
-  let disposed=false,view=null,keys=new Set(),stickPointer=null,stickVector={x:0,y:0},lastMove={x:0,y:0};
+  let disposed=false,view=null,keys=new Set(),stickPointer=null,stickPointerType=null,stickRect=null,stickVector={x:0,y:0},lastMove={x:0,y:0};
   let primaryPointer=null,primaryElement=null,primaryTool=null,awaitingSelection=false,primarySources=new Set();
   let menu=null,awaitingResume=false,previousFocus=null,wasBlocked=true,renderSignature='',previousAnnouncement='';
   let feedback=null,eventCursor=0,eventInitialized=false,eventGeneration,lastTick;
@@ -122,7 +122,8 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
     primarySources.add(source);button.classList.add('is-pressed');emit({type:'primary',pressed:true});paint();return true;
   }
   function selectTool(id){if(blocked())return;releaseTrigger();emit({type:'select-tool',tool:id});paint();}
-  function cancelInput(){const id=stickPointer;stickPointer=null;keys.clear();stickVector={x:0,y:0};release(stick,id);sendMove({x:0,y:0});releaseTrigger();emit({type:'cancel-input'});}
+  function releaseStick(){const id=stickPointer;stickPointer=null;stickPointerType=null;stickRect=null;stickVector={x:0,y:0};release(stick,id);updateMovement();}
+  function cancelInput(){keys.clear();releaseStick();releaseTrigger();emit({type:'cancel-input'});}
   function focusMenu(){(menu==='options'?find('[data-reduce-motion]'):find('[data-resume]')).focus({preventScroll:true});}
   function paintMenu(){
     menuElement.hidden=!menu;pause.setAttribute('aria-expanded',String(Boolean(menu)));
@@ -195,18 +196,27 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, mode='gameplay',
     if(announcementKey!==previousAnnouncement){find('[data-announcement]').textContent=announcement+(visibleFeedback?' '+visibleFeedback.message:'');previousAnnouncement=announcementKey;}
   }
   on(stick,'pointerdown',event=>{
-    if(event.button!==0||stickPointer!==null||blocked())return;
-    event.preventDefault();stickPointer=event.pointerId;stick.focus({preventScroll:true});capture(stick,event.pointerId);
-    stickVector=pointerStick(event.clientX,event.clientY,stick.getBoundingClientRect());updateMovement();
+    if(event.button!==0||blocked())return;
+    // Another left press from this mouse proves its earlier release was missed.
+    if(stickPointer!==null&&!(stickPointerType==='mouse'&&event.pointerType==='mouse'&&event.pointerId===stickPointer))return;
+    event.preventDefault();stickPointer=event.pointerId;stickPointerType=event.pointerType;stick.focus({preventScroll:true});capture(stick,event.pointerId);
+    // Keep this gesture anchored if browser chrome, fonts or layout move the well.
+    const rect=stick.getBoundingClientRect();stickRect={left:rect.left,top:rect.top,width:rect.width,height:rect.height};
+    stickVector=pointerStick(event.clientX,event.clientY,stickRect);updateMovement();
   });
-  on(win,'pointermove',event=>{if(event.pointerId!==stickPointer||blocked())return;event.preventDefault();stickVector=pointerStick(event.clientX,event.clientY,stick.getBoundingClientRect());updateMovement();},{passive:false});
+  on(win,'pointermove',event=>{
+    if(event.pointerId!==stickPointer||blocked())return;
+    // A release outside the browser may arrive only as a later mouse/pen hover.
+    if(['mouse','pen'].includes(event.pointerType)&&!(event.buttons&1)){releaseStick();return;}
+    event.preventDefault();stickVector=pointerStick(event.clientX,event.clientY,stickRect);updateMovement();
+  },{passive:false});
   for(const button of buttons.values()){
     on(button,'pointerdown',event=>{if(event.button!==0||button.disabled||blocked()||primaryPointer!==null||primarySources.size)return;event.preventDefault();button.focus({preventScroll:true});beginAction(button,'pointer',event.pointerId);});
     on(button,'click',event=>{if(event.detail===0&&beginAction(button,'assistive')){releaseTrigger();paint();}});
     on(button,'keydown',event=>{if(!['Space','Enter'].includes(event.code)||event.repeat||button.disabled)return;event.preventDefault();beginAction(button,'key:'+event.code);});
   }
   on(win,'pointerup',event=>{
-    if(event.pointerId===stickPointer){const id=stickPointer;stickPointer=null;stickVector={x:0,y:0};release(stick,id);updateMovement();}
+    if(event.pointerId===stickPointer)releaseStick();
     if(event.pointerId===primaryPointer){releaseTrigger();paint();}
   });
   on(win,'pointercancel',event=>{if(event.pointerId===stickPointer||event.pointerId===primaryPointer){cancelInput();paint();}});

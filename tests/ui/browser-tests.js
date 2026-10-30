@@ -1,3 +1,4 @@
+import {runMovementChecks} from './movement-checks.js';
 import {mountUI,mountMainMenu,mountTitleScreen,createInterfacePreferences} from '../../src/ui/index.js';
 import {fixture,createFakeSnapshotAdapter,PLACE_FIXTURES,CHARACTER_FIXTURES,explorationFixture} from '../../workbenches/ui/fixtures.js';
 import {createSimulation} from '../../src/simulation/index.js';
@@ -146,10 +147,10 @@ await check('Real simulation: matches and lantern clicks consume exactly one ite
 await check('Real simulation: barrel toggle pours while moving and stops without cancelling movement',()=>{
   const s=real();try{tool(s,'jerry-can').click();let n=s.step();ok(n.player.pouring,'Pour did not start');downStick(s);const gas=n.player.inventory.gas;n=s.step(10);ok(n.player.moving&&n.player.inventory.gas<gas,'No moving trail');tool(s,'jerry-can').click();n=s.step();ok(!n.player.pouring&&n.player.moving,'Stop cancelled movement');}finally{s.close();}
 });
-await check('Legacy simulation waits for authoritative torch fields; flamethrower still holds and releases',()=>{
+await check('Real simulation exposes authoritative torch state; flamethrower still holds and releases',()=>{
   const s=real();try{
-    ok(!s.simulation.snapshot().player.torch,'Update this legacy compatibility check when coder fields land');
-    ok(tool(s,'torch').disabled,'Missing torch schema enabled use');const n=s.commands.length;tool(s,'torch').click();equal(s.commands.length,n);
+    const torch=s.simulation.snapshot().player.torch;ok(torch?.phase==='unlit'&&torch.remainingSeconds>0,'Missing authoritative torch state');
+    ok(!tool(s,'torch').disabled,'Available torch disabled');tool(s,'torch').click();const lit=s.step();equal(lit.player.torch.phase,'lit');equal(tool(s,'torch').dataset.torchPhase,'lit');
     const before=s.simulation.snapshot().player.inventory.flamethrowerFuel;pointer(tool(s,'flamethrower'),'pointerdown',22);let next=s.step(8);
     ok(next.player.usingTool&&next.player.inventory.flamethrowerFuel<before,'Flamethrower hold failed');pointer(window,'pointerup',22);next=s.step();ok(!next.player.usingTool,'Stale flamer hold');
   }finally{s.close();}
@@ -495,6 +496,8 @@ await check('The four current test maps request distinct IDs and restore their o
     equal(menu.selections,PLACE_FIXTURES.map(place=>place.id));equal(menu.root.querySelectorAll('canvas').length,0);
   }finally{menu.close();}
 });
+
+results.push(...await runMovementChecks(host));
 
 for(const r of results){const li=document.createElement('li');li.dataset.status=r.status;li.textContent=(r.status==='pass'?'PASS ':'FAIL ')+r.name+(r.message?' — '+r.message:'');document.querySelector('#checks').append(li);}
 document.querySelector('#summary').textContent=results.filter(r=>r.status==='pass').length+' / '+results.length+' passed';
