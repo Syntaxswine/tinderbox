@@ -1,0 +1,272 @@
+{
+  "task": "TB-032",
+  "branch": "codex/contextual-doors-ui",
+  "base": "99b95b0888298a53791db3fc5657c4de3002d488",
+  "contract": {
+    "commit": "92ec5d16c1129676502f61786506f3c0e2e742f7",
+    "path": "docs/milestones/10-contextual-doors.md"
+  },
+  "runtimeCandidate": "84928aa802fe1c10f8d6465dd1a058f11618d625",
+  "scope": "UI, UI/browser tests and UI handoff only; temporary runtime copies stay ignored.",
+  "sourceHashes": {
+    "src/ui/index.js": "1542680ff105843bea9b9c464fd3fc2c04f3869de9f1a0e6ccda20088cccccb5",
+    "src/ui/model.js": "4cefb0c5e6eb6d14c7c3197fec2ac62284cc810b171d926f95cf17acf054e8b2",
+    "src/ui/navigation.css": "5514c364d2d373663147e388ad0a222b312b9eacbbc745370553e6624003662a",
+    "src/ui/door-action.js": "4d6702c0d6e8b04f0503cda4b06a9f38d13791e1241271c38a651d23366e2470",
+    "tests/ui/browser-tests.js": "4dcf70867cb0bf96cb3dcdac0f1d184f2ac8c58e4d0000ab08bb72065229cef9",
+    "tests/ui/model.test.mjs": "c3c32aff3c1042c6c86a148692b371781c2953e08634c574bb70069a7e352c85",
+    "tests/ui/door-checks.js": "ba0581c5c7bab39986c987ad79bf8b14e1d7b38c3da78b24b7d3d63afcf096b5",
+    "tests/ui/door-review.html": "4976cc46a04d113d26b2f8ad3182a5c188f0b64def7a67930b558b066d860226",
+    "tests/ui/door-review.js": "e525cbb943d1361bad3a3eef1ffd283a479cbd999d2bf553c3cee87ba51e42ce"
+  },
+  "hashMode": "Owned text/JSON hashes use LF-normalized bytes; JPEG and donor evidence hash original bytes.",
+  "checks": {
+    "nodeTests": 174,
+    "nodeFailures": 0,
+    "sourceScripts": 144,
+    "staticModules": 179,
+    "rendererAndProvenance": "pass",
+    "art": "5 preserved imports, 36 syntax/dependency checks pass",
+    "typography": "9 font/notice/source files, 3 faces and both OFL notices pass",
+    "browser": [
+      {
+        "name": "desktop-1280x800",
+        "width": 1280,
+        "height": 800,
+        "passed": 89,
+        "total": 89,
+        "failed": []
+      },
+      {
+        "name": "phone-390x844",
+        "width": 390,
+        "height": 844,
+        "passed": 89,
+        "total": 89,
+        "failed": []
+      },
+      {
+        "name": "small-phone-320x568",
+        "width": 320,
+        "height": 568,
+        "passed": 89,
+        "total": 89,
+        "failed": []
+      },
+      {
+        "name": "landscape-844x390",
+        "width": 844,
+        "height": 390,
+        "passed": 89,
+        "total": 89,
+        "failed": []
+      }
+    ],
+    "build": {
+      "files": 3455,
+      "bytes": 163296532,
+      "release": "pass"
+    },
+    "nestedHTTP": {
+      "files": 3453,
+      "hashesAndModuleMIME": "pass",
+      "qaWorkbenchAbsent": true
+    },
+    "consoleErrorsAndWarnings": 0,
+    "finalFixtureSyntax": "node --check tests/ui/door-review.js passes after manual-takeover/walk-away fixture refinements"
+  },
+  "native": [
+    {
+      "file": "evidence/desktop-mouse-open.json",
+      "interactionCommands": 1,
+      "latest": {
+        "type": "interact",
+        "portalId": "admin-front",
+        "action": "open"
+      },
+      "portalOpen": true,
+      "trustedActivations": true
+    },
+    {
+      "file": "evidence/desktop-enter-close.json",
+      "interactionCommands": 2,
+      "latest": {
+        "type": "interact",
+        "portalId": "admin-front",
+        "action": "close"
+      },
+      "portalOpen": false,
+      "trustedActivations": true
+    },
+    {
+      "file": "evidence/desktop-space-open.json",
+      "interactionCommands": 3,
+      "latest": {
+        "type": "interact",
+        "portalId": "admin-front",
+        "action": "open"
+      },
+      "portalOpen": true,
+      "trustedActivations": true
+    }
+  ],
+  "sourceReview": {
+    "administrationPortal": "admin-front",
+    "anchor": [
+      62,
+      4.27,
+      32
+    ],
+    "phoneUnsafeClose": "Disabled with actual Move clear of the door. reason; stepping clear and clicking closes it.",
+    "movingAway": "No interaction and hidden/disabled action",
+    "resumeFocus": "Native Escape from focused door, then Resume restores visible door focus",
+    "rootOffset": {
+      "x": 12,
+      "y": 6
+    },
+    "runtimeVerification": "runtime-source-evidence.json; originals match exact coder commit; only private import relocation",
+    "renderer": "SVG diagnostic; actual createExploration/createCameraRig, no WebGL world/streaming acceptance"
+  },
+  "limitations": [
+    "Production composition requires coder candidate 84928aa; this branch does not absorb runtime files.",
+    "Actual source navigation/camera browser evidence used private ignored exact-candidate copies with import relocation. Architect can use default tests/ui/door-review.html after combining commits.",
+    "Hardware touch/pen were not exercised; synthetic PointerEvents cover ownership and tap paths in UI regression checks.",
+    "Full WebGL maps, section streaming, prior gallery/route review and promotion remain architect-owned."
+  ],
+  "evidence": [
+    {
+      "path": "evidence/before-landscape-fitting.json",
+      "bytes": 9728,
+      "sha256": "8cfe4a3feba37eeb507101d08fd2fc2b9e0f91bbbd818a4cc34a19b4c336787e"
+    },
+    {
+      "path": "evidence/before-resume-focus.json",
+      "bytes": 180,
+      "sha256": "86b6d65949a8e5d4a596bc58e440928256b13e1c65dbb2d2fa2467069936e385"
+    },
+    {
+      "path": "evidence/browser-desktop-1280x800.json",
+      "bytes": 9764,
+      "sha256": "a0dc8a0db3548dbb668206b12e49072a7c74da22a871d314c4d95bf80921d5b0"
+    },
+    {
+      "path": "evidence/browser-landscape-844x390.json",
+      "bytes": 9764,
+      "sha256": "a0dc8a0db3548dbb668206b12e49072a7c74da22a871d314c4d95bf80921d5b0"
+    },
+    {
+      "path": "evidence/browser-phone-390x844.json",
+      "bytes": 9764,
+      "sha256": "a0dc8a0db3548dbb668206b12e49072a7c74da22a871d314c4d95bf80921d5b0"
+    },
+    {
+      "path": "evidence/browser-small-phone-320x568.json",
+      "bytes": 9764,
+      "sha256": "a0dc8a0db3548dbb668206b12e49072a7c74da22a871d314c4d95bf80921d5b0"
+    },
+    {
+      "path": "evidence/browser-summary.json",
+      "bytes": 1244,
+      "sha256": "401ffcf54a9ae020ad0d003d42d4937ebedeea4fdeebbc608a739dc8529b0030"
+    },
+    {
+      "path": "evidence/desktop-close.jpg",
+      "bytes": 77309,
+      "sha256": "beded5faddef8957d38f47b6834c8eccaa3b16c71c588ef373cc36f39a68c793"
+    },
+    {
+      "path": "evidence/desktop-enter-close.json",
+      "bytes": 1446,
+      "sha256": "385648e320fa9fc824877e6d0ff327c21ea2ef7a12057d822d1b1ec5210cdb17"
+    },
+    {
+      "path": "evidence/desktop-mouse-open.json",
+      "bytes": 1193,
+      "sha256": "26a3979fcc35f8e0ae07c286065821e39319fe389163b8316059337e0d43e544"
+    },
+    {
+      "path": "evidence/desktop-moved-away.json",
+      "bytes": 1351,
+      "sha256": "d67adc2c54374621bd7c7c291ed396b80da616198014d08bca02d2caff57ce8b"
+    },
+    {
+      "path": "evidence/desktop-open.jpg",
+      "bytes": 77231,
+      "sha256": "7983b4aae83af83347e63f6ca54e8839235ec35ea4d2b1a74b342a76c9838f25"
+    },
+    {
+      "path": "evidence/desktop-paused.json",
+      "bytes": 1900,
+      "sha256": "c7569533864b674ca2b4001408880de903a15c9cf6e5d885c0c0a1be4af6c79e"
+    },
+    {
+      "path": "evidence/desktop-resized.json",
+      "bytes": 1778,
+      "sha256": "4a50ddaac43acdc210bc498f1534b4ebb25ae40dff895dccc87b08f6d92f5b5f"
+    },
+    {
+      "path": "evidence/desktop-resume-focus.json",
+      "bytes": 2268,
+      "sha256": "c666e932f85280aca0593d7c911ed09da867262429bced339aba5cf075b8b759"
+    },
+    {
+      "path": "evidence/desktop-space-open.json",
+      "bytes": 1702,
+      "sha256": "d02071c7d9089004064dc7e01858f5f05b3220d473536689db434c77d9f97fea"
+    },
+    {
+      "path": "evidence/helper-cleanup.json",
+      "bytes": 816,
+      "sha256": "18531761c6e3e059d57e99f416fa19a8b4130787e69e7bf0db3094d5421faa1e"
+    },
+    {
+      "path": "evidence/phone-closed.json",
+      "bytes": 1390,
+      "sha256": "c014bba33d1901a141cdfa68f40cc76b5665bc483fa37b2517194f1c37ce97a1"
+    },
+    {
+      "path": "evidence/phone-moved-away.json",
+      "bytes": 1163,
+      "sha256": "86e2f9fab4197396f7f5313eb26ef1d5098b0ee8335b77e53e17f721d172cf4b"
+    },
+    {
+      "path": "evidence/phone-offset.json",
+      "bytes": 1391,
+      "sha256": "12c3df03a3b09f5aac58743ca30cfb63698d02266bf2139a97decea4876073bc"
+    },
+    {
+      "path": "evidence/phone-open.jpg",
+      "bytes": 54415,
+      "sha256": "080baaec3a7bb19eb03a9183b7a548dd13b18ccae0bf6352fc5f8443092acbd3"
+    },
+    {
+      "path": "evidence/phone-paused.json",
+      "bytes": 1695,
+      "sha256": "7b31db67fb9a544b1e8a0c5bfb9bc937c8b1215bdf117f7a124550612c8ab3e5"
+    },
+    {
+      "path": "evidence/phone-shortcuts.json",
+      "bytes": 1583,
+      "sha256": "3fb0fc974a3e090183bc67d497cbe2cfb98aea2bd0143c50b53796c61ecf806e"
+    },
+    {
+      "path": "evidence/phone-unsafe.jpg",
+      "bytes": 54230,
+      "sha256": "3365efe0957b598613eddb05ae1ee67fbe49b39eeb4550afd9633c0be27410da"
+    },
+    {
+      "path": "evidence/phone-unsafe.json",
+      "bytes": 1236,
+      "sha256": "ec0b2cec0ee5a93404c72e60231be461fdb2846f19948d155031fd51b0f06224"
+    }
+  ],
+  "helper": {
+    "cleanup": "Stopped after source/restart preservation; exact identity, exit and port release verified.",
+    "port": 4552,
+    "retained": false,
+    "originalExited": true,
+    "portReleased": true,
+    "preservedFiles": 197,
+    "receipt": "evidence/helper-cleanup.json"
+  }
+}

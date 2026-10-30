@@ -1,0 +1,29 @@
+{
+  "base": "99b95b0888298a53791db3fc5657c4de3002d488",
+  "kind": "Private exact-candidate diagnostic snapshot; no runtime code enters the UI branch",
+  "files": [
+    {
+      "path": "src/runtime/camera.js",
+      "sourceSHA256": "b0b20d453f92d7d158634f7b77c38025cf7ad0e8c1214d66b5e195b852f47f8b",
+      "canonicalSourceSHA256": "567a4b12b102051fcc2f9d3c71cda1a6e23a383f316ce19b9a4c82bb6c7fe67a",
+      "reviewSHA256": "875a5e172d46bfacb9b1c4ebf9938b21904d65eb7567e32976960ba269958703",
+      "adaptation": "Only relocate relative dependency imports into the same private preview origin; keep code behavior unchanged."
+    },
+    {
+      "path": "src/runtime/navigation.js",
+      "sourceSHA256": "070d4465d4a3b1a8fd4dddf48394fb2fe6d752d357db671c805dbd5a99919391",
+      "canonicalSourceSHA256": "15a95724c3dabc264468fe2105c67dee4d4526578d720a8f520c8da7525eb3c7",
+      "reviewSHA256": "47ae4dd97ccf695b653b4a0e95c74ea07eb6e0582b1bfdbd17e810df99c7b68f",
+      "adaptation": "Only relocate relative dependency imports into the same private preview origin; keep code behavior unchanged."
+    },
+    {
+      "path": "src/runtime/door-labels.js",
+      "sourceSHA256": "9ede103c4983187c2fcb2dccba53eb839044293db2a63da826e616fc162ace73",
+      "canonicalSourceSHA256": "9ede103c4983187c2fcb2dccba53eb839044293db2a63da826e616fc162ace73",
+      "reviewSHA256": "9ede103c4983187c2fcb2dccba53eb839044293db2a63da826e616fc162ace73",
+      "adaptation": "Only relocate relative dependency imports into the same private preview origin; keep code behavior unchanged."
+    }
+  ],
+  "candidateCommit": "84928aa802fe1c10f8d6465dd1a058f11618d625",
+  "candidateVerification": "All three original source modules match the exact committed coder candidate after line-ending normalization. Temporary review copies relocate dependency imports only."
+}

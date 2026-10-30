@@ -1,3 +1,4 @@
+import {runDoorChecks} from './door-checks.js';
 import {runMovementChecks} from './movement-checks.js';
 import {mountUI,mountMainMenu,mountTitleScreen,createInterfacePreferences} from '../../src/ui/index.js';
 import {fixture,createFakeSnapshotAdapter,PLACE_FIXTURES,CHARACTER_FIXTURES,explorationFixture} from '../../workbenches/ui/fixtures.js';
@@ -260,8 +261,9 @@ await check('Places offers optional repeat-safe title return and locks it while 
 });
 function makeExplore(name='entrance',withExit=true,preferences){
   const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
-  const commands=[],exits=[],ui=mountUI({root,preferences,mode:'explore',placeTitle:'New York State Building',onCommand:c=>commands.push(c),...(withExit?{onExitToMenu:()=>exits.push(commands.slice())}:{})});
-  ui.update(explorationFixture(name));return{root,ui,commands,exits,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
+  const commands=[],exits=[],ui=mountUI({root,preferences,mode:'explore',placeTitle:'New York State Building',onProjectInteraction:()=>({x:root.clientWidth/2,y:root.clientHeight*.35,visible:true}),onCommand:c=>commands.push(c),...(withExit?{onExitToMenu:()=>exits.push(commands.slice())}:{})});
+  const snapshot=explorationFixture(name);if(snapshot.player.interaction)snapshot.player.interaction={id:'example-door',kind:'door',action:'open',label:'Open door',enabled:true,reason:'',anchor:[10,4.27,8]};
+  ui.update(snapshot);return{root,ui,commands,exits,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
 }
 await check('Main menu renders all catalogue metadata and real preview URLs without a canvas',()=>{
   const canvas=HTMLCanvasElement.prototype.getContext;let calls=0,menu;
@@ -422,9 +424,9 @@ await check('Contextual interaction, Space and E send one edge without changing 
 });
 await check('Exploration ignores combat number keys and preserves repeat-safe contextual button activation',()=>{
   const nav=makeExplore('door');try{
-    const action=nav.find('[data-interact]');action.focus();key(action,'keydown','Enter');key(action,'keydown','Enter',{repeat:true});key(action,'keyup','Enter');
-    equal(nav.commands,[{type:'interact'}]);for(const code of ['Digit1','Digit2','Digit3','Digit4','Digit5','KeyQ','KeyR'])key(action,'keydown',code);
-    equal(nav.commands,[{type:'interact'}]);
+    const action=nav.find('[data-interact]');action.focus();key(action,'keydown','Enter');key(action,'keydown','Enter',{repeat:true});key(action,'keyup','Enter');action.click();
+    equal(nav.commands,[{type:'interact',portalId:'example-door',action:'open'}]);for(const code of ['Digit1','Digit2','Digit3','Digit4','Digit5','KeyQ','KeyR'])key(action,'keydown',code);
+    equal(nav.commands,[{type:'interact',portalId:'example-door',action:'open'}]);
   }finally{nav.close();}
 });
 await check('Return requests cancel movement first; pause-menu return does not reset or resume the visit',()=>{
@@ -498,6 +500,7 @@ await check('The four current test maps request distinct IDs and restore their o
 });
 
 results.push(...await runMovementChecks(host));
+results.push(...await runDoorChecks(host));
 
 for(const r of results){const li=document.createElement('li');li.dataset.status=r.status;li.textContent=(r.status==='pass'?'PASS ':'FAIL ')+r.name+(r.message?' — '+r.message:'');document.querySelector('#checks').append(li);}
 document.querySelector('#summary').textContent=results.filter(r=>r.status==='pass').length+' / '+results.length+' passed';

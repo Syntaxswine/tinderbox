@@ -4,7 +4,7 @@ import {readFileSync, existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
-import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf, navigationOf} from '../../src/ui/model.js';
+import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf, navigationOf, doorInteractionOf} from '../../src/ui/model.js';
 import {fixture} from '../../workbenches/ui/fixtures.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 test('five tool IDs and effect definitions preserve the scene contract', () => {
@@ -84,14 +84,14 @@ test('action feedback distinguishes no-fuel, blocked, range and empty without as
 
 
 test('navigation presents human location and retains native level without inventing storeys',()=>{
-  const snap={version:1,paused:false,player:{level:36,elevation:76.32,locationLabel:'Upper gallery',interaction:{label:'Open door',enabled:true}}},before=JSON.stringify(snap);
+  const snap={version:1,paused:false,player:{level:36,elevation:76.32,locationLabel:'Upper gallery',interaction:{id:'entry',kind:'door',action:'open',label:'Open door',enabled:true,reason:'',anchor:[1,4.27,2]}}},before=JSON.stringify(snap);
   const view=navigationOf(snap);assert.equal(view.locationLabel,'Upper gallery');assert.equal(view.level,36);
-  assert.deepEqual(view.interaction,{label:'Open door',enabled:true});assert.equal(JSON.stringify(snap),before);
+  assert.deepEqual(view.interaction,{id:'entry',kind:'door',action:'open',label:'Open door',enabled:true,reason:'',anchor:[1,4.27,2]});assert.equal(JSON.stringify(snap),before);
   snap.player.elevation=77;assert.deepEqual(navigationOf(snap),view);
 });
 test('navigation accepts a v1 noncombat player and safely disables absent interaction',()=>{
-  assert.deepEqual(navigationOf({version:1,player:{}}),{characterName:null,locationLabel:'Location pending',level:null,interaction:{label:'Interact',enabled:false}});
-  assert.equal(navigationOf({version:1,player:{interaction:{label:'Open door',enabled:'yes'}}}).interaction.enabled,false);
+  assert.deepEqual(navigationOf({version:1,player:{}}),{characterName:null,locationLabel:'Location pending',level:null,interaction:null});
+  assert.equal(navigationOf({version:1,player:{interaction:{label:'Open door',enabled:'yes'}}}).interaction,null);
   assert.throws(()=>navigationOf({version:2,player:{}}),TypeError);
 });
 test('the three place thumbnails retain their pinned artist JPEG bytes and immutable sources',()=>{
@@ -106,4 +106,11 @@ test('navigation names only the authoritative available character or species',()
   }
   assert.equal(navigationOf({version:1,player:{characterId:'horse',species:'bear'}}).characterName,'Horse');
   assert.equal(navigationOf({version:1,player:{characterId:'unknown'}}).characterName,null);
+});
+
+test('door targets copy exact authoritative IDs/actions/anchors and reject partial records',()=>{
+  const input={id:'north',kind:'door',action:'close',label:'Close north door',enabled:false,reason:'Stand clear of the door.',anchor:[2,6.39,3]};const before=JSON.stringify(input),door=doorInteractionOf(input);
+  assert.deepEqual(door,input);assert.notEqual(door.anchor,input.anchor);door.anchor[0]=9;assert.equal(JSON.stringify(input),before);
+  for(const patch of [{id:''},{kind:'passage'},{action:'toggle'},{label:' '},{enabled:1},{anchor:[1,2]},{anchor:[1,NaN,2]}])assert.equal(doorInteractionOf({...input,...patch}),null);
+  assert.equal(doorInteractionOf(null),null);assert.equal(doorInteractionOf({label:'Open door',enabled:true}),null);
 });

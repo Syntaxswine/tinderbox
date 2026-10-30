@@ -1,0 +1,71 @@
+{
+  "button": {
+    "disabled": true,
+    "hidden": true
+  },
+  "record": {
+    "camera": {
+      "followPlayer": true,
+      "mode": "follow",
+      "span": 13.65,
+      "target": [
+        62,
+        1.590000033378601,
+        19.99999999999962
+      ],
+      "zoom": 1
+    },
+    "candidateRuntime": true,
+    "commands": [
+      {
+        "action": "open",
+        "portalId": "admin-front",
+        "type": "interact"
+      },
+      {
+        "action": "close",
+        "portalId": "admin-front",
+        "type": "interact"
+      },
+      {
+        "action": "open",
+        "portalId": "admin-front",
+        "type": "interact"
+      },
+      {
+        "type": "cancel-input"
+      },
+      {
+        "paused": true,
+        "type": "pause"
+      },
+      {
+        "type": "cancel-input"
+      },
+      {
+        "paused": false,
+        "type": "pause"
+      }
+    ],
+    "interaction": null,
+    "mode": "Actual source navigation/camera, SVG diagnostic",
+    "player": {
+      "elevation": 1.590000033378601,
+      "x": 62,
+      "y": 19.99999999999962
+    },
+    "portalOpen": true,
+    "projection": {
+      "anchor": [
+        62,
+        4.27,
+        32
+      ],
+      "visible": true,
+      "x": 605.2471325896421,
+      "y": 323.2622945843003
+    },
+    "updates": 5495
+  },
+  "status": "Approach stairs · 1.59 m · No nearby door"
+}

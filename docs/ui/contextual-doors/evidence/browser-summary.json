@@ -1,0 +1,43 @@
+{
+  "viewports": [
+    {
+      "name": "desktop-1280x800",
+      "width": 1280,
+      "height": 800,
+      "passed": 89,
+      "total": 89,
+      "failed": []
+    },
+    {
+      "name": "phone-390x844",
+      "width": 390,
+      "height": 844,
+      "passed": 89,
+      "total": 89,
+      "failed": []
+    },
+    {
+      "name": "small-phone-320x568",
+      "width": 320,
+      "height": 568,
+      "passed": 89,
+      "total": 89,
+      "failed": []
+    },
+    {
+      "name": "landscape-844x390",
+      "width": 844,
+      "height": 390,
+      "passed": 89,
+      "total": 89,
+      "failed": []
+    }
+  ],
+  "runtimeCandidate": "84928aa802fe1c10f8d6465dd1a058f11618d625",
+  "runtimeCopies": "Private ignored copies; canonical originals verified against the exact coder commit; dependency imports relocated only",
+  "sourceFixture": "tests/ui/door-review.html; default imports work after architect combines the coder candidate",
+  "nativeInputs": "Trusted browser mouse clicks and keyboard Enter/Space/E/Escape; synthetic PointerEvents cover touch/pen in the regression suite",
+  "rendering": "Actual source navigation/camera with an SVG plan; no WebGL world or streaming acceptance",
+  "temporaryTab": "22",
+  "consoleErrorsAndWarnings": 0
+}

@@ -1,0 +1,74 @@
+{
+  "mode": "Actual source navigation/camera, SVG diagnostic",
+  "candidateRuntime": true,
+  "updates": 321,
+  "paused": false,
+  "player": {
+    "x": 62,
+    "y": 32.00000000000007,
+    "elevation": 2.12
+  },
+  "interaction": {
+    "id": "admin-front",
+    "kind": "door",
+    "action": "close",
+    "label": "Close front doors",
+    "enabled": false,
+    "reason": "Move clear of the door.",
+    "anchor": [
+      62,
+      4.27,
+      32
+    ]
+  },
+  "portalOpen": true,
+  "camera": {
+    "target": [
+      62,
+      2.12,
+      32.00000000000007
+    ],
+    "span": 11.55,
+    "zoom": 1,
+    "mode": "follow",
+    "followPlayer": true
+  },
+  "commands": [
+    {
+      "type": "interact",
+      "portalId": "admin-front",
+      "action": "open"
+    }
+  ],
+  "activations": [
+    {
+      "type": "click",
+      "code": "",
+      "trusted": true
+    }
+  ],
+  "uiRoot": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 844
+  },
+  "button": {
+    "hidden": false,
+    "disabled": true,
+    "x": 96.0625,
+    "y": 300.71875,
+    "width": 197.875,
+    "height": 74.546875
+  },
+  "projection": {
+    "anchor": [
+      62,
+      4.27,
+      32
+    ],
+    "x": 195.00000000000048,
+    "y": 385.2803059253827,
+    "visible": true
+  }
+}
