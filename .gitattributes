@@ -14,6 +14,10 @@
 /assets/art/exposition-new-york-tile/.gitattributes text eol=lf
 /assets/art/exposition-new-york/.gitattributes text eol=lf
 # Authored row/torch consumers; protected source snapshots above stay byte exact.
+# Authored fire modules are fetched with exact Git-LF manifest hashes for review.
+/assets/art/fire-realism/geometry.js text eol=lf
+/assets/art/fire-realism/index.js text eol=lf
+/assets/art/fire-realism/shaders.js text eol=lf
 /src/art/row-house.js text eol=lf
 /src/art/carried-torch.js text eol=lf
 /src/art/neighborhood.js text eol=lf
