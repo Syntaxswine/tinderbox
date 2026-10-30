@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/contextual-doors` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | TB-033: contextual-door contract, exact intake, combined QC and promotion |
-| Artist | `codex/medicine-pickup-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Completed access/medicine candidates; no new art assigned for door correction |
-| Coder | Assigned `codex/contextual-doors-coder` from `99b95b0` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-031: authoritative reachable door actions and camera projection; preserve gallery WIP separately |
-| UI designer | Assigned `codex/contextual-doors-ui` from `99b95b0` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-032: floating Open/Close button and actual browser input evidence |
+| Architect | `codex/fire-realism` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | TB-037: reference contract, exact intake, independent visual/cost QC and promotion |
+| Artist | Assigned `codex/fire-realism-art` from `dc7f537` after preserving active aquarium work | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | TB-034: reference evidence and high/optimized visual factories |
+| Coder | Assigned `codex/fire-realism-coder` from `dc7f537` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-035: fire adapters, reproducible scene driver, profiling and performance optimization; preserve exterior-ghost/gallery candidates |
+| UI designer | Assigned `codex/fire-realism-ui` from `dc7f537` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-036: reference/A-B review UI, independent visual critique and HUD readability |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current focused correction is [Milestone 10](milestones/10-contextual-doors.md), from published `99b95b0`. TB-031 and TB-032 are assigned to the existing coder/UI workers; TB-033 is the architect's combined gate. The completed movement correction remains part of the base. No gallery WIP or new asset intake belongs to this task.
+The active ongoing goal is [Milestone 11](milestones/11-realistic-fire.md), from published `dc7f537`: verified public-domain references, quality-first detailed fire, then matched visuals at 20–33% of measured rendering cost. TB-034/035/036 use the existing artist/coder/UI workers; TB-037 is the architect's independent gate. The earlier door and movement corrections remain in the base. Unrelated active worker candidates stay preserved separately.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 

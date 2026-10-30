@@ -16,6 +16,7 @@
 - Drugs and medicine activate automatically when the player walks over their world pickups. The accepted six-button UI has no manual drug controls; simulation, ground art and HUD must agree on one-time collection.
 - Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. The user has now requested playable interiors and stairs for the landmark visits. Combine tile-based world structure with free movement.
 - Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
+- The ongoing realistic-fire goal uses verified public-domain color references, a visually approved higher-polygon baseline and matched lower-cost iteration. The optimized result must retain quality at 20–33% of measured reference rendering cost; actual animated WebGL and hardware cost evidence are required. See [Milestone 11](milestones/11-realistic-fire.md).
 - Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
 - Monroe row houses join consecutively at their native frontage. Joining sides have no windows; side windows belong on exposed row ends.
 
