@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "policy": {
+    "status": "user-approved",
+    "requirementOrigin": "User requested aquarium tanks be destroyed when hit by a bullet.",
+    "trigger": "bullet-hit",
+    "hitsRequired": 1,
+    "states": [
+      "intact",
+      "destroyed"
+    ],
+    "response": "Shattered glazing, drained water and static glass/debris art",
+    "simulationOwner": "coder",
+    "selectionPaddingMetres": 0.45
+  },
+  "tanksTested": [
+    {
+      "assetId": "aquarium-small",
+      "intactTriangles": 860,
+      "destroyedTriangles": 1492,
+      "noResourceGrowth": true
+    },
+    {
+      "assetId": "aquarium-large",
+      "intactTriangles": 1012,
+      "destroyedTriangles": 1644,
+      "noResourceGrowth": true
+    },
+    {
+      "assetId": "aquarium-inner",
+      "intactTriangles": 1088,
+      "destroyedTriangles": 2364,
+      "noResourceGrowth": true
+    }
+  ],
+  "independentVenueTanks": 50,
+  "raycastHitsChecked": 9,
+  "checks": [
+    "All three tank types have usable intact/destroyed variants",
+    "One selected target changes while 49 other tanks retain identical geometry",
+    "Intact glass, water and swimming fish leave the raycast/draw prefix",
+    "Current instanceId metadata remains valid after compaction",
+    "Repeated hit presentation is idempotent; reset restores exact initial geometry",
+    "State changes create no new geometry, material or instance objects",
+    "Owned resources dispose once; intact dimensions remain unchanged"
+  ],
+  "limits": [
+    "Presentation/contract checks only. A live bullet-impact, collider update and persistence implementation remain coder-owned."
+  ]
+}

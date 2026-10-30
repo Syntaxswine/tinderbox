@@ -1,0 +1,31 @@
+{
+  "name": "aquarium-destruction",
+  "path": "docs/art/landmark-interiors/previews/aquarium-destruction.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0.3,
+      1,
+      0
+    ],
+    "origin": [
+      12,
+      10,
+      -18
+    ],
+    "halfWidth": 10.5
+  },
+  "triangles": 8460,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Back row: intact tanks. Front row: shattered glazing, drained bays and settled glass. All three sizes retain their native supports.",
+  "limitations": [
+    "Actual generated furnishing prototype meshes at metre scale.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh intact/destroyed variants for all three sizes, openings, drained water, settled glass and framing.",
+  "sha256": "fd2f4fd4b1afe339bf754ba0bef14a9efdecf9de2125ef27fa47b5da116ae131"
+}

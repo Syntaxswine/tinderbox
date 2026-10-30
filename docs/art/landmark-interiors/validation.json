@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-30T02:59:34.897096+00:00",
+  "checkedAt": "2026-10-30T03:28:06.132110+00:00",
   "branch": "codex/landmark-interiors-art",
   "baseCommit": "988b4aca32343c9f2e566db74bb018c705820742",
   "checks": [
@@ -13,18 +13,18 @@
       "passed": true,
       "tests": 85,
       "failures": 0,
-      "summary": "94 own scripts pass syntax; 146 static modules resolve; one shared Three pair and provenance pass."
+      "summary": "95 own scripts pass syntax; 148 static modules resolve; one shared Three pair and provenance pass."
     },
     {
       "command": "node tools/build.mjs",
       "passed": true,
-      "summary": "Built playable Tinderbox in dist/: 177 files, 52748564 bytes.",
-      "manifestSha256": "64f88f3084a9509710046c434eedcfa4b686e6f824cfb95da30043e5bb3d5c73"
+      "summary": "Built playable Tinderbox in dist/: 178 files, 52756741 bytes. All resource URLs are relative to the project path.",
+      "manifestSha256": "9510afde18b7cc3097c1aabc7d3ede0ca434a350c2feb50edab625c13d3f21f4"
     },
     {
       "command": "node art/source/landmark-interiors/check-package.mjs",
       "passed": true,
-      "packagedRuntimeFiles": 7,
+      "packagedRuntimeFiles": 8,
       "dependencyFiles": 2,
       "venuesConstructed": 4,
       "sourcePhotosPackaged": false,
@@ -42,6 +42,11 @@
     {
       "command": "git diff --cached --check",
       "passed": true
+    },
+    {
+      "command": "node workbenches/art/check-aquarium-destruction.mjs",
+      "passed": true,
+      "evidence": "docs/art/landmark-interiors/tank-destruction-checks.json"
     }
   ],
   "previews": [
@@ -104,10 +109,15 @@
       "path": "docs/art/landmark-interiors/previews/reception-library.jpg",
       "sha256": "69de05971e46a959ac49d936ddd51614f9ff955fea29184daec1a77f7e0b4dfc",
       "triangles": 5912
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/aquarium-destruction.jpg",
+      "sha256": "fd2f4fd4b1afe339bf754ba0bef14a9efdecf9de2125ef27fa47b5da116ae131",
+      "triangles": 8460
     }
   ],
   "helperCleanup": {
-    "finiteDownloadAndRenderReceipts": 8,
+    "finiteDownloadAndRenderReceipts": 9,
     "retainedHelpers": 0,
     "exactLiveMatches": 0,
     "networkServersStarted": 0
@@ -124,5 +134,12 @@
     "art/source/landmark-interiors/",
     "docs/art/landmark-interiors/",
     "workbenches/art/check-landmark-interiors.mjs"
-  ]
+  ],
+  "followUp": {
+    "baseCommit": "0bf8ecb7af49a064cc64d3672e910254238cd485",
+    "requirement": "A single bullet hit destroys the struck aquarium tank.",
+    "artImplemented": true,
+    "liveBulletCollisionImplemented": false,
+    "checks": "docs/art/landmark-interiors/tank-destruction-checks.json"
+  }
 }

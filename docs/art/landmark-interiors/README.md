@@ -1,6 +1,6 @@
 # Landmark interior art — native Nautilus candidate
 
-The artist delivery adds 64 partition runs and 386 placed furnishings/decorations across 65 defined spaces in New York State, Administration, Horticulture and Fisheries. It includes 35 independently reusable prop types, warm wood and cream/gold finishes, soda-green glass, source evidence and twelve JPG reviews. Existing exterior assets, stairs, floors and occupied heights retain their recorded source geometry.
+The artist delivery adds 64 partition runs and 386 placed furnishings/decorations across 65 defined spaces in New York State, Administration, Horticulture and Fisheries. It includes 35 independently reusable prop types, warm wood and cream/gold finishes, soda-green glass, source evidence and thirteen JPG reviews. Existing exterior assets, stairs, floors and occupied heights retain their recorded source geometry.
 
 Candidate branch: `codex/landmark-interiors-art`, based on `988b4aca32343c9f2e566db74bb018c705820742`. The exact delivery commit is the commit containing this record. This is an artist candidate for deliberate architect intake; production placement, collision, door interaction, camera occlusion, streaming and fuel assignments remain separate.
 
@@ -39,6 +39,7 @@ These are renders of actual generated meshes. Venue cutaways include source floo
 | Horticulture dome | [Crystal Cave close cutaway](previews/horticulture-grotto.jpg) |
 | Fisheries angling | [Native radial installation dividers](previews/fisheries-angling.jpg) |
 | Fisheries aquarium | [Concentric tanks and central pool](previews/fisheries-aquarium.jpg) |
+| Aquarium destruction | [Intact and shattered versions of all three tank sizes](previews/aquarium-destruction.jpg) |
 
 ## Native contract and consumer API
 
@@ -90,6 +91,31 @@ Horticulture requires hiding the exact 90 IDs in `getInteriorPlan('horticulture'
 
 The Fisheries original is a separate artist candidate. Construct its pinned factory with **`includeExhibits:false`**, then add the complete new Fisheries interior. Avoid combining the old aquarium displays with the replacement. The ignored Git-blob fixture exists only for offline review; it is not a runtime dependency or a silent production intake. The warm Horticulture/Fisheries branch has not been merged into this branch.
 
+## Accepted aquarium destruction requirement
+
+The user requires **one bullet hit to destroy the struck aquarium tank**. This applies independently to all 40 outer tanks and ten inner tanks. The catalogue, manifest and Fisheries plan record it as a user-approved rule, rather than a proposed feature. Damage detection and authoritative game state remain the coder's responsibility; a live bullet-impact path has not been added by this art delivery.
+
+All three tank prototypes now include intact and destroyed art. Destroyed tanks lose their full glass panes, standing water and swimming-fish presentation; jagged pane remnants, fallen glass, a small settled spill and fallen-fish art replace them. The existing supports, metre scale and floor heights remain. These are static aftermath cues; no flooding simulation, floor hazard or fish-survival rule is decided here.
+
+Both factories expose `metadata.damageTargets`, `getTankState(id)` and `setTankDestroyed(id, destroyed = true)`. A confirmed hit uses the stable per-tank ID:
+
+```js
+// The coder first confirms the bullet hit and records the authoritative destroyed state.
+interior.setTankDestroyed('fish-inner-tank-7');
+// Returns false on a repeated call, without replaying or rebuilding the effect.
+interior.setTankDestroyed('fish-inner-tank-7');
+// Restore the visual when the owning game resets its authoritative state.
+interior.setTankDestroyed('fish-inner-tank-7', false);
+```
+
+`createInteriorProp(...,{assetId:'aquarium-large',destroyed:true})` creates a standalone aftermath model. `createVenueInterior(...,{venueId:'fisheries',destroyedTankIds:[...]})` restores initial state for selected loaded tanks. Unknown or unselected IDs fail explicitly. The live `bounds` updates after a state change; frozen `metadata.bounds` records the initial presentation. Section selection reserves an additional .45 m around tank bounds for settled debris.
+
+For a Three raycast, read `hit.object.userData.parts[hit.instanceId].damageTargetId` on an instanced mesh, or `hit.object.userData.damageTargetId` on a plain mesh. Resolve the **current** parts array for each hit: changing a tank compacts active instance buffers and may change `instanceId`. Stable tank and component IDs do not change. Inactive panes and water leave the draw/raycast prefix; no zero-scale meshes are used. State changes create no new geometry, material or instance objects, and neighboring tanks keep their current state. Driver upload/performance still needs the combined WebGL review.
+
+The collision adapter must remove broken pane/water volumes and derive remaining support colliders from the surviving components. Cosmetic spill and shard records have `blocking:false`; this does not grant them gameplay hazard behavior. The old full-tank AABB must not remain as an invisible intact-glass barrier. The art does not perform bullet collision, alter physical state, save a destroyed flag, or infer fire/explosion triggers.
+
+The dedicated [destruction checks](tank-destruction-checks.json) and [actual-mesh preview](previews/aquarium-destruction.jpg) verify isolated state changes, all three variants, repeated calls, exact resets, current raycast IDs and resource retirement. Runtime bullet behavior and combined-game browser acceptance remain pending coder/architect intake. This follow-up is based on the original interior art checkpoint `0bf8ecb7af49a064cc64d3672e910254238cd485`.
+
 ## Evidence and verification
 
 Historical originals and their creator/date/rights fields, page locators, SHA-256 values, direct observations and adaptations are in the source register. The committed research JPGs are derivatives of public-domain 1893/1894 publications. No archival photograph is a runtime texture. The AIC photograph, catalogued n.d. with publication contact restrictions, is linked and hashed but not redistributed. Provenance does not grant rights beyond the recorded source evidence.
@@ -101,6 +127,7 @@ Run from the assigned artist checkout:
 ```text
 node art/source/landmark-interiors/prepare-source-fixtures.mjs
 node workbenches/art/check-landmark-interiors.mjs
+node workbenches/art/check-aquarium-destruction.mjs
 node art/source/landmark-interiors/check-tower-fit.mjs
 node tools/check.mjs
 node tools/build.mjs

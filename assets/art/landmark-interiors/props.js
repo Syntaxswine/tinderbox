@@ -61,13 +61,30 @@ export function buildProp(T,f,parent,id,assetId,{labelText}={}){
  function fish(n,x,y,z,variant=0){const outline=[[-.38,0],[-.22,.12],[.08,.17],[.33,.06],[.39,0],[.27,-.09],[-.12,-.12],[-.30,-.03],[-.48,-.16],[-.45,.15]];f.profile(g,name(n),outline,.11,x,y,z,variant?'ochre':'ivory');ell(n+'/eye',.035,.035,.015,x+.26,y+.045,z-.065,'ink',0);}
  function tank(kind){const inner=kind==='inner',w=kind==='small'?1.6:kind==='large'?3.2:4.74,d=inner?2.6:1.6;
   const poly=inner?[[-1.83,-1.3],[1.83,-1.3],[2.37,1.3],[-2.37,1.3]]:[[-w/2,-d/2],[w/2,-d/2],[w/2,d/2],[-w/2,d/2]];
+  const tag=(start,state,blocking)=>{for(const m of f.meshes.slice(start)){m.userData.visualState=state;if(blocking!==undefined)m.userData.blocking=blocking;}};
   f.prism(g,name('stone-plinth'),poly,.46,0,.23,0,'stone');f.prism(g,name('tank-bed'),poly,.10,0,.51,0,'soil');
   for(let j=0;j<poly.length;j++){const a=poly[j],b=poly[(j+1)%poly.length],A=[a[0],2.18,a[1]],B=[b[0],2.18,b[1]];beam('top-frame-'+j,A,B,.055,'woodDark');beam('bottom-frame-'+j,[a[0],.52,a[1]],[b[0],.52,b[1]],.05,'woodDark');beam('pier-'+j,[a[0],.46,a[1]],[a[0],2.6,a[1]],.075,'stone');
-   const len=Math.hypot(b[0]-a[0],b[1]-a[1]),face=box('pane-'+j,len-.12,1.58,.025,(a[0]+b[0])/2,1.36,(a[1]+b[1])/2,(j===0||(inner&&j===2))?'glass':'woodDark');face.rotation.y=-Math.atan2(b[1]-a[1],b[0]-a[0]);}
+   const len=Math.hypot(b[0]-a[0],b[1]-a[1]),glazed=j===0||(inner&&j===2),yaw=-Math.atan2(b[1]-a[1],b[0]-a[0]),cx=(a[0]+b[0])/2,cz=(a[1]+b[1])/2,face=box('pane-'+j,len-.12,1.58,.025,cx,1.36,cz,glazed?'glass':'woodDark');face.rotation.y=yaw;if(glazed)face.userData.visualState='intact';
+   if(glazed){const W=(len-.12)/2,H=1.58,start=f.meshes.length,pieces=[
+    [[-W,0],[W,0],[W,.18],[W*.60,.07],[W*.32,.29],[W*.08,.06],[-W*.23,.20],[-W*.57,.05],[-W,.18]],
+    [[-W,H],[W,H],[W,H-.14],[W*.72,H-.07],[W*.43,H-.36],[W*.1,H-.10],[-W*.3,H-.26],[-W*.62,H-.08],[-W,H-.24]],
+    [[-W,.30],[-W+.14,.47],[-W+.08,.80],[-W+.22,1.00],[-W+.06,1.18],[-W,1.25]],
+    [[W,.34],[W-.16,.55],[W-.06,.76],[W-.20,.96],[W-.07,1.17],[W,1.30]]];
+    for(const [k,points]of pieces.entries()){const m=f.profile(g,name('broken-pane-'+j+'-'+k),points,.025,cx,.57,cz,'glass');m.rotation.y=yaw;for(let q=1;q<points.length;q++){const pa=points[q-1],pb=points[q],world=v=>[cx+v[0]*Math.cos(yaw),.57+v[1],cz-v[0]*Math.sin(yaw)];beam('glass-cut-edge-'+j+'-'+k+'-'+q,world(pa),world(pb),.007,'ivory',4);}}
+    const sign=j===0?-1:1;
+    // Small settled spill and glass are art cues; they assign no floor hazard or flood rule.
+    const puddle=ell('settled-spill-'+j,Math.min(w,2.4),.012,.60,0,.008,sign*(d/2+.16),'water',1);puddle.userData.blocking=false;
+    for(let k=0;k<7;k++){const x=(k-3)*Math.min(.27,w/8),z=sign*(d/2+.04+(k%3)*.10),points=[[-.09,0],[.10,.04],[.02,.18]],m=f.profile(g,name('fallen-shard-'+j+'-'+k),points,.012,x,.025,z,'glass');m.rotation.x=-Math.PI/2;m.rotation.y=k*.71;}
+    tag(start,'destroyed',false);
+   }
+  }
   f.prism(g,name('tank-canopy'),poly,.34,0,2.48,0,'woodDark');
-  for(let j=0;j<(inner?5:kind==='large'?4:2);j++){const x=(j-((inner?5:kind==='large'?4:2)-1)/2)*.48;fish('fish-'+j,x,.93+(j%3)*.27,-.06,j%2);ell('submerged-rock-'+j,.35,.4,.30,x,.68,.35,'stone',0);}
-  box('tank-water',inner?3.4:w-.24,.025,d-.22,0,1.96,0,'water');box('tank-label',Math.min(1.0,w-.3),.18,.03,0,.24,-d/2-.012,'ivory');label('FISH',0,.19,-d/2-.034,.68,.10);
+  for(let j=0;j<(inner?5:kind==='large'?4:2);j++){const x=(j-((inner?5:kind==='large'?4:2)-1)/2)*.48,start=f.meshes.length;fish('fish-'+j,x,.93+(j%3)*.27,-.06,j%2);tag(start,'intact');ell('submerged-rock-'+j,.35,.4,.30,x,.68,.35,'stone',0);
+   const fallen=f.meshes.length,offset=f.meshes.length;fish('fallen-fish-'+j,x,.61,-.10,j%2);for(const m of f.meshes.slice(offset)){m.rotation.x=Math.PI/2;}tag(fallen,'destroyed',false);
+  }
+  box('tank-water',inner?3.4:w-.24,.025,d-.22,0,1.96,0,'water').userData.visualState='intact';box('tank-label',Math.min(1.0,w-.3),.18,.03,0,.24,-d/2-.012,'ivory');label('FISH',0,.19,-d/2-.034,.68,.10);
  }
+
  switch(assetId){
  case 'renaissance-armchair':armchair('chair');break;
  case 'renaissance-settee':

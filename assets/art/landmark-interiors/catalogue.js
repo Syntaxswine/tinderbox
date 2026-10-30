@@ -1,3 +1,4 @@
+import {TANK_DESTRUCTION} from './tank-state.js';
 import {PROP_METRICS} from './prop-metrics.js';
 const deepFreeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(deepFreeze);Object.freeze(v);}return v;};
 const def=(id,name,size,sourceIds,options={})=>Object.freeze({id,name,size:Object.freeze(PROP_METRICS[id]?.measuredSize||size),sourceIds:Object.freeze(sourceIds),attachment:'floor',blocking:true,origin:'Source-local floor datum; +Y up, front -Z. No placement scale.',collisionHint:'Consumer-owned. Use component geometry or a fitted compound proxy; the measured AABB is for selection, not a solid collider.',interpretation:'Simplified period form; exact dimensions and repeated placement are authored.',...options,...(PROP_METRICS[id]||{})});
@@ -29,9 +30,9 @@ export const PROP_CATALOGUE=deepFreeze([
  def('net-and-buoy-rack','Fishing net and buoy exhibit',[2.8,2.35,.8],['INT-FISH-PLAN']),
  def('rod-case','Angling rod and reel showcase',[3.2,2.42,.75],['INT-FISH-PLAN']),
  def('skiff-on-cradle','Planked skiff and oars on timber cradles',[4.9,1.4,1.6],['INT-FISH-PLAN']),
- def('aquarium-small','Small outer aquarium tank',[1.6,2.65,1.6],['INT-FISH-FORBES']),
- def('aquarium-large','Large outer aquarium tank',[3.2,2.65,1.6],['INT-FISH-FORBES']),
- def('aquarium-inner','Double-faced inner aquarium bay',[4.74,2.65,2.6],['INT-FISH-FORBES'],{footprint:[[-1.83,-1.3],[1.83,-1.3],[2.37,1.3],[-2.37,1.3]]}),
+ def('aquarium-small','Small outer aquarium tank',[1.6,2.65,1.6],['INT-FISH-FORBES'],{destruction:TANK_DESTRUCTION}),
+ def('aquarium-large','Large outer aquarium tank',[3.2,2.65,1.6],['INT-FISH-FORBES'],{destruction:TANK_DESTRUCTION}),
+ def('aquarium-inner','Double-faced inner aquarium bay',[4.74,2.65,2.6],['INT-FISH-FORBES'],{destruction:TANK_DESTRUCTION,footprint:[[-1.83,-1.3],[1.83,-1.3],[2.37,1.3],[-2.37,1.3]]}),
  def('aquarium-pool','Central pool, rocks and reeds',[8.4,3.1,8.4],['INT-FISH-FORBES','INT-FISH-CONKEY']),
  def('wall-clock','Pendulum office clock',[.6,1.12,.22],['INT-ADMIN-HUNT'],{attachment:'wall',blocking:false}),
  def('coffer-panel','Cream and gold ceiling coffer',[2,.22,2],['INT-NY-BANQUET'],{attachment:'ceiling',blocking:false}),

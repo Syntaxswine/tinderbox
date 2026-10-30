@@ -5,6 +5,7 @@ import {createVenueInterior,createInteriorProp} from '../../../assets/art/landma
 import {sourceParts,collectParts,clipBounds} from './review-geometry.mjs';
 const out=path.resolve('artifacts/landmark-interiors/renders');fs.mkdirSync(out,{recursive:true});
 const specs=[
+ {name:'aquarium-destruction',title:'Aquarium | intact and destroyed tank states',camera:{target:[.3,1.0,0],origin:[12,10,-18],halfWidth:10.5},props:[['aquarium-small',-4.5,0,2.2],['aquarium-large',0,0,2.2],['aquarium-inner',5.1,0,2.2],['aquarium-small',-4.5,0,-2.2,true],['aquarium-large',0,0,-2.2,true],['aquarium-inner',5.1,0,-2.2,true]],caption:'Back row: intact tanks. Front row: shattered glazing, drained bays and settled glass. All three sizes retain their native supports.'},
  {name:'reception-library',title:'Nautilus interiors | reception and banquet furnishings',camera:{target:[0,1.0,0],origin:[7,6,-10],halfWidth:5.7},props:[['marble-fireplace',-3,0,1],['renaissance-settee',.2,0,1],['renaissance-armchair',2.7,0,.7],['banquet-table',-.7,0,-1.5],['electric-chandelier',-.7,2.65,-1.5]],caption:'Carved seating, marble chimneypiece, linen table settings and brass electric globes; new authored meshes at metre scale.'},
  {name:'office-library',title:'Nautilus interiors | administrative and medical furnishings',camera:{target:[0,1,.2],origin:[8,7,-12],halfWidth:6.5},props:[['pigeonhole-cabinet',-3.6,0,2.0],['pharmacy-cabinet',-1.2,0,2.0],['document-safe',1.2,0,2.0],['ledger-bookcase',3.5,0,2.0],['service-counter',-3.4,0,-1.4],['writing-desk',-.8,0,-1.4],['iron-cot',2.3,0,-1.3],['washstand',4.1,0,-1.3]],caption:'Mail sorting, counters, records, pharmacy storage and ambulance furniture; period interpretations of the source-labeled rooms.'},
  {name:'horticulture-library',title:'Nautilus interiors | horticultural exhibition furnishings',camera:{target:[0,2.7,0],origin:[10,9.7,-13],halfWidth:8.0},props:[['orange-tower',-2,0,1],['wardian-case',1.4,0,1],['potting-bench',3.8,0,1],['fruit-stand',-.5,0,-2],['cafe-table-set',3.5,0,-2]],caption:'Photo-derived orange tower and tiered fruit displays, botanical case, potting bench and gallery cafe furniture.'},
@@ -22,7 +23,7 @@ function recordsOf(parts){const groups=new Map();let triangles=0;for(const p of 
 const indexFile=path.join(out,'index.json'),index=fs.existsSync(indexFile)?JSON.parse(fs.readFileSync(indexFile)):[];
 for(const spec of specs.filter(s=>!process.argv[2]||s.name===process.argv[2])){
  const root=new T.Group(),owners=[];
- try{if(spec.props){for(const [assetId,x,y,z]of spec.props){const m=createInteriorProp(T,{assetId});m.root.position.set(x,y,z);root.add(m.root);owners.push(m);}}
+ try{if(spec.props){for(const [assetId,x,y,z,destroyed=false]of spec.props){const m=createInteriorProp(T,{assetId,destroyed});m.root.position.set(x,y,z);root.add(m.root);owners.push(m);}}
  else{const m=createVenueInterior(T,{venueId:spec.venueId,levels:spec.levels,sectionBounds:spec.section,includeCeilings:true});root.add(m.root);owners.push(m);}
  let parts=collectParts(root,'new-interior').filter(p=>p.data.assetId!=='coffer-panel'&&p.data.assetId!=='opal-pendant'&&p.data.assetId!=='classical-wall-panel');
  if(spec.venueId){const y=spec.levels[0]*2.12,box=spec.section||{min:[-41,y-.13,-12],max:[41,y+6.2,36]},limit={min:[box.min[0],y-.13,box.min[2]],max:[box.max[0],Math.min(box.max[1],y+8),box.max[2]]};

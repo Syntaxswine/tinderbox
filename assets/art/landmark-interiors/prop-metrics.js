@@ -586,7 +586,7 @@ export const PROP_METRICS = {
       1.75
     ],
     "prototypeTriangles": 860,
-    "sourceParts": 45
+    "sourceParts": 87
   },
   "aquarium-large": {
     "bounds": {
@@ -607,7 +607,7 @@ export const PROP_METRICS = {
       1.75
     ],
     "prototypeTriangles": 1012,
-    "sourceParts": 51
+    "sourceParts": 97
   },
   "aquarium-inner": {
     "bounds": {
@@ -628,7 +628,7 @@ export const PROP_METRICS = {
       2.75
     ],
     "prototypeTriangles": 1088,
-    "sourceParts": 54
+    "sourceParts": 140
   },
   "aquarium-pool": {
     "bounds": {

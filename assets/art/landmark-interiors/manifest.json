@@ -50,6 +50,22 @@
     "red",
     "ochre"
   ],
+  "aquariumTankDestruction": {
+    "status": "user-approved",
+    "requirementOrigin": "User requested aquarium tanks be destroyed when hit by a bullet.",
+    "trigger": "bullet-hit",
+    "hitsRequired": 1,
+    "states": [
+      "intact",
+      "destroyed"
+    ],
+    "response": "Shattered glazing, drained water and static glass/debris art",
+    "simulationOwner": "coder",
+    "selectionPaddingMetres": 0.45,
+    "targets": 50,
+    "presentationStatesImplemented": true,
+    "liveBulletImpactWiringImplemented": false
+  },
   "prototypeCount": 35,
   "venues": [
     {
@@ -206,12 +222,12 @@
         ]
       },
       "disposed": false,
-      "meshes": 120,
-      "geometries": 116,
+      "meshes": 212,
+      "geometries": 208,
       "materials": 15,
       "ownedTextures": 0,
-      "instances": 116,
-      "sourceParts": 4349,
+      "instances": 208,
+      "sourceParts": 6953,
       "triangles": 93144,
       "nativeWalls": 128,
       "cutWalls": 0,
@@ -226,8 +242,8 @@
   "runtimeFiles": [
     {
       "path": "assets/art/landmark-interiors/catalogue.js",
-      "bytes": 4649,
-      "sha256": "4b104a0421d8d558de7b977c61d6bc62e57da9eba668514aa299fd89efdc9147"
+      "bytes": 4790,
+      "sha256": "cb4123d7e73899fdee001577065fa9c2cde56e18426cfa466068566f8a9f60f6"
     },
     {
       "path": "assets/art/landmark-interiors/engine.js",
@@ -236,8 +252,8 @@
     },
     {
       "path": "assets/art/landmark-interiors/index.js",
-      "bytes": 11999,
-      "sha256": "dd86697f3ac0c9e2da3d433dfdcfba6c3fb4d2fe3fd3ae3320c80791a5f53740"
+      "bytes": 13626,
+      "sha256": "6a75b65f7b709eb03658bafa63782ee0f9404c7dfff747c67f4eaa0980790f71"
     },
     {
       "path": "assets/art/landmark-interiors/nautilus-assembly.json",
@@ -246,18 +262,23 @@
     },
     {
       "path": "assets/art/landmark-interiors/plans.js",
-      "bytes": 259269,
-      "sha256": "a0bb474db08ee3ffd01c2188c1c5077c3d6ec57c501c1a14410e8498d955e8e8"
+      "bytes": 259975,
+      "sha256": "d8a3b2af733509c869bb2819bcf1edb4e2ddb4a6b069abacb922a15816f44d2b"
     },
     {
       "path": "assets/art/landmark-interiors/prop-metrics.js",
-      "bytes": 10584,
-      "sha256": "d522e62f65feed136b4e36cc73aafacaee176517a67ad1d5bf4bead550dfd7c3"
+      "bytes": 10585,
+      "sha256": "03c01316568b7b8d38953d137151b61a15f8740f9840068d1262dba678c56f43"
     },
     {
       "path": "assets/art/landmark-interiors/props.js",
-      "bytes": 24164,
-      "sha256": "828494c4cdaa65331b69b98bd948ae230d06d122a0237c9996072d596f9c1caf"
+      "bytes": 25984,
+      "sha256": "977b539eee79f9574aee1d1b08656313032ee5b02e22681001284893da945bf1"
+    },
+    {
+      "path": "assets/art/landmark-interiors/tank-state.js",
+      "bytes": 3178,
+      "sha256": "0ddc4feab51828163fd492f09654279d7892d7d59bb7c0a1634c1de801843a3d"
     }
   ],
   "dependencies": [

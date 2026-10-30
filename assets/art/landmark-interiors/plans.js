@@ -11690,10 +11690,25 @@ export const INTERIOR_PLANS=freeze({
       "Use the original Fisheries factory with includeExhibits:false before adding this complete replacement exhibit set. Original exterior, floors, doors, roof and gallery stairs remain unchanged.",
       "Forbes printed pp.145-146 support 50 tanks: 24 small + 16 large outer and 8 + 1 + 1 inner. The scanned page was visually checked because OCR misread 16 as 18. This model preserves the 40/10 count but simplifies the unequal inner bay sizes and exact original schedule.",
       "The unequal large inner tanks are simplified into ten independent double-faced bays with safe connecting gaps. Printed 15 ft passages inform the two ring aisles; detailed tank depths, glass engineering, hidden maintenance ladders and plumbing are omitted.",
-      "The central pool is an above-floor display prop. Water, fish, nets, ropes, cases and boats are static art; no collection, swimming, climb, tank-breaking, structural material or combustion behavior is introduced.",
+      "The central pool is an above-floor display prop. A single bullet hit must destroy the struck glazed tank; this is an accepted user requirement. The artist supplies intact/destroyed presentation and stable tank IDs; the coder still owns bullet collision, authoritative destroyed state and persistence. Water spill, fallen glass and fish are static art cues, with no flooding, hazard, swimming or combustion rules implied.",
       "Source-local +X right, +Z rear, +Y up; structural floors stay on 2.12 m native levels. Furniture dimensions are metres and are not stretched to grid sizes.",
       "Physical collision/fuel/material assignments and game integration remain consumer-owned. Room labels and route keepouts are descriptive evidence, not proof of runtime traversal."
     ],
+    "destructionRequirements": {
+      "aquariumTanks": {
+        "status": "user-approved",
+        "requirementOrigin": "User requested aquarium tanks be destroyed when hit by a bullet.",
+        "trigger": "bullet-hit",
+        "hitsRequired": 1,
+        "states": [
+          "intact",
+          "destroyed"
+        ],
+        "response": "Shattered glazing, drained water and static glass/debris art",
+        "simulationOwner": "coder",
+        "selectionPaddingMetres": 0.45
+      }
+    },
     "prototypeIds": [
       "skiff-on-cradle",
       "display-case",
