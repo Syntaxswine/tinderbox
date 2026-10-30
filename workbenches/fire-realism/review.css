@@ -28,3 +28,9 @@
 .captures button{font-size:.65rem}
 @media(max-width:900px){.select-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:650px){.mode-row{grid-template-columns:repeat(2,minmax(0,1fr))}.select-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.measurement-controls button{flex:1;min-width:130px}.preview-line{display:block}.preview-line button{width:100%}.render-viewport{min-height:220px}.transport .seek-label{flex:1;min-width:125px}.masthead .edition{white-space:normal;max-width:90px}}
+
+.motion-evidence{border-top:1px solid var(--rule);margin-top:20px;padding-top:14px}
+.motion-evidence video{display:block;width:100%;max-height:360px;margin-top:12px;background:#291f19}
+.motion-evidence [data-motion-save]{display:inline-flex;align-items:center;min-width:100px;min-height:44px;padding:8px 12px;border:1px solid var(--rule);font-size:.75rem}
+.motion-evidence [aria-disabled=true]{opacity:.55;cursor:not-allowed}
+.captures details{margin:6px 0}

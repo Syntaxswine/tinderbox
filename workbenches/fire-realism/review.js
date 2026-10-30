@@ -66,23 +66,45 @@ function download(doc,value,name,type='application/json',onReleased=()=>{}){
   try{const a=doc.createElement('a');a.href=url||value;a.download=name;doc.body.append(a);try{a.click();}finally{a.remove();}if(url)timer=setTimeout(release,1000);}
   catch(error){release();throw error;}return url?release:null;
 }
+// One retained clip only. The separate recorder safety limit remains 64 MiB.
+export const MAX_RETAINED_MOTION_BYTES=16*1024*1024;
+function validMotionHref(clip){
+  if(!Number.isInteger(clip?.bytes)||clip.bytes<=0||clip.bytes>MAX_RETAINED_MOTION_BYTES||typeof clip.href!=='string'||!/^video\/(webm|mp4)(;[a-z0-9=.,_-]+)*$/i.test(clip.mimeType||'')||clip.mimeType.length>96)return false;
+  const prefix='data:'+clip.mimeType+';base64,';
+  return clip.href.startsWith(prefix)&&clip.href.length===prefix.length+4*Math.ceil(clip.bytes/3)&&/^[a-z0-9+/]*={0,2}$/i.test(clip.href.slice(prefix.length));
+}
+/** Reads actual encoded bytes, never frames or a synthetic video. Owns one abortable reader. */
+export function createMotionClipReader({blob,FileReaderCtor=globalThis.FileReader}={}){
+  if(!(blob instanceof Blob)||!blob.size||blob.size>MAX_RETAINED_MOTION_BYTES)throw Error('Retained motion requires an actual encoded Blob of at most 16 MiB.');
+  if(typeof FileReaderCtor!=='function')throw Error('Actual encoded clip reading is unavailable.');
+  let reader,settled=false,resolve,reject;const finished=new Promise((a,b)=>{resolve=a;reject=b;});
+  const cleanup=()=>{reader?.removeEventListener('load',loaded);reader?.removeEventListener('error',failed);reader?.removeEventListener('abort',aborted);};
+  const finish=(error,value)=>{if(settled)return;settled=true;cleanup();error?reject(error):resolve(value);};
+  const loaded=()=>{const clip={href:reader.result,bytes:blob.size,mimeType:blob.type};validMotionHref(clip)?finish(null,clip):finish(Error('Encoded clip did not produce a bounded video data URL.'));};
+  const failed=()=>finish(reader.error||Error('Actual encoded clip could not be read.'));
+  const aborted=()=>{const error=Error('Encoded clip reading was cancelled.');error.name='AbortError';finish(error);};
+  try{reader=new FileReaderCtor();reader.addEventListener('load',loaded);reader.addEventListener('error',failed);reader.addEventListener('abort',aborted);reader.readAsDataURL(blob);}catch(error){finish(error);}
+  return {finished,dispose(){if(settled)return;try{reader?.abort();}finally{aborted();}}};
+}
 /** Records only the owned canvas stream. Never requests a camera, microphone or display. */
 export function createCanvasMotionRecorder({canvas,MediaRecorderCtor=globalThis.MediaRecorder,maxDurationMs=10000,
   schedule=setTimeout,cancelSchedule=clearTimeout,now=()=>performance.now(),onStopping=()=>{}}={}){
   if(typeof canvas?.captureStream!=='function'||typeof MediaRecorderCtor!=='function')throw Error('Canvas motion recording is unavailable in this browser.');
-  if(!Number.isFinite(maxDurationMs)||maxDurationMs<=0||maxDurationMs>10000)throw RangeError('Motion capture must stop within ten seconds.');
-  const stream=canvas.captureStream(60),tracks=stream.getTracks(),chunks=[];let recorder,ttl=null,drain=null,settled=false,stopping=false,tracksStopped=false,stopReason='manual',failure=null,bytes=0;
+  if(!Number.isFinite(maxDurationMs)||maxDurationMs<=0||maxDurationMs>10000)throw RangeError('Motion capture nominal timer must be at most ten seconds.');
+  const stream=canvas.captureStream(60),tracks=stream.getTracks(),chunks=[];let recorder,ttl=null,drain=null,settled=false,stopping=false,tracksStopped=false,stopReason='manual',failure=null,bytes=0,stopRequestedAfterMs=null;
   const startedAt=now();let resolve;const finished=new Promise(r=>{resolve=r;});
   const stopTracks=()=>{if(tracksStopped)return;tracksStopped=true;for(const track of tracks)try{track.stop();}catch(cause){failure ||= cause;}};
   function cleanup(){if(ttl!==null)cancelSchedule(ttl);if(drain!==null)cancelSchedule(drain);stopTracks();recorder?.removeEventListener('dataavailable',data);recorder?.removeEventListener('stop',complete);recorder?.removeEventListener('error',error);}
   function complete(){
     if(settled)return;settled=true;cleanup();const cancelled=['cancelled','disposed','aborted'].includes(stopReason),mimeType=recorder?.mimeType||'video/webm';
-    const blob=!failure&&!cancelled&&bytes?new Blob(chunks,{type:mimeType}):null;chunks.length=0;
+    const blob=!failure&&!cancelled&&bytes?new Blob(chunks,{type:mimeType}):null;chunks.length=0;const wallDurationMs=Math.max(0,now()-startedAt);
     resolve({status:cancelled?'cancelled':blob?'complete':'unavailable',reason:failure?.message||(cancelled?'Recording discarded':blob?stopReason:'No encoded canvas frames were received'),mimeType,blob,
-      bytes:blob?.size||0,wallDurationMs:Math.max(0,now()-startedAt),maximumDurationMs:maxDurationMs,requestedCaptureFps:60,canvas:{width:canvas.width,height:canvas.height}});
+      bytes:blob?.size||0,wallDurationMs,maximumDurationMs:maxDurationMs,nominalStopAfterMs:maxDurationMs,stopRequestedAfterMs,
+      schedulingOverrunMs:stopReason==='ten-second-limit'&&stopRequestedAfterMs!==null?Math.max(0,stopRequestedAfterMs-maxDurationMs):null,
+      encoderDrainMs:stopRequestedAfterMs===null?null:Math.max(0,wallDurationMs-stopRequestedAfterMs),wallOverrunMs:Math.max(0,wallDurationMs-maxDurationMs),requestedCaptureFps:60,canvas:{width:canvas.width,height:canvas.height}});
   }
   function stop(reason='manual'){
-    if(settled||stopping)return finished;stopping=true;stopReason=reason;if(ttl!==null)cancelSchedule(ttl);try{onStopping(reason);}catch(cause){failure=cause;}
+    if(settled||stopping)return finished;stopping=true;stopReason=reason;stopRequestedAfterMs=Math.max(0,now()-startedAt);if(ttl!==null)cancelSchedule(ttl);try{onStopping(reason);}catch(cause){failure=cause;}
     try{if(recorder?.state!=='inactive')recorder.stop();else complete();}catch(cause){failure=cause;complete();}
     finally{stopTracks();if(!settled)drain=schedule(()=>{failure=Error('Recorder did not finish after stop; no valid motion export.');complete();},5000);}return finished;
   }
@@ -97,7 +119,7 @@ export function createCanvasMotionRecorder({canvas,MediaRecorderCtor=globalThis.
 export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,baseUrl}={}){
   if(!root?.ownerDocument)throw TypeError('Review shell needs a DOM root.');
   const doc=root.ownerDocument,base=baseUrl||doc.baseURI,abort=new AbortController();
-  let state=initialState,pending=null,disposed=false,lastReference='',lastCaptures='',nativeSize=false;
+  let state=initialState,pending=null,disposed=false,lastReference='',lastCaptures='',lastMotionSignature='',nativeSize=false,mediaLocked=false,mediaAbort=null,captureAbort=null;
   const notes=Object.fromEntries(RUBRIC.map(([id])=>[id,'']));root.classList.add('fire-review');
   root.innerHTML=`
     <header class="masthead"><div><p class="eyebrow">Tinderbox · Development review workbench</p><h1>Fire studies</h1><p class="deck">Observe the flame. Preserve the scene. Measure the cost.</p></div><p class="edition">Review ledger<br><span>TB–036–H · Vol. II</span></p></header>
@@ -112,15 +134,15 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
         </div><aside class="reference-column" aria-labelledby="source-title"><p class="eyebrow">I. The sources</p><h3 id="source-title">A photographic standard</h3><label>Verified reference plate<select data-reference disabled><option>Loading tracked source dossier…</option></select></label><figure data-reference-figure hidden><img data-reference-image alt=""><figcaption data-reference-caption></figcaption></figure><p data-reference-reason>No verified reference file is available.</p><a data-reference-link hidden target="_blank" rel="noopener noreferrer">Original institutional record</a><p class="small-print" data-reference-rights></p><details><summary>Source limits & exact file</summary><ul data-reference-limits></ul><pre data-reference-metadata></pre></details><p class="small-print">Photographs establish shape, colour, smoke and visible scale. They do not prove motion, burn rates, or an 1893 reconstruction.</p><details><summary>Published source atlas</summary><figure><img class="atlas" src="../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/effects/painted-fire/flame-atlas-v1.png" alt="Four painted flame silhouettes in the published atlas"><figcaption>Existing four-frame atlas. Source inspection only; this is not a runtime capture.</figcaption></figure></details></aside></div>
         <fieldset class="scene-controls"><legend>Live deterministic scenario</legend><div class="select-grid">${[['scenario','Scene'],['view','Camera'],['lighting','Surroundings'],['population','Initial ignitions'],['characterId','Animal'],['viewport','Canvas preset']].map(([id,label])=>`<label>${label}<select data-choice="${id}" disabled><option>Awaiting driver</option></select></label>`).join('')}<label>Seed<input data-seed type="number" step="1" disabled></label><label>Pixel ratio<input data-dpr type="number" min="0.5" max="1.75" step="0.25" disabled></label></div>
         <div class="transport"><button type="button" data-action="play" disabled>Play</button><button type="button" data-action="pause" disabled>Pause</button><button type="button" data-action="reset" disabled>Reset same seed</button><button type="button" data-action="step" disabled>Step one frame</button><label class="seek-label">Seek to frame<input data-seek type="number" min="0" max="3600" step="1" value="0" disabled></label><button type="button" data-action="seek" disabled>Seek</button><button type="button" data-action="capture" disabled>Capture JPEG</button></div>
-        <div class="transport"><button type="button" data-action="record" disabled>Record live motion · 10s</button><button type="button" data-action="stop-record" disabled>Stop & save motion</button><button type="button" data-action="cancel-record" disabled>Discard recording</button><button type="button" data-action="motion-metadata" disabled>Save motion metadata</button></div><p class="small-print" data-recording-status>Motion recording unavailable until an actual canvas and encoder are connected.</p>
-        <p class="small-print">Recording starts real live playback and automatically stops after ten seconds. It captures only the actual WebGL canvas; DOM HUD readability needs a separate browser capture. No microphone or desktop is recorded. Recording is disabled during GPU timing. Powder uses the real gasoline-front-powder scenario; the UI never alters clock multipliers. Mode, view and lighting changes replay to the same frame; scenario, animal, seed and initial ignitions reset the run. Manual HUD input changes the run; reset before a matched review.</p></fieldset>
+        <div class="transport"><button type="button" data-action="record" disabled>Record live motion · ~10s</button><button type="button" data-action="stop-record" disabled>Stop recording</button><button type="button" data-action="cancel-record" disabled>Discard recording</button><button type="button" data-action="motion-metadata" disabled>Save motion metadata</button></div><p class="small-print" data-recording-status>Motion recording unavailable until an actual canvas and encoder are connected.</p>
+        <p class="small-print">Recording starts real live playback and requests an automatic stop after a nominal ten seconds. Callback scheduling and encoder drain can extend actual wall duration; the evidence reports both. Completion does not download a file; use the explicit Save video link. It captures only the actual WebGL canvas; DOM HUD readability needs a separate browser capture. No microphone or desktop is recorded. Recording is disabled during GPU timing. Powder uses the real gasoline-front-powder scenario; the UI never alters clock multipliers. Mode, view and lighting changes replay to the same frame; scenario, animal, seed and initial ignitions reset the run. Manual HUD input changes the run; reset before a matched review.</p></fieldset>
       </section>
       <section class="ledger" aria-labelledby="evidence-title"><div class="section-heading"><h2 id="evidence-title">The evidence</h2><p data-baseline>Detailed baseline not yet accepted.</p></div>
         <div class="benchmark-note"><strong>Fixed authoritative-pose cost benchmark</strong><p>Timing captures an active frame from the real simulation, freezes fuel, tool, native pose and masks, then advances presentation clocks identically. Sustained emission is a benchmark adaptation. Use live playback above to judge spread, burnout and gameplay motion.</p></div>
         <div class="measurement-controls"><label>Matched cost modes<select data-measure-plan><option value="current-reference">Published + detailed reference</option><option value="reference-optimized">Detailed reference + optimized</option><option value="all">All three fire modes</option></select></label><button type="button" data-action="measure" disabled>Run matched cost trial</button><button type="button" data-action="cancel" disabled>Cancel measurement</button><button type="button" data-action="report" disabled>Export raw report</button></div>
         <p class="small-print">Driver defaults: 120 warm-up frames, 600 samples, three interleaved trials, each paired with no fire. Every fire-specific depth pass, light and retained transient is included. Keep the tab visible.</p><p class="measurement-progress" data-progress role="status" aria-live="polite"></p>
         <div class="ledger-grid"><div><p class="eyebrow">II. Rendering cost</p><p class="evidence-state" data-evidence-state>Unavailable</p><p data-evidence-reason>No hardware timing report has been supplied.</p><div class="table-scroll"><table><caption>Driver-supplied values · no UI timing or ratios</caption><thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead><tbody data-metrics><tr><th scope="row">GPU elapsed</th><td>Unavailable</td></tr></tbody></table></div><dl class="method-record" data-method></dl><p class="small-print">Target: 20–33% of the frozen reference's incremental GPU cost, with accepted visual equivalence. CPU time and triangle counts cannot establish it.</p><p class="small-print" data-target>No cost-target acceptance recorded.</p></div>
-        <div class="captures"><p class="eyebrow">III. Actual captures</p><div data-captures><p>No actual JPEG captures yet.</p></div><details><summary>Exact sources, hardware & workload</summary><pre data-source-record>No connected driver record.</pre></details><details><summary>Required motion review</summary><ul><li>Match and carried torch: fuel contact, finite life.</li><li>Gasoline front: normal and powder clocks.</li><li>Flamethrower: actual wall obstruction and native muzzle.</li><li>Street fire: legitimate burning building, smoke, animal and six-button HUD.</li></ul><p class="small-print">Include isometric and oblique views, bright and dim light, camera movement, pause, spent fuel and an occluder. A JPEG cannot prove motion or GPU cost. A recorded sequence still needs independent visual review.</p></details></div></div>
+        <div class="captures"><p class="eyebrow">III. Actual captures</p><div data-captures><p>No actual JPEG captures yet.</p></div><section class="motion-evidence" data-motion-evidence aria-label="Latest actual motion clip"><p>No completed actual motion clip retained.</p></section><details><summary>Exact sources, hardware & workload</summary><pre data-source-record>No connected driver record.</pre></details><details><summary>Required motion review</summary><ul><li>Match and carried torch: fuel contact, finite life.</li><li>Gasoline front: normal and powder clocks.</li><li>Flamethrower: actual wall obstruction and native muzzle.</li><li>Street fire: legitimate burning building, smoke, animal and six-button HUD.</li></ul><p class="small-print">Include isometric and oblique views, bright and dim light, camera movement, pause, spent fuel and an occluder. A JPEG cannot prove motion or GPU cost. A recorded sequence still needs independent visual review.</p></details></div></div>
       </section>
       <section class="critique" aria-labelledby="critique-title"><div class="section-heading"><h2 id="critique-title">The independent reading</h2><p>Describe what the evidence shows.</p></div><form data-notes><div class="notes-grid">${RUBRIC.map(([id,label])=>`<label>${label}<textarea name="${id}" rows="2" placeholder="Observation, evidence and next correction…"></textarea></label>`).join('')}</div><div class="notes-footer"><p>Notes stay in this page until exported. An export grants no acceptance.</p><button type="submit">Export critique (.json)</button></div></form><p data-export-status role="status"></p></section>
     </main><footer>Development review workbench · excluded from the public game package · <a href="../../docs/ui/fire-realism/README.md">Handoff and limits</a></footer>`;
@@ -129,7 +151,7 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
   const borrowedUiRoot=root.querySelector('[data-ui-root]');
   const all=q=>[...root.querySelectorAll(q)].filter(el=>el===borrowedUiRoot||!borrowedUiRoot.contains(el));
   const find=q=>all(q)[0]||null,text=(q,value)=>{const el=find(q),v=String(value??'Unavailable');if(el.textContent!==v)el.textContent=v;};
-  const busy=()=>['measuring','cancelling'].includes(state.phase);
+  const busy=()=>state.reviewEvidenceLocked===true||['measuring','cancelling'].includes(state.phase);
   function can(action){
     if(disposed||!state.connected||typeof onIntent!=='function')return false;
     if(action==='cancel')return state.phase==='measuring'&&pending!=='cancel';
@@ -158,6 +180,33 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     const href=safeUrl(ref?.record,base);link.hidden=!href;if(href)link.href=href;else link.removeAttribute('href');
     text('[data-reference-rights]',ref?[ref.rights,ref.rightsBasis].filter(Boolean).join(' · '):'');find('[data-reference-limits]').replaceChildren(...(ref?.limitations||[]).map(value=>{const li=doc.createElement('li');li.textContent=value;return li;}));text('[data-reference-metadata]',ref?json(ref.metadata):'No source file record.');
   }
+  function evidenceDetails(metadata,label,marker){
+    const details=doc.createElement('details'),summary=doc.createElement('summary'),pre=doc.createElement('pre');summary.textContent=label;pre.dataset[marker]='';pre.textContent=json(metadata);details.append(summary,pre);return details;
+  }
+  function retireMotionPreview(){
+    const video=find('[data-motion-preview]');if(video){video.pause();video.removeAttribute('src');video.load();}
+    find('[data-motion-save]')?.removeAttribute('href');
+  }
+  function clearMotionEvidence(){retireMotionPreview();mediaAbort?.abort();mediaAbort=null;find('[data-motion-evidence]').replaceChildren();lastMotionSignature='';}
+  function renderMotionEvidence(){
+    const result=state.recording?.lastResult,clip=state.recording?.clip,signature=JSON.stringify([clip?.id??null,result]);
+    if(signature!==lastMotionSignature){
+      clearMotionEvidence();lastMotionSignature=signature;const target=find('[data-motion-evidence]');
+      if(clip&&result?.status==='complete'&&validMotionHref(clip)){
+        mediaAbort=new AbortController();const link=doc.createElement('a'),video=doc.createElement('video'),caption=doc.createElement('p');link.dataset.motionSave='';link.textContent='Save video';link.download=clip.name;
+        video.dataset.motionPreview='';video.preload='none';video.controls=true;video.playsInline=true;video.muted=true;video.setAttribute('aria-label','Latest completed actual canvas recording');
+        caption.textContent='Latest completed actual canvas clip · '+clip.bytes+' encoded bytes. Playback is optional; no autoplay.';target.append(link,video,caption);
+        video.addEventListener('play',()=>{if(mediaLocked)video.pause();},{signal:mediaAbort.signal});link.addEventListener('click',event=>{if(mediaLocked)event.preventDefault();},{signal:mediaAbort.signal});
+      }else{const p=doc.createElement('p');p.textContent=result?.retainedClip?.reason||'No completed actual motion clip retained.';target.append(p);}
+      if(result)target.append(evidenceDetails(result,'Exact motion evidence metadata','motionMetadata'));
+    }
+    mediaLocked=!!(pending||busy()||state.recording?.active);const video=find('[data-motion-preview]'),link=find('[data-motion-save]');
+    if(video&&link){
+      link.setAttribute('aria-disabled',String(mediaLocked));video.controls=!mediaLocked;
+      if(mediaLocked){if(video.hasAttribute('src'))retireMotionPreview();}
+      else{if(video.getAttribute('src')!==clip.href)video.src=clip.href;if(link.getAttribute('href')!==clip.href)link.href=clip.href;}
+    }
+  }
   function fit(){
     if(disposed)return;const stage=find('[data-stage]'),box=find('[data-render-viewport]'),v=state.configuration?.viewport,width=v?.width||1280,height=v?.height||800,scale=nativeSize?1:Math.min(1,box.clientWidth/width||1);
     stage.style.width=width+'px';stage.style.height=height+'px';stage.style.transform=`scale(${scale})`;box.style.height=(nativeSize?Math.min(height,800):height*scale)+'px';box.dataset.nativeSize=String(nativeSize);
@@ -166,7 +215,7 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     if(disposed)return;const s=state,c=s.configuration||{},r=s.results,renderer=s.diagnostics?.renderer,p=s.progress;
     const reason=s.error?.message||s.reason||(s.phase==='playing'?'Live diagnostic playback.':s.phase==='measuring'?'Measuring a fixed authoritative pose.':s.phase==='cancelling'?'Cancelling and retiring GPU queries.':'Paused diagnostic view; acceptance remains separate.');
     text('[data-status]',(s.connected?'Driver connected · '+s.phase+'. ':'Driver unavailable. ')+reason);root.setAttribute('aria-busy',String(!!(pending||busy()||s.recording?.active)));
-    text('[data-recording-status]',s.recording?.active?(s.recording.stopping?'Stopping the encoder and retiring its owned tracks…':'Recording actual live playback · automatic stop within ten seconds.'):s.recording?.lastResult?s.recording.lastResult.status+' · '+s.recording.lastResult.reason:s.recording?.available?'Canvas recording available. Start/end clocks and source metadata accompany the video.':s.recording?.reason||'Motion recording unavailable until an actual canvas and encoder are connected.');
+    text('[data-recording-status]',s.recording?.active?(s.recording.stopping?'Stopping the encoder and retiring its owned tracks…':'Recording actual live playback · nominal ten-second stop timer; actual elapsed time will be reported.'):s.recording?.lastResult?s.recording.lastResult.status+' · '+s.recording.lastResult.reason:s.recording?.available?'Canvas recording available. Start/end clocks and source metadata accompany the video.':s.recording?.reason||'Motion recording unavailable until an actual canvas and encoder are connected.');
     for(const b of all('[data-mode]')){const a=s.availability?.[b.dataset.mode];b.disabled=!can('select')||a?.available!==true;b.title=a?.reason||a?.sourceCommit||(a?.available?'Available':'Unavailable');b.setAttribute('aria-pressed',String(c.mode===b.dataset.mode));}
     text('[data-mode-reason]',MODES.map(m=>{const a=s.availability?.[m.id];return m.label+': '+(a?.available?'available'+(a.sourceCommit?' · '+a.sourceCommit:' · local source, revision unpinned'):(a?.reason||'unavailable'));}).join(' | '));
     const catalogue={scenario:SCENARIOS,view:VIEWS,lighting:LIGHTING,characterId:CHARACTERS,population:[{id:'auto',label:'Scenario default'},...(s.capabilities?.populations||[]).map(n=>({id:String(n),label:n+' initial cells'}))],viewport:[{id:'desktop',label:'Desktop · 1280 × 800'},{id:'phone',label:'Phone-shaped · 390 × 844'}]};
@@ -186,9 +235,9 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     text('[data-target]',r?.status==='complete'&&r.comparison?.targetMet===true?'Driver reports cost target met with validated quality receipts; architect promotion remains separate.':r?.comparison?.targetMet===false?'Driver reports cost target not met.':'No cost-target acceptance recorded.');
     text('[data-progress]',p?`Pass ${p.passIndex+1} of ${p.passCount} · ${p.mode} · ${p.phase}${p.phaseFrames?' '+p.phaseFrame+' / '+p.phaseFrames:''} · ${p.validSamples} valid samples · ${p.rejectedSamples} rejected`:s.phase==='cancelling'?'Cancellation requested; awaiting query retirement.':'');
     text('[data-source-record]',json({sourceFingerprints:s.diagnostics?.sourceFingerprints??null,renderer:s.diagnostics?.renderer??null,workload:s.workload??null,hardware:r?.hardware??s.captureHardware??null,configuration:c,liveRecording:s.recording?.lastResult??null}));
-    const capSig=JSON.stringify((s.captures||[]).map(x=>[x.id,x.frameIndex]));if(lastCaptures!==capSig){lastCaptures=capSig;const target=find('[data-captures]');target.replaceChildren();for(const capture of s.captures||[]){if(capture.mimeType!=='image/jpeg'||!/^data:image\/jpeg;base64,/.test(capture.dataUrl||''))continue;const figure=doc.createElement('figure'),img=doc.createElement('img'),caption=doc.createElement('figcaption');img.src=capture.dataUrl;img.alt='Actual '+capture.configuration.mode+' fire · '+capture.configuration.scenario+' · frame '+capture.frameIndex;caption.textContent=img.alt+' · still only';figure.append(img,caption);for(const [type,label]of [['save-capture','Save JPEG'],['save-capture-metadata','Save evidence JSON']]){const button=doc.createElement('button');button.type='button';button.dataset.captureDownload='';button.textContent=label;button.addEventListener('click',()=>onIntent?.({type,id:capture.id}),{signal:abort.signal});figure.append(button);}target.append(figure);}if(!target.childElementCount){const p=doc.createElement('p');p.textContent='No actual JPEG captures yet.';target.append(p);}}
+    const capSig=JSON.stringify((s.captures||[]).map(x=>[x.id,x.frameIndex]));if(lastCaptures!==capSig){lastCaptures=capSig;captureAbort?.abort();captureAbort=new AbortController();const target=find('[data-captures]');target.replaceChildren();for(const capture of s.captures||[]){if(capture.mimeType!=='image/jpeg'||!/^data:image\/jpeg;base64,/.test(capture.dataUrl||''))continue;const figure=doc.createElement('figure'),img=doc.createElement('img'),caption=doc.createElement('figcaption');img.src=capture.dataUrl;img.alt='Actual '+capture.configuration.mode+' fire · '+capture.configuration.scenario+' · frame '+capture.frameIndex;caption.textContent=img.alt+' · still only';const {dataUrl,...metadata}=capture;figure.append(img,caption,evidenceDetails(metadata,'Exact JPEG evidence metadata','captureMetadata'));for(const [type,label]of [['save-capture','Save JPEG'],['save-capture-metadata','Save evidence JSON']]){const button=doc.createElement('button');button.type='button';button.dataset.captureDownload='';button.textContent=label;button.addEventListener('click',()=>onIntent?.({type,id:capture.id}),{signal:captureAbort.signal});figure.append(button);}target.append(figure);}if(!target.childElementCount){const p=doc.createElement('p');p.textContent='No actual JPEG captures yet.';target.append(p);}}
     for(const button of all('[data-capture-download]'))button.disabled=!!(pending||busy()||s.recording?.active);
-    fit();
+    renderMotionEvidence();fit();
   }
   async function perform(intent,action){
     if(!can(action))return;
@@ -208,26 +257,31 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
   for(const t of all('textarea'))listen(t,'input',()=>{notes[t.name]=t.value;});
   listen(find('[data-notes]'),'submit',e=>{e.preventDefault();const value=reviewRecord(state,notes,new Date().toISOString());try{if(onExport)onExport(value);else download(doc,value,'tinderbox-fire-critique.json');text('[data-export-status]','Critique exported. Baseline and cost acceptance are unchanged.');}catch(error){text('[data-export-status]','Export failed: '+error.message);}});
   const Observer=doc.defaultView?.ResizeObserver,observer=Observer?new Observer(fit):null;observer?.observe(find('[data-render-viewport]'));listen(doc.defaultView,'resize',fit);render();
-  return {renderRoot:find('[data-render-root]'),uiRoot:find('[data-ui-root]'),update(next){if(disposed)return;state=next||EMPTY;render();},dispose(){if(disposed)return;disposed=true;abort.abort();observer?.disconnect();root.replaceChildren();root.classList.remove('fire-review');root.removeAttribute('aria-busy');}};
+  return {renderRoot:find('[data-render-root]'),uiRoot:find('[data-ui-root]'),clearMotionEvidence(){clearMotionEvidence();state={...state,recording:{...state.recording,clip:null,lastResult:null}};},update(next){if(disposed)return;state=next||EMPTY;render();},dispose(){if(disposed)return;clearMotionEvidence();captureAbort?.abort();disposed=true;state=EMPTY;abort.abort();observer?.disconnect();root.replaceChildren();root.classList.remove('fire-review');root.removeAttribute('aria-busy');}};
 }
 /** UI method routing only. Clocks, GPU statistics and acceptance stay in the driver. */
-export async function bindReviewDriver({shell,createDriver,mountUI,signal,artistDelivery=null,referenceAcceptance=null,references=[],referenceError=null,onDownload=()=>{},createMotionRecorder=createCanvasMotionRecorder}={}){
-  let driver,closed=false,disposal=null,lastState=EMPTY,captures=[],captureSequence=0,motion=null,motionWork=null,recordingActive=false,recordingStopping=false,lastMotion=null;
-  const recorderCtor=shell.renderRoot.ownerDocument?.defaultView?.MediaRecorder||globalThis.MediaRecorder;
+export async function bindReviewDriver({shell,createDriver,mountUI,signal,artistDelivery=null,referenceAcceptance=null,references=[],referenceError=null,onDownload=()=>{},createMotionRecorder=createCanvasMotionRecorder,FileReaderCtor}={}){
+  let driver,closed=false,disposal=null,lastState=EMPTY,captures=[],captureSequence=0,motion=null,motionWork=null,recordingActive=false,recordingStopping=false,lastMotion=null,retainedClip=null,clipReader=null,motionGeneration=0,measurementActive=false;
+  const recorderCtor=shell.renderRoot.ownerDocument?.defaultView?.MediaRecorder||globalThis.MediaRecorder,readerCtor=FileReaderCtor||shell.renderRoot.ownerDocument?.defaultView?.FileReader||globalThis.FileReader;
   const recordingSupport=()=>{const canvas=shell.renderRoot.querySelector?.('canvas');return {available:typeof canvas?.captureStream==='function'&&typeof recorderCtor==='function',canvas};};
-  const publish=next=>{if(closed)return;lastState=next;const support=recordingSupport();shell.update({...next,connected:true,references,referenceError,captures,captureHardware:captures.at(-1)?.hardware??null,
-    recording:{available:support.available,reason:support.available?null:'Actual canvas captureStream or MediaRecorder is unavailable.',active:recordingActive,stopping:recordingStopping,lastResult:lastMotion}});};
+  const publish=next=>{if(closed)return;lastState=next;const support=recordingSupport();shell.update({...next,connected:true,references,referenceError,captures,captureHardware:captures.at(-1)?.hardware??null,reviewEvidenceLocked:measurementActive,
+    recording:{available:support.available,reason:support.available?null:'Actual canvas captureStream or MediaRecorder is unavailable.',active:recordingActive,stopping:recordingStopping,lastResult:lastMotion,clip:retainedClip}});};
+  const retireClip=()=>{motionGeneration++;clipReader?.dispose();clipReader=null;retainedClip=null;lastMotion=null;shell.clearMotionEvidence?.();};
   const configure=async patch=>{const before=driver.state(),preserve=Object.keys(patch).every(key=>['mode','view','lighting','viewport'].includes(key));const next=await driver.configure(patch);if(preserve&&before.frameIndex>0&&next.availability?.[next.configuration.mode]?.available)await driver.seek(before.frameIndex);publish(driver.state());return driver.state();};
   async function startMotion(){
     const initial=driver.state(),support=recordingSupport();
     if(!support.available)throw Error('Actual canvas recording is unavailable.');
-    if(!['ready','playing'].includes(initial.phase)||!initial.availability?.[initial.configuration.mode]?.available)throw Error('Motion recording requires an available live render, outside measurement.');
-    const {dataUrl,...firstFrame}=await driver.captureFrame();let endState=null;
-    motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:()=>{recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}}});
-    recordingActive=true;recordingStopping=false;lastMotion=null;
-    try{driver.play();}catch(error){recordingActive=false;await motion.dispose();motion=null;publish(driver.state());throw error;}
+    if(!['ready','playing'].includes(initial.phase)||measurementActive||!initial.availability?.[initial.configuration.mode]?.available)throw Error('Motion recording requires an available live render, outside measurement.');
+    retireClip();const generation=motionGeneration;recordingActive=true;recordingStopping=false;publish(initial);
+    let firstFrame,endState=null;
+    try{
+      const {dataUrl,...evidence}=await driver.captureFrame();firstFrame=evidence;
+      if(closed||signal?.aborted||generation!==motionGeneration){recordingActive=false;return;}
+      motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:()=>{recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}}});
+      driver.play();
+    }catch(error){recordingActive=false;await motion?.dispose();motion=null;publish(driver.state());throw error;}
     const startState=driver.state(),startedAt=new Date().toISOString();publish(startState);
-    motionWork=motion.finished.then(report=>{
+    motionWork=motion.finished.then(async report=>{
       const end=endState||driver.state(),advanced=end.frameIndex>startState.frameIndex&&end.tick>startState.tick&&end.worldTime>startState.worldTime;
       const status=report.status==='complete'&&!advanced?'inconclusive':report.status;
       const reason=status==='inconclusive'?'No authoritative live time advanced; a paused still is not motion evidence.':report.reason;
@@ -235,11 +289,23 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
         configuration:structuredClone(startState.configuration),sourceFingerprints:structuredClone(firstFrame.sourceFingerprints),hardware:structuredClone(firstFrame.hardware),
         start:{recordedAt:startedAt,frameIndex:startState.frameIndex,tick:startState.tick,worldTime:startState.worldTime,playerTime:startState.playerTime,workload:startState.workload},
         end:{recordedAt:new Date().toISOString(),frameIndex:end.frameIndex,tick:end.tick,worldTime:end.worldTime,playerTime:end.playerTime,workload:end.workload},
-        recording:{mimeType:report.mimeType,bytes:report.bytes,canvas:report.canvas,wallDurationMs:report.wallDurationMs,maximumDurationMs:report.maximumDurationMs,requestedCaptureFps:report.requestedCaptureFps}};
-      lastMotion=metadata;recordingActive=false;recordingStopping=false;motion=null;
-      if(!closed){publish(driver.state());if(status==='complete'&&report.blob){const name='tinderbox-'+startState.configuration.mode+'-'+startState.configuration.scenario+'-motion-'+startState.frameIndex+'-'+end.frameIndex;onDownload(report.blob,name+(report.mimeType.includes('mp4')?'.mp4':'.webm'),report.mimeType);}}
+        recording:{mimeType:report.mimeType,bytes:report.bytes,canvas:report.canvas,wallDurationMs:report.wallDurationMs,maximumDurationMs:report.maximumDurationMs,nominalStopAfterMs:report.nominalStopAfterMs??report.maximumDurationMs,
+          stopRequestedAfterMs:report.stopRequestedAfterMs??null,schedulingOverrunMs:report.schedulingOverrunMs??null,encoderDrainMs:report.encoderDrainMs??null,wallOverrunMs:report.wallOverrunMs??null,requestedCaptureFps:report.requestedCaptureFps}};
+      motion=null;
+      if(closed||generation!==motionGeneration)return metadata;
+      if(status==='complete'){
+        try{
+          if(!(report.blob instanceof Blob)||report.blob.size!==report.bytes)throw Error('Encoded Blob bytes do not match the recording report.');
+          const reader=createMotionClipReader({blob:report.blob,FileReaderCtor:readerCtor});clipReader=reader;let clip;
+          try{clip=await reader.finished;}finally{if(clipReader===reader)clipReader=null;}
+          if(closed||generation!==motionGeneration)return metadata;
+          const name='tinderbox-'+startState.configuration.mode+'-'+startState.configuration.scenario+'-motion-'+startState.frameIndex+'-'+end.frameIndex+(clip.mimeType.includes('mp4')?'.mp4':'.webm');
+          retainedClip={...clip,id:'motion-'+generation,name};metadata.retainedClip={status:'available',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,bytes:clip.bytes};
+        }catch(error){metadata.retainedClip={status:'unavailable',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,reason:error.message};}
+      }
+      if(!closed&&generation===motionGeneration){lastMotion=metadata;recordingActive=false;recordingStopping=false;publish(driver.state());}
       return metadata;
-    }).catch(error=>{recordingActive=false;recordingStopping=false;motion=null;lastMotion={status:'unavailable',reason:error.message};if(!closed)publish(driver.state());return lastMotion;});
+    }).catch(error=>{if(!closed&&generation===motionGeneration){recordingActive=false;recordingStopping=false;motion=null;lastMotion={status:'unavailable',reason:error.message};publish(driver.state());}return {status:'unavailable',reason:error.message};});
   }
   async function intent(command){
     if(closed||!driver)throw Error('The actual review driver is unavailable.');
@@ -250,16 +316,16 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
       case 'configure-number':return configure(command.key==='pixelRatio'?{viewport:{pixelRatio:command.value}}:{seed:command.value});
       case 'play':driver.play();publish(driver.state());return;
       case 'pause':driver.pause();publish(driver.state());return;
-      case 'reset':await driver.reset();publish(driver.state());return;
+      case 'reset':retireClip();publish(driver.state());await driver.reset();publish(driver.state());return;
       case 'step':await driver.step(1);publish(driver.state());return;
       case 'seek':await driver.seek(command.frame);publish(driver.state());return;
-      case 'measure':try{return await driver.measure({modes:command.modes});}finally{if(!closed)publish(driver.state());}
+      case 'measure':measurementActive=true;publish(driver.state());try{return await driver.measure({modes:command.modes});}finally{measurementActive=false;if(!closed)publish(driver.state());}
       case 'cancel':return driver.cancelMeasurement();
       case 'record':await startMotion();return;
       case 'stop-record':if(!motion)throw Error('No live recording is active.');await motion.stop('manual');return motionWork;
       case 'cancel-record':if(!motion)throw Error('No live recording is active.');await motion.stop('cancelled');return motionWork;
       case 'motion-metadata':if(!lastMotion)throw Error('No motion metadata is available.');return onDownload(structuredClone(lastMotion),'tinderbox-fire-motion-metadata.json','application/json');
-      case 'capture':{const capture=await driver.captureFrame();if(capture?.mimeType!=='image/jpeg'||!/^data:image\/jpeg;base64,/.test(capture.dataUrl||''))throw Error('Driver did not return an actual JPEG.');captures=[...captures,{...structuredClone(capture),id:'capture-'+(++captureSequence)}].slice(-6);publish(driver.state());return captures.at(-1);}
+      case 'capture':{const capture=await driver.captureFrame();if(capture?.mimeType!=='image/jpeg'||!/^data:image\/jpeg;base64,/.test(capture.dataUrl||''))throw Error('Driver did not return an actual JPEG.');if(closed)return;captures=[...captures,{...structuredClone(capture),id:'capture-'+(++captureSequence)}].slice(-6);publish(driver.state());return captures.at(-1);}
       case 'save-capture':case 'save-capture-metadata':{const capture=captures.find(x=>x.id===command.id);if(!capture)throw Error('Capture is no longer available.');const {dataUrl,...evidence}=capture,name='tinderbox-'+capture.configuration.mode+'-'+capture.configuration.scenario+'-frame-'+capture.frameIndex;if(command.type==='save-capture')return onDownload(dataUrl,name+'.jpg','image/jpeg');return onDownload(evidence,name+'.json','application/json');}
       case 'report':if(!lastState.results)throw Error('No driver report to export.');return onDownload(structuredClone(lastState.results),'tinderbox-fire-cost-report.json','application/json');
       default:throw Error('Unknown review control: '+command.type);
@@ -267,7 +333,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
   }
   const abort=()=>{void dispose();},doc=shell.renderRoot.ownerDocument,hidden=()=>{if(doc.hidden&&motion)void motion.stop('cancelled');};
   signal?.addEventListener('abort',abort,{once:true});doc?.addEventListener('visibilitychange',hidden);
-  function dispose(){if(disposal)return disposal;closed=true;signal?.removeEventListener('abort',abort);doc?.removeEventListener('visibilitychange',hidden);disposal=(async()=>{await motion?.dispose();await motionWork;await driver?.dispose();})();return disposal;}
+  function dispose(){if(disposal)return disposal;closed=true;retireClip();captures=[];signal?.removeEventListener('abort',abort);doc?.removeEventListener('visibilitychange',hidden);disposal=(async()=>{await motion?.dispose();await motionWork;await driver?.dispose();})();return disposal;}
   try{driver=await createDriver({root:shell.renderRoot,uiRoot:shell.uiRoot,mountUI,signal,artistDelivery,referenceAcceptance,onChange:publish});if(closed){await driver.dispose();return {intent,dispose};}publish(driver.state());}
   catch(error){signal?.removeEventListener('abort',abort);doc?.removeEventListener('visibilitychange',hidden);if(!closed)shell.update({...EMPTY,references,referenceError,reason:'Actual WebGL driver failed: '+error.message,error:{message:error.message}});return {intent,dispose,unavailable:error.message};}
   return {intent,state:()=>structuredClone(lastState),dispose};
