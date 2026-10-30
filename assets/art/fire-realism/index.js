@@ -1,7 +1,7 @@
 import {createTongueGeometry} from './geometry.js';
 import {vertexShader, fragmentShader} from './shaders.js';
 
-export const FIRE_REALISM_VERSION = '0.3.0-reference-candidate';
+export const FIRE_REALISM_VERSION = '0.4.0-reference-candidate';
 const finite = Number.isFinite;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, finite(x) ? x : a));
 const point = p => p && [p.x, p.y, p.h].every(finite);
@@ -26,7 +26,7 @@ export function createFireRealism(T, options = {}) {
   if (quality !== 'reference') throw new RangeError('Optimized fire is unavailable until the detailed reference is reviewed and frozen.');
   const maxCells = options.maxCells ?? 4096, maxRays = options.maxRays ?? 256, maxBuildings = options.maxBuildings ?? 64;
   if (!Number.isInteger(maxCells) || maxCells < 1 || maxCells > 4096 || !Number.isInteger(maxRays) || maxRays < 2 || maxRays > 256 || !Number.isInteger(maxBuildings) || maxBuildings < 1 || maxBuildings > 64) throw new RangeError('Invalid bounded fire capacity');
-  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 1, densitySteps: 18});
+  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 1, densitySteps: 32, groundAndTorchDensitySteps: 32, jetDensitySteps: 18, smokeDensitySteps: 18});
   const root = new T.Group(); root.name = 'TB-034 detailed fire reference candidate';
   const owned = {geometries: new Set(), materials: new Set(), textures: new Set()};
   const rayData = new Float32Array(256 * 4), rayTable = new T.DataTexture(rayData, 256, 1, T.RGBAFormat, T.FloatType);

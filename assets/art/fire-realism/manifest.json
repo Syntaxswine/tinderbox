@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "id": "tb034-fire-reference",
   "status": "unaccepted-reference-candidate",
   "referenceFrozen": false,
@@ -13,13 +13,13 @@
     },
     {
       "path": "assets/art/fire-realism/shaders.js",
-      "bytes": 9939,
-      "sha256": "68740a3a13c852ff339ea3d175c7f0ec21ba56fc0f847aff0f4e236ee366cb67"
+      "bytes": 10819,
+      "sha256": "db68d10efb9bf125bbb0c6af31e2cf5312d2b16e0d33acc306e5e7e68279763a"
     },
     {
       "path": "assets/art/fire-realism/index.js",
-      "bytes": 24293,
-      "sha256": "f69403bbfb8279635b4e7c744cfe28212561a66b40b39b21c0136a0eb9cb9ccd"
+      "bytes": 24369,
+      "sha256": "3ef1105498c5a28279c57ea3d3c5ab2b7c121c6427af9a0575e21c6891f11246"
     }
   ],
   "dependencies": [
@@ -37,7 +37,7 @@
     "65536 input cells; at most4096 observed emitting/history cells,256 rays,64 building groups and384 jet-smoke records"
   ],
   "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
-  "artistVersion": "0.3.0-reference-candidate",
-  "correctsCandidate": "0b180335a007809a0e63fb69da40b0b0b59035aa",
-  "preFreezeQualityCorrection": "Continuous full-ray supports and shared world-space reaction/void field replace the actually observed repeated axial wedges and smooth filled contact mass. No cost-optimization credit."
+  "artistVersion": "0.4.0-reference-candidate",
+  "correctsCandidate": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
+  "preFreezeQualityCorrection": "Actual0.3 contact was nearly extinguished despite an active source. Ground/torch-only32-sample attached reaction/emission calibration; jet/smoke0.3 optics, geometry and global exposure preserved. No acceptance or cost-optimization credit."
 }

@@ -1,18 +1,18 @@
 {
-  "task": "TB-034-continuity-iteration-03",
-  "recordedAt": "2026-10-30T05:28:48Z",
-  "integrationBase": "0b180335a007809a0e63fb69da40b0b0b59035aa",
-  "correctsArtistCandidate": "0b180335a007809a0e63fb69da40b0b0b59035aa",
+  "task": "TB-034-ground-visibility-iteration-04",
+  "recordedAt": "2026-10-30T05:48:24Z",
+  "integrationBase": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
+  "correctsArtistCandidate": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
-  "artistVersion": "0.3.0-reference-candidate",
+  "artistVersion": "0.4.0-reference-candidate",
   "actualPreviousCandidateReview": {
-    "candidate": "0b180335a007809a0e63fb69da40b0b0b59035aa",
-    "evidence": "Architect primary checkout artifacts/qa/fire-realism/render-round-01/",
-    "imagesOpened": ["contact-isometric-bright-paused.jpg", "contact-oblique-bright-paused.jpg", "jet-oblique-bright-paused.jpg"],
+    "candidate": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
+    "evidence": "Architect primary checkout artifacts/qa/fire-realism/render-round-02/",
+    "imagesOpened": ["contact-isometric-bright-world0.jpg", "contact-isometric-bright-world2.jpg", "jet-isometric-bright-world0.jpg"],
     "backend": "Chrome155 / ANGLE Direct3D11 / NVIDIA RTX3080",
     "shaderFailure": null,
-    "qualityDecision": "rejected; repeated axial jet wedges and smooth filled contact mass",
+    "qualityDecision": "Contact rejected at world0/2: active source is almost only faint fragments. Jet visibly improved with connected core and irregular edges/dark gaps; not accepted as a baseline.",
     "previousEvidenceModified": false
   },
   "sourcePhotos": {
@@ -34,6 +34,7 @@
     },
     "shortOutsideMuzzleFan": "pass; 0.1m fan at0.3/0.5301m offsets retains3 full-ray volume instances with source-origin support",
     "continuity": "pass; one complete authoritative clipped support per ray without nine repeated axial cone segments; this is a pre-freeze quality correction, not cost optimization",
+    "newOpticalCalibration": "source-level ground/torch-only32 samples over unchanged2.52-local-unit span, lower-tongue attached reaction floor under shared sheet zeroes, local emission2; actual visibility unproved. Jet/smoke retain0.3 optics/18 samples; no GPU-cost equivalence claimed.",
     "depthBinding": "pass; borrowed actual DepthTexture, current camera, paused camera, wrong dimensions/camera rejection, fractionalDPR floor convention",
     "sourceOrder": "pass; equivalent source ordering preserves geometry, smoke accumulation and spill-light selection",
     "projectCheck": {
@@ -45,7 +46,7 @@
     },
     "build": {
       "files": 3460,
-      "bytes": 163338436,
+      "bytes": 163339447,
       "sourcePhotosDistributed": false,
       "diagnosticWorkbenchDistributed": false
     },
@@ -57,15 +58,15 @@
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "Candidate0.2 now has actual architect-captured WebGL evidence and was rejected visually. Candidate0.3 actual compilation/motion/GPU review remains pending; root owns the reserved native browser. Artist did not control it concurrently."
+    "reason": "Candidate0.3 has actual architect-captured WebGL evidence; contact failed while jet improved. Candidate0.4 actual compilation/motion/GPU review remains pending; root owns the reserved native browser. Artist did not control it concurrently."
   },
   "limitations": [
     "Centroid-sorted intersecting transparent volumes remain approximate and require actual reversed-camera/motion review",
     "Independent clipped-ray ribbons preserve safe exact-line support but are an explicit surface fallback rather than full3D jet volumes",
     "Legacy barrel/Molotov transients are deliberately handled by the separate runtime component; not duplicated here",
     "Source-level opaque-depth termination is implemented, but no actual visible wall/box intersection has been approved",
-    "The new shared reaction field still needs actual dark-gap, overlap-opacity, continuity and motion critique",
-    "Fixture Run-to2worlds and quarter-world stepping controls need actual browser verification",
+    "The ground/torch calibration needs actual luminous-surface, dark-gap, overlap-opacity and motion critique; CPU checks do not establish visibility",
+    "No GPU-cost inference follows from retained jet/smoke sample counts",
     "No accepted/frozen high-detail reference or optimized variant exists"
   ],
   "helpers": {

@@ -128,8 +128,13 @@ export const fragmentShader = noise + `
     }
     float envelope=1.-smoothstep(.45,1.04,edge);
     float contact=f.z*(.15+.22*f.x);
+    // A coarse air/soot void may modulate a tongue, but cannot extinguish almost
+    // its entire attached reaction surface while its source remains burning.
+    // The floor is confined to the lower tongue and still multiplied by the
+    // shared wrinkled-sheet mask, so actual sheet zeroes remain open gaps.
+    float coverage=streamField()?f.y:max(f.y,.28*(1.-smoothstep(.25,.78,p.y)));
     float termination=streamField()?1.-smoothstep(.97,1.,p.y):1.-smoothstep(.78,1.,p.y);
-    return envelope*(f.x*f.y*.95+contact)*termination;
+    return envelope*(f.x*coverage*.95+contact)*termination;
   }
   vec3 colorAt(vec3 p,float den,vec4 f) {
     if(policy.x>.5) {
@@ -141,7 +146,10 @@ export const fragmentShader = noise + `
     float hot=clamp(.22+f.w*.66+den*.12,0.,1.);
     vec3 color=mix(vec3(.80,.018,.001),vec3(1.,.44,.020),smoothstep(.40,.76,hot));
     float white=f.z*(.65+f.x*.35);
-    return mix(color,vec3(1.,1.,.82),smoothstep(.61,.94,white));
+    vec3 flame=mix(color,vec3(1.,1.,.82),smoothstep(.61,.94,white));
+    // Ground/torch reaction sheets are luminous emitters rather than tinted
+    // translucent smoke. Jet emission stays exactly on the reviewed0.3 profile.
+    return streamField()?flame:flame*2.;
   }
   void main() {
     bool ribbon=policy.y>=1.5;
@@ -160,8 +168,13 @@ export const fragmentShader = noise + `
     } else {
       vec3 viewDir=orthographic>.5?-vec3(viewMatrix[0][2],viewMatrix[1][2],viewMatrix[2][2]):normalize(world-cameraPosition);
       vec3 d=normalize(vec3(dot(viewDir,right)/shape.x,dot(viewDir,axis)/shape.y,dot(viewDir,forward)/shape.x));
-      vec3 p=cameraInside?eyeLocal:local+d*.004; float stepSize=.14;
-      for(int j=0;j<18;j++) {
+      bool attachedFlame=policy.x<.5&&!streamField();
+      vec3 p=cameraInside?eyeLocal:local+d*.004;
+      // Same2.52-local-unit span: finer sampling resolves the thin ground/torch
+      // sheets without changing reach or the jet/smoke18-sample sequence.
+      float stepSize=attachedFlame?2.52/32.:.14;
+      for(int j=0;j<32;j++) {
+        if(!attachedFlame&&j>=18)break;
         vec3 wp=base+right*p.x*shape.x+axis*p.y*shape.y+forward*p.z*shape.x;
         if(opaqueStops(wp,sceneDepth))break;
         vec4 f=policy.x>.5?vec4(0.):reaction(p);
