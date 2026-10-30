@@ -73,9 +73,9 @@ test('Cancellation reaches the driver before its unresolved measurement complete
   const measuring=f.binding.intent({type:'measure',modes:['current','reference']});await Promise.resolve();await f.binding.intent({type:'cancel'});const report=await measuring;
   assert.equal(report.status,'cancelled');assert.deepEqual(f.calls.at(-1),['cancel-before-resolution']);await f.binding.dispose();
 });
-test('Actual capture exports a paired JPEG and exact source/hardware JSON; malformed captures reject',async()=>{
+test('Each explicit capture download exports one file, with exact paired source/hardware metadata',async()=>{
   const f=await fixture(),capture=await f.binding.intent({type:'capture'});await f.binding.intent({type:'save-capture',id:capture.id});
-  assert.equal(f.downloads.length,2);assert.equal(f.downloads[0][2],'image/jpeg');assert.equal(f.downloads[1][0].sourceFingerprints.publishedControl,'test-fixture');assert.equal(f.downloads[1][0].hardware.renderer,'DOM test fixture only');assert.equal(f.downloads[1][0].dataUrl,undefined);
+  assert.equal(f.downloads.length,1);assert.equal(f.downloads[0][2],'image/jpeg');await f.binding.intent({type:'save-capture-metadata',id:capture.id});assert.equal(f.downloads.length,2);assert.equal(f.downloads[1][2],'application/json');assert.equal(f.downloads[1][0].sourceFingerprints.publishedControl,'test-fixture');assert.equal(f.downloads[1][0].hardware.renderer,'DOM test fixture only');assert.equal(f.downloads[1][0].dataUrl,undefined);
   f.driver.captureFrame=()=>({mimeType:'image/jpeg',dataUrl:'https://example.org/fake.jpg'});await assert.rejects(f.binding.intent({type:'capture'}),/actual JPEG/);await f.binding.dispose();
 });
 test('WebGL failure leaves an explicit unavailable shell and the references usable',async()=>{
@@ -133,7 +133,7 @@ async function motionBindingFixture(initialState){
 }
 test('Live motion uses public play/pause, reports source/start/end clocks and blocks GPU measurement',async()=>{
   const f=await motionBindingFixture();await f.binding.intent({type:'record'});assert.equal(f.updates.at(-1).recording.active,true);await assert.rejects(f.binding.intent({type:'measure',modes:['current','reference']}),/Stop or discard/);
-  f.emit({frameIndex:90,tick:90,worldTime:1.5,playerTime:1.5});const metadata=await f.binding.intent({type:'stop-record'});assert.equal(metadata.status,'complete');assert.equal(metadata.start.frameIndex,45);assert.equal(metadata.end.frameIndex,90);assert.equal(metadata.start.worldTime,.75);assert.equal(metadata.end.worldTime,1.5);assert.equal(metadata.sourceFingerprints.publishedControl,'test-fixture');assert.equal(f.downloads.length,2);assert.equal(f.downloads[0][2],'video/webm');assert.equal(f.updates.at(-1).recording.active,false);await f.binding.dispose();
+  f.emit({frameIndex:90,tick:90,worldTime:1.5,playerTime:1.5});const metadata=await f.binding.intent({type:'stop-record'});assert.equal(metadata.status,'complete');assert.equal(metadata.start.frameIndex,45);assert.equal(metadata.end.frameIndex,90);assert.equal(metadata.start.worldTime,.75);assert.equal(metadata.end.worldTime,1.5);assert.equal(metadata.sourceFingerprints.publishedControl,'test-fixture');assert.equal(f.downloads.length,1);assert.equal(f.downloads[0][2],'video/webm');assert.equal(f.updates.at(-1).recording.active,false);await f.binding.intent({type:'motion-metadata'});assert.equal(f.downloads.length,2);assert.equal(f.downloads[1][2],'application/json');assert.equal(f.downloads[1][0].end.tick,90);await f.binding.dispose();
 });
 test('A paused still, measurement run, discard or hidden tab cannot claim valid motion',async()=>{
   const still=await motionBindingFixture();await still.binding.intent({type:'record'});const result=await still.binding.intent({type:'stop-record'});assert.equal(result.status,'inconclusive');assert.match(result.reason,/No authoritative live time/);assert.equal(still.downloads.length,0);await still.binding.dispose();

@@ -9,13 +9,17 @@ export function fixtureState(patch={}){
 const ok=(value,message)=>{if(!value)throw Error(message);};
 const equal=(a,b,message='Values differ')=>ok(JSON.stringify(a)===JSON.stringify(b),message+': '+JSON.stringify(a));
 const flush=async()=>{for(let i=0;i<6;i++)await Promise.resolve();};
+async function stylesReady(link){
+  if(link.sheet)return;
+  await new Promise((resolve,reject)=>{const finish=error=>{clearTimeout(timer);link.removeEventListener('load',loaded);link.removeEventListener('error',failed);error?reject(error):resolve();},loaded=()=>finish(),failed=()=>finish(Error('Real HUD stylesheet failed to load')),timer=setTimeout(()=>finish(Error('Real HUD stylesheet load timed out')),5000);link.addEventListener('load',loaded,{once:true});link.addEventListener('error',failed,{once:true});});
+}
 export async function runFireReviewChecks(host){
   await document.fonts.ready;const results=[];
   async function check(name,run){
     const root=document.createElement('div');host.append(root);const intents=[],exports=[];let handler=intent=>intents.push(intent);
     const ui=createReviewShell({root,onIntent:i=>handler(i),onExport:r=>exports.push(r)}),state=fixtureState();
     const s={root,ui,state,intents,exports,find:q=>root.querySelector(q),all:q=>[...root.querySelectorAll(q)],update:()=>ui.update(state),handler:fn=>{handler=fn;}};
-    try{await run(s);results.push({name,status:'pass'});}catch(error){results.push({name,status:'fail',message:error.message});}finally{ui.dispose();root.remove();}
+    try{const evidence=await run(s);results.push({name,status:'pass',...(evidence?{evidence}:{})});}catch(error){results.push({name,status:'fail',message:error.message});}finally{ui.dispose();root.remove();}
   }
   await check('Unavailable backend keeps controls disabled, with no fake canvas or timing',s=>{
     for(const el of s.all('[data-mode],[data-choice],[data-action],[data-seed],[data-dpr],[data-seek]'))ok(el.disabled,'Unavailable control enabled');
@@ -25,7 +29,27 @@ export async function runFireReviewChecks(host){
     equal(s.all('[data-render-root]').length,1);equal(s.all('[data-ui-root]').length,1);equal(s.all('[data-mode]').length,4);s.update();equal(s.all('[data-choice="scenario"] option').length,6);ok(s.all('[data-choice="scenario"] option').some(o=>o.value==='gasoline-front-powder'),'Powder absent');
   });
   await check('Mode intent calls the driver once and never optimistically changes the selection',async s=>{
-    s.update();s.find('[data-mode="reference"]').click();await flush();equal(s.intents,[{type:'configure',patch:{mode:'reference'}}]);equal(s.find('[data-mode="current"]').getAttribute('aria-pressed'),'true');ok(!s.find('[data-empty]').hidden,'DOM fixture claims actual render');
+    s.update();s.find('[data-mode="reference"]').click();await flush();equal(s.intents,[{type:'configure',patch:{mode:'reference'}}]);equal(s.find('[data-mode="current"]').getAttribute('aria-pressed'),'true');ok(!s.find('[data-render-empty]').hidden,'DOM fixture claims actual render');
+  });
+  await check('Real HUD plus ready shell hides only the placeholder by computed style and restores genuine unavailable states',async s=>{
+    const hud=mountUI({root:s.ui.uiRoot,onCommand:()=>{},autoOpenPauseMenu:false}),observations=[];
+    try{
+      hud.update(fixture('paused'));await stylesReady(s.ui.uiRoot.querySelector('link[rel="stylesheet"]'));await new Promise(resolve=>requestAnimationFrame(resolve));
+      s.state.diagnostics={...s.state.diagnostics,renderer:{width:1280,height:800,pixelRatio:1,outputColorSpace:'srgb',toneMapping:0}};s.update();
+      const placeholder=s.find('[data-render-empty]'),hudShell=s.ui.uiRoot.querySelector('.tb-ui'),matches=s.ui.uiRoot.querySelector('[data-tool="matches"]');
+      ok(s.ui.uiRoot.querySelector('[data-empty]')===matches,'Real HUD stock marker did not reproduce the shared selector');
+      equal(getComputedStyle(placeholder).display,'none','Ready placeholder still paints');equal(placeholder.getClientRects().length,0,'Ready overlay keeps a painted box');
+      for(const button of s.ui.uiRoot.querySelectorAll('.left-controls button,.right-controls button')){ok(!button.hidden,'Shell hid a borrowed HUD button');ok(getComputedStyle(button).display!=='none','Borrowed HUD button lost its display');}
+      equal(hudShell.dataset.mode,'gameplay');equal(hudShell.getAttribute('aria-pressed'),null,'Shell changed borrowed data-mode semantics');
+      observations.push({phase:'ready',placeholderHidden:placeholder.hidden,placeholderDisplay:getComputedStyle(placeholder).display,matchesHidden:matches.hidden,matchesDisplay:getComputedStyle(matches).display,hudAriaPressed:hudShell.getAttribute('aria-pressed')});
+      for(const phase of ['initializing','error','unavailable']){
+        s.state.phase=phase;s.state.error=phase==='error'?{message:'Explicit DOM error fixture'}:null;s.state.availability.current.available=phase!=='unavailable';s.update();
+        ok(!placeholder.hidden,'Unavailable placeholder was hidden');ok(getComputedStyle(placeholder).display!=='none','Unavailable explanation cannot paint');ok(placeholder.getClientRects().length>0,'Unavailable overlay has no painted box');equal(getComputedStyle(s.ui.uiRoot).display,'none','Unavailable HUD stays visible');
+        observations.push({phase,placeholderHidden:placeholder.hidden,placeholderDisplay:getComputedStyle(placeholder).display,hudDisplay:getComputedStyle(s.ui.uiRoot).display});
+      }
+      s.state.phase='ready';s.state.error=null;s.state.availability.current.available=true;s.update();equal(getComputedStyle(placeholder).display,'none','Recovered render keeps stale overlay');ok(!matches.hidden,'Recovered shell hid matches');
+      return {kind:'DOM visibility with real HUD and detached renderer metadata; no WebGL claim',observations};
+    }finally{hud.dispose();}
   });
   await check('Powder is a scenario request and no clock multiplier control exists',async s=>{
     s.update();const q=s.find('[data-choice="scenario"]');q.value='gasoline-front-powder';q.dispatchEvent(new Event('change'));await flush();equal(s.intents,[{type:'configure-choice',key:'scenario',value:'gasoline-front-powder'}]);equal(s.all('[data-clock]').length,0);equal(s.state.worldTime,.75);
@@ -47,7 +71,13 @@ export async function runFireReviewChecks(host){
   await check('Missing canvas encoder leaves recording unavailable without invented motion',s=>{s.update();ok(s.find('[data-action="record"]').disabled,'Unavailable encoder enabled');ok(s.find('[data-action="stop-record"]').disabled,'No recording can stop');ok(s.find('[data-recording-status]').textContent.includes('unavailable'),'Missing unavailable message');});
   await check('Active recording permits stop/discard and locks GPU measurement plus scene edits',s=>{s.state.phase='playing';s.state.recording={available:true,active:true,stopping:false};s.update();ok(!s.find('[data-action="stop-record"]').disabled,'Stop disabled');ok(!s.find('[data-action="cancel-record"]').disabled,'Discard disabled');ok(s.find('[data-action="measure"]').disabled,'Recording contaminates timing');ok(s.find('[data-choice="scenario"]').disabled,'Recording scene can change');ok(s.find('[data-action="record"]').disabled,'Duplicate recording enabled');});
   await check('Unavailable optimized mode retains its reason and cannot be selected',s=>{s.update();const button=s.find('[data-mode="optimized"]');ok(button.disabled,'Unavailable optimized enabled');ok(button.title.includes('not delivered'),'Unavailable reason absent');button.click();equal(s.intents,[]);});
-  await check('A connected shader error keeps configuration available for recovery, while render controls lock',s=>{s.state.phase='error';s.state.error={message:'Fixture shader failure'};s.update();ok(!s.find('[data-mode="current"]').disabled,'Published-mode recovery blocked');ok(s.find('[data-action="play"]').disabled,'Error can play');ok(!s.find('[data-empty]').hidden,'Error claims render');});
+  await check('A connected shader error keeps configuration available for recovery, while render controls lock',s=>{s.state.phase='error';s.state.error={message:'Fixture shader failure'};s.update();ok(!s.find('[data-mode="current"]').disabled,'Published-mode recovery blocked');ok(s.find('[data-action="play"]').disabled,'Error can play');ok(!s.find('[data-render-empty]').hidden,'Error claims render');});
+  await check('JPEG and evidence JSON use separate explicit controls and one intent per gesture',async s=>{
+    s.state.captures=[{id:'fixture',mimeType:'image/jpeg',dataUrl:'data:image/jpeg;base64,dGVzdA==',frameIndex:45,configuration:s.state.configuration}];s.update();const buttons=s.all('[data-captures] button');equal(buttons.map(b=>b.textContent),['Save JPEG','Save evidence JSON']);buttons[0].click();await flush();equal(s.intents,[{type:'save-capture',id:'fixture'}]);buttons[1].click();await flush();equal(s.intents,[{type:'save-capture',id:'fixture'},{type:'save-capture-metadata',id:'fixture'}]);
+  });
+  await check('Motion metadata is explicitly saved once and disabled when no completed record exists',async s=>{
+    s.update();ok(s.find('[data-action="motion-metadata"]').disabled,'Missing metadata can download');s.state.recording={active:false,available:true,lastResult:{status:'complete',reason:'DOM route fixture only'}};s.update();s.find('[data-action="motion-metadata"]').click();await flush();equal(s.intents,[{type:'motion-metadata'}]);
+  });
   await check('Unsupported populations are not offered for ordinary scenarios',s=>{s.update();equal(s.all('[data-choice="population"] option').map(o=>o.value),['auto']);s.state.capabilities.populations=[32,128,512];s.update();equal(s.all('[data-choice="population"] option').map(o=>o.value),['auto','32','128','512']);});
   await check('Unchanged updates preserve focused inputs, options and edited notes',s=>{
     s.update();const seed=s.find('[data-seed]'),option=s.find('[data-choice="scenario"]').firstChild,note=s.find('textarea');seed.focus();seed.value='17';note.value='Observed gap';note.dispatchEvent(new Event('input'));s.update();equal(seed.value,'17');ok(document.activeElement===seed,'Focus lost');ok(option===s.find('[data-choice="scenario"]').firstChild,'Catalogue churn');equal(note.value,'Observed gap');
