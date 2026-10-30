@@ -1,13 +1,12 @@
-// Original TB-034 surface lattice. Coordinates: axial y in [0,1], radial x/z.
-export function createTongueGeometry(T, smoke = false) {
+// TB-034 original curved lattice. One unit cylinder supports both flame/smoke
+// profiles, allowing all transparent instances to share a sorted draw stream.
+export function createTongueGeometry(T) {
   const radial = 28, rings = 36, positions = [], normals = [], uvs = [], indices = [];
   for (let j = 0; j <= rings; j++) {
     const y = j / rings;
-    const r = smoke ? .035 + Math.pow(Math.sin(Math.PI * y), .66) * .96
-      : Math.max(.006, (.72 + .24 * Math.sin(y * 4.3)) * Math.pow(1 - y, .64));
     for (let k = 0; k <= radial; k++) {
       const a = k / radial * Math.PI * 2;
-      positions.push(Math.cos(a) * r, y, Math.sin(a) * r);
+      positions.push(Math.cos(a), y, Math.sin(a));
       normals.push(Math.cos(a), .25, Math.sin(a)); uvs.push(k / radial, y);
       if (j && k) {
         const b = j * (radial + 1) + k, a0 = b - radial - 2;

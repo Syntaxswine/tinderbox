@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "id": "tb034-fire-reference",
   "status": "unaccepted-reference-candidate",
   "referenceFrozen": false,
@@ -8,22 +8,23 @@
   "runtimeFiles": [
     {
       "path": "assets/art/fire-realism/geometry.js",
-      "bytes": 1174,
-      "sha256": "7a87534edad0407908b4dbff2db7525ab3d8b1e406f2855a9685af300c512365"
+      "bytes": 1078,
+      "sha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036"
     },
     {
       "path": "assets/art/fire-realism/shaders.js",
-      "bytes": 5485,
-      "sha256": "ed1d0388c2e85d780fabbaaa0a41e2fbb9b7c12f1cd2b2a1259fd7467b8009ce"
+      "bytes": 7421,
+      "sha256": "265ef8fa0d306e0107abc580b75c395e00519e839dd48bd3465d30d82607edd0"
     },
     {
       "path": "assets/art/fire-realism/index.js",
-      "bytes": 14963,
-      "sha256": "d03e45ed97f9df850c9bad508d5f43561490bb606e2542f323b53815efe592f5"
+      "bytes": 23767,
+      "sha256": "ed9a70cabf6ac7e13c95dfceac7dad573ef4c991b2b57795a6aaf3c85f96b6c0"
     }
   ],
   "dependencies": [
-    "Caller-injected shared Three r180; no imports of a renderer implementation"
+    "Caller-injected shared Three r180; no imports of a renderer implementation",
+    "Optional borrowed same-frame opaqueDepth and authoritative fieldUniforms from host adapter"
   ],
   "sourceRecord": "art/source/fire-realism/references.json",
   "referencePhotosUsedAtRuntime": false,
@@ -31,7 +32,11 @@
   "clock": "authoritative worldTime; no wall/player clock",
   "limits": [
     "Actual shader compilation, animated visual review and GPU elapsed cost pending",
-    "Disconnected fans, outside-fan leads, explosion and prepared building visuals deferred"
+    "Centroid-sorted intersecting transparent volumes remain approximate; independent clipped rays use explicit exact-line surface ribbons",
+    "Legacy Molotov/barrel transients are an explicit external runtime component; this factory does not duplicate them",
+    "65536 input cells; at most4096 observed emitting/history cells,256 rays,64 building groups and384 jet-smoke records"
   ],
-  "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text."
+  "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
+  "artistVersion": "0.2.0-reference-candidate",
+  "correctsCandidate": "3f7b8f34de99f3483b0e13a991aef7abd0455da2"
 }
