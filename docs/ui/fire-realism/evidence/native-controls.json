@@ -1,0 +1,107 @@
+{
+  "kind": "DOM fixture only; no renderer or performance evidence",
+  "commands": [
+    {
+      "type": "configure",
+      "patch": {
+        "mode": "no-fire"
+      }
+    },
+    {
+      "type": "play"
+    },
+    {
+      "type": "pause"
+    }
+  ],
+  "trusted": [
+    {
+      "type": "click",
+      "target": "no-fire",
+      "trusted": true
+    },
+    {
+      "type": "click",
+      "target": "play",
+      "trusted": true
+    },
+    {
+      "type": "click",
+      "target": "pause",
+      "trusted": true
+    },
+    {
+      "type": "click",
+      "target": "Export critique (.json)",
+      "trusted": true
+    }
+  ],
+  "exports": [
+    {
+      "version": 2,
+      "kind": "independent-ui-critique",
+      "createdAt": "2026-10-30T05:12:06.798Z",
+      "acceptance": "Reviewer notes do not approve a baseline or prove the cost target.",
+      "context": {
+        "phase": "ready",
+        "configuration": {
+          "mode": "no-fire",
+          "scenario": "match-contact",
+          "view": "isometric",
+          "lighting": "bright",
+          "population": null,
+          "seed": 1893,
+          "characterId": "bear",
+          "viewport": {
+            "width": 1280,
+            "height": 800,
+            "pixelRatio": 1
+          }
+        },
+        "frameIndex": 45,
+        "tick": 45,
+        "worldTime": 0.75,
+        "playerTime": 0.75,
+        "availability": {
+          "current": {
+            "available": true,
+            "reason": null,
+            "sourceCommit": "DOM-test-fixture"
+          },
+          "reference": {
+            "available": true,
+            "reason": null,
+            "sourceCommit": "DOM-test-fixture"
+          },
+          "optimized": {
+            "available": false,
+            "reason": "Optimized export not delivered",
+            "sourceCommit": "DOM-test-fixture"
+          },
+          "no-fire": {
+            "available": true,
+            "reason": null,
+            "sourceCommit": "DOM-test-fixture"
+          }
+        },
+        "referenceAcceptance": "missing",
+        "workload": {
+          "actualBurningCells": 4
+        },
+        "sourceFingerprints": {
+          "publishedControl": "DOM-test-fixture"
+        },
+        "renderer": null,
+        "results": null
+      },
+      "notes": {
+        "shape": "DOM input verification only; no rendered fire claim.",
+        "flow": "",
+        "colour": "",
+        "contact": "",
+        "artefacts": "",
+        "readability": ""
+      }
+    }
+  ]
+}

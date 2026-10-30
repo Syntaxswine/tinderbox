@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "task": "TB-036-H",
+  "date": "2026-10-30",
+  "status": "UI candidate; combined WebGL and motion acceptance pending",
+  "architectBase": "3ca35d095fc94361b2aeb3eda6e51f72394337a9",
+  "runtimeDelivery": "dafdd44fd9177ca79ed6d9a874966e242d0cfdf7",
+  "localRuntimeCopy": "9e97b4cde5644c864fb876cb2f9ffc112654b5eb",
+  "correctiveArtistDelivery": "0b180335a007809a0e63fb69da40b0b0b59035aa",
+  "originalShell": "original-shell-intake.json",
+  "checks": [
+    {"command": "node --test tests/ui/fire-review.test.mjs", "status": "passed", "tests": 16},
+    {"command": "node tools/check.mjs", "status": "passed", "tests": 216, "ownScripts": 161, "staticModules": 199, "artChecks": 41},
+    {"command": "node tools/build.mjs", "status": "passed", "publicFiles": 3463, "bytes": 163348391},
+    {"command": "git diff --check", "status": "passed"},
+    {"command": "Supported in-app browser DOM fixture", "status": "passed", "testsPerViewport": 24, "viewports": [[1280,800],[390,844],[320,568],[844,390]], "evidence": ["evidence/dom-1280x800.json","evidence/dom-390x844.json","evidence/dom-320x568.json","evidence/dom-844x390.json"]},
+    {"command": "Browser Enter, Space, mouse and critique export", "status": "passed", "evidence": "evidence/native-controls.json"},
+    {"command": "Actual tracked reference image loads", "status": "passed", "plates": 4, "evidence": "evidence/reference-plates.json"},
+    {"command": "Original uncommitted shell rehash", "status": "passed", "files": 7, "note": "Original checkout remained unchanged."}
+  ],
+  "visualEvidence": [
+    {"path": "evidence/desktop-unavailable.png", "scope": "Actual review interface,1280x800; WebGL unavailable, no fire claim"},
+    {"path": "evidence/phone-unavailable.png", "scope": "Actual review interface,390x844; WebGL unavailable, no fire claim"}
+  ],
+  "unperformed": ["Candidate shader compilation", "Animated fire realism", "GPU rendering cost target", "Six-button HUD over actual candidate fire"],
+  "browserLimitation": "In-app WebGL context creation fails with GL_RENDERER=Disabled. Architect's separate native Chrome access is not evidence produced by this helper.",
+  "promotion": "Not requested or performed. Architect owns combined acceptance and publication."
+}
