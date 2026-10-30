@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "owner": "coder",
+  "task": "User-requested exterior ghost and animal-centred AFT transparency halo",
+  "sourceRepository": "https://github.com/Syntaxswine/animal-factory-tactics-3d.git",
+  "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+  "files": [
+    {
+      "sourcePath": "dist/tactics/wall-xray.js",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/wall-xray.js",
+      "bytes": 5963,
+      "sha256": "12b586787c07c71d0b19afc124598ba9e4949f57b8136110db595f6dafc56a9a"
+    }
+  ],
+  "dependencies": [
+    "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/vendor/three.module.js"
+  ],
+  "adaptations": [
+    "Original module unchanged; the existing explicit Three facade uses Tinderbox shared Three",
+    "Tinderbox adapter centres the halo on the animal and derives radius from real orthographic pixels per native metre",
+    "Global exterior linework derives from frozen structural plans/compiled meshes; its faint lines fade to clear in the original feather curve",
+    "Source material hook is retained with a world-height eligibility adapter to preserve supporting floors; no movement or visibility rules change"
+  ],
+  "evidence": [
+    {
+      "sourcePath": "tests/wall-xray.test.mjs",
+      "bytes": 7510,
+      "sha256": "a4d4c8ea4f5597944f4c85d8472fc15297196008da4dd5c9bb0a24b2b079d2a7",
+      "imported": false
+    }
+  ],
+  "rightsStatus": "Original application rights remain undeclared as recorded in source-baseline.json. User explicitly requests this AFT effect; original source bytes and existing Three MIT notice are preserved."
+}

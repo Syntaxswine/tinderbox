@@ -14,9 +14,10 @@ const server=http.createServer((request,response)=>{
   }catch{response.writeHead(404);response.end();}
 });
 const originalFetch=globalThis.fetch,controller=new AbortController();
+const task=process.argv.find(arg=>arg.startsWith('--task='))?.slice(7)||'TB-024';
 const creationFiletime=process.platform==='win32'?execFileSync('powershell.exe',['-NoProfile','-Command','(Get-Process -Id '+process.pid+').StartTime.ToUniversalTime().ToFileTimeUtc().ToString()'],{encoding:'utf8',windowsHide:true}).trim():null;
-const receipt={task:'TB-024',owner:'01a17ea3-b99b-74d2-8a74-56d2556a19cb',pid:process.pid,creationFiletime,executable:process.execPath,startedAt,port:null,purpose:'Finite nested-path public package/source-section/character verification',intendedExpirySeconds:30,stopMethod:'Server finally close plus real 30-second abort and shutdown timeout',passed:false};
-const receiptPath='docs/engineering/explorable-places/package-smoke.json';
+const receipt={task,owner:'01a17ea3-b99b-74d2-8a74-56d2556a19cb',pid:process.pid,creationFiletime,executable:process.execPath,startedAt,port:null,purpose:'Finite nested-path public package/source-section/character verification',intendedExpirySeconds:30,stopMethod:'Server finally close plus real 30-second abort and shutdown timeout',passed:false};
+const receiptPath=process.argv.find(arg=>arg.startsWith('--receipt='))?.slice(10)||'docs/engineering/explorable-places/package-smoke.json';
 fs.mkdirSync(path.dirname(receiptPath),{recursive:true});
 const saveReceipt=()=>fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n');
 const timeout=setTimeout(()=>{receipt.timedOut=true;controller.abort(Error('Package verification exceeded 30 seconds'));server.closeAllConnections();server.close();},30000);
@@ -37,14 +38,14 @@ try{
   for(const id of ['new-york','administration','horticulture']){
     const data=await loadLandmark(id);viewRoot=new T.Group();stream=createSectionStreamer({THREE:T,root:viewRoot,manifest:data.manifest,baseUrl:data.baseUrl});stream.update(data.navigation.spawn);await stream.settled();
     if(!stream.isReadyAt(data.navigation.spawn)||!viewRoot.children.length)throw Error('Selected native sections did not load: '+id);
-    reports.push({placeId:id,statistics:data.manifest.statistics,loaded:stream.metrics()});stream.dispose();await stream.settled();if(viewRoot.children.length||stream.metrics().geometries||stream.metrics().materials)throw Error('Place resources survived exit');stream=null;
+    reports.push({placeId:id,statistics:data.manifest.statistics,exteriorGhost:data.ghost&&{segments:data.ghost.segments,sourceManifestSha256:data.ghost.sourceManifestSha256},loaded:stream.metrics()});stream.dispose();await stream.settled();if(viewRoot.children.length||stream.metrics().geometries||stream.metrics().materials)throw Error('Place resources survived exit');stream=null;
   }
   const {createCharacterRig}=await import(pathToFileURL(path.join(root,'src/reuse/characters.js'))),{CHARACTERS}=await import(pathToFileURL(path.join(root,'src/content/characters.js'))),{PLACES}=await import(pathToFileURL(path.join(root,'src/content/places.js')));
   if(CHARACTERS.map(c=>c.id).join(',')!=='goat,horse,bear'||PLACES.map(p=>p.id).join(',')!=='catalogue-street,new-york,administration,horticulture')throw Error('Packaged menu registry is stale');
   for(const {id}of CHARACTERS){const model=id==='bear'?'vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json':'vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/'+id+'-10k-data.json';
     const rig=createCharacterRig(id,await(await fetchResource(new URL(model,base))).json());try{if(!(rig.root instanceof T.Group)||!rig.diagnostics().nativeScale.every(v=>v===1))throw Error('Packaged character renderer/scale mismatch');}finally{rig.dispose();}
   }
-  Object.assign(receipt,{verifiedFiles:verified,places:reports,characters:CHARACTERS.map(c=>c.id),menuEntries:PLACES.map(p=>p.id),rendered:false,browserAcceptance:'Not performed by this HTTP/source loader check',uiIntegration:'Architect must reconcile exact TB-025 UI candidate; no UI files changed by TB-024',passed:true});
+  Object.assign(receipt,{verifiedFiles:verified,places:reports,characters:CHARACTERS.map(c=>c.id),menuEntries:PLACES.map(p=>p.id),rendered:false,browserAcceptance:'Not performed by this HTTP/source loader check',uiIntegration:task==='TB-024'?'Architect must reconcile exact TB-025 UI candidate; no UI files changed by TB-024':'Packaged UI from the current integration base; no UI files changed by this candidate',passed:true});
 }catch(error){
   failure=error;receipt.error=String(error.message||error);
 }finally{

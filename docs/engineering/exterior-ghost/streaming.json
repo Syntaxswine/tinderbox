@@ -1,0 +1,973 @@
+{
+  "task": "exterior-ghost",
+  "method": "Seven source-position/height samples per building at 844x390 and DPR 1.75; compare real section instances/triangle totals with and without the presentation, then release overview/exit. Samples are renderer resource probes, not navigated player routes or WebGL performance acceptance.",
+  "reports": [
+    {
+      "placeId": "new-york",
+      "samples": [
+        {
+          "point": {
+            "x": 56,
+            "y": 14,
+            "elevation": 0
+          },
+          "streaming": {
+            "activeSections": 19,
+            "pendingSections": 0,
+            "geometries": 140,
+            "materials": 15,
+            "haloMaterials": 7,
+            "peakSections": 19,
+            "peakGeometries": 140,
+            "sectionLoads": 19,
+            "sectionReleases": 0,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 275,
+          "haloBatches": 275,
+          "nativeTriangles": 35530,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 280,
+            "positionBytes": 6720,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.00000000000017,
+              "y": 175.6915610075135
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 7
+          }
+        },
+        {
+          "point": {
+            "x": 56,
+            "y": 51.666666666666664,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 39,
+            "pendingSections": 0,
+            "geometries": 190,
+            "materials": 15,
+            "haloMaterials": 7,
+            "peakSections": 39,
+            "peakGeometries": 190,
+            "sectionLoads": 39,
+            "sectionReleases": 0,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 514,
+          "haloBatches": 514,
+          "nativeTriangles": 62790,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 280,
+            "positionBytes": 6720,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.0000000000004,
+              "y": 175.69156100751493
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 7
+          }
+        },
+        {
+          "point": {
+            "x": 56,
+            "y": 23,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 36,
+            "pendingSections": 0,
+            "geometries": 187,
+            "materials": 15,
+            "haloMaterials": 7,
+            "peakSections": 39,
+            "peakGeometries": 190,
+            "sectionLoads": 39,
+            "sectionReleases": 3,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 476,
+          "haloBatches": 476,
+          "nativeTriangles": 60450,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 280,
+            "positionBytes": 6720,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.00000000000085,
+              "y": 175.69156100751331
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 7
+          }
+        },
+        {
+          "point": {
+            "x": 24,
+            "y": 40,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 36,
+            "pendingSections": 0,
+            "geometries": 207,
+            "materials": 15,
+            "haloMaterials": 7,
+            "peakSections": 39,
+            "peakGeometries": 207,
+            "sectionLoads": 51,
+            "sectionReleases": 15,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 430,
+          "haloBatches": 430,
+          "nativeTriangles": 57618,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 280,
+            "positionBytes": 6720,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.00000000000045,
+              "y": 175.6915610075131
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 7
+          }
+        },
+        {
+          "point": {
+            "x": 24,
+            "y": 40,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 36,
+            "pendingSections": 0,
+            "geometries": 207,
+            "materials": 15,
+            "haloMaterials": 7,
+            "peakSections": 39,
+            "peakGeometries": 207,
+            "sectionLoads": 51,
+            "sectionReleases": 15,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 430,
+          "haloBatches": 430,
+          "nativeTriangles": 57618,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 280,
+            "positionBytes": 6720,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.00000000000045,
+              "y": 175.6915610075131
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 7
+          }
+        },
+        {
+          "point": {
+            "x": 88,
+            "y": 40,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 41,
+            "pendingSections": 0,
+            "geometries": 208,
+            "materials": 15,
+            "haloMaterials": 7,
+            "peakSections": 41,
+            "peakGeometries": 208,
+            "sectionLoads": 80,
+            "sectionReleases": 39,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 503,
+          "haloBatches": 503,
+          "nativeTriangles": 58110,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 280,
+            "positionBytes": 6720,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.00000000000017,
+              "y": 175.6915610075131
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 7
+          }
+        },
+        {
+          "point": {
+            "x": 56,
+            "y": 14,
+            "elevation": 0
+          },
+          "streaming": {
+            "activeSections": 35,
+            "pendingSections": 0,
+            "geometries": 195,
+            "materials": 15,
+            "haloMaterials": 7,
+            "peakSections": 41,
+            "peakGeometries": 208,
+            "sectionLoads": 86,
+            "sectionReleases": 51,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 447,
+          "haloBatches": 447,
+          "nativeTriangles": 58658,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 280,
+            "positionBytes": 6720,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.00000000000017,
+              "y": 175.6915610075135
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 7
+          }
+        }
+      ],
+      "afterOverview": {
+        "streaming": {
+          "activeSections": 0,
+          "pendingSections": 0,
+          "geometries": 0,
+          "materials": 0,
+          "haloMaterials": 0,
+          "peakSections": 41,
+          "peakGeometries": 208,
+          "sectionLoads": 86,
+          "sectionReleases": 86,
+          "maxSections": 192,
+          "view": "overview",
+          "cutaway": false,
+          "failed": false
+        },
+        "ghost": {
+          "disposed": false,
+          "visible": false,
+          "segments": 280,
+          "positionBytes": 6720,
+          "lineDraws": 0,
+          "haloActive": false,
+          "centre": null,
+          "radiusPixels": 98.99494936611666,
+          "outerRadiusPixels": 164.99158227686107,
+          "worldRadius": 2.5,
+          "materialVariants": 0
+        }
+      }
+    },
+    {
+      "placeId": "administration",
+      "samples": [
+        {
+          "point": {
+            "x": 62,
+            "y": 12,
+            "elevation": 0
+          },
+          "streaming": {
+            "activeSections": 29,
+            "pendingSections": 0,
+            "geometries": 217,
+            "materials": 20,
+            "haloMaterials": 9,
+            "peakSections": 29,
+            "peakGeometries": 217,
+            "sectionLoads": 29,
+            "sectionReleases": 0,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 413,
+          "haloBatches": 413,
+          "nativeTriangles": 50163,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 392,
+            "positionBytes": 9408,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999994,
+              "y": 175.69156100751596
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 9
+          }
+        },
+        {
+          "point": {
+            "x": 62,
+            "y": 62,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 85,
+            "pendingSections": 0,
+            "geometries": 387,
+            "materials": 21,
+            "haloMaterials": 9,
+            "peakSections": 85,
+            "peakGeometries": 387,
+            "sectionLoads": 86,
+            "sectionReleases": 1,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 1058,
+          "haloBatches": 1058,
+          "nativeTriangles": 127411,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 392,
+            "positionBytes": 9408,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999993,
+              "y": 175.69156100751616
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 9
+          }
+        },
+        {
+          "point": {
+            "x": 89,
+            "y": 35,
+            "elevation": 10.600000000000001
+          },
+          "streaming": {
+            "activeSections": 88,
+            "pendingSections": 0,
+            "geometries": 269,
+            "materials": 21,
+            "haloMaterials": 9,
+            "peakSections": 88,
+            "peakGeometries": 387,
+            "sectionLoads": 141,
+            "sectionReleases": 53,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 944,
+          "haloBatches": 944,
+          "nativeTriangles": 106950,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 392,
+            "positionBytes": 9408,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422.0000000000004,
+              "y": 175.69156100751633
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 9
+          }
+        },
+        {
+          "point": {
+            "x": 29,
+            "y": 41,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 46,
+            "pendingSections": 0,
+            "geometries": 208,
+            "materials": 21,
+            "haloMaterials": 9,
+            "peakSections": 88,
+            "peakGeometries": 387,
+            "sectionLoads": 178,
+            "sectionReleases": 132,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 545,
+          "haloBatches": 545,
+          "nativeTriangles": 64806,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 392,
+            "positionBytes": 9408,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.99999999999903,
+              "y": 175.69156100751553
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 9
+          }
+        },
+        {
+          "point": {
+            "x": 62,
+            "y": 23,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 58,
+            "pendingSections": 0,
+            "geometries": 262,
+            "materials": 21,
+            "haloMaterials": 9,
+            "peakSections": 88,
+            "peakGeometries": 387,
+            "sectionLoads": 195,
+            "sectionReleases": 137,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 745,
+          "haloBatches": 745,
+          "nativeTriangles": 89383,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 392,
+            "positionBytes": 9408,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999996,
+              "y": 175.69156100751596
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 9
+          }
+        },
+        {
+          "point": {
+            "x": 23,
+            "y": 62,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 57,
+            "pendingSections": 0,
+            "geometries": 235,
+            "materials": 21,
+            "haloMaterials": 9,
+            "peakSections": 88,
+            "peakGeometries": 387,
+            "sectionLoads": 212,
+            "sectionReleases": 155,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 688,
+          "haloBatches": 688,
+          "nativeTriangles": 85434,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 392,
+            "positionBytes": 9408,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999997,
+              "y": 175.69156100751616
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 9
+          }
+        },
+        {
+          "point": {
+            "x": 62,
+            "y": 12,
+            "elevation": 0
+          },
+          "streaming": {
+            "activeSections": 42,
+            "pendingSections": 0,
+            "geometries": 228,
+            "materials": 20,
+            "haloMaterials": 9,
+            "peakSections": 88,
+            "peakGeometries": 387,
+            "sectionLoads": 227,
+            "sectionReleases": 185,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 548,
+          "haloBatches": 548,
+          "nativeTriangles": 70891,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 392,
+            "positionBytes": 9408,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999994,
+              "y": 175.69156100751596
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 9
+          }
+        }
+      ],
+      "afterOverview": {
+        "streaming": {
+          "activeSections": 0,
+          "pendingSections": 0,
+          "geometries": 0,
+          "materials": 0,
+          "haloMaterials": 0,
+          "peakSections": 88,
+          "peakGeometries": 387,
+          "sectionLoads": 227,
+          "sectionReleases": 227,
+          "maxSections": 192,
+          "view": "overview",
+          "cutaway": false,
+          "failed": false
+        },
+        "ghost": {
+          "disposed": false,
+          "visible": false,
+          "segments": 392,
+          "positionBytes": 9408,
+          "lineDraws": 0,
+          "haloActive": false,
+          "centre": null,
+          "radiusPixels": 98.99494936611666,
+          "outerRadiusPixels": 164.99158227686107,
+          "worldRadius": 2.5,
+          "materialVariants": 0
+        }
+      }
+    },
+    {
+      "placeId": "horticulture",
+      "samples": [
+        {
+          "point": {
+            "x": 181,
+            "y": 31,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 45,
+            "pendingSections": 0,
+            "geometries": 296,
+            "materials": 17,
+            "haloMaterials": 6,
+            "peakSections": 45,
+            "peakGeometries": 296,
+            "sectionLoads": 45,
+            "sectionReleases": 0,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 653,
+          "haloBatches": 653,
+          "nativeTriangles": 167198,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 1090,
+            "positionBytes": 26160,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999992,
+              "y": 175.69156100751758
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 6
+          }
+        },
+        {
+          "point": {
+            "x": 176,
+            "y": 65.66666666666667,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 68,
+            "pendingSections": 0,
+            "geometries": 315,
+            "materials": 15,
+            "haloMaterials": 6,
+            "peakSections": 68,
+            "peakGeometries": 315,
+            "sectionLoads": 76,
+            "sectionReleases": 8,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 857,
+          "haloBatches": 857,
+          "nativeTriangles": 226594,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 1090,
+            "positionBytes": 26160,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 422,
+              "y": 175.69156100751715
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 6
+          }
+        },
+        {
+          "point": {
+            "x": 311,
+            "y": 89,
+            "elevation": 6.36
+          },
+          "streaming": {
+            "activeSections": 28,
+            "pendingSections": 0,
+            "geometries": 80,
+            "materials": 13,
+            "haloMaterials": 5,
+            "peakSections": 68,
+            "peakGeometries": 315,
+            "sectionLoads": 104,
+            "sectionReleases": 76,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 244,
+          "haloBatches": 244,
+          "nativeTriangles": 59885,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 1090,
+            "positionBytes": 26160,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999959,
+              "y": 175.69156100751715
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 5
+          }
+        },
+        {
+          "point": {
+            "x": 24,
+            "y": 31,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 18,
+            "pendingSections": 0,
+            "geometries": 93,
+            "materials": 17,
+            "haloMaterials": 6,
+            "peakSections": 68,
+            "peakGeometries": 315,
+            "sectionLoads": 122,
+            "sectionReleases": 104,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 186,
+          "haloBatches": 186,
+          "nativeTriangles": 41776,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 1090,
+            "positionBytes": 26160,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999985,
+              "y": 175.69156100751817
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 6
+          }
+        },
+        {
+          "point": {
+            "x": 24,
+            "y": 31,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 18,
+            "pendingSections": 0,
+            "geometries": 93,
+            "materials": 17,
+            "haloMaterials": 6,
+            "peakSections": 68,
+            "peakGeometries": 315,
+            "sectionLoads": 122,
+            "sectionReleases": 104,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 186,
+          "haloBatches": 186,
+          "nativeTriangles": 41776,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 1090,
+            "positionBytes": 26160,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999985,
+              "y": 175.69156100751817
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 6
+          }
+        },
+        {
+          "point": {
+            "x": 328,
+            "y": 31,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 18,
+            "pendingSections": 0,
+            "geometries": 89,
+            "materials": 17,
+            "haloMaterials": 6,
+            "peakSections": 68,
+            "peakGeometries": 315,
+            "sectionLoads": 140,
+            "sectionReleases": 122,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 186,
+          "haloBatches": 186,
+          "nativeTriangles": 41940,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 1090,
+            "positionBytes": 26160,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.99999999999676,
+              "y": 175.6915610075188
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 6
+          }
+        },
+        {
+          "point": {
+            "x": 181,
+            "y": 31,
+            "elevation": 2.12
+          },
+          "streaming": {
+            "activeSections": 45,
+            "pendingSections": 0,
+            "geometries": 296,
+            "materials": 17,
+            "haloMaterials": 6,
+            "peakSections": 68,
+            "peakGeometries": 315,
+            "sectionLoads": 185,
+            "sectionReleases": 140,
+            "maxSections": 192,
+            "view": "follow",
+            "cutaway": true,
+            "failed": false
+          },
+          "baselineBatches": 653,
+          "haloBatches": 653,
+          "nativeTriangles": 167198,
+          "ghost": {
+            "disposed": false,
+            "visible": true,
+            "segments": 1090,
+            "positionBytes": 26160,
+            "lineDraws": 1,
+            "haloActive": true,
+            "centre": {
+              "x": 421.9999999999992,
+              "y": 175.69156100751758
+            },
+            "radiusPixels": 125,
+            "outerRadiusPixels": 208.33333333333331,
+            "worldRadius": 2.5,
+            "materialVariants": 6
+          }
+        }
+      ],
+      "afterOverview": {
+        "streaming": {
+          "activeSections": 0,
+          "pendingSections": 0,
+          "geometries": 0,
+          "materials": 0,
+          "haloMaterials": 0,
+          "peakSections": 68,
+          "peakGeometries": 315,
+          "sectionLoads": 185,
+          "sectionReleases": 185,
+          "maxSections": 192,
+          "view": "overview",
+          "cutaway": false,
+          "failed": false
+        },
+        "ghost": {
+          "disposed": false,
+          "visible": false,
+          "segments": 1090,
+          "positionBytes": 26160,
+          "lineDraws": 0,
+          "haloActive": false,
+          "centre": null,
+          "radiusPixels": 98.99494936611666,
+          "outerRadiusPixels": 164.99158227686107,
+          "worldRadius": 2.5,
+          "materialVariants": 0
+        }
+      }
+    }
+  ],
+  "passed": true
+}

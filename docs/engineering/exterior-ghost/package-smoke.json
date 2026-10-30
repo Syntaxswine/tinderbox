@@ -1,0 +1,141 @@
+{
+  "task": "exterior-ghost",
+  "owner": "01a17ea3-b99b-74d2-8a74-56d2556a19cb",
+  "pid": 46784,
+  "creationFiletime": "134378007524274400",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-10-30T02:25:52.496Z",
+  "port": 63381,
+  "purpose": "Finite nested-path public package/source-section/character verification",
+  "intendedExpirySeconds": 30,
+  "stopMethod": "Server finally close plus real 30-second abort and shutdown timeout",
+  "passed": true,
+  "verifiedFiles": 3463,
+  "places": [
+    {
+      "placeId": "new-york",
+      "statistics": {
+        "sourceParts": 12987,
+        "sourceTriangles": 254642,
+        "emittedParts": 12858,
+        "renderParts": 12840,
+        "mergedFloorFragments": 18,
+        "emittedTriangles": 252406,
+        "sections": 148,
+        "geometries": 416,
+        "cutFloorParts": 60,
+        "collisionShapes": 164,
+        "detailedColliders": 1207,
+        "navigationBytes": 1495072
+      },
+      "exteriorGhost": {
+        "segments": 280,
+        "sourceManifestSha256": "e9129f0bf1e58f13d06aa74671175bf30312f385cb9e09203908bef3a560a0ad"
+      },
+      "loaded": {
+        "activeSections": 19,
+        "pendingSections": 0,
+        "geometries": 140,
+        "materials": 8,
+        "haloMaterials": 0,
+        "peakSections": 19,
+        "peakGeometries": 140,
+        "sectionLoads": 19,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      }
+    },
+    {
+      "placeId": "administration",
+      "statistics": {
+        "sourceParts": 42546,
+        "sourceTriangles": 678191,
+        "emittedParts": 41522,
+        "renderParts": 39801,
+        "mergedFloorFragments": 1721,
+        "emittedTriangles": 655739,
+        "sections": 653,
+        "geometries": 943,
+        "cutFloorParts": 484,
+        "collisionShapes": 580,
+        "detailedColliders": 6324,
+        "navigationBytes": 7010545
+      },
+      "exteriorGhost": {
+        "segments": 392,
+        "sourceManifestSha256": "76d816d6cbe1d2853ef01b5cc4924a4d17a7211fcb30820470c98c34838e0b91"
+      },
+      "loaded": {
+        "activeSections": 29,
+        "pendingSections": 0,
+        "geometries": 217,
+        "materials": 11,
+        "haloMaterials": 0,
+        "peakSections": 29,
+        "peakGeometries": 217,
+        "sectionLoads": 29,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      }
+    },
+    {
+      "placeId": "horticulture",
+      "statistics": {
+        "sourceParts": 63903,
+        "sourceTriangles": 1157534,
+        "emittedParts": 63788,
+        "renderParts": 61954,
+        "mergedFloorFragments": 1834,
+        "emittedTriangles": 1154962,
+        "sections": 445,
+        "geometries": 629,
+        "cutFloorParts": 0,
+        "collisionShapes": 470,
+        "detailedColliders": 7673,
+        "navigationBytes": 8131307
+      },
+      "exteriorGhost": {
+        "segments": 1090,
+        "sourceManifestSha256": "7447372031b91e8aade5bc04a4d3f672caa53a9e85e3d0d034a98be67f5cd84c"
+      },
+      "loaded": {
+        "activeSections": 45,
+        "pendingSections": 0,
+        "geometries": 296,
+        "materials": 11,
+        "haloMaterials": 0,
+        "peakSections": 45,
+        "peakGeometries": 296,
+        "sectionLoads": 45,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      }
+    }
+  ],
+  "characters": [
+    "goat",
+    "horse",
+    "bear"
+  ],
+  "menuEntries": [
+    "catalogue-street",
+    "new-york",
+    "administration",
+    "horticulture"
+  ],
+  "rendered": false,
+  "browserAcceptance": "Not performed by this HTTP/source loader check",
+  "uiIntegration": "Packaged UI from the current integration base; no UI files changed by this candidate",
+  "stoppedAt": "2026-10-30T02:25:56.315Z",
+  "serverClosed": true,
+  "portReleased": true
+}

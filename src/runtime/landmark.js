@@ -3,6 +3,8 @@ import {createExploration,inside} from './navigation.js';
 import {createSectionStreamer,fetchJSON} from './sections.js';
 import {loadCharacterKit} from '../reuse/characters.js';
 import {CHARACTER_PROFILES} from '../content/characters.js';
+import {createExteriorGhost} from './exterior-ghost.js';
+import {ghostDescriptor,validateExteriorGhost} from './ghost-data.js';
 const abortError=()=>new DOMException('Visit cancelled','AbortError');
 export async function loadLandmark(placeId,{signal,loadJSON=fetchJSON}={}){
   if(!['new-york','administration','horticulture'].includes(placeId))throw Error('Unknown landmark');
@@ -14,7 +16,15 @@ export async function loadLandmark(placeId,{signal,loadJSON=fetchJSON}={}){
   const navigation=await loadJSON(new URL(manifest.navigation,url).href,signal);
   if(signal?.aborted)throw abortError();
   if(navigation.version!==1||navigation.placeId!==placeId||!navigation.surfaces?.length||!navigation.occupiedLevels?.length)throw Error('Mismatched or incomplete place navigation data');
-  return {manifest,navigation,baseUrl:url.href};
+  let ghost=null;
+  if(manifest.exteriorGhost){
+    const descriptor=ghostDescriptor(manifest);
+    ghost=await loadJSON(new URL(descriptor.url,url).href,signal);
+    if(signal?.aborted)throw abortError();
+    await validateExteriorGhost(manifest,ghost);
+    if(signal?.aborted)throw abortError();
+  }
+  return {manifest,navigation,ghost,baseUrl:url.href};
 }
 function shapeMesh(T,surface,material,own=()=>{}){
   const root=new T.Group();
@@ -28,7 +38,7 @@ export async function createLandmarkScene({THREE:T,scene,renderer,signal,data,ch
   if(signal?.aborted)throw abortError();
   const root=new T.Group(),details=new T.Group(),plan=new T.Group(),terrain=new T.Group(),ownedGeometry=new Set(),ownedMaterials=new Set();
   root.name='Streamed '+data.manifest.placeId;root.add(details,terrain,plan);
-  let kit,bear,closed=false,stream,planLevel=null,updates=0,lastPlayer=null,marker,planMaterial,releasedKit;
+  let kit,bear,closed=false,stream,ghost,planLevel=null,updates=0,lastPlayer=null,marker,planMaterial,releasedKit;
   const cleanupErrors=[],previousClipping=renderer.localClippingEnabled;
   const abort=()=>dispose();signal?.addEventListener('abort',abort,{once:true});
   function releaseKit(){if(kit&&kit!==releasedKit){releasedKit=kit;kit.dispose();}}
@@ -51,7 +61,8 @@ export async function createLandmarkScene({THREE:T,scene,renderer,signal,data,ch
       const material=new T.MeshStandardMaterial({color:0x49696a,roughness:.5,metalness:.15});ownedMaterials.add(material);
       const mesh=new T.Mesh(geometry,material);mesh.rotation.x=-Math.PI/2;mesh.position.set(w.x,w.height,w.y);terrain.add(mesh);}
     planMaterial=new T.MeshStandardMaterial({color:0xd8c7a3,roughness:1,side:T.DoubleSide});ownedMaterials.add(planMaterial);
-    stream=createSectionStreamer({THREE:T,root:details,manifest:data.manifest,baseUrl:data.baseUrl,signal,loadJSON,onError});
+    ghost=createExteriorGhost({THREE:T,root,data:data.ghost,renderer});
+    stream=createSectionStreamer({THREE:T,root:details,manifest:data.manifest,baseUrl:data.baseUrl,signal,loadJSON,onError,presentation:ghost});
     stream.update(data.navigation.spawn);
     const loaded=await Promise.allSettled([bearLoader({characterId,unarmed:true,THREE:T,renderer,signal}).then(value=>{kit=value;if(closed){releaseKit();throw abortError();}return kit;}),stream.settled()]);
     if(loaded[0].status==='fulfilled')kit=loaded[0].value;
@@ -61,7 +72,7 @@ export async function createLandmarkScene({THREE:T,scene,renderer,signal,data,ch
   }catch(error){dispose();throw error;}
   function update(snapshot,timing={}){
     if(closed)return;const player=snapshot.player,mode=timing.viewMode||'follow';
-    stream.update(player,{viewMode:mode,interior:!!player.interior,portalStates:snapshot.navigation.portalStates});
+    ghost?.update(player,timing);stream.update(player,{viewMode:mode,interior:!!player.interior,portalStates:snapshot.navigation.portalStates});
     const nearbyReady=stream.isReadyAt(player);details.visible=mode==='follow'&&nearbyReady;plan.visible=mode==='overview'||!nearbyReady;
     const occupied=data.navigation.occupiedLevels.filter(level=>level*2.12<=player.elevation+.01).at(-1)??data.navigation.occupiedLevels[0];
     if(plan.visible&&planLevel!==occupied)makePlan(occupied);
@@ -71,12 +82,12 @@ export async function createLandmarkScene({THREE:T,scene,renderer,signal,data,ch
   }
   function dispose(){
     if(closed)return;closed=true;const clean=operation=>{try{operation();}catch(error){cleanupErrors.push(error.message);}};
-    clean(()=>signal?.removeEventListener('abort',abort));clean(()=>stream?.dispose());clean(releaseKit);
+    clean(()=>signal?.removeEventListener('abort',abort));clean(()=>stream?.dispose());clean(()=>ghost?.dispose());clean(releaseKit);
     for(const geometry of ownedGeometry)clean(()=>geometry.dispose());for(const material of ownedMaterials)clean(()=>material.dispose());ownedGeometry.clear();ownedMaterials.clear();
     clean(()=>{renderer.localClippingEnabled=previousClipping;});clean(()=>root.removeFromParent());clean(()=>root.clear());
   }
   return {update,dispose,isReadyAt:stream.isReadyAt,settled:stream.settled,streamingMetrics:stream.metrics,
-    diagnostics:()=>({disposed:closed,updates,lastPlayer,streaming:stream.metrics(),characterId,character:bear?.diagnostics(),cleanupErrors:[...cleanupErrors],representation:plan.visible?'native-footprint overview plan':'nearby source geometry sections'})};
+    diagnostics:()=>({disposed:closed,updates,lastPlayer,streaming:stream.metrics(),exteriorGhost:ghost?.diagnostics(),characterId,character:bear?.diagnostics(),cleanupErrors:[...cleanupErrors],representation:plan.visible?'native-footprint overview plan':'nearby source geometry sections with sparse exterior ghost'})};
 }
 export async function createLandmarkRuntime({place,characterId='goat',root,uiRoot,mountUI,signal,onExitToMenu,onError,...options}){
   const data=await loadLandmark(place.id,{signal});if(signal?.aborted)throw abortError();let art;

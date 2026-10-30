@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
+import {ghostDescriptor,validateExteriorGhost} from '../src/runtime/ghost-data.js';
 const root = fs.realpathSync(process.cwd()), output = path.resolve(root, 'dist'), marker = '.tinderbox-build';
 const intake = JSON.parse(fs.readFileSync(path.join(root, 'assets/art/neighborhood-intake.json'), 'utf8'));
 const imported = new Set([...intake.runtimeFiles, ...(intake.supportFiles || [])].map(file => file.installedPath));
@@ -13,6 +14,8 @@ for(const id of ['new-york','administration','horticulture']){
   const index='assets/art/place-scenes/'+id+'/index.json';if(!fs.existsSync(index))throw Error('Compile the frozen access/provider sections before building '+id);
   const scene=JSON.parse(fs.readFileSync(index));
   if(scene.version!==1||scene.placeId!==id||scene.diagnostic||scene.sourceAccess?.commit!==places.accessSource.commit||JSON.stringify(scene.sourcePins)!==JSON.stringify(places.sources))throw Error('Recompile mismatched or diagnostic place data before building '+id);
+  const ghost=JSON.parse(fs.readFileSync(path.resolve(path.dirname(index),ghostDescriptor(scene).url)));
+  await validateExteriorGhost(scene,ghost);
 }
 if (path.dirname(output) !== root || output === root) throw Error('Unsafe build destination');
 if (fs.existsSync(output)) {

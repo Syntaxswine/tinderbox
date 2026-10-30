@@ -175,3 +175,5 @@ for(const spec of [
 }
 fs.writeFileSync('docs/engineering/explorable-places/'+(diagnostic?'source-section-build.json':'section-build.json'),JSON.stringify({task:'TB-024',diagnostic,sources:intake.sources,accessSource:intake.accessSource||null,reports},null,2)+'\n');
 console.log(JSON.stringify({passed:true,reports}));
+// Keep the sparse presentation tied to the exact newly compiled scene index.
+if(!diagnostic)await import('./compile-exterior-ghost.mjs');

@@ -1,0 +1,44 @@
+{
+  "task": "exterior-ghost",
+  "baseCommit": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
+  "branch": "codex/exterior-ghost-coder",
+  "checks": {
+    "tests": 195,
+    "failures": 0,
+    "authoredScripts": 153,
+    "staticModules": 186,
+    "sharedThreePair": 1,
+    "focusedTests": 9,
+    "sourceReproduction": "Every line position/group/bounds value rebuilt from all three frozen plans and compiled roof meshes",
+    "nativeResourceSamples": 21,
+    "buildFiles": 3463,
+    "buildBytes": 163414373,
+    "nestedHTTP": true,
+    "expectedFailureCleanup": true,
+    "diffWhitespace": true
+  },
+  "sceneIndexScope": [
+    {
+      "path": "assets/art/place-scenes/new-york/index.json",
+      "onlyAddedKey": "exteriorGhost",
+      "originalCanonicalSha256": "e9129f0bf1e58f13d06aa74671175bf30312f385cb9e09203908bef3a560a0ad"
+    },
+    {
+      "path": "assets/art/place-scenes/administration/index.json",
+      "onlyAddedKey": "exteriorGhost",
+      "originalCanonicalSha256": "76d816d6cbe1d2853ef01b5cc4924a4d17a7211fcb30820470c98c34838e0b91"
+    },
+    {
+      "path": "assets/art/place-scenes/horticulture/index.json",
+      "onlyAddedKey": "exteriorGhost",
+      "originalCanonicalSha256": "7447372031b91e8aade5bc04a4d3f672caa53a9e85e3d0d034a98be67f5cd84c"
+    }
+  ],
+  "visual": {
+    "sourceStudy": "outline-study.jpg",
+    "gameRendered": false,
+    "limitation": "Available in-app browser cannot create WebGL 2. Real shader compilation/depth sorting and desktop/phone appearance/performance remain pending."
+  },
+  "helpersRetained": 0,
+  "passedOffline": true
+}

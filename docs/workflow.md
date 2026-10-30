@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | Architect | `codex/contextual-doors` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | TB-033: contextual-door contract, exact intake, combined QC and promotion |
 | Artist | `codex/medicine-pickup-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Completed access/medicine candidates; no new art assigned for door correction |
-| Coder | Assigned `codex/contextual-doors-coder` from `99b95b0` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-031: authoritative reachable door actions and camera projection; preserve gallery WIP separately |
+| Coder | `codex/exterior-ghost-coder` from `dc7f537a83a7e832a0dfa0757d0b2700b909c053` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Direct user request: sparse overall exterior outline and animal-centred AFT clear halo; [candidate handoff](engineering/exterior-ghost/handoff.md). Preserve gallery WIP separately. |
 | UI designer | Assigned `codex/contextual-doors-ui` from `99b95b0` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-032: floating Open/Close button and actual browser input evidence |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
