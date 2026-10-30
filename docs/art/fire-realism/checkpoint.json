@@ -17,10 +17,35 @@
   },
   "sourcePhotos": {
     "existingCount": 4,
-    "independentlyOpened": 4,
-    "acquiredOrModified": 0,
+    "independentlyOpened": 5,
+    "acquiredOrModified": 1,
     "provenanceRecord": "art/source/fire-realism/references.json",
     "runtimePhotographicPixels": false
+  },
+  "exteriorReferenceIntake": {
+    "recordedAt": "2026-10-30T06:26:06.900Z",
+    "rendererCandidateUnchanged": "1505c87f6e251450961283b979941742306b8377",
+    "sourceOnly": true,
+    "acceptedBy": "Architect after independent item/story/rights and exact-pixel inspection",
+    "referenceId": "dvids-112603",
+    "sourcePath": "art/source/fire-realism/references/dvids-exterior-112603-service.jpg",
+    "metadataPath": "art/source/fire-realism/references.json",
+    "documentation": "docs/art/fire-realism/exterior-reference-intake.md",
+    "bytes": 194342,
+    "sha256": "9d1f412ddb76f6825b1adbd05aefe0e55e21d934407663bcadf71578d662c991",
+    "dimensions": [1000, 667],
+    "originalAcquired": false,
+    "originalRecordDimensions": [4368, 2912],
+    "totalReferencePhotos": 5,
+    "originalFourBytesAndMetadataPreserved": true,
+    "checks": {
+      "sourceIntegrity": "pass; five exact byte/hash records, original four metadata objects unchanged, selected acquisition identical",
+      "realUIPhotoAdapter": "pass; actual primary photoReferences maps five verified records",
+      "combinedUIReferenceCount": "expected failure reproduced; primary tests/ui/fire-review.test.mjs:39 asserts4 while accepted dossier has5",
+      "runtimeGeometryShaderFixtureDiff": "none"
+    },
+    "pushHeldForUIOwnedCorrection": true,
+    "photoPixelsInRuntime": false
   },
   "offline": {
     "fireContract": "pass; actual shared Three and unchanged resolver/control",
