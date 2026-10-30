@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "status": "verified-raw-byte-delivery",
+  "artistCommit": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
+  "httpBase": "http://127.0.0.1:4554/",
+  "normalization": "Only CRLF pairs changed to LF in the three explicitly assigned authored modules; donor bytes untouched.",
+  "files": [
+    {
+      "path": "assets/art/fire-realism/geometry.js",
+      "expectedBytes": 1078,
+      "expectedSha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036",
+      "diskBytes": 1078,
+      "diskSha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036",
+      "httpStatus": 200,
+      "httpBytes": 1078,
+      "httpSha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036",
+      "verified": true
+    },
+    {
+      "path": "assets/art/fire-realism/shaders.js",
+      "expectedBytes": 9939,
+      "expectedSha256": "68740a3a13c852ff339ea3d175c7f0ec21ba56fc0f847aff0f4e236ee366cb67",
+      "diskBytes": 9939,
+      "diskSha256": "68740a3a13c852ff339ea3d175c7f0ec21ba56fc0f847aff0f4e236ee366cb67",
+      "httpStatus": 200,
+      "httpBytes": 9939,
+      "httpSha256": "68740a3a13c852ff339ea3d175c7f0ec21ba56fc0f847aff0f4e236ee366cb67",
+      "verified": true
+    },
+    {
+      "path": "assets/art/fire-realism/index.js",
+      "expectedBytes": 24293,
+      "expectedSha256": "f69403bbfb8279635b4e7c744cfe28212561a66b40b39b21c0136a0eb9cb9ccd",
+      "diskBytes": 24293,
+      "diskSha256": "f69403bbfb8279635b4e7c744cfe28212561a66b40b39b21c0136a0eb9cb9ccd",
+      "httpStatus": 200,
+      "httpBytes": 24293,
+      "httpSha256": "f69403bbfb8279635b4e7c744cfe28212561a66b40b39b21c0136a0eb9cb9ccd",
+      "verified": true
+    }
+  ]
+}

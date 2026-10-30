@@ -2,19 +2,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,bindReviewDriver} from '../../workbenches/fire-realism/review.js';
+import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,bindReviewDriver,createCanvasMotionRecorder} from '../../workbenches/fire-realism/review.js';
 const base='http://localhost:4552/nested/fire-ui/workbenches/fire-realism/index.html';
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
 function state(){return {version:1,phase:'ready',configuration:{mode:'current',scenario:'match-contact',view:'isometric',lighting:'bright',population:null,seed:1893,characterId:'bear',viewport:{width:1280,height:800,pixelRatio:1}},frameIndex:45,tick:45,worldTime:.75,playerTime:.75,
   availability:Object.fromEntries(MODES.map(m=>[m.id,{available:m.id!=='optimized',reason:m.id==='optimized'?'Not delivered':null,sourceCommit:'test-fixture'}])),capabilities:{gpuTimer:{available:true},populations:[]},referenceAcceptance:'missing',workload:{actualBurningCells:4},diagnostics:{sourceFingerprints:{publishedControl:'test-fixture'}},results:null};}
 async function fixture(options={}){
-  let current=state(),observer;const calls=[],updates=[],downloads=[],shell={renderRoot:{id:'canvas-slot'},uiRoot:{id:'hud-slot'},update:s=>updates.push(structuredClone(s))};
+  let current={...state(),...options.initialState},observer;const calls=[],updates=[],downloads=[],shell={renderRoot:{id:'canvas-slot',...options.renderRoot},uiRoot:{id:'hud-slot'},update:s=>updates.push(structuredClone(s))};
   const driver={state:()=>structuredClone(current),configure:async patch=>{calls.push(['configure',patch]);current={...current,configuration:{...current.configuration,...patch,viewport:{...current.configuration.viewport,...patch.viewport}},frameIndex:0};return driver.state();},
     play:()=>{calls.push(['play']);current.phase='playing';},pause:()=>{calls.push(['pause']);current.phase='ready';},reset:async()=>{calls.push(['reset']);current.frameIndex=0;},step:async n=>{calls.push(['step',n]);current.frameIndex+=n;},seek:async n=>{calls.push(['seek',n]);current.frameIndex=n;},
     measure:async options=>{calls.push(['measure',options]);return current.results;},cancelMeasurement:async()=>{calls.push(['cancel']);},captureFrame:()=>({mimeType:'image/jpeg',dataUrl:'data:image/jpeg;base64,dGVzdA==',frameIndex:current.frameIndex,tick:current.tick,configuration:structuredClone(current.configuration),sourceFingerprints:current.diagnostics.sourceFingerprints,hardware:{renderer:'DOM test fixture only'}}),dispose:async()=>calls.push(['dispose'])};
   Object.assign(driver,options.methods||{});
   const mountUI=()=>{},delivery={byMode:{reference:{sourceCommit:'R'}}},receipt={kind:'fixture-only'};
-  const binding=await bindReviewDriver({shell,createDriver:async config=>{calls.push(['create',config.root.id,config.uiRoot.id]);assert.equal(config.mountUI,mountUI);assert.equal(config.artistDelivery,delivery);assert.equal(config.referenceAcceptance,receipt);observer=config.onChange;return driver;},mountUI,artistDelivery:delivery,referenceAcceptance:receipt,onDownload:(...args)=>downloads.push(args),references:[{id:'fixture',label:'Fixture'}]});
+  const binding=await bindReviewDriver({shell,createDriver:async config=>{calls.push(['create',config.root.id,config.uiRoot.id]);assert.equal(config.mountUI,mountUI);assert.equal(config.artistDelivery,delivery);assert.equal(config.referenceAcceptance,receipt);observer=config.onChange;return driver;},mountUI,artistDelivery:delivery,referenceAcceptance:receipt,onDownload:(...args)=>downloads.push(args),references:[{id:'fixture',label:'Fixture'}],...(options.createMotionRecorder?{createMotionRecorder:options.createMotionRecorder}:{})});
   return {binding,calls,updates,downloads,driver,emit:patch=>{current={...current,...patch};observer(driver.state());}};
 }
 test('Review includes the driver modes, real powder scenario and six critique categories',()=>{
@@ -42,9 +42,13 @@ test('Four reference plates retain exact bytes, rights basis, conflicting dates 
   assert.ok(refs.find(r=>r.id==='dvids-9219073').limitations.some(s=>s.includes('not flame-shape evidence')));
   assert.ok(refs.find(r=>r.id==='dvids-8746603').limitations.some(s=>s.includes('Largest original not acquired')));
 });
+test('The actual local fire source bytes satisfy the strict driver manifest, including Windows delivery',()=>{
+  const manifest=JSON.parse(fs.readFileSync('assets/art/fire-realism/manifest.json','utf8'));
+  for(const record of manifest.runtimeFiles){const bytes=fs.readFileSync(record.path);assert.equal(bytes.length,record.bytes,record.path+' byte count');assert.equal(createHash('sha256').update(bytes).digest('hex'),record.sha256,record.path+' raw SHA-256');}
+});
 test('Critique captures detached authoritative context and grants no acceptance',()=>{
-  const original=state(),notes={shape:'Observed contact gaps'},record=reviewRecord(original,notes,'2026-10-30T00:00:00Z');original.configuration.seed=99;notes.shape='Changed';
-  assert.equal(record.context.configuration.seed,1893);assert.equal(record.notes.shape,'Observed contact gaps');assert.equal(record.context.workload.actualBurningCells,4);assert.match(record.acceptance,/do not approve/);
+  const original=state();original.recording={lastResult:{status:'complete',start:{tick:45},end:{tick:90}}};const notes={shape:'Observed contact gaps'},record=reviewRecord(original,notes,'2026-10-30T00:00:00Z');original.configuration.seed=99;original.recording.lastResult.end.tick=100;notes.shape='Changed';
+  assert.equal(record.context.configuration.seed,1893);assert.equal(record.context.motionEvidence.end.tick,90);assert.equal(record.notes.shape,'Observed contact gaps');assert.equal(record.context.workload.actualBurningCells,4);assert.match(record.acceptance,/do not approve/);
 });
 test('Binding passes actual render/HUD roots, delivery and receipt to the driver',async()=>{
   const f=await fixture();assert.deepEqual(f.calls[0],['create','canvas-slot','hud-slot']);assert.equal(f.updates.at(-1).connected,true);assert.equal(f.updates.at(-1).references[0].id,'fixture');await f.binding.dispose();
@@ -84,4 +88,58 @@ test('Disposal retires the driver once and ignores late state notifications',asy
 test('Review code contains no renderer, query, simulated clock or approval implementation',()=>{
   const source=fs.readFileSync('workbenches/fire-realism/review.js','utf8');assert.doesNotMatch(source,/new (?:THREE\.)?WebGLRenderer|createQuery|beginQuery|requestAnimationFrame|worldTime\s*[+*]=|targetMet\s*=(?!=)/);
   assert.match(source,/import\('\.\/driver\.js'\)/);assert.doesNotMatch(source,/Private review workbench/);
+});
+
+// Encoder fixtures verify owned-stream lifecycle only; these are not real motion or GPU evidence.
+function encoderFixture({silentStop=false,startFailure=false,constructorFailure=false}={}){
+  const tracks=[{stops:0,stop(){this.stops++;}},{stops:0,stop(){this.stops++;}}],timers=new Map(),listeners=new Map();let nextId=0,clock=0,instance;
+  class Recorder extends EventTarget{
+    static isTypeSupported(type){return type==='video/webm;codecs=vp8';}
+    constructor(stream,options){super();if(constructorFailure)throw Error('Encoder constructor failed');instance=this;this.stream=stream;this.mimeType=options?.mimeType||'video/webm';this.state='inactive';}
+    addEventListener(type,handler){super.addEventListener(type,handler);listeners.set(type,handler);}
+    removeEventListener(type,handler){super.removeEventListener(type,handler);listeners.delete(type);}
+    start(){if(startFailure)throw Error('Encoder start failed');this.state='recording';}
+    data(value=new Blob(['encoded fixture bytes'])){const event=new Event('dataavailable');Object.defineProperty(event,'data',{value});this.dispatchEvent(event);}
+    stop(){this.state='inactive';if(!silentStop){this.data();this.dispatchEvent(new Event('stop'));}}
+  }
+  const canvas={width:1280,height:800,captureStream:fps=>{assert.equal(fps,60);return {getTracks:()=>tracks};}};
+  const options={canvas,MediaRecorderCtor:Recorder,schedule:(fn,ms)=>{const id=++nextId;timers.set(id,{fn,ms});return id;},cancelSchedule:id=>timers.delete(id),now:()=>clock};
+  return {options,tracks,timers,listeners,get recorder(){return instance;},run(ms){const entry=[...timers.entries()].find(([,t])=>t.ms===ms);assert.ok(entry,'Missing timer '+ms);clock+=ms;timers.delete(entry[0]);entry[1].fn();}};
+}
+test('Actual-canvas capture automatically stops at ten seconds and retires tracks, timers and listeners',async()=>{
+  const f=encoderFixture(),capture=createCanvasMotionRecorder(f.options);f.run(10000);const result=await capture.finished;
+  assert.equal(result.status,'complete');assert.equal(result.wallDurationMs,10000);assert.equal(result.canvas.width,1280);assert.ok(result.blob.size>0);assert.equal(result.mimeType,'video/webm;codecs=vp8');
+  assert.ok(f.tracks.every(t=>t.stops===1));assert.equal(f.timers.size,0);assert.equal(f.listeners.size,0);await capture.dispose();assert.ok(f.tracks.every(t=>t.stops===1));
+});
+test('Discard and disposal produce no video and always stop owned tracks once',async()=>{
+  for(const reason of ['cancelled','disposed']){const f=encoderFixture(),capture=createCanvasMotionRecorder(f.options);const result=await capture.stop(reason);assert.equal(result.status,'cancelled');assert.equal(result.blob,null);assert.ok(f.tracks.every(t=>t.stops===1));assert.equal(f.timers.size,0);assert.equal(f.listeners.size,0);}
+});
+test('Encoder constructor/start errors clean all acquired tracks and listeners',()=>{
+  for(const settings of [{constructorFailure:true},{startFailure:true}]){const f=encoderFixture(settings);assert.throws(()=>createCanvasMotionRecorder(f.options),/failed/);assert.ok(f.tracks.every(t=>t.stops===1));assert.equal(f.timers.size,0);assert.equal(f.listeners.size,0);}
+});
+test('A missing stop event times out honestly while tracks stop immediately',async()=>{
+  const f=encoderFixture({silentStop:true}),capture=createCanvasMotionRecorder(f.options),pending=capture.stop();assert.ok(f.tracks.every(t=>t.stops===1));f.run(5000);const result=await pending;assert.equal(result.status,'unavailable');assert.match(result.reason,/did not finish/);assert.equal(f.timers.size,0);assert.equal(f.listeners.size,0);
+});
+test('Encoder failure or oversized data cannot export a seemingly valid video',async()=>{
+  for(const oversized of [false,true]){const f=encoderFixture(),capture=createCanvasMotionRecorder(f.options);if(oversized)f.recorder.data({size:65*1024*1024});else{const event=new Event('error');Object.defineProperty(event,'error',{value:Error('Encoder lost')});f.recorder.dispatchEvent(event);}const result=await capture.finished;assert.equal(result.status,'unavailable');assert.equal(result.blob,null);assert.ok(f.tracks.every(t=>t.stops===1));assert.equal(f.listeners.size,0);}
+});
+test('Unavailable capture features and excessive durations fail before acquiring a stream',()=>{
+  assert.throws(()=>createCanvasMotionRecorder({}),/unavailable/);let acquired=false;assert.throws(()=>createCanvasMotionRecorder({canvas:{captureStream(){acquired=true;}},MediaRecorderCtor:class{},maxDurationMs:11000}),/ten seconds/);assert.equal(acquired,false);
+});
+async function motionBindingFixture(initialState){
+  const pending=deferred(),doc=new EventTarget();doc.defaultView={MediaRecorder:class{}};doc.hidden=false;const canvas={captureStream(){},width:1280,height:800};let controls;
+  const f=await fixture({initialState,renderRoot:{ownerDocument:doc,querySelector:selector=>selector==='canvas'?canvas:null},createMotionRecorder:options=>{controls=options;return {finished:pending.promise,stop:async reason=>{options.onStopping(reason);pending.resolve({status:reason==='cancelled'?'cancelled':'complete',reason,mimeType:'video/webm',blob:new Blob(['fixture']),bytes:7,wallDurationMs:10000,maximumDurationMs:10000,requestedCaptureFps:60,canvas:{width:1280,height:800}});return pending.promise;},dispose:async()=>{options.onStopping('disposed');pending.resolve({status:'cancelled',reason:'disposed'});return pending.promise;}};}});
+  return {...f,doc,controls:()=>controls};
+}
+test('Live motion uses public play/pause, reports source/start/end clocks and blocks GPU measurement',async()=>{
+  const f=await motionBindingFixture();await f.binding.intent({type:'record'});assert.equal(f.updates.at(-1).recording.active,true);await assert.rejects(f.binding.intent({type:'measure',modes:['current','reference']}),/Stop or discard/);
+  f.emit({frameIndex:90,tick:90,worldTime:1.5,playerTime:1.5});const metadata=await f.binding.intent({type:'stop-record'});assert.equal(metadata.status,'complete');assert.equal(metadata.start.frameIndex,45);assert.equal(metadata.end.frameIndex,90);assert.equal(metadata.start.worldTime,.75);assert.equal(metadata.end.worldTime,1.5);assert.equal(metadata.sourceFingerprints.publishedControl,'test-fixture');assert.equal(f.downloads.length,2);assert.equal(f.downloads[0][2],'video/webm');assert.equal(f.updates.at(-1).recording.active,false);await f.binding.dispose();
+});
+test('A paused still, measurement run, discard or hidden tab cannot claim valid motion',async()=>{
+  const still=await motionBindingFixture();await still.binding.intent({type:'record'});const result=await still.binding.intent({type:'stop-record'});assert.equal(result.status,'inconclusive');assert.match(result.reason,/No authoritative live time/);assert.equal(still.downloads.length,0);await still.binding.dispose();
+  const measuring=await motionBindingFixture({phase:'measuring'});await assert.rejects(measuring.binding.intent({type:'record'}),/outside measurement/);assert.equal(measuring.controls(),undefined);await measuring.binding.dispose();
+  const hidden=await motionBindingFixture();await hidden.binding.intent({type:'record'});hidden.doc.hidden=true;hidden.doc.dispatchEvent(new Event('visibilitychange'));for(let i=0;i<8;i++)await Promise.resolve();assert.equal(hidden.updates.at(-1).recording.lastResult.status,'cancelled');assert.equal(hidden.downloads.length,0);await hidden.binding.dispose();
+});
+test('Concurrent disposal calls await the same owned recording cleanup and suppress downloads',async()=>{
+  const f=await motionBindingFixture();await f.binding.intent({type:'record'});const a=f.binding.dispose(),b=f.binding.dispose();assert.equal(a,b);await Promise.all([a,b]);assert.equal(f.downloads.length,0);assert.equal(f.calls.filter(c=>c[0]==='dispose').length,1);
 });

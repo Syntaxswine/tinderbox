@@ -1,28 +1,38 @@
 {
-  "version": 1,
+  "version": 2,
   "task": "TB-036-H",
   "date": "2026-10-30",
   "status": "UI candidate; combined WebGL and motion acceptance pending",
   "architectBase": "3ca35d095fc94361b2aeb3eda6e51f72394337a9",
   "runtimeDelivery": "dafdd44fd9177ca79ed6d9a874966e242d0cfdf7",
   "localRuntimeCopy": "9e97b4cde5644c864fb876cb2f9ffc112654b5eb",
+  "firstUiCheckpoint": "a60f74712149408d376d9cc999bf512cbea8fef5",
+  "runtimeCorrection": "b13b7f295b0a58a8d3e5450215e25e3b13b4d9e4",
+  "localRuntimeCorrectionCopy": "612f0902ed06e1bb0a3389c9e04d5dc9da048781",
+  "artist03Delivery": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
+  "localArtist03Copy": "33d2096ff142afbb084d1cbbd33d6717ae6018be",
+  "sourceDeliveryCorrection": "ac34752018d78215d70eb7633ab3315c361299df",
+  "localSourceDeliveryCorrectionCopy": "73dc2b72d56c96a83eead3e6867a704fecb5cf19",
   "correctiveArtistDelivery": "0b180335a007809a0e63fb69da40b0b0b59035aa",
   "originalShell": "original-shell-intake.json",
   "checks": [
-    {"command": "node --test tests/ui/fire-review.test.mjs", "status": "passed", "tests": 16},
-    {"command": "node tools/check.mjs", "status": "passed", "tests": 216, "ownScripts": 161, "staticModules": 199, "artChecks": 41},
-    {"command": "node tools/build.mjs", "status": "passed", "publicFiles": 3463, "bytes": 163348391},
+    {"command": "node --test tests/ui/fire-review.test.mjs", "status": "passed", "tests": 26, "note": "Encoder fixtures test lifecycle and controls, not actual native encoding or GPU cost."},
+    {"command": "node tools/check.mjs", "status": "passed", "tests": 232, "ownScripts": 163, "staticModules": 201, "artChecks": 41},
+    {"command": "node tools/build.mjs", "status": "passed", "publicFiles": 3463, "bytes": 163351861},
+    {"command": "node workbenches/art/fire-realism/check-contract.mjs", "status": "passed", "note": "Actual shared Three source/lifecycle checks; no shader or motion claim."},
     {"command": "git diff --check", "status": "passed"},
     {"command": "Supported in-app browser DOM fixture", "status": "passed", "testsPerViewport": 24, "viewports": [[1280,800],[390,844],[320,568],[844,390]], "evidence": ["evidence/dom-1280x800.json","evidence/dom-390x844.json","evidence/dom-320x568.json","evidence/dom-844x390.json"]},
+    {"command": "Updated motion-control DOM fixture", "status": "passed", "testsPerViewport": 26, "viewports": [[1280,800],[390,844],[320,568],[844,390]], "evidence": ["evidence/motion-dom-1280x800.json","evidence/motion-dom-390x844.json","evidence/motion-dom-320x568.json","evidence/motion-dom-844x390.json"]},
     {"command": "Browser Enter, Space, mouse and critique export", "status": "passed", "evidence": "evidence/native-controls.json"},
     {"command": "Actual tracked reference image loads", "status": "passed", "plates": 4, "evidence": "evidence/reference-plates.json"},
+    {"command": "Strict raw artist-source delivery bytes on disk and HTTP", "status": "passed after architect LF correction", "files": 3, "failedEvidence": "evidence/source-bytes-before-lf.json", "correctedEvidence": "evidence/source-bytes-after-lf.json", "note": "Only CRLF pairs changed to LF in the three assigned otherwise-unmodified authored modules; donor bytes untouched."},
     {"command": "Original uncommitted shell rehash", "status": "passed", "files": 7, "note": "Original checkout remained unchanged."}
   ],
   "visualEvidence": [
     {"path": "evidence/desktop-unavailable.png", "scope": "Actual review interface,1280x800; WebGL unavailable, no fire claim"},
     {"path": "evidence/phone-unavailable.png", "scope": "Actual review interface,390x844; WebGL unavailable, no fire claim"}
   ],
-  "unperformed": ["Candidate shader compilation", "Animated fire realism", "GPU rendering cost target", "Six-button HUD over actual candidate fire"],
+  "unperformed": ["Candidate shader compilation", "Animated fire realism", "Actual native video encoding", "GPU rendering cost target", "Six-button HUD over actual candidate fire"],
   "browserLimitation": "In-app WebGL context creation fails with GL_RENDERER=Disabled. Architect's separate native Chrome access is not evidence produced by this helper.",
   "promotion": "Not requested or performed. Architect owns combined acceptance and publication."
 }

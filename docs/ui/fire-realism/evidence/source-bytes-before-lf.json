@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "status": "rejected-raw-byte-delivery",
+  "artistCommit": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
+  "observedBeforeNormalization": true,
+  "files": [
+    {
+      "path": "assets/art/fire-realism/geometry.js",
+      "expectedBytes": 1078,
+      "expectedSha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036",
+      "rawBytes": 1101,
+      "rawSha256": "585a6bbd58f56167616e654c23a68df8dae987b5f99f93a48178fe0a320f0f5b",
+      "rawMatchesManifest": false,
+      "crlfPairs": 23,
+      "canonicalSha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036",
+      "canonicalMatchesManifest": true
+    },
+    {
+      "path": "assets/art/fire-realism/shaders.js",
+      "expectedBytes": 9939,
+      "expectedSha256": "68740a3a13c852ff339ea3d175c7f0ec21ba56fc0f847aff0f4e236ee366cb67",
+      "rawBytes": 10120,
+      "rawSha256": "0e7c36d39020c081c45c827ede9e414f89d9b33df7cdbedcf62e8a5453de3567",
+      "rawMatchesManifest": false,
+      "crlfPairs": 181,
+      "canonicalSha256": "68740a3a13c852ff339ea3d175c7f0ec21ba56fc0f847aff0f4e236ee366cb67",
+      "canonicalMatchesManifest": true
+    },
+    {
+      "path": "assets/art/fire-realism/index.js",
+      "expectedBytes": 24293,
+      "expectedSha256": "f69403bbfb8279635b4e7c744cfe28212561a66b40b39b21c0136a0eb9cb9ccd",
+      "rawBytes": 24561,
+      "rawSha256": "415d3720d3f5e98f94b6aec0a64ed9a55834fedae53db96a38245fb989953a78",
+      "rawMatchesManifest": false,
+      "crlfPairs": 268,
+      "canonicalSha256": "f69403bbfb8279635b4e7c744cfe28212561a66b40b39b21c0136a0eb9cb9ccd",
+      "canonicalMatchesManifest": true
+    }
+  ]
+}
