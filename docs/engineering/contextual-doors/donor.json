@@ -1,0 +1,40 @@
+{
+  "task": "TB-031",
+  "repository": "https://github.com/Syntaxswine/farmyard-commando.git",
+  "commit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+  "inspection": "Read-only immutable Git objects; no donor checkout changes or fetch",
+  "files": [
+    {
+      "sourcePath": "sites/tactical-animal/dist/app.js",
+      "bytes": 42151,
+      "sha256": "5115820f725f2501fbc275f2a443f797f1a2b5be399ba4784fda13749ce5a36d",
+      "referenceOnly": true
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/field-view.js",
+      "bytes": 23574,
+      "sha256": "b7f90a86f30dc949a881d170ca81976297f561da82bd78128b78c822b804e8ae",
+      "referenceOnly": true
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/interactions.js",
+      "bytes": 11516,
+      "sha256": "3e3d3586a83c20b1c27db2d6de58ec55ec3b5602e01052af276b6ce2c8aa3c3e",
+      "referenceOnly": true
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/touch-controls.css",
+      "bytes": 10486,
+      "sha256": "27b7c45a74c45ee3d8c23f9baa84961e73baf99285e2f413562280ec0a343ef2",
+      "referenceOnly": true
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/game.html",
+      "bytes": 10366,
+      "sha256": "106b8cef84728459dc6e6d64bc9c9ef64e3479796307da232b087eeec3e6111b",
+      "referenceOnly": true
+    }
+  ],
+  "adaptation": "Contextual reachable door action, authoritative exact target/state, destination-pose occupancy and current-camera world anchor; implemented in existing Tinderbox adapters. No donor text or assets copied; no turn/AP/save/hosting import.",
+  "rights": "No new donor asset/code intake. Existing shared Three MIT notice remains preserved; donor application/art rights remain unresolved as recorded in docs/source-baseline.json."
+}
