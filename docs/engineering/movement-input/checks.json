@@ -1,0 +1,78 @@
+{
+  "task": "TB-028",
+  "branch": "codex/movement-input-coder",
+  "base": "38f6e803bf43493fdcd641f62f8644d13b99488f",
+  "preservedUnpublishedWip": "ac2c5df5f8f69d4d3f9fd2e5922c48b01b37d7c0",
+  "productionChange": {
+    "path": "src/simulation/config.js",
+    "basePlayerMetresPerSecond": 9,
+    "powderMetresPerSecond": 13.5
+  },
+  "checks": [
+    {
+      "command": "node tools/check.mjs",
+      "passed": true,
+      "tests": 173,
+      "syntaxScripts": 139,
+      "staticModules": 174,
+      "provenance": true
+    },
+    {
+      "command": "node tools/check-movement-input.mjs",
+      "passed": true,
+      "outAndBackCases": 261,
+      "fullKeyboardMouseComparisons": 54,
+      "maxRise": 0.1766681671142578,
+      "maxStationaryTicks": 0,
+      "navigation": {
+        "path": "assets/art/place-scenes/administration/navigation.json",
+        "sha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+      }
+    },
+    {
+      "command": "node tools/build.mjs && node tools/check-release.mjs",
+      "passed": true,
+      "files": 3454,
+      "bytes": 163289760
+    },
+    {
+      "command": "node tools/smoke-places-package.mjs",
+      "passed": true,
+      "verifiedFiles": 3454,
+      "serverClosed": true,
+      "portReleased": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/engineering/movement-input/stairs.json",
+      "sha256": "7f83485bd8f7f912a57d3319fb1cdbe9e89bf24e44428fd9956c45edc3d35042"
+    },
+    {
+      "path": "docs/engineering/movement-input/package-smoke.json",
+      "sha256": "a974730554cab7509e88228a703650c7ede5ed1f4fa68b109bed1503df720d0c"
+    }
+  ],
+  "scopeUnchanged": [
+    "src/ui/",
+    "src/runtime/navigation.js",
+    "src/runtime/collision.js",
+    "src/content/characters.js",
+    "assets/",
+    "vendor/"
+  ],
+  "cleanup": {
+    "packagePid": 69800,
+    "creationFiletime": "134377945514019482",
+    "port": 61144,
+    "independentlyVerifiedProcessAbsent": true,
+    "independentlyVerifiedPortReleased": true,
+    "retainedHelpers": []
+  },
+  "limits": [
+    "UI specialist owns actual mouse capture and layout fixes; exact combined UI candidate/browser review remains with architect",
+    "Isolated native stairs use controlled fresh spawns and ready sections; not whole-map acceptance or WebGL performance",
+    "Deferred Horticulture normal-rear-gallery correction remains on preserved TB-024 branch"
+  ],
+  "passed": true
+}

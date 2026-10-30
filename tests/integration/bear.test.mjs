@@ -69,7 +69,7 @@ test('normal paint uses native projection/skin attributes and disposes owned res
   }finally{kit?.dispose();globalThis.fetch=oldFetch;T.TextureLoader.prototype.loadAsync=oldLoad;if(oldDocument===undefined)delete globalThis.document;else globalThis.document=oldDocument;}
 });
 test('accepted player distance, powder and presentation sampling do not change simulation snapshots',()=>{
-  const sim=createSimulation({scenario:{width:20,height:16,player:{x:3,y:7},obstacles:[],actors:[]},config:{input:{cameraRelative:false}}}),rig=createBearRig(data);
+  const sim=createSimulation({scenario:{width:32,height:16,player:{x:3,y:7},obstacles:[],actors:[]},config:{input:{cameraRelative:false}}}),rig=createBearRig(data);
   try{sim.dispatch({type:'move',x:1,y:0});for(let i=0;i<60;i++)sim.advance(1/60);const normal=sim.snapshot();rig.update(normal.player,normal.clocks.player);const normalDistance=normal.player.travelled;
     sim.dispatch({type:'drug',drug:'powder'});for(let i=0;i<60;i++)sim.advance(1/60);const boosted=sim.snapshot(),before=JSON.stringify(boosted);near(boosted.player.travelled-normalDistance,normalDistance*1.5,1e-6);near(boosted.clocks.world-normal.clocks.world,.35,1e-6);
     rig.update(boosted.player,boosted.clocks.player);rig.sampleBodyBounds();assert.equal(JSON.stringify(boosted),before);assert.equal(rig.diagnostics().position.travelled,boosted.player.travelled);

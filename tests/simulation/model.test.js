@@ -1,9 +1,9 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {createSimulation, movementVector, worldToStick, DEFAULT_CONFIG} from '../../src/simulation/index.js';
+import {createSimulation, movementVector, worldToStick, DEFAULT_CONFIG, SCENARIOS} from '../../src/simulation/index.js';
 import {rasterSegments} from '../../src/simulation/geometry.js';
 const close = (a, b, eps = 1e-8) => assert.ok(Math.abs(a - b) <= eps, `${a} != ${b}`);
-const plain = (extra = {}) => ({id: 'test', width: 30, height: 10, player: {x: 3.25, y: 5.25, tool: 'jerry-can'}, obstacles: [], actors: [], ...extra});
+const plain = (extra = {}) => ({id: 'test', width: 30, height: 16, player: {x: 3.25, y: 5.25, tool: 'jerry-can'}, obstacles: [], actors: [], ...extra});
 const model = (scenario = plain(), config = {}) => createSimulation({scenario, config: {input: {cameraRelative: false}, fire: {damagePerSecond: 0}, ...config}});
 function run(sim, seconds, hz = 60) { let snapshot; for (let i = 0; i < Math.round(seconds * hz); i++) snapshot = sim.advance(1 / hz); return snapshot; }
 function startPour(sim, direction = {x: 1, y: 0}) { sim.dispatch({type: 'primary', pressed: true}); sim.dispatch({type: 'primary', pressed: false}); sim.dispatch({type: 'move', ...direction}); }
@@ -28,7 +28,7 @@ test('exact grid path lengths conserve poured fuel for diagonals, reversals and 
     close(rasterSegments(a, b, 0.5).reduce((n, p) => n + p.length, 0), Math.hypot(b.x - a.x, b.y - a.y));
   }
   const sim = model(); startPour(sim, {x: 1, y: 1}); const state = run(sim, 1);
-  close(state.player.travelled, 3); close(4 - state.player.inventory.gas, 3 * 0.08); close(fuelTotal(state), 0.24);
+  close(state.player.travelled, 9); close(4 - state.player.inventory.gas, 9 * 0.08); close(fuelTotal(state), 0.72);
   assert.ok(state.cells.filter(c => c.depositedFuel > 0).length >= 5);
 });
 
@@ -47,11 +47,12 @@ test('pour press is an edge, finite gas stops it, and repeated visits cannot inv
   sim.dispatch({type: 'primary', pressed: true}); sim.dispatch({type: 'move', x: 1, y: 0}); for (let i = 0; i < 10; i++) sim.dispatch({type: 'primary', pressed: true});
   const s = run(sim, 1); close(s.player.inventory.gas, 0); close(fuelTotal(s), 0.1); assert.equal(s.player.pouring, false);
   const loop = model(); startPour(loop); run(loop, 1); loop.dispatch({type: 'move', x: -1, y: 0}); const twice = run(loop, 1);
-  close(fuelTotal(twice), 0.48); close(4 - twice.player.inventory.gas, 0.48);
+  close(fuelTotal(twice), 1.44); close(4 - twice.player.inventory.gas, 1.44);
 });
 
 test('powder is taken while pouring and creates separation from fire pursuing the same trail', () => {
-  const normal = model('chase'), powder = model('chase');
+  // Leave enough space for two seconds of boosted travel at 9 m/s.
+  const scenario={...SCENARIOS.chase,width:40},normal=model(scenario),powder=model(scenario);
   startPour(normal); startPour(powder); powder.dispatch({type: 'drug', drug: 'powder'});
   const a = run(normal, 2), b = run(powder, 2);
   assert.equal(b.player.tool, 'jerry-can'); assert.equal(b.player.pouring, true);
@@ -70,7 +71,7 @@ test('inversion is exactly 180 degrees once, before camera projection; aim is in
     }
   }
   const sim = model(); sim.dispatch({type: 'drug', drug: 'inversion'}); sim.dispatch({type: 'move', x: 1, y: 1}); sim.dispatch({type: 'aim', x: 9, y: 2});
-  const s = sim.advance(1 / 60); close(s.player.x - 3.25, -3 / 60 / Math.sqrt(2)); close(s.player.y - 5.25, -3 / 60 / Math.sqrt(2));
+  const s = sim.advance(1 / 60); close(s.player.x - 3.25, -9 / 60 / Math.sqrt(2)); close(s.player.y - 5.25, -9 / 60 / Math.sqrt(2));
   assert.deepEqual(s.aim, {x: 9, y: 2});
   const world = {x: 0.6, y: 0.8}; const roundtrip = movementVector(worldToStick(world, DEFAULT_CONFIG.input), false, DEFAULT_CONFIG.input);
   close(roundtrip.x, world.x); close(roundtrip.y, world.y);

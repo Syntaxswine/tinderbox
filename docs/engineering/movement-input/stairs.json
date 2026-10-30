@@ -1,0 +1,6002 @@
+{
+  "task": "TB-028",
+  "base": "38f6e803bf43493fdcd641f62f8644d13b99488f",
+  "partial": false,
+  "method": "Controlled spawn on actual published Administration support; unchanged native geometry, body/headroom/drop/collision. Ordinary move commands walk the first flight onto its native landing and back. Analog vectors above .12 pass through the real mouse mapping; precise endpoint steering remains ordinary analog input. No whole-map or WebGL claim. All source section readiness is true in this isolated input/support probe; separate streamer regressions enforce unloaded boundaries.",
+  "navigation": {
+    "path": "assets/art/place-scenes/administration/navigation.json",
+    "sha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+  },
+  "body": {
+    "goat": {
+      "radius": 0.5,
+      "height": 1.66,
+      "maxStep": 0.22,
+      "provisional": false
+    },
+    "horse": {
+      "radius": 0.5,
+      "height": 1.66,
+      "maxStep": 0.22,
+      "provisional": false
+    },
+    "bear": {
+      "radius": 0.56,
+      "height": 1.68,
+      "maxStep": 0.22,
+      "provisional": false
+    }
+  },
+  "cases": [
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999998877,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999995,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999998877,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999995,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999998877,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999995,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999957,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999957,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999957,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999957,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999957,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-rear",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999957,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999998877,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999995,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999998877,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999995,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 2466,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 930,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999998877,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 832,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 320,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 124,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999995,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186686,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.0703684055902,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186631,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.0735793018665,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186627,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866467,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186686,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.0703684055902,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186631,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.0735793018665,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186627,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866467,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186686,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.0703684055902,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186631,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.0735793018665,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186627,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866467,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866783,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.070368405590383,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186638,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866424,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866218,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866403,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866783,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.070368405590383,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186638,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866424,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866218,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866403,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866783,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.070368405590383,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186638,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866424,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866218,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866403,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186674,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07036840559025,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866395,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186647,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866232,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866303,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186674,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07036840559025,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866395,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186647,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866232,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866303,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186674,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07036840559025,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866395,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186647,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866232,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866303,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186677,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.070368405590287,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866438,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866506,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186622,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866314,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186677,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.070368405590287,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866438,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866506,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186622,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866314,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186677,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.070368405590287,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866438,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866506,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186622,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-rear-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866314,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866936,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.070368405590088,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866246,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866317,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866147,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866236,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866936,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.070368405590088,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866246,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866317,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866147,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866236,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866936,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.070368405590088,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866246,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866317,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866147,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866236,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186579,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.070368405590056,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "goat",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186636,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866438,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186621,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866424,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186579,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.070368405590056,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "horse",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186636,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866438,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186621,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866424,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 3724,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186579,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1396,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.070368405590056,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "bear",
+      "speed": 3,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186636,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.13,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 1274,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866438,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.35,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 490,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186621,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-east",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 1,
+      "hz": 60,
+      "arrived": true,
+      "returned": true,
+      "steps": 196,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866424,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 572,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 248,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 188,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 546,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 226,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 158,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16.000000000000007,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 694,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 460,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999915,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 398,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16.00000000000003,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 572,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 248,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 188,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 546,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 226,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 158,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16.000000000000007,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 694,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 460,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999915,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 398,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16.00000000000003,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 572,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 248,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 188,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 546,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 226,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 158,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16.000000000000007,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 694,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.17666666209697723,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 460,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 15.999999999999915,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 398,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 2.12,
+      "returnedHeight": 0,
+      "travelled": 16.00000000000003,
+      "visitedSurfaces": 14,
+      "labels": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 884,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186642,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 392,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866324,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 296,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 834,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186644,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 344,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186633,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 246,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 1061,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866456,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 768,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866232,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 756,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866488,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 884,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186642,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 392,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866324,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 296,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 834,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186644,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 344,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186633,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 246,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 1061,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866456,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 768,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866232,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 756,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866488,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 884,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186642,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 392,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866324,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 296,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 834,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186644,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 344,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.07357930186633,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 246,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 1061,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866456,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 768,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866232,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 756,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766667366027832,
+      "ascentHeight": 6.359999998658896,
+      "returnedHeight": 2.2966666780412197,
+      "travelled": 24.073579301866488,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 884,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866246,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 392,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866324,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 296,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186635,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 834,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 344,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866253,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 246,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186631,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 1061,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186622,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 768,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866182,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 756,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866403,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 884,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866246,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 392,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866324,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 296,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186635,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 834,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 344,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866253,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 246,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186631,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 1061,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186622,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 768,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866182,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 756,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866403,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 884,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866246,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 392,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866324,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 30,
+      "arrived": true,
+      "returned": true,
+      "steps": 296,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186635,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 834,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866268,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 344,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866253,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": 144,
+      "arrived": true,
+      "returned": true,
+      "steps": 246,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186631,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.2,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 1061,
+      "maxStationaryTicks": 0,
+      "maxRise": 0,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.07357930186622,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.5,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 768,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866182,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "speed": 9,
+      "magnitude": 0.75,
+      "hz": "hitch",
+      "arrived": true,
+      "returned": true,
+      "steps": 756,
+      "maxStationaryTicks": 0,
+      "maxRise": 0.1766681671142578,
+      "ascentHeight": 23.32000022754073,
+      "returnedHeight": 19.256666716188192,
+      "travelled": 24.073579301866403,
+      "visitedSurfaces": 25,
+      "labels": [
+        "Approach stairs"
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "goat",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "horse",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "mouse": {
+        "x": -0.7071067811865475,
+        "y": -0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-approach-front",
+      "characterId": "bear",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "mouse": {
+        "x": 0.7071067811865475,
+        "y": 0.7071067811865475
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "goat",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "horse",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-front-west",
+      "characterId": "bear",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "goat",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "horse",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "hz": 30,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "hz": 30,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "hz": 144,
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "hz": 144,
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "hz": "hitch",
+      "direction": "up",
+      "keyboard": {
+        "x": 0,
+        "y": 1
+      },
+      "mouse": {
+        "x": 0,
+        "y": 1
+      },
+      "equivalent": true
+    },
+    {
+      "stair": "admin-upper-west",
+      "characterId": "bear",
+      "hz": "hitch",
+      "direction": "down",
+      "keyboard": {
+        "x": 0,
+        "y": -1
+      },
+      "mouse": {
+        "x": 0,
+        "y": -0.9999999999999999
+      },
+      "equivalent": true
+    }
+  ],
+  "passed": true
+}

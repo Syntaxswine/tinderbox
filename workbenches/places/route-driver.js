@@ -1,7 +1,8 @@
 import {worldToStick} from '../../src/simulation/geometry.js';
+import {DEFAULT_CONFIG} from '../../src/simulation/config.js';
 // Review-only playback dispatches normal input into the live runtime. It never
 // writes coordinates, resets the player, advances a second clock or creates art.
-export function createRouteDriver({dispatch,input={cameraRelative:true,cameraX:10,cameraY:12},speed=3,now=()=>performance.now(),maxSeconds=900,stallSeconds=12}){
+export function createRouteDriver({dispatch,input=DEFAULT_CONFIG.input,speed=DEFAULT_CONFIG.player.speed,now=()=>performance.now(),maxSeconds=900,stallSeconds=12}){
   let state={phase:'idle',message:'Choose a verified route.'},record,legIndex=0,pointIndex=0,startedAt=0,lastFrame=0,lastProgress=0,bestDistance=Infinity;
   const active=()=>['running','paused'].includes(state.phase);
   function stop(message='Route stopped.',phase='stopped'){

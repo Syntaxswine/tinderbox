@@ -1,7 +1,7 @@
 // Tunable TB-004 prototype values. Metres, seconds, HP and litres (fuel).
 export const DEFAULT_CONFIG = Object.freeze({
   step: 1 / 60, maxCatchUp: 0.25,
-  player: {speed: 3, radius: 0.56, maxHp: 100},
+  player: {speed: 9, radius: 0.56, maxHp: 100},
   input: {cameraRelative: true, cameraX: 10, cameraY: 12},
   drugs: {duration: 8, playerScale: 1.5, worldScale: 0.35, healing: 35},
   fuel: {gasPerMetre: 0.08, gasBurnRate: 0.018, surfaceBurnRate: 0.025, surfaceDensity: {grass: 0.32, wood: 1.2}},

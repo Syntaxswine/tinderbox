@@ -133,8 +133,8 @@ test('powder street pouring uses accepted distance while civilians and fire use 
     }
     powder.dispatch({type: 'drug', drug: 'powder'});
     const normal = advance(ordinary, 1), fast = advance(powder, 1);
-    near(normal.player.travelled, 3); near(fast.player.travelled, 4.5);
-    near(normal.diagnostics.fuel.pouredFuel, .24); near(fast.diagnostics.fuel.pouredFuel, .36);
+    near(normal.player.travelled, 9); near(fast.player.travelled, 13.5);
+    near(normal.diagnostics.fuel.pouredFuel, .72); near(fast.diagnostics.fuel.pouredFuel, 1.08);
     near(fast.clocks.player, 1.5); near(fast.clocks.world, .35);
     near(fast.actors[0].travelled, normal.actors[0].travelled * .35);
     for (const cell of fast.cells.filter(cell => cell.depositedFuel > 0)) assert.ok(cell.y > 16 && !fast.world.obstacles.some(box => inObstacle(cell, box)));

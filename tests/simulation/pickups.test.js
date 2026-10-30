@@ -60,7 +60,7 @@ test('automatic pickups preserve a carried lit torch and held flamethrower while
 });
 
 test('a later powder pickup refreshes duration without stacking and death cannot replay an old accepted path',()=>{
-  const sim=make(scene({pickups:[item('first','powder',2),item('later','powder',4)]}));
+  const sim=make(scene({pickups:[item('first','powder',2),item('later','powder',8)]}));
   try{sim.dispatch({type:'move',x:1,y:0});let s;
     for(let i=0;i<120;i++){s=sim.advance(1/60);if(s.pickups[1].consumed)break;}
     assert.ok(s.pickups[1].consumed);assert.ok(s.clocks.active>.2);assert.ok(Math.abs(s.effects.powder.remaining-8)<1e-8);assert.equal(s.clocks.playerScale,1.5);assert.equal(s.events.filter(e=>e.type==='pickup-used').length,2);
