@@ -23,7 +23,9 @@ npm run serve -- --root dist --port 4550 --ttl 1800
 
 Open `http://127.0.0.1:4550/`. The loopback preview expires after 30 minutes; stop it immediately when finished. Agents must register retained previews under the user's helper policy.
 
-Move with WASD/arrows or the joystick. In Catalogue Street, point or tap the ground to aim, select tools with 1–5, and use Space or the action button. Matches ignite one target tile per press. Jerry-can pouring toggles on a press and follows accepted movement. Light a torch once, carry it for its finite burn time, then press its action to ignite nearby fuel. Hold the flamethrower action to discharge it.
+Move with WASD/arrows or the joystick. Base movement is **9 m/s**, three times the initial preview; partial stick movement remains analog. Mouse gestures recover from missed releases and retain their direction when the interface shifts. The [movement/input review](docs/reviews/2026-10-29-movement-input.md) records the tested correction and the unconfirmed exact stair report.
+
+In Catalogue Street, point or tap the ground to aim, select tools with 1–5, and use Space or the action button. Matches ignite one target tile per press. Jerry-can pouring toggles on a press and follows accepted movement. Light a torch once, carry it for its finite burn time, then press its action to ignite nearby fuel. Hold the flamethrower action to discharge it.
 
 Walk over powder or pills to use them automatically. Powder increases player speed while slowing world time, including fire. Healing restores HP and stays on the ground at full health. Inversion reverses movement by 180 degrees. In landmark visits, E/Space or the contextual action opens nearby doors; walk along the actual stairs. Overview/Follow changes the camera, not the player's position. Pause and Return to Places cancel held input and dispose the current visit.
 
@@ -71,6 +73,6 @@ Copied assets also need a source revision, original path, SHA-256, license/prove
 
 ## Delivery status
 
-The primary checkout is the architect's workspace, currently on `codex/explorable-places`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
+The primary checkout is the architect's workspace, currently on `codex/movement-input`; `master` remains the integration and deployment branch. [Syntaxswine/tinderbox](https://github.com/Syntaxswine/tinderbox) is configured as `origin`; worker branches share that remote. The Pages workflow checks and packages `master`, then deploys the generated `dist/` artifact when Pages is configured and the repository variable `PAGES_ENABLED` is `true`. The donor game has its own repository and deployment.
 
 The repository is public with the user's approval. The [explorable-places release record](docs/reviews/2026-10-29-explorable-places.md) contains the current preview's publication, verification and deferred corrections. The [exposition acceptance](docs/reviews/2026-10-27-exposition-foundation.md) and [opening mechanics review](docs/reviews/2026-10-27-burning-trail.md) preserve the earlier releases.

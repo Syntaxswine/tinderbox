@@ -2,6 +2,8 @@
 
 The user reports that movement should be three times the published preview's speed, and that the joystick sometimes stops working on stairs while the keyboard still works. Deliver this focused correction against published integration checkpoint `38f6e803bf43493fdcd641f62f8644d13b99488f`. Preserve the warm period UI, native character/building scale and the four existing destinations.
 
+Confirmed reproduction context: **Administration Building, using a mouse**. The precise stair and gesture remain unspecified; begin with its entrance and spiral stairs without treating another building's successful test as resolution of this report.
+
 ## Accepted change and ownership
 
 Base player speed changes from 3 to **9 metres per second**, for goat, horse and bear in Catalogue Street and every landmark. This changes player movement only. Keep the existing powder player multiplier and world-time slowdown, gas deposited per accepted metre, fire/tool/drug clocks, NPC speed and animation distance conventions. Do not speed up the global clock.
@@ -27,3 +29,5 @@ Navigation review covers ascent/descent at full input and partial analog magnitu
 - Provide exact scoped commits, changed paths, reproduction/root-cause evidence, checks/results and any helper cleanup receipt. No gallery repair, new art, later assets, menu redesign or unrelated work is bundled into this correction. Workers may push passing scoped candidates to their task branches; only the architect promotes and verifies deployment.
 
 If the user's precise stair cannot be identified, proceed with the existing native stair sets and deterministic keyboard/analog comparisons while requesting only the missing reproduction detail. Do not stop the authorized speed change or independent input diagnosis to wait for that answer.
+
+The [architect's correction review](../reviews/2026-10-29-movement-input.md) records exact intakes, combined checks, browser evidence, limitations and publication status.
