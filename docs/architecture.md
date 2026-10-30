@@ -11,6 +11,7 @@
 - Tools: matches, jerry cans, Molotov cocktails, torches, and the flamethrower. Pouring toggles on/off while moving and follows the bear's speed; escaping fire advancing along that trail is an intended tactic.
 - Matches ignite one tile per press; subsequent spread depends on fuel. A torch is lit once, burns for a fixed time while carried, and ignites nearby tiles on an action press. The active implementation contract is [Milestone 06](milestones/06-row-houses-and-ignition.md).
 - Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
+- The user requests three times the preview's base player movement speed: 9 m/s instead of 3 m/s, across the street and landmark visits. Preserve powder's existing multiplier and world/fire timing. The movement/joystick correction is assigned in [Milestone 09](milestones/09-movement-and-joystick.md).
 - Drugs and medicine activate automatically when the player walks over their world pickups. The accepted six-button UI has no manual drug controls; simulation, ground art and HUD must agree on one-time collection.
 - Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. The user has now requested playable interiors and stairs for the landmark visits. Combine tile-based world structure with free movement.
 - Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.

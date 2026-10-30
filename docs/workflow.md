@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/explorable-places` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Place contract, exact intake, combined QC and promotion |
-| Artist | Assigned `codex/exploration-access-art` from `c428733` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Preserve landmarks; additive playable entry/stair/floor-opening art |
-| Coder | Assigned `codex/explorable-places-coder` from `ad80e2c` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | Place loading, selected-character navigation, camera, lifecycle and immutable asset intake |
-| UI designer | Assigned `codex/explorable-places-ui` from `6659b9c` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | Title screen, destination/animal selection, navigation HUD and return controls |
+| Architect | `codex/movement-input` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Focused correction contract, exact intake, combined QC and promotion |
+| Artist | `codex/medicine-pickup-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Completed access/medicine candidates; no new art assigned for movement correction |
+| Coder | Assigned `codex/movement-input-coder` from `38f6e80` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-028: 9 m/s player speed and source-stair analog/keyboard reliability; preserve earlier gallery WIP separately |
+| UI designer | Assigned `codex/joystick-input-ui` from `38f6e80` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-029: pointer lifecycle, stable joystick geometry, real browser input evidence |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
