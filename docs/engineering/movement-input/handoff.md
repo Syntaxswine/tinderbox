@@ -2,6 +2,8 @@
 
 Candidate branch: `codex/movement-input-coder`, based on exact published checkpoint `38f6e803bf43493fdcd641f62f8644d13b99488f`. Architect contract: `docs/milestones/09-movement-and-joystick.md` at `556679297eed1112c653ee9539acb6bb8b6a19bf`. This worker candidate does not promote or deploy itself.
 
+Passing code/evidence commit: **`4c70225ed66b787b874ddc22835f802aab087c75`**, pushed to the matching origin branch and verified by `git ls-remote`. The follow-up delivery record and narrow LF attribute preserve portable evidence hashes; they add no gameplay change.
+
 The shared player speed is **9 m/s**, three times the published preview. Goat, horse and bear use it on Catalogue Street and all three landmarks. Normalized diagonals retain that speed. Powder retains its 1.5 multiplier, giving 13.5 m/s in the street, while its world scale remains .35. Fire, tools, medicine duration, NPCs, accepted-distance animation and gas per accepted metre keep their existing clocks/rules.
 
 The two source-only route controllers now take their default speed and input projection from `DEFAULT_CONFIG`. At the new speed their old independent `speed=3` assumptions overshot short waypoints and produced false stalls. Explicit diagnostic overrides remain available. No gameplay navigation or source geometry changes are needed by the controlled Administration probes.
