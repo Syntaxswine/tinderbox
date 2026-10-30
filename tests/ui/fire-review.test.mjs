@@ -35,9 +35,13 @@ test('Executable links and remote evidence assets are rejected',()=>{
   for(const value of ['javascript:alert(1)','data:text/html,hi','file:///C:/private','',null])assert.equal(safeUrl(value,base),null);
   assert.equal(localAsset('https://example.org/photo.jpg',base),null);assert.equal(localAsset('../../art/source/a.jpg',base),'http://localhost:4552/nested/fire-ui/art/source/a.jpg');
 });
-test('Four reference plates retain exact bytes, rights basis, conflicting dates and derivative limits',()=>{
-  const dossier=JSON.parse(fs.readFileSync('art/source/fire-realism/references.json','utf8')),refs=photoReferences(dossier);assert.equal(refs.length,4);
-  for(const [i,ref]of refs.entries()){assert.equal(ref.verified,true);assert.ok(ref.rightsBasis);const bytes=fs.readFileSync(dossier.references[i].path);assert.equal(createHash('sha256').update(bytes).digest('hex'),ref.metadata.sha256);}
+test('Reviewed reference dossier retains original plates and verifies every listed source',()=>{
+  const dossier=JSON.parse(fs.readFileSync('art/source/fire-realism/references.json','utf8')),refs=photoReferences(dossier);
+  const originals=[['nara-6349328','nara-6349328-original.jpeg'],['dvids-8746603','dvids-8746603-color.jpg'],['dvids-9535915','dvids-building-9535915.jpg'],['dvids-9219073','dvids-room-fire-2000w.jpg']];
+  assert.equal(refs.length,dossier.references.length);assert.equal(new Set(refs.map(r=>r.id)).size,refs.length,'Reference IDs must be unique');
+  for(const [id,file]of originals){const ref=refs.find(r=>r.id===id);assert.ok(ref,'Original reference missing: '+id);assert.equal(ref.metadata.path,'art/source/fire-realism/references/'+file);assert.equal(ref.asset,'../../'+ref.metadata.path);}
+  for(const [i,ref]of refs.entries()){assert.equal(ref.verified,true);assert.ok(ref.rightsBasis);assert.ok(ref.rights);assert.ok(localAsset(ref.asset,base),'Reference must use a local verified asset');assert.deepEqual(ref.metadata,{...dossier.references[i],rightsPolicy:dossier.policyURL??null});const bytes=fs.readFileSync(dossier.references[i].path);assert.equal(bytes.length,ref.metadata.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),ref.metadata.sha256);}
+  assert.ok(refs.find(r=>r.id==='nara-6349328').limitations.some(s=>s.includes('exact day precision not established')));
   assert.ok(refs.find(r=>r.id==='dvids-9535915').limitations.some(s=>s.includes('Conflict retained')));
   assert.ok(refs.find(r=>r.id==='dvids-9219073').limitations.some(s=>s.includes('not flame-shape evidence')));
   assert.ok(refs.find(r=>r.id==='dvids-8746603').limitations.some(s=>s.includes('Largest original not acquired')));
