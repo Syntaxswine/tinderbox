@@ -38,7 +38,7 @@ The Pages workflow checks and packages code changes on `master`. Its deployment 
 
 ## Current milestone
 
-The current focused correction is `docs/milestones/10-contextual-doors.md` from published `99b95b0`: Farmyard-style floating Open/Close buttons when near reachable doors. Reuse the existing coder and UI workers on their assigned door branches. Runtime owns reach, safe target/state actions and camera projection; UI owns contextual presentation and single click/keyboard activation. Preserve 9 m/s movement, native geometry and the separate gallery WIP. Architect integrates, reviews and publishes passing work.
+The completed contextual-door correction is `docs/milestones/10-contextual-doors.md`, with publication and focused acceptance in `docs/reviews/2026-10-29-contextual-doors.md`: Farmyard-style floating Open/Close buttons when near reachable landmark doors. Reuse the existing coder and UI workers for later assignments. Runtime owns reach, safe target/state actions and camera projection; UI owns contextual presentation and single click/keyboard activation. Preserve 9 m/s movement, native geometry and the separate gallery WIP. The broader preview's deferred whole-map/WebGL checks remain separate.
 
 The completed movement correction is recorded in `docs/reviews/2026-10-29-movement-input.md`: 9 m/s across maps and three reproduced mouse-gesture fixes. Preserve movement clocks, the powder multiplier, native body geometry and collision safety. The precise original interior-stair incident remains unconfirmed. The separate gallery checkpoint stays excluded, and the earlier as-is preview exception does not silently waive new checks.
 

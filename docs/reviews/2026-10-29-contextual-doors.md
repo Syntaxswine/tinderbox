@@ -1,6 +1,6 @@
 # Contextual door correction
 
-Status: **focused correction approved for publication; deployment pending**. [Milestone 10](../milestones/10-contextual-doors.md) starts from published `99b95b0888298a53791db3fc5657c4de3002d488`. The user requests Farmyard Commando's interaction: a button appears near a door and a click operates it. The earlier [preview's deferred whole-map and WebGL acceptance](2026-10-29-explorable-places.md) remains separate.
+Status: **focused correction published and verified**. [Milestone 10](../milestones/10-contextual-doors.md) starts from published `99b95b0888298a53791db3fc5657c4de3002d488`. The user requests Farmyard Commando's interaction: a button appears near a door and a click operates it. The earlier [preview's deferred whole-map and WebGL acceptance](2026-10-29-explorable-places.md) remains separate.
 
 The architect checked Farmyard's immutable `30a3b8cae5f36bb0c1df3685b7fba16f701c2083` objects. Its `app.js` anchors one nearby action button above the object; `field-view.js` uses current-camera projection; `interactions.js` checks clear reach and safe destination occupancy. The [runtime donor record](../engineering/contextual-doors/donor.json) preserves the five inspected paths and hashes, independently matched by the architect. No new donor files, source pins or art are imported.
 
@@ -32,4 +32,8 @@ The combined build/release passes **3,456 files / 163,301,007 bytes**. A finite 
 
 ## Publication
 
-The architect approves this focused correction after the checks above. A normal fast-forward push will promote the exact reviewed tree to `master` and `codex/contextual-doors`; deployment and live-byte verification will be recorded after completion. This approval does not absorb the separate gallery work or waive the earlier preview's deferred acceptance.
+Published commit: [`11f9ef8ef0326eab7e994f36c45988ca5a9f5bb3`](https://github.com/Syntaxswine/tinderbox/commit/11f9ef8ef0326eab7e994f36c45988ca5a9f5bb3). Normal atomic fast-forward pushes updated `master` and `codex/contextual-doors`, without a force push. [Pages workflow 40988092257](https://github.com/Syntaxswine/tinderbox/actions/runs/40988092257) passed its build and deployment; deployment completed at **2026-10-30 01:50:25 UTC** (October 29 locally).
+
+The architect's finite public verifier matched the hosted manifest and all **3,454 hosted game files** byte-for-byte to the approved package, including the new door action, projection and UI modules. The two nonruntime hosting/build markers are recorded separately. The verifier exited successfully without opening a listener; no architect helper remains running. Its receipt is `artifacts/qa/contextual-doors/published-preview-verification.json`.
+
+Play [Tinderbox](https://syntaxswine.github.io/tinderbox/) after reloading the page. Nearby landmark doors now offer the floating Open/Close button. This correction does not absorb the separate gallery work or waive the earlier preview's deferred acceptance. This publication receipt changes documentation only.
