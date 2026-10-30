@@ -1,3 +1,4 @@
+import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 import * as T from '../../src/runtime/three.js';
 import {createArtScene} from '../../src/art/index.js';
 import {createFireReviewEffect} from '../../src/art/fire-review-effect.js';
@@ -48,10 +49,10 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   const fingerprints={reference:{sourceCommit:referenceDelivery.sourceCommit||null,runtimeFiles:{}},optimized:{sourceCommit:optimizedDelivery?.sourceCommit||null,runtimeFiles:{}}};
   function sources(){return {publishedControl:CONTROL,controlRuntimeFiles:clone(controlHashes),adapterRuntimeFiles:clone(adapterHashes),byMode:clone(fingerprints)};}
   function state(){
-    const fire=art?.diagnostics().fire,frame=fire?.artist;
+    const fire=art?.diagnostics().fire;
     return clone({version:1,phase,configuration:config,frameIndex,tick:snapshot?.tick||0,worldTime:snapshot?.clocks.world||0,playerTime:snapshot?.clocks.player||0,paused:phase!=='playing'&&phase!=='measuring',
       availability,capabilities:{gpuTimer:{available:!!timerSupport,reason:timerSupport?null:'EXT_disjoint_timer_query_webgl2 unavailable'},populations:POPULATION_CASES.includes(config.scenario)?[32,128,512]:[]},
-      workload:{requestedPopulation:config.population,actualBurningCells:snapshot?.diagnostics.burningCells||0,activeDischarge:!!snapshot?.discharge.active,activeTorch:snapshot?.player.tool==='torch'&&snapshot?.player.torch.phase==='lit',burningBuildingIds:frame?.burningBuildingIds||[]},
+      workload:{requestedPopulation:config.population,actualBurningCells:snapshot?.diagnostics.burningCells||0,activeDischarge:!!snapshot?.discharge.active,activeTorch:snapshot?.player.tool==='torch'&&snapshot?.player.torch.phase==='lit',burningBuildingIds:fire?.burningBuildingIds||[]},
       progress,referenceAcceptance:validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',sourceCommit:fingerprints.reference.sourceCommit,runtimeFiles:fingerprints.reference.runtimeFiles})?'accepted':referenceAcceptance?'pending':'missing',results,error,
       diagnostics:{fire,renderer:lastMetrics,latestCpu,playbackClock:playbackClock.diagnostics(),sourceFingerprints:sources()}});
   }
@@ -65,10 +66,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   function placeCamera(){
     const {width,height,pixelRatio}=config.viewport;renderer.setPixelRatio(pixelRatio);renderer.setSize(width,height,false);
     renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';root.style.aspectRatio=width+'/'+height;
-    const focus=config.scenario==='street-fire'?new T.Vector3(30,1.5,10):config.scenario.startsWith('gasoline')?new T.Vector3(7,.6,8.25):new T.Vector3(5.7,.9,8.25);
-    const span=config.scenario==='street-fire'?15:config.scenario==='wall-clipped-jet'?10:8,aspect=width/height;
-    camera.left=-span*aspect/2;camera.right=span*aspect/2;camera.top=span/2;camera.bottom=-span/2;
-    camera.position.copy(focus).add(config.view==='oblique'?new T.Vector3(10,5,12):new T.Vector3(10,14,12));camera.lookAt(focus);camera.updateProjectionMatrix();camera.updateMatrixWorld();
+    placeFireReviewCamera(T,camera,config);
     const lights=scene.children.filter(child=>child.userData.reviewEnvironmentLight);
     lights[0].intensity=config.lighting==='dim'?.35:2.3;lights[1].intensity=config.lighting==='dim'?.2:2.5;
   }
@@ -178,7 +176,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }catch(cause){availability.optimized={available:false,reason:cause.message,sourceCommit:optimizedDelivery.sourceCommit||null};}finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','tools/fire-realism/scenarios.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','tools/fire-realism/scenarios.js','tools/fire-realism/camera.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
       const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));
