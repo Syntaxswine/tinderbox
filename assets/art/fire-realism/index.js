@@ -1,7 +1,7 @@
 import {createTongueGeometry} from './geometry.js';
 import {vertexShader, fragmentShader} from './shaders.js';
 
-export const FIRE_REALISM_VERSION = '0.2.0-reference-candidate';
+export const FIRE_REALISM_VERSION = '0.3.0-reference-candidate';
 const finite = Number.isFinite;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, finite(x) ? x : a));
 const point = p => p && [p.x, p.y, p.h].every(finite);
@@ -26,7 +26,7 @@ export function createFireRealism(T, options = {}) {
   if (quality !== 'reference') throw new RangeError('Optimized fire is unavailable until the detailed reference is reviewed and frozen.');
   const maxCells = options.maxCells ?? 4096, maxRays = options.maxRays ?? 256, maxBuildings = options.maxBuildings ?? 64;
   if (!Number.isInteger(maxCells) || maxCells < 1 || maxCells > 4096 || !Number.isInteger(maxRays) || maxRays < 2 || maxRays > 256 || !Number.isInteger(maxBuildings) || maxBuildings < 1 || maxBuildings > 64) throw new RangeError('Invalid bounded fire capacity');
-  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 9, densitySteps: 18});
+  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 1, densitySteps: 18});
   const root = new T.Group(); root.name = 'TB-034 detailed fire reference candidate';
   const owned = {geometries: new Set(), materials: new Set(), textures: new Set()};
   const rayData = new Float32Array(256 * 4), rayTable = new T.DataTexture(rayData, 256, 1, T.RGBAFormat, T.FloatType);
@@ -37,6 +37,7 @@ export function createFireRealism(T, options = {}) {
     field: {value: white}, grid: {value: new T.Vector2(1, 1)}, cellSize: {value: .5}, fieldEnabled: {value: 0},
     rayTable: {value: rayTable}, rayCount: {value: 0}, connected: {value: 0}, jetHeading: {value: 0}, shapeOrigin: {value: new T.Vector2()},
     sourceOrigin: {value: new T.Vector2()}, sourceDirection: {value: new T.Vector2(1, 0)}, forwardStart: {value: 0},
+    fuelJet: {value: 0}, jetAxisOrigin: {value: new T.Vector3()}, jetExtent: {value: 1}, jetTipHeight: {value: 0},
     opaqueDepth: {value: white}, opaqueDepthSize: {value: new T.Vector2(1, 1)}, opaqueDepthEnabled: {value: 0}, opaqueViewProjection: {value: new T.Matrix4()}
   };
   const capacity = maxCells * 4 + (maxRays + 1) * settings.raySteps + settings.maxJetSmoke + maxBuildings * 8 + 3;
@@ -141,12 +142,12 @@ export function createFireRealism(T, options = {}) {
     for (let i = 0; i < Math.min(3, active.length); i++) {const p = active[Math.floor(i * active.length / Math.min(3, active.length))]; lights[i].position.set(p.x, p.elevation + .55, p.y); lights[i].intensity = p.intensity * 1.6;}
     state.burningCells = active.length; state.smokeColumns = clusters.size;
   }
-  function segment(name, id, from, to, strength, clip, steps = settings.raySteps) {
+  function segment(name, id, from, to, strength, clip, steps = 1) {
     const dx = to.x - from.x, dy = to.y - from.y, dh = to.h - from.h, length = Math.hypot(dx, dy, dh);
     if (length < 1e-6) return;
     const dir = [dx / length, dh / length, dy / length];
     for (let j = 0; j < steps; j++) {
-      const t = j / steps, s = seed(`${id}:${j}`), width = clip >= 2 ? .16 : .035 + t * .18;
+      const t = j / steps, s = seed(`${id}:${j}`), width = clip >= 2 ? .16 : .23;
       add(name, `${id}:${j}`, [mix(from.x, to.x, t), mix(from.h, to.h, t), mix(from.y, to.y, t)], dir, width, Math.min(length / steps * (clip >= 2 ? 1 : 1.6), length * (1 - t)), strength, s, 0, clip);
     }
   }
@@ -164,6 +165,10 @@ export function createFireRealism(T, options = {}) {
     shared.rayCount.value = rays.length; shared.connected.value = Number(connected);
     rayData.fill(0); rays.forEach((r, i) => rayData.set([r.x, r.y, r.angle - d.heading, r.distance], i * 4)); rayTable.needsUpdate = true;
     const from = inside ? {x: muzzle.x, y: muzzle.z, h: muzzle.y} : o;
+    const fieldOrigin = connected ? from : o;
+    shared.fuelJet.value = Number(d.tool === 'flamethrower'); shared.jetAxisOrigin.value.set(fieldOrigin.x, fieldOrigin.h, fieldOrigin.y);
+    shared.jetExtent.value = Math.max(.001, ...rays.map(r => (r.x - fieldOrigin.x) * Math.cos(d.heading) + (r.y - fieldOrigin.y) * Math.sin(d.heading)));
+    shared.jetTipHeight.value = rays.length ? rays[0].h : fieldOrigin.h;
     for (let i = 0; i < rays.length; i++) segment('Resolved liquid-fuel jet', `ray:${i}`, connected ? from : o, rays[i], d.tool === 'torch' ? .36 : .68, connected ? 1 : 2);
     if (d.lead && point(d.lead.from) && point(d.lead.to)) segment('Authoritative discharge lead', 'lead', d.lead.from, d.lead.to, .58, 3);
     state.discharge = connected ? inside ? 'resolved connected fan' : 'resolved connected fan; outside-muzzle source support' : 'resolved independent clipped-ray ribbons; no filled fan';
@@ -241,7 +246,7 @@ export function createFireRealism(T, options = {}) {
     paused = frame.paused === true; shared.clock.value = frame.worldTime; lastTime = frame.worldTime; lastTick = frame.tick; generation = receiptGeneration ?? generation; updates++;
     const occlusion = state.opaqueOcclusion; state = blankState(); state.opaqueOcclusion = occlusion;
     records.length = 0; byId.clear(); counts.clear(); for (const l of lights) l.intensity = 0;
-    shared.connected.value = 0; shared.rayCount.value = 0;
+    shared.connected.value = 0; shared.rayCount.value = 0; shared.fuelJet.value = 0;
     for (const [id, h] of jetSmokeHistory) if (frame.worldTime - h.birth >= settings.jetSmokeTailSeconds) jetSmokeHistory.delete(id);
     ground(frame.cells, frame.worldTime); discharge(frame.discharge, frame.anchors, frame.worldTime); jetSmoke(frame.worldTime); buildings(frame.buildingVisuals); carried(frame.torch, frame.anchors, p);
     if (frame.eventReceipts?.reset === true) discardedStartupEvents += Array.isArray(frame.events) ? frame.events.length : 0;

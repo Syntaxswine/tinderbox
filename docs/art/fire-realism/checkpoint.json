@@ -1,11 +1,20 @@
 {
-  "task": "TB-034-corrective-round-02",
-  "recordedAt": "2026-10-30T04:48:54Z",
-  "integrationBase": "93b59fadec1fbfd36dec559fcb896f67f7d81221",
-  "correctsArtistCandidate": "3f7b8f34de99f3483b0e13a991aef7abd0455da2",
+  "task": "TB-034-continuity-iteration-03",
+  "recordedAt": "2026-10-30T05:28:48Z",
+  "integrationBase": "0b180335a007809a0e63fb69da40b0b0b59035aa",
+  "correctsArtistCandidate": "0b180335a007809a0e63fb69da40b0b0b59035aa",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
-  "artistVersion": "0.2.0-reference-candidate",
+  "artistVersion": "0.3.0-reference-candidate",
+  "actualPreviousCandidateReview": {
+    "candidate": "0b180335a007809a0e63fb69da40b0b0b59035aa",
+    "evidence": "Architect primary checkout artifacts/qa/fire-realism/render-round-01/",
+    "imagesOpened": ["contact-isometric-bright-paused.jpg", "contact-oblique-bright-paused.jpg", "jet-oblique-bright-paused.jpg"],
+    "backend": "Chrome155 / ANGLE Direct3D11 / NVIDIA RTX3080",
+    "shaderFailure": null,
+    "qualityDecision": "rejected; repeated axial jet wedges and smooth filled contact mass",
+    "previousEvidenceModified": false
+  },
   "sourcePhotos": {
     "existingCount": 4,
     "independentlyOpened": 4,
@@ -19,11 +28,12 @@
       "connectRays": false,
       "rays": 25,
       "controlTriangles": 500,
-      "candidateIndependentRibbonInstances": 225,
+      "candidateIndependentRibbonInstances": 25,
       "candidateJetSmokePresent": true,
       "renderedVisibilityProved": false
     },
-    "shortOutsideMuzzleFan": "pass; 0.1m fan at0.3/0.5301m offsets retains27 volume instances with source-origin support",
+    "shortOutsideMuzzleFan": "pass; 0.1m fan at0.3/0.5301m offsets retains3 full-ray volume instances with source-origin support",
+    "continuity": "pass; one complete authoritative clipped support per ray without nine repeated axial cone segments; this is a pre-freeze quality correction, not cost optimization",
     "depthBinding": "pass; borrowed actual DepthTexture, current camera, paused camera, wrong dimensions/camera rejection, fractionalDPR floor convention",
     "sourceOrder": "pass; equivalent source ordering preserves geometry, smoke accumulation and spill-light selection",
     "projectCheck": {
@@ -35,7 +45,7 @@
     },
     "build": {
       "files": 3460,
-      "bytes": 163335172,
+      "bytes": 163338436,
       "sourcePhotosDistributed": false,
       "diagnosticWorkbenchDistributed": false
     },
@@ -47,13 +57,15 @@
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "Architect-owned supported-browser review is separate; prior disabled WebGL and native URL-confidence guard remain known limitations. No bypass attempted."
+    "reason": "Candidate0.2 now has actual architect-captured WebGL evidence and was rejected visually. Candidate0.3 actual compilation/motion/GPU review remains pending; root owns the reserved native browser. Artist did not control it concurrently."
   },
   "limitations": [
     "Centroid-sorted intersecting transparent volumes remain approximate and require actual reversed-camera/motion review",
     "Independent clipped-ray ribbons preserve safe exact-line support but are an explicit surface fallback rather than full3D jet volumes",
     "Legacy barrel/Molotov transients are deliberately handled by the separate runtime component; not duplicated here",
     "Source-level opaque-depth termination is implemented, but no actual visible wall/box intersection has been approved",
+    "The new shared reaction field still needs actual dark-gap, overlap-opacity, continuity and motion critique",
+    "Fixture Run-to2worlds and quarter-world stepping controls need actual browser verification",
     "No accepted/frozen high-detail reference or optimized variant exists"
   ],
   "helpers": {

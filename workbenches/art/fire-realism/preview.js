@@ -30,11 +30,14 @@ const effect = createFireRealism(T, {quality: 'reference', maxCells: 64}); scene
 const grid = 24, size = .5, mask = new Uint8Array(grid * grid * 4), field = new T.DataTexture(mask, grid, grid); field.minFilter = field.magFilter = T.NearestFilter; field.generateMipmaps = false;
 const fieldUniforms = {field: {value: field}, grid: {value: new T.Vector2(grid, grid)}, cellSize: {value: size}};
 const depthTexture = new T.DepthTexture(1280, 800, T.UnsignedIntType), depthTarget = new T.WebGLRenderTarget(1280, 800, {depthBuffer: true}); depthTarget.depthTexture = depthTexture;
-let worldTime = 0, playerTime = 0, tick = 0, isPaused = false, powder = false, view = 0, dim = false, intersect = false, previous = performance.now(), lastReport = 0;
-function reset() {worldTime = playerTime = tick = 0; effect.reset();}
+let worldTime = 0, playerTime = 0, tick = 0, isPaused = true, powder = false, view = 0, dim = false, intersect = false, previous = performance.now(), lastReport = 0, autoPauseAt = null, pendingWorldStep = 0;
+const pauseLabel = () => {document.querySelector('#pause').textContent = isPaused ? 'Resume' : 'Pause';};
+function reset() {worldTime = playerTime = tick = 0; autoPauseAt = null; pendingWorldStep = 0; isPaused = true; effect.reset(); pauseLabel();}
 document.querySelector('#fixture').onchange = reset;
-document.querySelector('#pause').onclick = e => {isPaused = !isPaused; e.target.textContent = isPaused ? 'Resume' : 'Pause';};
+document.querySelector('#pause').onclick = () => {isPaused = !isPaused; autoPauseAt = null; pauseLabel();};
 document.querySelector('#reset').onclick = reset;
+document.querySelector('#run-two').onclick = () => {reset(); autoPauseAt = 2; isPaused = false; pauseLabel();};
+document.querySelector('#step').onclick = () => {autoPauseAt = null; isPaused = true; pendingWorldStep += .25; pauseLabel();};
 document.querySelector('#powder').onclick = e => {powder = !powder; e.target.textContent = `Powder: ${powder ? '.35 world / 1.5 player' : 'off'}`;};
 document.querySelector('#view').onclick = e => {view = (view + 1) % 3; camera.position.set(...[[12, 12, 15], [12, 4.5, 14], [-.01, 12, -3]][view]); camera.lookAt(6, .4, 6); e.target.textContent = ['Oblique view', 'Reverse camera', 'Isometric view'][view];};
 document.querySelector('#light').onclick = e => {dim = !dim; scene.background.set(dim ? '#292c2c' : '#b4b69d'); sun.intensity = dim ? .16 : 2.3; scene.children.find(o => o.isHemisphereLight).intensity = dim ? .34 : 2.1; e.target.textContent = dim ? 'Bright surroundings' : 'Dim surroundings';};
@@ -43,7 +46,13 @@ document.querySelector('#save').onclick = () => {const a = document.createElemen
 const complexObstacles = Array.from({length: 80}, (_, i) => ({id: `obstacle-${i}`, kind: 'wall', x: 5 + i % 10 * .11, y: 4.6 + Math.floor(i / 10) * .105, width: .032, depth: .028}));
 function draw() {
   const now = performance.now(), dt = Math.min(.05, (now - previous) / 1000); previous = now;
-  if (!isPaused) {worldTime += dt * (powder ? .35 : 1); playerTime += dt * (powder ? 1.5 : 1); tick++;}
+  const worldScale = powder ? .35 : 1, playerScale = powder ? 1.5 : 1;
+  let framePaused = isPaused, worldDelta = 0, playerDelta = 0;
+  if (pendingWorldStep > 0) {worldDelta = pendingWorldStep; pendingWorldStep = 0; framePaused = false;}
+  else if (!isPaused) {worldDelta = dt * worldScale; if (autoPauseAt !== null) worldDelta = Math.max(0, Math.min(worldDelta, autoPauseAt - worldTime));}
+  playerDelta = worldDelta / worldScale * playerScale;
+  if (worldDelta > 0) {worldTime += worldDelta; playerTime += playerDelta; tick++;}
+  if (autoPauseAt !== null && worldTime >= autoPauseAt - 1e-9) {worldTime = autoPauseAt; autoPauseAt = null; isPaused = true; pauseLabel();}
   const fixture = document.querySelector('#fixture').value; wall.visible = ['jet', 'short-jet'].includes(fixture); house.visible = fixture === 'building'; occluder.visible = intersect;
   const cells = [], buildingVisuals = []; let torch = null, discharge = null;
   const player = {x: 1, y: 1, elevation: 0, radius: .3, tool: fixture === 'torch' || fixture === 'overlap' ? 'torch' : fixture.includes('jet') ? 'flamethrower' : 'matches'};
@@ -75,7 +84,7 @@ function draw() {
   try {effect.root.visible = false; renderer.setRenderTarget(depthTarget); renderer.clear(); renderer.render(scene, camera);}
   finally {renderer.setRenderTarget(targetBefore); effect.root.visible = visibleBefore;}
   const opaqueDepth = {valid: true, texture: depthTexture, width: 1280, height: 800, convention: 'webgl-depth-0-1', viewProjectionMatrix: new T.Matrix4().multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse).toArray(), projectionMatrixInverse: camera.projectionMatrixInverse.toArray(), cameraWorldMatrix: camera.matrixWorld.toArray()};
-  effect.update({version: 1, tick, worldTime, playerTime, worldDelta: isPaused ? 0 : dt * (powder ? .35 : 1), playerDelta: isPaused ? 0 : dt * (powder ? 1.5 : 1), paused: isPaused, player, camera: cameraState, viewport: {width: 1280, height: 800, pixelRatio: 1}, cells, discharge, anchors, torch, events: [], eventReceipts: {generation: 1, primed: true, highestId: null, events: [], reset: false}, fieldUniforms, opaqueDepth, buildingVisuals});
+  effect.update({version: 1, tick, worldTime, playerTime, worldDelta, playerDelta, paused: framePaused, player, camera: cameraState, viewport: {width: 1280, height: 800, pixelRatio: 1}, cells, discharge, anchors, torch, events: [], eventReceipts: {generation: 1, primed: true, highestId: null, events: [], reset: false}, fieldUniforms, opaqueDepth, buildingVisuals});
   renderer.render(scene, camera);
   if (now - lastReport > 500) {lastReport = now; status.textContent = JSON.stringify({fixture, shaderFailure, hardware, clocks: {worldTime, playerTime, paused: isPaused, powder}, output: {toneMapping: 'NoToneMapping', colorSpace: renderer.outputColorSpace, pixelRatio: renderer.getPixelRatio()}, callsIncludingDepth: renderer.info.render.calls, trianglesIncludingDepth: renderer.info.render.triangles, diagnostics: effect.diagnostics()}, null, 2);}
 }

@@ -11,10 +11,13 @@ const noise = `
     if(y<0.||y>1.)return 0.;
     return smoke>.5?.035+pow(max(0.,sin(3.14159265*y)),.66)*.96:max(.006,(.72+.24*sin(y*4.3))*pow(1.-y,.64));
   }
+  float streamProfile(float y) {
+    return (.10+.87*pow(clamp(y,0.,1.),.76))*(1.-smoothstep(.98,1.,y))+.006;
+  }
 `;
 export const vertexShader = noise + `
   attribute vec3 iOrigin,iAxis,iPolicy; attribute vec4 iShape;
-  uniform float clock;
+  uniform float clock,fuelJet; uniform vec3 jetAxisOrigin; uniform vec2 sourceDirection;
   varying vec3 local,world,base,axis,right,forward,policy; varying vec4 shape;
   void main() {
     shape=iShape; policy=iPolicy; base=iOrigin; axis=normalize(iAxis);
@@ -27,21 +30,31 @@ export const vertexShader = noise + `
       p.x=0.; p.z=(min(uv.x,.5)*4.-1.)*sin(y*3.14159265);
       p.z*=.85+.15*n3(vec3(phase,y*4.-clock*1.8,0.));
     } else {
-      p.xz*=profile(y,smoke);
+      bool stream=fuelJet>.5&&iPolicy.y>.5&&iPolicy.y<1.5;
+      p.xz*=stream?streamProfile(y):profile(y,smoke);
       vec3 flow=vec3(p.x*2.+phase,y*3.-clock*(smoke>.5?.34:1.8),p.z*2.-phase);
       float wave=n3(flow)*2.-1.,bend=pow(y,1.6)*(smoke>.5?.30:.34);
-      p.x+=bend*(n3(vec3(phase,y*2.-clock*.71,0.))*2.-1.);
-      p.z+=bend*(n3(vec3(0.,phase,y*2.-clock*.63))*2.-1.);
-      p.xz*=1.+wave*(smoke>.5?.13:.22)*sqrt(y);
+      if(stream) {
+        vec3 centre=iOrigin+axis*y*iShape.y;
+        float distanceAlong=dot(centre.xz-jetAxisOrigin.xz,sourceDirection);
+        vec3 roll=vec3(centre.x*1.3,centre.z*1.3,distanceAlong*1.7-clock*3.8);
+        p.x+=pow(y,1.25)*.38*(n3(roll+5.3)*2.-1.);
+        p.z+=pow(y,1.5)*(.20+.31*(n3(roll-9.1)*2.-1.));
+        p.xz*=.85+.31*fb(roll*1.7);
+      } else {
+        p.x+=bend*(n3(vec3(phase,y*2.-clock*.71,0.))*2.-1.);
+        p.z+=bend*(n3(vec3(0.,phase,y*2.-clock*.63))*2.-1.);
+        p.xz*=1.+wave*(smoke>.5?.13:.43)*sqrt(y);
+      }
     }
     local=p; world=iOrigin+right*p.x*iShape.x+axis*p.y*iShape.y+forward*p.z*iShape.x;
     gl_Position=projectionMatrix*viewMatrix*vec4(world,1.);
   }
 `;
 export const fragmentShader = noise + `
-  uniform float clock,orthographic,fieldEnabled,cellSize,rayCount,connected,jetHeading,forwardStart,opaqueDepthEnabled;
+  uniform float clock,orthographic,fieldEnabled,cellSize,rayCount,connected,jetHeading,forwardStart,opaqueDepthEnabled,fuelJet,jetExtent,jetTipHeight;
   uniform sampler2D field,rayTable,opaqueDepth; uniform vec2 grid,shapeOrigin,sourceOrigin,sourceDirection,opaqueDepthSize;
-  uniform mat4 opaqueViewProjection; uniform vec3 player; uniform float playerRadius;
+  uniform mat4 opaqueViewProjection; uniform vec3 player,jetAxisOrigin; uniform float playerRadius;
   varying vec3 local,world,base,axis,right,forward,policy; varying vec4 shape;
   float cross2(vec2 a,vec2 b) {return a.x*b.y-a.y*b.x;}
   bool fanAllowed(vec2 p) {
@@ -75,34 +88,66 @@ export const fragmentShader = noise + `
     }
     return 1.;
   }
-  float density(vec3 p) {
+  vec3 worldPoint(vec3 p) {return base+right*p.x*shape.x+axis*p.y*shape.y+forward*p.z*shape.x;}
+  bool streamField() {return fuelJet>.5&&policy.y>.5;}
+  float volumeProfile(float y) {return streamField()&&policy.y<1.5?streamProfile(y):profile(y,policy.x);}
+  // Common world-space reaction sheets and voids survive overlap between rays
+  // and ground tongues. Independent per-instance noise used to refill each
+  // other's gaps; axial segment seeds also exposed a repeated cone lattice.
+  vec4 reaction(vec3 p) {
+    vec3 wp=worldPoint(p),q,macro; float core=0.,progress=p.y;
+    if(streamField()) {
+      vec3 delta=wp-jetAxisOrigin;
+      float along=dot(delta.xz,sourceDirection),side=dot(delta.xz,vec2(-sourceDirection.y,sourceDirection.x));
+      progress=clamp(along/max(.001,jetExtent),0.,1.);
+      float centre=mix(jetAxisOrigin.y,jetTipHeight,progress)+.06*pow(progress,1.5);
+      float vertical=wp.y-centre;
+      q=vec3(side*5.,vertical*5.,along*2.7-clock*5.5);
+      macro=vec3(side*2.3,vertical*2.3,along*1.3-clock*2.0);
+      float radius=.026+.12*pow(progress,.75);
+      core=exp(-(side*side+vertical*vertical)/max(.0001,radius*radius))*(1.-smoothstep(.55,.88,progress));
+    } else {
+      q=wp*6.2-vec3(0.,clock*2.7,0.);
+      macro=wp*2.35-vec3(0.,clock*.92,0.);
+      core=(1.-smoothstep(.02,.22,length(p.xz)))*(1.-smoothstep(.02,.16,p.y));
+    }
+    q+=vec3(n3(q*.46+3.7),n3(q*.46-9.4),n3(q*.46+18.6))*.75;
+    float coarse=fb(q),voids=smoothstep(.38,.65,fb(macro+vec3(7.1,-2.3,11.8)));
+    float sheets=1.-smoothstep(.045,.14,abs(coarse-.53));
+    return vec4(sheets,voids,core,coarse);
+  }
+  float density(vec3 p,vec4 f) {
     if(p.y<.001||p.y>.999)return 0.;
     float smoke=policy.x,seed=shape.w*83.71;
-    vec3 flow=vec3(p.x*2.3+seed,p.y*3.4-clock*(smoke>.5?.42:1.9),p.z*2.3-seed);
-    float coarse=fb(flow),fine=n3(flow*3.3+clock*.14);
     vec2 bend=vec2(n3(vec3(seed,p.y*2.-clock*.71,0.)),n3(vec3(0.,seed,p.y*2.-clock*.63)))*2.-1.;
-    vec2 radial=p.xz-pow(p.y,1.6)*(smoke>.5?.30:.34)*bend;
-    float edge=length(radial)/max(.006,profile(p.y,smoke));
-    if(smoke>.5)return (1.-smoothstep(.38,1.05,edge))*smoothstep(.23,.69,coarse)*smoothstep(0.,.12,p.y)*(1.-smoothstep(.74,1.,p.y));
-    float front=(1.-edge)*.80+(coarse-.49)*1.15+(fine-.5)*.10;
-    return smoothstep(-.13,.17,front)*(.55+coarse*.8)*(1.-smoothstep(.68,1.,p.y));
+    vec2 radial=streamField()?p.xz-vec2(0.,.18*pow(p.y,1.5)):p.xz-pow(p.y,1.6)*(smoke>.5?.30:.34)*bend;
+    float edge=length(radial)/max(.006,volumeProfile(p.y));
+    if(smoke>.5) {
+      vec3 flow=vec3(p.x*2.3+seed,p.y*3.4-clock*.42,p.z*2.3-seed);
+      return (1.-smoothstep(.38,1.05,edge))*smoothstep(.23,.69,fb(flow))*smoothstep(0.,.12,p.y)*(1.-smoothstep(.74,1.,p.y));
+    }
+    float envelope=1.-smoothstep(.45,1.04,edge);
+    float contact=f.z*(.15+.22*f.x);
+    float termination=streamField()?1.-smoothstep(.97,1.,p.y):1.-smoothstep(.78,1.,p.y);
+    return envelope*(f.x*f.y*.95+contact)*termination;
   }
-  vec3 colorAt(vec3 p,float den) {
+  vec3 colorAt(vec3 p,float den,vec4 f) {
     if(policy.x>.5) {
-      float light=clamp(.50+(density(p)-density(p+vec3(-.13,.08,.09)))*1.1,.19,.85);
+      float light=clamp(.50+(density(p,vec4(0.))-density(p+vec3(-.13,.08,.09),vec4(0.)))*1.1,.19,.85);
       vec3 color=mix(vec3(.008,.006,.005),vec3(.17,.15,.125),light);
       if(policy.x>1.5)color*=.48;
       return color+vec3(.060,.012,.001)*pow(1.-p.y,3.);
     }
-    float hot=clamp((1.-p.y)*.70+(1.-length(p.xz))*.38+den*.15,0.,1.);
-    vec3 color=mix(vec3(.92,.028,.001),vec3(1.,.39,.018),smoothstep(.12,.75,hot));
-    return mix(color,vec3(1.,1.,.82),smoothstep(.79,1.05,hot));
+    float hot=clamp(.22+f.w*.66+den*.12,0.,1.);
+    vec3 color=mix(vec3(.80,.018,.001),vec3(1.,.44,.020),smoothstep(.40,.76,hot));
+    float white=f.z*(.65+f.x*.35);
+    return mix(color,vec3(1.,1.,.82),smoothstep(.61,.94,white));
   }
   void main() {
     bool ribbon=policy.y>=1.5;
     vec3 eye=cameraPosition-base;
     vec3 eyeLocal=vec3(dot(eye,right)/shape.x,dot(eye,axis)/shape.y,dot(eye,forward)/shape.x);
-    bool cameraInside=orthographic<.5&&eyeLocal.y>=0.&&eyeLocal.y<=1.&&length(eyeLocal.xz)<profile(eyeLocal.y,policy.x);
+    bool cameraInside=orthographic<.5&&eyeLocal.y>=0.&&eyeLocal.y<=1.&&length(eyeLocal.xz)<volumeProfile(eyeLocal.y);
     if(!ribbon&&!gl_FrontFacing&&!cameraInside)discard;
     vec2 depthUV=clamp(gl_FragCoord.xy/opaqueDepthSize,vec2(0.),vec2(1.));
     float sceneDepth=opaqueDepthEnabled>.5?texture2D(opaqueDepth,depthUV).r:1.;
@@ -111,7 +156,7 @@ export const fragmentShader = noise + `
       // Surface fallback preserves the exact safe old-ray support. No invented
       // volume/fan is hidden behind a claim of full 3D compatibility.
       if(opaqueStops(world,sceneDepth))discard;
-      float den=density(local)*shape.z; alpha=1.-exp(-den*.95); emission=alpha*colorAt(local,den);
+      vec4 f=reaction(local); float den=density(local,f)*shape.z; alpha=1.-exp(-den*.95); emission=alpha*colorAt(local,den,f);
     } else {
       vec3 viewDir=orthographic>.5?-vec3(viewMatrix[0][2],viewMatrix[1][2],viewMatrix[2][2]):normalize(world-cameraPosition);
       vec3 d=normalize(vec3(dot(viewDir,right)/shape.x,dot(viewDir,axis)/shape.y,dot(viewDir,forward)/shape.x));
@@ -119,9 +164,10 @@ export const fragmentShader = noise + `
       for(int j=0;j<18;j++) {
         vec3 wp=base+right*p.x*shape.x+axis*p.y*shape.y+forward*p.z*shape.x;
         if(opaqueStops(wp,sceneDepth))break;
-        float den=density(p)*shape.z*allowed(wp);
+        vec4 f=policy.x>.5?vec4(0.):reaction(p);
+        float den=density(p,f)*shape.z*allowed(wp);
         float a=1.-exp(-den*stepSize*(policy.x>.5?2.3:4.6));
-        emission+=(1.-alpha)*a*colorAt(p,den); alpha+=(1.-alpha)*a;
+        emission+=(1.-alpha)*a*colorAt(p,den,f); alpha+=(1.-alpha)*a;
         if(alpha>.985)break; p+=d*stepSize;
       }
     }

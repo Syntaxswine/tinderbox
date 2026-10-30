@@ -48,11 +48,14 @@ assert.equal(disconnected.connectRays, false, 'real existing resolver produces i
 const control = createDischarge(T, field), anchors = {muzzle: {x: 2.3, y: .85, z: 5}}, immutable = JSON.stringify(disconnected);
 control.update(disconnected, 1, anchors); assert.equal(control.diagnostics().triangles, 500);
 effect.reset(); effect.update(base(1, [], {discharge: disconnected, anchors}));
-assert.equal(instances(effect, 'Resolved liquid-fuel jet'), 25 * 9); assert.equal(effect.diagnostics().independentRayRibbons, 25); assert.ok(effect.diagnostics().jetSmokeColumns > 0);
+assert.equal(instances(effect, 'Resolved liquid-fuel jet'), 25); assert.equal(effect.diagnostics().independentRayRibbons, 25); assert.ok(effect.diagnostics().jetSmokeColumns > 0);
 assert.equal(JSON.stringify(disconnected), immutable, 'resolved endpoints and gameplay shape remain immutable');
 const g = mesh(effect).geometry, ids = effect.diagnostics().sortedSemanticIds;
 for (let i = 0; i < ids.length; i++) if (ids[i].startsWith('ray:')) {
   const rayIndex = Number(ids[i].split(':')[1]), r = disconnected.rays[rayIndex], o = disconnected.shapeOrigin;
+  assert.equal(ids[i], `ray:${rayIndex}:0`, 'one continuous curved support per ray cannot restart an axial cone lattice');
+  assert.ok(Math.abs(g.attributes.iOrigin.array[i * 3] - o.x) < 1e-6 && Math.abs(g.attributes.iOrigin.array[i * 3 + 2] - o.y) < 1e-6);
+  assert.ok(Math.abs(g.attributes.iShape.array[i * 4 + 1] - r.distance) < 1e-5, 'continuous ribbon spans its complete authoritative clipped ray');
   assert.equal(g.attributes.iPolicy.array[i * 3 + 1], 2, 'independent rays use surface support, never a filled fan');
   for (const t of [0, 1]) {
     const p = [g.attributes.iOrigin.array[i * 3], g.attributes.iOrigin.array[i * 3 + 2]], length = g.attributes.iShape.array[i * 4 + 1];
@@ -64,7 +67,7 @@ for (let i = 0; i < ids.length; i++) if (ids[i].startsWith('ray:')) {
 const origin = {x: 2, y: 5, h: .85}, short = {version: 1, active: true, tool: 'flamethrower', origin, shapeOrigin: origin, heading: 0, connectRays: true, rays: [-.2, 0, .2].map(angle => ({angle, x: 2 + Math.cos(angle) * .1, y: 5 + Math.sin(angle) * .1, h: .85, distance: .1}))};
 for (const x of [2.3, 2.5301]) {
   const anchors = {muzzle: {x, y: .85, z: 5}}; effect.reset(); effect.update(base(1, [], {discharge: short, anchors})); control.update(short, 1, anchors);
-  assert.ok(control.diagnostics().triangles > 0); assert.equal(instances(effect, 'Resolved liquid-fuel jet'), 27); assert.equal(effect.diagnostics().muzzleInsideShape, false); assert.equal(effect.diagnostics().visualForwardStart, 0);
+  assert.ok(control.diagnostics().triangles > 0); assert.equal(instances(effect, 'Resolved liquid-fuel jet'), 3); assert.equal(effect.diagnostics().muzzleInsideShape, false); assert.equal(effect.diagnostics().visualForwardStart, 0);
   assert.match(effect.diagnostics().discharge, /outside-muzzle/);
 }
 effect.update(base(2, [], {discharge: {...short, connectRays: false, lead: {from: origin, to: {x: 2.05, y: 5, h: .85}}}, anchors}));
