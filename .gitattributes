@@ -17,3 +17,13 @@
 /src/art/fire.js text eol=lf
 /src/art/index.js text eol=lf
 /assets/art/row-ignition.json text eol=lf
+
+# Landmark interior authored text has stable hashes across worker checkouts.
+/assets/art/landmark-interiors/*.js text eol=lf
+/assets/art/landmark-interiors/*.json text eol=lf
+/art/source/landmark-interiors/*.mjs text eol=lf
+/art/source/landmark-interiors/*.py text eol=lf
+/art/source/landmark-interiors/**/*.json text eol=lf
+/docs/art/landmark-interiors/**/*.json text eol=lf
+/docs/art/landmark-interiors/**/*.md text eol=lf
+/workbenches/art/check-landmark-interiors.mjs text eol=lf

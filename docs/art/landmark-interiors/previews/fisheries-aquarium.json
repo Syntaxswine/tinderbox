@@ -1,0 +1,31 @@
+{
+  "name": "fisheries-aquarium",
+  "path": "docs/art/landmark-interiors/previews/fisheries-aquarium.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      104.42,
+      3,
+      25.27
+    ],
+    "origin": [
+      72,
+      39,
+      -12
+    ],
+    "halfWidth": 28
+  },
+  "triangles": 77956,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "40 outer and ten interpreted inner bays around the pool, following the director report. Unequal inner tank sizes are simplified. Cutaway: wall tops, attached high panels, pendants, coffers and overlying floors/roofs omitted.",
+  "limitations": [
+    "Actual interior meshes combined with the pinned source landmark and applicable access geometry. Source-local section clipped and wall tops/overlying floors/roof omitted for this review.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "04e93bf882421587805799841e5734c6712b60c37543fee898f2fb41238132cb"
+}

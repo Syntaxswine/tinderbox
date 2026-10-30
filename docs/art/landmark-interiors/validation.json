@@ -1,0 +1,128 @@
+{
+  "checkedAt": "2026-10-30T02:59:34.897096+00:00",
+  "branch": "codex/landmark-interiors-art",
+  "baseCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+  "checks": [
+    {
+      "command": "node workbenches/art/check-landmark-interiors.mjs",
+      "passed": true,
+      "evidence": "docs/art/landmark-interiors/checks.json"
+    },
+    {
+      "command": "node tools/check.mjs",
+      "passed": true,
+      "tests": 85,
+      "failures": 0,
+      "summary": "94 own scripts pass syntax; 146 static modules resolve; one shared Three pair and provenance pass."
+    },
+    {
+      "command": "node tools/build.mjs",
+      "passed": true,
+      "summary": "Built playable Tinderbox in dist/: 177 files, 52748564 bytes.",
+      "manifestSha256": "64f88f3084a9509710046c434eedcfa4b686e6f824cfb95da30043e5bb3d5c73"
+    },
+    {
+      "command": "node art/source/landmark-interiors/check-package.mjs",
+      "passed": true,
+      "packagedRuntimeFiles": 7,
+      "dependencyFiles": 2,
+      "venuesConstructed": 4,
+      "sourcePhotosPackaged": false,
+      "externalRuntimeReferences": false,
+      "limits": "Import and package bytes only; no combined WebGL, gameplay or deployment claim."
+    },
+    {
+      "command": "node art/source/landmark-interiors/check-tower-fit.mjs",
+      "passed": true,
+      "minimumVerticalRoofClearanceMetres": 0.39998798278104886,
+      "uniqueMeshVertexSamples": 12966,
+      "sourceRoofTriangles": 98,
+      "method": "Actual prop vertices raycast upwards against actual pinned front-glass-gallery meshes; no perspective measurement."
+    },
+    {
+      "command": "git diff --cached --check",
+      "passed": true
+    }
+  ],
+  "previews": [
+    {
+      "path": "docs/art/landmark-interiors/previews/administration-front.jpg",
+      "sha256": "3e38cf7b627aafe5c8b843cc7d28314fb0af0f5051dc1a89be745199c591b170",
+      "triangles": 29994
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/administration-upper.jpg",
+      "sha256": "ca052c69849c0db2a30097279fa443eac07b6a7f0aec4fa2a98007d592b5b991",
+      "triangles": 22176
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/fisheries-angling.jpg",
+      "sha256": "6690b71338aad5fca186d38d016a682f7f94b0a0cb19b171c1212f12e04300b5",
+      "triangles": 58524
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/fisheries-aquarium.jpg",
+      "sha256": "04e93bf882421587805799841e5734c6712b60c37543fee898f2fb41238132cb",
+      "triangles": 77956
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/fisheries-library.jpg",
+      "sha256": "a40b689a56bc63f09d20d5713d4935433a933e3bea69b32c2721b3557cd7bf10",
+      "triangles": 6840
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/horticulture-fruit.jpg",
+      "sha256": "7e1495bba6be39bb9ca013cc4b895f2ad52d8eb36c87f56473f639b69084d95f",
+      "triangles": 37695
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/horticulture-grotto.jpg",
+      "sha256": "e65fcfdcea8a7fc81bcf7808a5201551608b8c0696fa0dd36cdda4854d6b0676",
+      "triangles": 12496
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/horticulture-library.jpg",
+      "sha256": "b1301e1e49bcdd0748ccc9d7a1153048a09e1f281e525327e59fcbbd42a3e0e3",
+      "triangles": 26484
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/new-york-banquet.jpg",
+      "sha256": "310b4988af0107d303eff26c702961336804d0f21d8d532fd3f4601b93a1ed30",
+      "triangles": 92736
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/new-york-ground.jpg",
+      "sha256": "1814b3e8a7eb7854311d5e944bfb23728197963157a1493e9e76fd1d10c08db5",
+      "triangles": 57338
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/office-library.jpg",
+      "sha256": "f6bcee01803b4a4610e72b094fb3d29bed46501fb31311cf98a1c51bc79f5533",
+      "triangles": 9692
+    },
+    {
+      "path": "docs/art/landmark-interiors/previews/reception-library.jpg",
+      "sha256": "69de05971e46a959ac49d936ddd51614f9ff955fea29184daec1a77f7e0b4dfc",
+      "triangles": 5912
+    }
+  ],
+  "helperCleanup": {
+    "finiteDownloadAndRenderReceipts": 8,
+    "retainedHelpers": 0,
+    "exactLiveMatches": 0,
+    "networkServersStarted": 0
+  },
+  "limitations": [
+    "Capsule samples check only new art against the recorded approaches, not original-shell gameplay collision or navigation.",
+    "Floor-support samples use conservative measured footprint grids; production collision/occlusion remains consumer-owned.",
+    "CPU art review and package import do not establish combined WebGL acceptance."
+  ],
+  "hashContract": "Authored runtime text and delivery records use UTF-8 LF across checkouts; archived binary evidence stays byte exact. Existing source-registry hashes reference the immutable pinned Git blobs.",
+  "deliveryPaths": [
+    ".gitattributes (only landmark text attributes)",
+    "assets/art/landmark-interiors/",
+    "art/source/landmark-interiors/",
+    "docs/art/landmark-interiors/",
+    "workbenches/art/check-landmark-interiors.mjs"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "new-york-banquet",
+  "path": "docs/art/landmark-interiors/previews/new-york-banquet.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0,
+      10.5,
+      14
+    ],
+    "origin": [
+      -42,
+      48,
+      -38
+    ],
+    "halfWidth": 34
+  },
+  "triangles": 92736,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Upper banquet hall with carved seating and brass electric globes; source stair opening retained. Cutaway: wall tops, attached high panels, pendants, coffers and overlying floors/roofs omitted.",
+  "limitations": [
+    "Actual interior meshes combined with the pinned source landmark and applicable access geometry. Source-local section clipped and wall tops/overlying floors/roof omitted for this review.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "310b4988af0107d303eff26c702961336804d0f21d8d532fd3f4601b93a1ed30"
+}

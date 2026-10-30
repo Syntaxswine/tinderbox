@@ -1,0 +1,31 @@
+{
+  "name": "new-york-ground",
+  "path": "docs/art/landmark-interiors/previews/new-york-ground.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0,
+      3,
+      13
+    ],
+    "origin": [
+      -40,
+      48,
+      -44
+    ],
+    "halfWidth": 34
+  },
+  "triangles": 57338,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "First-floor divisions adapt the original plan; existing access stair and crosshall remain clear. Roof and upper floors omitted for review. Cutaway: wall tops, attached high panels, pendants, coffers and overlying floors/roofs omitted.",
+  "limitations": [
+    "Actual interior meshes combined with the pinned source landmark and applicable access geometry. Source-local section clipped and wall tops/overlying floors/roof omitted for this review.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "1814b3e8a7eb7854311d5e944bfb23728197963157a1493e9e76fd1d10c08db5"
+}

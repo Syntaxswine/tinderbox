@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "purpose": "Historical evidence for new original model geometry; no source photos used as runtime textures.",
+  "units": "metres",
+  "distinctions": {
+    "observations": "Directly observed in the listed period source.",
+    "adaptations": "Authored game simplification; not a historical measurement.",
+    "dimensions": "New prop dimensions and even-length partition placement are authored against existing native shells.",
+    "uncertainty": "Complete Administration rear/upper office and New York upper subdivision plans were not inspected. No Fisheries interior photograph was verified."
+  },
+  "sources": [
+    {
+      "id": "INT-NY-REPORT",
+      "title": "Report of the Board of General Managers of the Exhibit of the State of New York at the Worlds Columbian Exposition",
+      "creator": "New York State Board of General Managers",
+      "date": "1894",
+      "publisher": "Albany: J.B. Lyon",
+      "kind": "Contemporary official report",
+      "document": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Report_of_the_Board_of_general_managers_of_the_exhibit_of_the_state_of_New_York%2C_at_the_World%27s_Columbian_exposition-_transmitted_to_the_Legislature_April_18%2C_1894_%28IA_reportofboardofg00newy%29.pdf",
+        "path": "artifacts/landmark-interiors/raw/new-york-report.pdf",
+        "sha256": "9400542e60030f173a2ec68c63f75448e7d5a2a151a7a48cf31beed82b0ec285",
+        "bytes": 55867595
+      },
+      "locator": "Printed pp.97-100; one-based PDF scans159-162",
+      "observations": [
+        "Pillared hall serves side rooms and stair; ground post/telegraph and service offices.",
+        "Upper central banquet/reception/ball room; Board of Women Managers on right, General Managers on left.",
+        "Pompeian orange-red stair panels, cream/gold banquet hall, Renaissance marble chimneypieces, antique French/Italian furnishings, carpets and electric fixtures."
+      ],
+      "adaptations": [
+        "Native-grid partitions and existing relocated game stair.",
+        "Original simplified carved seating, marble surround, electric globes and coffer/panel motifs; no exact tapestry or Millet mural reproduction."
+      ],
+      "rights": "1894 US publication, public domain; IA/LOC catalogue records no known restrictions."
+    },
+    {
+      "id": "INT-NY-BANQUET",
+      "title": "Banquet Hall photograph in New York report",
+      "creator": "Photographer uncredited in the inspected plate",
+      "date": "Published1894",
+      "kind": "Period interior photograph",
+      "document": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Report_of_the_Board_of_general_managers_of_the_exhibit_of_the_state_of_New_York%2C_at_the_World%27s_Columbian_exposition-_transmitted_to_the_Legislature_April_18%2C_1894_%28IA_reportofboardofg00newy%29.pdf",
+        "path": "artifacts/landmark-interiors/raw/new-york-report.pdf",
+        "sha256": "9400542e60030f173a2ec68c63f75448e7d5a2a151a7a48cf31beed82b0ec285",
+        "bytes": 55867595
+      },
+      "locator": "One-based PDF scan163, facing printed p.100",
+      "evidence": "art/source/landmark-interiors/evidence/new-york-banquet-1894.jpg",
+      "observations": [
+        "Tall arched and decorated hall, repeated wall panels, cornices and electric pendant lighting."
+      ],
+      "adaptations": [
+        "Flat native-level coffer set and repeated wall panels simplify the curved ornamental ceiling.",
+        "Banquet table arrangement is optional new set dressing, not the photographed floor layout."
+      ],
+      "rights": "1894 US publication, public domain."
+    },
+    {
+      "id": "INT-NY-PLAN",
+      "title": "McKim, Mead and White New York State Building first-floor plan",
+      "creator": "McKim, Mead and White",
+      "date": "1893 building; monograph1914-15",
+      "kind": "Architect plan",
+      "existingRegistry": "art/source/exposition-new-york/sources.json",
+      "existingRegistrySha256": "07e3820fc94515d59cac5f94ee4122c291599cda20a54bf11f32423fbeb66450",
+      "sourcePin": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+      "url": "https://archive.org/details/gri_33125006526145/page/n98/mode/1up",
+      "evidence": "art/source/exposition-new-york/source-plan.jpg",
+      "observations": [
+        "First-floor named side rooms and central hall adjacency."
+      ],
+      "adaptations": [
+        "Partition lines quantized to the already accepted48m shell; game access stair position retained."
+      ],
+      "rights": "See preserved source registry; no new image or license claim introduced."
+    },
+    {
+      "id": "INT-ADMIN-HUNT",
+      "title": "Administration Building front-half ground-floor plan",
+      "creator": "Richard Morris Hunt / A. Riquois",
+      "date": "1893",
+      "kind": "Original architect plan",
+      "url": "https://www.loc.gov/item/2024636088/",
+      "existingRegistry": "art/source/exposition-administration/sources.json",
+      "existingRegistrySha256": "7df52725b2d9480e4837d0588bda7af8e7fdf6964bb5113cafb69ef3ac79acb0",
+      "sourcePin": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "evidence": "art/source/exposition-administration/evidence/hunt-front-half-plan.jpg",
+      "observations": [
+        "Source-labeled public, post, exchange, information, foreign visitors, ambulance, doctor and pharmacy functions."
+      ],
+      "adaptations": [
+        "Existing ground front partitions retained. Furnishings inferred from room use. Rear and upper office subdivisions interpreted."
+      ],
+      "rights": "See preserved original-source registry; no new photo-texture import."
+    },
+    {
+      "id": "INT-ADMIN-DOME",
+      "title": "Interior of dome of Administration Building",
+      "creator": "C.D. Arnold, photographer; R.M. Hunt, architect",
+      "date": "Photo catalogued n.d.; building1891-93",
+      "kind": "Archival interior photograph",
+      "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/5947/",
+      "metadataUrl": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/5947",
+      "imageUrl": "https://artic.contentdm.oclc.org/iiif/2/mqc:5947/full/full/0/default.jpg",
+      "privateResearchSha256": "2a0f24d6d7196648c6919774800c46169742bfdb4a8609fa86d0ec8a2fa1747c",
+      "observations": [
+        "Repeated cartouches, panels, gilded architectural ornament and dome decorations."
+      ],
+      "adaptations": [
+        "Only general classical panel language informed the original geometry; no archive pixels redistributed. No Administration office photograph was inspected."
+      ],
+      "rights": "AIC catalogue requests contacting Ryerson and Burnham Archives for publication; image stays ignored private research."
+    },
+    {
+      "id": "INT-HORT-FRUIT",
+      "title": "The Orange Tower",
+      "creator": "Rand, McNally and Company; photographer uncredited",
+      "date": "1893",
+      "kind": "Period interior photograph and caption",
+      "catalogueUrl": "https://www.loc.gov/resource/gdcmassbookdig.columbianexposit00rand/",
+      "document": {
+        "url": "https://tile.loc.gov/storage-services/public/gdcmassbookdig/columbianexposit00rand/columbianexposit00rand.pdf",
+        "path": "artifacts/landmark-interiors/raw/columbian-album.pdf",
+        "sha256": "1794639441ef1690aa3fd53fcf72bc5e9921e9e7f2c7e1b4eb0dba4523563144",
+        "bytes": 77486186
+      },
+      "locator": "Columbian Exposition Album, one-based PDF scan84",
+      "evidence": "art/source/landmark-interiors/evidence/horticulture-orange-tower-1893.jpg",
+      "observations": [
+        "California orange-covered tower, stepped base, arched recess, display signs and long rows of specimen fruit tables."
+      ],
+      "adaptations": [
+        "Tower height6.25m and footprint authored to fit current native hall; no perspective-derived measurement. Simplified spheres, tiers and label.",
+        "Botanical cases and stand arrangements are period interpretations."
+      ],
+      "rights": "1893 US publication, public domain."
+    },
+    {
+      "id": "INT-HORT-GROTTO",
+      "title": "Under the Central Dome of the Horticultural Building",
+      "creator": "Rand, McNally and Company; photographer uncredited",
+      "date": "1893",
+      "kind": "Period interior photograph and caption",
+      "document": {
+        "url": "https://tile.loc.gov/storage-services/public/gdcmassbookdig/columbianexposit00rand/columbianexposit00rand.pdf",
+        "path": "artifacts/landmark-interiors/raw/columbian-album.pdf",
+        "sha256": "1794639441ef1690aa3fd53fcf72bc5e9921e9e7f2c7e1b4eb0dba4523563144",
+        "bytes": 77486186
+      },
+      "locator": "Columbian Exposition Album, one-based PDF scan114",
+      "evidence": "art/source/landmark-interiors/evidence/horticulture-crystal-cave-1893.jpg",
+      "observations": [
+        "Rocky mound planted with tropical vegetation and Mammoth Crystal Cave entrance; caption describes a reproduction of a South Dakota cave chamber."
+      ],
+      "adaptations": [
+        "Original hollow low-poly rock chamber, entrance arch, crystal points and ferns. No geological survey or exact cave arrangement.",
+        "Replaces only the two listed central source palms; surrounding planting remains."
+      ],
+      "rights": "1893 US publication, public domain."
+    },
+    {
+      "id": "INT-HORT-CONKEY",
+      "title": "Horticultural Building floor and gallery diagram",
+      "creator": "W.B. Conkey Company",
+      "date": "1893",
+      "kind": "Contemporary plan/guide",
+      "existingRegistry": "art/source/exposition-horticulture/sources.json",
+      "existingRegistrySha256": "03a9caea4710b75422ed35961b83a6b5acd3e8ab2658880d50b1653128011a67",
+      "sourcePin": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "evidence": "art/source/exposition-horticulture/evidence/conkey-plan-oriented.jpg",
+      "observations": [
+        "Galleries, open courts and gallery cafe functions."
+      ],
+      "adaptations": [
+        "End-corner potting rooms and low fruit installation dividers are authored; no exact historical service-room survey."
+      ],
+      "rights": "See preserved original-source registry."
+    },
+    {
+      "id": "INT-FISH-FORBES",
+      "title": "The Aquarium of the United States Fish Commission at the Worlds Columbian Exposition",
+      "creator": "S.A. Forbes",
+      "date": "Bulletin volume1893",
+      "kind": "Contemporary director report",
+      "document": {
+        "url": "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/fish-bull/fb13.18.pdf",
+        "path": "artifacts/landmark-interiors/raw/fish-commission-aquarium.pdf",
+        "sha256": "3a2aeb35b8980c4e095d897a5acabb3f7300b10662d2df649829162634080d14",
+        "bytes": 1572835
+      },
+      "locator": "Printed pp.145-146, one-based PDF scans3-4",
+      "evidence": [
+        "art/source/landmark-interiors/evidence/forbes-p145.jpg",
+        "art/source/landmark-interiors/evidence/forbes-p146.jpg"
+      ],
+      "observations": [
+        "Two concentric tank rings, outer attendant passage, darkened spectator aisle and double-faced inner tanks.",
+        "Central pool26ft across; two public ring aisles about15ft wide.",
+        "50 tanks:24small +16large outer;8ordinary +1double +1long inner. Visually verified16; OCR18 was rejected."
+      ],
+      "adaptations": [
+        "40 outer and10 simplified equal inner bays. Original unequal inner dimensions, vaulted aisle cover, detailed plumbing and hidden service ladders omitted.",
+        "Original native pavilion unchanged; pool is an above-floor prop with no new basement."
+      ],
+      "rights": "Contemporary US government publication, public domain."
+    },
+    {
+      "id": "INT-FISH-PLAN",
+      "title": "Fisheries main and angling installation diagrams",
+      "creator": "W.B. Conkey Company",
+      "date": "1893",
+      "kind": "Contemporary installation plans",
+      "sourcePin": "f75499a3ef60d6446a3885d0eb5c21882f27466b",
+      "existingRegistry": "art/source/exposition-fisheries/sources.json at sourcePin",
+      "locator": "Plans and Diagrams of All Exhibit Buildings: one-based scans35main,36gallery,37angling",
+      "observations": [
+        "Radial angling installation divisions, main floor and gallery."
+      ],
+      "adaptations": [
+        "12m native radial runs, rod cases, boats and nets. Exact exhibit allocation and object dimensions authored."
+      ],
+      "rights": "See preserved Fisheries source registry at pin; original images not newly redistributed."
+    },
+    {
+      "id": "INT-FISH-CONKEY",
+      "title": "Fisheries contemporary building description",
+      "creator": "W.B. Conkey Company",
+      "date": "1893",
+      "kind": "Contemporary guide",
+      "sourcePin": "f75499a3ef60d6446a3885d0eb5c21882f27466b",
+      "existingRegistry": "art/source/exposition-fisheries/sources.json at sourcePin",
+      "locator": "Plans and Diagrams, one-based scan34",
+      "observations": [
+        "Fisheries and angling building uses."
+      ],
+      "adaptations": [
+        "Static fishing displays only."
+      ],
+      "rights": "See preserved original-source registry."
+    }
+  ],
+  "derivativesRegister": "art/source/landmark-interiors/evidence/derivatives.json",
+  "discoveryOnly": [
+    {
+      "document": {
+        "url": "https://tile.loc.gov/storage-services/public/gdcmassbookdig/worldsfairthroug02todd/worldsfairthroug02todd.pdf",
+        "path": "artifacts/landmark-interiors/raw/todd-camera.pdf",
+        "sha256": "afe34d0b6a6cc20f607a65d6869b3385f28efe5ae03fd4d722bb8240850357c7",
+        "bytes": 61502996
+      },
+      "status": "Inspected Horticulture dome exterior plate scan11; not used as interior photo evidence."
+    }
+  ],
+  "licenseBoundary": "Original authored geometry is separate from upstream code and archival photographs. Existing embedded licenses/provenance are preserved. Provenance is not a new license grant."
+}

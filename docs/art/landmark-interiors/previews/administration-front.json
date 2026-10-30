@@ -1,0 +1,31 @@
+{
+  "name": "administration-front",
+  "path": "docs/art/landmark-interiors/previews/administration-front.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      27,
+      3.2,
+      13
+    ],
+    "origin": [
+      53,
+      35,
+      -18
+    ],
+    "halfWidth": 23
+  },
+  "triangles": 29994,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Existing Hunt-plan room layout receives counters, cots, doctor furniture and medicine cabinets. No new front structural walls. Cutaway: wall tops, attached high panels, pendants, coffers and overlying floors/roofs omitted.",
+  "limitations": [
+    "Actual interior meshes combined with the pinned source landmark and applicable access geometry. Source-local section clipped and wall tops/overlying floors/roof omitted for this review.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "3e38cf7b627aafe5c8b843cc7d28314fb0af0f5051dc1a89be745199c591b170"
+}

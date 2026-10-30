@@ -1,0 +1,31 @@
+{
+  "name": "horticulture-fruit",
+  "path": "docs/art/landmark-interiors/previews/horticulture-fruit.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      75,
+      4,
+      32
+    ],
+    "origin": [
+      97,
+      25,
+      8
+    ],
+    "halfWidth": 17
+  },
+  "triangles": 37695,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "An orange-covered exhibition tower and rows of sample fruit; the court-door approach remains open. Exact exhibitor siting is adapted. Cutaway: wall tops, attached high panels, pendants, coffers and overlying floors/roofs omitted.",
+  "limitations": [
+    "Actual interior meshes combined with the pinned source landmark and applicable access geometry. Source-local section clipped and wall tops/overlying floors/roof omitted for this review.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "7e1495bba6be39bb9ca013cc4b895f2ad52d8eb36c87f56473f639b69084d95f"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "reception-library",
+  "path": "docs/art/landmark-interiors/previews/reception-library.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0,
+      1,
+      0
+    ],
+    "origin": [
+      7,
+      6,
+      -10
+    ],
+    "halfWidth": 5.7
+  },
+  "triangles": 5912,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Carved seating, marble chimneypiece, linen table settings and brass electric globes; new authored meshes at metre scale.",
+  "limitations": [
+    "Actual generated furnishing prototype meshes at metre scale.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "69de05971e46a959ac49d936ddd51614f9ff955fea29184daec1a77f7e0b4dfc"
+}

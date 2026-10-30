@@ -1,0 +1,285 @@
+{
+  "assetId": "landmark-interiors-1893-v1",
+  "version": 1,
+  "hashEncoding": "Authored text is UTF-8 LF; vendor dependency bytes are preserved, matching the project package contract.",
+  "role": "Artist-owned additive native-grid interior art candidate",
+  "baseCommit": "988b4aca32343c9f2e566db74bb018c705820742",
+  "enginePin": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "units": "metres",
+  "nativeContract": {
+    "wall": [
+      1,
+      2,
+      0.16
+    ],
+    "slab": [
+      1,
+      0.12,
+      1
+    ],
+    "floorPitch": 2.12,
+    "door": [
+      1,
+      1.65,
+      0.12
+    ]
+  },
+  "entryPoint": "assets/art/landmark-interiors/index.js",
+  "factories": [
+    "createVenueInterior",
+    "createInteriorProp"
+  ],
+  "appearanceSlots": [
+    "facade",
+    "ivory",
+    "trim",
+    "wood",
+    "woodDark",
+    "brass",
+    "velvet",
+    "linen",
+    "iron",
+    "glass",
+    "water",
+    "stone",
+    "foliage",
+    "soil",
+    "fruit",
+    "paper",
+    "ink",
+    "red",
+    "ochre"
+  ],
+  "prototypeCount": 35,
+  "venues": [
+    {
+      "venueId": "new-york",
+      "levels": [
+        1,
+        4
+      ],
+      "rooms": 16,
+      "wallRuns": 16,
+      "props": 107,
+      "openPassages": 24,
+      "bounds": {
+        "min": [
+          -24,
+          2.119999885559082,
+          0
+        ],
+        "max": [
+          24,
+          14.720000267028809,
+          28
+        ]
+      },
+      "disposed": false,
+      "meshes": 166,
+      "geometries": 161,
+      "materials": 15,
+      "ownedTextures": 0,
+      "instances": 166,
+      "sourceParts": 6084,
+      "triangles": 145624,
+      "nativeWalls": 448,
+      "cutWalls": 496,
+      "sourcePins": {
+        "building": {
+          "commit": "b689f5501ab06f54822f2aa724ac77de106e3b71",
+          "path": "assets/art/exposition-new-york-tile/index.js"
+        },
+        "access": {
+          "commit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+          "path": "assets/art/exploration-access/plans.js"
+        }
+      }
+    },
+    {
+      "venueId": "administration",
+      "levels": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "rooms": 38,
+      "wallRuns": 28,
+      "props": 150,
+      "openPassages": 42,
+      "bounds": {
+        "min": [
+          -40,
+          2.119999885559082,
+          0
+        ],
+        "max": [
+          40,
+          18.95999926328659,
+          80
+        ]
+      },
+      "disposed": false,
+      "meshes": 164,
+      "geometries": 164,
+      "materials": 14,
+      "ownedTextures": 0,
+      "instances": 151,
+      "sourceParts": 10334,
+      "triangles": 168576,
+      "nativeWalls": 532,
+      "cutWalls": 1148,
+      "sourcePins": {
+        "building": {
+          "commit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+          "path": "assets/art/exposition-administration/index.js"
+        },
+        "access": {
+          "commit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+          "path": "assets/art/exploration-access/plans.js"
+        }
+      }
+    },
+    {
+      "venueId": "horticulture",
+      "levels": [
+        1,
+        3
+      ],
+      "rooms": 7,
+      "wallRuns": 8,
+      "props": 42,
+      "openPassages": 4,
+      "bounds": {
+        "min": [
+          -153,
+          2.119999885559082,
+          21.509999990463257
+        ],
+        "max": [
+          153,
+          8.370000000000001,
+          88
+        ]
+      },
+      "disposed": false,
+      "meshes": 93,
+      "geometries": 91,
+      "materials": 14,
+      "ownedTextures": 0,
+      "instances": 75,
+      "sourceParts": 3539,
+      "triangles": 85072,
+      "nativeWalls": 60,
+      "cutWalls": 80,
+      "sourcePins": {
+        "building": {
+          "commit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+          "path": "assets/art/exposition-horticulture/index.js"
+        },
+        "access": {
+          "commit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+          "path": "assets/art/exploration-access/plans.js"
+        }
+      }
+    },
+    {
+      "venueId": "fisheries",
+      "levels": [
+        1,
+        3
+      ],
+      "rooms": 4,
+      "wallRuns": 12,
+      "props": 87,
+      "openPassages": 0,
+      "bounds": {
+        "min": [
+          -121.82182167862952,
+          2.119999885559082,
+          6.853064527180614
+        ],
+        "max": [
+          122.9173005120485,
+          8.180000342428684,
+          57.42500001192093
+        ]
+      },
+      "disposed": false,
+      "meshes": 120,
+      "geometries": 116,
+      "materials": 15,
+      "ownedTextures": 0,
+      "instances": 116,
+      "sourceParts": 4349,
+      "triangles": 93144,
+      "nativeWalls": 128,
+      "cutWalls": 0,
+      "sourcePins": {
+        "building": {
+          "commit": "f75499a3ef60d6446a3885d0eb5c21882f27466b",
+          "path": "assets/art/exposition-fisheries/index.js"
+        }
+      }
+    }
+  ],
+  "runtimeFiles": [
+    {
+      "path": "assets/art/landmark-interiors/catalogue.js",
+      "bytes": 4649,
+      "sha256": "4b104a0421d8d558de7b977c61d6bc62e57da9eba668514aa299fd89efdc9147"
+    },
+    {
+      "path": "assets/art/landmark-interiors/engine.js",
+      "bytes": 1738,
+      "sha256": "2afd340d2664416da5eeae064ab99eb66ade70294ce255bf244b3d3475880a34"
+    },
+    {
+      "path": "assets/art/landmark-interiors/index.js",
+      "bytes": 11999,
+      "sha256": "dd86697f3ac0c9e2da3d433dfdcfba6c3fb4d2fe3fd3ae3320c80791a5f53740"
+    },
+    {
+      "path": "assets/art/landmark-interiors/nautilus-assembly.json",
+      "bytes": 57619,
+      "sha256": "487d6f2e05e0883db28647017497f8692bdbf8412d9c862c95f023382a7e7e41"
+    },
+    {
+      "path": "assets/art/landmark-interiors/plans.js",
+      "bytes": 259269,
+      "sha256": "a0bb474db08ee3ffd01c2188c1c5077c3d6ec57c501c1a14410e8498d955e8e8"
+    },
+    {
+      "path": "assets/art/landmark-interiors/prop-metrics.js",
+      "bytes": 10584,
+      "sha256": "d522e62f65feed136b4e36cc73aafacaee176517a67ad1d5bf4bead550dfd7c3"
+    },
+    {
+      "path": "assets/art/landmark-interiors/props.js",
+      "bytes": 24164,
+      "sha256": "828494c4cdaa65331b69b98bd948ae230d06d122a0237c9996072d596f9c1caf"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/art/exposition-new-york/forms.js",
+      "bytes": 10542,
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    }
+  ],
+  "historicalEvidence": "art/source/landmark-interiors/sources.json",
+  "handoff": "docs/art/landmark-interiors/README.md",
+  "physicalMaterial": "Unassigned: source tokens do not declare fuel, collision or structural behavior.",
+  "limits": [
+    "No production registration or simulation/door/traversal wiring; combined game browser gate remains architect-owned.",
+    "No new floor slabs or occupied floor heights. All prop placements are additions to the pinned sources.",
+    "Fisheries source is a separate immutable candidate, used only in ignored offline comparison extracts.",
+    "Historical photographs inform new original simplified meshes; no photo pixels used by runtime."
+  ],
+  "ownership": "Factory owns generated geometry, instance buffers and cloned/default materials. Caller materials and textures are borrowed. Dispose is idempotent."
+}

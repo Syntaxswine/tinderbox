@@ -1,0 +1,31 @@
+{
+  "name": "fisheries-library",
+  "path": "docs/art/landmark-interiors/previews/fisheries-library.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0,
+      1.2,
+      0
+    ],
+    "origin": [
+      8,
+      8,
+      -11
+    ],
+    "halfWidth": 6.7
+  },
+  "triangles": 6840,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Glazed rod case, seine and buoys, planked skiff, and frame-built aquarium bays; objects remain separate reusable assets.",
+  "limitations": [
+    "Actual generated furnishing prototype meshes at metre scale.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "a40b689a56bc63f09d20d5713d4935433a933e3bea69b32c2721b3557cd7bf10"
+}

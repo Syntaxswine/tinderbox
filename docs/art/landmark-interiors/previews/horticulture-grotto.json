@@ -1,0 +1,31 @@
+{
+  "name": "horticulture-grotto",
+  "path": "docs/art/landmark-interiors/previews/horticulture-grotto.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0,
+      4,
+      36
+    ],
+    "origin": [
+      16,
+      14,
+      14
+    ],
+    "halfWidth": 12.5
+  },
+  "triangles": 12496,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Photograph-derived rock mound, ferns and a true hollow cave opening; neighboring palms are omitted from this close cutaway; only the two specified central palms are replaced in the asset. Cutaway: wall tops, attached high panels, pendants, coffers and overlying floors/roofs omitted.",
+  "limitations": [
+    "Actual interior meshes combined with the pinned source landmark and applicable access geometry. Source-local section clipped and wall tops/overlying floors/roof omitted for this review.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "e65fcfdcea8a7fc81bcf7808a5201551608b8c0696fa0dd36cdda4854d6b0676"
+}

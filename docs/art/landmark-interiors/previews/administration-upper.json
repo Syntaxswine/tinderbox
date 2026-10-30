@@ -1,0 +1,31 @@
+{
+  "name": "administration-upper",
+  "path": "docs/art/landmark-interiors/previews/administration-upper.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      -27,
+      7.5,
+      13
+    ],
+    "origin": [
+      -51,
+      35,
+      -17
+    ],
+    "halfWidth": 22
+  },
+  "triangles": 22176,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Native partitions, open office passages and a wide inner stair corridor. Upper office layout is an identified interpretation. Cutaway: wall tops, attached high panels, pendants, coffers and overlying floors/roofs omitted.",
+  "limitations": [
+    "Actual interior meshes combined with the pinned source landmark and applicable access geometry. Source-local section clipped and wall tops/overlying floors/roof omitted for this review.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "ca052c69849c0db2a30097279fa443eac07b6a7f0aec4fa2a98007d592b5b991"
+}

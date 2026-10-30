@@ -1,0 +1,2180 @@
+{
+  "version": 1,
+  "enginePin": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "units": "metres",
+  "nativeWalls": [
+    1,
+    2,
+    0.16
+  ],
+  "floorPitch": 2.12,
+  "usage": "Unchanged Nautilus wall-run maps; translation restores source-local position. Apertures and panel trim come from the matching source plan and interior factory, not from the bare wall-run maps.",
+  "physicalMaterial": "unassigned; wood token only validates geometry",
+  "venues": {
+    "new-york": {
+      "planId": "landmark-interior-new-york-v1",
+      "tiers": [
+        {
+          "id": "interior-tier-0",
+          "levelOffset": 0,
+          "translation": [
+            -512,
+            0,
+            -512
+          ],
+          "map": {
+            "width": 1024,
+            "levels": 6,
+            "wallRuns": {
+              "version": 1,
+              "segments": [
+                {
+                  "id": "ny-l1-west-spine-tier-0",
+                  "a": [
+                    498,
+                    512
+                  ],
+                  "b": [
+                    498,
+                    540
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-west-cross-8-tier-0",
+                  "a": [
+                    488,
+                    520
+                  ],
+                  "b": [
+                    504,
+                    520
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-west-cross-18-tier-0",
+                  "a": [
+                    488,
+                    530
+                  ],
+                  "b": [
+                    504,
+                    530
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-west-inner-front-tier-0",
+                  "a": [
+                    504,
+                    512
+                  ],
+                  "b": [
+                    504,
+                    520
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-west-inner-rear-tier-0",
+                  "a": [
+                    504,
+                    530
+                  ],
+                  "b": [
+                    504,
+                    540
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-west-banquet-side-tier-0",
+                  "a": [
+                    498,
+                    512
+                  ],
+                  "b": [
+                    498,
+                    540
+                  ],
+                  "z": 4,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-west-office-cross-10-tier-0",
+                  "a": [
+                    488,
+                    522
+                  ],
+                  "b": [
+                    498,
+                    522
+                  ],
+                  "z": 4,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-west-office-cross-18-tier-0",
+                  "a": [
+                    488,
+                    530
+                  ],
+                  "b": [
+                    498,
+                    530
+                  ],
+                  "z": 4,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-east-spine-tier-0",
+                  "a": [
+                    526,
+                    512
+                  ],
+                  "b": [
+                    526,
+                    540
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-east-cross-8-tier-0",
+                  "a": [
+                    520,
+                    520
+                  ],
+                  "b": [
+                    536,
+                    520
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-east-cross-18-tier-0",
+                  "a": [
+                    520,
+                    530
+                  ],
+                  "b": [
+                    536,
+                    530
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-east-inner-front-tier-0",
+                  "a": [
+                    520,
+                    512
+                  ],
+                  "b": [
+                    520,
+                    520
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l1-east-inner-rear-tier-0",
+                  "a": [
+                    520,
+                    530
+                  ],
+                  "b": [
+                    520,
+                    540
+                  ],
+                  "z": 1,
+                  "stories": 3,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-east-banquet-side-tier-0",
+                  "a": [
+                    526,
+                    512
+                  ],
+                  "b": [
+                    526,
+                    540
+                  ],
+                  "z": 4,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-east-office-cross-10-tier-0",
+                  "a": [
+                    526,
+                    522
+                  ],
+                  "b": [
+                    536,
+                    522
+                  ],
+                  "z": 4,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-east-office-cross-18-tier-0",
+                  "a": [
+                    526,
+                    530
+                  ],
+                  "b": [
+                    536,
+                    530
+                  ],
+                  "z": 4,
+                  "stories": 1,
+                  "material": "wood"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "interior-tier-1",
+          "levelOffset": 5,
+          "translation": [
+            -512,
+            10.6,
+            -512
+          ],
+          "map": {
+            "width": 1024,
+            "levels": 6,
+            "wallRuns": {
+              "version": 1,
+              "segments": [
+                {
+                  "id": "ny-l4-west-banquet-side-tier-1",
+                  "a": [
+                    498,
+                    512
+                  ],
+                  "b": [
+                    498,
+                    540
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-west-office-cross-10-tier-1",
+                  "a": [
+                    488,
+                    522
+                  ],
+                  "b": [
+                    498,
+                    522
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-west-office-cross-18-tier-1",
+                  "a": [
+                    488,
+                    530
+                  ],
+                  "b": [
+                    498,
+                    530
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-east-banquet-side-tier-1",
+                  "a": [
+                    526,
+                    512
+                  ],
+                  "b": [
+                    526,
+                    540
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-east-office-cross-10-tier-1",
+                  "a": [
+                    526,
+                    522
+                  ],
+                  "b": [
+                    536,
+                    522
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "ny-l4-east-office-cross-18-tier-1",
+                  "a": [
+                    526,
+                    530
+                  ],
+                  "b": [
+                    536,
+                    530
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "openPassages": [
+        {
+          "id": "ny-l1-west-spine-opening-0",
+          "runId": "ny-l1-west-spine",
+          "level": 1,
+          "position": [
+            -14,
+            2.12,
+            4
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-spine-opening-1",
+          "runId": "ny-l1-west-spine",
+          "level": 1,
+          "position": [
+            -14,
+            2.12,
+            14
+          ],
+          "heading": -1.570796,
+          "clearWidth": 4,
+          "clearHeight": 4,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-spine-opening-2",
+          "runId": "ny-l1-west-spine",
+          "level": 1,
+          "position": [
+            -14,
+            2.12,
+            24
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-cross-8-opening-0",
+          "runId": "ny-l1-west-cross-8",
+          "level": 1,
+          "position": [
+            -19,
+            2.12,
+            8
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-cross-8-opening-1",
+          "runId": "ny-l1-west-cross-8",
+          "level": 1,
+          "position": [
+            -11,
+            2.12,
+            8
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-cross-18-opening-0",
+          "runId": "ny-l1-west-cross-18",
+          "level": 1,
+          "position": [
+            -19,
+            2.12,
+            18
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-cross-18-opening-1",
+          "runId": "ny-l1-west-cross-18",
+          "level": 1,
+          "position": [
+            -11,
+            2.12,
+            18
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-inner-front-opening-0",
+          "runId": "ny-l1-west-inner-front",
+          "level": 1,
+          "position": [
+            -8,
+            2.12,
+            4
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-west-inner-rear-opening-0",
+          "runId": "ny-l1-west-inner-rear",
+          "level": 1,
+          "position": [
+            -8,
+            2.12,
+            23
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l4-west-banquet-side-opening-0",
+          "runId": "ny-l4-west-banquet-side",
+          "level": 4,
+          "position": [
+            -14,
+            8.48,
+            14
+          ],
+          "heading": -1.570796,
+          "clearWidth": 4,
+          "clearHeight": 4,
+          "stateful": false,
+          "sourceStatus": "Upper room functions documented; exact subdividing lines interpreted."
+        },
+        {
+          "id": "ny-l4-west-office-cross-10-opening-0",
+          "runId": "ny-l4-west-office-cross-10",
+          "level": 4,
+          "position": [
+            -19,
+            8.48,
+            10
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "ny-l4-west-office-cross-18-opening-0",
+          "runId": "ny-l4-west-office-cross-18",
+          "level": 4,
+          "position": [
+            -19,
+            8.48,
+            18
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "ny-l1-east-spine-opening-0",
+          "runId": "ny-l1-east-spine",
+          "level": 1,
+          "position": [
+            14,
+            2.12,
+            4
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-spine-opening-1",
+          "runId": "ny-l1-east-spine",
+          "level": 1,
+          "position": [
+            14,
+            2.12,
+            14
+          ],
+          "heading": -1.570796,
+          "clearWidth": 4,
+          "clearHeight": 4,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-spine-opening-2",
+          "runId": "ny-l1-east-spine",
+          "level": 1,
+          "position": [
+            14,
+            2.12,
+            24
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-cross-8-opening-0",
+          "runId": "ny-l1-east-cross-8",
+          "level": 1,
+          "position": [
+            19,
+            2.12,
+            8
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-cross-8-opening-1",
+          "runId": "ny-l1-east-cross-8",
+          "level": 1,
+          "position": [
+            11,
+            2.12,
+            8
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-cross-18-opening-0",
+          "runId": "ny-l1-east-cross-18",
+          "level": 1,
+          "position": [
+            19,
+            2.12,
+            18
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-cross-18-opening-1",
+          "runId": "ny-l1-east-cross-18",
+          "level": 1,
+          "position": [
+            11,
+            2.12,
+            18
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-inner-front-opening-0",
+          "runId": "ny-l1-east-inner-front",
+          "level": 1,
+          "position": [
+            8,
+            2.12,
+            4
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l1-east-inner-rear-opening-0",
+          "runId": "ny-l1-east-inner-rear",
+          "level": 1,
+          "position": [
+            8,
+            2.12,
+            23
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "plan-adapted"
+        },
+        {
+          "id": "ny-l4-east-banquet-side-opening-0",
+          "runId": "ny-l4-east-banquet-side",
+          "level": 4,
+          "position": [
+            14,
+            8.48,
+            14
+          ],
+          "heading": -1.570796,
+          "clearWidth": 4,
+          "clearHeight": 4,
+          "stateful": false,
+          "sourceStatus": "Upper room functions documented; exact subdividing lines interpreted."
+        },
+        {
+          "id": "ny-l4-east-office-cross-10-opening-0",
+          "runId": "ny-l4-east-office-cross-10",
+          "level": 4,
+          "position": [
+            19,
+            8.48,
+            10
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "ny-l4-east-office-cross-18-opening-0",
+          "runId": "ny-l4-east-office-cross-18",
+          "level": 4,
+          "position": [
+            19,
+            8.48,
+            18
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        }
+      ]
+    },
+    "administration": {
+      "planId": "landmark-interior-administration-v1",
+      "tiers": [
+        {
+          "id": "interior-tier-0",
+          "levelOffset": 0,
+          "translation": [
+            -512,
+            0,
+            -512
+          ],
+          "map": {
+            "width": 1024,
+            "levels": 6,
+            "wallRuns": {
+              "version": 1,
+              "segments": [
+                {
+                  "id": "admin-west-rear-corridor-l1-tier-0",
+                  "a": [
+                    490,
+                    566
+                  ],
+                  "b": [
+                    490,
+                    592
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-rear-office-cross-l1-tier-0",
+                  "a": [
+                    472,
+                    579
+                  ],
+                  "b": [
+                    490,
+                    579
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-corridor-l1-tier-0",
+                  "a": [
+                    534,
+                    566
+                  ],
+                  "b": [
+                    534,
+                    592
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-office-cross-l1-tier-0",
+                  "a": [
+                    534,
+                    579
+                  ],
+                  "b": [
+                    552,
+                    579
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-front-corridor-l3-tier-0",
+                  "a": [
+                    490,
+                    512
+                  ],
+                  "b": [
+                    490,
+                    538
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-front-office-cross-l3-tier-0",
+                  "a": [
+                    472,
+                    525
+                  ],
+                  "b": [
+                    490,
+                    525
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-rear-corridor-l3-tier-0",
+                  "a": [
+                    490,
+                    566
+                  ],
+                  "b": [
+                    490,
+                    592
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-rear-office-cross-l3-tier-0",
+                  "a": [
+                    472,
+                    579
+                  ],
+                  "b": [
+                    490,
+                    579
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-front-corridor-l3-tier-0",
+                  "a": [
+                    534,
+                    512
+                  ],
+                  "b": [
+                    534,
+                    538
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-front-office-cross-l3-tier-0",
+                  "a": [
+                    534,
+                    525
+                  ],
+                  "b": [
+                    552,
+                    525
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-corridor-l3-tier-0",
+                  "a": [
+                    534,
+                    566
+                  ],
+                  "b": [
+                    534,
+                    592
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-office-cross-l3-tier-0",
+                  "a": [
+                    534,
+                    579
+                  ],
+                  "b": [
+                    552,
+                    579
+                  ],
+                  "z": 3,
+                  "stories": 2,
+                  "material": "wood"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "interior-tier-1",
+          "levelOffset": 5,
+          "translation": [
+            -512,
+            10.6,
+            -512
+          ],
+          "map": {
+            "width": 1024,
+            "levels": 6,
+            "wallRuns": {
+              "version": 1,
+              "segments": [
+                {
+                  "id": "admin-west-front-corridor-l5-tier-1",
+                  "a": [
+                    490,
+                    512
+                  ],
+                  "b": [
+                    490,
+                    538
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-front-office-cross-l5-tier-1",
+                  "a": [
+                    472,
+                    525
+                  ],
+                  "b": [
+                    490,
+                    525
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-rear-corridor-l5-tier-1",
+                  "a": [
+                    490,
+                    566
+                  ],
+                  "b": [
+                    490,
+                    592
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-rear-office-cross-l5-tier-1",
+                  "a": [
+                    472,
+                    579
+                  ],
+                  "b": [
+                    490,
+                    579
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-front-corridor-l5-tier-1",
+                  "a": [
+                    534,
+                    512
+                  ],
+                  "b": [
+                    534,
+                    538
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-front-office-cross-l5-tier-1",
+                  "a": [
+                    534,
+                    525
+                  ],
+                  "b": [
+                    552,
+                    525
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-corridor-l5-tier-1",
+                  "a": [
+                    534,
+                    566
+                  ],
+                  "b": [
+                    534,
+                    592
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-office-cross-l5-tier-1",
+                  "a": [
+                    534,
+                    579
+                  ],
+                  "b": [
+                    552,
+                    579
+                  ],
+                  "z": 0,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-front-corridor-l7-tier-1",
+                  "a": [
+                    490,
+                    512
+                  ],
+                  "b": [
+                    490,
+                    538
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-front-office-cross-l7-tier-1",
+                  "a": [
+                    472,
+                    525
+                  ],
+                  "b": [
+                    490,
+                    525
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-rear-corridor-l7-tier-1",
+                  "a": [
+                    490,
+                    566
+                  ],
+                  "b": [
+                    490,
+                    592
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-west-rear-office-cross-l7-tier-1",
+                  "a": [
+                    472,
+                    579
+                  ],
+                  "b": [
+                    490,
+                    579
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-front-corridor-l7-tier-1",
+                  "a": [
+                    534,
+                    512
+                  ],
+                  "b": [
+                    534,
+                    538
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-front-office-cross-l7-tier-1",
+                  "a": [
+                    534,
+                    525
+                  ],
+                  "b": [
+                    552,
+                    525
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-corridor-l7-tier-1",
+                  "a": [
+                    534,
+                    566
+                  ],
+                  "b": [
+                    534,
+                    592
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "admin-east-rear-office-cross-l7-tier-1",
+                  "a": [
+                    534,
+                    579
+                  ],
+                  "b": [
+                    552,
+                    579
+                  ],
+                  "z": 2,
+                  "stories": 2,
+                  "material": "wood"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "openPassages": [
+        {
+          "id": "admin-west-rear-corridor-l1-opening-0",
+          "runId": "admin-west-rear-corridor-l1",
+          "level": 1,
+          "position": [
+            -22,
+            2.12,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-corridor-l1-opening-1",
+          "runId": "admin-west-rear-corridor-l1",
+          "level": 1,
+          "position": [
+            -22,
+            2.12,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-office-cross-l1-opening-0",
+          "runId": "admin-west-rear-office-cross-l1",
+          "level": 1,
+          "position": [
+            -31,
+            2.12,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l1-opening-0",
+          "runId": "admin-east-rear-corridor-l1",
+          "level": 1,
+          "position": [
+            22,
+            2.12,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l1-opening-1",
+          "runId": "admin-east-rear-corridor-l1",
+          "level": 1,
+          "position": [
+            22,
+            2.12,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-office-cross-l1-opening-0",
+          "runId": "admin-east-rear-office-cross-l1",
+          "level": 1,
+          "position": [
+            31,
+            2.12,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-corridor-l3-opening-0",
+          "runId": "admin-west-front-corridor-l3",
+          "level": 3,
+          "position": [
+            -22,
+            6.36,
+            6
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-corridor-l3-opening-1",
+          "runId": "admin-west-front-corridor-l3",
+          "level": 3,
+          "position": [
+            -22,
+            6.36,
+            20
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-office-cross-l3-opening-0",
+          "runId": "admin-west-front-office-cross-l3",
+          "level": 3,
+          "position": [
+            -31,
+            6.36,
+            13
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-corridor-l3-opening-0",
+          "runId": "admin-west-rear-corridor-l3",
+          "level": 3,
+          "position": [
+            -22,
+            6.36,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-corridor-l3-opening-1",
+          "runId": "admin-west-rear-corridor-l3",
+          "level": 3,
+          "position": [
+            -22,
+            6.36,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-office-cross-l3-opening-0",
+          "runId": "admin-west-rear-office-cross-l3",
+          "level": 3,
+          "position": [
+            -31,
+            6.36,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-corridor-l3-opening-0",
+          "runId": "admin-east-front-corridor-l3",
+          "level": 3,
+          "position": [
+            22,
+            6.36,
+            6
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-corridor-l3-opening-1",
+          "runId": "admin-east-front-corridor-l3",
+          "level": 3,
+          "position": [
+            22,
+            6.36,
+            20
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-office-cross-l3-opening-0",
+          "runId": "admin-east-front-office-cross-l3",
+          "level": 3,
+          "position": [
+            31,
+            6.36,
+            13
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l3-opening-0",
+          "runId": "admin-east-rear-corridor-l3",
+          "level": 3,
+          "position": [
+            22,
+            6.36,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l3-opening-1",
+          "runId": "admin-east-rear-corridor-l3",
+          "level": 3,
+          "position": [
+            22,
+            6.36,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-office-cross-l3-opening-0",
+          "runId": "admin-east-rear-office-cross-l3",
+          "level": 3,
+          "position": [
+            31,
+            6.36,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-corridor-l5-opening-0",
+          "runId": "admin-west-front-corridor-l5",
+          "level": 5,
+          "position": [
+            -22,
+            10.6,
+            6
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-corridor-l5-opening-1",
+          "runId": "admin-west-front-corridor-l5",
+          "level": 5,
+          "position": [
+            -22,
+            10.6,
+            20
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-office-cross-l5-opening-0",
+          "runId": "admin-west-front-office-cross-l5",
+          "level": 5,
+          "position": [
+            -31,
+            10.6,
+            13
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-corridor-l5-opening-0",
+          "runId": "admin-west-rear-corridor-l5",
+          "level": 5,
+          "position": [
+            -22,
+            10.6,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-corridor-l5-opening-1",
+          "runId": "admin-west-rear-corridor-l5",
+          "level": 5,
+          "position": [
+            -22,
+            10.6,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-office-cross-l5-opening-0",
+          "runId": "admin-west-rear-office-cross-l5",
+          "level": 5,
+          "position": [
+            -31,
+            10.6,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-corridor-l5-opening-0",
+          "runId": "admin-east-front-corridor-l5",
+          "level": 5,
+          "position": [
+            22,
+            10.6,
+            6
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-corridor-l5-opening-1",
+          "runId": "admin-east-front-corridor-l5",
+          "level": 5,
+          "position": [
+            22,
+            10.6,
+            20
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-office-cross-l5-opening-0",
+          "runId": "admin-east-front-office-cross-l5",
+          "level": 5,
+          "position": [
+            31,
+            10.6,
+            13
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l5-opening-0",
+          "runId": "admin-east-rear-corridor-l5",
+          "level": 5,
+          "position": [
+            22,
+            10.6,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l5-opening-1",
+          "runId": "admin-east-rear-corridor-l5",
+          "level": 5,
+          "position": [
+            22,
+            10.6,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-office-cross-l5-opening-0",
+          "runId": "admin-east-rear-office-cross-l5",
+          "level": 5,
+          "position": [
+            31,
+            10.6,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-corridor-l7-opening-0",
+          "runId": "admin-west-front-corridor-l7",
+          "level": 7,
+          "position": [
+            -22,
+            14.84,
+            6
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-corridor-l7-opening-1",
+          "runId": "admin-west-front-corridor-l7",
+          "level": 7,
+          "position": [
+            -22,
+            14.84,
+            20
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-front-office-cross-l7-opening-0",
+          "runId": "admin-west-front-office-cross-l7",
+          "level": 7,
+          "position": [
+            -31,
+            14.84,
+            13
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-corridor-l7-opening-0",
+          "runId": "admin-west-rear-corridor-l7",
+          "level": 7,
+          "position": [
+            -22,
+            14.84,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-corridor-l7-opening-1",
+          "runId": "admin-west-rear-corridor-l7",
+          "level": 7,
+          "position": [
+            -22,
+            14.84,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-west-rear-office-cross-l7-opening-0",
+          "runId": "admin-west-rear-office-cross-l7",
+          "level": 7,
+          "position": [
+            -31,
+            14.84,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-corridor-l7-opening-0",
+          "runId": "admin-east-front-corridor-l7",
+          "level": 7,
+          "position": [
+            22,
+            14.84,
+            6
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-corridor-l7-opening-1",
+          "runId": "admin-east-front-corridor-l7",
+          "level": 7,
+          "position": [
+            22,
+            14.84,
+            20
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-front-office-cross-l7-opening-0",
+          "runId": "admin-east-front-office-cross-l7",
+          "level": 7,
+          "position": [
+            31,
+            14.84,
+            13
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l7-opening-0",
+          "runId": "admin-east-rear-corridor-l7",
+          "level": 7,
+          "position": [
+            22,
+            14.84,
+            60
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-corridor-l7-opening-1",
+          "runId": "admin-east-rear-corridor-l7",
+          "level": 7,
+          "position": [
+            22,
+            14.84,
+            74
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "admin-east-rear-office-cross-l7-opening-0",
+          "runId": "admin-east-rear-office-cross-l7",
+          "level": 7,
+          "position": [
+            31,
+            14.84,
+            67
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        }
+      ]
+    },
+    "horticulture": {
+      "planId": "landmark-interior-horticulture-v1",
+      "tiers": [
+        {
+          "id": "interior-tier-0",
+          "levelOffset": 0,
+          "translation": [
+            -512,
+            0,
+            -512
+          ],
+          "map": {
+            "width": 1024,
+            "levels": 6,
+            "wallRuns": {
+              "version": 1,
+              "segments": [
+                {
+                  "id": "hort-stall--1-61-tier-0",
+                  "a": [
+                    451,
+                    536
+                  ],
+                  "b": [
+                    451,
+                    542
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "hort-stall--1-89-tier-0",
+                  "a": [
+                    423,
+                    536
+                  ],
+                  "b": [
+                    423,
+                    542
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "hort-service-west-side-tier-0",
+                  "a": [
+                    369,
+                    588
+                  ],
+                  "b": [
+                    369,
+                    600
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "hort-service-west-front-tier-0",
+                  "a": [
+                    359,
+                    588
+                  ],
+                  "b": [
+                    369,
+                    588
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "hort-stall-1-61-tier-0",
+                  "a": [
+                    573,
+                    536
+                  ],
+                  "b": [
+                    573,
+                    542
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "hort-stall-1-89-tier-0",
+                  "a": [
+                    601,
+                    536
+                  ],
+                  "b": [
+                    601,
+                    542
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "hort-service-east-side-tier-0",
+                  "a": [
+                    655,
+                    588
+                  ],
+                  "b": [
+                    655,
+                    600
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                },
+                {
+                  "id": "hort-service-east-front-tier-0",
+                  "a": [
+                    655,
+                    588
+                  ],
+                  "b": [
+                    665,
+                    588
+                  ],
+                  "z": 1,
+                  "stories": 2,
+                  "material": "wood"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "openPassages": [
+        {
+          "id": "hort-service-west-side-opening-0",
+          "runId": "hort-service-west-side",
+          "level": 1,
+          "position": [
+            -143,
+            2.12,
+            82
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "Service subdivision interpreted, exact historic plan unknown."
+        },
+        {
+          "id": "hort-service-west-front-opening-0",
+          "runId": "hort-service-west-front",
+          "level": 1,
+          "position": [
+            -148,
+            2.12,
+            76
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        },
+        {
+          "id": "hort-service-east-side-opening-0",
+          "runId": "hort-service-east-side",
+          "level": 1,
+          "position": [
+            143,
+            2.12,
+            82
+          ],
+          "heading": -1.570796,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "Service subdivision interpreted, exact historic plan unknown."
+        },
+        {
+          "id": "hort-service-east-front-opening-0",
+          "runId": "hort-service-east-front",
+          "level": 1,
+          "position": [
+            148,
+            2.12,
+            76
+          ],
+          "heading": 0,
+          "clearWidth": 2,
+          "clearHeight": 2.8,
+          "stateful": false,
+          "sourceStatus": "inferred"
+        }
+      ]
+    },
+    "fisheries": {
+      "planId": "landmark-interior-fisheries-v1",
+      "tiers": [
+        {
+          "id": "interior-tier-0",
+          "levelOffset": 0,
+          "translation": [
+            -512,
+            0,
+            -512
+          ],
+          "map": {
+            "width": 1024,
+            "levels": 6,
+            "wallRuns": {
+              "version": 1,
+              "segments": [
+                {
+                  "id": "fish-main-stall--1-23-tier-0",
+                  "a": [
+                    464,
+                    535
+                  ],
+                  "b": [
+                    472,
+                    535
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-main-stall--1-51-tier-0",
+                  "a": [
+                    464,
+                    563
+                  ],
+                  "b": [
+                    472,
+                    563
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-main-stall-1-23-tier-0",
+                  "a": [
+                    552,
+                    535
+                  ],
+                  "b": [
+                    560,
+                    535
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-main-stall-1-51-tier-0",
+                  "a": [
+                    552,
+                    563
+                  ],
+                  "b": [
+                    560,
+                    563
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-0-tier-0",
+                  "a": [
+                    413.12145513648386,
+                    539.568693983878
+                  ],
+                  "b": [
+                    424.2080095266193,
+                    544.1608951722591
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-1-tier-0",
+                  "a": [
+                    409.8742785356067,
+                    542.8158705847552
+                  ],
+                  "b": [
+                    414.4664797239878,
+                    553.9024249748907
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-2-tier-0",
+                  "a": [
+                    405.28207734722565,
+                    542.8158705847552
+                  ],
+                  "b": [
+                    400.6898761588445,
+                    553.9024249748907
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-3-tier-0",
+                  "a": [
+                    402.03490074634846,
+                    539.568693983878
+                  ],
+                  "b": [
+                    390.948346356213,
+                    544.1608951722591
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-4-tier-0",
+                  "a": [
+                    402.03490074634846,
+                    534.9764927954969
+                  ],
+                  "b": [
+                    390.948346356213,
+                    530.3842916071159
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-5-tier-0",
+                  "a": [
+                    405.2820773472256,
+                    531.7293161946197
+                  ],
+                  "b": [
+                    400.6898761588445,
+                    520.6427618044843
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-6-tier-0",
+                  "a": [
+                    409.8742785356067,
+                    531.7293161946197
+                  ],
+                  "b": [
+                    414.4664797239878,
+                    520.6427618044843
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                },
+                {
+                  "id": "fish-angling-radial-7-tier-0",
+                  "a": [
+                    413.12145513648386,
+                    534.9764927954969
+                  ],
+                  "b": [
+                    424.2080095266193,
+                    530.3842916071159
+                  ],
+                  "z": 1,
+                  "stories": 1,
+                  "material": "wood"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "openPassages": []
+    }
+  }
+}

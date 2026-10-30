@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "prototypes": 35,
+  "venues": [
+    {
+      "venueId": "new-york",
+      "rooms": 16,
+      "runs": 16,
+      "props": 107,
+      "openPassages": 24,
+      "nativeBoxVariants": 10,
+      "disposed": false,
+      "meshes": 166,
+      "geometries": 161,
+      "materials": 15,
+      "ownedTextures": 0,
+      "instances": 166,
+      "sourceParts": 6084,
+      "triangles": 145624
+    },
+    {
+      "venueId": "administration",
+      "rooms": 38,
+      "runs": 28,
+      "props": 150,
+      "openPassages": 42,
+      "nativeBoxVariants": 9,
+      "disposed": false,
+      "meshes": 164,
+      "geometries": 164,
+      "materials": 14,
+      "ownedTextures": 0,
+      "instances": 151,
+      "sourceParts": 10334,
+      "triangles": 168576
+    },
+    {
+      "venueId": "horticulture",
+      "rooms": 7,
+      "runs": 8,
+      "props": 42,
+      "openPassages": 4,
+      "nativeBoxVariants": 1,
+      "disposed": false,
+      "meshes": 93,
+      "geometries": 91,
+      "materials": 14,
+      "ownedTextures": 0,
+      "instances": 75,
+      "sourceParts": 3539,
+      "triangles": 85072
+    },
+    {
+      "venueId": "fisheries",
+      "rooms": 4,
+      "runs": 12,
+      "props": 87,
+      "openPassages": 0,
+      "nativeBoxVariants": 1,
+      "disposed": false,
+      "meshes": 120,
+      "geometries": 116,
+      "materials": 15,
+      "ownedTextures": 0,
+      "instances": 116,
+      "sourceParts": 4349,
+      "triangles": 93144
+    }
+  ],
+  "clearance": [
+    {
+      "venueId": "new-york",
+      "samples": {
+        "routes": 581,
+        "stairs": 82,
+        "portals": 261,
+        "support": 1475
+      }
+    },
+    {
+      "venueId": "administration",
+      "samples": {
+        "routes": 1286,
+        "stairs": 842,
+        "portals": 513,
+        "support": 2825
+      }
+    },
+    {
+      "venueId": "horticulture",
+      "samples": {
+        "routes": 1292,
+        "stairs": 106,
+        "portals": 81,
+        "support": 1050
+      }
+    },
+    {
+      "venueId": "fisheries",
+      "samples": {
+        "routes": 1920,
+        "stairs": 152,
+        "portals": 36,
+        "support": 2175
+      }
+    }
+  ],
+  "checks": [
+    "Measured live prototype bounds and finite UV/normal/position attributes",
+    "Native 1 x 2 x .16 m BoxGeometry buffers unchanged; no object scale",
+    "Nautilus wall validation; every run even metres",
+    "No added floor, stair or door leaf",
+    "Selection before mesh/material construction; selected geometry equals full geometry",
+    "Borrowed materials/textures unchanged; owned geometry/materials dispose exactly once",
+    "All recorded stair/portal/route sample capsules clear of new actual triangles",
+    "Furnishing footprint samples supported by source floor polygons minus openings",
+    "Existing pinned assets unchanged; Fisheries offline fixture exact Git bytes",
+    "Aquarium 40 outer +10 inner count verified against printed source"
+  ],
+  "limits": [
+    "Capsule samples check only new art against the recorded approaches, not original-shell gameplay collision or navigation.",
+    "Floor-support samples use conservative measured footprint grids; production collision/occlusion remains consumer-owned.",
+    "CPU art review and package import do not establish combined WebGL acceptance."
+  ]
+}

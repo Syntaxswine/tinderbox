@@ -1,0 +1,31 @@
+{
+  "name": "office-library",
+  "path": "docs/art/landmark-interiors/previews/office-library.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0,
+      1,
+      0.2
+    ],
+    "origin": [
+      8,
+      7,
+      -12
+    ],
+    "halfWidth": 6.5
+  },
+  "triangles": 9692,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Mail sorting, counters, records, pharmacy storage and ambulance furniture; period interpretations of the source-labeled rooms.",
+  "limitations": [
+    "Actual generated furnishing prototype meshes at metre scale.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "f6bcee01803b4a4610e72b094fb3d29bed46501fb31311cf98a1c51bc79f5533"
+}

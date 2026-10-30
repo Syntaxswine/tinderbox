@@ -1,0 +1,31 @@
+{
+  "name": "horticulture-library",
+  "path": "docs/art/landmark-interiors/previews/horticulture-library.jpg",
+  "dimensions": [
+    1400,
+    1074
+  ],
+  "camera": {
+    "target": [
+      0,
+      2.7,
+      0
+    ],
+    "origin": [
+      10,
+      9.7,
+      -13
+    ],
+    "halfWidth": 8
+  },
+  "triangles": 26484,
+  "renderer": "Mitsuba 3.9.1 scalar_rgb",
+  "samplesPerPixel": 20,
+  "caption": "Photo-derived orange tower and tiered fruit displays, botanical case, potting bench and gallery cafe furniture.",
+  "limitations": [
+    "Actual generated furnishing prototype meshes at metre scale.",
+    "CPU diffuse material/light approximation; no gameplay, camera occlusion, navigation or WebGL-performance claim."
+  ],
+  "visualReview": "Artist reviewed actual-mesh JPG; geometry framing and captioned omissions checked.",
+  "sha256": "b1301e1e49bcdd0748ccc9d7a1153048a09e1f281e525327e59fcbbd42a3e0e3"
+}
