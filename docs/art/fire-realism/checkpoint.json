@@ -1,45 +1,70 @@
 {
-  "task": "TB-034",
-  "recordedAt": "2026-10-30T03:55:14.100420+00:00",
-  "baseCommit": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
+  "task": "TB-034-corrective-round-02",
+  "recordedAt": "2026-10-30T04:48:54Z",
+  "integrationBase": "93b59fadec1fbfd36dec559fcb896f67f7d81221",
+  "correctsArtistCandidate": "3f7b8f34de99f3483b0e13a991aef7abd0455da2",
+  "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
+  "branch": "codex/fire-realism-art-corrections",
+  "artistVersion": "0.2.0-reference-candidate",
+  "sourcePhotos": {
+    "existingCount": 4,
+    "independentlyOpened": 4,
+    "acquiredOrModified": 0,
+    "provenanceRecord": "art/source/fire-realism/references.json",
+    "runtimePhotographicPixels": false
+  },
   "offline": {
-    "fireContract": "pass",
-    "npmTest": {
-      "passed": 176,
-      "failed": 0
+    "fireContract": "pass; actual shared Three and unchanged resolver/control",
+    "realComplexDischarge": {
+      "connectRays": false,
+      "rays": 25,
+      "controlTriangles": 500,
+      "candidateIndependentRibbonInstances": 225,
+      "candidateJetSmokePresent": true,
+      "renderedVisibilityProved": false
     },
+    "shortOutsideMuzzleFan": "pass; 0.1m fan at0.3/0.5301m offsets retains27 volume instances with source-origin support",
+    "depthBinding": "pass; borrowed actual DepthTexture, current camera, paused camera, wrong dimensions/camera rejection, fractionalDPR floor convention",
+    "sourceOrder": "pass; equivalent source ordering preserves geometry, smoke accumulation and spill-light selection",
     "projectCheck": {
+      "ownScripts": 149,
+      "staticModules": 187,
       "passed": 186,
       "failed": 0,
       "provenance": "pass"
     },
     "build": {
       "files": 3460,
-      "bytes": 163324026,
-      "sourcePhotosDistributed": false
-    }
+      "bytes": 163335172,
+      "sourcePhotosDistributed": false,
+      "diagnosticWorkbenchDistributed": false
+    },
+    "diffWhitespace": "pass"
   },
   "webgl": {
-    "status": "blocked",
-    "observedAt": "2026-10-30T03:46:26.508Z",
-    "browser": "Codex in-app browser",
-    "url": "http://127.0.0.1:8766/workbenches/art/fire-realism/",
-    "error": "GL_VENDOR = Disabled, GL_RENDERER = Disabled; Error creating WebGL context",
+    "status": "unperformed",
+    "newBrowserAttempt": false,
     "shaderCompiled": false,
     "motionReviewed": false,
-    "gpuTimed": false
+    "gpuTimed": false,
+    "reason": "Architect-owned supported-browser review is separate; prior disabled WebGL and native URL-confidence guard remain known limitations. No bypass attempted."
   },
-  "helper": {
-    "pid": 70428,
-    "creationFiletime": "134378055638814383",
-    "finishedAt": "2026-10-30T03:47:19.117174+00:00",
-    "exitCode": 0,
-    "port": 8766,
-    "released": true
+  "limitations": [
+    "Centroid-sorted intersecting transparent volumes remain approximate and require actual reversed-camera/motion review",
+    "Independent clipped-ray ribbons preserve safe exact-line support but are an explicit surface fallback rather than full3D jet volumes",
+    "Legacy barrel/Molotov transients are deliberately handled by the separate runtime component; not duplicated here",
+    "Source-level opaque-depth termination is implemented, but no actual visible wall/box intersection has been approved",
+    "No accepted/frozen high-detail reference or optimized variant exists"
+  ],
+  "helpers": {
+    "serversStarted": 0,
+    "browserSessionsCreated": 0,
+    "shortLivedCheckAndBuildSessions": "completed; no retained helper"
   },
   "claims": {
     "qualityAccepted": false,
     "costTargetAchieved": false,
-    "overallGoalComplete": false
+    "overallGoalComplete": false,
+    "published": false
   }
 }
