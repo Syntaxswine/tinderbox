@@ -13,8 +13,8 @@ test('all native player envelopes ascend and descend a continuous 12-tread fligh
     const surfaces=[floor('lower',rect(0,0,6,12)),floor('upper',rect(10,0,20,12),2.12),...Array.from({length:12},(_,i)=>floor('tread-'+i,rect(6+i/3,2,6+(i+1)/3,4),(i+1)*2.12/12,{stairId:'flight'}))];
     const sim=createExploration({definition:scene({characterId,body:CHARACTER_PROFILES[characterId],surfaces}),config:{input:{cameraRelative:false}}});
     try{sim.dispatch({type:'move',x:1,y:0});let last=0,transitions=0;
-      for(let i=0;i<180;i++){const s=sim.advance(1/60);assert.ok(Math.abs(s.player.elevation-last)<=.22+1e-6);if(s.player.elevation!==last)transitions++;last=s.player.elevation;}
-      near(sim.snapshot().player.elevation,2.12);assert.ok(sim.snapshot().player.x>11);assert.equal(transitions,12);sim.dispatch({type:'move',x:-1,y:0});run(sim,3);
+      for(let i=0;i<60;i++){const s=sim.advance(1/60);assert.ok(Math.abs(s.player.elevation-last)<=.22+1e-6);if(s.player.elevation!==last)transitions++;last=s.player.elevation;}
+      near(sim.snapshot().player.elevation,2.12);assert.ok(sim.snapshot().player.x>11);assert.equal(transitions,12);sim.dispatch({type:'move',x:-1,y:0});run(sim,1);
       near(sim.snapshot().player.elevation,0);near(sim.snapshot().player.x,3);assert.equal(sim.snapshot().player.characterId,characterId);
     }finally{sim.dispose();}
   }
@@ -50,7 +50,7 @@ test('closed portals are solid, opening uses proximity, occupied thresholds cann
   const definition=scene({blockers:[{id:'leaf',portalId:'entry',bounds:closed,openBounds:open}],portals:[{id:'entry',position:[6,0,3],bounds:closed,label:'entry',reach:2.1}]});
   const sim=createExploration({definition,config:{input:{cameraRelative:false}}});
   try{sim.dispatch({type:'move',x:1,y:0});const blocked=run(sim,1);assert.ok(blocked.player.x<5.51);assert.equal(blocked.player.interaction.enabled,true);
-    sim.dispatch({type:'interact'});run(sim,.2);assert.ok(sim.snapshot().player.x>6);sim.dispatch({type:'move',x:0,y:0});sim.dispatch({type:'interact'});sim.advance(1/60);
+    sim.dispatch({type:'interact'});run(sim,1/15);assert.ok(sim.snapshot().player.x>6);sim.dispatch({type:'move',x:0,y:0});sim.dispatch({type:'interact'});sim.advance(1/60);
     assert.equal(sim.snapshot().navigation.portalStates.entry,true);assert.equal(sim.snapshot().player.interaction.enabled,false);
     assert.equal(sim.canStand({x:6.7,y:3.8},0),false);
   }finally{sim.dispose();}
@@ -86,7 +86,7 @@ test('unloaded neighbours block crossing without removing current support, then 
 });
 test('exploration recordings and stair height agree at 30/60/144Hz with normalized screen-relative movement',()=>{
   const values=[30,60,144].map(hz=>{const sim=createExploration({definition:scene()});sim.dispatch({type:'move',x:100,y:-100});for(let i=0;i<hz;i++)sim.advance(1/hz);const s=sim.snapshot();delete s.diagnostics.alpha;delete s.diagnostics.lastSteps;sim.dispose();return s;});
-  assert.deepEqual(values[0],values[1]);assert.deepEqual(values[1],values[2]);assert.ok(values[0].player.travelled<=3+1e-6);
+  assert.deepEqual(values[0],values[1]);assert.deepEqual(values[1],values[2]);near(values[0].player.travelled,9,1e-6);
 });
 test('QA route queries are read-only and the route runner climbs through public movement commands',async()=>{
   const definition=scene({surfaces:[floor('lower',rect(0,0,6,12)),floor('upper',rect(10,0,20,12),2.12),...Array.from({length:12},(_,i)=>floor('tread-'+i,rect(6+i/3,2,6+(i+1)/3,4),(i+1)*2.12/12,{stairId:'flight'}))]});
@@ -102,7 +102,7 @@ test('overlapping solid source entry steps expose only their real top and cannot
     const blockers=[...treads.map(t=>({id:t.id,stair:true,bounds:{min:[t.polygons[0][0][0],0,2],max:[10,t.height,4]}})),{id:'landing-fascia',bounds:{min:[10,1.9,2],max:[10.16,2.12,4]}}];
     const definition=scene({characterId,body:CHARACTER_PROFILES[characterId],surfaces:[floor('ground',rect(0,0,20,12)),floor('upper',rect(10,0,20,12),2.12),...treads],blockers});
     const sim=createExploration({definition,config:{input:{cameraRelative:false}}});
-    try{sim.dispatch({type:'move',x:1,y:0});near(run(sim,3).player.elevation,2.12);sim.dispatch({type:'move',x:-1,y:0});const returned=run(sim,3);near(returned.player.elevation,0);near(returned.player.x,3);}finally{sim.dispose();}
+    try{sim.dispatch({type:'move',x:1,y:0});near(run(sim,1).player.elevation,2.12);sim.dispatch({type:'move',x:-1,y:0});const returned=run(sim,1);near(returned.player.elevation,0);near(returned.player.x,3);}finally{sim.dispose();}
     const side=createExploration({definition:{...definition,spawn:{x:8,y:1,elevation:0}},config:{input:{cameraRelative:false}}});
     try{side.dispatch({type:'move',x:0,y:1});const s=run(side,1);assert.ok(s.player.y<2-CHARACTER_PROFILES[characterId].radius+.01);near(s.player.elevation,0);}finally{side.dispose();}
   }

@@ -8,7 +8,7 @@ import {freePoint} from '../../src/simulation/geometry.js';
 function fixture({closed = false, skin = 'inherited-plaster'} = {}) {
   const skinSlots = {facade: skin, trim: 'inherited-cream', door: 'inherited-wood', roof: 'inherited-roof'};
   const sourceRefs = ['game:architect-rotated-gate-review'];
-  return {id: 'architect-rotated-gate', width: 12, height: 12,
+  return {id: 'architect-rotated-gate', width: 32, height: 12,
     player: {x: 2, y: 6.08, tool: 'jerry-can'}, obstacles: [], actors: [],
     modules: [
       {id: 'turned-gate', form: 'doorway', x: 6, y: 6, heading: Math.PI / 2,
@@ -40,9 +40,9 @@ test('Architect review: powder pouring crosses a turned open gate beneath a roof
   const results = schedules.map(schedule => run(fixture(), schedule));
   for (const s of results) {
     near(s.clocks.active, 1.5, 'Active time'); near(s.clocks.world, 0.525, 'World time');
-    near(s.player.x, 8.75, 'Crossed gate'); near(s.player.y, 6.08, 'Near-edge path');
-    near(s.player.travelled, 6.75, 'Accepted distance'); near(s.player.inventory.gas, 3.46, 'Distance-accounted stock');
-    near(s.cells.reduce((n, c) => n + c.depositedFuel, 0), 0.54, 'Deposited fuel');
+    near(s.player.x, 22.25, 'Crossed gate'); near(s.player.y, 6.08, 'Near-edge path');
+    near(s.player.travelled, 20.25, 'Accepted distance'); near(s.player.inventory.gas, 2.38, 'Distance-accounted stock');
+    near(s.cells.reduce((n, c) => n + c.depositedFuel, 0), 1.62, 'Deposited fuel');
     assert.ok(s.player.pouring && s.effects.powder.active);
     const wet = s.cells.filter(c => c.depositedFuel > 0).sort((a, b) => a.x - b.x);
     assert.ok(wet.length >= 14, 'Fuel trail is incomplete');

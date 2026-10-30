@@ -1,4 +1,5 @@
 import {worldToStick} from '../src/simulation/geometry.js';
+import {DEFAULT_CONFIG} from '../src/simulation/config.js';
 import {inside} from '../src/runtime/navigation.js';
 class Heap{
   values=[];
@@ -64,7 +65,7 @@ export function planRoute(model,from,target,{spacing=.25,maxNodes=180000}={}){
   }
   throw Error('No physical route to '+JSON.stringify(target)+' after '+searched+' support states');
 }
-export async function walkRoute(sim,route,{input={cameraRelative:true,cameraX:10,cameraY:12},speed=3,afterStep=()=>{}}={}){
+export async function walkRoute(sim,route,{input=DEFAULT_CONFIG.input,speed=DEFAULT_CONFIG.player.speed,afterStep=()=>{}}={}){
   let ticks=0,steps=0,maxRise=0;
   for(const target of route.slice(1)){
     let arrived=false;
