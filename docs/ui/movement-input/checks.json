@@ -1,0 +1,457 @@
+{
+  "task": "TB-029",
+  "branch": "codex/joystick-input-ui",
+  "base": "38f6e803bf43493fdcd641f62f8644d13b99488f",
+  "contract": {
+    "commit": "556679297eed1112c653ee9539acb6bb8b6a19bf",
+    "path": "docs/milestones/09-movement-and-joystick.md"
+  },
+  "reproduction": "Administration Building; mouse. Exact interior stair/gesture not yet identified.",
+  "checks": {
+    "source": "139 own scripts; 175 static modules; shared Three/provenance pass",
+    "nodeTests": {
+      "passed": 169,
+      "failed": 0
+    },
+    "art": "5 preserved imports; 36 dependency/syntax checks pass",
+    "typography": "9 original font/notice/source files, three faces and two OFL notices pass",
+    "browser": [
+      {
+        "name": "desktop-1280x800",
+        "width": 1280,
+        "height": 800,
+        "passed": 77,
+        "total": 77,
+        "failed": []
+      },
+      {
+        "name": "phone-390x844",
+        "width": 390,
+        "height": 844,
+        "passed": 77,
+        "total": 77,
+        "failed": []
+      },
+      {
+        "name": "small-phone-320x568",
+        "width": 320,
+        "height": 568,
+        "passed": 77,
+        "total": 77,
+        "failed": []
+      },
+      {
+        "name": "landscape-844x390",
+        "width": 844,
+        "height": 390,
+        "passed": 77,
+        "total": 77,
+        "failed": []
+      }
+    ],
+    "build": {
+      "files": 3454,
+      "bytes": 163290368,
+      "release": "pass",
+      "uiSourceMatch": "Exact after documented owned-text CRLF-to-LF build canonicalization"
+    },
+    "nestedHTTP": {
+      "files": 3452,
+      "hashesAndModuleMIME": "pass",
+      "qaWorkbenchAbsent": true,
+      "base": "http://127.0.0.1:4552/nested/movement-ui/dist/"
+    },
+    "consoleErrorsAndWarnings": 0
+  },
+  "native": [
+    {
+      "file": "evidence/after-native-mouse-desktop-full.json",
+      "phase": "after",
+      "trustedPointerDowns": 1,
+      "trustedDragMoves": 0,
+      "captures": 1,
+      "heldFrames": 284,
+      "uniqueRects": 1,
+      "heldVectors": [
+        "{\"x\": -0.6411145094385581, \"y\": -0.7674452330866074}"
+      ],
+      "locations": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ],
+      "heightRange": [
+        0,
+        2.12
+      ],
+      "labelStress": false,
+      "finalPlayer": {
+        "x": 61.981708720845575,
+        "y": 27.09998892148913,
+        "elevation": 2.12,
+        "location": "Rotunda and ground rooms"
+      },
+      "released": true,
+      "finalMovement": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "file": "evidence/after-native-mouse-desktop-partial.json",
+      "phase": "after",
+      "trustedPointerDowns": 1,
+      "trustedDragMoves": 0,
+      "captures": 1,
+      "heldFrames": 743,
+      "uniqueRects": 1,
+      "heldVectors": [
+        "{\"x\": -0.23297491039426524, \"y\": -0.270497311827957}"
+      ],
+      "locations": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ],
+      "heightRange": [
+        0,
+        2.12
+      ],
+      "labelStress": false,
+      "finalPlayer": {
+        "x": 61.783937765112285,
+        "y": 25.27849142303984,
+        "elevation": 2.12,
+        "location": "Rotunda and ground rooms"
+      },
+      "released": true,
+      "finalMovement": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "file": "evidence/after-native-mouse-phone-drag.json",
+      "phase": "after",
+      "trustedPointerDowns": 2,
+      "trustedDragMoves": 8,
+      "captures": 2,
+      "heldFrames": 129,
+      "uniqueRects": 1,
+      "heldVectors": [
+        "{\"x\": -0.6382818189431038, \"y\": -0.7698027796823566}",
+        "{\"x\": -0.46296296296296297, \"y\": -0.5956873993558777}",
+        "{\"x\": -0.4025764895330113, \"y\": -0.5151721014492754}",
+        "{\"x\": -0.5636070853462157, \"y\": -0.6963315217391305}",
+        "{\"x\": -0.36231884057971014, \"y\": -0.47491445249597425}",
+        "{\"x\": -0.4227053140096618, \"y\": -0.5554297504025765}",
+        "{\"x\": -0.5032206119162641, \"y\": -0.6359450483091788}",
+        "{\"x\": -0.5434782608695652, \"y\": -0.6560738727858293}",
+        "{\"x\": -0.6038647342995169, \"y\": -0.7365891706924316}"
+      ],
+      "locations": [
+        "Grounds",
+        "Approach stairs"
+      ],
+      "heightRange": [
+        0,
+        0.8833333253860474
+      ],
+      "labelStress": false,
+      "finalPlayer": {
+        "x": 62.02305409583924,
+        "y": 18.352097491558702,
+        "elevation": 0.8833333253860474,
+        "location": "Approach stairs"
+      },
+      "released": true,
+      "finalMovement": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "file": "evidence/after-native-mouse-phone-full.json",
+      "phase": "after",
+      "trustedPointerDowns": 1,
+      "trustedDragMoves": 0,
+      "captures": 1,
+      "heldFrames": 302,
+      "uniqueRects": 1,
+      "heldVectors": [
+        "{\"x\": -0.6382818189431038, \"y\": -0.7698027796823566}"
+      ],
+      "locations": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ],
+      "heightRange": [
+        0,
+        2.12
+      ],
+      "labelStress": false,
+      "finalPlayer": {
+        "x": 62.03735822565116,
+        "y": 27.099953786782365,
+        "elevation": 2.12,
+        "location": "Rotunda and ground rooms"
+      },
+      "released": true,
+      "finalMovement": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "file": "evidence/after-native-mouse-phone-labels.json",
+      "phase": "after",
+      "trustedPointerDowns": 3,
+      "trustedDragMoves": 8,
+      "captures": 3,
+      "heldFrames": 310,
+      "uniqueRects": 1,
+      "heldVectors": [
+        "{\"x\": -0.6382818189431038, \"y\": -0.7698027796823566}",
+        "{\"x\": -0.46296296296296297, \"y\": -0.5956873993558777}",
+        "{\"x\": -0.4025764895330113, \"y\": -0.5151721014492754}",
+        "{\"x\": -0.5636070853462157, \"y\": -0.6963315217391305}",
+        "{\"x\": -0.36231884057971014, \"y\": -0.47491445249597425}",
+        "{\"x\": -0.4227053140096618, \"y\": -0.5554297504025765}",
+        "{\"x\": -0.5032206119162641, \"y\": -0.6359450483091788}",
+        "{\"x\": -0.5434782608695652, \"y\": -0.6560738727858293}",
+        "{\"x\": -0.6038647342995169, \"y\": -0.7365891706924316}"
+      ],
+      "locations": [
+        "Grounds",
+        "Approach stairs",
+        "Stairs",
+        "Pavilion landing",
+        "Approach stairs · Administration Building · south pavilion and lower rotunda entrance"
+      ],
+      "heightRange": [
+        0,
+        2.12
+      ],
+      "labelStress": true,
+      "finalPlayer": {
+        "x": 62.04544429068315,
+        "y": 27.40206979423273,
+        "elevation": 2.12,
+        "location": "Rotunda and ground rooms"
+      },
+      "released": true,
+      "finalMovement": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "file": "evidence/after-native-mouse-phone-partial.json",
+      "phase": "after",
+      "trustedPointerDowns": 1,
+      "trustedDragMoves": 0,
+      "captures": 1,
+      "heldFrames": 781,
+      "uniqueRects": 1,
+      "heldVectors": [
+        "{\"x\": -0.2214170692431562, \"y\": -0.2736262077294686}"
+      ],
+      "locations": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ],
+      "heightRange": [
+        0,
+        2.12
+      ],
+      "labelStress": false,
+      "finalPlayer": {
+        "x": 62.19813678175953,
+        "y": 25.743773591754632,
+        "elevation": 2.12,
+        "location": "Rotunda and ground rooms"
+      },
+      "released": true,
+      "finalMovement": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "file": "evidence/before-native-mouse-desktop.json",
+      "phase": "before",
+      "trustedPointerDowns": 1,
+      "trustedDragMoves": 0,
+      "captures": 1,
+      "heldFrames": 301,
+      "uniqueRects": 1,
+      "heldVectors": [
+        "{\"x\": -0.6411145094385581, \"y\": -0.7674452330866074}"
+      ],
+      "locations": [
+        "Grounds",
+        "Approach stairs",
+        "Rotunda and ground rooms"
+      ],
+      "heightRange": [
+        0,
+        2.12
+      ],
+      "labelStress": false,
+      "finalPlayer": {
+        "x": 61.98176928799509,
+        "y": 27.04998895817294,
+        "elevation": 2.12,
+        "location": "Rotunda and ground rooms"
+      },
+      "released": true,
+      "finalMovement": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "behavior": {
+    "gestureOrigin": "Freeze client-space origin and radius until release/cancellation; a fresh gesture uses current geometry.",
+    "deadZone": "Unchanged 0.12 radial; analog magnitude preserved.",
+    "keyboard": "Pointer owns movement during active drag. Held keyboard vector resumes on release; full diagonals match. Cancellation clears keys.",
+    "mouseRecovery": "No-left-button mouse/pen hover releases stick; fresh same-mouse ID press reanchors without stealing a touch or another pointer.",
+    "sourceTraversal": "Published Administration approach, UI callbacks to actual createExploration. All three animals, keyboard/full mouse and .35 mouse/.13 synthetic touch.",
+    "speed": "No speed/config changes; this UI candidate retains base 3 m/s until coder/architect combine 9 m/s."
+  },
+  "limits": [
+    "The tested Administration approach did not reproduce the reported mouse-only stall; no claim that gesture edge cases explain that report.",
+    "Native mouse evidence is trusted browser input. Touch and pen evidence is synthetic PointerEvent coverage, not hardware input.",
+    "Fixture uses actual published navigation/collision with sections ready; no WebGL renderer or streaming acceptance.",
+    "No gallery, art, navigation, body envelope, collision, clock, multiplier or menu change. Combined coder/UI review remains architect-owned."
+  ],
+  "sourceHashes": {
+    "src/ui/index.js": "67c3d8476d221355824fc4d571c774082fe0223d27fab9e0ce121ebf7ca85280",
+    "tests/ui/movement-checks.js": "af1bf3cab00ea71ae4cddbfa8734092cbbebb03a8439bfd5003d34cf045d6823",
+    "tests/ui/movement-review.html": "0f22ccf684750a3267cee8471b3a4484d1c8b4335d7442b3c3a6713217fbac97",
+    "tests/ui/movement-review.js": "0376900c2c02c6b3bf3c6994998371b400a49325e525c356d1363c8e5fb4ff17",
+    "assets/art/place-scenes/administration/navigation.json": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+  },
+  "evidence": [
+    {
+      "path": "evidence/after-administration-desktop.jpg",
+      "bytes": 62199,
+      "sha256": "d54616a81dca1a601485be1467bf314778efdd40d378dcb168ceec626637eb34"
+    },
+    {
+      "path": "evidence/after-administration-phone.jpg",
+      "bytes": 47367,
+      "sha256": "404ca7a8968392f49f3699ccef44429f54afb6cfaba6afe1572c66b60279fd27"
+    },
+    {
+      "path": "evidence/after-native-mouse-desktop-full.json",
+      "bytes": 75107,
+      "sha256": "e01f9d9c3f5e79b88b7f9398d415e2bffc0a990ef74d638f7771f9dec164940e"
+    },
+    {
+      "path": "evidence/after-native-mouse-desktop-partial.json",
+      "bytes": 193908,
+      "sha256": "09b6cdcaf7c93ec71822a017845102d94134963839c179e96189c85a679b5c9c"
+    },
+    {
+      "path": "evidence/after-native-mouse-phone-drag.json",
+      "bytes": 36220,
+      "sha256": "b7ae5d950cfe93b6a3ed63c3ff1b34d09cbad8f8c0cea6873e913d1674b1817a"
+    },
+    {
+      "path": "evidence/after-native-mouse-phone-full.json",
+      "bytes": 78967,
+      "sha256": "d8da30a34f3f2b47a543e0b69c9a0423212231044458080e7f69a9f8ff538446"
+    },
+    {
+      "path": "evidence/after-native-mouse-phone-labels.json",
+      "bytes": 87475,
+      "sha256": "a620e03a0250194e1454c6a798cedbaf9fc42c09670637b0fd90e0ed584a1533"
+    },
+    {
+      "path": "evidence/after-native-mouse-phone-partial.json",
+      "bytes": 202411,
+      "sha256": "364a38fe80d5cc5cda6453faa8685557939afebc42c914e163680ab38a69f7b1"
+    },
+    {
+      "path": "evidence/after-phone-labels.jpg",
+      "bytes": 57231,
+      "sha256": "40a3f1bfc950b79002fdd6dc903571d6e24e25f8c0f9fd6645a00cba0edd3f18"
+    },
+    {
+      "path": "evidence/after-regressions-desktop.json",
+      "bytes": 1453,
+      "sha256": "23fe0ab040ba0d98b55622c3df24520a0a73d30a4b9b6e771149eeb5d8b505a7"
+    },
+    {
+      "path": "evidence/before-administration-desktop.jpg",
+      "bytes": 63521,
+      "sha256": "5679392264747606898c32e256eb42955c7966ad469800d9bf636f570fdf73ef"
+    },
+    {
+      "path": "evidence/before-fresh-press-recovery.json",
+      "bytes": 1341,
+      "sha256": "841e87b1a9c69d90061a51fb3e8338c3e3e16bca9c9f73aad6ab64f609bab5de"
+    },
+    {
+      "path": "evidence/before-native-mouse-desktop.json",
+      "bytes": 79366,
+      "sha256": "16b21589c6245b9554adc2817336b920336b5a30a2e83f951d09db78a9facda8"
+    },
+    {
+      "path": "evidence/before-regressions.json",
+      "bytes": 1123,
+      "sha256": "61475765a3f5b627fd69a9931b44f82a81e0b2c11dec1b4548ca32de85c9cd20"
+    },
+    {
+      "path": "evidence/browser-desktop-1280x800.json",
+      "bytes": 8453,
+      "sha256": "a5e9ac373af3b23e7bab54441b32651932b6ece3f004bf3b00d75a0824936a78"
+    },
+    {
+      "path": "evidence/browser-landscape-844x390.json",
+      "bytes": 8453,
+      "sha256": "a5e9ac373af3b23e7bab54441b32651932b6ece3f004bf3b00d75a0824936a78"
+    },
+    {
+      "path": "evidence/browser-phone-390x844.json",
+      "bytes": 8453,
+      "sha256": "a5e9ac373af3b23e7bab54441b32651932b6ece3f004bf3b00d75a0824936a78"
+    },
+    {
+      "path": "evidence/browser-small-phone-320x568.json",
+      "bytes": 8453,
+      "sha256": "a5e9ac373af3b23e7bab54441b32651932b6ece3f004bf3b00d75a0824936a78"
+    },
+    {
+      "path": "evidence/browser-summary.json",
+      "bytes": 965,
+      "sha256": "77a31652be0e352f946eef6db4d005e1f1370c58a1abf7f666e733972cd1dfd0"
+    },
+    {
+      "path": "evidence/helper-cleanup.json",
+      "bytes": 832,
+      "sha256": "2a51ececa9748d4b266eac24cb743583a363deaf2ab19d3074123d06c98c6200"
+    }
+  ],
+  "helper": {
+    "cleanup": "Stopped after source/restart preservation; exact process exit and port release verified.",
+    "port": 4552,
+    "retained": false,
+    "receipt": "evidence/helper-cleanup.json",
+    "originalExited": true,
+    "portReleased": true,
+    "preservedFiles": 181
+  },
+  "sourceHashMode": "sourceHashes records raw checkout bytes; canonicalSourceHashes records owned text after build LF canonicalization.",
+  "canonicalSourceHashes": {
+    "src/ui/index.js": "580007f5d3426ac739b66b6b0b221b096bba4d815d003962b24987972ac75b7a",
+    "tests/ui/movement-checks.js": "399e8a5a1bcfb7e040ce6df9ce844a28e5fe2dafa7f4237566d273a79880baf4",
+    "tests/ui/movement-review.html": "0f22ccf684750a3267cee8471b3a4484d1c8b4335d7442b3c3a6713217fbac97",
+    "tests/ui/movement-review.js": "2483ef2ee8809e687dede1b8e59037e7f35d8f04f6adaa2faddc8df95329dfce",
+    "assets/art/place-scenes/administration/navigation.json": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54"
+  },
+  "evidenceHashMode": "JSON is LF-normalized, with native event/sample values preserved verbatim; JPEG bytes are unchanged. Normalize checkout CRLF to LF before comparing text records."
+}
