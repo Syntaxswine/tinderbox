@@ -41,4 +41,10 @@ Local diagnostic logs are under ignored `artifacts/qa/explorable-places/`. Dispo
 
 ## Preview publication
 
-Publication is being performed from the exact existing runtime checkpoint, with documentation updates only. Automated source, behavior and package results above remain applicable. The architect will record the deployment SHA, workflow result and hosted-byte verification here after completion. Subsequent corrections require a separate exact intake and review.
+The preview is live at [Tinderbox on Pages](https://syntaxswine.github.io/tinderbox/). Published commit: [`88ce1d7810d64c03d27601c38afbca09a488a601`](https://github.com/Syntaxswine/tinderbox/commit/88ce1d7810d64c03d27601c38afbca09a488a601). Its runtime is unchanged from the existing checkpoint; subsequent changes before publication were documentation only. The normal fast-forward push updated `master` and the preserved review branch without a force push.
+
+[Workflow 40977197212](https://github.com/Syntaxswine/tinderbox/actions/runs/40977197212) passed both build and deployment. CI ran repository checks, production build and package verification; deployment completed at **2026-10-30 00:04:17 UTC** (October 29 locally).
+
+The architect then verified the hosted build manifest against the approved local package and downloaded/hashed all **3,452 browser game files**. Every game file matches byte-for-byte, including the title/menu modules, native animal assets and compiled landmark sections. The package contains 3,454 entries; `.tinderbox-build` and `.nojekyll` are two nonruntime build/hosting markers that return HTTP 404 and are recorded separately. No game source requests them. The initial verification classified those marker responses as failures; the corrected check explicitly verifies their hosting status while retaining exact byte checks for every game file. Local receipts and the finite verifier source are preserved under ignored `artifacts/qa/explorable-places/`.
+
+Both finite hosted checks exited; neither opened a listener. The earlier preview remains stopped. Hosted-byte verification establishes publication of the intended package, not completed WebGL or stair-route acceptance. Those follow-up corrections remain with the existing coder and require a separate exact intake/review. This publication receipt is documentation only and does not change or redeploy the runtime.
