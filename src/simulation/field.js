@@ -21,8 +21,10 @@ export class HeatField {
       }
       if (timberArea > 0) material = 'wood';
       const density = config.fuel.surfaceDensity[material] ?? 0;
+      const initialSurfaceFuel = density * (material === 'wood' ? (timberArea > 0 ? Math.min(timberArea, this.size ** 2) : this.size ** 2) : this.size ** 2);
       return {id: 'cell:' + i % this.cols + ',' + Math.floor(i / this.cols), x, y, size: this.size, material,
-        surfaceFuel: density * (material === 'wood' ? (timberArea > 0 ? Math.min(timberArea, this.size ** 2) : this.size ** 2) : this.size ** 2), depositedFuel: 0, heat: 0, phase: 'cold', intensity: 0, ignitedAt: null, cause: null};
+        surfaceFuel: initialSurfaceFuel, initialSurfaceFuel, consumedDepositedFuel: 0,
+        depositedFuel: 0, heat: 0, phase: 'cold', intensity: 0, ignitedAt: null, cause: null};
     });
     this.delta = new Float64Array(this.cells.length);
     this.neighbours = this.cells.map((cell, i) => {
@@ -125,6 +127,7 @@ export class HeatField {
         const gas = Math.min(cell.depositedFuel, fuel.gasBurnRate * areaScale * delta);
         const surface = Math.min(cell.surfaceFuel, fuel.surfaceBurnRate * areaScale * delta);
         cell.depositedFuel = Math.max(0, cell.depositedFuel - gas); cell.surfaceFuel = Math.max(0, cell.surfaceFuel - surface);
+        cell.consumedDepositedFuel += gas;
         this.stats.burnedDepositedFuel += gas; this.stats.burnedSurfaceFuel += surface;
         if (cell.surfaceFuel + cell.depositedFuel <= EPS) {
           cell.surfaceFuel = cell.depositedFuel = 0; cell.phase = 'spent'; cell.intensity = 0;

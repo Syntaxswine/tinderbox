@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import {exe
 import {createSimulation} from '../../src/simulation/index.js';import {HeatField} from '../../src/simulation/field.js';
 import {createFireReviewSimulation} from '../../tools/fire-realism/scenarios.js';import {presentFireReviewCallback} from '../../tools/fire-realism/live-cadence.js';import {createFireFrameAdapter} from '../../src/art/fire-frame.js';
 const plain={width:12,height:8,player:{x:2.25,y:4.25,tool:'molotov'},obstacles:[],actors:[]};
-test('immutable0a732ef engine and scripts match exact new full/receipt snapshots including all bookkeeping and clocks',context=>{
+test('immutable0a732ef engine matches full snapshots excluding only two additive char keys; receipts/bookkeeping/clocks stay exact',context=>{
  const result=JSON.parse(execFileSync(process.execPath,['--experimental-vm-modules','tests/fixtures/fire-receipt-baseline.mjs'],{encoding:'utf8',windowsHide:true,timeout:45000,maxBuffer:8*1024*1024,stdio:['ignore','pipe','pipe']}));assert.equal(result.status,'pass');assert.equal(result.preChange,'0a732ef91809699d9c33359e22016d5674525356');assert.equal(result.portableFrozenFixture,true);assert.equal(result.scenarios.length,6);assert.ok(result.comparedExactFullSnapshots>=1800);assert.ok(result.comparedExactReceiptProjections>=900);assert.ok(result.sourceHashes['src/simulation/index.js']);context.diagnostic(JSON.stringify({baseline:result.preChange,exactSnapshots:result.comparedExactFullSnapshots,exactReceipts:result.comparedExactReceiptProjections,lifecycleEvents:result.lifecycleEvents}));
 });
 test('hidden receipt steps take no full field snapshots; live callbacks take one full snapshot and include its CPU work',()=>{
