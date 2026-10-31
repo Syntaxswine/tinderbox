@@ -1,0 +1,41 @@
+{
+  "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+  "startUtc": "2026-10-31T04:41:31.320923Z",
+  "deadlineEpoch": 1793427091.3209229,
+  "sourcePins": {
+    "author.py": "495b88781d445bbf6dc99cdf542ec9ada31d09c20401dccd3afbbf3222e5cd8a",
+    "grid.py": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+    "settings.json": "7e8a55dd210d950137ea5d2b24659c422526a4c356c9bdd69ba93cafa566becc",
+    "supervisor.py": "cbc3754fc4ed2adcc5c448b1b464d20482364c67e1d74f210af46551e2e55405"
+  },
+  "settingsSha256": "7e8a55dd210d950137ea5d2b24659c422526a4c356c9bdd69ba93cafa566becc",
+  "toolExeSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795",
+  "limitBytes": 6442450944,
+  "outputLimitBytes": 2147483648,
+  "rawExportComplete": true,
+  "validForIntegration": false,
+  "authorization": "Root confirmed actual browser payload proof and explicitly authorized this one run before operator set --run-authorized. This local record is not a visual acceptance receipt.",
+  "preparationCorrection": {
+    "parentOutput": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-contact\\stage2-2026-10-31-v1",
+    "parentRunSha256": "e4fcb8e2c7990bf5056ab60d65ed1bdeeb7b6dc38a0c63352600fc485f824f15",
+    "parentFailureSha256": "5bd7a9617daa10b686b4c3b9de4952b45d1f9ac6107f9f79e527cfe5020f8376",
+    "parentSourcePins": {
+      "supervisor.py": "ec9ba58aa66f7d6255c6c790bb0d5db0025583a0404bfe2344b7ad9140e556f8",
+      "settings.json": "7e8a55dd210d950137ea5d2b24659c422526a4c356c9bdd69ba93cafa566becc",
+      "author.py": "56bc48825137930e2e81fc33b69370c40edf02f90675e6b5228e37b89b3cf39b",
+      "grid.py": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+    },
+    "correctedSourcePins": {
+      "author.py": "495b88781d445bbf6dc99cdf542ec9ada31d09c20401dccd3afbbf3222e5cd8a",
+      "grid.py": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+      "settings.json": "7e8a55dd210d950137ea5d2b24659c422526a4c356c9bdd69ba93cafa566becc",
+      "supervisor.py": "cbc3754fc4ed2adcc5c448b1b464d20482364c67e1d74f210af46551e2e55405"
+    },
+    "correction": "Only exact float32 surface_distance readback validation/logging; physical .001 unchanged",
+    "absoluteDeadlineUtc": "2026-10-31T06:11:31.320923Z",
+    "output": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-contact\\stage2-2026-10-31-v2-preparation-correction"
+  },
+  "correctedPreparationCreatedAt": "2026-10-31T04:44:58.419673Z",
+  "boundsGatePassed": true,
+  "completedAt": "2026-10-31T04:48:58.081774Z"
+}

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "status": "actual-payload-sizing-failed",
+  "scope": "Exact579-scalar packet proof and measured sizing only; complete Stage2 factory/static closure/browser/visual gates still pending",
+  "rawManifestSha256": "2b4ee8b0728f0d6c21fade690770ada1bfc0bf817d2af86000a9fd346105ea59",
+  "toolSha256": "f9b6bbb1fc9326d42b4ee94891a1e4c24a2ad8d26d1addf5d7eeab73b333ca45",
+  "frames": 193,
+  "scalarRecords": 579,
+  "allScalarPacketRoundtrips": true,
+  "rawBytes": 512262144,
+  "sparseBytes": 88072548,
+  "gzipBytes": 76464872,
+  "payloadChunks": 116,
+  "chunkSourceBytes": 101961206,
+  "metadataBytes": 195603,
+  "uncompressedGeometryJsonBytes": 15281621,
+  "knownCoreSourceBytes": 11038,
+  "knownSourcePlusUncompressedGeometry": 117449468,
+  "remainingSourceBudget": -50340604,
+  "targetChunkSparseBytes": 1048576,
+  "largestChunkSparseBytes": 1046860,
+  "largestChunkSourceBytes": 1218664,
+  "peakPacketBytes": 573704,
+  "peakOneChannelOfflineVerificationBytes": 884736,
+  "runtimeDenseStorage": "Future factory must decode directly into TWO RGBA32F upload slots; no planar fixture cache",
+  "limits": {
+    "sourceBytes": 67108864,
+    "sparseBytes": 100663296,
+    "chunks": 256,
+    "chunkSourceBytes": 2097152,
+    "chunkSparseBytes": 4194304,
+    "targetChunkSparseBytes": 262144,
+    "frameRawBytes": 16777216
+  },
+  "failures": [
+    "64MiB source ceiling already exceeded before remaining factory/boot code"
+  ]
+}

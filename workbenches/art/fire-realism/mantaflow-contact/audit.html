@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tinderbox finite CFD data audit</title>
+<style>body{max-width:900px;margin:2rem auto;padding:1rem;background:#35281e;color:#e6d5b8;font:18px Georgia,serif}button,a{font:inherit;color:inherit;background:#59412d;padding:.6rem;margin:.4rem;border:1px solid #a88a5d}pre,textarea{width:100%;box-sizing:border-box;background:#241d17;color:#e6d5b8;font:13px monospace;padding:1rem}textarea{height:28rem}p{line-height:1.5}</style>
+<h1>Tinderbox: finite CFD data audit</h1><p>This cold-page audit verifies the architect-selected fluid candidate, independently hashes 579 channels from its two RGBA slots, and releases those slots. It creates no renderer and grants no visual approval. The selected descriptor must name the committed finite CFD candidate.</p>
+<button id="start">Verify 579 channels</button><button id="cancel" disabled>Cancel</button><a id="json" hidden target="_blank">Open JSON evidence</a><pre id="status">Ready. One attempt per fresh page.</pre><textarea id="report" readonly aria-label="Actual browser audit JSON"></textarea>
+<script type="module" src="./audit-browser.js"></script></html>

@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "id": "tinderbox-fluid-contact-stage2",
+  "status": "source-preparation-no-run-authorized",
+  "scope": "One finite canonical contact authoring candidate; no accepted R, optimization, sustained source or production asset",
+  "tool": {
+    "version": "4.5.15 LTS",
+    "buildHash": "5afeabba6097",
+    "exeSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795"
+  },
+  "limits": {
+    "wallSeconds": 5400,
+    "processMemoryBytes": 6442450944,
+    "outputBytes": 2147483648,
+    "threads": 4,
+    "automaticRepairs": 0,
+    "automaticRebakes": 0
+  },
+  "simulation": {
+    "firstFrame": 1,
+    "lastFrame": 193,
+    "fps": 30,
+    "sampleAge": "(cacheFrame-1)/30",
+    "initialInflow": false,
+    "burnSeconds": 3.2,
+    "tailSeconds": 3.2,
+    "fuelTaperSeconds": 0.2,
+    "resolutionMax": 96,
+    "domainDimensions": [
+      2,
+      2,
+      4
+    ],
+    "domainCentre": [
+      0,
+      0,
+      1.8333333333333333
+    ],
+    "adaptiveDomain": false,
+    "noise": false,
+    "wind": false,
+    "timeScale": 1,
+    "substeps": 2,
+    "cfl": 2,
+    "cacheType": "MODULAR",
+    "cacheFormat": "OPENVDB",
+    "requestedCacheDepth": "32",
+    "seed": 1893,
+    "flameIgnition": 1.5,
+    "flameMaxTemp": 3,
+    "burningRate": 0.75,
+    "flameVorticity": 0.5,
+    "flameSmoke": 1,
+    "fuelAmount": 1,
+    "flowTemperature": 2,
+    "smokeDensity": 1
+  },
+  "source": {
+    "sourceCommit": "aca30cd910a326918b1599ce6665803cf64739e0",
+    "gamePatchCentre": [
+      5.5,
+      0,
+      8.5
+    ],
+    "cellSize": 0.5,
+    "cells": [
+      {
+        "id": "cell:10,16",
+        "x": 5.25,
+        "y": 8.25
+      },
+      {
+        "id": "cell:11,16",
+        "x": 5.75,
+        "y": 8.25
+      },
+      {
+        "id": "cell:10,17",
+        "x": 5.25,
+        "y": 8.75
+      },
+      {
+        "id": "cell:11,17",
+        "x": 5.75,
+        "y": 8.75
+      }
+    ],
+    "authoringBedXY": [
+      -0.5,
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "bedBottom": 0.02,
+    "bedTopBase": 0.17,
+    "bedTopJitter": 0.02,
+    "blenderWorldToGameRowMajor": [
+      [
+        1,
+        0,
+        0,
+        5.5
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        -1,
+        0,
+        8.5
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "mapping": "Right-handed: Blender(X,Y,Z) -> Three(X,Z,-Y), then native patch-centre translation. No character/world rescaling.",
+    "sourceBedInsetVoxels": 2,
+    "bedSubdivisions": 8,
+    "initialSurfaceFuelPerCell": 0.08,
+    "surfaceBurnRatePerCell": 0.025,
+    "contactBand": "bedTopBase+bedTopJitter+2*observedVoxelSize",
+    "zeroInitialCondition": "All three actual full-sized observed grids at cacheframe1 must be zero, otherwise stop. No fabricated frame, hidden warmup or automatic clock fit.",
+    "groundCollision": {
+      "topZ": 0,
+      "bottomZ": -0.25,
+      "dimensionsXY": [
+        2.2,
+        2.2
+      ],
+      "surfaceDistance": 0.001,
+      "role": "Original stationary CFD collision slab at native ground; no game geometry or heat change"
+    },
+    "lowerAirPaddingVoxels": 4
+  },
+  "support": {
+    "positiveThreshold": 0,
+    "spatialHaloVoxels": 1,
+    "temporalSupport": "union of each adjacent sample pair",
+    "boundaryReaction": "ANY positive boundary voxel fails; never crop/threshold it",
+    "upperOverhangApproved": false,
+    "scalarOrigin": "domainMin+voxelSize/2",
+    "volumeToMeshCorrection": "NOT applicable to scalar support or prisms"
+  },
+  "payloadGates": {
+    "maxEsmBytes": 67108864,
+    "maxSparseBytes": 100663296,
+    "maxChunks": 256,
+    "codec": "Use the separately verified runtime FZP1 gzip/static-ESM packet format; no parallel codec",
+    "denseFrames": 2,
+    "channels": [
+      "density",
+      "temperature",
+      "flame"
+    ],
+    "floatPreservation": "Exact exported f32LE bits; preserve original cache and source, record actual cache precision"
+  }
+}

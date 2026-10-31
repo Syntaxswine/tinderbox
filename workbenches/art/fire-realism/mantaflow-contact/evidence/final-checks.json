@@ -1,0 +1,48 @@
+{
+  "status": "all-current-required-source-checks-pass",
+  "scope": "Assigned art checkout before candidate commit; no WebGL or visual acceptance",
+  "checks": [
+    {
+      "command": "python workbenches/art/fire-realism/mantaflow-contact/check_recipe.py",
+      "result": "6 tests pass"
+    },
+    {
+      "command": "node workbenches/art/fire-realism/mantaflow-contact/check-support.mjs",
+      "result": "pass"
+    },
+    {
+      "command": "node workbenches/art/fire-realism/mantaflow-contact/check-clock.mjs",
+      "result": "pass"
+    },
+    {
+      "command": "node workbenches/art/fire-realism/mantaflow-contact/check-payload.mjs",
+      "result": "synthetic-only pass"
+    },
+    {
+      "command": "node --experimental-vm-modules workbenches/art/fire-realism/mantaflow-contact/check-factory.mjs",
+      "result": "actual SharedThree + tiny synthetic fields and existing bridge pass"
+    },
+    {
+      "command": "npm run check",
+      "result": "184 own-script syntax;237 static-module resolution;186/186 tests;5 byte-preserved imports;73 dependency/provenance checks pass"
+    },
+    {
+      "command": "npm run build",
+      "result": "3647 files / 255520405 bytes"
+    },
+    {
+      "command": "final raw delivery comparison",
+      "result": "all175 source/resource/manifest files and public-package bytes match actual Node proof"
+    }
+  ],
+  "actualDataProof": "actual-node-proof.json",
+  "unproved": [
+    "actual browser579 hash run",
+    "GPU upload/shader compilation",
+    "native rendered images and motion",
+    "realism score",
+    "hardware cost",
+    "reference freeze",
+    "optimized equivalent"
+  ]
+}

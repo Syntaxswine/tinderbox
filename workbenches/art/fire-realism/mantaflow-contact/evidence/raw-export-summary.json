@@ -1,0 +1,181 @@
+{
+  "status": "raw-export-complete-bounds-await-review",
+  "sampleCount": 193,
+  "resolution": [
+    48,
+    48,
+    96
+  ],
+  "gridOrigin": [
+    -0.979166666045785,
+    -0.979166666045785,
+    -0.14583329297602177
+  ],
+  "voxelSize": [
+    0.0416666679084301,
+    0.0416666679084301,
+    0.0416666679084301
+  ],
+  "domainBounds": {
+    "min": [
+      -1.0,
+      -1.0,
+      -0.16666662693023682
+    ],
+    "max": [
+      1.0,
+      1.0,
+      3.8333334922790527
+    ]
+  },
+  "ageRange": [
+    0,
+    6.4
+  ],
+  "initialConditionObservedZero": true,
+  "cachePrecision": {
+    "requested": "32",
+    "before": "16",
+    "requestApplied": true,
+    "observed": "32"
+  },
+  "reactionBoundaryFailed": false,
+  "rawManifestBytes": 5415629,
+  "rawManifestSha256": "2b4ee8b0728f0d6c21fade690770ada1bfc0bf817d2af86000a9fd346105ea59",
+  "firstChannels": {
+    "density": {
+      "path": "fields/density-001.f32",
+      "bytes": 884736,
+      "sha256": "b208fcb4db8f62f87a1c64cef938ad335d2ee3db52804bb14833450b0956a2f7",
+      "min": 0.0,
+      "max": 0.0,
+      "nonzero": 0,
+      "positive": 0
+    },
+    "temperature": {
+      "path": "fields/temperature-001.f32",
+      "bytes": 884736,
+      "sha256": "b208fcb4db8f62f87a1c64cef938ad335d2ee3db52804bb14833450b0956a2f7",
+      "min": 0.0,
+      "max": 0.0,
+      "nonzero": 0,
+      "positive": 0
+    },
+    "flame": {
+      "path": "fields/flame-001.f32",
+      "bytes": 884736,
+      "sha256": "b208fcb4db8f62f87a1c64cef938ad335d2ee3db52804bb14833450b0956a2f7",
+      "min": 0.0,
+      "max": 0.0,
+      "nonzero": 0,
+      "positive": 0
+    }
+  },
+  "lastChannels": {
+    "density": {
+      "path": "fields/density-193.f32",
+      "bytes": 884736,
+      "sha256": "9816396e113145dbf0d8a9957eb9b464c71e7d3ca2867dd0fd53d756137e0b13",
+      "min": 0.0,
+      "max": 0.09075146913528442,
+      "nonzero": 95233,
+      "positive": 95233
+    },
+    "temperature": {
+      "path": "fields/temperature-193.f32",
+      "bytes": 884736,
+      "sha256": "b208fcb4db8f62f87a1c64cef938ad335d2ee3db52804bb14833450b0956a2f7",
+      "min": 0.0,
+      "max": 0.0,
+      "nonzero": 0,
+      "positive": 0
+    },
+    "flame": {
+      "path": "fields/flame-193.f32",
+      "bytes": 884736,
+      "sha256": "b208fcb4db8f62f87a1c64cef938ad335d2ee3db52804bb14833450b0956a2f7",
+      "min": 0.0,
+      "max": 0.0,
+      "nonzero": 0,
+      "positive": 0
+    }
+  },
+  "flame": {
+    "positiveSampleCount": 97,
+    "firstPositiveAge": 0.03333333333333333,
+    "lastPositiveAge": 3.2333333333333334,
+    "globalPositiveBounds": {
+      "min": [
+        -0.8124999944120646,
+        -0.7708333265036345,
+        0.02083337865769863
+      ],
+      "max": [
+        0.7708333861082792,
+        0.8125000540167093,
+        2.270833445712924
+      ]
+    },
+    "globalHaloBounds": {
+      "min": [
+        -0.8541666623204947,
+        -0.8124999944120646,
+        -0.020833289250731468
+      ],
+      "max": [
+        0.8125000540167093,
+        0.8541667219251394,
+        2.312500113621354
+      ]
+    },
+    "boundarySampleCount": 0,
+    "firstBoundary": [],
+    "lowerBandOutsidePatchSampleCount": 12,
+    "firstLowerBandOutsidePatch": [
+      {
+        "frame": 6,
+        "age": 0.16666666666666666,
+        "voxels": 6
+      }
+    ]
+  },
+  "density": {
+    "positiveSampleCount": 192,
+    "firstPositiveAge": 0.03333333333333333,
+    "lastPositiveAge": 6.4,
+    "globalPositiveBounds": {
+      "min": [
+        -0.9374999981373549,
+        -0.9374999981373549,
+        0.02083337865769863
+      ],
+      "max": [
+        0.9375000577419996,
+        0.9375000577419996,
+        3.7708334904164076
+      ]
+    },
+    "globalHaloBounds": {
+      "min": [
+        -0.979166666045785,
+        -0.979166666045785,
+        -0.020833289250731468
+      ],
+      "max": [
+        0.9791667256504297,
+        0.9791667256504297,
+        3.8125001583248377
+      ]
+    },
+    "boundarySampleCount": 0,
+    "firstBoundary": [],
+    "lowerBandOutsidePatchSampleCount": 170,
+    "firstLowerBandOutsidePatch": [
+      {
+        "frame": 3,
+        "age": 0.06666666666666667,
+        "voxels": 5
+      }
+    ]
+  }
+}

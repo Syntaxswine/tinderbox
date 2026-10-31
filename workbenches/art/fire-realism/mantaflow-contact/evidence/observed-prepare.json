@@ -1,0 +1,1283 @@
+{
+  "scope": "One finite source scene, not visual approval",
+  "tool": {
+    "version": "4.5.15 LTS",
+    "buildHash": "5afeabba6097"
+  },
+  "settingsSha256": "7e8a55dd210d950137ea5d2b24659c422526a4c356c9bdd69ba93cafa566becc",
+  "savedBlendSha256": "17c82deb2746aa37f0b88abd6f75f0143014c0ab7b6c915b739004da333fc7c2",
+  "domainDimensions": [
+    2.0,
+    2.0,
+    4.0
+  ],
+  "domainMatrixWorld": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      1.8333333730697632
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "configured": {
+    "resolution_max": 96,
+    "use_adaptive_domain": false,
+    "use_noise": false,
+    "time_scale": 1.0,
+    "timesteps_min": 2,
+    "timesteps_max": 2,
+    "use_adaptive_timesteps": false,
+    "cfl_condition": 2.0,
+    "cache_type": "MODULAR",
+    "cache_data_format": "OPENVDB",
+    "cache_frame_start": 1,
+    "cache_frame_end": 193,
+    "cache_resumable": false,
+    "flame_ignition": 1.5,
+    "flame_max_temp": 3.0,
+    "burning_rate": 0.75,
+    "flame_vorticity": 0.5,
+    "flame_smoke": 1.0,
+    "openvdb_cache_compress_type": "ZIP"
+  },
+  "cachePrecision": {
+    "requested": "32",
+    "before": "16",
+    "requestApplied": true,
+    "observed": "32"
+  },
+  "sourceBed": {
+    "halfWidth": 0.4166666666666667,
+    "insetVoxels": 2,
+    "plannedVoxelSize": 0.041666666666666664,
+    "vertices": 162,
+    "faces": 160,
+    "allFourCellsRepresented": true
+  },
+  "curve": [
+    {
+      "frame": 1,
+      "age": 0.0,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 2,
+      "age": 0.03333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 3,
+      "age": 0.06666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 4,
+      "age": 0.1,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 5,
+      "age": 0.13333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 6,
+      "age": 0.16666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 7,
+      "age": 0.2,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 8,
+      "age": 0.23333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 9,
+      "age": 0.26666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 10,
+      "age": 0.3,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 11,
+      "age": 0.3333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 12,
+      "age": 0.36666666666666664,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 13,
+      "age": 0.4,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 14,
+      "age": 0.43333333333333335,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 15,
+      "age": 0.4666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 16,
+      "age": 0.5,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 17,
+      "age": 0.5333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 18,
+      "age": 0.5666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 19,
+      "age": 0.6,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 20,
+      "age": 0.6333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 21,
+      "age": 0.6666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 22,
+      "age": 0.7,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 23,
+      "age": 0.7333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 24,
+      "age": 0.7666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 25,
+      "age": 0.8,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 26,
+      "age": 0.8333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 27,
+      "age": 0.8666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 28,
+      "age": 0.9,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 29,
+      "age": 0.9333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 30,
+      "age": 0.9666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 31,
+      "age": 1.0,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 32,
+      "age": 1.0333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 33,
+      "age": 1.0666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 34,
+      "age": 1.1,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 35,
+      "age": 1.1333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 36,
+      "age": 1.1666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 37,
+      "age": 1.2,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 38,
+      "age": 1.2333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 39,
+      "age": 1.2666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 40,
+      "age": 1.3,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 41,
+      "age": 1.3333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 42,
+      "age": 1.3666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 43,
+      "age": 1.4,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 44,
+      "age": 1.4333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 45,
+      "age": 1.4666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 46,
+      "age": 1.5,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 47,
+      "age": 1.5333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 48,
+      "age": 1.5666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 49,
+      "age": 1.6,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 50,
+      "age": 1.6333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 51,
+      "age": 1.6666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 52,
+      "age": 1.7,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 53,
+      "age": 1.7333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 54,
+      "age": 1.7666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 55,
+      "age": 1.8,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 56,
+      "age": 1.8333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 57,
+      "age": 1.8666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 58,
+      "age": 1.9,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 59,
+      "age": 1.9333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 60,
+      "age": 1.9666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 61,
+      "age": 2.0,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 62,
+      "age": 2.033333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 63,
+      "age": 2.066666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 64,
+      "age": 2.1,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 65,
+      "age": 2.1333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 66,
+      "age": 2.1666666666666665,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 67,
+      "age": 2.2,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 68,
+      "age": 2.2333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 69,
+      "age": 2.2666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 70,
+      "age": 2.3,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 71,
+      "age": 2.3333333333333335,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 72,
+      "age": 2.3666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 73,
+      "age": 2.4,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 74,
+      "age": 2.433333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 75,
+      "age": 2.466666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 76,
+      "age": 2.5,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 77,
+      "age": 2.533333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 78,
+      "age": 2.566666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 79,
+      "age": 2.6,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 80,
+      "age": 2.6333333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 81,
+      "age": 2.6666666666666665,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 82,
+      "age": 2.7,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 83,
+      "age": 2.7333333333333334,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 84,
+      "age": 2.7666666666666666,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 85,
+      "age": 2.8,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 86,
+      "age": 2.8333333333333335,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 87,
+      "age": 2.8666666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 88,
+      "age": 2.9,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 89,
+      "age": 2.933333333333333,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 90,
+      "age": 2.966666666666667,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 91,
+      "age": 3.0,
+      "inflow": true,
+      "fuelGain": 1.0
+    },
+    {
+      "frame": 92,
+      "age": 3.033333333333333,
+      "inflow": true,
+      "fuelGain": 0.925925925925927
+    },
+    {
+      "frame": 93,
+      "age": 3.066666666666667,
+      "inflow": true,
+      "fuelGain": 0.7407407407407406
+    },
+    {
+      "frame": 94,
+      "age": 3.1,
+      "inflow": true,
+      "fuelGain": 0.5000000000000007
+    },
+    {
+      "frame": 95,
+      "age": 3.1333333333333333,
+      "inflow": true,
+      "fuelGain": 0.25925925925926063
+    },
+    {
+      "frame": 96,
+      "age": 3.1666666666666665,
+      "inflow": true,
+      "fuelGain": 0.07407407407407543
+    },
+    {
+      "frame": 97,
+      "age": 3.2,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 98,
+      "age": 3.2333333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 99,
+      "age": 3.2666666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 100,
+      "age": 3.3,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 101,
+      "age": 3.3333333333333335,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 102,
+      "age": 3.3666666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 103,
+      "age": 3.4,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 104,
+      "age": 3.433333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 105,
+      "age": 3.466666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 106,
+      "age": 3.5,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 107,
+      "age": 3.533333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 108,
+      "age": 3.566666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 109,
+      "age": 3.6,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 110,
+      "age": 3.6333333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 111,
+      "age": 3.6666666666666665,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 112,
+      "age": 3.7,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 113,
+      "age": 3.7333333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 114,
+      "age": 3.7666666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 115,
+      "age": 3.8,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 116,
+      "age": 3.8333333333333335,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 117,
+      "age": 3.8666666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 118,
+      "age": 3.9,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 119,
+      "age": 3.933333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 120,
+      "age": 3.966666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 121,
+      "age": 4.0,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 122,
+      "age": 4.033333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 123,
+      "age": 4.066666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 124,
+      "age": 4.1,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 125,
+      "age": 4.133333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 126,
+      "age": 4.166666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 127,
+      "age": 4.2,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 128,
+      "age": 4.233333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 129,
+      "age": 4.266666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 130,
+      "age": 4.3,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 131,
+      "age": 4.333333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 132,
+      "age": 4.366666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 133,
+      "age": 4.4,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 134,
+      "age": 4.433333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 135,
+      "age": 4.466666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 136,
+      "age": 4.5,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 137,
+      "age": 4.533333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 138,
+      "age": 4.566666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 139,
+      "age": 4.6,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 140,
+      "age": 4.633333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 141,
+      "age": 4.666666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 142,
+      "age": 4.7,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 143,
+      "age": 4.733333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 144,
+      "age": 4.766666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 145,
+      "age": 4.8,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 146,
+      "age": 4.833333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 147,
+      "age": 4.866666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 148,
+      "age": 4.9,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 149,
+      "age": 4.933333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 150,
+      "age": 4.966666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 151,
+      "age": 5.0,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 152,
+      "age": 5.033333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 153,
+      "age": 5.066666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 154,
+      "age": 5.1,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 155,
+      "age": 5.133333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 156,
+      "age": 5.166666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 157,
+      "age": 5.2,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 158,
+      "age": 5.233333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 159,
+      "age": 5.266666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 160,
+      "age": 5.3,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 161,
+      "age": 5.333333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 162,
+      "age": 5.366666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 163,
+      "age": 5.4,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 164,
+      "age": 5.433333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 165,
+      "age": 5.466666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 166,
+      "age": 5.5,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 167,
+      "age": 5.533333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 168,
+      "age": 5.566666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 169,
+      "age": 5.6,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 170,
+      "age": 5.633333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 171,
+      "age": 5.666666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 172,
+      "age": 5.7,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 173,
+      "age": 5.733333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 174,
+      "age": 5.766666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 175,
+      "age": 5.8,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 176,
+      "age": 5.833333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 177,
+      "age": 5.866666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 178,
+      "age": 5.9,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 179,
+      "age": 5.933333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 180,
+      "age": 5.966666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 181,
+      "age": 6.0,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 182,
+      "age": 6.033333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 183,
+      "age": 6.066666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 184,
+      "age": 6.1,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 185,
+      "age": 6.133333333333334,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 186,
+      "age": 6.166666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 187,
+      "age": 6.2,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 188,
+      "age": 6.233333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 189,
+      "age": 6.266666666666667,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 190,
+      "age": 6.3,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 191,
+      "age": 6.333333333333333,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 192,
+      "age": 6.366666666666666,
+      "inflow": false,
+      "fuelGain": 0.0
+    },
+    {
+      "frame": 193,
+      "age": 6.4,
+      "inflow": false,
+      "fuelGain": 0.0
+    }
+  ],
+  "initialInflowObserved": false,
+  "groundCollision": {
+    "matrixWorld": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        -0.125
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      2.200000047683716,
+      2.200000047683716,
+      0.25
+    ],
+    "source": {
+      "topZ": 0,
+      "bottomZ": -0.25,
+      "dimensionsXY": [
+        2.2,
+        2.2
+      ],
+      "surfaceDistance": 0.001,
+      "role": "Original stationary CFD collision slab at native ground; no game geometry or heat change"
+    },
+    "observedSurfaceDistance": 0.0010000000474974513,
+    "effectorType": "COLLISION"
+  },
+  "clock": "cacheframe1 age0 with flowOFF; require actual zero full grids, not synthetic data; cacheframe193 age6.4",
+  "threads": 4
+}

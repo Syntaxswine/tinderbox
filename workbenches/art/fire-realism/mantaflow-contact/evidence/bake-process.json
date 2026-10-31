@@ -1,0 +1,30 @@
+{
+  "phase": "bake",
+  "startedAt": "2026-10-31T04:45:38.678295Z",
+  "deadlineUtc": "2026-10-31T06:11:31.320923Z",
+  "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+  "ports": [],
+  "valid": true,
+  "peakPrivateBytes": 324161536,
+  "peakWorkingSetBytes": 309174272,
+  "peakOutputBytes": 903300256,
+  "monitorIntervalSeconds": 0.25,
+  "resourceSemantics": "Windows Job process+job committed-memory hard caps and hard working-set max; output byte watchdog terminates on threshold crossing (one polling interval write overshoot possible).",
+  "process": {
+    "pid": 10268,
+    "creationFileTime": 134378955386810428,
+    "executable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe"
+  },
+  "guards": {
+    "jobMemoryBytes": 6442450944,
+    "processMemoryBytes": 6442450944,
+    "hardWorkingSetMaxBytes": 6442450944,
+    "killOnOwnedJobClose": true
+  },
+  "registrationReceipt": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-contact\\stage2-2026-10-31-v2-preparation-correction\\bake-blender-registration-receipt.json",
+  "exitCode": 0,
+  "exitedAt": "2026-10-31T04:48:58.058379Z",
+  "naturalExit": true,
+  "verifiedExited": true,
+  "finalOutputBytes": 908716039
+}
