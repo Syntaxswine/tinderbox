@@ -4,8 +4,9 @@ Uninitialized OwnedJob records receive only Python fake callables, as approved.
 import ast,ctypes,json,os,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
-import winjob
-from winjob import OwnedJob,ProcessQueryError,WAIT_OBJECT_0,WAIT_TIMEOUT,WAIT_FAILED,SAMPLE_EVENT_LIMIT
+import winjob,supervisor
+from policy import new_deadline
+from winjob import OwnedJob,ProcessQueryError,WAIT_OBJECT_0,WAIT_TIMEOUT,WAIT_FAILED,SAMPLE_EVENT_LIMIT,SamplingBudgetError
 from supervisor import join_and_record_limits,sample_and_record
 
 PID=13211;HANDLE=101;LIMIT=2*1024**3
@@ -14,8 +15,8 @@ def run_record():
     return {'candidateCommit':'f'*40,'sourcePins':{'mock':'not-a-delivery'},'deadlineEpoch':1900,'deadlineTickMs':900000}
 
 class FakeKernel:
-    def __init__(self,stage=None,waits=None,owned=True,open_error=None,membership_error=False):
-        self.stage=stage;self.waits=list(waits or []);self.owned=owned;self.open_error=open_error;self.membership_error=membership_error;self.error=0;self.events=[];self.closed=[];self.terminated=[]
+    def __init__(self,stage=None,waits=None,owned=True,open_error=None,membership_error=False,wait_durations=None):
+        self.stage=stage;self.waits=list(waits or []);self.owned=owned;self.open_error=open_error;self.membership_error=membership_error;self.error=0;self.events=[];self.closed=[];self.terminated=[];self.clock=1000;self.requests=[];self.wait_durations=list(wait_durations or [])
     def OpenProcess(self,rights,inherit,pid):
         self.events.append(('open',rights,pid));assert rights&0x100000 # SYNCHRONIZE is present.
         if self.open_error is not None:self.error=self.open_error;return 0
@@ -25,7 +26,8 @@ class FakeKernel:
         if self.membership_error:self.error=5;return False
         out._obj.value=self.owned;return True
     def WaitForSingleObject(self,handle,timeout):
-        assert handle==HANDLE and timeout==0
+        assert handle==HANDLE and 0<=timeout<=250
+        self.requests.append(timeout);self.clock+=self.wait_durations.pop(0)if self.wait_durations else 0
         value=self.waits.pop(0)if self.waits else WAIT_TIMEOUT;self.events.append(('wait',value))
         self.error=1113 if value==WAIT_FAILED else 9997 # Deliberately overwrites last-error.
         return value
@@ -45,6 +47,7 @@ class FakeKernel:
     def TerminateProcess(self,handle,code):self.terminated.append((handle,code));return True
     def AssignProcessToJobObject(self,job,handle):self.events.append(('join',job,handle));return True
     def GetCurrentProcess(self):return 999
+    def GetTickCount64(self):return self.clock
 
 def fake_job(**options):
     api=FakeKernel(**options);job=object.__new__(OwnedJob) # __init__ is NEVER called.
@@ -57,8 +60,8 @@ def fake_job(**options):
     return job,api
 
 class SamplingTests(unittest.TestCase):
-    def sample(self,job,api):
-        with patch.object(winjob.ctypes,'get_last_error',side_effect=lambda:api.error):return job.sample()
+    def sample(self,job,api,wait_check=None):
+        with patch.object(winjob.ctypes,'get_last_error',side_effect=lambda:api.error):return job.sample(wait_check or(lambda:10000))
     def test_live_member_is_unchanged_and_handle_closes_once(self):
         job,api=fake_job();r=self.sample(job,api)
         self.assertEqual(r['sumPrivateBytes'],123);self.assertEqual(r['members'][0]['pid'],PID);self.assertEqual(r['job']['peakJobCommittedBytes'],888)
@@ -141,11 +144,49 @@ class SamplingTests(unittest.TestCase):
     def test_fatal_sample_details_are_persisted_before_rethrow(self):
         job,api=fake_job(stage='executable-image',waits=[WAIT_TIMEOUT,WAIT_TIMEOUT]);run=run_record();before=json.dumps(run,sort_keys=True)
         with tempfile.TemporaryDirectory(prefix='mock-sample-record-')as folder:
-            with patch.object(winjob.ctypes,'get_last_error',side_effect=lambda:api.error):
+            with patch.object(winjob.ctypes,'get_last_error',side_effect=lambda:api.error),patch.object(supervisor,'remaining_sampling_wait_ms',return_value=10000):
                 with self.assertRaises(ProcessQueryError):sample_and_record(job,folder,run)
             saved=json.loads((Path(folder)/'job-sampling-diagnostics.json').read_text());event=saved['sampling']['events'][-1]
             self.assertEqual(event['pid'],PID);self.assertEqual(event['queryStage'],'executable-image');self.assertEqual(event['originalWin32Error'],5);self.assertEqual(saved['sourcePins'],run['sourcePins']);self.assertFalse(saved['sampling']['lastSample']['complete'])
         self.assertEqual(before,json.dumps(run,sort_keys=True),'Sampling must not rewrite the prepared run hash')
+
+    def test_one_deadline_clipped_wait_and_one_aggregate_requested_budget(self):
+        job,api=fake_job(stage='executable-image',waits=[WAIT_TIMEOUT,WAIT_OBJECT_0],wait_durations=[0,20]);budgets=iter([37.9,10.0])
+        self.sample(job,api,lambda:next(budgets));timing=job.sampling_events[-1]['waitTiming']
+        self.assertEqual(api.requests,[0,37]);self.assertEqual(timing['requestedMs'],37);self.assertEqual(timing['elapsedMs'],20);self.assertEqual(timing['remainingRunBeforeMs'],37.9);self.assertEqual(timing['remainingRunAfterMs'],10);self.assertEqual(timing['aggregateAfterMs'],213)
+        job,api=fake_job(stage='executable-image',waits=[WAIT_TIMEOUT,WAIT_OBJECT_0,WAIT_TIMEOUT,WAIT_OBJECT_0],wait_durations=[0,3,0,0]);job.members=lambda:[PID,PID+1];calls=[]
+        self.sample(job,api,lambda:calls.append(api.clock)or 10000)
+        self.assertEqual(api.requests,[0,250,0,0]);self.assertEqual(sum(api.requests),250);self.assertEqual(len(calls),4)
+        self.assertEqual([e['waitTiming']['aggregateAfterMs']for e in job.sampling_events],[0,0]);self.assertEqual(len([e for e in api.events if e[0]=='image']),2,'No image-query retry')
+        job,api=fake_job(stage='executable-image',waits=[WAIT_TIMEOUT,WAIT_OBJECT_0],wait_durations=[0,280]);self.sample(job,api)
+        timing=job.sampling_events[-1]['waitTiming'];self.assertEqual(timing['requestedMs'],250);self.assertEqual(timing['elapsedMs'],280);self.assertTrue(timing['elapsedExceededRequested']);self.assertEqual(timing['aggregateAfterMs'],0)
+    def test_callback_stop_deadline_or_unknown_failure_never_skips(self):
+        for phase,failure in [('before',SamplingBudgetError('STOP',700)),('after',SamplingBudgetError('deadline',0)),('after',RuntimeError('unknown callback failure'))]:
+            with self.subTest(phase=phase,failure=type(failure).__name__):
+                job,api=fake_job(stage='executable-image',waits=[WAIT_TIMEOUT,WAIT_OBJECT_0],wait_durations=[0,20]);calls=[]
+                def callback():
+                    calls.append(api.clock)
+                    if phase=='before'or len(calls)==2:raise failure
+                    return 1000
+                with self.assertRaises(type(failure)):self.sample(job,api,callback)
+                event=job.sampling_events[-1];timing=event['waitTiming']
+                self.assertEqual(event['originalWin32Error'],5);self.assertEqual(event['observedIdentity'],{'pid':PID,'creationFileTime':200});self.assertEqual(event['disposition'],'abort-clock-stop-'+phase);self.assertEqual(job.sampling_counts['confirmedExitedSkips'],0)
+                self.assertEqual(timing['callbackFailure']['phase'],phase);self.assertEqual(timing['remainingRun'+phase.title()+'Ms'],getattr(failure,'remaining_ms',None));self.assertEqual(api.closed,[HANDLE])
+                self.assertEqual(api.requests,[0]if phase=='before'else[0,250]);self.assertEqual(timing['elapsedMs'],0 if phase=='before'else 20);self.assertEqual(timing['aggregateAfterMs'],250 if phase=='before'else 0)
+    def test_actual_callback_uses_original_clock_and_stop_without_recursion(self):
+        job,api=fake_job();run={**run_record(),**new_deadline(1000,50000)};api.clock=51000
+        with tempfile.TemporaryDirectory(prefix='mock-original-wait-budget-')as folder,patch.object(supervisor.time,'time',return_value=1001):
+            self.assertEqual(supervisor.remaining_sampling_wait_ms(job,folder,run),899000)
+            (Path(folder)/'supervisor.stop').write_text('pure test stop',encoding='utf-8')
+            with self.assertRaises(SamplingBudgetError)as raised:supervisor.remaining_sampling_wait_ms(job,folder,run)
+            self.assertEqual(raised.exception.remaining_ms,899000)
+        with tempfile.TemporaryDirectory(prefix='mock-expired-wait-budget-')as folder,patch.object(supervisor.time,'time',return_value=1001):
+            api.clock=950000
+            with self.assertRaises(SamplingBudgetError)as raised:supervisor.remaining_sampling_wait_ms(job,folder,run)
+            self.assertEqual(raised.exception.remaining_ms,0)
+        source=Path(__file__).with_name('supervisor.py').read_text(encoding='utf-8');tree=ast.parse(source);callback=next(n for n in tree.body if isinstance(n,ast.FunctionDef)and n.name=='remaining_sampling_wait_ms')
+        self.assertFalse(any(isinstance(n,(ast.While,ast.For))for n in ast.walk(callback)))
+        self.assertFalse(any(isinstance(n,ast.Call)and isinstance(n.func,ast.Attribute)and n.func.attr in ['sample','guard']for n in ast.walk(callback)))
 
 class ReadbackTests(unittest.TestCase):
     def test_numeric_readback_is_durable_before_any_fake_command(self):

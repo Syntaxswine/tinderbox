@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 sys.dont_write_bytecode=True
 from policy import OWNER,CORE_FILES,validate_settings,validate_permit,new_deadline,remaining_seconds,check_bake_permit_presence,registration_reserve,unresolved_registration_charge,unique_json_pairs
-from winjob import OwnedJob,HANDLE
+from winjob import OwnedJob,HANDLE,SamplingBudgetError
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3];QA=ROOT/'artifacts/qa/fire-realism/mantaflow-surface-source';CLEANUP=Path('C:/Users/baals/Local Storage/AI/GTP/helper-lifecycle/cleanup.py');AUTH_ROOT=Path('C:/Users/baals/Documents/ChatGPT/tinderbox/artifacts/qa/fire-realism/surface-source-authorizations')
 
 def sha(path):
@@ -46,10 +46,17 @@ def join_and_record_limits(job,out,run):
         save(path,receipt);run['jobLimitReadback']={'path':str(path),'sha256':sha(path),'valid':receipt['valid']};save(Path(out)/'run.json',run)
     return receipt
 
+def remaining_sampling_wait_ms(job,out,run):
+    # Nonrecursive: no sampling/full guard, no deadline mutation or wait loop.
+    remaining=remaining_seconds(run,time.time(),job.tick_ms())*1000
+    if(Path(out)/'supervisor.stop').exists():raise SamplingBudgetError('Private graceful STOP requested before/after sampling wait',remaining)
+    if remaining<=0:raise SamplingBudgetError('Shared UTC/uptime deadline expired before/after sampling wait',remaining)
+    return remaining
+
 def sample_and_record(job,out,run):
     # The finally receipt also preserves a fatal member diagnostic when sample()
     # raises before returning; the prepared run record remains stable while waiting.
-    try:return job.sample()
+    try:return job.sample(lambda:remaining_sampling_wait_ms(job,out,run))
     finally:save(Path(out)/'job-sampling-diagnostics.json',{'controllerIdentity':job.me,'candidateCommit':run['candidateCommit'],'sourcePins':run['sourcePins'],'deadlineEpoch':run['deadlineEpoch'],'deadlineTickMs':run['deadlineTickMs'],'sampling':job.sampling_report()})
 
 def utc(epoch):return datetime.fromtimestamp(epoch,timezone.utc).isoformat().replace('+00:00','Z')

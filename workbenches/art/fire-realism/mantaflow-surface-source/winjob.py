@@ -2,11 +2,11 @@
 No Job or process is created merely by importing this module. OS enforcement
 still requires actual separately permitted execution; static checks cannot prove it.
 """
-import ctypes,os
+import ctypes,math,os
 from ctypes import wintypes as W
 from pathlib import Path
 SIZE=ctypes.c_size_t;HANDLE=W.HANDLE
-WAIT_OBJECT_0=0;WAIT_TIMEOUT=258;WAIT_FAILED=0xffffffff;SAMPLE_EVENT_LIMIT=64
+WAIT_OBJECT_0=0;WAIT_TIMEOUT=258;WAIT_FAILED=0xffffffff;SAMPLE_EVENT_LIMIT=64;SAMPLE_WAIT_BUDGET_MS=250
 class IO(ctypes.Structure):_fields_=[(n,ctypes.c_ulonglong)for n in ['ReadOperationCount','WriteOperationCount','OtherOperationCount','ReadTransferCount','WriteTransferCount','OtherTransferCount']]
 class BASIC(ctypes.Structure):_fields_=[('PerProcessUserTimeLimit',ctypes.c_longlong),('PerJobUserTimeLimit',ctypes.c_longlong),('LimitFlags',W.DWORD),('MinimumWorkingSetSize',SIZE),('MaximumWorkingSetSize',SIZE),('ActiveProcessLimit',W.DWORD),('Affinity',SIZE),('PriorityClass',W.DWORD),('SchedulingClass',W.DWORD)]
 class EXTENDED(ctypes.Structure):_fields_=[('BasicLimitInformation',BASIC),('IoInfo',IO),('ProcessMemoryLimit',SIZE),('JobMemoryLimit',SIZE),('PeakProcessMemoryUsed',SIZE),('PeakJobMemoryUsed',SIZE)]
@@ -19,6 +19,10 @@ class ProcessQueryError(OSError):
     """Strict query failure; only sample() may test this held object's later exit."""
     def __init__(self,error,pid,stage,label,partial):
         super().__init__(error,label);self.original_win32_error=error;self.pid=pid;self.query_stage=stage;self.partial_identity=dict(partial)
+
+class SamplingBudgetError(RuntimeError):
+    def __init__(self,message,remaining_ms=None):
+        super().__init__(message);self.remaining_ms=remaining_ms
 
 def process_query_check(value,pid,stage,label,partial):
     if not value:
@@ -83,28 +87,57 @@ class OwnedJob:
         self.known[pid]=who;return who
     def sampling_report(self):
         return {'counts':dict(self.sampling_counts),'eventLimit':SAMPLE_EVENT_LIMIT,'events':[dict(e)for e in self.sampling_events],'lastSample':self.last_sample}
-    def _sample_note(self,pid,stage,disposition,owned,error=None,partial=None,identity_verified=False,wait_result=None,wait_error=None):
+    def _sample_note(self,pid,stage,disposition,owned,error=None,partial=None,identity_verified=False,wait_result=None,wait_error=None,wait_timing=None):
         known=self.known.get(pid);observed=dict(partial or {'pid':pid})
-        event={'sequence':self.sample_sequence,'pid':pid,'queryStage':stage,'disposition':disposition,'exactJobMembershipConfirmed':owned,'originalWin32Error':getattr(error,'original_win32_error',getattr(error,'winerror',None)or getattr(error,'errno',None)),'error':str(error)if error is not None else None,'waitResult':wait_result,'waitWin32Error':wait_error,'previouslyKnownIdentity':dict(known)if known is not None else None,'knownIdentityMeaning':'previously recorded; this event does not revalidate it'if known is not None else'not previously obtained','observedIdentity':observed,'observedIdentityComplete':all(k in observed for k in ['pid','creationFileTime','executable']),'observedIdentityRevalidated':identity_verified,'exitObservationDoesNotProveQueryErrorCause':True}
+        event={'sequence':self.sample_sequence,'pid':pid,'queryStage':stage,'disposition':disposition,'exactJobMembershipConfirmed':owned,'originalWin32Error':getattr(error,'original_win32_error',getattr(error,'winerror',None)or getattr(error,'errno',None)),'error':str(error)if error is not None else None,'waitResult':wait_result,'waitWin32Error':wait_error,'waitTiming':wait_timing,'previouslyKnownIdentity':dict(known)if known is not None else None,'knownIdentityMeaning':'previously recorded; this event does not revalidate it'if known is not None else'not previously obtained','observedIdentity':observed,'observedIdentityComplete':all(k in observed for k in ['pid','creationFileTime','executable']),'observedIdentityRevalidated':identity_verified,'exitObservationDoesNotProveQueryErrorCause':True}
         self.sampling_counts['events']+=1
         self.sampling_counts['confirmedExitedSkips'if disposition=='skip-confirmed-exited'else'failures']+=1
         self.sampling_events.append(event)
         if len(self.sampling_events)>SAMPLE_EVENT_LIMIT:self.sampling_events.pop(0);self.sampling_counts['dropped']+=1
-    def _sample_exit(self,handle,pid,stage,error=None,partial=None,identity_verified=False):
-        # Called ONLY by sample(), with a held SYNCHRONIZE handle whose exact
-        # Job membership was positively checked. No generic ignore-error path.
+    def _sample_exit(self,handle,pid,stage,error=None,partial=None,identity_verified=False,wait_check=None):
+        # Sampling only, held SYNCHRONIZE handle with positive exact-Job membership.
+        # Normal pre-identity wait stays zero; only tagged errors get one grace wait.
         if error is not None and(not isinstance(error,ProcessQueryError)or error.pid!=pid or error.query_stage not in ['creation-time','executable-image','private-memory']):
             self._sample_note(pid,stage,'abort-unrecognized-query-error',True,error,partial,identity_verified)
             raise RuntimeError('Only a specific held-member query error may get a sampling exit check')from error
-        result=int(self.k.WaitForSingleObject(handle,0))
-        wait_error=ctypes.get_last_error()if result==WAIT_FAILED else None
+        timing={'requestedMs':0,'elapsedMs':0,'remainingRunBeforeMs':None,'remainingRunAfterMs':None,'aggregateBeforeMs':self.sample_grace_remaining_ms,'aggregateAfterMs':self.sample_grace_remaining_ms,'aggregateCharge':'requested timeout; early returns do not replenish','callbackFailure':None}
+        result=wait_error=None
+        def budget(phase):
+            key='remainingRun'+phase.title()+'Ms'
+            try:
+                value=float(wait_check())
+                if not math.isfinite(value):raise SamplingBudgetError('Unknown nonfinite sampling wait budget')
+                timing[key]=value
+                if value<=0:raise SamplingBudgetError('Original sampling wait deadline expired',value)
+                return value
+            except BaseException as exc:
+                remaining=getattr(exc,'remaining_ms',None)
+                if remaining is not None and math.isfinite(remaining):timing[key]=remaining
+                timing['callbackFailure']={'phase':phase,'type':type(exc).__name__,'error':str(exc)}
+                self._sample_note(pid,stage,'abort-clock-stop-'+phase,True,error,partial,identity_verified,result,wait_error,timing)
+                raise exc from error
+        if error is not None:
+            before=self.tick_ms();remaining=budget('before');callback_elapsed=self.tick_ms()-before
+            if callback_elapsed<0:
+                self._sample_note(pid,stage,'abort-measurement-clock',True,error,partial,identity_verified,None,None,timing)
+                raise SamplingBudgetError('Sampling uptime moved backwards',remaining)from error
+            timing['requestedMs']=int(max(0,min(SAMPLE_WAIT_BUDGET_MS,self.sample_grace_remaining_ms,remaining-callback_elapsed)))
+            self.sample_grace_remaining_ms-=timing['requestedMs'];timing['aggregateAfterMs']=self.sample_grace_remaining_ms
+        started=self.tick_ms();result=int(self.k.WaitForSingleObject(handle,timing['requestedMs']))
+        wait_error=ctypes.get_last_error()if result==WAIT_FAILED else None # Before clock/callback APIs.
+        timing['elapsedMs']=self.tick_ms()-started;timing['elapsedExceededRequested']=timing['elapsedMs']>timing['requestedMs']
+        if error is not None:budget('after') # STOP/deadline remains fatal even if signaled.
+        if timing['elapsedMs']<0:
+            self._sample_note(pid,stage,'abort-measurement-clock',True,error,partial,identity_verified,result,wait_error,timing)
+            raise SamplingBudgetError('Sampling uptime moved backwards')from error
         if result==WAIT_TIMEOUT and error is None:return False
         disposition='skip-confirmed-exited'if result==WAIT_OBJECT_0 else'abort-live-query-error'if result==WAIT_TIMEOUT else'abort-failed-or-unexpected-wait'
-        self._sample_note(pid,stage,disposition,True,error,partial,identity_verified,result,wait_error)
+        self._sample_note(pid,stage,disposition,True,error,partial,identity_verified,result,wait_error,timing)
         if result==WAIT_OBJECT_0:return True
         if result==WAIT_TIMEOUT:return False # Caller re-raises its original error.
         raise RuntimeError('Sampling exit wait failed or unexpected: '+str(result)+'; Win32='+str(wait_error))from error
-    def sample(self):
+    def sample(self,wait_check=None):
+        self.sample_grace_remaining_ms=SAMPLE_WAIT_BUDGET_MS
         records=[];self.sample_sequence+=1;self.last_sample={'sequence':self.sample_sequence,'complete':False,'members':records,'sumPrivateBytes':0,'job':None}
         try:
             for pid in self.members():
@@ -124,14 +157,14 @@ class OwnedJob:
                     if self._sample_exit(h,pid,'pre-identity-exit-check'):continue
                     try:who=self.remember(h,pid)
                     except ProcessQueryError as exc:
-                        if self._sample_exit(h,pid,exc.query_stage,exc,exc.partial_identity):continue
+                        if self._sample_exit(h,pid,exc.query_stage,exc,exc.partial_identity,wait_check=wait_check):continue
                         raise
                     except BaseException as exc:
                         self._sample_note(pid,'strict-identity-validation','abort-identity-validation',True,exc);raise
                     mem=MEMORY();mem.cb=ctypes.sizeof(mem)
                     try:process_query_check(self.p.GetProcessMemoryInfo(h,ctypes.byref(mem),mem.cb),pid,'private-memory','Read task member private/working-set memory',who)
                     except ProcessQueryError as exc:
-                        if self._sample_exit(h,pid,exc.query_stage,exc,exc.partial_identity,True):continue
+                        if self._sample_exit(h,pid,exc.query_stage,exc,exc.partial_identity,True,wait_check):continue
                         raise
                     records.append({**who,'privateBytes':mem.PrivateUsage,'workingSetBytes':mem.WorkingSetSize,'peakWorkingSetBytes':mem.PeakWorkingSetSize})
                 finally:self.k.CloseHandle(h)
