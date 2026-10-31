@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "status": "source-only-awaits-architect-and-runtime-review-no-run",
+  "proposalCommit": "baff94f95b47815678fddeb14bd276d0da5475f9",
+  "baselineCommit": "d40dafa3eef0796a15172300d528bc26c72f7f76",
+  "coreFiles": 9,
+  "coreBytes": 108095,
+  "sourceRecords": [
+    {
+      "path": "author.py",
+      "bytes": 20267,
+      "sha256": "c3066b6e39239268fcf472f417fc8253ed7078c62531c038da3c089c716148d2"
+    },
+    {
+      "path": "grid.py",
+      "bytes": 2971,
+      "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+    },
+    {
+      "path": "policy.py",
+      "bytes": 11759,
+      "sha256": "a3e7bfa2da72b6bceeb34d388e5174c54e27b2b048960f7894cc2ec613a3e470"
+    },
+    {
+      "path": "state.py",
+      "bytes": 4531,
+      "sha256": "3d1837b91b73bfd8836bdbc2cb8f080b229be589fa865c21bbd9f68b0a0e31c4"
+    },
+    {
+      "path": "surface.py",
+      "bytes": 5950,
+      "sha256": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152"
+    },
+    {
+      "path": "supervisor.py",
+      "bytes": 29154,
+      "sha256": "810ae47068932fa68d274ef967e5da5a449ffff20f93704183bc9f0868eecd37"
+    },
+    {
+      "path": "winjob.py",
+      "bytes": 22699,
+      "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee"
+    },
+    {
+      "path": "settings.json",
+      "bytes": 6489,
+      "sha256": "855cadfad35e667f9e659c2a7dc676acca3d84ea2ebde01f612f9a79df70a953"
+    },
+    {
+      "path": "helper-provenance.json",
+      "bytes": 4275,
+      "sha256": "ad61a1691d9622eb41229dfc01b566402573ce794ce5be5c792f74b2f67097cf"
+    }
+  ],
+  "rawIdenticalHelpers": [
+    "grid.py",
+    "state.py",
+    "surface.py",
+    "winjob.py"
+  ],
+  "terminalFunctionSha256": "b35fa807f8d1e531614ae11aef01e52e470ad98f822e286cf0b19eb5ca4f714f",
+  "pureChecks": 12,
+  "checkLogSha256": "25bbcb71abff32f8d605e2c218d64195834a524fa0838ff5c899b59ad2218091",
+  "actualControllerJobBlenderBakeRenderRuns": 0,
+  "originalNinePreserved": true,
+  "assetsOrRuntimeEdited": false,
+  "retainedHelpers": 0
+}

@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "id": "tinderbox-mantaflow-half-rate-source",
+  "status": "implementation-only-no-run-permit",
+  "proposalCommit": "baff94f95b47815678fddeb14bd276d0da5475f9",
+  "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+  "tool": {
+    "version": [
+      4,
+      5,
+      15
+    ],
+    "buildHash": "5afeabba6097",
+    "fullSourceCommit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+    "exeSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795"
+  },
+  "original": {
+    "blend": "artifacts/qa/fire-realism/mantaflow-contact/stage2-2026-10-31-v2-preparation-correction/contact.blend",
+    "blendSha256": "17c82deb2746aa37f0b88abd6f75f0143014c0ab7b6c915b739004da333fc7c2",
+    "domainName": "FiniteContactDomain",
+    "groundName": "OriginalNativeGroundCollision",
+    "sourceName": "CanonicalFourCellBed",
+    "nativeTranslation": [
+      5.5,
+      0,
+      8.5
+    ],
+    "gridSummary": "workbenches/art/fire-realism/mantaflow-contact/evidence/raw-export-summary.json",
+    "gridSummarySha256": "efdd642efa5ee6d126232f6bd31b43cd74c758826168499cb7742172de5699b3",
+    "cacheInventory": "artifacts/qa/fire-realism/mantaflow-contact/stage2-2026-10-31-v2-preparation-correction/preserved-cache-hashes.json",
+    "cacheInventorySha256": "520e8d6e2ef170ce34e596728f341b9344fd72b222aced6c55d733c2ef421f32"
+  },
+  "limits": {
+    "wallSeconds": 900,
+    "processCommittedBytes": 2147483648,
+    "aggregateCommittedBytes": 2147483648,
+    "scratchBytes": 2147483648,
+    "threads": 4,
+    "pollSeconds": 0.25,
+    "gracefulStopSeconds": 2,
+    "automaticRepairs": 0,
+    "automaticRetries": 0,
+    "automaticRebakes": 0
+  },
+  "simulation": {
+    "firstFrame": 1,
+    "lastFrame": 193,
+    "fps": 30,
+    "burnSeconds": 3.2,
+    "tailSeconds": 3.2,
+    "withdrawalStart": 2.8,
+    "inflowOffAge": 3.2,
+    "expectedResolution": [
+      48,
+      48,
+      96
+    ],
+    "resolutionMax": 96,
+    "expectedDimensions": [
+      2,
+      2,
+      4
+    ],
+    "cacheDepth": "32",
+    "cacheFormat": "OPENVDB",
+    "substeps": 2,
+    "cfl": 2,
+    "seed": 1893,
+    "globalVorticity": 0.25,
+    "inheritAllOtherActualState": true
+  },
+  "source": {
+    "planeZ": 0.02,
+    "surfaceDistanceVoxels": 0.5,
+    "volumeDensity": 0,
+    "planar": true,
+    "insetVoxels": 2,
+    "contactBandHeight": 0.2733333358168602,
+    "polygon": [
+      [
+        -0.38,
+        -0.26
+      ],
+      [
+        -0.14,
+        -0.34
+      ],
+      [
+        0.1,
+        -0.38
+      ],
+      [
+        0.3,
+        -0.31
+      ],
+      [
+        0.38,
+        -0.18
+      ],
+      [
+        0.31,
+        -0.02
+      ],
+      [
+        0.13,
+        -0.04
+      ],
+      [
+        0.06,
+        -0.1
+      ],
+      [
+        -0.02,
+        -0.08
+      ],
+      [
+        0.03,
+        0.04
+      ],
+      [
+        0.236,
+        0.1336
+      ],
+      [
+        0.3152,
+        0.2344
+      ],
+      [
+        0.2648,
+        0.3208
+      ],
+      [
+        0.128,
+        0.3424
+      ],
+      [
+        0.0344,
+        0.2272
+      ],
+      [
+        -0.1,
+        0.11
+      ],
+      [
+        -0.2,
+        0.15
+      ],
+      [
+        -0.22,
+        0.32
+      ],
+      [
+        -0.33,
+        0.37
+      ],
+      [
+        -0.4,
+        0.26
+      ],
+      [
+        -0.39,
+        0.08
+      ],
+      [
+        -0.26,
+        -0.03
+      ],
+      [
+        -0.14,
+        -0.08
+      ],
+      [
+        -0.24,
+        -0.12
+      ],
+      [
+        -0.37,
+        -0.13
+      ]
+    ],
+    "lobeGauges": [
+      {
+        "id": "primary",
+        "point": [
+          0,
+          -0.22
+        ],
+        "direction": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": "secondary",
+        "point": [
+          0.2,
+          0.22
+        ],
+        "direction": [
+          -0.7071067811865476,
+          0.7071067811865476
+        ]
+      },
+      {
+        "id": "small",
+        "point": [
+          -0.29,
+          0.3
+        ],
+        "direction": [
+          1,
+          0
+        ]
+      }
+    ],
+    "notchGauges": [
+      {
+        "id": "lower-right-gap",
+        "point": [
+          0.23,
+          0.035
+        ],
+        "direction": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": "upper-gap",
+        "point": [
+          -0.14,
+          0.25
+        ],
+        "direction": [
+          1,
+          0
+        ]
+      }
+    ],
+    "cells": [
+      {
+        "id": "cell:10,16",
+        "x": 5.25,
+        "y": 8.25
+      },
+      {
+        "id": "cell:11,16",
+        "x": 5.75,
+        "y": 8.25
+      },
+      {
+        "id": "cell:10,17",
+        "x": 5.25,
+        "y": 8.75
+      },
+      {
+        "id": "cell:11,17",
+        "x": 5.75,
+        "y": 8.75
+      }
+    ],
+    "lobeWidthRanges": [
+      [
+        0.25,
+        0.3
+      ],
+      [
+        0.18,
+        0.24
+      ],
+      [
+        0.14,
+        0.18
+      ]
+    ]
+  },
+  "terminal": {
+    "persistenceStart": 2.8,
+    "persistenceEnd": 3.0,
+    "sentinelAge": 3.0,
+    "minFlameMax": 0.05,
+    "minIntegralPeakFraction": 0.01,
+    "reportFrames": [
+      91,
+      96,
+      97,
+      98
+    ],
+    "nativeVisibilityFrame": 180,
+    "nativeVisibility": "PENDING actual native review; raw guards never grant visual approval"
+  },
+  "evidence": {
+    "predictionOnly": "Geometric half-voxel influence is not actual Mantaflow output; obstacle flags do not guarantee emission removal. No below-ground/boundary/terminal waiver.",
+    "originalRuntimeFrozenAt": "bdc8c18bee986bc6a846d996bea3a74a45466be7"
+  },
+  "lifecycleUtilitySha256": "7931a5c42fedfa345d8b5a9a402e63ac248116a2cc7e5b621d223d9187876b5d",
+  "counterfactual": {
+    "property": "burning_rate",
+    "baseline": 0.75,
+    "target": 0.375
+  },
+  "controlV5": {
+    "prepareReport": {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/prepare.json",
+      "bytes": 107511,
+      "sha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df"
+    },
+    "preparedScene": {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/surface-source.blend",
+      "bytes": 472919,
+      "sha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+    },
+    "rawManifest": {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
+      "bytes": 4626878,
+      "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+    }
+  }
+}

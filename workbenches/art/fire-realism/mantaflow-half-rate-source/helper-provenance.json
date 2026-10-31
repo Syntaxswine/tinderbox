@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "grid": {
+    "originalPath": "workbenches/art/fire-realism/mantaflow-contact/grid.py",
+    "sourceCommit": "b1f88905622c08840f4e0b20a4528a7e7fdf3736",
+    "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+    "adaptations": "none; source envelope/terminal checks are separate new policy functions"
+  },
+  "guardBasis": {
+    "originalPath": "workbenches/art/fire-realism/mantaflow-contact/supervisor.py",
+    "sourceSha256": "cbc3754fc4ed2adcc5c448b1b464d20482364c67e1d74f210af46551e2e55405",
+    "adaptations": "Reviewed identity/Job/registration concepts reused; additive guard adds self Job, shared monotonic deadline and complete accounting. No execution proof yet."
+  },
+  "exactBlenderSourceEvidence": {
+    "fullCommit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+    "findingsPath": "artifacts/qa/fire-realism/blender-flow-source-check/findings.json",
+    "findingsSha256": "c4d6cc116db51d67b07ab7145ac73350d883e007e2dc688836ac7c0e57d425ad",
+    "use": "API/ordering reference only; no Blender implementation imported. Geometric radius/influence is not actual emission/below-ground proof."
+  },
+  "provisionalReviewCorrections": [
+    "Canonical unordered enum sets; ordered vector/matrix preservation",
+    "Explicit nested domain effector-weight state including gravity",
+    "Pre-registration conservative scratch reserve retained on unknown failure; exact-owned receipt reconciliation only",
+    "Consumed bake failure preserves actual cause instead of preissued-permit error"
+  ],
+  "halfRateCounterfactual": {
+    "authority": "baff94f95b47815678fddeb14bd276d0da5475f9",
+    "baselineCommit": "d40dafa3eef0796a15172300d528bc26c72f7f76",
+    "baselineDirectory": "workbenches/art/fire-realism/mantaflow-surface-source",
+    "baselineNine": [
+      {
+        "name": "author.py",
+        "bytes": 18191,
+        "sha256": "9debc5ca5502b72ed1a8c8554b5ce1266b956f36fa5521558efa700d9a377d85"
+      },
+      {
+        "name": "grid.py",
+        "bytes": 2971,
+        "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+      },
+      {
+        "name": "policy.py",
+        "bytes": 8278,
+        "sha256": "13038fbac3c9c2c15445ebe6db4ce9e895277dda7d588e5cc5c033a74dfc2963"
+      },
+      {
+        "name": "state.py",
+        "bytes": 4531,
+        "sha256": "3d1837b91b73bfd8836bdbc2cb8f080b229be589fa865c21bbd9f68b0a0e31c4"
+      },
+      {
+        "name": "surface.py",
+        "bytes": 5950,
+        "sha256": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152"
+      },
+      {
+        "name": "supervisor.py",
+        "bytes": 28661,
+        "sha256": "a4e66831aa5ad22c0c276f96b9cecd4b4e533c7222bd5cf0af91155166c0bd2c"
+      },
+      {
+        "name": "winjob.py",
+        "bytes": 22699,
+        "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee"
+      },
+      {
+        "name": "settings.json",
+        "bytes": 5642,
+        "sha256": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52"
+      },
+      {
+        "name": "helper-provenance.json",
+        "bytes": 1545,
+        "sha256": "0878bcf7df35ac19ea61bfc782fd0e1742827f0306150bf796a98ea8a3653c3c"
+      }
+    ],
+    "independentPhysicalChange": {
+      "RNA": "domainSettings.burning_rate",
+      "baseline": 0.75,
+      "target": 0.375
+    },
+    "rawUnchangedHelpers": [
+      "grid.py",
+      "state.py",
+      "surface.py",
+      "winjob.py"
+    ],
+    "controls": {
+      "prepareReport": {
+        "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/prepare.json",
+        "bytes": 107511,
+        "sha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df"
+      },
+      "preparedScene": {
+        "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/surface-source.blend",
+        "bytes": 472919,
+        "sha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+      },
+      "rawManifest": {
+        "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
+        "bytes": 4626878,
+        "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+      }
+    },
+    "noActualRunApproved": true
+  }
+}
