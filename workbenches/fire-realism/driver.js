@@ -1,6 +1,7 @@
 import {CAMERA_SWEEP_PRESET,createCameraSweep,captureCameraSweepSupport,cameraSweepSceneSignature,reviewCameraRecord} from '../../tools/fire-realism/camera-sweep.js';
 import {presentFireReviewCallback} from '../../tools/fire-realism/live-cadence.js';
 import {createLiveTrace} from '../../tools/fire-realism/live-trace.js';
+import {groundCharReviewEvidence} from '../../tools/fire-realism/ground-char-evidence.js';
 import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 import * as T from '../../src/runtime/three.js';
 import {createArtScene} from '../../src/art/index.js';
@@ -51,12 +52,12 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   function factoryFingerprint(mode){return mode==='current'?{mode,sourceCommit:CONTROL,factoryModule:'src/art/fire.js',factoryExport:'createFire',runtimeFiles:clone(controlHashes)}:clone(fingerprints[mode]);}
   function sources(){return {publishedControl:CONTROL,controlRuntimeFiles:clone(controlHashes),adapterRuntimeFiles:clone(adapterHashes),byMode:clone(fingerprints),...(Object.keys(preload).length?{binaryPreparation:clone(preload)}:{})};}
   function state(){
-    const fire=art?.diagnostics().fire;
+    const model=art?.diagnostics(),fire=model?.fire;
     return clone({version:1,phase,configuration:config,frameIndex,tick:snapshot?.tick||0,worldTime:snapshot?.clocks.world||0,playerTime:snapshot?.clocks.player||0,paused:phase!=='playing'&&phase!=='measuring',
       availability,capabilities:{gpuTimer:{available:!!timerSupport,reason:timerSupport?null:'EXT_disjoint_timer_query_webgl2 unavailable'},populations:POPULATION_CASES.includes(config.scenario)?[32,128,512]:[]},
       workload:{requestedPopulation:config.population,actualBurningCells:snapshot?.diagnostics.burningCells||0,activeDischarge:!!snapshot?.discharge.active,activeTorch:snapshot?.player.tool==='torch'&&snapshot?.player.torch.phase==='lit',burningBuildingIds:fire?.burningBuildingIds||[]},
       cameraSweep:cameraSweep?{...cameraSweep.state(),...(measurePromise||phase==='measuring'||phase==='cancelling'?{reason:'Camera motion is locked during GPU measurement'}:{}),...(cameraPreparing?{status:'preparing',reason:'Validating complete native/source camera support'}:{})}:null,progress,referenceAcceptance:validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',...fingerprints.reference})?'accepted':referenceAcceptance?'pending':'missing',results,error,
-      ...(liveTrace?{liveTrace:liveTrace.summary()}:{}),diagnostics:{fire,renderer:lastMetrics,latestCpu,playbackClock:playbackClock.diagnostics(),sourceFingerprints:sources()}});
+      ...(liveTrace?{liveTrace:liveTrace.summary()}:{}),diagnostics:{fire,groundChar:groundCharReviewEvidence(snapshot,model),renderer:lastMetrics,latestCpu,playbackClock:playbackClock.diagnostics(),sourceFingerprints:sources()}});
   }
   function notify(force=false){
     const now=performance.now();if(!force&&now-notifyTime<250)return;notifyTime=now;
@@ -211,7 +212,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/live-trace.js','tools/fire-realism/delivery.js','tools/fire-realism/resources.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/live-trace.js','tools/fire-realism/ground-char-evidence.js','tools/fire-realism/delivery.js','tools/fire-realism/resources.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
       const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));
@@ -242,6 +243,6 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
       },
       cameraSweepEvidence(){if(cameraPreparing)throw Error('Retire camera preparation before exporting evidence');if(closed)throw Error('Fire review disposed');if(measurePromise||phase==='measuring'||phase==='cancelling')throw Error('Camera evidence is locked during measurement');return cameraSweep.evidence();},
       measure(options){assertUsable();measurePromise=measureInternal(options);return measurePromise.finally(()=>{measurePromise=null;});},
-      async cancelMeasurement(){if(!measurePromise)return results?clone(results):null;cancelRequested=true;phase='cancelling';notify(true);return measurePromise;},captureFrame({quality=.92}={}){assertUsable();if(!validNumber(quality)||quality<0||quality>1)throw RangeError('JPEGquality requires0..1');if(phase==='playing')endTrace('error','capture-during-live-trace');draw();return {mimeType:'image/jpeg',dataUrl:renderer.domElement.toDataURL('image/jpeg',quality),configuration:clone(config),frameIndex,tick:snapshot.tick,camera:reviewCameraRecord(camera),cameraSweep:cameraSweep.state(),sourceFingerprints:sources(),hardware:hardware()};},state,dispose};
+      async cancelMeasurement(){if(!measurePromise)return results?clone(results):null;cancelRequested=true;phase='cancelling';notify(true);return measurePromise;},captureFrame({quality=.92}={}){assertUsable();if(!validNumber(quality)||quality<0||quality>1)throw RangeError('JPEGquality requires0..1');if(phase==='playing')endTrace('error','capture-during-live-trace');draw();return {mimeType:'image/jpeg',dataUrl:renderer.domElement.toDataURL('image/jpeg',quality),configuration:clone(config),frameIndex,tick:snapshot.tick,camera:reviewCameraRecord(camera),cameraSweep:cameraSweep.state(),sourceFingerprints:sources(),hardware:hardware(),groundChar:groundCharReviewEvidence(snapshot,art?.diagnostics())};},state,dispose};
   }catch(cause){await dispose();throw cause;}
 }

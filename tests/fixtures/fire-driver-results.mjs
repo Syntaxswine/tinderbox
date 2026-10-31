@@ -12,9 +12,12 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import * as T from '../../src/runtime/three.js';
+import {createGroundField} from '../../src/art/ground-field.js';
 const project=fileURLToPath(new URL('../../',import.meta.url)),base='https://fixture.invalid/tinderbox/';
 const priorFetch=globalThis.fetch,callbacks=new Map(),queries=new Set();
 let nextFrame=0,now=0,currentPass='current',artCreated=0,artDisposed=0,stage='first',driver,cancellation=null,cancelStarted=false;
+let renderCalls=0,artUpdates=0;
+const groundMode=process.argv.includes('--ground-char');
 const notifications=[],measuring=[],domBytes=[],domHasOnlyNewState=[];
 const binaryMode=process.argv.includes('--binary-metadata'),binaryFiles=new Map();let binaryResourceReads=0,binaryPrepares=0;
 function element(){return {style:{},dataset:{},textContent:'',children:[],append(child){this.children.push(child);},remove(){},setAttribute(){},addEventListener(){},getBoundingClientRect(){return {left:0,top:0,width:1280,height:800};}};}
@@ -31,13 +34,13 @@ class RendererFixture{
  constructor(){this.domElement=element();this.domElement.toDataURL=()=> 'data:image/jpeg;base64,QVBJLW9ubHk=';this.debug={};this.info={render:{calls:0,triangles:0,lines:0,points:0},memory:{geometries:0,textures:0},reset(){}};this.ratio=1;this.width=1280;this.height=800;}
  setClearColor(){}getContext(){return gl;}setPixelRatio(value){this.ratio=value;}getPixelRatio(){return this.ratio;}
  setSize(width,height){this.width=width;this.height=height;gl.drawingBufferWidth=Math.floor(width*this.ratio);gl.drawingBufferHeight=Math.floor(height*this.ratio);}
- getDrawingBufferSize(v){return v.set(gl.drawingBufferWidth,gl.drawingBufferHeight);}render(){}dispose(){rendererDisposed++;}forceContextLoss(){}
+ getDrawingBufferSize(v){return v.set(gl.drawingBufferWidth,gl.drawingBufferHeight);}render(){renderCalls++;}dispose(){rendererDisposed++;}forceContextLoss(){}
 }
 function artFixture({scene,world}){
- artCreated++;const root=new T.Group(),anchor=new T.Object3D();root.add(anchor);scene.add(root);let latest=null,disposed=false;
- return {anchors:{muzzle:anchor},update(snapshot){latest=snapshot;},beforeRender(){},diagnostics:()=>({fire:{burningBuildingIds:[],artist:{},legacyTransients:{}},housing:null}),
+ artCreated++;const root=new T.Group(),anchor=new T.Object3D(),ground=createGroundField(T);root.add(anchor,ground.root);scene.add(root);let latest=null,disposed=false;
+ return {anchors:{muzzle:anchor},update(snapshot){latest=snapshot;ground.update(snapshot);artUpdates++;},beforeRender(){},diagnostics:()=>({fire:{burningBuildingIds:[],artist:{},legacyTransients:{}},housing:null,ground:ground.counts(),groundChar:ground.diagnostics(),lastSnapshot:latest?{tick:latest.tick,worldTime:latest.clocks.world,playerTime:latest.clocks.player}:null}),
   fireReviewInputs(){const width=Math.ceil(world.width/world.fireCellSize),height=Math.ceil(world.height/world.fireCellSize),data=Array(width*height*4).fill(0);for(const c of latest?.cells||[]){const index=(Math.floor(c.y/world.fireCellSize)*width+Math.floor(c.x/world.fireCellSize))*4;data[index+3]=c.phase==='burning'?c.intensity:0;}return {field:{width,height,cellSize:world.fireCellSize,data}};},
-  dispose(){assert.equal(disposed,false);disposed=true;artDisposed++;root.removeFromParent();}};
+  dispose(){assert.equal(disposed,false);disposed=true;artDisposed++;ground.dispose();root.removeFromParent();}};
 }
 function synthetic(namespace,identifier){const names=Object.keys(namespace);return new vm.SyntheticModule(names,function(){for(const name of names)this.setExport(name,namespace[name]);},{identifier});}
 const source=fs.readFileSync(path.join(project,'workbenches/fire-realism/driver.js'),'utf8');
@@ -71,6 +74,19 @@ try{
   }
  }});
  if(binaryMode){const capture=driver.captureFrame();assert.equal(capture.sourceFingerprints.byMode.reference.prepareExport,'prepareFixture');assert.equal(Object.keys(capture.sourceFingerprints.byMode.reference.runtimeResources).length,1);assert.equal(capture.sourceFingerprints.binaryPreparation.reference.preparation.resourcesConsumed,1);assert.equal(binaryResourceReads,1,'Actual driver metadata must reuse the loader-issued proof without another resource request');assert.equal(binaryPrepares,1);}
+ if(groundMode){
+  let captures=0;const phases=new Set();
+  for(const index of [190,192,193,194]){
+   await driver.seek(index);const before=driver.state(),draws=renderCalls,updates=artUpdates;
+   const again=driver.state();assert.deepEqual(again.diagnostics.groundChar,before.diagnostics.groundChar);assert.equal(renderCalls,draws);assert.equal(artUpdates,updates);
+   const capture=driver.captureFrame();captures++;assert.equal(renderCalls,draws+1);assert.equal(artUpdates,updates);assert.deepEqual(capture.groundChar,before.diagnostics.groundChar);
+   const evidence=capture.groundChar;assert.equal(evidence.status,'available');assert.equal(evidence.cells.length,4);assert.equal(evidence.snapshot.tick,capture.tick);assert.equal(evidence.modelUpdate.tick,capture.tick);assert.equal(evidence.clocksMatch,true);assert.equal(evidence.gpuTextureReadback,false);assert.equal(evidence.uploadProved,false);for(const cell of evidence.cells)phases.add(cell.phase);
+   assert.deepEqual(JSON.parse(root.children[0].textContent).diagnostics.groundChar,evidence);assert.equal(Object.keys(capture.sourceFingerprints.adapterRuntimeFiles).length,21);assert.ok(capture.sourceFingerprints.adapterRuntimeFiles['tools/fire-realism/ground-char-evidence.js']);
+   capture.groundChar.cells[0].expectedFloat32RGBA[2]=999;capture.groundChar.snapshot.tick=999;assert.deepEqual(driver.state().diagnostics.groundChar,before.diagnostics.groundChar);
+  }
+  assert.deepEqual([...phases].sort(),['burning','spent']);await driver.dispose();assert.equal(callbacks.size,0);assert.equal(queries.size,0);assert.equal(artCreated,artDisposed);
+  console.log(JSON.stringify({kind:'actual-driver-ground-char-evidence-api-test',adapterSourceCount:21,burnoutFrames:4,extraStateDraws:0,extraStateUpdates:0,captureDraws:captures,callbacksRemaining:callbacks.size,gpuEvidence:false,retainedHelpers:[]}));
+ }else{
  const first=await driver.measure({modes:['current'],warmupFrames:1,sampleFrames:128,trials:2,poseFrame:45});
  const archived=JSON.stringify(first),rawSamples=first.gpu.trials.reduce((n,t)=>n+t.gpu.length,0),oldBytes=Buffer.byteLength(archived);
  assert.equal(first.status,'complete');assert.equal(rawSamples,512);const groundHash=createHash('sha256').update(fs.readFileSync(path.join(project,'src/art/ground-field.js'),'utf8').replaceAll('\r','')).digest('hex');assert.equal(first.sourceFingerprints.adapterRuntimeFiles['src/art/ground-field.js']?.sha256,groundHash,'The actual driver report must fingerprint the loaded underlay source');assert.ok(oldBytes>100000,'Prior report must be nontrivial');assert.deepEqual(driver.state().results,first);
@@ -91,4 +107,5 @@ try{
  assert.equal(unavailable.status,'unavailable');assert.deepEqual(driver.state().results,unavailable);assert.ok(notifications.slice(before).every(n=>n.phase!=='measuring'));
  assert.equal(queries.size,0);await driver.dispose();assert.equal(rendererDisposed,1);assert.equal(artCreated,artDisposed);assert.equal(callbacks.size,0);
  console.log(JSON.stringify({kind:'api-only-driver-results-regression',binaryMetadata:{enabled:binaryMode,resourceReads:binaryResourceReads,prepareCalls:binaryPrepares},source:'Actual unmodified driver module; API-only renderer/art/RAF fixtures',priorRawSamples:rawSamples,priorReportBytes:oldBytes,invalidRequests:6,collectingNotifications:measuring.length,maxCollectingDomBytes:Math.max(...domBytes),newCancelledRawSamples:freshSamples,newStatus:second.status,archivedReportUnchanged:JSON.stringify(first)===archived,queriesRemaining:queries.size,callbacksRemaining:callbacks.size,artCreated,artDisposed,rendererDisposed,groundFieldFingerprinted:true,gpuEvidence:false,retainedHelpers:[]}));
+ }
 }finally{if(driver&&rendererDisposed===0)await driver.dispose();globalThis.fetch=priorFetch;assert.equal(queries.size,0);assert.equal(callbacks.size,0);}
