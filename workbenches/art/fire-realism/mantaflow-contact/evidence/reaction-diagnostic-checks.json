@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "status": "diagnostic-source-and-scientific-checks-pass",
+  "baselineArtistCommit": "edb3f44262cf2d401c37cdc3c783cf1356452767",
+  "manifest": {
+    "bytes": 43888,
+    "sha256": "101f9dca187fa0e3e76591275a9a413f3800d9e8127af62c08d732f0502df581"
+  },
+  "factoryExport": "createFluidContactReactionDiagnostic",
+  "prepareExport": "prepareFluidContactData",
+  "AllGeneratedGLSLByteIdentical": true,
+  "originalRuntimeAndResourceRecordsUnchanged": 173,
+  "difference": "Unique float smokeSigma=smoke*1.8 assignment becomes0 only in separately selected diagnostic. All numerical material/uniform/geometry/light inputs match in actual sharedThree tiny fixture.",
+  "generatedAtActual29Planes": {
+    "allVertexSha256": "eae6cf07c42792006b85a9f52320589b371c6b768592d28bd041f9e7535f4a35",
+    "allFragmentSha256": "2bae63658590413f531a9471045fc8bd9feb1c59c7bf88372c173410f66d01e7",
+    "reactionFragmentSha256": "339003be54cb16d23e8b99bd7dd9468cef323ada8f4391543bbf933be7492a37"
+  },
+  "checks": [
+    {
+      "command": "node --experimental-vm-modules workbenches/art/fire-realism/mantaflow-contact/check-diagnostic.mjs",
+      "result": "All GLSL exact at3/29/128 measured plane limits;173 old source/resource records unchanged"
+    },
+    {
+      "command": "node --experimental-vm-modules workbenches/art/fire-realism/mantaflow-contact/check-factory.mjs",
+      "result": "Existing ABI/lifecycle and All/diagnostic numerical material/geometry/light input equality pass; tiny synthetic fields only"
+    },
+    {
+      "command": "node workbenches/art/fire-realism/mantaflow-contact/check-slices.mjs ORIGINAL/raw-manifest.json",
+      "result": "41472 exact raw blended values;5019positive retained; source clocks/cachepairs/axes/fixed scales and hashes pass"
+    },
+    {
+      "command": "Python standard XML parse",
+      "result": "All3standalone SVGs valid;6height/channel panels each, explicit raw/proxy labels; visual layout review remains root-owned"
+    },
+    {
+      "command": "npm run check",
+      "result": "187 own scripts;242 static modules;186/186 tests;76 provenance/dependency checks pass"
+    },
+    {
+      "command": "npm run build",
+      "result": "3648 files /255522562bytes"
+    }
+  ],
+  "phaseClocks": [
+    {
+      "nativeFrame": 30,
+      "worldTime": 0.49999999999999994,
+      "observedIgnitionWorldTime": 0.016666666666666666,
+      "sourceAge": 0.4833333333333333,
+      "cacheFrames": [
+        15,
+        16
+      ],
+      "mix": 0.4999999999999982,
+      "gpuUniformMix": 0.5
+    },
+    {
+      "nativeFrame": 60,
+      "worldTime": 1.0000000000000013,
+      "observedIgnitionWorldTime": 0.016666666666666666,
+      "sourceAge": 0.9833333333333346,
+      "cacheFrames": [
+        30,
+        31
+      ],
+      "mix": 0.5000000000000391,
+      "gpuUniformMix": 0.5
+    },
+    {
+      "nativeFrame": 120,
+      "worldTime": 1.9999999999999978,
+      "observedIgnitionWorldTime": 0.016666666666666666,
+      "sourceAge": 1.9833333333333312,
+      "cacheFrames": [
+        60,
+        61
+      ],
+      "mix": 0.49999999999993605,
+      "gpuUniformMix": 0.5
+    }
+  ],
+  "newBake": false,
+  "newHelperOrBrowser": false,
+  "scope": "Source and raw scientific proof only. New diagnostic shader compilation/images/clip remain root-owned; no quality, cost, Rfreeze, optimized work or promotion."
+}

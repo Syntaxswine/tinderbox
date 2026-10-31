@@ -41,6 +41,33 @@ const paused=frame(.25,'burning',[],true);paused.opaqueDepth.viewProjectionMatri
 const wrongSize=frame(.25,'burning',[],true);wrongSize.viewport.pixelRatio=1.75;effect.update(wrongSize);assert.match(effect.diagnostics().opaqueOcclusion,/unavailable/);effect.update(frame(.25,'burning',[],true));assert.match(effect.diagnostics().opaqueOcclusion,/borrowed same-camera/);
 effect.update(frame(birth+3.2,'spent',burnouts));assert.equal(meshes[0].material.uniforms.reactionGain.value,0);assert.equal(effect.root.children.find(x=>x.isPointLight).intensity,0);effect.update(frame(birth+6.2,'spent'));assert(Math.abs(meshes[0].material.uniforms.densityGain.value-.5)<1e-12);effect.update(frame(birth+6.4,'spent'));assert.equal(effect.root.visible,false);assert.equal(effect.diagnostics().geometry.triangles,0);
 effect.reset();assert.throws(()=>effect.update(frame(5,'spent')),/ignition age unavailable/);assert.equal(effect.root.visible,false);effect.reset();const unsupported=frame(.25,'burning',ignitions);unsupported.discharge={active:true};assert.throws(()=>effect.update(unsupported),/Unsupported/);assert.equal(effect.root.visible,false);effect.dispose();effect.dispose();assert([...counts.values()].every(n=>n===1));assert.equal(borrowedDisposed,0);assert.equal(effect.diagnostics().resources.volumeCpuBytes,0);assert.equal(effect.diagnostics().payload.metrics.denseBytes,0);assert(namespace.fluidContactPayloadEvidence().metrics.sharedSparseBytes>0);
+// The diagnostic changes only smokeSigma. Compare every numerical material,
+// geometry/light and presentation input after identical authoritative frames.
+const numericValue=value=>{
+ if(value?.isTexture){const image=value.image;return{kind:value.isData3DTexture?'Data3DTexture':'Texture',width:image?.width,height:image?.height,depth:image?.depth,type:value.type,format:value.format,internalFormat:value.internalFormat,minFilter:value.minFilter,magFilter:value.magFilter,colorSpace:value.colorSpace,data:image?.data?hash(new Uint8Array(image.data.buffer,image.data.byteOffset,image.data.byteLength)):null};}
+ if(value?.toArray)return value.toArray();if(Array.isArray(value))return value.map(numericValue);return value;
+};
+const presentations=[];
+for(const [factory,variant] of [[namespace.createFluidContactReference,'all'],[namespace.createFluidContactReactionDiagnostic,'reaction-only']]){
+ const candidate=factory(T,{quality:'reference'});
+ try{candidate.update(frame(.25,'burning',ignitions));const visible=candidate.root.children.filter(c=>c.isMesh&&c.visible),light=candidate.root.children.find(c=>c.isPointLight);
+  assert.equal(candidate.diagnostics().quality,'reference');assert.equal(candidate.diagnostics().diagnostic.variant,variant);
+  const snapshot=visible.map(mesh=>({position:hash(Buffer.from(mesh.geometry.getAttribute('position').array.buffer)),indices:hash(Buffer.from(mesh.geometry.index.array.buffer)),drawRange:mesh.geometry.drawRange,renderOrder:mesh.renderOrder,flags:[mesh.material.transparent,mesh.material.depthTest,mesh.material.depthWrite,mesh.material.side,mesh.material.blending,mesh.material.premultipliedAlpha,mesh.material.toneMapped],uniforms:Object.fromEntries(Object.entries(mesh.material.uniforms).map(([key,u])=>[key,numericValue(u.value)])),vertexShader:mesh.material.vertexShader,fragmentShader:mesh.material.fragmentShader}));
+  presentations.push({variant,meshes:snapshot,light:{color:light.color.toArray(),position:light.position.toArray(),intensity:light.intensity,distance:light.distance,decay:light.decay}});
+  candidate.update(frame(birth+3.2,'spent',burnouts));assert.equal(candidate.root.children.find(c=>c.isPointLight).intensity,0);assert.equal(visible[0].material.uniforms.reactionGain.value,0);
+ }finally{candidate.dispose();}
+ assert.equal(namespace.fluidContactPayloadEvidence().metrics.denseBytes,0);
+}
+const [allInput,reactionInput]=presentations;
+for(let i=0;i<allInput.meshes.length;i++){
+ const allShader=allInput.meshes[i].fragmentShader,reactionShader=reactionInput.meshes[i].fragmentShader;
+ assert.equal(allShader.split('float smokeSigma=smoke*1.8;').length,2);
+ assert.equal(reactionShader,allShader.replace('float smokeSigma=smoke*1.8;','float smokeSigma=0.;'));
+ delete allInput.meshes[i].fragmentShader;delete reactionInput.meshes[i].fragmentShader;
+}
+delete allInput.variant;delete reactionInput.variant;assert.equal(JSON.stringify(allInput),JSON.stringify(reactionInput),'Diagnostic changed a numerical material/geometry/light input');
+assert.throws(()=>namespace.createFluidContactReactionDiagnostic(T,{quality:'optimized'}),/no optimized/);
+
 // Execute the actual frozen existing bridge's mode predicate with only its
 // unrelated painted/depth dependencies stubbed. This catches consumer ABI drift.
 const bridgeSource=execFileSync('git',['show','f79ceaa0f4bb045314c144472b083a95f1c492ad:src/art/fire-review-effect.js'],{encoding:'utf8'}),bridgeModule=new vm.SourceTextModule(bridgeSource,{context,identifier:'actual-existing-review-bridge'});
@@ -52,4 +79,4 @@ await bridgeModule.link(spec=>{
  throw Error('Unexpected bridge dependency:'+spec);
 });await bridgeModule.evaluate();
 const bridge=bridgeModule.namespace.createFireReviewEffect(T,{},fieldUniforms,{artistFactory:namespace.createFluidContactReference,initialMode:'reference'});assert.equal(bridge.diagnostics().artist.quality,'reference');bridge.dispose();rollback();
-console.log('PASS: actual SharedThree + tiny synthetic fields:2RGBAuploads/useful prismdraw ranges/native units/depth positive+negative/pauseddepth refresh/sourceburnout+finitefade/reset/refusal/disposal. NO actual193asset bootstrap, GPU shader compilation or visual acceptance.');
+console.log('PASS: actual SharedThree + tiny synthetic fields:2RGBAuploads/useful prismdraw ranges/native units/depth positive+negative/pauseddepth refresh/sourceburnout+finitefade/reset/refusal/disposal; diagnostic-only smoke assignment and all numerical inputs match. NO actual193asset bootstrap, GPU shader compilation or visual acceptance.');

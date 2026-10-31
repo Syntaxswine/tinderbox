@@ -1,7 +1,7 @@
 {
   "version": 1,
   "id": "tinderbox-fluid-contact-reference-prototype",
-  "artistVersion": "0.11.0-finite-fluid-contact-prototype",
+  "artistVersion": "0.11.1-frozen-field-reaction-diagnostic",
   "status": "unaccepted-finite-source-native-prototype",
   "referenceFrozen": false,
   "optimizedAvailable": false,
@@ -12,6 +12,11 @@
       "path": "assets/art/fire-realism/fluid-contact/codec.js",
       "bytes": 2580,
       "sha256": "5edc3dfdf888a77195d4ca8f7cc767d0ed8ee9dc7dbad51c0c96789e4268c9c6"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact/diagnostic-shaders.js",
+      "bytes": 663,
+      "sha256": "6239dadec5e6b3ccb7b95994cb3730c1a07d560a309369b758e31f4571ca7380"
     },
     {
       "path": "assets/art/fire-realism/fluid-contact/geometry-data.js",
@@ -260,8 +265,8 @@
     },
     {
       "path": "assets/art/fire-realism/fluid-contact/index.js",
-      "bytes": 12024,
-      "sha256": "e98cfd9cfcb79eba7ba9041b1272bdd85d5aebde81993ed13a04e76ac6032925"
+      "bytes": 12682,
+      "sha256": "0a888e03d5f22642e8e2b8b99e07d589f6860451e544b479623c59fabe81b1f7"
     },
     {
       "path": "assets/art/fire-realism/fluid-contact/metadata.js",
@@ -1121,12 +1126,19 @@
   "geometry": "Useful scalar-derived convex prisms in disjoint half-open height bands; no VolumeToMesh shift; each camera ray/band integrates once. Supported initial cameraabovevolume.",
   "sourcePhotosUsedAtRuntime": false,
   "limits": {
-    "esmBytes": 15560554,
+    "esmBytes": 15561875,
     "compressedBytes": 76464872,
     "sparseBytes": 88072548,
     "resources": 116,
     "rgbaCpuBytes": 7077888,
     "rgbaGpuBytes": 7077888
   },
-  "reviewLimitations": "No actualnewassetboot/import/shader/nativeimages/motion/quality/cost approval yet; architect receipt is absent."
+  "reviewLimitations": "Original All failed morphology (independent pilot4/10). This distinct reaction-only export is an unrendered causal diagnostic; no R freeze, quality/cost acceptance or production change.",
+  "diagnostic": {
+    "factoryExport": "createFluidContactReactionDiagnostic",
+    "baselineArtistCommit": "edb3f44262cf2d401c37cdc3c783cf1356452767",
+    "difference": "Only CFD smokeSigma changes from smoke*1.8 to0; All GLSL generator remains raw-byte identical. All source/data/geometry/clocks/lights/output unchanged.",
+    "status": "causal diagnostic only; not optimized or accepted",
+    "priorDataProof": "The exact original193/579 dataset passed actual native-browser twoRGBA hashing at edb3f44. This rendering-source child has no new visual approval."
+  }
 }
