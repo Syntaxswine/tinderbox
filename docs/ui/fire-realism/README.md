@@ -1,5 +1,7 @@
 # TB-036-H: development fire review interface
 
+[Explicit live and paused camera review](camera-review.md) records the separate recording routes, one-time exact camera ledger resource and bounded restoration lifecycle.
+
 [Live versus historical source-summary correction](source-summary.md) records the current presentation schema, portrait-to-desktop regressions and a separately bounded static readability critique.
 
 This is the UI correction candidate for milestone 11. It binds the real `createFireReviewDriver` from runtime delivery `dafdd44fd9177ca79ed6d9a874966e242d0cfdf7`. It does not approve detailed fire, freeze its reference closure, establish the GPU target, or publish the game.
