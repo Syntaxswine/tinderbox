@@ -61,6 +61,34 @@ class PolicyTests(unittest.TestCase):
         attempt['status']='resolved';self.assertEqual(unresolved_registration_charge([attempt]),budget['sharedMetadataReserveBytes'])
         with self.assertRaises(ValueError):registration_reserve(spec,identity,[100],'root')
         with self.assertRaises(ValueError):registration_reserve(spec,identity,[100,11*1024*1024],'root')
+    def test_exact_owned_claim_is_charged_and_prior_claim_is_not_adopted(self):
+        import tempfile
+        from supervisor import create_owned_claim,owned_claim_bytes
+        with tempfile.TemporaryDirectory(prefix='surface-claim-check-')as folder:
+            root=Path(folder);prior=root/'one-run-prior.claim.json';prior.write_bytes(b'prior unowned claim'*100)
+            claim_path=root/'one-run-current.claim.json';claim=create_owned_claim(claim_path,{'owner':OWNER,'nonce':'test_only'})
+            self.assertEqual(claim['path'],str(claim_path.resolve()));self.assertEqual(claim['bytes'],claim_path.stat().st_size)
+            self.assertEqual(claim['sha256'],hashlib.sha256(claim_path.read_bytes()).hexdigest())
+            # The exact owned file counts before any registration attempt exists;
+            # neither the neighbouring prior file nor an unknown path is charged.
+            self.assertEqual(owned_claim_bytes(None),0);self.assertEqual(owned_claim_bytes(claim),claim_path.stat().st_size)
+            self.assertNotEqual(owned_claim_bytes(claim),claim_path.stat().st_size+prior.stat().st_size)
+            before=prior.read_bytes();not_owned=None
+            with self.assertRaises(FileExistsError):not_owned=create_owned_claim(prior,{'owner':OWNER})
+            self.assertIsNone(not_owned);self.assertEqual(prior.read_bytes(),before)
+            claim_path.write_bytes(claim_path.read_bytes()+b'changed')
+            with self.assertRaises(RuntimeError):owned_claim_bytes(claim)
+            self.assertTrue(claim_path.exists());self.assertTrue(prior.exists())
+        source=(HERE/'supervisor.py').read_text();tree=ast.parse(source)
+        controller=next(n for n in tree.body if isinstance(n,ast.ClassDef)and n.name=='Controller')
+        methods={n.name:n for n in controller.body if isinstance(n,ast.FunctionDef)}
+        initialize=ast.get_source_segment(source,methods['initialize'])
+        self.assertLess(initialize.index('self.owned_claim=create_owned_claim('),initialize.index('self.guard()'))
+        guard=ast.get_source_segment(source,methods['guard'])
+        self.assertIn('owned_claim_bytes(self.owned_claim)',guard)
+        register=ast.get_source_segment(source,methods['register'])
+        self.assertIn("self.owned_claim['path']",register);self.assertIn("self.owned_claim['sha256']",register)
+        self.assertIn("'oneRunClaim':self.owned_claim",initialize)
     def samples(self):
         return [{'frame':i+1,'age':i/30,'min':0.,'max':1. if 0<i/30<3.1 else 0.,'positive':20 if 0<i/30<3.1 else 0,'nonzero':20 if 0<i/30<3.1 else 0,'integral':.1 if 0<i/30<3.1 else 0.,'belowGroundPositive':0,'boundaryPositive':0}for i in range(193)]
     def test_terminal_and_final_persistence(self):

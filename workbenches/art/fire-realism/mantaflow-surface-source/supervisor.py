@@ -21,6 +21,19 @@ def save(path,value):
     os.replace(temp,path)
 def once(path,value):
     with Path(path).open('x',encoding='utf-8',newline='\n')as f:json.dump(value,f,indent=2);f.write('\n');f.flush();os.fsync(f.fileno())
+def create_owned_claim(path,value):
+    # Exclusive creation must succeed before any ownership record is retained.
+    # FileExistsError never adopts, rewrites or removes a prior run's claim.
+    path=Path(path).absolute();once(path,value)
+    return {'path':str(path),'bytes':path.stat().st_size,'sha256':sha(path)}
+
+def owned_claim_bytes(claim):
+    if claim is None:return 0
+    path=Path(claim['path']);st=path.lstat()
+    if path.is_symlink()or getattr(st,'st_file_attributes',0)&0x400:raise RuntimeError('Owned claim became a reparse point')
+    if st.st_size!=claim['bytes']or sha(path)!=claim['sha256']:raise RuntimeError('Owned claim changed; preserve and stop')
+    return st.st_size
+
 def utc(epoch):return datetime.fromtimestamp(epoch,timezone.utc).isoformat().replace('+00:00','Z')
 def safe_tree_bytes(folder):
     total=0
@@ -38,7 +51,7 @@ def read_atomic_json(path):
 
 class Controller:
     def __init__(self,args):
-        self.a=args;self.s=json.loads((HERE/'settings.json').read_text());validate_settings(self.s);self.out=Path(args.output).resolve();self.job=None;self.child=None;self.streams=[];self.run=None;self.registration_roots=[];self.registry_entries=[];self.registration_attempts=[];self.ephemeral=[];self.peaks={'sumPrivateBytes':0,'jobCommittedBytes':0,'scratchBytes':0};self.phase='starting';self.closed=False;self.owns_output=False;self.base_env=os.environ.copy()
+        self.a=args;self.s=json.loads((HERE/'settings.json').read_text());validate_settings(self.s);self.out=Path(args.output).resolve();self.job=None;self.child=None;self.streams=[];self.run=None;self.registration_roots=[];self.registry_entries=[];self.registration_attempts=[];self.ephemeral=[];self.peaks={'sumPrivateBytes':0,'jobCommittedBytes':0,'scratchBytes':0};self.phase='starting';self.closed=False;self.owns_output=False;self.owned_claim=None;self.base_env=os.environ.copy()
         if not self.out.is_relative_to(QA.resolve())or self.out==QA.resolve():raise RuntimeError('Output escaped assigned scratch')
         if any(p.exists()and(p.is_symlink()or getattr(p.stat(),'st_file_attributes',0)&0x400)for p in [QA,*self.out.parents]if p.is_relative_to(ROOT)):raise RuntimeError('Scratch ancestor is a reparse point')
         self.pins={name:sha(HERE/name)for name in CORE_FILES};self.permit,self.permit_sha,_=read_atomic_json(args.prepare_permit)
@@ -57,10 +70,10 @@ class Controller:
         QA.mkdir(parents=True,exist_ok=True);self.out.mkdir();self.owns_output=True
         temp=self.out/'temp';temp.mkdir();self.base_env.update({'TEMP':str(temp),'TMP':str(temp),'PYTHONDONTWRITEBYTECODE':'1'})
         # Write-once per reviewed commit: another output cannot reset this run.
-        once(QA/('one-run-'+self.candidate+'.claim.json'),{'owner':OWNER,'output':str(self.out),'preparePermitSha256':self.permit_sha,'nonce':self.permit['nonce']})
+        self.owned_claim=create_owned_claim(QA/('one-run-'+self.candidate+'.claim.json'),{'owner':OWNER,'output':str(self.out),'preparePermitSha256':self.permit_sha,'nonce':self.permit['nonce']})
         self.job=OwnedJob(self.s['limits']['processCommittedBytes'],self.s['limits']['aggregateCommittedBytes'])
         now=time.time();start=(self.job.me['creationFileTime']-116444736000000000)/10000000;tick=self.job.tick_ms()-max(0,now-start)*1000
-        self.run={'version':1,'owner':OWNER,'candidateCommit':self.candidate,'proposalCommit':self.s['proposalCommit'],'sourcePins':self.pins,**new_deadline(start,tick),'state':'validating-controller','prepareNonce':self.permit['nonce'],'preparePermitSha256':self.permit_sha,'authorizationPaths':self.auth_paths,'bakeClaimed':False,'rawExportComplete':False,'validForIntegration':False,'registrationRoots':[],'supervisorIdentity':self.job.me}
+        self.run={'version':1,'owner':OWNER,'candidateCommit':self.candidate,'proposalCommit':self.s['proposalCommit'],'sourcePins':self.pins,**new_deadline(start,tick),'state':'validating-controller','prepareNonce':self.permit['nonce'],'preparePermitSha256':self.permit_sha,'authorizationPaths':self.auth_paths,'bakeClaimed':False,'rawExportComplete':False,'validForIntegration':False,'registrationRoots':[],'supervisorIdentity':self.job.me,'oneRunClaim':self.owned_claim}
         save(self.out/'run.json',self.run);save(self.out/'controller.json',{'state':self.phase,'identity':self.job.me,'run':self.run,'childrenVerifiedExited':False,'controllerExitPending':True})
         source_copy=self.out/'source-snapshot';source_copy.mkdir()
         for name in CORE_FILES:shutil.copyfile(HERE/name,source_copy/name)
@@ -69,14 +82,14 @@ class Controller:
         self.job.join_self();self.guard()
     def persist(self,state=None):
         if state:self.phase=state
-        save(self.out/'controller.json',{'state':self.phase,'identity':self.job.me,'deadlineEpoch':self.run['deadlineEpoch'],'deadlineTickMs':self.run['deadlineTickMs'],'peaks':self.peaks,'ephemeralCommands':self.ephemeral,'childrenVerifiedExited':self.child is None or self.child.poll()is not None,'controllerExitPending':True,'allHelpersRetired':False})
+        save(self.out/'controller.json',{'state':self.phase,'identity':self.job.me,'deadlineEpoch':self.run['deadlineEpoch'],'deadlineTickMs':self.run['deadlineTickMs'],'peaks':self.peaks,'oneRunClaim':self.owned_claim,'ephemeralCommands':self.ephemeral,'childrenVerifiedExited':self.child is None or self.child.poll()is not None,'controllerExitPending':True,'allHelpersRetired':False})
     def guard(self):
         if remaining_seconds(self.run,time.time(),self.job.tick_ms())<=0:raise RuntimeError('Shared 900-second UTC/uptime authoring deadline')
         if(self.out/'supervisor.stop').exists():raise RuntimeError('Private graceful STOP requested')
         check_bake_permit_presence(self.bake_permit_path.exists(),self.run['state'],self.run.get('bakeClaimed',False))
         sample=self.job.sample();self.peaks['sumPrivateBytes']=max(self.peaks['sumPrivateBytes'],sample['sumPrivateBytes']);self.peaks['jobCommittedBytes']=max(self.peaks['jobCommittedBytes'],sample['job']['peakJobCommittedBytes'])
         if sample['sumPrivateBytes']>=self.s['limits']['aggregateCommittedBytes']or any(m['privateBytes']>=self.s['limits']['processCommittedBytes']for m in sample['members']):raise RuntimeError('Per-process/aggregate private committed-memory guard')
-        scratch=safe_tree_bytes(self.out)+sum(safe_tree_bytes(Path(p))for p in self.registration_roots)+safe_tree_bytes(Path(self.auth_paths['prepare']).parent)
+        scratch=owned_claim_bytes(self.owned_claim)+safe_tree_bytes(self.out)+sum(safe_tree_bytes(Path(p))for p in self.registration_roots)+safe_tree_bytes(Path(self.auth_paths['prepare']).parent)
         # Own serialized registry metadata is additionally charged; shared registry
         # unrelated entries are not treated as this task's scratch.
         scratch+=sum(Path(p).stat().st_size for p in self.registry_entries)+unresolved_registration_charge(self.registration_attempts);self.peaks['scratchBytes']=max(self.peaks['scratchBytes'],scratch)
@@ -124,8 +137,8 @@ class Controller:
                 count+=1;total+=record['bytes']
             return {'originalSceneSha256':o['blendSha256'],'cacheInventorySha256':o['cacheInventorySha256'],'unchangedOriginalCacheFiles':count,'unchangedOriginalCacheBytes':total,'readOnly':True}
     def register(self,pid,label,args,exe):
-        stop=self.out/'supervisor.stop';sources=[str(HERE/name)for name in CORE_FILES]+[str(HERE/'README.md'),str(ROOT/'package.json'),str(ROOT/'docs/source-baseline.json'),str(Path(self.a.tool_record).resolve())]
-        spec={'pid':pid,'kind':'task_owned','purpose':'One finite surface-source authoring: '+label,'ownershipEvidence':'Explicit root phase permit, durable exact identity/source/deadline and newly owned self-Job; never app-managed.','owners':[OWNER],'state':'stateless','safeToTerminateReason':'Only fresh disposable scene/cache/exports are written; originals are hash-checked read-only. Partial outputs/logs are preserved invalid. No user document or game visit is opened.','sourceFiles':sources,'helperDirectory':str(self.out),'ports':[],'expiresAt':utc(self.run['deadlineEpoch']),'stop':{'method':'stop_file','path':str(stop)},'restart':{'cwd':str(ROOT),'executable':str(exe),'args':args,'dependencies':['Windows x64 Python standard library','Pinned verified portable Blender4.5.15; no packages/addons'],'inputs':[str(ROOT/self.s['original']['blend']),str(ROOT/self.s['original']['cacheInventory']),str(ROOT/self.s['original']['gridSummary']),str(Path(self.a.tool_record).resolve()),*self.auth_paths.values(),str(self.out/'run.json')],'outputs':[str(self.out)],'pendingWork':'Never automatically restart, retry, repair, rebake, reuse a consumed permit or reset the deadline. All restarts require a new architect decision.','secretReferences':[]}}
+        stop=self.out/'supervisor.stop';sources=[str(HERE/name)for name in CORE_FILES]+[str(HERE/'README.md'),str(ROOT/'package.json'),str(ROOT/'docs/source-baseline.json'),str(Path(self.a.tool_record).resolve()),self.owned_claim['path']]
+        spec={'pid':pid,'kind':'task_owned','purpose':'One finite surface-source authoring: '+label,'ownershipEvidence':'Explicit root phase permit, durable exact identity/source/deadline and newly owned self-Job; never app-managed.','owners':[OWNER],'state':'stateless','safeToTerminateReason':'Only fresh disposable scene/cache/exports are written; originals are hash-checked read-only. Partial outputs/logs are preserved invalid. No user document or game visit is opened.','sourceFiles':sources,'helperDirectory':str(self.out),'ports':[],'expiresAt':utc(self.run['deadlineEpoch']),'stop':{'method':'stop_file','path':str(stop)},'restart':{'cwd':str(ROOT),'executable':str(exe),'args':args,'dependencies':['Windows x64 Python standard library','Pinned verified portable Blender4.5.15; no packages/addons'],'inputs':[str(ROOT/self.s['original']['blend']),str(ROOT/self.s['original']['cacheInventory']),str(ROOT/self.s['original']['gridSummary']),str(Path(self.a.tool_record).resolve()),*self.auth_paths.values(),str(self.out/'run.json'),self.owned_claim['path']],'outputs':[str(self.out)],'pendingWork':'Never automatically restart, retry, repair, rebake, reuse a consumed permit or reset the deadline. All restarts require a new architect decision. Preserve the one-run claim at '+self.owned_claim['path']+' with SHA-256 '+self.owned_claim['sha256']+'.','secretReferences':[]}}
         if sha(CLEANUP)!=self.s['lifecycleUtilitySha256']:raise RuntimeError('Lifecycle utility changed; reserve model requires reviewed exact code')
         specfile=self.out/(label+'-registration-spec.json');save(specfile,spec)
         budget=registration_reserve(spec,self.job.known[pid],[Path(p).stat().st_size for p in sources],CLEANUP.parent)
@@ -198,7 +211,7 @@ class Controller:
         try:
             if error and self.owns_output:
                 if self.run:self.run.update({'state':'stopped-or-failed','rawExportComplete':False,'validForIntegration':False,'error':str(error)});save(self.out/'run.json',self.run)
-                save(self.out/'controller-failure.json',{'error':str(error),'traceback':traceback.format_exc(),'controllerExitPending':True,'peaks':self.peaks})
+                save(self.out/'controller-failure.json',{'error':str(error),'traceback':traceback.format_exc(),'oneRunClaim':self.owned_claim,'controllerExitPending':True,'peaks':self.peaks})
             if self.job and self.job.joined:
                 if self.child is not None:self.terminate_child(self.child,{})
                 # Any surviving member is inspected/revalidated individually. No
@@ -212,7 +225,7 @@ class Controller:
                 end=time.monotonic()+3
                 while sorted(self.job.members())!=[os.getpid()]and time.monotonic()<end:time.sleep(.05)
                 for stream in self.streams:stream.flush();os.fsync(stream.fileno());stream.close()
-                self.streams=[];self.persist('finishing-receipts');save(self.out/'controller-final.json',{'identity':self.job.me,'runState':self.run['state'],'peaks':self.peaks,'childLifetimes':self.ephemeral,'controllerExitPending':True,'allHelpersRetired':False,'recordsFlushedBeforeDisarm':True})
+                self.streams=[];self.persist('finishing-receipts');save(self.out/'controller-final.json',{'identity':self.job.me,'runState':self.run['state'],'peaks':self.peaks,'oneRunClaim':self.owned_claim,'childLifetimes':self.ephemeral,'controllerExitPending':True,'allHelpersRetired':False,'recordsFlushedBeforeDisarm':True})
                 retirement=self.job.finish();save(self.out/'job-normal-close.json',retirement)
         finally:
             for stream in self.streams:
