@@ -30,7 +30,7 @@ export function createNativeFacadeSource(T,{model,instance}){
   if(!ground||!house){reject('missing-native-level-or-plan');return {snapshot:()=>({candidates:[],audit:[],diagnostics:{available:false,reason:'Missing native above-grade level/plan',setupMs:performance.now()-started,reasons:{...setupReasons}}})};}
   const floor=ground.index===-1?house.basementFloor:house.floors?.[ground.index];
   const edges=new Map((floor?housePlanEdges(house,floor,{partyWalls:false}):[]).map(edge=>[edge.id,edge]));
-  root.updateMatrixWorld(true);
+  root.updateWorldMatrix(true,true);
   root.traverse(mesh=>{
     if(!mesh.isMesh)return;
     const role=mesh.userData?.assetRole;
@@ -70,7 +70,7 @@ export function createNativeFacadeSource(T,{model,instance}){
   const setupMs=performance.now()-started;let snapshots=0,totalSnapshotMs=0;
   return {snapshot({joinedSides={}}={}){
     const began=performance.now(),reasons={...setupReasons},candidates=[],audits=new Map(),seen=new Set();snapshots++;
-    const count=reason=>{reasons[reason]=(reasons[reason]||0)+1;};root.updateMatrixWorld(true);
+    const count=reason=>{reasons[reason]=(reasons[reason]||0)+1;};root.updateWorldMatrix(true,true);
     const rootInverse=root.matrixWorld.clone().invert();
     for(const record of records){
       const {mesh,wall,level,geometry,point,normal,triangle,partId}=record;
@@ -80,15 +80,21 @@ export function createNativeFacadeSource(T,{model,instance}){
       if(mesh.geometry!==geometry){count('changed-source-geometry');continue;}
       const material=[mesh.material].flat()[record.materialIndex];
       if(!material||material.visible===false||!(material.opacity>0)||material.clippingPlanes?.length||!['Painted exterior','Brick basement'].includes(material.name)){count('hidden-or-unproved-source-material');continue;}
+      // The native level Y is local to its rendered level hierarchy, not world Y.
+      // Keep that provenance while testing the actual transformed ground plane.
+      const groundPoint=new T.Vector3(0,record.ground.y,0).applyMatrix4(level.matrixWorld),groundNormal=new T.Vector3(0,1,0).applyMatrix3(new T.Matrix3().getNormalMatrix(level.matrixWorld)).normalize();
+      const worldUp=new T.Vector3(0,1,0).transformDirection(mesh.matrixWorld);
+      if(![...mesh.matrixWorld.elements,...level.matrixWorld.elements].every(finite)||mesh.matrixWorld.determinant()<=1e-10||level.matrixWorld.determinant()<=1e-10||Math.abs(worldUp.x)>EPS||Math.abs(worldUp.z)>EPS||Math.abs(worldUp.y-1)>EPS||Math.abs(groundNormal.x)>EPS||Math.abs(groundNormal.z)>EPS||Math.abs(groundNormal.y-1)>EPS){count('unsupported-world-vertical-transform');continue;}
       const worldPoint=point.clone().applyMatrix4(mesh.matrixWorld),worldNormal=normal.clone().applyMatrix3(new T.Matrix3().getNormalMatrix(mesh.matrixWorld)).normalize();
       const localPoint=worldPoint.clone().applyMatrix4(rootInverse),outward=worldPoint.clone().addScaledVector(worldNormal,.25).applyMatrix4(rootInverse),inward=worldPoint.clone().addScaledVector(worldNormal,-.25).applyMatrix4(rootInverse);
-      if(Math.abs(worldNormal.y)>.001||Math.abs(worldPoint.y-record.ground.y)>EPS||floor.rooms.some(room=>pointInRoom([outward.x,outward.z],room.polygon))||!floor.rooms.some(room=>pointInRoom([inward.x,inward.z],room.polygon))){count('not-proven-ground-exterior-face');continue;}
+      if(Math.abs(worldNormal.y)>.001||Math.abs(worldPoint.clone().sub(groundPoint).dot(groundNormal))>EPS||floor.rooms.some(room=>pointInRoom([outward.x,outward.z],room.polygon))||!floor.rooms.some(room=>pointInRoom([inward.x,inward.z],room.polygon))){count('not-proven-ground-exterior-face');continue;}
       const id=partId+'/face:'+triangle.faceIndex;if(seen.has(id)){count('duplicate-source-part-id');continue;}seen.add(id);
       const worldVertices=triangle.points.map(p=>p.clone().applyMatrix4(mesh.matrixWorld));
       const localTangent=new T.Vector3().crossVectors(new T.Vector3(0,1,0),normal).normalize();
       const worldWidth=point.clone().addScaledVector(localTangent,record.width).applyMatrix4(mesh.matrixWorld).distanceTo(worldPoint),worldHeight=point.clone().add(new T.Vector3(0,record.height,0)).applyMatrix4(mesh.matrixWorld).distanceTo(worldPoint);
+      if(![worldWidth,worldHeight].every(n=>finite(n)&&n>EPS)){count('unsupported-world-vertical-transform');continue;}
       const site={id,kind:'facade',position:worldPoint.toArray(),normal:worldNormal.toArray(),baseElevation:worldPoint.y,span:{width:worldWidth,height:worldHeight},sourcePartId:partId,sourceFaceIndex:triangle.faceIndex};
-      candidates.push(site);audits.set(id,{id,sourcePartId:partId,sourceFaceIndex:triangle.faceIndex,sourceLevelIndex:ground.index,sourceLevelY:ground.y,sourceEdgeId:record.edge.id,sourceRoomIds:[...record.edge.rooms],sourceRole:mesh.userData.assetRole,sourceLocalMatrix:mesh.matrix.toArray(),sourceNativeDimensions:[...mesh.userData.nativeDimensions],sourceMaterialName:material.name,sourceMaterialIndex:record.materialIndex,sourceFaceVertices:worldVertices.map(p=>p.toArray()),sourceLocalPoint:localPoint.toArray(),sourcePlaneNormal:worldNormal.toArray()});
+      candidates.push(site);audits.set(id,{id,sourcePartId:partId,sourceFaceIndex:triangle.faceIndex,sourceLevelIndex:ground.index,sourceLevelY:ground.y,sourceLevelWorldPoint:groundPoint.toArray(),sourceLevelWorldNormal:groundNormal.toArray(),sourceEdgeId:record.edge.id,sourceRoomIds:[...record.edge.rooms],sourceRole:mesh.userData.assetRole,sourceLocalMatrix:mesh.matrix.toArray(),sourceNativeDimensions:[...mesh.userData.nativeDimensions],sourceMaterialName:material.name,sourceMaterialIndex:record.materialIndex,sourceFaceVertices:worldVertices.map(p=>p.toArray()),sourceLocalPoint:localPoint.toArray(),sourcePlaneNormal:worldNormal.toArray()});
     }
     const selected=distributed(candidates),elapsed=performance.now()-began;totalSnapshotMs+=elapsed;
     return {candidates:selected,audit:selected.map(site=>audits.get(site.id)),diagnostics:{available:selected.length>0,reason:selected.length?null:'No eligible visible ground-floor exterior native wall face',sourceLevelIndex:ground.index,sourceLevelY:ground.y,rawCandidates:candidates.length,selectedCandidates:selected.length,cap:MAX_SITES,reasons,setupMs,lastSnapshotMs:elapsed,totalSnapshotMs,snapshots,method:'Source wall ownership + actual exterior material/triangle + ground level + plan inside/outside proof; camera independent'}};

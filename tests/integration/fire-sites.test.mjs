@@ -17,7 +17,7 @@ function verify(root,source){
     assert.ok(triangle.containsPoint(point));near(new T.Plane().setFromCoplanarPoints(...vertices).distanceToPoint(point),0);near(normal.dot(new T.Vector3(...site.normal)),1);near(new T.Vector3(...site.normal).length(),1);
     assert.equal(audit.sourceRoomIds.length,1);assert.ok(['Native wall unit','Nautilus cut-end wall panel'].includes(audit.sourceRole));assert.ok(['Painted exterior','Brick basement'].includes(audit.sourceMaterialName));
     const group=geometry.groups.find(g=>start>=g.start&&start<g.start+g.count);assert.equal(group.materialIndex,audit.sourceMaterialIndex);assert.equal([mesh.material].flat()[group.materialIndex].name,audit.sourceMaterialName);
-    assert.ok(site.span.width>0&&site.span.height>0);near(site.position[1],site.baseElevation);near(site.baseElevation,audit.sourceLevelY);assert.ok(site.baseElevation>=-1e-5);
+    assert.ok(site.span.width>0&&site.span.height>0);near(site.position[1],site.baseElevation);near(site.baseElevation,audit.sourceLevelWorldPoint[1]);near(new T.Vector3(...audit.sourceLevelWorldNormal).length(),1);near(new T.Vector3(...site.position).sub(new T.Vector3(...audit.sourceLevelWorldPoint)).dot(new T.Vector3(...audit.sourceLevelWorldNormal)),0);
   }
 }
 test('actual selected house meshes provide audited native exterior triangle sites through all quarter turns without modifying assets',()=>{
@@ -34,6 +34,30 @@ test('actual selected house meshes provide audited native exterior triangle site
     }
   }
   assert.equal(JSON.stringify(catalogue),before);
+});
+test('actual native facade world bases follow rigid world/ancestor Y translation and preserve local source identity',()=>{
+  for(const prefabId of ['ashland-worker','hopkins-4-12']){
+    const model=createGrossHouse(T,library,prefabId,{furnished:false}),parent=new T.Group();parent.add(model.root);
+    const source=createNativeFacadeSource(T,{model,instance:{id:'translated-native'}});
+    try{const base=source.snapshot();assert.ok(base.candidates.length>0);const byId=new Map(base.candidates.map(site=>[site.id,site]));
+      for(let quarterTurns=0;quarterTurns<4;quarterTurns++){
+        parent.position.set(2,.4,3);model.root.position.set(0,.25,0);model.root.rotation.y=quarterTurns*Math.PI/2;
+        const translated=source.snapshot();assert.equal(translated.candidates.length,base.candidates.length,'Rigid Y translation must preserve eligible source faces');
+        assert.deepEqual(translated.candidates.map(site=>site.id),base.candidates.map(site=>site.id));
+        for(const site of translated.candidates){const old=byId.get(site.id),q=new T.Vector3(...old.position).applyMatrix4(model.root.matrixWorld);site.position.forEach((n,i)=>near(n,q.toArray()[i]));near(site.baseElevation,old.baseElevation+.65);near(site.span.width,old.span.width);near(site.span.height,old.span.height);}
+        verify(model.root,translated);
+      }
+      parent.position.set(0,0,0);model.root.position.set(0,0,0);model.root.rotation.y=0;parent.updateMatrixWorld(true);assert.deepEqual(source.snapshot().candidates,base.candidates);
+    }finally{model.dispose();parent.clear();}
+  }
+});
+test('tilted or degenerate native source transforms reject explicitly instead of inventing a vertical ground site',()=>{
+  const model=createGrossHouse(T,library,'ashland-worker',{furnished:false}),source=createNativeFacadeSource(T,{model,instance:{id:'unsupported-transform'}});
+  try{const base=source.snapshot();assert.ok(base.candidates.length>0);
+    for(const axis of ['x','z']){model.root.rotation[axis]=.05;const tilted=source.snapshot();assert.equal(tilted.candidates.length,0);assert.ok(tilted.diagnostics.reasons['unsupported-world-vertical-transform']>0);model.root.rotation[axis]=0;}
+    model.root.scale.y=0;const degenerate=source.snapshot();assert.equal(degenerate.candidates.length,0);assert.ok(degenerate.diagnostics.reasons['unsupported-world-vertical-transform']>0);model.root.scale.y=1;
+    assert.deepEqual(source.snapshot().candidates,base.candidates);
+  }finally{model.dispose();}
 });
 test('bounded distribution covers real native wall normals and stays stable under reordered mesh traversal',()=>{
   const plan={id:'wide-native-test',width:40,depth:40,plinth:.48,style:{color:'#aabbcc',trim:'#eeeeee',accent:'#333333',wall:'clapboard',roof:'cedar',form:'gable'},floors:[{label:'Ground diagnostic',rooms:[{id:'one',type:'service',polygon:[[0,0],[40,0],[40,40],[0,40]]}],connections:[],windows:[]}]};
