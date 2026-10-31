@@ -238,10 +238,11 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     const result=state.recording?.lastResult,clip=state.recording?.clip,signature=JSON.stringify([clip?.id??null,result]);
     if(signature!==lastMotionSignature){
       clearMotionEvidence();lastMotionSignature=signature;const target=find('[data-motion-evidence]');
-      if(clip&&result?.status==='complete'&&validMotionHref(clip)){
+      const cameraDiagnostic=result?.kind==='actual-canvas-camera-review'&&result.status==='inconclusive'&&result.cameraSweep?.status==='cancelled'&&result.cameraMetadata?.status==='available';
+      if(clip&&(result?.status==='complete'||cameraDiagnostic)&&validMotionHref(clip)){
         mediaAbort=new AbortController();const link=doc.createElement('a'),video=doc.createElement('video'),caption=doc.createElement('p');link.dataset.motionSave='';link.textContent='Save video';link.download=clip.name;
-        video.dataset.motionPreview='';video.preload='none';video.controls=true;video.playsInline=true;video.muted=true;video.setAttribute('aria-label','Latest completed actual canvas recording');
-        caption.textContent='Latest completed actual canvas clip · '+clip.bytes+' encoded bytes. Playback is optional; no autoplay.';target.append(link,video,caption);
+        video.dataset.motionPreview='';video.preload='none';video.controls=true;video.playsInline=true;video.muted=true;video.setAttribute('aria-label',cameraDiagnostic?'Inconclusive actual camera-review recording':'Latest completed actual canvas recording');
+        caption.textContent=(cameraDiagnostic?'Inconclusive camera review · '+result.reason+' · ':'Latest completed actual canvas clip · ')+clip.bytes+' encoded bytes. Playback is optional; no autoplay.';target.append(link,video,caption);
         video.addEventListener('play',()=>{if(mediaLocked)video.pause();},{signal:mediaAbort.signal});link.addEventListener('click',event=>{if(mediaLocked)event.preventDefault();},{signal:mediaAbort.signal});
       }else{const p=doc.createElement('p');p.textContent=result?.retainedClip?.reason||'No completed actual motion clip retained.';target.append(p);}
       if(result)target.append(evidenceDetails(result,'Exact motion evidence metadata','motionMetadata'));
@@ -435,7 +436,8 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
             stopRequestedAfterMs:report.stopRequestedAfterMs??null,schedulingOverrunMs:report.schedulingOverrunMs??null,encoderDrainMs:report.encoderDrainMs??null,wallOverrunMs:report.wallOverrunMs??null,requestedCaptureFps:report.requestedCaptureFps},cameraSweep:ledger};
         const compact={version:1,kind:metadata.kind,worldPlayback,status,reason,start:{frameIndex:startState.frameIndex,tick:startState.tick,worldTime:startState.worldTime,playerTime:startState.playerTime},end:{frameIndex:end.frameIndex,tick:end.tick,worldTime:end.worldTime,playerTime:end.playerTime},recording:metadata.recording,cameraSweep:ledger?{preset:ledger.preset,status:ledger.status,sampledDraws:ledger.samples?.length??0,restored:driver.state().cameraSweep?.restored??null}:null};motion=null;
         if(closed||generation!==motionGeneration)return compact;
-        if(status==='complete'){
+        const guardedDiagnostic=status==='inconclusive'&&report.status==='complete'&&!session.cancelled&&!session.error&&ledger?.status==='cancelled'&&Array.isArray(ledger.samples);
+        if(status==='complete'||guardedDiagnostic){
           try{
             if(!(report.blob instanceof Blob)||report.blob.size!==report.bytes)throw Error('Encoded Blob bytes do not match the camera recording report.');
             const reader=createMotionClipReader({blob:report.blob,FileReaderCtor:readerCtor});clipReader=reader;let clip;try{clip=await reader.finished;}finally{if(clipReader===reader)clipReader=null;}
