@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V5 browser lifecycle audit</title>
+<style>body{background:#251d18;color:#eddfc9;font:16px Georgia,serif;max-width:70rem;margin:24px auto;padding:0 16px}button,a{padding:10px;margin:0 12px 12px 0}textarea{box-sizing:border-box;width:100%;height:55vh;background:#17130f;color:#eddfc9;font:12px monospace}p{line-height:1.5}</style>
+<h1>V5 payload lifecycle audit</h1>
+<p>One fresh-document attempt against the architect’s configured delivery. No rendering or quality/cost acceptance. Case: <strong id="case"></strong>. Use <code>?case=cancel-staging</code> or a separate fresh document with <code>?case=success-lease</code>.</p>
+<button id="run">Run lifecycle audit</button><button id="cancel" disabled>Cancel host</button><a id="export" hidden>Export exact JSON</a>
+<p id="status" role="status">Ready. Run once, export the evidence, then close the document.</p>
+<label for="report">Exact bounded report</label><textarea id="report" readonly spellcheck="false"></textarea>
+<script type="module" src="./browser.js"></script></html>
