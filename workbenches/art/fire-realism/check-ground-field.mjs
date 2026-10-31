@@ -53,6 +53,8 @@ try {
   assert.match(mesh(effect).material.fragmentShader, /groundReaction\(wp\)/); assert.match(mesh(effect).material.fragmentShader, /den\*stepSize\*7\.4/);
   assert.match(mesh(effect).material.fragmentShader, /opaqueStops\(wp,sceneDepth\)/);
   assert.match(mesh(effect).material.vertexShader, /groundHeight\(contact\.xz,groundSample\(contact\.xz\)\)/, 'detailed cap vertices follow the real common front instead of an undeformed conservative box');
+  const glslTokens = `${mesh(effect).material.vertexShader}\n${mesh(effect).material.fragmentShader}`.replace(/\/\*[\s\S]*?\*\/|\/\/[^\n]*/g, '');
+  assert.doesNotMatch(glslTokens, /\bcoherent\b/, 'actual WebGL rejected coherent as a reserved GLSL identifier; comments do not count as identifier use');
   effect.dispose(); effect.dispose(); assert.equal(disposed, 1, 'owned field texture disposed exactly once');
 } finally {effect.dispose();}
 

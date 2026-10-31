@@ -202,12 +202,12 @@ export const fragmentShader = noise + `
     return streamField()?flame:flame*2.;
   }
   void main() {
-    bool ribbon=policy.y>=1.5,coherent=policy.x<.5&&policy.z>1.5&&groundFieldEnabled>.5;
+    bool ribbon=policy.y>=1.5,regionalGround=policy.x<.5&&policy.z>1.5&&groundFieldEnabled>.5;
     vec3 eye=cameraPosition-base;
     vec3 eyeLocal=vec3(dot(eye,right)/shape.x,dot(eye,axis)/shape.y,dot(eye,forward)/shape.x);
-    float eyeSupport=orthographic>.5?0.:coherent?1.04:billowSmoke(policy.x)?smokeSupportAt(eyeLocal.y,atan(eyeLocal.z,eyeLocal.x)):volumeProfile(eyeLocal.y);
+    float eyeSupport=orthographic>.5?0.:regionalGround?1.04:billowSmoke(policy.x)?smokeSupportAt(eyeLocal.y,atan(eyeLocal.z,eyeLocal.x)):volumeProfile(eyeLocal.y);
     bool cameraInside=orthographic<.5&&eyeLocal.y>=0.&&eyeLocal.y<=1.&&length(eyeLocal.xz)<eyeSupport;
-    if(coherent) {
+    if(regionalGround) {
       vec3 delta=cameraPosition-base;
       cameraInside=orthographic<.5&&abs(delta.x)<groundCellSize*.5&&abs(delta.z)<groundCellSize*.5&&delta.y>=0.&&delta.y<groundHeight(cameraPosition.xz,groundSample(cameraPosition.xz))+.07;
     }
@@ -215,7 +215,7 @@ export const fragmentShader = noise + `
     vec2 depthUV=clamp(gl_FragCoord.xy/opaqueDepthSize,vec2(0.),vec2(1.));
     float sceneDepth=opaqueDepthEnabled>.5?texture2D(opaqueDepth,depthUV).r:1.;
     vec3 emission=vec3(0.); float alpha=0.;
-    if(coherent) {
+    if(regionalGround) {
       vec3 direction=orthographic>.5?-vec3(viewMatrix[0][2],viewMatrix[1][2],viewMatrix[2][2]):normalize(world-cameraPosition);
       float entry,exit;
       if(!groundInterval(cameraInside?cameraPosition:world,direction,entry,exit))discard;

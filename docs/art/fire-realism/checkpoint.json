@@ -1,8 +1,8 @@
 {
-  "task": "TB-034-coherent-fronts-iteration-07",
-  "recordedAt": "2026-10-31T00:34:32.373485+00:00",
-  "integrationBase": "dae635f61c80efeda05c5499ff250727fc59138c",
-  "correctsArtistCandidate": "dae635f61c80efeda05c5499ff250727fc59138c",
+  "task": "TB-034-coherent-fronts-07-shader-repair-01",
+  "recordedAt": "2026-10-31T00:39:30.378128+00:00",
+  "integrationBase": "61770438d041d27b3354b381c106e20ee7b850e7",
+  "correctsArtistCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
   "artistVersion": "0.7.0-reference-candidate",
@@ -103,16 +103,16 @@
     },
     "build": {
       "files": 3462,
-      "bytes": 163365933,
+      "bytes": 163366459,
       "sourcePhotosDistributed": false,
       "diagnosticWorkbenchDistributed": false
     },
-    "diffWhitespace": "pass; expected local autocrlf warnings only, raw runtime files remainLF and strict manifest checks pass",
+    "diffWhitespace": "pass; expected autocrlf warnings only; raw manifest/Git bytes verifiedLF",
     "smokeContract": "pass; frozen0.4 isolated flame/torch/jet-soot/light support, unchanged billow helper, world/pause/reset/rewind and finite tails; regional field covered separately",
     "affectedUiChecks": {
       "passed": 2,
       "failed": 0,
-      "scope": "Actual primary five-reference dossier and strict raw five-module source-manifest tests against final0.7 artist candidate"
+      "scope": "Actual primary five-reference dossier and strict raw five-module source-manifest tests against the minimal repaired shader"
     },
     "crossCheckoutUiAttempt": {
       "passed": 32,
@@ -122,17 +122,20 @@
     "nativeFacadeContract": "pass; actual base/outward contact, source-part/face audit, missing/stale/invalid evidence,8-of32 coverage, stable equivalent ordering and detached diagnostics",
     "nativeActualFixtureReplay": "pass; exact provider hash095d33b7, actual128 sources/15 sites ->128 coherent sources/8 material-weighted smoke catchments and8facade pairs/4normals;0invalid/unavailable, anchors/input/order unchanged; no rendered acceptance",
     "groundFieldContract": "pass; actual128-source texture/domain/burden accounting, shared transverse field continuity, exact forward/reverse/oblique/parallel entry/exit and physical optical composition, deterministic clocks/order/reset, native1024x64 far-edge fallback/mask and elevation separation, bounded exactly-once owned texture disposal",
-    "facadeSourceBurden": "pass; deduplicated actual linked wood area, exhausted-wood/liquid distinction, same native anchors/flames/source count, exact width/height/strength increments and1.8cap"
+    "facadeSourceBurden": "pass; deduplicated actual linked wood area, exhausted-wood/liquid distinction, same native anchors/flames/source count, exact width/height/strength increments and1.8cap",
+    "reservedGlslToken": "pass; actual generated vertex/fragment GLSL strips comments and rejects reserved coherent identifier",
+    "runtimeEquivalence": "pass; new shader equals exact6177043 shader after only four coherent -> regionalGround token replacements; other four runtime files byte-identical"
   },
   "webgl": {
-    "status": "pending-exact0.7-native-review",
+    "status": "pending-exact0.7-shader-repair-01",
     "newBrowserAttempt": false,
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "Observed0.6 native broad-fire failures motivate this artist child. Exact shader compilation, native still/motion/seam/occlusion/readability review and legitimate-baseline GPU measurements remain architect-owned."
+    "reason": "Actual architect IAB Chrome156/RTX3080/WebGL2 compilation of6177043 failed on reserved coherent. This child only renames the identifier; exact repaired compilation and native pixels/motion remain unperformed."
   },
   "limitations": [
+    "Actual0.7 shader compilation FAILED on reserved coherent; only repaired compilation can establish new native pixels. No0.7 images were accepted or fabricated.",
     "Exact0.7 still/motion must prove shared-domain cap coverage, transverse seams, smoke transitions, colour/contact/opacity and animal/HUD readability",
     "64 density samples and shared detailed topology are provisional quality choices; useful native/closer detail must be proved before freeze, not credited as later optimization",
     "Wide/mixed/overlapping-floor source layouts retain complete diagnosed old envelopes; their visual quality remains unaccepted",
@@ -287,5 +290,14 @@
       "physicsAdded": false
     },
     "woodEvidence": "material wood AND current remaining surfaceFuel>0; liquid flag requires depositedFuel>0"
+  },
+  "shaderCompilationRepair": {
+    "revision": 1,
+    "failedCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
+    "architectIntake": "7d62644",
+    "actualBackend": "IAB Chrome156 / NVIDIA RTX3080 / WebGL2",
+    "reportedError": "Fragment shader not compiled: ERROR0:294 'coherent': Illegal use of reserved word; syntax error",
+    "change": "Only four GLSL identifier uses renamed coherent -> regionalGround; all other runtime bytes and optics unchanged",
+    "compiledAfterRepair": false
   }
 }

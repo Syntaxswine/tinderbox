@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "id": "tb034-fire-reference",
   "status": "unaccepted-reference-candidate",
   "referenceFrozen": false,
@@ -13,8 +13,8 @@
     },
     {
       "path": "assets/art/fire-realism/shaders.js",
-      "bytes": 14871,
-      "sha256": "242634e89130f656e0c321368473280e783109a93aebf91fd6f1a907314df2a8"
+      "bytes": 14895,
+      "sha256": "e845a057306477337579c23a25efd106097faa1f1153525fd889d13b16a2deb9"
     },
     {
       "path": "assets/art/fire-realism/index.js",
@@ -49,6 +49,15 @@
   ],
   "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
   "artistVersion": "0.7.0-reference-candidate",
-  "correctsCandidate": "dae635f61c80efeda05c5499ff250727fc59138c",
-  "preFreezeQualityCorrection": "Actual broad fire repeats per-cell yellow crowns and1m smoke posts. Adjacent sources now share a world-space material/liquid-aware reaction field with curved common-front caps and exact nonoverlapping physical ray intervals; all current/tail sources feed irregular regional four-billow plumes. Isolated flame/torch/jet/native facade evidence retained. No gameplay, exposure, photo or quality/cost acceptance change."
+  "correctsCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
+  "preFreezeQualityCorrection": "Actual broad fire repeats per-cell yellow crowns and1m smoke posts. Adjacent sources now share a world-space material/liquid-aware reaction field with curved common-front caps and exact nonoverlapping physical ray intervals; all current/tail sources feed irregular regional four-billow plumes. Isolated flame/torch/jet/native facade evidence retained. No gameplay, exposure, photo or quality/cost acceptance change.",
+  "shaderCompilationRepair": {
+    "revision": 1,
+    "failedCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
+    "architectIntake": "7d62644",
+    "actualBackend": "IAB Chrome156 / NVIDIA RTX3080 / WebGL2",
+    "reportedError": "Fragment shader not compiled: ERROR0:294 'coherent': Illegal use of reserved word; syntax error",
+    "change": "Only four GLSL identifier uses renamed coherent -> regionalGround; all other runtime bytes and optics unchanged",
+    "compiledAfterRepair": false
+  }
 }
