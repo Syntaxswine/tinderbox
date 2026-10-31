@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tinderbox-cache-field-authorization-v1",
+  "description": "Source-only NEW metadata permit shape. A schema is not a permit or OS enforcement. Root alone issues an exact reviewed permit; rendering/authoring/baking is unavailable.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "kind", "phase", "owner", "proposalCommit", "candidateCommit", "sourcePins", "sourceBytes", "inputSpec", "tool", "controllerExecutable", "output", "authorizationPath", "issuedAtEpoch", "notAfterEpoch", "nonce", "limits"],
+  "properties": {
+    "version": {"const": 1},
+    "kind": {"const": "tinderbox-cache-field-authorization-v1"},
+    "phase": {"const": "metadata"},
+    "owner": {"const": "01a17e9b-a6db-7490-94cd-7d863747e5d3"},
+    "proposalCommit": {"const": "d3d14bf1d7154e4324317e93d876313eeba39a65"},
+    "candidateCommit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "sourcePins": {
+      "type": "object", "minProperties": 14, "maxProperties": 14,
+      "required": ["guard.py", "guard_policy.py", "startup.py", "winjob.py", "guard-provenance.json", "permit.schema.json", "contract.py", "space.py", "metadata.py", "input-spec.json", "input-spec.schema.json", "guard-ready.schema.json", "provenance.json", "render-plan.json"],
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "sourceBytes": {
+      "type": "object", "minProperties": 14, "maxProperties": 14,
+      "required": ["guard.py", "guard_policy.py", "startup.py", "winjob.py", "guard-provenance.json", "permit.schema.json", "contract.py", "space.py", "metadata.py", "input-spec.json", "input-spec.schema.json", "guard-ready.schema.json", "provenance.json", "render-plan.json"],
+      "additionalProperties": {"type": "integer", "minimum": 1, "maximum": 1048576}
+    },
+    "inputSpec": {"$ref": "#/$defs/file"},
+    "tool": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "bytes", "sha256", "record"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "bytes": {"type": "integer", "minimum": 1, "maximum": 536870912},
+        "sha256": {"const": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795"},
+        "record": {"$ref": "#/$defs/file"}
+      }
+    },
+    "controllerExecutable": {"$ref": "#/$defs/file"},
+    "output": {"type": "string", "minLength": 1},
+    "authorizationPath": {"type": "string", "minLength": 1},
+    "issuedAtEpoch": {"type": "number"},
+    "notAfterEpoch": {"type": "number"},
+    "nonce": {"type": "string", "pattern": "^[0-9a-f]{32,64}$"},
+    "limits": {"const": {"wallSeconds": 120, "processCommittedBytes": 2147483648, "aggregateCommittedBytes": 2147483648, "freshOutputBytes": 536870912, "threads": 4, "automaticRetries": 0, "automaticRepairs": 0}}
+  },
+  "$defs": {
+    "file": {
+      "type": "object", "additionalProperties": false, "required": ["path", "bytes", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "bytes": {"type": "integer", "minimum": 0, "maximum": 536870912}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+    }
+  }
+}

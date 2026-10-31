@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "proposalCommit": "d3d14bf1d7154e4324317e93d876313eeba39a65",
+  "reviewedSeamSha256": "cd83360d2b954819480402531bf3523aa081033ac61349a8a09154ce02e21dbb",
+  "phase": "metadata",
+  "renderImplemented": false,
+  "primitive": {
+    "sourceCommit": "f31e2b9977d0d1338a65d0e63d6d6f56fa34740f",
+    "originalPath": "workbenches/art/fire-realism/mantaflow-surface-source/winjob.py",
+    "bytes": 22699,
+    "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee",
+    "adaptations": "none; raw byte-identical additive copy"
+  },
+  "controllerConcepts": {
+    "sourceCommit": "d40dafa3eef0796a15172300d528bc26c72f7f76",
+    "originalSupervisorSha256": "a4e66831aa5ad22c0c276f96b9cecd4b4e533c7222bd5cf0af91155166c0bd2c",
+    "originalPolicySha256": "13038fbac3c9c2c15445ebe6db4ce9e895277dda7d588e5cc5c033a74dfc2963",
+    "use": "New metadata-only controller, distinct permit namespace and120s/512MiB policy. Reuses durable readback, exact child identity, registration reserve and safe cleanup concepts; does not import/change the nine-core runner/policy."
+  },
+  "lifecycleUtility": {
+    "path": "C:/Users/baals/Local Storage/AI/GTP/helper-lifecycle/cleanup.py",
+    "bytes": 21149,
+    "sha256": "7931a5c42fedfa345d8b5a9a402e63ac248116a2cc7e5b621d223d9187876b5d",
+    "adaptations": "none; exact utility pin required before conservative reserve/registration"
+  },
+  "artistInterface": {
+    "sourceCommit": "68cc6a34def5a534ec517ff81f3af233e2743a3b",
+    "directory": "workbenches/art/fire-realism/cache-field-diagnostic",
+    "entry": "metadata.main(argv)",
+    "metadataSha256": "86fdfaa3dd4304dfb6eddf4557ed629b98b8389b026a06f194722be384528edc",
+    "readySchemaSha256": "64ae4f8f2105c005003a97151594da79f24f658cfeeb9c67c2508ab14bf4a751",
+    "gate": "guard-ready.json after enrollment; runRecordSha256 binds immutable run-binding.json"
+  },
+  "scope": "Source candidate. No actual metadata/Job/Blender/VDB execution or renderer acceptance. Hard limits are committed memory, not RSS;512MiB is a polled output budget, not a filesystem quota."
+}
