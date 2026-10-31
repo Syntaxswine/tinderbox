@@ -34,6 +34,19 @@ const finite=Number.isFinite,integer=Number.isInteger;
 const object=value=>!!value&&typeof value==='object'&&!Array.isArray(value);
 const vector=(value,size)=>Array.isArray(value)&&value.length===size&&value.every(finite);
 const hash=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
+const commitHash=value=>typeof value==='string'&&/^[a-f0-9]{40}$/.test(value);
+const exportName=value=>typeof value==='string'&&/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(value);
+function factoryPath(path,mode){
+  if(typeof path!=='string'||!path.endsWith('.js')||path.split('/').some(part=>!part||part.startsWith('.')||!/^[A-Za-z0-9_-][A-Za-z0-9._-]*$/.test(part)))return false;
+  if(mode==='current')return path.startsWith('src/art/');
+  const prefix='assets/art/fire-realism/';return mode==='reference'?path.startsWith(prefix)&&!path.startsWith(prefix+'optimized/'):mode==='optimized'&&path.startsWith(prefix+'optimized/');
+}
+function validFactoryFingerprint(value,{allowDebug=false}={}){
+  if(!object(value)||!['current','reference','optimized'].includes(value.mode)||!(commitHash(value.sourceCommit)||allowDebug&&value.mode==='reference'&&value.sourceCommit===null)||!factoryPath(value.factoryModule,value.mode)||!exportName(value.factoryExport))return false;
+  if(value.mode==='current'&&(value.factoryModule!=='src/art/fire.js'||value.factoryExport!=='createFire'))return false;
+  const files=value.runtimeFiles,keys=object(files)?Object.keys(files):[];
+  return keys.length>0&&Object.hasOwn(files,value.factoryModule)&&new Set(keys.map(path=>path.toLowerCase())).size===keys.length&&keys.every(path=>factoryPath(path,value.mode)&&files[path]?.verified===true&&hash(files[path].sha256));
+}
 function ordered(value){
   if(Array.isArray(value))return value.map(ordered);
   if(object(value))return Object.fromEntries(Object.keys(value).sort().map(key=>[key,ordered(value[key])]));
@@ -94,12 +107,17 @@ export function summarizeFireMeasurements({trials=[],modes=[],protocol,status='c
     if(keys.has(key))reasons.push('Duplicate measurement trial '+key);keys.add(key);
     const identity=(selected.includes(trial.mode)&&trial.forMode===trial.mode||trial.mode==='no-fire'&&selected.includes(trial.forMode))&&integer(trial.trialIndex)&&protocolOK&&trial.trialIndex>=0&&trial.trialIndex<expected.trials;
     const inputs=validConfiguration(trial.configuration)&&trial.configuration.mode===trial.mode&&validPose(trial.pose)&&validRenderInputs(trial.renderInputs,trial.configuration);
-    const complete=identity&&inputs&&same(trial.protocol,expected)&&trial.sampleFrames===expected.sampleFrames&&trial.pose.frameIndex===expected.poseFrame&&fullSamples(trial,expected.sampleFrames)&&validTrace(trial,expected);
+    const factory=trial.factoryFingerprint,declared=sourceFingerprints?.[trial.forMode];
+    const factoryBound=validFactoryFingerprint(factory,{allowDebug:!selected.includes('optimized')})&&factory.mode===trial.forMode&&(!declared||same(factory,declared));
+    if(!factoryBound)reasons.push('Missing or mismatched factory entry/source fingerprint for '+key);
+    const complete=identity&&inputs&&factoryBound&&same(trial.protocol,expected)&&trial.sampleFrames===expected.sampleFrames&&trial.pose.frameIndex===expected.poseFrame&&fullSamples(trial,expected.sampleFrames)&&validTrace(trial,expected);
     if(complete)checked.add(trial);else reasons.push('Incomplete or invalid input/sample/occupancy evidence for '+key);
   }
   // Compare authoritative inputs, never optimized geometry, instances or draws.
   const anchor=records.find(trial=>trial.mode===(selected.includes('reference')?'reference':selected[0])&&trial.trialIndex===0);
   for(const trial of records){
+    const modeAnchor=records.find(record=>record.mode===trial.forMode&&record.trialIndex===0);
+    if(modeAnchor&&!same(trial.factoryFingerprint,modeAnchor.factoryFingerprint))reasons.push('Cross-trial or paired factory entry/source mismatch for '+trial.forMode);
     if(!anchor)break;
     if(!same(commonConfiguration(trial.configuration),commonConfiguration(anchor.configuration))||!same(trial.renderInputs,anchor.renderInputs)||!same(trial.pose,anchor.pose)||!same(trial.workloadTrace,anchor.workloadTrace)){
       reasons.push('Cross-mode or cross-trial authoritative workload/configuration/pose mismatch for '+trial.mode+' trial '+trial.trialIndex);
@@ -114,7 +132,7 @@ export function summarizeFireMeasurements({trials=[],modes=[],protocol,status='c
       const trial=matching[0],baseline=baselines[0],a=statistics((Array.isArray(trial.gpu)?trial.gpu:[]).map(sample=>sample?.gpuMs)),b=statistics((Array.isArray(baseline.gpu)?baseline.gpu:[]).map(sample=>sample?.gpuMs));
       const value=a.median===null||b.median===null?null:a.median-b.median;
       const noise=2*Math.sqrt((a.variance??Infinity)/Math.max(1,a.count)+(b.variance??Infinity)/Math.max(1,b.count));
-      const sameWork=same(trial.workloadTrace,baseline.workloadTrace)&&same(trial.pose,baseline.pose)&&same(commonConfiguration(trial.configuration),commonConfiguration(baseline.configuration))&&same(trial.renderInputs,baseline.renderInputs);
+      const sameWork=same(trial.factoryFingerprint,baseline.factoryFingerprint)&&same(trial.workloadTrace,baseline.workloadTrace)&&same(trial.pose,baseline.pose)&&same(commonConfiguration(trial.configuration),commonConfiguration(baseline.configuration))&&same(trial.renderInputs,baseline.renderInputs);
       const valid=checked.has(trial)&&checked.has(baseline)&&sameWork&&finite(value)&&value>0&&value>noise;
       pairs.push({trialIndex:index,fireSceneMedianMs:a.median,noFireMedianMs:b.median,incrementalMs:value,noiseThresholdMs:noise,valid});
       if(!valid)reasons.push('Invalid/noisy incremental GPU subtraction or paired workload for '+mode+' trial '+index);
@@ -124,17 +142,18 @@ export function summarizeFireMeasurements({trials=[],modes=[],protocol,status='c
   const reference=increments.reference?.median,optimized=increments.optimized?.median;
   const ratio=reasons.length===0&&finite(reference)&&finite(optimized)&&reference>0?optimized/reference:null;
   const ref=sourceFingerprints?.reference||{},opt=sourceFingerprints?.optimized||{};
-  const approvedReference=validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',sourceCommit:ref.sourceCommit,runtimeFiles:ref.runtimeFiles});
-  const retainedQualityAccepted=approvedReference&&validateQualityReceipt(optimizedAcceptance,{kind:'architect-fire-optimized-acceptance-v1',sourceCommit:opt.sourceCommit,runtimeFiles:opt.runtimeFiles,referenceCommit:ref.sourceCommit})?true:null;
+  const approvedReference=validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',...ref});
+  const retainedQualityAccepted=approvedReference&&validateQualityReceipt(optimizedAcceptance,{kind:'architect-fire-optimized-acceptance-v1',...opt,referenceCommit:ref.sourceCommit,referenceFactoryModule:ref.factoryModule,referenceFactoryExport:ref.factoryExport})?true:null;
   if(ratio===null&&selected.includes('optimized')&&selected.includes('reference'))reasons.push('Missing valid comparable optimized/reference GPU ratio');
   return {absoluteSceneMs:absolute,noFireSceneMs:absolute['no-fire'],incrementalFireMs:increments,reasons:[...new Set(reasons)],evidenceStatus:reasons.length?'inconclusive':'complete',
     comparison:{approvedReference,retainedQualityAccepted,optimizedReferenceRatio:ratio,targetMet:ratio===null||!approvedReference||retainedQualityAccepted!==true?null:ratio<=1/3}};
 }
-export function validateQualityReceipt(receipt,{kind,sourceCommit,runtimeFiles,referenceCommit}={}){
-  if(!receipt||receipt.kind!==kind||receipt.status!=='accepted'||!receipt.receiptId||!sourceCommit||receipt.sourceCommit!==sourceCommit)return false;
-  if(referenceCommit&&receipt.referenceCommit!==referenceCommit)return false;
-  const actual=runtimeFiles||{},keys=Object.keys(actual).sort(),recorded=receipt.runtimeFiles||{};
-  return keys.length>0&&JSON.stringify(keys)===JSON.stringify(Object.keys(recorded).sort())&&keys.every(path=>actual[path].verified===true&&actual[path].sha256===recorded[path]);
+export function validateQualityReceipt(receipt,{kind,mode,sourceCommit,factoryModule,factoryExport,runtimeFiles,referenceCommit,referenceFactoryModule,referenceFactoryExport}={}){
+  const expectedKind=mode==='reference'?'architect-fire-reference-acceptance-v1':mode==='optimized'?'architect-fire-optimized-acceptance-v1':null;
+  if(!expectedKind||kind!==expectedKind||!validFactoryFingerprint({mode,sourceCommit,factoryModule,factoryExport,runtimeFiles})||!receipt||receipt.kind!==kind||receipt.status!=='accepted'||!receipt.receiptId||receipt.mode!==mode||receipt.sourceCommit!==sourceCommit||receipt.factoryModule!==factoryModule||receipt.factoryExport!==factoryExport)return false;
+  if(mode==='optimized'&&(!commitHash(referenceCommit)||!factoryPath(referenceFactoryModule,'reference')||!exportName(referenceFactoryExport)||receipt.referenceCommit!==referenceCommit||receipt.referenceFactoryModule!==referenceFactoryModule||receipt.referenceFactoryExport!==referenceFactoryExport))return false;
+  const keys=Object.keys(runtimeFiles).sort(),recorded=receipt.runtimeFiles||{};
+  return object(recorded)&&JSON.stringify(keys)===JSON.stringify(Object.keys(recorded).sort())&&keys.every(path=>runtimeFiles[path].sha256===recorded[path]);
 }
 // One outer query includes artist-specific depth preparation and the complete
 // selected scene (including retained legacy transients and fire lighting).

@@ -1,5 +1,6 @@
 import {validateQualityReceipt} from './profiling.js';
 export const FIRE_DELIVERY_PATH='workbenches/fire-realism/delivery.json';
+const verifiedEntries=new WeakMap();
 const ROOT='assets/art/fire-realism/',OPTIMIZED=ROOT+'optimized/',RECEIPTS='docs/reviews/fire-realism/';
 const plain=value=>!!value&&typeof value==='object'&&!Array.isArray(value),hex=(value,size)=>typeof value==='string'&&new RegExp('^[a-f0-9]{'+size+'}$').test(value);
 const abort=signal=>{if(signal?.aborted)throw signal.reason instanceof Error?signal.reason:new DOMException('Fire delivery aborted','AbortError');};
@@ -114,7 +115,7 @@ export async function verifyFireDeliveryDescriptor(descriptor,{readBytes,cryptoI
   const verified=await verifyFireRuntimeManifest({mode,manifestPath:record.manifestUrl,entryPath:record.factoryModule,expectedManifest:{sha256:record.manifestSha256,bytes:record.manifestBytes},readBytes,cryptoImpl,signal});
   let acceptance=null;
   if(record.acceptanceUrl){const raw=await verifiedRaw(readBytes,record.acceptanceUrl,{sha256:record.acceptanceSha256,bytes:record.acceptanceBytes},cryptoImpl,signal);acceptance=parseFireJson(raw.bytes,'receipt');
-   if(!validateQualityReceipt(acceptance,{kind:mode==='reference'?'architect-fire-reference-acceptance-v1':'architect-fire-optimized-acceptance-v1',sourceCommit:record.sourceCommit,runtimeFiles:verified.hashes,...(mode==='optimized'?{referenceCommit:descriptor.byMode.reference.sourceCommit}:{})}))throw Error('Configured architect receipt does not match '+mode+' delivery');}
+   if(!validateQualityReceipt(acceptance,{kind:mode==='reference'?'architect-fire-reference-acceptance-v1':'architect-fire-optimized-acceptance-v1',mode,sourceCommit:record.sourceCommit,factoryModule:record.factoryModule,factoryExport:record.factoryExport,runtimeFiles:verified.hashes,...(mode==='optimized'?{referenceCommit:descriptor.byMode.reference.sourceCommit,referenceFactoryModule:descriptor.byMode.reference.factoryModule,referenceFactoryExport:descriptor.byMode.reference.factoryExport}:{})}))throw Error('Configured architect receipt does not match '+mode+' delivery');}
   byMode[mode]={...verified,record,acceptance};
  }
  return byMode;
@@ -139,8 +140,17 @@ async function resolveFireReviewDelivery({descriptorUrl=new URL('../../'+FIRE_DE
  const descriptorHash=await fireRawHash(raw,cryptoImpl,signal),descriptor=validateFireDeliveryDescriptor(parseFireJson(raw,'descriptor')),verified=await verifyFireDeliveryDescriptor(descriptor,{readBytes,cryptoImpl,signal}),byMode={};
  // All configured closures and receipts are verified before the FIRST import.
  for(const mode of ['reference','optimized']){const entry=verified[mode];if(!entry)continue;abort(signal);const namespace=await importModule(new URL(entry.record.factoryModule,base).href);abort(signal);const factory=namespace&&Object.hasOwn(namespace,entry.record.factoryExport)?namespace[entry.record.factoryExport]:null;if(typeof factory!=='function')throw TypeError('Configured '+mode+' factory export is missing or not a function');
-  byMode[mode]={...entry.record,manifestUrl:new URL(entry.record.manifestUrl,base).href,createFireRealism:factory,...(mode==='optimized'?{retainedQualityAcceptance:entry.acceptance}:{})};}
+  const selected={...entry.record,mode,manifestUrl:new URL(entry.record.manifestUrl,base).href,createFireRealism:factory,...(mode==='optimized'?{retainedQualityAcceptance:entry.acceptance}:{})};
+  const fields={mode,sourceCommit:selected.sourceCommit,factoryModule:selected.factoryModule,factoryExport:selected.factoryExport,manifestUrl:selected.manifestUrl,manifestSha256:selected.manifestSha256,manifestBytes:selected.manifestBytes};
+  verifiedEntries.set(selected,{factory,fields,fingerprint:{mode,sourceCommit:selected.sourceCommit,factoryModule:selected.factoryModule,factoryExport:selected.factoryExport,runtimeFiles:structuredClone(entry.hashes)}});byMode[mode]=selected;}
  return {status:'configured',artistDelivery:{byMode},referenceAcceptance:verified.reference.acceptance,descriptor:{url:new URL(path,base).href,sha256:descriptorHash,bytes:raw.byteLength}};
+}
+
+// Guards accidental record/function substitution inside this workbench. It is
+// not a boundary against arbitrary same-origin JavaScript or test import hooks.
+export function verifiedFireDeliveryFingerprint(record){
+ const proof=verifiedEntries.get(record);if(!proof||record.createFireRealism!==proof.factory||Object.entries(proof.fields).some(([key,value])=>record[key]!==value))return null;
+ return structuredClone(proof.fingerprint);
 }
 
 /** A loader instance represents one cold document boot. Reconfiguration or

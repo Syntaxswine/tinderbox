@@ -1,4 +1,4 @@
-import {measurementTrial} from '../fixtures/fire-profile.mjs';
+import {measurementTrial,measurementQualityFixture} from '../fixtures/fire-profile.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as T from '../../src/runtime/three.js';
@@ -21,9 +21,8 @@ test('hostile round2: dated startup history stays suppressed; generation permits
   }finally{f.dispose();}
 });
 const probeTrial=(mode,ms,burning,pose,forMode=mode)=>({mode,forMode,trialIndex:0,sampleFrames:3,rejected:[],gpu:[0,1,2].map(index=>({index,gpuMs:ms})),workloadTrace:[{poseFingerprint:pose,burning}]});
-const sourceFingerprints={reference:{sourceCommit:'R',runtimeFiles:{reference:{sha256:'old',verified:true}}},optimized:{sourceCommit:'O',runtimeFiles:{optimized:{sha256:'new',verified:true}}}};
-const referenceAcceptance={kind:'architect-fire-reference-acceptance-v1',receiptId:'review-R',status:'accepted',sourceCommit:'R',runtimeFiles:{reference:'old'}};
-const optimizedAcceptance={kind:'architect-fire-optimized-acceptance-v1',receiptId:'review-O',status:'accepted',sourceCommit:'O',referenceCommit:'R',runtimeFiles:{optimized:'new'}};
+const {sourceFingerprints,referenceAcceptance,optimizedAcceptance}=measurementQualityFixture();
+
 test('hostile round2: internally paired R128 and O1 cannot earn a lower-cost target',()=>{
   const trials=[probeTrial('reference',11,128,'large'),probeTrial('no-fire',1,128,'large','reference'),probeTrial('optimized',3,1,'small'),probeTrial('no-fire',1,1,'small','optimized')];
   const result=summarizeFireMeasurements({trials,modes:['reference','optimized'],sourceFingerprints,referenceAcceptance,optimizedAcceptance});

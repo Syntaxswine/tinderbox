@@ -1,4 +1,4 @@
-import {measurementTrial as trial} from '../fixtures/fire-profile.mjs';
+import {measurementTrial as trial,measurementQualityFixture} from '../fixtures/fire-profile.mjs';
 import {createFixedFirePose} from '../../tools/fire-realism/fixed-pose.js';
 import {createFireReviewEffect} from '../../src/art/fire-review-effect.js';
 import test from 'node:test';
@@ -49,10 +49,11 @@ test('GPU queries report actual elapsed result units and retire/reject disjoint 
 });
 test('GPU absence and quality flags never become rendering-cost or quality acceptance',()=>{
   assert.equal(createGpuTimer({getExtension:()=>null}).available,false);
-  assert.equal(validateQualityReceipt({status:'accepted',sourceCommit:'abc'},{kind:'architect-fire-reference-acceptance-v1',sourceCommit:'abc',runtimeFiles:{a:{sha256:'x',verified:true}}}),false);
-  const valid={kind:'architect-fire-reference-acceptance-v1',status:'accepted',receiptId:'review',sourceCommit:'abc',runtimeFiles:{a:'x'}};
-  assert.equal(validateQualityReceipt(valid,{kind:valid.kind,sourceCommit:'abc',runtimeFiles:{a:{sha256:'x',verified:true}}}),true);
-  assert.equal(validateQualityReceipt(valid,{kind:valid.kind,sourceCommit:'abc',runtimeFiles:{a:{sha256:'changed',verified:true}}}),false);
+  const {sourceFingerprints:{reference},referenceAcceptance:valid}=measurementQualityFixture(),expected={kind:valid.kind,...reference};
+  assert.equal(validateQualityReceipt({status:'accepted',sourceCommit:reference.sourceCommit},expected),false);
+  assert.equal(validateQualityReceipt(valid,expected),true);
+  assert.equal(validateQualityReceipt(valid,{...expected,runtimeFiles:{[reference.factoryModule]:{sha256:'c'.repeat(64),verified:true}}}),false);
+
 });
 test('paired no-fire subtraction rejects negative/noisy/mismatched work and separates GPU ratio from quality',()=>{
   const trials=[trial('reference',5),trial('no-fire',1,'reference'),trial('optimized',2),trial('no-fire',1,'optimized')];
@@ -109,13 +110,11 @@ test('quaternion arrays supplied by callers are detached alongside other prepare
 });
 test('different frozen R and optimized O receipts validate independently, and stale or self-approved quality cannot pass',()=>{
   const trials=[trial('reference',5),trial('no-fire',1,'reference'),trial('optimized',2),trial('no-fire',1,'optimized')];
-  const sourceFingerprints={reference:{sourceCommit:'R',runtimeFiles:{reference:{sha256:'old',verified:true}}},optimized:{sourceCommit:'O',runtimeFiles:{optimized:{sha256:'new',verified:true}}}};
-  const referenceAcceptance={kind:'architect-fire-reference-acceptance-v1',receiptId:'review-R',status:'accepted',sourceCommit:'R',runtimeFiles:{reference:'old'}};
-  const optimizedAcceptance={kind:'architect-fire-optimized-acceptance-v1',receiptId:'review-O',status:'accepted',sourceCommit:'O',referenceCommit:'R',runtimeFiles:{optimized:'new'}};
+  const {sourceFingerprints,referenceAcceptance,optimizedAcceptance}=measurementQualityFixture();
   const args={trials,modes:['reference','optimized'],sourceFingerprints,referenceAcceptance,optimizedAcceptance};assert.equal(summarizeFireMeasurements(args).comparison.targetMet,true);
   assert.equal(summarizeFireMeasurements({...args,optimizedAcceptance:{...optimizedAcceptance,referenceCommit:'unreviewed'}}).comparison.targetMet,null);
   assert.equal(summarizeFireMeasurements({...args,referenceAcceptance:{status:'accepted'},optimizedAcceptance:{status:'accepted'}}).comparison.targetMet,null);
-  assert.equal(summarizeFireMeasurements({...args,sourceFingerprints:{...sourceFingerprints,reference:{...sourceFingerprints.reference,runtimeFiles:{reference:{sha256:'changed',verified:true}}}}}).comparison.targetMet,null);
+  assert.equal(summarizeFireMeasurements({...args,sourceFingerprints:{...sourceFingerprints,reference:{...sourceFingerprints.reference,runtimeFiles:{[sourceFingerprints.reference.factoryModule]:{sha256:'c'.repeat(64),verified:true}}}}}).comparison.targetMet,null);
 });
 test('live review advances exactly the same simulation time at30/60/120/144Hz and bounds hitches',()=>{
   for(const hz of [30,60,120,144]){const clock=createReviewPlaybackClock();let frames=0;for(let i=0;i<hz*10;i++)frames+=clock.advance(1/hz);assert.equal(frames,600);}

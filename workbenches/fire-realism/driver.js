@@ -3,7 +3,7 @@ import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 import * as T from '../../src/runtime/three.js';
 import {createArtScene} from '../../src/art/index.js';
 import {createFireReviewEffect} from '../../src/art/fire-review-effect.js';
-import {createFireProjectReader,fireProjectPath,verifyFireRuntimeManifest} from '../../tools/fire-realism/delivery.js';
+import {createFireProjectReader,fireProjectPath,verifyFireRuntimeManifest,verifiedFireDeliveryFingerprint} from '../../tools/fire-realism/delivery.js';
 import {createFireReviewSimulation,createReviewPlaybackClock,FIRE_REVIEW_SCENARIOS,POPULATION_CASES} from '../../tools/fire-realism/scenarios.js';
 import {createGpuTimer,statistics,summarizeFireMeasurements,validateQualityReceipt,renderTimedFireFrame} from '../../tools/fire-realism/profiling.js';
 import {createFixedFirePose,FIRE_POSE_FRAMES} from '../../tools/fire-realism/fixed-pose.js';
@@ -39,14 +39,17 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   const referenceDelivery=artistDelivery?.byMode?.reference||artistDelivery||{};
   const optimizedDelivery=artistDelivery?.byMode?.optimized||null;
   const factories={reference:referenceDelivery.createFireRealism||null,optimized:optimizedDelivery?.createFireRealism||null};
-  const fingerprints={reference:{sourceCommit:referenceDelivery.sourceCommit||null,runtimeFiles:{}},optimized:{sourceCommit:optimizedDelivery?.sourceCommit||null,runtimeFiles:{}}};
+  const referenceProof=verifiedFireDeliveryFingerprint(referenceDelivery),optimizedProof=verifiedFireDeliveryFingerprint(optimizedDelivery);
+  const fingerprint=(mode,delivery,proof)=>({mode,sourceCommit:delivery?.sourceCommit||null,factoryModule:proof?.mode===mode?proof.factoryModule:null,factoryExport:proof?.mode===mode?proof.factoryExport:null,runtimeFiles:{}});
+  const fingerprints={reference:fingerprint('reference',referenceDelivery,referenceProof),optimized:fingerprint('optimized',optimizedDelivery,optimizedProof)};
+  function factoryFingerprint(mode){return mode==='current'?{mode,sourceCommit:CONTROL,factoryModule:'src/art/fire.js',factoryExport:'createFire',runtimeFiles:clone(controlHashes)}:clone(fingerprints[mode]);}
   function sources(){return {publishedControl:CONTROL,controlRuntimeFiles:clone(controlHashes),adapterRuntimeFiles:clone(adapterHashes),byMode:clone(fingerprints)};}
   function state(){
     const fire=art?.diagnostics().fire;
     return clone({version:1,phase,configuration:config,frameIndex,tick:snapshot?.tick||0,worldTime:snapshot?.clocks.world||0,playerTime:snapshot?.clocks.player||0,paused:phase!=='playing'&&phase!=='measuring',
       availability,capabilities:{gpuTimer:{available:!!timerSupport,reason:timerSupport?null:'EXT_disjoint_timer_query_webgl2 unavailable'},populations:POPULATION_CASES.includes(config.scenario)?[32,128,512]:[]},
       workload:{requestedPopulation:config.population,actualBurningCells:snapshot?.diagnostics.burningCells||0,activeDischarge:!!snapshot?.discharge.active,activeTorch:snapshot?.player.tool==='torch'&&snapshot?.player.torch.phase==='lit',burningBuildingIds:fire?.burningBuildingIds||[]},
-      progress,referenceAcceptance:validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',sourceCommit:fingerprints.reference.sourceCommit,runtimeFiles:fingerprints.reference.runtimeFiles})?'accepted':referenceAcceptance?'pending':'missing',results,error,
+      progress,referenceAcceptance:validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',...fingerprints.reference})?'accepted':referenceAcceptance?'pending':'missing',results,error,
       diagnostics:{fire,renderer:lastMetrics,latestCpu,playbackClock:playbackClock.diagnostics(),sourceFingerprints:sources()}});
   }
   function notify(force=false){
@@ -118,7 +121,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
           if(cancelRequested||closed||options.signal?.aborted)break;
           const nativeAnchors=Object.fromEntries(Object.entries(art.anchors||{}).map(([id,node])=>[id,{position:node.getWorldPosition(new T.Vector3()).toArray(),quaternion:node.getWorldQuaternion(new T.Quaternion()).toArray()}]));
           const housing=art.diagnostics().housing;const {facadeSiteWork,...housingAppearance}=housing||{};const pose=await createFixedFirePose(snapshot,{frameIndex,anchors:nativeAnchors,sourceAppearance:{housing:housing?housingAppearance:null,characterId:config.characterId,field:art.fireReviewInputs?.()?.field},eventTimes});
-          const setupMs=performance.now()-setupStart;const timer=createGpuTimer(renderer.getContext()),record={trialIndex,mode:selected,forMode:mode,sampleFrames,configuration:{...clone(config),mode:selected},protocol:clone(protocol),renderInputs:{camera:{matrixWorld:camera.matrixWorld.toArray(),projectionMatrix:camera.projectionMatrix.toArray(),near:camera.near,far:camera.far},canvas:{width:lastMetrics.width,height:lastMetrics.height,pixelRatio:renderer.getPixelRatio()},toneMapping:renderer.toneMapping,outputColorSpace:renderer.outputColorSpace,lighting:scene.children.filter(light=>light.userData.reviewEnvironmentLight).map(light=>({type:light.type,intensity:light.intensity,color:light.color.toArray(),position:light.position.toArray()}))},pose:pose.record,setup:{cpuWallMs:setupMs,fireSpecificFacadeWork:facadeSiteWork||[],resourcesBeforeSampling:{...lastMetrics}},gpu:[],rejected:[],updateCpuMs:[],renderCpuMs:[],simulationCpuMs:[],frameMs:[],draws:[],resources:[],effectOccupancyTrace:[],workloadTrace:[]};
+          const setupMs=performance.now()-setupStart;const timer=createGpuTimer(renderer.getContext()),record={trialIndex,mode:selected,forMode:mode,factoryFingerprint:factoryFingerprint(mode),sampleFrames,configuration:{...clone(config),mode:selected},protocol:clone(protocol),renderInputs:{camera:{matrixWorld:camera.matrixWorld.toArray(),projectionMatrix:camera.projectionMatrix.toArray(),near:camera.near,far:camera.far},canvas:{width:lastMetrics.width,height:lastMetrics.height,pixelRatio:renderer.getPixelRatio()},toneMapping:renderer.toneMapping,outputColorSpace:renderer.outputColorSpace,lighting:scene.children.filter(light=>light.userData.reviewEnvironmentLight).map(light=>({type:light.type,intensity:light.intensity,color:light.color.toArray(),position:light.position.toArray()}))},pose:pose.record,setup:{cpuWallMs:setupMs,fireSpecificFacadeWork:facadeSiteWork||[],resourcesBeforeSampling:{...lastMetrics}},gpu:[],rejected:[],updateCpuMs:[],renderCpuMs:[],simulationCpuMs:[],frameMs:[],draws:[],resources:[],effectOccupancyTrace:[],workloadTrace:[]};
           let previous=null;progress={trialIndex,trialCount,passIndex:passIndex++,passCount,mode:selected,phase:'warmup',phaseFrame:0,phaseFrames:warmupFrames,validSamples:0,rejectedSamples:0};notify(true);
           try{
             for(let i=0;i<warmupFrames+sampleFrames;i++){
@@ -161,7 +164,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     camera=new T.OrthographicCamera(-10,10,10,-10,.1,300);
     try{if(configuredDelivery&&typeof referenceDelivery.createFireRealism!=='function')throw Error('Configured reference delivery requires its verified factory export; no default fallback');
       const delivery=await localManifest(referenceDelivery.manifestUrl,referenceDelivery,'reference',controller.signal);manifest=delivery.manifest;hashes=delivery.hashes;
-      if(!configuredDelivery){const module=await import('../../assets/art/fire-realism/index.js');if(typeof module.createFireRealism!=='function')throw Error('Debug reference export unavailable');factories.reference=module.createFireRealism;}
+      if(!configuredDelivery){const module=await import('../../assets/art/fire-realism/index.js');if(typeof module.createFireRealism!=='function')throw Error('Debug reference export unavailable');factories.reference=module.createFireRealism;fingerprints.reference.factoryModule='assets/art/fire-realism/index.js';fingerprints.reference.factoryExport='createFireRealism';}
       fingerprints.reference.runtimeFiles=hashes;availability.reference={available:true,reason:null,sourceCommit:referenceDelivery.sourceCommit||null};}
     catch(cause){if(configuredDelivery)throw cause;availability.reference.reason=cause.message;}
     if(optimizedDelivery){let probe;try{
