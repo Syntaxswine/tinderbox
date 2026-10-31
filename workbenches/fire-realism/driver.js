@@ -104,19 +104,19 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   async function measureInternal(options={}){
     const modes=options.modes??['current','reference','optimized'],warmupFrames=options.warmupFrames??120,sampleFrames=options.sampleFrames??600,trialCount=options.trials??3;
     if(!Array.isArray(modes)||!modes.length||new Set(modes).size!==modes.length||modes.some(mode=>!['current','reference','optimized'].includes(mode))||![warmupFrames,sampleFrames,trialCount].every(Number.isInteger)||warmupFrames<1||warmupFrames>10000||sampleFrames<2||sampleFrames>10000||trialCount<1||trialCount>10)throw RangeError('Invalid measurement protocol');
-    const protocol={method:'EXT_disjoint_timer_query_webgl2',warmupFrames,sampleFrames,trials:trialCount,poseFrame:options.poseFrame??FIRE_POSE_FRAMES[config.scenario],interleaved:true,stepSeconds:1/60,depthPreparation:'Included inside timed artist-mode render',workload:'Fixed active authoritative pose; sustained emission is a benchmark adaptation, not played gameplay',globalToneMapping:'NoToneMapping',outputColorSpace:'srgb'};
+    const poseFrame=options.poseFrame??FIRE_POSE_FRAMES[config.scenario];if(!Number.isInteger(poseFrame)||poseFrame<1||poseFrame>3600)throw RangeError('Invalid active pose frame');
+    const protocol={method:'EXT_disjoint_timer_query_webgl2',warmupFrames,sampleFrames,trials:trialCount,poseFrame,interleaved:true,stepSeconds:1/60,depthPreparation:'Included inside timed artist-mode render',workload:'Fixed active authoritative pose; sustained emission is a benchmark adaptation, not played gameplay',globalToneMapping:'NoToneMapping',outputColorSpace:'srgb'};
     const report={version:1,status:'unavailable',reason:null,configuration:clone(config),protocol,sourceFingerprints:sources(),
       hardware:hardware(),gpu:null,cpu:{},frames:{},draws:{},resources:{},fillProxy:null,comparison:{approvedReference:false,retainedQualityAccepted:null,optimizedReferenceRatio:null,targetMet:null}};
     const missing=modes.filter(mode=>!availability[mode].available);
     if(missing.length||!timerSupport){report.reason=missing.length?'Unavailable modes: '+missing.join(', '):'GPU timer unavailable; rendering cost remains unknown';results=report;notify(true);return clone(report);}
-    pauseLoop();phase='measuring';cancelRequested=false;const trials=[],passCount=modes.length*2*trialCount;let passIndex=0;
+    pauseLoop();results=null;phase='measuring';cancelRequested=false;const trials=[],passCount=modes.length*2*trialCount;let passIndex=0;
     try{
       for(let trialIndex=0;trialIndex<trialCount;trialIndex++){
         const ordered=modes.map((_,i)=>modes[(i+trialIndex)%modes.length]);
         for(const mode of ordered)for(const selected of trialIndex%2?[mode,'no-fire']:['no-fire',mode]){
           if(cancelRequested||closed||options.signal?.aborted)break;
           const setupStart=performance.now();await resetSimulation(selected);const eventTimes=[],seenEvents=new Set();
-          const poseFrame=protocol.poseFrame;if(!Number.isInteger(poseFrame)||poseFrame<1||poseFrame>3600)throw RangeError('Invalid active pose frame');
           for(let j=0;j<poseFrame;j++){advance();draw();for(const event of snapshot.events){if(!seenEvents.has(event.id)){seenEvents.add(event.id);eventTimes.push({...event,receivedWorldTime:snapshot.clocks.world});}}if(j%16===15){await frame();if(cancelRequested||closed||options.signal?.aborted)break;}}
           if(cancelRequested||closed||options.signal?.aborted)break;
           const nativeAnchors=Object.fromEntries(Object.entries(art.anchors||{}).map(([id,node])=>[id,{position:node.getWorldPosition(new T.Vector3()).toArray(),quaternion:node.getWorldQuaternion(new T.Quaternion()).toArray()}]));
