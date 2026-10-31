@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "proposalCommit": "c1b4adb854ae176d472a67d1894f1f39aa9856d0",
+  "readOnlyReuseArchitectCommit": "bb4c37e97c0984050ed7ec19c5886c860f7fa3b7",
+  "runtimeCopies": {
+    "source-clock.js": {
+      "path": "assets/art/fire-realism/fluid-contact/source-clock.js",
+      "bytes": 4595,
+      "sha256": "be2dd16af7f08a692500f2109283a9c6cdfaf4bf01f5450a2332cff0d09dab22"
+    },
+    "support.js": {
+      "path": "assets/art/fire-realism/fluid-contact/support.js",
+      "bytes": 4425,
+      "sha256": "00dcdf56c9581f43e49af67d0156e708127dc2229c8bcb4f14ec34b3961bef56"
+    },
+    "space.js": {
+      "path": "assets/art/fire-realism/fluid-contact/space.js",
+      "bytes": 1588,
+      "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
+    },
+    "shaders.js": {
+      "path": "assets/art/fire-realism/fluid-contact/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    "floor.js": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/templates/floor.js",
+      "bytes": 485,
+      "sha256": "87133f3da6493d56ba4924c64fc1ab7669a5ffeca69f47d1249c9ad9fad738cb"
+    },
+    "emission-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    "normalization-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-transfer.js",
+      "bytes": 2462,
+      "sha256": "3f6e1442d4eebc4542f5dd474ee42d6175fdef7341a25eebac601cf2509a8742"
+    },
+    "payload/codec.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/codec.js",
+      "bytes": 6418,
+      "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+    },
+    "payload/rgba-decode.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/rgba-decode.js",
+      "bytes": 616,
+      "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+    },
+    "payload/payload.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/payload.js",
+      "bytes": 15109,
+      "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+    }
+  },
+  "sourceReuse": {
+    "oldAssembly": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/assemble.mjs",
+      "bytes": 17522,
+      "sha256": "37b283eb7efd70eaa635a3c825944f46f093d4645321b68eb68a36eba4b8f235"
+    },
+    "factoryTemplate": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/templates/index.js.txt",
+      "bytes": 12540,
+      "sha256": "ca0092ea356f3447ccb96ea284cb1f8729e92c271852b98f8db78578acbe1271"
+    },
+    "readFields": {
+      "path": "workbenches/art/fire-realism/mantaflow-contact/read-fields.mjs",
+      "bytes": 6054,
+      "sha256": "4f37ccc374eb45593e24292616d994844d27568bfaea5f8a708a5ea477da4329"
+    },
+    "deriveSupport": {
+      "path": "workbenches/art/fire-realism/mantaflow-contact/derive-support.mjs",
+      "bytes": 3817,
+      "sha256": "f7527e84f6ba7112062aefdae90a6b18d2521d3ca338cee7f77150b37a292fb0"
+    },
+    "oldNodeAudit": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/audit-node.mjs",
+      "bytes": 8297,
+      "sha256": "aeeb01cc3728952d9101b30082fa69e288848d60f84e538326b939d0c0a78b38"
+    },
+    "assessmentReader": {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/assess.mjs",
+      "bytes": 14228,
+      "sha256": "11ed1fd13fa6eebe683f7fb600563b0d81d5f7417d05183b18212daf3cdc0732"
+    },
+    "assessmentMetrics": {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/metrics.mjs",
+      "bytes": 8547,
+      "sha256": "a02ed4f1133ae83af1146ac90242b396968dcf9044dd90358ca8f6ed46f39c34"
+    }
+  },
+  "codecReview": {
+    "sourceCommit": "cb0198abeda25d3ad6fabb392612f252e2b86bf1",
+    "architectApprovalCommit": "49f37e650cdc4ce0850678232fae71ff11fdb60a",
+    "modules": {
+      "codec.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/codec.js",
+        "bytes": 6418,
+        "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+      },
+      "rgba-decode.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/rgba-decode.js",
+        "bytes": 616,
+        "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+      },
+      "payload.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/payload.js",
+        "bytes": 15109,
+        "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+      }
+    }
+  },
+  "opticalControlCommit": "930553024d54297e4aeefb1cb33273de595a8eeb",
+  "exactSourceQualification": {
+    "id": "cfe01-half-rate-terminal-diagnostic",
+    "manifestSha256": "1a3bb8d2af92f6a9c7017ad37a49b76977baa227d94ae3a0cded781229a2c77e",
+    "validationSha256": "8da43a63ab134deeadb3e1791baaf4bd3762c7be19ac9670167a58b68f2379f4",
+    "assessmentSha256": "fa4e588f59e7a9dbbd81b329356114295fdcc2df7dd2b2dfd59142c2d1e4f132",
+    "hashLedgerSha256": "5447a6b8ce8b42f5043fe8bd4ced73c5e1260b1c44802197e91e87285f192f81",
+    "terminalProofSha256": "b4a523f2b0e04965e5881b610528f2dc7b049fd3d27e693a6914d7edc3ded4b1",
+    "rawGatesPassed": false,
+    "admitted": false
+  },
+  "minimalAdaptations": [
+    "New driver replaces old successful-gate/original-authoring-deadline/source-stage output assumptions with exact failed-study eligibility and a separate180s proposal. No old guard is edited or imported.",
+    "One current/next D/F stream drives192 new prism pairs while the same193 read frames are losslessly packaged; no old V5 geometry witnesses reused.",
+    "Factory names/diagnostic labels/identity gate and same fixed6r smoke-only composition are inserted; all bind/update/clock/depth/light/reset/dispose method bodies preserved.",
+    "Normalization helper only remaps its two relative imports; all pure optical generators/codec/clock/support/floor bytes otherwise copied unchanged.",
+    "Future strict-loader audit substitutes the independently pinned accepted ledger and own exact ABI/paths; no actual data/bootstrap/engine run here."
+  ],
+  "sourcePreparationOnly": true,
+  "actualGeneration": false,
+  "rawGatesPassed": false,
+  "admitted": false,
+  "nativeQualityOrCostAcceptance": false
+}
