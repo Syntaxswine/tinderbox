@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "proposalCommit": "fbaa5cf79dd41fd674fef69772ab60c3e913a6d2",
+  "clarificationCommit": "4ecad81f26e0959efa0cf4d7d116ad1a3620e64c",
+  "scope": "Original additive read-only weighted assessment source. No actual target/control field read or run authorized.",
+  "rawUnchanged": [
+    "metrics.mjs"
+  ],
+  "minimalDeltas": [
+    "New ownQA namespace and exact weighted manifest/validation/preparation/settings/scene/10snapshots",
+    "Pure original/evaluated weight/reload identity gate; no Python/authoring import",
+    "Direct comparison to unweighted half-rate.375 F31/F61 and its exercised same-metric assessment metadata instead of V5.75 fields",
+    "Explicit581field-read counters and metadata-only oldterminal attribution; all metric/path/hash/numeric guards retained",
+    "New scoped .gitattributes self rule keeps all eight source snapshot bytes LF on Windows"
+  ],
+  "sourceMeanings": "F=sqrt(react): proxy-weighted integrals/percentiles, not physical mass/energy/radiance. T is the recorded flame-derived proxy, not independent heatH/Kelvin. Weights change coupled sharedE feeding; no aggregate-dose equivalence.",
+  "frozenWeightedSource": {
+    "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+    "executionCommit": "39ba942b7162462c3da8431967917dc2696c3a88",
+    "coreCount": 10,
+    "coreBytes": 142799,
+    "profileSha256": "e15ae7b81b312bae3dd339da75b62c4d8687ba9e15bf2e83c45292ec23b0c29b"
+  },
+  "frozenData": {
+    "manifest": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/raw-manifest.json",
+      "bytes": 4836989,
+      "sha256": "7efd87ecfd54502d99ff837ae95fb50866458ece0f2e420014094dbc91269d56"
+    },
+    "validation": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/raw-validation.json",
+      "bytes": 5134,
+      "sha256": "5b7035d9a1d81b0f0f80c92a71f1985459aa4ef00092d5c3c8c090a9d2f3ff6d"
+    }
+  },
+  "unweightedControl": {
+    "manifest": {
+      "path": "artifacts/qa/fire-realism/mantaflow-half-rate-source/half-rate-20261031-01/raw-manifest.json",
+      "bytes": 4982197,
+      "sha256": "1a3bb8d2af92f6a9c7017ad37a49b76977baa227d94ae3a0cded781229a2c77e"
+    },
+    "selectedFields": [
+      {
+        "frame": 31,
+        "ageSeconds": 1.0,
+        "input": {
+          "path": "fields/flame-031.f32",
+          "bytes": 884736,
+          "sha256": "be25f7485b653341afdcbb269cc6d3d607e5fcb98d50d4d70dee1724851ea171",
+          "min": 0.0,
+          "max": 0.9832927584648132,
+          "nonzero": 3750,
+          "positive": 3750
+        }
+      },
+      {
+        "frame": 61,
+        "ageSeconds": 2.0,
+        "input": {
+          "path": "fields/flame-061.f32",
+          "bytes": 884736,
+          "sha256": "23c9cf2bff8a8afda10fe0ab3931dcfd56bd5d4ffb58be369b918fd774030f4c",
+          "min": 0.0,
+          "max": 0.982898473739624,
+          "nonzero": 4466,
+          "positive": 4466
+        }
+      }
+    ],
+    "existingAssessment": {
+      "path": "artifacts/qa/fire-realism/half-rate-assessment/assessment-01/report.json",
+      "bytes": 760868,
+      "sha256": "fa4e588f59e7a9dbbd81b329356114295fdcc2df7dd2b2dfd59142c2d1e4f132"
+    },
+    "oldTerminalJSONOnly": {
+      "path": "artifacts/qa/fire-realism/mantaflow-half-rate-source/half-rate-20261031-01/raw-validation.json",
+      "bytes": 5113,
+      "sha256": "8da43a63ab134deeadb3e1791baaf4bd3762c7be19ac9670167a58b68f2379f4"
+    }
+  },
+  "package": {
+    "path": "package.json",
+    "bytes": 408,
+    "sha256": "1cb25a01f47dfd13a9a92533c49f9cfddc59664981f2231c144e2cf2bea2afcb"
+  },
+  "sceneSizeEvidence": {
+    "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01-host/host-stage-stat-inventory.json",
+    "sizeReadFromSavedMetadata": 474375,
+    "actualSceneBodyRead": false
+  },
+  "rights": "Original Tinderbox diagnostic code/data; no external solver, footage, photo pixels or runtime asset imported.",
+  "limitations": [
+    "No actual field read/reader/host/registration/Blender/renderer or native permission.",
+    "Raw source gate and admission stayfalse. No crop/filter/clock/optics/source change or new bake.",
+    "VDB-to-F32 bit identity/effective input-grid propagation and appearance remain unproved."
+  ],
+  "reviewedBaselineInventory": [
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/.gitattributes",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 54,
+      "sha256": "432db828578ca47fab4c1668e669e7f393839a34dc142c6df0b8f60185d75642"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/assess.mjs",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 14228,
+      "sha256": "11ed1fd13fa6eebe683f7fb600563b0d81d5f7417d05183b18212daf3cdc0732"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/check.mjs",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 9574,
+      "sha256": "d7cab6ae51ec7ba9616ae71c22effd180d1349819f51dd4967617d53ad752c2c"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/inputs.json",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 6790,
+      "sha256": "c25acf1546724551e82f5ae0f062a653da22d33ee8dd439b096753cee194ca75"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/metrics.mjs",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 8547,
+      "sha256": "a02ed4f1133ae83af1146ac90242b396968dcf9044dd90358ca8f6ed46f39c34"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/provenance.json",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 2500,
+      "sha256": "c86ecc9bbb3f6351b3f928c7b87c38a0823b6d982b128207e59c75e174b10f7f"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/README.md",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 5784,
+      "sha256": "59d43d2eea89cf9512cfdf357a9236540afdccf3cde4c3bff485af009541d048"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/v5-selected-flame-profile.json",
+      "commit": "b3e4e55872edb764b679e5bae092e839b950bfcc",
+      "bytes": 38359,
+      "sha256": "a7675ed47a293a24c51c282e896cbd5a4074ce3f07cf6de1bb9cb0f21241df62"
+    }
+  ],
+  "unusedBaselineFile": "v5-selected-flame-profile.json belongs to the prior eight-file inventory and is not copied/imported/read by the new reader; direct control is unweighted.375.",
+  "futureHostReuse": {
+    "operatorPath": "C:/Users/baals/.codex/worktrees/tinderbox-code/tinderbox/artifacts/qa/fire-realism/half-rate-assessment-operator-v3-proposed.ps1",
+    "specPath": "C:\\Users\\baals\\.codex\\worktrees\\tinderbox-code\\tinderbox\\artifacts\\qa\\fire-realism\\half-rate-assessment-operator-spec-v3-proposed.json",
+    "specBytes": 11182,
+    "specSha256": "050aa8d6bc4664a215f96dfa45d2b181c715647a92418cb58f50826e93bc88ca",
+    "node": {
+      "path": "C:/Program Files/nodejs/node.exe",
+      "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+      "identityScope": "Previously recorded approved tool; root must freshly confirm before execution. Not read this task."
+    },
+    "budgetsUnchanged": {
+      "creationBasedWorkMs": 180000,
+      "barrierMaxMs": 20000,
+      "enrollmentWaitMaxMs": 15000,
+      "nodeOldSpaceMiB": 256,
+      "nodeRssPolledBytes": 536870912,
+      "readerOutputBytes": 2097152,
+      "operatorAndEnrollmentTotalBytes": 393216,
+      "enrollmentUnknownPartialReserveBytes": 196608,
+      "localOperatorPreFinalPolledBytes": 114688,
+      "localOperatorFinalReserveBytes": 16384,
+      "cleanupGraceMs": 5000,
+      "exactStopConfirmationMs": 5000,
+      "meaning": "No hard RSS/aggregate-memory/filesystem quota. Reader2MiB remains unchanged; operator/enrollment separately bounded and counted. Cleanup grace is not more assessment time."
+    },
+    "status": "Reference only. New sourceContract/commit/source8/input/path/preload must be deliberately rebound and reviewed; nothing executed or permitted."
+  }
+}
