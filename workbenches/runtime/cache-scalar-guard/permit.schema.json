@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tinderbox-cache-scalar-authorization-v1",
+  "description": "NEW fixed scalar-only source contract; not an execution permit. Root issues one reviewed permit separately.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "kind",
+    "phase",
+    "owner",
+    "proposalCommit",
+    "candidateCommit",
+    "sourcePins",
+    "sourceBytes",
+    "inputSpec",
+    "tool",
+    "controllerExecutable",
+    "output",
+    "authorizationPath",
+    "issuedAtEpoch",
+    "notAfterEpoch",
+    "nonce",
+    "limits"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "tinderbox-cache-scalar-authorization-v1"
+    },
+    "phase": {
+      "const": "scalar-projections"
+    },
+    "owner": {
+      "const": "01a17e9b-a6db-7490-94cd-7d863747e5d3"
+    },
+    "proposalCommit": {
+      "const": "c73c0fb3f266859c68c2f2f4c7b5a4a9b1a2b792"
+    },
+    "candidateCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sourcePins": {
+      "type": "object",
+      "minProperties": 17,
+      "maxProperties": 17,
+      "required": [
+        "guard.py",
+        "guard_policy.py",
+        "startup.py",
+        "winjob.py",
+        "guard-provenance.json",
+        "permit.schema.json",
+        "contract.py",
+        "coordinates.py",
+        "scalar.py",
+        "adapter.py",
+        "projection.py",
+        "entry.py",
+        "fixed-spec.json",
+        "fixed-spec.schema.json",
+        "guard-ready.schema.json",
+        "provenance.json",
+        "preview.py"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "guard.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "guard_policy.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "startup.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "winjob.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "guard-provenance.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "permit.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "contract.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "coordinates.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "scalar.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "adapter.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "projection.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "entry.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "fixed-spec.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "fixed-spec.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "guard-ready.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "provenance.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "preview.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "sourceBytes": {
+      "type": "object",
+      "minProperties": 17,
+      "maxProperties": 17,
+      "required": [
+        "guard.py",
+        "guard_policy.py",
+        "startup.py",
+        "winjob.py",
+        "guard-provenance.json",
+        "permit.schema.json",
+        "contract.py",
+        "coordinates.py",
+        "scalar.py",
+        "adapter.py",
+        "projection.py",
+        "entry.py",
+        "fixed-spec.json",
+        "fixed-spec.schema.json",
+        "guard-ready.schema.json",
+        "provenance.json",
+        "preview.py"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "guard.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "guard_policy.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "startup.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "winjob.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "guard-provenance.json": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "permit.schema.json": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "contract.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "coordinates.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "scalar.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "adapter.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "projection.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "entry.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "fixed-spec.json": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "fixed-spec.schema.json": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "guard-ready.schema.json": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "provenance.json": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "preview.py": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        }
+      }
+    },
+    "inputSpec": {
+      "$ref": "#/$defs/file"
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "record"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bytes": {
+          "const": 96106968
+        },
+        "sha256": {
+          "const": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795"
+        },
+        "record": {
+          "$ref": "#/$defs/file"
+        }
+      }
+    },
+    "controllerExecutable": {
+      "$ref": "#/$defs/file"
+    },
+    "output": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authorizationPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuedAtEpoch": {
+      "type": "number"
+    },
+    "notAfterEpoch": {
+      "type": "number"
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32,64}$"
+    },
+    "limits": {
+      "const": {
+        "wallSeconds": 900,
+        "processCommittedBytes": 2147483648,
+        "aggregateCommittedBytes": 2147483648,
+        "freshOutputBytes": 536870912,
+        "threads": 4,
+        "automaticRetries": 0,
+        "automaticRepairs": 0
+      }
+    }
+  },
+  "$defs": {
+    "file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 536870912
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}
