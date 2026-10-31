@@ -1,5 +1,7 @@
 # TB-036-H: development fire review interface
 
+[Live versus historical source-summary correction](source-summary.md) records the current presentation schema, portrait-to-desktop regressions and a separately bounded static readability critique.
+
 This is the UI correction candidate for milestone 11. It binds the real `createFireReviewDriver` from runtime delivery `dafdd44fd9177ca79ed6d9a874966e242d0cfdf7`. It does not approve detailed fire, freeze its reference closure, establish the GPU target, or publish the game.
 
 The [raw timing report correction](raw-timing-report.md) adds a cached full JSON disclosure and bounded Save report link without browser download-event handoff. The [observable evidence correction](observable-evidence.md) exposes exact capture metadata and retains one bounded, actual encoded clip with an explicit Save video link; completion no longer downloads a file. The subsequent [visibility and download correction](visibility-download-correction.md) isolates shell selectors from the borrowed native HUD and gives every export gesture one file. It follows the architect's actual native review; earlier verification records below retain their original scope.

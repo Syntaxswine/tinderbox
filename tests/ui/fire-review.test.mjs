@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash,webcrypto} from 'node:crypto';
-import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot} from '../../workbenches/fire-realism/review.js';
+import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,sourceSummary,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot} from '../../workbenches/fire-realism/review.js';
 const base='http://localhost:4552/nested/fire-ui/workbenches/fire-realism/index.html';
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
 function state(){return {version:1,phase:'ready',configuration:{mode:'current',scenario:'match-contact',view:'isometric',lighting:'bright',population:null,seed:1893,characterId:'bear',viewport:{width:1280,height:800,pixelRatio:1}},frameIndex:45,tick:45,worldTime:.75,playerTime:.75,
@@ -53,6 +53,41 @@ test('The actual local fire source bytes satisfy the strict driver manifest, inc
 test('Critique captures detached authoritative context and grants no acceptance',()=>{
   const original=state();original.recording={lastResult:{status:'complete',start:{tick:45},end:{tick:90}}};const notes={shape:'Observed contact gaps'},record=reviewRecord(original,notes,'2026-10-30T00:00:00Z');original.configuration.seed=99;original.recording.lastResult.end.tick=100;notes.shape='Changed';
   assert.equal(record.context.configuration.seed,1893);assert.equal(record.context.motionEvidence.end.tick,90);assert.equal(record.notes.shape,'Observed contact gaps');assert.equal(record.context.workload.actualBurningCells,4);assert.match(record.acceptance,/do not approve/);
+});
+test('Source summary selects small paired records without serializing fire or report sample arrays',()=>{
+  const original=state(),latestCpu={updateMs:2.5,liveCallback:{advancedFrames:3}},playbackClock={backlogSeconds:.1};
+  const poison={toJSON(){throw Error('Bulk diagnostics or raw report entered the source summary');}};
+  original.diagnostics={...original.diagnostics,latestCpu,playbackClock,fire:poison};
+  original.results={status:'cancelled',hardware:{renderer:'Historical fixture'},configuration:{mode:'reference'},sourceFingerprints:{reference:'report-fixture'},protocol:{poseFrame:120},gpu:{trials:[poison]},toJSON:poison.toJSON};
+  original.captures=[{id:'capture-fixture',frameIndex:45,tick:45,hardware:{renderer:'Capture fixture'},configuration:{mode:'current'},sourceFingerprints:{publishedControl:'capture-fixture'},get dataUrl(){throw Error('JPEG payload entered the source summary');}}];
+  original.recording={lastResult:{status:'complete',configuration:{mode:'current'},start:{frameIndex:1},end:{frameIndex:45}}};
+  for(const phase of ['ready','measuring']){
+    original.phase=phase;const summary=sourceSummary(original),visible=JSON.parse(JSON.stringify(summary));
+    assert.deepEqual(visible.liveScene.latestCpu,latestCpu);assert.deepEqual(visible.liveScene.playbackClock,playbackClock);
+    assert.deepEqual(visible.historicalEvidence.timingReport,{status:'cancelled',configuration:{mode:'reference'},sourceFingerprints:{reference:'report-fixture'},hardware:{renderer:'Historical fixture'},poseFrame:120});
+    assert.equal(visible.historicalEvidence.latestJpeg.frameIndex,45);assert.deepEqual(visible.historicalEvidence.latestMotion,original.recording.lastResult);
+    assert.equal(summary.liveScene.latestCpu,latestCpu);assert.equal(summary.historicalEvidence.timingReport.hardware,original.results.hardware);
+    for(const field of ['hardware','fire','results','captures'])assert.equal(Object.hasOwn(visible.liveScene,field),false);
+    assert.equal(Object.hasOwn(visible.historicalEvidence.timingReport,'gpu'),false);assert.equal(Object.hasOwn(visible.historicalEvidence.latestJpeg,'dataUrl'),false);
+  }
+  assert.deepEqual(sourceSummary(state()).historicalEvidence,{timingReport:null,latestJpeg:null,latestMotion:null});
+});
+test('Portrait capture stays paired after desktop configure and later report replacement',async()=>{
+  const portrait={width:390,height:844,pixelRatio:1.75},desktop={width:1280,height:800,pixelRatio:1},initial=state();initial.configuration.viewport=portrait;
+  const f=await fixture({initialState:initial});
+  f.driver.captureFrame=()=>{const current=f.driver.state();return {mimeType:'image/jpeg',dataUrl:'data:image/jpeg;base64,dGVzdA==',configuration:current.configuration,frameIndex:current.frameIndex,tick:current.tick,sourceFingerprints:{publishedControl:'portrait-capture-fixture'},hardware:{renderer:'Portrait capture fixture',canvas:portrait}};};
+  const capture=await f.binding.intent({type:'capture'}),originalCapture=JSON.stringify(capture);
+  await f.binding.intent({type:'configure-choice',key:'viewport',value:'desktop'});await f.binding.intent({type:'configure-number',key:'pixelRatio',value:1});
+  const diagnostics={sourceFingerprints:{publishedControl:'live-desktop-fixture'},renderer:{...desktop},latestCpu:{updateMs:1},playbackClock:{backlogSeconds:0}};
+  const report={status:'inconclusive',configuration:{...structuredClone(initial.configuration),mode:'reference'},hardware:{renderer:'Portrait report fixture',canvas:portrait},sourceFingerprints:{reference:'portrait-report-fixture'},protocol:{poseFrame:120}};
+  f.emit({diagnostics,results:report});let summary=sourceSummary(f.updates.at(-1));
+  assert.deepEqual(summary.liveScene.configuration.viewport,desktop);assert.deepEqual(summary.liveScene.renderer,desktop);assert.equal(summary.liveScene.sourceFingerprints.publishedControl,'live-desktop-fixture');
+  assert.deepEqual(summary.historicalEvidence.latestJpeg.hardware.canvas,portrait);assert.deepEqual(summary.historicalEvidence.latestJpeg.configuration.viewport,portrait);assert.equal(summary.historicalEvidence.latestJpeg.sourceFingerprints.publishedControl,'portrait-capture-fixture');assert.equal(summary.historicalEvidence.latestJpeg.frameIndex,45);
+  assert.deepEqual(summary.historicalEvidence.timingReport.hardware.canvas,portrait);assert.equal(summary.historicalEvidence.timingReport.sourceFingerprints.reference,'portrait-report-fixture');assert.equal(summary.historicalEvidence.timingReport.poseFrame,120);
+  const nextReport={status:'cancelled',configuration:{mode:'reference',viewport:desktop},hardware:{renderer:'Desktop report fixture',canvas:desktop},sourceFingerprints:{reference:'desktop-report-fixture'},protocol:{poseFrame:180}};
+  f.emit({results:nextReport});summary=sourceSummary(f.updates.at(-1));assert.deepEqual(summary.historicalEvidence.timingReport,{status:'cancelled',configuration:nextReport.configuration,sourceFingerprints:nextReport.sourceFingerprints,hardware:nextReport.hardware,poseFrame:180});
+  assert.equal(JSON.stringify(f.updates.at(-1).captures[0]),originalCapture);assert.equal(Object.hasOwn(f.updates.at(-1),'captureHardware'),false);
+  await f.binding.intent({type:'save-capture-metadata',id:capture.id});const {dataUrl,...metadata}=capture;assert.deepEqual(f.downloads.at(-1)[0],metadata);assert.equal(JSON.stringify(capture),originalCapture);await f.binding.dispose();
 });
 test('Binding passes actual render/HUD roots, delivery and receipt to the driver',async()=>{
   const f=await fixture();assert.deepEqual(f.calls[0],['create','canvas-slot','hud-slot']);assert.equal(f.updates.at(-1).connected,true);assert.equal(f.updates.at(-1).references[0].id,'fixture');await f.binding.dispose();
