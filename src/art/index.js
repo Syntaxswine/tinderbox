@@ -39,7 +39,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     world=createWorld(T,materials);bear=bearKit.create();field=createGroundField(T);fire=fireFactory(T,assets,field.uniforms);
     exterior=createExteriorKit(T,materials,assets,renderer);
     toolProps=createToolProps(T,materials);root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root);
-    if(housingKit){housing=createNeighborhood(T,housingKit);root.add(housing.root);}
+    if(housingKit){housing=createNeighborhood(T,housingKit,{facadeSites:fireFactory!==createFire});root.add(housing.root);}
     if(initialPickups.length){const {createMedicinePickups}=await medicineLoader();if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');medicine=createMedicinePickups(T,{materials,textures:assets});root.add(medicine.root);}
     if(!scene.children.some(object=>object.isLight)){
     root.add(new T.HemisphereLight(0xe2e4c7,0x5c624d,2.0));

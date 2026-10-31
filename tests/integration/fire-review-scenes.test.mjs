@@ -46,7 +46,7 @@ test('review wall camera shows the actual native muzzle and resolved beam from t
 });
 function depthRenderer(){let target=null;return {autoClear:true,shadowMap:{autoUpdate:true},getDrawingBufferSize:v=>v.set(1280,800),getRenderTarget:()=>target,setRenderTarget:value=>{target=value;},getViewport:v=>v.set(0,0,1280,800),getScissor:v=>v.set(0,0,1280,800),getScissorTest:()=>false,setViewport(){},setScissor(){},setScissorTest(){},clear(){},render(){}};}
 test('real street fuel memberships and native source bounds reach reference presentation and identical mode diagnostics from frame30',()=>{
-  const sim=createFireReviewSimulation({scenario:'street-fire'}),housing=createNeighborhood(T,{catalogue,textures:{}}),texture=new T.Texture();
+  const sim=createFireReviewSimulation({scenario:'street-fire'}),housing=createNeighborhood(T,{catalogue,textures:{}},{facadeSites:true}),texture=new T.Texture();
   const field={field:{value:texture},grid:{value:new T.Vector2(102,94)},cellSize:{value:.5}};
   let snapshot=sim.snapshot(),frame30,frame240;
   try{
@@ -72,7 +72,7 @@ test('real street fuel memberships and native source bounds reach reference pres
       try{
         effect.update(frame30.snapshot,frame30.snapshot.clocks.world,{housing:frame30.source,camera,viewport:{width:1280,height:800,pixelRatio:1}});effect.beforeRender(camera);
         const diagnostics=effect.diagnostics();assert.deepEqual(diagnostics.burningBuildingIds,['ashland-cottage']);modeGroups.push(diagnostics.buildingVisuals);
-        if(mode==='reference'){assert.ok(delivered);assert.deepEqual(delivered.buildingVisuals,diagnostics.buildingVisuals);assert.equal(delivered.buildingVisuals[0].burningCellIds.length,128);}
+        if(mode==='reference'){assert.ok(delivered);assert.deepEqual(delivered.buildingVisuals,diagnostics.buildingVisuals);assert.equal(delivered.buildingVisuals[0].burningCellIds.length,128);assert.equal(delivered.buildingVisuals[0].fireSites.length,15);}
         else assert.equal(delivered,null);
       }finally{effect.dispose();}
     }

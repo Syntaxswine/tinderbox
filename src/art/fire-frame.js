@@ -22,7 +22,11 @@ export function burningBuildingVisuals(snapshot,housing){
     const cells=snapshot.cells.filter(c=>boxes.some(b=>Math.abs(c.x-b.x)<b.width/2+c.size/2-1e-9&&Math.abs(c.y-b.y)<b.depth/2+c.size/2-1e-9));
     const burning=cells.filter(c=>c.phase==='burning'&&c.intensity>0);
     if(!burning.length)return [];
-    return [{id:building.id,prefabId:building.prefabId,destroyed:false,burnedFraction:building.burnedFraction,
+    const candidates=model.nativeFacade?.candidates||[],fireSites=candidates.slice(0,32).map(site=>{
+      const nearest=[...burning].sort((a,b)=>(a.x-site.position[0])**2+(a.y-site.position[2])**2-((b.x-site.position[0])**2+(b.y-site.position[2])**2)||(String(a.id)<String(b.id)?-1:String(a.id)>String(b.id)?1:0));
+      return {...copy(site),sourceCellIds:nearest.slice(0,4).map(cell=>cell.id)};
+    });
+    return [{fireSites,fireSitesDiagnostic:{available:fireSites.length>0,reason:fireSites.length?null:model.nativeFacade?.diagnostics?.reason||'Native facade source evidence unavailable',sourceCandidates:candidates.length,cap:32},id:building.id,prefabId:building.prefabId,destroyed:false,burnedFraction:building.burnedFraction,
       sourceBounds:copy(model.sourceBounds),footprintCellIds:cells.map(c=>c.id),burningCellIds:burning.map(c=>c.id),
       intensity:burning.reduce((n,c)=>n+c.intensity,0)/burning.length}];
   });

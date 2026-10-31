@@ -1,3 +1,4 @@
+import {createNativeFacadeSource} from './fire-sites.js';
 import {loadGrossHousing, createGrossHouse} from './gross-housing.js';
 import {HOPKINS_HOUSING_URL, createHopkinsHouse} from './hopkins-housing.js';
 import {createMonroeRowHouse,monroePartyWalls} from './row-house.js';
@@ -20,7 +21,7 @@ export async function loadNeighborhoodKit(T, {renderer} = {}) {
   } catch (error) { library.dispose(); throw error; }
 }
 
-export function createNeighborhood(T, library) {
+export function createNeighborhood(T, library, {facadeSites=false} = {}) {
   const root = new T.Group(); root.name = 'Catalogue neighborhood';
   const models = new Map(), charColor = new T.Color('#261e16');
   const raycaster = new T.Raycaster(), hit = new T.Vector3(), projected = new T.Vector3();
@@ -50,10 +51,10 @@ export function createNeighborhood(T, library) {
             {color: material.color.clone(), opacity: material.opacity, transparent: material.transparent, depthWrite: material.depthWrite});
         });
         model.root.updateMatrixWorld(true);
-        record = {key, model, colors, shadows, meshCount, triangleCount, bounds: new T.Box3().setFromObject(model.root), faded: false};
+        record = {key, model, colors, shadows, meshCount, triangleCount, bounds: new T.Box3().setFromObject(model.root), faded: false,facadeSource:facadeSites?createNativeFacadeSource(T,{model,instance}):null,joinedSides:{left:false,right:false}};
         models.set(instance.id, record); root.add(model.root); builds++;
       }
-      record.model.setNeighborsVisible?.({left:instances.some(b=>b.id===partyWalls.left&&!b.destroyed),right:instances.some(b=>b.id===partyWalls.right&&!b.destroyed)});
+      record.joinedSides={left:instances.some(b=>b.id===partyWalls.left&&!b.destroyed),right:instances.some(b=>b.id===partyWalls.right&&!b.destroyed)};record.model.setNeighborsVisible?.(record.joinedSides);
       const amount = Math.min(1, Math.max(0, instance.burnedFraction || 0));
       for (const [material, original] of record.colors) material.color.copy(original.color).lerp(charColor, amount * .85);
     }
@@ -86,11 +87,19 @@ export function createNeighborhood(T, library) {
     }
   }
   return {root, update,
-    diagnostics: () => ({disposed, builds, active: models.size, instances: structuredClone(observed), occludingBuildingIds: [...occludingBuildingIds],
-      occlusionMethod: 'Conservative bounds of actual source meshes; presentation-only fade', projection: structuredClone(projection),
-      models: [...models.entries()].map(([id, record]) => ({...record.model.diagnostics(), instanceId: id, opacityScale: record.faded ? .18 : 1,
-        sourceMeshCount: record.meshCount, sourceTriangleCount: record.triangleCount, sourceBounds: {min: record.bounds.min.toArray(), max: record.bounds.max.toArray()},
-        nativeScale: record.model.root.scale.toArray(), position: record.model.root.position.toArray(), rotation: record.model.root.rotation.y}))}),
+    diagnostics: () => {
+      const work=[];
+      const result={disposed, builds, active: models.size, instances: structuredClone(observed), occludingBuildingIds: [...occludingBuildingIds],
+        occlusionMethod:'Conservative bounds of actual source meshes; presentation-only fade',projection:structuredClone(projection),
+        models:[...models.entries()].map(([id,record])=>{
+          let nativeFacade;
+          if(record.facadeSource){const source=record.facadeSource.snapshot({joinedSides:record.joinedSides});const {setupMs,lastSnapshotMs,totalSnapshotMs,snapshots,...diagnostics}=source.diagnostics;work.push({instanceId:id,setupMs,lastSnapshotMs,totalSnapshotMs,snapshots});nativeFacade={...source,diagnostics};}
+          return {...record.model.diagnostics(),instanceId:id,opacityScale:record.faded ? .18 : 1,sourceMeshCount:record.meshCount,sourceTriangleCount:record.triangleCount,
+            sourceBounds:{min:record.bounds.min.toArray(),max:record.bounds.max.toArray()},nativeScale:record.model.root.scale.toArray(),position:record.model.root.position.toArray(),rotation:record.model.root.rotation.y,...(nativeFacade?{nativeFacade}:{})};
+        })};
+      if(facadeSites)result.facadeSiteWork=work;
+      return result;
+    },
     dispose() { if (disposed) return; disposed = true; for (const record of models.values()) record.model.dispose(); models.clear(); removeTree(root); }
   };
 }
