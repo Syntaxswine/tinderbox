@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "status": "implementation-only-awaiting-architect-runtime-review",
+  "status": "code-only-guard-repair-awaiting-architect-runtime-review",
   "sourcePins": {
     "author.py": "9debc5ca5502b72ed1a8c8554b5ce1266b956f36fa5521558efa700d9a377d85",
     "grid.py": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
     "policy.py": "1ffa372668d1951524c1485fe9c0151fc848775f2b0fe845e962c8c3afb713b0",
     "state.py": "3d1837b91b73bfd8836bdbc2cb8f080b229be589fa865c21bbd9f68b0a0e31c4",
     "surface.py": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152",
-    "supervisor.py": "c1f0578f031f54aa5cafa46d748a14aa0b9971f1d5fd3b25c8db8bb20d3a3a18",
-    "winjob.py": "1160747117ff41f6937a067732f2908dd2b7a10949bd9d3c6b9c51398b5bcd91",
+    "supervisor.py": "47fc0dd898ded6cb2e72d564cb1bfa8132b628e7e0a6d31cdaf14fa23bae764e",
+    "winjob.py": "61fb2145a49ace6441de08e12e3c458c2e4f3b0b55e32f651bc1cb0f85e5b202",
     "settings.json": "c0e15f205b3cdd85f84427a3a32b1c05123fb9054fcb4351810b4ae716157d2d",
     "helper-provenance.json": "0878bcf7df35ac19ea61bfc782fd0e1742827f0306150bf796a98ea8a3653c3c"
   },
@@ -19,5 +19,14 @@
   "staticPureTests": 18,
   "actualWindowsJobControllerBlenderRuns": 0,
   "originalRuntimeAndDataChanged": false,
-  "noAssetsOrPlaceholders": true
+  "noAssetsOrPlaceholders": true,
+  "mockedSamplingTests": 13,
+  "priorConsumedAttempt": {
+    "candidateCommit": "ee3703c38e3338f9e7ffdaf1388cadae4df66b23",
+    "controllerRuns": 1,
+    "blenderRuns": 0,
+    "output": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v1",
+    "failingMemberPid": "not recorded; unknown",
+    "allOriginalEvidencePreserved": true
+  }
 }

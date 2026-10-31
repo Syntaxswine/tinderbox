@@ -34,6 +34,24 @@ def owned_claim_bytes(claim):
     if st.st_size!=claim['bytes']or sha(path)!=claim['sha256']:raise RuntimeError('Owned claim changed; preserve and stop')
     return st.st_size
 
+def join_and_record_limits(job,out,run):
+    """Persist raw numeric readback (or explicit unknown/failure) before commands."""
+    path=Path(out)/'job-limit-readback.json'
+    receipt={'version':1,'valid':False,'actual':None,'controllerIdentity':job.me,'sourcePins':run['sourcePins'],'candidateCommit':run['candidateCommit'],'deadlineEpoch':run['deadlineEpoch'],'deadlineTickMs':run['deadlineTickMs'],'expected':{'processLimitBytes':job.process_limit,'aggregateLimitBytes':job.aggregate_limit,'requiredFlags':0x2300}}
+    try:receipt['actual']=job.join_self();receipt['valid']=True
+    except BaseException as exc:receipt['error']=str(exc);raise
+    finally:
+        receipt['queryReadback']=job.limit_readback
+        if receipt['actual']is None:receipt['actual']=job.limit_readback.get('actual')
+        save(path,receipt);run['jobLimitReadback']={'path':str(path),'sha256':sha(path),'valid':receipt['valid']};save(Path(out)/'run.json',run)
+    return receipt
+
+def sample_and_record(job,out,run):
+    # The finally receipt also preserves a fatal member diagnostic when sample()
+    # raises before returning; the prepared run record remains stable while waiting.
+    try:return job.sample()
+    finally:save(Path(out)/'job-sampling-diagnostics.json',{'controllerIdentity':job.me,'candidateCommit':run['candidateCommit'],'sourcePins':run['sourcePins'],'deadlineEpoch':run['deadlineEpoch'],'deadlineTickMs':run['deadlineTickMs'],'sampling':job.sampling_report()})
+
 def utc(epoch):return datetime.fromtimestamp(epoch,timezone.utc).isoformat().replace('+00:00','Z')
 def safe_tree_bytes(folder):
     total=0
@@ -79,7 +97,7 @@ class Controller:
         for name in CORE_FILES:shutil.copyfile(HERE/name,source_copy/name)
         once(self.out/'prepare-authorization.used.json',{'permit':self.permit,'sha256':self.permit_sha,'consumedAtEpoch':time.time()})
         # No subprocess, even Git/registration, is started before self joins.
-        self.job.join_self();self.guard()
+        join_and_record_limits(self.job,self.out,self.run);self.guard()
     def persist(self,state=None):
         if state:self.phase=state
         save(self.out/'controller.json',{'state':self.phase,'identity':self.job.me,'deadlineEpoch':self.run['deadlineEpoch'],'deadlineTickMs':self.run['deadlineTickMs'],'peaks':self.peaks,'oneRunClaim':self.owned_claim,'ephemeralCommands':self.ephemeral,'childrenVerifiedExited':self.child is None or self.child.poll()is not None,'controllerExitPending':True,'allHelpersRetired':False})
@@ -87,7 +105,7 @@ class Controller:
         if remaining_seconds(self.run,time.time(),self.job.tick_ms())<=0:raise RuntimeError('Shared 900-second UTC/uptime authoring deadline')
         if(self.out/'supervisor.stop').exists():raise RuntimeError('Private graceful STOP requested')
         check_bake_permit_presence(self.bake_permit_path.exists(),self.run['state'],self.run.get('bakeClaimed',False))
-        sample=self.job.sample();self.peaks['sumPrivateBytes']=max(self.peaks['sumPrivateBytes'],sample['sumPrivateBytes']);self.peaks['jobCommittedBytes']=max(self.peaks['jobCommittedBytes'],sample['job']['peakJobCommittedBytes'])
+        sample=sample_and_record(self.job,self.out,self.run);self.peaks['sumPrivateBytes']=max(self.peaks['sumPrivateBytes'],sample['sumPrivateBytes']);self.peaks['jobCommittedBytes']=max(self.peaks['jobCommittedBytes'],sample['job']['peakJobCommittedBytes'])
         if sample['sumPrivateBytes']>=self.s['limits']['aggregateCommittedBytes']or any(m['privateBytes']>=self.s['limits']['processCommittedBytes']for m in sample['members']):raise RuntimeError('Per-process/aggregate private committed-memory guard')
         scratch=owned_claim_bytes(self.owned_claim)+safe_tree_bytes(self.out)+sum(safe_tree_bytes(Path(p))for p in self.registration_roots)+safe_tree_bytes(Path(self.auth_paths['prepare']).parent)
         # Own serialized registry metadata is additionally charged; shared registry
@@ -211,7 +229,7 @@ class Controller:
         try:
             if error and self.owns_output:
                 if self.run:self.run.update({'state':'stopped-or-failed','rawExportComplete':False,'validForIntegration':False,'error':str(error)});save(self.out/'run.json',self.run)
-                save(self.out/'controller-failure.json',{'error':str(error),'traceback':traceback.format_exc(),'oneRunClaim':self.owned_claim,'controllerExitPending':True,'peaks':self.peaks})
+                save(self.out/'controller-failure.json',{'error':str(error),'traceback':traceback.format_exc(),'samplingDiagnostics':self.job.sampling_report()if self.job else None,'oneRunClaim':self.owned_claim,'controllerExitPending':True,'peaks':self.peaks})
             if self.job and self.job.joined:
                 if self.child is not None:self.terminate_child(self.child,{})
                 # Any surviving member is inspected/revalidated individually. No
