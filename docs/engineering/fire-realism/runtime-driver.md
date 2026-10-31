@@ -148,3 +148,6 @@ Regression tests use actual simulation snapshots, native bear poses/attachments/
 
 
 Cadence-child validation: all 223 repository tests, 166 script syntax checks, 204 static module resolutions, pinned provenance and existing art checks pass. Build passes with 3,464 files / 163,352,080 bytes; `git diff --check` passes. The four published current-control modules retain their exact source bytes. `latestCpu.liveCallback` reports fixed-step/presentation/draw counts plus aggregate simulation/receipt-observation/total callback CPU time separately from GPU measurements. No browser, server, encoder or retained helper was created by the implementation; actual WebGL cadence and motion still require architect capture.
+
+
+Delivery configuration now has a separate [loader/schema and cold-document proof contract](delivery.md). This delivery-only plumbing supplies no actual descriptor, source pin, receipt or acceptance, and leaves public gameplay/rendering and benchmark timing boundaries unchanged.

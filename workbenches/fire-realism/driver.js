@@ -3,7 +3,7 @@ import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 import * as T from '../../src/runtime/three.js';
 import {createArtScene} from '../../src/art/index.js';
 import {createFireReviewEffect} from '../../src/art/fire-review-effect.js';
-import {createFireRealism} from '../../assets/art/fire-realism/index.js';
+import {createFireProjectReader,fireProjectPath,verifyFireRuntimeManifest} from '../../tools/fire-realism/delivery.js';
 import {createFireReviewSimulation,createReviewPlaybackClock,FIRE_REVIEW_SCENARIOS,POPULATION_CASES} from '../../tools/fire-realism/scenarios.js';
 import {createGpuTimer,statistics,summarizeFireMeasurements,validateQualityReceipt,renderTimedFireFrame} from '../../tools/fire-realism/profiling.js';
 import {createFixedFirePose,FIRE_POSE_FRAMES} from '../../tools/fire-realism/fixed-pose.js';
@@ -19,20 +19,11 @@ function configuration(patch,previous){
   if(![width,height,pixelRatio].every(validNumber)||width<128||height<128||width>4096||height>4096||pixelRatio<.5||pixelRatio>1.75)throw new RangeError('Invalid viewport; use product pixel ratio at most1.75');
   next.viewport={width:Math.round(width),height:Math.round(height),pixelRatio};return next;
 }
-async function localManifest(manifestUrl='../../assets/art/fire-realism/manifest.json'){
-  const url=new URL(manifestUrl,import.meta.url),project=new URL('../../',import.meta.url);
-  if(url.origin!==project.origin||!url.pathname.startsWith(project.pathname+'assets/'))throw Error('Delivery manifest must be inside this project assets');
-  const response=await fetch(url);
-  if(!response.ok)throw Error('Fire delivery manifest HTTP '+response.status);
-  const manifest=await response.json(),hashes={};
-  for(const record of manifest.runtimeFiles){
-    if(!/^assets\/art\/fire-realism\//.test(record.path)||record.path.includes('..'))throw Error('Unexpected fire runtime source path');
-    const file=await fetch(new URL('../../'+record.path,import.meta.url));if(!file.ok)throw Error('Missing fire delivery '+record.path);
-    const bytes=await file.arrayBuffer(),hash=globalThis.crypto?.subtle?Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(n=>n.toString(16).padStart(2,'0')).join(''):null;
-    if(hash&&hash!==record.sha256)throw Error('Fire delivery hash mismatch: '+record.path);
-    hashes[record.path]={sha256:hash,expectedSha256:record.sha256,bytes:bytes.byteLength,verified:hash===record.sha256};
-  }
-  return {manifest,hashes};
+async function localManifest(manifestUrl='../../assets/art/fire-realism/manifest.json',delivery={},mode='reference',signal){
+  const project=new URL('../../',import.meta.url),url=new URL(manifestUrl,import.meta.url),manifestPath=fireProjectPath(url,project);
+  const entryPath=delivery.factoryModule||(mode==='reference'?'assets/art/fire-realism/index.js':'assets/art/fire-realism/optimized/index.js');
+  const expectedManifest=delivery.manifestSha256===undefined&&delivery.manifestBytes===undefined?null:{sha256:delivery.manifestSha256,bytes:delivery.manifestBytes};
+  return verifyFireRuntimeManifest({mode,manifestPath,entryPath,expectedManifest,signal,readBytes:createFireProjectReader({projectUrl:project,signal})});
 }
 /** Diagnostic only. Single renderer, single selected fire mode, actual game art. */
 export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=()=>{},signal,artistDelivery=null,referenceAcceptance=null}={}){
@@ -44,9 +35,10 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   let phase='initializing',renderer,scene,camera,art,sim,ui,animation=null,lastNow=null,frameIndex=0,closed=false,loading=false,measurePromise=null,cancelRequested=false;
   let snapshot=null,error=null,progress=null,results=null,manifest=null,hashes={},controlHashes={},adapterHashes={},observerError=null,shaderError=null,notifyTime=0,latestCpu={},lastMetrics={};
   const availability={current:{available:true,reason:null,sourceCommit:CONTROL},reference:{available:false,reason:'Artist delivery not loaded',sourceCommit:null},optimized:{available:false,reason:'Optimized delivery unavailable',sourceCommit:null},'no-fire':{available:true,reason:null,sourceCommit:CONTROL}};
+  const configuredDelivery=artistDelivery!==null;
   const referenceDelivery=artistDelivery?.byMode?.reference||artistDelivery||{};
   const optimizedDelivery=artistDelivery?.byMode?.optimized||null;
-  const factories={reference:referenceDelivery.createFireRealism||createFireRealism,optimized:optimizedDelivery?.createFireRealism||null};
+  const factories={reference:referenceDelivery.createFireRealism||null,optimized:optimizedDelivery?.createFireRealism||null};
   const fingerprints={reference:{sourceCommit:referenceDelivery.sourceCommit||null,runtimeFiles:{}},optimized:{sourceCommit:optimizedDelivery?.sourceCommit||null,runtimeFiles:{}}};
   function sources(){return {publishedControl:CONTROL,controlRuntimeFiles:clone(controlHashes),adapterRuntimeFiles:clone(adapterHashes),byMode:clone(fingerprints)};}
   function state(){
@@ -166,19 +158,21 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();fail(Error('WebGL context lost; discard this measurement'));},{signal:controller.signal});
     scene=new T.Scene();const hemi=new T.HemisphereLight(0xfff1d1,0x334852,2.3),sun=new T.DirectionalLight(0xffffff,2.5);sun.position.set(-8,16,6);hemi.userData.reviewEnvironmentLight=sun.userData.reviewEnvironmentLight=true;scene.add(hemi,sun);
     camera=new T.OrthographicCamera(-10,10,10,-10,.1,300);
-    try{const delivery=await localManifest(referenceDelivery.manifestUrl);manifest=delivery.manifest;hashes=delivery.hashes;
+    try{if(configuredDelivery&&typeof referenceDelivery.createFireRealism!=='function')throw Error('Configured reference delivery requires its verified factory export; no default fallback');
+      const delivery=await localManifest(referenceDelivery.manifestUrl,referenceDelivery,'reference',controller.signal);manifest=delivery.manifest;hashes=delivery.hashes;
+      if(!configuredDelivery){const module=await import('../../assets/art/fire-realism/index.js');if(typeof module.createFireRealism!=='function')throw Error('Debug reference export unavailable');factories.reference=module.createFireRealism;}
       fingerprints.reference.runtimeFiles=hashes;availability.reference={available:true,reason:null,sourceCommit:referenceDelivery.sourceCommit||null};}
-    catch(cause){availability.reference.reason=cause.message;}
+    catch(cause){if(configuredDelivery)throw cause;availability.reference.reason=cause.message;}
     if(optimizedDelivery){let probe;try{
       if(typeof optimizedDelivery.createFireRealism!=='function'||!optimizedDelivery.manifestUrl)throw Error('Optimized delivery requires its own factory and immutable manifest');
-      const delivery=await localManifest(optimizedDelivery.manifestUrl);fingerprints.optimized.runtimeFiles=delivery.hashes;
+      const delivery=await localManifest(optimizedDelivery.manifestUrl,optimizedDelivery,'optimized',controller.signal);fingerprints.optimized.runtimeFiles=delivery.hashes;
       if(delivery.manifest.optimizedAvailable!==true)throw Error('Optimized delivery manifest does not declare an optimized export');
       probe=factories.optimized(T,{quality:'optimized',maxCells:1,maxRays:2});if(!probe?.update||!probe?.root||probe.diagnostics?.().quality!=='optimized')throw Error('Optimized export did not supply the optimized mode');
       availability.optimized={available:true,reason:null,sourceCommit:optimizedDelivery.sourceCommit||null};
-    }catch(cause){availability.optimized={available:false,reason:cause.message,sourceCommit:optimizedDelivery.sourceCommit||null};}finally{probe?.dispose();}}
+    }finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/camera.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/delivery.js','tools/fire-realism/camera.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
       const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));

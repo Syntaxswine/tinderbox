@@ -50,6 +50,7 @@ const [alias,shared]=await Promise.all([import(pathToFileURL(facade)),import(pat
 if(Object.keys(shared).some(key=>shared[key]!==alias[key]))throw Error('Bear facade must re-export the same shared Three objects');
 const sample = JSON.parse(fs.readFileSync('workbenches/simulation/example-snapshot.json', 'utf8'));
 if (sample.version !== 1 || !sample.player?.inventory || !sample.cells.length || !sample.world.tiles.length) throw Error('Incomplete example snapshot');
+if(fs.existsSync('workbenches/fire-realism/delivery.json'))execFileSync(process.execPath,['tools/fire-realism/check-delivery.mjs'],{stdio:'inherit'});
 console.log(`${own.length} own scripts pass syntax; ${visited.size} static modules resolve; one shared Three pair and provenance pass.`);
 execFileSync(process.execPath, ['--test', ...files('tests').filter(p => /\.test\.(?:m?js)$/.test(p))], {stdio: 'inherit'});
 execFileSync(process.execPath, ['workbenches/art/check-art.mjs'], {stdio:'inherit'});
