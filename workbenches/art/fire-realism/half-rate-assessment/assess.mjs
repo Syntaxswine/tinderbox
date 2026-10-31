@@ -35,14 +35,28 @@ export function exactInventory(directory,expected){
 export function parseArgs(args){
  need(args.length===2&&args[0]==='--output'&&path.isAbsolute(args[1]),'Only --output ABSOLUTE_FRESH_PATH is supported');return args[1];
 }
+function plainOutputAncestors(directory,missing){
+ const parsed=path.parse(directory);let current=parsed.root;const rootStat=fs.lstatSync(current);
+ need(rootStat.isDirectory()&&!rootStat.isSymbolicLink(),'Nonplain output volume root');
+ for(const part of directory.slice(parsed.root.length).split(path.sep)){current=path.join(current,part);let s;
+  try{s=fs.lstatSync(current);}catch(error){if(missing&&error.code==='ENOENT')continue;throw error;}
+  need(s.isDirectory()&&!s.isSymbolicLink(),'Nonplain output ancestor refused: '+current);
+ }
+}
+export function createOutputDirectory(qa,output){
+ const root=path.resolve(qa),out=path.resolve(output);
+ need(path.dirname(out)===root&&out!==root,'Fresh DIRECT child of own-QA root required');
+ // Include all ancestors above QA; never follow an existing junction in mkdir.
+ plainOutputAncestors(out,true);need(!fs.existsSync(out),'Fresh own-QA output required');
+ plainOutputAncestors(root,true);fs.mkdirSync(root,{recursive:true});
+ plainOutputAncestors(root,false);fs.mkdirSync(out);plainOutputAncestors(out,false);return out;
+}
 export function run(output){
  need(process.execArgv.includes('--max-old-space-size=256'),'Use the fixed --max-old-space-size=256 foreground command');
  const startUtc=Date.now(),start=performance.now(),deadline=start+180000,deadlineUtc=startUtc+180000;
- const qa=path.join(project,'artifacts/qa/fire-realism/half-rate-assessment'),out=path.resolve(output),rel=path.relative(qa,out);
- need(rel&&!rel.startsWith('..')&&!path.isAbsolute(rel)&&!fs.existsSync(out),'Fresh own-QA output required');
- fs.mkdirSync(qa,{recursive:true});need(!fs.lstatSync(qa).isSymbolicLink(),'Linked QA root');fs.mkdirSync(out);let written=0,peakRss=0,peakArrayBuffers=0,hashed=0;
+ const qa=path.join(project,'artifacts/qa/fire-realism/half-rate-assessment'),out=createOutputDirectory(qa,output);let written=0,peakRss=0,peakArrayBuffers=0,hashed=0;
  const check=()=>{const m=process.memoryUsage();peakRss=Math.max(peakRss,m.rss);peakArrayBuffers=Math.max(peakArrayBuffers,m.arrayBuffers);need(performance.now()<deadline&&Date.now()<deadlineUtc,'180-second assessment deadline');need(!fs.existsSync(path.join(out,'assessment.stop')),'Private assessment.stop requested');need(m.rss<=512*1024**2,'512MiB polled RSS bound');};
- const save=(name,value)=>{const raw=Buffer.from(JSON.stringify(value,null,2)+'\n');need(written+raw.length<=2*1024**2,'2MiB aggregate output cap');fs.writeFileSync(path.join(out,name),raw,{flag:'wx'});written+=raw.length;};
+ const save=(name,value)=>{const raw=Buffer.from(JSON.stringify(value,null,2)+'\n');need(written+raw.length<=2*1024**2,'2MiB aggregate output cap');plainOutputAncestors(out,false);fs.writeFileSync(path.join(out,name),raw,{flag:'wx'});written+=raw.length;};
  const records=[];
  const pinned=record=>{check();const raw=readPinned(project,record,check);records.push({...record});return raw;};
  try{

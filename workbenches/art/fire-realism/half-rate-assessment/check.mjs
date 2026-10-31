@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
-import {sha,plain,readInto,readPinned,exactInventory,parseArgs} from './assess.mjs';
+import {sha,plain,readInto,readPinned,exactInventory,parseArgs,createOutputDirectory} from './assess.mjs';
 import {scanField,connectivity,validateSamples,terminalReport,compareTerminal} from './metrics.mjs';
 const passed=[],test=(name,fn)=>{fn();passed.push(name);};
 const here=path.dirname(fileURLToPath(import.meta.url)),project=path.resolve(here,'../../../..'),base=path.join(project,'artifacts/qa/fire-realism/half-rate-assessment');
@@ -24,6 +24,22 @@ test('hardlinked input refuses',()=>assert.throws(()=>plain(file),/hardlinked/))
 const junction=path.join(temp,'linked-directory');fs.symlinkSync(inv,junction,process.platform==='win32'?'junction':'dir');
 test('linked ancestor refuses',()=>assert.throws(()=>plain(path.join(junction,'a.f32')),/Linked/));
 test('refused checks preserve original bytes',()=>assert.equal(sha(fs.readFileSync(file)),original));
+const input=path.join(temp,'synthetic-input'),outputQA=path.join(temp,'output-qa');fs.mkdirSync(input);fs.mkdirSync(outputQA);
+const marker=path.join(input,'keep.txt');fs.writeFileSync(marker,'immutable synthetic input\n');const markerHash=sha(fs.readFileSync(marker));
+const outputLink=path.join(outputQA,'link');fs.symlinkSync(input,outputLink,process.platform==='win32'?'junction':'dir');
+test('nested linked output refuses before output creation/input changes',()=>{
+ assert.throws(()=>createOutputDirectory(outputQA,path.join(outputLink,'fresh')),/DIRECT child/);
+ assert.deepEqual(fs.readdirSync(input),['keep.txt']);assert.equal(sha(fs.readFileSync(marker)),markerHash);assert.equal(fs.existsSync(path.join(input,'fresh')),false);
+});
+test('linked ancestor above missing QA refuses before any mkdir/write',()=>{
+ const ancestor=path.join(temp,'qa-ancestor-link');fs.symlinkSync(input,ancestor,process.platform==='win32'?'junction':'dir');
+ const qa=path.join(ancestor,'new-qa');assert.throws(()=>createOutputDirectory(qa,path.join(qa,'fresh')),/Nonplain output ancestor/);
+ assert.deepEqual(fs.readdirSync(input),['keep.txt']);assert.equal(sha(fs.readFileSync(marker)),markerHash);assert.equal(fs.existsSync(path.join(input,'new-qa')),false);
+});
+test('plain fresh direct child succeeds and existing output refuses',()=>{
+ const qa=path.join(temp,'plain-qa'),out=path.join(qa,'fresh');assert.equal(createOutputDirectory(qa,out),out);assert.equal(fs.lstatSync(out).isDirectory(),true);
+ assert.throws(()=>createOutputDirectory(qa,out),/Fresh own-QA/);assert.deepEqual(fs.readdirSync(out),[]);
+});
 test('asymmetric x-fastest mapping and native vertical axis',()=>{
  const m=scanField(bytes,g,{profile:true});assert.equal(m.positive,3);assert.equal(m.integral,1.25);assert.deepEqual(m.support.positiveCentreBoundsBlender,{min:[-.5,-.5,-.5],max:[0,.5,1]});
  assert.deepEqual(m.profile.weightedQuantiles.map(x=>x.centreNativeY),[1,1,1,1]);assert.equal(m.profile.fractionsAbove.find(x=>x.height===.5).sumFFraction,.7);assert.equal(m.belowGroundPositive,1);
