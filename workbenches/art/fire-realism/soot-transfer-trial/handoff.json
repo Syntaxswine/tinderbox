@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "status": "scoped-controlled-optical-trial-checks-pass-native-review-pending",
+  "proposalCommit": "ae93f69f9dce8bb29e68af05ec4620eea5b25fa7",
+  "baseArtistCommit": "5d245e33df8bc0f13f1cc39ab049b01fce1e93f6",
+  "factoryModule": "assets/art/fire-realism/fluid-surface-soot-trial.js",
+  "factoryExport": "createFluidSurfaceSootTransferTrial",
+  "prepareExport": "prepareFluidSurfaceContactData",
+  "evidenceExport": "fluidSurfaceContactPayloadEvidence",
+  "auditExport": "auditFluidSurfaceContactRGBA",
+  "prepareEvidenceAuditAreExactReexports": true,
+  "manifest": {
+    "path": "assets/art/fire-realism/fluid-surface-soot-trial.manifest.json",
+    "bytes": 69564,
+    "sha256": "1b1761d58b3d8bacd5fab1249cf8d6dfe898c3d4ff31334a74c2a1cb77fbea0e"
+  },
+  "newSources": [
+    {
+      "path": "assets/art/fire-realism/fluid-surface-soot-trial.js",
+      "bytes": 2217,
+      "sha256": "aa6b238f4b594606ce324f08a9008cfb76805639d394e5fcebade7ec7717b89b"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-soot-transfer.js",
+      "bytes": 531,
+      "sha256": "6fde06e131d2c39ec8c2897d96ac35fd0a06a76f71c27fe31b24bc2770bd5978"
+    }
+  ],
+  "unchangedControl": {
+    "artistCommit": "df0fd0ddafb37fd4fa729989a6064d8a1436665a",
+    "tree": "0b7ae31e02d5fdae2c81590c45ac9d6aa0742f02",
+    "manifestBytes": 68098,
+    "manifestSha256": "1cbe16364217f7ce0d576749166be556d8e54c95c028cb27e378bcb9be225759",
+    "shaderSha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+  },
+  "difference": {
+    "control": "mix(1.,.18,clamp(value.z*heat,0.,1.))",
+    "trial": "mix(1.,.18,smoothstep(.05,.35,clamp(value.z,0.,1.)))",
+    "scope": "Exact single term per newly owned material, all validated before mutation; no global exposure/light/gain, source/clock/geometry/mask/depth/output change",
+    "interpretation": "Artist optical-transfer hypothesis; .05/.35 are experiment defaults, not physical constants",
+    "coldSmokeDefinition": "F=0 equality, not a claim that every cool positive-F voxel is unchanged"
+  },
+  "closure": {
+    "runtimeFiles": 61,
+    "sourceBytes": 10659220,
+    "resources": 193,
+    "gzipBytes": 93875221,
+    "sparseBytes": 98362125,
+    "dataCopies": 0,
+    "additionalStores": 0
+  },
+  "checks": [
+    {
+      "name": "transfer",
+      "arguments": [
+        "node",
+        "workbenches\\art\\fire-realism\\soot-transfer-trial\\check-transfer.mjs"
+      ],
+      "exitCode": 0,
+      "output": {
+        "path": "workbenches/art/fire-realism/soot-transfer-trial/evidence/transfer.log",
+        "bytes": 213,
+        "sha256": "659af100f074b0dcd420b4f8dad6f428f0e4182277a57d29b60b8d0f61b2074c"
+      }
+    },
+    {
+      "name": "integration",
+      "arguments": [
+        "node",
+        "--experimental-vm-modules",
+        "workbenches\\art\\fire-realism\\soot-transfer-trial\\check-integration.mjs"
+      ],
+      "exitCode": 0,
+      "output": {
+        "path": "workbenches/art/fire-realism/soot-transfer-trial/evidence/integration.log",
+        "bytes": 498,
+        "sha256": "8e9cf55e33f5e0e148120b4d6d00be71b5d21451043892800d075a5f7b5369c3"
+      }
+    },
+    {
+      "name": "closure",
+      "arguments": [
+        "node",
+        "workbenches\\art\\fire-realism\\soot-transfer-trial\\check-closure.mjs"
+      ],
+      "exitCode": 0,
+      "output": {
+        "path": "workbenches/art/fire-realism/soot-transfer-trial/evidence/closure.log",
+        "bytes": 500,
+        "sha256": "bc9e10250de593d5815d79e4c75676e51e0c81f1c9387a83600c5ecd1b53fc88"
+      }
+    }
+  ],
+  "testLimitations": "Actual shared Three with tiny synthetic fields and CPU scalar transfer checks. No GPU, full-data reload, native image/motion or quality acceptance. Existing193/579 raw identity evidence applies to unchanged resources; root still verifies new full closure before import.",
+  "initialHarnessCorrection": "The first integration assertion expected generic one-owner wording; corrected only its regex to the unchanged actual existing-field-cache error. No product change followed.",
+  "resources": "Original twoRGBA slots/geometry/material/light lifecycle unchanged; no new buffers/textures/material clones/store/fetch/async per-frame work. Shared original sparse data remains document-lived.",
+  "helpersRetained": false,
+  "ports": [],
+  "bakePerformed": false,
+  "descriptorChanged": false,
+  "publication": false,
+  "remainingGate": "Root exact source intake, cold strict-loader verification and matched native iso/oblique60/120,30/180,burnout/tail and motion; independent UI decision, no implementer quality score."
+}
