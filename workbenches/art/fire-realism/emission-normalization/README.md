@@ -28,6 +28,14 @@ node workbenches/art/fire-realism/emission-normalization/check-probe-source.mjs
 node workbenches/art/fire-realism/emission-normalization/check-closure.mjs
 ```
 
+The closure check always compares historical art, controls, metadata and authoring against `68cc6a34def5a534ec517ff81f3af233e2743a3b`. Its separate `src` comparison defaults to that same commit in this artist checkout. An architect integration checkout must pass its exact pre-intake parent explicitly:
+
+```text
+node workbenches/art/fire-realism/emission-normalization/check-closure.mjs --integration-base 7427f4a194664a9cca6383e4768dfd4ccbf0e554
+```
+
+Only no arguments or the exact two-argument `--integration-base <40-hex commit>` form is accepted. The named object must exist and be a commit; missing, malformed or extra arguments fail before the resource audit. Git receives structured arguments. This changes only the runtime-preservation comparison context; no historical art/control check or failed diff is suppressed. Artist checks cover the default, explicit68cc and invalid/nonexistent/non-commit argument cases. Root must run the explicit7427 closure in its integration checkout. The earlier root context-failure log remains historical evidence.
+
 The generator writes only the additive production manifest, three-module probe manifest and probe-config. It refuses changed gain1 sources/data. Checks establish exact one-term delta, independent numerical quadrature, alpha0/F0 CPU controls, complete-fragment refusal, actual-shared-Three synthetic two-voxel lifecycle/ownership and63-module import/resource/immutability closure. Logs/pins are delivered beside this README. The integration harness was adapted from the preserved fixture; its comparison keeps the unchanged extinction uniform on both sides.
 
 ## Limits and decision
