@@ -5,7 +5,6 @@ float consumedCharScar(vec2 worldMetres, float nativeDistance, float charWidth, 
   float c = clamp(consumed, 0., 1.);
   float cell = max(cellMetres, .0001);
   float width = max(charWidth, 0.) * cell;
-  if (c <= 0. || width <= 0.) return 0.;
   float distanceMetres = max(nativeDistance, 0.) * cell;
   float qx = (.8 * worldMetres.x - .6 * worldMetres.y) / .72 + .73;
   float qy = (.6 * worldMetres.x + .8 * worldMetres.y) / .72 - 1.19;
@@ -32,9 +31,11 @@ float consumedCharScar(vec2 worldMetres, float nativeDistance, float charWidth, 
   // Derivatives do not include consumed/width: increasing fuel loss cannot
   // widen the AA band and erase an already covered point.
   float aa = clamp(fwidth(distanceMetres + erosion), cell * .0125, cell * .12);
+  float breakAA = clamp(fwidth(fine), .02, .12);
+  // Caller must reach this function in uniform flow, before varying guards/discard.
+  if (c <= 0. || width <= 0.) return 0.;
   float body = 1. - smoothstep(radius - aa, radius + aa, distanceMetres);
   float extent = 1. - smoothstep(max(0., width - aa), width, distanceMetres);
-  float breakAA = clamp(fwidth(fine), .02, .12);
   float pores = smoothstep(.20 - breakAA, .32 + breakAA, fine);
   return c * body * extent * pores;
 }
