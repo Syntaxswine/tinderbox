@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Proposed future scalar-only atomic ready record; old metadata guard is unsupported",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "phase",
+    "owner",
+    "proposalCommit",
+    "candidateCommit",
+    "sourcePins",
+    "permitSha256",
+    "inputSpecSha256",
+    "nonce",
+    "output",
+    "runRecordSha256",
+    "controllerIdentity",
+    "childIdentity",
+    "deadline",
+    "jobLimitReadback"
+  ],
+  "properties": {
+    "kind": {
+      "const": "tinderbox-cache-scalar-guard-ready-v1"
+    },
+    "phase": {
+      "const": "scalar-projections"
+    },
+    "owner": {
+      "const": "01a17e9b-a6db-7490-94cd-7d863747e5d3"
+    },
+    "proposalCommit": {
+      "const": "c73c0fb3f266859c68c2f2f4c7b5a4a9b1a2b792"
+    },
+    "candidateCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sourcePins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract.py",
+        "coordinates.py",
+        "scalar.py",
+        "adapter.py",
+        "projection.py",
+        "entry.py",
+        "fixed-spec.json",
+        "fixed-spec.schema.json",
+        "guard-ready.schema.json",
+        "provenance.json"
+      ],
+      "properties": {
+        "contract.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "coordinates.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "scalar.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "adapter.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "projection.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "entry.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "fixed-spec.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "fixed-spec.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "guard-ready.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "provenance.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "permitSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "inputSpecSha256": {
+      "const": "f04891273d0b75efad265d82c63e7b6c960554fd009326ca1089295b329da765"
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32,64}$"
+    },
+    "output": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runRecordSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "controllerIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pid",
+        "creationFileTime",
+        "executable"
+      ],
+      "properties": {
+        "pid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "creationFileTime": {
+          "type": "string",
+          "pattern": "^[0-9]{17,20}$"
+        },
+        "executable": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "childIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pid",
+        "creationFileTime",
+        "executable"
+      ],
+      "properties": {
+        "pid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "creationFileTime": {
+          "type": "string",
+          "pattern": "^[0-9]{17,20}$"
+        },
+        "executable": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "deadline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startEpoch",
+        "startTickMs",
+        "deadlineEpoch",
+        "deadlineTickMs",
+        "wallSeconds"
+      ],
+      "properties": {
+        "startEpoch": {
+          "type": "number"
+        },
+        "startTickMs": {
+          "type": "number"
+        },
+        "deadlineEpoch": {
+          "type": "number"
+        },
+        "deadlineTickMs": {
+          "type": "number"
+        },
+        "wallSeconds": {
+          "const": 900
+        }
+      }
+    },
+    "jobLimitReadback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "validated",
+        "actual"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "validated": {
+          "const": true
+        },
+        "actual": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "processLimitBytes",
+            "aggregateLimitBytes",
+            "flags"
+          ],
+          "properties": {
+            "processLimitBytes": {
+              "const": 2147483648
+            },
+            "aggregateLimitBytes": {
+              "const": 2147483648
+            },
+            "flags": {
+              "const": 8960
+            }
+          }
+        }
+      }
+    }
+  }
+}

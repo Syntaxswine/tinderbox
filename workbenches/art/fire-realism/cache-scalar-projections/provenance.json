@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "status": "source-only-unexecuted-no-render-permit",
+  "proposalCommit": "c73c0fb3f266859c68c2f2f4c7b5a4a9b1a2b792",
+  "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+  "scope": "Six fixed scalar projections only, not beauty art/native acceptance, R/O or cost evidence",
+  "coreSources": [
+    "contract.py",
+    "coordinates.py",
+    "scalar.py",
+    "adapter.py",
+    "projection.py",
+    "entry.py",
+    "fixed-spec.json",
+    "fixed-spec.schema.json",
+    "guard-ready.schema.json",
+    "provenance.json"
+  ],
+  "sourceAdoption": {
+    "findingsSha256": "cb8a9d5d2af2ec80a54b9bcebee970c9f8f36285f3618f9909072598bd281dff",
+    "primaryInventorySha256": "90d5cd58d8d03bfcc7a17ed64bf78351d3ad030f932265e642d031ca26a7ab2b",
+    "architect30FileArchiveReceiptSha256": "c54e7aa4947b454f359604b3ff1f296d9929e4f9e16e3f5e04130373ae017d30",
+    "mathematicalWitnessSha256": "7fa56dccbadfd480465a6f376a26026c993787b723d44b725b67f00504d52c91",
+    "adoptedPlacement": "W=Mauth*T(-.5)*inverse(Mobs)=T(domainMin), not the old metadata centre translation or VolumeToMesh adapter",
+    "basis": "Both exact dense layouts i+48j+2304k; source clip preserves surviving logical coordinates; CPU linear samples logical i at i+.5; actual metadata Mobs=hI"
+  },
+  "apiSources": [
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/makesrna/intern/rna_volume.cc",
+      "bytes": 29526,
+      "sha256": "be7603c5c045c51d91955eda388d45bbdc021373a00267b27712295fa80313a3",
+      "ranges": [
+        "269-310 FLOAT types/channels/matrix/is_loaded and explicit tree-load method",
+        "504-561 FULL/WORLD/manual step/clipping"
+      ],
+      "application": "Use only metadata collection load before rendering, never grid.load; no active-index bbox API is exposed here, so exact active bounds are explicitly unavailable."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/intern/cycles/blender/addon/properties.py",
+      "bytes": 70616,
+      "sha256": "f40d5756378b6b441fd2b15f17d508e6582a1c969997b0b158890b6596b34816",
+      "ranges": [
+        "391 SVM/OSL switch",
+        "569 fixed/adaptive sample choice",
+        "786-807 scene step rate/max steps",
+        "1156-1168 material LINEAR/step rate"
+      ],
+      "application": "CPU/SVM,8fixedsamples,scene/material step rates1,manual half-voxel step512max. Actual required writable RNA/readback must succeed before render."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/makesrna/intern/rna_scene.cc",
+      "bytes": 418796,
+      "sha256": "9cc36eae9c30e76f2a42b2470180a3cc53c5f498293fc4918a26fa8dcff2e025",
+      "ranges": [
+        "1571-1575 linear-float requirement getter",
+        "6568-6595 FOLLOW_SCENE/output linear colorspace API"
+      ],
+      "application": "Require actual EXR format has_linear_colorspace, explicitly FOLLOW_SCENE, record actual output color-space name; no view conversion/gain or guessed calibrated radiance."
+    }
+  ],
+  "preservedSources": {
+    "metadataCommit": "68cc6a34def5a534ec517ff81f3af233e2743a3b",
+    "artistParent": "3cf4882f763256439287c729da54b84b2f4972d2",
+    "normalizationWitness": "930553024d54297e4aeefb1cb33273de595a8eeb",
+    "guard": "Original14metadata/guard execution files remain unchanged. New phase requires a separately reviewed runtime adapter/atomic gate/root permit.",
+    "adaptations": "Pure bounded JSON/hash/identity conventions adapted from the reviewed metadata entry; new gate type/phase/source closure and900s are independent, not an old metadata exception."
+  },
+  "scientificLimits": [
+    "Cached grid temperature means stored solver heat by exact-build naming; raw .Fac is not Kelvin/RNA .5H/flame-derived exported T or proof H nonzero.",
+    "VDB current hashes are preserved-file identities, not producer-time raw-array bit proof; sparsification/density clip can discard values.",
+    "Unit emission and opaque black background yield scalar diagnostics, not calibrated fire radiance.",
+    "Signed H uses R=max(H,0), B=max(-H,0); R-B represents a signed projected integral only if actual renderer mapping succeeds.",
+    "Blender-loaded own EXR buffer statistics record actual color-space/alpha readbacks, not independent binary pixel proof.",
+    "Camera is pinned from native R24frame60. Cache31/61 mean authored ages1/2, not an assertion of exact native ignition age.",
+    "Mathematical alignment and fake lifecycle tests are not actual grid sampling or images.",
+    "Source APIs still need live readback under a future permit; no fallback/retry/offset adjustment is authorized."
+  ],
+  "cleanup": "Track/remove all newly owned scene/world/camera/object/Volume/material/loaded-EXR/newRenderResult resources; preserve original exceptions and one-attempt cleanup failures. No package, service, listener, preview or helper is launched by this source task.",
+  "futureGuard": "Metadata guard remains unsupported. External source-before-import, exact enrollment/membership, both2GiB committed caps,512MiB polled output accounting, original900s UTC/uptime deadline, STOP and exact-lifetime exit receipts require separate review/permit."
+}

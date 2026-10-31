@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Exact finite V5 scalar diagnostic recipe",
+  "description": "Whole-document const intentionally forbids knobs, unreviewed paths, gains, phases or renderer changes.",
+  "type": "object",
+  "const": {
+    "version": 1,
+    "id": "tinderbox-v5-cache-scalar-projections",
+    "phase": "scalar-projections",
+    "proposalCommit": "c73c0fb3f266859c68c2f2f4c7b5a4a9b1a2b792",
+    "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+    "tool": {
+      "version": [
+        4,
+        5,
+        15
+      ],
+      "buildHash": "5afeabba6097",
+      "fullSourceCommit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+      "executable": "C:/Users/baals/Documents/ChatGPT/tinderbox/artifacts/tools/blender-4.5.15/unpacked/blender-4.5.15-windows-x64/blender.exe",
+      "executableSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795",
+      "record": {
+        "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\verified-tool.json",
+        "bytes": 982,
+        "sha256": "6da5956b06fb1d72b9b96f8883d143a552ebaf6a5d7ec1e0e330cec08688e063"
+      }
+    },
+    "limits": {
+      "wallSeconds": 900,
+      "processCommittedBytes": 2147483648,
+      "aggregateCommittedBytes": 2147483648,
+      "freshOutputBytes": 536870912,
+      "threads": 4,
+      "selectedCacheBytesMaximum": 16777216,
+      "gridCountMaximum": 64,
+      "outputFileBytesMaximum": 8388608,
+      "automaticRetries": 0,
+      "automaticRepairs": 0
+    },
+    "source": {
+      "stageDirectory": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5",
+      "savedProject": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5\\surface-source.blend",
+        "bytes": 472919,
+        "sha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+      },
+      "rawManifest": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5\\raw-manifest.json",
+        "bytes": 4626878,
+        "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+      },
+      "prepareReport": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5\\prepare.json",
+        "bytes": 107511,
+        "sha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df"
+      },
+      "cacheHashLineage": {
+        "producerVdbHashesAvailable": false,
+        "meaning": "Selected VDB hashes identify currently preserved files measured during this source preparation. They do not independently establish original raw-export bit identity. Original F32/manifest hashes are separate preserved evidence.",
+        "newCacheHashMeasurementIsNotRawIdentityProof": true
+      }
+    },
+    "evidence": {
+      "metadataReport": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\cache-field-diagnostic\\metadata-20261031-01\\metadata-report.json",
+        "bytes": 20464,
+        "sha256": "3c7871248b87857e7035d1d45ff7485f9bf6aeec9276cf24aa42a3fac2d49c89"
+      },
+      "nativeCamera": {
+        "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\fire-realism\\render-round-24-emission-pilot\\reference-match-contact-oblique-bright-frame60.json",
+        "bytes": 112736,
+        "sha256": "861c683c6ddbde62ed5a5b8b8cf573b7318c110ba2da3ade20ba014beff388b3"
+      },
+      "indexFindings": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\cache-index-alignment-research\\findings.json",
+        "bytes": 12008,
+        "sha256": "cb8a9d5d2af2ec80a54b9bcebee970c9f8f36285f3618f9909072598bd281dff"
+      },
+      "mathematicalWitness": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\cache-index-alignment-research\\mathematical-witness.json",
+        "bytes": 16151,
+        "sha256": "7fa56dccbadfd480465a6f376a26026c993787b723d44b725b67f00504d52c91"
+      },
+      "primarySourceInventory": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\cache-index-alignment-research\\source-inventory.json",
+        "bytes": 14613,
+        "sha256": "90d5cd58d8d03bfcc7a17ed64bf78351d3ad030f932265e642d031ca26a7ab2b"
+      }
+    },
+    "selected": [
+      {
+        "frame": 31,
+        "ageSeconds": 1.0,
+        "cache": {
+          "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5\\cache\\data\\fluid_data_0031.vdb",
+          "bytes": 550102,
+          "sha256": "562cad5ddb1e822379a2808d5325f42d22224c2b9cf512a5489e76348193edd7"
+        },
+        "resolution": [
+          48,
+          48,
+          96
+        ],
+        "voxelSize": [
+          0.0416666679084301,
+          0.0416666679084301,
+          0.0416666679084301
+        ],
+        "scalarCentreOriginBlender": [
+          -0.979166666045785,
+          -0.979166666045785,
+          -0.14583329297602177
+        ],
+        "domainBoundsBlender": {
+          "min": [
+            -1.0,
+            -1.0,
+            -0.16666662693023682
+          ],
+          "max": [
+            1.0,
+            1.0,
+            3.8333334922790527
+          ]
+        },
+        "originalExportChannels": {
+          "density": {
+            "bytes": 884736,
+            "sha256": "05a75fd7bdbda2c80265ef78b1118dddd5336922da9d2b54b377c5979e80c4ee"
+          },
+          "temperature": {
+            "bytes": 884736,
+            "sha256": "305739343338a5c97e0cff6f1eae73a7a5ee6b5afec9961db63fee6c0fa2167d"
+          },
+          "flame": {
+            "bytes": 884736,
+            "sha256": "0a6b0ed18edd488203d933cd215baef47c5b34e154d1747eaa0c1cafa087d8ff"
+          }
+        }
+      },
+      {
+        "frame": 61,
+        "ageSeconds": 2.0,
+        "cache": {
+          "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5\\cache\\data\\fluid_data_0061.vdb",
+          "bytes": 2407206,
+          "sha256": "4410e1293e3bb51631ecfd4f7210444170ddefc390e0db64b144883eb4704083"
+        },
+        "resolution": [
+          48,
+          48,
+          96
+        ],
+        "voxelSize": [
+          0.0416666679084301,
+          0.0416666679084301,
+          0.0416666679084301
+        ],
+        "scalarCentreOriginBlender": [
+          -0.979166666045785,
+          -0.979166666045785,
+          -0.14583329297602177
+        ],
+        "domainBoundsBlender": {
+          "min": [
+            -1.0,
+            -1.0,
+            -0.16666662693023682
+          ],
+          "max": [
+            1.0,
+            1.0,
+            3.8333334922790527
+          ]
+        },
+        "originalExportChannels": {
+          "density": {
+            "bytes": 884736,
+            "sha256": "c594e5200499e4d31c656d62479ac1392901ee96f175f86f55dbabf03f8b2896"
+          },
+          "temperature": {
+            "bytes": 884736,
+            "sha256": "8615163b783b9eecd53857fcbb0ed8a462b75a5dffe3f2c650d94a345c702668"
+          },
+          "flame": {
+            "bytes": 884736,
+            "sha256": "6aa821700a1f0c6913a701d69c2d58b8d02eb4d748ab2f85272b4a180020807e"
+          }
+        }
+      }
+    ],
+    "space": {
+      "resolution": [
+        48,
+        48,
+        96
+      ],
+      "voxelSize": [
+        0.0416666679084301,
+        0.0416666679084301,
+        0.0416666679084301
+      ],
+      "scalarCentreOriginBlender": [
+        -0.979166666045785,
+        -0.979166666045785,
+        -0.14583329297602177
+      ],
+      "domainMinBlender": [
+        -1.0,
+        -1.0,
+        -0.16666662693023682
+      ],
+      "observedIndexToObject": [
+        [
+          0.0416666679084301,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.0416666679084301,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0.0416666679084301,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "volumeObjectWorld": [
+        [
+          1,
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          1,
+          -0.16666662693023682
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "nativeTranslation": [
+        5.5,
+        0,
+        8.5
+      ],
+      "placement": "Mauth*T(-.5,-.5,-.5)*inverse(Mobs); Cycles CPU linear sampler accommodation, not VolumeToMesh or fitted alignment",
+      "actualValueIdentityClaimed": false
+    },
+    "camera": {
+      "nativeWorldColumnMajor": [
+        0.7682212795973759,
+        0,
+        -0.6401843996644798,
+        0,
+        -0.19516365870176675,
+        0.9523986544646219,
+        -0.2341963904421201,
+        0,
+        0.6097107608496923,
+        0.3048553804248461,
+        0.7316529130196309,
+        0,
+        15.7,
+        5.9,
+        20.25,
+        1
+      ],
+      "nativeViewColumnMajor": [
+        0.768221279597376,
+        -0.19516365870176677,
+        0.6097107608496924,
+        0,
+        2.775557561562892E-17,
+        0.9523986544646221,
+        0.3048553804248462,
+        0,
+        -0.6401843996644798,
+        -0.23419639044212015,
+        0.731652913019631,
+        0,
+        0.9026600035269143,
+        2.1873942867294005,
+        -26.18707717849429,
+        1.0000000000000002
+      ],
+      "nativeProjectionColumnMajor": [
+        0.15625,
+        0,
+        0,
+        0,
+        0,
+        0.25,
+        0,
+        0,
+        0,
+        0,
+        -0.0066688896298766264,
+        0,
+        0,
+        0,
+        -1.0006668889629877,
+        1
+      ],
+      "blenderWorldRows": [
+        [
+          0.7682212795973759,
+          -0.19516365870176675,
+          0.6097107608496923,
+          10.2
+        ],
+        [
+          0.6401843996644798,
+          0.2341963904421201,
+          -0.7316529130196309,
+          -11.75
+        ],
+        [
+          0,
+          0.9523986544646219,
+          0.3048553804248461,
+          5.9
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "positionBlender": [
+        10.2,
+        -11.75,
+        5.9
+      ],
+      "sensorFit": "HORIZONTAL",
+      "orthoScale": 12.8,
+      "shift": [
+        0,
+        0
+      ],
+      "clip": [
+        0.1,
+        300
+      ],
+      "ndcTolerance": 2E-06,
+      "toleranceBasis": "Float32 camera/orthoscale storage plus inversion/projection rounding. 2e-6NDC is at most .00128native1280px or .00032diagnostic320px; stop above it, no fit."
+    },
+    "renderer": {
+      "engine": "CYCLES",
+      "device": "CPU",
+      "shadingSystem": false,
+      "threads": 4,
+      "width": 320,
+      "height": 200,
+      "percentage": 100,
+      "samples": 8,
+      "adaptiveSampling": false,
+      "denoising": false,
+      "motionBlur": false,
+      "volumePrecision": "FULL",
+      "volumeSpace": "WORLD",
+      "volumeInterpolation": "LINEAR",
+      "stepMetres": 0.02083333395421505,
+      "sceneStepRate": 1,
+      "materialStepRate": 1,
+      "maximumSteps": 512,
+      "voxelClipping": 0,
+      "background": "opaque-black-zero-world-emission",
+      "filmTransparent": false,
+      "format": "OPEN_EXR",
+      "depth": "32",
+      "colorMode": "RGBA",
+      "compression": "ZIP",
+      "previews": false
+    },
+    "scalarMapping": {
+      "density": "literal GEOMETRY density.Fac * unit white emission",
+      "flame": "literal GEOMETRY flame.Fac * unit white emission",
+      "signedHeat": "literal GEOMETRY temperature.Fac -> RGB(max(H,0),0,max(-H,0))*unit emission",
+      "emissionStrength": 1,
+      "absorption": 0,
+      "scattering": 0,
+      "blackbody": false,
+      "calibratedKelvin": false,
+      "valueNormalization": false
+    },
+    "execution": "Separate reviewed scalar-projections guard and root permit required; source readiness does not authorize execution.",
+    "omitted": [
+      "runtime A/taper/floor",
+      "temporal interpolation",
+      "support slabs",
+      "normal fire transfer/composition",
+      "actor/lights/surroundings/HUD",
+      "native quality or GPU cost acceptance"
+    ]
+  }
+}
