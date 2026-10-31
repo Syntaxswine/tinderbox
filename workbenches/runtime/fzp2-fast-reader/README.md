@@ -1,0 +1,9 @@
+# Fixed-window reader: source-only QA prototype
+
+Authorized by root proposal `5bdfea9d254f24243f1a1b5f2f50e66b134e0c0f`. This additive workbench is never imported by the game. Frozen All, payloads, descriptor and canonical codec remain untouched. `candidate.js` preserves the original header/layout validation and both complete passes; its sole algorithm change is bounded32-bit byte-window literal extraction, with an explicit fifth byte and final-segment handling. It never reads following tags or relies on undefined-byte coercion.
+
+Run the focused **synthetic only** checks with `node --test workbenches/runtime/fzp2-fast-reader/check.test.mjs`. Independent BigInt oracles cover every width0..9, all reachable word-bit offsets, byte-view offsets0..7, high-base wrap, odd/final segments and raw special values. Late-invalid inputs must leave all output/canaries unchanged. The synthetic protocol checks warmup/order, independent lane hashes and disposal using tiny fields; they are not the actual193-payload benchmark.
+
+`protocol.mjs` defines one fixed warmup frame128 and ABBA validation / BAAB full validation+zero-fill+write groups. It uses exactly two RGBA outputs plus one declared host hashing scratch, with hashes/comparison outside timing. Its generic small-fixture entry is not an actual-data authorization. The actual pinned-file/deadline CLI is a separate pending source addition; no real dataset benchmark may be launched until root reviews the complete runner and issues explicit authorization. No performance benefit or integration is claimed by this checkpoint.
+
+Canonical baseline: `assets/art/fire-realism/field-payload-v2/codec.js`, SHA-256 `5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0`. Any later common decoder must apply fairly to reference/optimized modes and preserve historical controls; a slow baseline cannot manufacture a rendering-cost win.
