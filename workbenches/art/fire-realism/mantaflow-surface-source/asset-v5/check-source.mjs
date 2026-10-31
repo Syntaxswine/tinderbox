@@ -9,11 +9,11 @@ import {floorPrism} from './templates/floor.js';
 import {prismGeometry,prismOwnsHeight,prismContains,rayPrismInterval} from '../../../../../assets/art/fire-realism/fluid-contact/support.js';
 import {blenderToGame,gameToBlender} from '../../../../../assets/art/fire-realism/fluid-contact/space.js';
 const here=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(here,'../../../../..'),plan=JSON.parse(fs.readFileSync(path.join(here,'assembly-plan.json'))),hash=b=>createHash('sha256').update(b).digest('hex');
-for(const file of ['assemble.mjs','audit-browser.js','templates/index.js','templates/floor.js'])execFileSync(process.execPath,['--check',path.join(here,file)],{stdio:'pipe'});
+for(const file of ['assemble.mjs','audit-browser.js','templates/floor.js'])execFileSync(process.execPath,['--check',path.join(here,file)],{stdio:'pipe'});
 for(const pin of Object.values(plan.pureSources)){const bytes=fs.readFileSync(path.join(root,pin.source));assert.equal(bytes.length,pin.bytes);assert.equal(hash(bytes),pin.sha256);}
-const factory=fs.readFileSync(path.join(here,'templates/index.js'),'utf8');assert.equal((factory.match(/export (?:async )?function/g)||[]).length,4);
+const factory=fs.readFileSync(path.join(here,'templates/index.js.txt'),'utf8');execFileSync(process.execPath,['--input-type=module','--check'],{input:factory,stdio:['pipe','pipe','pipe']});assert.equal((factory.match(/export (?:async )?function/g)||[]).length,4);
 for(const name of ['createFluidSurfaceContactReference','prepareFluidSurfaceContactData','fluidSurfaceContactPayloadEvidence','auditFluidSurfaceContactRGBA'])assert(factory.includes('function '+name+'('));
-assert(factory.includes("from './payload/payload.js'"));assert(!factory.includes('reactionOnly'));assert(!factory.includes('makeReactionDiagnosticShaders'));assert(!factory.includes('FIELD_METADATA.grid'));
+assert(factory.includes("from "+String.fromCharCode(39)+"./payload/payload.js"+String.fromCharCode(39)));assert(!factory.includes('reactionOnly'));assert(!factory.includes('makeReactionDiagnosticShaders'));assert(!factory.includes('FIELD_METADATA.grid'));
 assert(factory.includes('rawPair.prisms.map(floorPrism).filter(Boolean)'));assert(factory.includes('prismGeometry(prism)'));assert(factory.includes('slab.value.set(prism.lower,prism.upper)'));assert(factory.includes("quality:'reference'"));
 assert(factory.indexOf('bindPresentation(frame)')<factory.indexOf('sourceState=clock.update(frame)'));
 // Floor clip has no mutable link to the original slab bounds and never edits
