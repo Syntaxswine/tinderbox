@@ -1,0 +1,42 @@
+# Controlled diagnostic child: unchanged13ad fire
+
+This child changes the existing **art workbench only**. All five runtime fire files and `assets/art/fire-realism/manifest.json` remain byte-identical to `13ad95c2d131e3dab28e775c1d33c121ea50d5ed`. No fire coefficients, geometry, smoke look, source mask/grid, gameplay, global exposure, HDR pipeline, factory export or accepted comparison mode changes. These diagnostic images/readbacks cannot establish visual quality, rendering cost or reference freeze.
+
+The actual0.8 match captures and independent consecutive-frame review show a rounder boundary but pale reaction under gray smoke. The local-coordinate overlapping0.5 tongues and narrow non-overlapping physical0.8 domains need not have equal ray-integrated extinction/emission. That is a hypothesis to measure alongside sampling, foreground smoke and blend association, rather than a reason for another blind coefficient edit. [GPU Gems chapter6](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-6-fire-vulcan-demo) motivates testing fire/smoke blending and coherent appearance cues; no book code, footage, texture or reduced-resolution rendering is imported.
+
+## Public controls and root capture procedure
+
+Use the existing `workbenches/art/fire-realism/index.html` URL on the root-owned preview. No worker browser or server is needed.
+
+1. Reload the page after intake. Select **DIAGNOSTIC: frozen native match**. Wait for native assets/source verification; ordinary synthetic controls disable while this case is selected.
+2. Select source phase **15/30/60/120**, representing0.25/0.5/1/2 world seconds. Select pinned **isometric** or **oblique** camera. Hold that phase/view fixed while changing **All / Flame only / Smoke only** and **32 original /64 diagnostic**.
+3. Press **Capture actual JPEG + metadata** for each desired comparison. The page displays the native1280×800 canvas JPEG as an image/data link, its byte count/SHA256 and frozen exact metadata. There is **no automatic download**. The displayed captured image/metadata stay paired when controls later change. **Show current metadata** scrolls to the live report without overwriting the captured pair. Legacy synthetic Save JPG behavior is unchanged; in diagnostic mode that button routes to the in-page capture.
+4. Press **Run1-pixel blend readback** once. The visible compact JSON includes every actual RGBA readback, inputs, encoding/type availability, component bits, enum legend, actual blend states, shader-body hashes, exact fire/runtime hashes and restoration. Capture afterward includes the full probe receipt. No private window hook or browser download event is used.
+5. Prioritize phase60/120 All32 versus Flame-only32/Smoke-only32, then Flame-only64 at the same phase. Repeat other phases if spatial aliasing versus consistently low integrated emission remains unclear. Returning to All32 selects the original material and restores all original arrays/order/count; it is not a new production mode.
+
+## Frozen inputs and exact adaptations
+
+`capture-diagnostic-fixtures.mjs` reads19 immutable Git modules at old-engine `aca30cd910a326918b1599ce6665803cf64739e0`. It stores all1,280 cells losslessly as a base plus complete-cell phase patches, original player position(4.25,8.25), radius0.56, tool/state and clocks, actual1m/four-cell match sources, world, pinned two-view camera matrices and bright environment. Reconstructing each phase is checked against every original snapshot field. There is no spatial resolution reduction or invented source. Reproduce with `node --experimental-vm-modules workbenches/art/fire-realism/capture-diagnostic-fixtures.mjs` when the pinned Git objects exist.
+
+The backdrop uses the existing native material/world/heat-char field/bear/tool APIs, atlas assets and selection display. Full native0.5m mask and underlay remain unchanged; lights and player-legibility inputs stay identical between diagnostic layers. Current-camera opaque depth excludes all fire and transparent/faded/non-depth-writing materials, retains actual alpha-test behavior and restores visibility/renderer state in `finally`.
+
+This is a **static reconstruction**, not played gameplay. The native bear is freshly evaluated at each selected player/time phase; prior per-render animation history is not replayed, so the exact animation pose/body depth can differ from native played capture. Every A/B at that phase holds this pose fixed. The combined runtime driver/UI is not loaded. Art context uses `preserveDrawingBuffer:true` for JPEG/readback, whereas the combined driver leaves that flag false; antialias/alpha=false, NoToneMapping/sRGB, exposure1 and1280×800/DPR1 are otherwise preserved. Actual context attributes/framebuffer properties are reported, not presumed equivalent. Unsupported/mismatched source files fail explicitly.
+
+## Diagnostic isolation and ownership
+
+The factory still updates all sources and lights. Only selected instance submissions are compacted immediately around the actual draw; original arrays/material/count/order restore even if drawing throws. All32 does not rewrite attributes. The64 workbench material shares original uniform wrappers/textures and differs only in one regional march spacing/count pair; body hashes before Three `#include` processing are recorded. No shared/borrowed texture is cloned or disposed by this material. It is cached once and disposed on page exit.
+
+The blend probe draws a fullscreen triangle into **one physical scissored pixel of the actual default framebuffer**, without resizing the main canvas or using a substitute target. Inputs use linear colors0.25/0.75/1.65, final alpha0.05/0.25/0.75 and backgrounds0/0.18/0.65. Straight NormalBlending is compared to NormalBlending with ONE source state and RGB association **after color conversion using final alpha**. A state-only flag change is not used. Raw outputs are not interpreted automatically. Renderer viewport/scissor/autoClear and output settings are restored, followed by a complete selected frozen-scene redraw. Probe/override materials, geometry, native assets and async partial loads have explicit cleanup; page exit aborts owned loads and releases resources. No OS helper is started.
+
+## What the evidence would justify
+
+- If Flame-only64 restores stable surfaces over32, investigate local integration/sampling.
+- If both remain weak, calibrate narrow-sheet duty cycle and ray-integrated extinction/emission while preserving contact/edge/voids.
+- If Flame-only is strong but All is weak, examine actual foreground smoke opacity/distribution; expected attenuation alone is not a sorting bug.
+- Explain sub-unit blend controls first. An actual-range association difference matters only if a matched field comparison shows a material visual effect; neither an HDR rewrite nor a look change follows automatically.
+
+`node workbenches/art/fire-realism/check-diagnostics.mjs` checks frozen-source reconstruction/immutability, original camera/mask inputs, All32 no-mutation, filtered/64 round trips including exceptions, override scope, shared texture ownership, correct probe association placement, public-state restoration, opaque-depth filtering/throw restoration and partial/aborted asset cleanup. The probe's synthetic test surface tests lifecycle only and is explicitly **not real WebGL readback or pixel acceptance**. Root owns all actual compilation, image/readback interpretation and subsequent optics decisions. Exact passing checks and candidate SHA accompany the handoff.
+
+## Candidate checks
+
+The focused diagnostic checks pass, including all six13ad blobs byte-identical, source reconstruction/clone/mask/camera, All32 zero rewrite, six layer/sample combinations, thrown draw restoration, exact64 override scope, shared texture/material ownership, probe association/state restoration, opaque prepass filtering/exception restoration and partial/aborted asset cleanup. `node tools/check.mjs` passes186/186 tests,158 own-script syntax checks and198 static-module resolutions. The shared primary review's dossier/source subset passes2/2. `node tools/build.mjs` remains3462 files/163367822 bytes; this workbench/documentation child does not change the packaged game. `git diff --check` passes. These are source/lifecycle checks only: actual WebGL compilation, native capture, framebuffer readback and interpretation remain unperformed by the artist and are the architect's next step.
