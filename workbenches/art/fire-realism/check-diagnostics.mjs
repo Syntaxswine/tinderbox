@@ -1,8 +1,9 @@
+import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import * as T from '../../../src/runtime/three.js';
-import {createFireRealism} from '../../../assets/art/fire-realism/index.js';
+import {createFireRealism} from './control-08/index.js';
 import {createGroundField} from '../../../src/art/ground-field.js';
 import {diagnosticSnapshot, saveCamera, applyFrozenCamera, cameraRecord} from './diagnostic-data.js';
 import {createFixtureStreamControl, regional64Shader, associatedFieldShader} from './diagnostic-stream.js';
@@ -10,8 +11,15 @@ import {createFramebufferBlendProbe} from './blend-probe.js';
 import {createFrozenDiagnosticScene, prepareFixtureDepth} from './diagnostic-scene.js';
 
 const base = '13ad95c2d131e3dab28e775c1d33c121ea50d5ed';
-const manifest = JSON.parse(fs.readFileSync('assets/art/fire-realism/manifest.json'));
-for (const path of ['assets/art/fire-realism/manifest.json', ...manifest.runtimeFiles.map(f => f.path)]) assert.deepEqual(fs.readFileSync(path), execFileSync('git', ['show', `${base}:${path}`]), `Frozen runtime bytes changed:${path}`);
+const controlRoot = 'workbenches/art/fire-realism/control-08/';
+const manifest = JSON.parse(fs.readFileSync(controlRoot + 'manifest.json'));
+const provenance = JSON.parse(fs.readFileSync(controlRoot + 'provenance.json')); assert.equal(provenance.sourceCommit, base); assert.equal(provenance.files.length, 6);
+for (const path of ['assets/art/fire-realism/manifest.json', ...manifest.runtimeFiles.map(f => f.path)]) assert.deepEqual(fs.readFileSync(controlRoot + path.split('/').at(-1)), execFileSync('git', ['show', `${base}:${path}`]), `Immutable control bytes changed:${path}`);
+for (const record of provenance.files) {
+  assert.equal(record.localPath, controlRoot + record.sourcePath.split('/').at(-1));
+  const bytes = fs.readFileSync(record.localPath); assert.equal(bytes.length, record.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256);
+  if (record.localPath.endsWith('.js')) for (const match of bytes.toString('utf8').matchAll(/from ['"]([^'"]+)['"]/g)) {assert.ok(match[1].startsWith('./')); assert.ok(fs.existsSync(controlRoot + match[1].slice(2)));}
+}
 const data = JSON.parse(fs.readFileSync(new URL('./fixtures/frozen-match-diagnostic.json', import.meta.url))), frozenJson = JSON.stringify(data);
 for (const phase of [15, 30, 60, 120]) {
   const s = diagnosticSnapshot(data, phase); assert.equal(s.cells.length, 1280); assert.equal(s.cells.filter(c => c.phase === 'burning').length, 4);
@@ -39,6 +47,7 @@ assert.equal(associatedFieldShader(original.fragmentShader), expectedAssociated3
 assert.equal(regional64Shader(expectedAssociated32), expectedAssociated64, 'The two narrowly scoped overrides commute');
 assert.equal(expectedAssociated32.replace(insertion, '#include <colorspace_fragment>'), original.fragmentShader);
 assert.throws(() => associatedFieldShader(original.fragmentShader + original.fragmentShader), /Unknown final/);
+assert.throws(() => associatedFieldShader(expectedAssociated32), /Unknown final/, 'Already-associated output cannot be associated twice');
 assert.throws(() => associatedFieldShader(original.fragmentShader.replace('alpha*legibility);', 'alpha);')), /Unknown final/);
 assert.throws(() => control.withSelection({association: 'state-only'}, () => {}), /Unknown fixture/);
 assert.equal(original.blending, T.NormalBlending); assert.equal(original.premultipliedAlpha, false);
@@ -113,4 +122,4 @@ const first = texture(), late = texture(), abort = new AbortController(); let fi
 class DelayedLoader {loadAsync() {return ++index === 1 ? Promise.resolve(first) : new Promise(resolve => {finishLate = resolve;});}}
 const pending = createFrozenDiagnosticScene({...T, TextureLoader: DelayedLoader}, {}, new T.Scene(), abort.signal);
 await Promise.resolve(); await Promise.resolve(); abort.abort(); finishLate(late); await assert.rejects(pending, /Fixture closed/); assert.equal(first.releases, 1); assert.equal(late.releases, 1);
-console.log('PASS: exact six13ad files unchanged; lossless native phases/player/mask/camera; All32 zero-mutation path; all12 layer/sample/association roundtrips + throw/hook restoration; exact sampling + final-alpha association override scope and borrowed texture ownership; blend probe association/state/cleanup guards; async native asset failure/abort cleanup. NO actual WebGL readback, shader, image, quality or performance acceptance.');
+console.log('PASS: exact six13ad immutable control blobs unchanged; lossless native phases/player/mask/camera; All32 zero-mutation path; all12 layer/sample/association roundtrips + throw/hook restoration; exact sampling + final-alpha association override scope and borrowed texture ownership; blend probe association/state/cleanup guards; async native asset failure/abort cleanup. NO actual WebGL readback, shader, image, quality or performance acceptance.');

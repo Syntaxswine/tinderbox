@@ -11,7 +11,7 @@ export function regional64Shader(source) {
 // (including player legibility), encode color, then associate by that final alpha.
 export function associatedFieldShader(source) {
   const anchor = '#include <colorspace_fragment>';
-  if (source.split(anchor).length !== 2 || source.split('gl_FragColor=vec4(emission/max(.0001,alpha),alpha*legibility);').length !== 2) throw Error('Unknown final field output; refusing association diagnostic');
+  if (source.includes('gl_FragColor.rgb*=gl_FragColor.a;') || source.split(anchor).length !== 2 || source.split('gl_FragColor=vec4(emission/max(.0001,alpha),alpha*legibility);').length !== 2) throw Error('Unknown final field output; refusing association diagnostic');
   return source.replace(anchor, anchor + '\n    gl_FragColor.rgb*=gl_FragColor.a;');
 }
 function actualBlendState(renderer) {

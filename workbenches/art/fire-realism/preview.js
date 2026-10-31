@@ -31,7 +31,8 @@ const occluder = box(.56, 1.1, .36, 0x383f35, 6.25, .55, 6.25); occluder.visible
 box(.05, 1, .05, 0xe9dcc2, 2, .5, 4);
 const head = document.createElement('p'); head.textContent = 'Synthetic fixtures. Grid / scale bar: 1 m. Wall: 2 m × 0.16 m. Building proxy: 3 m × 4.24 m × 3 m. Shared NoToneMapping / sRGB output.'; document.querySelector('#viewport').after(head);
 const effect = createFireRealism(T, {quality: 'reference', maxCells: 64}); scene.add(effect.root);
-const streamControl = createFixtureStreamControl(T, effect), lifetime = new AbortController();
+const lifetime = new AbortController();
+let control08 = null, streamControl = null;
 let frozenData = null, frozenScene = null, frozenPromise = null, nativeLoading = false, frozenKey = null, frozenSnapshot = null, savedEnvironment = null, lastDiagnostic = null, lastProbe = null, blendProbe = null, closed = false, sourceVerification = null, shaderHashes = null, diagnosticDirty = true;
 const isDiagnostic = () => document.querySelector('#fixture').value === 'actual-match-diagnostic';
 const sha256 = async value => [...new Uint8Array(await crypto.subtle.digest('SHA-256', typeof value === 'string' ? new TextEncoder().encode(value) : value))].map(x => x.toString(16).padStart(2, '0')).join('');
@@ -41,15 +42,15 @@ async function ensureFrozen() {
   nativeLoading = true; status.textContent = 'Loading exact frozen source data and existing native ground/bear assets…';
   frozenPromise = (async () => {
     const bytes = await (await ownedFetch(new URL('./fixtures/frozen-match-diagnostic.json', import.meta.url))).arrayBuffer(); frozenData = JSON.parse(new TextDecoder().decode(bytes));
-    const manifestBytes = await (await ownedFetch(new URL('../../../assets/art/fire-realism/manifest.json', import.meta.url))).arrayBuffer();
+    const manifestBytes = await (await ownedFetch(new URL('./control-08/manifest.json', import.meta.url))).arrayBuffer();
     const manifestRawSha = await sha256(manifestBytes), canonicalManifestSha = await sha256(new TextDecoder().decode(manifestBytes).replaceAll('\r\n', '\n'));
     if (canonicalManifestSha !== frozenData.artistManifestSha256) throw Error('Diagnostic requires the unchanged13ad manifest');
     const files = [];
     for (const item of frozenData.artistManifest.runtimeFiles) {
       if (!item.path.startsWith('assets/art/fire-realism/')) throw Error('Invalid diagnostic runtime source path');
-      const data = await (await ownedFetch(new URL('../../../' + item.path, import.meta.url))).arrayBuffer(), hash = await sha256(data);
+      const data = await (await ownedFetch(new URL('./control-08/' + item.path.split('/').at(-1), import.meta.url))).arrayBuffer(), hash = await sha256(data);
       if (data.byteLength !== item.bytes || hash !== item.sha256) throw Error('Raw13ad fire source mismatch: ' + item.path);
-      files.push({path: item.path, bytes: data.byteLength, sha256: hash, verified: true});
+      files.push({historicalPath: item.path, actualPath: 'workbenches/art/fire-realism/control-08/' + item.path.split('/').at(-1), bytes: data.byteLength, sha256: hash, verified: true});
     }
     const backdrop = [];
     for (const [path, expected] of Object.entries(frozenData.backdropSources)) {
@@ -57,7 +58,10 @@ async function ensureFrozen() {
       if (hash !== expected) throw Error('Pinned native backdrop source differs: ' + path);
       backdrop.push({path, canonicalLfSha256: hash, verified: true});
     }
-    sourceVerification = {artistCommit: frozenData.artistCommit, fixtureDataSha256: await sha256(bytes), runtimeFiles: files, backdropSources: backdrop, manifestRawSha256: manifestRawSha, manifestCanonicalLfSha256: canonicalManifestSha, manifestRawMatches: manifestRawSha === frozenData.artistManifestSha256, manifestCanonicalMatches: true};
+    sourceVerification = {scope: 'immutable workbench-only control08; not the active R runtime', artistCommit: frozenData.artistCommit, fixtureDataSha256: await sha256(bytes), runtimeFiles: files, backdropSources: backdrop, manifestRawSha256: manifestRawSha, manifestCanonicalLfSha256: canonicalManifestSha, manifestRawMatches: manifestRawSha === frozenData.artistManifestSha256, manifestCanonicalMatches: true};
+    const controlModule = await import('./control-08/index.js');
+    if (closed) throw new DOMException('Fixture closed', 'AbortError');
+    control08 = controlModule.createFireRealism(T, {quality: 'reference', maxCells: 64}); control08.root.visible = false; scene.add(control08.root); streamControl = createFixtureStreamControl(T, control08);
     shaderHashes = {original32ExpandedFragment: await sha256(streamControl.source32), diagnostic64ExpandedFragment: await sha256(streamControl.source64), associated32ExpandedFragment: await sha256(streamControl.sourceAssociated32), associated64ExpandedFragment: await sha256(streamControl.sourceAssociated64), hashBasis: 'ShaderMaterial.fragmentShader UTF8: noise/field templates expanded, before Three #include preprocessing', overrideScope: '64: exactly one regional march count/spacing override. Associated: one encoded-RGB multiply by final alpha after colorspace plus matching premultipliedAlpha:true/ONE. Original factory files unchanged'};
     frozenScene = await createFrozenDiagnosticScene(T, renderer, scene, lifetime.signal);
     if (closed) {frozenScene.dispose(); throw new DOMException('Fixture closed', 'AbortError');}
@@ -67,22 +71,22 @@ async function ensureFrozen() {
 function enterFrozenEnvironment() {
   if (savedEnvironment) return;
   const hemi = scene.children.find(o => o.isHemisphereLight);
-  savedEnvironment = {camera: saveCamera(camera), background: scene.background?.clone() || null, clear: renderer.getClearColor(new T.Color()).clone(), clearAlpha: renderer.getClearAlpha(), sunColor: sun.color.clone(), sunPosition: sun.position.clone(), sunIntensity: sun.intensity, hemiColor: hemi.color.clone(), hemiGround: hemi.groundColor.clone(), hemiIntensity: hemi.intensity, visibility: syntheticMeshes.map(o => o.visible)};
+  savedEnvironment = {activeReferenceVisible: effect.root.visible, camera: saveCamera(camera), background: scene.background?.clone() || null, clear: renderer.getClearColor(new T.Color()).clone(), clearAlpha: renderer.getClearAlpha(), sunColor: sun.color.clone(), sunPosition: sun.position.clone(), sunIntensity: sun.intensity, hemiColor: hemi.color.clone(), hemiGround: hemi.groundColor.clone(), hemiIntensity: hemi.intensity, visibility: syntheticMeshes.map(o => o.visible)};
   for (const o of syntheticMeshes) o.visible = false;
   const env = frozenData.environment; scene.background = null; renderer.setClearColor(env.clearColor); hemi.color.setHex(env.hemi.sky); hemi.groundColor.setHex(env.hemi.ground); hemi.intensity = env.hemi.intensity; sun.color.setHex(env.sun.color); sun.position.fromArray(env.sun.position); sun.intensity = env.sun.intensity;
-  frozenScene.root.visible = true;
+  frozenScene.root.visible = true; effect.root.visible = false; control08.root.visible = true;
 }
 function leaveFrozenEnvironment() {
   if (!savedEnvironment) return;
   const s = savedEnvironment, hemi = scene.children.find(o => o.isHemisphereLight); applyFrozenCamera(camera, s.camera); scene.background = s.background; renderer.setClearColor(s.clear, s.clearAlpha); sun.color.copy(s.sunColor); sun.position.copy(s.sunPosition); sun.intensity = s.sunIntensity; hemi.color.copy(s.hemiColor); hemi.groundColor.copy(s.hemiGround); hemi.intensity = s.hemiIntensity;
-  syntheticMeshes.forEach((o, i) => {o.visible = s.visibility[i];}); frozenScene.root.visible = false; savedEnvironment = null; frozenKey = null;
+  syntheticMeshes.forEach((o, i) => {o.visible = s.visibility[i];}); frozenScene.root.visible = false; control08.root.visible = false; effect.root.visible = s.activeReferenceVisible; savedEnvironment = null; frozenKey = null;
 }
 const grid = 24, size = .5, mask = new Uint8Array(grid * grid * 4), field = new T.DataTexture(mask, grid, grid); field.minFilter = field.magFilter = T.NearestFilter; field.generateMipmaps = false;
 const fieldUniforms = {field: {value: field}, grid: {value: new T.Vector2(grid, grid)}, cellSize: {value: size}};
 const depthTexture = new T.DepthTexture(1280, 800, T.UnsignedIntType), depthTarget = new T.WebGLRenderTarget(1280, 800, {depthBuffer: true}); depthTarget.depthTexture = depthTexture;
 let worldTime = 0, playerTime = 0, tick = 0, isPaused = true, powder = false, view = 0, dim = false, intersect = false, previous = performance.now(), lastReport = 0, autoPauseAt = null, pendingWorldStep = 0;
 const pauseLabel = () => {document.querySelector('#pause').textContent = isPaused ? 'Resume' : 'Pause';};
-function reset() {worldTime = playerTime = tick = 0; autoPauseAt = null; pendingWorldStep = 0; isPaused = true; effect.reset(); pauseLabel();}
+function reset() {worldTime = playerTime = tick = 0; autoPauseAt = null; pendingWorldStep = 0; isPaused = true; effect.reset(); control08?.reset(); pauseLabel();}
 document.querySelector('#fixture').onchange = async () => {
   reset(); lastProbe = null; lastDiagnostic = null; frozenKey = null; diagnosticDirty = true;
   const diagnostic = isDiagnostic(); document.querySelector('#diagnostic-controls').hidden = !diagnostic; document.querySelector('#diagnostic-output').hidden = !diagnostic;
@@ -92,7 +96,7 @@ document.querySelector('#fixture').onchange = async () => {
   try {await ensureFrozen(); if (isDiagnostic() && !closed) enterFrozenEnvironment();}
   catch (error) {status.className = 'failure'; status.textContent = 'Diagnostic unavailable: ' + error.message;}
 };
-document.querySelector('#diag-phase').onchange = () => {frozenKey = null; effect.reset(); lastProbe = null; diagnosticDirty = true;};
+document.querySelector('#diag-phase').onchange = () => {frozenKey = null; control08?.reset(); lastProbe = null; diagnosticDirty = true;};
 for (const id of ['diag-layer', 'diag-steps', 'diag-view', 'diag-association']) document.getElementById(id).onchange = () => {diagnosticDirty = true;};
 document.querySelector('#pause').onclick = () => {isPaused = !isPaused; autoPauseAt = null; pauseLabel();};
 document.querySelector('#reset').onclick = reset;
@@ -102,7 +106,7 @@ document.querySelector('#powder').onclick = e => {powder = !powder; e.target.tex
 document.querySelector('#view').onclick = e => {view = (view + 1) % 3; camera.position.set(...[[12, 12, 15], [12, 4.5, 14], [-.01, 12, -3]][view]); camera.lookAt(6, .4, 6); e.target.textContent = ['Oblique view', 'Reverse camera', 'Isometric view'][view];};
 document.querySelector('#light').onclick = e => {dim = !dim; scene.background.set(dim ? '#292c2c' : '#b4b69d'); sun.intensity = dim ? .16 : 2.3; scene.children.find(o => o.isHemisphereLight).intensity = dim ? .34 : 2.1; e.target.textContent = dim ? 'Bright surroundings' : 'Dim surroundings';};
 document.querySelector('#intersect').onclick = e => {intersect = !intersect; e.target.textContent = `Intersecting box: ${intersect ? 'on' : 'off'}`;};
-function diagnosticName() {return `DIAGNOSTIC-match-f${document.querySelector('#diag-phase').value}-${document.querySelector('#diag-view').value}-${document.querySelector('#diag-layer').value}-s${document.querySelector('#diag-steps').value}-${document.querySelector('#diag-association').value}`;}
+function diagnosticName() {return `DIAGNOSTIC08-match-f${document.querySelector('#diag-phase').value}-${document.querySelector('#diag-view').value}-${document.querySelector('#diag-layer').value}-s${document.querySelector('#diag-steps').value}-${document.querySelector('#diag-association').value}`;}
 let captureSerial = 0;
 async function captureDiagnostic() {
   const serial = ++captureSerial;
@@ -187,11 +191,11 @@ function drawFrozen(force = false) {
   const drawingBuffer = renderer.getDrawingBufferSize(new T.Vector2());
   if (drawingBuffer.x !== 1280 || drawingBuffer.y !== 800 || renderer.getPixelRatio() !== 1 || renderer.toneMapping !== T.NoToneMapping || renderer.outputColorSpace !== T.SRGBColorSpace) throw Error('Frozen diagnostic output state differs from pinned source');
   const phase = Number(document.querySelector('#diag-phase').value), chosenView = document.querySelector('#diag-view').value;
-  if (frozenKey !== phase) {frozenSnapshot = diagnosticSnapshot(frozenData, phase); frozenScene.update(frozenSnapshot); effect.reset(); frozenKey = phase;}
+  if (frozenKey !== phase) {frozenSnapshot = diagnosticSnapshot(frozenData, phase); frozenScene.update(frozenSnapshot); control08.reset(); frozenKey = phase;}
   applyFrozenCamera(camera, frozenData.cameras[chosenView]); scene.updateMatrixWorld(true); renderer.info.reset();
-  const opaqueDepth = prepareFixtureDepth(T, renderer, scene, camera, depthTarget, [effect.root, frozenScene.field.root]);
+  const opaqueDepth = prepareFixtureDepth(T, renderer, scene, camera, depthTarget, [effect.root, control08.root, frozenScene.field.root]);
   const source = frozenSnapshot, cameraState = cameraRecord(camera);
-  effect.update({version: 1, tick: source.tick, worldTime: source.clocks.world, playerTime: source.clocks.player, worldDelta: 0, playerDelta: 0, paused: true,
+  control08.update({version: 1, tick: source.tick, worldTime: source.clocks.world, playerTime: source.clocks.player, worldDelta: 0, playerDelta: 0, paused: true,
     player: {...source.player, elevation: source.player.elevation || 0}, cells: source.cells, anchors: frozenScene.anchors(), discharge: source.discharge, torch: source.player.torch, events: source.events,
     eventReceipts: {generation: 1, primed: true, highestId: null, events: [], reset: false}, camera: cameraState, viewport: frozenData.viewport, fieldUniforms: frozenScene.field.uniforms, opaqueDepth, buildingVisuals: []});
   const selection = {layer: document.querySelector('#diag-layer').value, steps: Number(document.querySelector('#diag-steps').value), association: document.querySelector('#diag-association').value};
@@ -201,8 +205,8 @@ function drawFrozen(force = false) {
     source: {commit: frozenData.sourceCommit, frameIndex: phase, tick: source.tick, clocks: source.clocks, originalPaused: source.paused, player: source.player, cells: source.cells.length, burningCellIds: source.cells.filter(c => c.phase === 'burning').map(c => c.id)},
     selection: streamControl.diagnostics(), camera: cameraState, cameraPolicy: frozenData.cameras[chosenView].policy, viewport: frozenData.viewport, environment: frozenData.environment, lightsHeldIdentical: true,
     opaqueDepth: {valid: true, width: opaqueDepth.width, height: opaqueDepth.height, excludes: 'All fire plus transparent/faded/non-depth-writing materials, including heat/char underlay; actual alpha-tested opaque materials retained'}, output: {toneMapping: 'NoToneMapping', colorSpace: renderer.outputColorSpace, exposure: renderer.toneMappingExposure, pixelRatio: renderer.getPixelRatio()},
-    shaderFailure, hardware, originalFactoryDiagnostics: effect.diagnostics(), adaptations: [...frozenScene.adaptations, 'Art context retains preserveDrawingBuffer:true for readback/JPG; combined driver leaves that flag at defaultfalse. Actual context/framebuffer information is recorded, not presumed equivalent'], blendProbe: lastProbe};
+    shaderFailure, hardware, originalFactoryDiagnostics: control08.diagnostics(), adaptations: [...frozenScene.adaptations, 'Art context retains preserveDrawingBuffer:true for readback/JPG; combined driver leaves that flag at defaultfalse. Actual context/framebuffer information is recorded, not presumed equivalent'], blendProbe: lastProbe};
   status.textContent = JSON.stringify(lastDiagnostic, null, 2);
   diagnosticDirty = false;
 }
-addEventListener('pagehide', () => {closed = true; lifetime.abort(); renderer.setAnimationLoop(null); blendProbe?.dispose(); streamControl.dispose(); frozenScene?.dispose(); effect.dispose(); field.dispose(); depthTarget.dispose(); for (const r of resources) r.dispose(); renderer.dispose();}, {once: true});
+addEventListener('pagehide', () => {closed = true; lifetime.abort(); renderer.setAnimationLoop(null); blendProbe?.dispose(); streamControl?.dispose(); control08?.dispose(); frozenScene?.dispose(); effect.dispose(); field.dispose(); depthTarget.dispose(); for (const r of resources) r.dispose(); renderer.dispose();}, {once: true});

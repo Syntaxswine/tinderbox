@@ -1,0 +1,11 @@
+# Immutable 0.8 causal control before R0.9
+
+This preservation child keeps the original controlled diagnostic reproducible while the active high-detail reference advances. It changes no live R fire asset, simulation, environment, exposure or accepted mode. Original failed evidence remains unchanged.
+
+`workbenches/art/fire-realism/control-08/` contains the exact five JS files and manifest from artist commit `13ad95c2d131e3dab28e775c1d33c121ea50d5ed`, copied from immutable Git blobs. Relative module imports remain self-contained within this directory. `provenance.json` maps every historical source path to its actual workbench path, raw byte count and SHA256; no original source or manifest byte was edited. The nested `.gitattributes` enforces LF for these JS/JSON files during checkout. This copy contains no renderer implementation or photographic pixels.
+
+The existing art fixture uses the active R factory for its normal synthetic views. Only selecting **DIAGNOSTIC08: immutable frozen native match** lazy-loads and creates the original 0.8 factory and diagnostic material controller. Its frozen actual phases, native backdrop/live mask/player/depth and straight/associated32/64 comparisons remain the same. Source verification names the immutable control scope, historical path and actual local path. Captures use a `DIAGNOSTIC08` prefix and still record the original shader hashes. The new R material is never fed through the original association wrapper; the wrapper also rejects already-associated source.
+
+Entering this diagnostic hides the active reference effect. Leaving hides the control and restores the active reference's previous visibility and synthetic environment. Both effects and all cached diagnostic materials are bounded, reused within the page and disposed on page exit; owned loads are aborted. No browser, server or OS helper is created.
+
+`check-diagnostics.mjs` now checks every immutable control file directly against its13ad Git blob and recorded hash/mapping, verifies its import closure, and exercises the same lossless sources/mask/camera and12 material/layer/sample round trips and cleanup. Passing these source checks does not establish new actual WebGL compilation, image equivalence, motion quality, reference freeze or rendering cost. The architect owns the next actual control roundtrip and played R0.9 review.
