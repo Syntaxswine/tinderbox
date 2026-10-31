@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "approvedProposalCommit": "388d6e65b79c1d47612933fab573f7dab59a079c",
+  "codeSourceCommit": "198809bbfda6e52c7917638926bf884b3521298c",
+  "destinationParent": "db3541d9f32eb306247758239afaee1149a965c7",
+  "scope": "Only the existing normal comparison shell/CSS and its approved HUD auto-pause opt-out dependency. No art/data or broad merge. Other driver/live-cadence/adapter dependencies already match the source checkpoint.",
+  "files": [
+    {
+      "path": "src/ui/index.js",
+      "canonicalLfBytes": 31086,
+      "canonicalLfSha256": "832a4e343906cad6f010d073c7c7fcb449c8881d73785e304676c7b7f1f5c228"
+    },
+    {
+      "path": "workbenches/fire-realism/review.js",
+      "canonicalLfBytes": 82222,
+      "canonicalLfSha256": "995f8b767c6ba8f026733120943b8ead74b92e0c0973098d2c381faf15de5874"
+    },
+    {
+      "path": "workbenches/fire-realism/review.css",
+      "canonicalLfBytes": 10909,
+      "canonicalLfSha256": "009a0e64d1b83cceec11378203be38b39c0ae76e07671ec306a61096df4172cc"
+    }
+  ],
+  "checks": {
+    "existingUiTests": 20,
+    "existingUiPassed": 20,
+    "reviewSyntax": "pass"
+  },
+  "preexistingDestinationPreservation": {
+    "path": "artifacts/qa/fire-realism/surface-prepare-v4-review/cadence-pre-intake-destinations.json",
+    "sha256": "8b5a848384ae055e247998d3ae604fc7d86db47d5a8c1658335f4b3facb8ff6c",
+    "note": "Empty status/diff confirmed; only src/ui existed and complete bytes were preserved before approved intake."
+  }
+}

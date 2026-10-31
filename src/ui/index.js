@@ -45,7 +45,7 @@ const markup = '<header class="tb-top">' +
   '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Tap tool · Space for selected tool</dd></div><div><dt>Medicine</dt><dd>Walk over it to use it</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Tap Oil barrel to start or stop pouring. Tap Torch to light, then tap to ignite nearby fuel. Hold Flamethrower. Walk over drugs or medicine to use them. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
-export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
+export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, mode='gameplay', placeTitle='', preferences=interfacePreferences, autoOpenPauseMenu=true} = {}) {
   if (!root?.ownerDocument || typeof onCommand !== 'function') throw new TypeError('mountUI requires a DOM root and onCommand callback.');
   if(!['gameplay','explore'].includes(mode))throw new TypeError('Unknown UI mode.');
   const exploring=mode==='explore',hasExit=typeof onExitToMenu==='function';
@@ -270,7 +270,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       view=exploring?{paused:Boolean(snapshot?.paused),locked:Boolean(snapshot?.paused),navigation:navigationOf(snapshot)}:viewOf(snapshot);
       if(!exploring)readToolEvents(snapshot);map.update(snapshot);
       if((awaitingResume||previouslyPaused)&&!view.paused){awaitingResume=false;menu=null;restoreFocus=true;}
-      else if(view.paused&&!menu){previousFocus=doc.activeElement;menu='pause';paintMenu();focusMenu();}
+      else if(view.paused&&!menu&&autoOpenPauseMenu){previousFocus=doc.activeElement;menu='pause';paintMenu();focusMenu();}
       const nowBlocked=blocked(),cancel=!wasBlocked&&nowBlocked;wasBlocked=nowBlocked;if(cancel)cancelInput();
       if(!exploring&&primaryTool===view.tool.id)awaitingSelection=false;
       if(!exploring&&primarySources.size&&((!awaitingSelection&&primaryTool!==view.tool.id)||(primaryTool===view.tool.id&&view.primaryDisabled)))releaseTrigger();
