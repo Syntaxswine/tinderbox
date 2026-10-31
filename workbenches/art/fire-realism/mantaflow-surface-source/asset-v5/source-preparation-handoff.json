@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "status": "source-only-preparation-checkpoint",
+  "baseCommit": "d40dafa3eef0796a15172300d528bc26c72f7f76",
+  "assemblyProposalCommit": "529203ebb6a8cbb29db2cb1c2ba1505f3867c226",
+  "reviewedRuntimePins": null,
+  "assetGenerated": false,
+  "helperStarted": false,
+  "oldFluidContactGitTree": "517ca94ddddbc42d3972a6d8e8e8298e383750da",
+  "oldManifestRawSha256": "101f9dca187fa0e3e76591275a9a413f3800d9e8127af62c08d732f0502df581",
+  "checks": [
+    "node check-source.mjs:PASS (syntax, four exports, raw helper pins, intake gate, floor mesh/slab, half-open adjacency, signed mapping and separate579 audit)"
+  ],
+  "limitations": [
+    "No final production codec import or dataset bootstrap",
+    "No WebGL/native rendering, visual approval or cost acceptance",
+    "Final asset generation remains gated by exact architect-reviewed codec pins"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "status": "source-preparation-only-awaiting-architect-reviewed-codec",
+  "assemblyProposalCommit": "529203ebb6a8cbb29db2cb1c2ba1505f3867c226",
+  "rawManifest": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
+  "sourcePins": {
+    "rawManifestSha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce",
+    "settingsSha256": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52",
+    "prepareReportSha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df",
+    "sourceBlendSha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+  },
+  "inputFiles": {
+    "settings": "source-snapshot/settings.json",
+    "prepareReport": "prepare.json",
+    "sourceBlend": "surface-source.blend"
+  },
+  "geometryReport": "artifacts/qa/fire-realism/surface-source-v5-geometry/qa-01/results/geometry-report.json",
+  "geometryReportSha256": "837b334067b4e9bac8ea38dba293dc51a163b0eb21d42b3fd48302b12bab96c8",
+  "pureSources": {
+    "source-clock.js": {
+      "source": "assets/art/fire-realism/fluid-contact/source-clock.js",
+      "bytes": 4595,
+      "sha256": "be2dd16af7f08a692500f2109283a9c6cdfaf4bf01f5450a2332cff0d09dab22"
+    },
+    "shaders.js": {
+      "source": "assets/art/fire-realism/fluid-contact/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    "support.js": {
+      "source": "assets/art/fire-realism/fluid-contact/support.js",
+      "bytes": 4425,
+      "sha256": "00dcdf56c9581f43e49af67d0156e708127dc2229c8bcb4f14ec34b3961bef56"
+    },
+    "space.js": {
+      "source": "assets/art/fire-realism/fluid-contact/space.js",
+      "bytes": 1588,
+      "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
+    }
+  },
+  "reviewedRuntime": null,
+  "assetRoot": "assets/art/fire-realism/fluid-contact-surface",
+  "renderFloorNativeY": 0,
+  "translation": [
+    5.5,
+    0,
+    8.5
+  ],
+  "limits": {
+    "sourceBytes": 67108864,
+    "sparseBytes": 100663296,
+    "compressedBytes": 100663296,
+    "chunks": 256,
+    "chunkCompressedBytes": 2097152,
+    "chunkSparseBytes": 4194304,
+    "seconds": 180
+  },
+  "scope": "One finite unaccepted four-cell match pilot. No new bake, source edits, optical changes, accepted R/O, sustained benchmark or publication."
+}
