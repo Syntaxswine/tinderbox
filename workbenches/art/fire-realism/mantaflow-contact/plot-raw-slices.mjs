@@ -29,13 +29,13 @@ const color=(channel,value)=>{
 };
 const escape=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;');
 function figure(phase){
- const parts=[`<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1220" viewBox="0 0 1100 1220"><rect width="1100" height="1220" fill="white"/><g font-family="Arial,sans-serif" fill="#111">`,
+ const parts=[`<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1300" viewBox="0 0 1100 1300"><rect width="1100" height="1300" fill="white"/><g font-family="Arial,sans-serif" fill="#111">`,
  `<text x="35" y="32" font-size="22">RAW scalar slices — native phase ${phase.nativeFrame} (not a fire rendering)</text>`,
  `<text x="35" y="57" font-size="14">World ${phase.worldTime} − observed ignition ${phase.observedIgnitionWorldTime} = age ${phase.sourceAge} s</text>`,
  `<text x="35" y="79" font-size="14">Cache frames ${phase.cacheFrames.join(' / ')}; mix ${phase.mix}; fixed scales: flame 0–1, temperature 0–3 (uncalibrated solver proxy, NOT kelvin)</text>`,
  `<text x="35" y="101" font-size="13">Full 48×48 planes; no mask, optical mapping, phase normalization, smoothing or scalar threshold. Dashed square: real fuel footprint.</text>`];
  for(let row=0;row<3;row++)for(let col=0;col<2;col++){
-  const field=phase.fields[col],slice=field.slices[row],left=72+col*542,top=146+row*344,size=288,cell=size/nx;
+  const field=phase.fields[col],slice=field.slices[row],left=72+col*542,top=146+row*374,size=288,cell=size/nx;
   parts.push(`<text x="${left}" y="${top-13}" font-size="16">${escape(field.name)} — measured height ${slice.height.toFixed(8)} m (index ${slice.zIndex})</text>`);
   for(let y=0;y<ny;y++)for(let x=0;x<nx;x++)parts.push(`<rect x="${left+x*cell}" y="${top+(ny-1-y)*cell}" width="${cell}" height="${cell}" fill="${color(field,slice.values[x+nx*y])}"/>`);
   parts.push(`<rect x="${left}" y="${top}" width="${size}" height="${size}" fill="none" stroke="#222"/>`,
@@ -46,7 +46,7 @@ function figure(phase){
   for(let i=0;i<256;i++)parts.push(`<rect x="${left+size+18}" y="${top+(255-i)*size/256}" width="18" height="${size/256+.05}" fill="${color(field,i/255*field.range[1])}"/>`);
   for(const fraction of [0,.5,1])parts.push(`<text x="${left+size+42}" y="${top+(1-fraction)*size+4}" font-size="11">${fraction*field.range[1]}</text>`);
  }
- parts.push(`<text x="35" y="1182" font-size="12">Raw source SHA-256 ${source.manifestSha256}</text><text x="35" y="1202" font-size="12">Linear display quantizes color, not source data. Exact blended values/hashes/clocks accompany these plots. No native quality claim.</text></g></svg>`);return parts.join('\n')+'\n';
+ parts.push(`<text x="35" y="1262" font-size="12">Raw source SHA-256 ${source.manifestSha256}</text><text x="35" y="1282" font-size="12">Linear display quantizes color, not source data. Exact blended values/hashes/clocks accompany these plots. No native quality claim.</text></g></svg>`);return parts.join('\n')+'\n';
 }
 fs.mkdirSync(output);
 for(const phase of phases){

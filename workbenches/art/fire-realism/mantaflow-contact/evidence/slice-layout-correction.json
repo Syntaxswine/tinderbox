@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "status": "layout-only-numerical-dossier-unchanged",
+  "baselineCommit": "bdc8c18bee986bc6a846d996bea3a74a45466be7",
+  "oldCanvas": [
+    1100,
+    1220
+  ],
+  "newCanvas": [
+    1100,
+    1300
+  ],
+  "oldRowPitch": 344,
+  "newRowPitch": 374,
+  "oldFirstAxisAndNextTitleBaselines": [
+    471,
+    477
+  ],
+  "newFirstAxisAndNextTitleBaselines": [
+    471,
+    507
+  ],
+  "fontBoxEstimatedGaps": [
+    17,
+    17
+  ],
+  "renderedLayoutApproval": "Pending root browser review; source font-box estimates are not a pixel pass",
+  "rows": [
+    {
+      "row": 0,
+      "top": 146,
+      "titleBaseline": 133,
+      "xAxisBaseline": 471
+    },
+    {
+      "row": 1,
+      "top": 520,
+      "titleBaseline": 507,
+      "xAxisBaseline": 845
+    },
+    {
+      "row": 2,
+      "top": 894,
+      "titleBaseline": 881,
+      "xAxisBaseline": 1219
+    }
+  ],
+  "numericalAndClockDossierSha256": "ad26863bd225a29d755054bc4a92c7c93c711e8f8a17fbe990f9c60b472dc33c",
+  "all41472NumericalValuesAndClocksUnchanged": true,
+  "rawManifestSha256": "2b4ee8b0728f0d6c21fade690770ada1bfc0bf817d2af86000a9fd346105ea59",
+  "newScriptSha256": "4be6a6bb10ec242e4e2a65476531135dd4b8b5662d12777bd6cacf483dc7852f",
+  "originalQACohortUntouched": true,
+  "runtimeOrBakeChanges": false,
+  "checks": {
+    "plotAndRelayoutNodeSyntax": "pass",
+    "independentRawSliceValues": 41472,
+    "positiveValuesRetained": 5019,
+    "originalClockAndCachePairs": "unchanged/pass",
+    "SVGXMLAndCanvasAndLabelBaselines": "pass; browser layout remains pending",
+    "runtimeManifestAndAll175JSBinaryRecords": "raw unchanged from bdc8c18",
+    "originalFourAuthoringPins": "unchanged",
+    "gameTestsOrBuild": "not repeated: runtime/public payload byte-identical; only scientific layout and proposal changed"
+  }
+}
