@@ -3,7 +3,7 @@ import math,re,json
 from pathlib import Path
 from copy import deepcopy
 OWNER='01a17e9b-a6db-7490-94cd-7d863747e5d3'
-PROPOSAL='b1f88905622c08840f4e0b20a4528a7e7fdf3736'
+PROPOSAL='ebe48c917dca76625f20c8e8ec1a50b0622247c9'
 CORE_FILES=('author.py','grid.py','policy.py','state.py','surface.py','supervisor.py','winjob.py','settings.json','helper-provenance.json')
 
 def validate_settings(s):
@@ -11,7 +11,7 @@ def validate_settings(s):
     if s['owner']!=OWNER or s['proposalCommit']!=PROPOSAL:raise ValueError('Unexpected owner/proposal')
     expected=(900,2*1024**3,2*1024**3,2*1024**3,4,0,0,0)
     if tuple(lim[k]for k in ['wallSeconds','processCommittedBytes','aggregateCommittedBytes','scratchBytes','threads','automaticRepairs','automaticRetries','automaticRebakes'])!=expected:raise ValueError('Reviewed limits changed')
-    if (sim['firstFrame'],sim['lastFrame'],sim['fps'],sim['burnSeconds'],sim['withdrawalStart'],sim['inflowOffAge'])!=(1,193,30,3.2,2.6,3.0):raise ValueError('Reviewed clocks changed')
+    if (sim['firstFrame'],sim['lastFrame'],sim['fps'],sim['burnSeconds'],sim['withdrawalStart'],sim['inflowOffAge'])!=(1,193,30,3.2,2.8,3.2):raise ValueError('Reviewed clocks changed')
     if (src['planeZ'],src['surfaceDistanceVoxels'],src['volumeDensity'],src['planar'],sim['globalVorticity'])!=(.02,.5,0,True,.25):raise ValueError('Reviewed source settings changed')
     if sim['expectedResolution']!=[48,48,96] or sim['expectedDimensions']!=[2,2,4] or sim['cacheDepth']!='32' or sim['cacheFormat']!='OPENVDB':raise ValueError('Original grid/cache contract changed')
 
@@ -24,7 +24,7 @@ def source_envelope(age,sim):
 
 def expected_inputs(frame,s,active):
     age=(frame-1)/30;gain=source_envelope(age,s['simulation'])
-    return {'age':age,'use_inflow':0<age<3.0,'fuel_amount':active['fuel_amount']*gain,'density':active['density']*gain,'temperature':active['temperature']*gain}
+    return {'age':age,'use_inflow':0<age<s['simulation']['inflowOffAge'],'fuel_amount':active['fuel_amount']*gain,'density':active['density']*gain,'temperature':active['temperature']*gain}
 
 def new_deadline(start_epoch,start_tick_ms):
     if not all(math.isfinite(v)and v>=0 for v in [start_epoch,start_tick_ms]):raise ValueError('Invalid actual start clocks')

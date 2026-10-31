@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "status": "code-only-sampling-census-awaiting-architect-runtime-review",
+  "status": "implementation-only-delayed-withdrawal-awaiting-review",
   "sourcePins": {
     "author.py": "9debc5ca5502b72ed1a8c8554b5ce1266b956f36fa5521558efa700d9a377d85",
     "grid.py": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
-    "policy.py": "1ffa372668d1951524c1485fe9c0151fc848775f2b0fe845e962c8c3afb713b0",
+    "policy.py": "13038fbac3c9c2c15445ebe6db4ce9e895277dda7d588e5cc5c033a74dfc2963",
     "state.py": "3d1837b91b73bfd8836bdbc2cb8f080b229be589fa865c21bbd9f68b0a0e31c4",
     "surface.py": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152",
     "supervisor.py": "a4e66831aa5ad22c0c276f96b9cecd4b4e533c7222bd5cf0af91155166c0bd2c",
     "winjob.py": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee",
-    "settings.json": "c0e15f205b3cdd85f84427a3a32b1c05123fb9054fcb4351810b4ae716157d2d",
+    "settings.json": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52",
     "helper-provenance.json": "0878bcf7df35ac19ea61bfc782fd0e1742827f0306150bf796a98ea8a3653c3c"
   },
-  "proposalCommit": "b1f88905622c08840f4e0b20a4528a7e7fdf3736",
+  "proposalCommit": "ebe48c917dca76625f20c8e8ec1a50b0622247c9",
   "toolExeSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795",
   "originalBlendSha256": "17c82deb2746aa37f0b88abd6f75f0143014c0ab7b6c915b739004da333fc7c2",
   "lifecycleUtilitySha256": "7931a5c42fedfa345d8b5a9a402e63ac248116a2cc7e5b621d223d9187876b5d",
@@ -46,6 +46,14 @@
       "output": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v3",
       "failingMemberPid": 3152,
       "creationAndExecutable": "not obtained",
+      "allOriginalEvidencePreserved": true
+    },
+    {
+      "candidateCommit": "f31e2b9977d0d1338a65d0e63d6d6f56fa34740f",
+      "controllerRuns": 1,
+      "blenderRuns": 2,
+      "output": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v4",
+      "result": "full fields preserved; raw persistence failed",
       "allOriginalEvidencePreserved": true
     }
   ],

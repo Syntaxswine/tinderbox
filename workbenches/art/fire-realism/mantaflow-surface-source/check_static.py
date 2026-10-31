@@ -11,17 +11,22 @@ G={'resolution':[48,48,96],'origin':[-.979166666045785,-.979166666045785,-.14583
 class PolicyTests(unittest.TestCase):
     def test_frozen_settings_and_limits(self):
         validate_settings(S)
-        for section,key,value in [('limits','wallSeconds',901),('limits','aggregateCommittedBytes',3*1024**3),('source','surfaceDistanceVoxels',1),('simulation','globalVorticity',0)]:
+        for section,key,value in [('limits','wallSeconds',901),('limits','aggregateCommittedBytes',3*1024**3),('source','surfaceDistanceVoxels',1),('simulation','globalVorticity',0),('simulation','withdrawalStart',2.6),('simulation','inflowOffAge',3.0)]:
             bad=copy.deepcopy(S);bad[section][key]=value
             with self.assertRaises(ValueError):validate_settings(bad)
     def test_complete_evaluated_input_recipe(self):
-        active={'fuel_amount':1.0,'density':.73,'temperature':2.13}
-        self.assertEqual(source_envelope(0,S['simulation']),0);self.assertEqual(source_envelope(2.6,S['simulation']),1);self.assertAlmostEqual(source_envelope(2.8,S['simulation']),.5)
+        active={'fuel_amount':1.0,'density':1.0,'temperature':2.0}
+        self.assertEqual(source_envelope(0,S['simulation']),0);self.assertEqual(source_envelope(2.8,S['simulation']),1);self.assertEqual(source_envelope(3.0,S['simulation']),.5);self.assertEqual(source_envelope(3.2,S['simulation']),0)
         values=[expected_inputs(f,S,active)for f in range(1,194)]
-        self.assertFalse(values[0]['use_inflow'])
-        for row in values[90:]:
+        self.assertFalse(values[0]['use_inflow']);self.assertEqual(values[0]['fuel_amount'],0)
+        self.assertTrue(all(row['use_inflow']and row['fuel_amount']==1 for row in values[1:85]))
+        self.assertEqual([values[90][k]for k in ['fuel_amount','density','temperature']],[.5,.5,1.0]);self.assertTrue(values[90]['use_inflow'])
+        self.assertTrue(all(row['use_inflow']for row in values[85:96]))
+        for row in values[96:]:
             self.assertFalse(row['use_inflow']);self.assertEqual([row[k]for k in ['fuel_amount','density','temperature']],[0,0,0])
-        self.assertEqual(values[-1]['age'],6.4)
+        for i,row in enumerate(values):
+            self.assertEqual(row['age'],i/30);self.assertEqual(row['density'],row['fuel_amount']);self.assertEqual(row['temperature'],2*row['fuel_amount'])
+        self.assertEqual(len(values),193);self.assertEqual(values[-1]['age'],6.4)
     def test_single_utc_uptime_deadline(self):
         r=new_deadline(1000,50000);self.assertEqual(remaining_seconds(r,1100,150000),800)
         self.assertLess(remaining_seconds(r,900,950001),0) # wall rollback cannot extend it
@@ -32,7 +37,7 @@ class PolicyTests(unittest.TestCase):
         return {'version':1,'kind':'tinderbox-surface-source-authorization-v1','phase':phase,'owner':OWNER,'proposalCommit':PROPOSAL,'candidateCommit':'a'*40,'output':'owned-output','sourcePins':{'settings.json':'b'*64},'toolExeSha256':'c'*64,'originalBlendSha256':'d'*64,'authorizationPaths':{'prepare':'primary/prepare.json','bake':'primary/bake.json'},'issuedAtEpoch':100,'notAfterEpoch':200,'nonce':'prepare_nonce'}
     def test_no_implicit_or_stale_permit(self):
         p=self.permit();validate_permit(p,'prepare','owned-output',p['sourcePins'],'a'*40,101)
-        for key,value in [('owner','unknown'),('phase','bake'),('candidateCommit','e'*40),('sourcePins',{}),('issuedAtEpoch',102),('notAfterEpoch',100)]:
+        for key,value in [('owner','unknown'),('phase','bake'),('candidateCommit','e'*40),('sourcePins',{}),('issuedAtEpoch',102),('notAfterEpoch',100),('proposalCommit','b1f88905622c08840f4e0b20a4528a7e7fdf3736')]:
             bad=copy.deepcopy(p);bad[key]=value
             with self.assertRaises(ValueError):validate_permit(bad,'prepare','owned-output',p['sourcePins'],'a'*40,101)
         p['extra']='approval'
