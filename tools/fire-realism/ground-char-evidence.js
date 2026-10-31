@@ -1,5 +1,4 @@
-import {classifyCharEvidence,consumedFuelChar} from '../../src/art/ground-field.js';
-import {clamp} from '../../src/art/resources.js';
+import {classifyCharEvidence,consumedFuelChar,groundWarmth,NATIVE_WARMTH_MAPPING} from '../../src/art/ground-field.js';
 
 export const GROUND_CHAR_REVIEW_LIMIT=32;
 const ascii=value=>typeof value==='string'&&/^[\x20-\x7e]{1,128}$/.test(value);
@@ -13,6 +12,7 @@ export function groundCharReviewEvidence(snapshot,model){
     basis:'Authoritative snapshot plus computed CPU float32 expectation; not GPU texture readback or upload proof',
     gpuTextureReadback:false,uploadProved:false,
     mode:field?.charMode??null,charVersion:field?.charVersion??null,
+    warmthMapping:field?.warmthMapping??null,
     snapshot:snapshot?{tick:clock(snapshot.tick),worldTime:clock(snapshot.clocks?.world),playerTime:clock(snapshot.clocks?.player)}:null,
     modelUpdate:last?{tick:clock(last.tick),worldTime:clock(last.worldTime),playerTime:clock(last.playerTime)}:null,
     clocksMatch:null,coverage:{maxCells:GROUND_CHAR_REVIEW_LIMIT,sourceCells:Array.isArray(snapshot?.cells)?snapshot.cells.length:null,
@@ -31,7 +31,7 @@ export function groundCharReviewEvidence(snapshot,model){
   }
   const selected=[];let candidates=0;
   for(const cell of snapshot.cells){
-    if(cell.phase!=='burning'&&cell.surfaceFuel===cell.initialSurfaceFuel&&cell.consumedDepositedFuel===0)continue;
+    if(cell.phase!=='burning'&&cell.surfaceFuel===cell.initialSurfaceFuel&&cell.consumedDepositedFuel===0&&groundWarmth(cell,mode)<=0)continue;
     if(!ascii(cell.id)||!['cold','heating','burning','spent'].includes(cell.phase)||
        ![cell.depositedFuel,cell.heat,cell.intensity].every(Number.isFinite)){
       record.reason='Candidate ID/phase/fuel/heat/intensity evidence is malformed';return record;
@@ -49,10 +49,10 @@ export function groundCharReviewEvidence(snapshot,model){
     initialSurfaceFuel:cell.initialSurfaceFuel,surfaceFuel:cell.surfaceFuel,consumedDepositedFuel:cell.consumedDepositedFuel,
     depositedFuel:cell.depositedFuel,heat:cell.heat,intensity:cell.intensity,
     expectedFloat32RGBA:[Math.fround(Math.min(1,Math.sqrt(Math.max(0,cell.depositedFuel||0))*2)),
-      Math.fround(cell.phase==='heating'?.24+clamp(cell.heat)*.55:cell.phase==='burning'?clamp(cell.intensity)*.75:0),
+      Math.fround(groundWarmth(cell,mode)),
       Math.fround(consumedFuelChar(cell)),cell.phase==='burning'?1:0]}));
-  const matches=field.charMode===mode&&field.charVersion===1&&field.cells===snapshot.cells.length;
+  const matches=field.charMode===mode&&field.charVersion===1&&field.warmthMapping===NATIVE_WARMTH_MAPPING&&field.cells===snapshot.cells.length;
   record.status=!record.clocksMatch?'clock-mismatch':!matches?'model-mismatch':'available';
-  record.reason=!record.clocksMatch?'Current snapshot differs from last successful model-update clocks':!matches?'Actual ground mode/version/count differs from current snapshot':null;
+  record.reason=!record.clocksMatch?'Current snapshot differs from last successful model-update clocks':!matches?'Actual ground mode/version/warmth mapping/count differs from current snapshot':null;
   return record;
 }

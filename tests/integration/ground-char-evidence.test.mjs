@@ -10,14 +10,14 @@ import {createFireReviewSimulation} from '../../tools/fire-realism/scenarios.js'
 import {groundCharReviewEvidence,GROUND_CHAR_REVIEW_LIMIT} from '../../tools/fire-realism/ground-char-evidence.js';
 const source=()=>({tick:4,clocks:{world:.1,player:.15},world:{width:20,height:2,fireCellSize:.5},cells:[]});
 const cell=(id,i)=>({id,x:(i+.5)*.5,y:.25,size:.5,phase:'burning',initialSurfaceFuel:.08,surfaceFuel:.04,consumedDepositedFuel:0,depositedFuel:.0625,heat:1.5,intensity:.8});
-const model=snapshot=>({groundChar:{charMode:snapshot.cells.length?'consumed-fuel-v1':'empty',charVersion:1,cells:snapshot.cells.length},lastSnapshot:{tick:snapshot.tick,worldTime:snapshot.clocks.world,playerTime:snapshot.clocks.player}});
+const model=snapshot=>({groundChar:{charMode:snapshot.cells.length?'consumed-fuel-v1':'empty',charVersion:1,warmthMapping:'native-heat-v1',cells:snapshot.cells.length},lastSnapshot:{tick:snapshot.tick,worldTime:snapshot.clocks.world,playerTime:snapshot.clocks.player}});
 
 test('bounded ASCII evidence selects burning/consumed cells, truncates deterministically and detaches every nested value',()=>{
-  const snapshot=source();snapshot.cells=Array.from({length:40},(_,i)=>cell('cell:'+i+',0',i));snapshot.cells.push({...cell('cold',40),x:20.25,phase:'cold',surfaceFuel:.08});
+  const snapshot=source();snapshot.world.width=20.5;snapshot.cells=Array.from({length:40},(_,i)=>cell('cell:'+i+',0',i));snapshot.cells.push({...cell('cold',40),x:20.25,phase:'cold',surfaceFuel:.08});
   const before=structuredClone(snapshot),diagnostics=model(snapshot),a=groundCharReviewEvidence(snapshot,diagnostics),b=groundCharReviewEvidence({...snapshot,cells:[...snapshot.cells].reverse()},diagnostics);
-  assert.equal(GROUND_CHAR_REVIEW_LIMIT,32);assert.equal(a.status,'available');assert.equal(a.cells.length,32);assert.deepEqual(a,b);assert.deepEqual(a.coverage,{maxCells:32,sourceCells:41,modelCells:41,candidates:40,selected:32,omitted:8,truncated:true});
+  assert.equal(GROUND_CHAR_REVIEW_LIMIT,32);assert.equal(a.status,'available');assert.equal(a.warmthMapping,'native-heat-v1');assert.equal(a.cells.length,32);assert.deepEqual(a,b);assert.deepEqual(a.coverage,{maxCells:32,sourceCells:41,modelCells:41,candidates:41,selected:32,omitted:9,truncated:true});
   const ids=snapshot.cells.slice(0,40).map(c=>c.id).sort();assert.deepEqual(a.cells.map(c=>c.id),ids.slice(0,32));
-  assert.deepEqual(a.cells[0].expectedFloat32RGBA,Array.from(new Float32Array([.5,.6,.5,1])));assert.equal(a.gpuTextureReadback,false);assert.equal(a.uploadProved,false);
+  assert.deepEqual(a.cells[0].expectedFloat32RGBA,Array.from(new Float32Array([.5,.75,.5,1])));assert.equal(a.gpuTextureReadback,false);assert.equal(a.uploadProved,false);
   assert.deepEqual(snapshot,before);a.cells[0].nativePosition[0]=999;a.cells[0].expectedFloat32RGBA[2]=999;a.snapshot.worldTime=999;a.modelUpdate.playerTime=999;
   assert.deepEqual(groundCharReviewEvidence(snapshot,diagnostics),b);assert.deepEqual(snapshot,before);
 });
@@ -25,11 +25,12 @@ test('bounded ASCII evidence selects burning/consumed cells, truncates determini
 test('missing, legacy, mixed, malformed and stale model evidence stays explicitly unavailable or mismatched',()=>{
   const s=source();s.cells=[cell('cell:0,0',0)];const m=model(s);
   assert.equal(groundCharReviewEvidence(null,m).status,'unavailable');assert.equal(groundCharReviewEvidence(s,null).status,'unavailable');assert.equal(groundCharReviewEvidence(s,{...m,disposed:true}).status,'unavailable');
-  const legacy={...s,cells:s.cells.map(({initialSurfaceFuel,consumedDepositedFuel,...c})=>c)};const old={...m,groundChar:{charMode:'legacy-phase',charVersion:0,cells:1}};
+  const legacy={...s,cells:s.cells.map(({initialSurfaceFuel,consumedDepositedFuel,...c})=>c)};const old={...m,groundChar:{charMode:'legacy-phase',charVersion:0,warmthMapping:'legacy-phase-v1',cells:1}};
   const record=groundCharReviewEvidence(legacy,old);assert.equal(record.status,'legacy');assert.deepEqual(record.cells,[]);assert.equal(record.coverage.candidates,null);
   for(const cells of [[s.cells[0],legacy.cells[0]],[{...s.cells[0],consumedDepositedFuel:-1}],[{...s.cells[0],id:'non-ASCII-\u00e9'}],[{...s.cells[0],heat:NaN}]])assert.equal(groundCharReviewEvidence({...s,cells},m).status,'unavailable');
   const stale=groundCharReviewEvidence(s,{...m,lastSnapshot:{tick:3,worldTime:.05,playerTime:.1}});assert.equal(stale.status,'clock-mismatch');assert.equal(stale.clocksMatch,false);assert.equal(stale.snapshot.tick,4);assert.equal(stale.modelUpdate.tick,3);assert.equal(stale.cells.length,1,'Snapshot-only CPU expectation remains explicitly separate from stale model');
   assert.equal(groundCharReviewEvidence(s,{...m,groundChar:{...m.groundChar,cells:2}}).status,'model-mismatch');
+  assert.equal(groundCharReviewEvidence(s,{...m,groundChar:{...m.groundChar,warmthMapping:'legacy-phase-v1'}}).status,'model-mismatch');
   assert.equal(groundCharReviewEvidence(source(),model(source())).status,'available');
 });
 
@@ -54,7 +55,7 @@ test('actual injected art diagnostics expose the ground mode beside unchanged co
   const sim=createFireReviewSimulation(),scene=new T.Scene();let art;
   try{
     const snapshot=sim.advance();art=await createArtScene({THREE:T,renderer,scene,world:snapshot.world});art.update(snapshot,{worldTime:2,playerTime:3});const prior=art.diagnostics(),draws=projections;
-    assert.deepEqual(prior.ground,{geometries:1,materials:1,textures:1,objects:0});assert.deepEqual(prior.groundChar,{charMode:'consumed-fuel-v1',charVersion:1,cells:snapshot.cells.length});
+    assert.deepEqual(prior.ground,{geometries:1,materials:1,textures:1,objects:0});assert.deepEqual(prior.groundChar,{charMode:'consumed-fuel-v1',charVersion:1,warmthMapping:'native-heat-v1',cells:snapshot.cells.length});
     assert.deepEqual(prior.lastSnapshot,{tick:snapshot.tick,worldTime:2,playerTime:3});const evidence=groundCharReviewEvidence(snapshot,prior);assert.equal(evidence.status,'clock-mismatch');assert.equal(evidence.modelUpdate.worldTime,2);assert.equal(evidence.snapshot.worldTime,snapshot.clocks.world);
     for(let i=0;i<3;i++)groundCharReviewEvidence(snapshot,art.diagnostics());assert.equal(projections,draws);assert.equal(art.diagnostics().updates,prior.updates);assert.deepEqual(art.diagnostics().ground,prior.ground);
     evidence.cells[0].expectedFloat32RGBA[2]=999;assert.notEqual(groundCharReviewEvidence(snapshot,art.diagnostics()).cells[0].expectedFloat32RGBA[2],999);

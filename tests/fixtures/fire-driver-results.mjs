@@ -95,6 +95,9 @@ try{
    const charSource=fs.readFileSync(path.join(project,'assets/art/fire-realism/consumed-char-surface.js'));
    assert.equal(charSource.includes(13),false,'Reviewed char module is served as its raw LF bytes');assert.equal(createHash('sha256').update(charSource).digest('hex'),'0a8b2ea290e4aea955879b8f21da551d52e9515cd34aaeb1635b468cff84e468');
    assert.deepEqual(capture.sourceFingerprints.adapterRuntimeFiles['assets/art/fire-realism/consumed-char-surface.js'],{bytes:charSource.length,sha256:createHash('sha256').update(charSource).digest('hex'),convention:'Raw LF reviewed consumed-char module; exact artist822bb47 bytes'});
+   assert.equal(evidence.warmthMapping,'native-heat-v1');assert.equal(capture.groundChar.warmthMapping,'native-heat-v1');
+   const greenByFrame={192:.75,193:Math.fround(.7475),194:Math.fround(.745)};
+   if(index in greenByFrame)assert.ok(evidence.cells.every(cell=>cell.expectedFloat32RGBA[1]===greenByFrame[index]));
    capture.groundChar.cells[0].expectedFloat32RGBA[2]=999;capture.groundChar.snapshot.tick=999;assert.deepEqual(driver.state().diagnostics.groundChar,before.diagnostics.groundChar);
   }
   assert.deepEqual([...phases].sort(),['burning','spent']);await driver.dispose();assert.equal(callbacks.size,0);assert.equal(queries.size,0);assert.equal(artCreated,artDisposed);

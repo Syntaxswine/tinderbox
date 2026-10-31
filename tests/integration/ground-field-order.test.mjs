@@ -64,6 +64,6 @@ test('legacy underlay preserves exact RGBA encoding/borrowed nearest mask, resiz
   field.update({...source,paused:true});assert.equal(field.uniforms.field.value,borrowed.field.value);assert.equal(Buffer.from(borrowed.field.value.image.data.buffer).toString('hex'),bytes);assert.equal(borrowed.field.value.image.data[5*4+3],0,'Cold hole stays exactly nonburning');assert.equal(borrowed.field.value.image.data[6*4+3],1,'Adjacent burning mask stays exactly binary');
   field.update({...source,cells:[]});assert.ok(texture.image.data.every(value=>value===0));
   field.update({world:{width:2,height:.5,fireCellSize:.5},cells:[]});assert.notEqual(field.uniforms.field.value,texture);assert.deepEqual(field.counts(),{geometries:1,materials:1,textures:1,objects:0});
-  assert.deepEqual(field.diagnostics(),{charMode:'empty',charVersion:1,cells:0});
+  assert.deepEqual(field.diagnostics(),{charMode:'empty',charVersion:1,warmthMapping:'native-heat-v1',cells:0});
  }finally{field.dispose();field.dispose();assert.deepEqual(field.counts(),{geometries:0,materials:0,textures:0,objects:0});}
 });

@@ -57,7 +57,7 @@ for(const stage of ['texture-constructor','geometry-settings','mesh-settings','r
     assert.equal(released.textures,created.textures.length-1);assert.equal(released.geometries,created.geometries.length-1);assert.equal(materialDisposals,0);
     state.fail=false;field.root.add=normalAdd;field.update(frame({width:2,height:.5,fireCellSize:.5}));assert.notEqual(field.uniforms.field.value,old.texture);assert.equal(old.mesh.parent,null);
     assert.equal(released.textures,created.textures.length-1);assert.equal(released.geometries,created.geometries.length-1);assert.equal(materialDisposals,0);assert.deepEqual(field.counts(),{geometries:1,materials:1,textures:1,objects:0});
-    assert.deepEqual(Array.from(field.uniforms.field.value.image.data.slice(0,4)),Array.from(new Float32Array([.5,.6,.5,1])));
+    assert.deepEqual(Array.from(field.uniforms.field.value.image.data.slice(0,4)),Array.from(new Float32Array([.5,.75,.5,1])));
   }finally{field.root.add=normalAdd;field.dispose();field.dispose();assert.equal(materialDisposals,1);assert.equal(released.textures,created.textures.length);assert.equal(released.geometries,created.geometries.length);}
 });
 
@@ -69,12 +69,12 @@ test('candidate cleanup errors remain alongside the original preparation error a
   try{assert.throws(()=>field.update(frame({width:2,height:.5,fireCellSize:.5})),error=>error instanceof AggregateError&&error.cause===primary&&error.errors[0]===primary&&error.errors[1]===cleanup);unchanged(field,old);assert.equal(textureReleases,1);}finally{field.dispose();assert.equal(textureReleases,2);}
 });
 
-test('legacy and empty masks retain default pitch/ceil geometry and exact original lanes while normal new mapping is unchanged',()=>{
+test('legacy and empty masks retain default pitch/ceil geometry and exact original lanes while new heat alone changes green',()=>{
   const field=createGroundField(T),legacy={id:'old',x:.25,y:.25,size:.5,material:'wood',phase:'burning',depositedFuel:.0625,heat:1.5,intensity:.8};
   try{for(const pitch of [undefined,0,NaN]){
     field.update({world:{width:1.1,height:.6,fireCellSize:pitch},cells:[legacy]});assert.deepEqual(field.uniforms.grid.value.toArray(),[3,2]);assert.equal(field.uniforms.cellSize.value,.5);assert.equal(field.uniforms.charVersion.value,0);assert.deepEqual(Array.from(field.uniforms.field.value.image.data.slice(0,4)),Array.from(new Float32Array([.5,.6,.27,1])));
     field.update({world:{width:1.1,height:.6,fireCellSize:pitch},cells:[]});assert.equal(field.uniforms.charVersion.value,1);assert.deepEqual(field.uniforms.grid.value.toArray(),[3,2]);assert.ok(field.uniforms.field.value.image.data.every(x=>x===0));
   }
-  field.update(frame());assert.deepEqual(Array.from(field.uniforms.field.value.image.data.slice(0,4)),Array.from(new Float32Array([.5,.6,.5,1])));
+  field.update(frame());assert.deepEqual(Array.from(field.uniforms.field.value.image.data.slice(0,4)),Array.from(new Float32Array([.5,.75,.5,1])));
   }finally{field.dispose();}
 });

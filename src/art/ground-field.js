@@ -2,6 +2,13 @@
 import {Resources,clamp} from './resources.js';
 import {CONSUMED_CHAR_SURFACE_GLSL} from '../../assets/art/fire-realism/consumed-char-surface.js';
 
+export const NATIVE_WARMTH_MAPPING='native-heat-v1';
+// Allocation-free display transfer, not Kelvin/CFD temperature. Call only after
+// whole-frame new-mode validation; legacy arithmetic/compatibility stays exact.
+export function groundWarmth(cell,mode){
+  return mode==='legacy-phase'?(cell.phase==='heating'?.24+clamp(cell.heat)*.55:cell.phase==='burning'?clamp(cell.intensity)*.75:0):.75*clamp(cell.heat/1.5);
+}
+
 // Prototype soot/coverage scale: litres per square metre, unrelated to pouring.
 // Call only after classifyCharEvidence has validated the whole detached frame.
 export function consumedFuelChar(cell){
@@ -19,8 +26,8 @@ export function classifyCharEvidence(cells){
     if(initial!==consumed)throw Error('Partial ground char evidence');
     if(!initial){legacy++;continue;}
     evidence++;
-    if(![cell.initialSurfaceFuel,cell.consumedDepositedFuel,cell.surfaceFuel,cell.size,cell.x,cell.y].every(Number.isFinite)||
-       cell.initialSurfaceFuel<0||cell.consumedDepositedFuel<0||cell.surfaceFuel<0||cell.surfaceFuel>cell.initialSurfaceFuel||cell.size<=0||
+    if(![cell.initialSurfaceFuel,cell.consumedDepositedFuel,cell.surfaceFuel,cell.size,cell.x,cell.y,cell.heat].every(Number.isFinite)||
+       cell.initialSurfaceFuel<0||cell.consumedDepositedFuel<0||cell.surfaceFuel<0||cell.surfaceFuel>cell.initialSurfaceFuel||cell.size<=0||cell.heat<0||
        !Number.isFinite(.16*cell.size*cell.size)||.16*cell.size*cell.size<=0)throw Error('Malformed ground char evidence');
   }
   if(evidence&&legacy)throw Error('Mixed legacy and consumed-fuel ground char evidence');
@@ -154,11 +161,11 @@ export function createGroundField(T){
       if(x<0||y<0||x>=cols||y>=rows)continue;
       const i=(y*cols+x)*4;
       data[i]=Math.min(1,Math.sqrt(Math.max(0,cell.depositedFuel||0))*2);
-      data[i+1]=cell.phase==='heating'?.24+clamp(cell.heat)*.55:cell.phase==='burning'?clamp(cell.intensity)*.75:0;
+      data[i+1]=groundWarmth(cell,mode);
       data[i+2]=mode==='legacy-phase'?(cell.phase==='spent'?(/grass|wood/.test(cell.material)?1:.85):cell.phase==='burning'?.27:0):consumedFuelChar(cell);
       data[i+3]=cell.phase==='burning'?1:0;
     }
     charMode=mode;cellCount=cells.length;uniforms.charVersion.value=mode==='legacy-phase'?0:1;
     texture.needsUpdate=true;
-  },diagnostics:()=>({charMode,charVersion:uniforms.charVersion.value,cells:cellCount}),dispose(){root.removeFromParent();root.clear();pool.dispose();},counts:()=>pool.counts()};
+  },diagnostics:()=>({charMode,charVersion:uniforms.charVersion.value,warmthMapping:charMode==='legacy-phase'?'legacy-phase-v1':NATIVE_WARMTH_MAPPING,cells:cellCount}),dispose(){root.removeFromParent();root.clear();pool.dispose();},counts:()=>pool.counts()};
 }

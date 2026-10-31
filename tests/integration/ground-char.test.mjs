@@ -78,15 +78,15 @@ test('prototype coverage has known surface/gas/combined values and remains conti
   }finally{art.dispose();}
 });
 
-test('new texture changes only blue; legacy lanes/shader mode remain explicit, detached and replayable without history',()=>{
+test('new texture maps current heat while legacy lanes stay explicit, detached and replayable without history',()=>{
   const art=createGroundField(T);try{
     const source=[cell({depositedFuel:.0625,heat:.8,phase:'heating'}),cell({id:'wood',x:.75,material:'wood',initialSurfaceFuel:.3,surfaceFuel:.15,phase:'burning',intensity:.8})];
     const original=structuredClone(source);art.update(frame(source));const texture=art.uniforms.field.value;
-    assert.deepEqual(texture.image.data,new Float32Array([.5,.68,0,0,0,.6,.5,1]));assert.deepEqual(source,original);
-    assert.deepEqual(art.diagnostics(),{charMode:'consumed-fuel-v1',charVersion:1,cells:2});
+    assert.deepEqual(texture.image.data,new Float32Array([.5,.4,0,0,0,0,.5,1]));assert.deepEqual(source,original);
+    assert.deepEqual(art.diagnostics(),{charMode:'consumed-fuel-v1',charVersion:1,warmthMapping:'native-heat-v1',cells:2});
     const bytes=texture.image.data.slice();art.update({...frame(source.map(c=>({...c,consumedDepositedFuel:.05}))),paused:true});art.update({...frame(original),paused:true});assert.deepEqual(texture.image.data,bytes,'Rewinding to the same authoritative frame restores the same mask');
     const legacy=source.map(({initialSurfaceFuel,consumedDepositedFuel,...c})=>c);art.update(frame(legacy));
-    assert.deepEqual(texture.image.data,new Float32Array([.5,.68,0,0,0,.6,.27,1]));assert.deepEqual(art.diagnostics(),{charMode:'legacy-phase',charVersion:0,cells:2});
+    assert.deepEqual(texture.image.data,new Float32Array([.5,.68,0,0,0,.6,.27,1]));assert.deepEqual(art.diagnostics(),{charMode:'legacy-phase',charVersion:0,warmthMapping:'legacy-phase-v1',cells:2});
     const shader=art.root.children[0].material.fragmentShader,legacyBranch=shader.split('if(charVersion<.5){')[1].split('}else{')[0];
     assert.equal((legacyBranch.match(/\.b>\.01/g)||[]).length,4);assert.match(legacyBranch,/charWidth=state\.b>\.9\?\.50:\.29/);
     art.update(frame([]));assert.equal(art.uniforms.charVersion.value,1);assert.ok(texture.image.data.every(value=>value===0));assert.equal(classifyCharEvidence([]),'empty');
