@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "task": "TB-036-H",
+  "observer": "/root",
+  "preserver": "/root/fire_ui",
+  "uiCommit": "553f7b53c2f0d4b5fcc7a7e5235592bff0cf02d5",
+  "architectUiIntake": "86cc4c71054372db81f69e8c173ec55b8de859f2",
+  "scope": "Computed DOM and actual encoded-clip/visible-metadata observability only; no playback cadence, fire realism, GPU-cost or promotion acceptance.",
+  "dom": {
+    "testsPerViewport": 31,
+    "viewports": [
+      [
+        1280,
+        800
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        568
+      ],
+      [
+        844,
+        390
+      ]
+    ],
+    "totalPassing": 124,
+    "browser": "Architect-owned IAB; actual result viewports verified. Architect closed its task tab and reset viewport."
+  },
+  "copies": [
+    {
+      "source": "artifacts/qa/fire-realism/ui-observable-553f7b5/1280x800.json",
+      "copy": "observable-dom-1280x800.json",
+      "bytes": 5240,
+      "sha256": "6729c007fd30469b838ef69550f6538a8234eec0afa12a245389bb30e1208c1c",
+      "observer": "/root"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/ui-observable-553f7b5/390x844.json",
+      "copy": "observable-dom-390x844.json",
+      "bytes": 5239,
+      "sha256": "5e7a1410eb4fdcd06ad617b835296cea7cee19c63efe6fe7f987d95b9842c99a",
+      "observer": "/root"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/ui-observable-553f7b5/320x568.json",
+      "copy": "observable-dom-320x568.json",
+      "bytes": 5239,
+      "sha256": "99f3fde07713c9fa5500d7bbba288b97797692d864c93c04d2ebdb2a9acf0d63",
+      "observer": "/root"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/ui-observable-553f7b5/844x390.json",
+      "copy": "observable-dom-844x390.json",
+      "bytes": 5239,
+      "sha256": "9acef6e817535e461523e4e6f98adcf8e33a7db186fe9b6beef840f988173060",
+      "observer": "/root"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/render-round-06-smoke05/reference-match-contact-isometric-bright-motion.json",
+      "copy": "observable-actual-motion.json",
+      "bytes": 6954,
+      "sha256": "3a2b9de1c8eaa50cab5153b7f6069deba64addfbb99e8c4cc64967a5e219c4c7",
+      "observer": "/root; attribution in this receipt, source metadata bytes unmodified"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/render-round-06-smoke05/reference-match-contact-isometric-bright-frame60.json",
+      "copy": "observable-actual-jpeg-frame60.json",
+      "bytes": 5608,
+      "sha256": "b8683680e276f93ace7229f2acf6b4607be33c0c21d20e2422215dbcdd1206e9",
+      "observer": "/root; attribution in this receipt, source metadata bytes unmodified"
+    }
+  ],
+  "encodedVideo": {
+    "source": "artifacts/qa/fire-realism/render-round-06-smoke05/reference-match-contact-isometric-bright-motion.webm",
+    "copied": false,
+    "bytes": 2540688,
+    "sha256": "7318caaa8e339ed6e99731af1346fc7d0e192df2fefa3a1fee1fa8fb33b90d2a",
+    "reportedMimeType": "video/webm;codecs=vp9",
+    "method": "Architect read actual encoded bytes from the visible Save video anchor. No download-event API or automatic download. Worker verified existing file bytes/hash only; no playback performed."
+  },
+  "limits": [
+    "Encoding, byte recovery and readable metadata do not prove decoded motion cadence or quality.",
+    "The match recording starts/ends with zero burning cells; it is not a sustained-workload performance receipt.",
+    "Later street 0.6 playback with sparse 13-frame evidence remains a temporal-evidence failure; it is not counted as acceptance here.",
+    "No runtime/art intakes, implementation edits, browser action or helper process in this evidence-only follow-up."
+  ]
+}

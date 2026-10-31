@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "kind": "actual-canvas-live-recording",
+  "status": "complete",
+  "reason": "ten-second-limit",
+  "scope": "Actual WebGL canvas only; DOM HUD excluded; no GPU timing or quality approval.",
+  "configuration": {
+    "mode": "reference",
+    "scenario": "match-contact",
+    "view": "isometric",
+    "lighting": "bright",
+    "population": null,
+    "seed": 1893,
+    "characterId": "bear",
+    "viewport": {
+      "width": 1280,
+      "height": 800,
+      "pixelRatio": 1
+    }
+  },
+  "sourceFingerprints": {
+    "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
+    "controlRuntimeFiles": {
+      "src/art/fire.js": {
+        "sha256": "17fb8a16845201b50e6412474c850686e73abcab5a860ca57dbc0589c7f9b6f9",
+        "expectedSha256": "17fb8a16845201b50e6412474c850686e73abcab5a860ca57dbc0589c7f9b6f9",
+        "verified": true
+      },
+      "src/art/discharge.js": {
+        "sha256": "8082c3747cb098e95ae26590e4f117f98251ba106be618fb143c0708bca14f47",
+        "expectedSha256": "8082c3747cb098e95ae26590e4f117f98251ba106be618fb143c0708bca14f47",
+        "verified": true
+      },
+      "src/art/carried-torch.js": {
+        "sha256": "52635a65d5355fe05be7b4fd460d1cfa388ce5715a62d3b0bca1d84c96a608f6",
+        "expectedSha256": "52635a65d5355fe05be7b4fd460d1cfa388ce5715a62d3b0bca1d84c96a608f6",
+        "verified": true
+      },
+      "src/art/resources.js": {
+        "sha256": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
+        "expectedSha256": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
+        "verified": true
+      }
+    },
+    "adapterRuntimeFiles": {
+      "src/art/index.js": {
+        "sha256": "e322490edd2e14d8c908b75907e50d675d3757e989142ab59ae1dc65171dc41d",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "src/art/fire-frame.js": {
+        "sha256": "b79a9814aac3b617dd4dfc3c77da553e57c168b024f3b30f0f9227965da3611a",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "src/art/fire-review-effect.js": {
+        "sha256": "d2018ad0e1fe34f58efa0186179daf610dc10225b009f973b101ac17577241a9",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "src/art/scene-depth.js": {
+        "sha256": "82464de4b74b078b90b8e1e63803aafb7aef6124b75272c41899c6cce254b6c0",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "tools/fire-realism/scenarios.js": {
+        "sha256": "94eafca9995debdbdecfc3e3fb1f9bf0d966113f3ea16d4c902c7412a6969254",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "tools/fire-realism/camera.js": {
+        "sha256": "5822661b8238567a38da7adf9b7a7d56917578dc57e34f2822dc705d4eae96de",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "tools/fire-realism/fixed-pose.js": {
+        "sha256": "fdd26938acd1d5e632f34cc681cd448e8ac2d0f0de271e9c6aadfee3d03bf060",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "tools/fire-realism/profiling.js": {
+        "sha256": "8c61ee6b3a101a1a80160fa43933a3c912e645f3b8e34687c56c9ed08eea2319",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      },
+      "workbenches/fire-realism/driver.js": {
+        "sha256": "4334f438de30aec29f487ef143edb44903f47c9449bd2bf5210d8387d944b15b",
+        "convention": "Canonical LF owned source; actual local candidate, no source-pin claim"
+      }
+    },
+    "byMode": {
+      "reference": {
+        "sourceCommit": null,
+        "runtimeFiles": {
+          "assets/art/fire-realism/geometry.js": {
+            "sha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036",
+            "expectedSha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036",
+            "bytes": 1078,
+            "verified": true
+          },
+          "assets/art/fire-realism/shaders.js": {
+            "sha256": "a67119ca423f4d3b806264711a10c451c85705100a5982e879101cd9a97d2935",
+            "expectedSha256": "a67119ca423f4d3b806264711a10c451c85705100a5982e879101cd9a97d2935",
+            "bytes": 12485,
+            "verified": true
+          },
+          "assets/art/fire-realism/index.js": {
+            "sha256": "663415f2add2d0f2e0bbcd2a29627eb60c782f5355c3f022edb10e17ffaadec2",
+            "expectedSha256": "663415f2add2d0f2e0bbcd2a29627eb60c782f5355c3f022edb10e17ffaadec2",
+            "bytes": 25376,
+            "verified": true
+          },
+          "assets/art/fire-realism/smoke-billows.js": {
+            "sha256": "ea8eb36a6399ebdf10201d1ef1685a0ea64a5677e8321f4671c28edb7c24bb6d",
+            "expectedSha256": "ea8eb36a6399ebdf10201d1ef1685a0ea64a5677e8321f4671c28edb7c24bb6d",
+            "bytes": 3421,
+            "verified": true
+          }
+        }
+      },
+      "optimized": {
+        "sourceCommit": null,
+        "runtimeFiles": {}
+      }
+    }
+  },
+  "hardware": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "threeRevision": "180",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "vendor": "Google Inc. (NVIDIA)",
+    "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "canvas": {
+      "width": 1280,
+      "height": 800,
+      "pixelRatio": 1,
+      "drawingBufferWidth": 1280,
+      "drawingBufferHeight": 800
+    },
+    "phoneViewportIsPhoneHardware": false
+  },
+  "start": {
+    "recordedAt": "2026-10-31T00:10:34.153Z",
+    "frameIndex": 0,
+    "tick": 0,
+    "worldTime": 0,
+    "playerTime": 0,
+    "workload": {
+      "requestedPopulation": null,
+      "actualBurningCells": 0,
+      "activeDischarge": false,
+      "activeTorch": false,
+      "burningBuildingIds": []
+    }
+  },
+  "end": {
+    "recordedAt": "2026-10-31T00:10:44.166Z",
+    "frameIndex": 599,
+    "tick": 599,
+    "worldTime": 9.983333333333409,
+    "playerTime": 9.983333333333409,
+    "workload": {
+      "requestedPopulation": null,
+      "actualBurningCells": 0,
+      "activeDischarge": false,
+      "activeTorch": false,
+      "burningBuildingIds": []
+    }
+  },
+  "recording": {
+    "mimeType": "video/webm;codecs=vp9",
+    "bytes": 2540688,
+    "canvas": {
+      "width": 1280,
+      "height": 800
+    },
+    "wallDurationMs": 10015,
+    "maximumDurationMs": 10000,
+    "nominalStopAfterMs": 10000,
+    "stopRequestedAfterMs": 10006.100000143051,
+    "schedulingOverrunMs": 6.1000001430511475,
+    "encoderDrainMs": 8.899999856948853,
+    "wallOverrunMs": 15,
+    "requestedCaptureFps": 60
+  },
+  "retainedClip": {
+    "status": "available",
+    "maximumEncodedBytes": 16777216,
+    "bytes": 2540688
+  }
+}
