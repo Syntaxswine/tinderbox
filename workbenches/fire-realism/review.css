@@ -34,3 +34,7 @@
 .motion-evidence [data-motion-save]{display:inline-flex;align-items:center;min-width:100px;min-height:44px;padding:8px 12px;border:1px solid var(--rule);font-size:.75rem}
 .motion-evidence [aria-disabled=true]{opacity:.55;cursor:not-allowed}
 .captures details{margin:6px 0}
+
+.raw-report{border:1px solid var(--rule);padding:12px 15px;margin:16px 0;overflow-wrap:anywhere;font-size:.76rem}
+.raw-report [data-report-save]{display:inline-flex;align-items:center;min-width:100px;min-height:44px;padding:8px 12px;border:1px solid var(--rule)}
+.raw-report pre{max-height:420px}

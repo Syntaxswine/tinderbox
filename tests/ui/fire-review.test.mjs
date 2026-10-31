@@ -1,21 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {createHash} from 'node:crypto';
-import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES} from '../../workbenches/fire-realism/review.js';
+import {createHash,webcrypto} from 'node:crypto';
+import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES} from '../../workbenches/fire-realism/review.js';
 const base='http://localhost:4552/nested/fire-ui/workbenches/fire-realism/index.html';
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
 function state(){return {version:1,phase:'ready',configuration:{mode:'current',scenario:'match-contact',view:'isometric',lighting:'bright',population:null,seed:1893,characterId:'bear',viewport:{width:1280,height:800,pixelRatio:1}},frameIndex:45,tick:45,worldTime:.75,playerTime:.75,
   availability:Object.fromEntries(MODES.map(m=>[m.id,{available:m.id!=='optimized',reason:m.id==='optimized'?'Not delivered':null,sourceCommit:'test-fixture'}])),capabilities:{gpuTimer:{available:true},populations:[]},referenceAcceptance:'missing',workload:{actualBurningCells:4},diagnostics:{sourceFingerprints:{publishedControl:'test-fixture'}},results:null};}
 async function fixture(options={}){
-  let current={...state(),...options.initialState},observer;const calls=[],updates=[],downloads=[],shell={renderRoot:{id:'canvas-slot',...options.renderRoot},uiRoot:{id:'hud-slot'},clearMotionEvidence:()=>calls.push(['clear-motion-evidence']),update:s=>updates.push(structuredClone(s))};
+  let current={...state(),...options.initialState},observer;let reportClears=0;const calls=[],updates=[],downloads=[],shell={renderRoot:{id:'canvas-slot',...options.renderRoot},uiRoot:{id:'hud-slot'},clearMotionEvidence:()=>calls.push(['clear-motion-evidence']),clearReportEvidence:()=>{reportClears++;},update:s=>updates.push(structuredClone(s))};
   const driver={state:()=>structuredClone(current),configure:async patch=>{calls.push(['configure',patch]);current={...current,configuration:{...current.configuration,...patch,viewport:{...current.configuration.viewport,...patch.viewport}},frameIndex:0};return driver.state();},
     play:()=>{calls.push(['play']);current.phase='playing';},pause:()=>{calls.push(['pause']);current.phase='ready';},reset:async()=>{calls.push(['reset']);current.frameIndex=0;},step:async n=>{calls.push(['step',n]);current.frameIndex+=n;},seek:async n=>{calls.push(['seek',n]);current.frameIndex=n;},
     measure:async options=>{calls.push(['measure',options]);return current.results;},cancelMeasurement:async()=>{calls.push(['cancel']);},captureFrame:()=>({mimeType:'image/jpeg',dataUrl:'data:image/jpeg;base64,dGVzdA==',frameIndex:current.frameIndex,tick:current.tick,configuration:structuredClone(current.configuration),sourceFingerprints:current.diagnostics.sourceFingerprints,hardware:{renderer:'DOM test fixture only'}}),dispose:async()=>calls.push(['dispose'])};
   Object.assign(driver,options.methods||{});
   const mountUI=()=>{},delivery={byMode:{reference:{sourceCommit:'R'}}},receipt={kind:'fixture-only'};
-  const binding=await bindReviewDriver({shell,createDriver:async config=>{calls.push(['create',config.root.id,config.uiRoot.id]);assert.equal(config.mountUI,mountUI);assert.equal(config.artistDelivery,delivery);assert.equal(config.referenceAcceptance,receipt);observer=config.onChange;return driver;},mountUI,artistDelivery:delivery,referenceAcceptance:receipt,onDownload:(...args)=>downloads.push(args),references:[{id:'fixture',label:'Fixture'}],...(options.createMotionRecorder?{createMotionRecorder:options.createMotionRecorder}:{}),...(options.FileReaderCtor?{FileReaderCtor:options.FileReaderCtor}:{}),...(options.signal?{signal:options.signal}:{})});
-  return {binding,calls,updates,downloads,driver,emit:patch=>{current={...current,...patch};observer(driver.state());}};
+  const binding=await bindReviewDriver({shell,createDriver:async config=>{calls.push(['create',config.root.id,config.uiRoot.id]);assert.equal(config.mountUI,mountUI);assert.equal(config.artistDelivery,delivery);assert.equal(config.referenceAcceptance,receipt);observer=config.onChange;return driver;},mountUI,artistDelivery:delivery,referenceAcceptance:receipt,onDownload:(...args)=>downloads.push(args),references:[{id:'fixture',label:'Fixture'}],...(options.createMotionRecorder?{createMotionRecorder:options.createMotionRecorder}:{}),...(options.FileReaderCtor?{FileReaderCtor:options.FileReaderCtor}:{}),...(options.signal?{signal:options.signal}:{}),...(options.cryptoApi?{cryptoApi:options.cryptoApi}:{}),...(options.createReportEvidence?{createReportEvidence:options.createReportEvidence}:{})});
+  return {binding,calls,updates,downloads,driver,reportClears:()=>reportClears,emit:patch=>{current={...current,...patch};observer(driver.state());}};
 }
 test('Review includes the driver modes, real powder scenario and six critique categories',()=>{
   assert.deepEqual(MODES.map(m=>m.id),['current','reference','optimized','no-fire']);assert.ok(SCENARIOS.some(s=>s.id==='gasoline-front-powder'));assert.equal(RUBRIC.length,6);
@@ -188,4 +188,61 @@ test('Abort during encoded-byte reading prevents a retained link and cleans the 
 });
 test('Disposal during the initial actual capture cannot start a late recorder',async()=>{
   const pending=deferred(),f=await motionBindingFixture(null,{methods:{captureFrame:()=>pending.promise}}),starting=f.binding.intent({type:'record'});await Promise.resolve();await f.binding.dispose();pending.resolve({sourceFingerprints:{},hardware:{}});await starting;assert.equal(f.controls(),undefined);assert.equal(f.downloads.length,0);
+});
+
+
+// Full-shaped synthetic timing reports test evidence bytes only, never GPU acceptance.
+function largeTimingReport(){
+  const trials=Array.from({length:12},(_,trialIndex)=>({trialIndex,mode:trialIndex%2?'no-fire':'reference',forMode:'reference',
+    gpu:Array.from({length:600},(_,index)=>({index,gpuMs:1.125+index/10000})),
+    updateCpuMs:Array(600).fill(.125),renderCpuMs:Array(600).fill(.25),simulationCpuMs:Array(600).fill(0),
+    workload:Array.from({length:600},(_,index)=>({index,activeCells:128,fingerprint:'synthetic-'.padEnd(64,'f')})),
+    draws:Array.from({length:600},()=>({calls:80,triangles:10000})),resources:Array.from({length:600},()=>({geometries:40,textures:12})),rejected:[]}));
+  return {version:1,status:'inconclusive',reason:'Large synthetic report; no hardware evidence',hardware:{renderer:'Synthetic fixture only',note:'fumée 🔥'},protocol:{warmupFrames:120,sampleFrames:600,trials:3},gpu:{trials},comparison:{targetMet:null,optimizedReferenceRatio:null}};
+}
+test('Realistically large raw timing evidence preserves every UTF-8 byte, LF, hash and driver status',async()=>{
+  const report=largeTimingReport(),expected=JSON.stringify(report,null,2)+'\n',reader=clipReaderFixture();assert.ok(Buffer.byteLength(expected)>2*1024*1024);
+  const task=createTimingReportEvidence({report,FileReaderCtor:reader.FileReaderCtor,cryptoApi:webcrypto}),evidence=await task.finished;
+  assert.equal(evidence.status,'available');assert.equal(evidence.driverStatus,'inconclusive');assert.equal(evidence.text,expected);assert.equal(evidence.bytes,Buffer.byteLength(expected));assert.equal(evidence.sha256,createHash('sha256').update(expected).digest('hex'));
+  assert.deepEqual(Buffer.from(evidence.href.split(',')[1],'base64'),Buffer.from(expected));assert.deepEqual(JSON.parse(evidence.text),report);assert.equal(reader.readers[0].listeners.size,0);task.dispose();
+});
+test('Oversized or undigestible reports are explicit and never publish a partial JSON link',async()=>{
+  const reader=clipReaderFixture(),report={status:'complete',raw:'x'.repeat(MAX_TIMING_REPORT_BYTES)},expectedBytes=Buffer.byteLength(JSON.stringify(report,null,2)+'\n');let digests=0;
+  const oversized=await createTimingReportEvidence({report,FileReaderCtor:reader.FileReaderCtor,cryptoApi:{subtle:{digest(){digests++;}}}}).finished;
+  assert.equal(oversized.status,'oversized');assert.equal(oversized.bytes,expectedBytes);assert.equal(oversized.href,undefined);assert.equal(oversized.text,undefined);assert.equal(digests,0);assert.equal(reader.readers.length,0);
+  const unavailable=await createTimingReportEvidence({report:{status:'complete'},FileReaderCtor:reader.FileReaderCtor,cryptoApi:{}}).finished;assert.equal(unavailable.status,'unavailable');assert.match(unavailable.reason,/SHA-256/);assert.equal(unavailable.href,undefined);
+});
+test('A cancelled digest cannot acquire a reader or publish late report bytes',async()=>{
+  const begun=deferred(),digest=deferred(),reader=clipReaderFixture(),task=createTimingReportEvidence({report:{status:'complete'},FileReaderCtor:reader.FileReaderCtor,cryptoApi:{subtle:{digest(){begun.resolve();return digest.promise;}}}});
+  await begun.promise;task.dispose();digest.resolve(new Uint8Array(32).buffer);const result=await task.finished;assert.equal(result.status,'cancelled');assert.equal(result.href,undefined);assert.equal(reader.readers.length,0);
+});
+test('Notifications never prepare prior reports; sampling retires before one exact report preparation',async()=>{
+  const report={status:'inconclusive',reason:'Synthetic result',gpu:{trials:[{gpu:[{index:0,gpuMs:2.5}]}]},comparison:{targetMet:null}},reader=clipReaderFixture(),entered=deferred(),pending=deferred();let sampling=false,preparations=0;
+  const f=await fixture({initialState:{results:report},FileReaderCtor:reader.FileReaderCtor,cryptoApi:webcrypto,createReportEvidence:options=>{assert.equal(sampling,false,'JSON preparation entered active sampling');preparations++;return createTimingReportEvidence(options);},methods:{measure:()=>{sampling=true;entered.resolve();return pending.promise;}}});
+  await f.binding.intent({type:'report'});assert.equal(preparations,1);assert.equal(f.downloads.length,0);assert.equal(f.updates.at(-1).reportEvidence.status,'available');const measuring=f.binding.intent({type:'measure',modes:['current','reference']});await entered.promise;
+  assert.equal(f.updates.at(-1).reportEvidence.status,'unavailable');assert.equal(f.updates.at(-1).reviewEvidenceLocked,true);for(let i=0;i<5;i++)f.emit({phase:'measuring'});assert.equal(preparations,1);
+  await assert.rejects(f.binding.intent({type:'report'}),/retired GPU/);sampling=false;f.emit({phase:'ready',results:report});pending.resolve(report);assert.deepEqual(await measuring,report);assert.equal(preparations,2);
+  const evidence=f.updates.at(-1).reportEvidence;assert.equal(evidence.status,'available');assert.deepEqual(JSON.parse(evidence.text),report);for(let i=0;i<3;i++)f.emit({phase:'ready'});assert.equal(preparations,2);assert.equal(f.downloads.length,0);await f.binding.dispose();
+});
+test('Cancel retires pending report work; idle retry preserves the actual cancelled report',async()=>{
+  const report={status:'complete',gpu:{trials:[]}},cancelledReport={status:'cancelled',reason:'Actual fixture cancellation',gpu:{trials:[]}},reader=clipReaderFixture(),begun=deferred(),pending=deferred();let first=true;
+  const f=await fixture({initialState:{results:report},FileReaderCtor:reader.FileReaderCtor,cryptoApi:{subtle:{digest(...args){if(first){first=false;begun.resolve();return pending.promise;}return webcrypto.subtle.digest(...args);}}},methods:{cancelMeasurement:()=>{f.emit({phase:'ready',results:cancelledReport});return cancelledReport;}}});
+  const preparing=f.binding.intent({type:'report'});await begun.promise;assert.equal(f.updates.at(-1).reportEvidence.status,'preparing');const cancelling=f.binding.intent({type:'cancel'});pending.resolve(new Uint8Array(32).buffer);await preparing;await cancelling;
+  assert.equal(f.updates.at(-1).reportEvidence.status,'unavailable');assert.equal(reader.readers.length,0);await f.binding.intent({type:'report'});assert.equal(f.updates.at(-1).reportEvidence.driverStatus,'cancelled');assert.deepEqual(JSON.parse(f.updates.at(-1).reportEvidence.text),cancelledReport);assert.equal(f.downloads.length,0);await f.binding.dispose();
+});
+test('Report replacement, reset and disposal clear old resources without affecting JPEG capture',async()=>{
+  const reader=clipReaderFixture(),f=await fixture({initialState:{results:{status:'complete',trials:[1]}},FileReaderCtor:reader.FileReaderCtor,cryptoApi:webcrypto});
+  await f.binding.intent({type:'report'});const first=f.updates.at(-1).reportEvidence;f.emit({results:{status:'inconclusive',trials:[2]}});await f.binding.intent({type:'report'});assert.notEqual(f.updates.at(-1).reportEvidence.href,first.href);
+  const capture=await f.binding.intent({type:'capture'});await f.binding.intent({type:'reset'});assert.equal(f.updates.at(-1).reportEvidence.status,'unavailable');assert.ok(f.updates.at(-1).captures.some(c=>c.id===capture.id));assert.ok(f.reportClears()>=3);await f.binding.dispose();assert.equal(f.downloads.length,0);
+});
+test('Disposal aborts a pending report FileReader and suppresses every late publication',async()=>{
+  const began=deferred();class Reader extends EventTarget{constructor(){super();this.aborts=0;this.listeners=new Map();}addEventListener(t,h){super.addEventListener(t,h);this.listeners.set(t,h);}removeEventListener(t,h){super.removeEventListener(t,h);this.listeners.delete(t);}readAsDataURL(){began.resolve(this);}abort(){this.aborts++;this.dispatchEvent(new Event('abort'));}}
+  const f=await fixture({initialState:{results:{status:'complete'}},FileReaderCtor:Reader,cryptoApi:webcrypto}),preparing=f.binding.intent({type:'report'}),reader=await began.promise,count=f.updates.length;
+  await f.binding.dispose();await preparing;assert.equal(reader.aborts,1);assert.equal(reader.listeners.size,0);assert.equal(f.updates.length,count);assert.equal(f.downloads.length,0);
+});
+
+
+test('New sampling waits for prior report hashing to retire instead of overlapping its work',{timeout:5000},async()=>{
+  const begun=deferred(),digest=deferred(),reader=clipReaderFixture();let entered=0;const f=await fixture({initialState:{results:{status:'complete'}},FileReaderCtor:reader.FileReaderCtor,cryptoApi:{subtle:{digest(){begun.resolve();return digest.promise;}}},methods:{measure:()=>{entered++;return null;}}});
+  const preparing=f.binding.intent({type:'report'});await begun.promise;const measuring=f.binding.intent({type:'measure',modes:['current','reference']});await Promise.resolve();assert.equal(entered,0);digest.resolve(new Uint8Array(32).buffer);await preparing;await measuring;assert.equal(entered,1);assert.equal(f.updates.at(-1).reportEvidence.status,'unavailable');await f.binding.dispose();
 });
