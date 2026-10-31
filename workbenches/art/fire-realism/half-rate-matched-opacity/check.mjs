@@ -49,7 +49,10 @@ check('exact reachable61 source closure with immutable60 dependencies',()=>{
 check('193 original binary declarations and all nonoptical records unchanged',()=>{
  assert.deepEqual(manifest.runtimeResources,oldManifest.runtimeResources);assert.equal(manifest.runtimeResources.length,193);
  assert.equal(manifest.runtimeResources.reduce((n,r)=>n+r.bytes,0),96602765);
- for(const key of ['study','sourcePins','sourceRawManifestSha256','sourceQualification','geometry','limits','nativeComparisonUnderlay'])assert.deepEqual(manifest[key],oldManifest[key]);
+ for(const key of ['study','sourcePins','sourceRawManifestSha256','sourceQualification','geometry','nativeComparisonUnderlay'])assert.deepEqual(manifest[key],oldManifest[key]);
+ const {esmBytes:oldEsm,...oldOtherLimits}=oldManifest.limits,{esmBytes:newEsm,...newOtherLimits}=manifest.limits;
+ assert.equal(newEsm,manifest.runtimeFiles.reduce((bytes,record)=>bytes+record.bytes,0));assert.equal(newEsm-oldEsm,493);
+ assert.deepEqual(newOtherLimits,oldOtherLimits);assert.ok(newEsm<64*1024**2,'Measured usage is below the unchanged64MiB source ceiling');
  assert.equal(manifest.rawGatesPassed,false);assert.equal(manifest.admitted,false);assert.equal(manifest.referenceFrozen,false);assert.equal(manifest.optimizedAvailable,false);
  assert.equal(manifest.opticalControl.fixedFlameEmissivity,6);assert.equal(manifest.opticalControl.fixedFlameExtinctionCoefficient,6);
 });
@@ -91,8 +94,13 @@ check('nine tiny fixed cases,1/2/17/120 segment subdivision invariance',()=>{
  for(const input of vectors){const expected=closed(input);for(const steps of [1,2,17,120]){const actual=segments(input,steps);actual.C.forEach((v,i)=>near(v,expected.C[i]));near(actual.A,expected.A);}}
 });
 check('only required parent LF rules added, own tool scanner imports resolve',()=>{
- const attrs=read('assets/art/fire-realism/.gitattributes'),tail='fluid-half-rate-matched-opacity.js text eol=lf\nfluid-half-rate-matched-opacity.manifest.json text eol=lf\n';
- assert.ok(attrs.endsWith(tail));assert.equal(sha(attrs.slice(0,-tail.length)),'8f8db004c3fc6169978225b8f2992a11b390939afa186d57f8272d01d3be3e91');
+ const rawAttrs=read('assets/art/fire-realism/.gitattributes'),tail='fluid-half-rate-matched-opacity.js text eol=lf\nfluid-half-rate-matched-opacity.manifest.json text eol=lf\n';
+ // Canonicalize only this nonruntime Git metadata. Runtime JS/JSON hashes above remain raw.
+ const verifyAttrs=text=>{const attrs=text.replace(/\r\n/g,'\n');assert.ok(attrs.endsWith(tail));assert.equal(sha(attrs.slice(0,-tail.length)),'8f8db004c3fc6169978225b8f2992a11b390939afa186d57f8272d01d3be3e91');};
+ verifyAttrs(rawAttrs);verifyAttrs(rawAttrs.replace(/\r\n/g,'\n').replace(/\n/g,'\r\n'));
+ assert.throws(()=>verifyAttrs(rawAttrs.replace('eol=lf','eol=crlf')));
+ assert.throws(()=>recoverFactory(candidate.replace(/\n/g,'\r\n')));
+ assert.notEqual(sha(manifestText),sha(manifestText.replace(/\n/g,'\r\n')));
  for(const name of ['source.mjs','check.mjs']){const rel='workbenches/art/fire-realism/half-rate-matched-opacity/'+name;for(const m of read(rel).matchAll(strictImports))assert.ok(fs.existsSync(path.resolve(root,path.dirname(rel),m[1])));}
 });
 console.log(JSON.stringify({status:'PASS',checks:results.length,entry:{bytes:Buffer.byteLength(candidate),sha256:sha(candidate)},manifest:{bytes:Buffer.byteLength(manifestText),sha256:sha(manifestText)},closure:61,immutableDependencies:60,binaryDeclarations:193,binaryBytesRead:0,namespaceOrGeometryEvaluated:false,sharedFragmentSha256:sha(fragment),fixedEmission:6,fixedExtinction:6,sourceOnly:true,rawGatesPassed:false,admitted:false}));
