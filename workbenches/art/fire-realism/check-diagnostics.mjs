@@ -5,7 +5,7 @@ import * as T from '../../../src/runtime/three.js';
 import {createFireRealism} from '../../../assets/art/fire-realism/index.js';
 import {createGroundField} from '../../../src/art/ground-field.js';
 import {diagnosticSnapshot, saveCamera, applyFrozenCamera, cameraRecord} from './diagnostic-data.js';
-import {createFixtureStreamControl, regional64Shader} from './diagnostic-stream.js';
+import {createFixtureStreamControl, regional64Shader, associatedFieldShader} from './diagnostic-stream.js';
 import {createFramebufferBlendProbe} from './blend-probe.js';
 import {createFrozenDiagnosticScene, prepareFixtureDepth} from './diagnostic-scene.js';
 
@@ -29,26 +29,44 @@ const effect = createFireRealism(T, {maxCells: 64});
 effect.update({version: 1, tick: snapshot.tick, worldTime: snapshot.clocks.world, playerTime: snapshot.clocks.player, paused: false, player: snapshot.player, cells: snapshot.cells, camera: cameraRecord(camera), fieldUniforms: field.uniforms});
 const mesh = effect.root.children.find(o => o.isMesh), geometry = mesh.geometry, original = mesh.material, control = createFixtureStreamControl(T, effect);
 const attrs = () => Object.fromEntries(Object.entries(geometry.attributes).map(([name, a]) => [name, [...a.array]]));
+let fieldAfterCalls = 0; const priorAfterRender = function() {fieldAfterCalls++;}; mesh.onAfterRender = priorAfterRender;
 const initial = attrs(), ids = effect.diagnostics().sortedSemanticIds, count = geometry.instanceCount, lights = effect.root.children.filter(o => o.isPointLight).map(o => [o.position.toArray(), o.intensity]);
 const expected64 = original.fragmentShader.replace('      float stepSize=(exit-entry)/32.;\n      for(int j=0;j<32;j++) {', '      float stepSize=(exit-entry)/64.;\n      for(int j=0;j<64;j++) {');
 assert.equal(regional64Shader(original.fragmentShader), expected64); assert.throws(() => regional64Shader(original.fragmentShader + original.fragmentShader), /exactly one/);
 assert.throws(() => regional64Shader(expected64), /exactly one/);
+const insertion = '#include <colorspace_fragment>\n    gl_FragColor.rgb*=gl_FragColor.a;', expectedAssociated32 = original.fragmentShader.replace('#include <colorspace_fragment>', insertion), expectedAssociated64 = expected64.replace('#include <colorspace_fragment>', insertion);
+assert.equal(associatedFieldShader(original.fragmentShader), expectedAssociated32); assert.equal(associatedFieldShader(expected64), expectedAssociated64);
+assert.equal(regional64Shader(expectedAssociated32), expectedAssociated64, 'The two narrowly scoped overrides commute');
+assert.equal(expectedAssociated32.replace(insertion, '#include <colorspace_fragment>'), original.fragmentShader);
+assert.throws(() => associatedFieldShader(original.fragmentShader + original.fragmentShader), /Unknown final/);
+assert.throws(() => associatedFieldShader(original.fragmentShader.replace('alpha*legibility);', 'alpha);')), /Unknown final/);
+assert.throws(() => control.withSelection({association: 'state-only'}, () => {}), /Unknown fixture/);
+assert.equal(original.blending, T.NormalBlending); assert.equal(original.premultipliedAlpha, false);
+const fakeFieldGL = {BLEND: 3042, BLEND_SRC_RGB: 32969, BLEND_DST_RGB: 32968, BLEND_SRC_ALPHA: 32971, BLEND_DST_ALPHA: 32970, BLEND_EQUATION_RGB: 32777, BLEND_EQUATION_ALPHA: 34877, ONE: 1, SRC_ALPHA: 770, ONE_MINUS_SRC_ALPHA: 771, FUNC_ADD: 32774,
+  isEnabled: () => true, getParameter(name) {return name === this.BLEND_SRC_RGB ? mesh.material.premultipliedAlpha ? this.ONE : this.SRC_ALPHA : name === this.BLEND_DST_RGB || name === this.BLEND_DST_ALPHA ? this.ONE_MINUS_SRC_ALPHA : name === this.BLEND_SRC_ALPHA ? this.ONE : this.FUNC_ADD;}};
+
 let originalDisposed = 0, borrowedDisposed = 0; original.addEventListener('dispose', () => originalDisposed++); field.uniforms.field.value.addEventListener('dispose', () => borrowedDisposed++);
 const derivedMaterials = new Set(), derivedDisposal = new Map();
-for (const layer of ['all', 'flame', 'smoke']) for (const steps of [32, 64]) {
+for (const layer of ['all', 'flame', 'smoke']) for (const steps of [32, 64]) for (const association of ['straight', 'associated']) {
   const versions = Object.fromEntries(Object.entries(geometry.attributes).map(([n, a]) => [n, a.version]));
-  control.withSelection({layer, steps}, () => {
+  control.withSelection({layer, steps, association}, () => {
     const selected = control.diagnostics(); assert.equal(geometry.instanceCount, selected.submittedInstances); assert.equal(selected.originalInstances, count);
     assert.deepEqual(selected.selectedSemanticIds, ids.filter((_, i) => layer === 'all' || (layer === 'flame' ? initial.iPolicy[i * 3] < .5 : initial.iPolicy[i * 3] >= .5)));
-    if (steps === 32) assert.equal(mesh.material, original);
-    else {assert.notEqual(mesh.material, original); assert.equal(mesh.material.fragmentShader, expected64); assert.equal(mesh.material.uniforms, original.uniforms); if (!derivedMaterials.has(mesh.material)) {derivedMaterials.add(mesh.material); derivedDisposal.set(mesh.material, 0); const m = mesh.material; m.addEventListener('dispose', () => derivedDisposal.set(m, derivedDisposal.get(m) + 1));}}
+    if (steps === 32 && association === 'straight') assert.equal(mesh.material, original);
+    else {assert.notEqual(mesh.material, original); assert.equal(mesh.material.fragmentShader, association === 'associated' ? steps === 64 ? expectedAssociated64 : expectedAssociated32 : expected64); assert.equal(mesh.material.uniforms, original.uniforms); if (!derivedMaterials.has(mesh.material)) {derivedMaterials.add(mesh.material); derivedDisposal.set(mesh.material, 0); const m = mesh.material; m.addEventListener('dispose', () => derivedDisposal.set(m, derivedDisposal.get(m) + 1));}}
+    assert.equal(mesh.material.premultipliedAlpha, association === 'associated'); assert.equal(mesh.material.blending, original.blending);
+    for (const key of ['vertexShader', 'name', 'transparent', 'depthWrite', 'depthTest', 'side', 'toneMapped', 'forceSinglePass', 'blendSrc', 'blendDst', 'blendEquation', 'blendSrcAlpha', 'blendDstAlpha', 'blendEquationAlpha']) assert.equal(mesh.material[key], original[key], `Unchanged render property:${key}`);
+    assert.deepEqual(mesh.material.defines, original.defines);
+    mesh.onAfterRender({getContext: () => fakeFieldGL});
+    assert.equal(control.diagnostics().fieldDraw.values[0].value, association === 'associated' ? 1 : 770, 'Recorder samples actual provided draw state; this fake is lifecycle evidence only');
   });
-  assert.equal(mesh.material, original); assert.equal(geometry.instanceCount, count); assert.deepEqual(attrs(), initial); assert.deepEqual(effect.diagnostics().sortedSemanticIds, ids);
+  assert.equal(mesh.onAfterRender, priorAfterRender); assert.equal(mesh.material, original); assert.equal(geometry.instanceCount, count); assert.deepEqual(attrs(), initial); assert.deepEqual(effect.diagnostics().sortedSemanticIds, ids);
   assert.deepEqual(effect.root.children.filter(o => o.isPointLight).map(o => [o.position.toArray(), o.intensity]), lights);
-  if (layer === 'all' && steps === 32) assert.deepEqual(Object.fromEntries(Object.entries(geometry.attributes).map(([n, a]) => [n, a.version])), versions, 'Default All32 does not even rewrite arrays/update hints');
+  if (layer === 'all' && steps === 32 && association === 'straight') assert.deepEqual(Object.fromEntries(Object.entries(geometry.attributes).map(([n, a]) => [n, a.version])), versions, 'Default All32 does not even rewrite arrays/update hints');
 }
-assert.throws(() => control.withSelection({layer: 'smoke', steps: 64}, () => {throw Error('simulated draw failure');}), /draw failure/);
+assert.throws(() => control.withSelection({layer: 'smoke', steps: 64, association: 'associated'}, () => {throw Error('simulated draw failure');}), /draw failure/);
 assert.equal(mesh.material, original); assert.equal(geometry.instanceCount, count); assert.deepEqual(attrs(), initial);
+assert.equal(fieldAfterCalls, 12); assert.equal(derivedMaterials.size, 3); assert.equal(control.diagnostics().maximumDerivedMaterials, 3); assert.equal(control.diagnostics().cachedDerivedMaterials, 3); assert.equal(mesh.onAfterRender, priorAfterRender);
 control.dispose(); control.dispose(); for (const value of derivedDisposal.values()) assert.equal(value, 1); assert.equal(originalDisposed, 0); assert.equal(borrowedDisposed, 0);
 effect.dispose(); assert.equal(originalDisposed, 1); assert.equal(borrowedDisposed, 0); field.dispose(); assert.equal(borrowedDisposed, 1);
 
@@ -95,4 +113,4 @@ const first = texture(), late = texture(), abort = new AbortController(); let fi
 class DelayedLoader {loadAsync() {return ++index === 1 ? Promise.resolve(first) : new Promise(resolve => {finishLate = resolve;});}}
 const pending = createFrozenDiagnosticScene({...T, TextureLoader: DelayedLoader}, {}, new T.Scene(), abort.signal);
 await Promise.resolve(); await Promise.resolve(); abort.abort(); finishLate(late); await assert.rejects(pending, /Fixture closed/); assert.equal(first.releases, 1); assert.equal(late.releases, 1);
-console.log('PASS: exact six13ad files unchanged; lossless native phases/player/mask/camera; All32 zero-mutation path; filtered/64 roundtrip + throw restoration; override scope and borrowed texture ownership; blend probe association/state/cleanup guards; async native asset failure/abort cleanup. NO actual WebGL readback, shader, image, quality or performance acceptance.');
+console.log('PASS: exact six13ad files unchanged; lossless native phases/player/mask/camera; All32 zero-mutation path; all12 layer/sample/association roundtrips + throw/hook restoration; exact sampling + final-alpha association override scope and borrowed texture ownership; blend probe association/state/cleanup guards; async native asset failure/abort cleanup. NO actual WebGL readback, shader, image, quality or performance acceptance.');

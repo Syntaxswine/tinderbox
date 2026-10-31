@@ -58,7 +58,7 @@ async function ensureFrozen() {
       backdrop.push({path, canonicalLfSha256: hash, verified: true});
     }
     sourceVerification = {artistCommit: frozenData.artistCommit, fixtureDataSha256: await sha256(bytes), runtimeFiles: files, backdropSources: backdrop, manifestRawSha256: manifestRawSha, manifestCanonicalLfSha256: canonicalManifestSha, manifestRawMatches: manifestRawSha === frozenData.artistManifestSha256, manifestCanonicalMatches: true};
-    shaderHashes = {original32ExpandedFragment: await sha256(streamControl.source32), diagnostic64ExpandedFragment: await sha256(streamControl.source64), hashBasis: 'ShaderMaterial.fragmentShader UTF8: noise/field templates expanded, before Three #include preprocessing', overrideScope: 'Exactly one regional march spacing/count32→64; original factory files unchanged'};
+    shaderHashes = {original32ExpandedFragment: await sha256(streamControl.source32), diagnostic64ExpandedFragment: await sha256(streamControl.source64), associated32ExpandedFragment: await sha256(streamControl.sourceAssociated32), associated64ExpandedFragment: await sha256(streamControl.sourceAssociated64), hashBasis: 'ShaderMaterial.fragmentShader UTF8: noise/field templates expanded, before Three #include preprocessing', overrideScope: '64: exactly one regional march count/spacing override. Associated: one encoded-RGB multiply by final alpha after colorspace plus matching premultipliedAlpha:true/ONE. Original factory files unchanged'};
     frozenScene = await createFrozenDiagnosticScene(T, renderer, scene, lifetime.signal);
     if (closed) {frozenScene.dispose(); throw new DOMException('Fixture closed', 'AbortError');}
   })();
@@ -88,12 +88,12 @@ document.querySelector('#fixture').onchange = async () => {
   const diagnostic = isDiagnostic(); document.querySelector('#diagnostic-controls').hidden = !diagnostic; document.querySelector('#diagnostic-output').hidden = !diagnostic;
   for (const id of ['pause', 'reset', 'run-two', 'step', 'powder', 'view', 'light', 'intersect']) document.getElementById(id).disabled = diagnostic;
   if (!diagnostic) {leaveFrozenEnvironment(); return;}
-  document.querySelector('#diag-layer').value = 'all'; document.querySelector('#diag-steps').value = '32';
+  document.querySelector('#diag-layer').value = 'all'; document.querySelector('#diag-steps').value = '32'; document.querySelector('#diag-association').value = 'straight';
   try {await ensureFrozen(); if (isDiagnostic() && !closed) enterFrozenEnvironment();}
   catch (error) {status.className = 'failure'; status.textContent = 'Diagnostic unavailable: ' + error.message;}
 };
 document.querySelector('#diag-phase').onchange = () => {frozenKey = null; effect.reset(); lastProbe = null; diagnosticDirty = true;};
-for (const id of ['diag-layer', 'diag-steps', 'diag-view']) document.getElementById(id).onchange = () => {diagnosticDirty = true;};
+for (const id of ['diag-layer', 'diag-steps', 'diag-view', 'diag-association']) document.getElementById(id).onchange = () => {diagnosticDirty = true;};
 document.querySelector('#pause').onclick = () => {isPaused = !isPaused; autoPauseAt = null; pauseLabel();};
 document.querySelector('#reset').onclick = reset;
 document.querySelector('#run-two').onclick = () => {reset(); autoPauseAt = 2; isPaused = false; pauseLabel();};
@@ -102,7 +102,7 @@ document.querySelector('#powder').onclick = e => {powder = !powder; e.target.tex
 document.querySelector('#view').onclick = e => {view = (view + 1) % 3; camera.position.set(...[[12, 12, 15], [12, 4.5, 14], [-.01, 12, -3]][view]); camera.lookAt(6, .4, 6); e.target.textContent = ['Oblique view', 'Reverse camera', 'Isometric view'][view];};
 document.querySelector('#light').onclick = e => {dim = !dim; scene.background.set(dim ? '#292c2c' : '#b4b69d'); sun.intensity = dim ? .16 : 2.3; scene.children.find(o => o.isHemisphereLight).intensity = dim ? .34 : 2.1; e.target.textContent = dim ? 'Bright surroundings' : 'Dim surroundings';};
 document.querySelector('#intersect').onclick = e => {intersect = !intersect; e.target.textContent = `Intersecting box: ${intersect ? 'on' : 'off'}`;};
-function diagnosticName() {return `DIAGNOSTIC-match-f${document.querySelector('#diag-phase').value}-${document.querySelector('#diag-view').value}-${document.querySelector('#diag-layer').value}-s${document.querySelector('#diag-steps').value}`;}
+function diagnosticName() {return `DIAGNOSTIC-match-f${document.querySelector('#diag-phase').value}-${document.querySelector('#diag-view').value}-${document.querySelector('#diag-layer').value}-s${document.querySelector('#diag-steps').value}-${document.querySelector('#diag-association').value}`;}
 let captureSerial = 0;
 async function captureDiagnostic() {
   const serial = ++captureSerial;
@@ -194,10 +194,10 @@ function drawFrozen(force = false) {
   effect.update({version: 1, tick: source.tick, worldTime: source.clocks.world, playerTime: source.clocks.player, worldDelta: 0, playerDelta: 0, paused: true,
     player: {...source.player, elevation: source.player.elevation || 0}, cells: source.cells, anchors: frozenScene.anchors(), discharge: source.discharge, torch: source.player.torch, events: source.events,
     eventReceipts: {generation: 1, primed: true, highestId: null, events: [], reset: false}, camera: cameraState, viewport: frozenData.viewport, fieldUniforms: frozenScene.field.uniforms, opaqueDepth, buildingVisuals: []});
-  const selection = {layer: document.querySelector('#diag-layer').value, steps: Number(document.querySelector('#diag-steps').value)};
+  const selection = {layer: document.querySelector('#diag-layer').value, steps: Number(document.querySelector('#diag-steps').value), association: document.querySelector('#diag-association').value};
   streamControl.withSelection(selection, () => renderer.render(scene, camera));
   lastDiagnostic = {diagnosticOnly: true, qualityAcceptance: false, performanceAcceptance: false, playedGameplay: false, sourceVerification, shaderHashes,
-    selectedExpandedFragmentSha256: selection.steps === 64 ? shaderHashes.diagnostic64ExpandedFragment : shaderHashes.original32ExpandedFragment,
+    selectedExpandedFragmentSha256: selection.association === 'associated' ? selection.steps === 64 ? shaderHashes.associated64ExpandedFragment : shaderHashes.associated32ExpandedFragment : selection.steps === 64 ? shaderHashes.diagnostic64ExpandedFragment : shaderHashes.original32ExpandedFragment,
     source: {commit: frozenData.sourceCommit, frameIndex: phase, tick: source.tick, clocks: source.clocks, originalPaused: source.paused, player: source.player, cells: source.cells.length, burningCellIds: source.cells.filter(c => c.phase === 'burning').map(c => c.id)},
     selection: streamControl.diagnostics(), camera: cameraState, cameraPolicy: frozenData.cameras[chosenView].policy, viewport: frozenData.viewport, environment: frozenData.environment, lightsHeldIdentical: true,
     opaqueDepth: {valid: true, width: opaqueDepth.width, height: opaqueDepth.height, excludes: 'All fire plus transparent/faded/non-depth-writing materials, including heat/char underlay; actual alpha-tested opaque materials retained'}, output: {toneMapping: 'NoToneMapping', colorSpace: renderer.outputColorSpace, exposure: renderer.toneMappingExposure, pixelRatio: renderer.getPixelRatio()},
