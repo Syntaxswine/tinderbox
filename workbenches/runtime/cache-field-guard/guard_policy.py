@@ -111,11 +111,24 @@ def own_record(path, maximum=SOURCE_MAX):
     return {"path": str(p), "bytes": len(raw), "sha256": digest(raw)}
 
 
-def write_json(path, value, exclusive=False):
+def write_json(path, value, exclusive=False, atomic=False):
     p = safe_path(path)
     raw = (json.dumps(value, indent=2, allow_nan=False) + "\n").encode("utf-8")
     require(len(raw) <= 4 * 1024 * 1024, "Bounded own JSON output exceeded")
-    if exclusive:
+    if atomic:
+        require(exclusive and os.name == "nt", "Atomic no-replace publication requires Windows rename")
+        temporary = p.with_name(p.name + ".publishing")
+        # A failed/temp file is preserved and never adopted/retried. Only ready
+        # uses this path; it is inside the already-counted fresh output tree.
+        with temporary.open("xb") as stream:
+            require(stream.write(raw) == len(raw), "Incomplete ready temporary write")
+            stream.flush()
+            os.fsync(stream.fileno())
+        require(temporary.stat().st_size == len(raw), "Incomplete closed ready temporary")
+        # CPython/Windows os.rename uses MoveFileExW(flags=0): neither replace
+        # nor cross-volume copy. Other platforms deliberately have no fallback.
+        os.rename(temporary, p)
+    elif exclusive:
         with p.open("xb") as stream:
             stream.write(raw)
             stream.flush()

@@ -69,8 +69,8 @@ class Controller:
         self.sources = {name: self.guard_dir / name for name in GUARD_FILES}
         self.sources.update({name: self.artist / name for name in ART_FILES})
 
-    def save(self, name, value, exclusive=False):
-        return write_json(self.out / name, value, exclusive)
+    def save(self, name, value, exclusive=False, atomic=False):
+        return write_json(self.out / name, value, exclusive, atomic)
 
     def budget_ms(self):
         # Nonrecursive: no full guard/sampling; preserves original phase clocks.
@@ -291,7 +291,7 @@ class Controller:
             "controllerIdentity": json_identity(self.job.me), "childIdentity": record["identity"],
             "deadline": self.d, "jobLimitReadback": {"path": self.readback["path"], "sha256": self.readback["sha256"],
                 "actual": self.initial_actual, "validated": True}}
-        self.ready = self.save("guard-ready.json", ready, exclusive=True)
+        self.ready = self.save("guard-ready.json", ready, exclusive=True, atomic=True)
         self.persist("metadata-running")
 
     def execute(self):
