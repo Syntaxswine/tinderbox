@@ -151,3 +151,13 @@ Cadence-child validation: all 223 repository tests, 166 script syntax checks, 20
 
 
 Delivery configuration now has a separate [loader/schema and cold-document proof contract](delivery.md). This delivery-only plumbing supplies no actual descriptor, source pin, receipt or acceptance, and leaves public gameplay/rendering and benchmark timing boundaries unchanged.
+
+## Native facade ancestor visibility
+
+The hostile `aca30cd` source probe found that a real Ashland model supplied 15 facade sites even when its parent Group was hidden; hiding the native root itself correctly supplied none. This is an API/streaming visibility failure, not evidence that the current street scene has a hidden parent.
+
+Source eligibility now checks visibility and the existing strict `userData.destroyed === true` flag through the full ancestor chain, including model containers, housing and scene. It separately remembers whether that chain includes the specific native model root, so a cached part reparented outside its model cannot gain eligibility merely by being visible. Geometry, transforms, face/material provenance, native dimensions, IDs, camera independence and fuel associations are unchanged.
+
+Two actual-native regressions reproduce the former failure before the fix. They hide/destroy and restore model-parent, housing and scene ancestors, verify zero stale sites/audits while excluded, restore the exact original site IDs/positions/normals and triangle audits, and reject a native part moved outside its cached model. Existing world-Y/quarter-turn, ghost-material, clipping, joined-side and authoritative fuel-source tests remain covered. No artist, UI, driver, loader or camera changes are included.
+
+Ancestor-visibility validation: all eight native-site tests pass after the two new actual-source regressions failed before correction. Full checks pass 232 tests, 169 script syntax checks, 206 resolved static modules, pinned provenance and existing art checks. Build passes with 3,464 files / 163,352,123 bytes; `git diff --check` passes. No helper, browser or server was created. This correction proves source eligibility and restoration, not animated fire quality or GPU cost.

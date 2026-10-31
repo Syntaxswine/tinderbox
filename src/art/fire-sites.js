@@ -2,7 +2,14 @@ import {housePlanEdges,pointInRoom} from './gross-housing.js';
 const EPS=1e-5,MAX_SITES=32;
 const finite=Number.isFinite,round=n=>Math.round(n*1e6)/1e6;
 const compare=(a,b)=>a.id<b.id?-1:a.id>b.id?1:0;
-const visible=(node,root)=>{for(let p=node;p;p=p.parent){if(p.visible===false||p.userData?.destroyed===true)return false;if(p===root)return true;}return false;};
+function visible(node,root){
+  let belongs=false;
+  for(let p=node;p;p=p.parent){
+    if(p.visible===false||p.userData?.destroyed===true)return false;
+    if(p===root)belongs=true;
+  }
+  return belongs;
+}
 function distributed(items,limit=MAX_SITES){
   const sorted=[...items].sort(compare);if(sorted.length<=limit)return sorted;
   const groups=new Map();for(const item of sorted){const key=item.normal.map(round).join('/');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(item);}

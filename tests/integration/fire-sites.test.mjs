@@ -79,6 +79,29 @@ test('hidden, destroyed, unproved and clipped native parts yield no stale sites;
     const empty=createNativeFacadeSource(T,{model:{root:new T.Group(),levels:[],house:null},instance:{id:'missing'}}).snapshot();assert.deepEqual(empty.candidates,[]);assert.match(empty.diagnostics.reason,/Missing/);
   }finally{model.dispose();}
 });
+test('actual native facade eligibility honors hidden/destroyed ancestors through scene and retains model membership',()=>{
+  const model=createGrossHouse(T,library,'ashland-worker',{furnished:false}),modelParent=new T.Group(),housing=new T.Group(),scene=new T.Scene();scene.add(housing);housing.add(modelParent);modelParent.add(model.root);
+  const source=createNativeFacadeSource(T,{model,instance:{id:'nested-visible'}});
+  try{const base=source.snapshot();assert.equal(base.candidates.length,15);verify(model.root,base);
+    for(const ancestor of [modelParent,housing,scene]){
+      ancestor.visible=false;const hidden=source.snapshot();assert.equal(hidden.candidates.length,0,'Every hidden ancestor above the native model suppresses sites');assert.deepEqual(hidden.audit,[]);assert.ok(hidden.diagnostics.reasons['hidden-or-destroyed-source-part']>0);ancestor.visible=true;assert.deepEqual(source.snapshot().candidates,base.candidates);
+      ancestor.userData.destroyed=true;const destroyed=source.snapshot();assert.equal(destroyed.candidates.length,0);assert.deepEqual(destroyed.audit,[]);delete ancestor.userData.destroyed;assert.deepEqual(source.snapshot().candidates,base.candidates);
+    }
+    const mesh=nativePart(model.root,base.audit[0]),originalParent=mesh.parent,sourcePartId=base.audit[0].sourcePartId;modelParent.add(mesh);
+    assert.ok(source.snapshot().candidates.every(site=>site.sourcePartId!==sourcePartId),'A cached source moved outside this model is not eligible despite visible ancestors');originalParent.add(mesh);assert.deepEqual(source.snapshot().candidates,base.candidates);
+    model.root.visible=false;assert.equal(source.snapshot().candidates.length,0);model.root.visible=true;const restored=source.snapshot();assert.deepEqual(restored.candidates,base.candidates);verify(model.root,restored);
+  }finally{model.dispose();scene.clear();housing.clear();modelParent.clear();}
+});
+test('actual neighborhood diagnostics suppress native sites when the housing container or scene is hidden/destroyed and restore them',()=>{
+  const {buildings}=compileBuildings([{id:'nested-house',prefabId:'ashland-worker',x:20,y:20,quarterTurns:0}]),view=createNeighborhood(T,library,{facadeSites:true}),scene=new T.Scene();scene.add(view.root);
+  try{view.update({buildings});const read=()=>view.diagnostics().models[0].nativeFacade,base=read();assert.equal(base.candidates.length,15);
+    for(const ancestor of [view.root,scene]){
+      ancestor.visible=false;assert.equal(read().candidates.length,0);ancestor.visible=true;assert.deepEqual(read().candidates,base.candidates);
+      ancestor.userData.destroyed=true;assert.equal(read().candidates.length,0);delete ancestor.userData.destroyed;assert.deepEqual(read().candidates,base.candidates);
+    }
+    assert.deepEqual(read().audit,base.audit);
+  }finally{view.dispose();scene.clear();}
+});
 test('real street sites attach only current same-group burning fuel, detach cleanly and exclude joined Monroe sides',()=>{
   const sim=createFireReviewSimulation({scenario:'street-fire'}),view=createNeighborhood(T,library,{facadeSites:true});let snapshot;
   try{for(let i=0;i<30;i++)snapshot=sim.advance();view.update(snapshot.world);const housing=view.diagnostics(),groups=burningBuildingVisuals(snapshot,housing),ashland=groups.find(g=>g.id==='ashland-cottage');
