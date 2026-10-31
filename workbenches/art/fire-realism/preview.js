@@ -57,12 +57,12 @@ function draw() {
   const cells = [], buildingVisuals = []; let torch = null, discharge = null;
   const player = {x: 1, y: 1, elevation: 0, radius: .3, tool: fixture === 'torch' || fixture === 'overlap' ? 'torch' : fixture.includes('jet') ? 'flamethrower' : 'matches'};
   const anchors = {muzzle: {x: 3.5, y: .85, z: 6}, torchTip: {x: 6.25, y: .9, z: fixture === 'overlap' ? 8.25 : 6.25}};
-  if (fixture === 'contact') cells.push({id: 'contact', x: 6.25, y: 6.25, size, intensity: .85, depositedFuel: 0, phase: worldTime < 8 ? 'burning' : 'spent'});
+  if (fixture === 'contact') cells.push({id: 'contact', x: 6.25, y: 6.25, size, intensity: .85, material: 'grass', depositedFuel: 0, phase: worldTime < 8 ? 'burning' : 'spent'});
   if (fixture === 'torch' || fixture === 'overlap') torch = {phase: worldTime < 8 ? 'lit' : 'spent', remainingSeconds: Math.max(0, 8 - worldTime)};
   if (fixture === 'overlap') cells.push({id: 'overlap-far', x: 7.25, y: 6.25, size, intensity: .85, depositedFuel: 0, phase: worldTime < 8 ? 'burning' : 'spent'});
   if (fixture === 'trail') for (let i = 0; i < 18; i++) {const age = worldTime - i * .35; cells.push({id: `trail-${i}`, x: 2.25 + i * .5, y: 6.25, size, intensity: .9, depositedFuel: 1, phase: age >= 0 && age < 3 ? 'burning' : 'spent'});}
   if (fixture === 'building') {
-    for (let i = 0; i < 3; i++) cells.push({id: `house-${i}`, x: 8.25 + i * .5, y: 7.25, size, intensity: .9, depositedFuel: 0, phase: worldTime < 8 ? 'burning' : 'spent'});
+    for (let i = 0; i < 3; i++) cells.push({id: `house-${i}`, x: 8.25 + i * .5, y: 7.25, size, intensity: .9, material: 'wood', surfaceFuel: 1, depositedFuel: 0, phase: worldTime < 8 ? 'burning' : 'spent'});
     buildingVisuals.push({id: 'proxy-house', prefabId: 'fixture-only', destroyed: false, burnedFraction: .15, sourceBounds: {min: [7, 0, 4.5], max: [10, 4.24, 7.5]}, footprintCellIds: cells.map(c => c.id), burningCellIds: cells.filter(c => c.phase === 'burning').map(c => c.id), intensity: .9,
       fireSites: cells.filter(c => c.phase === 'burning').map(c => ({id: `proxy-front-${c.id}`, kind: 'facade', position: [c.x, 0, 7.5], normal: [0, 0, 1], baseElevation: 0, span: {width: .5, height: 2}, sourceCellIds: [c.id], sourcePartId: 'fixture-proxy-house/positive-z-face', sourceFaceIndex: 4}))});
   }

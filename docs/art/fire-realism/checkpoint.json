@@ -1,35 +1,28 @@
 {
-  "task": "TB-034-native-facade-contact-iteration-06",
-  "recordedAt": "2026-10-31T00:08:15Z",
-  "integrationBase": "a312932ac2f958fb74d181954fcd057a4a4ffec4",
-  "correctsArtistCandidate": "a312932ac2f958fb74d181954fcd057a4a4ffec4",
+  "task": "TB-034-coherent-fronts-iteration-07",
+  "recordedAt": "2026-10-31T00:34:32.373485+00:00",
+  "integrationBase": "dae635f61c80efeda05c5499ff250727fc59138c",
+  "correctsArtistCandidate": "dae635f61c80efeda05c5499ff250727fc59138c",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
-  "artistVersion": "0.6.0-reference-candidate",
+  "artistVersion": "0.7.0-reference-candidate",
   "actualPreviousCandidateReview": {
-    "candidate": "1505c87f6e251450961283b979941742306b8377",
-    "evidence": "Architect primary artifacts/qa/fire-realism/render-round-05/reference-match-isometric-bright-frame60.jpg+json and decoded-round-04/contact-motion/",
+    "candidate": "dae635f61c80efeda05c5499ff250727fc59138c",
+    "evidence": "Architect primary artifacts/qa/fire-realism/render-round-07-facade06/",
     "imagesOpened": [
-      "reference-match-isometric-bright-frame60.jpg",
-      "contact-ordered-01.png",
-      "contact-ordered-02.png",
-      "contact-ordered-03.png",
-      "contact-ordered-04.png",
-      "contact-ordered-05.png",
-      "contact-ordered-06.png"
+      "reference-street-fire-isometric-bright-frame120.jpg",
+      "reference-street-fire-isometric-bright-frame240.jpg",
+      "reference-gasoline-front-isometric-bright-frame60.jpg",
+      "reference-gasoline-front-oblique-dim-frame60.jpg",
+      "reference-wall-clipped-jet-oblique-bright-frame60.jpg"
     ],
     "nativeSize": [
       1280,
       800
     ],
-    "orderedDecodedFrames": 68,
-    "originalPtsSeconds": [
-      0.21,
-      2.194
-    ],
-    "backend": "Actual updated IAB Chrome156 / WebGL2 / NVIDIA RTX3080",
-    "sourceFingerprints": "Capture metadata verifies exact0.4 geometry/shader/index hashes",
-    "qualityDecision": "Attached flames and actor readable; smooth narrow gray smoke column with weak billowing/erosion rejected as a visual target",
+    "backend": "Architect actual RTX3080/WebGL2 capture",
+    "sourceFingerprints": "Exact capture JSON runtime hashes identify0.6; street240 header and manifest hashes inspected, sourceCommit field is null rather than invented",
+    "qualityDecision": "Broad same-height yellow per-cell crowns and regular1m gray smoke posts rejected; exact facade placement corrected separately but visual baseline remains unaccepted",
     "previousEvidenceModified": false
   },
   "sourcePhotos": {
@@ -37,7 +30,8 @@
     "independentlyOpened": 5,
     "acquiredOrModified": 1,
     "provenanceRecord": "art/source/fire-realism/references.json",
-    "runtimePhotographicPixels": false
+    "runtimePhotographicPixels": false,
+    "modifiedInCurrentIteration": 0
   },
   "exteriorReferenceIntake": {
     "recordedAt": "2026-10-30T06:26:06.900Z",
@@ -100,24 +94,25 @@
     "depthBinding": "pass; borrowed actual DepthTexture, current camera, paused camera, wrong dimensions/camera rejection, fractionalDPR floor convention",
     "sourceOrder": "pass; equivalent source ordering preserves geometry, smoke accumulation and spill-light selection",
     "projectCheck": {
-      "ownScripts": 150,
-      "staticModules": 189,
+      "ownScripts": 151,
+      "staticModules": 191,
       "passed": 186,
       "failed": 0,
+      "artSyntaxDependencyChecks": 40,
       "provenance": "pass"
     },
     "build": {
-      "files": 3461,
-      "bytes": 163349186,
+      "files": 3462,
+      "bytes": 163365933,
       "sourcePhotosDistributed": false,
       "diagnosticWorkbenchDistributed": false
     },
-    "diffWhitespace": "pass",
-    "smokeContract": "pass; actual uploaded moving support, exact frozen0.4 non-smoke/jet-soot/light compatibility, world/pause/reset/rewind, bounded typed-source lobes, finite tails/stable resources",
+    "diffWhitespace": "pass; expected local autocrlf warnings only, raw runtime files remainLF and strict manifest checks pass",
+    "smokeContract": "pass; frozen0.4 isolated flame/torch/jet-soot/light support, unchanged billow helper, world/pause/reset/rewind and finite tails; regional field covered separately",
     "affectedUiChecks": {
       "passed": 2,
       "failed": 0,
-      "scope": "Current primary reference-dossier and strict actual runtime-hash tests, executed against this candidate"
+      "scope": "Actual primary five-reference dossier and strict raw five-module source-manifest tests against final0.7 artist candidate"
     },
     "crossCheckoutUiAttempt": {
       "passed": 32,
@@ -125,23 +120,26 @@
       "reason": "Whole primary UI suite run from isolated art cwd: static UI-source guard opens workbenches/fire-realism/review.js, which is intentionally absent here. No UI file copied or edited; full combined checkout rerun required before promotion."
     },
     "nativeFacadeContract": "pass; actual base/outward contact, source-part/face audit, missing/stale/invalid evidence,8-of32 coverage, stable equivalent ordering and detached diagnostics",
-    "nativeActualFixtureReplay": "pass; exact runtime15-site Ashland fixture ->8 pairs/4 normals, no invalid/unavailable sites, native base0 instead of slab-.12; source placement only, no visual claim"
+    "nativeActualFixtureReplay": "pass; exact provider hash095d33b7, actual128 sources/15 sites ->128 coherent sources/8 material-weighted smoke catchments and8facade pairs/4normals;0invalid/unavailable, anchors/input/order unchanged; no rendered acceptance",
+    "groundFieldContract": "pass; actual128-source texture/domain/burden accounting, shared transverse field continuity, exact forward/reverse/oblique/parallel entry/exit and physical optical composition, deterministic clocks/order/reset, native1024x64 far-edge fallback/mask and elevation separation, bounded exactly-once owned texture disposal",
+    "facadeSourceBurden": "pass; deduplicated actual linked wood area, exhausted-wood/liquid distinction, same native anchors/flames/source count, exact width/height/strength increments and1.8cap"
   },
   "webgl": {
-    "status": "pending-exact0.6-native-review",
+    "status": "pending-exact0.7-native-review",
     "newBrowserAttempt": false,
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "Smoke0.5 and facade0.6 are independent checkpoints. Matching runtime provider2d532cc is committed; actual combined native still/motion/occlusion review remains architect-owned."
+    "reason": "Observed0.6 native broad-fire failures motivate this artist child. Exact shader compilation, native still/motion/seam/occlusion/readability review and legitimate-baseline GPU measurements remain architect-owned."
   },
   "limitations": [
-    "Exact0.5 smoke and0.6 combined facade appearance still require actual source-pinned native captures/motion",
-    "Opening/roofline presentation is deferred and does not waive final building-fire review",
-    "Whole UI suite belongs in combined checkout; isolated-art foreign run had an unrelated missing UI-source path, while affected raw-hash/reference tests passed2/2",
-    "Centroid-sorted intersecting transparent volumes remain approximate",
-    "Independent clipped rays remain an explicit safe surface fallback",
-    "No accepted/frozen detailed baseline, optimized delivery or GPU-cost ratio exists"
+    "Exact0.7 still/motion must prove shared-domain cap coverage, transverse seams, smoke transitions, colour/contact/opacity and animal/HUD readability",
+    "64 density samples and shared detailed topology are provisional quality choices; useful native/closer detail must be proved before freeze, not credited as later optimization",
+    "Wide/mixed/overlapping-floor source layouts retain complete diagnosed old envelopes; their visual quality remains unaccepted",
+    "Opening/roofline presentation remains deferred without a building-quality waiver",
+    "Whole UI suite belongs in combined checkout; no UI source copied or edited",
+    "Centroid-sorted transparent volumes and safe independent ray ribbons retain their documented limitations",
+    "No accepted/frozen reference, optimized delivery, valid cost ratio or goal completion"
   ],
   "helpers": {
     "serversStarted": 0,
@@ -162,7 +160,7 @@
     "geometryAttributes": 12,
     "ownedGeometries": 1,
     "ownedMaterials": 1,
-    "ownedTextures": 2,
+    "ownedTextures": 3,
     "smokeHistoryTailSeconds": 3.2,
     "referenceFrozen": false,
     "optimizationCredit": false,
@@ -205,11 +203,89 @@
       "inputUnchanged": true,
       "reorderedInputsStable": true,
       "webgl": false,
-      "visibleContactAccepted": false
+      "visibleContactAccepted": false,
+      "iteration07Replay": "artifacts/qa/fire-realism/coherent-front-iteration07/actual-frame30-final.json",
+      "coherentCells": 128,
+      "groundSmokeCatchments": 8
     },
     "runtimeChangesInArtist": false,
     "geometryMutation": false,
     "additionalHeatFuel": false,
     "renderedAcceptance": false
+  },
+  "previousActualReviews": [
+    {
+      "candidate": "1505c87f6e251450961283b979941742306b8377",
+      "evidence": "Architect primary artifacts/qa/fire-realism/render-round-05/reference-match-isometric-bright-frame60.jpg+json and decoded-round-04/contact-motion/",
+      "imagesOpened": [
+        "reference-match-isometric-bright-frame60.jpg",
+        "contact-ordered-01.png",
+        "contact-ordered-02.png",
+        "contact-ordered-03.png",
+        "contact-ordered-04.png",
+        "contact-ordered-05.png",
+        "contact-ordered-06.png"
+      ],
+      "nativeSize": [
+        1280,
+        800
+      ],
+      "orderedDecodedFrames": 68,
+      "originalPtsSeconds": [
+        0.21,
+        2.194
+      ],
+      "backend": "Actual updated IAB Chrome156 / WebGL2 / NVIDIA RTX3080",
+      "sourceFingerprints": "Capture metadata verifies exact0.4 geometry/shader/index hashes",
+      "qualityDecision": "Attached flames and actor readable; smooth narrow gray smoke column with weak billowing/erosion rejected as a visual target",
+      "previousEvidenceModified": false
+    }
+  ],
+  "groundFieldCorrection": {
+    "runtimeModule": "assets/art/fire-realism/ground-field.js",
+    "sourceTexture": {
+      "width": 256,
+      "height": 256,
+      "bytes": 1048576,
+      "channels": [
+        "current source intensity",
+        "wood flag +2*liquid flag",
+        "native elevation",
+        "current-source presence"
+      ],
+      "noBorrowedMaskMutation": true,
+      "unsupportedLayout": "Complete native-source old-envelope fallback with explicit diagnostic"
+    },
+    "allActiveSourcesRetained": true,
+    "allSmokeTailSourcesAccounted": true,
+    "sharedWorldField": true,
+    "exactNonoverlappingRayIntervals": true,
+    "physicalDensitySamples": 64,
+    "curvedCapBands": 34,
+    "sideBands": 2,
+    "macroFieldResetsAtCellBoundary": false,
+    "woodGrassLiquidDistinction": true,
+    "billowHelperBytesUnchanged": true,
+    "isolatedTorchJetOpticsPreserved": true,
+    "facadeProvenancePreserved": true,
+    "frameApiChanged": false,
+    "referenceFrozen": false,
+    "optimizationCredit": false,
+    "rationale": "docs/art/fire-realism/iteration-07-coherent-fronts.md",
+    "facadeSmokeBurden": {
+      "sourceArea": "sum over unique linked current burning IDs: material wood and surfaceFuel>0 only, clamp(size,.05,2)^2*clamp(intensity)",
+      "burden": "min(1.8,sqrt(sourceArea))",
+      "radiusAddition": ".27*burden",
+      "heightAddition": ".40*burden",
+      "strength": "siteIntensity*(.42+.22*burden)",
+      "globalBounds": {
+        "radiusMetres": 1.056,
+        "supportHeightMetres": 4.12,
+        "strength": 0.816
+      },
+      "nativeAnchorsFlamesSourceCountsUnchanged": true,
+      "physicsAdded": false
+    },
+    "woodEvidence": "material wood AND current remaining surfaceFuel>0; liquid flag requires depositedFuel>0"
   }
 }

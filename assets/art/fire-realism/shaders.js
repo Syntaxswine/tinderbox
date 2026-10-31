@@ -1,4 +1,5 @@
 import {smokeBillowGLSL} from './smoke-billows.js';
+import {groundFieldGLSL} from './ground-field.js';
 // Original TB-034 procedural density/emission. No photographic texture pixels.
 const noise = `
   float h3(vec3 p) {return fract(sin(dot(p,vec3(39.3467,11.1351,83.1559)))*47453.5453);}
@@ -31,6 +32,7 @@ export const vertexShader = noise + `
   uniform float clock,fuelJet; uniform vec3 jetAxisOrigin; uniform vec2 sourceDirection;
   varying vec3 local,world,base,axis,right,forward,policy; varying vec4 shape;
   ${billowVaryings}
+  ${groundFieldGLSL}
   void main() {
     shape=iShape; policy=iPolicy; base=iOrigin; axis=normalize(iAxis);
     billow0=iBillow0;billow1=iBillow1;billow2=iBillow2;billow3=iBillow3;billowAges=iBillowAges;
@@ -38,6 +40,16 @@ export const vertexShader = noise + `
     vec3 p=position; float y=p.y,smoke=iPolicy.x,phase=iShape.w*83.71;
     if(billowSmoke(smoke)) {
       float angle=atan(p.z,p.x); p.xz*=smokeSupportAt(y,angle);
+    } else if(iPolicy.z>1.5&&smoke<.5) {
+      // A square perimeter includes the exact cell corners. Two side strips
+      // meet34 concentric cap rings, which follow the COMMON licking front.
+      // High-poly cap vertices now carry real height detail, not an empty box.
+      float t=uv.x*4.; vec2 rim=t<1.?vec2(1.,t*2.-1.):t<2.?vec2(1.-(t-1.)*2.,1.):t<3.?vec2(-1.,1.-(t-2.)*2.):vec2((t-3.)*2.-1.,-1.);
+      float sideEnd=2./36.,radius=y<=sideEnd?1.:(1.-y)/(1.-sideEnd);
+      p.xz=rim*radius*groundCellSize*.5/iShape.x;
+      vec3 contact=iOrigin+right*p.x*iShape.x+forward*p.z*iShape.x;
+      float ceiling=groundHeight(contact.xz,groundSample(contact.xz))+.07;
+      p.y=min(1.,y/sideEnd)*ceiling/iShape.y;
     } else if(iPolicy.y>=1.5) {
       // Disconnected authoritative rays cannot safely support any filled fan.
       // Keep their entire ground-plane support on the exact clipped line. Only
@@ -72,6 +84,7 @@ export const fragmentShader = noise + `
   uniform mat4 opaqueViewProjection; uniform vec3 player,jetAxisOrigin; uniform float playerRadius;
   varying vec3 local,world,base,axis,right,forward,policy; varying vec4 shape;
   ${billowVaryings}
+  ${groundFieldGLSL}
   float cross2(vec2 a,vec2 b) {return a.x*b.y-a.y*b.x;}
   bool fanAllowed(vec2 p) {
     vec2 q=p-shapeOrigin; if(dot(q,q)<1.e-12)return true;
@@ -94,10 +107,10 @@ export const fragmentShader = noise + `
     return sampleDepth>sceneDepth+2.e-6;
   }
   float allowed(vec3 p) {
-    if(policy.y>.5&&policy.y<1.5) {
+    if(policy.x<.5&&policy.y>.5&&policy.y<1.5) {
       if(connected<.5||!fanAllowed(p.xz)||dot(p.xz-sourceOrigin,sourceDirection)<forwardStart)return 0.;
     }
-    if(policy.z>.5&&fieldEnabled>.5) {
+    if(policy.x<.5&&policy.z>.5&&fieldEnabled>.5) {
       vec2 cell=floor(p.xz/cellSize);
       if(any(lessThan(cell,vec2(0.)))||any(greaterThanEqual(cell,grid)))return 0.;
       return texture2D(field,(cell+.5)/grid).a;
@@ -166,6 +179,12 @@ export const fragmentShader = noise + `
       float here=den/max(.0001,shape.z),nearby=density(p+vec3(-.11,.06,.09),vec4(0.));
       float light=clamp(.46+(here-nearby)*1.25,.13,.88);
       vec3 color=policy.x>2.5?mix(vec3(.004,.003,.0025),vec3(.050,.045,.038),light):mix(vec3(.035,.032,.029),vec3(.24,.225,.20),light);
+      if(policy.x<1.5) {
+        // Kind1 remains ground smoke: existing source wood/liquid burden can
+        // darken it without pretending that a grass match is a building plume.
+        vec3 wood=mix(vec3(.008,.006,.0045),vec3(.12,.105,.088),light);
+        color=mix(color,wood,clamp(policy.z,0.,1.)); color*=1.-clamp(policy.y,0.,1.)*.18;
+      }
       return color+vec3(.025,.006,.001)*pow(max(0.,1.-p.y),3.);
     }
     if(policy.x>.5) {
@@ -183,16 +202,36 @@ export const fragmentShader = noise + `
     return streamField()?flame:flame*2.;
   }
   void main() {
-    bool ribbon=policy.y>=1.5;
+    bool ribbon=policy.y>=1.5,coherent=policy.x<.5&&policy.z>1.5&&groundFieldEnabled>.5;
     vec3 eye=cameraPosition-base;
     vec3 eyeLocal=vec3(dot(eye,right)/shape.x,dot(eye,axis)/shape.y,dot(eye,forward)/shape.x);
-    float eyeSupport=orthographic>.5?0.:billowSmoke(policy.x)?smokeSupportAt(eyeLocal.y,atan(eyeLocal.z,eyeLocal.x)):volumeProfile(eyeLocal.y);
+    float eyeSupport=orthographic>.5?0.:coherent?1.04:billowSmoke(policy.x)?smokeSupportAt(eyeLocal.y,atan(eyeLocal.z,eyeLocal.x)):volumeProfile(eyeLocal.y);
     bool cameraInside=orthographic<.5&&eyeLocal.y>=0.&&eyeLocal.y<=1.&&length(eyeLocal.xz)<eyeSupport;
+    if(coherent) {
+      vec3 delta=cameraPosition-base;
+      cameraInside=orthographic<.5&&abs(delta.x)<groundCellSize*.5&&abs(delta.z)<groundCellSize*.5&&delta.y>=0.&&delta.y<groundHeight(cameraPosition.xz,groundSample(cameraPosition.xz))+.07;
+    }
     if(!ribbon&&!gl_FrontFacing&&!cameraInside)discard;
     vec2 depthUV=clamp(gl_FragCoord.xy/opaqueDepthSize,vec2(0.),vec2(1.));
     float sceneDepth=opaqueDepthEnabled>.5?texture2D(opaqueDepth,depthUV).r:1.;
     vec3 emission=vec3(0.); float alpha=0.;
-    if(ribbon) {
+    if(coherent) {
+      vec3 direction=orthographic>.5?-vec3(viewMatrix[0][2],viewMatrix[1][2],viewMatrix[2][2]):normalize(world-cameraPosition);
+      float entry,exit;
+      if(!groundInterval(cameraInside?cameraPosition:world,direction,entry,exit))discard;
+      // Each transverse cell interval owns exactly its segment of a camera ray.
+      // Physical metre spacing keeps opacity independent of the cell partition.
+      vec3 start=cameraInside?cameraPosition:world;
+      float stepSize=(exit-entry)/64.;
+      for(int j=0;j<64;j++) {
+        vec3 wp=start+direction*(entry+(float(j)+.5)*stepSize);
+        if(opaqueStops(wp,sceneDepth))break;
+        vec4 f=groundReaction(wp); float den=f.x*allowed(wp);
+        float a=1.-exp(-den*stepSize*7.4);
+        emission+=(1.-alpha)*a*groundEmission(f); alpha+=(1.-alpha)*a;
+        if(alpha>.985)break;
+      }
+    } else if(ribbon) {
       // Surface fallback preserves the exact safe old-ray support. No invented
       // volume/fan is hidden behind a claim of full 3D compatibility.
       if(opaqueStops(world,sceneDepth))discard;

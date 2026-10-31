@@ -46,7 +46,7 @@ const lightState = e => e.root.children.filter(o => o.isPointLight).map(l => ({p
 try {
   for (const time of [0, .1, .5, 1, 2]) {
     const f = frame(time); oldEffect.update(f); effect.update(f);
-    assert.deepEqual(sources(effect, k => k === 0 || k === 2), sources(oldEffect, k => k === 0 || k === 2), 'ground/torch/jet/jet-soot supports remain identical to frozen0.4');
+    assert.deepEqual(sources(effect, k => k === 0 || k === 2), sources(oldEffect, k => k === 0 || k === 2), 'isolated ground/torch/jet/jet-soot supports remain identical to frozen0.4; regional fronts checked separately');
     assert.deepEqual(lightState(effect), lightState(oldEffect), 'light placement/energy unchanged');
   }
   assert.ok(effect.diagnostics().layers.some(l => l.name === 'Legitimate building smoke'));
@@ -80,5 +80,5 @@ try {
   assert.equal(smokeBillowFade(0), 0); assert.equal(smokeBillowFade(1), 0, 'birth wrap has no nonzero-density discontinuity');
   assert.ok(smokeBillowFade(1e-6) < 1e-8 && smokeBillowFade(1 - 1e-6) < 1e-8);
   assert.throws(() => prepareSmokeBillows(NaN, 1), /finite/); assert.throws(() => prepareSmokeBillows(.1, 1, 2), /kind/);
-  console.log('PASS: actual uploaded moving smoke support; frozen0.4 flame/jet-soot/light compatibility; bounded typed-source billows; world/pause/reset/rewind; finite tails and stable resources. No shader/visual/GPU approval.');
+  console.log('PASS: actual uploaded moving smoke support; frozen0.4 isolated flame/torch/jet-soot/light compatibility; bounded typed-source billows; world/pause/reset/rewind; finite tails and stable resources. Regional fronts checked separately; no shader/visual/GPU approval.');
 } finally {oldEffect.dispose(); effect.dispose();}

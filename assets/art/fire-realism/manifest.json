@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "id": "tb034-fire-reference",
   "status": "unaccepted-reference-candidate",
   "referenceFrozen": false,
@@ -13,18 +13,23 @@
     },
     {
       "path": "assets/art/fire-realism/shaders.js",
-      "bytes": 12485,
-      "sha256": "a67119ca423f4d3b806264711a10c451c85705100a5982e879101cd9a97d2935"
+      "bytes": 14871,
+      "sha256": "242634e89130f656e0c321368473280e783109a93aebf91fd6f1a907314df2a8"
     },
     {
       "path": "assets/art/fire-realism/index.js",
-      "bytes": 28741,
-      "sha256": "06acb0713cf4c4a8f9e30299ae370eac99b791d2a078fd9b3ce63b7bf0961c22"
+      "bytes": 32071,
+      "sha256": "176e31f3f87bb7bf0ed2124d6bcfe8ef26d3bd168186005865e7e8c955824fbd"
     },
     {
       "path": "assets/art/fire-realism/smoke-billows.js",
       "bytes": 3421,
       "sha256": "ea8eb36a6399ebdf10201d1ef1685a0ea64a5677e8321f4671c28edb7c24bb6d"
+    },
+    {
+      "path": "assets/art/fire-realism/ground-field.js",
+      "bytes": 10487,
+      "sha256": "359932cee0c6ca2dce844625305df6fe41ef5e93b5439fc47d02c6199cf31060"
     }
   ],
   "dependencies": [
@@ -39,10 +44,11 @@
     "Actual shader compilation, animated visual review and GPU elapsed cost pending",
     "Centroid-sorted intersecting transparent volumes remain approximate; independent clipped rays use explicit exact-line surface ribbons",
     "Legacy Molotov/barrel transients are an explicit external runtime component; this factory does not duplicate them",
-    "65536 input cells; at most4096 observed emitting/history cells,256 rays,64 building groups and384 jet-smoke records"
+    "65536 input cells; at most4096 observed emitting/history cells,256 rays,64 building groups and384 jet-smoke records",
+    "Derived256-square source texture is internal only; unsupported mixed/overlapping/wide layouts use an explicit complete native-mask envelope fallback with no omitted source or lower grid resolution. Actual shared-domain seams/catchment motion and useful detailed sampling remain unaccepted."
   ],
   "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
-  "artistVersion": "0.6.0-reference-candidate",
-  "correctsCandidate": "a312932ac2f958fb74d181954fcd057a4a4ffec4",
-  "preFreezeQualityCorrection": "Native street evidence shows AABB rim fire under porch/corner despite real burning wood. Optional actual exterior facade sites now require part/face/native-base/normal/source-cell evidence; max8 stable representative pairs, no AABB fallback. Ground/torch/jet and smoke0.5 optics preserved; no heat/fuel/roof physics or quality/cost acceptance."
+  "artistVersion": "0.7.0-reference-candidate",
+  "correctsCandidate": "dae635f61c80efeda05c5499ff250727fc59138c",
+  "preFreezeQualityCorrection": "Actual broad fire repeats per-cell yellow crowns and1m smoke posts. Adjacent sources now share a world-space material/liquid-aware reaction field with curved common-front caps and exact nonoverlapping physical ray intervals; all current/tail sources feed irregular regional four-billow plumes. Isolated flame/torch/jet/native facade evidence retained. No gameplay, exposure, photo or quality/cost acceptance change."
 }
