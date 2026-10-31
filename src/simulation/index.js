@@ -259,15 +259,22 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     if (!Number.isSafeInteger(atTick) || atTick <= state.tick) return false;
     commands.push({...structuredClone(command), atTick, sequence: ++commandSequence}); return true;
   }
+  function advanceState(realDeltaSeconds) {
+    if (disposed) throw Error('Simulation disposed');
+    if (!Number.isFinite(realDeltaSeconds) || realDeltaSeconds < 0) throw Error('advance requires a finite nonnegative delta');
+    const accepted = Math.min(realDeltaSeconds, config.maxCatchUp);
+    droppedRealSeconds += realDeltaSeconds - accepted; accumulator += accepted; lastSteps = 0;
+    const limit = Math.ceil(config.maxCatchUp / config.step);
+    while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
+  }
   return {dispatch, snapshot,
-    advance(realDeltaSeconds) {
-      if (disposed) throw Error('Simulation disposed');
-      if (!Number.isFinite(realDeltaSeconds) || realDeltaSeconds < 0) throw Error('advance requires a finite nonnegative delta');
-      const accepted = Math.min(realDeltaSeconds, config.maxCatchUp);
-      droppedRealSeconds += realDeltaSeconds - accepted; accumulator += accepted; lastSteps = 0;
-      const limit = Math.ceil(config.maxCatchUp / config.step);
-      while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
-      return snapshot();
+    advance(realDeltaSeconds) { advanceState(realDeltaSeconds); return snapshot(); },
+    // Diagnostic event-receipt data only: no cells/world/player scene snapshot.
+    // The same advancement body preserves every fixed-step rule and bookkeeping.
+    advanceReceiptStep() {
+      advanceState(config.step);
+      return {kind:'simulation-event-receipt',version:1,tick:state.tick,paused:state.paused,
+        clocks:{...state.clocks},diagnostics:{generation},events:structuredClone(state.events)};
     },
     dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; }
   };

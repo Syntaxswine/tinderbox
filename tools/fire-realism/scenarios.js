@@ -48,7 +48,8 @@ export function createFireReviewSimulation({scenario='match-contact',population=
     if(scenario==='carried-torch'&&frame===90)sim.dispatch({type:'move',...worldToStick({x:1,y:0},{cameraRelative:true,cameraX:10,cameraY:12})});
     if(scenario==='carried-torch'&&frame===108)sim.dispatch({type:'move',x:0,y:0});
   }
-  return {definition,advance(){commands(frameIndex);frameIndex++;return sim.advance(step);},snapshot:()=>sim.snapshot(),
+  function scriptedStep(receiptOnly){commands(frameIndex);frameIndex++;return receiptOnly?sim.advanceReceiptStep():sim.advance(step);}
+  return {definition,advance:()=>scriptedStep(false),advanceReceiptStep:()=>scriptedStep(true),snapshot:()=>sim.snapshot(),
     dispatch:sim.dispatch,get frameIndex(){return frameIndex;},dispose:sim.dispose};
 }
 

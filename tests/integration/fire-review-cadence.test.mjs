@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import fs f
 import * as T from '../../src/runtime/three.js';
 import {createFire} from '../../src/art/fire.js';
 import {createFireReviewEffect} from '../../src/art/fire-review-effect.js';import {createFireFrameAdapter} from '../../src/art/fire-frame.js';
-import {createFireReviewSimulation} from '../../tools/fire-realism/scenarios.js';import {presentFireReviewCallback} from '../../tools/fire-realism/live-cadence.js';
+import {createFireReviewSimulation,FIRE_REVIEW_SCENARIOS} from '../../tools/fire-realism/scenarios.js';import {presentFireReviewCallback} from '../../tools/fire-realism/live-cadence.js';
 import {createBearRig,BEAR_SOURCE_COMMIT} from '../../src/reuse/bear.js';import {createNeighborhood} from '../../src/art/neighborhood.js';import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 const data=JSON.parse(fs.readFileSync(`vendor/animal-factory-tactics-3d/${BEAR_SOURCE_COMMIT}/dist/tactics/bear-10k-data.json`)),catalogue={houses:['gross','hopkins'].flatMap(name=>JSON.parse(fs.readFileSync(`assets/art/${name}-housing-v1/houses.json`)).houses)};
 const s=(tick,time,generation=0,events=[])=>({version:1,tick,paused:false,cells:[],clocks:{world:time,player:time},player:{x:2,y:5,radius:.3,height:1.7,tool:'matches',torch:{phase:'unlit',remainingSeconds:0}},world:{width:12,height:12,fireCellSize:.5,buildings:[],obstacles:[]},discharge:{active:false,rays:[]},diagnostics:{generation},events});
@@ -19,15 +19,15 @@ function fixture(mode){
 }
 test('batched live callbacks retain actual simulation/native endpoints in current/reference/no-fire with one presentation and draw',()=>{
  const batches=[0,6,15,3,0,9,1,15,6,15,15,15,15,5];assert.equal(batches.reduce((n,v)=>n+v,0),120);
- for(const scenario of ['carried-torch','gasoline-front-powder','wall-clipped-jet','street-fire']){
+ for(const scenario of FIRE_REVIEW_SCENARIOS){
   const direct=createFireReviewSimulation({scenario});let endpoint;try{for(let i=0;i<120;i++)endpoint=direct.advance();}finally{direct.dispose();}
   let baseline;
   for(const mode of ['current','reference','no-fire']){
-   const sim=createFireReviewSimulation({scenario}),rig=createBearRig(data),housing=createNeighborhood(T,{catalogue,textures:{}},{facadeSites:true}),f=fixture(mode),counts={steps:0,observed:0,presented:0,drawn:0};let snapshot=sim.snapshot();placeFireReviewCamera(T,f.camera,{scenario,view:'isometric',viewport:{width:1280,height:800,pixelRatio:1}});
+   const sim=createFireReviewSimulation({scenario}),rig=createBearRig(data),housing=createNeighborhood(T,{catalogue,textures:{}},{facadeSites:true}),f=fixture(mode),counts={steps:0,observed:0,snapshots:0,presented:0,drawn:0};let snapshot=sim.snapshot();placeFireReviewCamera(T,f.camera,{scenario,view:'isometric',viewport:{width:1280,height:800,pixelRatio:1}});
    function present(){rig.update(snapshot.player,snapshot.clocks.player);housing.update(snapshot.world,{camera:f.camera,player:snapshot.player});f.effect.update(snapshot,snapshot.clocks.world,{camera:f.camera,viewport:{width:1280,height:800,pixelRatio:1},muzzle:rig.anchors.muzzle.getWorldPosition(new T.Vector3()),muzzleQuaternion:rig.anchors.muzzle.getWorldQuaternion(new T.Quaternion()),housing:housing.diagnostics()});}
    try{present();f.effect.beforeRender(f.camera);
-    for(const frames of batches){const measured=presentFireReviewCallback({frames,advance(){counts.steps++;snapshot=sim.advance();return snapshot;},observe(next){counts.observed++;f.effect.observeSnapshot(next);},present(){counts.presented++;present();},draw(){counts.drawn++;f.effect.beforeRender(f.camera);}});assert.equal(measured.fixedSteps,frames);assert.equal(measured.presentations,frames?1:0);assert.equal(measured.draws,1);assert.ok(measured.receiptObservationMs>=0);}
-    assert.deepEqual(snapshot,endpoint);assert.deepEqual(counts,{steps:120,observed:120,presented:batches.filter(Boolean).length,drawn:batches.length});
+    for(const frames of batches){const measured=presentFireReviewCallback({frames,advance(){counts.steps++;return sim.advanceReceiptStep();},observe(next){counts.observed++;assert.equal(next.kind,'simulation-event-receipt');f.effect.observeSnapshot(next);},snapshot(){counts.snapshots++;snapshot=sim.snapshot();},present(){counts.presented++;present();},draw(){counts.drawn++;f.effect.beforeRender(f.camera);}});assert.equal(measured.fixedSteps,frames);assert.equal(measured.presentations,frames?1:0);assert.equal(measured.draws,1);assert.equal(measured.fullSnapshots,frames?1:0);assert.ok(measured.simulationMs>=measured.snapshotMs);assert.ok(measured.receiptObservationMs>=0);}
+    assert.deepEqual(snapshot,endpoint);assert.deepEqual(counts,{steps:120,observed:120,snapshots:batches.filter(Boolean).length,presented:batches.filter(Boolean).length,drawn:batches.length});
     const state={snapshot,anchors:Object.fromEntries(Object.entries(rig.anchors).map(([name,node])=>[name,{position:node.getWorldPosition(new T.Vector3()).toArray(),quaternion:node.getWorldQuaternion(new T.Quaternion()).toArray()}])),body:rig.sampleBodyBounds(),camera:{world:f.camera.matrixWorld.toArray(),projection:f.camera.projectionMatrix.toArray()},groups:f.effect.diagnostics().buildingVisuals};
     assert.deepEqual(rig.diagnostics().nativeScale,[1,1,1]);assert.equal(f.effect.diagnostics().receiptQueue.pendingEvents,0);if(baseline)assert.deepEqual(state,baseline);else baseline=state;
     if(mode==='reference')assert.equal(f.artistUpdates,1+batches.length);else assert.equal(f.depthRenders,0);

@@ -76,9 +76,10 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   }
   function advanceSimulation(){const before=performance.now();snapshot=sim.advance();latestCpu.simulationMs=performance.now()-before;frameIndex=sim.frameIndex;return snapshot;}
   function advance(){advanceSimulation();updateArt(false);}
+  function advanceReceiptStep(){const receipt=sim.advanceReceiptStep();frameIndex=sim.frameIndex;return receipt;}
   function loop(now){
     if(closed||phase!=='playing')return;
-    try{const frames=lastNow===null?0:playbackClock.advance(Math.max(0,(now-lastNow)/1000));lastNow=now;latestCpu.liveCallback=presentFireReviewCallback({frames,advance:advanceSimulation,observe:next=>art.observeFireReviewSnapshot(next),present:()=>updateArt(false),draw:()=>draw()});notify();if(phase==='playing')animation=win.requestAnimationFrame(loop);}catch(cause){fail(cause);}
+    try{const frames=lastNow===null?0:playbackClock.advance(Math.max(0,(now-lastNow)/1000));lastNow=now;latestCpu.liveCallback=presentFireReviewCallback({frames,advance:advanceReceiptStep,observe:next=>art.observeFireReviewSnapshot(next),snapshot:()=>{snapshot=sim.snapshot();},present:()=>updateArt(false),draw:()=>draw()});latestCpu.simulationMs=latestCpu.liveCallback.simulationMs;notify();if(phase==='playing')animation=win.requestAnimationFrame(loop);}catch(cause){fail(cause);}
   }
   function fail(cause){pauseLoop();phase='error';error={code:'RENDER_ERROR',message:cause.message||String(cause)};cancelRequested=true;notify(true);}
   const frame=()=>new Promise(resolve=>win.requestAnimationFrame(resolve));
@@ -172,7 +173,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/delivery.js','tools/fire-realism/camera.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/delivery.js','tools/fire-realism/camera.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
       const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));
