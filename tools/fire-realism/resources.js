@@ -1,5 +1,5 @@
 // Bounded cold-boot transport only. No asset fetch/renderer/per-frame behavior.
-export const FIRE_BINARY_LIMITS=Object.freeze({sourceBytes:64*1024*1024,compressedBytes:96*1024*1024,sparseBytes:96*1024*1024,chunks:256,chunkCompressedBytes:2*1024*1024,chunkSparseBytes:4*1024*1024,prepareMs:120000,transactionMs:180000});
+export const FIRE_BINARY_LIMITS=Object.freeze({sourceBytes:64*1024*1024,compressedBytes:96*1024*1024,sparseBytes:98*1024*1024,chunks:256,chunkCompressedBytes:2*1024*1024,chunkSparseBytes:4*1024*1024,prepareMs:120000,transactionMs:180000});
 const clone=v=>structuredClone(v),integer=(v,max)=>Number.isSafeInteger(v)&&v>0&&v<=max;
 export const throwFireAbort=signal=>{if(signal?.aborted)throw signal.reason instanceof Error?signal.reason:new DOMException('Fire delivery aborted','AbortError');};
 export function resourceRecords(manifest,{withinMode,jsPaths}){
