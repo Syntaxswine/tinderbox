@@ -1,7 +1,8 @@
 import {createTongueGeometry} from './geometry.js';
 import {vertexShader, fragmentShader} from './shaders.js';
+import {prepareSmokeBillows, SMOKE_BILLOW_COUNT} from './smoke-billows.js';
 
-export const FIRE_REALISM_VERSION = '0.4.0-reference-candidate';
+export const FIRE_REALISM_VERSION = '0.5.0-reference-candidate';
 const finite = Number.isFinite;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, finite(x) ? x : a));
 const point = p => p && [p.x, p.y, p.h].every(finite);
@@ -26,7 +27,7 @@ export function createFireRealism(T, options = {}) {
   if (quality !== 'reference') throw new RangeError('Optimized fire is unavailable until the detailed reference is reviewed and frozen.');
   const maxCells = options.maxCells ?? 4096, maxRays = options.maxRays ?? 256, maxBuildings = options.maxBuildings ?? 64;
   if (!Number.isInteger(maxCells) || maxCells < 1 || maxCells > 4096 || !Number.isInteger(maxRays) || maxRays < 2 || maxRays > 256 || !Number.isInteger(maxBuildings) || maxBuildings < 1 || maxBuildings > 64) throw new RangeError('Invalid bounded fire capacity');
-  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 1, densitySteps: 32, groundAndTorchDensitySteps: 32, jetDensitySteps: 18, smokeDensitySteps: 18});
+  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 1, densitySteps: 32, groundAndTorchDensitySteps: 32, jetDensitySteps: 18, smokeDensitySteps: 32, jetSmokeDensitySteps: 18, smokeBillowsPerInstance: SMOKE_BILLOW_COUNT});
   const root = new T.Group(); root.name = 'TB-034 detailed fire reference candidate';
   const owned = {geometries: new Set(), materials: new Set(), textures: new Set()};
   const rayData = new Float32Array(256 * 4), rayTable = new T.DataTexture(rayData, 256, 1, T.RGBAFormat, T.FloatType);
@@ -43,7 +44,9 @@ export function createFireRealism(T, options = {}) {
   const capacity = maxCells * 4 + (maxRays + 1) * settings.raySteps + settings.maxJetSmoke + maxBuildings * 8 + 3;
   const geometry = createTongueGeometry(T); owned.geometries.add(geometry);
   const arrays = {iOrigin: new Float32Array(capacity * 3), iAxis: new Float32Array(capacity * 3), iShape: new Float32Array(capacity * 4), iPolicy: new Float32Array(capacity * 3)};
-  for (const [key, a] of Object.entries(arrays)) geometry.setAttribute(key, new T.InstancedBufferAttribute(a, key === 'iShape' ? 4 : 3).setUsage(T.DynamicDrawUsage));
+  for (let i = 0; i < SMOKE_BILLOW_COUNT; i++) arrays[`iBillow${i}`] = new Float32Array(capacity * 4);
+  arrays.iBillowAges = new Float32Array(capacity * 4);
+  for (const [key, a] of Object.entries(arrays)) geometry.setAttribute(key, new T.InstancedBufferAttribute(a, key === 'iShape' || key.startsWith('iBillow') ? 4 : 3).setUsage(T.DynamicDrawUsage));
   const material = new T.ShaderMaterial({uniforms: shared, vertexShader, fragmentShader, transparent: true, depthWrite: false, depthTest: true, side: T.DoubleSide, toneMapped: false, forceSinglePass: true});
   owned.materials.add(material);
   const mesh = new T.Mesh(geometry, material); mesh.name = 'Depth-sorted flame and smoke stream'; mesh.frustumCulled = false; root.add(mesh);
@@ -81,6 +84,13 @@ export function createFireRealism(T, options = {}) {
     order = records.map(r => r.id);
     for (let i = 0; i < records.length; i++) {
       const r = records[i]; arrays.iOrigin.set(r.origin, i * 3); arrays.iAxis.set(r.axis, i * 3); arrays.iShape.set(r.shape, i * 4); arrays.iPolicy.set(r.policy, i * 3);
+      if (r.policy[0] === 1 || r.policy[0] === 3) {
+        const billows = prepareSmokeBillows(r.shape[3], shared.clock.value, r.policy[0]);
+        for (let j = 0; j < SMOKE_BILLOW_COUNT; j++) {const b = billows[j]; arrays[`iBillow${j}`].set([b.x, b.y, b.z, b.radius], i * 4); arrays.iBillowAges[i * 4 + j] = b.age;}
+      } else {
+        for (let j = 0; j < SMOKE_BILLOW_COUNT; j++) arrays[`iBillow${j}`].fill(0, i * 4, i * 4 + 4);
+        arrays.iBillowAges.fill(0, i * 4, i * 4 + 4);
+      }
     }
     geometry.instanceCount = records.length;
     for (const key of Object.keys(arrays)) {
@@ -137,7 +147,7 @@ export function createFireRealism(T, options = {}) {
     }
     for (const [key, c] of clusters) {
       const s = seed(`smoke:${key}`), a = s * Math.PI * 2, w = c.weight;
-      add('Buoyant ground smoke', `ground-smoke:${key}`, [c.x / w, c.elevation / w + .18 + c.age / w * .36, c.y / w], [.12 * Math.cos(a), 1, .12 * Math.sin(a)], .39 + Math.min(.25, Math.sqrt(w) * .10), 1.8 + w / c.count + s * .65, Math.min(.62, w * .28), s, 1);
+      add('Buoyant ground smoke', `ground-smoke:${key}`, [c.x / w, c.elevation / w + .18 + c.age / w * .36, c.y / w], [.12 * Math.cos(a), 1, .12 * Math.sin(a)], .32 + Math.min(.23, Math.sqrt(w) * .10), 1.4 + .55 * w / c.count + s * .15, Math.min(.62, w * .28), s, 1);
     }
     for (let i = 0; i < Math.min(3, active.length); i++) {const p = active[Math.floor(i * active.length / Math.min(3, active.length))]; lights[i].position.set(p.x, p.elevation + .55, p.y); lights[i].intensity = p.intensity * 1.6;}
     state.burningCells = active.length; state.smokeColumns = clusters.size;
@@ -219,7 +229,7 @@ export function createFireRealism(T, options = {}) {
         // Ground-floor facade attachment is a coarse rendering adaptation of an
         // already-burning group. No roof or upper-floor heat is invented.
         add('Legitimate ground-floor facade tongues', `building:${b.id}:${c.id}:flame`, p, [0, 1, 0], .22 + s * .08, Math.min(max[1] - min[1], .7 + intensity * 1.3), intensity * .65, s);
-        add('Legitimate building smoke', `building:${b.id}:${c.id}:smoke`, [p[0], p[1] + .4, p[2]], [0, 1, 0], .42 + s * .15, 2.1 + intensity * 1.3, intensity * .42, seed(`${b.id}:${c.id}:smoke`), 1);
+        add('Legitimate building smoke', `building:${b.id}:${c.id}:smoke`, [p[0], p[1] + .4, p[2]], [0, 1, 0], .42 + s * .15, 2.1 + intensity * 1.3, intensity * .42, seed(`${b.id}:${c.id}:smoke`), 3);
         state.smokeColumns++;
       }
     }
@@ -258,6 +268,7 @@ export function createFireRealism(T, options = {}) {
       layers: stats, triangles: records.length * geometry.userData.triangles, sortedInstances: records.length, sortMode, sortedSemanticIds: [...order], transparency: 'Centroid-sorted alpha; intersecting transparent volumes remain approximate and need actual camera/motion review',
       allocatedBufferBytes: (geometry.index?.array.byteLength || 0) + Object.values(geometry.attributes).reduce((n, a) => n + a.array.byteLength, 0), ownedTextureBytes: [...owned.textures].reduce((n, t) => n + (t.image?.data?.byteLength || 0), 0),
       boundedLights: 3, activeLights: lights.filter(l => l.intensity > 0).length, resources: Object.fromEntries(Object.entries(owned).map(([k, s]) => [k, s.size])), borrowedField: shared.fieldEnabled.value === 1, borrowedOpaqueDepth: shared.opaqueDepthEnabled.value === 1,
+      smokePresentation: 'Four advected analytic billows for ground/building smoke; source kinds 1=small gray ground, 2=unchanged jet soot, 3=legitimate building soot',
       costClaim: 'Unmeasured. No GPU or quality acceptance.', disposed: closed};
   }
   function dispose() {

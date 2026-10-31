@@ -1,22 +1,35 @@
 {
-  "task": "TB-034-ground-visibility-iteration-04",
-  "recordedAt": "2026-10-30T05:48:24Z",
-  "integrationBase": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
-  "correctsArtistCandidate": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
+  "task": "TB-034-smoke-billow-quality-iteration-05",
+  "recordedAt": "2026-10-30T23:59:36Z",
+  "integrationBase": "d0f64ef8e61908debf575ed28bba9d9619278f84",
+  "correctsArtistCandidate": "1505c87f6e251450961283b979941742306b8377",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
-  "artistVersion": "0.4.0-reference-candidate",
+  "artistVersion": "0.5.0-reference-candidate",
   "actualPreviousCandidateReview": {
-    "candidate": "50734379e9db9350d28a0eebb90e7ad9046eca8d",
-    "evidence": "Architect primary checkout artifacts/qa/fire-realism/render-round-02/",
+    "candidate": "1505c87f6e251450961283b979941742306b8377",
+    "evidence": "Architect primary artifacts/qa/fire-realism/render-round-05/reference-match-isometric-bright-frame60.jpg+json and decoded-round-04/contact-motion/",
     "imagesOpened": [
-      "contact-isometric-bright-world0.jpg",
-      "contact-isometric-bright-world2.jpg",
-      "jet-isometric-bright-world0.jpg"
+      "reference-match-isometric-bright-frame60.jpg",
+      "contact-ordered-01.png",
+      "contact-ordered-02.png",
+      "contact-ordered-03.png",
+      "contact-ordered-04.png",
+      "contact-ordered-05.png",
+      "contact-ordered-06.png"
     ],
-    "backend": "Chrome155 / ANGLE Direct3D11 / NVIDIA RTX3080",
-    "shaderFailure": null,
-    "qualityDecision": "Contact rejected at world0/2: active source is almost only faint fragments. Jet visibly improved with connected core and irregular edges/dark gaps; not accepted as a baseline.",
+    "nativeSize": [
+      1280,
+      800
+    ],
+    "orderedDecodedFrames": 68,
+    "originalPtsSeconds": [
+      0.21,
+      2.194
+    ],
+    "backend": "Actual updated IAB Chrome156 / WebGL2 / NVIDIA RTX3080",
+    "sourceFingerprints": "Capture metadata verifies exact0.4 geometry/shader/index hashes",
+    "qualityDecision": "Attached flames and actor readable; smooth narrow gray smoke column with weak billowing/erosion rejected as a visual target",
     "previousEvidenceModified": false
   },
   "sourcePhotos": {
@@ -87,36 +100,45 @@
     "depthBinding": "pass; borrowed actual DepthTexture, current camera, paused camera, wrong dimensions/camera rejection, fractionalDPR floor convention",
     "sourceOrder": "pass; equivalent source ordering preserves geometry, smoke accumulation and spill-light selection",
     "projectCheck": {
-      "ownScripts": 149,
-      "staticModules": 187,
+      "ownScripts": 150,
+      "staticModules": 189,
       "passed": 186,
       "failed": 0,
       "provenance": "pass"
     },
     "build": {
-      "files": 3460,
-      "bytes": 163339447,
+      "files": 3461,
+      "bytes": 163345807,
       "sourcePhotosDistributed": false,
       "diagnosticWorkbenchDistributed": false
     },
-    "diffWhitespace": "pass"
+    "diffWhitespace": "pass",
+    "smokeContract": "pass; actual uploaded moving support, exact frozen0.4 non-smoke/jet-soot/light compatibility, world/pause/reset/rewind, bounded typed-source lobes, finite tails/stable resources",
+    "affectedUiChecks": {
+      "passed": 2,
+      "failed": 0,
+      "scope": "Current primary reference-dossier and strict actual runtime-hash tests, executed against this candidate"
+    },
+    "crossCheckoutUiAttempt": {
+      "passed": 32,
+      "failed": 1,
+      "reason": "Whole primary UI suite run from isolated art cwd: static UI-source guard opens workbenches/fire-realism/review.js, which is intentionally absent here. No UI file copied or edited; full combined checkout rerun required before promotion."
+    }
   },
   "webgl": {
-    "status": "unperformed",
+    "status": "pending-exact0.5-native-review",
     "newBrowserAttempt": false,
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "Candidate0.3 has actual architect-captured WebGL evidence; contact failed while jet improved. Candidate0.4 actual compilation/motion/GPU review remains pending; root owns the reserved native browser. Artist did not control it concurrently."
+    "reason": "Actual native0.4 still and ordered original decoded frames inspected; root will render0.5 after exact intake. No artist browser/server."
   },
   "limitations": [
-    "Centroid-sorted intersecting transparent volumes remain approximate and require actual reversed-camera/motion review",
-    "Independent clipped-ray ribbons preserve safe exact-line support but are an explicit surface fallback rather than full3D jet volumes",
-    "Legacy barrel/Molotov transients are deliberately handled by the separate runtime component; not duplicated here",
-    "Source-level opaque-depth termination is implemented, but no actual visible wall/box intersection has been approved",
-    "The ground/torch calibration needs actual luminous-surface, dark-gap, overlap-opacity and motion critique; CPU checks do not establish visibility",
-    "No GPU-cost inference follows from retained jet/smoke sample counts",
-    "No accepted/frozen high-detail reference or optimized variant exists"
+    "Actual0.5 shader compilation, native motion/stills and GPU costs remain unperformed",
+    "Native building emission contact remains a separate confirmed defect; aggregate AABB sites need the proposed runtime-owned native exterior attachment field before correction",
+    "Centroid-sorted intersecting transparent volumes remain approximate",
+    "Independent clipped rays remain an explicit safe surface fallback",
+    "No visually accepted/frozen detailed baseline or optimized variant exists"
   ],
   "helpers": {
     "serversStarted": 0,
@@ -128,5 +150,21 @@
     "costTargetAchieved": false,
     "overallGoalComplete": false,
     "published": false
+  },
+  "smokeQualityCorrection": {
+    "method": "Four overlapping analytic billows; actual CPU-prepared world-clock centres/radii/ages feed the shared mesh and eroded rolling density",
+    "groundKind": 1,
+    "unchangedJetSootKind": 2,
+    "legitimateBuildingSootKind": 3,
+    "geometryAttributes": 12,
+    "ownedGeometries": 1,
+    "ownedMaterials": 1,
+    "ownedTextures": 2,
+    "smokeHistoryTailSeconds": 3.2,
+    "referenceFrozen": false,
+    "optimizationCredit": false,
+    "frameApiChanged": false,
+    "shaderCompiled": false,
+    "newMotionReviewed": false
   }
 }

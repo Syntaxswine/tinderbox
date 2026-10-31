@@ -1,3 +1,4 @@
+import {smokeBillowGLSL} from './smoke-billows.js';
 // Original TB-034 procedural density/emission. No photographic texture pixels.
 const noise = `
   float h3(vec3 p) {return fract(sin(dot(p,vec3(39.3467,11.1351,83.1559)))*47453.5453);}
@@ -14,16 +15,30 @@ const noise = `
   float streamProfile(float y) {
     return (.10+.87*pow(clamp(y,0.,1.),.76))*(1.-smoothstep(.98,1.,y))+.006;
   }
+  ${smokeBillowGLSL}
+`;
+const billowVaryings = `
+  varying vec4 billow0,billow1,billow2,billow3,billowAges;
+  float smokeSupportAt(float y,float angle) {
+    float r0=billowSupport(billow0,billowAges.x,y,angle),r1=billowSupport(billow1,billowAges.y,y,angle);
+    float r2=billowSupport(billow2,billowAges.z,y,angle),r3=billowSupport(billow3,billowAges.w,y,angle);
+    return max(.003,max(max(r0,r1),max(r2,r3)));
+  }
 `;
 export const vertexShader = noise + `
   attribute vec3 iOrigin,iAxis,iPolicy; attribute vec4 iShape;
+  attribute vec4 iBillow0,iBillow1,iBillow2,iBillow3,iBillowAges;
   uniform float clock,fuelJet; uniform vec3 jetAxisOrigin; uniform vec2 sourceDirection;
   varying vec3 local,world,base,axis,right,forward,policy; varying vec4 shape;
+  ${billowVaryings}
   void main() {
     shape=iShape; policy=iPolicy; base=iOrigin; axis=normalize(iAxis);
+    billow0=iBillow0;billow1=iBillow1;billow2=iBillow2;billow3=iBillow3;billowAges=iBillowAges;
     right=normalize(cross(axis,abs(axis.y)>.94?vec3(0,0,1):vec3(0,1,0))); forward=cross(right,axis);
     vec3 p=position; float y=p.y,smoke=iPolicy.x,phase=iShape.w*83.71;
-    if(iPolicy.y>=1.5) {
+    if(billowSmoke(smoke)) {
+      float angle=atan(p.z,p.x); p.xz*=smokeSupportAt(y,angle);
+    } else if(iPolicy.y>=1.5) {
       // Disconnected authoritative rays cannot safely support any filled fan.
       // Keep their entire ground-plane support on the exact clipped line. Only
       // vertical silhouette varies; the second half-ring degenerates harmlessly.
@@ -56,6 +71,7 @@ export const fragmentShader = noise + `
   uniform sampler2D field,rayTable,opaqueDepth; uniform vec2 grid,shapeOrigin,sourceOrigin,sourceDirection,opaqueDepthSize;
   uniform mat4 opaqueViewProjection; uniform vec3 player,jetAxisOrigin; uniform float playerRadius;
   varying vec3 local,world,base,axis,right,forward,policy; varying vec4 shape;
+  ${billowVaryings}
   float cross2(vec2 a,vec2 b) {return a.x*b.y-a.y*b.x;}
   bool fanAllowed(vec2 p) {
     vec2 q=p-shapeOrigin; if(dot(q,q)<1.e-12)return true;
@@ -119,6 +135,15 @@ export const fragmentShader = noise + `
   float density(vec3 p,vec4 f) {
     if(p.y<.001||p.y>.999)return 0.;
     float smoke=policy.x,seed=shape.w*83.71;
+    if(billowSmoke(smoke)) {
+      float result=0.;
+      for(int i=0;i<4;i++) {
+        vec4 b=i==0?billow0:i==1?billow1:i==2?billow2:billow3;
+        float d=billowDensity(p,b,billowAges[i],shape.w+float(i)*.173);
+        result+=(1.-result)*d;
+      }
+      return result*(1.-smoothstep(.96,1.,p.y));
+    }
     vec2 bend=vec2(n3(vec3(seed,p.y*2.-clock*.71,0.)),n3(vec3(0.,seed,p.y*2.-clock*.63)))*2.-1.;
     vec2 radial=streamField()?p.xz-vec2(0.,.18*pow(p.y,1.5)):p.xz-pow(p.y,1.6)*(smoke>.5?.30:.34)*bend;
     float edge=length(radial)/max(.006,volumeProfile(p.y));
@@ -137,6 +162,12 @@ export const fragmentShader = noise + `
     return envelope*(f.x*coverage*.95+contact)*termination;
   }
   vec3 colorAt(vec3 p,float den,vec4 f) {
+    if(billowSmoke(policy.x)) {
+      float here=den/max(.0001,shape.z),nearby=density(p+vec3(-.11,.06,.09),vec4(0.));
+      float light=clamp(.46+(here-nearby)*1.25,.13,.88);
+      vec3 color=policy.x>2.5?mix(vec3(.004,.003,.0025),vec3(.050,.045,.038),light):mix(vec3(.035,.032,.029),vec3(.24,.225,.20),light);
+      return color+vec3(.025,.006,.001)*pow(max(0.,1.-p.y),3.);
+    }
     if(policy.x>.5) {
       float light=clamp(.50+(density(p,vec4(0.))-density(p+vec3(-.13,.08,.09),vec4(0.)))*1.1,.19,.85);
       vec3 color=mix(vec3(.008,.006,.005),vec3(.17,.15,.125),light);
@@ -155,7 +186,8 @@ export const fragmentShader = noise + `
     bool ribbon=policy.y>=1.5;
     vec3 eye=cameraPosition-base;
     vec3 eyeLocal=vec3(dot(eye,right)/shape.x,dot(eye,axis)/shape.y,dot(eye,forward)/shape.x);
-    bool cameraInside=orthographic<.5&&eyeLocal.y>=0.&&eyeLocal.y<=1.&&length(eyeLocal.xz)<volumeProfile(eyeLocal.y);
+    float eyeSupport=orthographic>.5?0.:billowSmoke(policy.x)?smokeSupportAt(eyeLocal.y,atan(eyeLocal.z,eyeLocal.x)):volumeProfile(eyeLocal.y);
+    bool cameraInside=orthographic<.5&&eyeLocal.y>=0.&&eyeLocal.y<=1.&&length(eyeLocal.xz)<eyeSupport;
     if(!ribbon&&!gl_FrontFacing&&!cameraInside)discard;
     vec2 depthUV=clamp(gl_FragCoord.xy/opaqueDepthSize,vec2(0.),vec2(1.));
     float sceneDepth=opaqueDepthEnabled>.5?texture2D(opaqueDepth,depthUV).r:1.;
@@ -169,12 +201,13 @@ export const fragmentShader = noise + `
       vec3 viewDir=orthographic>.5?-vec3(viewMatrix[0][2],viewMatrix[1][2],viewMatrix[2][2]):normalize(world-cameraPosition);
       vec3 d=normalize(vec3(dot(viewDir,right)/shape.x,dot(viewDir,axis)/shape.y,dot(viewDir,forward)/shape.x));
       bool attachedFlame=policy.x<.5&&!streamField();
+      bool billowing=billowSmoke(policy.x);
       vec3 p=cameraInside?eyeLocal:local+d*.004;
       // Same2.52-local-unit span: finer sampling resolves the thin ground/torch
       // sheets without changing reach or the jet/smoke18-sample sequence.
-      float stepSize=attachedFlame?2.52/32.:.14;
+      float stepSize=attachedFlame?2.52/32.:billowing?3.2/32.:.14;
       for(int j=0;j<32;j++) {
-        if(!attachedFlame&&j>=18)break;
+        if(!attachedFlame&&!billowing&&j>=18)break;
         vec3 wp=base+right*p.x*shape.x+axis*p.y*shape.y+forward*p.z*shape.x;
         if(opaqueStops(wp,sceneDepth))break;
         vec4 f=policy.x>.5?vec4(0.):reaction(p);
