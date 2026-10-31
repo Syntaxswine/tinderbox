@@ -70,7 +70,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   function sweepWorld(){return {frameIndex,tick:snapshot?.tick||0,worldTime:snapshot?.clocks.world||0,playerTime:snapshot?.clocks.player||0,worldPaused:phase!=='playing'};}
   function refreshSweepSupport(){
     if(!cameraSweep||!art||!snapshot)return;
-    try{cameraSweep.support(captureCameraSweepSupport(T,{scene,snapshot,anchors:art.anchors,configuration:config,fireDiagnostics:art.diagnostics().fire}));}
+    try{cameraSweep.support(captureCameraSweepSupport(T,{scene,snapshot,anchors:art.anchors,configuration:config,factoryFingerprint:factoryFingerprint(config.mode)}));}
     catch(cause){cameraSweep.support({reason:cause.message||String(cause)});}
   }
   function cancelSweep(reason){cameraSweep?.stop({restoreStatic:true,cancelled:true,reason,monotonicMs:performance.now(),world:sweepWorld()});}

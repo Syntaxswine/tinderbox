@@ -40,6 +40,22 @@ export function validateCameraSweep(T,camera,focus,points){
  const supported=maxAbsNdc.every(value=>value<LIMIT);
  return {supported,reason:supported?null:'The complete native/source envelope does not fit the fixed +/-8 degree sweep; no zoom or framing adaptation was applied',method:'Analytic affine-sinusoid orthographic extrema over [-8,+8] degrees',pointCount:points.length,yawIntervalDegrees:[-8,8],ndcLimit:LIMIT,maxAbsNdc,worst};
 }
+// These reviewed source-derived bounds belong to one reviewed source closure,
+// not to an artist-reported billow count or a visual-acceptance flag.
+const R09_SOURCE={sourceCommit:'a876ba6d5e998baa5be5b0ee7c029a1f3a85090d',factoryModule:'assets/art/fire-realism/index.js',factoryExport:'createFireRealism',runtimeFiles:{
+ 'assets/art/fire-realism/geometry.js':{sha256:'10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036',bytes:1078},
+ 'assets/art/fire-realism/shaders.js':{sha256:'5f3c65731e3d2b9964a971d390acb5423ad022499afe36d2180e866bba5f620d',bytes:15008},
+ 'assets/art/fire-realism/index.js':{sha256:'248be51abc7fdabca209a3e2ac7a34f978267b21e4a7c1987fff6e24ba7bf07b',bytes:32097},
+ 'assets/art/fire-realism/smoke-billows.js':{sha256:'ea8eb36a6399ebdf10201d1ef1685a0ea64a5677e8321f4671c28edb7c24bb6d',bytes:3421},
+ 'assets/art/fire-realism/ground-field.js':{sha256:'e43e050d26813a907e56e59535bc47f770c374db05032724ae6b9ee35a2f79c8',bytes:11809},
+}};
+function sourceSupport(mode,fingerprint){
+ if(mode==='no-fire')return {kind:'no-fire',mode};
+ if(mode==='current'&&fingerprint?.mode==='current'&&fingerprint.sourceCommit==='dc7f537a83a7e832a0dfa0757d0b2700b909c053'&&fingerprint.factoryModule==='src/art/fire.js'&&fingerprint.factoryExport==='createFire')return {kind:'pinned-published-control',mode,sourceCommit:fingerprint.sourceCommit,factoryModule:fingerprint.factoryModule,factoryExport:fingerprint.factoryExport};
+ const files=fingerprint?.runtimeFiles,known=R09_SOURCE.runtimeFiles;
+ if(mode!=='reference'||fingerprint?.mode!=='reference'||fingerprint.sourceCommit!==R09_SOURCE.sourceCommit||fingerprint.factoryModule!==R09_SOURCE.factoryModule||fingerprint.factoryExport!==R09_SOURCE.factoryExport||!files||Array.isArray(files)||Object.keys(files).length!==Object.keys(known).length||Object.entries(known).some(([path,expected])=>{const actual=files[path];return !actual||actual.verified!==true||actual.sha256!==expected.sha256||actual.expectedSha256!==expected.sha256||actual.bytes!==expected.bytes;}))throw Error('Camera source bounds are unreviewed for this factory entry/runtime closure; the preset requires the exact R09 reference or pinned published control');
+ return {kind:'reviewed-r09-source-bounds',mode,sourceCommit:R09_SOURCE.sourceCommit,factoryModule:R09_SOURCE.factoryModule,factoryExport:R09_SOURCE.factoryExport};
+}
 function addBox(points,min,max){for(const x of [min[0],max[0]])for(const y of [min[1],max[1]])for(const z of [min[2],max[2]])points.push([x,y,z]);}
 function contains(root,node){for(let at=node;at;at=at.parent)if(at===root)return true;return false;}
 function nativePoints(T,root){
@@ -55,9 +71,9 @@ export function cameraSweepSceneSignature(snapshot){
  if((snapshot.events||[]).some(e=>['explosion','barrel-explosion','barrel-exploded','molotov-impact'].includes(e.type)))throw Error('Transient explosion support is outside this camera preset');
  return JSON.stringify({x:p.x,y:p.y,elevation:p.elevation||0,tool:p.tool,characterId:p.characterId,ashlandDestroyed:(snapshot.world?.buildings||[]).find(b=>b.id==='ashland-cottage')?.destroyed??false});
 }
-export function captureCameraSweepSupport(T,{scene,snapshot,anchors,configuration,fireDiagnostics}={}){
+export function captureCameraSweepSupport(T,{scene,snapshot,anchors,configuration,factoryFingerprint}={}){
  if(!['match-contact','street-fire'].includes(configuration?.scenario))throw Error('This preset supports match-contact and street-fire only');
- const guard=cameraSweepSceneSignature(snapshot),nodes=Object.values(anchors||{}).filter(node=>node?.isObject3D);if(!nodes.length)throw Error('Actual native attachment hierarchy is unavailable');
+ const source=sourceSupport(configuration.mode,factoryFingerprint),guard=cameraSweepSceneSignature(snapshot),nodes=Object.values(anchors||{}).filter(node=>node?.isObject3D);if(!nodes.length)throw Error('Actual native attachment hierarchy is unavailable');
  let actor=null;for(let at=nodes[0];at&&at!==scene;at=at.parent)if(at.isGroup&&nodes.every(node=>contains(at,node))){actor=at;break;}
  if(!actor||!actor.parent)throw Error('Complete native actor/tool hierarchy is unavailable');
  const points=nativePoints(T,actor);if(!points.length)throw Error('No actual native actor/tool geometry is available');const actorCount=points.length;
@@ -68,7 +84,6 @@ export function captureCameraSweepSupport(T,{scene,snapshot,anchors,configuratio
  const groups=[{kind:'actual-native-actor-and-held-tool',points:actorCount,yawInvariantRadiusMetres:radius+.02,verticalPaddingMetres:.02}],references=[];
  if(configuration.scenario==='match-contact'){
   const fuel=snapshot.cells.filter(c=>c.material==='grass');if(fuel.length!==4||fuel.some(c=>!([5.25,5.75].includes(c.x)&&[8.25,8.75].includes(c.y)&&c.size===.5))||snapshot.cells.some(c=>c.depositedFuel>0||c.phase==='burning'&&c.material!=='grass'))throw Error('Contact support is proved only for the canonical four grass cells with no added fuel');
-  if(['reference','optimized'].includes(configuration.mode)&&fireDiagnostics?.artist?.settings?.smokeBillowsPerInstance!==4)throw Error('This reference does not expose the reviewed R09-compatible billow support contract');
   // R09 index ground(): area1, mean<=1, spread<=sqrt(.125), wood=gas=0.
   // radius<=.40+.30+.43*sqrt(.125)=.852027958; shape height<=2.28.
   // smoke-billows.js: local radius<=.23+1.22*(.24+.64)*1.14=1.453904;
@@ -86,7 +101,7 @@ export function captureCameraSweepSupport(T,{scene,snapshot,anchors,configuratio
   for(const cell of cells)for(const x of [cell.x-cell.size/2,cell.x+cell.size/2])for(const z of [cell.y-cell.size/2,cell.y+cell.size/2])for(const dx of [-2,2])for(const dz of [-2,2])for(const y of [0,6.5])points.push([x+dx,y,z+dz]);
   groups.push({kind:'existing-declared-ashland-source-smoke-envelope',sourceCells:253,lateralMetres:2,ceilingMetres:6.5,limits:'Intended Ashland action view; not the entire 51x47 map'});references.push('Unchanged tools/fire-realism/camera.js measured Ashland/source-smoke fit policy');
  }
- if(points.length>MAX_POINTS||points.some(point=>!vector(point,3)))throw Error('Invalid or excessive actual source support');return {points,descriptor:{kind:'native-source-containment-v1',groups,references,guard,pointCount:points.length}};
+ if(points.length>MAX_POINTS||points.some(point=>!vector(point,3)))throw Error('Invalid or excessive actual source support');return {points,descriptor:{kind:'native-source-containment-v1',sourceSupport:source,groups,references,guard,pointCount:points.length}};
 }
 export function createCameraSweep(T){
  let camera=null,base=null,focus=null,configuration=null,validation={supported:false,reason:'Native/source support has not been prepared'},run=null,lastRecord=null,pendingEnd=false,viewStatus='unavailable',disposed=false,startGeneration=0;

@@ -1,15 +1,16 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createHash} from 'node:crypto';
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
 import * as T from '../../src/runtime/three.js';
 import {createCameraSweep,captureCameraSweepSupport,validateCameraSweep,cameraSweepYaw,reviewCameraRecord} from '../../tools/fire-realism/camera-sweep.js';
 import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';import {createFireReviewSimulation} from '../../tools/fire-realism/scenarios.js';
 import {createBearRig,BEAR_SOURCE_COMMIT} from '../../src/reuse/bear.js';import {createNeighborhood} from '../../src/art/neighborhood.js';
 const data=JSON.parse(fs.readFileSync(`vendor/animal-factory-tactics-3d/${BEAR_SOURCE_COMMIT}/dist/tactics/bear-10k-data.json`));
 const catalogue={houses:['gross','hopkins'].flatMap(name=>JSON.parse(fs.readFileSync(`assets/art/${name}-housing-v1/houses.json`)).houses)};
+const referenceSource=JSON.parse(fs.readFileSync(new URL('../fixtures/fire-r09-camera-support.json',import.meta.url))),controlSource={mode:'current',sourceCommit:'dc7f537a83a7e832a0dfa0757d0b2700b909c053',factoryModule:'src/art/fire.js',factoryExport:'createFire'};
 const world={frameIndex:60,tick:60,worldTime:1,playerTime:1,worldPaused:true};
 function nativeCase(scenario,frame=60){
  const sim=createFireReviewSimulation({scenario}),rig=createBearRig(data),scene=new T.Scene(),parent=new T.Group(),housing=scenario==='street-fire'?createNeighborhood(T,{catalogue,textures:{}},{facadeSites:true}):null;scene.add(parent);parent.add(rig.root);if(housing)scene.add(housing.root);
  let snapshot=sim.snapshot();for(let i=0;i<frame;i++)snapshot=sim.advance();rig.update(snapshot.player,snapshot.clocks.player);housing?.update(snapshot.world);
- return {scene,parent,sim,rig,snapshot,housing,support(mode='current'){return captureCameraSweepSupport(T,{scene,snapshot,anchors:rig.anchors,configuration:{scenario,mode},fireDiagnostics:{artist:{settings:{smokeBillowsPerInstance:4}}}});},dispose(){rig.dispose();housing?.dispose();sim.dispose();scene.clear();}};
+ return {scene,parent,sim,rig,snapshot,housing,support(mode='current'){return captureCameraSweepSupport(T,{scene,snapshot,anchors:rig.anchors,configuration:{scenario,mode},factoryFingerprint:mode==='reference'?referenceSource:mode==='current'?controlSource:null});},dispose(){rig.dispose();housing?.dispose();sim.dispose();scene.clear();}};
 }
 function configured(scenario='match-contact',viewport={width:1280,height:800,pixelRatio:1},view='isometric',points,mode='current'){
  const camera=new T.OrthographicCamera(-10,10,10,-10,.1,300),configuration={scenario,view,viewport,mode,characterId:'bear'},policy=placeFireReviewCamera(T,camera,configuration),controller=createCameraSweep(T);controller.bind(camera,policy,configuration);
@@ -57,8 +58,8 @@ test('finite path preserves distance/elevation/frustum, exact endpoint restorati
 test('native support proof respects hidden ancestors/canonical source limits, and smoke bounds conservatively include source formulas',()=>{
  const native=nativeCase('match-contact');try{
   const original=JSON.stringify(native.snapshot),support=native.support();native.parent.visible=false;assert.throws(()=>native.support(),/hidden/);native.parent.visible=true;native.parent.userData.destroyed=true;assert.throws(()=>native.support(),/destroyed/);native.parent.userData.destroyed=false;assert.deepEqual(native.support(),support);assert.equal(JSON.stringify(native.snapshot),original);
-  const c=structuredClone(native.snapshot);c.cells.find(cell=>cell.material==='grass').depositedFuel=.01;assert.throws(()=>captureCameraSweepSupport(T,{scene:native.scene,snapshot:c,anchors:native.rig.anchors,configuration:{scenario:'match-contact',mode:'current'}}),/no added fuel/);
-  const projectile=structuredClone(native.snapshot);projectile.projectiles=[{id:123}];assert.throws(()=>captureCameraSweepSupport(T,{scene:native.scene,snapshot:projectile,anchors:native.rig.anchors,configuration:{scenario:'match-contact',mode:'current'}}),/projectile/);
+  const c=structuredClone(native.snapshot);c.cells.find(cell=>cell.material==='grass').depositedFuel=.01;assert.throws(()=>captureCameraSweepSupport(T,{scene:native.scene,snapshot:c,anchors:native.rig.anchors,configuration:{scenario:'match-contact',mode:'current'},factoryFingerprint:controlSource}),/no added fuel/);
+  const projectile=structuredClone(native.snapshot);projectile.projectiles=[{id:123}];assert.throws(()=>captureCameraSweepSupport(T,{scene:native.scene,snapshot:projectile,anchors:native.rig.anchors,configuration:{scenario:'match-contact',mode:'current'},factoryFingerprint:controlSource}),/projectile/);
   const radius=.4+.3+.43*Math.sqrt(.125),height=2.28,radial=(.23+1.22*(.24+.64)*1.14)*radius,lean=.22/Math.sqrt(1+.22**2),up=1/Math.sqrt(1+.22**2),box=support.descriptor.groups[1];assert.ok(radial+height*lean<box.horizontalRadiusMetres);assert.ok(.18-radial*lean>box.minY);assert.ok(.18+3.2*.36+height*up+radial*lean<box.maxY);
  }finally{native.dispose();}
 });
@@ -69,4 +70,17 @@ test('pending validation cancellation/disposal cannot start late; unsupported fr
   const tiny=configured('match-contact',{width:128,height:4096,pixelRatio:1});try{const before=reviewCameraRecord(tiny.camera);await assert.rejects(tiny.controller.start({now:()=>0,getWorld:()=>world}),/does not fit/);assert.deepEqual(reviewCameraRecord(tiny.camera),before);}finally{tiny.controller.dispose();}
   const pendingDispose=f.controller.start({now:()=>100,getWorld:()=>world});f.controller.dispose();await assert.rejects(pendingDispose,{name:'AbortError'});
  }finally{f.controller.dispose();}
+});
+
+test('source-bound sweep accepts the exact reviewed R09 entry/closure and rejects changed sources retaining the same billow marker',t=>{
+ for(const scenario of ['match-contact','street-fire']){const native=nativeCase(scenario,scenario==='street-fire'?30:60);try{
+  const prepare=(fingerprint,mode='reference')=>captureCameraSweepSupport(T,{scene:native.scene,snapshot:native.snapshot,anchors:native.rig.anchors,configuration:{scenario,mode},factoryFingerprint:fingerprint,fireDiagnostics:{artist:{settings:{smokeBillowsPerInstance:4}}}});
+  const proof=prepare(referenceSource);assert.equal(proof.descriptor.sourceSupport.kind,'reviewed-r09-source-bounds');assert.deepEqual(proof.points,native.support().points);
+  for(const mutate of [p=>{p.sourceCommit='1'.repeat(40);},p=>{p.mode='optimized';},p=>{p.factoryModule='assets/art/fire-realism/geometry.js';},p=>{p.factoryExport='alternateFactory';},p=>{p.runtimeFiles['extra.js']={};},...Object.keys(referenceSource.runtimeFiles).flatMap(path=>[p=>{p.runtimeFiles[path].sha256='f'.repeat(64);},p=>{p.runtimeFiles[path].expectedSha256='0'.repeat(64);},p=>{p.runtimeFiles[path].bytes++;},p=>{p.runtimeFiles[path].verified=false;},p=>{delete p.runtimeFiles[path];}])]){const changed=structuredClone(referenceSource);mutate(changed);assert.throws(()=>prepare(changed),/source bounds are unreviewed/);}
+  assert.throws(()=>prepare(referenceSource,'optimized'),/source bounds are unreviewed/);assert.throws(()=>prepare(null),/source bounds are unreviewed/);assert.throws(()=>prepare({...controlSource,sourceCommit:'0'.repeat(40)},'current'),/source bounds are unreviewed/);assert.equal(prepare(null,'no-fire').descriptor.sourceSupport.kind,'no-fire');
+  // The frozen fingerprint is portable in shallow CI; when its immutable Git
+  // objects exist, cross-check every raw record against those actual old bytes.
+  let manifest;try{manifest=JSON.parse(execFileSync('git',['show',referenceSource.sourceCommit+':assets/art/fire-realism/manifest.json'],{windowsHide:true,stdio:['ignore','pipe','ignore']}));}catch{t.diagnostic('R09 Git objects absent in shallow checkout; frozen source fingerprint fixture used without a network fetch');}
+  if(manifest){assert.equal(manifest.runtimeFiles.length,Object.keys(referenceSource.runtimeFiles).length);for(const record of manifest.runtimeFiles){const bytes=execFileSync('git',['show',referenceSource.sourceCommit+':'+record.path],{windowsHide:true}),expected=referenceSource.runtimeFiles[record.path];assert.equal(bytes.length,expected.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),expected.sha256);assert.equal(record.sha256,expected.sha256);}}
+ }finally{native.dispose();}}
 });
