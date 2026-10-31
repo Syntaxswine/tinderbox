@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "proposalCommit": "241248d603b49f95b8446947afe47f161c304200",
+  "scope": "Original Tinderbox read-only assessment adaptation; no external solver or runtime code imported",
+  "adaptedFrom": [
+    {
+      "path": "C:/Users/baals/.codex/worktrees/tinderbox-code/tinderbox/artifacts/qa/fire-realism/surface-prepare-v4-review/raw-audit-v5-01/audit-source.mjs",
+      "bytes": 18511,
+      "sha256": "2fddd26d580b8b393c39986b9cac0dafc6019bb57f62322f2b643260c40075ef",
+      "adaptation": "Read-only byte pins, f32LE scan/support and integral-only terminal summation tolerance; no import/execution or generic runner copied"
+    },
+    {
+      "path": "C:/Users/baals/Documents/ChatGPT/tinderbox/artifacts/qa/fire-realism/v5-selected-flame-profile.mjs",
+      "sha256": "e07a14422b7dcb9181bc6765b76481109b0d89fe67e4a4b64a1e0097493a8781",
+      "adaptation": "Fixed thresholds/weighted quantiles/height fractions; same pinned two-frame baseline JSON retained as exact metadata"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-half-rate-source/grid.py",
+      "commit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+      "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+      "adaptation": "Exact scalar-centre x-fastest support semantics; source is not imported"
+    }
+  ],
+  "baselineProfile": {
+    "original": "C:/Users/baals/Documents/ChatGPT/tinderbox/artifacts/qa/fire-realism/v5-selected-flame-profile.json",
+    "bytes": 38359,
+    "sha256": "a7675ed47a293a24c51c282e896cbd5a4074ce3f07cf6de1bb9cb0f21241df62",
+    "adaptation": "Unmodified small prior QA report, not new field data or visual asset"
+  },
+  "frozenData": {
+    "manifest": {
+      "path": "artifacts/qa/fire-realism/mantaflow-half-rate-source/half-rate-20261031-01/raw-manifest.json",
+      "bytes": 4982197,
+      "sha256": "1a3bb8d2af92f6a9c7017ad37a49b76977baa227d94ae3a0cded781229a2c77e"
+    },
+    "validation": {
+      "path": "artifacts/qa/fire-realism/mantaflow-half-rate-source/half-rate-20261031-01/raw-validation.json",
+      "bytes": 5113,
+      "sha256": "8da43a63ab134deeadb3e1791baaf4bd3762c7be19ac9670167a58b68f2379f4"
+    }
+  },
+  "limitations": [
+    "Source/pure fixtures only; actual all579 scan remains unexecuted until separately authorized.",
+    "F=sqrt(react); proxy-weighted integrals/percentiles are not physical mass, energy or radiance.",
+    "VDB-to-F32 equality and native appearance are unproved; no gate waiver or data mutation."
+  ]
+}

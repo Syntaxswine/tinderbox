@@ -1,0 +1,1584 @@
+{
+  "status": "two-selected-original-flame-profiles-pass",
+  "inputs": {
+    "manifest": {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-raw-metadata/raw-manifest.json",
+      "bytes": 4626878,
+      "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+    },
+    "dossier": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/expected-f32-hashes.json",
+      "bytes": 96953,
+      "sha256": "8b54b57824cb43d216015f85c2a454b482509d5241a6d221a8f6680d535e4c8e"
+    }
+  },
+  "frames": [
+    {
+      "frame": 31,
+      "sourceAge": 1,
+      "input": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5\\fields\\flame-031.f32",
+        "bytes": 884736,
+        "sha256": "0a6b0ed18edd488203d933cd215baef47c5b34e154d1747eaa0c1cafa087d8ff"
+      },
+      "resolution": [
+        48,
+        48,
+        96
+      ],
+      "voxelSize": [
+        0.0416666679084301,
+        0.0416666679084301,
+        0.0416666679084301
+      ],
+      "scalarCentreOriginBlender": [
+        -0.979166666045785,
+        -0.979166666045785,
+        -0.14583329297602177
+      ],
+      "positiveVoxels": 1675,
+      "maxF": 0.9672985076904297,
+      "sumF": 655.9877040962456,
+      "thresholds": [
+        {
+          "threshold": 0,
+          "strictlyGreater": true,
+          "voxels": 1675,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.60416672937572,
+          "sumF": 655.9877040962456
+        },
+        {
+          "threshold": 0.0001,
+          "strictlyGreater": true,
+          "voxels": 1675,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.60416672937572,
+          "sumF": 655.9877040962456
+        },
+        {
+          "threshold": 0.01,
+          "strictlyGreater": true,
+          "voxels": 1634,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.60416672937572,
+          "sumF": 655.7264322768897
+        },
+        {
+          "threshold": 0.1,
+          "strictlyGreater": true,
+          "voxels": 1303,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.5625000614672899,
+          "sumF": 637.2202428728342
+        },
+        {
+          "threshold": 0.5,
+          "strictlyGreater": true,
+          "voxels": 585,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.4375000577419996,
+          "sumF": 448.6219101548195
+        }
+      ],
+      "weightedQuantiles": [
+        {
+          "q": 0.5,
+          "centreNativeY": 0.10416671447455883
+        },
+        {
+          "q": 0.9,
+          "centreNativeY": 0.3125000540167093
+        },
+        {
+          "q": 0.95,
+          "centreNativeY": 0.3958333898335695
+        },
+        {
+          "q": 0.99,
+          "centreNativeY": 0.5208333935588598
+        }
+      ],
+      "fractionsAbove": [
+        {
+          "height": 0,
+          "sumFFraction": 1
+        },
+        {
+          "height": 0.1,
+          "sumFFraction": 0.5136406425767737
+        },
+        {
+          "height": 0.25,
+          "sumFFraction": 0.17832982029013295
+        },
+        {
+          "height": 0.5,
+          "sumFFraction": 0.01075087573559985
+        },
+        {
+          "height": 1,
+          "sumFFraction": 0
+        }
+      ],
+      "layers": [
+        {
+          "z": 0,
+          "centreNativeY": -0.14583329297602177,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 1,
+          "centreNativeY": -0.10416662506759167,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 2,
+          "centreNativeY": -0.06249995715916157,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 3,
+          "centreNativeY": -0.020833289250731468,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 4,
+          "centreNativeY": 0.02083337865769863,
+          "sumF": 207.2471361849457,
+          "maxF": 0.9660778045654297,
+          "positiveVoxels": 282
+        },
+        {
+          "z": 5,
+          "centreNativeY": 0.06250004656612873,
+          "sumF": 111.79862205684185,
+          "maxF": 0.9672985076904297,
+          "positiveVoxels": 224
+        },
+        {
+          "z": 6,
+          "centreNativeY": 0.10416671447455883,
+          "sumF": 77.41537916846573,
+          "maxF": 0.9635710120201111,
+          "positiveVoxels": 178
+        },
+        {
+          "z": 7,
+          "centreNativeY": 0.14583338238298893,
+          "sumF": 60.1653676207643,
+          "maxF": 0.8927571177482605,
+          "positiveVoxels": 156
+        },
+        {
+          "z": 8,
+          "centreNativeY": 0.18750005029141903,
+          "sumF": 45.986937075154856,
+          "maxF": 0.8666991591453552,
+          "positiveVoxels": 135
+        },
+        {
+          "z": 9,
+          "centreNativeY": 0.22916671819984913,
+          "sumF": 36.392092606052756,
+          "maxF": 0.7791495323181152,
+          "positiveVoxels": 118
+        },
+        {
+          "z": 10,
+          "centreNativeY": 0.27083338610827923,
+          "sumF": 28.653170846402645,
+          "maxF": 0.7467935085296631,
+          "positiveVoxels": 105
+        },
+        {
+          "z": 11,
+          "centreNativeY": 0.3125000540167093,
+          "sumF": 24.45438113436103,
+          "maxF": 0.7645958065986633,
+          "positiveVoxels": 97
+        },
+        {
+          "z": 12,
+          "centreNativeY": 0.3541667219251394,
+          "sumF": 19.626904460717924,
+          "maxF": 0.6935127377510071,
+          "positiveVoxels": 98
+        },
+        {
+          "z": 13,
+          "centreNativeY": 0.3958333898335695,
+          "sumF": 17.071444273460656,
+          "maxF": 0.5810381174087524,
+          "positiveVoxels": 85
+        },
+        {
+          "z": 14,
+          "centreNativeY": 0.4375000577419996,
+          "sumF": 12.097170281223953,
+          "maxF": 0.609513521194458,
+          "positiveVoxels": 72
+        },
+        {
+          "z": 15,
+          "centreNativeY": 0.4791667256504297,
+          "sumF": 8.026656097033992,
+          "maxF": 0.4334790110588074,
+          "positiveVoxels": 56
+        },
+        {
+          "z": 16,
+          "centreNativeY": 0.5208333935588598,
+          "sumF": 5.037245749030262,
+          "maxF": 0.3909973204135895,
+          "positiveVoxels": 41
+        },
+        {
+          "z": 17,
+          "centreNativeY": 0.5625000614672899,
+          "sumF": 1.797530572861433,
+          "maxF": 0.23619866371154785,
+          "positiveVoxels": 21
+        },
+        {
+          "z": 18,
+          "centreNativeY": 0.60416672937572,
+          "sumF": 0.2176659689284861,
+          "maxF": 0.07004919648170471,
+          "positiveVoxels": 7
+        },
+        {
+          "z": 19,
+          "centreNativeY": 0.6458333972841501,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 20,
+          "centreNativeY": 0.6875000651925802,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 21,
+          "centreNativeY": 0.7291667331010103,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 22,
+          "centreNativeY": 0.7708334010094404,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 23,
+          "centreNativeY": 0.8125000689178705,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 24,
+          "centreNativeY": 0.8541667368263006,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 25,
+          "centreNativeY": 0.8958334047347307,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 26,
+          "centreNativeY": 0.9375000726431608,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 27,
+          "centreNativeY": 0.9791667405515909,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 28,
+          "centreNativeY": 1.020833408460021,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 29,
+          "centreNativeY": 1.0625000763684511,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 30,
+          "centreNativeY": 1.1041667442768812,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 31,
+          "centreNativeY": 1.1458334121853113,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 32,
+          "centreNativeY": 1.1875000800937414,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 33,
+          "centreNativeY": 1.2291667480021715,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 34,
+          "centreNativeY": 1.2708334159106016,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 35,
+          "centreNativeY": 1.3125000838190317,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 36,
+          "centreNativeY": 1.3541667517274618,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 37,
+          "centreNativeY": 1.395833419635892,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 38,
+          "centreNativeY": 1.437500087544322,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 39,
+          "centreNativeY": 1.4791667554527521,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 40,
+          "centreNativeY": 1.5208334233611822,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 41,
+          "centreNativeY": 1.5625000912696123,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 42,
+          "centreNativeY": 1.6041667591780424,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 43,
+          "centreNativeY": 1.6458334270864725,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 44,
+          "centreNativeY": 1.6875000949949026,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 45,
+          "centreNativeY": 1.7291667629033327,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 46,
+          "centreNativeY": 1.7708334308117628,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 47,
+          "centreNativeY": 1.812500098720193,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 48,
+          "centreNativeY": 1.854166766628623,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 49,
+          "centreNativeY": 1.895833434537053,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 50,
+          "centreNativeY": 1.9375001024454832,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 51,
+          "centreNativeY": 1.9791667703539133,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 52,
+          "centreNativeY": 2.0208334382623434,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 53,
+          "centreNativeY": 2.0625001061707735,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 54,
+          "centreNativeY": 2.1041667740792036,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 55,
+          "centreNativeY": 2.1458334419876337,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 56,
+          "centreNativeY": 2.187500109896064,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 57,
+          "centreNativeY": 2.229166777804494,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 58,
+          "centreNativeY": 2.270833445712924,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 59,
+          "centreNativeY": 2.312500113621354,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 60,
+          "centreNativeY": 2.354166781529784,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 61,
+          "centreNativeY": 2.3958334494382143,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 62,
+          "centreNativeY": 2.4375001173466444,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 63,
+          "centreNativeY": 2.4791667852550745,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 64,
+          "centreNativeY": 2.5208334531635046,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 65,
+          "centreNativeY": 2.5625001210719347,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 66,
+          "centreNativeY": 2.604166788980365,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 67,
+          "centreNativeY": 2.645833456888795,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 68,
+          "centreNativeY": 2.687500124797225,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 69,
+          "centreNativeY": 2.729166792705655,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 70,
+          "centreNativeY": 2.770833460614085,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 71,
+          "centreNativeY": 2.8125001285225153,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 72,
+          "centreNativeY": 2.8541667964309454,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 73,
+          "centreNativeY": 2.8958334643393755,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 74,
+          "centreNativeY": 2.9375001322478056,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 75,
+          "centreNativeY": 2.9791668001562357,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 76,
+          "centreNativeY": 3.020833468064666,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 77,
+          "centreNativeY": 3.062500135973096,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 78,
+          "centreNativeY": 3.104166803881526,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 79,
+          "centreNativeY": 3.145833471789956,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 80,
+          "centreNativeY": 3.187500139698386,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 81,
+          "centreNativeY": 3.2291668076068163,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 82,
+          "centreNativeY": 3.2708334755152464,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 83,
+          "centreNativeY": 3.3125001434236765,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 84,
+          "centreNativeY": 3.3541668113321066,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 85,
+          "centreNativeY": 3.3958334792405367,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 86,
+          "centreNativeY": 3.437500147148967,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 87,
+          "centreNativeY": 3.479166815057397,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 88,
+          "centreNativeY": 3.520833482965827,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 89,
+          "centreNativeY": 3.562500150874257,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 90,
+          "centreNativeY": 3.604166818782687,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 91,
+          "centreNativeY": 3.6458334866911173,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 92,
+          "centreNativeY": 3.6875001545995474,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 93,
+          "centreNativeY": 3.7291668225079775,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 94,
+          "centreNativeY": 3.7708334904164076,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 95,
+          "centreNativeY": 3.8125001583248377,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        }
+      ]
+    },
+    {
+      "frame": 61,
+      "sourceAge": 2,
+      "input": {
+        "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-surface-source\\stage-2026-10-31-v5\\fields\\flame-061.f32",
+        "bytes": 884736,
+        "sha256": "6aa821700a1f0c6913a701d69c2d58b8d02eb4d748ab2f85272b4a180020807e"
+      },
+      "resolution": [
+        48,
+        48,
+        96
+      ],
+      "voxelSize": [
+        0.0416666679084301,
+        0.0416666679084301,
+        0.0416666679084301
+      ],
+      "scalarCentreOriginBlender": [
+        -0.979166666045785,
+        -0.979166666045785,
+        -0.14583329297602177
+      ],
+      "positiveVoxels": 1877,
+      "maxF": 0.9669991731643677,
+      "sumF": 692.7828289052413,
+      "thresholds": [
+        {
+          "threshold": 0,
+          "strictlyGreater": true,
+          "voxels": 1877,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.7291667331010103,
+          "sumF": 692.7828289052413
+        },
+        {
+          "threshold": 0.0001,
+          "strictlyGreater": true,
+          "voxels": 1877,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.7291667331010103,
+          "sumF": 692.7828289052413
+        },
+        {
+          "threshold": 0.01,
+          "strictlyGreater": true,
+          "voxels": 1823,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.7291667331010103,
+          "sumF": 692.4553898219019
+        },
+        {
+          "threshold": 0.1,
+          "strictlyGreater": true,
+          "voxels": 1393,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.6875000651925802,
+          "sumF": 671.5131531879306
+        },
+        {
+          "threshold": 0.5,
+          "strictlyGreater": true,
+          "voxels": 617,
+          "minNativeY": 0.02083337865769863,
+          "maxNativeY": 0.4375000577419996,
+          "sumF": 473.33761233091354
+        }
+      ],
+      "weightedQuantiles": [
+        {
+          "q": 0.5,
+          "centreNativeY": 0.10416671447455883
+        },
+        {
+          "q": 0.9,
+          "centreNativeY": 0.3125000540167093
+        },
+        {
+          "q": 0.95,
+          "centreNativeY": 0.3958333898335695
+        },
+        {
+          "q": 0.99,
+          "centreNativeY": 0.5208333935588598
+        }
+      ],
+      "fractionsAbove": [
+        {
+          "height": 0,
+          "sumFFraction": 1
+        },
+        {
+          "height": 0.1,
+          "sumFFraction": 0.5076938129356131
+        },
+        {
+          "height": 0.25,
+          "sumFFraction": 0.14429566826490653
+        },
+        {
+          "height": 0.5,
+          "sumFFraction": 0.014908632656721751
+        },
+        {
+          "height": 1,
+          "sumFFraction": 0
+        }
+      ],
+      "layers": [
+        {
+          "z": 0,
+          "centreNativeY": -0.14583329297602177,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 1,
+          "centreNativeY": -0.10416662506759167,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 2,
+          "centreNativeY": -0.06249995715916157,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 3,
+          "centreNativeY": -0.020833289250731468,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 4,
+          "centreNativeY": 0.02083337865769863,
+          "sumF": 216.6549474550411,
+          "maxF": 0.9669991731643677,
+          "positiveVoxels": 284
+        },
+        {
+          "z": 5,
+          "centreNativeY": 0.06250004656612873,
+          "sumF": 124.40632550697774,
+          "maxF": 0.9612779021263123,
+          "positiveVoxels": 254
+        },
+        {
+          "z": 6,
+          "centreNativeY": 0.10416671447455883,
+          "sumF": 91.53719870891655,
+          "maxF": 0.9577414393424988,
+          "positiveVoxels": 223
+        },
+        {
+          "z": 7,
+          "centreNativeY": 0.14583338238298893,
+          "sumF": 72.91804149141535,
+          "maxF": 0.8665579557418823,
+          "positiveVoxels": 199
+        },
+        {
+          "z": 8,
+          "centreNativeY": 0.18750005029141903,
+          "sumF": 50.617590949404985,
+          "maxF": 0.7592489123344421,
+          "positiveVoxels": 173
+        },
+        {
+          "z": 9,
+          "centreNativeY": 0.22916671819984913,
+          "sumF": 36.68316353415139,
+          "maxF": 0.7437275648117065,
+          "positiveVoxels": 138
+        },
+        {
+          "z": 10,
+          "centreNativeY": 0.27083338610827923,
+          "sumF": 27.014832614688203,
+          "maxF": 0.7451418042182922,
+          "positiveVoxels": 121
+        },
+        {
+          "z": 11,
+          "centreNativeY": 0.3125000540167093,
+          "sumF": 16.29371329303831,
+          "maxF": 0.6680791974067688,
+          "positiveVoxels": 93
+        },
+        {
+          "z": 12,
+          "centreNativeY": 0.3541667219251394,
+          "sumF": 11.59775561816059,
+          "maxF": 0.6284486055374146,
+          "positiveVoxels": 65
+        },
+        {
+          "z": 13,
+          "centreNativeY": 0.3958333898335695,
+          "sumF": 14.027470409870148,
+          "maxF": 0.5794870257377625,
+          "positiveVoxels": 68
+        },
+        {
+          "z": 14,
+          "centreNativeY": 0.4375000577419996,
+          "sumF": 12.679293478373438,
+          "maxF": 0.5308729410171509,
+          "positiveVoxels": 72
+        },
+        {
+          "z": 15,
+          "centreNativeY": 0.4791667256504297,
+          "sumF": 8.024051138170762,
+          "maxF": 0.42906585335731506,
+          "positiveVoxels": 66
+        },
+        {
+          "z": 16,
+          "centreNativeY": 0.5208333935588598,
+          "sumF": 5.557439658092335,
+          "maxF": 0.3467778265476227,
+          "positiveVoxels": 53
+        },
+        {
+          "z": 17,
+          "centreNativeY": 0.5625000614672899,
+          "sumF": 2.580093832744751,
+          "maxF": 0.38443538546562195,
+          "positiveVoxels": 39
+        },
+        {
+          "z": 18,
+          "centreNativeY": 0.60416672937572,
+          "sumF": 1.1145421201363206,
+          "maxF": 0.3745171129703522,
+          "positiveVoxels": 13
+        },
+        {
+          "z": 19,
+          "centreNativeY": 0.6458333972841501,
+          "sumF": 0.8179656052961946,
+          "maxF": 0.3054077625274658,
+          "positiveVoxels": 9
+        },
+        {
+          "z": 20,
+          "centreNativeY": 0.6875000651925802,
+          "sumF": 0.20628146268427372,
+          "maxF": 0.10837671905755997,
+          "positiveVoxels": 4
+        },
+        {
+          "z": 21,
+          "centreNativeY": 0.7291667331010103,
+          "sumF": 0.052122028078883886,
+          "maxF": 0.03302421420812607,
+          "positiveVoxels": 3
+        },
+        {
+          "z": 22,
+          "centreNativeY": 0.7708334010094404,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 23,
+          "centreNativeY": 0.8125000689178705,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 24,
+          "centreNativeY": 0.8541667368263006,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 25,
+          "centreNativeY": 0.8958334047347307,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 26,
+          "centreNativeY": 0.9375000726431608,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 27,
+          "centreNativeY": 0.9791667405515909,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 28,
+          "centreNativeY": 1.020833408460021,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 29,
+          "centreNativeY": 1.0625000763684511,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 30,
+          "centreNativeY": 1.1041667442768812,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 31,
+          "centreNativeY": 1.1458334121853113,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 32,
+          "centreNativeY": 1.1875000800937414,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 33,
+          "centreNativeY": 1.2291667480021715,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 34,
+          "centreNativeY": 1.2708334159106016,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 35,
+          "centreNativeY": 1.3125000838190317,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 36,
+          "centreNativeY": 1.3541667517274618,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 37,
+          "centreNativeY": 1.395833419635892,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 38,
+          "centreNativeY": 1.437500087544322,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 39,
+          "centreNativeY": 1.4791667554527521,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 40,
+          "centreNativeY": 1.5208334233611822,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 41,
+          "centreNativeY": 1.5625000912696123,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 42,
+          "centreNativeY": 1.6041667591780424,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 43,
+          "centreNativeY": 1.6458334270864725,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 44,
+          "centreNativeY": 1.6875000949949026,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 45,
+          "centreNativeY": 1.7291667629033327,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 46,
+          "centreNativeY": 1.7708334308117628,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 47,
+          "centreNativeY": 1.812500098720193,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 48,
+          "centreNativeY": 1.854166766628623,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 49,
+          "centreNativeY": 1.895833434537053,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 50,
+          "centreNativeY": 1.9375001024454832,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 51,
+          "centreNativeY": 1.9791667703539133,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 52,
+          "centreNativeY": 2.0208334382623434,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 53,
+          "centreNativeY": 2.0625001061707735,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 54,
+          "centreNativeY": 2.1041667740792036,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 55,
+          "centreNativeY": 2.1458334419876337,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 56,
+          "centreNativeY": 2.187500109896064,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 57,
+          "centreNativeY": 2.229166777804494,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 58,
+          "centreNativeY": 2.270833445712924,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 59,
+          "centreNativeY": 2.312500113621354,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 60,
+          "centreNativeY": 2.354166781529784,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 61,
+          "centreNativeY": 2.3958334494382143,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 62,
+          "centreNativeY": 2.4375001173466444,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 63,
+          "centreNativeY": 2.4791667852550745,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 64,
+          "centreNativeY": 2.5208334531635046,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 65,
+          "centreNativeY": 2.5625001210719347,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 66,
+          "centreNativeY": 2.604166788980365,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 67,
+          "centreNativeY": 2.645833456888795,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 68,
+          "centreNativeY": 2.687500124797225,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 69,
+          "centreNativeY": 2.729166792705655,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 70,
+          "centreNativeY": 2.770833460614085,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 71,
+          "centreNativeY": 2.8125001285225153,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 72,
+          "centreNativeY": 2.8541667964309454,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 73,
+          "centreNativeY": 2.8958334643393755,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 74,
+          "centreNativeY": 2.9375001322478056,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 75,
+          "centreNativeY": 2.9791668001562357,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 76,
+          "centreNativeY": 3.020833468064666,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 77,
+          "centreNativeY": 3.062500135973096,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 78,
+          "centreNativeY": 3.104166803881526,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 79,
+          "centreNativeY": 3.145833471789956,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 80,
+          "centreNativeY": 3.187500139698386,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 81,
+          "centreNativeY": 3.2291668076068163,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 82,
+          "centreNativeY": 3.2708334755152464,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 83,
+          "centreNativeY": 3.3125001434236765,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 84,
+          "centreNativeY": 3.3541668113321066,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 85,
+          "centreNativeY": 3.3958334792405367,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 86,
+          "centreNativeY": 3.437500147148967,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 87,
+          "centreNativeY": 3.479166815057397,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 88,
+          "centreNativeY": 3.520833482965827,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 89,
+          "centreNativeY": 3.562500150874257,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 90,
+          "centreNativeY": 3.604166818782687,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 91,
+          "centreNativeY": 3.6458334866911173,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 92,
+          "centreNativeY": 3.6875001545995474,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 93,
+          "centreNativeY": 3.7291668225079775,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 94,
+          "centreNativeY": 3.7708334904164076,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        },
+        {
+          "z": 95,
+          "centreNativeY": 3.8125001583248377,
+          "sumF": 0,
+          "maxF": 0,
+          "positiveVoxels": 0
+        }
+      ]
+    }
+  ],
+  "scope": "Original unmodified dense scalar-centre F values only. Thresholds are declared diagnostic summaries, never production cutoffs. Point-weighted sums/quantiles are not radiance, rendered coverage or calibrated flame dimensions. Positive reconstructed interpolation can extend about one voxel beyond positive centres, clipped at the game floor. No VDB identity/alignment/heat mapping, shader or native appearance/cost acceptance is established."
+}
