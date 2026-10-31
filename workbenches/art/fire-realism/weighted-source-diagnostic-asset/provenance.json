@@ -1,0 +1,347 @@
+{
+  "version": 1,
+  "proposalCommit": "58eff160c3501d014624d017c1254d1ffe4596b3",
+  "sourceOnly": true,
+  "authoredWeightedCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+  "executedCandidateCommit": "39ba942b7162462c3da8431967917dc2696c3a88",
+  "assessedReaderCommit": "8da674f755d7787dcf4721151d9688a1a72fb494",
+  "reviewedDriverCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745",
+  "baselineSources": [
+    {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/assemble.mjs",
+      "bytes": 17033,
+      "sha256": "9b6e962d5d879a237a21e3c86b87be0c2236adff2a3647306f06b6e6088e4a6a",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/audit-node.mjs",
+      "bytes": 8760,
+      "sha256": "18408d5b49bbbb98ba381ca5ed1d93d0a59e9af6b6cd528e035d818dc91c4548",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/plan.json",
+      "bytes": 14964,
+      "sha256": "432be44b1f2f1f53f334cd970ab40194de69d463da2d7a0aa970490cfb28d89f",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/capacity.mjs",
+      "bytes": 2305,
+      "sha256": "0a217980719d6678e90a72d9df85b8bfb7153410e5febbf7c862bc3965d126ca",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    }
+  ],
+  "adaptations": {
+    "assemble.mjs": [
+      {
+        "before": "Original cfe01 fields",
+        "after": "Original weighted01 fields",
+        "occurrences": 1
+      },
+      {
+        "before": "from '../half-rate-diagnostic-asset/eligibility.mjs'",
+        "after": "from './eligibility.mjs'",
+        "occurrences": 1
+      },
+      {
+        "before": "from '../half-rate-diagnostic-asset/factory-source.mjs'",
+        "after": "from './factory-source.mjs'",
+        "occurrences": 1
+      },
+      {
+        "before": "from './capacity.mjs'",
+        "after": "from '../half-rate-diagnostic-asset-02/capacity.mjs'",
+        "occurrences": 1
+      },
+      {
+        "before": "fire-realism/half-rate-diagnostic-asset')",
+        "after": "fire-realism/weighted-source-diagnostic-asset')",
+        "occurrences": 1
+      },
+      {
+        "before": "fluid-contact-half-rate-diagnostic-02",
+        "after": "fluid-contact-weighted-source-diagnostic-01",
+        "occurrences": 1
+      },
+      {
+        "before": "phase:'half-rate-exact-derivation'",
+        "after": "phase:'weighted-source-exact-derivation'",
+        "occurrences": 1
+      },
+      {
+        "before": "authoringCommit:plan.authoringCommit,sourceProposalCommit:",
+        "after": "authoringCommit:plan.authoringCommit,executionCommit:plan.executionCommit,readerCommit:plan.readerCommit,sourceProposalCommit:",
+        "occurrences": 1
+      },
+      {
+        "before": "tinderbox-exact-half-rate-terminal-diagnostic",
+        "after": "tinderbox-exact-weighted-source-terminal-diagnostic",
+        "occurrences": 1
+      },
+      {
+        "before": "0.1.0-half-rate-failed-terminal-diagnostic",
+        "after": "0.1.0-weighted-source-failed-terminal-diagnostic",
+        "occurrences": 1
+      },
+      {
+        "before": "createHalfRateContactDiagnostic",
+        "after": "createWeightedSourceContactDiagnostic",
+        "occurrences": 1
+      },
+      {
+        "before": "prepareHalfRateDiagnosticData",
+        "after": "prepareWeightedSourceDiagnosticData",
+        "occurrences": 1
+      },
+      {
+        "before": "Exact failed cfe01 source, independently byte-reconciled",
+        "after": "Exact failed weighted01 source with original/evaluated200 plus reload50 memberships, independently byte-reconciled",
+        "occurrences": 1
+      }
+    ],
+    "audit-node.mjs": [
+      {
+        "before": "fire-realism/half-rate-diagnostic-asset",
+        "after": "fire-realism/weighted-source-diagnostic-asset",
+        "occurrences": 1
+      },
+      {
+        "before": "fluid-contact-half-rate-diagnostic-02",
+        "after": "fluid-contact-weighted-source-diagnostic-01",
+        "occurrences": 2
+      },
+      {
+        "before": "prepareHalfRateDiagnosticData",
+        "after": "prepareWeightedSourceDiagnosticData",
+        "occurrences": 4
+      },
+      {
+        "before": "createHalfRateContactDiagnostic",
+        "after": "createWeightedSourceContactDiagnostic",
+        "occurrences": 1
+      },
+      {
+        "before": "halfRateDiagnosticPayloadEvidence",
+        "after": "weightedSourceDiagnosticPayloadEvidence",
+        "occurrences": 3
+      },
+      {
+        "before": "auditHalfRateDiagnosticRGBA",
+        "after": "auditWeightedSourceDiagnosticRGBA",
+        "occurrences": 2
+      },
+      {
+        "before": "fire-realism/half-rate-assessment/assessment-01/hashes.json",
+        "after": "fire-realism/weighted-source-assessment/assessment-01/hashes.json",
+        "occurrences": 1
+      },
+      {
+        "before": "172625",
+        "after": "172673",
+        "occurrences": 2
+      },
+      {
+        "before": "5447a6b8ce8b42f5043fe8bd4ced73c5e1260b1c44802197e91e87285f192f81",
+        "after": "5c965f13654c304a18892d327509648b9cc67f22bb2ce3b7fe43688cfbebcb82",
+        "occurrences": 2
+      },
+      {
+        "before": "1a3bb8d2af92f6a9c7017ad37a49b76977baa227d94ae3a0cded781229a2c77e",
+        "after": "7efd87ecfd54502d99ff837ae95fb50866458ece0f2e420014094dbc91269d56",
+        "occurrences": 1
+      },
+      {
+        "before": "cfe01-half-rate-terminal-diagnostic",
+        "after": "weighted01-source-terminal-diagnostic",
+        "occurrences": 1
+      },
+      {
+        "before": "precommit-half-rate-diagnostic-579-RGBA-pass-raw-gates-false",
+        "after": "precommit-weighted-source-diagnostic-579-RGBA-pass-raw-gates-false",
+        "occurrences": 1
+      },
+      {
+        "before": "['auditWeightedSourceDiagnosticRGBA','createWeightedSourceContactDiagnostic','weightedSourceDiagnosticPayloadEvidence','prepareWeightedSourceDiagnosticData']",
+        "after": "['auditWeightedSourceDiagnosticRGBA','createWeightedSourceContactDiagnostic','prepareWeightedSourceDiagnosticData','weightedSourceDiagnosticPayloadEvidence']",
+        "occurrences": 1
+      }
+    ]
+  },
+  "unchangedRuntimeCopies": {
+    "source-clock.js": {
+      "path": "assets/art/fire-realism/fluid-contact/source-clock.js",
+      "bytes": 4595,
+      "sha256": "be2dd16af7f08a692500f2109283a9c6cdfaf4bf01f5450a2332cff0d09dab22"
+    },
+    "support.js": {
+      "path": "assets/art/fire-realism/fluid-contact/support.js",
+      "bytes": 4425,
+      "sha256": "00dcdf56c9581f43e49af67d0156e708127dc2229c8bcb4f14ec34b3961bef56"
+    },
+    "space.js": {
+      "path": "assets/art/fire-realism/fluid-contact/space.js",
+      "bytes": 1588,
+      "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
+    },
+    "shaders.js": {
+      "path": "assets/art/fire-realism/fluid-contact/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    "floor.js": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/templates/floor.js",
+      "bytes": 485,
+      "sha256": "87133f3da6493d56ba4924c64fc1ab7669a5ffeca69f47d1249c9ad9fad738cb"
+    },
+    "emission-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    "normalization-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-transfer.js",
+      "bytes": 2462,
+      "sha256": "3f6e1442d4eebc4542f5dd474ee42d6175fdef7341a25eebac601cf2509a8742"
+    },
+    "payload/codec.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/codec.js",
+      "bytes": 6418,
+      "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+    },
+    "payload/rgba-decode.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/rgba-decode.js",
+      "bytes": 616,
+      "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+    },
+    "payload/payload.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/payload.js",
+      "bytes": 15109,
+      "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+    }
+  },
+  "unchangedPureSources": {
+    "oldAssembly": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/assemble.mjs",
+      "bytes": 17522,
+      "sha256": "37b283eb7efd70eaa635a3c825944f46f093d4645321b68eb68a36eba4b8f235"
+    },
+    "factoryTemplate": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/templates/index.js.txt",
+      "bytes": 12540,
+      "sha256": "ca0092ea356f3447ccb96ea284cb1f8729e92c271852b98f8db78578acbe1271"
+    },
+    "readFields": {
+      "path": "workbenches/art/fire-realism/mantaflow-contact/read-fields.mjs",
+      "bytes": 6054,
+      "sha256": "4f37ccc374eb45593e24292616d994844d27568bfaea5f8a708a5ea477da4329"
+    },
+    "deriveSupport": {
+      "path": "workbenches/art/fire-realism/mantaflow-contact/derive-support.mjs",
+      "bytes": 3817,
+      "sha256": "f7527e84f6ba7112062aefdae90a6b18d2521d3ca338cee7f77150b37a292fb0"
+    },
+    "oldNodeAudit": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/audit-node.mjs",
+      "bytes": 8297,
+      "sha256": "aeeb01cc3728952d9101b30082fa69e288848d60f84e538326b939d0c0a78b38"
+    },
+    "assessmentReader": {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/assess.mjs",
+      "bytes": 14228,
+      "sha256": "11ed1fd13fa6eebe683f7fb600563b0d81d5f7417d05183b18212daf3cdc0732"
+    },
+    "assessmentMetrics": {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/metrics.mjs",
+      "bytes": 8547,
+      "sha256": "a02ed4f1133ae83af1146ac90242b396968dcf9044dd90358ca8f6ed46f39c34"
+    },
+    "eligibility": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/eligibility.mjs",
+      "bytes": 5659,
+      "sha256": "0cf2a42877871c014fc2532a4e534c28eeb25ef33c962a73588700a1ee95fb3e",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "pairSupport": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/support.mjs",
+      "bytes": 3371,
+      "sha256": "6433564e677964a83a526434347ec55cbc1d37b94abbe45639b4c3cde4bcce7c",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "factorySource": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/factory-source.mjs",
+      "bytes": 3486,
+      "sha256": "37ff7c29982610b467b9fd8aeb394c2b4a7a332ffe9ee0acf5834eb88ab3b9ab",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "capacity": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/capacity.mjs",
+      "bytes": 2305,
+      "sha256": "0a217980719d6678e90a72d9df85b8bfb7153410e5febbf7c862bc3965d126ca",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    "baseDriver": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/assemble.mjs",
+      "bytes": 17033,
+      "sha256": "9b6e962d5d879a237a21e3c86b87be0c2236adff2a3647306f06b6e6088e4a6a",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    "baseAudit": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/audit-node.mjs",
+      "bytes": 8760,
+      "sha256": "18408d5b49bbbb98ba381ca5ed1d93d0a59e9af6b6cd528e035d818dc91c4548",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    "weightedIdentity": {
+      "path": "workbenches/art/fire-realism/weighted-source-assessment/identity.mjs",
+      "bytes": 12011,
+      "sha256": "76bb347993280dfa0b3e3b9bf6c2d1f398a14dc627c9264e42dc7cd95c80163a",
+      "gitCommit": "8da674f755d7787dcf4721151d9688a1a72fb494"
+    },
+    "weightedIdentitySpec": {
+      "path": "workbenches/art/fire-realism/weighted-source-assessment/inputs.json",
+      "bytes": 10800,
+      "sha256": "74b2a0cd4b34b02683cd30130fc5dcfa866a00e8795331077b3d34a425944062",
+      "gitCommit": "8da674f755d7787dcf4721151d9688a1a72fb494"
+    },
+    "weightedMetrics": {
+      "path": "workbenches/art/fire-realism/weighted-source-assessment/metrics.mjs",
+      "bytes": 8547,
+      "sha256": "a02ed4f1133ae83af1146ac90242b396968dcf9044dd90358ca8f6ed46f39c34",
+      "gitCommit": "8da674f755d7787dcf4721151d9688a1a72fb494"
+    }
+  },
+  "factoryIdentityOnlyEdits": 10,
+  "factoryBaselineBytes": 13701,
+  "factoryBaselineSha256": "df2fd1c2db58b72c96f59d20d3a15ce583d982ac0d34028af53bb94b62866a43",
+  "capacityAdaptation": {
+    "canonicalBytes": 6418,
+    "canonicalSha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0",
+    "adaptedBytes": 6418,
+    "adaptedSha256": "63a7123c6baba70b3c217f92b27be46f609ef43a186ef0245efd098ca1f27bd9",
+    "oldSparseBytes": 100663296,
+    "sparseBytes": 102760448,
+    "change": "Exactly one generated-local PAYLOAD_LIMITS literal96->98; other constants/functions/format unchanged"
+  },
+  "futureClocks": {
+    "sourceAges": [
+      0,
+      6.4
+    ],
+    "sampleCount": 193,
+    "frameIntervals": 192,
+    "burnSeconds": 3.2,
+    "tailSeconds": 3.2,
+    "densityTailFadeSeconds": 0.4,
+    "actualAAllFourLiveRequired": true,
+    "knownUngainedFResidualFrame97": 29,
+    "frame98Zero": true
+  },
+  "rights": "Original Tinderbox authoring/export/source; reused pinned original repository utilities. No new imagery or third-party source intake. Existing upstream licenses/provenance retained.",
+  "limits": [
+    "Source-only assertions and fixtures are not measured new geometry or payload results.",
+    "Raw gates and admission remain false. Existing accepted assessment does not prove visible folds, physical radiance, effective input-grid weighting or VDB/F32 identity.",
+    "All optics are original R31 fixed6F*G, thin0/smoke-only. No exponent, extinction, gain or clock experiment.",
+    "Later180s host/generation, strict579RGBA audit, upper-overhang decision and native motion are separate architect releases."
+  ]
+}

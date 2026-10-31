@@ -1,0 +1,407 @@
+{
+  "version": 1,
+  "status": "source-only-weighted-diagnostic-not-generated-or-admitted",
+  "proposalCommit": "58eff160c3501d014624d017c1254d1ffe4596b3",
+  "authoringCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+  "readerCommit": "8da674f755d7787dcf4721151d9688a1a72fb494",
+  "reuseArchitectCommit": "58eff160c3501d014624d017c1254d1ffe4596b3",
+  "study": {
+    "id": "weighted01-source-terminal-diagnostic",
+    "manifestSha256": "7efd87ecfd54502d99ff837ae95fb50866458ece0f2e420014094dbc91269d56",
+    "validationSha256": "5b7035d9a1d81b0f0f80c92a71f1985459aa4ef00092d5c3c8c090a9d2f3ff6d",
+    "assessmentSha256": "b2f088c27a68c5920966ab00141143548b515d02a079779fab9cdedcb40ffe41",
+    "hashLedgerSha256": "5c965f13654c304a18892d327509648b9cc67f22bb2ce3b7fe43688cfbebcb82",
+    "terminalProofSha256": "a362292ec940fb04a000fed29cc324839763d5f8b7d3a103c998462db42401f3",
+    "weightProfileSha256": "e15ae7b81b312bae3dd339da75b62c4d8687ba9e15bf2e83c45292ec23b0c29b",
+    "rawGatesPassed": false,
+    "admitted": false
+  },
+  "sourcePins": {
+    "rawManifestSha256": "7efd87ecfd54502d99ff837ae95fb50866458ece0f2e420014094dbc91269d56",
+    "settingsSha256": "c60d9a76c306d04a21fc97733a00d69c45e4e8dd280de6d5c141af518bdd6a40",
+    "prepareReportSha256": "ccdb1e67e8611c138e6763dc6b69744865281b9e77150210c3a095c483da21e3",
+    "sourceBlendSha256": "362fe0bd5731a7aaf5043c39f49d15ceb602e67b4acb11a747f8bd42bdb03162"
+  },
+  "authoringPins": {
+    "author.py": "3ac3ead888f74cde7f2e2ce0df91d5c7f7fdbd9b7c93dd7cb452dcf2d3c20565",
+    "grid.py": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+    "policy.py": "8d53f011c8cc8c69ab03a0757194b5912501784c16730744e56d58919bdd0449",
+    "state.py": "4115d7cef15fce3ea3e8061333b64949493fd8dca15ee5339b0153bd89093e08",
+    "surface.py": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152",
+    "supervisor.py": "c886c8c7545c2d65201b3011d430d6e3fefd64142fdbfd6452476b1d1963548c",
+    "winjob.py": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee",
+    "settings.json": "c60d9a76c306d04a21fc97733a00d69c45e4e8dd280de6d5c141af518bdd6a40",
+    "helper-provenance.json": "14d2fe947729c27c9675db003c3a1bc0b7fd04d3cbe6f8129d3a0e93065c70a4",
+    "weights.py": "07ea08cb90b6f205dad4dc07f8004f74b3ada87dc6041104fa5a85e9cc202107"
+  },
+  "inputs": {
+    "manifest": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/raw-manifest.json",
+      "bytes": 4836989,
+      "sha256": "7efd87ecfd54502d99ff837ae95fb50866458ece0f2e420014094dbc91269d56"
+    },
+    "validation": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/raw-validation.json",
+      "bytes": 5134,
+      "sha256": "5b7035d9a1d81b0f0f80c92a71f1985459aa4ef00092d5c3c8c090a9d2f3ff6d"
+    },
+    "prepared": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/prepare.json",
+      "bytes": 214114,
+      "sha256": "ccdb1e67e8611c138e6763dc6b69744865281b9e77150210c3a095c483da21e3"
+    },
+    "settings": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/settings.json",
+      "bytes": 9676,
+      "sha256": "c60d9a76c306d04a21fc97733a00d69c45e4e8dd280de6d5c141af518bdd6a40"
+    },
+    "scene": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/surface-source.blend",
+      "bytes": 474375,
+      "sha256": "362fe0bd5731a7aaf5043c39f49d15ceb602e67b4acb11a747f8bd42bdb03162"
+    },
+    "assessment": {
+      "path": "artifacts/qa/fire-realism/weighted-source-assessment/assessment-01/report.json",
+      "bytes": 796304,
+      "sha256": "b2f088c27a68c5920966ab00141143548b515d02a079779fab9cdedcb40ffe41"
+    },
+    "ledger": {
+      "path": "artifacts/qa/fire-realism/weighted-source-assessment/assessment-01/hashes.json",
+      "bytes": 172673,
+      "sha256": "5c965f13654c304a18892d327509648b9cc67f22bb2ce3b7fe43688cfbebcb82"
+    },
+    "proof": {
+      "path": "artifacts/qa/fire-realism/weighted-source-assessment/host-assessment-01/owner-terminal.json",
+      "bytes": 8751,
+      "sha256": "a362292ec940fb04a000fed29cc324839763d5f8b7d3a103c998462db42401f3"
+    },
+    "identity": {
+      "path": "workbenches/art/fire-realism/weighted-source-assessment/inputs.json",
+      "bytes": 10800,
+      "sha256": "74b2a0cd4b34b02683cd30130fc5dcfa866a00e8795331077b3d34a425944062"
+    },
+    "reloadedWeights": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/bake-weight-recheck.json",
+      "bytes": 12182,
+      "sha256": "fa99a5281369aa0e348fdae3f6801ec3dae282ef7b3bbd9275e9de2c65ae8daf"
+    },
+    "reloadedState": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/bake-state-recheck.json",
+      "bytes": 654,
+      "sha256": "e803cb07137a1de0dc6d5ca8edb23339c7a15838fc82a75b64de33a886a3c32a"
+    }
+  },
+  "extraInputPins": [
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/author.py",
+      "bytes": 24872,
+      "sha256": "3ac3ead888f74cde7f2e2ce0df91d5c7f7fdbd9b7c93dd7cb452dcf2d3c20565"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/grid.py",
+      "bytes": 2971,
+      "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/policy.py",
+      "bytes": 13317,
+      "sha256": "8d53f011c8cc8c69ab03a0757194b5912501784c16730744e56d58919bdd0449"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/state.py",
+      "bytes": 5675,
+      "sha256": "4115d7cef15fce3ea3e8061333b64949493fd8dca15ee5339b0153bd89093e08"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/surface.py",
+      "bytes": 5950,
+      "sha256": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/supervisor.py",
+      "bytes": 29706,
+      "sha256": "c886c8c7545c2d65201b3011d430d6e3fefd64142fdbfd6452476b1d1963548c"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/winjob.py",
+      "bytes": 22699,
+      "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/settings.json",
+      "bytes": 9676,
+      "sha256": "c60d9a76c306d04a21fc97733a00d69c45e4e8dd280de6d5c141af518bdd6a40"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/helper-provenance.json",
+      "bytes": 11415,
+      "sha256": "14d2fe947729c27c9675db003c3a1bc0b7fd04d3cbe6f8129d3a0e93065c70a4"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/source-snapshot/weights.py",
+      "bytes": 16518,
+      "sha256": "07ea08cb90b6f205dad4dc07f8004f74b3ada87dc6041104fa5a85e9cc202107"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-contact/stage2-2026-10-31-v2-preparation-correction/contact.blend",
+      "bytes": 482801,
+      "sha256": "17c82deb2746aa37f0b88abd6f75f0143014c0ab7b6c915b739004da333fc7c2"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-contact/stage2-2026-10-31-v2-preparation-correction/preserved-cache-hashes.json",
+      "bytes": 54984,
+      "sha256": "520e8d6e2ef170ce34e596728f341b9344fd72b222aced6c55d733c2ef421f32"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/prepare.json",
+      "bytes": 107511,
+      "sha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/surface-source.blend",
+      "bytes": 472919,
+      "sha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
+      "bytes": 4626878,
+      "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-contact/evidence/raw-export-summary.json",
+      "bytes": 4125,
+      "sha256": "efdd642efa5ee6d126232f6bd31b43cd74c758826168499cb7742172de5699b3"
+    }
+  ],
+  "grid": {
+    "resolution": [
+      48,
+      48,
+      96
+    ],
+    "origin": [
+      -0.979166666045785,
+      -0.979166666045785,
+      -0.14583329297602177
+    ],
+    "spacing": [
+      0.0416666679084301,
+      0.0416666679084301,
+      0.0416666679084301
+    ]
+  },
+  "domainBounds": {
+    "min": [
+      -1.0,
+      -1.0,
+      -0.16666662693023682
+    ],
+    "max": [
+      1.0,
+      1.0,
+      3.8333334922790527
+    ]
+  },
+  "contactBandHeight": 0.2733333358168602,
+  "translation": [
+    5.5,
+    0,
+    8.5
+  ],
+  "assetRoot": "assets/art/fire-realism/fluid-contact-weighted-source-diagnostic-01",
+  "runtimeCopies": {
+    "source-clock.js": {
+      "path": "assets/art/fire-realism/fluid-contact/source-clock.js",
+      "bytes": 4595,
+      "sha256": "be2dd16af7f08a692500f2109283a9c6cdfaf4bf01f5450a2332cff0d09dab22"
+    },
+    "support.js": {
+      "path": "assets/art/fire-realism/fluid-contact/support.js",
+      "bytes": 4425,
+      "sha256": "00dcdf56c9581f43e49af67d0156e708127dc2229c8bcb4f14ec34b3961bef56"
+    },
+    "space.js": {
+      "path": "assets/art/fire-realism/fluid-contact/space.js",
+      "bytes": 1588,
+      "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
+    },
+    "shaders.js": {
+      "path": "assets/art/fire-realism/fluid-contact/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    "floor.js": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/templates/floor.js",
+      "bytes": 485,
+      "sha256": "87133f3da6493d56ba4924c64fc1ab7669a5ffeca69f47d1249c9ad9fad738cb"
+    },
+    "emission-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    "normalization-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-transfer.js",
+      "bytes": 2462,
+      "sha256": "3f6e1442d4eebc4542f5dd474ee42d6175fdef7341a25eebac601cf2509a8742"
+    },
+    "payload/codec.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/codec.js",
+      "bytes": 6418,
+      "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+    },
+    "payload/rgba-decode.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/rgba-decode.js",
+      "bytes": 616,
+      "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+    },
+    "payload/payload.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/payload.js",
+      "bytes": 15109,
+      "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+    }
+  },
+  "reuseSources": {
+    "oldAssembly": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/assemble.mjs",
+      "bytes": 17522,
+      "sha256": "37b283eb7efd70eaa635a3c825944f46f093d4645321b68eb68a36eba4b8f235"
+    },
+    "factoryTemplate": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/templates/index.js.txt",
+      "bytes": 12540,
+      "sha256": "ca0092ea356f3447ccb96ea284cb1f8729e92c271852b98f8db78578acbe1271"
+    },
+    "readFields": {
+      "path": "workbenches/art/fire-realism/mantaflow-contact/read-fields.mjs",
+      "bytes": 6054,
+      "sha256": "4f37ccc374eb45593e24292616d994844d27568bfaea5f8a708a5ea477da4329"
+    },
+    "deriveSupport": {
+      "path": "workbenches/art/fire-realism/mantaflow-contact/derive-support.mjs",
+      "bytes": 3817,
+      "sha256": "f7527e84f6ba7112062aefdae90a6b18d2521d3ca338cee7f77150b37a292fb0"
+    },
+    "oldNodeAudit": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/audit-node.mjs",
+      "bytes": 8297,
+      "sha256": "aeeb01cc3728952d9101b30082fa69e288848d60f84e538326b939d0c0a78b38"
+    },
+    "assessmentReader": {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/assess.mjs",
+      "bytes": 14228,
+      "sha256": "11ed1fd13fa6eebe683f7fb600563b0d81d5f7417d05183b18212daf3cdc0732"
+    },
+    "assessmentMetrics": {
+      "path": "workbenches/art/fire-realism/half-rate-assessment/metrics.mjs",
+      "bytes": 8547,
+      "sha256": "a02ed4f1133ae83af1146ac90242b396968dcf9044dd90358ca8f6ed46f39c34"
+    },
+    "eligibility": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/eligibility.mjs",
+      "bytes": 5659,
+      "sha256": "0cf2a42877871c014fc2532a4e534c28eeb25ef33c962a73588700a1ee95fb3e",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "pairSupport": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/support.mjs",
+      "bytes": 3371,
+      "sha256": "6433564e677964a83a526434347ec55cbc1d37b94abbe45639b4c3cde4bcce7c",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "factorySource": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/factory-source.mjs",
+      "bytes": 3486,
+      "sha256": "37ff7c29982610b467b9fd8aeb394c2b4a7a332ffe9ee0acf5834eb88ab3b9ab",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "capacity": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/capacity.mjs",
+      "bytes": 2305,
+      "sha256": "0a217980719d6678e90a72d9df85b8bfb7153410e5febbf7c862bc3965d126ca",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    "baseDriver": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/assemble.mjs",
+      "bytes": 17033,
+      "sha256": "9b6e962d5d879a237a21e3c86b87be0c2236adff2a3647306f06b6e6088e4a6a",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    "baseAudit": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset-02/audit-node.mjs",
+      "bytes": 8760,
+      "sha256": "18408d5b49bbbb98ba381ca5ed1d93d0a59e9af6b6cd528e035d818dc91c4548",
+      "gitCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745"
+    },
+    "weightedIdentity": {
+      "path": "workbenches/art/fire-realism/weighted-source-assessment/identity.mjs",
+      "bytes": 12011,
+      "sha256": "76bb347993280dfa0b3e3b9bf6c2d1f398a14dc627c9264e42dc7cd95c80163a",
+      "gitCommit": "8da674f755d7787dcf4721151d9688a1a72fb494"
+    },
+    "weightedIdentitySpec": {
+      "path": "workbenches/art/fire-realism/weighted-source-assessment/inputs.json",
+      "bytes": 10800,
+      "sha256": "74b2a0cd4b34b02683cd30130fc5dcfa866a00e8795331077b3d34a425944062",
+      "gitCommit": "8da674f755d7787dcf4721151d9688a1a72fb494"
+    },
+    "weightedMetrics": {
+      "path": "workbenches/art/fire-realism/weighted-source-assessment/metrics.mjs",
+      "bytes": 8547,
+      "sha256": "a02ed4f1133ae83af1146ac90242b396968dcf9044dd90358ca8f6ed46f39c34",
+      "gitCommit": "8da674f755d7787dcf4721151d9688a1a72fb494"
+    }
+  },
+  "codecReview": {
+    "sourceCommit": "cb0198abeda25d3ad6fabb392612f252e2b86bf1",
+    "architectApprovalCommit": "49f37e650cdc4ce0850678232fae71ff11fdb60a",
+    "modules": {
+      "codec.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/codec.js",
+        "bytes": 6418,
+        "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+      },
+      "rgba-decode.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/rgba-decode.js",
+        "bytes": 616,
+        "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+      },
+      "payload.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/payload.js",
+        "bytes": 15109,
+        "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+      }
+    }
+  },
+  "opticalControlCommit": "930553024d54297e4aeefb1cb33273de595a8eeb",
+  "nativeComparisonUnderlay": {
+    "architectCommit": "51309f1319eabb2159efd50eec2d1279675b497a",
+    "heat": "native-heat-v1",
+    "char": "char-v1",
+    "scope": "Both old/new future source comparison uses R30 common underlay; not R29 or fine-ash."
+  },
+  "limits": {
+    "sourceBytes": 67108864,
+    "sparseBytes": 102760448,
+    "compressedBytes": 100663296,
+    "chunks": 256,
+    "chunkCompressedBytes": 2097152,
+    "chunkSparseBytes": 4194304,
+    "seconds": 180,
+    "qaBytes": 67108864,
+    "generationOldSpaceMiB": 512,
+    "polledRssBytes": 536870912
+  },
+  "scope": "Future exact weighted193/579 read-only lossless assembly and192 measured D/F pairs. Source only now; failed raw gate/admission remain false; no effective input-grid, VDB bit identity, native overhang/quality/cost proof.",
+  "baseArtistSourceCommit": "5de1fb2a53276259ce8205cacfbbc6a8d6fb1745",
+  "localCapacityAdaptation": {
+    "canonicalBytes": 6418,
+    "canonicalSha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0",
+    "adaptedBytes": 6418,
+    "adaptedSha256": "63a7123c6baba70b3c217f92b27be46f609ef43a186ef0245efd098ca1f27bd9",
+    "oldSparseBytes": 100663296,
+    "sparseBytes": 102760448,
+    "change": "Exactly one generated-local PAYLOAD_LIMITS literal96->98; other constants/functions/format unchanged"
+  },
+  "executionCommit": "39ba942b7162462c3da8431967917dc2696c3a88"
+}
