@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "status": "color-only-trial-source-checks-pass-native-review-pending",
+  "proposalCommit": "388d6e65b79c1d47612933fab573f7dab59a079c",
+  "baseArtistCommit": "8fabe9cc3de35009ff47eb88802dc4ec5bdfcdc5",
+  "factoryModule": "assets/art/fire-realism/fluid-surface-color-trial.js",
+  "factoryExport": "createFluidSurfaceColorTrial",
+  "prepareExport": "prepareFluidSurfaceContactData",
+  "evidenceExport": "fluidSurfaceContactPayloadEvidence",
+  "auditExport": "auditFluidSurfaceContactRGBA",
+  "bootstrapFunctionsAreExactOriginalReexports": true,
+  "manifest": {
+    "path": "assets/art/fire-realism/fluid-surface-color-trial.manifest.json",
+    "bytes": 69848,
+    "sha256": "2a0bbd31d73e8237c68c70d58698d2996041fc3f56964b56ce20cd94939c3d96"
+  },
+  "newSources": [
+    {
+      "path": "assets/art/fire-realism/fluid-surface-color-trial.js",
+      "bytes": 2215,
+      "sha256": "96f653b9181f17d57280741d1388e14929706c7a568753dcc5b19ddceb35d902"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-color-transfer.js",
+      "bytes": 474,
+      "sha256": "7413785aaaaf3454d739aef4658ecd571cb1d1a7a3ba49a10db0c87cc4ea0e4f"
+    }
+  ],
+  "control": {
+    "artistCommit": "df0fd0ddafb37fd4fa729989a6064d8a1436665a",
+    "manifestSha256": "1cbe16364217f7ce0d576749166be556d8e54c95c028cb27e378bcb9be225759",
+    "originalAllTree": "0b7ae31e02d5fdae2c81590c45ac9d6aa0742f02",
+    "rejectedSootTrialAlsoUnchanged": true,
+    "sootTrialNotStacked": true
+  },
+  "oneDifference": {
+    "control": "smoothstep(.20,.82,heat)",
+    "trial": "pow(heat,4.)",
+    "exponentDefault": 4,
+    "physicalConstant": false,
+    "unchanged": [
+      "heat=clamp(T/3) itself",
+      "smoke F*heat coupling and1.8coefficient",
+      "ivory pow8 and RGBendpoints",
+      "flame extinction6F",
+      "opacity/integration/samples",
+      "source/mask/depth/floor/geometry",
+      "clocks/light/outputassociation/actor"
+    ],
+    "construction": "Validate exact one occurrence in every expected unique owned material before any mutation; originaleffect disposed on mismatch"
+  },
+  "closure": {
+    "runtimeFiles": 61,
+    "sourceBytes": 10659161,
+    "resources": 193,
+    "gzipBytes": 93875221,
+    "sparseBytes": 98362125,
+    "newDataCopies": 0,
+    "newStores": 0
+  },
+  "archivedDiagnosis": {
+    "index": {
+      "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-index.json",
+      "bytes": 19697,
+      "sha256": "34a367389f81d74606ceade27e29360d0d64510ec546ec6508e5c8b887c10c2d"
+    },
+    "sourceAndResultArchives": [
+      {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-temperature-gradient.py",
+        "bytes": 3132,
+        "sha256": "8ffbdf3392ab027f7d36b2753f33c76d6cf87467462aa4dd66cef40667700547"
+      },
+      {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-temperature-gradient-results.json",
+        "bytes": 5980,
+        "sha256": "4d2665bec7210ebae8f43e2813631ffd98b99eea2b4f9ee7bf0a159cf7e8522d"
+      },
+      {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-path-depth.py",
+        "bytes": 2384,
+        "sha256": "3dbbdfa63dd974ca873b03170f134e14be9e0d3d160969fbc43122fa29a48c30"
+      },
+      {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-path-depth-results.json",
+        "bytes": 9517,
+        "sha256": "57863159d2ba0029848a2ffecd224ca721fe87a3900bfa3cb4823376a3b83fcc"
+      }
+    ],
+    "fieldInputs": 20,
+    "cameraInputs": 4,
+    "rawRerun": false,
+    "recordingCaveat": "Earlier source/results existed only in read-only inline tool transcripts. These canonical-LF command and parsed-numeric archives were created now; no earlier filesystem/rawstdin/stdout-byte claim. DiagnosticF>.001 subset/CPU/gradient/path limitations are explicit in index."
+  },
+  "checks": [
+    {
+      "name": "transfer",
+      "arguments": [
+        "node",
+        "workbenches\\art\\fire-realism\\color-transfer-trial\\check-transfer.mjs"
+      ],
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/transfer.log",
+        "bytes": 249,
+        "sha256": "90c74b1d164f59cd60191835c65d4fdb52532b4ce01e27b3425e25603da740d1"
+      }
+    },
+    {
+      "name": "integration",
+      "arguments": [
+        "node",
+        "--experimental-vm-modules",
+        "workbenches\\art\\fire-realism\\color-transfer-trial\\check-integration.mjs"
+      ],
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/integration.log",
+        "bytes": 499,
+        "sha256": "e37038c2c1d8e249b22375043a14b96b13cdf1f01d8597219fc4babdaf357ec4"
+      }
+    },
+    {
+      "name": "closure",
+      "arguments": [
+        "node",
+        "workbenches\\art\\fire-realism\\color-transfer-trial\\check-closure.mjs"
+      ],
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/closure.log",
+        "bytes": 500,
+        "sha256": "c6ab0caffb8fcb2b7612edef0edeef9be6f60e782130f0807717cbb3f1422b30"
+      }
+    },
+    {
+      "name": "diagnosisArchive",
+      "arguments": [
+        "node",
+        "workbenches\\art\\fire-realism\\color-transfer-trial\\check-evidence.mjs"
+      ],
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosisArchive.log",
+        "bytes": 224,
+        "sha256": "6bf3bc7d608ea5132b19507d771b2b6e4ba0348de3aa29c37b7c63032b16d635"
+      }
+    }
+  ],
+  "testScope": "Real shared Three with synthetic2voxel fields; CPU transfer, source/closure/metadata proofs only. No GPU/native render/full-data reload, implementer score or quality/cost acceptance.",
+  "resources": "Original twoRGBA slots/material/geometry/light lifecycle; no new buffers/textures/materialclones/store/fetch/async perframe. Shared document-lived original sparse data unchanged.",
+  "helpersRetained": false,
+  "bake": false,
+  "descriptorChange": false,
+  "publication": false,
+  "nextGate": "Root exact intake/source verification, matchednativebothviews30/60/120/180,F0tail and fullmotion; independentUI decision. Reject palette-only/weakupperfire/filledbed/pop, no power sweep or gain rescue."
+}

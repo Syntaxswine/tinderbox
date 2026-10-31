@@ -1,0 +1,727 @@
+{
+  "version": 1,
+  "createdAtUtc": "2026-10-31T10:38:13.647105+00:00",
+  "status": "archive-created-now-from-existing-inline-source-and-result-transcripts-no-raw-rerun",
+  "originalRecords": [
+    {
+      "toolOutputChunk": "b44a77",
+      "kind": "Earlier inline PowerShell\u2192Python read-only temperature/lookup/trilinear-gradient analysis",
+      "sourceArchive": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-temperature-gradient.py",
+      "numericTranscriptArchive": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-temperature-gradient-results.json"
+    },
+    {
+      "toolOutputChunk": "d7621a",
+      "kind": "Earlier inline PowerShell\u2192Python read-only path optical-depth quadrature",
+      "sourceArchive": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-path-depth.py",
+      "numericTranscriptArchive": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-path-depth-results.json"
+    }
+  ],
+  "archivalConventions": [
+    "Original commands had no pre-existing filesystem source/results files. These archives were created after explicit root request; no backdated filesystem evidence is claimed.",
+    "Source is command-text transcript with canonical LF. Original pipeline stdin byte encoding/line endings were not separately captured.",
+    "Results are parsed numerical transcript records, preserving the displayed numerical values; these JSON files are not claimed to be original stdout bytes.",
+    "No raw analysis or bake was rerun to prepare this archive. Only source syntax, archive integrity and input metadata bindings are checked."
+  ],
+  "archives": [
+    {
+      "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-temperature-gradient.py",
+      "bytes": 3132,
+      "sha256": "8ffbdf3392ab027f7d36b2753f33c76d6cf87467462aa4dd66cef40667700547"
+    },
+    {
+      "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-temperature-gradient-results.json",
+      "bytes": 5980,
+      "sha256": "4d2665bec7210ebae8f43e2813631ffd98b99eea2b4f9ee7bf0a159cf7e8522d"
+    },
+    {
+      "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-path-depth.py",
+      "bytes": 2384,
+      "sha256": "3dbbdfa63dd974ca873b03170f134e14be9e0d3d160969fbc43122fa29a48c30"
+    },
+    {
+      "path": "workbenches/art/fire-realism/color-transfer-trial/evidence/diagnosis-path-depth-results.json",
+      "bytes": 9517,
+      "sha256": "57863159d2ba0029848a2ffecd224ca721fe87a3900bfa3cb4823376a3b83fcc"
+    }
+  ],
+  "rawManifest": {
+    "sourceTree": "assigned-art-QA",
+    "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
+    "bytes": 4626878,
+    "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+  },
+  "fieldInputAuthority": "Each source script verified selected field hashes before reading. Listed field input hashes below are copied from the independently pinned original raw manifest (root all579 audit); they were not unnecessarily rehashed/reprocessed in this archival step.",
+  "fieldInputs": [
+    {
+      "frame": 15,
+      "channel": "temperature",
+      "path": "fields/temperature-015.f32",
+      "bytes": 884736,
+      "sha256": "8a77185c939769858339541df45d1af7c4b65039ca9987daa491f5a979c82dac"
+    },
+    {
+      "frame": 15,
+      "channel": "flame",
+      "path": "fields/flame-015.f32",
+      "bytes": 884736,
+      "sha256": "12218cd674d92bb2f7b1cdeabbdbfef81e552391f4088f29774bcfb8081588b4"
+    },
+    {
+      "frame": 16,
+      "channel": "temperature",
+      "path": "fields/temperature-016.f32",
+      "bytes": 884736,
+      "sha256": "e83ac1c2c984a23e12e8cad2884ff59796bc26f43094d3190a4e4b41dbb29e24"
+    },
+    {
+      "frame": 16,
+      "channel": "flame",
+      "path": "fields/flame-016.f32",
+      "bytes": 884736,
+      "sha256": "5de94e2ca43b00c29a4a96cce24996225289ed4382155d017a5f6302c59724c7"
+    },
+    {
+      "frame": 30,
+      "channel": "density",
+      "path": "fields/density-030.f32",
+      "bytes": 884736,
+      "sha256": "1773dd1afe0e6ee2e0428f777159b4c8d35533ab14af2ff9b0a3fcbb63a14ce3"
+    },
+    {
+      "frame": 30,
+      "channel": "temperature",
+      "path": "fields/temperature-030.f32",
+      "bytes": 884736,
+      "sha256": "5b016a1dc8d909ebb64c939a7cddbed728c134ed3cd82e23bede946c74ee1844"
+    },
+    {
+      "frame": 30,
+      "channel": "flame",
+      "path": "fields/flame-030.f32",
+      "bytes": 884736,
+      "sha256": "8095a6a4e588c66da4db77e2623caac440a486b0387373b034bed50f47c3c61b"
+    },
+    {
+      "frame": 31,
+      "channel": "density",
+      "path": "fields/density-031.f32",
+      "bytes": 884736,
+      "sha256": "05a75fd7bdbda2c80265ef78b1118dddd5336922da9d2b54b377c5979e80c4ee"
+    },
+    {
+      "frame": 31,
+      "channel": "temperature",
+      "path": "fields/temperature-031.f32",
+      "bytes": 884736,
+      "sha256": "305739343338a5c97e0cff6f1eae73a7a5ee6b5afec9961db63fee6c0fa2167d"
+    },
+    {
+      "frame": 31,
+      "channel": "flame",
+      "path": "fields/flame-031.f32",
+      "bytes": 884736,
+      "sha256": "0a6b0ed18edd488203d933cd215baef47c5b34e154d1747eaa0c1cafa087d8ff"
+    },
+    {
+      "frame": 60,
+      "channel": "density",
+      "path": "fields/density-060.f32",
+      "bytes": 884736,
+      "sha256": "c01678e5cdbb132dd40941318f46e4a5764eb1621b8a4eb73cc20bb7a68257b8"
+    },
+    {
+      "frame": 60,
+      "channel": "temperature",
+      "path": "fields/temperature-060.f32",
+      "bytes": 884736,
+      "sha256": "ef77d299d96b419f8691c32fe2c71940bf115451cc0113e8ab6fc4ce78138350"
+    },
+    {
+      "frame": 60,
+      "channel": "flame",
+      "path": "fields/flame-060.f32",
+      "bytes": 884736,
+      "sha256": "a168e851a0e28e1c349744b9b0d59c71a3788b682167586a88b87ac7ea9ff523"
+    },
+    {
+      "frame": 61,
+      "channel": "density",
+      "path": "fields/density-061.f32",
+      "bytes": 884736,
+      "sha256": "c594e5200499e4d31c656d62479ac1392901ee96f175f86f55dbabf03f8b2896"
+    },
+    {
+      "frame": 61,
+      "channel": "temperature",
+      "path": "fields/temperature-061.f32",
+      "bytes": 884736,
+      "sha256": "8615163b783b9eecd53857fcbb0ed8a462b75a5dffe3f2c650d94a345c702668"
+    },
+    {
+      "frame": 61,
+      "channel": "flame",
+      "path": "fields/flame-061.f32",
+      "bytes": 884736,
+      "sha256": "6aa821700a1f0c6913a701d69c2d58b8d02eb4d748ab2f85272b4a180020807e"
+    },
+    {
+      "frame": 90,
+      "channel": "temperature",
+      "path": "fields/temperature-090.f32",
+      "bytes": 884736,
+      "sha256": "cbd8c2cdf0e37370c69551128b9266a224bb02259c851131d00f55bade7793e7"
+    },
+    {
+      "frame": 90,
+      "channel": "flame",
+      "path": "fields/flame-090.f32",
+      "bytes": 884736,
+      "sha256": "1db11054989c0d5faab2bac3943613b2c19445b7e6e6f773469ad454925474f8"
+    },
+    {
+      "frame": 91,
+      "channel": "temperature",
+      "path": "fields/temperature-091.f32",
+      "bytes": 884736,
+      "sha256": "e9d0134e36a4dc83555dcd8a3f197cd0efd02139845b68ee8d4fd6b0cebf0421"
+    },
+    {
+      "frame": 91,
+      "channel": "flame",
+      "path": "fields/flame-091.f32",
+      "bytes": 884736,
+      "sha256": "ba4369f0f67e19e27f9fcbfd7e402474d6dbedd2dc02b86b8d2e37dc2b3fa54d"
+    }
+  ],
+  "cameraInputs": [
+    {
+      "sourceTree": "architect-primary-QA",
+      "path": "artifacts/qa/fire-realism/render-round-21-surface-v5/reference-match-contact-oblique-bright-frame60.json",
+      "bytes": 111845,
+      "sha256": "d034849ec8a6108739b2ae3ef6a1c2348259881fc9a1283c89dc471123ef6fa0",
+      "camera": {
+        "kind": "orthographic",
+        "position": [
+          15.7,
+          5.9,
+          20.25
+        ],
+        "quaternion": [
+          -0.1450600842005848,
+          0.3363496922280498,
+          0.05251899408222013,
+          0.9290146456167454
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.7682212795973759,
+          0,
+          -0.6401843996644798,
+          0,
+          -0.19516365870176675,
+          0.9523986544646219,
+          -0.2341963904421201,
+          0,
+          0.6097107608496923,
+          0.3048553804248461,
+          0.7316529130196309,
+          0,
+          15.7,
+          5.9,
+          20.25,
+          1
+        ],
+        "matrixWorld": [
+          0.7682212795973759,
+          0,
+          -0.6401843996644798,
+          0,
+          -0.19516365870176675,
+          0.9523986544646219,
+          -0.2341963904421201,
+          0,
+          0.6097107608496923,
+          0.3048553804248461,
+          0.7316529130196309,
+          0,
+          15.7,
+          5.9,
+          20.25,
+          1
+        ],
+        "matrixWorldInverse": [
+          0.768221279597376,
+          -0.19516365870176677,
+          0.6097107608496924,
+          0,
+          2.775557561562892e-17,
+          0.9523986544646221,
+          0.3048553804248462,
+          0,
+          -0.6401843996644798,
+          -0.23419639044212015,
+          0.731652913019631,
+          0,
+          0.9026600035269143,
+          2.1873942867294005,
+          -26.18707717849429,
+          1.0000000000000002
+        ],
+        "projectionMatrix": [
+          0.15625,
+          0,
+          0,
+          0,
+          0,
+          0.25,
+          0,
+          0,
+          0,
+          0,
+          -0.0066688896298766264,
+          0,
+          0,
+          0,
+          -1.0006668889629877,
+          1
+        ],
+        "projectionMatrixInverse": [
+          6.4,
+          0,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          -149.95,
+          0,
+          0,
+          0,
+          -150.04999999999998,
+          1
+        ],
+        "frustum": {
+          "left": -6.4,
+          "right": 6.4,
+          "top": 4,
+          "bottom": -4,
+          "near": 0.1,
+          "far": 300,
+          "zoom": 1
+        }
+      }
+    },
+    {
+      "sourceTree": "architect-primary-QA",
+      "path": "artifacts/qa/fire-realism/render-round-21-surface-v5/reference-match-contact-isometric-bright-frame60.json",
+      "bytes": 111876,
+      "sha256": "7e2eb2cb2ad417d429961f7c33a33c574d2ee15cfc3b259505f5f4fb8e9bf715",
+      "camera": {
+        "kind": "orthographic",
+        "position": [
+          15.7,
+          14.9,
+          20.25
+        ],
+        "quaternion": [
+          -0.33595596370118586,
+          0.3179541062479456,
+          0.12163283488179585,
+          0.8782051185527759
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.7682212795973757,
+          -1.3877787807814457e-16,
+          -0.6401843996644798,
+          0,
+          -0.4272743127091111,
+          0.7446780878644506,
+          -0.5127291752509333,
+          0,
+          0.4767312946227961,
+          0.6674238124719147,
+          0.5720775535473552,
+          0,
+          15.7,
+          14.9,
+          20.25,
+          1
+        ],
+        "matrixWorld": [
+          0.7682212795973757,
+          -1.3877787807814457e-16,
+          -0.6401843996644798,
+          0,
+          -0.4272743127091111,
+          0.7446780878644506,
+          -0.5127291752509333,
+          0,
+          0.4767312946227961,
+          0.6674238124719147,
+          0.5720775535473552,
+          0,
+          15.7,
+          14.9,
+          20.25,
+          1
+        ],
+        "matrixWorldInverse": [
+          0.768221279597376,
+          -0.42727431270911115,
+          0.4767312946227962,
+          0,
+          -5.551115123125784e-17,
+          0.7446780878644506,
+          0.6674238124719147,
+          0,
+          -0.6401843996644799,
+          -0.5127291752509335,
+          0.5720775535473552,
+          0,
+          0.9026600035269186,
+          5.995268999184133,
+          -29.013866590743376,
+          1
+        ],
+        "projectionMatrix": [
+          0.15625,
+          0,
+          0,
+          0,
+          0,
+          0.25,
+          0,
+          0,
+          0,
+          0,
+          -0.0066688896298766264,
+          0,
+          0,
+          0,
+          -1.0006668889629877,
+          1
+        ],
+        "projectionMatrixInverse": [
+          6.4,
+          0,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          -149.95,
+          0,
+          0,
+          0,
+          -150.04999999999998,
+          1
+        ],
+        "frustum": {
+          "left": -6.4,
+          "right": 6.4,
+          "top": 4,
+          "bottom": -4,
+          "near": 0.1,
+          "far": 300,
+          "zoom": 1
+        }
+      }
+    },
+    {
+      "sourceTree": "architect-primary-QA",
+      "path": "artifacts/qa/fire-realism/render-round-21-surface-v5/reference-match-contact-oblique-bright-frame120.json",
+      "bytes": 111847,
+      "sha256": "c38d939b4513cd0e41b1703b2e993428a201316ae3c735994cbae9d8b01ecd15",
+      "camera": {
+        "kind": "orthographic",
+        "position": [
+          15.7,
+          5.9,
+          20.25
+        ],
+        "quaternion": [
+          -0.1450600842005848,
+          0.3363496922280498,
+          0.05251899408222013,
+          0.9290146456167454
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.7682212795973759,
+          0,
+          -0.6401843996644798,
+          0,
+          -0.19516365870176675,
+          0.9523986544646219,
+          -0.2341963904421201,
+          0,
+          0.6097107608496923,
+          0.3048553804248461,
+          0.7316529130196309,
+          0,
+          15.7,
+          5.9,
+          20.25,
+          1
+        ],
+        "matrixWorld": [
+          0.7682212795973759,
+          0,
+          -0.6401843996644798,
+          0,
+          -0.19516365870176675,
+          0.9523986544646219,
+          -0.2341963904421201,
+          0,
+          0.6097107608496923,
+          0.3048553804248461,
+          0.7316529130196309,
+          0,
+          15.7,
+          5.9,
+          20.25,
+          1
+        ],
+        "matrixWorldInverse": [
+          0.768221279597376,
+          -0.19516365870176677,
+          0.6097107608496924,
+          0,
+          2.775557561562892e-17,
+          0.9523986544646221,
+          0.3048553804248462,
+          0,
+          -0.6401843996644798,
+          -0.23419639044212015,
+          0.731652913019631,
+          0,
+          0.9026600035269143,
+          2.1873942867294005,
+          -26.18707717849429,
+          1.0000000000000002
+        ],
+        "projectionMatrix": [
+          0.15625,
+          0,
+          0,
+          0,
+          0,
+          0.25,
+          0,
+          0,
+          0,
+          0,
+          -0.0066688896298766264,
+          0,
+          0,
+          0,
+          -1.0006668889629877,
+          1
+        ],
+        "projectionMatrixInverse": [
+          6.4,
+          0,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          -149.95,
+          0,
+          0,
+          0,
+          -150.04999999999998,
+          1
+        ],
+        "frustum": {
+          "left": -6.4,
+          "right": 6.4,
+          "top": 4,
+          "bottom": -4,
+          "near": 0.1,
+          "far": 300,
+          "zoom": 1
+        }
+      }
+    },
+    {
+      "sourceTree": "architect-primary-QA",
+      "path": "artifacts/qa/fire-realism/render-round-21-surface-v5/reference-match-contact-isometric-bright-frame120.json",
+      "bytes": 111878,
+      "sha256": "bcc123cfd1f5ceb80ae8c4e6c5235746ad14bbb14d056a0abfe7b369c27e57d6",
+      "camera": {
+        "kind": "orthographic",
+        "position": [
+          15.7,
+          14.9,
+          20.25
+        ],
+        "quaternion": [
+          -0.33595596370118586,
+          0.3179541062479456,
+          0.12163283488179585,
+          0.8782051185527759
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.7682212795973757,
+          -1.3877787807814457e-16,
+          -0.6401843996644798,
+          0,
+          -0.4272743127091111,
+          0.7446780878644506,
+          -0.5127291752509333,
+          0,
+          0.4767312946227961,
+          0.6674238124719147,
+          0.5720775535473552,
+          0,
+          15.7,
+          14.9,
+          20.25,
+          1
+        ],
+        "matrixWorld": [
+          0.7682212795973757,
+          -1.3877787807814457e-16,
+          -0.6401843996644798,
+          0,
+          -0.4272743127091111,
+          0.7446780878644506,
+          -0.5127291752509333,
+          0,
+          0.4767312946227961,
+          0.6674238124719147,
+          0.5720775535473552,
+          0,
+          15.7,
+          14.9,
+          20.25,
+          1
+        ],
+        "matrixWorldInverse": [
+          0.768221279597376,
+          -0.42727431270911115,
+          0.4767312946227962,
+          0,
+          -5.551115123125784e-17,
+          0.7446780878644506,
+          0.6674238124719147,
+          0,
+          -0.6401843996644799,
+          -0.5127291752509335,
+          0.5720775535473552,
+          0,
+          0.9026600035269186,
+          5.995268999184133,
+          -29.013866590743376,
+          1
+        ],
+        "projectionMatrix": [
+          0.15625,
+          0,
+          0,
+          0,
+          0,
+          0.25,
+          0,
+          0,
+          0,
+          0,
+          -0.0066688896298766264,
+          0,
+          0,
+          0,
+          -1.0006668889629877,
+          1
+        ],
+        "projectionMatrixInverse": [
+          6.4,
+          0,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          -149.95,
+          0,
+          0,
+          0,
+          -150.04999999999998,
+          1
+        ],
+        "frustum": {
+          "left": -6.4,
+          "right": 6.4,
+          "top": 4,
+          "bottom": -4,
+          "near": 0.1,
+          "far": 300,
+          "zoom": 1
+        }
+      }
+    }
+  ],
+  "controlShader": {
+    "path": "assets/art/fire-realism/fluid-contact-surface/shaders.js",
+    "bytes": 5673,
+    "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+  },
+  "interpretationLimits": [
+    "The original positiveFlameCentres label counts diagnostic F>.001 centres, not all positive scalar values. Warm statistics are F-weighted over that subset. No cutoff, filtering or data edit was applied to runtime fields.",
+    "Gradient energy means a sum of squared analytic trilinear gradient components at cell midpoints where max(corners)>.001; it is not physical fluid energy or proof of useful visible flame sheets.",
+    "T is an uncalibrated solver proxy. No inspected F>.001 centre reaches T>=3; this is not a claim about every nonreacting grid location.",
+    "Canonical tick1 ignition at1/60s gives the idealized recorded source ages; analyses use exact half blends at inspected native ticks. GPU float timing/interpolation is not reproduced bit-for-bit.",
+    "Nine specified floor-anchored paths per view use5mm CPU-double quadrature and lowerA/taper. They omit native opaque depth/player legibility/GLSLband stepping/color/LDR composition; calculated opacity is not a rendered pixel.",
+    "No image editing, offscreen picture, appearance acceptance, performance result or implementer quality score is supplied."
+  ]
+}

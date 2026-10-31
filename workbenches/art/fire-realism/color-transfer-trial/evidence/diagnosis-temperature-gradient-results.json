@@ -1,0 +1,178 @@
+{
+  "format": "Parsed numerical transcript archive; not original stdout bytes",
+  "originalToolOutputChunk": "b44a77",
+  "records": [
+    {
+      "nativeTick": 30,
+      "sourceAge": 0.48333333333333334,
+      "rawFrames": [
+        15,
+        16
+      ],
+      "mix": 0.5,
+      "positiveFlameCentres": 2592,
+      "reactingTemperatureQuantiles": {
+        "0.1": 0.7682855129241943,
+        "0.5": 1.745634913444519,
+        "0.9": 2.752463936805725
+      },
+      "FweightedWarmPlateauFraction": 0.5106471290552361,
+      "FweightedTempClampFraction": 0.0,
+      "maxTempWhereFlame": 2.949275255203247,
+      "lookupControl": {
+        "FweightedMean": 0.88600518604617,
+        "FweightedStd": 0.2219359272412954,
+        "unweightedQuantiles": {
+          "0.1": 0.02307650415529638,
+          "0.5": 0.6707827581619243,
+          "0.9": 1
+        }
+      },
+      "lookupColorOnlyPower4Hypothesis": {
+        "FweightedMean": 0.47727560087318927,
+        "FweightedStd": 0.28963409263989554,
+        "unweightedQuantiles": {
+          "0.1": 0.004301357674442377,
+          "0.5": 0.11463801533355815,
+          "0.9": 0.7086006250436085
+        }
+      },
+      "analyticTrilinearCellMidpointGradient": {
+        "cells": 4048,
+        "basalEnergyFraction": 0.8794741247373542,
+        "verticalEnergyFraction": 0.6033988495762044,
+        "upperHorizontalEnergyFractionOfUpper": 0.7247470054091302
+      },
+      "scope": "Hash-checked fields, CPU-double scalar/gradient evidence; no camera ray integration, opaqueDepth, playerlegibility, LDR clamp or GPU/native acceptance"
+    },
+    {
+      "nativeTick": 60,
+      "sourceAge": 0.9833333333333333,
+      "rawFrames": [
+        30,
+        31
+      ],
+      "mix": 0.5,
+      "positiveFlameCentres": 1910,
+      "reactingTemperatureQuantiles": {
+        "0.1": 0.7881996631622314,
+        "0.5": 1.8504561185836792,
+        "0.9": 2.7964820861816406
+      },
+      "FweightedWarmPlateauFraction": 0.5324805932638166,
+      "FweightedTempClampFraction": 0.0,
+      "maxTempWhereFlame": 2.948079824447632,
+      "lookupControl": {
+        "FweightedMean": 0.9048623102083925,
+        "FweightedStd": 0.19576557601300992,
+        "unweightedQuantiles": {
+          "0.1": 0.028641965163373386,
+          "0.5": 0.7482042089031605,
+          "0.9": 1
+        }
+      },
+      "lookupColorOnlyPower4Hypothesis": {
+        "FweightedMean": 0.4941356798179029,
+        "FweightedStd": 0.28071835736043455,
+        "unweightedQuantiles": {
+          "0.1": 0.004764967697772813,
+          "0.5": 0.14475385691603299,
+          "0.9": 0.7550281566634199
+        }
+      },
+      "analyticTrilinearCellMidpointGradient": {
+        "cells": 2944,
+        "basalEnergyFraction": 0.8616736958684295,
+        "verticalEnergyFraction": 0.5976544915413984,
+        "upperHorizontalEnergyFractionOfUpper": 0.9087087572791536
+      },
+      "scope": "Hash-checked fields, CPU-double scalar/gradient evidence; no camera ray integration, opaqueDepth, playerlegibility, LDR clamp or GPU/native acceptance"
+    },
+    {
+      "nativeTick": 120,
+      "sourceAge": 1.9833333333333334,
+      "rawFrames": [
+        60,
+        61
+      ],
+      "mix": 0.5,
+      "positiveFlameCentres": 2142,
+      "reactingTemperatureQuantiles": {
+        "0.1": 0.7855108976364136,
+        "0.5": 1.8101508617401123,
+        "0.9": 2.7835445404052734
+      },
+      "FweightedWarmPlateauFraction": 0.5376559351467183,
+      "FweightedTempClampFraction": 0.0,
+      "maxTempWhereFlame": 2.94598650932312,
+      "lookupControl": {
+        "FweightedMean": 0.8974056244482407,
+        "FweightedStd": 0.2058597692858149,
+        "unweightedQuantiles": {
+          "0.1": 0.02785816852888109,
+          "0.5": 0.7190942389867248,
+          "0.9": 1
+        }
+      },
+      "lookupColorOnlyPower4Hypothesis": {
+        "FweightedMean": 0.4913526085630835,
+        "FweightedStd": 0.2853827309608238,
+        "unweightedQuantiles": {
+          "0.1": 0.004700281181558022,
+          "0.5": 0.13254827088367066,
+          "0.9": 0.7411526761003268
+        }
+      },
+      "analyticTrilinearCellMidpointGradient": {
+        "cells": 3314,
+        "basalEnergyFraction": 0.8944130013465249,
+        "verticalEnergyFraction": 0.6162336289679212,
+        "upperHorizontalEnergyFractionOfUpper": 0.8390417645878858
+      },
+      "scope": "Hash-checked fields, CPU-double scalar/gradient evidence; no camera ray integration, opaqueDepth, playerlegibility, LDR clamp or GPU/native acceptance"
+    },
+    {
+      "nativeTick": 180,
+      "sourceAge": 2.9833333333333334,
+      "rawFrames": [
+        90,
+        91
+      ],
+      "mix": 0.5,
+      "positiveFlameCentres": 1963,
+      "reactingTemperatureQuantiles": {
+        "0.1": 0.7780680656433105,
+        "0.5": 1.8009636998176575,
+        "0.9": 2.7601722478866577
+      },
+      "FweightedWarmPlateauFraction": 0.5292587843037787,
+      "FweightedTempClampFraction": 0.0,
+      "maxTempWhereFlame": 2.907540202140808,
+      "lookupControl": {
+        "FweightedMean": 0.9005065276057538,
+        "FweightedStd": 0.19852419304404564,
+        "unweightedQuantiles": {
+          "0.1": 0.025740981366362388,
+          "0.5": 0.7123357531577104,
+          "0.9": 1
+        }
+      },
+      "lookupColorOnlyPower4Hypothesis": {
+        "FweightedMean": 0.4787577083065577,
+        "FweightedStd": 0.2707681159568975,
+        "unweightedQuantiles": {
+          "0.1": 0.004524653690246639,
+          "0.5": 0.12987776851921323,
+          "0.9": 0.7165718132252673
+        }
+      },
+      "analyticTrilinearCellMidpointGradient": {
+        "cells": 3184,
+        "basalEnergyFraction": 0.9139773023608851,
+        "verticalEnergyFraction": 0.6087752224302759,
+        "upperHorizontalEnergyFractionOfUpper": 0.8388444773890071
+      },
+      "scope": "Hash-checked fields, CPU-double scalar/gradient evidence; no camera ray integration, opaqueDepth, playerlegibility, LDR clamp or GPU/native acceptance"
+    }
+  ]
+}
