@@ -12,6 +12,8 @@ The root has `data-fire-review-phase`; a child `<script type="application/json" 
 
 The fixtures are explicit diagnostics. Match contact uses exactly one combustible 1 m tile (four .5 m cells); torch uses the actual finite world-time inventory and repeated press; normal and powder gasoline use actual accepted movement and pouring; the jet meets a real rendered masonry obstacle resolved by the simulation. Street fire uses the full 51 by 47 m Catalogue Street with 9,588 cells and its eight native houses. The requested 32/128/512 seeds are actual initial wood fuel-cell ignitions. They are not promised steady burning populations: actual spread, burnout and current counts are retained and reported. This does not add fuel simulation to landmark visits.
 
+Review-only live/paused camera motion is an additive API described in [camera-sweep.md](camera-sweep.md). Its bounded path and separate per-draw evidence never execute during GPU trials.
+
 ## Frozen mode deliveries and quality receipts
 
 The initial flat `artistDelivery` is shorthand only for the reference delivery. Future optimization uses separate immutable closures:
