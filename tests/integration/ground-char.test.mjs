@@ -68,7 +68,7 @@ test('prototype coverage has known surface/gas/combined values and remains conti
       const source=cell({initialSurfaceFuel:1,surfaceFuel:1-c,phase:'burning'});art.update(frame([source]));const actual=art.uniforms.field.value.image.data[2];close(actual,c,3e-8);assert.ok(actual>=previous);previous=actual;
       const before=actual;art.update(frame([{...source,phase:'spent'}]));assert.equal(art.uniforms.field.value.image.data[2],before,'Phase alone cannot jump char');
     }
-    const shader=art.root.children[0].material.fragmentShader,newBranch=shader.split('}else{')[1].split('float scar=')[0];
+    const shader=art.root.children[0].material.fragmentShader,newBranch=shader.split('}else{')[1].split('\n        }')[0];
     assert.match(newBranch,/charWidth=mix\(\.29,\.50,state\.b\)/);
     assert.equal((newBranch.match(/mix\(length\(p\),segment\(p,/g)||[]).length,4,'All cardinal char connections interpolate with neighbor blue');
     assert.doesNotMatch(newBranch,/[<>]|\bstep\s*\(|\bif\s*\(/,'The new width/connection branch has no binary neighbor/coverage threshold');

@@ -1,5 +1,6 @@
 
 import {Resources,clamp} from './resources.js';
+import {CONSUMED_CHAR_SURFACE_GLSL} from '../../assets/art/fire-realism/consumed-char-surface.js';
 
 // Prototype soot/coverage scale: litres per square metre, unrelated to pouring.
 // Call only after classifyCharEvidence has validated the whole detached frame.
@@ -53,6 +54,7 @@ export function createGroundField(T){
       float noise(vec2 p){return fract(sin(dot(floor(p),vec2(127.1,311.7)))*43758.5453);}
       vec4 sampleCell(vec2 p){if(any(lessThan(p,vec2(0.)))||any(greaterThanEqual(p,grid)))return vec4(0.);return texture2D(field,(p+.5)/grid);}
       float segment(vec2 p,vec2 b){float t=clamp(dot(p,b)/max(dot(b,b),.00001),0.,1.);return length(p-b*t);}
+      ${CONSUMED_CHAR_SURFACE_GLSL}
       void main(){
         vec2 c=floor(fieldWorld.xz/cellSize),p=fract(fieldWorld.xz/cellSize)-.5;
         vec4 state=sampleCell(c);float d=length(p);
@@ -67,28 +69,33 @@ export function createGroundField(T){
         float edge=.27+.025*sin(fieldWorld.x*28.+sin(fieldWorld.z*17.))+.02*grain;
         float gas=(1.-smoothstep(edge-.025,edge+.035,d))*step(.001,state.r)*(.70+.12*state.r);
         float ds=length(p);
-        float charWidth;
+        float charWidth;float scar;vec3 charPigment;
         if(charVersion<.5){
           if(sampleCell(c+vec2(1,0)).b>.01)ds=min(ds,segment(p,vec2(.5,0)));
           if(sampleCell(c+vec2(-1,0)).b>.01)ds=min(ds,segment(p,vec2(-.5,0)));
           if(sampleCell(c+vec2(0,1)).b>.01)ds=min(ds,segment(p,vec2(0,.5)));
           if(sampleCell(c+vec2(0,-1)).b>.01)ds=min(ds,segment(p,vec2(0,-.5)));
           charWidth=state.b>.9?.50:.29;
+          scar=state.b*(1.-smoothstep(charWidth-.035,charWidth+.055,ds+.018*sin(fieldWorld.x*24.+fieldWorld.z*31.)));
+          charPigment=vec3(.065,.070,.058);
         }else{
           ds=min(ds,mix(length(p),segment(p,vec2(.5,0)),sampleCell(c+vec2(1,0)).b));
           ds=min(ds,mix(length(p),segment(p,vec2(-.5,0)),sampleCell(c+vec2(-1,0)).b));
           ds=min(ds,mix(length(p),segment(p,vec2(0,.5)),sampleCell(c+vec2(0,1)).b));
           ds=min(ds,mix(length(p),segment(p,vec2(0,-.5)),sampleCell(c+vec2(0,-1)).b));
           charWidth=mix(.29,.50,state.b);
+          // charVersion is a material uniform. Reach derivatives even on cold
+          // fragments, before any per-fragment eligibility/discard below.
+          scar=consumedCharScar(fieldWorld.xz,ds,charWidth,state.b,cellSize);
+          charPigment=consumedCharPigment(fieldWorld.xz,state.b);
         }
-        float scar=state.b*(1.-smoothstep(charWidth-.035,charWidth+.055,ds+.018*sin(fieldWorld.x*24.+fieldWorld.z*31.)));
         float warmth=state.g*(1.-smoothstep(.12,.56,length(p)));
         float a=max(gas,max(scar*.78,warmth*.42));
         if(a<.008)discard;
         vec3 col=vec3(.12,.145,.095)*(1.+.14*grain);
         float sheen=pow(max(0.,sin(fieldWorld.x*34.+fieldWorld.z*17.)),18.)*.045;
         col+=vec3(.18,.20,.08)*sheen;
-        col=mix(col,vec3(.065,.070,.058),scar);
+        col=mix(col,charPigment,scar);
         col=mix(col,vec3(.88,.28,.035),warmth*.52);
         gl_FragColor=vec4(col,a);
         #include <colorspace_fragment>

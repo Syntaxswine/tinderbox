@@ -63,5 +63,15 @@ test('actual injected art diagnostics expose the ground mode beside unchanged co
 
 test('actual public driver state, phase JSON and JPEG metadata carry the same bounded ground evidence',()=>{
   const fixture=fileURLToPath(new URL('../fixtures/fire-driver-results.mjs',import.meta.url));const result=spawnSync(process.execPath,['--experimental-vm-modules',fixture,'--ground-char'],{cwd:process.cwd(),encoding:'utf8',windowsHide:true,timeout:45000,maxBuffer:4*1024*1024});
-  assert.equal(result.error,undefined);assert.equal(result.status,0,result.stderr+'\n'+result.stdout);const proof=JSON.parse(result.stdout);assert.equal(proof.adapterSourceCount,21);assert.equal(proof.gpuEvidence,false);assert.equal(proof.burnoutFrames,4);assert.equal(proof.extraStateDraws,0);assert.equal(proof.extraStateUpdates,0);assert.equal(proof.captureDraws,4);assert.equal(proof.callbacksRemaining,0);
+  assert.equal(result.error,undefined);assert.equal(result.status,0,result.stderr+'\n'+result.stdout);const proof=JSON.parse(result.stdout);assert.equal(proof.adapterSourceCount,22);assert.equal(proof.gpuEvidence,false);assert.equal(proof.burnoutFrames,4);assert.equal(proof.extraStateDraws,0);assert.equal(proof.extraStateUpdates,0);assert.equal(proof.captureDraws,4);assert.equal(proof.callbacksRemaining,0);
+});
+
+test('actual driver rejects CRLF-only changes to the reviewed char source before creating art and retires initialization',()=>{
+  const fixture=fileURLToPath(new URL('../fixtures/fire-driver-results.mjs',import.meta.url));const result=spawnSync(process.execPath,['--experimental-vm-modules',fixture,'--char-source-crlf'],{cwd:process.cwd(),encoding:'utf8',windowsHide:true,timeout:45000,maxBuffer:4*1024*1024});
+  assert.equal(result.error,undefined);assert.equal(result.status,0,result.stderr+'\n'+result.stdout);const proof=JSON.parse(result.stdout);assert.equal(proof.crlfRejected,true);assert.equal(proof.artCreated,0);assert.equal(proof.rendererDisposed,1);assert.equal(proof.callbacksRemaining,0);assert.equal(proof.queriesRemaining,0);assert.equal(proof.gpuEvidence,false);
+});
+
+test('actual driver rejects a UTF8 BOM before text decoding can hide the changed char source and retires initialization',()=>{
+  const fixture=fileURLToPath(new URL('../fixtures/fire-driver-results.mjs',import.meta.url));const result=spawnSync(process.execPath,['--experimental-vm-modules',fixture,'--char-source-bom'],{cwd:process.cwd(),encoding:'utf8',windowsHide:true,timeout:45000,maxBuffer:4*1024*1024});
+  assert.equal(result.error,undefined);assert.equal(result.status,0,result.stderr+'\n'+result.stdout);const proof=JSON.parse(result.stdout);assert.equal(proof.bomRejected,true);assert.equal(proof.crlfRejected,false);assert.equal(proof.artCreated,0);assert.equal(proof.rendererDisposed,1);assert.equal(proof.callbacksRemaining,0);assert.equal(proof.queriesRemaining,0);assert.equal(proof.gpuEvidence,false);
 });

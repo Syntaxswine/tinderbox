@@ -212,11 +212,16 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/live-trace.js','tools/fire-realism/ground-char-evidence.js','tools/fire-realism/delivery.js','tools/fire-realism/resources.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','assets/art/fire-realism/consumed-char-surface.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/live-trace.js','tools/fire-realism/ground-char-evidence.js','tools/fire-realism/delivery.js','tools/fire-realism/resources.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
-      const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));
+      const rawChar=path==='assets/art/fire-realism/consumed-char-surface.js'?new Uint8Array(await response.arrayBuffer()):null;
+      const bytes=rawChar||new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));
       const sha=globalThis.crypto?.subtle?Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(n=>n.toString(16).padStart(2,'0')).join(''):null;
+      if(rawChar){
+        if(rawChar.length!==3402||rawChar.includes(13)||sha!=='0a8b2ea290e4aea955879b8f21da551d52e9515cd34aaeb1635b468cff84e468')throw Error('Reviewed consumed-char source bytes changed');
+        adapterHashes[path]={sha256:sha,bytes:rawChar.length,convention:'Raw LF reviewed consumed-char module; exact artist822bb47 bytes'};continue;
+      }
       const expected=controlManifest.files.find(f=>f.path===path)?.canonicalSha256;
       if(expected){controlHashes[path]={sha256:sha,expectedSha256:expected,verified:sha===expected};if(sha!==expected)throw Error('Published current-fire source changed: '+path);}
       else adapterHashes[path]={sha256:sha,convention:'Canonical LF owned source; actual local candidate, no source-pin claim'};
