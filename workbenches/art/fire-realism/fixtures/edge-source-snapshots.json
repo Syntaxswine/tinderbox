@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "sourceCommit": "aca30cd910a326918b1599ce6665803cf64739e0",
+  "sourceHashes": {
+    "tools/fire-realism/scenarios.js": "5aa6ea98b1c3be68cc7e17db550e30db47e7d17f704feec07f2307e8a8ec2ac5",
+    "src/simulation/index.js": "d20227af7a1bf8899eb13d25f301ca4305adaf254e030b6d862ef7b9bab4c41b",
+    "src/content/neighborhood.js": "5093fd091c774a52d47473b004f6f68bf1a9d2aca7115eb211c748f7833b8bf6",
+    "src/simulation/fixtures.js": "3496bdf75bca965ecb6512ceabc68b7dffddc20d1ae004d0f7b7c0edb4b630ea",
+    "src/simulation/config.js": "529df23c876ce0c49b2e90a351b738c0c481e2a4954c4f7d72767b0d0958b836",
+    "src/simulation/field.js": "1369fb81f0f626c4950b52d56f23b692d0883280ef0b16b01bd9ed204698ec1c",
+    "src/simulation/geometry.js": "0117a4c7c49534814bde1a554772085c02f67b33a2a291fa7dff998801108749",
+    "src/simulation/tools.js": "801b05b6f233e8a78557030ff703c6d0d593dc0ace22609d494cf6d9130d2334",
+    "src/simulation/discharge.js": "5659c2747a65ffc50132faed0d0cf5c33486129cd206752c324c6aa96953079d",
+    "src/content/characters.js": "a7726b9f72b6d5c80867c2892b5fb055f494bf35d2f7e7cf320c3de6c2c4b6ee",
+    "src/simulation/pickups.js": "75af74de48239c7ccce4444738e57955b1f25bb203809e1022115e86bdc6ee53",
+    "src/content/exterior-kit.js": "5436c54390480b298d5d4cbabca3e42988cebbe967c194b396ae45efb66d09de",
+    "src/content/exposition.js": "e5157a7017da153e859bdc2d1cb0bf529139876f28abd628757ee3c1175687f6",
+    "src/content/buildings.js": "3bb552ecf55b122a1d463cc2325c6eb22ac21612a642f82322eb5a8d1145c854",
+    "src/content/asset-scale.js": "6c8773c1317b6b6e0adead577cd819e21ce1ae93b0f20eed2ae0af5bffb3d0ea",
+    "src/content/housing-plans.js": "dc6a79a7ddd3164cc8bce65ce6988b43a98847227dbba7cf73f1da00d8ecdda6",
+    "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/hybrid-geometry.js": "3807e3d16e372ed4ee8fbae40f799d9ed3b8d14236cf102a2de556e0f5f18eed"
+  },
+  "frames": 60,
+  "fixedStep": "1/60 real second",
+  "fixtures": [
+    {
+      "scenario": "match-contact",
+      "frameIndex": 60,
+      "worldTime": 1.0000000000000013,
+      "playerTime": 1.0000000000000013,
+      "tick": 60,
+      "cells": [
+        {
+          "id": "cell:10,16",
+          "x": 5.25,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "grass",
+          "surfaceFuel": 0.0554166666666668,
+          "depositedFuel": 0,
+          "heat": 1.5000000000000064,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:11,16",
+          "x": 5.75,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "grass",
+          "surfaceFuel": 0.0554166666666668,
+          "depositedFuel": 0,
+          "heat": 1.5000000000000064,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:10,17",
+          "x": 5.25,
+          "y": 8.75,
+          "size": 0.5,
+          "material": "grass",
+          "surfaceFuel": 0.0554166666666668,
+          "depositedFuel": 0,
+          "heat": 1.5000000000000064,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:11,17",
+          "x": 5.75,
+          "y": 8.75,
+          "size": 0.5,
+          "material": "grass",
+          "surfaceFuel": 0.0554166666666668,
+          "depositedFuel": 0,
+          "heat": 1.5000000000000064,
+          "phase": "burning",
+          "intensity": 1
+        }
+      ],
+      "clocks": {
+        "active": 1.0000000000000013,
+        "player": 1.0000000000000013,
+        "world": 1.0000000000000013,
+        "playerScale": 1,
+        "worldScale": 1
+      },
+      "adaptation": "Only current authoritative burning cells retained for an offline art-source test; not a played capture or new simulation."
+    },
+    {
+      "scenario": "gasoline-front",
+      "frameIndex": 60,
+      "worldTime": 1.0000000000000013,
+      "playerTime": 1.0000000000000013,
+      "tick": 60,
+      "cells": [
+        {
+          "id": "cell:2,16",
+          "x": 1.25,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.002299999999999981,
+          "heat": 1.7000000000000064,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:3,16",
+          "x": 1.75,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.024699999999999916,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:4,16",
+          "x": 2.25,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.02709999999999993,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:5,16",
+          "x": 2.75,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.029499999999999943,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:6,16",
+          "x": 3.25,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.031899999999999956,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:7,16",
+          "x": 3.75,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.03429999999999997,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:8,16",
+          "x": 4.25,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.03669999999999998,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:9,16",
+          "x": 4.75,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.039099999999999996,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 0.6500000000000001
+        }
+      ],
+      "clocks": {
+        "active": 1.0000000000000013,
+        "player": 1.0000000000000013,
+        "world": 1.0000000000000013,
+        "playerScale": 1,
+        "worldScale": 1
+      },
+      "adaptation": "Only current authoritative burning cells retained for an offline art-source test; not a played capture or new simulation."
+    },
+    {
+      "scenario": "gasoline-front-powder",
+      "frameIndex": 60,
+      "worldTime": 0.35000000000000026,
+      "playerTime": 1.4999999999999987,
+      "tick": 60,
+      "cells": [
+        {
+          "id": "cell:2,16",
+          "x": 1.25,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.013804999999999977,
+          "heat": 1.895000000000005,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:3,16",
+          "x": 1.75,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.03621999999999997,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 1
+        },
+        {
+          "id": "cell:4,16",
+          "x": 2.25,
+          "y": 8.25,
+          "size": 0.5,
+          "material": "paving",
+          "surfaceFuel": 0,
+          "depositedFuel": 0.03863499999999999,
+          "heat": 1.5,
+          "phase": "burning",
+          "intensity": 0.7275000000000009
+        }
+      ],
+      "clocks": {
+        "active": 1.0000000000000013,
+        "player": 1.4999999999999987,
+        "world": 0.35000000000000026,
+        "playerScale": 1.5,
+        "worldScale": 0.35
+      },
+      "adaptation": "Only current authoritative burning cells retained for an offline art-source test; not a played capture or new simulation."
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import * as T from '../../../src/runtime/three.js';
 import {createFireRealism} from '../../../assets/art/fire-realism/index.js';
-import {prepareGroundSources, sampleGroundSources, groundDomainInterval, prepareSmokeRegions, GROUND_SOURCE_SIDE, GROUND_DOMAIN_HEIGHT} from '../../../assets/art/fire-realism/ground-field.js';
+import {prepareGroundSources, sampleGroundSources, groundEdgeCoverage, groundDomainInterval, prepareSmokeRegions, GROUND_SOURCE_SIDE, GROUND_DOMAIN_HEIGHT} from '../../../assets/art/fire-realism/ground-field.js';
 
 const camera = new T.OrthographicCamera(-9, 9, 6, -6, .1, 100); camera.position.set(15, 14, 18); camera.lookAt(4, 0, 2); camera.updateMatrixWorld(true);
 const cam = {kind: 'orthographic', matrixWorldInverse: camera.matrixWorldInverse.toArray()};
@@ -19,6 +20,7 @@ try {
   effect.update(frame(1, grid));
   const d = effect.diagnostics(), g = mesh(effect).geometry, u = mesh(effect).material.uniforms;
   assert.equal(d.burningCells, 128); assert.equal(d.coherentCells, 128); assert.equal(d.isolatedCells, 0);
+  assert.equal(d.settings.groundDomainDensitySteps, 32, 'unfrozen sampling pilot does not retain the unproved64 setting');
   assert.equal(d.layers.find(l => l.name === 'Coherent ground domains')?.instances, 128, 'every active cell retains a real integration domain');
   assert.ok(!d.layers.some(l => l.name === 'Connected ground tongues'), 'broad fire no longer restarts three tapered crowns per source');
   assert.equal(d.groundField.encodedCells, 128); assert.equal(u.groundSources.value.image.width, GROUND_SOURCE_SIDE);
@@ -52,6 +54,8 @@ try {
   assert.match(mesh(effect).material.fragmentShader, /groundInterval\(cameraInside\?cameraPosition:world/);
   assert.match(mesh(effect).material.fragmentShader, /groundReaction\(wp\)/); assert.match(mesh(effect).material.fragmentShader, /den\*stepSize\*7\.4/);
   assert.match(mesh(effect).material.fragmentShader, /opaqueStops\(wp,sceneDepth\)/);
+  assert.match(mesh(effect).material.fragmentShader, /float stepSize=\(exit-entry\)\/32\.;/);
+  assert.match(mesh(effect).material.fragmentShader, /groundEdgeCoverage\(source\.a\)/, 'unnormalized occupancy shapes the optical envelope before final mask clipping');
   assert.match(mesh(effect).material.vertexShader, /groundHeight\(contact\.xz,groundSample\(contact\.xz\)\)/, 'detailed cap vertices follow the real common front instead of an undeformed conservative box');
   const glslTokens = `${mesh(effect).material.vertexShader}\n${mesh(effect).material.fragmentShader}`.replace(/\/\*[\s\S]*?\*\/|\/\/[^\n]*/g, '');
   assert.doesNotMatch(glslTokens, /\bcoherent\b/, 'actual WebGL rejected coherent as a reserved GLSL identifier; comments do not count as identifier use');
@@ -122,6 +126,47 @@ try {
   facade.update(frame(1, woodCells.map(c => ({...c, size: 2})), {buildingVisuals: [building]})); assert.equal(facade.diagnostics().selectedFacadeSites[0].smokeBurden, 1.8, 'source-burden adjustment has an explicit finite bound');
 } finally {facade.dispose();}
 
+// Real source cases captured from immutable architect aca30cd, not invented
+// square proxies: one match's four cells and thin normal/powder gasoline fronts.
+const actualEdges = JSON.parse(fs.readFileSync(new URL('./fixtures/edge-source-snapshots.json', import.meta.url)));
+assert.equal(actualEdges.sourceCommit, 'aca30cd910a326918b1599ce6665803cf64739e0');
+assert.deepEqual(actualEdges.fixtures.map(f => f.cells.length), [4, 8, 3]);
+const powderCase = actualEdges.fixtures.find(f => f.scenario === 'gasoline-front-powder');
+assert.ok(Math.abs(powderCase.worldTime - .35) < 1e-12 && Math.abs(powderCase.playerTime - 1.5) < 1e-12);
+for (const fixture of actualEdges.fixtures) {
+  const e = createFireRealism(T, {maxCells: 16}), mask = new Uint8Array(40 * 32 * 4), borrowed = new T.DataTexture(mask, 40, 32); let borrowedDisposed = 0;
+  borrowed.addEventListener('dispose', () => borrowedDisposed++);
+  for (const c of fixture.cells) mask[(Math.floor(c.y / .5) * 40 + Math.floor(c.x / .5)) * 4 + 3] = 255;
+  const before = JSON.stringify(fixture), cellIds = new Set(fixture.cells.map(c => `${c.x}:${c.y}`));
+  try {
+    e.update(frame(fixture.worldTime, fixture.cells, {tick: fixture.tick, playerTime: fixture.playerTime, fieldUniforms: {field: {value: borrowed}, grid: {value: new T.Vector2(40, 32)}, cellSize: {value: .5}}}));
+    const d = e.diagnostics(), u = mesh(e).material.uniforms, field = {origin: u.groundOrigin.value.toArray(), extent: u.groundExtent.value.toArray(), cellSize: .5}, data = u.groundSources.value.image.data;
+    assert.equal(d.coherentCells, fixture.cells.length); assert.equal(d.burningCells, fixture.cells.length); assert.equal(d.smokeSourceCount, fixture.cells.length);
+    assert.equal(u.field.value, borrowed); assert.deepEqual(u.grid.value.toArray(), [40, 32]); assert.equal(u.cellSize.value, .5);
+    let outerFaces = 0, internalFaces = 0;
+    for (const c of fixture.cells) {
+      const center = sampleGroundSources(field, data, c.x, c.y);
+      assert.equal(groundEdgeCoverage(center[3]), 1); assert.ok(center[0] > 0, 'every actual source retains a positive full-coverage interior/contact domain');
+      for (const [dx, dz] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const x = c.x + dx * .25, z = c.y + dz * .25, value = sampleGroundSources(field, data, x, z), internal = cellIds.has(`${c.x + dx * .5}:${c.y + dz * .5}`);
+        if (internal) {
+          internalFaces++; assert.ok(Math.abs(value[3] - 1) < 1e-12); assert.equal(groundEdgeCoverage(value[3]), 1, 'fully burning internal joins never acquire edge taper');
+          const a = sampleGroundSources(field, data, x - dx * 1e-6, z - dz * 1e-6), b = sampleGroundSources(field, data, x + dx * 1e-6, z + dz * 1e-6);
+          for (let j = 0; j < 4; j++) assert.ok(Math.abs(a[j] - b[j]) < 1e-4, 'real normal/powder/material/intensity field is smooth across an internal join');
+        } else {
+          outerFaces++; assert.ok(Math.abs(value[3] - .5) < 1e-12); assert.equal(groundEdgeCoverage(value[3]), 0, 'outer luminous envelope reaches ZERO, not half opacity, at the true mask boundary');
+          const inward = [0, .02, .05, .10, .20].map(distance => groundEdgeCoverage(sampleGroundSources(field, data, x - dx * distance, z - dz * distance)[3]));
+          for (let j = 1; j < inward.length; j++) assert.ok(inward[j] > inward[j - 1], 'outer taper grows continuously inside the legitimate source footprint');
+        }
+      }
+    }
+    assert.ok(outerFaces > 0 && internalFaces > 0);
+    assert.equal(JSON.stringify(fixture), before, 'actual source states and powder clocks stay immutable');
+  } finally {e.dispose(); assert.equal(borrowedDisposed, 0); borrowed.dispose();}
+}
+assert.equal(groundEdgeCoverage(0), 0); assert.equal(groundEdgeCoverage(.5), 0); assert.equal(groundEdgeCoverage(1), 1);
+assert.ok(groundEdgeCoverage(.500001) < 1e-9, 'edge has no positive coverage jump just inside the safety cutoff');
+
 // Unsupported layouts keep EVERY source through an explicit old-envelope path.
 for (const cells of [[cell('a', .25, .25), cell('b', 200.25, .25)], [cell('a', .25, .25), cell('b', .25, .25, {elevation: 2.12})], [cell('a', .25, .25), cell('b', 1, .25, {size: 1})]]) {
   const e = createFireRealism(T, {maxCells: 4});
@@ -141,4 +186,4 @@ try {
   assert.equal(wideMaskData[1023 * 4 + 3], 255); assert.equal(wideMaskData[65535 * 4 + 3], 255, 'far-edge native mask retains actual live cells');
   wideEffect.update(frame(1, [...wide].reverse(), {fieldUniforms})); assert.deepEqual(uploaded(wideEffect), before, 'thin-wide fallback remains source-order deterministic');
 } finally {wideEffect.dispose(); assert.equal(borrowedDisposals, 0); wideMask.dispose();}
-console.log('PASS: all128 sources uploaded/accounted; shared transverse field continuity + exact adjacent ray entry/exit/physical integration; irregular all-source material-weighted catchments; deterministic order/world/pause/reset/rewind; finite tails; bounded owned storage/exact disposal; complete1024x64/far-edge fallback with unchanged native borrowed mask; elevation-separated adjacency. Actual shader/motion/seam/realism/GPU acceptance still required.');
+console.log('PASS: all128 sources uploaded/accounted; shared transverse field continuity + exact adjacent ray entry/exit/physical integration; irregular all-source material-weighted catchments; deterministic order/world/pause/reset/rewind; finite tails; bounded owned storage/exact disposal; complete1024x64/far-edge fallback with unchanged native borrowed mask; elevation-separated adjacency; actual4-cell match/8-cell normal/3-cell powder zero-outer/full-internal coverage and32-sample pilot. Actual shader/motion/seam/realism/GPU acceptance still required.');

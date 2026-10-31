@@ -4,6 +4,10 @@ export const GROUND_DOMAIN_HEIGHT = 3.3;
 const finite = Number.isFinite;
 const compare = (a, b) => String(a.id).localeCompare(String(b.id));
 const woodFuel = s => s.material === 'wood' && s.surfaceFuel > 0;
+export function groundEdgeCoverage(coverage) {
+  const t = Math.max(0, Math.min(1, finite(coverage) ? (coverage - .5) * 2 : 0));
+  return t * t * (3 - 2 * t);
+}
 function hash(id) {let s = 2166136261; for (const c of String(id)) s = Math.imul(s ^ c.charCodeAt(0), 16777619); return (s >>> 0) / 4294967296;}
 
 /** Fill one bounded owned texture. Unsupported layouts retain the old complete
@@ -116,20 +120,25 @@ export const groundFieldGLSL = `
     }
     return result.a>0.?vec4(result.rgb/result.a,result.a):vec4(0.);
   }
+  // Occupancy is deliberately NOT renormalized like source intensity/material.
+  // At the real outer boundary it is .5 (or less at a corner), so the luminous
+  // envelope is zero before the final hard live-mask safety cutoff. Fully
+  // burning internal joins retain occupancy1 and never acquire a tile seam.
+  float groundEdgeCoverage(float coverage) {return smoothstep(.5,1.,coverage);}
   // The actual curved upper support and the interior use the same front. Dense
   // radial cap rings resolve its small licking edge; no cell-centred cone peak.
   float groundHeight(vec2 p,vec4 source) {
-    if(source.a<=0.)return .03;
+    if(source.a<=.5)return 0.;
     vec3 slow=vec3(p.x*.73,p.y*.73,clock*.29);
     float macro=fb(slow+vec3(3.1,11.7,-5.2));
     float secondary=n3(vec3(p.x*1.72,p.y*1.72,clock*.53));
     float licking=fb(vec3(p.x*4.7,p.y*4.7,clock*1.35))-.5;
-    return (.30+source.x*mix(.94,1.2,source.y))*(.48+macro+secondary*.22+licking*.16);
+    return (.30+source.x*mix(.94,1.2,source.y))*(.48+macro+secondary*.22+licking*.16)*pow(groundEdgeCoverage(source.a),.75);
   }
   // A common world-space reaction field: no source-ID seed, local cone, or
   // per-cell height phase. Material and liquid fuel affect presentation only.
   vec4 groundReaction(vec3 wp) {
-    vec4 source=groundSample(wp.xz); if(source.a<=0.)return vec4(0.);
+    vec4 source=groundSample(wp.xz); float edge=groundEdgeCoverage(source.a); if(edge<=0.)return vec4(0.);
     float h=wp.y-base.y; if(h<0.)return vec4(0.);
     float height=groundHeight(wp.xz,source);
     if(h>=height)return vec4(0.);
@@ -137,12 +146,19 @@ export const groundFieldGLSL = `
     vec2 lean=(vec2(n3(slow+17.3),n3(slow-8.1))-.5)*h*.58;
     vec3 flow=vec3((wp.x-lean.x)*3.7,h*3.1-clock*2.85,(wp.z-lean.y)*3.7);
     flow+=vec3(n3(flow*.38+3.7),n3(flow*.38-9.4),n3(flow*.38+18.6))*.9;
-    float wrinkle=fb(flow),sheet=1.-smoothstep(.058,.19,abs(wrinkle-.51));
+    float wrinkle=fb(flow),sheet=1.-smoothstep(.018,.065,abs(wrinkle-.51));
     float pocket=smoothstep(.26,.64,fb(vec3(wp.x*.92,h*.84-clock*.77,wp.z*.92)+vec3(7.1,-2.3,11.8)));
-    float envelope=1.-smoothstep(height*.68,height,h);
-    float contact=exp(-h*10.)*(.045+.09*sheet);
-    float density=(sheet*(.12+.88*pocket)*.76*envelope+contact)*source.x;
-    float reaction=clamp(.28+wrinkle*.70+contact*.65-h/max(.1,height)*.14+source.y*.05-source.z*.025,0.,1.);
+    float envelope=1.-smoothstep(height*.80,height,h);
+    float contact=exp(-h*14.)*(.020+.12*sheet);
+    // Keep strong lower reaction sheets even under a coarse dark pocket, but
+    // never fill sheet zeroes with a uniformly glowing column. Higher voids
+    // retain their true zeroes instead of a permanent positive fog floor.
+    float lowerEnd=max(.10,min(.50,height*.55));
+    float coverage=mix(.45,pocket,smoothstep(.035,lowerEnd,h));
+    float density=(sheet*coverage*.98*envelope+contact)*source.x*pow(edge,.55);
+    // Iso-value itself barely varies on a reaction sheet. Sheet strength gives
+    // its thin hot core a separate emission coordinate with warm outer edges.
+    float reaction=clamp(.23+sheet*.64+contact*.28-h/max(.1,height)*.09+source.y*.04-source.z*.015,0.,1.);
     return vec4(density,reaction,contact,pocket);
   }
   vec3 groundEmission(vec4 f) {

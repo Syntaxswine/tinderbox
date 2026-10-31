@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "id": "tb034-fire-reference",
   "status": "unaccepted-reference-candidate",
   "referenceFrozen": false,
@@ -14,12 +14,12 @@
     {
       "path": "assets/art/fire-realism/shaders.js",
       "bytes": 14895,
-      "sha256": "e845a057306477337579c23a25efd106097faa1f1153525fd889d13b16a2deb9"
+      "sha256": "9e465751623ad16502575097fac5fc8848f7b6bed4b50cdfcc0047afba048563"
     },
     {
       "path": "assets/art/fire-realism/index.js",
       "bytes": 32071,
-      "sha256": "176e31f3f87bb7bf0ed2124d6bcfe8ef26d3bd168186005865e7e8c955824fbd"
+      "sha256": "001f51e91ef94e60edb3f599751861e7cd97b07345f6551e02e5500f00c48d77"
     },
     {
       "path": "assets/art/fire-realism/smoke-billows.js",
@@ -28,8 +28,8 @@
     },
     {
       "path": "assets/art/fire-realism/ground-field.js",
-      "bytes": 10487,
-      "sha256": "359932cee0c6ca2dce844625305df6fe41ef5e93b5439fc47d02c6199cf31060"
+      "bytes": 11621,
+      "sha256": "de0e224acf6ea03512e974d83f20d21a259953bad6625cff81730a331a82ced4"
     }
   ],
   "dependencies": [
@@ -48,9 +48,9 @@
     "Derived256-square source texture is internal only; unsupported mixed/overlapping/wide layouts use an explicit complete native-mask envelope fallback with no omitted source or lower grid resolution. Actual shared-domain seams/catchment motion and useful detailed sampling remain unaccepted."
   ],
   "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
-  "artistVersion": "0.7.0-reference-candidate",
-  "correctsCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
-  "preFreezeQualityCorrection": "Actual broad fire repeats per-cell yellow crowns and1m smoke posts. Adjacent sources now share a world-space material/liquid-aware reaction field with curved common-front caps and exact nonoverlapping physical ray intervals; all current/tail sources feed irregular regional four-billow plumes. Isolated flame/torch/jet/native facade evidence retained. No gameplay, exposure, photo or quality/cost acceptance change.",
+  "artistVersion": "0.8.0-reference-candidate",
+  "correctsCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+  "preFreezeQualityCorrection": "Actual repaired0.7 match/street frames show soft orange volume and hard tiled outer edges. Unnormalized occupancy now shapes zero outer/full internal luminous coverage; thin shared reaction sheets have sheet-strength hot cores and retained lower contact.32samples is an unfrozen quality pilot with no equivalence or optimization credit. Source accounting, smoke/jet/torch/facade/underlay and gameplay remain unchanged.",
   "shaderCompilationRepair": {
     "revision": 1,
     "failedCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
@@ -58,6 +58,8 @@
     "actualBackend": "IAB Chrome156 / NVIDIA RTX3080 / WebGL2",
     "reportedError": "Fragment shader not compiled: ERROR0:294 'coherent': Illegal use of reserved word; syntax error",
     "change": "Only four GLSL identifier uses renamed coherent -> regionalGround; all other runtime bytes and optics unchanged",
-    "compiledAfterRepair": false
+    "compiledAfterRepair": true,
+    "actualCompiledCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+    "evidence": "Architect render-round-09-coherent07-repair exact5-file native JPGs; this is historical0.7 compilation, not new0.8 shader acceptance"
   }
 }

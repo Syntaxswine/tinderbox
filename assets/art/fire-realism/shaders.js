@@ -222,8 +222,8 @@ export const fragmentShader = noise + `
       // Each transverse cell interval owns exactly its segment of a camera ray.
       // Physical metre spacing keeps opacity independent of the cell partition.
       vec3 start=cameraInside?cameraPosition:world;
-      float stepSize=(exit-entry)/64.;
-      for(int j=0;j<64;j++) {
+      float stepSize=(exit-entry)/32.;
+      for(int j=0;j<32;j++) {
         vec3 wp=start+direction*(entry+(float(j)+.5)*stepSize);
         if(opaqueStops(wp,sceneDepth))break;
         vec4 f=groundReaction(wp); float den=f.x*allowed(wp);

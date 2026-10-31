@@ -1,28 +1,34 @@
 {
-  "task": "TB-034-coherent-fronts-07-shader-repair-01",
-  "recordedAt": "2026-10-31T00:39:30.378128+00:00",
-  "integrationBase": "61770438d041d27b3354b381c106e20ee7b850e7",
-  "correctsArtistCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
+  "task": "TB-034-reaction-outer-edges-iteration-08",
+  "recordedAt": "2026-10-31T01:04:16.085928+00:00",
+  "integrationBase": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+  "correctsArtistCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
-  "artistVersion": "0.7.0-reference-candidate",
+  "artistVersion": "0.8.0-reference-candidate",
   "actualPreviousCandidateReview": {
-    "candidate": "dae635f61c80efeda05c5499ff250727fc59138c",
-    "evidence": "Architect primary artifacts/qa/fire-realism/render-round-07-facade06/",
-    "imagesOpened": [
-      "reference-street-fire-isometric-bright-frame120.jpg",
-      "reference-street-fire-isometric-bright-frame240.jpg",
-      "reference-gasoline-front-isometric-bright-frame60.jpg",
-      "reference-gasoline-front-oblique-dim-frame60.jpg",
-      "reference-wall-clipped-jet-oblique-bright-frame60.jpg"
+    "candidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+    "architectCheckpoint": "aca30cd910a326918b1599ce6665803cf64739e0",
+    "evidence": "Architect primary render-round-09-coherent07-repair and hostile-review/round-07-street-decode",
+    "nativeJpgsOpened": [
+      "reference-match-contact-isometric-bright-frame60.jpg",
+      "reference-street-fire-isometric-bright-frame120.jpg"
     ],
+    "orderedSheetsOpened": 12,
+    "decodedSourceFramesInspectedInSheets": 46,
+    "nativeFramesIndividuallyInspected": false,
+    "sourcePtsSeconds": [
+      0,
+      9.382
+    ],
+    "sourceWebmSha256": "dced6cb9ef60314aeacc85999e45bf118f833fd0ab9ac8734d20a782d752a379",
     "nativeSize": [
       1280,
       800
     ],
-    "backend": "Architect actual RTX3080/WebGL2 capture",
-    "sourceFingerprints": "Exact capture JSON runtime hashes identify0.6; street240 header and manifest hashes inspected, sourceCommit field is null rather than invented",
-    "qualityDecision": "Broad same-height yellow per-cell crowns and regular1m gray smoke posts rejected; exact facade placement corrected separately but visual baseline remains unaccepted",
+    "backend": "Actual Chrome156 / RTX3080 / WebGL2",
+    "fiveRuntimeHashesMatched": true,
+    "qualityDecision": "Macro crown repetition reduced, but match is a soft orange block and street has cell mottling/stepped outer luminous cutoff; visual target rejected, smoke unchanged in this child",
     "previousEvidenceModified": false
   },
   "sourcePhotos": {
@@ -94,25 +100,25 @@
     "depthBinding": "pass; borrowed actual DepthTexture, current camera, paused camera, wrong dimensions/camera rejection, fractionalDPR floor convention",
     "sourceOrder": "pass; equivalent source ordering preserves geometry, smoke accumulation and spill-light selection",
     "projectCheck": {
-      "ownScripts": 151,
-      "staticModules": 191,
+      "ownScripts": 152,
+      "staticModules": 192,
       "passed": 186,
       "failed": 0,
-      "artSyntaxDependencyChecks": 40,
+      "artSyntaxDependencyChecks": 41,
       "provenance": "pass"
     },
     "build": {
       "files": 3462,
-      "bytes": 163366459,
+      "bytes": 163367822,
       "sourcePhotosDistributed": false,
       "diagnosticWorkbenchDistributed": false
     },
-    "diffWhitespace": "pass; expected autocrlf warnings only; raw manifest/Git bytes verifiedLF",
+    "diffWhitespace": "pass; working-tree git diff --check, expected autocrlf warnings only; raw runtime hash gate preserves LF",
     "smokeContract": "pass; frozen0.4 isolated flame/torch/jet-soot/light support, unchanged billow helper, world/pause/reset/rewind and finite tails; regional field covered separately",
     "affectedUiChecks": {
       "passed": 2,
       "failed": 0,
-      "scope": "Actual primary five-reference dossier and strict raw five-module source-manifest tests against the minimal repaired shader"
+      "scope": "Actual primary five-reference dossier and strict raw five-module manifest checks on current0.8"
     },
     "crossCheckoutUiAttempt": {
       "passed": 32,
@@ -124,25 +130,42 @@
     "groundFieldContract": "pass; actual128-source texture/domain/burden accounting, shared transverse field continuity, exact forward/reverse/oblique/parallel entry/exit and physical optical composition, deterministic clocks/order/reset, native1024x64 far-edge fallback/mask and elevation separation, bounded exactly-once owned texture disposal",
     "facadeSourceBurden": "pass; deduplicated actual linked wood area, exhausted-wood/liquid distinction, same native anchors/flames/source count, exact width/height/strength increments and1.8cap",
     "reservedGlslToken": "pass; actual generated vertex/fragment GLSL strips comments and rejects reserved coherent identifier",
-    "runtimeEquivalence": "pass; new shader equals exact6177043 shader after only four coherent -> regionalGround token replacements; other four runtime files byte-identical"
+    "runtimeEquivalence": "pass; new shader equals exact6177043 shader after only four coherent -> regionalGround token replacements; other four runtime files byte-identical",
+    "actualEdgeFixtures": {
+      "status": "pass; actual Three source/edge/mask checks and fully pinned fixture regeneration",
+      "sourceCommit": "aca30cd910a326918b1599ce6665803cf64739e0",
+      "frozenSourceModules": 17,
+      "match60BurningCells": 4,
+      "normalGas60BurningCells": 8,
+      "powderGas60BurningCells": 3,
+      "powderClocks": {
+        "world": 0.35,
+        "player": 1.5
+      },
+      "check": "All actual exposed outer faces ZERO, fully burning internal faces1 with smooth filtering, every source positive interior/accounted, borrowed native mask unchanged; source only, not visibility proof",
+      "path": "workbenches/art/fire-realism/fixtures/edge-source-snapshots.json",
+      "reproductionByteIdentical": true,
+      "fixtureSha256": "0dd1b27d6c8f776bc260208f03cc7f25fca7c9c223c743189366b2ac8ed81120",
+      "fixtureHashBasis": "Captured UTF-8 LF bytes and canonical Git fixture blob; ordinary checks parse committed JSON"
+    },
+    "nonGroundRuntimePreserved": "pass; index differs only version/ground sampling settings; shader host differs only shared-ground32samples; geometry/billow source bytes unchanged. Only groundFieldGLSL optical functions and pure edge audit helper change in the fifth module."
   },
   "webgl": {
-    "status": "pending-exact0.7-shader-repair-01",
+    "status": "pending-exact0.8-native-review",
     "newBrowserAttempt": false,
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "Actual architect IAB Chrome156/RTX3080/WebGL2 compilation of6177043 failed on reserved coherent. This child only renames the identifier; exact repaired compilation and native pixels/motion remain unperformed."
+    "reason": "d60 actually compiled/rendered and exact5-file frames inspected. New0.8 edge/reaction/sampling changes need architect compilation/native motion; no new pixels fabricated."
   },
   "limitations": [
-    "Actual0.7 shader compilation FAILED on reserved coherent; only repaired compilation can establish new native pixels. No0.7 images were accepted or fabricated.",
-    "Exact0.7 still/motion must prove shared-domain cap coverage, transverse seams, smoke transitions, colour/contact/opacity and animal/HUD readability",
-    "64 density samples and shared detailed topology are provisional quality choices; useful native/closer detail must be proved before freeze, not credited as later optimization",
-    "Wide/mixed/overlapping-floor source layouts retain complete diagnosed old envelopes; their visual quality remains unaccepted",
-    "Opening/roofline presentation remains deferred without a building-quality waiver",
-    "Whole UI suite belongs in combined checkout; no UI source copied or edited",
-    "Centroid-sorted transparent volumes and safe independent ray ribbons retain their documented limitations",
-    "No accepted/frozen reference, optimized delivery, valid cost ratio or goal completion"
+    "Exact0.8 shader/native still/motion must prove attached visibility, thin bright sheets, taper and smooth joins without aliasing or lost sources",
+    "32samples is a pre-freeze pilot; no visual equivalence, frozen reference or cost credit",
+    "Inherited per-cell heat/char underlay and soft/brown smoke are unchanged; this child does not claim all ground mottling is removed",
+    "Wide/mixed/overlapping-floor layouts retain complete diagnosed older envelopes; visual quality beyond supported field extent remains unaccepted",
+    "Roof/opening sites remain deferred without a building-quality waiver",
+    "Centroid alpha sorting and independent safe ray ribbons retain documented limitations",
+    "No accepted R, optimized O, valid GPU-cost target or goal completion"
   ],
   "helpers": {
     "serversStarted": 0,
@@ -242,6 +265,25 @@
       "sourceFingerprints": "Capture metadata verifies exact0.4 geometry/shader/index hashes",
       "qualityDecision": "Attached flames and actor readable; smooth narrow gray smoke column with weak billowing/erosion rejected as a visual target",
       "previousEvidenceModified": false
+    },
+    {
+      "candidate": "dae635f61c80efeda05c5499ff250727fc59138c",
+      "evidence": "Architect primary artifacts/qa/fire-realism/render-round-07-facade06/",
+      "imagesOpened": [
+        "reference-street-fire-isometric-bright-frame120.jpg",
+        "reference-street-fire-isometric-bright-frame240.jpg",
+        "reference-gasoline-front-isometric-bright-frame60.jpg",
+        "reference-gasoline-front-oblique-dim-frame60.jpg",
+        "reference-wall-clipped-jet-oblique-bright-frame60.jpg"
+      ],
+      "nativeSize": [
+        1280,
+        800
+      ],
+      "backend": "Architect actual RTX3080/WebGL2 capture",
+      "sourceFingerprints": "Exact capture JSON runtime hashes identify0.6; street240 header and manifest hashes inspected, sourceCommit field is null rather than invented",
+      "qualityDecision": "Broad same-height yellow per-cell crowns and regular1m gray smoke posts rejected; exact facade placement corrected separately but visual baseline remains unaccepted",
+      "previousEvidenceModified": false
     }
   ],
   "groundFieldCorrection": {
@@ -263,7 +305,7 @@
     "allSmokeTailSourcesAccounted": true,
     "sharedWorldField": true,
     "exactNonoverlappingRayIntervals": true,
-    "physicalDensitySamples": 64,
+    "physicalDensitySamples": 32,
     "curvedCapBands": 34,
     "sideBands": 2,
     "macroFieldResetsAtCellBoundary": false,
@@ -274,7 +316,7 @@
     "frameApiChanged": false,
     "referenceFrozen": false,
     "optimizationCredit": false,
-    "rationale": "docs/art/fire-realism/iteration-07-coherent-fronts.md",
+    "rationale": "docs/art/fire-realism/iteration-08-reaction-edges.md",
     "facadeSmokeBurden": {
       "sourceArea": "sum over unique linked current burning IDs: material wood and surfaceFuel>0 only, clamp(size,.05,2)^2*clamp(intensity)",
       "burden": "min(1.8,sqrt(sourceArea))",
@@ -289,7 +331,17 @@
       "nativeAnchorsFlamesSourceCountsUnchanged": true,
       "physicsAdded": false
     },
-    "woodEvidence": "material wood AND current remaining surfaceFuel>0; liquid flag requires depositedFuel>0"
+    "woodEvidence": "material wood AND current remaining surfaceFuel>0; liquid flag requires depositedFuel>0",
+    "previousRationale": "docs/art/fire-realism/iteration-07-coherent-fronts.md",
+    "outerEdge": "smoothstep(.5,1,unnormalized occupancy), height power.75/density power.55; zero boundary, full internal coverage",
+    "sheetBand": [
+      0.018,
+      0.065
+    ],
+    "lowerSheetFloor": 0.45,
+    "samplingAcceptance": false,
+    "underlayChanged": false,
+    "smokeJetTorchFacadeChanged": false
   },
   "shaderCompilationRepair": {
     "revision": 1,
@@ -298,6 +350,8 @@
     "actualBackend": "IAB Chrome156 / NVIDIA RTX3080 / WebGL2",
     "reportedError": "Fragment shader not compiled: ERROR0:294 'coherent': Illegal use of reserved word; syntax error",
     "change": "Only four GLSL identifier uses renamed coherent -> regionalGround; all other runtime bytes and optics unchanged",
-    "compiledAfterRepair": false
+    "compiledAfterRepair": true,
+    "actualCompiledCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+    "evidence": "Architect render-round-09-coherent07-repair exact5-file native JPGs; this is historical0.7 compilation, not new0.8 shader acceptance"
   }
 }
