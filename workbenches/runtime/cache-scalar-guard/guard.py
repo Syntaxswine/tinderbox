@@ -137,8 +137,11 @@ class Controller:
                    "deadline": self.d, "expected": {"processLimitBytes": 2147483648,
                    "aggregateLimitBytes": 2147483648, "flags": 8960}}
         try:
-            initial["actual"] = self.job.join_self()
-            validate_job(initial["actual"])
+            queried = self.job.join_self()
+            validate_job(queried)
+            # The primitive's raw five-field accounting stays in queryReadback.
+            # Only validated caps/flags form the frozen three-field ready ABI.
+            initial["actual"] = {key: queried[key] for key in ("processLimitBytes", "aggregateLimitBytes", "flags")}
             initial["valid"] = True
         except BaseException as error:
             initial["error"] = str(error)

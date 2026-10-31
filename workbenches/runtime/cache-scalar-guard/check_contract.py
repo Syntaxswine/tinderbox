@@ -203,6 +203,57 @@ class ScalarContractChecks(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Unexpected owned output"):
             p.validate_projection_report(report, self.h.spec, self.h.output, ready)
 
+    def test_actual_controller_publication_seam_keeps_raw5_but_passes_canonical3_to_startup(self):
+        c = self.h.make()
+        try:
+            c.initialize()
+            raw_receipt = Path(c.readback["path"]).read_bytes()
+            receipt = p.read_json(c.readback["path"])[1]
+            canonical = {"processLimitBytes", "aggregateLimitBytes", "flags"}
+            raw = receipt["queryReadback"]["actual"]
+            self.assertTrue(receipt["valid"])
+            self.assertEqual(set(receipt["actual"]), canonical)
+            self.assertEqual(set(raw), canonical | {"peakProcessCommittedBytes", "peakJobCommittedBytes"})
+            self.assertEqual(raw, self.h.job.info())
+            self.assertEqual((raw["peakProcessCommittedBytes"], raw["peakJobCommittedBytes"]), (1024, 2048))
+            self.assertEqual(receipt["actual"], {key: raw[key] for key in canonical})
+            # Actual Controller.execute uses its real publication method/atomic
+            # writer; only primitive, clocks, enrollment and child are fake APIs.
+            c.execute()
+            binding = p.read_json(c.binding["path"])[1]
+            ready_path = c.out / "guard-ready.json"
+            raw_ready = ready_path.read_bytes()
+            ready = p.read_json(ready_path)[1]
+            self.assertEqual(set(ready["jobLimitReadback"]["actual"]), canonical)
+            self.assertEqual(ready["jobLimitReadback"]["actual"], receipt["actual"])
+            actual, _ = startup.await_ready(binding, now=self.h.clock.time, tick=lambda: self.h.clock.uptime,
+                                            identity=lambda: ready["childIdentity"])
+            self.assertEqual(actual, ready)
+            self.assertEqual(Path(c.readback["path"]).read_bytes(), raw_receipt)
+            for mutate in (lambda r: r["jobLimitReadback"]["actual"].update(peakJobCommittedBytes=2048),
+                    lambda r: r["jobLimitReadback"]["actual"].update(processLimitBytes=1024),
+                    lambda r: r["jobLimitReadback"]["actual"].update(flags=8960 | 0x800)):
+                changed = copy.deepcopy(ready)
+                mutate(changed)
+                p.write_json(ready_path, changed)
+                with self.assertRaises(ValueError):
+                    startup.await_ready(binding, now=self.h.clock.time, tick=lambda: self.h.clock.uptime,
+                                        identity=lambda: ready["childIdentity"])
+            ready_path.write_bytes(raw_ready)
+            Path(c.readback["path"]).write_bytes(raw_receipt + b" ")
+            with self.assertRaisesRegex(ValueError, "Numeric Job receipt mismatch"):
+                startup.await_ready(binding, now=self.h.clock.time, tick=lambda: self.h.clock.uptime,
+                                    identity=lambda: ready["childIdentity"])
+            Path(c.readback["path"]).write_bytes(raw_receipt)
+        finally:
+            # Restore only this test's deliberate corruptions before normal fake
+            # retirement; no actual receipt/output ever gets rewritten.
+            if 'raw_ready' in locals():
+                ready_path.write_bytes(raw_ready)
+            if 'raw_receipt' in locals():
+                Path(c.readback["path"]).write_bytes(raw_receipt)
+            c.finish()
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

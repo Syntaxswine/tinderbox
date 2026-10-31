@@ -47,5 +47,10 @@
     "sha256": "7931a5c42fedfa345d8b5a9a402e63ac248116a2cc7e5b621d223d9187876b5d",
     "adaptations": "none"
   },
-  "scope": "Source/pure-fake checks only; no actual controller/Job/Blender/VDB/render/save/bake authorized. Committed-memory caps are not RSS; output budget is polled, not disk quota. No native quality or GPU cost approval."
+  "scope": "Source/pure-fake checks only; no actual controller/Job/Blender/VDB/render/save/bake authorized. Committed-memory caps are not RSS; output budget is polled, not disk quota. No native quality or GPU cost approval.",
+  "correction": {
+    "approval": "9d929c3e37397cb2b85e9d65c63c46bfb5c74ade",
+    "parent": "f96d1b339d41a8eec644963daffdc9afdc67d727",
+    "scope": "On valid query, durable actual/ready canonical caps+flags3; complete original queried5 retained in queryReadback. Fake primitive returns full5; actual producer/startup seam regression. Primitive/startup/schemas/artist/limits unchanged."
+  }
 }

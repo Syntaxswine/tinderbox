@@ -80,7 +80,7 @@ class FakeJob:
 
     def join_self(self):
         self.joined = True
-        actual = {k: self.info()[k] for k in ("processLimitBytes", "aggregateLimitBytes", "flags")}
+        actual = self.info()  # Match the unchanged real primitive, including both peaks.
         self.limit_readback = {"status": "read", "actual": actual, "validated": self.owner.flags == 8960}
         self.known[os.getpid()] = self.me
         return actual

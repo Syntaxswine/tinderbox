@@ -48,6 +48,17 @@ NTFS quota. It includes fresh output/temp/logs/snapshots, authorization/used
 permit, exact owned claim, exact lifecycle copies/registry records or unresolved
 registration reservations. No unrelated directory is swept.
 
+The durable numeric receipt distinguishes two records. On successful validation,
+`actual` contains only processLimitBytes,aggregateLimitBytes,flags, matching the
+frozen ready ABI. `queryReadback.actual` preserves the primitive's complete five
+queried fields, including both raw peak accounting values. Peaks are neither
+deleted nor derived from caps. Invalid/unknown queries remain failed partial
+observations and never release ready. The original f96 fake incorrectly filtered
+its return to three fields and missed this mismatch; its source/logs and the
+independent old-failure witness remain preserved. The corrected fake returns all
+five fields, and the focused regression connects actual Controller initialization
+and publication to actual startup.await_ready with declared fake clocks/identity.
+
 Hidden pinned Blender uses factory-startup, disable-autoexec, CLI/renderer CPU4,
 private temporary/config/script/datafile directories and sanitized Python/OMP
 environment. CPU4 is configuration, not an OS CPU quota. There is no saved-project
