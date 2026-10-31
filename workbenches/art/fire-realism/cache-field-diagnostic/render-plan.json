@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "status": "declarative-only-no-render-entry",
+  "requiresSeparatePermit": true,
+  "metadataReviewedBeforePermit": true,
+  "frames": [
+    31,
+    61
+  ],
+  "agesSeconds": [
+    1,
+    2
+  ],
+  "channels": [
+    "density",
+    "flame",
+    "signed-raw-heat-only-after-source-and-renderer-mapping-proof"
+  ],
+  "material": {
+    "densityAndFlame": "Independent fixed unit white volume emission, zero absorption/scattering. No blackbody or palette.",
+    "signedHeat": "RGB=(max(H,0),0,max(-H,0)) unit emission; no value-derived normalization. Raw H, not RNA .5H or flame-derived T.",
+    "units": "One native metre authoring normalization; not calibrated radiometry or measured temperature."
+  },
+  "camera": {
+    "required": "Actual native oblique capture matrix/projection, independently pinned before a render permit. Inverse signed-axis mapping and translation from input-spec.",
+    "provided": false,
+    "inventedFallbackAllowed": false
+  },
+  "renderer": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "threads": 4,
+    "width": 320,
+    "height": 200,
+    "samples": 8,
+    "denoising": false,
+    "motionBlur": false,
+    "precision": "FULL",
+    "interpolation": "LINEAR",
+    "stepMetres": 0.02083333395421505,
+    "stepLimit": 512,
+    "voxelClipping": 0,
+    "attributeConversion": "Unproved; blocks render until exact source and conversion witness are reviewed.",
+    "unsupportedSetting": "Stop; no approximation or fallback."
+  },
+  "outputs": {
+    "float": "Linear full32 EXR, retained unchanged.",
+    "preview": "Fixed Standard/sRGB, exposure0/gamma1; no auto-normalization. May clip and must be labelled; no beauty/native acceptance."
+  },
+  "limits": {
+    "wallSeconds": 900,
+    "processCommittedBytes": 2147483648,
+    "aggregateCommittedBytes": 2147483648,
+    "freshOutputBytes": 536870912
+  },
+  "omitted": [
+    "runtime A/tapers",
+    "temporal interpolation",
+    "support slabs/floor presentation",
+    "actor readability",
+    "lights/surroundings/HUD",
+    "encoded-target composition"
+  ],
+  "acceptance": "Diagnostic only. No native QA, motion proof, quality score, R/O or rendering-cost credit."
+}

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "proposalCommit": "d3d14bf1d7154e4324317e93d876313eeba39a65",
+  "toolSourceCommit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+  "primarySources": {
+    "rna": {
+      "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\fire-realism\\blender-flow-source-check\\rna_fluid.cc",
+      "bytes": 133231,
+      "sha256": "348842e7e8a66fcf9e7dc4fbd53bfc20e0fe896a7ebd321beaf777870400c869",
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/makesrna/intern/rna_fluid.cc",
+      "lines": {
+        "actualHeatGetter": [
+          1074,
+          1095
+        ],
+        "derivedTemperatureGetter": [
+          1098,
+          1126
+        ]
+      },
+      "semantics": "temperature_grid is F>.01 ? ignition+F*(maxTemp-ignition) :0. Here1.5+1.5F. heat_grid reads solver heat and returns .5H. No independent thermal detail or measured Kelvin inferred from exported T."
+    },
+    "cacheScript": {
+      "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\fire-realism\\blender-flow-source-check\\smoke_script.h",
+      "bytes": 31654,
+      "sha256": "f93ce6118894811f4008926fde9e4c891761cfb41c2f850cf25898614355eac7",
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/intern/mantaflow/intern/strings/smoke_script.h",
+      "lines": {
+        "heatAllocation": [
+          197,
+          211
+        ],
+        "flameAllocation": [
+          213,
+          232
+        ],
+        "finalCacheSave": [
+          558,
+          569
+        ]
+      },
+      "semantics": "Enabled solver heat is retained in the final dictionary under heat; its grid is created with NAME_TEMPERATURE. This token alone is not a V5 grid-name or renderer conversion proof."
+    }
+  },
+  "cacheHashLineage": {
+    "producerVdbHashesAvailable": false,
+    "meaning": "Selected VDB hashes identify currently preserved files measured during this source preparation. They do not independently establish original raw-export bit identity. Original F32/manifest hashes are separate preserved evidence.",
+    "newCacheHashMeasurementIsNotRawIdentityProof": true
+  },
+  "heatGridMapping": {
+    "status": "unproved-for-V5",
+    "previousProbeMetadata": {
+      "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-probe\\stage1-2026-10-31\\metadata.json",
+      "bytes": 8081,
+      "sha256": "f9f370661ec55683393684f5076eec0b2b14a75d35e6ab3d6a2c4c3f7c59350c"
+    },
+    "previousObservedNames": [
+      "density",
+      "flame",
+      "temperature"
+    ],
+    "candidateNameIsNotAnAlias": "temperature",
+    "requires": "Review actual V5 names/types/matrices and exact cache-name substitution before assigning any grid as raw heat."
+  },
+  "rendererAttributeConversion": {
+    "status": "not-established",
+    "requires": "Exact pinned renderer path plus an explicit verified literal-grid-to-shader conversion. Do not equate Volume Info Temperature, standard temperature attribute, raw cache heat and RNA temperature_grid. No render stage is executable in this candidate."
+  },
+  "alignmentLimits": "Metadata can reconstruct a coordinate chain from authoritative scalar-centre coordinates. Logical VDB-index to dense-export-index correspondence and cache content identity remain explicitly subject to review; no fitted offsets or implicit success.",
+  "guardIntegration": {
+    "readOnlyProposal": {
+      "path": "C:\\Users\\baals\\.codex\\worktrees\\tinderbox-code\\tinderbox\\artifacts\\qa\\fire-realism\\surface-prepare-v4-review\\cache-field-guard-integration-proposal.json",
+      "bytes": 15398,
+      "sha256": "cd83360d2b954819480402531bf3523aa081033ac61349a8a09154ce02e21dbb"
+    },
+    "status": "Root source-approved separate guard design only. No cache-only controller is included or executed by this artist delivery.",
+    "reviewedPrimitive": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/winjob.py",
+      "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee",
+      "adaptations": "none; not imported or executed by this metadata source"
+    },
+    "startupBarrierOwner": "Runtime guard. Metadata entry starts after atomic guard-ready publication; no readiness retry in metadata module.",
+    "bindings": "phase metadata; decimal-text FILETIME; exact input/tool/source/permit/nonce; immutable output/run-binding.json; original dual clocks; actual Job enforcement belongs to the future guard."
+  }
+}

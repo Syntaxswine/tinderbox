@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tinderbox-cache-field-guard-ready-v1",
+  "description": "Proposed future controller seam, not an implementation or authorization. Exact decimal-text FILETIME. Stable run-binding.json; mutable progress is not this binding. The entry also checks original dual clocks, own identity and paths.",
+  "type": "object",
+  "required": [
+    "kind",
+    "phase",
+    "owner",
+    "proposalCommit",
+    "candidateCommit",
+    "sourcePins",
+    "permitSha256",
+    "inputSpecSha256",
+    "nonce",
+    "output",
+    "runRecordSha256",
+    "controllerIdentity",
+    "childIdentity",
+    "deadline",
+    "jobLimitReadback"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "tinderbox-cache-field-guard-ready-v1"
+    },
+    "phase": {
+      "const": "metadata"
+    },
+    "owner": {
+      "const": "01a17e9b-a6db-7490-94cd-7d863747e5d3"
+    },
+    "proposalCommit": {
+      "const": "d3d14bf1d7154e4324317e93d876313eeba39a65"
+    },
+    "candidateCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sourcePins": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "required": [
+        "contract.py",
+        "space.py",
+        "metadata.py",
+        "input-spec.json",
+        "input-spec.schema.json",
+        "guard-ready.schema.json",
+        "provenance.json",
+        "render-plan.json"
+      ]
+    },
+    "permitSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "inputSpecSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32,64}$"
+    },
+    "output": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runRecordSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "controllerIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pid",
+        "creationFileTime",
+        "executable"
+      ],
+      "properties": {
+        "pid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "creationFileTime": {
+          "type": "string",
+          "pattern": "^[0-9]{17,20}$"
+        },
+        "executable": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "childIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pid",
+        "creationFileTime",
+        "executable"
+      ],
+      "properties": {
+        "pid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "creationFileTime": {
+          "type": "string",
+          "pattern": "^[0-9]{17,20}$"
+        },
+        "executable": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "deadline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startEpoch",
+        "startTickMs",
+        "deadlineEpoch",
+        "deadlineTickMs",
+        "wallSeconds"
+      ],
+      "properties": {
+        "startEpoch": {
+          "type": "number"
+        },
+        "startTickMs": {
+          "type": "number"
+        },
+        "deadlineEpoch": {
+          "type": "number"
+        },
+        "deadlineTickMs": {
+          "type": "number"
+        },
+        "wallSeconds": {
+          "const": 120
+        }
+      }
+    },
+    "jobLimitReadback": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256",
+        "actual",
+        "validated"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "validated": {
+          "const": true
+        },
+        "actual": {
+          "type": "object",
+          "required": [
+            "processLimitBytes",
+            "aggregateLimitBytes",
+            "flags"
+          ],
+          "properties": {
+            "processLimitBytes": {
+              "const": 2147483648
+            },
+            "aggregateLimitBytes": {
+              "const": 2147483648
+            },
+            "flags": {
+              "const": 8960
+            },
+            "peakProcessCommittedBytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "peakJobCommittedBytes": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}
