@@ -2,6 +2,9 @@
 // The actual driver source/state/notify/measure functions are evaluated intact;
 // only renderer/art/browser transports are replaced with declared test fixtures.
 import fs from 'node:fs';
+import {gzipSync} from 'node:zlib';
+import {createFireReviewDeliveryLoader,FIRE_DELIVERY_PATH} from '../../tools/fire-realism/delivery.js';
+import {encodeZeroLiteral} from '../../workbenches/runtime/fire-fluid-payload-probe/codec.js';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -13,6 +16,7 @@ const project=fileURLToPath(new URL('../../',import.meta.url)),base='https://fix
 const priorFetch=globalThis.fetch,callbacks=new Map(),queries=new Set();
 let nextFrame=0,now=0,currentPass='current',artCreated=0,artDisposed=0,stage='first',driver,cancellation=null,cancelStarted=false;
 const notifications=[],measuring=[],domBytes=[],domHasOnlyNewState=[];
+const binaryMode=process.argv.includes('--binary-metadata'),binaryFiles=new Map();let binaryResourceReads=0,binaryPrepares=0;
 function element(){return {style:{},dataset:{},textContent:'',children:[],append(child){this.children.push(child);},remove(){},setAttribute(){},addEventListener(){},getBoundingClientRect(){return {left:0,top:0,width:1280,height:800};}};}
 const win={requestAnimationFrame(callback){const id=++nextFrame;callbacks.set(id,callback);setImmediate(()=>{const active=callbacks.get(id);callbacks.delete(id);if(active){now+=1000/60;active(now);}});return id;},cancelAnimationFrame(id){callbacks.delete(id);}};
 const doc={hidden:false,defaultView:win,createElement:element},root={...element(),ownerDocument:doc};
@@ -24,7 +28,7 @@ const gl={RENDERER:1,VENDOR:2,VERSION:3,QUERY_RESULT_AVAILABLE:4,QUERY_RESULT:5,
  getQueryParameter:(query,key)=>key===4?true:query.ms*1e6,deleteQuery:query=>queries.delete(query)};
 let rendererDisposed=0;
 class RendererFixture{
- constructor(){this.domElement=element();this.debug={};this.info={render:{calls:0,triangles:0,lines:0,points:0},memory:{geometries:0,textures:0},reset(){}};this.ratio=1;this.width=1280;this.height=800;}
+ constructor(){this.domElement=element();this.domElement.toDataURL=()=> 'data:image/jpeg;base64,QVBJLW9ubHk=';this.debug={};this.info={render:{calls:0,triangles:0,lines:0,points:0},memory:{geometries:0,textures:0},reset(){}};this.ratio=1;this.width=1280;this.height=800;}
  setClearColor(){}getContext(){return gl;}setPixelRatio(value){this.ratio=value;}getPixelRatio(){return this.ratio;}
  setSize(width,height){this.width=width;this.height=height;gl.drawingBufferWidth=Math.floor(width*this.ratio);gl.drawingBufferHeight=Math.floor(height*this.ratio);}
  getDrawingBufferSize(v){return v.set(gl.drawingBufferWidth,gl.drawingBufferHeight);}render(){}dispose(){rendererDisposed++;}forceContextLoss(){}
@@ -50,11 +54,14 @@ globalThis.fetch=async url=>{
  const target=new URL(url);assert.ok(target.href.startsWith(base));const relative=target.href.slice(base.length);assert.ok(!relative.includes('..'));const absolute=path.join(project,...relative.split('/'));
  // Serve immutable artist Git bytes just as the deployed checkout does; do
  // not normalize or rewrite raw manifest hashes for Windows CRLF checkout.
- const bytes=relative.startsWith('assets/art/fire-realism/')?execFileSync('git',['show','HEAD:'+relative],{cwd:project,windowsHide:true}):fs.existsSync(absolute)?fs.readFileSync(absolute):null,response=new Response(bytes,{status:bytes?200:404});Object.defineProperty(response,'url',{value:target.href});return response;
+ if(binaryFiles.has(relative)&&relative.endsWith('.fzp.gz'))binaryResourceReads++;
+ const bytes=binaryFiles.get(relative)||(relative.startsWith('assets/art/fire-realism/')?execFileSync('git',['show','HEAD:'+relative],{cwd:project,windowsHide:true}):fs.existsSync(absolute)?fs.readFileSync(absolute):null),response=new Response(bytes,{status:bytes?200:404});Object.defineProperty(response,'url',{value:target.href});return response;
 };
 try{
  await module.evaluate();
- driver=await module.namespace.createFireReviewDriver({root,artistDelivery:{createFireRealism:()=>{}},onChange(state){
+ let artistDelivery={createFireRealism:()=>{}};
+ if(binaryMode){const prefix='assets/art/fire-realism/fixture/',entry=prefix+'index.js',resource=prefix+'data/one.fzp.gz',manifestUrl=prefix+'manifest.json',raw=gzipSync(encodeZeroLiteral(new Uint8Array(16))),encode=value=>new TextEncoder().encode(typeof value==='string'?value:JSON.stringify(value)),hash=value=>createHash('sha256').update(value).digest('hex');binaryFiles.set(entry,encode('export function createFireRealism(){} export async function prepareFixture(){}'));binaryFiles.set(resource,raw);const manifest=encode({version:1,runtimeFiles:[{path:entry,bytes:binaryFiles.get(entry).length,sha256:hash(binaryFiles.get(entry))}],runtimeResources:[{path:resource,kind:'fzp1-gzip',bytes:raw.length,sha256:hash(raw),uncompressedBytes:16}]});binaryFiles.set(manifestUrl,manifest);binaryFiles.set(FIRE_DELIVERY_PATH,encode({version:1,byMode:{reference:{sourceCommit:'a'.repeat(40),factoryModule:entry,factoryExport:'createFireRealism',prepareExport:'prepareFixture',manifestUrl,manifestBytes:manifest.length,manifestSha256:hash(manifest)}}}));const loaded=await createFireReviewDeliveryLoader()({projectUrl:base,descriptorUrl:base+FIRE_DELIVERY_PATH,importModule:async()=>({createFireRealism:()=>{},async prepareFixture({resources,registerCleanup}){binaryPrepares++;registerCleanup(()=>{});resources.take(resource);return {scope:'API-only driver metadata fixture'};}})});artistDelivery=loaded.artistDelivery;assert.equal(binaryResourceReads,1);}
+ driver=await module.namespace.createFireReviewDriver({root,artistDelivery,onChange(state){
   notifications.push({stage,phase:state.phase,resultsStatus:state.results?.status??null});
   if(state.progress?.mode)currentPass=state.progress.mode;
   if(stage==='second'&&['measuring','cancelling'].includes(state.phase)){
@@ -63,6 +70,7 @@ try{
    if(!cancelStarted&&state.progress?.passIndex===1){cancelStarted=true;cancellation=driver.cancelMeasurement();}
   }
  }});
+ if(binaryMode){const capture=driver.captureFrame();assert.equal(capture.sourceFingerprints.byMode.reference.prepareExport,'prepareFixture');assert.equal(Object.keys(capture.sourceFingerprints.byMode.reference.runtimeResources).length,1);assert.equal(capture.sourceFingerprints.binaryPreparation.reference.preparation.resourcesConsumed,1);assert.equal(binaryResourceReads,1,'Actual driver metadata must reuse the loader-issued proof without another resource request');assert.equal(binaryPrepares,1);}
  const first=await driver.measure({modes:['current'],warmupFrames:1,sampleFrames:128,trials:2,poseFrame:45});
  const archived=JSON.stringify(first),rawSamples=first.gpu.trials.reduce((n,t)=>n+t.gpu.length,0),oldBytes=Buffer.byteLength(archived);
  assert.equal(first.status,'complete');assert.equal(rawSamples,512);const groundHash=createHash('sha256').update(fs.readFileSync(path.join(project,'src/art/ground-field.js'),'utf8').replaceAll('\r','')).digest('hex');assert.equal(first.sourceFingerprints.adapterRuntimeFiles['src/art/ground-field.js']?.sha256,groundHash,'The actual driver report must fingerprint the loaded underlay source');assert.ok(oldBytes>100000,'Prior report must be nontrivial');assert.deepEqual(driver.state().results,first);
@@ -82,5 +90,5 @@ try{
  stage='unavailable';const before=notifications.length,unavailable=await driver.measure({modes:['optimized'],warmupFrames:1,sampleFrames:16,trials:1,poseFrame:45});
  assert.equal(unavailable.status,'unavailable');assert.deepEqual(driver.state().results,unavailable);assert.ok(notifications.slice(before).every(n=>n.phase!=='measuring'));
  assert.equal(queries.size,0);await driver.dispose();assert.equal(rendererDisposed,1);assert.equal(artCreated,artDisposed);assert.equal(callbacks.size,0);
- console.log(JSON.stringify({kind:'api-only-driver-results-regression',source:'Actual unmodified driver module; API-only renderer/art/RAF fixtures',priorRawSamples:rawSamples,priorReportBytes:oldBytes,invalidRequests:6,collectingNotifications:measuring.length,maxCollectingDomBytes:Math.max(...domBytes),newCancelledRawSamples:freshSamples,newStatus:second.status,archivedReportUnchanged:JSON.stringify(first)===archived,queriesRemaining:queries.size,callbacksRemaining:callbacks.size,artCreated,artDisposed,rendererDisposed,groundFieldFingerprinted:true,gpuEvidence:false,retainedHelpers:[]}));
+ console.log(JSON.stringify({kind:'api-only-driver-results-regression',binaryMetadata:{enabled:binaryMode,resourceReads:binaryResourceReads,prepareCalls:binaryPrepares},source:'Actual unmodified driver module; API-only renderer/art/RAF fixtures',priorRawSamples:rawSamples,priorReportBytes:oldBytes,invalidRequests:6,collectingNotifications:measuring.length,maxCollectingDomBytes:Math.max(...domBytes),newCancelledRawSamples:freshSamples,newStatus:second.status,archivedReportUnchanged:JSON.stringify(first)===archived,queriesRemaining:queries.size,callbacksRemaining:callbacks.size,artCreated,artDisposed,rendererDisposed,groundFieldFingerprinted:true,gpuEvidence:false,retainedHelpers:[]}));
 }finally{if(driver&&rendererDisposed===0)await driver.dispose();globalThis.fetch=priorFetch;assert.equal(queries.size,0);assert.equal(callbacks.size,0);}

@@ -1,3 +1,4 @@
+import {FIRE_BINARY_LIMITS} from './resources.js';
 export function statistics(values){
   const valid=values.filter(Number.isFinite),sorted=[...valid].sort((a,b)=>a-b),n=valid.length;
   if(!n)return {count:0,mean:null,median:null,p95:null,variance:null,standardDeviation:null,min:null,max:null};
@@ -41,11 +42,24 @@ function factoryPath(path,mode){
   if(mode==='current')return path.startsWith('src/art/');
   const prefix='assets/art/fire-realism/';return mode==='reference'?path.startsWith(prefix)&&!path.startsWith(prefix+'optimized/'):mode==='optimized'&&path.startsWith(prefix+'optimized/');
 }
+function validResourceIdentity(value){
+ if(value.runtimeResources===undefined)return value.prepareExport===undefined;
+ const resources=value.runtimeResources,paths=object(resources)?Object.keys(resources):[];let compressed=0,sparse=0;
+ return exportName(value.prepareExport)&&paths.length>0&&paths.length<=FIRE_BINARY_LIMITS.chunks&&new Set(paths.map(path=>path.toLowerCase())).size===paths.length&&paths.every(path=>{
+  const record=resources[path],canonical=typeof path==='string'&&path.endsWith('.fzp.gz')&&!path.split('/').some(part=>!part||part.startsWith('.')||!/^[A-Za-z0-9_-][A-Za-z0-9._-]*$/.test(part)),prefix='assets/art/fire-realism/',local=value.mode==='reference'?path.startsWith(prefix)&&!path.startsWith(prefix+'optimized/'):value.mode==='optimized'&&path.startsWith(prefix+'optimized/');
+  if(!canonical||!local||!record||record.kind!=='fzp1-gzip'||record.verified!==true||!hash(record.sha256)||record.expectedSha256!==record.sha256||!Number.isSafeInteger(record.bytes)||record.bytes<1||record.bytes>FIRE_BINARY_LIMITS.chunkCompressedBytes||!Number.isSafeInteger(record.uncompressedBytes)||record.uncompressedBytes<1||record.uncompressedBytes>FIRE_BINARY_LIMITS.chunkSparseBytes)return false;compressed+=record.bytes;sparse+=record.uncompressedBytes;return true;
+ })&&compressed<=FIRE_BINARY_LIMITS.compressedBytes&&sparse<=FIRE_BINARY_LIMITS.sparseBytes;
+}
+function receiptResources(receipt,expected,prepareExport){
+ if(expected===undefined)return receipt.runtimeResources===undefined&&receipt.prepareExport===undefined;
+ if(receipt.prepareExport!==prepareExport||!object(receipt.runtimeResources)||!same(Object.keys(expected).sort(),Object.keys(receipt.runtimeResources).sort()))return false;
+ return Object.entries(expected).every(([path,record])=>same(receipt.runtimeResources[path],{sha256:record.sha256,bytes:record.bytes,kind:record.kind,uncompressedBytes:record.uncompressedBytes}));
+}
 function validFactoryFingerprint(value,{allowDebug=false}={}){
   if(!object(value)||!['current','reference','optimized'].includes(value.mode)||!(commitHash(value.sourceCommit)||allowDebug&&value.mode==='reference'&&value.sourceCommit===null)||!factoryPath(value.factoryModule,value.mode)||!exportName(value.factoryExport))return false;
   if(value.mode==='current'&&(value.factoryModule!=='src/art/fire.js'||value.factoryExport!=='createFire'))return false;
   const files=value.runtimeFiles,keys=object(files)?Object.keys(files):[];
-  return keys.length>0&&Object.hasOwn(files,value.factoryModule)&&new Set(keys.map(path=>path.toLowerCase())).size===keys.length&&keys.every(path=>factoryPath(path,value.mode)&&files[path]?.verified===true&&hash(files[path].sha256));
+  return validResourceIdentity(value)&&keys.length>0&&Object.hasOwn(files,value.factoryModule)&&new Set(keys.map(path=>path.toLowerCase())).size===keys.length&&keys.every(path=>factoryPath(path,value.mode)&&files[path]?.verified===true&&hash(files[path].sha256));
 }
 function ordered(value){
   if(Array.isArray(value))return value.map(ordered);
@@ -143,15 +157,17 @@ export function summarizeFireMeasurements({trials=[],modes=[],protocol,status='c
   const ratio=reasons.length===0&&finite(reference)&&finite(optimized)&&reference>0?optimized/reference:null;
   const ref=sourceFingerprints?.reference||{},opt=sourceFingerprints?.optimized||{};
   const approvedReference=validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',...ref});
-  const retainedQualityAccepted=approvedReference&&validateQualityReceipt(optimizedAcceptance,{kind:'architect-fire-optimized-acceptance-v1',...opt,referenceCommit:ref.sourceCommit,referenceFactoryModule:ref.factoryModule,referenceFactoryExport:ref.factoryExport})?true:null;
+  const retainedQualityAccepted=approvedReference&&validateQualityReceipt(optimizedAcceptance,{kind:'architect-fire-optimized-acceptance-v1',...opt,referenceCommit:ref.sourceCommit,referenceFactoryModule:ref.factoryModule,referenceFactoryExport:ref.factoryExport,...(ref.runtimeResources?{referencePrepareExport:ref.prepareExport,referenceRuntimeResources:ref.runtimeResources}:{})})?true:null;
   if(ratio===null&&selected.includes('optimized')&&selected.includes('reference'))reasons.push('Missing valid comparable optimized/reference GPU ratio');
   return {absoluteSceneMs:absolute,noFireSceneMs:absolute['no-fire'],incrementalFireMs:increments,reasons:[...new Set(reasons)],evidenceStatus:reasons.length?'inconclusive':'complete',
     comparison:{approvedReference,retainedQualityAccepted,optimizedReferenceRatio:ratio,targetMet:ratio===null||!approvedReference||retainedQualityAccepted!==true?null:ratio<=1/3}};
 }
-export function validateQualityReceipt(receipt,{kind,mode,sourceCommit,factoryModule,factoryExport,runtimeFiles,referenceCommit,referenceFactoryModule,referenceFactoryExport}={}){
+export function validateQualityReceipt(receipt,{kind,mode,sourceCommit,factoryModule,factoryExport,runtimeFiles,prepareExport,runtimeResources,referenceCommit,referenceFactoryModule,referenceFactoryExport,referencePrepareExport,referenceRuntimeResources}={}){
   const expectedKind=mode==='reference'?'architect-fire-reference-acceptance-v1':mode==='optimized'?'architect-fire-optimized-acceptance-v1':null;
-  if(!expectedKind||kind!==expectedKind||!validFactoryFingerprint({mode,sourceCommit,factoryModule,factoryExport,runtimeFiles})||!receipt||receipt.kind!==kind||receipt.status!=='accepted'||!receipt.receiptId||receipt.mode!==mode||receipt.sourceCommit!==sourceCommit||receipt.factoryModule!==factoryModule||receipt.factoryExport!==factoryExport)return false;
+  if(!expectedKind||kind!==expectedKind||!validFactoryFingerprint({mode,sourceCommit,factoryModule,factoryExport,runtimeFiles,...(runtimeResources!==undefined||prepareExport!==undefined?{prepareExport,runtimeResources}:{})})||!receipt||receipt.kind!==kind||receipt.status!=='accepted'||!receipt.receiptId||receipt.mode!==mode||receipt.sourceCommit!==sourceCommit||receipt.factoryModule!==factoryModule||receipt.factoryExport!==factoryExport)return false;
   if(mode==='optimized'&&(!commitHash(referenceCommit)||!factoryPath(referenceFactoryModule,'reference')||!exportName(referenceFactoryExport)||receipt.referenceCommit!==referenceCommit||receipt.referenceFactoryModule!==referenceFactoryModule||receipt.referenceFactoryExport!==referenceFactoryExport))return false;
+  if(!receiptResources(receipt,runtimeResources,prepareExport))return false;
+  if(mode==='optimized'){const linked={runtimeResources:receipt.referenceRuntimeResources,prepareExport:receipt.referencePrepareExport};if(!receiptResources(linked,referenceRuntimeResources,referencePrepareExport))return false;}
   const keys=Object.keys(runtimeFiles).sort(),recorded=receipt.runtimeFiles||{};
   return object(recorded)&&JSON.stringify(keys)===JSON.stringify(Object.keys(recorded).sort())&&keys.every(path=>runtimeFiles[path].sha256===recorded[path]);
 }

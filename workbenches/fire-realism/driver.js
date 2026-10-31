@@ -4,7 +4,7 @@ import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 import * as T from '../../src/runtime/three.js';
 import {createArtScene} from '../../src/art/index.js';
 import {createFireReviewEffect} from '../../src/art/fire-review-effect.js';
-import {createFireProjectReader,fireProjectPath,verifyFireRuntimeManifest,verifiedFireDeliveryFingerprint} from '../../tools/fire-realism/delivery.js';
+import {createFireProjectReader,fireProjectPath,verifyFireRuntimeManifest,verifiedFireDeliveryFingerprint,verifiedFireDeliveryMetadata} from '../../tools/fire-realism/delivery.js';
 import {createFireReviewSimulation,createReviewPlaybackClock,FIRE_REVIEW_SCENARIOS,POPULATION_CASES} from '../../tools/fire-realism/scenarios.js';
 import {createGpuTimer,statistics,summarizeFireMeasurements,validateQualityReceipt,renderTimedFireFrame} from '../../tools/fire-realism/profiling.js';
 import {createFixedFirePose,FIRE_POSE_FRAMES} from '../../tools/fire-realism/fixed-pose.js';
@@ -22,6 +22,7 @@ function configuration(patch,previous){
 }
 async function localManifest(manifestUrl='../../assets/art/fire-realism/manifest.json',delivery={},mode='reference',signal){
   const project=new URL('../../',import.meta.url),url=new URL(manifestUrl,import.meta.url),manifestPath=fireProjectPath(url,project);
+  const proof=verifiedFireDeliveryMetadata(delivery);if(proof){if(proof.manifestRecord.path!==manifestPath)throw Error('Verified manifest belongs to another project root');return proof;}if(delivery.prepareExport)throw Error('Resource-backed delivery requires the loader-issued prepared proof');
   const entryPath=delivery.factoryModule||(mode==='reference'?'assets/art/fire-realism/index.js':'assets/art/fire-realism/optimized/index.js');
   const expectedManifest=delivery.manifestSha256===undefined&&delivery.manifestBytes===undefined?null:{sha256:delivery.manifestSha256,bytes:delivery.manifestBytes};
   return verifyFireRuntimeManifest({mode,manifestPath,entryPath,expectedManifest,signal,readBytes:createFireProjectReader({projectUrl:project,signal})});
@@ -41,10 +42,11 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   const optimizedDelivery=artistDelivery?.byMode?.optimized||null;
   const factories={reference:referenceDelivery.createFireRealism||null,optimized:optimizedDelivery?.createFireRealism||null};
   const referenceProof=verifiedFireDeliveryFingerprint(referenceDelivery),optimizedProof=verifiedFireDeliveryFingerprint(optimizedDelivery);
-  const fingerprint=(mode,delivery,proof)=>({mode,sourceCommit:delivery?.sourceCommit||null,factoryModule:proof?.mode===mode?proof.factoryModule:null,factoryExport:proof?.mode===mode?proof.factoryExport:null,runtimeFiles:{}});
+  const fingerprint=(mode,delivery,proof)=>({mode,sourceCommit:delivery?.sourceCommit||null,factoryModule:proof?.mode===mode?proof.factoryModule:null,factoryExport:proof?.mode===mode?proof.factoryExport:null,runtimeFiles:{},...(proof?.runtimeResources?{prepareExport:proof.prepareExport,runtimeResources:clone(proof.runtimeResources)}:{})});
+  const preload={};
   const fingerprints={reference:fingerprint('reference',referenceDelivery,referenceProof),optimized:fingerprint('optimized',optimizedDelivery,optimizedProof)};
   function factoryFingerprint(mode){return mode==='current'?{mode,sourceCommit:CONTROL,factoryModule:'src/art/fire.js',factoryExport:'createFire',runtimeFiles:clone(controlHashes)}:clone(fingerprints[mode]);}
-  function sources(){return {publishedControl:CONTROL,controlRuntimeFiles:clone(controlHashes),adapterRuntimeFiles:clone(adapterHashes),byMode:clone(fingerprints)};}
+  function sources(){return {publishedControl:CONTROL,controlRuntimeFiles:clone(controlHashes),adapterRuntimeFiles:clone(adapterHashes),byMode:clone(fingerprints),...(Object.keys(preload).length?{binaryPreparation:clone(preload)}:{})};}
   function state(){
     const fire=art?.diagnostics().fire;
     return clone({version:1,phase,configuration:config,frameIndex,tick:snapshot?.tick||0,worldTime:snapshot?.clocks.world||0,playerTime:snapshot?.clocks.player||0,paused:phase!=='playing'&&phase!=='measuring',
@@ -183,20 +185,20 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     scene=new T.Scene();const hemi=new T.HemisphereLight(0xfff1d1,0x334852,2.3),sun=new T.DirectionalLight(0xffffff,2.5);sun.position.set(-8,16,6);hemi.userData.reviewEnvironmentLight=sun.userData.reviewEnvironmentLight=true;scene.add(hemi,sun);
     camera=new T.OrthographicCamera(-10,10,10,-10,.1,300);cameraSweep=createCameraSweep(T);
     try{if(configuredDelivery&&typeof referenceDelivery.createFireRealism!=='function')throw Error('Configured reference delivery requires its verified factory export; no default fallback');
-      const delivery=await localManifest(referenceDelivery.manifestUrl,referenceDelivery,'reference',controller.signal);manifest=delivery.manifest;hashes=delivery.hashes;
+      const delivery=await localManifest(referenceDelivery.manifestUrl,referenceDelivery,'reference',controller.signal);manifest=delivery.manifest;hashes=delivery.hashes;if(delivery.resourceHashes)preload.reference={coldLoad:delivery.coldLoad,preparation:delivery.preparation};
       if(!configuredDelivery){const module=await import('../../assets/art/fire-realism/index.js');if(typeof module.createFireRealism!=='function')throw Error('Debug reference export unavailable');factories.reference=module.createFireRealism;fingerprints.reference.factoryModule='assets/art/fire-realism/index.js';fingerprints.reference.factoryExport='createFireRealism';}
       fingerprints.reference.runtimeFiles=hashes;availability.reference={available:true,reason:null,sourceCommit:referenceDelivery.sourceCommit||null};}
     catch(cause){if(configuredDelivery)throw cause;availability.reference.reason=cause.message;}
     if(optimizedDelivery){let probe;try{
       if(typeof optimizedDelivery.createFireRealism!=='function'||!optimizedDelivery.manifestUrl)throw Error('Optimized delivery requires its own factory and immutable manifest');
-      const delivery=await localManifest(optimizedDelivery.manifestUrl,optimizedDelivery,'optimized',controller.signal);fingerprints.optimized.runtimeFiles=delivery.hashes;
+      const delivery=await localManifest(optimizedDelivery.manifestUrl,optimizedDelivery,'optimized',controller.signal);fingerprints.optimized.runtimeFiles=delivery.hashes;if(delivery.resourceHashes)preload.optimized={coldLoad:delivery.coldLoad,preparation:delivery.preparation};
       if(delivery.manifest.optimizedAvailable!==true)throw Error('Optimized delivery manifest does not declare an optimized export');
       probe=factories.optimized(T,{quality:'optimized',maxCells:1,maxRays:2});if(!probe?.update||!probe?.root||probe.diagnostics?.().quality!=='optimized')throw Error('Optimized export did not supply the optimized mode');
       availability.optimized={available:true,reason:null,sourceCommit:optimizedDelivery.sourceCommit||null};
     }finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/delivery.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/delivery.js','tools/fire-realism/resources.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
       const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));

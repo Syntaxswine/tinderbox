@@ -12,6 +12,7 @@ This is delivery plumbing for the private comparison workbench. No actual descri
       sourceCommit: string,       // exactly 40 lowercase Git hex characters
       factoryModule: string,      // canonical project-root-relative .js path
       factoryExport: string,      // actual named function export
+      prepareExport?: string,     // required only with explicit binary resources
       manifestUrl: string,        // canonical project-root-relative .json path
       manifestSha256: string,     // exactly 64 lowercase hex, raw manifest bytes
       manifestBytes: number,      // exact positive integer byte length
@@ -59,3 +60,5 @@ Validation: all 230 repository tests, 169 script syntax checks, 206 static modul
 The hostile same-byte/two-own-export counterexample now fails before the first artist import when only `factoryExport` changes under the original receipt. A separate synthetic receipt explicitly naming the alternate export still works, so a module is not restricted to one export. Additional regressions reject missing or wrong receipt entry fields, accidental record/function mutation, per-trial or paired-no-fire source changes and optimized quality linked to a different accepted reference selector. All receipts and GPU values in those tests are explicitly synthetic. No actual descriptor, pin, receipt or quality acceptance is added. The default debug preview remains unaccepted and the published controls, artist code, timing boundaries and public game are unchanged.
 
 Entry-binding validation: all 244 repository tests, 172 script syntax checks, 209 static module resolutions, pinned provenance and existing art checks pass. The seven new focused counterexamples pass; the original selector reuse rejected before artist import. The descriptor remains absent and the Git-blob CLI reports explicitly unconfigured. `git diff --check` passes. Public `src`, `assets`, `vendor`, entry page and packaging inputs are unchanged from the prior validated package; this private loader/driver/test/documentation correction requires no new public build. Finite test processes exited and synthetic temporary Git repositories were removed by their `finally` path. No browser, server, encoder or retained helper was created. Actual configured browser boot and all visual/cost acceptance remain architect gates.
+
+The additive resource transport contract, one-time bootstrap, deadlines, receipt fields and driver metadata reuse are specified in [binary-delivery.md](binary-delivery.md). JS-only source/receipt shapes retain their established behavior. This extension supplies no real descriptor or acceptance.
