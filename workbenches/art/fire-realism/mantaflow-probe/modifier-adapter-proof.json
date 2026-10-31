@@ -1,0 +1,149 @@
+{
+  "id": "blender-4.5.15-stage1-volume-to-mesh-offset-adapter-v1",
+  "scope": "Authoring/review mesh reader adapter only, exact existing probe. Not an engine asset or simulated/cache repair.",
+  "tool": {
+    "version": "4.5.15 LTS",
+    "buildHash": "5afeabba6097",
+    "exeSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795"
+  },
+  "sourceProof": [
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097/source/blender/blenkernel/intern/volume_to_mesh.cc",
+      "sha256": "c4849642ec7a25088f7292032ecb6350252ca3f86cefb9cb2a64991abe7d5828",
+      "bytes": 7280,
+      "relevantLines": [
+        113,
+        115
+      ],
+      "license": "GPL-2.0-or-later; evidence source only, no Blender code is imported into this original reader adapter"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097/source/blender/modifiers/intern/MOD_volume_to_mesh.cc",
+      "sha256": "a4baff6bf038ba4293f61a5ddef541d86f82441749e517c9efcf7441e5d98123",
+      "bytes": 7431,
+      "relevantLines": [
+        158,
+        162
+      ],
+      "license": "GPL-2.0-or-later; evidence source only, no Blender code is imported into this original reader adapter"
+    }
+  ],
+  "inputHashes": {
+    "export-manifest.json": "6459ceaf4c16b48c72d2144980d965abde646fcc92e858ef7bee2721be0c2695",
+    "metadata.json": "f9f370661ec55683393684f5076eec0b2b14a75d35e6ab3d6a2c4c3f7c59350c",
+    "probe.blend": "625557d48e78a358efbd4a7181a7388da840b194b2f1e09891aab54f7f3a0f2e",
+    "alignment-failure-audit.json": "7822f3ed55a12b6523a9dc47d549b3c2a3a7a8d456955833d51def62701ed874"
+  },
+  "sourceVdbSha256": "b951d4dad65d5502ea5bd624a0848de420e3a8de5690a71bb0fabb7f73e5b42a",
+  "sourceFrame": 13,
+  "nativeGridMatrix": [
+    [
+      0.08749999850988388,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.08749999850988388,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.08749999850988388,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "volumeWorldMatrixDuringExport": [
+    [
+      0.9999999403953552,
+      0.0,
+      0.0,
+      -0.65625
+    ],
+    [
+      0.0,
+      0.9999999403953552,
+      0.0,
+      -0.65625
+    ],
+    [
+      0.0,
+      0.0,
+      0.9999999403953552,
+      0.04374999925494194
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "targetMatrixWorld": [
+    [
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "targetTransformEvidence": "The exact authored probe creates an empty target object, never changes its identity transform, and exports target.matrix_world @ vertex. This is the architect-approved identity-target probe only.",
+  "authoringProbeSha256": "3491c5a982cbbefc20f5a89b4c16bdd27f8e0c5f0de2db1dce67902a58e033bf",
+  "resolution": [
+    16,
+    16,
+    32
+  ],
+  "voxelSize": [
+    0.08749999850988388,
+    0.08749999850988388,
+    0.08749999850988388
+  ],
+  "scalarCentreOrigin": [
+    -0.6562499888241291,
+    -0.6562499888241291,
+    0.04374999925494194
+  ],
+  "domainBounds": {
+    "min": [
+      -0.699999988079071,
+      -0.699999988079071,
+      0.0
+    ],
+    "max": [
+      0.699999988079071,
+      0.699999988079071,
+      2.799999952316284
+    ]
+  },
+  "rule": "P = targetInverse * VolumeWorldDuringExport * nativeGridMatrix. Blender adds positive voxelSize(P)/2 after contour extraction. For this positive-diagonal P and identity target only, subtract that vector from a copied raw mesh view. Scalar centre origin stays domainMin+h/2. No fitted offset or scalar shift.",
+  "contourCaveat": "OpenVDB contour vertices need not equal exact trilinear isovalues. Report residual distribution and remaining approximation separately from the algebraic offset removal.",
+  "offsetStorage": "The source converts the post-composition half voxel to OpenVDB Vec3s (float32), reproduced with Math.fround(Pii/2)."
+}

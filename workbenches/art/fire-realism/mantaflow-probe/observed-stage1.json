@@ -1,0 +1,1981 @@
+{
+  "version": 1,
+  "result": "stage1-incomplete-coordinate-alignment-failed",
+  "scope": "Original authoring/export probe only. No production engine asset, appearance acceptance or GPU-cost evidence. No second repair.",
+  "tool": {
+    "version": "4.5.15 LTS",
+    "buildHash": "5afeabba6097",
+    "exeSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795"
+  },
+  "observedPrepare": {
+    "phase": "prepare",
+    "version": "4.5.15 LTS",
+    "buildHash": "5afeabba6097",
+    "settingsSha256": "f5623d90a02945f50e16764fd217cdc630b915b7ca4551bacf06adc4a57e60c9",
+    "savedBlend": {
+      "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-probe\\stage1-2026-10-31\\probe.blend",
+      "sha256": "625557d48e78a358efbd4a7181a7388da840b194b2f1e09891aab54f7f3a0f2e"
+    },
+    "domainMatrixWorld": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.399999976158142
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "domainDimensions": [
+      1.399999976158142,
+      1.399999976158142,
+      2.799999952316284
+    ],
+    "configured": {
+      "resolution_max": 32,
+      "use_adaptive_domain": false,
+      "use_noise": false,
+      "time_scale": 1.0,
+      "timesteps_min": 2,
+      "timesteps_max": 2,
+      "use_adaptive_timesteps": false,
+      "cfl_condition": 2.0,
+      "cache_type": "MODULAR",
+      "cache_data_format": "OPENVDB",
+      "cache_frame_start": 1,
+      "cache_frame_end": 24,
+      "cache_resumable": false,
+      "flame_ignition": 1.5,
+      "flame_max_temp": 3.0,
+      "burning_rate": 0.75,
+      "flame_vorticity": 0.5,
+      "flame_smoke": 1.0,
+      "openvdb_cache_compress_type": "ZIP",
+      "use_collision_border_front": false,
+      "use_collision_border_back": false,
+      "use_collision_border_left": false,
+      "use_collision_border_right": false,
+      "use_collision_border_top": false,
+      "use_collision_border_bottom": true,
+      "use_dissolve_smoke": false
+    },
+    "cacheRna": {
+      "cache_frame_start": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_frame_end": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_frame_offset": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_frame_pause_data": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_frame_pause_noise": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_frame_pause_mesh": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_frame_pause_particles": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_frame_pause_guide": {
+        "type": "INT",
+        "enum": null
+      },
+      "cache_mesh_format": {
+        "type": "ENUM",
+        "enum": [
+          "UNI",
+          "OPENVDB",
+          "RAW"
+        ]
+      },
+      "cache_data_format": {
+        "type": "ENUM",
+        "enum": [
+          "UNI",
+          "OPENVDB",
+          "RAW"
+        ]
+      },
+      "cache_particle_format": {
+        "type": "ENUM",
+        "enum": [
+          "UNI",
+          "OPENVDB",
+          "RAW"
+        ]
+      },
+      "cache_noise_format": {
+        "type": "ENUM",
+        "enum": [
+          "UNI",
+          "OPENVDB",
+          "RAW"
+        ]
+      },
+      "cache_type": {
+        "type": "ENUM",
+        "enum": [
+          "REPLAY",
+          "MODULAR",
+          "ALL"
+        ]
+      },
+      "cache_resumable": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "cache_directory": {
+        "type": "STRING",
+        "enum": null
+      },
+      "is_cache_baking_data": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "has_cache_baked_data": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "is_cache_baking_noise": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "has_cache_baked_noise": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "is_cache_baking_mesh": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "has_cache_baked_mesh": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "is_cache_baking_particles": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "has_cache_baked_particles": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "is_cache_baking_guide": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "has_cache_baked_guide": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "is_cache_baking_any": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "has_cache_baked_any": {
+        "type": "BOOLEAN",
+        "enum": null
+      },
+      "openvdb_cache_compress_type": {
+        "type": "ENUM",
+        "enum": [
+          "ZIP",
+          "BLOSC",
+          "NONE"
+        ]
+      },
+      "openvdb_data_depth": {
+        "type": "ENUM",
+        "enum": [
+          "NONE"
+        ]
+      }
+    },
+    "flow": {
+      "flow_type": "BOTH",
+      "flow_behavior": "INFLOW",
+      "fuel_amount": 1.0,
+      "temperature": 2.0,
+      "density": 1.0,
+      "surface_distance": 0.0,
+      "use_inflow": true
+    },
+    "sourceBed": {
+      "vertices": 162,
+      "faces": 160,
+      "worldXYBounds": [
+        -0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "topSeed": 1893
+    },
+    "threads": 4,
+    "noWind": true
+  },
+  "repair": {
+    "attempt": 1,
+    "cause": "The actual bake completed24VDBs but original unevaluated FluidDomainSettings.domain_resolution returned[0,0,0].",
+    "repair": "Read evaluated modifier after explicit frame transition; retain original cache and write repair cache separately. No solver/settings/shape/scale changes.",
+    "sourceBefore": {
+      "blender_probe.py": "e47a34b0b7a5dd8f0b7c00f3a56ed6764e0a14e819cbc2e17af2e888a4e44c7b",
+      "supervisor.py": "0d6279d873979d1756f7c4847e51ebbc392ef3f7c3c766e33e02873a242ff07f"
+    },
+    "sourceAfter": {
+      "blender_probe.py": "3491c5a982cbbefc20f5a89b4c16bdd27f8e0c5f0de2db1dce67902a58e033bf",
+      "supervisor.py": "f9f26374ab022dc653674f656f4ff08a817ab787403b67ed3b37e5e8c2869da0"
+    }
+  },
+  "sourceHashes": {
+    ".gitattributes": "106149ad579db2924e1e980a07807d1e8c21d09b229e50ed98218ac770500d84",
+    "blender_probe.py": "3491c5a982cbbefc20f5a89b4c16bdd27f8e0c5f0de2db1dce67902a58e033bf",
+    "check.mjs": "1703c528be1a7d4f4f03fa25bcef24554bab3a57260f4a271060758e895ae5e1",
+    "metadata_probe.py": "0c8048f44305b2daa25c2156e8fbbd542dd50c2e905d3f4f0b062a64ad40c5f3",
+    "reader.mjs": "5cb845e7c16a77c63b315a67c7ad13b3cc4fa0061f20899bed474f3afcf20a88",
+    "settings.json": "f5623d90a02945f50e16764fd217cdc630b915b7ca4551bacf06adc4a57e60c9",
+    "supervisor.py": "de2f82468b21101111ce31c15fa464ed8450d866bb945b367d73b6691c3b06de"
+  },
+  "actualFrames": [
+    {
+      "frame": 1,
+      "timeSeconds": 0.0,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "a410b49f4cd579b1257e859e827549cccf762db913cc8a0f07efa7e1b2b21169",
+          "min": 0.0,
+          "max": 1.005859375,
+          "nonzero": 288
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "289d72a61802e5c9c8d012a00b2d6a82108f1ca233531459917f3b4cc2c0020a",
+          "min": 0.0,
+          "max": 2.952392578125,
+          "nonzero": 288
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "6f5df68985071226cf5b6d22efa2ee03833059f4e2196f2b8491958df9260f24",
+          "min": 0.0,
+          "max": 0.96826171875,
+          "nonzero": 288
+        }
+      }
+    },
+    {
+      "frame": 2,
+      "timeSeconds": 0.03333333333333333,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "a69465b1f7949ca9a710e0a0cd8208afc93a534725e09711c1d41f6787bacc27",
+          "min": 0.0,
+          "max": 1.0126953125,
+          "nonzero": 528
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "ab1b9c999ec741cd9052e1bb281fec8148d95b5fbd1306034e6709be0ddc654f",
+          "min": 0.0,
+          "max": 2.953125,
+          "nonzero": 288
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "14e2f967e40f17354fe418fa973a03fcfe2f698ae85cfffa00195e87dbbbf027",
+          "min": 0.0,
+          "max": 0.96875,
+          "nonzero": 288
+        }
+      }
+    },
+    {
+      "frame": 3,
+      "timeSeconds": 0.06666666666666667,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "c490c1aaf084beafbb5ddc93f2016770d05f46869c5cca2fb93d65db6768cdac",
+          "min": 0.0,
+          "max": 1.0185546875,
+          "nonzero": 688
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "e90450753e18ce5f10cfadb4c9365e80dfa8989caefd9663a59ab6341ed84667",
+          "min": 0.0,
+          "max": 2.953857421875,
+          "nonzero": 288
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "e21466bf980cde3b900dae2903048d0b859c101dc459d7332007587c8ad59de8",
+          "min": 0.0,
+          "max": 0.96923828125,
+          "nonzero": 288
+        }
+      }
+    },
+    {
+      "frame": 4,
+      "timeSeconds": 0.1,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "9a3d7f4675f24ee6c9dcf7d271a673b66136c0b78e8ac6a0620bf4e22632737c",
+          "min": 0.0,
+          "max": 1.0244140625,
+          "nonzero": 748
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "5298df43add468b8237aa2565ee9cd13f4856437874d14155a794142fc376cc6",
+          "min": 0.0,
+          "max": 2.955322265625,
+          "nonzero": 316
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "d842075d458023ab8cbda29b0f15e713c3803e4efdba37c3e8adfd1d4e792466",
+          "min": 0.0,
+          "max": 0.97021484375,
+          "nonzero": 334
+        }
+      }
+    },
+    {
+      "frame": 5,
+      "timeSeconds": 0.13333333333333333,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "cb4c45b21b2c29313c38f3e8bf0ed8cd01301fc4e75f52391e807b526f80b198",
+          "min": 0.0,
+          "max": 1.0302734375,
+          "nonzero": 858
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "89b990edc7a2e6791b2f7b8d1d086b91ede0056c87902d1877441a92ba452dd9",
+          "min": 0.0,
+          "max": 2.9560546875,
+          "nonzero": 380
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "27e9fea33c1948fba0837dfafdc6a04f4b330a99ac985dec05d626cc6dae917b",
+          "min": 0.0,
+          "max": 0.970703125,
+          "nonzero": 381
+        }
+      }
+    },
+    {
+      "frame": 6,
+      "timeSeconds": 0.16666666666666666,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "0fec45baccaba89fd8b60a1c310423c63ce44b7c6485ab67e05aa4237d41555a",
+          "min": 0.0,
+          "max": 1.0361328125,
+          "nonzero": 940
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "7a8431a22ef1faee6f5edd53f3249427a5069f123e8218d6c372c34d921ce6bf",
+          "min": 0.0,
+          "max": 2.958251953125,
+          "nonzero": 376
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "9a0b8510f40f84265a3331a12add44ef7817dce781b787110290f6ba3992d387",
+          "min": 0.0,
+          "max": 0.97216796875,
+          "nonzero": 388
+        }
+      }
+    },
+    {
+      "frame": 7,
+      "timeSeconds": 0.2,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "3378eb55f2de89a695e816e79b06bb5e191ba9f5d158462722ac49a7608e0dbc",
+          "min": 0.0,
+          "max": 1.04296875,
+          "nonzero": 1035
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "638d1d50d7d9cbe2d8434707f2d912ec19a6422ec804db4fab6dce7424e6cf78",
+          "min": 0.0,
+          "max": 2.959716796875,
+          "nonzero": 404
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "9d59e5fac3dae88032058e7a9b7b7309e4e45caed411fd5d040d1d2ada21c949",
+          "min": 0.0,
+          "max": 0.97314453125,
+          "nonzero": 471
+        }
+      }
+    },
+    {
+      "frame": 8,
+      "timeSeconds": 0.23333333333333334,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "e87082b587322bc5ef6782a44b473c06f8f83659f972a2cf348ded91d1d99391",
+          "min": 0.0,
+          "max": 1.048828125,
+          "nonzero": 1126
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "b9386ac410563ab1374dae797c34d74c51056089f84d7a0b384e8399720d7d60",
+          "min": 0.0,
+          "max": 2.96044921875,
+          "nonzero": 437
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "0302f5e66eb8df88184f21dfff05d5a3ffb445809119b7e954398c9dec823567",
+          "min": 0.0,
+          "max": 0.9736328125,
+          "nonzero": 518
+        }
+      }
+    },
+    {
+      "frame": 9,
+      "timeSeconds": 0.26666666666666666,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "6f7139dc7545634b98a21a038b2caae0450eaf05973d10beeb071238ffeb6a9e",
+          "min": 0.0,
+          "max": 1.0546875,
+          "nonzero": 1224
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "3d03c1a8cd76a3d68efdca523d7f4d558823707a6fcef37a5d10cadc5bdf79fd",
+          "min": 0.0,
+          "max": 2.96044921875,
+          "nonzero": 524
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "6ea5dadaba2fd0182d0fa6beb7174a0ada91a8960f30ed23a63134e1674bd05f",
+          "min": 0.0,
+          "max": 0.9736328125,
+          "nonzero": 582
+        }
+      }
+    },
+    {
+      "frame": 10,
+      "timeSeconds": 0.3,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "6c5a8245144149c42f749ddac85dfdb64792f8ab0d9ac84482186d1489969f0d",
+          "min": 0.0,
+          "max": 1.05859375,
+          "nonzero": 1324
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "124bc68a06b5bae923b591bd08286a98096dec8a37f1e1d38bdd0bb3042f5a8a",
+          "min": 0.0,
+          "max": 2.959716796875,
+          "nonzero": 599
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "e1e36df6a4f3f7b6b22358550244ff4e246acda815eb66e9b028c64207c29f97",
+          "min": 0.0,
+          "max": 0.97314453125,
+          "nonzero": 694
+        }
+      }
+    },
+    {
+      "frame": 11,
+      "timeSeconds": 0.3333333333333333,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "d9d98be0b1df155fe2997cd79786b3c74863e7b7cd255320a32826aeee4248a1",
+          "min": 0.0,
+          "max": 1.0625,
+          "nonzero": 1458
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "742da38a5e3eb2d4e612c52a8266b623b605bc8d19a03979176d81c66ceb973d",
+          "min": 0.0,
+          "max": 2.959716796875,
+          "nonzero": 680
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "c9b8a3ad9d29a91a9ca5d4efd7d9d4b3bd587d566d25be81942168a5ddef7362",
+          "min": 0.0,
+          "max": 0.97314453125,
+          "nonzero": 729
+        }
+      }
+    },
+    {
+      "frame": 12,
+      "timeSeconds": 0.36666666666666664,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "7c89268bf4507a8652afbbdc3295a24ee498ca00975de8f567b45ee2bc6766d7",
+          "min": 0.0,
+          "max": 1.0673828125,
+          "nonzero": 1594
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "0455b9be3b94f13d3c4f96ca7941bb6af94ab06f5bd2825151e467e0aa9ff322",
+          "min": 0.0,
+          "max": 2.96044921875,
+          "nonzero": 792
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "485733f6f5fa99c592baac735af101329c0d0f2b593bd2045e90bf0322452550",
+          "min": 0.0,
+          "max": 0.9736328125,
+          "nonzero": 827
+        }
+      }
+    },
+    {
+      "frame": 13,
+      "timeSeconds": 0.4,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "c01bcca100f5b790b53743d1d1983f2dd206c2640485be50b769931693b1e175",
+          "min": 0.0,
+          "max": 1.0712890625,
+          "nonzero": 1742
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "9dbd0139cec0ce770e28d798599f56e8271aea91a8b84eb3685ecb79548a3895",
+          "min": 0.0,
+          "max": 2.961181640625,
+          "nonzero": 895
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "35cfa8c4ee65748b4406a546111b8170436330c4eaea4feeabc90530d0662172",
+          "min": 0.0,
+          "max": 0.97412109375,
+          "nonzero": 928
+        }
+      }
+    },
+    {
+      "frame": 14,
+      "timeSeconds": 0.43333333333333335,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "8bde2ec9087ab73c612146d37326d0979db9a945a31a2c88c16a1620008132e6",
+          "min": 0.0,
+          "max": 1.07421875,
+          "nonzero": 1912
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "7827624d034f9627d5386e06556ad81be11b8cf8acc94b2e429638c202a004c9",
+          "min": 0.0,
+          "max": 2.961181640625,
+          "nonzero": 920
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "1d684b3ecd2f0965ded43d9ffcde84d64203433bc85e9f4ea17c33f44dd2a622",
+          "min": 0.0,
+          "max": 0.97412109375,
+          "nonzero": 955
+        }
+      }
+    },
+    {
+      "frame": 15,
+      "timeSeconds": 0.4666666666666667,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "76ba04596f2ef66cf58bc77fa4df0b21727f25606a4c2aec0bc67837710db913",
+          "min": 0.0,
+          "max": 1.078125,
+          "nonzero": 2104
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "5dd3e1967cf7329ef5016df5d97b0093918ed8c1033a1cbae7b6544f136ac43c",
+          "min": 0.0,
+          "max": 2.961181640625,
+          "nonzero": 947
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "72d4c392988d8aa7a724a84063c088e981fe7b1d48d51ca067491cb79662aba6",
+          "min": 0.0,
+          "max": 0.97412109375,
+          "nonzero": 991
+        }
+      }
+    },
+    {
+      "frame": 16,
+      "timeSeconds": 0.5,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "0c473eb1bed7ad35bf5f8677db7e781e62968d7075c0d9c9e217d42a95405419",
+          "min": 0.0,
+          "max": 1.08203125,
+          "nonzero": 2318
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "89ee35b822d423d10f08303520a476b0cfee53ac8ad5d6765ff58502ad90e071",
+          "min": 0.0,
+          "max": 2.961181640625,
+          "nonzero": 839
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "c391abbd053379a28a889baf36f6671423c63748bba084e8fdd3de69a39bf2ba",
+          "min": 0.0,
+          "max": 0.97412109375,
+          "nonzero": 867
+        }
+      }
+    },
+    {
+      "frame": 17,
+      "timeSeconds": 0.5333333333333333,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "c0a440857d2a02019cce165ee7b0fe5149e7f2267f991e7f3ceaa6f61bf62456",
+          "min": 0.0,
+          "max": 1.08203125,
+          "nonzero": 2521
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "4d4f9172e184ae5ea1a05f80a6aec7ec3155d45e055cb7e723b24604e78e620f",
+          "min": 0.0,
+          "max": 2.848388671875,
+          "nonzero": 819
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "f9f0a92753e910346fe86a719b453402be15d3af5d6539987f8ded6b22540c25",
+          "min": 0.0,
+          "max": 0.89892578125,
+          "nonzero": 844
+        }
+      }
+    },
+    {
+      "frame": 18,
+      "timeSeconds": 0.5666666666666667,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "1b02b0e4e7523644143193fdd8668743e5846485a94b85395e8974e98a8a2195",
+          "min": 0.0,
+          "max": 1.0849609375,
+          "nonzero": 2706
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "66ee2f00dc9bc4df1e5804a5cfc2abc8f70030493d697e9c29a74131da641891",
+          "min": 0.0,
+          "max": 2.737060546875,
+          "nonzero": 853
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "8fd75b4d9ff145cfaec6756dec8aa0c40b95934436ab50cc47cd9041ebf5d5fe",
+          "min": 0.0,
+          "max": 0.82470703125,
+          "nonzero": 904
+        }
+      }
+    },
+    {
+      "frame": 19,
+      "timeSeconds": 0.6,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "03394ff7c263c3105158bba6226b10b47cb9d98d3ed1b5248f7e9444ae31822a",
+          "min": 0.0,
+          "max": 1.0869140625,
+          "nonzero": 2910
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "84a1cb7cec45b5d2b7689bd44ce7d3c5094a79b39fb42ca2e42cbdcf3c1cc12c",
+          "min": 0.0,
+          "max": 2.614013671875,
+          "nonzero": 850
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "e6c3149c41464f7476928ce78345554544c4bb3c2e45bef47247bba6d0648875",
+          "min": 0.0,
+          "max": 0.74267578125,
+          "nonzero": 870
+        }
+      }
+    },
+    {
+      "frame": 20,
+      "timeSeconds": 0.6333333333333333,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "e7d3a7d487643f5f6c10fb823a00608256c78ccedc062042dfceb8be2798bbda",
+          "min": 0.0,
+          "max": 1.0888671875,
+          "nonzero": 3118
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "989a4e7834e8efd66e1bcadae5c5cf60cc0454d8cf5a66f39426746e927a614c",
+          "min": 0.0,
+          "max": 2.474853515625,
+          "nonzero": 780
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "cedfebbee85f362e3c11636ea61c5f1adb44dc2f0122f1e24ab3784a9a4cd68c",
+          "min": 0.0,
+          "max": 0.64990234375,
+          "nonzero": 815
+        }
+      }
+    },
+    {
+      "frame": 21,
+      "timeSeconds": 0.6666666666666666,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "c2739df141ba80df8594b04c9232ad5463d701ea2694ea57c5099c56fcbfadef",
+          "min": 0.0,
+          "max": 1.0927734375,
+          "nonzero": 3340
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "55697da04e49c9e4bf57b7f7e4325fb71c31067e6a702974b62be397ca578656",
+          "min": 0.0,
+          "max": 2.3115234375,
+          "nonzero": 462
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "5fdd0cdce5536a783a88f35b5763af932bdae0cb0ed1e6e04a6d137e48e8f2b5",
+          "min": 0.0,
+          "max": 0.541015625,
+          "nonzero": 520
+        }
+      }
+    },
+    {
+      "frame": 22,
+      "timeSeconds": 0.7,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "df54a36fc032da2b83206db6d6b2feab985cb3bb93bb369ef50f0ab6abbe5d30",
+          "min": 0.0,
+          "max": 1.0859375,
+          "nonzero": 3542
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "548cc3e738632f165f7d8749eee717f58af77998cf7691ce4cb68ef9a9bdbe3d",
+          "min": 0.0,
+          "max": 2.1064453125,
+          "nonzero": 72
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "fa613f54ce09daa166c7727569d81d12a5fe652afa8d309d60c3b77c043fc4bf",
+          "min": 0.0,
+          "max": 0.404296875,
+          "nonzero": 72
+        }
+      }
+    },
+    {
+      "frame": 23,
+      "timeSeconds": 0.7333333333333333,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "e894cecf99a37b55022e4b0ea959468444f59388724895fe8c1c7a49c2c05a1c",
+          "min": 0.0,
+          "max": 1.0927734375,
+          "nonzero": 3749
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "b9b8af7f7ea3504ab7a36e5f2f148d19f542ceef102c90f125a9b7250fdda385",
+          "min": 0.0,
+          "max": 1.7841796875,
+          "nonzero": 58
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "1a40ae3ca21178fd386d14e1f9292a9a4295c2f4a29c47c7bf6e651e6f64c41d",
+          "min": 0.0,
+          "max": 0.189453125,
+          "nonzero": 65
+        }
+      }
+    },
+    {
+      "frame": 24,
+      "timeSeconds": 0.7666666666666667,
+      "resolution": [
+        16,
+        16,
+        32
+      ],
+      "channels": {
+        "density": {
+          "bytes": 32768,
+          "sha256": "6523a7084bf92c349819c1ca50283ac513501d1d14b4edb2aaebf4f12ca696ff",
+          "min": 0.0,
+          "max": 1.08984375,
+          "nonzero": 3954
+        },
+        "temperature": {
+          "bytes": 32768,
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479",
+          "min": 0.0,
+          "max": 0.0,
+          "nonzero": 0
+        },
+        "flame": {
+          "bytes": 32768,
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479",
+          "min": 0.0,
+          "max": 0.0,
+          "nonzero": 0
+        }
+      }
+    }
+  ],
+  "actualVdb": {
+    "path": "cache-repair/data/fluid_data_0013.vdb",
+    "sha256": "b951d4dad65d5502ea5bd624a0848de420e3a8de5690a71bb0fabb7f73e5b42a",
+    "gridNames": [
+      "density",
+      "flame",
+      "shadow",
+      "temperature",
+      "velocity"
+    ],
+    "rawGridMatrixObject": [
+      [
+        0.08749999850988388,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.08749999850988388,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.08749999850988388,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "desiredVoxelWorldMatrix": [
+      [
+        0.08749999850988388,
+        0.0,
+        0.0,
+        -0.65625
+      ],
+      [
+        0.0,
+        0.08749999850988388,
+        0.0,
+        -0.65625
+      ],
+      [
+        0.0,
+        0.0,
+        0.08749999850988388,
+        0.04374999925494194
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "alignmentMatrix": [
+      [
+        0.9999999403953552,
+        0.0,
+        0.0,
+        -0.65625
+      ],
+      [
+        0.0,
+        0.9999999403953552,
+        0.0,
+        -0.65625
+      ],
+      [
+        0.0,
+        0.0,
+        0.9999999403953552,
+        0.04374999925494194
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "actualMeshes": [
+    {
+      "emptyTargetBefore": {
+        "vertices": 0,
+        "polygons": 0
+      },
+      "sourceType": "actual cachedVDB scalar grid through VolumeToMeshModifier",
+      "grid": "flame",
+      "threshold": 0.097412109375,
+      "vertices": 1062,
+      "triangles": 2120,
+      "boundsBlenderWorld": {
+        "min": [
+          -0.5848797559738159,
+          -0.5848797559738159,
+          0.09626317769289017
+        ],
+        "max": [
+          0.6595836281776428,
+          0.6595836281776428,
+          0.8082565069198608
+        ]
+      },
+      "fieldBoundsBlenderWorld": {
+        "min": [
+          -0.5687499903142452,
+          -0.5687499903142452,
+          0.13124999776482582
+        ],
+        "max": [
+          0.5687499903142452,
+          0.5687499903142452,
+          0.743749987334013
+        ]
+      },
+      "verticesFile": {
+        "path": "exports/mesh-0.vertices.f32",
+        "bytes": 12744,
+        "sha256": "b3e11e93f74b9dc9cd1e4a9185c0d5df7fcff448dea5a0619acd556c28327946"
+      },
+      "indicesFile": {
+        "path": "exports/mesh-0.indices.u32",
+        "bytes": 25440,
+        "sha256": "07e3a23016f3faec736449054cea9127cc3c2ee91d7ffefeddadb676b864eb4f"
+      }
+    },
+    {
+      "emptyTargetBefore": {
+        "vertices": 0,
+        "polygons": 0
+      },
+      "sourceType": "actual cachedVDB scalar grid through VolumeToMeshModifier",
+      "grid": "flame",
+      "threshold": 0.487060546875,
+      "vertices": 806,
+      "triangles": 1608,
+      "boundsBlenderWorld": {
+        "min": [
+          -0.4720139503479004,
+          -0.4720139503479004,
+          0.1313159018754959
+        ],
+        "max": [
+          0.5576314330101013,
+          0.5576314330101013,
+          0.703019380569458
+        ]
+      },
+      "fieldBoundsBlenderWorld": {
+        "min": [
+          -0.48124999180436134,
+          -0.48124999180436134,
+          0.13124999776482582
+        ],
+        "max": [
+          0.48124999180436134,
+          0.48124999180436134,
+          0.6562499888241291
+        ]
+      },
+      "verticesFile": {
+        "path": "exports/mesh-1.vertices.f32",
+        "bytes": 9672,
+        "sha256": "1f9c8627e46b36c0aac37c0f0ed28fa90a5633cb001778db52d44f698194dba0"
+      },
+      "indicesFile": {
+        "path": "exports/mesh-1.indices.u32",
+        "bytes": 19296,
+        "sha256": "0eefc1325348d496e64b6d90d587c358cd87472f8ca5bd82676a97ba607351e9"
+      }
+    }
+  ],
+  "strongerAlignmentAudit": {
+    "status": "failed-mesh-coordinate-alignment",
+    "bakeAndFullScalarExports": true,
+    "all72RawScalarBuffersFiniteAndByteRoundtripped": true,
+    "actualNamedFlameVolumeToEmptyMesh": true,
+    "sourceFrame": 13,
+    "results": [
+      {
+        "threshold": 0.097412109375,
+        "unchanged": {
+          "meanAbsoluteError": 0.16128889484752076,
+          "maximumAbsoluteError": 0.8067679169966062,
+          "indexShift": 0
+        },
+        "diagnosticIndexMinusHalf": {
+          "meanAbsoluteError": 0.021604903365219353,
+          "maximumAbsoluteError": 0.21935118624395028,
+          "indexShift": -0.5
+        }
+      },
+      {
+        "threshold": 0.487060546875,
+        "unchanged": {
+          "meanAbsoluteError": 0.25534799486382326,
+          "maximumAbsoluteError": 0.4870604476711168,
+          "indexShift": 0
+        },
+        "diagnosticIndexMinusHalf": {
+          "meanAbsoluteError": 0.013580096663425975,
+          "maximumAbsoluteError": 0.09389750391709745,
+          "indexShift": -0.5
+        }
+      }
+    ],
+    "verdict": "Do not import this mesh into the engine. Broad AABB bounds alone missed a likely half-voxel translation. The alternative sampling is a diagnostic only; no actual export vertices, source/cache or transforms were changed.",
+    "allowedRepairAttempts": 1,
+    "usedRepairAttempts": 1,
+    "newAuthoringRun": false
+  },
+  "processGuards": [
+    {
+      "phase": "prepare",
+      "startedAt": "2026-10-31T03:52:24.258889Z",
+      "deadlineUtc": "2026-10-31T04:07:23.315122Z",
+      "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+      "ports": [],
+      "valid": true,
+      "peakPrivateBytes": 170823680,
+      "peakWorkingSetBytes": 167440384,
+      "peakOutputBytes": 472448,
+      "monitorIntervalSeconds": 0.25,
+      "resourceSemantics": "Windows Job process+job committed-memory hard caps and hard working-set max; output byte watchdog terminates on threshold crossing (one polling interval write overshoot possible).",
+      "process": {
+        "pid": 74600,
+        "creationFileTime": 134378923442607514,
+        "executable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe"
+      },
+      "guards": {
+        "jobMemoryBytes": 2147483648,
+        "processMemoryBytes": 2147483648,
+        "hardWorkingSetMaxBytes": 2147483648,
+        "killOnOwnedJobClose": true
+      },
+      "registrationReceipt": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-probe\\stage1-2026-10-31\\prepare-blender-registration-receipt.json",
+      "exitCode": 0,
+      "exitedAt": "2026-10-31T03:52:27.982174Z",
+      "naturalExit": true,
+      "verifiedExited": true,
+      "finalOutputBytes": 472527
+    },
+    {
+      "phase": "bake",
+      "startedAt": "2026-10-31T03:52:54.500180Z",
+      "deadlineUtc": "2026-10-31T04:07:23.315122Z",
+      "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+      "ports": [],
+      "valid": false,
+      "peakPrivateBytes": 166989824,
+      "peakWorkingSetBytes": 166932480,
+      "peakOutputBytes": 1978158,
+      "monitorIntervalSeconds": 0.25,
+      "resourceSemantics": "Windows Job process+job committed-memory hard caps and hard working-set max; output byte watchdog terminates on threshold crossing (one polling interval write overshoot possible).",
+      "process": {
+        "pid": 60032,
+        "creationFileTime": 134378923745026994,
+        "executable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe"
+      },
+      "guards": {
+        "jobMemoryBytes": 2147483648,
+        "processMemoryBytes": 2147483648,
+        "hardWorkingSetMaxBytes": 2147483648,
+        "killOnOwnedJobClose": true
+      },
+      "registrationReceipt": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-probe\\stage1-2026-10-31\\bake-blender-registration-receipt.json",
+      "exitCode": 19,
+      "exitedAt": "2026-10-31T03:52:56.425214Z",
+      "naturalExit": true,
+      "error": "Probe phase invalid; preserve logs/cache:19",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\workbenches\\art\\fire-realism\\mantaflow-probe\\supervisor.py\", line 138, in main\n    if not process_record['valid'] or failure.exists()or not expected.exists(): raise RuntimeError('Probe phase invalid; preserve logs/cache:'+str(code))\n                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Probe phase invalid; preserve logs/cache:19\n",
+      "verifiedExited": true,
+      "finalOutputBytes": 2245754
+    },
+    {
+      "phase": "bake",
+      "startedAt": "2026-10-31T03:53:41.268959Z",
+      "deadlineUtc": "2026-10-31T04:07:23.315122Z",
+      "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+      "ports": [],
+      "valid": true,
+      "peakPrivateBytes": 197120000,
+      "peakWorkingSetBytes": 197373952,
+      "peakOutputBytes": 6552571,
+      "monitorIntervalSeconds": 0.25,
+      "resourceSemantics": "Windows Job process+job committed-memory hard caps and hard working-set max; output byte watchdog terminates on threshold crossing (one polling interval write overshoot possible).",
+      "process": {
+        "pid": 4760,
+        "creationFileTime": 134378924212716219,
+        "executable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe"
+      },
+      "guards": {
+        "jobMemoryBytes": 2147483648,
+        "processMemoryBytes": 2147483648,
+        "hardWorkingSetMaxBytes": 2147483648,
+        "killOnOwnedJobClose": true
+      },
+      "registrationReceipt": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-probe\\stage1-2026-10-31\\bake-repair-blender-registration-receipt.json",
+      "exitCode": 0,
+      "exitedAt": "2026-10-31T03:53:43.735197Z",
+      "naturalExit": true,
+      "verifiedExited": true,
+      "finalOutputBytes": 6552632
+    }
+  ],
+  "verifiedProcessExits": {
+    "processes": [
+      {
+        "id": "33e1992b8a57418d922bbc40be4d3637",
+        "pid": 4760,
+        "registeredCreationFiletime": 134378924212716219,
+        "registeredExecutable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe",
+        "openProcessError": 87,
+        "originalLifetimeExited": true
+      },
+      {
+        "id": "3c6de03599c9471fa2d0669799007c73",
+        "pid": 51360,
+        "registeredCreationFiletime": 134378923734376405,
+        "registeredExecutable": "C:\\Users\\baals\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "openProcessError": 87,
+        "originalLifetimeExited": true
+      },
+      {
+        "id": "3f9f9dbc68b546138f5ffe0928eeb1e2",
+        "pid": 65776,
+        "registeredCreationFiletime": 134378924201960258,
+        "registeredExecutable": "C:\\Users\\baals\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "openProcessError": 87,
+        "originalLifetimeExited": true
+      },
+      {
+        "id": "51f28da4cfc942ba9aba3b9d233a447c",
+        "pid": 60032,
+        "registeredCreationFiletime": 134378923745026994,
+        "registeredExecutable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe",
+        "openProcessError": 87,
+        "originalLifetimeExited": true
+      },
+      {
+        "id": "bd735e41af424bc78d84492b53ee70f5",
+        "pid": 74600,
+        "registeredCreationFiletime": 134378923442607514,
+        "registeredExecutable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe",
+        "openProcessError": 87,
+        "originalLifetimeExited": true
+      },
+      {
+        "id": "e8d971dca5e04cafac5c47abf09a1565",
+        "pid": 39076,
+        "registeredCreationFiletime": 134378923431246577,
+        "registeredExecutable": "C:\\Users\\baals\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "openProcessError": 87,
+        "originalLifetimeExited": true
+      }
+    ],
+    "allOriginalLifetimesExited": true,
+    "ports": [],
+    "note": "Inventory registration status is historical until sweep reconciles; this independent OS identity check does not terminate or signal anything."
+  },
+  "rawEvidenceIndex": {
+    "status": "stage1-not-accepted-coordinate-alignment-failed",
+    "files": {
+      "prepare.json": {
+        "bytes": 4910,
+        "sha256": "0f43380a1ff37d20a864e8689a7139538b9c8dce6973e48722491b130c26153e"
+      },
+      "prepare-process.json": {
+        "bytes": 1286,
+        "sha256": "245d3d64984f68a85422f0a6014485146277408922d3918872bc9d035d7b5b87"
+      },
+      "bake-process.json": {
+        "bytes": 1930,
+        "sha256": "3f2d298666aba769d572d0e816da0ebd1649f8b5bae661f871f37cc0ee1f3d2b"
+      },
+      "bake-repair-process.json": {
+        "bytes": 1288,
+        "sha256": "ba0580e47da4993e49c7828aefbd361c9dd7a302106be75c059a6676c23a3634"
+      },
+      "bake-failure.json": {
+        "bytes": 880,
+        "sha256": "553830e7300f4172fdfca1d5cb39375b2cb0b8bc7dbe322c337ce9e3aa2a762b"
+      },
+      "export-manifest.json": {
+        "bytes": 78066,
+        "sha256": "6459ceaf4c16b48c72d2144980d965abde646fcc92e858ef7bee2721be0c2695"
+      },
+      "alignment-failure-audit.json": {
+        "bytes": 1309,
+        "sha256": "7822f3ed55a12b6523a9dc47d549b3c2a3a7a8d456955833d51def62701ed874"
+      },
+      "repair-plan.json": {
+        "bytes": 723,
+        "sha256": "91d95fbc59c4bd129e7550560b71238ecdfdfb721ac476f44c6d1dd65d2cf5cc"
+      },
+      "verified-process-exits.json": {
+        "bytes": 2329,
+        "sha256": "7597596b7663f22fc96a2416b50b48c49a1dfae38372b8e159ca487586c491a8"
+      },
+      "probe.blend": {
+        "bytes": 449616,
+        "sha256": "625557d48e78a358efbd4a7181a7388da840b194b2f1e09891aab54f7f3a0f2e"
+      }
+    }
+  },
+  "caveats": [
+    "The authoring export initially reported pass on broad AABB bounds; this is superseded by the independent failed scalar-surface alignment check.",
+    "The diagnostic minus-half index evaluation does not modify vertices or prove an accepted repair.",
+    "Raw exported f32LE arrays preserve Blender-returned values. No claim that cached VDB storage was full32-bit precision: prepare RNA exposed openvdb_data_depth enum NONE only.",
+    "Temperature is raw Mantaflow solver output (observed >1); the initial generated format description is not a physical Kelvin calibration.",
+    "Stage1 is not loop-ready: frame24 flame and temperature are zero while density remains. No loop or terminal runtime asset was authored.",
+    "No broad helper-registry sweep was run because it would include unrelated owners. All exact task lifetimes independently confirmed exited."
+  ],
+  "readOnlyMetadata": {
+    "scope": "Read-only existing-cache metadata; no simulation, export repair, transform fitting or previous output edits.",
+    "tool": {
+      "version": "4.5.15 LTS",
+      "buildHash": "5afeabba6097"
+    },
+    "sourceVdb": {
+      "path": "cache-repair/data/fluid_data_0013.vdb",
+      "sha256Before": "b951d4dad65d5502ea5bd624a0848de420e3a8de5690a71bb0fabb7f73e5b42a",
+      "sha256After": "b951d4dad65d5502ea5bd624a0848de420e3a8de5690a71bb0fabb7f73e5b42a"
+    },
+    "sourceBlendSha256": "625557d48e78a358efbd4a7181a7388da840b194b2f1e09891aab54f7f3a0f2e",
+    "frame": 13,
+    "domain": {
+      "matrixWorld": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.399999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "physicalBounds": {
+        "min": [
+          -0.699999988079071,
+          -0.699999988079071,
+          0.0
+        ],
+        "max": [
+          0.699999988079071,
+          0.699999988079071,
+          2.799999952316284
+        ]
+      },
+      "dimensions": [
+        1.399999976158142,
+        1.399999976158142,
+        2.799999952316284
+      ],
+      "originalCellSize": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "evaluatedCellSize": [
+        0.08749999850988388,
+        0.08749999850988388,
+        0.08749999850988388
+      ],
+      "originalResolution": [
+        0,
+        0,
+        0
+      ],
+      "evaluatedResolution": [
+        16,
+        16,
+        32
+      ],
+      "cacheDirectory": "//cache"
+    },
+    "importedVolume": {
+      "matrixWorld": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "boundBoxLocal": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          2.7124998569488525
+        ],
+        [
+          0.0,
+          1.3125,
+          2.7124998569488525
+        ],
+        [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        [
+          1.3125,
+          0.0,
+          0.0
+        ],
+        [
+          1.3125,
+          0.0,
+          2.7124998569488525
+        ],
+        [
+          1.3125,
+          1.3125,
+          2.7124998569488525
+        ],
+        [
+          1.3125,
+          1.3125,
+          0.0
+        ]
+      ]
+    },
+    "namedGrids": [
+      {
+        "name": "density",
+        "matrixObject": [
+          [
+            0.08749999850988388,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.08749999850988388,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.08749999850988388,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "volumeMatrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "indexToImportedWorld": [
+          [
+            0.08749999850988388,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.08749999850988388,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.08749999850988388,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "index000Object": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "index000ImportedWorld": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "index100ImportedWorld": [
+          0.08749999850988388,
+          0.0,
+          0.0
+        ],
+        "index010ImportedWorld": [
+          0.0,
+          0.08749999850988388,
+          0.0
+        ],
+        "index001ImportedWorld": [
+          0.0,
+          0.0,
+          0.08749999850988388
+        ]
+      },
+      {
+        "name": "flame",
+        "matrixObject": [
+          [
+            0.08749999850988388,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.08749999850988388,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.08749999850988388,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "volumeMatrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "indexToImportedWorld": [
+          [
+            0.08749999850988388,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.08749999850988388,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.08749999850988388,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "index000Object": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "index000ImportedWorld": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "index100ImportedWorld": [
+          0.08749999850988388,
+          0.0,
+          0.0
+        ],
+        "index010ImportedWorld": [
+          0.0,
+          0.08749999850988388,
+          0.0
+        ],
+        "index001ImportedWorld": [
+          0.0,
+          0.0,
+          0.08749999850988388
+        ]
+      },
+      {
+        "name": "temperature",
+        "matrixObject": [
+          [
+            0.08749999850988388,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.08749999850988388,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.08749999850988388,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "volumeMatrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "indexToImportedWorld": [
+          [
+            0.08749999850988388,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.08749999850988388,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.08749999850988388,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "index000Object": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "index000ImportedWorld": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "index100ImportedWorld": [
+          0.08749999850988388,
+          0.0,
+          0.0
+        ],
+        "index010ImportedWorld": [
+          0.0,
+          0.08749999850988388,
+          0.0
+        ],
+        "index001ImportedWorld": [
+          0.0,
+          0.0,
+          0.08749999850988388
+        ]
+      }
+    ],
+    "note": "matrix_object is the actual public Blender voxel-index-to-object matrix. ImportedVolume uses its untouched import transform. No assumption is made here about index corners/centres relative to the solver domain."
+  },
+  "metadataProcessGuard": {
+    "phase": "metadata",
+    "startedAt": "2026-10-31T03:57:24.637740Z",
+    "deadlineUtc": "2026-10-31T04:07:23.315122Z",
+    "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+    "ports": [],
+    "valid": true,
+    "peakPrivateBytes": 152993792,
+    "peakWorkingSetBytes": 148975616,
+    "peakOutputBytes": 6619250,
+    "monitorIntervalSeconds": 0.25,
+    "resourceSemantics": "Windows Job process+job committed-memory hard caps and hard working-set max; output byte watchdog terminates on threshold crossing (one polling interval write overshoot possible).",
+    "process": {
+      "pid": 23788,
+      "creationFileTime": 134378926446408921,
+      "executable": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\tools\\blender-4.5.15\\unpacked\\blender-4.5.15-windows-x64\\blender.exe"
+    },
+    "guards": {
+      "jobMemoryBytes": 2147483648,
+      "processMemoryBytes": 2147483648,
+      "hardWorkingSetMaxBytes": 2147483648,
+      "killOnOwnedJobClose": true
+    },
+    "registrationReceipt": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-probe\\stage1-2026-10-31\\metadata-blender-registration-receipt.json",
+    "exitCode": 0,
+    "exitedAt": "2026-10-31T03:57:25.808935Z",
+    "naturalExit": true,
+    "verifiedExited": true,
+    "finalOutputBytes": 6627582
+  },
+  "readOnlyMetadataSha256": "f9f370661ec55683393684f5076eec0b2b14a75d35e6ab3d6a2c4c3f7c59350c",
+  "metadataProcessExits": {
+    "processes": [
+      {
+        "id": "3f51195c64114f058800b131a262bea4",
+        "pid": 23788,
+        "registeredCreationFiletime": 134378926446408921,
+        "originalLifetimeExited": true,
+        "openProcessError": 87
+      },
+      {
+        "id": "f3372e45874549c59f482a2057ae7ed1",
+        "pid": 29056,
+        "registeredCreationFiletime": 134378926435883681,
+        "originalLifetimeExited": true,
+        "openProcessError": 87
+      }
+    ],
+    "allOriginalLifetimesExited": true,
+    "ports": []
+  }
+}

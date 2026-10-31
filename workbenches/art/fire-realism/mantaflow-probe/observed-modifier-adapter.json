@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "status": "source-backed-existing-data-adapter-checks-pass",
+  "scope": "Stage1 authoring/review data checks only; architect decides acceptance. Not production integration, a new bake, fluid quality acceptance or cost evidence.",
+  "startedAt": "2026-10-31T04:10:49.310Z",
+  "completedAt": "2026-10-31T04:10:49.436Z",
+  "newBlenderInvocations": 0,
+  "newHelpers": 0,
+  "initialFailureReproduced": true,
+  "originalInputFilesVerifiedBeforeAndAfter": 179,
+  "originalInputBytes": 6476605,
+  "allOriginalInputsUnchanged": true,
+  "sourceProof": [
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097/source/blender/blenkernel/intern/volume_to_mesh.cc",
+      "sha256": "c4849642ec7a25088f7292032ecb6350252ca3f86cefb9cb2a64991abe7d5828",
+      "bytes": 7280,
+      "relevantLines": [
+        113,
+        115
+      ],
+      "license": "GPL-2.0-or-later; evidence source only, no Blender code is imported into this original reader adapter"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097/source/blender/modifiers/intern/MOD_volume_to_mesh.cc",
+      "sha256": "a4baff6bf038ba4293f61a5ddef541d86f82441749e517c9efcf7441e5d98123",
+      "bytes": 7431,
+      "relevantLines": [
+        158,
+        162
+      ],
+      "license": "GPL-2.0-or-later; evidence source only, no Blender code is imported into this original reader adapter"
+    }
+  ],
+  "result": {
+    "status": "authoring-byte-and-mesh-roundtrip-pass",
+    "scope": "Not production engine integration, appearance acceptance or GPU cost evidence",
+    "frames": 24,
+    "resolution": [
+      16,
+      16,
+      32
+    ],
+    "channelUniqueFrames": {
+      "density": 24,
+      "temperature": 24,
+      "flame": 24
+    },
+    "activeNonzeroVoxels": {
+      "density": 19887,
+      "temperature": 8973,
+      "flame": 9529
+    },
+    "meshes": [
+      {
+        "threshold": 0.097412109375,
+        "vertices": 1062,
+        "triangles": 2120
+      },
+      {
+        "threshold": 0.487060546875,
+        "vertices": 806,
+        "triangles": 1608
+      }
+    ],
+    "allScalarBytesRoundtripped": true,
+    "actualVdbVerified": true,
+    "surfaceAlignment": [
+      {
+        "threshold": 0.097412109375,
+        "rawResidual": {
+          "meanAbsoluteError": 0.16128889484752076,
+          "rootMeanSquareError": 0.23147233077199092,
+          "maximumAbsoluteError": 0.8067679169966062,
+          "medianAbsoluteError": 0.08664180223922252,
+          "p90AbsoluteError": 0.48229909727634324,
+          "p95AbsoluteError": 0.4869388490184292,
+          "p99AbsoluteError": 0.6940838665747678,
+          "indexShift": 0
+        },
+        "comparedResidual": {
+          "meanAbsoluteError": 0.02160490678674396,
+          "rootMeanSquareError": 0.043170184365862084,
+          "maximumAbsoluteError": 0.21935116703718455,
+          "medianAbsoluteError": 0.0064189674514408546,
+          "p90AbsoluteError": 0.0536127249144418,
+          "p95AbsoluteError": 0.1244239536371072,
+          "p99AbsoluteError": 0.17667509315310004,
+          "indexShift": 0
+        },
+        "correctedBoundsBlenderWorld": {
+          "min": [
+            -0.6286297515034676,
+            -0.6286297515034676,
+            0.052513182163238525
+          ],
+          "max": [
+            0.6158336326479912,
+            0.6158336326479912,
+            0.7645065113902092
+          ]
+        }
+      },
+      {
+        "threshold": 0.487060546875,
+        "rawResidual": {
+          "meanAbsoluteError": 0.25534799486382326,
+          "rootMeanSquareError": 0.29240997625085857,
+          "maximumAbsoluteError": 0.4870604476711168,
+          "medianAbsoluteError": 0.2457986117003916,
+          "p90AbsoluteError": 0.4822817330698134,
+          "p95AbsoluteError": 0.4840077407537554,
+          "p99AbsoluteError": 0.4865672015448784,
+          "indexShift": 0
+        },
+        "comparedResidual": {
+          "meanAbsoluteError": 0.013580100837054085,
+          "rootMeanSquareError": 0.022536219136053227,
+          "maximumAbsoluteError": 0.09389749456577645,
+          "medianAbsoluteError": 0.005466548482905786,
+          "p90AbsoluteError": 0.042900603352730604,
+          "p95AbsoluteError": 0.05256854863864724,
+          "p99AbsoluteError": 0.07384674785192086,
+          "indexShift": 0
+        },
+        "correctedBoundsBlenderWorld": {
+          "min": [
+            -0.515763945877552,
+            -0.515763945877552,
+            0.08756590634584427
+          ],
+          "max": [
+            0.5138814374804497,
+            0.5138814374804497,
+            0.6592693850398064
+          ]
+        }
+      }
+    ],
+    "meshAdapter": {
+      "id": "blender-4.5.15-stage1-volume-to-mesh-offset-adapter-v1",
+      "transformP": [
+        [
+          0.08749999329447755,
+          0,
+          0,
+          -0.65625
+        ],
+        [
+          0,
+          0.08749999329447755,
+          0,
+          -0.65625
+        ],
+        [
+          0,
+          0,
+          0.08749999329447755,
+          0.04374999925494194
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "offsetTargetMetres": [
+        0.04374999552965164,
+        0.04374999552965164,
+        0.04374999552965164
+      ],
+      "witnesses": [
+        {
+          "index": [
+            0,
+            0,
+            0
+          ],
+          "gridPointTarget": [
+            -0.65625,
+            -0.65625,
+            0.04374999925494194
+          ],
+          "blenderModifierPointTarget": [
+            -0.6125000044703484,
+            -0.6125000044703484,
+            0.08749999478459358
+          ],
+          "readerAdapterPointTarget": [
+            -0.65625,
+            -0.65625,
+            0.04374999925494194
+          ],
+          "scalarIndexAfterAdapter": [
+            -1.2772424097953935e-7,
+            -1.2772424097953935e-7,
+            0
+          ]
+        },
+        {
+          "index": [
+            1,
+            0,
+            0
+          ],
+          "gridPointTarget": [
+            -0.5687500067055224,
+            -0.65625,
+            0.04374999925494194
+          ],
+          "blenderModifierPointTarget": [
+            -0.5250000111758708,
+            -0.6125000044703484,
+            0.08749999478459358
+          ],
+          "readerAdapterPointTarget": [
+            -0.5687500067055224,
+            -0.65625,
+            0.04374999925494194
+          ],
+          "scalarIndexAfterAdapter": [
+            0.9999998126711143,
+            -1.2772424097953935e-7,
+            0
+          ]
+        },
+        {
+          "index": [
+            0,
+            1,
+            0
+          ],
+          "gridPointTarget": [
+            -0.65625,
+            -0.5687500067055224,
+            0.04374999925494194
+          ],
+          "blenderModifierPointTarget": [
+            -0.6125000044703484,
+            -0.5250000111758708,
+            0.08749999478459358
+          ],
+          "readerAdapterPointTarget": [
+            -0.65625,
+            -0.5687500067055224,
+            0.04374999925494194
+          ],
+          "scalarIndexAfterAdapter": [
+            -1.2772424097953935e-7,
+            0.9999998126711143,
+            0
+          ]
+        },
+        {
+          "index": [
+            0,
+            0,
+            1
+          ],
+          "gridPointTarget": [
+            -0.65625,
+            -0.65625,
+            0.1312499925494195
+          ],
+          "blenderModifierPointTarget": [
+            -0.6125000044703484,
+            -0.6125000044703484,
+            0.17499998807907113
+          ],
+          "readerAdapterPointTarget": [
+            -0.65625,
+            -0.65625,
+            0.1312499925494195
+          ],
+          "scalarIndexAfterAdapter": [
+            -1.2772424097953935e-7,
+            -1.2772424097953935e-7,
+            0.9999999403953552
+          ]
+        },
+        {
+          "index": [
+            15,
+            15,
+            31
+          ],
+          "gridPointTarget": [
+            0.6562498994171633,
+            0.6562498994171633,
+            2.756249791383746
+          ],
+          "blenderModifierPointTarget": [
+            0.6999998949468149,
+            0.6999998949468149,
+            2.7999997869133977
+          ],
+          "readerAdapterPointTarget": [
+            0.6562498994171633,
+            0.6562498994171633,
+            2.756249791383746
+          ],
+          "scalarIndexAfterAdapter": [
+            14.999998978206087,
+            14.999998978206087,
+            30.999998152256012
+          ]
+        }
+      ],
+      "scalarOriginUnchanged": true,
+      "originalBuffersUnchanged": true,
+      "contourCaveat": "OpenVDB contour vertices need not equal exact trilinear isovalues. Report residual distribution and remaining approximation separately from the algebraic offset removal."
+    }
+  },
+  "remainingApproximation": "The exact modifier offset is removed algebraically. OpenVDB contour vertices are approximate and still have nonzero trilinear residuals; values/percentiles/maxima are reported without fitting a shift or moving scalars."
+}

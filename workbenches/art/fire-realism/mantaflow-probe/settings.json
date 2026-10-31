@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "purpose": "Stage1 data/mesh export validation only; not visual acceptance or production integration",
+  "tool": {
+    "version": "4.5.15 LTS",
+    "buildHash": "5afeabba6097",
+    "exeSha256": "935e4bed28e51d08b8e1fbcc31dcccc000cc1c3dd065d82dcb1da813e75db795"
+  },
+  "limits": {
+    "wallSeconds": 900,
+    "processMemoryBytes": 2147483648,
+    "outputBytes": 536870912,
+    "threads": 4,
+    "repairAttempts": 1
+  },
+  "simulation": {
+    "frames": [
+      1,
+      24
+    ],
+    "fps": 30,
+    "resolutionMax": 32,
+    "domainDimensions": [
+      1.4,
+      1.4,
+      2.8
+    ],
+    "domainCentre": [
+      0,
+      0,
+      1.4
+    ],
+    "adaptiveDomain": false,
+    "noise": false,
+    "wind": false,
+    "timeScale": 1.0,
+    "substeps": 2,
+    "cfl": 2.0,
+    "seed": 1893,
+    "flowOnFrames": [
+      1,
+      16
+    ],
+    "flowOffFrames": [
+      17,
+      24
+    ],
+    "cacheType": "MODULAR",
+    "cacheFormat": "OPENVDB",
+    "flameIgnition": 1.5,
+    "flameMaxTemp": 3.0,
+    "burningRate": 0.75,
+    "flameVorticity": 0.5,
+    "flameSmoke": 1.0,
+    "fuelAmount": 1.0,
+    "flowTemperature": 2.0,
+    "smokeDensity": 1.0
+  },
+  "source": {
+    "sourceCommit": "aca30cd910a326918b1599ce6665803cf64739e0",
+    "gamePatchCentre": [
+      5.5,
+      0,
+      8.5
+    ],
+    "cellSize": 0.5,
+    "cells": [
+      {
+        "id": "cell:10,16",
+        "x": 5.25,
+        "y": 8.25
+      },
+      {
+        "id": "cell:11,16",
+        "x": 5.75,
+        "y": 8.25
+      },
+      {
+        "id": "cell:10,17",
+        "x": 5.25,
+        "y": 8.75
+      },
+      {
+        "id": "cell:11,17",
+        "x": 5.75,
+        "y": 8.75
+      }
+    ],
+    "authoringBedXY": [
+      -0.5,
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "bedBottom": 0.02,
+    "bedTopBase": 0.17,
+    "bedTopJitter": 0.02,
+    "blenderWorldToGameRowMajor": [
+      [
+        1,
+        0,
+        0,
+        5.5
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        -1,
+        0,
+        8.5
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "mapping": "Right-handed: Blender(X,Y,Z) -> Three(X,Z,-Y), then native patch-centre translation. No character/world rescaling."
+  }
+}
