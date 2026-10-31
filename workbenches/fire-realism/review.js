@@ -393,13 +393,45 @@ export async function startFireReview(root,{createDriver,mountUI,signal,fetchDos
   const save=onDownload||((value,name,type)=>{let release;release=download(root.ownerDocument,value,name,type,()=>downloadReleases.delete(release));if(release)downloadReleases.add(release);});
   const shell=createReviewShell({root,onIntent:command=>binding?.intent(command),onExport:value=>save(value,'tinderbox-fire-critique.json','application/json')});
   try{references=photoReferences(await fetchDossier(controller.signal));}catch(error){referenceError=error.message;}
+  if(controller.signal.aborted){signal?.removeEventListener('abort',externalAbort);shell.dispose();throw new DOMException('Review startup aborted','AbortError');}
   shell.update({...EMPTY,reason:'Connecting the actual WebGL driver.',references,referenceError});
   binding=await bindReviewDriver({shell,createDriver,mountUI:options=>mountUI({...options,autoOpenPauseMenu:false}),signal:controller.signal,artistDelivery,referenceAcceptance,references,referenceError,onDownload:save});
+  if(controller.signal.aborted){signal?.removeEventListener('abort',externalAbort);await binding.dispose();for(const release of downloadReleases)release();downloadReleases.clear();shell.dispose();throw new DOMException('Review startup aborted','AbortError');}
   let disposal=null;return {shell,binding,dispose(){if(disposal)return disposal;signal?.removeEventListener('abort',externalAbort);controller.abort();disposal=(async()=>{await binding.dispose();for(const release of downloadReleases)release();downloadReleases.clear();shell.dispose();})();return disposal;}};
 }
+/** One cold-document startup. The loader owns all verification/receipt decisions. */
+export function createFireReviewBoot(root,{signal,loadDelivery=async options=>{const {loadFireReviewDelivery}=await import('../../tools/fire-realism/delivery.js');return loadFireReviewDelivery(options);},importDriver=()=>import('./driver.js'),importUI=()=>import('../../src/ui/index.js'),startReview=startFireReview,eventTarget=root?.ownerDocument?.defaultView,showUnavailable=error=>createReviewShell({root,initialState:{...EMPTY,reason:'Review startup unavailable: '+error.message}})}={}){
+  const lifetime=new AbortController();let closed=false,active=null,activeDisposal=null,errorShell=null,disposal=null,startup=null;
+  const aborted=()=>closed||lifetime.signal.aborted;
+  const disposeActive=()=>{if(!active)return Promise.resolve();if(!activeDisposal){const owned=active;active=null;activeDisposal=Promise.resolve().then(()=>owned.dispose());}return activeDisposal;};
+  const stop=()=>{void dispose();};
+  if(signal?.aborted){closed=true;lifetime.abort();}else signal?.addEventListener('abort',stop,{once:true});
+  if(!closed)eventTarget?.addEventListener('pagehide',stop,{once:true});
+  function dispose(){
+    if(disposal)return disposal;closed=true;lifetime.abort();signal?.removeEventListener('abort',stop);eventTarget?.removeEventListener('pagehide',stop);
+    disposal=(async()=>{await disposeActive();await startup;await disposeActive();errorShell?.dispose();errorShell=null;})();return disposal;
+  }
+  startup=(async()=>{
+    try{
+      if(aborted())return {status:'aborted'};
+      const delivery=await loadDelivery({descriptorUrl:new URL('./delivery.json',import.meta.url),signal:lifetime.signal});
+      if(aborted())return {status:'aborted'};
+      if(!['configured','unconfigured'].includes(delivery?.status))throw Error('Delivery loader did not return an explicit configuration state.');
+      if(delivery.status==='unconfigured'&&(delivery.artistDelivery!==null||delivery.referenceAcceptance!==null))throw Error('Unconfigured delivery must retain explicit debug/null arguments.');
+      if(delivery.status==='configured'&&(!delivery.artistDelivery||typeof delivery.artistDelivery!=='object'))throw Error('Configured delivery is missing its verified artist factory mapping.');
+      // No driver/public-art module is imported until delivery verification resolves.
+      const [driverModule,uiModule]=await Promise.all([importDriver(),importUI()]);
+      if(aborted())return {status:'aborted'};
+      active=await startReview(root,{createDriver:driverModule.createFireReviewDriver,mountUI:uiModule.mountUI,signal:lifetime.signal,artistDelivery:delivery.artistDelivery,referenceAcceptance:delivery.referenceAcceptance});
+      if(aborted()){await disposeActive();return {status:'aborted'};}
+      return {status:'started',deliveryStatus:delivery.status};
+    }catch(error){
+      await disposeActive();if(aborted())return {status:'aborted'};
+      errorShell=showUnavailable(error);return {status:'unavailable',reason:error.message};
+    }
+  })();
+  return {ready:startup,dispose};
+}
 if(typeof document!=='undefined'&&document.querySelector('#fire-review')){
-  const root=document.querySelector('#fire-review'),lifetime=new AbortController();let active;
-  window.addEventListener('pagehide',()=>{lifetime.abort();void active?.dispose();},{once:true});
-  try{const [{createFireReviewDriver},{mountUI}]=await Promise.all([import('./driver.js'),import('../../src/ui/index.js')]);active=await startFireReview(root,{createDriver:createFireReviewDriver,mountUI,signal:lifetime.signal});if(lifetime.signal.aborted)await active.dispose();}
-  catch(error){createReviewShell({root,initialState:{...EMPTY,reason:'Review module unavailable: '+error.message}});}
+  const boot=createFireReviewBoot(document.querySelector('#fire-review'));await boot.ready;
 }

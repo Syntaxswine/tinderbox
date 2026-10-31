@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash,webcrypto} from 'node:crypto';
-import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES} from '../../workbenches/fire-realism/review.js';
+import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot} from '../../workbenches/fire-realism/review.js';
 const base='http://localhost:4552/nested/fire-ui/workbenches/fire-realism/index.html';
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
 function state(){return {version:1,phase:'ready',configuration:{mode:'current',scenario:'match-contact',view:'isometric',lighting:'bright',population:null,seed:1893,characterId:'bear',viewport:{width:1280,height:800,pixelRatio:1}},frameIndex:45,tick:45,worldTime:.75,playerTime:.75,
@@ -245,4 +245,47 @@ test('Disposal aborts a pending report FileReader and suppresses every late publ
 test('New sampling waits for prior report hashing to retire instead of overlapping its work',{timeout:5000},async()=>{
   const begun=deferred(),digest=deferred(),reader=clipReaderFixture();let entered=0;const f=await fixture({initialState:{results:{status:'complete'}},FileReaderCtor:reader.FileReaderCtor,cryptoApi:{subtle:{digest(){begun.resolve();return digest.promise;}}},methods:{measure:()=>{entered++;return null;}}});
   const preparing=f.binding.intent({type:'report'});await begun.promise;const measuring=f.binding.intent({type:'measure',modes:['current','reference']});await Promise.resolve();assert.equal(entered,0);digest.resolve(new Uint8Array(32).buffer);await preparing;await measuring;assert.equal(entered,1);assert.equal(f.updates.at(-1).reportEvidence.status,'unavailable');await f.binding.dispose();
+});
+
+
+// Boot fixtures execute no renderer, artist module or acceptance receipt.
+function bootHarness(options={}){
+  class Events extends EventTarget{constructor(){super();this.handlers=new Set();}addEventListener(t,h,o){super.addEventListener(t,h,o);this.handlers.add(h);}removeEventListener(t,h){super.removeEventListener(t,h);this.handlers.delete(h);}}
+  const target=new Events(),calls=[],context={target,calls,root:{ownerDocument:{defaultView:target}},imported:deferred(),started:deferred(),activeDisposals:0,errorDisposals:0,driverFactory:()=>{},mountUI:()=>{}};
+  context.active={dispose:async()=>{context.activeDisposals++;calls.push('dispose-active');}};
+  context.boot=createFireReviewBoot(context.root,{signal:options.signal,
+    loadDelivery:async config=>{calls.push('load-delivery');context.loadOptions=config;return options.loadDelivery?options.loadDelivery(config):options.delivery??{status:'unconfigured',artistDelivery:null,referenceAcceptance:null};},
+    importDriver:()=>{calls.push('import-driver');if(options.driverError)throw options.driverError;return options.driverModule??Promise.resolve({createFireReviewDriver:context.driverFactory});},
+    importUI:()=>{calls.push('import-ui');context.imported.resolve();return options.uiModule??Promise.resolve({mountUI:context.mountUI});},
+    startReview:async(root,config)=>{calls.push('start-review');context.startRoot=root;context.startOptions=config;context.started.resolve();if(options.startError)throw options.startError;return options.binding??context.active;},
+    showUnavailable:error=>{calls.push('show-unavailable');context.error=error;return {dispose(){context.errorDisposals++;}};}});
+  return context;
+}
+test('Cold boot resolves the one fixed optional delivery before any driver or UI import',{timeout:5000},async()=>{
+  const delivery=deferred(),f=bootHarness({loadDelivery:()=>delivery.promise});assert.deepEqual(f.calls,['load-delivery']);assert.equal(f.loadOptions.descriptorUrl.pathname.endsWith('/workbenches/fire-realism/delivery.json'),true);assert.equal(f.loadOptions.descriptorUrl.search,'');assert.equal(f.loadOptions.descriptorUrl.hash,'');
+  delivery.resolve({status:'unconfigured',artistDelivery:null,referenceAcceptance:null});assert.deepEqual(await f.boot.ready,{status:'started',deliveryStatus:'unconfigured'});assert.deepEqual(f.calls,['load-delivery','import-driver','import-ui','start-review']);assert.equal(f.startOptions.artistDelivery,null);assert.equal(f.startOptions.referenceAcceptance,null);await f.boot.dispose();assert.equal(f.activeDisposals,1);assert.equal(f.target.handlers.size,0);
+});
+test('Configured boot forwards only verified delivery and existing reference acceptance arguments',async()=>{
+  const referenceAcceptance={kind:'fixture-only-reference'},optimizedAcceptance={kind:'fixture-only-optimized'},artistDelivery={byMode:{reference:{createFireRealism:()=>{}},optimized:{createFireRealism:()=>{},retainedQualityAcceptance:optimizedAcceptance}}};
+  const f=bootHarness({delivery:{status:'configured',artistDelivery,referenceAcceptance,descriptor:{sha256:'fixture-only'},extra:'must not reach the driver'}});await f.boot.ready;assert.equal(f.startRoot,f.root);assert.equal(f.startOptions.artistDelivery,artistDelivery);assert.equal(f.startOptions.referenceAcceptance,referenceAcceptance);assert.equal(f.startOptions.artistDelivery.byMode.optimized.retainedQualityAcceptance,optimizedAcceptance);assert.deepEqual(Object.keys(f.startOptions).sort(),['artistDelivery','createDriver','mountUI','referenceAcceptance','signal']);assert.equal(f.startOptions.createDriver,f.driverFactory);assert.equal(f.startOptions.mountUI,f.mountUI);await f.boot.dispose();
+});
+test('Configured loader failures and invalid configuration states never import a debug fallback',async()=>{
+  for(const options of [{loadDelivery:()=>{throw Error('Configured delivery raw hash mismatch');}}, {delivery:{status:'configured',artistDelivery:null,referenceAcceptance:null}}, {delivery:{status:'unconfigured',artistDelivery:{byMode:{}},referenceAcceptance:null}}, {delivery:{status:'invented-approved-state'}}]){
+    const f=bootHarness(options),result=await f.boot.ready;assert.equal(result.status,'unavailable');assert.deepEqual(f.calls,['load-delivery','show-unavailable']);assert.equal(f.startOptions,undefined);await f.boot.dispose();assert.equal(f.errorDisposals,1);
+  }
+});
+test('Driver import or binding failures show unavailable once without retrying verification',async()=>{
+  for(const options of [{driverError:Error('Driver module unavailable')},{startError:Error('Binding failed')}]){const f=bootHarness(options),result=await f.boot.ready;assert.equal(result.status,'unavailable');assert.equal(f.calls.filter(x=>x==='load-delivery').length,1);assert.equal(f.calls.filter(x=>x==='show-unavailable').length,1);await f.boot.dispose();assert.equal(f.errorDisposals,1);}
+});
+test('An already-aborted document starts no loader, module, binding or error shell',async()=>{
+  const lifetime=new AbortController();lifetime.abort();const f=bootHarness({signal:lifetime.signal});assert.deepEqual(await f.boot.ready,{status:'aborted'});assert.deepEqual(f.calls,[]);await f.boot.dispose();assert.equal(f.target.handlers.size,0);
+});
+test('Abort during delivery loading suppresses late imports and error UI',{timeout:5000},async()=>{
+  const lifetime=new AbortController(),pending=deferred(),f=bootHarness({signal:lifetime.signal,loadDelivery:()=>pending.promise});lifetime.abort();assert.equal(f.loadOptions.signal.aborted,true);pending.resolve({status:'unconfigured',artistDelivery:null,referenceAcceptance:null});assert.deepEqual(await f.boot.ready,{status:'aborted'});assert.deepEqual(f.calls,['load-delivery']);const a=f.boot.dispose(),b=f.boot.dispose();assert.equal(a,b);await a;assert.equal(f.target.handlers.size,0);
+});
+test('Abort after imports begin prevents late binding without claiming native imports were undone',{timeout:5000},async()=>{
+  const lifetime=new AbortController(),driver=deferred(),ui=deferred(),f=bootHarness({signal:lifetime.signal,driverModule:driver.promise,uiModule:ui.promise});await f.imported.promise;lifetime.abort();driver.resolve({createFireReviewDriver:f.driverFactory});ui.resolve({mountUI:f.mountUI});assert.deepEqual(await f.boot.ready,{status:'aborted'});assert.equal(f.calls.includes('start-review'),false);assert.equal(f.calls.includes('show-unavailable'),false);await f.boot.dispose();
+});
+test('Pagehide aborts pending startup and disposes a late completed binding exactly once',{timeout:5000},async()=>{
+  const binding=deferred(),f=bootHarness({binding:binding.promise});await f.started.promise;f.target.dispatchEvent(new Event('pagehide'));assert.equal(f.startOptions.signal.aborted,true);binding.resolve(f.active);assert.deepEqual(await f.boot.ready,{status:'aborted'});const a=f.boot.dispose(),b=f.boot.dispose();assert.equal(a,b);await a;assert.equal(f.activeDisposals,1);assert.equal(f.errorDisposals,0);assert.equal(f.target.handlers.size,0);
 });

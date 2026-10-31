@@ -30,6 +30,8 @@ Serve the repository with the existing TTL/STOP server and open `workbenches/fir
 
 The page explains the fixed authoritative-pose benchmark separately from live motion. Sustained emission in that benchmark is an explicit adaptation. Live spread, powder timing, finite burnout and played motion still require separate review. A fitted preview scales the canvas and HUD together; actual-size inspection preserves authored CSS dimensions inside a scrollable viewport. Match the browser viewport to the canvas preset for actual HUD breakpoint review. A phone-shaped canvas is not phone hardware.
 
+The separate [cold delivery boot](delivery-boot.md) resolves the one optional fixed repository descriptor before importing the driver or public-art dependency graph. Descriptor 404 retains explicit unconfigured debug/null arguments; configured errors stop startup with an unavailable shell. No actual descriptor, pin or receipt is added by that wiring.
+
 `startFireReview` accepts exact `artistDelivery` and `referenceAcceptance` metadata for architect-managed immutable R/O closures. The default local reference deliberately has an unpinned source commit and no acceptance receipt; the UI labels that condition. Before freezing the high-detail reference, the architect must supply the exact accepted closure and validated receipt. The UI does not manufacture that metadata or approve itself.
 
 ## Paused HUD presentation
