@@ -336,7 +336,7 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
   return {renderRoot:find('[data-render-root]'),uiRoot:find('[data-ui-root]'),setCameraEvidence,clearCameraEvidence,clearMotionEvidence(){clearMotionEvidence();state={...state,recording:{...state.recording,clip:null,lastResult:null}};},clearReportEvidence(){clearReportEvidence();state={...state,reportEvidence:null};},update(next){if(disposed)return;state=next||EMPTY;render();},dispose(){if(disposed)return;clearMotionEvidence();clearReportEvidence();clearCameraEvidence();captureAbort?.abort();disposed=true;state=EMPTY;abort.abort();observer?.disconnect();root.replaceChildren();root.classList.remove('fire-review');root.removeAttribute('aria-busy');}};
 }
 /** UI method routing only. Clocks, GPU statistics and acceptance stay in the driver. */
-export async function bindReviewDriver({shell,createDriver,mountUI,signal,artistDelivery=null,referenceAcceptance=null,references=[],referenceError=null,onDownload=()=>{},createMotionRecorder=createCanvasMotionRecorder,FileReaderCtor,cryptoApi=globalThis.crypto,createReportEvidence=createTimingReportEvidence}={}){
+export async function bindReviewDriver({shell,createDriver,mountUI,signal,artistDelivery=null,referenceAcceptance=null,references=[],referenceError=null,onDownload=()=>{},createMotionRecorder=createCanvasMotionRecorder,FileReaderCtor,cryptoApi=globalThis.crypto,createReportEvidence=createTimingReportEvidence,diagnosticTiming=false}={}){
   let driver,closed=false,disposal=null,lastState=EMPTY,captures=[],captureSequence=0,motion=null,motionWork=null,recordingActive=false,recordingStopping=false,lastMotion=null,retainedClip=null,clipReader=null,motionGeneration=0,measurementActive=false,reportTask=null,reportGeneration=0,reportEvidence=null,cameraSession=null,cameraEvidenceTask=null;
   const recorderCtor=shell.renderRoot.ownerDocument?.defaultView?.MediaRecorder||globalThis.MediaRecorder,readerCtor=FileReaderCtor||shell.renderRoot.ownerDocument?.defaultView?.FileReader||globalThis.FileReader;
   const recordingSupport=()=>{const canvas=shell.renderRoot.querySelector?.('canvas');return {available:typeof canvas?.captureStream==='function'&&typeof recorderCtor==='function',canvas};};
@@ -360,6 +360,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
   }
   const configure=async patch=>{const before=driver.state(),preserve=Object.keys(patch).every(key=>['mode','view','lighting','viewport'].includes(key));const next=await driver.configure(patch);if(preserve&&before.frameIndex>0&&next.availability?.[next.configuration.mode]?.available)await driver.seek(before.frameIndex);publish(driver.state());return driver.state();};
   async function startMotion(){
+    const setupStarted=diagnosticTiming?performance.now():null;let setupWallMs=null;
     const initial=driver.state(),support=recordingSupport();
     if(!support.available)throw Error('Actual canvas recording is unavailable.');
     if(!['ready','playing'].includes(initial.phase)||measurementActive||!initial.availability?.[initial.configuration.mode]?.available)throw Error('Motion recording requires an available live render, outside measurement.');
@@ -370,6 +371,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
       if(closed||signal?.aborted||generation!==motionGeneration){recordingActive=false;return;}
       motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:()=>{recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}}});
       driver.play();
+      if(diagnosticTiming)setupWallMs=performance.now()-setupStarted;
     }catch(error){recordingActive=false;await motion?.dispose();motion=null;publish(driver.state());throw error;}
     const startState=driver.state(),startedAt=new Date().toISOString();publish(startState);
     motionWork=motion.finished.then(async report=>{
@@ -382,6 +384,8 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
         end:{recordedAt:new Date().toISOString(),frameIndex:end.frameIndex,tick:end.tick,worldTime:end.worldTime,playerTime:end.playerTime,workload:end.workload},
         recording:{mimeType:report.mimeType,bytes:report.bytes,canvas:report.canvas,wallDurationMs:report.wallDurationMs,maximumDurationMs:report.maximumDurationMs,nominalStopAfterMs:report.nominalStopAfterMs??report.maximumDurationMs,
           stopRequestedAfterMs:report.stopRequestedAfterMs??null,schedulingOverrunMs:report.schedulingOverrunMs??null,encoderDrainMs:report.encoderDrainMs??null,wallOverrunMs:report.wallOverrunMs??null,requestedCaptureFps:report.requestedCaptureFps}};
+      const retentionStarted=diagnosticTiming?performance.now():null;
+      if(diagnosticTiming)metadata.diagnosticTiming={setupWallMs,retentionWallMs:null,scope:'Host wall boundaries, including waits; not native encoder or compositor CPU.'};
       motion=null;
       if(closed||generation!==motionGeneration)return metadata;
       if(status==='complete'){
@@ -394,6 +398,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
           retainedClip={...clip,id:'motion-'+generation,name};metadata.retainedClip={status:'available',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,bytes:clip.bytes};
         }catch(error){metadata.retainedClip={status:'unavailable',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,reason:error.message};}
       }
+      if(diagnosticTiming)metadata.diagnosticTiming.retentionWallMs=performance.now()-retentionStarted;
       if(!closed&&generation===motionGeneration){lastMotion=metadata;recordingActive=false;recordingStopping=false;publish(driver.state());}
       return metadata;
     }).catch(error=>{if(!closed&&generation===motionGeneration){recordingActive=false;recordingStopping=false;motion=null;lastMotion={status:'unavailable',reason:error.message};publish(driver.state());}return {status:'unavailable',reason:error.message};});
@@ -495,9 +500,9 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
   function dispose(){if(disposal)return disposal;closed=true;if(cameraSession)cameraSession.cancelled=true;retireClip();const reportRetirement=retireReport('Review disposed.');captures=[];signal?.removeEventListener('abort',abort);doc?.removeEventListener('visibilitychange',hidden);disposal=(async()=>{await motion?.dispose();await motionWork;await reportRetirement;await driver?.dispose();})();return disposal;}
   try{driver=await createDriver({root:shell.renderRoot,uiRoot:shell.uiRoot,mountUI,signal,artistDelivery,referenceAcceptance,onChange:publish});if(closed){await driver.dispose();return {intent,dispose};}publish(driver.state());}
   catch(error){signal?.removeEventListener('abort',abort);doc?.removeEventListener('visibilitychange',hidden);if(!closed)shell.update({...EMPTY,references,referenceError,reason:'Actual WebGL driver failed: '+error.message,error:{message:error.message}});return {intent,dispose,unavailable:error.message};}
-  return {intent,state:()=>structuredClone(lastState),dispose};
+  return {intent,state:()=>structuredClone(lastState),motionEvidence(){if(!motionWork)return Promise.reject(Error('No live recording has started.'));return motionWork.then(result=>structuredClone(result));},dispose};
 }
-export async function startFireReview(root,{createDriver,mountUI,signal,fetchDossier=async requestSignal=>{const response=await fetch(new URL('../../art/source/fire-realism/references.json',import.meta.url),{signal:requestSignal});if(!response.ok)throw Error('Reference dossier HTTP '+response.status);return response.json();},artistDelivery=null,referenceAcceptance=null,onDownload}={}){
+export async function startFireReview(root,{createDriver,mountUI,signal,fetchDossier=async requestSignal=>{const response=await fetch(new URL('../../art/source/fire-realism/references.json',import.meta.url),{signal:requestSignal});if(!response.ok)throw Error('Reference dossier HTTP '+response.status);return response.json();},artistDelivery=null,referenceAcceptance=null,onDownload,diagnosticTiming=false}={}){
   const controller=new AbortController(),downloadReleases=new Set();let binding,referenceError=null,references=[];
   const externalAbort=()=>controller.abort();if(signal?.aborted)controller.abort();else signal?.addEventListener('abort',externalAbort,{once:true});
   const save=onDownload||((value,name,type)=>{let release;release=download(root.ownerDocument,value,name,type,()=>downloadReleases.delete(release));if(release)downloadReleases.add(release);});
@@ -505,7 +510,7 @@ export async function startFireReview(root,{createDriver,mountUI,signal,fetchDos
   try{references=photoReferences(await fetchDossier(controller.signal));}catch(error){referenceError=error.message;}
   if(controller.signal.aborted){signal?.removeEventListener('abort',externalAbort);shell.dispose();throw new DOMException('Review startup aborted','AbortError');}
   shell.update({...EMPTY,reason:'Connecting the actual WebGL driver.',references,referenceError});
-  binding=await bindReviewDriver({shell,createDriver,mountUI:options=>mountUI({...options,autoOpenPauseMenu:false}),signal:controller.signal,artistDelivery,referenceAcceptance,references,referenceError,onDownload:save});
+  binding=await bindReviewDriver({shell,createDriver,mountUI:options=>mountUI({...options,autoOpenPauseMenu:false}),signal:controller.signal,artistDelivery,referenceAcceptance,references,referenceError,onDownload:save,diagnosticTiming});
   if(controller.signal.aborted){signal?.removeEventListener('abort',externalAbort);await binding.dispose();for(const release of downloadReleases)release();downloadReleases.clear();shell.dispose();throw new DOMException('Review startup aborted','AbortError');}
   let disposal=null;return {shell,binding,dispose(){if(disposal)return disposal;signal?.removeEventListener('abort',externalAbort);controller.abort();disposal=(async()=>{await binding.dispose();for(const release of downloadReleases)release();downloadReleases.clear();shell.dispose();})();return disposal;}};
 }

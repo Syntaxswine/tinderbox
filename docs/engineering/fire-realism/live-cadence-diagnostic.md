@@ -1,0 +1,13 @@
+# Live diagnostic boundaries
+
+The exact dependency intake is recorded in `live-cadence-source-intake.json`, separately checkpointed before instrumentation. Only review.js/review.css and the existing HUD pause-menu opt-out were missing from the runtime worker; other driver/adapter dependencies already matched inspected root `198809bbfda6e52c7917638926bf884b3521298c`. The initial intake command was rejected for possible WIP overwrite. Explicit empty destination status/diff and a durable full-byte backup proved no WIP loss; the same narrow operation was then approved. Backup receipt SHA-256: `8b5a848384ae055e247998d3ae604fc7d86db47d5a8c1658335f4b3facb8ff6c`.
+
+The QA host and public methods are described in `workbenches/runtime/fire-v5-live-cadence/README.md`. `bindReviewDriver.motionEvidence()` waits for the existing recorder promise and returns detached metadata. Optional `diagnosticTiming=false` preserves existing metadata by default; true adds setup and post-stop retention **wall** timing. No presentation, MIME choice, recorder cadence, controls or gameplay rules change. Export serialization runs after sampling and is explicitly separate.
+
+## Existing GPU query bracket: read-only caution
+
+`renderTimedFireFrame` calls `timer.begin()` before `art.beforeRender()`, then renders and ends the query. `beforeRender()` prepares opaque depth and calls the selected artist, which can perform CPU cache decoding, geometry preparation and uniform/texture updates. That bracket is unchanged by this diagnostic; live trace requests no queries.
+
+The Khronos specifications describe elapsed timer results on the GL timeline, bounded by realization of preceding commands, not a sum of CPU function times or a pure shader busy-time counter. If queued begin/depth commands reach the GPU while later CPU preparation delays submission, GPU-timeline idle time may lie inside the interval. Whether that occurs here depends on command buffering/backend scheduling; this is an inference and risk, not a measured correction or claim that CPU milliseconds simply add to GPU elapsed time. A separate finite-live, disjoint-checked experiment would be needed if CPU/cadence evidence leaves submission unexplained. Do not move this bracket, omit depth, change prior reports or grant optimization credit.
+
+Primary references: [WebGL2 EXT_disjoint_timer_query](https://registry.khronos.org/webgl/extensions/EXT_disjoint_timer_query_webgl2/), [underlying EXT_disjoint_timer_query specification, timer semantics](https://registry.khronos.org/OpenGL/extensions/EXT/EXT_disjoint_timer_query.txt). Both read2026-10-31. No new hardware timing was executed for this source assessment.

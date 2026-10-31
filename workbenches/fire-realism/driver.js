@@ -1,5 +1,6 @@
 import {CAMERA_SWEEP_PRESET,createCameraSweep,captureCameraSweepSupport,cameraSweepSceneSignature,reviewCameraRecord} from '../../tools/fire-realism/camera-sweep.js';
 import {presentFireReviewCallback} from '../../tools/fire-realism/live-cadence.js';
+import {createLiveTrace} from '../../tools/fire-realism/live-trace.js';
 import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 import * as T from '../../src/runtime/three.js';
 import {createArtScene} from '../../src/art/index.js';
@@ -36,6 +37,8 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   let config=configuration({}, {mode:'current',scenario:'match-contact',view:'isometric',lighting:'bright',population:null,seed:1893,characterId:'bear',viewport:{width:1280,height:800,pixelRatio:Math.min(globalThis.devicePixelRatio||1,1.75)}});
   let phase='initializing',renderer,scene,camera,art,sim,ui,animation=null,lastNow=null,frameIndex=0,closed=false,loading=false,measurePromise=null,cancelRequested=false;
   let snapshot=null,error=null,progress=null,results=null,manifest=null,hashes={},controlHashes={},adapterHashes={},observerError=null,shaderError=null,notifyTime=0,latestCpu={},lastMetrics={},cameraSweep=null,cameraStartPromise=null,cameraPreparing=false,callbackTimeMs=null;
+  let liveTrace=null,traceUpdate=null,traceRafMs=null;
+  const endTrace=(status,reason)=>liveTrace?.active?liveTrace.stop(status,reason,{frameIndex,tick:snapshot?.tick??0,worldTime:snapshot?.clocks.world??0,playerTime:snapshot?.clocks.player??0,droppedRealSeconds:playbackClock.diagnostics().droppedRealSeconds}):null;
   const availability={current:{available:true,reason:null,sourceCommit:CONTROL},reference:{available:false,reason:'Artist delivery not loaded',sourceCommit:null},optimized:{available:false,reason:'Optimized delivery unavailable',sourceCommit:null},'no-fire':{available:true,reason:null,sourceCommit:CONTROL}};
   const configuredDelivery=artistDelivery!==null;
   const referenceDelivery=artistDelivery?.byMode?.reference||artistDelivery||{};
@@ -53,15 +56,19 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
       availability,capabilities:{gpuTimer:{available:!!timerSupport,reason:timerSupport?null:'EXT_disjoint_timer_query_webgl2 unavailable'},populations:POPULATION_CASES.includes(config.scenario)?[32,128,512]:[]},
       workload:{requestedPopulation:config.population,actualBurningCells:snapshot?.diagnostics.burningCells||0,activeDischarge:!!snapshot?.discharge.active,activeTorch:snapshot?.player.tool==='torch'&&snapshot?.player.torch.phase==='lit',burningBuildingIds:fire?.burningBuildingIds||[]},
       cameraSweep:cameraSweep?{...cameraSweep.state(),...(measurePromise||phase==='measuring'||phase==='cancelling'?{reason:'Camera motion is locked during GPU measurement'}:{}),...(cameraPreparing?{status:'preparing',reason:'Validating complete native/source camera support'}:{})}:null,progress,referenceAcceptance:validateQualityReceipt(referenceAcceptance,{kind:'architect-fire-reference-acceptance-v1',...fingerprints.reference})?'accepted':referenceAcceptance?'pending':'missing',results,error,
-      diagnostics:{fire,renderer:lastMetrics,latestCpu,playbackClock:playbackClock.diagnostics(),sourceFingerprints:sources()}});
+      ...(liveTrace?{liveTrace:liveTrace.summary()}:{}),diagnostics:{fire,renderer:lastMetrics,latestCpu,playbackClock:playbackClock.diagnostics(),sourceFingerprints:sources()}});
   }
   function notify(force=false){
     const now=performance.now();if(!force&&now-notifyTime<250)return;notifyTime=now;
-    try{const detached=state();stateNode.textContent=JSON.stringify(detached);root.dataset.fireReviewPhase=phase;onChange(detached);}catch(cause){observerError=cause;cancelRequested=true;phase='error';error={code:'OBSERVER_ERROR',message:cause.message||String(cause)};pauseLoop();cancelSweep('observer-error');}
+    const trace=liveTrace?.active?liveTrace:null;let detached,built,serialized,completed;
+    try{detached=state();if(trace)built=performance.now();stateNode.textContent=JSON.stringify(detached);root.dataset.fireReviewPhase=phase;if(trace)serialized=performance.now();onChange(detached);if(trace)completed=performance.now();}
+    catch(cause){endTrace('error','observer-error');observerError=cause;cancelRequested=true;phase='error';error={code:'OBSERVER_ERROR',message:cause.message||String(cause)};pauseLoop();cancelSweep('observer-error');}
+    if(trace?.active&&detached){const observed=performance.now(),artist=detached.diagnostics.fire?.artist,source=artist?.source,payload=artist?.payload?.metrics,geometry=artist?.geometry,num=n=>Number.isFinite(n)?n:-1;
+      trace.notify([now,detached.frameIndex,detached.tick,detached.worldTime,detached.playerTime,num(built-now),num(serialized-built),num(completed-serialized),trace.phaseCode(source?.phase),num(source?.age),num(source?.sample0),num(source?.sample1),num(geometry?.pairIndex),num(payload?.frameDecodes),num(artist?.updates),num(geometry?.vertices),num(geometry?.triangles),detached.diagnostics.playbackClock.droppedRealSeconds],observed);}
   }
   function pauseLoop(){if(animation!==null)win.cancelAnimationFrame(animation);animation=null;lastNow=null;playbackClock.reset();}
   function assertUsable(){if(closed)throw Error('Fire review disposed');if(loading)throw Error('Configuration is loading');if(cameraPreparing)throw Error('Camera sweep preparation is pending');if(measurePromise)throw Error('Cancel and await measurement before editing configuration');}
-  function dispatch(command){if(closed||measurePromise||phase==='measuring'||phase==='cancelling')return false;return sim?.dispatch(command)||false;}
+  function dispatch(command){if(closed||measurePromise||phase==='measuring'||phase==='cancelling')return false;endTrace('error','external-input-command');return sim?.dispatch(command)||false;}
   function placeCamera(){
     const {width,height,pixelRatio}=config.viewport;renderer.setPixelRatio(pixelRatio);renderer.setSize(width,height,false);
     renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';root.style.aspectRatio=width+'/'+height;
@@ -81,7 +88,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   function project(anchor){if(!Array.isArray(anchor))return {x:0,y:0,visible:false};const v=new T.Vector3(...anchor).project(camera),box=renderer.domElement.getBoundingClientRect(),u=uiRoot.getBoundingClientRect();return{x:box.left-u.left+(v.x+1)*box.width/2,y:box.top-u.top+(1-v.y)*box.height/2,visible:Math.abs(v.x)<=1&&Math.abs(v.y)<=1&&Math.abs(v.z)<=1};}
   function updateArt(paused=false,presentation=null){
     const start=performance.now(),next=paused?{...snapshot,paused:true}:snapshot;
-    art.update(next,{playerTime:snapshot.clocks.player,worldTime:snapshot.clocks.world,camera,viewport:config.viewport,...(presentation?{fireWorldTime:presentation.worldTime,firePlayerTime:presentation.playerTime}:{})});ui?.update(next);latestCpu.updateMs=performance.now()-start;
+    art.update(next,{playerTime:snapshot.clocks.player,worldTime:snapshot.clocks.world,camera,viewport:config.viewport,...(presentation?{fireWorldTime:presentation.worldTime,firePlayerTime:presentation.playerTime}:{})});const artEnd=liveTrace?.active?performance.now():null;ui?.update(next);latestCpu.updateMs=performance.now()-start;if(artEnd!==null)traceUpdate={art:artEnd-start,hud:Math.max(0,latestCpu.updateMs-(artEnd-start)),total:latestCpu.updateMs};
   }
   function draw(timer=null,index=0){
     latestCpu.renderSubmissionMs=renderTimedFireFrame({renderer,scene,camera,art,timer,index}).renderSubmissionMs;
@@ -95,7 +102,11 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
   function advanceReceiptStep(){const receipt=sim.advanceReceiptStep();frameIndex=sim.frameIndex;return receipt;}
   function loop(now){
     animation=null;const swept=cameraSweep?.state().active===true;if(closed||phase!=='playing'&&!swept)return;
+    const trace=liveTrace?.active?liveTrace:null,observerStart=trace?performance.now():0;
+    const traceBefore=trace?{frame:frameIndex,tick:snapshot.tick,world:snapshot.clocks.world,player:snapshot.clocks.player,start:observerStart,gap:traceRafMs===null?0:now-traceRafMs}:null;
+    const traceSetup=trace?performance.now()-observerStart:0;if(trace){traceRafMs=now;traceUpdate=null;}
     try{
+      if(trace&&doc.hidden)throw Error('Live diagnostic tab became hidden');
       const callbackStart=performance.now();let cameraPresentations=0;callbackTimeMs=now;if(doc.hidden&&swept)throw Error('Camera review tab became hidden; discard this path');if(swept)cameraSweep.advance(now);
       if(phase==='playing'){
         const frames=lastNow===null?0:playbackClock.advance(Math.max(0,(now-lastNow)/1000));lastNow=now;
@@ -103,13 +114,14 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
       }else{checkSweepScene();updateArt(true);cameraPresentations++;draw();latestCpu.simulationMs=0;}
       if(swept)latestCpu.cameraSweepCallback={cameraPresentations,draws:1,totalCpuMs:performance.now()-callbackStart};
       notify(swept&&!cameraSweep.state().active);scheduleLoop();
+      if(trace?.active){const ended=performance.now(),observed=performance.now(),cpu=latestCpu.liveCallback,u=traceUpdate||{art:0,hud:0,total:0};trace.frame([now,traceBefore.start,ended,traceBefore.gap,traceBefore.frame,frameIndex,traceBefore.tick,snapshot.tick,traceBefore.world,snapshot.clocks.world,traceBefore.player,snapshot.clocks.player,cpu.fixedSteps,cpu.fullSnapshots,cpu.presentations,cpu.draws,cpu.simulationMs,cpu.snapshotMs,cpu.receiptObservationMs,u.art,u.hud,u.total,latestCpu.renderSubmissionMs,lastMetrics.calls,lastMetrics.triangles,lastMetrics.geometries,lastMetrics.textures],observed,traceSetup);}
     }catch(cause){fail(cause);}finally{callbackTimeMs=null;}
   }
-  function fail(cause){pauseLoop();cancelSweep('render-error: '+(cause.message||String(cause)));phase='error';error={code:'RENDER_ERROR',message:cause.message||String(cause)};cancelRequested=true;notify(true);}
+  function fail(cause){endTrace('error','render-error: '+(cause.message||String(cause)));pauseLoop();cancelSweep('render-error: '+(cause.message||String(cause)));phase='error';error={code:'RENDER_ERROR',message:cause.message||String(cause)};cancelRequested=true;notify(true);}
   const frame=()=>new Promise(resolve=>win.requestAnimationFrame(resolve));
   let timerSupport=false;
   async function build(next){
-    loading=true;cancelSweep('configuration-change');pauseLoop();phase='initializing';config=next;notify(true);
+    endTrace('error','configuration-change');loading=true;cancelSweep('configuration-change');pauseLoop();phase='initializing';config=next;notify(true);
     try{
       ui?.dispose();ui=null;art?.dispose();art=null;sim?.dispose();sim=createFireReviewSimulation(config);snapshot=sim.snapshot();frameIndex=0;
       placeCamera();
@@ -123,6 +135,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     fireFactory:(shared,assets,uniforms)=>createFireReviewEffect(shared,assets,uniforms,{renderer,scene,artistFactories:{reference:availability.reference.available?factories.reference:null,optimized:availability.optimized.available?factories.optimized:null},initialMode:mode})});}
   async function resetSimulation(mode=config.mode){sim?.dispose();sim=createFireReviewSimulation(config);snapshot=sim.snapshot();frameIndex=0;art?.dispose();art=null;art=await makeArt(mode);updateArt(false);}
   async function measureInternal(options={}){
+    if(liveTrace?.active)throw Error('Finish live diagnostic tracing before GPU measurement');
     const modes=options.modes??['current','reference','optimized'],warmupFrames=options.warmupFrames??120,sampleFrames=options.sampleFrames??600,trialCount=options.trials??3;
     if(!Array.isArray(modes)||!modes.length||new Set(modes).size!==modes.length||modes.some(mode=>!['current','reference','optimized'].includes(mode))||![warmupFrames,sampleFrames,trialCount].every(Number.isInteger)||warmupFrames<1||warmupFrames>10000||sampleFrames<2||sampleFrames>10000||trialCount<1||trialCount>10)throw RangeError('Invalid measurement protocol');
     const poseFrame=options.poseFrame??FIRE_POSE_FRAMES[config.scenario];if(!Number.isInteger(poseFrame)||poseFrame<1||poseFrame>3600)throw RangeError('Invalid active pose frame');
@@ -173,7 +186,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }finally{progress=null;if(!closed){await resetSimulation(config.mode);phase=availability[config.mode].available?'ready':'unavailable';updateArt(true);draw();refreshSweepSupport();notify(true);}}
   }
   function hardware(){const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');return{userAgent:globalThis.navigator?.userAgent||null,threeRevision:T.REVISION,renderer:String(gl.getParameter(debug?debug.UNMASKED_RENDERER_WEBGL:gl.RENDERER)),vendor:String(gl.getParameter(debug?debug.UNMASKED_VENDOR_WEBGL:gl.VENDOR)),webglVersion:String(gl.getParameter(gl.VERSION)),canvas:{...config.viewport,drawingBufferWidth:gl.drawingBufferWidth,drawingBufferHeight:gl.drawingBufferHeight},phoneViewportIsPhoneHardware:false};}
-  async function dispose(){if(closed)return;closed=true;cancelRequested=true;pauseLoop();cancelSweep('disposed');controller.abort();signal?.removeEventListener('abort',abort);
+  async function dispose(){if(closed)return;endTrace('cancelled','disposed');closed=true;cancelRequested=true;pauseLoop();cancelSweep('disposed');controller.abort();signal?.removeEventListener('abort',abort);
     if(cameraStartPromise)await cameraStartPromise.catch(()=>{});cameraSweep?.dispose();if(measurePromise)await measurePromise.catch(()=>{});ui?.dispose();art?.dispose();sim?.dispose();scene?.clear();renderer?.dispose();renderer?.forceContextLoss();renderer?.domElement.remove();phase='disposed';notify(true);stateNode.remove();delete root.dataset.fireReviewPhase;}
   function abort(){void dispose();}signal?.addEventListener('abort',abort,{once:true});
   try{
@@ -198,7 +211,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/delivery.js','tools/fire-realism/resources.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/simulation/index.js','src/simulation/field.js','src/simulation/config.js','src/art/index.js','src/art/ground-field.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/live-trace.js','tools/fire-realism/delivery.js','tools/fire-realism/resources.js','tools/fire-realism/camera.js','tools/fire-realism/camera-sweep.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
       const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));
@@ -209,12 +222,15 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }
     await build(config);
     return {configure:async patch=>{assertUsable();await build(configuration(patch,config));return state();},
-      play(){assertUsable();if(!availability[config.mode].available)return state();pauseLoop();phase='playing';lastNow=null;scheduleLoop();notify(true);return state();},
-      pause(){assertUsable();pauseLoop();phase=availability[config.mode].available?'ready':'unavailable';updateArt(true);draw();notify(true);scheduleLoop();return state();},
-      async reset(){assertUsable();cancelSweep('reset');pauseLoop();await resetSimulation();refreshSweepSupport();phase=availability[config.mode].available?'ready':'unavailable';updateArt(true);draw();notify(true);return state();},
-      async step(frames=1){assertUsable();if(!Number.isInteger(frames)||frames<1||frames>3600)throw RangeError('step requires1..3600 frames');cancelSweep('step');pauseLoop();for(let i=0;i<frames;i++){advance();draw();if(i%16===15)await frame();}refreshSweepSupport();phase=availability[config.mode].available?'ready':'unavailable';notify(true);return state();},
-      async seek(index){assertUsable();if(!Number.isInteger(index)||index<0||index>3600)throw RangeError('seek requires0..3600');cancelSweep('seek');pauseLoop();await resetSimulation();for(let i=0;i<index;i++){advance();draw();if(i%16===15)await frame();}refreshSweepSupport();phase=availability[config.mode].available?'ready':'unavailable';notify(true);return state();},
+      play(){assertUsable();if(!availability[config.mode].available)return state();if(phase==='playing')endTrace('error','play-restarted');pauseLoop();phase='playing';lastNow=null;scheduleLoop();notify(true);return state();},
+      pause(){assertUsable();endTrace('complete','paused-before-redraw');pauseLoop();phase=availability[config.mode].available?'ready':'unavailable';updateArt(true);draw();notify(true);scheduleLoop();return state();},
+      startLiveTrace(options={}){assertUsable();if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(key=>!['maxRows','durationMs'].includes(key)))throw TypeError('Only live trace row/duration bounds are configurable');if(phase!=='ready'||liveTrace?.active||cameraSweep?.state().active||cameraSweep&&!cameraSweep.state().restored)throw Error('Live trace requires ready static camera and no active trace');liveTrace=createLiveTrace({...options,metadata:{configuration:clone(config),sourceFingerprints:sources(),hardware:hardware(),camera:reviewCameraRecord(camera)},now:()=>performance.now()});traceRafMs=null;return liveTrace.summary();},
+      finishLiveTrace({reason='explicit-finish',status='complete'}={}){if(!['complete','cancelled','error'].includes(status))throw TypeError('Invalid live trace terminal status');endTrace(status,reason);return liveTrace?.evidence()||null;},
+      async reset(){assertUsable();endTrace('cancelled','reset');cancelSweep('reset');pauseLoop();await resetSimulation();refreshSweepSupport();phase=availability[config.mode].available?'ready':'unavailable';updateArt(true);draw();notify(true);return state();},
+      async step(frames=1){assertUsable();if(!Number.isInteger(frames)||frames<1||frames>3600)throw RangeError('step requires1..3600 frames');endTrace('cancelled','step');cancelSweep('step');pauseLoop();for(let i=0;i<frames;i++){advance();draw();if(i%16===15)await frame();}refreshSweepSupport();phase=availability[config.mode].available?'ready':'unavailable';notify(true);return state();},
+      async seek(index){assertUsable();if(!Number.isInteger(index)||index<0||index>3600)throw RangeError('seek requires0..3600');endTrace('cancelled','seek');cancelSweep('seek');pauseLoop();await resetSimulation();for(let i=0;i<index;i++){advance();draw();if(i%16===15)await frame();}refreshSweepSupport();phase=availability[config.mode].available?'ready':'unavailable';notify(true);return state();},
       async startCameraSweep(options={}){
+        if(liveTrace?.active)throw Error('Finish live diagnostic tracing before camera motion');
         assertUsable();if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(key=>key!=='preset'))throw TypeError('Only the named camera preset is configurable');if(options.preset!==undefined&&options.preset!==CAMERA_SWEEP_PRESET)throw RangeError('Unknown camera sweep preset');if(!['ready','playing'].includes(phase))throw Error('Camera sweep requires an available ready/live scene');if(!availability[config.mode].available)throw Error('Selected effect mode is unavailable');
         refreshSweepSupport();cameraPreparing=true;
         const task=cameraSweep.start({...options,now:()=>performance.now(),getWorld:sweepWorld,guard:()=>cameraSweepSceneSignature(snapshot),sourceFingerprints:sources()});cameraStartPromise=task;notify(true);
@@ -226,6 +242,6 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
       },
       cameraSweepEvidence(){if(cameraPreparing)throw Error('Retire camera preparation before exporting evidence');if(closed)throw Error('Fire review disposed');if(measurePromise||phase==='measuring'||phase==='cancelling')throw Error('Camera evidence is locked during measurement');return cameraSweep.evidence();},
       measure(options){assertUsable();measurePromise=measureInternal(options);return measurePromise.finally(()=>{measurePromise=null;});},
-      async cancelMeasurement(){if(!measurePromise)return results?clone(results):null;cancelRequested=true;phase='cancelling';notify(true);return measurePromise;},captureFrame({quality=.92}={}){assertUsable();if(!validNumber(quality)||quality<0||quality>1)throw RangeError('JPEGquality requires0..1');draw();return {mimeType:'image/jpeg',dataUrl:renderer.domElement.toDataURL('image/jpeg',quality),configuration:clone(config),frameIndex,tick:snapshot.tick,camera:reviewCameraRecord(camera),cameraSweep:cameraSweep.state(),sourceFingerprints:sources(),hardware:hardware()};},state,dispose};
+      async cancelMeasurement(){if(!measurePromise)return results?clone(results):null;cancelRequested=true;phase='cancelling';notify(true);return measurePromise;},captureFrame({quality=.92}={}){assertUsable();if(!validNumber(quality)||quality<0||quality>1)throw RangeError('JPEGquality requires0..1');if(phase==='playing')endTrace('error','capture-during-live-trace');draw();return {mimeType:'image/jpeg',dataUrl:renderer.domElement.toDataURL('image/jpeg',quality),configuration:clone(config),frameIndex,tick:snapshot.tick,camera:reviewCameraRecord(camera),cameraSweep:cameraSweep.state(),sourceFingerprints:sources(),hardware:hardware()};},state,dispose};
   }catch(cause){await dispose();throw cause;}
 }
