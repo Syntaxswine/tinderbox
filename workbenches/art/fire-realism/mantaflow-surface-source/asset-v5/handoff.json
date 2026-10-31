@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "status": "V5-candidate-source-and-standalone-checks-pass-root-cold-audit-and-native-review-required",
+  "baseCommit": "84b9dd05cbb77ade7f0d9ac753a2ee88b3abd7ed",
+  "architectAssemblyApprovalCommit": "49f37e650cdc4ce0850678232fae71ff11fdb60a",
+  "assetRoot": "assets/art/fire-realism/fluid-contact-surface",
+  "manifest": {
+    "path": "assets/art/fire-realism/fluid-contact-surface/manifest.json",
+    "bytes": 68098,
+    "sha256": "1cbe16364217f7ce0d576749166be556d8e54c95c028cb27e378bcb9be225759"
+  },
+  "exports": {
+    "factory": "createFluidSurfaceContactReference",
+    "prepare": "prepareFluidSurfaceContactData",
+    "evidence": "fluidSurfaceContactPayloadEvidence",
+    "audit": "auditFluidSurfaceContactRGBA"
+  },
+  "codec": {
+    "sourceCommit": "cb0198abeda25d3ad6fabb392612f252e2b86bf1",
+    "architectApprovalCommit": "49f37e650cdc4ce0850678232fae71ff11fdb60a",
+    "modules": {
+      "codec.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/codec.js",
+        "bytes": 6418,
+        "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+      },
+      "rgba-decode.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/rgba-decode.js",
+        "bytes": 616,
+        "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+      },
+      "payload.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/payload.js",
+        "bytes": 15109,
+        "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+      }
+    }
+  },
+  "sourcePins": {
+    "rawManifestSha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce",
+    "settingsSha256": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52",
+    "prepareReportSha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df",
+    "sourceBlendSha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+  },
+  "sourcePreservation": [
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
+      "bytes": 4626878,
+      "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/source-snapshot/settings.json",
+      "bytes": 5642,
+      "sha256": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/prepare.json",
+      "bytes": 107511,
+      "sha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/surface-source.blend",
+      "bytes": 472919,
+      "sha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-geometry/qa-01/results/geometry-report.json",
+      "bytes": 118975,
+      "sha256": "837b334067b4e9bac8ea38dba293dc51a163b0eb21d42b3fd48302b12bab96c8"
+    }
+  ],
+  "oldFluidContactGitTree": "517ca94ddddbc42d3972a6d8e8e8298e383750da",
+  "oldManifestRawSha256": "101f9dca187fa0e3e76591275a9a413f3800d9e8127af62c08d732f0502df581",
+  "closure": {
+    "runtimeFiles": 59,
+    "resources": 193,
+    "sourceBytes": 10656472,
+    "compressedBytes": 93875221,
+    "sparseBytes": 98362125,
+    "maxCompressedChunkBytes": 679503,
+    "maxSparseChunkBytes": 707499
+  },
+  "actualScalarRoundtrips": 579,
+  "actualGzipRoundtrips": 193,
+  "positiveCoverage": {
+    "sourceFrames": 193,
+    "channels": [
+      "density",
+      "flame"
+    ],
+    "positiveCentres": 26541348,
+    "nonemptyRows": 649176,
+    "pairRowWitnesses": 1294166,
+    "allPositiveAboveFloorCovered": true,
+    "halfOpenOwnersExactlyOne": true
+  },
+  "geometry": {
+    "pairCount": 192,
+    "maxHullVertices": 28,
+    "maxPrisms": 92,
+    "maxVertices": 2814,
+    "maxIndices": 15924,
+    "sourceJsonBytes": 10384474,
+    "rawQaReportSha256": "837b334067b4e9bac8ea38dba293dc51a163b0eb21d42b3fd48302b12bab96c8",
+    "floor": {
+      "nativeY": 0,
+      "affectedPairPrisms": 192,
+      "movedNegativeVertices": 1769,
+      "discardedPrisms": 0,
+      "excludesReconstructedContributionBelowFloor": true,
+      "rawFieldsUnchanged": true
+    },
+    "ownership": "Immutable current/next onevoxel hulls in disjoint height bands; explicitly floor-clipped mesh AND slab. One interval/ray/slab."
+  },
+  "rawHaloBoundsNative": {
+    "min": [
+      4.520833333954215,
+      -0.020833289250731468,
+      7.52083327434957
+    ],
+    "max": [
+      6.47916672565043,
+      3.8125001583248377,
+      9.479166666045785
+    ]
+  },
+  "floorClippedRenderBoundsNative": {
+    "min": [
+      4.520833333954215,
+      0,
+      7.52083327434957
+    ],
+    "max": [
+      6.47916672565043,
+      3.8125001583248377,
+      9.479166666045785
+    ]
+  },
+  "floorCaveat": "Raw arrays/full QA halo unchanged; all positive centres preserved. Nonzero reconstructed contribution below nativeY0 is intentionally excluded by BOTH mesh and ray slab.",
+  "lifecycle": {
+    "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/evidence/generation-lifetime.json",
+    "bytes": 8370,
+    "sha256": "830cc85fdd335cdce16916ae6651507f18436c8a5e6fa779bad8f6280a6862d7"
+  },
+  "checks": {
+    "source": "PASS",
+    "workingBytePackageGeometry": "PASS",
+    "actualSharedThreeSyntheticFactory": "PASS",
+    "correctedAuditNodeSyntax": "PASS; NOT EXECUTED in this isolated baseline",
+    "correctedAuditBrowserSyntax": "PASS; NOT EXECUTED",
+    "logs": [
+      {
+        "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/evidence/check-asset.log",
+        "bytes": 772,
+        "sha256": "72ace39f39ba9a261a7f66eff3014175cf545ab2f40eabc4f89f892200a65c07"
+      },
+      {
+        "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/evidence/check-factory.log",
+        "bytes": 491,
+        "sha256": "8485ef18a015010d6dfe6491c2cdaac735ef26522c8932af2aa93daf3b7b363e"
+      },
+      {
+        "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/evidence/check-source.log",
+        "bytes": 264,
+        "sha256": "e5c9811f73812ad29843309158c1ed771130ec1031ca36a256181ce3b4a722d4"
+      }
+    ],
+    "logEncoding": {
+      "tracked": "LF canonical text copies of actual PowerShell output; CRLF conversion only",
+      "originalRawPreserved": [
+        {
+          "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/final-check-raw/check-asset.log",
+          "bytes": 791,
+          "sha256": "98d0dce6aec8b896f266059c8742a81f1db1ca2b19585e9c73f8864843f86d67"
+        },
+        {
+          "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/final-check-raw/check-factory.log",
+          "bytes": 494,
+          "sha256": "ca5a468f3372bee656395fa97ad3c284068e511ad6bb7b4955785d46ae8285f6"
+        },
+        {
+          "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/final-check-raw/check-source.log",
+          "bytes": 265,
+          "sha256": "8044ad4b672e34a1c5731ba208fa93bc756792ea37d4c1d7c1d85c0e3d851fe1"
+        }
+      ],
+      "reason": "Initial git diff --cached --check correctly flagged CRLF transcript endings as trailing whitespace; no runtime/source/scalar change."
+    }
+  },
+  "auditAuthority": {
+    "dossier": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/expected-f32-hashes.json",
+      "bytes": 96953,
+      "sha256": "8b54b57824cb43d216015f85c2a454b482509d5241a6d221a8f6680d535e4c8e"
+    },
+    "rootVerifiedSourceCommit": "84b9dd05cbb77ade7f0d9ac753a2ee88b3abd7ed",
+    "nodeEntry": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/audit-node.mjs",
+    "browserEntry": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/audit.html",
+    "strictDescriptorOwnedByArchitect": true,
+    "rootActual193StoreAuditPending": true,
+    "rootActualBrowser579AuditPending": true
+  },
+  "resources": {
+    "perFactoryDenseCpuBytes": 7077888,
+    "perFactoryDenseGpuBytes": 7077888,
+    "perFactoryGeometryCpuBytes": 121440,
+    "perFactoryGeometryGpuBytes": 121440,
+    "documentSharedSparseBytes": 98362125,
+    "documentGeometrySourceBytes": 10384474,
+    "observedGeneratorPeakSampledRssBytes": 194674688,
+    "unmeasured": "Engine/driver/JavaScript objects/crypto/GC; source compression scratch is generation-only, not factory ownership"
+  },
+  "unaccepted": [
+    "Actual193-data store/strict-loader Node audit",
+    "Actual cold browser579 audit",
+    "WebGL shader compilation/native iso+oblique phases/motion",
+    "Morphology/hostile8of10/R freeze",
+    "Sustained-source/other five scenes",
+    "GPU cost/20\u201333% optimized target"
+  ],
+  "noHelperRetained": true,
+  "noBake": true,
+  "noDescriptorChange": true,
+  "noProductionDefaultChange": true,
+  "noPublication": true
+}

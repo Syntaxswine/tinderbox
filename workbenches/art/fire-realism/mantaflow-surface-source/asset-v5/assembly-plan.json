@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "source-preparation-only-awaiting-architect-reviewed-codec",
+  "status": "architect-reviewed-codec-pinned-for-one-bounded-assembly",
   "assemblyProposalCommit": "529203ebb6a8cbb29db2cb1c2ba1505f3867c226",
   "rawManifest": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
   "sourcePins": {
@@ -38,7 +38,27 @@
       "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
     }
   },
-  "reviewedRuntime": null,
+  "reviewedRuntime": {
+    "sourceCommit": "cb0198abeda25d3ad6fabb392612f252e2b86bf1",
+    "architectApprovalCommit": "49f37e650cdc4ce0850678232fae71ff11fdb60a",
+    "modules": {
+      "codec.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/codec.js",
+        "bytes": 6418,
+        "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+      },
+      "rgba-decode.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/rgba-decode.js",
+        "bytes": 616,
+        "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+      },
+      "payload.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/payload.js",
+        "bytes": 15109,
+        "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+      }
+    }
+  },
   "assetRoot": "assets/art/fire-realism/fluid-contact-surface",
   "renderFloorNativeY": 0,
   "translation": [

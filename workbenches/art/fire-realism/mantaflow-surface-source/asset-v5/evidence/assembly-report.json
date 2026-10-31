@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "status": "source-packaging-and-positive-coverage-pass-native-review-required",
+  "startedUtc": "2026-10-31T09:38:35.137Z",
+  "finishedUtc": "2026-10-31T09:38:50.926Z",
+  "elapsedMs": 15789.366,
+  "sourcePlanSha256": "491d4c60ce85fa135c70732779324335a0cdfc804e2a86d1df7ef04469aadbce",
+  "sourceEntrySha256": "6dd4c0e3fd54b0cba5fbfc2b8146656e15cbc685f9246c996691fa68a773075a",
+  "sourcePins": {
+    "rawManifestSha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce",
+    "settingsSha256": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52",
+    "prepareReportSha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df",
+    "sourceBlendSha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+  },
+  "codecReview": {
+    "sourceCommit": "cb0198abeda25d3ad6fabb392612f252e2b86bf1",
+    "architectApprovalCommit": "49f37e650cdc4ce0850678232fae71ff11fdb60a",
+    "modules": {
+      "codec.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/codec.js",
+        "bytes": 6418,
+        "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+      },
+      "rgba-decode.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/rgba-decode.js",
+        "bytes": 616,
+        "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+      },
+      "payload.js": {
+        "source": "assets/art/fire-realism/field-payload-v2/payload.js",
+        "bytes": 15109,
+        "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+      }
+    }
+  },
+  "assetRoot": "assets/art/fire-realism/fluid-contact-surface",
+  "all579OriginalScalarRoundtrips": true,
+  "all193GzipRoundtrips": true,
+  "originalScalarBytes": 512262144,
+  "sparseBytes": 98362125,
+  "compressedBytes": 93875221,
+  "peakFramePacketBytes": 707499,
+  "peakChunkGzipBytes": 679503,
+  "esmBytes": 10656472,
+  "geometry": {
+    "pairCount": 192,
+    "maxHullVertices": 28,
+    "maxPrisms": 92,
+    "maxVertices": 2814,
+    "maxIndices": 15924,
+    "sourceJsonBytes": 10384474,
+    "rawQaReportSha256": "837b334067b4e9bac8ea38dba293dc51a163b0eb21d42b3fd48302b12bab96c8",
+    "floor": {
+      "nativeY": 0,
+      "affectedPairPrisms": 192,
+      "movedNegativeVertices": 1769,
+      "discardedPrisms": 0,
+      "excludesReconstructedContributionBelowFloor": true,
+      "rawFieldsUnchanged": true
+    },
+    "ownership": "Immutable current/next onevoxel hulls in disjoint height bands; explicitly floor-clipped mesh AND slab. One interval/ray/slab."
+  },
+  "positiveCoverage": {
+    "sourceFrames": 193,
+    "channels": [
+      "density",
+      "flame"
+    ],
+    "positiveCentres": 26541348,
+    "nonemptyRows": 649176,
+    "pairRowWitnesses": 1294166,
+    "allPositiveAboveFloorCovered": true,
+    "halfOpenOwnersExactlyOne": true
+  },
+  "resources": {
+    "perFactoryDenseCpuBytes": 7077888,
+    "perFactoryDenseGpuBytes": 7077888,
+    "perFactoryGeometryCpuBytes": 121440,
+    "perFactoryGeometryGpuBytes": 121440,
+    "documentSharedSparseBytes": 98362125,
+    "documentGeometrySourceBytes": 10384474,
+    "observedGeneratorPeakSampledRssBytes": 194674688,
+    "unmeasured": "Engine/driver/JavaScript objects/crypto/GC; source compression scratch is generation-only, not factory ownership"
+  },
+  "manifest": {
+    "bytes": 68098,
+    "sha256": "1cbe16364217f7ce0d576749166be556d8e54c95c028cb27e378bcb9be225759"
+  },
+  "limits": {
+    "sourceBytes": 67108864,
+    "sparseBytes": 100663296,
+    "compressedBytes": 100663296,
+    "chunks": 256,
+    "chunkCompressedBytes": 2097152,
+    "chunkSparseBytes": 4194304,
+    "seconds": 180
+  },
+  "scope": "One finite unaccepted four-cell match pilot. No new bake, source edits, optical changes, accepted R/O, sustained benchmark or publication."
+}

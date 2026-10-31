@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "scope": "Parsed derivative of actual finite foreground receipts; original raw files and byte pins retained below. No registration claim for this foreground command.",
+  "rawRecords": [
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/input.json",
+      "bytes": 632,
+      "sha256": "b0af65de12440bf5cff4d7af386e924c21bd256e7303ab6aba2050f9023ba709"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/spec.json",
+      "bytes": 3086,
+      "sha256": "de23d3d2c5d18bd65fcb1e79f1f91399a29251b7795d6502accb2d1645a081f8"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-child-source.mjs",
+      "bytes": 17440,
+      "sha256": "6dd4c0e3fd54b0cba5fbfc2b8146656e15cbc685f9246c996691fa68a773075a"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-wrapper-source.ps1",
+      "bytes": 8689,
+      "sha256": "e3127ad45b970cd8f0736ffcdb3a875fd3af30a79aab4827c209301cf10ae05b"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-spec-snapshot.json",
+      "bytes": 3086,
+      "sha256": "de23d3d2c5d18bd65fcb1e79f1f91399a29251b7795d6502accb2d1645a081f8"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-stdout.log",
+      "bytes": 5003,
+      "sha256": "f445ccc219478912ffaf05730d4a701f11681e08e03c79181ce51c31ae551f5f"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-launch.json",
+      "bytes": 2177,
+      "sha256": "1462ef64b3944007641d4b8e3054754cb68d510fea0f243de9eeb3f31781bc11"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-exit.json",
+      "bytes": 1467,
+      "sha256": "2bc0b5ba1b479ff843d62d655af5b9e9b3cb46c4301db130d1008eef05a8bdfb"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/assembly-v5-01-cleanup.json",
+      "bytes": 1282,
+      "sha256": "ff8056100486015373a07749395dfaa5a333dc4cc03192cd4037d3b4af33359d"
+    },
+    {
+      "path": "artifacts/qa/fire-realism/surface-source-v5-assembly/assembly-01/external-lifetime-verification.json",
+      "bytes": 319,
+      "sha256": "8d86f7974843a3b0f89acefe69869c40f031927a6e264e78b20d42b5369bef7c"
+    }
+  ],
+  "receipts": {
+    "assembly-v5-01-launch.json": {
+      "owner": "01a17e9b-a6db-7490-94cd-7d863747e5d3",
+      "purpose": "Delegated art: ONE finite V5 exact-data assembly after root49f37e codec approval",
+      "identity": {
+        "pid": 25800,
+        "creationFileTime": 134379131150402210,
+        "creationQueryError": null,
+        "requestedExecutable": "C:\\Program Files\\nodejs\\node.exe",
+        "actualExecutable": "C:\\Program Files\\nodejs\\node.exe",
+        "executableQueryError": null
+      },
+      "arguments": [
+        "--max-old-space-size=512",
+        "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\workbenches\\art\\fire-realism\\mantaflow-surface-source\\asset-v5\\assemble.mjs",
+        "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\input.json"
+      ],
+      "workingDirectory": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox",
+      "startedUtc": "2026-10-31T09:38:35.0298930Z",
+      "intendedExpiryUtc": "2026-10-31T09:41:45.0298930Z",
+      "stopMethod": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\stop",
+      "endCondition": "Child checked180s deadline, then graceful stop and exact disposable-lifetime cleanup",
+      "ports": [],
+      "preservation": {
+        "childSource": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-child-source.mjs",
+        "childSha256": "6dd4c0e3fd54b0cba5fbfc2b8146656e15cbc685f9246c996691fa68a773075a",
+        "wrapperSource": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-wrapper-source.ps1",
+        "wrapperSha256": "e3127ad45b970cd8f0736ffcdb3a875fd3af30a79aab4827c209301cf10ae05b",
+        "spec": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-spec-snapshot.json",
+        "specSha256": "de23d3d2c5d18bd65fcb1e79f1f91399a29251b7795d6502accb2d1645a081f8"
+      }
+    },
+    "assembly-v5-01-exit.json": {
+      "identity": {
+        "pid": 25800,
+        "creationFileTime": 134379131150402210,
+        "creationQueryError": null,
+        "requestedExecutable": "C:\\Program Files\\nodejs\\node.exe",
+        "actualExecutable": "C:\\Program Files\\nodejs\\node.exe",
+        "executableQueryError": null
+      },
+      "hasExited": true,
+      "exitCode": 0,
+      "wrapperFailure": null,
+      "forcedStop": false,
+      "cleanupError": null,
+      "unresolvedIdentity": null,
+      "receiptWriteErrors": [],
+      "exitedUtc": "2026-10-31T09:38:50.9760060Z",
+      "wallMilliseconds": 15946.133,
+      "retainedHelper": false,
+      "ports": [],
+      "preservation": {
+        "childSource": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-child-source.mjs",
+        "childSha256": "6dd4c0e3fd54b0cba5fbfc2b8146656e15cbc685f9246c996691fa68a773075a",
+        "wrapperSource": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-wrapper-source.ps1",
+        "wrapperSha256": "e3127ad45b970cd8f0736ffcdb3a875fd3af30a79aab4827c209301cf10ae05b",
+        "spec": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-spec-snapshot.json",
+        "specSha256": "de23d3d2c5d18bd65fcb1e79f1f91399a29251b7795d6502accb2d1645a081f8"
+      }
+    },
+    "assembly-v5-01-cleanup.json": {
+      "phase": "retired",
+      "identityPersisted": true,
+      "timedOut": false,
+      "gracefulStopRequested": false,
+      "stopWriteError": null,
+      "forceAttempted": false,
+      "forcedStop": false,
+      "revalidatedIdentity": null,
+      "unresolvedIdentity": null,
+      "cleanupError": null,
+      "receiptWriteErrors": [],
+      "exited": true,
+      "preservation": {
+        "childSource": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-child-source.mjs",
+        "childSha256": "6dd4c0e3fd54b0cba5fbfc2b8146656e15cbc685f9246c996691fa68a773075a",
+        "wrapperSource": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-wrapper-source.ps1",
+        "wrapperSha256": "e3127ad45b970cd8f0736ffcdb3a875fd3af30a79aab4827c209301cf10ae05b",
+        "spec": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\surface-source-v5-assembly\\assembly-01\\assembly-v5-01-spec-snapshot.json",
+        "specSha256": "de23d3d2c5d18bd65fcb1e79f1f91399a29251b7795d6502accb2d1645a081f8"
+      },
+      "wrapperFailure": null,
+      "finishedUtc": "2026-10-31T09:38:50.9686995Z"
+    },
+    "external-lifetime-verification.json": {
+      "checkedUtc": "2026-10-31T09:42:34.6743983Z",
+      "expected": {
+        "pid": 25800,
+        "creationFileTime": 134379131150402210,
+        "executable": "C:/Program Files/nodejs/node.exe"
+      },
+      "observed": null,
+      "exactLifetimeAbsent": true,
+      "ports": [],
+      "action": "Read-only verification; no termination"
+    }
+  }
+}
