@@ -14,7 +14,8 @@
     "fixed-spec.json",
     "fixed-spec.schema.json",
     "guard-ready.schema.json",
-    "provenance.json"
+    "provenance.json",
+    "preview.py"
   ],
   "sourceAdoption": {
     "findingsSha256": "cb8a9d5d2af2ec80a54b9bcebee970c9f8f36285f3618f9909072598bd281dff",
@@ -56,6 +57,26 @@
         "6568-6595 FOLLOW_SCENE/output linear colorspace API"
       ],
       "application": "Require actual EXR format has_linear_colorspace, explicitly FOLLOW_SCENE, record actual output color-space name; no view conversion/gain or guessed calibrated radiance."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/makesrna/intern/rna_image_api.cc",
+      "bytes": 15466,
+      "sha256": "dd0a3e89023558baccf027b1c1d1d0e00b8c17edc1959aa1ec331809d8da64ba",
+      "ranges": [
+        "55-86 save_render calls image save options with save_as_render=true/save_copy=true",
+        "299-315 public filepath/scene/quality API"
+      ],
+      "application": "Save a JPG display copy of the same loaded authoritative EXR with scene Standard/sRGB settings; no second rendering or loaded-image filepath mutation."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/blenkernel/intern/image_save.cc",
+      "bytes": 43908,
+      "sha256": "4db6475bbbf932a260ad039e6d7acf71dc6e1083e5057dc2ed3bf3218ad9488c",
+      "ranges": [
+        "45-106 save-as-render initializes ordinary Image write settings from scene",
+        "426-447 regular mono color-managed buffer/write-copy path"
+      ],
+      "application": "An ordinary loaded EXR Image can use save_render; scene view/display settings apply to byte JPEG output. EXR hash and exact settings restoration are checked; previews remain clipping-prone, lossy, non-radiometric copies."
     }
   ],
   "preservedSources": {
@@ -76,5 +97,12 @@
     "Source APIs still need live readback under a future permit; no fallback/retry/offset adjustment is authorized."
   ],
   "cleanup": "Track/remove all newly owned scene/world/camera/object/Volume/material/loaded-EXR/newRenderResult resources; preserve original exceptions and one-attempt cleanup failures. No package, service, listener, preview or helper is launched by this source task.",
-  "futureGuard": "Metadata guard remains unsupported. External source-before-import, exact enrollment/membership, both2GiB committed caps,512MiB polled output accounting, original900s UTC/uptime deadline, STOP and exact-lifetime exit receipts require separate review/permit."
+  "futureGuard": "Metadata guard remains unsupported. External source-before-import, exact enrollment/membership, both2GiB committed caps,512MiB polled output accounting, original900s UTC/uptime deadline, STOP and exact-lifetime exit receipts require separate review/permit.",
+  "previewChild": {
+    "preservedExrOnlyCommit": "01c36a7b838d124feab86d88e0489ce67f4d4543",
+    "authority": "Architect follow-up under c73 scalar-projection fixed Standard/sRGB allowance",
+    "outputs": "Six authoritative EXRs plus six same-EXR JPG saves; exactly six scalar renders",
+    "profile": "Standard/sRGB,lookNone,exposure0,gamma1,RGB8,JPEGquality95; no normalization",
+    "limits": "Original900s/2GiB/512MiB stay unchanged. Native image-save conversion may allocate transient native buffers within the future guard caps; no memory/cost performance claim."
+  }
 }

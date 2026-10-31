@@ -29,6 +29,8 @@ def run_protocol(adapter, spec, checkpoint, publish, report):
                 require(result["frame"] == selected["frame"] and
                         result["sourceAgeSeconds"] == selected["ageSeconds"] and
                         result["channel"] == channel, "Projection output identity differs")
+                require(result["preview"]["additionalRenders"] == 0,
+                        "JPG display copies must not add scalar renders")
                 report["projections"].append(result)
                 checkpoint()
                 publish(report)

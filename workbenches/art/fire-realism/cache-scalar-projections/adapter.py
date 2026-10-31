@@ -6,6 +6,7 @@ from pathlib import Path
 from contract import finite, f32, require, same_path
 from coordinates import matrix, sampler_report
 from scalar import build_graph
+from preview import jpg_settings, save_fixed_jpg
 
 
 class Owned:
@@ -91,6 +92,8 @@ class BlenderAdapter:
         for key in ("size", "is_float", "channels", "pixels", "alpha_mode", "colorspace_settings"):
             require(bpy.types.Image.bl_rna.properties.get(key) is not None,
                     "Required own-image API property unavailable: " + key)
+        require(bpy.types.Image.bl_rna.functions.get("save_render") is not None,
+                "Required same-EXR preview save API unavailable")
         self.prior_render_result = bpy.data.images.get("Render Result")
         self.scene = bpy.data.scenes.new("V5 fixed scalar projections")
         self.own_data(bpy.data.scenes, self.scene, "own scene")
@@ -106,6 +109,7 @@ class BlenderAdapter:
                 (r.image_settings, {"file_format": "OPEN_EXR", "color_depth": "32",
                 "color_mode": "RGBA", "exr_codec": "ZIP", "color_management": "FOLLOW_SCENE"}),
                 (self.scene.unit_settings, {"system": "NONE", "scale_length": 1.}),
+                (self.scene.display_settings, {"display_device": "sRGB"}),
                 (self.scene.view_settings, {"view_transform": "Standard", "look": "None",
                 "exposure": 0., "gamma": 1.})):
             for name, value in values.items():
@@ -113,6 +117,9 @@ class BlenderAdapter:
         require(r.image_settings.has_linear_colorspace is True,
                 "Actual output format does not require linear float color")
         self.output_color_space = r.image_settings.linear_colorspace_settings.name
+        with jpg_settings(self.scene, self.set) as profile:
+            self.preview_preflight = profile
+        self.preview_preflight["restoredBeforeAnyRender"] = True
         world = bpy.data.worlds.new("Scalar diagnostic opaque black")
         self.own_data(bpy.data.worlds, world, "own black world")
         self.scene.world = world
@@ -149,7 +156,8 @@ class BlenderAdapter:
         return {"settings": self.settings, "freshScene": self.scene.name,
                 "sourceProjectOpened": False, "fluidEvaluated": False,
                 "background": "opaque black, zero world emission; alpha1",
-                "preview": "No preview or secondary render is produced",
+                "preview": "Six fixed same-EXR JPG display copies; zero additional renders",
+                "previewPreflight": self.preview_preflight,
                 "worldNodes": ["ShaderNodeBackground(Color0,Strength0)", "ShaderNodeOutputWorld.Surface"],
                 "worldLinkCount": len(world.node_tree.links), "preflightGraphs": self.preflight_graphs,
                 "hasLinearOutputColorSpace": bool(r.image_settings.has_linear_colorspace),
@@ -201,7 +209,8 @@ class BlenderAdapter:
     def render(self, selected, channel):
         bpy = self.bpy
         path = self.output / ("scalar-frame%03d-%s.exr" % (selected["frame"], channel))
-        require(not path.exists(), "Refuse output overwrite")
+        preview_path = path.with_suffix(".jpg")
+        require(not path.exists() and not preview_path.exists(), "Refuse output overwrite")
         material = bpy.data.materials.new("Fixed %s frame%d" % (channel, selected["frame"]))
         token = self.own_data(bpy.data.materials, material, "own scalar material")
         for name, value in {"volume_interpolation": "LINEAR", "volume_step_rate": 1.}.items():
@@ -241,12 +250,36 @@ class BlenderAdapter:
                        "alphaMode": image.alpha_mode, "float32InspectionBytes": len(pixels) * 4,
                        "inspectionScope": "Blender-loaded own EXR buffer; not independent file-bit/radiometric proof"}
         del pixels
+        image_path_before = image.filepath
+        preview = save_fixed_jpg(image, self.scene, preview_path, self.set, self.checkpoint)
+        require(image.filepath == image_path_before and image.is_float,
+                "Saving a display copy changed the authoritative loaded EXR identity")
+        require(preview_path.is_file() and 0 < preview_path.stat().st_size <=
+                self.spec["limits"]["outputFileBytesMaximum"], "Fixed preview absent/oversized")
+        preview_hash = hashlib.sha256()
+        with preview_path.open("rb") as stream:
+            require(stream.read(3) == b"\xff\xd8\xff", "Preview is not a JPEG stream")
+            stream.seek(-2, 2)
+            require(stream.read(2) == b"\xff\xd9", "Preview JPEG did not finish")
+            stream.seek(0)
+            for block in iter(lambda: stream.read(131072), b""):
+                preview_hash.update(block)
+        exr_after = hashlib.sha256()
+        with path.open("rb") as stream:
+            for block in iter(lambda: stream.read(131072), b""):
+                exr_after.update(block)
+        require(path.stat().st_size == stat.st_size and exr_after.hexdigest() == digest.hexdigest(),
+                "Authoritative linear EXR changed while saving JPG display copy")
+        preview.update({"path": str(preview_path), "bytes": preview_path.stat().st_size,
+                        "sha256": preview_hash.hexdigest(), "derivedFromExrSha256": digest.hexdigest(),
+                        "linearExrUnchanged": True, "loadedFloatImageUnchanged": True,
+                        "clippingRiskFromObservedBuffer": minimum < 0 or maximum > 1})
         self.owned.release(image_token)
         self.volume.materials.clear()
         self.owned.release(token)
         return {"frame": selected["frame"], "sourceAgeSeconds": selected["ageSeconds"], "channel": channel,
                 "path": str(path), "bytes": stat.st_size, "sha256": digest.hexdigest(),
-                "nodes": graph, "inspection": observation, "rerun": False,
+                "nodes": graph, "inspection": observation, "preview": preview, "rerun": False,
                 "emptyPolicy": "Preserve/report; never substitute, normalize or rerender"}
 
     def close_frame(self):

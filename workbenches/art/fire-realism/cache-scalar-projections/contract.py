@@ -8,10 +8,10 @@ from pathlib import Path
 
 PROPOSAL = "c73c0fb3f266859c68c2f2f4c7b5a4a9b1a2b792"
 OWNER = "01a17e9b-a6db-7490-94cd-7d863747e5d3"
-SPEC_SHA256 = "f04891273d0b75efad265d82c63e7b6c960554fd009326ca1089295b329da765"
+SPEC_SHA256 = "335f7e6a761ac70b6503db45629354f09265b93ec2e2964a4d43836db840a5a8"
 PHASE = "scalar-projections"
 READY_KIND = "tinderbox-cache-scalar-guard-ready-v1"
-SOURCE_FILES = ("contract.py", "coordinates.py", "scalar.py", "adapter.py", "projection.py", "entry.py",
+SOURCE_FILES = ("contract.py", "coordinates.py", "scalar.py", "preview.py", "adapter.py", "projection.py", "entry.py",
                 "fixed-spec.json", "fixed-spec.schema.json", "guard-ready.schema.json", "provenance.json")
 CAP = 2147483648
 SHA = re.compile(r"[0-9a-f]{64}")
@@ -25,7 +25,10 @@ RENDERER = {
     "stepMetres": H / 2, "sceneStepRate": 1, "materialStepRate": 1, "maximumSteps": 512,
     "voxelClipping": 0, "background": "opaque-black-zero-world-emission",
     "filmTransparent": False, "format": "OPEN_EXR", "depth": "32", "colorMode": "RGBA",
-    "compression": "ZIP", "previews": False,
+    "compression": "ZIP", "previews": True,
+    "previewFormat": "JPEG", "previewDepth": "8", "previewColorMode": "RGB", "previewQuality": 95,
+    "previewViewTransform": "Standard", "previewDisplay": "sRGB", "previewExposure": 0,
+    "previewGamma": 1, "previewAdditionalRenders": 0,
 }
 
 
@@ -107,7 +110,7 @@ def hash_file(record, maximum, checkpoint=lambda: None):
 def validate_spec(spec):
     canonical = json.dumps(spec, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
     require(hashlib.sha256(canonical).hexdigest() ==
-            "0109bec738d38eb19e1edffcaddcd67c14602ea8fbc9c3d577907f32478ed271",
+            "8ca4b816cb2fb4761b12aaaeaaae1dbd07a177d373abba90a37d9ec5f17cc095",
             "Complete fixed recipe changed; no additional fields/knobs")
     require(spec["version"] == 1 and spec["phase"] == PHASE and spec["owner"] == OWNER and
             spec["proposalCommit"] == PROPOSAL, "Wrong fixed projection authority")

@@ -11,6 +11,7 @@ from pathlib import Path
 import contract
 import coordinates as co
 import scalar
+import preview
 from adapter import BlenderAdapter, Owned
 from projection import run_protocol
 import entry
@@ -49,7 +50,8 @@ class FakeAdapter:
         if self.failure in ("render", "render+cleanup") and self.count == 3:
             raise ValueError("original render failure")
         return {"frame": selected["frame"], "sourceAgeSeconds": selected["ageSeconds"],
-                "channel": channel, "fake": True, "notAnImage": True}
+                "channel": channel, "fake": True, "notAnImage": True,
+                "preview": {"additionalRenders": 0, "fake": True, "notAnImage": True}}
 
     def close_frame(self):
         self.events.append("close")
@@ -149,7 +151,7 @@ class FixedAndGuard(unittest.TestCase):
         schema = json.loads((HERE / "fixed-spec.schema.json").read_bytes())
         self.assertEqual(schema["const"], SPEC)
         for key, value in (("samples", 16), ("volumePrecision", "HALF"), ("stepMetres", 0.),
-                           ("previews", True), ("filmTransparent", True)):
+                           ("previews", False), ("filmTransparent", True)):
             mutated = copy.deepcopy(SPEC)
             mutated["renderer"][key] = value
             with self.assertRaises(ValueError):
@@ -212,6 +214,7 @@ class Protocol(unittest.TestCase):
         report = self.call(adapter)
         self.assertEqual([(r["frame"], r["channel"]) for r in report["projections"]],
                          [(f, c) for f in (31, 61) for c in scalar.CHANNELS])
+        self.assertEqual(adapter.count, 6)
         self.assertEqual(adapter.events.count("close"), 2)
         self.assertEqual(adapter.events.count("dispose"), 1)
         self.assertFalse(report["nativeQualityAcceptance"])
@@ -429,6 +432,69 @@ class SourceIsolation(unittest.TestCase):
             self.assertNotIn(b"\r", raw, "New scoped source is canonicalLF")
         self.assertEqual(pins["status"], "source-only-unexecuted")
 
+
+
+class SameExrPreview(unittest.TestCase):
+    def scene(self):
+        settings = types.SimpleNamespace(file_format="OPEN_EXR", color_mode="RGBA", color_depth="32",
+                    color_management="FOLLOW_SCENE", quality=90, exr_codec="ZIP",
+                    linear_colorspace_settings=types.SimpleNamespace(name="Linear Rec.709"))
+        return types.SimpleNamespace(render=types.SimpleNamespace(image_settings=settings),
+                    view_settings=types.SimpleNamespace(view_transform="Standard", look="None", exposure=0., gamma=1.),
+                    display_settings=types.SimpleNamespace(display_device="sRGB"))
+
+    def image(self, fail=False):
+        calls = []
+        def save_render(**kwargs):
+            calls.append(kwargs)
+            if fail:
+                raise OSError("original display-copy save failure")
+        return types.SimpleNamespace(save_render=save_render, calls=calls, filepath="authoritative.exr")
+
+    def test_preflight_then_one_same_image_save_no_files_or_renders(self):
+        scene, image = self.scene(), self.image()
+        original = {k: getattr(scene.render.image_settings, k) for k in preview.FORMAT_KEYS}
+        with preview.jpg_settings(scene, setattr) as profile:
+            self.assertEqual(profile["format"]["file_format"], "JPEG")
+            self.assertEqual(profile["format"]["quality"], 95)
+        self.assertEqual(image.calls, [])
+        profile = preview.save_fixed_jpg(image, scene, "NOT-WRITTEN-BY-FAKE.jpg", setattr, lambda: None)
+        self.assertEqual(len(image.calls), 1)
+        self.assertIs(image.calls[0]["scene"], scene)
+        self.assertEqual(image.calls[0]["quality"], 95)
+        self.assertEqual(profile["restoredExrFormat"], original)
+        self.assertEqual({k: getattr(scene.render.image_settings, k) for k in preview.FORMAT_KEYS}, original)
+        self.assertEqual(image.filepath, "authoritative.exr")
+        self.assertEqual(profile["additionalRenders"], 0)
+        self.assertTrue(profile["clippingProne"])
+
+    def test_wrong_view_fails_before_save_or_format_change(self):
+        scene, image = self.scene(), self.image()
+        scene.view_settings.exposure = .5
+        with self.assertRaisesRegex(ValueError, "view/display"):
+            preview.save_fixed_jpg(image, scene, "NOT-WRITTEN.jpg", setattr, lambda: None)
+        self.assertEqual(image.calls, [])
+        self.assertEqual(scene.render.image_settings.file_format, "OPEN_EXR")
+
+    def test_save_failure_preserves_primary_and_restores_exr(self):
+        scene, image = self.scene(), self.image(fail=True)
+        with self.assertRaisesRegex(OSError, "original display-copy"):
+            preview.save_fixed_jpg(image, scene, "NOT-WRITTEN.jpg", setattr, lambda: None)
+        self.assertEqual(len(image.calls), 1)
+        self.assertEqual(scene.render.image_settings.file_format, "OPEN_EXR")
+        self.assertEqual(scene.render.image_settings.color_depth, "32")
+        self.assertEqual(scene.render.image_settings.quality, 90)
+
+    def test_restore_error_is_not_hidden_or_a_retry(self):
+        scene, image = self.scene(), self.image(fail=True)
+        def setter(obj, key, value):
+            if key == "file_format" and value == "OPEN_EXR":
+                raise ValueError("synthetic restore failure")
+            setattr(obj, key, value)
+        with self.assertRaisesRegex(OSError, "original display-copy") as caught:
+            preview.save_fixed_jpg(image, scene, "NOT-WRITTEN.jpg", setter, lambda: None)
+        self.assertEqual(len(image.calls), 1)
+        self.assertTrue(any("restoration failed" in note for note in caught.exception.__notes__))
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

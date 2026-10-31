@@ -390,7 +390,16 @@
     "depth": "32",
     "colorMode": "RGBA",
     "compression": "ZIP",
-    "previews": false
+    "previews": true,
+    "previewFormat": "JPEG",
+    "previewDepth": "8",
+    "previewColorMode": "RGB",
+    "previewQuality": 95,
+    "previewViewTransform": "Standard",
+    "previewDisplay": "sRGB",
+    "previewExposure": 0,
+    "previewGamma": 1,
+    "previewAdditionalRenders": 0
   },
   "scalarMapping": {
     "density": "literal GEOMETRY density.Fac * unit white emission",

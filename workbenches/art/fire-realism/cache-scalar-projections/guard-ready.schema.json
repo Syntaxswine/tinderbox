@@ -50,7 +50,8 @@
         "fixed-spec.json",
         "fixed-spec.schema.json",
         "guard-ready.schema.json",
-        "provenance.json"
+        "provenance.json",
+        "preview.py"
       ],
       "properties": {
         "contract.py": {
@@ -92,6 +93,10 @@
         "provenance.json": {
           "type": "string",
           "pattern": "^[0-9a-f]{64}$"
+        },
+        "preview.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
         }
       }
     },
@@ -100,7 +105,7 @@
       "pattern": "^[0-9a-f]{64}$"
     },
     "inputSpecSha256": {
-      "const": "f04891273d0b75efad265d82c63e7b6c960554fd009326ca1089295b329da765"
+      "const": "335f7e6a761ac70b6503db45629354f09265b93ec2e2964a4d43836db840a5a8"
     },
     "nonce": {
       "type": "string",

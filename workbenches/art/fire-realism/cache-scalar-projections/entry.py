@@ -106,7 +106,8 @@ def main(argv=None):
              "projection-input-hashes-after.json")), "Fresh child output required")
     for selected in spec["selected"]:
         for channel in ("density", "flame", "signedHeat"):
-            require(not (output / ("scalar-frame%03d-%s.exr" % (selected["frame"], channel))).exists(),
+            require(not (output / ("scalar-frame%03d-%s.exr" % (selected["frame"], channel))).exists() and
+                    not (output / ("scalar-frame%03d-%s.jpg" % (selected["frame"], channel))).exists(),
                     "Prior projection output exists")
     for name in SOURCE_FILES:
         source_path = plain(HERE / name)
