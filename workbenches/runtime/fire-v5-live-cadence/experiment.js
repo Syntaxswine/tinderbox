@@ -3,28 +3,40 @@ import {summarizeLiveTrace} from '../../../tools/fire-realism/live-trace.js';
 
 export const CADENCE_CASES=Object.freeze([{id:'RefOff',mode:'reference',record:false},{id:'NoFireOn',mode:'no-fire',record:true},{id:'RefOn',mode:'reference',record:true},{id:'NoFireOff',mode:'no-fire',record:false}].map(Object.freeze));
 export const CADENCE_CONFIG=Object.freeze({scenario:'match-contact',view:'oblique',lighting:'bright',characterId:'bear',seed:1893,population:null,viewport:Object.freeze({width:1280,height:800,pixelRatio:1})});
-const errorRecord=e=>({name:e?.name||'Error',message:String(e?.message||e).slice(0,4096)}),check=signal=>{if(signal?.aborted)throw signal.reason;};
+const errorRecord=e=>({name:e?.name||'Error',message:String(e?.message||e).slice(0,4096),...(e?.code?{code:e.code}:{})}),check=signal=>{if(signal?.aborted)throw signal.reason;};
 const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;
 const same=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
 function wait(ms,signal){return new Promise((resolve,reject)=>{let timer;const stop=()=>{clearTimeout(timer);signal?.removeEventListener('abort',stop);reject(signal.reason);};if(signal?.aborted)return stop();timer=setTimeout(()=>{signal?.removeEventListener('abort',stop);resolve();},ms);signal?.addEventListener('abort',stop,{once:true});});}
 function abortable(promise,signal){return new Promise((resolve,reject)=>{const stop=()=>reject(signal.reason);if(signal?.aborted)return stop();signal?.addEventListener('abort',stop,{once:true});Promise.resolve(promise).then(resolve,reject).finally(()=>signal?.removeEventListener('abort',stop));});}
 function captureMetadata(driver){const {dataUrl,...record}=driver.captureFrame();return record;}
+function stopFailure(message){const error=Error('Diagnostic intended stop not proved: '+message);error.code='CADENCE_STOP_INVALID';throw error;}
+function requireNominalStop(testCase,trace,traceStart,recording,offStop){
+ if(!trace||!traceStart)stopFailure('missing trace or start identity');
+ if(!Number.isFinite(trace.startedMs)||!Number.isFinite(trace.endedMs)||trace.startedMs!==traceStart.startedMs||trace.endedMs-trace.startedMs<10000)stopFailure('full10000ms traced interval required');
+ if(testCase.record){
+  const r=recording?.recording,p=recording?.diagnosticTiming?.stopProvenance,before=p?.traceBeforePause;
+  if(recording?.reason!=='ten-second-limit'||r?.nominalStopAfterMs!==10000||r.maximumDurationMs!==10000||!Number.isFinite(r.stopRequestedAfterMs)||r.stopRequestedAfterMs<10000)stopFailure('recorder must stop at its nominal ten-second limit, not manual Stop');
+  if(p?.kind!=='diagnostic-recorder-stop-v1'||p.reason!=='ten-second-limit'||p.error||p.phaseBeforePause!=='playing'||before?.active!==true||before.status!=='collecting'||before.startedMs!==trace.startedMs||before.endedMs!==null)stopFailure('same trace must stay active until the nominal recorder stop');
+  if(!Number.isFinite(p.observedAtMs)||p.observedAtMs<trace.startedMs+10000||p.observedAtMs>trace.endedMs)stopFailure('recorder stop timestamp must bound the full live interval');
+ }else if(offStop?.kind!=='owned-nominal-timer-v1'||offStop.phaseBeforePause!=='playing'||offStop.activeBeforePause!==true||offStop.traceStartedMs!==trace.startedMs||offStop.actualRequestMs<10000)stopFailure('owned off-timer must stop the same still-active trace');
+}
 
 /** Public-method protocol shared by the real page and explicit API test doubles. */
 export async function runFiniteCadenceCases({driver,binding,signal,onStatus=()=>{},now=()=>performance.now(),waitDuration=wait,capture=captureMetadata}={}){
  const runs=[];
  for(const testCase of CADENCE_CASES){
-  let trace=null,started=false,start=null,finish=null,recording=null,offController=null,offForward=null,offStop=null;
+  let trace=null,traceStart=null,started=false,start=null,finish=null,recording=null,offController=null,offForward=null,offStop=null;
   try{
    check(signal);onStatus('Preparing '+testCase.id+' with normal shell/HUD');const setupStart=now();
    await binding.intent({type:'configure',patch:{...CADENCE_CONFIG,viewport:{...CADENCE_CONFIG.viewport},mode:testCase.mode}});await binding.intent({type:'reset'});check(signal);
    const configured=driver.state();if(configured.frameIndex!==0||configured.phase!=='ready'||!same(configured.configuration,{...CADENCE_CONFIG,viewport:{...CADENCE_CONFIG.viewport},mode:testCase.mode}))throw Error('Case did not start from exact fixed configuration/F0');
    const first=capture(driver),setupMs=now()-setupStart;
    if(first.hardware.canvas.drawingBufferWidth!==1280||first.hardware.canvas.drawingBufferHeight!==800)throw Error('Actual drawing buffer changed');
-   driver.startLiveTrace({durationMs:10000,maxRows:4096});started=true;start=driver.state();const wallStarted=now();onStatus('Running '+testCase.id+' for nominal10 seconds');
+   traceStart=driver.startLiveTrace({durationMs:10000,maxRows:4096});started=true;start=driver.state();const wallStarted=now();onStatus('Running '+testCase.id+' for nominal10 seconds');
    if(testCase.record){await binding.intent({type:'record'});recording=await abortable(binding.motionEvidence(),signal);if(recording?.status!=='complete')throw Error('Actual recording did not complete: '+(recording?.reason||recording?.status));}
-   else{offController=new AbortController();offForward=()=>offController.abort(signal.reason);if(signal?.aborted)offForward();else signal?.addEventListener('abort',offForward,{once:true});const scheduled=now(),stopping=waitDuration(10000,offController.signal);stopping.catch(()=>{});await binding.intent({type:'play'});await stopping;check(signal);offStop={nominalMs:10000,actualRequestMs:now()-scheduled,overrunMs:Math.max(0,now()-scheduled-10000)};await binding.intent({type:'pause'});}
-   check(signal);finish=driver.state();trace=driver.finishLiveTrace();const after=capture(driver);
+   else{offController=new AbortController();offForward=()=>offController.abort(signal.reason);if(signal?.aborted)offForward();else signal?.addEventListener('abort',offForward,{once:true});const scheduled=now(),stopping=waitDuration(10000,offController.signal);stopping.catch(()=>{});await binding.intent({type:'play'});await stopping;check(signal);const before=driver.state();offStop={kind:'owned-nominal-timer-v1',nominalMs:10000,actualRequestMs:now()-scheduled,overrunMs:Math.max(0,now()-scheduled-10000),phaseBeforePause:before.phase,activeBeforePause:before.liveTrace?.active===true,traceStartedMs:before.liveTrace?.startedMs??null};if(before.phase!=='playing'||before.liveTrace?.active!==true||before.liveTrace.startedMs!==traceStart.startedMs)stopFailure('trace was already paused/ended when the owned timer arrived');await binding.intent({type:'pause'});}
+   check(signal);finish=driver.state();trace=driver.finishLiveTrace();
+   requireNominalStop(testCase,trace,traceStart,recording,offStop);const after=capture(driver);
    if(trace?.status!=='complete'||!trace.frames.length||finish.frameIndex<=start.frameIndex||!same(finish.configuration,start.configuration)||!same(first.camera,after.camera))throw Error('Incomplete, altered or non-live trace');
    if(after.hardware.canvas.drawingBufferWidth!==1280||after.hardware.canvas.drawingBufferHeight!==800)throw Error('Ending drawing buffer changed');
    runs.push({case:testCase,status:'complete',configuration:start.configuration,start:{frameIndex:start.frameIndex,tick:start.tick,worldTime:start.worldTime,playerTime:start.playerTime},end:trace.endpoint,setupWallMs:setupMs,liveAndDrainWallMs:now()-wallStarted,offStop,sourceFingerprints:first.sourceFingerprints,hardware:first.hardware,camera:first.camera,trace,summary:summarizeLiveTrace(trace),recording,recorderDataEventCount:null,postWindow:'Pause closes trace before its existing redraw. Final JPEG and JSON/export occur after the live window.'});
@@ -32,7 +44,7 @@ export async function runFiniteCadenceCases({driver,binding,signal,onStatus=()=>
    if(started)try{trace=driver.finishLiveTrace({status:signal?.aborted?'cancelled':'error',reason:error.message});}catch{}
    if(testCase.record)try{await binding.intent({type:'cancel-record'});}catch{}
    try{await binding.intent({type:'pause'});}catch{}
-   runs.push({case:testCase,status:signal?.aborted?'cancelled':'failed',start,end:finish,error:errorRecord(error),trace,recording});
+   runs.push({case:testCase,status:signal?.aborted?'cancelled':'failed',start,end:finish,error:errorRecord(error),trace,recording,offStop});
    return {status:signal?.aborted?'cancelled':'failed',runs,error:errorRecord(error)};
   }finally{offController?.abort();if(offForward)signal?.removeEventListener('abort',offForward);}
  }

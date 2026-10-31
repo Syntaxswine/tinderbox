@@ -360,7 +360,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
   }
   const configure=async patch=>{const before=driver.state(),preserve=Object.keys(patch).every(key=>['mode','view','lighting','viewport'].includes(key));const next=await driver.configure(patch);if(preserve&&before.frameIndex>0&&next.availability?.[next.configuration.mode]?.available)await driver.seek(before.frameIndex);publish(driver.state());return driver.state();};
   async function startMotion(){
-    const setupStarted=diagnosticTiming?performance.now():null;let setupWallMs=null;
+    const setupStarted=diagnosticTiming?performance.now():null;let setupWallMs=null,stopProvenance=null;
     const initial=driver.state(),support=recordingSupport();
     if(!support.available)throw Error('Actual canvas recording is unavailable.');
     if(!['ready','playing'].includes(initial.phase)||measurementActive||!initial.availability?.[initial.configuration.mode]?.available)throw Error('Motion recording requires an available live render, outside measurement.');
@@ -369,7 +369,10 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
     try{
       const {dataUrl,...evidence}=await driver.captureFrame();firstFrame=evidence;
       if(closed||signal?.aborted||generation!==motionGeneration){recordingActive=false;return;}
-      motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:()=>{recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}}});
+      motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:reason=>{
+        if(diagnosticTiming){try{const before=driver.state(),trace=before.liveTrace;stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,observedAtMs:performance.now(),phaseBeforePause:before.phase,traceBeforePause:trace?{active:trace.active,status:trace.status,startedMs:trace.startedMs,endedMs:trace.endedMs}:null};}catch(cause){stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,error:{name:cause.name,message:cause.message}};}}
+        recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}
+      }});
       driver.play();
       if(diagnosticTiming)setupWallMs=performance.now()-setupStarted;
     }catch(error){recordingActive=false;await motion?.dispose();motion=null;publish(driver.state());throw error;}
@@ -385,7 +388,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
         recording:{mimeType:report.mimeType,bytes:report.bytes,canvas:report.canvas,wallDurationMs:report.wallDurationMs,maximumDurationMs:report.maximumDurationMs,nominalStopAfterMs:report.nominalStopAfterMs??report.maximumDurationMs,
           stopRequestedAfterMs:report.stopRequestedAfterMs??null,schedulingOverrunMs:report.schedulingOverrunMs??null,encoderDrainMs:report.encoderDrainMs??null,wallOverrunMs:report.wallOverrunMs??null,requestedCaptureFps:report.requestedCaptureFps}};
       const retentionStarted=diagnosticTiming?performance.now():null;
-      if(diagnosticTiming)metadata.diagnosticTiming={setupWallMs,retentionWallMs:null,scope:'Host wall boundaries, including waits; not native encoder or compositor CPU.'};
+      if(diagnosticTiming)metadata.diagnosticTiming={setupWallMs,retentionWallMs:null,stopProvenance,scope:'Host wall boundaries, including waits; not native encoder or compositor CPU. Stop provenance is sampled once before the existing Pause, outside RAF sampling.'};
       motion=null;
       if(closed||generation!==motionGeneration)return metadata;
       if(status==='complete'){
