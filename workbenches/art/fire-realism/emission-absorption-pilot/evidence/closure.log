@@ -1,0 +1,32 @@
+COMMAND: node C:\Users\baals\.codex\worktrees\fire-art-corrections\tinderbox\workbenches\art\fire-realism\emission-absorption-pilot\check-closure.mjs
+EXIT: 0
+{
+  "status": "PASS-paired-closures-probe-binding-control-preservation",
+  "production": [
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-pilot.manifest.json",
+      "bytes": 70246,
+      "sha256": "a0097125643539fc7c0b6b02f0a6b0acfdcfbf6f6d26069b361f7772a7559eca",
+      "files": 61,
+      "sourceBytes": 10664396,
+      "resources": 193,
+      "gzipBytes": 93875221,
+      "sparseBytes": 98362125
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-control.manifest.json",
+      "bytes": 70269,
+      "sha256": "2250a49485eacdb06c6a91ad70091bb6f397a6040cfe0794f12d6194fde5706c",
+      "files": 61,
+      "sourceBytes": 10664396,
+      "resources": 193,
+      "gzipBytes": 93875221,
+      "sparseBytes": 98362125
+    }
+  ],
+  "probeHelperOnly": true,
+  "probeMatchesProductionHelper": true,
+  "oldControlsUnchanged": true,
+  "newDataCopies": 0,
+  "scope": "Static/source/numeric checks only; root actual GPU probe and native paired review pending"
+}

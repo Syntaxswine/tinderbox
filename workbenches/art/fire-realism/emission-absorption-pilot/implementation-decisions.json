@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "status": "recorded-pre-handoff-implementation-refinement",
+  "scope": "Only new uncommitted E/A candidate sources changed; all frozen controls/data preserved.",
+  "reason": "Architect requested an explicit code-vs-uniform declaration and noted identical shaders reduce compiler-sensitive paired-tail ambiguity.",
+  "before": "Different fixed eaExtinction GLSL expressions per named factory.",
+  "after": "Byte-identical kernel/fragment in both variants; internal read-only uniform value0or6 selected only by named factories, also used by probe. No user tuning control.",
+  "preservedDraftInputs": [
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "sha256": "2751b74ecdebd7fe11bb194219a1a6bec6a0c63f2cd3035bab69243155314fa6",
+      "bytes": 4791,
+      "preservedDraft": "artifacts/qa/fire-realism/emission-absorption-pilot/pre-uniform-draft/fluid-surface-emission-transfer.js"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-pilot.js",
+      "sha256": "118ef2f804f7fe62737419cd17733b92cf5ff779bbf7e30067efa25664f79325",
+      "bytes": 2802,
+      "preservedDraft": "artifacts/qa/fire-realism/emission-absorption-pilot/pre-uniform-draft/fluid-surface-emission-pilot.js"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/probe.js",
+      "sha256": "ada22d7f2f90cdb5642aebdc20ed3de128d9ef04858c287a0c355e35f8629339",
+      "bytes": 15631,
+      "preservedDraft": "artifacts/qa/fire-realism/emission-absorption-pilot/pre-uniform-draft/probe.js"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/check-transfer.mjs",
+      "sha256": "1d6a303971698ec119a23af22982a5a6b9635776714b44d15cff03fb45d59bde",
+      "bytes": 3554,
+      "preservedDraft": "artifacts/qa/fire-realism/emission-absorption-pilot/pre-uniform-draft/check-transfer.mjs"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/check-integration.mjs",
+      "sha256": "f5ce21bedf538bc0181ba84508098688c9c27778283d6fd8ff98d1b4f053e2f0",
+      "bytes": 12665,
+      "preservedDraft": "artifacts/qa/fire-realism/emission-absorption-pilot/pre-uniform-draft/check-integration.mjs"
+    }
+  ],
+  "nativeF0Equality": "Still requires actual source-bound native evidence; no equality inferred from identical GLSL."
+}

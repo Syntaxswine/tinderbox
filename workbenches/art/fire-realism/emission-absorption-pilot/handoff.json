@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "status": "scoped-checks-pass-native-unreviewed",
+  "proposalCommit": "5206d34ac405836e3f9fe970b26760abc74ebf16",
+  "artistBaseCommit": "fbecdf7c4238f100b60c1c6cfad9f2b385c8357a",
+  "production": [
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-pilot.manifest.json",
+      "bytes": 70246,
+      "sha256": "a0097125643539fc7c0b6b02f0a6b0acfdcfbf6f6d26069b361f7772a7559eca",
+      "factoryExport": "createFluidSurfaceEmissionPilot",
+      "factoryModule": "assets/art/fire-realism/fluid-surface-emission-pilot.js",
+      "prepareExport": "prepareFluidSurfaceContactData",
+      "runtimeFiles": 61,
+      "esmBytes": 10664396,
+      "resources": 193,
+      "gzipBytes": 93875221,
+      "sparseBytes": 98362125,
+      "diagnostic": {
+        "kind": "smoke-only",
+        "identicalPairedShaderCode": true,
+        "fixedExtinctionCoefficient": 0,
+        "coefficientBinding": "Internal read-only uniform; named factories only, no tuning control",
+        "emission": "r*cFire/1m +ks*cSoot",
+        "extinction": "ks",
+        "referenceLengthMetres": 1,
+        "physicalCalibration": false,
+        "palette": "Original All, not soot/color trials",
+        "output": "Associated display-referred C/A; explicit ONE/ONE_MINUS_SRC_ALPHA RGB+alpha; preserve C>0 atA0; no finalgamma/secondpremultiply",
+        "smallTau": "q=ds*(1-tau/2+tau^2/6-tau^3/24) below1e-3; else(1-exp(-tau))/k",
+        "earlyTermination": "Opaque-depth/end-of-bounded-interval only; no opacity-only earlyout",
+        "readability": "Original per-band world-distance fade applied once to both C and A",
+        "groundStamp": "Existing ground char transition unchanged; separate authoritative fuel-progress/coder correction"
+      }
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-control.manifest.json",
+      "bytes": 70269,
+      "sha256": "2250a49485eacdb06c6a91ad70091bb6f397a6040cfe0794f12d6194fde5706c",
+      "factoryExport": "createFluidSurfaceEmissionOpacityControl",
+      "factoryModule": "assets/art/fire-realism/fluid-surface-emission-pilot.js",
+      "prepareExport": "prepareFluidSurfaceContactData",
+      "runtimeFiles": 61,
+      "esmBytes": 10664396,
+      "resources": 193,
+      "gzipBytes": 93875221,
+      "sparseBytes": 98362125,
+      "diagnostic": {
+        "kind": "matched-opacity",
+        "identicalPairedShaderCode": true,
+        "fixedExtinctionCoefficient": 6,
+        "coefficientBinding": "Internal read-only uniform; named factories only, no tuning control",
+        "emission": "r*cFire/1m +ks*cSoot",
+        "extinction": "ks+6*r",
+        "referenceLengthMetres": 1,
+        "physicalCalibration": false,
+        "palette": "Original All, not soot/color trials",
+        "output": "Associated display-referred C/A; explicit ONE/ONE_MINUS_SRC_ALPHA RGB+alpha; preserve C>0 atA0; no finalgamma/secondpremultiply",
+        "smallTau": "q=ds*(1-tau/2+tau^2/6-tau^3/24) below1e-3; else(1-exp(-tau))/k",
+        "earlyTermination": "Opaque-depth/end-of-bounded-interval only; no opacity-only earlyout",
+        "readability": "Original per-band world-distance fade applied once to both C and A",
+        "groundStamp": "Existing ground char transition unchanged; separate authoritative fuel-progress/coder correction"
+      }
+    }
+  ],
+  "probe": {
+    "page": "workbenches/art/fire-realism/emission-absorption-pilot/probe.html",
+    "publicControl": "Run native GPU checks",
+    "manifest": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-probe.manifest.json",
+      "bytes": 494,
+      "sha256": "76bf797ad74d977115718e756caaba158452ba6f54d170d520e256f176ced338"
+    },
+    "datasetResources": 0,
+    "executedByArtist": false,
+    "rootActualExecutionRequired": true,
+    "deadlineWallMs": 20000,
+    "numericCases": 22,
+    "additionalDefaultTargetCases": 1,
+    "gpuCostQueries": 0
+  },
+  "checks": [
+    {
+      "name": "transfer",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/transfer.log",
+        "bytes": 484,
+        "sha256": "044d0690ffa47c334f5a7e3d432a7e756676ef7ce40979150d1bcbbe4008f64b"
+      }
+    },
+    {
+      "name": "integration",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/integration.log",
+        "bytes": 692,
+        "sha256": "fcb5a36343a062f38c16ed467e7a5e112cb2d256231f010a98c126b491caf04d"
+      }
+    },
+    {
+      "name": "probe-source",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/probe-source.log",
+        "bytes": 428,
+        "sha256": "c7deeb4566fb953af77c2b82ff2f8c0e78cbbc13bdb93c24875e0429ebf447b7"
+      }
+    },
+    {
+      "name": "closure",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/closure.log",
+        "bytes": 1153,
+        "sha256": "06482478bb86c8a0c62de8f252e84d41a35da41eb5f9856ede64e453022e0068"
+      }
+    }
+  ],
+  "nodeVersion": "v24.15.0",
+  "identicalShaderPair": {
+    "internalUniform": "eaFlameExtinctionCoefficient",
+    "fixedValues": [
+      0,
+      6
+    ],
+    "readOnly": true,
+    "glslByteIdentical": true,
+    "nativeF0Equality": "Pending actual matched source-bound poses; not inferred."
+  },
+  "resources": {
+    "fieldDataCopies": 0,
+    "additionalFactoryTextures": 0,
+    "additionalFactoryGeometry": 0,
+    "additionalFactoryLights": 0,
+    "additionalFactoryRenderPasses": 0,
+    "originalTwoRGBAUploadBytes": 7077888,
+    "gpuCostMeasured": false,
+    "newOwnedState": "Fixed per-material shader strings and read-only uniform objects; no per-frame allocations introduced by wrapper."
+  },
+  "preservation": {
+    "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/control-preservation.json",
+    "bytes": 833,
+    "sha256": "20cc93bf179353b49aedd58eadd85be7e2d711e6a4349ccca54affef91375618"
+  },
+  "sourceInventory": [
+    {
+      "path": "assets/art/fire-realism/.gitattributes",
+      "bytes": 529,
+      "sha256": "d0c5b4503504b90efd7e14142cb423c06b3e0113ced30e2b77ba87d77f60b15d"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-control.manifest.json",
+      "bytes": 70269,
+      "sha256": "2250a49485eacdb06c6a91ad70091bb6f397a6040cfe0794f12d6194fde5706c"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-pilot.js",
+      "bytes": 2976,
+      "sha256": "172c51037da879c02949bc15ac5da499295073f1b78413231bd472507c2a1b09"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-pilot.manifest.json",
+      "bytes": 70246,
+      "sha256": "a0097125643539fc7c0b6b02f0a6b0acfdcfbf6f6d26069b361f7772a7559eca"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-probe.manifest.json",
+      "bytes": 494,
+      "sha256": "76bf797ad74d977115718e756caaba158452ba6f54d170d520e256f176ced338"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/.gitattributes",
+      "bytes": 108,
+      "sha256": "ef23b6208071f51aa48df430289b5e47c7bb330ed67ad9d7677ad77c09f001e5"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/README.md",
+      "bytes": 5726,
+      "sha256": "4a35b246392b3bd162f387967a6a5d6e97a5504a68104610f95225f8a47743f1"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/check-closure.mjs",
+      "bytes": 5291,
+      "sha256": "3480e00b5aa04c510763f9a140559d19ea502eb51e2db8e2df59b1f8c0f9951d"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/check-integration.mjs",
+      "bytes": 12811,
+      "sha256": "37293c1f40f59366bfc8f7ab6de2d5cd5d65955eb01f8835d172d7535b1dd8a6"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/check-probe-source.mjs",
+      "bytes": 3005,
+      "sha256": "f0116f12056e46b31490a71ee819a25fa810b9a77ce6ccb524126750cd41e17a"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/check-transfer.mjs",
+      "bytes": 3744,
+      "sha256": "1aeb6810d6b1d118ee54f95caa179c04cc35bfe7b0fafb3e8beb5e3f78a157d8"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/closure.log",
+      "bytes": 1153,
+      "sha256": "06482478bb86c8a0c62de8f252e84d41a35da41eb5f9856ede64e453022e0068"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/control-preservation.json",
+      "bytes": 833,
+      "sha256": "20cc93bf179353b49aedd58eadd85be7e2d711e6a4349ccca54affef91375618"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/integration.log",
+      "bytes": 692,
+      "sha256": "fcb5a36343a062f38c16ed467e7a5e112cb2d256231f010a98c126b491caf04d"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/probe-source.log",
+      "bytes": 428,
+      "sha256": "c7deeb4566fb953af77c2b82ff2f8c0e78cbbc13bdb93c24875e0429ebf447b7"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/evidence/transfer.log",
+      "bytes": 484,
+      "sha256": "044d0690ffa47c334f5a7e3d432a7e756676ef7ce40979150d1bcbbe4008f64b"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/implementation-decisions.json",
+      "bytes": 2348,
+      "sha256": "73dcabb7dbe2cf20da6bef620911dd9cbbc14ee63dd2fa86e59a8a06e0289548"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/manifest.mjs",
+      "bytes": 5565,
+      "sha256": "3730b97cd3f2114d60a766750fef9cf7140a9d5906123c492f578bc7aa36634d"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/probe-cases.js",
+      "bytes": 2030,
+      "sha256": "8b17e4804e145cf0af96a228df91c15e2d047acff3ea951a560fae93838e796a"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/probe-config.js",
+      "bytes": 910,
+      "sha256": "de552da6a55d15515a4d51c58b97d1bf38eaedf1187bcf5003efe1fc72e3c2ee"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/probe.html",
+      "bytes": 1374,
+      "sha256": "e46c27fc5ce80c55731dbd9601a50d6ed5e67007b8d84e6e92e507bb54386429"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-absorption-pilot/probe.js",
+      "bytes": 16353,
+      "sha256": "e49417840868477643f342cc1289c998dc5ad91c151f6a9c31d00a6130914d3f"
+    }
+  ],
+  "helpers": {
+    "browserOrServerLaunched": false,
+    "retained": []
+  },
+  "limitations": [
+    "Encoded-target UNORM/order approximation; no radiometric calibration.",
+    "Temperature is an uncalibrated solver proxy; Lref1m is author normalization.",
+    "GPU probe and native compile/motion/morphology acceptance are pending root.",
+    "Existing ground-char stamp and color193-tail uncertainty remain separate.",
+    "No R/O acceptance, performance saving, promotion or publication."
+  ]
+}
