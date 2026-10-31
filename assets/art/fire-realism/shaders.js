@@ -227,7 +227,7 @@ export const fragmentShader = noise + `
         vec3 wp=start+direction*(entry+(float(j)+.5)*stepSize);
         if(opaqueStops(wp,sceneDepth))break;
         vec4 f=groundReaction(wp); float den=f.x*allowed(wp);
-        float a=1.-exp(-den*stepSize*7.4);
+        float a=1.-exp(-den*stepSize*22.2);
         emission+=(1.-alpha)*a*groundEmission(f); alpha+=(1.-alpha)*a;
         if(alpha>.985)break;
       }
@@ -262,5 +262,7 @@ export const fragmentShader = noise + `
     // Deliberately matches the published NoToneMapping renderer. No global
     // exposure/tone mapping change is needed to hide a preview mismatch.
     #include <colorspace_fragment>
+    // Associate encoded RGB by FINAL alpha, including player legibility.
+    gl_FragColor.rgb*=gl_FragColor.a;
   }
 `;

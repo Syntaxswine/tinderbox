@@ -1,43 +1,48 @@
 {
-  "task": "TB-034-reaction-outer-edges-iteration-08",
-  "recordedAt": "2026-10-31T01:04:16.085928+00:00",
-  "integrationBase": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
-  "correctsArtistCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+  "task": "TB-034-world-metre-optics-iteration-09",
+  "recordedAt": "2026-10-31T02:20:55.191580+00:00",
+  "integrationBase": "68d649fa44ef1c05eaaa9737c5f739e82b15b639",
+  "correctsArtistCandidate": "13ad95c2d131e3dab28e775c1d33c121ea50d5ed",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
-  "artistVersion": "0.8.0-reference-candidate",
+  "artistVersion": "0.9.0-reference-candidate",
   "actualPreviousCandidateReview": {
-    "candidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
-    "architectCheckpoint": "aca30cd910a326918b1599ce6665803cf64739e0",
-    "evidence": "Architect primary render-round-09-coherent07-repair and hostile-review/round-07-street-decode",
-    "nativeJpgsOpened": [
-      "reference-match-contact-isometric-bright-frame60.jpg",
-      "reference-street-fire-isometric-bright-frame120.jpg"
+    "candidate": "13ad95c2d131e3dab28e775c1d33c121ea50d5ed",
+    "diagnosticArtistChildren": [
+      "877253ff9f46e82315973ac7937744f4e0161ae2",
+      "70e4c2f643541e649046ecbac28cf522e337603a"
     ],
-    "orderedSheetsOpened": 12,
-    "decodedSourceFramesInspectedInSheets": 46,
-    "nativeFramesIndividuallyInspected": false,
-    "sourcePtsSeconds": [
-      0,
-      9.382
-    ],
-    "sourceWebmSha256": "dced6cb9ef60314aeacc85999e45bf118f833fd0ab9ac8734d20a782d752a379",
+    "evidence": "Primary render-round-13-controlled-diagnostic09 and render-round-14-field-association10",
+    "artistOpened": "Native60 All/flame32/flame64,120 All/flame32/smoke32; associated native60/120 All/flame",
     "nativeSize": [
       1280,
       800
     ],
-    "backend": "Actual Chrome156 / RTX3080 / WebGL2",
-    "fiveRuntimeHashesMatched": true,
-    "qualityDecision": "Macro crown repetition reduced, but match is a soft orange block and street has cell mottling/stepped outer luminous cutoff; visual target rejected, smoke unchanged in this child",
+    "fullIntensityPhases": [
+      15,
+      30,
+      60,
+      120
+    ],
+    "sourceIntensityEach": 1,
+    "phase120SurfaceFuelEach": 0.03041666666666665,
+    "unitProbe": "RGBA8 LINEAR UNSIGNED_NORMALIZED; black/alpha.25:linear.25 gives34RGB both,.75 gives56both,1.65 gives64straight/79associated",
+    "fieldProbe": "Actual source factor SRC_ALPHA770 -> ONE1; associated gain modest, no strong attached fire at120",
+    "qualityDecision": "Rejected0.8 full-intensity reaction; source fade/burnout does not explain faint120. More samples did not materially restore inspected brightness.",
     "previousEvidenceModified": false
   },
   "sourcePhotos": {
-    "existingCount": 4,
+    "existingCount": 5,
     "independentlyOpened": 5,
-    "acquiredOrModified": 1,
+    "acquiredOrModified": 0,
     "provenanceRecord": "art/source/fire-realism/references.json",
     "runtimePhotographicPixels": false,
-    "modifiedInCurrentIteration": 0
+    "modifiedInCurrentIteration": 0,
+    "openedInCurrentIteration": [
+      "dvids-112603",
+      "nara-6349328",
+      "dvids-9219073"
+    ]
   },
   "exteriorReferenceIntake": {
     "recordedAt": "2026-10-30T06:26:06.900Z",
@@ -96,30 +101,14 @@
     },
     "shortOutsideMuzzleFan": "pass; 0.1m fan at0.3/0.5301m offsets retains3 full-ray volume instances with source-origin support",
     "continuity": "pass; one complete authoritative clipped support per ray without nine repeated axial cone segments; this is a pre-freeze quality correction, not cost optimization",
-    "newOpticalCalibration": "source-level ground/torch-only32 samples over unchanged2.52-local-unit span, lower-tongue attached reaction floor under shared sheet zeroes, local emission2; actual visibility unproved. Jet/smoke retain0.3 optics/18 samples; no GPU-cost equivalence claimed.",
+    "newOpticalCalibration": "Ground-only22.2/m plus smoothly terminating.025-.24m shared lower contact; emission1.65/32 samples unchanged; correct common post-colorspace final-alpha RGB association. JS-double source quadrature is not GPU/pixel proof.",
     "depthBinding": "pass; borrowed actual DepthTexture, current camera, paused camera, wrong dimensions/camera rejection, fractionalDPR floor convention",
     "sourceOrder": "pass; equivalent source ordering preserves geometry, smoke accumulation and spill-light selection",
-    "projectCheck": {
-      "ownScripts": 152,
-      "staticModules": 192,
-      "passed": 186,
-      "failed": 0,
-      "artSyntaxDependencyChecks": 41,
-      "provenance": "pass"
-    },
-    "build": {
-      "files": 3462,
-      "bytes": 163367822,
-      "sourcePhotosDistributed": false,
-      "diagnosticWorkbenchDistributed": false
-    },
+    "projectCheck": "pass;186/186 tests,165 own scripts,205 static modules",
+    "build": "pass;3462files/163368273bytes, relative URLs; workbench control excluded",
     "diffWhitespace": "pass; working-tree git diff --check, expected autocrlf warnings only; raw runtime hash gate preserves LF",
     "smokeContract": "pass; frozen0.4 isolated flame/torch/jet-soot/light support, unchanged billow helper, world/pause/reset/rewind and finite tails; regional field covered separately",
-    "affectedUiChecks": {
-      "passed": 2,
-      "failed": 0,
-      "scope": "Actual primary five-reference dossier and strict raw five-module manifest checks on current0.8"
-    },
+    "affectedUiChecks": "pass;strict reviewed dossier/source subset2/2",
     "crossCheckoutUiAttempt": {
       "passed": 32,
       "failed": 1,
@@ -148,15 +137,18 @@
       "fixtureSha256": "0dd1b27d6c8f776bc260208f03cc7f25fca7c9c223c743189366b2ac8ed81120",
       "fixtureHashBasis": "Captured UTF-8 LF bytes and canonical Git fixture blob; ordinary checks parse committed JSON"
     },
-    "nonGroundRuntimePreserved": "pass; index differs only version/ground sampling settings; shader host differs only shared-ground32samples; geometry/billow source bytes unchanged. Only groundFieldGLSL optical functions and pure edge audit helper change in the fifth module."
+    "nonGroundRuntimePreserved": "Prepared source/clip/light arrays and jet/torch/facade/smoke shape/density/emission source unchanged; common correct association is the only output change",
+    "r09Optics": "pass;exact bounded source delta, single matching association, actual4-phase/normal+powder/torch/real25-ray record/storage/lights and borrowed ownership",
+    "control08": "pass;separate six13ad Git blobs/mapping/LF/import closure; lazy workbench effect,12 diagnostic variants and original material/hook/resources restored",
+    "rayAudit": "pass;8 phase/view source-quadrature cases with unchanged actual full-intensity inputs; JSON receipt explicitly not GPU or rendered acceptance"
   },
   "webgl": {
-    "status": "pending-exact0.8-native-review",
+    "status": "Unperformed for exact R09; root owns actual compilation/played review",
     "newBrowserAttempt": false,
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "d60 actually compiled/rendered and exact5-file frames inspected. New0.8 edge/reaction/sampling changes need architect compilation/native motion; no new pixels fabricated."
+    "reason": "Artist source checks and JS-double quadrature cannot substitute for actual R09 frames/motion or hardware cost. Prior actual control08 evidence is preserved separately."
   },
   "limitations": [
     "Exact0.8 shader/native still/motion must prove attached visibility, thin bright sheets, taper and smooth joins without aliasing or lost sources",
@@ -165,7 +157,8 @@
     "Wide/mixed/overlapping-floor layouts retain complete diagnosed older envelopes; visual quality beyond supported field extent remains unaccepted",
     "Roof/opening sites remain deferred without a building-quality waiver",
     "Centroid alpha sorting and independent safe ray ribbons retain documented limitations",
-    "No accepted R, optimized O, valid GPU-cost target or goal completion"
+    "No accepted R, optimized O, valid GPU-cost target or goal completion",
+    "R09 must pass actual played full-intensity contact/street/normal-powder motion and jet/torch/camera/depth regressions; source-quadrature opacity and correct association are not quality acceptance."
   ],
   "helpers": {
     "serversStarted": 0,
@@ -284,6 +277,31 @@
       "sourceFingerprints": "Exact capture JSON runtime hashes identify0.6; street240 header and manifest hashes inspected, sourceCommit field is null rather than invented",
       "qualityDecision": "Broad same-height yellow per-cell crowns and regular1m gray smoke posts rejected; exact facade placement corrected separately but visual baseline remains unaccepted",
       "previousEvidenceModified": false
+    },
+    {
+      "candidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+      "architectCheckpoint": "aca30cd910a326918b1599ce6665803cf64739e0",
+      "evidence": "Architect primary render-round-09-coherent07-repair and hostile-review/round-07-street-decode",
+      "nativeJpgsOpened": [
+        "reference-match-contact-isometric-bright-frame60.jpg",
+        "reference-street-fire-isometric-bright-frame120.jpg"
+      ],
+      "orderedSheetsOpened": 12,
+      "decodedSourceFramesInspectedInSheets": 46,
+      "nativeFramesIndividuallyInspected": false,
+      "sourcePtsSeconds": [
+        0,
+        9.382
+      ],
+      "sourceWebmSha256": "dced6cb9ef60314aeacc85999e45bf118f833fd0ab9ac8734d20a782d752a379",
+      "nativeSize": [
+        1280,
+        800
+      ],
+      "backend": "Actual Chrome156 / RTX3080 / WebGL2",
+      "fiveRuntimeHashesMatched": true,
+      "qualityDecision": "Macro crown repetition reduced, but match is a soft orange block and street has cell mottling/stepped outer luminous cutoff; visual target rejected, smoke unchanged in this child",
+      "previousEvidenceModified": false
     }
   ],
   "groundFieldCorrection": {
@@ -311,12 +329,12 @@
     "macroFieldResetsAtCellBoundary": false,
     "woodGrassLiquidDistinction": true,
     "billowHelperBytesUnchanged": true,
-    "isolatedTorchJetOpticsPreserved": true,
+    "isolatedTorchJetOpticsPreserved": false,
     "facadeProvenancePreserved": true,
     "frameApiChanged": false,
     "referenceFrozen": false,
     "optimizationCredit": false,
-    "rationale": "docs/art/fire-realism/iteration-08-reaction-edges.md",
+    "rationale": "docs/art/fire-realism/iteration-09-optical-depth.md",
     "facadeSmokeBurden": {
       "sourceArea": "sum over unique linked current burning IDs: material wood and surfaceFuel>0 only, clamp(size,.05,2)^2*clamp(intensity)",
       "burden": "min(1.8,sqrt(sourceArea))",
@@ -332,7 +350,7 @@
       "physicsAdded": false
     },
     "woodEvidence": "material wood AND current remaining surfaceFuel>0; liquid flag requires depositedFuel>0",
-    "previousRationale": "docs/art/fire-realism/iteration-07-coherent-fronts.md",
+    "previousRationale": "docs/art/fire-realism/iteration-08-reaction-edges.md",
     "outerEdge": "smoothstep(.5,1,unnormalized occupancy), height power.75/density power.55; zero boundary, full internal coverage",
     "sheetBand": [
       0.018,
@@ -341,7 +359,17 @@
     "lowerSheetFloor": 0.45,
     "samplingAcceptance": false,
     "underlayChanged": false,
-    "smokeJetTorchFacadeChanged": false
+    "smokeJetTorchFacadeChanged": "Only common correct RGB association; all shape/density/emission branches, native anchors and source logic unchanged",
+    "groundExtinctionPerMetre": 22.2,
+    "emissionCeiling": 1.65,
+    "contactFalloffMetres": [
+      0.025,
+      0.24
+    ],
+    "contactFormula": "(1-smoothstep(.025,.24,h))*(.035+.36*sheet)*(.35+.65*pocket)",
+    "contactExactZeroAboveMetres": 0.24,
+    "commonAssociation": "Encoded RGB *= FINAL alpha after colorspace, NormalBlending/premultipliedAlpha:true",
+    "isolatedTorchJetShapeDensityEmissionBranchesPreserved": true
   },
   "shaderCompilationRepair": {
     "revision": 1,
@@ -353,5 +381,22 @@
     "compiledAfterRepair": true,
     "actualCompiledCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
     "evidence": "Architect render-round-09-coherent07-repair exact5-file native JPGs; this is historical0.7 compilation, not new0.8 shader acceptance"
+  },
+  "reactionOptics09": {
+    "referenceFrozen": false,
+    "optimizationCredit": false,
+    "frameApiChanged": false,
+    "sourceOrPhysicsChanged": false,
+    "geometryChanged": false,
+    "samples": 32,
+    "rendererOrExposureChanged": false,
+    "historicalControlCommit": "68d649fa44ef1c05eaaa9737c5f739e82b15b639",
+    "rawRayAudit": "docs/art/fire-realism/calibration-09-ray-audit.json",
+    "auditPrecision": "JS double value noise can differ from GPU float/hash;128-point continuous AABB quadrature differs from32-sample/deformed-shell GPU integration",
+    "lowerMedian120Isometric": [
+      0.19176110252719702,
+      0.4923570382306187
+    ],
+    "actualR09RenderedAcceptance": false
   }
 }

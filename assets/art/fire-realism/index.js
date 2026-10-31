@@ -3,7 +3,7 @@ import {vertexShader, fragmentShader} from './shaders.js';
 import {prepareSmokeBillows, SMOKE_BILLOW_COUNT} from './smoke-billows.js';
 import {prepareGroundSources, prepareSmokeRegions, GROUND_SOURCE_SIDE, GROUND_DOMAIN_HEIGHT} from './ground-field.js';
 
-export const FIRE_REALISM_VERSION = '0.8.0-reference-candidate';
+export const FIRE_REALISM_VERSION = '0.9.0-reference-candidate';
 const finite = Number.isFinite;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, finite(x) ? x : a));
 const point = p => p && [p.x, p.y, p.h].every(finite);
@@ -51,7 +51,7 @@ export function createFireRealism(T, options = {}) {
   for (let i = 0; i < SMOKE_BILLOW_COUNT; i++) arrays[`iBillow${i}`] = new Float32Array(capacity * 4);
   arrays.iBillowAges = new Float32Array(capacity * 4);
   for (const [key, a] of Object.entries(arrays)) geometry.setAttribute(key, new T.InstancedBufferAttribute(a, key === 'iShape' || key.startsWith('iBillow') ? 4 : 3).setUsage(T.DynamicDrawUsage));
-  const material = new T.ShaderMaterial({uniforms: shared, vertexShader, fragmentShader, transparent: true, depthWrite: false, depthTest: true, side: T.DoubleSide, toneMapped: false, forceSinglePass: true});
+  const material = new T.ShaderMaterial({uniforms: shared, vertexShader, fragmentShader, transparent: true, depthWrite: false, depthTest: true, side: T.DoubleSide, toneMapped: false, premultipliedAlpha: true, forceSinglePass: true});
   owned.materials.add(material);
   const mesh = new T.Mesh(geometry, material); mesh.name = 'Depth-sorted flame and smoke stream'; mesh.frustumCulled = false; root.add(mesh);
   const lights = Array.from({length: 3}, () => {const l = new T.PointLight(0xff8a36, 0, 4.5, 2); l.name = 'Bounded fire spill'; root.add(l); return l;});

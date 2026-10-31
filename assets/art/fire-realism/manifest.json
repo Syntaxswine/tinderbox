@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 10,
   "id": "tb034-fire-reference",
   "status": "unaccepted-reference-candidate",
   "referenceFrozen": false,
@@ -13,13 +13,13 @@
     },
     {
       "path": "assets/art/fire-realism/shaders.js",
-      "bytes": 14895,
-      "sha256": "9e465751623ad16502575097fac5fc8848f7b6bed4b50cdfcc0047afba048563"
+      "bytes": 15008,
+      "sha256": "5f3c65731e3d2b9964a971d390acb5423ad022499afe36d2180e866bba5f620d"
     },
     {
       "path": "assets/art/fire-realism/index.js",
-      "bytes": 32071,
-      "sha256": "001f51e91ef94e60edb3f599751861e7cd97b07345f6551e02e5500f00c48d77"
+      "bytes": 32097,
+      "sha256": "248be51abc7fdabca209a3e2ac7a34f978267b21e4a7c1987fff6e24ba7bf07b"
     },
     {
       "path": "assets/art/fire-realism/smoke-billows.js",
@@ -28,8 +28,8 @@
     },
     {
       "path": "assets/art/fire-realism/ground-field.js",
-      "bytes": 11621,
-      "sha256": "de0e224acf6ea03512e974d83f20d21a259953bad6625cff81730a331a82ced4"
+      "bytes": 11809,
+      "sha256": "e43e050d26813a907e56e59535bc47f770c374db05032724ae6b9ee35a2f79c8"
     }
   ],
   "dependencies": [
@@ -48,9 +48,9 @@
     "Derived256-square source texture is internal only; unsupported mixed/overlapping/wide layouts use an explicit complete native-mask envelope fallback with no omitted source or lower grid resolution. Actual shared-domain seams/catchment motion and useful detailed sampling remain unaccepted."
   ],
   "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
-  "artistVersion": "0.8.0-reference-candidate",
-  "correctsCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
-  "preFreezeQualityCorrection": "Actual repaired0.7 match/street frames show soft orange volume and hard tiled outer edges. Unnormalized occupancy now shapes zero outer/full internal luminous coverage; thin shared reaction sheets have sheet-strength hot cores and retained lower contact.32samples is an unfrozen quality pilot with no equivalence or optimization credit. Source accounting, smoke/jet/torch/facade/underlay and gameplay remain unchanged.",
+  "artistVersion": "0.9.0-reference-candidate",
+  "correctsCandidate": "13ad95c2d131e3dab28e775c1d33c121ea50d5ed",
+  "preFreezeQualityCorrection": "Actual control08 All/flame/smoke and32/64 field diagnostics show modest association gain but weak full-intensity reaction. Correct final-alpha RGB association after colorspace with matching NormalBlending/premult state; regional22.2-per-metre extinction and smoothly terminating0.24m shared contact layer restore prototype optical depth without changing height/edge/sheets/upper voids. Emission1.65 and32samples retained. JS-double source quadrature is not pixel, GPU, freeze or optimization proof. Original13ad control preserved separately.",
   "shaderCompilationRepair": {
     "revision": 1,
     "failedCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",

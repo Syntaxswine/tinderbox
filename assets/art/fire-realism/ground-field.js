@@ -149,7 +149,9 @@ export const groundFieldGLSL = `
     float wrinkle=fb(flow),sheet=1.-smoothstep(.018,.065,abs(wrinkle-.51));
     float pocket=smoothstep(.26,.64,fb(vec3(wp.x*.92,h*.84-clock*.77,wp.z*.92)+vec3(7.1,-2.3,11.8)));
     float envelope=1.-smoothstep(height*.80,height,h);
-    float contact=exp(-h*14.)*(.020+.12*sheet);
+    // Short source-attached reaction: shared sheet/pocket variation, smooth
+    // falloff and exact zero at0.24m; no flat lid or upper-column fog floor.
+    float contact=(1.-smoothstep(.025,.24,h))*(.035+.36*sheet)*(.35+.65*pocket);
     // Keep strong lower reaction sheets even under a coarse dark pocket, but
     // never fill sheet zeroes with a uniformly glowing column. Higher voids
     // retain their true zeroes instead of a permanent positive fog floor.

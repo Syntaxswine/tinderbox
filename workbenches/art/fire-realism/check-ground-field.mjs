@@ -52,7 +52,7 @@ try {
   assert.equal(JSON.stringify(grid), frozenInput);
   // These are source guards, not a shader compiler or rendered-seam approval.
   assert.match(mesh(effect).material.fragmentShader, /groundInterval\(cameraInside\?cameraPosition:world/);
-  assert.match(mesh(effect).material.fragmentShader, /groundReaction\(wp\)/); assert.match(mesh(effect).material.fragmentShader, /den\*stepSize\*7\.4/);
+  assert.match(mesh(effect).material.fragmentShader, /groundReaction\(wp\)/); assert.match(mesh(effect).material.fragmentShader, /den\*stepSize\*22\.2/);
   assert.match(mesh(effect).material.fragmentShader, /opaqueStops\(wp,sceneDepth\)/);
   assert.match(mesh(effect).material.fragmentShader, /float stepSize=\(exit-entry\)\/32\.;/);
   assert.match(mesh(effect).material.fragmentShader, /groundEdgeCoverage\(source\.a\)/, 'unnormalized occupancy shapes the optical envelope before final mask clipping');
