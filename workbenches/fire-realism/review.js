@@ -370,7 +370,11 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
       const {dataUrl,...evidence}=await driver.captureFrame();firstFrame=evidence;
       if(closed||signal?.aborted||generation!==motionGeneration){recordingActive=false;return;}
       motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:reason=>{
-        if(diagnosticTiming){try{const before=driver.state(),trace=before.liveTrace;stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,observedAtMs:performance.now(),phaseBeforePause:before.phase,traceBeforePause:trace?{active:trace.active,status:trace.status,startedMs:trace.startedMs,endedMs:trace.endedMs}:null};}catch(cause){stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,error:{name:cause.name,message:cause.message}};}}
+        if(diagnosticTiming){try{const before=driver.state(),trace=before.liveTrace;stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,observedAtMs:performance.now(),phaseBeforePause:before.phase,traceBeforePause:trace?{active:trace.active,status:trace.status,startedMs:trace.startedMs,endedMs:trace.endedMs}:null};}catch(cause){
+          let error={name:'Error',message:'Stop provenance observation failed; thrown value could not be normalized.'};
+          try{const name=cause?.name,message=cause?.message;error={name:typeof name==='string'?name.slice(0,128):'Error',message:(typeof message==='string'?message:String(cause)).slice(0,4096)};}catch{}
+          stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,error};
+        }}
         recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}
       }});
       driver.play();
