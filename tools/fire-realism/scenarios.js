@@ -43,6 +43,10 @@ export function createFireReviewSimulation({scenario='match-contact',population=
     if((scenario==='gasoline-front'||scenario==='gasoline-front-powder')&&frame===46)sim.dispatch({type:'primary',pressed:false});
     if(scenario==='carried-torch'&&frame===60)sim.dispatch({type:'primary',pressed:true});
     if(scenario==='carried-torch'&&frame===61)sim.dispatch({type:'primary',pressed:false});
+    // Review adaptation: carry the actually lit finite torch through an accepted
+    // 18-step eastward walk, not a visual-only relocation or additional ignition.
+    if(scenario==='carried-torch'&&frame===90)sim.dispatch({type:'move',...worldToStick({x:1,y:0},{cameraRelative:true,cameraX:10,cameraY:12})});
+    if(scenario==='carried-torch'&&frame===108)sim.dispatch({type:'move',x:0,y:0});
   }
   return {definition,advance(){commands(frameIndex);frameIndex++;return sim.advance(step);},snapshot:()=>sim.snapshot(),
     dispatch:sim.dispatch,get frameIndex(){return frameIndex;},dispose:sim.dispose};
