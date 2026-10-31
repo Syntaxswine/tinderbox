@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import * as T from '../../../src/runtime/three.js';
 import {createFireRealism} from './control-08/index.js';
-import {createGroundField} from '../../../src/art/ground-field.js';
+import {createGroundField} from './control-08/native-underlay/ground-field.js';
 import {diagnosticSnapshot, saveCamera, applyFrozenCamera, cameraRecord} from './diagnostic-data.js';
 import {createFixtureStreamControl, regional64Shader, associatedFieldShader} from './diagnostic-stream.js';
 import {createFramebufferBlendProbe} from './blend-probe.js';
@@ -20,6 +20,15 @@ for (const record of provenance.files) {
   const bytes = fs.readFileSync(record.localPath); assert.equal(bytes.length, record.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256);
   if (record.localPath.endsWith('.js')) for (const match of bytes.toString('utf8').matchAll(/from ['"]([^'"]+)['"]/g)) {assert.ok(match[1].startsWith('./')); assert.ok(fs.existsSync(controlRoot + match[1].slice(2)));}
 }
+const underlayRoot = controlRoot + 'native-underlay/', underlay = JSON.parse(fs.readFileSync(underlayRoot + 'provenance.json'));
+assert.equal(underlay.sourceCommit, base); assert.equal(underlay.files.length, 2);
+for (const record of underlay.files) {
+  const bytes = fs.readFileSync(record.actualPath); assert.deepEqual(bytes, execFileSync('git', ['show', `${base}:${record.historicalPath}`]));
+  assert.equal(execFileSync('git', ['hash-object', '--stdin'], {input: bytes, encoding: 'utf8'}).trim(), record.sourceGitBlob);
+  assert.equal(bytes.length, record.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256);
+  for (const match of bytes.toString('utf8').matchAll(/from ['"]([^'"]+)['"]/g)) {assert.ok(match[1].startsWith('./')); assert.ok(fs.existsSync(underlayRoot + match[1].slice(2)));}
+}
+assert.equal(underlay.files[0].sourceGitBlob, '70e52816a31a74909478bd29464a04f7668329e4');
 const data = JSON.parse(fs.readFileSync(new URL('./fixtures/frozen-match-diagnostic.json', import.meta.url))), frozenJson = JSON.stringify(data);
 for (const phase of [15, 30, 60, 120]) {
   const s = diagnosticSnapshot(data, phase); assert.equal(s.cells.length, 1280); assert.equal(s.cells.filter(c => c.phase === 'burning').length, 4);
@@ -31,6 +40,11 @@ const camera = new T.OrthographicCamera(-5, 5, 4, -4, .05, 100); camera.position
 const prior = saveCamera(camera); applyFrozenCamera(camera, data.cameras.isometric); assert.ok(camera.matrixWorld.toArray().every((v, i) => v === data.cameras.isometric.matrixWorld[i])); assert.ok(camera.projectionMatrix.toArray().every((v, i) => v === data.cameras.isometric.projectionMatrix[i]), 'JSON signed-zero normalization has no projection effect'); applyFrozenCamera(camera, prior); assert.deepEqual(saveCamera(camera), prior);
 applyFrozenCamera(camera, data.cameras.isometric);
 const snapshot = diagnosticSnapshot(data, 60), field = createGroundField(T); field.update(snapshot);
+const nativeUnderlayMesh = field.root.children.find(o => o.isMesh); assert.equal(nativeUnderlayMesh.renderOrder, 1, 'Immutable08 keeps the historical stage, independent of the active runtime order correction');
+const underlayGeometry = nativeUnderlayMesh.geometry, underlayMaterial = nativeUnderlayMesh.material; let underlayGeoDisposed = 0, underlayMatDisposed = 0;
+underlayGeometry.addEventListener('dispose', () => underlayGeoDisposed++); underlayMaterial.addEventListener('dispose', () => underlayMatDisposed++);
+for (const phase of [15, 30, 120]) {const before = field.uniforms.field.value; field.update(diagnosticSnapshot(data, phase)); assert.equal(field.uniforms.field.value, before); assert.equal(nativeUnderlayMesh.renderOrder, 1);}
+field.update(snapshot);
 assert.deepEqual(field.uniforms.grid.value.toArray(), [40, 32]); assert.equal(field.uniforms.cellSize.value, .5);
 assert.equal([...field.uniforms.field.value.image.data].filter((v, i) => i % 4 === 3 && v === 1).length, 4);
 const effect = createFireRealism(T, {maxCells: 64});
@@ -77,7 +91,7 @@ assert.throws(() => control.withSelection({layer: 'smoke', steps: 64, associatio
 assert.equal(mesh.material, original); assert.equal(geometry.instanceCount, count); assert.deepEqual(attrs(), initial);
 assert.equal(fieldAfterCalls, 12); assert.equal(derivedMaterials.size, 3); assert.equal(control.diagnostics().maximumDerivedMaterials, 3); assert.equal(control.diagnostics().cachedDerivedMaterials, 3); assert.equal(mesh.onAfterRender, priorAfterRender);
 control.dispose(); control.dispose(); for (const value of derivedDisposal.values()) assert.equal(value, 1); assert.equal(originalDisposed, 0); assert.equal(borrowedDisposed, 0);
-effect.dispose(); assert.equal(originalDisposed, 1); assert.equal(borrowedDisposed, 0); field.dispose(); assert.equal(borrowedDisposed, 1);
+effect.dispose(); assert.equal(originalDisposed, 1); assert.equal(borrowedDisposed, 0); field.dispose(); field.dispose(); assert.equal(borrowedDisposed, 1); assert.equal(underlayGeoDisposed, 1); assert.equal(underlayMatDisposed, 1); assert.deepEqual(field.counts(), {geometries: 0, materials: 0, textures: 0, objects: 0});
 
 // No mocked pixel is visual evidence. This fake surface tests public-state
 // restoration, material association scope and resource cleanup, including throw.
@@ -122,4 +136,4 @@ const first = texture(), late = texture(), abort = new AbortController(); let fi
 class DelayedLoader {loadAsync() {return ++index === 1 ? Promise.resolve(first) : new Promise(resolve => {finishLate = resolve;});}}
 const pending = createFrozenDiagnosticScene({...T, TextureLoader: DelayedLoader}, {}, new T.Scene(), abort.signal);
 await Promise.resolve(); await Promise.resolve(); abort.abort(); finishLate(late); await assert.rejects(pending, /Fixture closed/); assert.equal(first.releases, 1); assert.equal(late.releases, 1);
-console.log('PASS: exact six13ad immutable control blobs unchanged; lossless native phases/player/mask/camera; All32 zero-mutation path; all12 layer/sample/association roundtrips + throw/hook restoration; exact sampling + final-alpha association override scope and borrowed texture ownership; blend probe association/state/cleanup guards; async native asset failure/abort cleanup. NO actual WebGL readback, shader, image, quality or performance acceptance.');
+console.log('PASS: exact six13ad control +two archived native underlay blobs/closure unchanged; original order1, native RGBA/mask and one-time disposal; lossless native phases/player/mask/camera; All32 zero-mutation path; all12 layer/sample/association roundtrips + throw/hook restoration; exact sampling + final-alpha association override scope and borrowed texture ownership; blend probe association/state/cleanup guards; async native asset failure/abort cleanup. NO actual WebGL readback, shader, image, quality or performance acceptance.');

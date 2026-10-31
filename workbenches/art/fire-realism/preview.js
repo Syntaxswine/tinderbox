@@ -54,10 +54,15 @@ async function ensureFrozen() {
     }
     const backdrop = [];
     for (const [path, expected] of Object.entries(frozenData.backdropSources)) {
-      const text = await (await ownedFetch(new URL('../../../' + path, import.meta.url))).text(), hash = await sha256(text.replaceAll('\r\n', '\n'));
-      if (hash !== expected) throw Error('Pinned native backdrop source differs: ' + path);
-      backdrop.push({path, canonicalLfSha256: hash, verified: true});
+      const archived = path === 'src/art/ground-field.js', actualPath = archived ? 'workbenches/art/fire-realism/control-08/native-underlay/ground-field.js' : path;
+      const bytes = await (await ownedFetch(new URL(archived ? './control-08/native-underlay/ground-field.js' : '../../../' + path, import.meta.url))).arrayBuffer();
+      const hash = await sha256(new TextDecoder().decode(bytes).replaceAll('\r\n', '\n')), rawHash = await sha256(bytes);
+      if (hash !== expected || archived && rawHash !== expected) throw Error('Pinned native backdrop source differs: ' + actualPath);
+      backdrop.push({historicalPath: path, actualPath, canonicalLfSha256: hash, rawSha256: rawHash, archived, verified: true});
     }
+    const archivedResourceBytes = await (await ownedFetch(new URL('./control-08/native-underlay/resources.js', import.meta.url))).arrayBuffer(), archivedResourceHash = await sha256(archivedResourceBytes);
+    if (archivedResourceHash !== frozenData.backdropSources['src/art/resources.js']) throw Error('Archived underlay resource dependency differs');
+    backdrop.push({historicalPath: 'src/art/resources.js', actualPath: 'workbenches/art/fire-realism/control-08/native-underlay/resources.js', rawSha256: archivedResourceHash, archived: true, verified: true});
     sourceVerification = {scope: 'immutable workbench-only control08; not the active R runtime', artistCommit: frozenData.artistCommit, fixtureDataSha256: await sha256(bytes), runtimeFiles: files, backdropSources: backdrop, manifestRawSha256: manifestRawSha, manifestCanonicalLfSha256: canonicalManifestSha, manifestRawMatches: manifestRawSha === frozenData.artistManifestSha256, manifestCanonicalMatches: true};
     const controlModule = await import('./control-08/index.js');
     if (closed) throw new DOMException('Fixture closed', 'AbortError');

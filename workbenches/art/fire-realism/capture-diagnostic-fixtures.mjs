@@ -21,7 +21,7 @@ if (!driver.includes('new T.HemisphereLight(0xfff1d1,0x334852,2.3)') || !driver.
 sourceHashes['workbenches/fire-realism/driver.js'] = createHash('sha256').update(driver).digest('hex');
 const backdropSources = {};
 for (const file of ['src/art/world.js', 'src/art/materials.js', 'src/art/ground-field.js', 'src/art/resources.js', 'src/reuse/characters.js', 'src/reuse/bear.js']) {
-  const pinned = raw(file), current = fs.readFileSync(file).toString('utf8').replaceAll('\r\n', '\n');
+  const pinned = raw(file), actualPath = file === 'src/art/ground-field.js' ? 'workbenches/art/fire-realism/control-08/native-underlay/ground-field.js' : file, current = fs.readFileSync(actualPath).toString('utf8').replaceAll('\r\n', '\n');
   if (pinned.toString('utf8') !== current) throw Error(`Diagnostic backdrop source differs: ${file}`);
   backdropSources[file] = createHash('sha256').update(pinned).digest('hex');
 }

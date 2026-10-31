@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "id": "immutable-control08-native-underlay",
+  "sourceCommit": "13ad95c2d131e3dab28e775c1d33c121ea50d5ed",
+  "purpose": "Preserve original heat/char/gas shader, RGBA/filter/update behavior and renderOrder1 for causal08diagnostics while the active runtime tests a separate order correction. Not an accepted renderer mode.",
+  "files": [
+    {
+      "historicalPath": "src/art/ground-field.js",
+      "actualPath": "workbenches/art/fire-realism/control-08/native-underlay/ground-field.js",
+      "sourceGitBlob": "70e52816a31a74909478bd29464a04f7668329e4",
+      "bytes": 4649,
+      "sha256": "a31f94b458fe9d12ed4e4609b7c72c1b00038fde4e6a724d30588b32613164f5",
+      "adaptation": "none; verbatim Git blob bytes"
+    },
+    {
+      "historicalPath": "src/art/resources.js",
+      "actualPath": "workbenches/art/fire-realism/control-08/native-underlay/resources.js",
+      "sourceGitBlob": "d4617db5134d2c6f3d76ff769a1e81652ab9b78f",
+      "bytes": 1291,
+      "sha256": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
+      "adaptation": "none; verbatim Git blob bytes"
+    }
+  ],
+  "dependencies": "Only unchanged local ./resources.js; shared Three stays caller-injected. Native Tinderbox source comments/provenance retained.",
+  "activeRuntimeChanged": false
+}

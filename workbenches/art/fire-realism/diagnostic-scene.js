@@ -2,7 +2,7 @@
 import {Resources} from '../../../src/art/resources.js';
 import {createMaterials} from '../../../src/art/materials.js';
 import {createWorld} from '../../../src/art/world.js';
-import {createGroundField} from '../../../src/art/ground-field.js';
+import {createGroundField} from './control-08/native-underlay/ground-field.js';
 import {loadCharacterKit} from '../../../src/reuse/characters.js';
 import {createToolProps} from '../../../src/art/tool-props.js';
 
@@ -54,6 +54,6 @@ export async function createFrozenDiagnosticScene(T, renderer, scene, signal) {
       const p = snapshot.player; ring.position.set(p.x, .026, p.y); ring.scale.set(p.radius, 1, p.radius); arrow.position.set(p.x, 0, p.y); arrow.rotation.y = -(p.heading || 0); arrow.scale.set(p.radius, 1, p.radius);
       root.updateWorldMatrix(true, true);
     }, anchors() {const p = bear.anchors.muzzle.getWorldPosition(new T.Vector3()), q = bear.anchors.muzzle.getWorldQuaternion(new T.Quaternion()); return {muzzle: {...p}, muzzleQuaternion: q.toArray(), torchTip: null};},
-      adaptations: ['Static reconstruction of exact old-engine phases; not played gameplay or quality/performance acceptance', 'Native world/material/underlay/bear/tool modules composed directly; no combined runtime review driver or UI overlay', 'Native bear is freshly evaluated at selected player/time inputs; prior per-render animation history is not replayed, so animation pose/depth may differ from played native capture. All layer/sample comparisons hold this pose fixed', 'No match-source civilians, landmark, pickups or legacy transients exist in these frozen phases'], dispose};
+      adaptations: ['Static reconstruction of exact old-engine phases; not played gameplay or quality/performance acceptance', 'Native underlay is the immutable13ad archive with original renderOrder1; the active runtime stage correction is intentionally excluded', 'Native world/material/underlay/bear/tool modules composed directly; no combined runtime review driver or UI overlay', 'Native bear is freshly evaluated at selected player/time inputs; prior per-render animation history is not replayed, so animation pose/depth may differ from played native capture. All layer/sample comparisons hold this pose fixed', 'No match-source civilians, landmark, pickups or legacy transients exist in these frozen phases'], dispose};
   } catch (error) {dispose(); throw error;}
 }
