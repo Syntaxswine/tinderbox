@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "status": "focused-source-checks-pass-no-native-probe-or-appearance",
+  "proposalCommit": "178647e4ee017b3a29b259f0a9ccfb438a86cfd7",
+  "artistBaseCommit": "68cc6a34def5a534ec517ff81f3af233e2743a3b",
+  "factoryModule": "assets/art/fire-realism/fluid-surface-emission-normalization.js",
+  "factoryExport": "createFluidSurfaceEmissionNormalizationWitness",
+  "prepareExport": "prepareFluidSurfaceContactData",
+  "bootstrap": "Exact original aliases,193resources once, one unchanged original store; no common-decoder contract adopted.",
+  "manifest": {
+    "path": "assets/art/fire-realism/fluid-surface-emission-normalization.manifest.json",
+    "bytes": 70700,
+    "sha256": "16903da29a39743a83deca104146e12321097b2051fc1ceea7aee0e9f1c92f8f"
+  },
+  "sourceFiles": 63,
+  "esmBytes": 10669319,
+  "resources": {
+    "count": 193,
+    "gzipBytes": 93875221,
+    "sparseBytes": 98362125,
+    "newDataCopies": 0,
+    "extraFactoryGeometry": 0,
+    "extraFactoryTextures": 0,
+    "extraFactoryPasses": 0,
+    "extraFactoryLights": 0
+  },
+  "probe": {
+    "page": "workbenches/art/fire-realism/emission-normalization/probe.html",
+    "publicRunButton": true,
+    "manifest": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-probe.manifest.json",
+      "bytes": 850,
+      "sha256": "7dab455d25f401c99264386fbb47969729693fd075a16cf4bbac901ce2224122"
+    },
+    "reachablePureModules": 3,
+    "fieldResources": 0,
+    "fixedCases": 24,
+    "unclippedCases": 22,
+    "explicitSaturationCases": 2,
+    "defaultTargetAlpha0CaseAdditional": true,
+    "executedByArtist": false,
+    "requiresRootNumericPassBeforeCapture": true
+  },
+  "checks": [
+    {
+      "name": "transfer",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-normalization/evidence/transfer.log",
+        "bytes": 285,
+        "sha256": "042ef1f089ff7e1c60830de3df9080e03177fcc69e26a51b87f75a483abcc255"
+      }
+    },
+    {
+      "name": "integration",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-normalization/evidence/integration.log",
+        "bytes": 643,
+        "sha256": "7e0255530b4f8bc932b67ff03f14d4d56efac2363ba31c801e8363c629dfd274"
+      }
+    },
+    {
+      "name": "probe-source",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-normalization/evidence/probe-source.log",
+        "bytes": 281,
+        "sha256": "9821474c6b6759917407ad6d7423acfcb9f006ce3d7218710b7af204aef93549"
+      }
+    },
+    {
+      "name": "closure",
+      "exitCode": 0,
+      "log": {
+        "path": "workbenches/art/fire-realism/emission-normalization/evidence/closure.log",
+        "bytes": 472,
+        "sha256": "fece221c6619a66a289bdcac533fba48d4a92a78640a8fbda9340e7febb1c6f0"
+      }
+    }
+  ],
+  "provenance": {
+    "path": "workbenches/art/fire-realism/emission-normalization/provenance.json",
+    "bytes": 2267,
+    "sha256": "ee95c9b62cf971ee2a0293dae9716d38a6b8d711c24df5bf0ee1ea43ae9a6069"
+  },
+  "sourceInventory": [
+    {
+      "path": "assets/art/fire-realism/.gitattributes",
+      "bytes": 774,
+      "sha256": "8f8db004c3fc6169978225b8f2992a11b390939afa186d57f8272d01d3be3e91",
+      "comparison": "CanonicalLF for nonruntime attributes only; runtime JS/JSON raw hashes remain exact."
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-probe.manifest.json",
+      "bytes": 850,
+      "sha256": "7dab455d25f401c99264386fbb47969729693fd075a16cf4bbac901ce2224122"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-transfer.js",
+      "bytes": 2462,
+      "sha256": "3f6e1442d4eebc4542f5dd474ee42d6175fdef7341a25eebac601cf2509a8742"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization.js",
+      "bytes": 2461,
+      "sha256": "72caac6205346349fb4aca410394886a9a0a53878757df1e0c5241ef272d5a89"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization.manifest.json",
+      "bytes": 70700,
+      "sha256": "16903da29a39743a83deca104146e12321097b2051fc1ceea7aee0e9f1c92f8f"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/.gitattributes",
+      "bytes": 108,
+      "sha256": "4467e0823dea47a5993398bc18ea9b04004a15d47e9e031f47c390fc95e93801",
+      "comparison": "CanonicalLF for nonruntime attributes only; runtime JS/JSON raw hashes remain exact."
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/README.md",
+      "bytes": 5754,
+      "sha256": "a557836135af6d4967a9a8489a146d67b785bdd3b1c038984e6b259cacabd460"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/check-closure.mjs",
+      "bytes": 4699,
+      "sha256": "5fbdf34eca2220b41c9cec4f4176cf5adbe6ba3964101cb46129a04511334a4d"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/check-integration.mjs",
+      "bytes": 12949,
+      "sha256": "96d6181729e0864dd75f52f4f1ee07c5d220f43b832f2f250ac7d5b9bd67b01d"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/check-probe-source.mjs",
+      "bytes": 2361,
+      "sha256": "c4ced981f831ab736a14ae2562ff97b1d8e5671a4632c3afe356645146eb7fca"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/check-transfer.mjs",
+      "bytes": 3193,
+      "sha256": "0e1401ad4b73fee07fe0af1b19b73b4385fb94c62b504cf7f1f9ce677f02c3f6"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/evidence/closure.log",
+      "bytes": 472,
+      "sha256": "fece221c6619a66a289bdcac533fba48d4a92a78640a8fbda9340e7febb1c6f0"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/evidence/integration.log",
+      "bytes": 643,
+      "sha256": "7e0255530b4f8bc932b67ff03f14d4d56efac2363ba31c801e8363c629dfd274"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/evidence/probe-source.log",
+      "bytes": 281,
+      "sha256": "9821474c6b6759917407ad6d7423acfcb9f006ce3d7218710b7af204aef93549"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/evidence/transfer.log",
+      "bytes": 285,
+      "sha256": "042ef1f089ff7e1c60830de3df9080e03177fcc69e26a51b87f75a483abcc255"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/manifest.mjs",
+      "bytes": 4475,
+      "sha256": "a5c050d86a317fecea55671e28adc413378c794fbbde3c1cd7cf3ca731dbb235"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/probe-cases.js",
+      "bytes": 2453,
+      "sha256": "13097f3fc735edcf6910d7da8e982b2c79b184511689314307257365635f3b21"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/probe-config.js",
+      "bytes": 987,
+      "sha256": "1f4ae227934561500607b799cb87966d8e801e17c75823e362b7fb29253faf79"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/probe.html",
+      "bytes": 1451,
+      "sha256": "7ee96ac9836cd4d1415d7dfe5db9aa8c755208d29966a603d9deb7f4e5c0364b"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/probe.js",
+      "bytes": 16982,
+      "sha256": "4e47db5d7a11afab10a9e034170aa2a264092b625085082ae272b822db5343ef"
+    },
+    {
+      "path": "workbenches/art/fire-realism/emission-normalization/provenance.json",
+      "bytes": 2267,
+      "sha256": "ee95c9b62cf971ee2a0293dae9716d38a6b8d711c24df5bf0ee1ea43ae9a6069"
+    }
+  ],
+  "unchangedMetadata8": {
+    "contract.py": "f32e02d8c092c30174ab1ebbd75b5345e753514f151321a6029926f52fb552b6",
+    "space.py": "99a4cfae0bdc4b74cd6ffbfaf665e1961c3bdf6f1abdc024217eb9f6b076e047",
+    "metadata.py": "86fdfaa3dd4304dfb6eddf4557ed629b98b8389b026a06f194722be384528edc",
+    "input-spec.json": "72c5e864851d7e0c3d52d726ebe7c6a06cf1f9de6500ef8349aa49997af29fd3",
+    "input-spec.schema.json": "41af8aaf655b601eb75c62338ee10b0a5b8ebba8e9622c4207439579423793ec",
+    "guard-ready.schema.json": "64ae4f8f2105c005003a97151594da79f24f658cfeeb9c67c2508ab14bf4a751",
+    "provenance.json": "9d67967559841eeafd4971deb5640a4f04eac1cb084d607c941591b8f580a102",
+    "render-plan.json": "e5c491b5daabdb4599f0cd5dfcc7f9f8579af8a896d0787864fe6191f1cfddff"
+  },
+  "helpers": {
+    "launched": false,
+    "retained": []
+  },
+  "limits": [
+    "Native numeric probe and source-bound stills/motion/HUD review pending root.",
+    "Source normalization is not photo/physical calibration or equal pixel luminosity.",
+    "Clipped numeric cases prove clipping only. NativeF0 tick193 differences remain unresolved.",
+    "Not an accepted R, global8/10, sustained/multi-scene, O saving or publication."
+  ]
+}

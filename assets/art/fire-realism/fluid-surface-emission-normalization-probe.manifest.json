@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "id": "tinderbox-derived-six-helper-only-numeric-probe",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-transfer.js",
+      "bytes": 2462,
+      "sha256": "3f6e1442d4eebc4542f5dd474ee42d6175fdef7341a25eebac601cf2509a8742"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    }
+  ],
+  "status": "numeric-source-probe-not-art-acceptance",
+  "scope": "Exactly3 pure shader/transfer modules; no field store/data/factory or resource preload."
+}

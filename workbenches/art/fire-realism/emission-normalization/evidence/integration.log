@@ -1,0 +1,5 @@
+COMMAND: node --experimental-vm-modules workbenches\art\fire-realism\emission-normalization\check-integration.mjs
+EXIT: 0
+PASS derived6r actualSharedThree/synthetic2voxel: exact bootstrap aliases/one store, only flame j differs1r to6r, preserved native geometry/light/readability/uniform/depth/clocks, explicit ONE/ONE_MINUS_SRC_ALPHA RGB+alpha, no sharing, all guards before mutation, failed-instance cleanup and idempotent disposal. No actualGPU/native quality claim.
+(node:38360) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

@@ -1,0 +1,1799 @@
+{
+  "version": 1,
+  "id": "tinderbox-fluid-surface-derived-emission-normalization-six",
+  "artistVersion": "0.1.0-derived-six-smoke-only",
+  "status": "unaccepted-source-normalization-witness",
+  "referenceFrozen": false,
+  "optimizedAvailable": false,
+  "factoryExport": "createFluidSurfaceEmissionNormalizationWitness",
+  "prepareExport": "prepareFluidSurfaceContactData",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/floor.js",
+      "bytes": 485,
+      "sha256": "87133f3da6493d56ba4924c64fc1ab7669a5ffeca69f47d1249c9ad9fad738cb"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry-data.js",
+      "bytes": 3581,
+      "sha256": "b8bbfc12ea154b5ccfe20dc8862aeea6ff4e7ec96c8eb34ed7696bd78bbeb02b"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-000.js",
+      "bytes": 26761,
+      "sha256": "34067c73c9ed0a8860af3c6ee8d3a8d229aa53a499be49b3456d42590a8341d9"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-001.js",
+      "bytes": 45270,
+      "sha256": "c4c5b77dcfba804f380a4e5c4f0cc5a3a24f1bc237ff96ba59fb0e7353db1857"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-002.js",
+      "bytes": 67159,
+      "sha256": "006b5a2e67e188a14da29078dfd6a8d59727ca1b4d17324e9bbd305836c0ca77"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-003.js",
+      "bytes": 104588,
+      "sha256": "55fb7bb75209a9bc5b5c45a0544f530abd0d545d966121a3931abc59e1e9c280"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-004.js",
+      "bytes": 141971,
+      "sha256": "67aadb5b5a73eb481a9b6792f5c7959d043c424aafd6dfc0f2ad117ee7404322"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-005.js",
+      "bytes": 174972,
+      "sha256": "7e53294a6f087a6b39a0397ffc90ade4c30c9764cd7a4447b09e0c9233462e80"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-006.js",
+      "bytes": 217366,
+      "sha256": "9442b4e33e9cfe8ca1c86150bfb407774240cfca4b21e424977295bf29f21c3a"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-007.js",
+      "bytes": 267899,
+      "sha256": "0bdf155bde5f1f9b5689e34b21913b3b80de4eda74fa3fd278365feb293e00cc"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-008.js",
+      "bytes": 318325,
+      "sha256": "0625935c0d8d7b313a9ef4af5e91d5f8da78d006d50e12860918e93bc57702f0"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-009.js",
+      "bytes": 380913,
+      "sha256": "58b7b4ab88af50fd63ac5fd3146a1cbcf6d6b1c746d0252043eb1ac4c56ca753"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-010.js",
+      "bytes": 444359,
+      "sha256": "0bc7fac4732cd0e59f2eb621db94a11d76defa3e590e732200d2c6a69f5d683a"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-011.js",
+      "bytes": 501400,
+      "sha256": "7a5445e775132646ed9f980c2381e0f537b8b478cdde3b976a77417a823bf235"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-012.js",
+      "bytes": 538237,
+      "sha256": "1837f56e4bab2186dc792fbb2a657ac31cad6062d33c468db2b5ebfc473b4eaa"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-013.js",
+      "bytes": 545096,
+      "sha256": "78179519802aaf9daeef417dd85388608bd60fe023a4f40dca34f0a2894125f5"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-014.js",
+      "bytes": 530234,
+      "sha256": "339b3bace143cd0380cf6e5542353c1795d7d9b366b8f0649d1c3dbc5c6179df"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-015.js",
+      "bytes": 497994,
+      "sha256": "ae4f911ccfd3cc162b95625ac806a9ece5ef84adc2a48f038f2687c5c623326e"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-016.js",
+      "bytes": 450876,
+      "sha256": "6911d6dcf627f29cdfce1a0cfcab424533aa4b5ea20b10fef519e17ea3b2d08f"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-017.js",
+      "bytes": 414726,
+      "sha256": "5c27af957a6714935a9140c4ba825758673434e984ddfa97e513ded1d5518e30"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-018.js",
+      "bytes": 374456,
+      "sha256": "cb844bf987b51f094eab3801cb712e23be1827ae850e12c97248bec63aa223dc"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-019.js",
+      "bytes": 327187,
+      "sha256": "1c6e42f93d5ed06c10894a7a6802def15aba4d206bb37182424c980c1466c15a"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-020.js",
+      "bytes": 283302,
+      "sha256": "d827b3fefdd760477418c36496079b84d0370d4d1200c9b2fd59b541601ce86f"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-021.js",
+      "bytes": 248536,
+      "sha256": "d2cc977294ce9b9b2e06765f81053b993b52676b9191b1c52d019b669be3bb1f"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-022.js",
+      "bytes": 204034,
+      "sha256": "6a5cf9d2fa1d728b715f543833f4679bf9026d54a746656c0b403cf084333a27"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-023.js",
+      "bytes": 171444,
+      "sha256": "51b2e10cdf6ae875157d4f50d7bac05eb367109bba524974af39557557018131"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-024.js",
+      "bytes": 153478,
+      "sha256": "45e43096e94d6e102c7d86ba4b5a4bc5d08524b6d17deb488cce06957a62cc87"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-025.js",
+      "bytes": 140674,
+      "sha256": "0f1725efac9956b482f53c73cfdb2eff956d9fa996ac4e0e3e59352604e865d3"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-026.js",
+      "bytes": 135503,
+      "sha256": "9728236c0bd1b10fdaa7455d53c6932ffab8dc3689c9597604d3dee0bfa538d9"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-027.js",
+      "bytes": 131637,
+      "sha256": "515a525565b11dedec825fe3f84dde28ba1d73bc3701417e15f5f294e9315121"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-028.js",
+      "bytes": 128175,
+      "sha256": "574534c70fec97e468e9b070ea4e288697cbdee7778f36a5f748fae84652ece3"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-029.js",
+      "bytes": 127258,
+      "sha256": "3e6d2b0549333af55d66fb701a4223b6bd67c00699e515701f998b806077d3e0"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-030.js",
+      "bytes": 127258,
+      "sha256": "638ec80b639d79cdee28b843c5df661642649d084552be2af0317403803b4070"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-031.js",
+      "bytes": 127258,
+      "sha256": "ff939be6447f23af5a92d510cbcc33016850a59aaf5e4d4b99c06c53a3db6edb"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-032.js",
+      "bytes": 127258,
+      "sha256": "efef1a64107b0088d7a1b4ac735dc1f230267296cc2359cd572d498aaac72a6a"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-033.js",
+      "bytes": 127258,
+      "sha256": "b900c523c47cd345374792f385ac1b71738219be74a9f3b151252b4bcc8b11f1"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-034.js",
+      "bytes": 127258,
+      "sha256": "149ab334764bad302266f87b9c10def591d4352e35c13d0bc2bc08f913902d3c"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-035.js",
+      "bytes": 127258,
+      "sha256": "28e08c9ca5106df3e1c71e21dcc7227c1fff623669e68f4c3192c6b175692c96"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-036.js",
+      "bytes": 127258,
+      "sha256": "afe0bc72d9f56333f5acc4cf19bcecadfda331f61f82ef2e57fa570e9466c016"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-037.js",
+      "bytes": 127258,
+      "sha256": "d58ece6749ac5c4ecbba3e11175eb813b2edb37cfd3304ae80758de386dd52b2"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-038.js",
+      "bytes": 127258,
+      "sha256": "b434c47989b86bb2c0854e9e41af03e903a6e194fb907581740516099835f7ea"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-039.js",
+      "bytes": 127258,
+      "sha256": "86ea57b691b6b6ac1675ed265929f1e5a912dba733f618b18f0c45e0a044b336"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-040.js",
+      "bytes": 127258,
+      "sha256": "1ceeebe0c9a37827b10aee14056b6a6929e9cf3feef0a202db9f1c691930696c"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-041.js",
+      "bytes": 127258,
+      "sha256": "ed49ff1e51837e664f89b299e8b2f80ef3efb81712f1b4d0031365184b822eb0"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-042.js",
+      "bytes": 127258,
+      "sha256": "d061e1e964d87181060180510303dfdc766028ed9bb9bd835a9001645883d34e"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-043.js",
+      "bytes": 127258,
+      "sha256": "b3958d82f319bdf67d7f0482da4e932872d2ec8d8c4f85e2fc34d72b34a842a6"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-044.js",
+      "bytes": 127258,
+      "sha256": "438f39dc3b773ee6221677f029b1f08b2c931e66922b376d7649726adcd833a5"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-045.js",
+      "bytes": 127258,
+      "sha256": "3f0a41fa98eea8e6db75c8d89a78807c9f1843ec9f57caf96951e5c4381eebff"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-046.js",
+      "bytes": 127258,
+      "sha256": "2e5e109ee53dd9cac2f8461ffbfcfea35df09d20ef15255ece9bfb6363e3f4d3"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/geometry/part-047.js",
+      "bytes": 127258,
+      "sha256": "a4d73e4cfdbbf73c8011738dc708fb64290bfdd06fafb2a8d65bfb4bc571b29f"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/index.js",
+      "bytes": 12540,
+      "sha256": "ca0092ea356f3447ccb96ea284cb1f8729e92c271852b98f8db78578acbe1271"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/metadata.js",
+      "bytes": 216968,
+      "sha256": "b7012ce47e66f3a1eb6d58ba84acdebf14526ebd8a9424b189c63e9fc91d4010"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/codec.js",
+      "bytes": 6418,
+      "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/payload.js",
+      "bytes": 15109,
+      "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/rgba-decode.js",
+      "bytes": 616,
+      "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/source-clock.js",
+      "bytes": 4595,
+      "sha256": "be2dd16af7f08a692500f2109283a9c6cdfaf4bf01f5450a2332cff0d09dab22"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/space.js",
+      "bytes": 1588,
+      "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/support.js",
+      "bytes": 4425,
+      "sha256": "00dcdf56c9581f43e49af67d0156e708127dc2229c8bcb4f14ec34b3961bef56"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-transfer.js",
+      "bytes": 2462,
+      "sha256": "3f6e1442d4eebc4542f5dd474ee42d6175fdef7341a25eebac601cf2509a8742"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization.js",
+      "bytes": 2461,
+      "sha256": "72caac6205346349fb4aca410394886a9a0a53878757df1e0c5241ef272d5a89"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-pilot.js",
+      "bytes": 2976,
+      "sha256": "172c51037da879c02949bc15ac5da499295073f1b78413231bd472507c2a1b09"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    }
+  ],
+  "runtimeResources": [
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-000.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 37,
+      "sha256": "537270c85aaa48aa7068218cfd527b891309af12276edd2f2f0abac2617c2ef0",
+      "uncompressedBytes": 60
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-001.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 5286,
+      "sha256": "bcf0bf2457ec1aa8e0d179b6c1c17364c661ff45dfb7e1a8a4287198f5ed02b3",
+      "uncompressedBytes": 6138
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-002.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 7213,
+      "sha256": "1c6266e913495844213c00f14268fd83dfbd8e323d0c57fbd5c42eaccb2d2aeb",
+      "uncompressedBytes": 8111
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-003.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 8979,
+      "sha256": "cf6a33ce0bbb1dcfce56a54231bb971e358585818a07a35536c6ec18bc1c20a8",
+      "uncompressedBytes": 10215
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-004.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 10825,
+      "sha256": "35c98e64d10febfcca3c0d0e3f11ba568716f08d276d73e8968a023402985e1a",
+      "uncompressedBytes": 12494
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-005.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 12075,
+      "sha256": "ac4924093239d094d7812a9d7ed50aefcabdd88795a80ce03a7a6332728698b0",
+      "uncompressedBytes": 14121
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-006.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 14292,
+      "sha256": "676882b0d180bfdc481779b78a68b8ee4afe3743c2965e4a339ec72d263bfa80",
+      "uncompressedBytes": 16894
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-007.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 16686,
+      "sha256": "8c9154b489e637cef9131e56c93eb2c1db7d416fe6aa78d44b64c2bc84c777e5",
+      "uncompressedBytes": 19998
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-008.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 19621,
+      "sha256": "a9420d5268ab83b5ad5b1d6e940c164ae3011144b2f75ff4d71eb72d466f57e1",
+      "uncompressedBytes": 23390
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-009.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 22861,
+      "sha256": "e8721df931854430ca71245a7e4f401934a25a8f5bc41c9d54d8b11ea13f4e9d",
+      "uncompressedBytes": 27141
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-010.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 26580,
+      "sha256": "4431922e5f672093626f284cbe78a6493430fcb5dd0386be4279299868fa650b",
+      "uncompressedBytes": 31706
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-011.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 30370,
+      "sha256": "3279d7af256b7114d4db5aa3ee438bdbbe9337c964b22f5095af5f3fe47a3dd3",
+      "uncompressedBytes": 36097
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-012.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 34512,
+      "sha256": "773bd28deebd4996e4d9de7a95401c08f20c43147c463ddf64010e2d49c803c2",
+      "uncompressedBytes": 40844
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-013.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 37781,
+      "sha256": "4f5ff81b6e7e49e631b0c8619b84dab791eefbcf5a15723fa47f7c0b3bf0bfb3",
+      "uncompressedBytes": 44628
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-014.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 40249,
+      "sha256": "873f1c4db48e3e29ac5aa328cd63588e699d492e9e945e5adcd2dc1cd553a851",
+      "uncompressedBytes": 47197
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-015.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 41581,
+      "sha256": "c2cfaad2ae85a25fdc97da85f6a86336e387bb27c335262fa1ae4b6fddaed3c8",
+      "uncompressedBytes": 48191
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-016.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 44697,
+      "sha256": "ce4dd75f071089109e82850ecc16e168b6f069996c2dd0d92c3080ebb7dcda61",
+      "uncompressedBytes": 51237
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-017.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 47460,
+      "sha256": "dc17947ecf5ada3f10f0cc331d0c39552c2b305104de8dbd7c007bc616d250f7",
+      "uncompressedBytes": 53896
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-018.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 51143,
+      "sha256": "54f419bae6513dc6347ade28b927cca42d40c1ff3ce0cbb7e476b52f44d07e49",
+      "uncompressedBytes": 58121
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-019.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 54533,
+      "sha256": "61a56c50d3a6f57a2515e7caa1e00e40d8498a01e9974c1a2a6e6662d2659aa0",
+      "uncompressedBytes": 61425
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-020.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 57710,
+      "sha256": "e4d298179ce503b5e33ab223ce034b39837b29ae491ea3b0e4c40965a79c8ecc",
+      "uncompressedBytes": 64494
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-021.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 61988,
+      "sha256": "c9fdc947f565d80dfbffca5c193cfbecc3b9e6c9360eca971f1e2fcf992880fa",
+      "uncompressedBytes": 69582
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-022.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 66552,
+      "sha256": "5919a114d6cff854933cbe02ecfa0254961b693b6feeaadaa9a5abb58a0e282e",
+      "uncompressedBytes": 74550
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-023.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 69939,
+      "sha256": "9716ae315dc46134ff954e409ecbb0db8c68cf1ee5b3c7dced1a2ec43e762a17",
+      "uncompressedBytes": 77965
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-024.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 73199,
+      "sha256": "bcf4436495b9b478daf84d8b195fc71f032cde16b12e9f482dd5c711c5daa078",
+      "uncompressedBytes": 81508
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-025.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 76354,
+      "sha256": "883fbb04dff33a6232b6d8ab7a125097fb272a358ad360c7bb547a9fe99c6263",
+      "uncompressedBytes": 84642
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-026.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 79985,
+      "sha256": "3d86cf8b21a3a833dad0019a1251a3268a8d89261c5a89fa8c2784642df0e4b6",
+      "uncompressedBytes": 88089
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-027.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 83620,
+      "sha256": "80c481639f8ce7777a46b15cfe9d9d1ccd8162841ecfb3c0a1fb497d72548a83",
+      "uncompressedBytes": 91644
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-028.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 88111,
+      "sha256": "96627feb543fb5015cecfafa23f888e50b95321582c360befc6c7c35f3eb4f04",
+      "uncompressedBytes": 96242
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-029.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 92553,
+      "sha256": "835484fd71a68fe2097b05d0f7f3bb7f223416dd606f65880d043af6be577188",
+      "uncompressedBytes": 101125
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-030.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 97575,
+      "sha256": "448637ad8656d276cc29a4e6cea3e28c92388aa9aade024c01f40175a1a03819",
+      "uncompressedBytes": 106346
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-031.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 103476,
+      "sha256": "0b5896693a3a5b8c546cb377da59050e32d8e4d08b023d265c1de1d959c1f184",
+      "uncompressedBytes": 112833
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-032.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 109638,
+      "sha256": "459478d58eca4d4f8a2be29a792345049f0c1a4cd683aaa64ec1f96e33b7e04a",
+      "uncompressedBytes": 119568
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-033.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 116133,
+      "sha256": "08ec6c229f62e401fbe3335243d9ce6ebbfcfb712b0fd89a2ba1d943c7577f32",
+      "uncompressedBytes": 126773
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-034.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 122539,
+      "sha256": "a5ee788d6f13405b8ffc44de186ee127db2e7237a157c385d209a80d0ad9908a",
+      "uncompressedBytes": 133272
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-035.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 129062,
+      "sha256": "b21107eb21064264fe0a9ef982c00a449d2bf04ee240a34ec3d0af067519db32",
+      "uncompressedBytes": 140235
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-036.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 136556,
+      "sha256": "0c74fab619e7f41cb660ed33849d0ed53303e71460cfbc6f3e29e7567d5289e6",
+      "uncompressedBytes": 148439
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-037.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 143843,
+      "sha256": "b6f145ff74e66bf966c9d113cfe93c8327d181db63d7187a6c5ece23bb6d8959",
+      "uncompressedBytes": 156331
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-038.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 150717,
+      "sha256": "91ad489d0c18fa3faae633071d2f3e7264dd5362cdeecba9be75c56d4b010b54",
+      "uncompressedBytes": 163525
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-039.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 158248,
+      "sha256": "63455a3216fdbc5da83d5e0e74597ec82a1437d43b72c7d968c31bc6d518658b",
+      "uncompressedBytes": 171060
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-040.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 166241,
+      "sha256": "533bf01dcabfc845d84a8b4132d010a4604c9ce05be426d1ed3c1ed6e34e54d2",
+      "uncompressedBytes": 179886
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-041.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 175955,
+      "sha256": "ec02bae435d3e7e47a87c2044e5adeda6552b6e2bde67f825e0fc383371753ec",
+      "uncompressedBytes": 190172
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-042.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 184515,
+      "sha256": "0207e856bf10572e0854001d47a4f55049d4052f1c969a842006b6b06e6dc0c3",
+      "uncompressedBytes": 199462
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-043.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 193425,
+      "sha256": "dc76b8b50cea4d0a23a033d02555500789dd01982d0cfe9b231072cab5c78a16",
+      "uncompressedBytes": 209019
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-044.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 203151,
+      "sha256": "a028b452e221f7922a71f9fbb546747d9ace12b1089f53bbc1d3206a6ba749e8",
+      "uncompressedBytes": 219016
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-045.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 213778,
+      "sha256": "771079d1334383cf9f9388e06f4d5bc717b9829a211df29b6096221c4b63f585",
+      "uncompressedBytes": 230556
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-046.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 224444,
+      "sha256": "571b9b97c8c8a79ec8a5131723bc6ae8688698517d91aa901e16741e628b8d69",
+      "uncompressedBytes": 241575
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-047.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 236112,
+      "sha256": "455f54eb605592f910607a24fc61896330deef8594cb4e0ea6419bb89fe0fdaa",
+      "uncompressedBytes": 253644
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-048.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 247383,
+      "sha256": "b8ac1586f2258ef2c708889756fe1e8b4249f3d37eeceb56ef1f45ddf1640263",
+      "uncompressedBytes": 265565
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-049.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 258806,
+      "sha256": "4b1ad9bbaf6222e52d69c61330ef6bb72d6ed86bf317291c66e99bbfce5a7e56",
+      "uncompressedBytes": 277308
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-050.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 271529,
+      "sha256": "cea124c07f0dbe7854de3b0c4557f093a7637e91ba7ba717eb37cf809dde3a21",
+      "uncompressedBytes": 290703
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-051.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 284572,
+      "sha256": "74993220624a2ec6deb7ccfeee1754c453298600780f258875ae2e55667b67f4",
+      "uncompressedBytes": 304469
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-052.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 297906,
+      "sha256": "85e219ac263ded7786ad0f4a396fe93159367c391b8187a9d2c95e13cd58346c",
+      "uncompressedBytes": 319113
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-053.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 312060,
+      "sha256": "f12268176c53fa53d22af562ab3eeae5e4d8f5e8e828c04f42fca9dee585636f",
+      "uncompressedBytes": 334544
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-054.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 325981,
+      "sha256": "248dbef58de10099c71f6b2a34233e5819619b14d8c9a40cedeb9cecfdb4d85d",
+      "uncompressedBytes": 349344
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-055.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 341431,
+      "sha256": "ad6a5d32e6697d6b1f28ce0e35617f22984ea8a22b2a2b5dda59ec42cca468e2",
+      "uncompressedBytes": 365348
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-056.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 357954,
+      "sha256": "406dd6e2d34887e9bd9fb81fc985f717a4fbaeb721b782c2e46a027f750842ef",
+      "uncompressedBytes": 382823
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-057.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 375305,
+      "sha256": "af6086a48706e8e49736bf51f4a832adc25d24f3c5aa3ba178aece48e872e6ae",
+      "uncompressedBytes": 401628
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-058.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 393140,
+      "sha256": "bfafd4d931a5ec7d9569f045c181c6e7e66d557a1f8ed58312784e992ec76c82",
+      "uncompressedBytes": 420645
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-059.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 411115,
+      "sha256": "ec4820b714d18db5e2bda71206000c5aacff2fc4759c0655e5cad78d4a27f8c6",
+      "uncompressedBytes": 439538
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-060.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 430576,
+      "sha256": "d4c2ad8b8de2ba525d4009ce7c56723cae363e930f9fe24a7bf756c4f618c17d",
+      "uncompressedBytes": 460358
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-061.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 449129,
+      "sha256": "d80de473ebcf260e345677c122fc0c7ca80c1ede8991e618fc0dbcfc9eb6f883",
+      "uncompressedBytes": 479777
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-062.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 466482,
+      "sha256": "87ed613337952519e780984be140d46c004f6d15e0f35d74712f17da37a993e6",
+      "uncompressedBytes": 498270
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-063.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 479923,
+      "sha256": "00a7c31c2fed9858110d8dbeb46fe84dc5ce50fc0bdd71a28a223d1a76a1de2c",
+      "uncompressedBytes": 511812
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-064.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 491008,
+      "sha256": "46af2397cababb39346ed3030851c916aee3681800805c29e99bb135183ae417",
+      "uncompressedBytes": 523123
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-065.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 501355,
+      "sha256": "2a897974b1249737b01aa1fcc2a556306f93a7650e9698550519511ca7cc6bf9",
+      "uncompressedBytes": 533661
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-066.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 510876,
+      "sha256": "67961855f5c493e3982a653f80ed0741858416ee06cb00d227d1d831c3fe40c9",
+      "uncompressedBytes": 543728
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-067.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 518700,
+      "sha256": "b968bb2b70cf35cf30002238db22942ff1ac885c4a33501efbe90361a3e0fdbc",
+      "uncompressedBytes": 551858
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-068.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 526526,
+      "sha256": "edad4f1875f779acacfc44c45bb11c67eae323e704ae24c2680ef83b65d60cb0",
+      "uncompressedBytes": 559385
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-069.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 534223,
+      "sha256": "26e6ef30b61afaf3d809789fa280ecd43a7f13e7657f8f1adc1d28fbba50ab0c",
+      "uncompressedBytes": 567579
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-070.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 542361,
+      "sha256": "009c858f7437c3595f2c2c4fd129d3e20f6cd2db68b8230cf74ccf7c250cecf2",
+      "uncompressedBytes": 575606
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-071.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 549873,
+      "sha256": "13a7cc3c0ee3a2b22a7985d52188cf772cb9bcab41cc8a9fb33dc4bec784cc74",
+      "uncompressedBytes": 582652
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-072.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 558333,
+      "sha256": "6aec0c48a40e2fe33d935114c17e7e385efed389440b0bd9003dbfdd797a1df2",
+      "uncompressedBytes": 590969
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-073.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 566974,
+      "sha256": "7f12d194f457840140feac91933d45e7c76d010192b9ef66970ec6a956786235",
+      "uncompressedBytes": 600610
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-074.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 574776,
+      "sha256": "c8ff4bf03c741869a97a784b6573b6d5de2379addcb666e287339d5a2a294fae",
+      "uncompressedBytes": 608680
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-075.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 582069,
+      "sha256": "312ab8982ed46b9b82faf297e804f072924675f320190c4bb20caf117648b174",
+      "uncompressedBytes": 615864
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-076.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 590679,
+      "sha256": "08a889f836fe1fdac7a66b3405e08ebba79ef95a68aae62fdedadfd613df1082",
+      "uncompressedBytes": 624515
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-077.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 598524,
+      "sha256": "b813c1376cc885c9c4c5656a53ee13643165a72a9471bc59ba083b32dec5f463",
+      "uncompressedBytes": 632646
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-078.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 606271,
+      "sha256": "d543313b7b0f17075f414e84678b2798ab91f9f8194a527a2ace61d9da0b691a",
+      "uncompressedBytes": 640112
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-079.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 613666,
+      "sha256": "3ded71ecad96f579730ad370877b783c5cc0478a4e137d219997d3b27a2c7861",
+      "uncompressedBytes": 647376
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-080.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 620108,
+      "sha256": "cfb11e06b68a5020ff488b7cfdabd12dbd97f9b3721ee1c10b0f6ab37f09dbd6",
+      "uncompressedBytes": 653547
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-081.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 627158,
+      "sha256": "a2f8c1a68507de3134056867e1bb6a0e3b5d815d1e90c39598ba8758242e4c1d",
+      "uncompressedBytes": 661422
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-082.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 632914,
+      "sha256": "006450a27930974c8cd7aece6b7716a94c6bf73a1e5de527fe346b7800d3e831",
+      "uncompressedBytes": 667167
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-083.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 638526,
+      "sha256": "31305927af8ab373dd1ccbe319ce423d8454f1747de77c92dfc336fac03237ee",
+      "uncompressedBytes": 672113
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-084.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 643637,
+      "sha256": "8df25a9f5d45ded2c28c611f87dce926bba7451b97ce0cff1243d5ea4edad9b5",
+      "uncompressedBytes": 677046
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-085.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 648533,
+      "sha256": "b69608da5ecf046e1a4f2277a0ecb7ee725d50627f5d73b73013344981aaaf57",
+      "uncompressedBytes": 682027
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-086.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 652665,
+      "sha256": "1ce9601196d918406097bd45cc1a0665bdb05d2c16ed20cf45f7d38473ad695a",
+      "uncompressedBytes": 685852
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-087.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 656971,
+      "sha256": "52c0d0d59c5a42adceb52421b165afb9274b7f3ebd64d65d8f21d367ba5ad300",
+      "uncompressedBytes": 690335
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-088.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 661355,
+      "sha256": "e676f46cd69381777822c065b5ccd9ef60df37d94c593566d5bff61f93a7e6bd",
+      "uncompressedBytes": 694595
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-089.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 666039,
+      "sha256": "491dd0f77d74269e4f6300ea8e7512ef5d02cc2286fbe682f34375507e4d3004",
+      "uncompressedBytes": 699259
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-090.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 669243,
+      "sha256": "11338d0af385421faba90a573e4eb4ae66db157be354356ac145c6a070f227ef",
+      "uncompressedBytes": 701888
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-091.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 671395,
+      "sha256": "e2a67e0d5dde61dde26e91ba39c29652bb147c4e6d626eba579495cf1a85b446",
+      "uncompressedBytes": 703212
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-092.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 672010,
+      "sha256": "45570f5097cc4ff632c59b0895a804db823452f4e2b7d52da73ebd479dc0a844",
+      "uncompressedBytes": 702799
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-093.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 672363,
+      "sha256": "3e8e501db2175f3d155b6fdb7fc716e32ed32993191d6886e2e5bf9c8d69984e",
+      "uncompressedBytes": 702136
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-094.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 671538,
+      "sha256": "9aa554483a1eb4dc47ee08bafef51b5369401803c09e263c553eb11abb5f03b3",
+      "uncompressedBytes": 700146
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-095.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 670474,
+      "sha256": "0e9fc0d779825d51eb5cfe09a27ac41c17c19f1a11ad809c894f1c7a0c5b818b",
+      "uncompressedBytes": 698169
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-096.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 672438,
+      "sha256": "c09b59e2904540acd650f14a996bb411b5fd93daaf4b0c646ee54ffa6e6a8db5",
+      "uncompressedBytes": 699871
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-097.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 673998,
+      "sha256": "677f57f405e584cf4845cb97d6025a36ca43205e7bdd727ea771a830bfa4ccc1",
+      "uncompressedBytes": 701288
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-098.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 675295,
+      "sha256": "dda51a0e426b58d888a3b4cc3972959183c5b4f3c183de1a6315e8f237f2f16f",
+      "uncompressedBytes": 702554
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-099.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 676311,
+      "sha256": "36da0f6813ed4098f59c5ff2e1b56b2648261e787a6bba95477645bff983b7ab",
+      "uncompressedBytes": 703330
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-100.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 677119,
+      "sha256": "af2e11a3a8ff20934982a1784f1cc1d83ffd4ac3548fbe1a5220cb136e619773",
+      "uncompressedBytes": 704034
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-101.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 677774,
+      "sha256": "109227455282ef11e71040b492d126bd1c5ecc1231f4e8937282c68044b90631",
+      "uncompressedBytes": 704729
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-102.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678421,
+      "sha256": "f7639623eeae2a24dbed778db862bf8389680b850c7c227e98a05ee127c71c48",
+      "uncompressedBytes": 705360
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-103.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678733,
+      "sha256": "597968e16a9cd8529105f3ec26bee47d2072ede22d33266d9a37c15835b1bbe0",
+      "uncompressedBytes": 705573
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-104.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679017,
+      "sha256": "58762cc12681cac41ce1edef445a4bd5ced421bd6d0996064bb6c69c48d752b9",
+      "uncompressedBytes": 705906
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-105.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679171,
+      "sha256": "a6526d4f99439b1f277d28b00bb79d15d6cc43890d15e52509679c6580fb6b72",
+      "uncompressedBytes": 706193
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-106.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679207,
+      "sha256": "aa002ab0d9ca4d36bb2769f2942f82ea02d9a102e123ec0646ca5be8c74e531e",
+      "uncompressedBytes": 706322
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-107.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679348,
+      "sha256": "77d42af4a236675eb54e816bff3166896a2d652c12355bca66223770de42e972",
+      "uncompressedBytes": 706425
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-108.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679451,
+      "sha256": "4537541e1b5fbeb363339b741a898b807702c030278eab3b80200ce3eef10716",
+      "uncompressedBytes": 706544
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-109.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679323,
+      "sha256": "806c2ecc742ee3af6c12e9ac7afce94eb9de855af7404e7a538a5744ed7ae83d",
+      "uncompressedBytes": 706718
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-110.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679503,
+      "sha256": "e9c95c6eba2911ce7a24dc403bcd63b3ca3af6034c9e5c39f2cafc032c796d34",
+      "uncompressedBytes": 706796
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-111.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679443,
+      "sha256": "f8db977a4aa2ea00dbfbf5a4e4b0673f3e71d290d0edff2d8f983070ce6c85f8",
+      "uncompressedBytes": 706980
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-112.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679405,
+      "sha256": "9eee96d0f603e7feaade87c9456938eeb42ca15a23ce2d11550af3c94a171ab8",
+      "uncompressedBytes": 707122
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-113.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679247,
+      "sha256": "d7ea258e982f0a37d80166821e832376530dfc3861ee2a27dcb919b40971b50a",
+      "uncompressedBytes": 707191
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-114.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679265,
+      "sha256": "d09682413551e68581e29cea2063edf586b8ed15477c35edbf98f0f9d05c2ce3",
+      "uncompressedBytes": 707237
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-115.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678943,
+      "sha256": "1ff14aab330f28bc140fcffa27867ebbc030f756b997008b21829844d271a304",
+      "uncompressedBytes": 707245
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-116.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 679011,
+      "sha256": "d68ba64841ce26de986977a327ee24323f8bd1bd4450e3dd45e20f3a6e3710c7",
+      "uncompressedBytes": 707282
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-117.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678969,
+      "sha256": "ef0bfb2ee1f358f345d25fcfb6933146f6be818fb49b2e55f8e9fdc8d3054278",
+      "uncompressedBytes": 707308
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-118.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678863,
+      "sha256": "e47b232612e4bd1790f7bd5413f2831549944e4d60067662a088bcd3a05a785a",
+      "uncompressedBytes": 707320
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-119.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678804,
+      "sha256": "a1c435950c29a7bdc426c4482038bfdb08672a5ecb744f5b084f03ea1a7e2358",
+      "uncompressedBytes": 707333
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-120.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678729,
+      "sha256": "2c0f43b05e4f7d8cdecec90964ffea419620c1f691a19d4d5a0229ab77334d52",
+      "uncompressedBytes": 707358
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-121.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678768,
+      "sha256": "93db819554f85fbc774b3dae854bff675f033c4605d5ef1f43ebcfa399ea5e88",
+      "uncompressedBytes": 707389
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-122.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678795,
+      "sha256": "3d89093f31a140f44f50ec67427f9df29aae9147eb72294a07111ae0ce6e2060",
+      "uncompressedBytes": 707393
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-123.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678678,
+      "sha256": "321f49d310a78fdc3dc96e5b4f20e6c995b1427cfe8dc1393397b0919d299334",
+      "uncompressedBytes": 707399
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-124.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678631,
+      "sha256": "4ff64560e9f993a5651316fdf0685814d12a53989acb31eee12969232daaa439",
+      "uncompressedBytes": 707442
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-125.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678442,
+      "sha256": "0120b73f9e127f5004fad8fb935f432ec8c5ab72273d435052054142c3a169f1",
+      "uncompressedBytes": 707457
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-126.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678305,
+      "sha256": "3720712733ce2dd4e51d6192883f148377aaac001117a21c1fe7714b99f02808",
+      "uncompressedBytes": 707470
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-127.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678133,
+      "sha256": "cde45d944f4e3ea771c895debb4da661310fe40e31515e85af8780797528edde",
+      "uncompressedBytes": 707473
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-128.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 678011,
+      "sha256": "67811bae8af706f949bf2fe6c169c44e19971b852d5ff046e013c03ffe47ba31",
+      "uncompressedBytes": 707488
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-129.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 677764,
+      "sha256": "1bab40a10b33af1b9478acd2f09db316f6555abd628709374642c1323efb63f3",
+      "uncompressedBytes": 707488
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-130.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660348,
+      "sha256": "6a8ed8638ac9cecc86a5d29e9e60fcd9fe7de9afa3939a5133c2328bdcdcfcc7",
+      "uncompressedBytes": 686552
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-131.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660249,
+      "sha256": "800c34e40eec6c7af04b8ad4adcca972b4320cc96455150a5eea6dac4cc6cc55",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-132.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660257,
+      "sha256": "b817debed6e1844c6c28e820b4ba8d6119e31445b13951605e9c4d74ad60d1e6",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-133.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660265,
+      "sha256": "ea0044a387b4b521613e82129fafd1cc3ff7c974d2d2ae16f8dc2b454421ac6e",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-134.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660280,
+      "sha256": "4e93b5919dc988d761e2ffeb94b22fe79d779e8ca5bdc93f258f2c2e09d6113c",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-135.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660295,
+      "sha256": "f8e788b071a3cb17ea636b8d102825e80008455d5e04c2a29cd59ece3a9c6396",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-136.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 676146,
+      "sha256": "6a55b0f8b3919cc83b639bff1dbd941b855272518057d9db7ead1f8654fb2c57",
+      "uncompressedBytes": 707499
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-137.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 676003,
+      "sha256": "cb4f196b86e833cb40f1c11459c4c00610fdcad44aa22b2ee60aa347adbc40b5",
+      "uncompressedBytes": 707494
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-138.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660310,
+      "sha256": "c656265aa9698ad390744eea8476665ef5133126ecb4c7c5b6d3830df95c0cd1",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-139.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 675584,
+      "sha256": "0c55db57f8ba118773095824d84638123eaa2b6dc5ea2a5419752eb4583f2740",
+      "uncompressedBytes": 707494
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-140.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660249,
+      "sha256": "8177ca68044d8a45093b48838a5871ff709b04c14a99828a7c573f2a5ae98247",
+      "uncompressedBytes": 686560
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-141.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660235,
+      "sha256": "5aec2125174c34d3abc69a6dc2625aa9ee78fc5715f827ac70c48b7d5a442bf7",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-142.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660220,
+      "sha256": "537675eee189596e451885f554a1cb78fd87b92449896d1fcc22ef1985b31388",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-143.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660205,
+      "sha256": "688bc99a12ea01780696170db9feda857908fb45f25bfafd330736e51c7af93a",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-144.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660197,
+      "sha256": "1c8f2164fd3561b67b46e9b79052710c93d2ed789857014af4217be4f224ac4a",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-145.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660201,
+      "sha256": "31428b9a4a5741a70a22b52c09cf0caeda71b99d1b11fef1bdd62dc70521bbc0",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-146.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660192,
+      "sha256": "170f3bc622a41192ba98887444fa2d2422f8dd4f6aa85013f18c5c12bc519fc4",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-147.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660210,
+      "sha256": "c187719b2feb95d458e921caf88c279cdf156b779597442e28de68c261176616",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-148.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660176,
+      "sha256": "f5bbf63c96a2a7b3ecd1051b81600d1ddda44d7292265ff19ff1b01997ec1249",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-149.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660119,
+      "sha256": "3ea6916956f60ea5a8b40996cf15f2bd4e01ee892ef5b65a6b78133302dfaae2",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-150.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660127,
+      "sha256": "bcc79deab72f7416ce9884ea0b586b2a409d6ae38f2a9722b23c85b62fed769a",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-151.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660105,
+      "sha256": "53b1bc3d65030dd7612c7ed212641dea4bc1a7f9295b8a41f85ddc500f66ce5b",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-152.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660164,
+      "sha256": "597bc89aaed37dd641532d76659f11ec52e76274af7026d49f18015a5c2e53e0",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-153.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660139,
+      "sha256": "47603e35cdef8d0ae33c514d5c12f9e8c0d4b9e624cf6a26e7f511edf7be0da8",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-154.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660164,
+      "sha256": "f46fdb7f00aacfc356f1c484876a6e30bbb9218805796c16f00db10b78d501f1",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-155.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660096,
+      "sha256": "34b5f049b1e303ea6d34114f58835dc233682c27e965ba106981ad28c237256a",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-156.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660055,
+      "sha256": "1e1a9c4f100b0b1cfb15ee82bf2325edaee9613b62fa45860d6f5cd477ab85eb",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-157.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660116,
+      "sha256": "ba40dd959e247fcccf74936537831deb64ababe3bf0f7450f5fa83b802c6edeb",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-158.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660118,
+      "sha256": "e63015d57ffdd7b7b55f213161ac5eaf8c8f7c5fe2ac372df73a603f376b3e9e",
+      "uncompressedBytes": 686569
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-159.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660145,
+      "sha256": "832197de475d15d76760a1ea63541cb3f1d143b19c5fdfe7ae22231becbf1a29",
+      "uncompressedBytes": 686569
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-160.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660143,
+      "sha256": "57cd5a053425e84dc115ee8a2dc7a6a47bd2f80274b3a79a0a50099f085ffdaf",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-161.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660041,
+      "sha256": "36ea77e2fb882f4f6e8103a69fb24af2d18f6d9623fe3f7b0f78d1758bfb91d0",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-162.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660061,
+      "sha256": "cb66c8941a52f0d31300c3c10e3eab0e7be467d9cfc5068480a65d2425dffde2",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-163.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660073,
+      "sha256": "0f1402fa9ab82fb8a7da1f31838cff40322c961d5ae27c2b4bd8e0cfbad14d3c",
+      "uncompressedBytes": 686560
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-164.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660113,
+      "sha256": "a6b22a27cbe674483c4f887031262a5991de3bd936363ddf073c1de29eb20dad",
+      "uncompressedBytes": 686560
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-165.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660065,
+      "sha256": "084dc9d2df29a78d601dc9d5a18fd532f02d17ca8290307f5d6db7095265665a",
+      "uncompressedBytes": 686560
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-166.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 660013,
+      "sha256": "0a8c9a7e706cb92126907956a65b215f1e8a1b609d804177df50ac36f2d67faa",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-167.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659971,
+      "sha256": "4f4b65c96a06ef77005768c29d2c0918874ab162dfbaa48aa65737f2a7ed32e0",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-168.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659575,
+      "sha256": "0ded2c9a5c309dc6fd8e49ae5b30227572570527c6a846fc8c174fd90ec8ad63",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-169.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659546,
+      "sha256": "6ecce9213b5eece5b3c8d70a6870cc63b443f306cd071332a0b9f93e1d12c496",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-170.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659947,
+      "sha256": "19c83b9bc348c707e73011e5ba49df7d3c03bc37964a76d3be591b379fef6935",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-171.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659962,
+      "sha256": "00598e7197abbaa0e4f36f694c9833e494ebff375a928adc1dcb1e92ada0f4c7",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-172.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659945,
+      "sha256": "bb77d538be232d1e76d1c33f68e76892677e55da69dcee57f35718aac4b43742",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-173.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659899,
+      "sha256": "4b257eae68fceb3c12e6d4eeb982c30e4199dba2eb748c1ba8bfb3aed9576472",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-174.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659845,
+      "sha256": "7a4345febcea286a42d8666fd17d39ab3b2bc5f7976e8dafd1cc09c926a2945b",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-175.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659803,
+      "sha256": "1e5a881a94cee88525f8087025e2c8f747c8cdfcfff20b8912565ba594126215",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-176.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659791,
+      "sha256": "761a754998439348c1e08ce9737764504301d1839b73e745b7234e7cb0619ecd",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-177.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659552,
+      "sha256": "cd915d41abaef0669c568df964390ebe4c74d65a7a747d36177d4701836076bf",
+      "uncompressedBytes": 686568
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-178.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659773,
+      "sha256": "9016f94d229103d08f1e5e59a1e4292ef1d631382540446f2d7d554e00683b6c",
+      "uncompressedBytes": 686568
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-179.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659720,
+      "sha256": "fc7364f2763c6fc9d3ffac42f02c68bfa2320fe98d4c4de1621eee789860281f",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-180.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659697,
+      "sha256": "87d6faf3524a10881ca26bb1ac3b7db07ddee8acfcf0aab5be46bc28cb2712f9",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-181.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659731,
+      "sha256": "a313d85fe14264717f7bcb61a44b21da106cfacf9c075f82d44411e091c0b8d6",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-182.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659712,
+      "sha256": "540e0b807882fbabbaa83df413f0a50f7384ef8c25c7bf307979cd0ba00d55bb",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-183.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659612,
+      "sha256": "9da0bdae03c42621f8916091eb221da1fc765e3d5e1eed0163be1d6503dc73c6",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-184.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659955,
+      "sha256": "f9af8487bcf102af5d1652ed1622dcc4ad461906c2349cb675adc6b875c126b0",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-185.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659927,
+      "sha256": "05909057fd546bd1dea9052843e9c75e92599f831e5022961000a30c1f0fe58d",
+      "uncompressedBytes": 686569
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-186.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659960,
+      "sha256": "f82686a61e8448d41dc2964a33d0589e0eb01eb4f662949650a05fd3fa76fca5",
+      "uncompressedBytes": 686569
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-187.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659548,
+      "sha256": "eeaecc1a7217f05996a39d05a89ec2e7e6aa5542779a96e413e436fdeb7a74dc",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-188.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659511,
+      "sha256": "8da24f863a44db61ea2e4c027f78ff426070aa81f43735ee77945dc3a2e02564",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-189.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659469,
+      "sha256": "b2ccb5a5662e050a3d567ddcb572574e6e7deec7424ae140a37a23e00f041db0",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-190.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659459,
+      "sha256": "148aa875be0df670c459153d5b1098a9300ce77053f47f50b766081509f02463",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-191.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659945,
+      "sha256": "c54597f639831f96695c31a55e1ef1feb3639590529360e92fb9515ebb68829c",
+      "uncompressedBytes": 686564
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-surface/data/frame-192.fzp.gz",
+      "kind": "fzp2-gzip",
+      "bytes": 659937,
+      "sha256": "7a9d6ef9580fbe85a400897ca3c6f5a11f0ecb34d34e7946f5a88cd1bbe6e00c",
+      "uncompressedBytes": 686565
+    }
+  ],
+  "sourceRawManifestSha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce",
+  "sourcePins": {
+    "rawManifestSha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce",
+    "settingsSha256": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52",
+    "prepareReportSha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df",
+    "sourceBlendSha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+  },
+  "provenance": {
+    "assemblyProposalCommit": "529203ebb6a8cbb29db2cb1c2ba1505f3867c226",
+    "codec": {
+      "sourceCommit": "cb0198abeda25d3ad6fabb392612f252e2b86bf1",
+      "architectApprovalCommit": "49f37e650cdc4ce0850678232fae71ff11fdb60a",
+      "modules": {
+        "codec.js": {
+          "source": "assets/art/fire-realism/field-payload-v2/codec.js",
+          "bytes": 6418,
+          "sha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0"
+        },
+        "rgba-decode.js": {
+          "source": "assets/art/fire-realism/field-payload-v2/rgba-decode.js",
+          "bytes": 616,
+          "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+        },
+        "payload.js": {
+          "source": "assets/art/fire-realism/field-payload-v2/payload.js",
+          "bytes": 15109,
+          "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+        }
+      }
+    },
+    "pureSources": {
+      "source-clock.js": {
+        "source": "assets/art/fire-realism/fluid-contact/source-clock.js",
+        "bytes": 4595,
+        "sha256": "be2dd16af7f08a692500f2109283a9c6cdfaf4bf01f5450a2332cff0d09dab22"
+      },
+      "shaders.js": {
+        "source": "assets/art/fire-realism/fluid-contact/shaders.js",
+        "bytes": 5673,
+        "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+      },
+      "support.js": {
+        "source": "assets/art/fire-realism/fluid-contact/support.js",
+        "bytes": 4425,
+        "sha256": "00dcdf56c9581f43e49af67d0156e708127dc2229c8bcb4f14ec34b3961bef56"
+      },
+      "space.js": {
+        "source": "assets/art/fire-realism/fluid-contact/space.js",
+        "bytes": 1588,
+        "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
+      }
+    },
+    "rawQaReportSha256": "837b334067b4e9bac8ea38dba293dc51a163b0eb21d42b3fd48302b12bab96c8",
+    "proposalCommit": "178647e4ee017b3a29b259f0a9ccfb438a86cfd7",
+    "originalAll": {
+      "artistCommit": "df0fd0ddafb37fd4fa729989a6064d8a1436665a",
+      "manifestPath": "assets/art/fire-realism/fluid-contact-surface/manifest.json",
+      "manifestBytes": 68098,
+      "manifestSha256": "1cbe16364217f7ce0d576749166be556d8e54c95c028cb27e378bcb9be225759"
+    },
+    "outputTransfer": {
+      "sharedThreeRevision": "180",
+      "function": "sRGBTransferOETF",
+      "chunkSha256": "d04a499add70b59ba722840e0d826dfa0c294a166ef57e8036c76049b7f0aab5",
+      "application": "Local source colors before integration, not accumulated band C"
+    },
+    "payloadReuse": "Same193 original resource paths/hashes once per selected candidate; exact original prepare/evidence/audit; one store, no data copies",
+    "preservedSmokeOnly": {
+      "artistCommit": "da4a7aa2f5603dd05e494859675844dc37a2bd84",
+      "manifestPath": "assets/art/fire-realism/fluid-surface-emission-pilot.manifest.json",
+      "manifestBytes": 70246,
+      "manifestSha256": "a0097125643539fc7c0b6b02f0a6b0acfdcfbf6f6d26069b361f7772a7559eca"
+    },
+    "derivation": "Original All shaders.js54 flameSigma=6r gives6r*cFire source coefficient in its linear segment recurrence. Same metre convention; no image-fitted gain or pixel-brightness equivalence. No new common decoder/cache API."
+  },
+  "sourceLifetime": "193actual samples0..6.4inclusive at30Hz; observed canonical four-cell birth/burnout world clocks;3.2s burn,<=3.2s smoke tail with declared final.4s fade; no sustained-source benchmark/loop",
+  "sourceOwnership": "Exact four grass source cells. Authoritative lowerA/inward taper; measured source/pair halos approved abovecontact. Actual burnout gates ALL reaction heights. No new heat, fuel or ignition.",
+  "nativeContract": "Shared caller Three, current same-camera opaque depth, native metres/NoToneMapping/sRGB. No renderer, asset fetch, dynamic import or async perframe.",
+  "pipeline": "Exact original f32LE bits through architect-reviewed FZP2; coldboot verified transfer+boundedprepare; two directRGBA slots, no planar frame cache",
+  "geometry": {
+    "pairCount": 192,
+    "maxHullVertices": 28,
+    "maxPrisms": 92,
+    "maxVertices": 2814,
+    "maxIndices": 15924,
+    "sourceJsonBytes": 10384474,
+    "rawQaReportSha256": "837b334067b4e9bac8ea38dba293dc51a163b0eb21d42b3fd48302b12bab96c8",
+    "floor": {
+      "nativeY": 0,
+      "affectedPairPrisms": 192,
+      "movedNegativeVertices": 1769,
+      "discardedPrisms": 0,
+      "excludesReconstructedContributionBelowFloor": true,
+      "rawFieldsUnchanged": true
+    },
+    "ownership": "Immutable current/next onevoxel hulls in disjoint height bands; explicitly floor-clipped mesh AND slab. One interval/ray/slab."
+  },
+  "floorPresentation": "Explicit physical clip of mesh AND ray slabs at nativeY0. Raw scalar arrays and all positive centres retained; nonzero reconstructed interpolation belowfloor is deliberately excluded.",
+  "sourcePhotosUsedAtRuntime": false,
+  "limits": {
+    "esmBytes": 10669319,
+    "compressedBytes": 93875221,
+    "sparseBytes": 98362125,
+    "resources": 193,
+    "rgbaCpuBytes": 7077888,
+    "rgbaGpuBytes": 7077888,
+    "geometryCpuBytes": 121440,
+    "geometryGpuBytes": 121440
+  },
+  "reviewLimitations": "Source/CPU proof only. New helper-only actual numeric probe must pass before native review. Two declared saturation cases are clipping evidence, not linear brightness. No R/O/quality/cost/publication acceptance.",
+  "diagnostic": {
+    "variant": "derived-emission-normalization-six",
+    "fixedFlameEmissivity": 6,
+    "fixedExtinctionCoefficient": 0,
+    "onlyOpticalDelta": "Flame source1r to6r; original smoke-only ks absorption and every other input unchanged",
+    "emission": "6*r*cFireEncoded +ks*cSootEncoded",
+    "physicalCalibration": false,
+    "nativeF0": "Pending actual paired source-bound evidence; prior193 differences remain"
+  }
+}

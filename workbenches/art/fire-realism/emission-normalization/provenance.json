@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "proposalCommit": "178647e4ee017b3a29b259f0a9ccfb438a86cfd7",
+  "baselineArtistCommit": "68cc6a34def5a534ec517ff81f3af233e2743a3b",
+  "preservedSmokeOnly": {
+    "artistCommit": "da4a7aa2f5603dd05e494859675844dc37a2bd84",
+    "manifest": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-pilot.manifest.json",
+      "bytes": 70246,
+      "sha256": "a0097125643539fc7c0b6b02f0a6b0acfdcfbf6f6d26069b361f7772a7559eca"
+    },
+    "transportHelper": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    }
+  },
+  "coefficientDerivation": {
+    "originalAllShader": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    "lines": [
+      54,
+      62
+    ],
+    "before": "r*cFireEncoded/1m",
+    "after": "6*r*cFireEncoded/1m",
+    "source": "Original All linear recurrence flameSigma=6r; fixed one-metre author normalization, not measured radiometry or exact pixel-luminosity equivalence.",
+    "fixedValue": 6,
+    "imageFitted": false,
+    "publicControl": false
+  },
+  "onlyDelta": "Flame source coefficient. Full expected upstream fragment is compared before replacing the one exact emission term; all other smoke-only transport and material/data/context inputs remain.",
+  "probeSourceBasis": {
+    "path": "workbenches/art/fire-realism/emission-absorption-pilot/probe.js",
+    "artistCommit": "da4a7aa2f5603dd05e494859675844dc37a2bd84",
+    "adaptations": "Separate copy: fixed6r/gain1 model bindings,24predeclared vectors including2clipping-only cases, three-module helper closure verification and complete closure hash report. Same explicit output/target/blend/own-resource cleanup. No live GPU run."
+  },
+  "prohibitedChangesAbsent": [
+    "Old All/soot/color/E-A files/manifests/evidence",
+    "User-approved match art/buttons/interaction and default descriptor",
+    "Raw fields/cache or newbake",
+    "New shared decoder/lease/caching API",
+    "Source timing/masks/depth/floor/support/light/actor",
+    "Exposure/palette/smoke/absorption/gain sweep"
+  ]
+}
