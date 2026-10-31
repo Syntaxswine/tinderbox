@@ -1,0 +1,176 @@
+{
+  "observer": "/root",
+  "uiCommit": "a0e2db24499ddce92e6b0676f2cd816007712229",
+  "observedAt": "2026-10-31T00:48:18.134Z",
+  "kind": "DOM tests only; no rendered fire or cost evidence",
+  "viewport": {
+    "width": 1280,
+    "height": 800,
+    "pixelRatio": 1
+  },
+  "results": [
+    {
+      "name": "Unavailable backend keeps controls disabled, with no fake canvas or timing",
+      "status": "pass"
+    },
+    {
+      "name": "There is one render slot, one real HUD slot, four fire modes and six scenarios",
+      "status": "pass"
+    },
+    {
+      "name": "Mode intent calls the driver once and never optimistically changes the selection",
+      "status": "pass"
+    },
+    {
+      "name": "Real HUD plus ready shell hides only the placeholder by computed style and restores genuine unavailable states",
+      "status": "pass",
+      "evidence": {
+        "kind": "DOM visibility with real HUD and detached renderer metadata; no WebGL claim",
+        "observations": [
+          {
+            "phase": "ready",
+            "placeholderHidden": true,
+            "placeholderDisplay": "none",
+            "matchesHidden": false,
+            "matchesDisplay": "block",
+            "hudAriaPressed": null
+          },
+          {
+            "phase": "initializing",
+            "placeholderHidden": false,
+            "placeholderDisplay": "flex",
+            "hudDisplay": "none"
+          },
+          {
+            "phase": "error",
+            "placeholderHidden": false,
+            "placeholderDisplay": "flex",
+            "hudDisplay": "none"
+          },
+          {
+            "phase": "unavailable",
+            "placeholderHidden": false,
+            "placeholderDisplay": "flex",
+            "hudDisplay": "none"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Powder is a scenario request and no clock multiplier control exists",
+      "status": "pass"
+    },
+    {
+      "name": "Seed Enter commits once, ignoring keyboard repeat and acknowledged blur",
+      "status": "pass"
+    },
+    {
+      "name": "Step, seek, reset and capture remain explicit public method intents",
+      "status": "pass"
+    },
+    {
+      "name": "Cancel stays operable while the measure promise is unresolved",
+      "status": "pass"
+    },
+    {
+      "name": "Measuring state locks configuration and transport, preserving a single cancel path",
+      "status": "pass"
+    },
+    {
+      "name": "Missing canvas encoder leaves recording unavailable without invented motion",
+      "status": "pass"
+    },
+    {
+      "name": "Active recording permits stop/discard and locks GPU measurement plus scene edits",
+      "status": "pass"
+    },
+    {
+      "name": "Unavailable optimized mode retains its reason and cannot be selected",
+      "status": "pass"
+    },
+    {
+      "name": "A connected shader error keeps configuration available for recovery, while render controls lock",
+      "status": "pass"
+    },
+    {
+      "name": "JPEG and evidence JSON use separate explicit controls and one intent per gesture",
+      "status": "pass"
+    },
+    {
+      "name": "Latest Blob-derived motion link is explicit, paused, bounded and detached during measurement",
+      "status": "pass"
+    },
+    {
+      "name": "Remote or malformed video evidence cannot become a preview or save link",
+      "status": "pass"
+    },
+    {
+      "name": "Motion metadata is explicitly saved once and disabled when no completed record exists",
+      "status": "pass"
+    },
+    {
+      "name": "Unsupported populations are not offered for ordinary scenarios",
+      "status": "pass"
+    },
+    {
+      "name": "Unchanged updates preserve focused inputs, options and edited notes",
+      "status": "pass"
+    },
+    {
+      "name": "Driver errors recover controls after a rejected request",
+      "status": "pass"
+    },
+    {
+      "name": "Exact raw report exposes one native JSON link, byte/hash record and unchanged expandable body",
+      "status": "pass"
+    },
+    {
+      "name": "Raw report failure or oversize shows an explicit reason with no substituted resource",
+      "status": "pass"
+    },
+    {
+      "name": "Inconclusive raw numbers remain inconclusive and never approve a target",
+      "status": "pass"
+    },
+    {
+      "name": "A valid numerical ratio without external acceptance grants no visual or cost approval",
+      "status": "pass"
+    },
+    {
+      "name": "Critique export is detached, includes source and workload, and has six observations",
+      "status": "pass"
+    },
+    {
+      "name": "External text cannot inject markup into statuses or catalogues",
+      "status": "pass"
+    },
+    {
+      "name": "Unverified or remote image assets are withheld, while institutional links work",
+      "status": "pass"
+    },
+    {
+      "name": "Reference failure is explained and precise metadata stays visible",
+      "status": "pass"
+    },
+    {
+      "name": "Actual-size inspection is reversible and does not configure the driver",
+      "status": "pass"
+    },
+    {
+      "name": "Page fits its viewport and enabled review controls meet 44 px targets",
+      "status": "pass"
+    },
+    {
+      "name": "Disposal removes the tree and prevents a pending response from restoring it",
+      "status": "pass"
+    },
+    {
+      "name": "Production default still automatically opens the pause dialog on a paused snapshot",
+      "status": "pass"
+    },
+    {
+      "name": "Review opt-out keeps paused controls locked and all six buttons visible without the dialog",
+      "status": "pass"
+    }
+  ]
+}

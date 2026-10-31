@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "observer": "/root",
+  "preserver": "/root/fire_ui",
+  "uiCommit": "a0e2db24499ddce92e6b0676f2cd816007712229",
+  "architectIntake": "e8d8ddd3a85fcab66bafeeba90f8dc427e24c0e9",
+  "scope": "Computed DOM checks only; no actual hardware-report recovery, GPU cost, decoded-motion cadence or quality approval.",
+  "testsPerViewport": 33,
+  "totalPassing": 132,
+  "copies": [
+    {
+      "source": "artifacts/qa/fire-realism/ui-raw-report-a0e2db2/1280x800.json",
+      "copy": "observable-raw-report-dom-1280x800.json",
+      "bytes": 5526,
+      "sha256": "9bd73d68cbdc6f4710fbdc43ae23baab70d1b1c47a00943f40099239758d2ac7"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/ui-raw-report-a0e2db2/390x844.json",
+      "copy": "observable-raw-report-dom-390x844.json",
+      "bytes": 5525,
+      "sha256": "4c00616b0f07410c9433ae0dd7ac2f332de99fae76113dca210d16c85198c9c4"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/ui-raw-report-a0e2db2/320x568.json",
+      "copy": "observable-raw-report-dom-320x568.json",
+      "bytes": 5525,
+      "sha256": "1cc613c0e9f48ae5f90d938baf0e114ba12143d79503de59230a85f383256e49"
+    },
+    {
+      "source": "artifacts/qa/fire-realism/ui-raw-report-a0e2db2/844x390.json",
+      "copy": "observable-raw-report-dom-844x390.json",
+      "bytes": 5525,
+      "sha256": "ff83d44bf01c35f12271d7d00f3f0f77309f4d85bc16dc601bddec60a41982ef"
+    }
+  ],
+  "lifecycle": "Architect closed task-owned DOM tab4 and reset viewport; worker created no browser/server/helper.",
+  "lineEndings": "observable-*.json filenames use the architect primary LF rule from671ebb3; source bytes and staged Git blobs are checked independently.",
+  "diagnosticFollowup": "The separate tiny latestCpu/playbackClock forwarding addition is not covered by these historical a0e2db2 receipts; its extended existing DOM check awaits architect execution."
+}
