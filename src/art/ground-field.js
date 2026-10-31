@@ -25,6 +25,21 @@ export function classifyCharEvidence(cells){
   if(evidence&&legacy)throw Error('Mixed legacy and consumed-fuel ground char evidence');
   return evidence?'consumed-fuel-v1':'legacy-phase';
 }
+function gridPlan(world,strict){
+  const size=strict?world.fireCellSize:world.fireCellSize||.5,width=world.width,height=world.height;
+  if(![width,height,size].every(Number.isFinite)||width<=0||height<=0||size<=0)throw Error('Malformed ground char grid');
+  const columns=width/size,lines=height/size;
+  // Same authoring limits/alignment as simulation/fixtures.js. Round the
+  // accepted aligned grid exactly as HeatField does, including decimal pitch.
+  if(strict&&(width>64||height>64||size<.125||size>1||Math.abs(columns-Math.round(columns))>1e-8||
+      Math.abs(lines-Math.round(lines))>1e-8||columns*lines>65536))throw Error('Ground char grid exceeds authoritative native bounds');
+  const cols=strict?Math.round(columns):Math.max(1,Math.ceil(columns)),rows=strict?Math.round(lines):Math.max(1,Math.ceil(lines));
+  const cells=cols*rows,lanes=cells*4,bytes=lanes*Float32Array.BYTES_PER_ELEMENT;
+  // Check the ACTUAL allocation arithmetic, also for legacy/empty masks.
+  if(![cols,rows,cells,lanes,bytes].every(Number.isSafeInteger)||cols<1||rows<1||cells>65536||
+     lanes>65536*4||bytes>65536*4*4)throw Error('Ground char grid has unsafe allocation arithmetic');
+  return {size,cols,rows,lanes,bytes};
+}
 export function createGroundField(T){
   const pool=new Resources(),root=new T.Group();root.name='Authoritative gas / heat / char mask';
   let cols=1,rows=1,size=.5,data=new Float32Array(4),texture,geometry,mesh;
@@ -79,24 +94,46 @@ export function createGroundField(T){
         #include <colorspace_fragment>
       }`
   }));
-  function resize(world){
-    const nextSize=world.fireCellSize||.5,nextCols=Math.max(1,Math.ceil(world.width/nextSize)),nextRows=Math.max(1,Math.ceil(world.height/nextSize));
+  function resize({size:nextSize,cols:nextCols,rows:nextRows,lanes,bytes}){
     if(texture&&cols===nextCols&&rows===nextRows&&size===nextSize)return;
-    if(texture){texture.dispose();pool.textures.delete(texture);geometry.dispose();pool.geometries.delete(geometry);mesh.removeFromParent();}
-    cols=nextCols;rows=nextRows;size=nextSize;data=new Float32Array(cols*rows*4);
-    texture=pool.texture(new T.DataTexture(data,cols,rows,T.RGBAFormat,T.FloatType));
-    texture.minFilter=texture.magFilter=T.NearestFilter;texture.generateMipmaps=false;
+    let nextData,nextTexture,nextGeometry,nextMesh;
+    try{
+      nextData=new Float32Array(lanes);if(nextData.byteLength!==bytes)throw Error('Ground char allocation extent differs');
+      nextTexture=new T.DataTexture(nextData,nextCols,nextRows,T.RGBAFormat,T.FloatType);
+      nextTexture.minFilter=nextTexture.magFilter=T.NearestFilter;nextTexture.generateMipmaps=false;
+      nextGeometry=new T.PlaneGeometry(nextCols*nextSize,nextRows*nextSize);nextGeometry.rotateX(-Math.PI/2);
+      nextMesh=new T.Mesh(nextGeometry,material);nextMesh.position.set(nextCols*nextSize/2,.018,nextRows*nextSize/2);nextMesh.renderOrder=-1;
+      root.add(nextMesh);
+    }catch(primary){
+      const failures=[];
+      for(const clean of [()=>nextMesh?.removeFromParent(),()=>nextGeometry?.dispose(),()=>nextTexture?.dispose()]){
+        try{clean();}catch(error){failures.push(error);}
+      }
+      if(failures.length)throw new AggregateError([primary,...failures],'Ground field preparation and candidate cleanup failed',{cause:primary});
+      throw primary;
+    }
+    // No borrowed uniform, active data, ownership set or old resource is touched
+    // until buffer/texture/geometry/mesh/settings are fully prepared.
+    const previousTexture=texture,previousGeometry=geometry,previousMesh=mesh;
+    cols=nextCols;rows=nextRows;size=nextSize;data=nextData;
+    texture=pool.texture(nextTexture);geometry=pool.geometry(nextGeometry);mesh=nextMesh;
     uniforms.field.value=texture;uniforms.grid.value.set(cols,rows);uniforms.cellSize.value=size;
-    geometry=pool.geometry(new T.PlaneGeometry(cols*size,rows*size));geometry.rotateX(-Math.PI/2);
-    mesh=new T.Mesh(geometry,material);mesh.position.set(cols*size/2,.018,rows*size/2);mesh.renderOrder=-1;root.add(mesh);
+    if(previousTexture){
+      pool.textures.delete(previousTexture);pool.geometries.delete(previousGeometry);
+      const failures=[];
+      for(const clean of [()=>previousTexture.dispose(),()=>previousGeometry.dispose(),()=>previousMesh.removeFromParent()]){
+        try{clean();}catch(error){failures.push(error);}
+      }
+      if(failures.length)throw new AggregateError(failures,'Ground field previous-resource retirement failed');
+    }
   }
   return {root,uniforms,update(snapshot){
     const cells=snapshot.cells===undefined?[]:snapshot.cells,mode=classifyCharEvidence(cells);
+    const plan=gridPlan(snapshot.world,mode==='consumed-fuel-v1');
     // Validate new evidence before resizing/clearing an existing borrowed mask.
     // The explicit legacy path retains its historical outside-grid omission.
     if(mode==='consumed-fuel-v1'){
-      const nextSize=snapshot.world.fireCellSize||.5,nextCols=Math.max(1,Math.ceil(snapshot.world.width/nextSize)),nextRows=Math.max(1,Math.ceil(snapshot.world.height/nextSize));
-      if(![nextSize,nextCols,nextRows].every(Number.isFinite)||nextSize<=0)throw Error('Malformed ground char grid');
+      const {size:nextSize,cols:nextCols,rows:nextRows}=plan;
       const occupied=new Set();
       for(const cell of cells){
         const x=Math.floor(cell.x/nextSize),y=Math.floor(cell.y/nextSize),key=y*nextCols+x;
@@ -104,7 +141,7 @@ export function createGroundField(T){
         occupied.add(key);
       }
     }
-    resize(snapshot.world);data.fill(0);
+    resize(plan);data.fill(0);
     for(const cell of cells){
       const x=Math.floor(cell.x/size),y=Math.floor(cell.y/size);
       if(x<0||y<0||x>=cols||y>=rows)continue;
