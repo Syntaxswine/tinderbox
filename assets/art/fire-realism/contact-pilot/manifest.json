@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "id": "tinderbox-contact-tongue-pilot",
+  "artistVersion": "0.10.0-contact-tongue-pilot",
+  "status": "unaccepted-contact-only-structural-prototype",
+  "referenceFrozen": false,
+  "optimizedAvailable": false,
+  "runtimeFiles": [
+    {
+      "path": "assets/art/fire-realism/contact-pilot/index.js",
+      "bytes": 2970,
+      "sha256": "c33884efa38a4e60abb79a6307910f048409b32c796341b4bab6d577914f987d"
+    },
+    {
+      "path": "assets/art/fire-realism/contact-pilot/contact-tongues.js",
+      "bytes": 8110,
+      "sha256": "c7552265463b122105ab607788213ad751873ba4718cdc290e472db91c0c3572"
+    },
+    {
+      "path": "assets/art/fire-realism/contact-pilot/frozen-r09/geometry.js",
+      "bytes": 1078,
+      "sha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036"
+    },
+    {
+      "path": "assets/art/fire-realism/contact-pilot/frozen-r09/ground-field.js",
+      "bytes": 11809,
+      "sha256": "e43e050d26813a907e56e59535bc47f770c374db05032724ae6b9ee35a2f79c8"
+    },
+    {
+      "path": "assets/art/fire-realism/contact-pilot/frozen-r09/index.js",
+      "bytes": 32097,
+      "sha256": "248be51abc7fdabca209a3e2ac7a34f978267b21e4a7c1987fff6e24ba7bf07b"
+    },
+    {
+      "path": "assets/art/fire-realism/contact-pilot/frozen-r09/shaders.js",
+      "bytes": 15008,
+      "sha256": "5f3c65731e3d2b9964a971d390acb5423ad022499afe36d2180e866bba5f620d"
+    },
+    {
+      "path": "assets/art/fire-realism/contact-pilot/frozen-r09/smoke-billows.js",
+      "bytes": 3421,
+      "sha256": "ea8eb36a6399ebdf10201d1ef1685a0ea64a5677e8321f4671c28edb7c24bb6d"
+    }
+  ],
+  "factoryExport": "createContactTonguePilot",
+  "frozenBaseCommit": "a876ba6d5e998baa5be5b0ee7c029a1f3a85090d",
+  "frozenBaseVersion": "0.9.0-reference-candidate",
+  "supportedSource": "One complete native2x2 half-metre grass patch at one elevation, no deposited liquid/other emitting tools/building groups. Zero live source startup/spent is accepted for the original finite smoke tail. Unsupported emitting layouts fail explicitly.",
+  "fieldContract": "Existing detached v1 frame, caller-injected sharedThree, strict borrowed native A/opaque depth, world clock and current native units. No API or simulation change.",
+  "morphology": "Three unequal interior source-owned swept open reaction curtains. Shared nested support/field; maximum overlap, no sum. No noise iso-band or uniform basal contact layer.",
+  "preserved": "Frozen R09 original geometry/32samples/22.2-per-metre extinction/1.65 ramp/common final-alpha association, smoke/jet/torch/facade source; five active R09 files and manifest remain unchanged.",
+  "newResources": {
+    "uniformVec4s": 6,
+    "textures": 0,
+    "histories": 0
+  },
+  "sourcePhotosUsedAtRuntime": false,
+  "limits": [
+    "No actual shader, motion, quality or cost approval; no configured architect receipt.",
+    "Prototype must stop after this contact test if morphology still fails; broader layouts are not implemented."
+  ]
+}

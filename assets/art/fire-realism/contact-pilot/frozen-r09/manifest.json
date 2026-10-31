@@ -1,0 +1,65 @@
+{
+  "version": 10,
+  "id": "tb034-fire-reference",
+  "status": "unaccepted-reference-candidate",
+  "referenceFrozen": false,
+  "optimizedAvailable": false,
+  "baseCommit": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
+  "runtimeFiles": [
+    {
+      "path": "assets/art/fire-realism/geometry.js",
+      "bytes": 1078,
+      "sha256": "10fcdfc7319686c7ed5a7c2b31dd00304146def42f081d1e25be05751384c036"
+    },
+    {
+      "path": "assets/art/fire-realism/shaders.js",
+      "bytes": 15008,
+      "sha256": "5f3c65731e3d2b9964a971d390acb5423ad022499afe36d2180e866bba5f620d"
+    },
+    {
+      "path": "assets/art/fire-realism/index.js",
+      "bytes": 32097,
+      "sha256": "248be51abc7fdabca209a3e2ac7a34f978267b21e4a7c1987fff6e24ba7bf07b"
+    },
+    {
+      "path": "assets/art/fire-realism/smoke-billows.js",
+      "bytes": 3421,
+      "sha256": "ea8eb36a6399ebdf10201d1ef1685a0ea64a5677e8321f4671c28edb7c24bb6d"
+    },
+    {
+      "path": "assets/art/fire-realism/ground-field.js",
+      "bytes": 11809,
+      "sha256": "e43e050d26813a907e56e59535bc47f770c374db05032724ae6b9ee35a2f79c8"
+    }
+  ],
+  "dependencies": [
+    "Caller-injected shared Three r180; no imports of a renderer implementation",
+    "Optional borrowed same-frame opaqueDepth and authoritative fieldUniforms from host adapter"
+  ],
+  "sourceRecord": "art/source/fire-realism/references.json",
+  "referencePhotosUsedAtRuntime": false,
+  "units": "native metres; ground x,y maps to Three x,y-height,z-ground",
+  "clock": "authoritative worldTime; no wall/player clock",
+  "limits": [
+    "Actual shader compilation, animated visual review and GPU elapsed cost pending",
+    "Centroid-sorted intersecting transparent volumes remain approximate; independent clipped rays use explicit exact-line surface ribbons",
+    "Legacy Molotov/barrel transients are an explicit external runtime component; this factory does not duplicate them",
+    "65536 input cells; at most4096 observed emitting/history cells,256 rays,64 building groups and384 jet-smoke records",
+    "Derived256-square source texture is internal only; unsupported mixed/overlapping/wide layouts use an explicit complete native-mask envelope fallback with no omitted source or lower grid resolution. Actual shared-domain seams/catchment motion and useful detailed sampling remain unaccepted."
+  ],
+  "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
+  "artistVersion": "0.9.0-reference-candidate",
+  "correctsCandidate": "13ad95c2d131e3dab28e775c1d33c121ea50d5ed",
+  "preFreezeQualityCorrection": "Actual control08 All/flame/smoke and32/64 field diagnostics show modest association gain but weak full-intensity reaction. Correct final-alpha RGB association after colorspace with matching NormalBlending/premult state; regional22.2-per-metre extinction and smoothly terminating0.24m shared contact layer restore prototype optical depth without changing height/edge/sheets/upper voids. Emission1.65 and32samples retained. JS-double source quadrature is not pixel, GPU, freeze or optimization proof. Original13ad control preserved separately.",
+  "shaderCompilationRepair": {
+    "revision": 1,
+    "failedCandidate": "61770438d041d27b3354b381c106e20ee7b850e7",
+    "architectIntake": "7d62644",
+    "actualBackend": "IAB Chrome156 / NVIDIA RTX3080 / WebGL2",
+    "reportedError": "Fragment shader not compiled: ERROR0:294 'coherent': Illegal use of reserved word; syntax error",
+    "change": "Only four GLSL identifier uses renamed coherent -> regionalGround; all other runtime bytes and optics unchanged",
+    "compiledAfterRepair": true,
+    "actualCompiledCandidate": "d60f2d9646fa0b5bfb82000b8ed15776c4f01d4c",
+    "evidence": "Architect render-round-09-coherent07-repair exact5-file native JPGs; this is historical0.7 compilation, not new0.8 shader acceptance"
+  }
+}
