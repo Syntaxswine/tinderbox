@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "grid": {
+    "originalPath": "workbenches/art/fire-realism/mantaflow-contact/grid.py",
+    "sourceCommit": "b1f88905622c08840f4e0b20a4528a7e7fdf3736",
+    "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+    "adaptations": "none; source envelope/terminal checks are separate new policy functions"
+  },
+  "guardBasis": {
+    "originalPath": "workbenches/art/fire-realism/mantaflow-contact/supervisor.py",
+    "sourceSha256": "cbc3754fc4ed2adcc5c448b1b464d20482364c67e1d74f210af46551e2e55405",
+    "adaptations": "Reviewed identity/Job/registration concepts reused; additive guard adds self Job, shared monotonic deadline and complete accounting. No execution proof yet."
+  },
+  "exactBlenderSourceEvidence": {
+    "fullCommit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+    "findingsPath": "artifacts/qa/fire-realism/blender-flow-source-check/findings.json",
+    "findingsSha256": "c4d6cc116db51d67b07ab7145ac73350d883e007e2dc688836ac7c0e57d425ad",
+    "use": "API/ordering reference only; no Blender implementation imported. Geometric radius/influence is not actual emission/below-ground proof."
+  },
+  "provisionalReviewCorrections": [
+    "Canonical unordered enum sets; ordered vector/matrix preservation",
+    "Explicit nested domain effector-weight state including gravity",
+    "Pre-registration conservative scratch reserve retained on unknown failure; exact-owned receipt reconciliation only",
+    "Consumed bake failure preserves actual cause instead of preissued-permit error"
+  ]
+}
