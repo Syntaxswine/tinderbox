@@ -1,0 +1,451 @@
+{
+  "scope": "Pure geometric mask/kernel targets, NOT Mantaflow observation, flux/mass/energy or aggregate delivery equivalence",
+  "profileSha256": "e15ae7b81b312bae3dd339da75b62c4d8687ba9e15bf2e83c45292ec23b0c29b",
+  "vertexIndexWeights": [
+    {
+      "vertex": 0,
+      "weight": 1.0,
+      "float32Bits": "0000803f"
+    },
+    {
+      "vertex": 1,
+      "weight": 1.0,
+      "float32Bits": "0000803f"
+    },
+    {
+      "vertex": 2,
+      "weight": 1.0,
+      "float32Bits": "0000803f"
+    },
+    {
+      "vertex": 3,
+      "weight": 0.875,
+      "float32Bits": "0000603f"
+    },
+    {
+      "vertex": 4,
+      "weight": 0.875,
+      "float32Bits": "0000603f"
+    },
+    {
+      "vertex": 5,
+      "weight": 0.375,
+      "float32Bits": "0000c03e"
+    },
+    {
+      "vertex": 6,
+      "weight": 0.25,
+      "float32Bits": "0000803e"
+    },
+    {
+      "vertex": 7,
+      "weight": 0.375,
+      "float32Bits": "0000c03e"
+    },
+    {
+      "vertex": 8,
+      "weight": 0.25,
+      "float32Bits": "0000803e"
+    },
+    {
+      "vertex": 9,
+      "weight": 0.0625,
+      "float32Bits": "0000803d"
+    },
+    {
+      "vertex": 10,
+      "weight": 0.5,
+      "float32Bits": "0000003f"
+    },
+    {
+      "vertex": 11,
+      "weight": 0.75,
+      "float32Bits": "0000403f"
+    },
+    {
+      "vertex": 12,
+      "weight": 0.625,
+      "float32Bits": "0000203f"
+    },
+    {
+      "vertex": 13,
+      "weight": 0.375,
+      "float32Bits": "0000c03e"
+    },
+    {
+      "vertex": 14,
+      "weight": 0.125,
+      "float32Bits": "0000003e"
+    },
+    {
+      "vertex": 15,
+      "weight": 0.0625,
+      "float32Bits": "0000803d"
+    },
+    {
+      "vertex": 16,
+      "weight": 0.125,
+      "float32Bits": "0000003e"
+    },
+    {
+      "vertex": 17,
+      "weight": 0.375,
+      "float32Bits": "0000c03e"
+    },
+    {
+      "vertex": 18,
+      "weight": 0.5,
+      "float32Bits": "0000003f"
+    },
+    {
+      "vertex": 19,
+      "weight": 0.375,
+      "float32Bits": "0000c03e"
+    },
+    {
+      "vertex": 20,
+      "weight": 0.125,
+      "float32Bits": "0000003e"
+    },
+    {
+      "vertex": 21,
+      "weight": 0.125,
+      "float32Bits": "0000003e"
+    },
+    {
+      "vertex": 22,
+      "weight": 0.375,
+      "float32Bits": "0000c03e"
+    },
+    {
+      "vertex": 23,
+      "weight": 0.75,
+      "float32Bits": "0000403f"
+    },
+    {
+      "vertex": 24,
+      "weight": 1.0,
+      "float32Bits": "0000803f"
+    }
+  ],
+  "triangleIndexMap": [
+    [
+      24,
+      0,
+      1
+    ],
+    [
+      24,
+      1,
+      2
+    ],
+    [
+      24,
+      2,
+      3
+    ],
+    [
+      24,
+      3,
+      4
+    ],
+    [
+      4,
+      5,
+      6
+    ],
+    [
+      4,
+      6,
+      7
+    ],
+    [
+      24,
+      4,
+      7
+    ],
+    [
+      9,
+      10,
+      11
+    ],
+    [
+      9,
+      11,
+      12
+    ],
+    [
+      9,
+      12,
+      13
+    ],
+    [
+      8,
+      9,
+      13
+    ],
+    [
+      8,
+      13,
+      14
+    ],
+    [
+      8,
+      14,
+      15
+    ],
+    [
+      8,
+      15,
+      16
+    ],
+    [
+      16,
+      17,
+      18
+    ],
+    [
+      16,
+      18,
+      19
+    ],
+    [
+      8,
+      16,
+      19
+    ],
+    [
+      8,
+      19,
+      20
+    ],
+    [
+      8,
+      20,
+      21
+    ],
+    [
+      7,
+      8,
+      21
+    ],
+    [
+      7,
+      21,
+      22
+    ],
+    [
+      7,
+      22,
+      23
+    ],
+    [
+      7,
+      23,
+      24
+    ]
+  ],
+  "total": {
+    "area": 0.3508674400000001,
+    "surfaceWeightIntegral": 0.20366790333333334,
+    "meanWeight": 0.580469659234648,
+    "positiveFootprintArea": 0.3508674400000001,
+    "predictionOnly": true
+  },
+  "perCell": {
+    "cell:10,16": {
+      "area": 0.08757830086580087,
+      "surfaceWeightIntegral": 0.02130796910211078,
+      "meanWeight": 0.2433019240092553,
+      "positiveFootprintArea": 0.08757830086580087,
+      "predictionOnly": true,
+      "sampledTargets": {
+        "baselineE": 57.196801862699544,
+        "weightedE": 13.916737635655657,
+        "baselineFuelTarget": 57.196801862699544,
+        "baselineDensityTarget": 57.196801862699544,
+        "baselineReactionSurfaceFalloff": 59.7934765879754,
+        "fuelTarget": 13.916737635655657,
+        "densityTarget": 13.916737635655657,
+        "reactionSurfaceFalloff": 24.060694022152997,
+        "positiveHeatGates": 61.0
+      }
+    },
+    "cell:11,16": {
+      "area": 0.06052398761904763,
+      "surfaceWeightIntegral": 0.02227652546472293,
+      "meanWeight": 0.3680611000870709,
+      "positiveFootprintArea": 0.06052398761904763,
+      "predictionOnly": true,
+      "sampledTargets": {
+        "baselineE": 40.569331360568874,
+        "weightedE": 15.072380271369601,
+        "baselineFuelTarget": 40.569331360568874,
+        "baselineDensityTarget": 40.569331360568874,
+        "baselineReactionSurfaceFalloff": 42.67871954232219,
+        "fuelTarget": 15.072380271369601,
+        "densityTarget": 15.072380271369601,
+        "reactionSurfaceFalloff": 23.817723873172273,
+        "positiveHeatGates": 44.0
+      }
+    },
+    "cell:10,17": {
+      "area": 0.09963515151515154,
+      "surfaceWeightIntegral": 0.07979892612387841,
+      "meanWeight": 0.8009113742527242,
+      "positiveFootprintArea": 0.09963515151515154,
+      "predictionOnly": true,
+      "sampledTargets": {
+        "baselineE": 63.505026579197356,
+        "weightedE": 50.59199473900896,
+        "baselineFuelTarget": 63.505026579197356,
+        "baselineDensityTarget": 63.505026579197356,
+        "baselineReactionSurfaceFalloff": 66.59963984717142,
+        "fuelTarget": 50.59199473900896,
+        "densityTarget": 50.59199473900896,
+        "reactionSurfaceFalloff": 57.13046398640548,
+        "positiveHeatGates": 69.0
+      }
+    },
+    "cell:11,17": {
+      "area": 0.10313,
+      "surfaceWeightIntegral": 0.08028448264262125,
+      "meanWeight": 0.7784784509126467,
+      "positiveFootprintArea": 0.10313,
+      "predictionOnly": true,
+      "sampledTargets": {
+        "baselineE": 66.47710303957491,
+        "weightedE": 50.30584365898794,
+        "baselineFuelTarget": 66.47710303957491,
+        "baselineDensityTarget": 66.47710303957491,
+        "baselineReactionSurfaceFalloff": 69.9540567479038,
+        "fuelTarget": 50.30584365898794,
+        "densityTarget": 50.30584365898794,
+        "reactionSurfaceFalloff": 61.0160536448899,
+        "positiveHeatGates": 72.0
+      }
+    }
+  },
+  "lobeVoronoiPartitions": {
+    "primary": {
+      "area": 0.20626192188316625,
+      "surfaceWeightIntegral": 0.15917704482032513,
+      "meanWeight": 0.7717228820862457,
+      "positiveFootprintArea": 0.20626192188316625,
+      "predictionOnly": true,
+      "gaugeWeight": 0.931896551724138,
+      "sampledTargets": {
+        "baselineE": 129.8184346990083,
+        "weightedE": 99.40525601171247,
+        "baselineFuelTarget": 129.8184346990083,
+        "baselineDensityTarget": 129.8184346990083,
+        "baselineReactionSurfaceFalloff": 135.7846024646255,
+        "fuelTarget": 99.40525601171247,
+        "densityTarget": 99.40525601171247,
+        "reactionSurfaceFalloff": 115.99014587018162,
+        "positiveHeatGates": 140.0
+      }
+    },
+    "secondary": {
+      "area": 0.07363084205506615,
+      "surfaceWeightIntegral": 0.025937185534429304,
+      "meanWeight": 0.3522597978036393,
+      "positiveFootprintArea": 0.07363084205506615,
+      "predictionOnly": true,
+      "gaugeWeight": 0.47043820036795464,
+      "sampledTargets": {
+        "baselineE": 51.32054477676267,
+        "weightedE": 18.190398018622552,
+        "baselineFuelTarget": 51.32054477676267,
+        "baselineDensityTarget": 51.32054477676267,
+        "baselineReactionSurfaceFalloff": 54.41185694208688,
+        "fuelTarget": 18.190398018622552,
+        "densityTarget": 18.190398018622552,
+        "reactionSurfaceFalloff": 28.952380380057402,
+        "positiveHeatGates": 56.0
+      }
+    },
+    "small": {
+      "area": 0.07097467606176765,
+      "surfaceWeightIntegral": 0.01855367297857887,
+      "meanWeight": 0.2614125771061221,
+      "positiveFootprintArea": 0.07097467606176765,
+      "predictionOnly": true,
+      "gaugeWeight": 0.38131313131313127,
+      "sampledTargets": {
+        "baselineE": 46.60928336627013,
+        "weightedE": 12.291302274687117,
+        "baselineFuelTarget": 46.60928336627013,
+        "baselineDensityTarget": 46.60928336627013,
+        "baselineReactionSurfaceFalloff": 48.829433318660776,
+        "fuelTarget": 12.291302274687117,
+        "densityTarget": 12.291302274687117,
+        "reactionSurfaceFalloff": 21.082409276381647,
+        "positiveHeatGates": 50.0
+      }
+    }
+  },
+  "resolvedFeatureAreas": {
+    "high": {
+      "area": 0.14235500000000004,
+      "surfaceWeightIntegral": 0.13431145833333333,
+      "meanWeight": 0.9434965988783905,
+      "positiveFootprintArea": 0.14235500000000004,
+      "predictionOnly": true,
+      "equivalentAreaDiameterVoxels": 10.217688626352142
+    },
+    "weak": {
+      "area": 0.07652997589610391,
+      "surfaceWeightIntegral": 0.013783948813852816,
+      "meanWeight": 0.18011176212267102,
+      "positiveFootprintArea": 0.07652997589610391,
+      "predictionOnly": true,
+      "equivalentAreaDiameterVoxels": 7.491729520016312
+    }
+  },
+  "gridModel": {
+    "resolution": [
+      48,
+      48,
+      96
+    ],
+    "spacing": [
+      0.041666666666666664,
+      0.041666666666666664,
+      0.041666666666666664
+    ],
+    "origin": [
+      -0.9791666666666666,
+      -0.9791666666666666,
+      -0.14583333333333331
+    ]
+  },
+  "sampledTargets": {
+    "baselineE": 227.74826284204048,
+    "weightedE": 129.88695630502218,
+    "baselineFuelTarget": 227.74826284204048,
+    "baselineDensityTarget": 227.74826284204048,
+    "baselineReactionSurfaceFalloff": 239.0258927253735,
+    "fuelTarget": 129.88695630502218,
+    "densityTarget": 129.88695630502218,
+    "reactionSurfaceFalloff": 166.0249355266206,
+    "positiveHeatGates": 246.0
+  },
+  "predictedPositiveCounts": {
+    "cell:10,16": 61,
+    "cell:11,16": 44,
+    "cell:10,17": 69,
+    "cell:11,17": 72
+  },
+  "baselinePositiveCount": 246,
+  "weightedHeatGateCount": 246,
+  "requestedHeatScalarOnPositiveE": 2.0,
+  "deliberateZeroIndices": [],
+  "predictedBelowGround": 0,
+  "predictedOutsideA": 0,
+  "coupling": "Weights reduce shared E/fuel/density and nonlinear react target; positive E gates heat without multiplying temperature. Absolute-mode current/max and fuel/react mixing prevent an aggregate-dose claim.",
+  "actualInputGridExposure": "UNRESOLVED; group readbacks/final DTF do not expose effective fuelIn/heatIn/transition grids",
+  "fixtureBasis": "Mathematical48x48x96 h=1/24 grid, not a new Mantaflow/grid observation; future preparation uses separately pinned original actual grid metadata.",
+  "equivalentAreaDiameterLimit": "Area-equivalent diameter is not minimum feature width or a resolved CFD structure proof.",
+  "sourceHelperSha256": "07ea08cb90b6f205dad4dc07f8004f74b3ada87dc6041104fa5a85e9cc202107"
+}

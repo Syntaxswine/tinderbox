@@ -1,0 +1,247 @@
+{
+  "version": 1,
+  "grid": {
+    "originalPath": "workbenches/art/fire-realism/mantaflow-contact/grid.py",
+    "sourceCommit": "b1f88905622c08840f4e0b20a4528a7e7fdf3736",
+    "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+    "adaptations": "none; source envelope/terminal checks are separate new policy functions"
+  },
+  "guardBasis": {
+    "originalPath": "workbenches/art/fire-realism/mantaflow-contact/supervisor.py",
+    "sourceSha256": "cbc3754fc4ed2adcc5c448b1b464d20482364c67e1d74f210af46551e2e55405",
+    "adaptations": "Reviewed identity/Job/registration concepts reused; additive guard adds self Job, shared monotonic deadline and complete accounting. No execution proof yet."
+  },
+  "exactBlenderSourceEvidence": {
+    "fullCommit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+    "findingsPath": "artifacts/qa/fire-realism/blender-flow-source-check/findings.json",
+    "findingsSha256": "c4d6cc116db51d67b07ab7145ac73350d883e007e2dc688836ac7c0e57d425ad",
+    "use": "API/ordering reference only; no Blender implementation imported. Geometric radius/influence is not actual emission/below-ground proof."
+  },
+  "provisionalReviewCorrections": [
+    "Canonical unordered enum sets; ordered vector/matrix preservation",
+    "Explicit nested domain effector-weight state including gravity",
+    "Pre-registration conservative scratch reserve retained on unknown failure; exact-owned receipt reconciliation only",
+    "Consumed bake failure preserves actual cause instead of preissued-permit error"
+  ],
+  "halfRateCounterfactual": {
+    "authority": "baff94f95b47815678fddeb14bd276d0da5475f9",
+    "baselineCommit": "d40dafa3eef0796a15172300d528bc26c72f7f76",
+    "baselineDirectory": "workbenches/art/fire-realism/mantaflow-surface-source",
+    "baselineNine": [
+      {
+        "name": "author.py",
+        "bytes": 18191,
+        "sha256": "9debc5ca5502b72ed1a8c8554b5ce1266b956f36fa5521558efa700d9a377d85"
+      },
+      {
+        "name": "grid.py",
+        "bytes": 2971,
+        "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+      },
+      {
+        "name": "policy.py",
+        "bytes": 8278,
+        "sha256": "13038fbac3c9c2c15445ebe6db4ce9e895277dda7d588e5cc5c033a74dfc2963"
+      },
+      {
+        "name": "state.py",
+        "bytes": 4531,
+        "sha256": "3d1837b91b73bfd8836bdbc2cb8f080b229be589fa865c21bbd9f68b0a0e31c4"
+      },
+      {
+        "name": "surface.py",
+        "bytes": 5950,
+        "sha256": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152"
+      },
+      {
+        "name": "supervisor.py",
+        "bytes": 28661,
+        "sha256": "a4e66831aa5ad22c0c276f96b9cecd4b4e533c7222bd5cf0af91155166c0bd2c"
+      },
+      {
+        "name": "winjob.py",
+        "bytes": 22699,
+        "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee"
+      },
+      {
+        "name": "settings.json",
+        "bytes": 5642,
+        "sha256": "b83c2266cd9458ac33ffc53692a8af946c576d07ab90e74073ff633c7bb14e52"
+      },
+      {
+        "name": "helper-provenance.json",
+        "bytes": 1545,
+        "sha256": "0878bcf7df35ac19ea61bfc782fd0e1742827f0306150bf796a98ea8a3653c3c"
+      }
+    ],
+    "independentPhysicalChange": {
+      "RNA": "domainSettings.burning_rate",
+      "baseline": 0.75,
+      "target": 0.375
+    },
+    "rawUnchangedHelpers": [
+      "grid.py",
+      "state.py",
+      "surface.py",
+      "winjob.py"
+    ],
+    "controls": {
+      "prepareReport": {
+        "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/prepare.json",
+        "bytes": 107511,
+        "sha256": "b8c902c637447ccada9377b30dedfe2711b1c578a4613b0731cc9767c3bf86df"
+      },
+      "preparedScene": {
+        "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/surface-source.blend",
+        "bytes": 472919,
+        "sha256": "86fd4f8f5e5c00857fa9f812b78a311c26b20318c06fcc58518890f7bec43da6"
+      },
+      "rawManifest": {
+        "path": "artifacts/qa/fire-realism/mantaflow-surface-source/stage-2026-10-31-v5/raw-manifest.json",
+        "bytes": 4626878,
+        "sha256": "dc257c0200ea12dcea9c48fdf711cb33e6de62ab989732c731cdd7099f16a4ce"
+      }
+    },
+    "noActualRunApproved": true
+  },
+  "weightedSurfaceSource": {
+    "authority": "fe109488fd23b3d8481e93c6f88414b829d4e6a9",
+    "baselineCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+    "baselineDirectory": "workbenches/art/fire-realism/mantaflow-half-rate-source",
+    "baselineSourcePins": [
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/author.py",
+        "bytes": 20267,
+        "name": "author.py",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "2af474b20e4d8a0052bd0a1de76a07e6498a4a68",
+        "sha256": "c3066b6e39239268fcf472f417fc8253ed7078c62531c038da3c089c716148d2"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/grid.py",
+        "bytes": 2971,
+        "name": "grid.py",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "2b595c98886f78c66eb23463441653a7fdff4795",
+        "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/policy.py",
+        "bytes": 11759,
+        "name": "policy.py",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "3400d1ff1b7d57276829b0c830b967adb8b4be19",
+        "sha256": "a3e7bfa2da72b6bceeb34d388e5174c54e27b2b048960f7894cc2ec613a3e470"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/state.py",
+        "bytes": 4531,
+        "name": "state.py",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "8e203465f4f4437f17221171a3a94662363c5d6a",
+        "sha256": "3d1837b91b73bfd8836bdbc2cb8f080b229be589fa865c21bbd9f68b0a0e31c4"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/surface.py",
+        "bytes": 5950,
+        "name": "surface.py",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "0df36001c9d1020456003611ad72506ca496ee42",
+        "sha256": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/supervisor.py",
+        "bytes": 29154,
+        "name": "supervisor.py",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "dbd748c4e796f7d85187a615312593fbee4d7d15",
+        "sha256": "810ae47068932fa68d274ef967e5da5a449ffff20f93704183bc9f0868eecd37"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/winjob.py",
+        "bytes": 22699,
+        "name": "winjob.py",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "92fa8b2c53fa55c39896f3a34d1a7b996aaaf09c",
+        "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/settings.json",
+        "bytes": 6489,
+        "name": "settings.json",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "f3631d56d96a65294decaefd28381ba505c4c366",
+        "sha256": "855cadfad35e667f9e659c2a7dc676acca3d84ea2ebde01f612f9a79df70a953"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/helper-provenance.json",
+        "bytes": 4275,
+        "name": "helper-provenance.json",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "d6e1567a2493ab1c18a9abc9efed97e1e304b4b0",
+        "sha256": "ad61a1691d9622eb41229dfc01b566402573ce794ce5be5c792f74b2f67097cf"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/.gitattributes",
+        "bytes": 103,
+        "name": ".gitattributes",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "fb6eb3c340860397d0b0229cdee5451a70aaf86e",
+        "sha256": "9897af2469e1a55315e5d0c13f15b69e71b0ea14cb33067c61aece624ca800f6"
+      },
+      {
+        "sourcePath": "workbenches/art/fire-realism/mantaflow-half-rate-source/.gitignore",
+        "bytes": 13,
+        "name": ".gitignore",
+        "sourceCommit": "cfe4d95b4ffd17b20376073a18d7ac8d0947b781",
+        "gitBlob": "c18dd8d83ceed1806b50b0aaa46beb7e335fff13",
+        "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+      }
+    ],
+    "physicalChange": "One named static density_vertex_group on the same25-vertex source; all other physical settings/curves/topology/transforms remain the half-rate recipe.",
+    "profileSha256": "e15ae7b81b312bae3dd339da75b62c4d8687ba9e15bf2e83c45292ec23b0c29b",
+    "rawUnchangedHelpers": [
+      "grid.py",
+      "surface.py",
+      "winjob.py"
+    ],
+    "minimalStateExtension": "state.capture adds actual original/evaluated complete group/deform membership observations; never excludes the witness as volatile. Earlier rawUnchangedHelpers describes the historical half-rate delivery only.",
+    "controllerChanges": "New namespace/purpose/permit kind and10-core source set; strict preparation and saved/reloaded pre-bake weight gates. Identity/Job/accounting/deadline/termination implementation unchanged.",
+    "exactBuildSource": {
+      "commit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+      "url": "https://raw.githubusercontent.com/blender/blender/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/blenkernel/intern/fluid.cc",
+      "localPath": "artifacts/qa/fire-realism/blender-flow-source-check/fluid.cc",
+      "bytes": 180656,
+      "sha256": "af90b41f204108ad14cedb5dc5cfc8a6c1922c6d4cfcd7a2572779a9c1c881ab",
+      "lines": {
+        "barycentricSurfaceWeights": [
+          1905,
+          1909
+        ],
+        "groupAndDeformIndex": [
+          2067,
+          2077
+        ],
+        "sharedInflowFields": [
+          2411,
+          2487
+        ]
+      }
+    },
+    "semantics": "Shared E changes fuel/density targets and nonlinear reaction falloff; positive E gates heat without scaling requested temperature. Actual absolute-mode field max/current and fuel/react mixing remain coupled; no dose equivalence or effective input-grid proof.",
+    "localVorticityConsequence": {
+      "localPath": "artifacts/qa/fire-realism/cache-field-primary-source-review/intern__mantaflow__intern__strings__smoke_script.h",
+      "bytes": 31654,
+      "sha256": "f93ce6118894811f4008926fde9e4c891761cfb41c2f850cf25898614355eac7",
+      "lines": [
+        368,
+        370
+      ],
+      "meaning": "Unchanged flame_vorticity.5 multiplies actual fuel for local confinement. Weighting can change this coupled forcing; no residence-only isolation."
+    },
+    "rights": "Original Tinderbox authoring/profile code. Blender source is cited for API/semantics only; no Blender implementation, photo pixels or new external asset imported.",
+    "prediction": "profile-prediction.json is tiny pure geometric target evidence, not solver fields/mass/energy/radiometry or native visual evidence.",
+    "noActualRunApproved": true,
+    "noNativeAcceptance": true
+  }
+}
