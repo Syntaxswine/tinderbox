@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "proposalCommit": "3a5b681228af4c0989c50cba41c85b93f6cb1791",
+  "baseSourceCommit": "d59780cd057b59026c355df0dfa43003c9612708",
+  "preservedAttempt01": {
+    "rawGatesPassed": false,
+    "admitted": false,
+    "failureSha256": "5ebea8d6a1232f21d2d7703100f28fbf39088f0669ee18505b58cdfb259a4192",
+    "terminalProofSha256": "ceca50ce1f0b01a901147faccf978687bc11f39f9c980af57f5ca78c35d4d6ef"
+  },
+  "localCodecAdaptation": {
+    "canonicalBytes": 6418,
+    "canonicalSha256": "5a3fa557caa064097405e55f0fe6b56af1a034520be4aaf5cdc8bf75fd5793d0",
+    "adaptedBytes": 6418,
+    "adaptedSha256": "63a7123c6baba70b3c217f92b27be46f609ef43a186ef0245efd098ca1f27bd9",
+    "oldSparseBytes": 100663296,
+    "sparseBytes": 102760448,
+    "change": "Exactly one generated-local PAYLOAD_LIMITS literal96->98; other constants/functions/format unchanged"
+  },
+  "pureHelpersReusedByPinnedImport": {
+    "eligibility": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/eligibility.mjs",
+      "bytes": 5659,
+      "sha256": "0cf2a42877871c014fc2532a4e534c28eeb25ef33c962a73588700a1ee95fb3e",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "pairSupport": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/support.mjs",
+      "bytes": 3371,
+      "sha256": "6433564e677964a83a526434347ec55cbc1d37b94abbe45639b4c3cde4bcce7c",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    },
+    "factorySource": {
+      "path": "workbenches/art/fire-realism/half-rate-diagnostic-asset/factory-source.mjs",
+      "bytes": 3486,
+      "sha256": "37ff7c29982610b467b9fd8aeb394c2b4a7a332ffe9ee0acf5834eb88ab3b9ab",
+      "gitCommit": "d59780cd057b59026c355df0dfa43003c9612708"
+    }
+  },
+  "unchangedRuntimeCopies": {
+    "source-clock.js": {
+      "path": "assets/art/fire-realism/fluid-contact/source-clock.js",
+      "bytes": 4595,
+      "sha256": "be2dd16af7f08a692500f2109283a9c6cdfaf4bf01f5450a2332cff0d09dab22"
+    },
+    "support.js": {
+      "path": "assets/art/fire-realism/fluid-contact/support.js",
+      "bytes": 4425,
+      "sha256": "00dcdf56c9581f43e49af67d0156e708127dc2229c8bcb4f14ec34b3961bef56"
+    },
+    "space.js": {
+      "path": "assets/art/fire-realism/fluid-contact/space.js",
+      "bytes": 1588,
+      "sha256": "c1edebe754bd08a8a5955c3c03c50e17517daac869e1aca7fded819c769254fd"
+    },
+    "shaders.js": {
+      "path": "assets/art/fire-realism/fluid-contact/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    "floor.js": {
+      "path": "workbenches/art/fire-realism/mantaflow-surface-source/asset-v5/templates/floor.js",
+      "bytes": 485,
+      "sha256": "87133f3da6493d56ba4924c64fc1ab7669a5ffeca69f47d1249c9ad9fad738cb"
+    },
+    "emission-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    "normalization-transfer.js": {
+      "path": "assets/art/fire-realism/fluid-surface-emission-normalization-transfer.js",
+      "bytes": 2462,
+      "sha256": "3f6e1442d4eebc4542f5dd474ee42d6175fdef7341a25eebac601cf2509a8742"
+    },
+    "payload/rgba-decode.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/rgba-decode.js",
+      "bytes": 616,
+      "sha256": "5c74c945791b06b280c7847af34e5bd5a9ea7d371dad091ceddb5efa5ae82962"
+    },
+    "payload/payload.js": {
+      "path": "assets/art/fire-realism/fluid-contact-surface/payload/payload.js",
+      "bytes": 15109,
+      "sha256": "675c8bf8c75502e5f6696b026bbfcc021c8c922b69320f5f82e89868612713e2"
+    }
+  },
+  "changes": [
+    "New asset-02 namespace; fresh assembly-02/host-assembly-02 required later. Original01 kit/partials unchanged.",
+    "Plan sparse96->98MiB and exact generated-local codec capacity literal/hash only. Canonical codec, payload.js, rgba-decode.js remain unchanged.",
+    "Original eligibility/support/factory-source imported from pinned d597; no copied helper family.",
+    "All FZP2 bits/arithmetic, scalar hashes, optics/world clocks/A0burnout/tail/depth/light/readability/geometry methods unchanged.",
+    "Runtime independently owns aggregate loader sparse98; no artist runtime/descriptor changes."
+  ],
+  "sourceOnly": true,
+  "actualDataReadOrGeneration": false,
+  "admitted": false,
+  "limitsMeaning": "Only maximum shared sparse CPU allowance grows2MiB. Other ceilings and twoRGBA slots unchanged; no GPU/performance/quality benefit claim."
+}
