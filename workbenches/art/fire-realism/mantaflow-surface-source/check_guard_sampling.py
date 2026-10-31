@@ -15,8 +15,8 @@ def run_record():
     return {'candidateCommit':'f'*40,'sourcePins':{'mock':'not-a-delivery'},'deadlineEpoch':1900,'deadlineTickMs':900000}
 
 class FakeKernel:
-    def __init__(self,stage=None,waits=None,owned=True,open_error=None,membership_error=False,wait_durations=None):
-        self.stage=stage;self.waits=list(waits or []);self.owned=owned;self.open_error=open_error;self.membership_error=membership_error;self.error=0;self.events=[];self.closed=[];self.terminated=[];self.clock=1000;self.requests=[];self.wait_durations=list(wait_durations or [])
+    def __init__(self,stage=None,waits=None,owned=True,open_error=None,membership_error=False,wait_durations=None,census_frames=None):
+        self.stage=stage;self.waits=list(waits or []);self.owned=owned;self.open_error=open_error;self.membership_error=membership_error;self.error=0;self.events=[];self.closed=[];self.terminated=[];self.clock=1000;self.requests=[];self.wait_durations=list(wait_durations or []);self.census_frames=list(census_frames or []);self.census_provider=lambda:[PID]
     def OpenProcess(self,rights,inherit,pid):
         self.events.append(('open',rights,pid));assert rights&0x100000 # SYNCHRONIZE is present.
         if self.open_error is not None:self.error=self.open_error;return 0
@@ -46,14 +46,21 @@ class FakeKernel:
     def CloseHandle(self,handle):self.events.append(('close',handle));self.closed.append(handle);return True
     def TerminateProcess(self,handle,code):self.terminated.append((handle,code));return True
     def AssignProcessToJobObject(self,job,handle):self.events.append(('join',job,handle));return True
+    def QueryInformationJobObject(self,job,kind,output,size,returned):
+        assert kind==3
+        frame=self.census_frames.pop(0)if self.census_frames else{'pids':self.census_provider()}
+        self.events.append(('census',job));value=output._obj;pids=frame.get('pids',[])
+        value.assigned=frame.get('assigned',len(pids));value.listed=frame.get('returned',len(pids))
+        for i,pid in enumerate(pids[:len(value.pids)]):value.pids[i]=pid
+        self.error=frame.get('error',9996);return frame.get('ok',True)
     def GetCurrentProcess(self):return 999
     def GetTickCount64(self):return self.clock
 
 def fake_job(**options):
     api=FakeKernel(**options);job=object.__new__(OwnedJob) # __init__ is NEVER called.
     job.k=api;job.p=api;job.h=77;job.joined=False;job.disarmed=False;job.known={};job.me={'pid':os.getpid(),'creationFileTime':100,'executable':'mock-controller'}
-    job.process_limit=job.aggregate_limit=LIMIT;job.limit_readback={'status':'not-queried','actual':None};job.sampling_events=[];job.sampling_counts={'events':0,'confirmedExitedSkips':0,'failures':0,'dropped':0};job.sample_sequence=0;job.last_sample=None
-    job.members=lambda:[PID]
+    job.process_limit=job.aggregate_limit=LIMIT;job.limit_readback={'status':'not-queried','actual':None};job.sampling_events=[];job.sampling_counts={'events':0,'confirmedExitedSkips':0,'censusOmissions':0,'failures':0,'dropped':0};job.sample_sequence=0;job.last_sample=None
+    job.members=lambda:[PID];api.census_provider=lambda:job.members()
     def info():
         api.events.append(('info',));return {'processLimitBytes':LIMIT,'aggregateLimitBytes':LIMIT,'peakProcessCommittedBytes':777,'peakJobCommittedBytes':888,'flags':0x2300}
     job.info=info
@@ -137,7 +144,7 @@ class SamplingTests(unittest.TestCase):
     def test_journal_is_bounded_and_departures_keep_job_peaks(self):
         job,api=fake_job(waits=[WAIT_OBJECT_0]*(SAMPLE_EVENT_LIMIT+6))
         for _ in range(SAMPLE_EVENT_LIMIT+6):self.assertEqual(self.sample(job,api)['job']['peakJobCommittedBytes'],888)
-        self.assertEqual(len(job.sampling_events),SAMPLE_EVENT_LIMIT);self.assertEqual(job.sampling_counts,{'events':70,'confirmedExitedSkips':70,'failures':0,'dropped':6});self.assertEqual(len(api.closed),70)
+        self.assertEqual(len(job.sampling_events),SAMPLE_EVENT_LIMIT);self.assertEqual(job.sampling_counts,{'events':70,'confirmedExitedSkips':70,'censusOmissions':0,'failures':0,'dropped':6});self.assertEqual(len(api.closed),70)
         api.stage='executable-image';api.waits=[WAIT_TIMEOUT,WAIT_TIMEOUT]
         with self.assertRaises(ProcessQueryError):self.sample(job,api)
         self.assertEqual(len(job.sampling_events),SAMPLE_EVENT_LIMIT);self.assertEqual(job.sampling_events[-1]['originalWin32Error'],5);self.assertEqual(job.sampling_counts['failures'],1);self.assertEqual(job.sampling_counts['dropped'],7)
@@ -187,6 +194,71 @@ class SamplingTests(unittest.TestCase):
         source=Path(__file__).with_name('supervisor.py').read_text(encoding='utf-8');tree=ast.parse(source);callback=next(n for n in tree.body if isinstance(n,ast.FunctionDef)and n.name=='remaining_sampling_wait_ms')
         self.assertFalse(any(isinstance(n,(ast.While,ast.For))for n in ast.walk(callback)))
         self.assertFalse(any(isinstance(n,ast.Call)and isinstance(n.func,ast.Attribute)and n.func.attr in ['sample','guard']for n in ast.walk(callback)))
+
+    def test_error87_complete_same_job_absence_omits_only_current_memory(self):
+        job,api=fake_job(open_error=87,census_frames=[{'pids':[PID]},{'pids':[os.getpid()]}]);r=self.sample(job,api)
+        event=job.sampling_events[-1];evidence=event['censusEvidence']
+        self.assertEqual(event['disposition'],'omit-absent-from-refreshed-job-census');self.assertEqual(event['originalWin32Error'],87);self.assertFalse(event['exactJobMembershipConfirmed']);self.assertEqual(event['observedIdentity'],{'pid':PID})
+        self.assertEqual(evidence['initialCensus']['pids'],[PID]);self.assertEqual(evidence['refreshedCensus']['pids'],[os.getpid()]);self.assertTrue(evidence['sameJobHandleVerified']);self.assertTrue(evidence['controllerMembershipConfirmed']);self.assertIsNone(evidence['creationFileTime']);self.assertIsNone(evidence['executable']);self.assertIsNone(evidence['exitCause'])
+        self.assertEqual(r['members'],[]);self.assertEqual(r['job']['peakJobCommittedBytes'],888);self.assertEqual(evidence['jobAccounting']['peakJobCommittedBytes'],888);self.assertEqual(job.sampling_counts['censusOmissions'],1);self.assertEqual(job.sampling_counts['confirmedExitedSkips'],0);self.assertNotIn(PID,job.known)
+        self.assertEqual(len([e for e in api.events if e[0]=='census']),2);self.assertEqual(len([e for e in api.events if e[0]=='open']),1);self.assertEqual(api.requests,[]);self.assertEqual(api.closed,[])
+    def test_error87_requires_complete_absence_and_same_job_census(self):
+        variants=[{'pids':[os.getpid(),PID]},{'pids':[os.getpid()],'assigned':2,'returned':1},{'pids':[os.getpid()],'ok':False,'error':234},{'pids':[os.getpid(),os.getpid()]},{'pids':[0]},{'pids':[]},{'pids':[os.getpid()],'returned':1025}]
+        for refreshed in variants:
+            with self.subTest(refreshed=refreshed):
+                job,api=fake_job(open_error=87,census_frames=[{'pids':[PID]},refreshed])
+                with self.assertRaises(OSError)as raised:self.sample(job,api)
+                event=job.sampling_events[-1];self.assertEqual(raised.exception.errno,87);self.assertEqual(event['originalWin32Error'],87);self.assertEqual(event['disposition'],'abort-refreshed-census-check');self.assertIsNotNone(event['censusEvidence']['initialCensus']);self.assertIsNotNone(event['censusEvidence']['refreshedCensus']);self.assertEqual(job.sampling_counts['censusOmissions'],0);self.assertEqual(api.requests,[])
+        job,api=fake_job(open_error=87,census_frames=[{'pids':[PID]},{'pids':[os.getpid()]}]);real=job.sample_census;calls=[]
+        def changed_handle():
+            calls.append(1);result=real()
+            if len(calls)==2:result['jobHandle']=88
+            return result
+        job.sample_census=changed_handle
+        with self.assertRaises(OSError):self.sample(job,api)
+        self.assertFalse(job.sampling_events[-1]['censusEvidence']['sameJobHandleVerified'])
+    def test_error87_accounting_membership_and_budget_failures_keep_original(self):
+        for fault in ['membership','process-cap','aggregate-cap','flags','breakaway','silent-breakaway','accounting','before-budget','after-budget']:
+            with self.subTest(fault=fault):
+                job,api=fake_job(open_error=87,census_frames=[{'pids':[PID]},{'pids':[os.getpid()]}]);normal_info=job.info
+                if fault=='membership':api.owned=False
+                def info():
+                    if fault=='accounting':raise OSError(5,'mock Job accounting failed')
+                    actual=normal_info()
+                    if fault=='process-cap':actual['processLimitBytes']=1
+                    if fault=='aggregate-cap':actual['aggregateLimitBytes']=1
+                    if fault=='flags':actual['flags']=0
+                    if fault=='breakaway':actual['flags']|=0x800
+                    if fault=='silent-breakaway':actual['flags']|=0x1000
+                    return actual
+                job.info=info;checks=[]
+                def budget():
+                    checks.append(1)
+                    if fault=='before-budget'or(fault=='after-budget'and len(checks)==2):raise SamplingBudgetError('mock STOP/deadline',0)
+                    return 10000
+                with self.assertRaises(OSError)as raised:self.sample(job,api,budget)
+                event=job.sampling_events[-1];self.assertEqual(raised.exception.errno,87);self.assertEqual(event['originalWin32Error'],87);self.assertEqual(job.sampling_counts['censusOmissions'],0);self.assertEqual(api.requests,[])
+                evidence=event['censusEvidence'];self.assertTrue(evidence['predicateFailure']or evidence['afterBudgetFailure']);self.assertEqual(len(checks),2)
+        job,api=fake_job(open_error=87,census_frames=[{'pids':[PID]},{'pids':[os.getpid()]}]);normal_info=job.info;calls=[]
+        def final_accounting_fails():
+            calls.append(1)
+            if len(calls)==2:raise OSError(5,'final mandatory peak query failed')
+            return normal_info()
+        job.info=final_accounting_fails
+        with self.assertRaises(OSError):self.sample(job,api)
+        self.assertFalse(job.last_sample['complete']);self.assertEqual(job.sampling_events[-1]['originalWin32Error'],87)
+    def test_census_rule_is_sampling_only_and_partial_initial_lists_abort(self):
+        for frame in [{'pids':[PID],'assigned':2},{'pids':[PID,PID]},{'pids':[PID],'ok':False,'error':234}]:
+            job,api=fake_job(open_error=87,census_frames=[frame])
+            with self.assertRaises(OSError):self.sample(job,api)
+            self.assertFalse(any(e[0]=='open'for e in api.events));self.assertEqual(job.sampling_events[-1]['disposition'],'abort-incomplete-census')
+        for error in [5,1168]:
+            job,api=fake_job(open_error=error,census_frames=[{'pids':[PID]},{'pids':[os.getpid()]}])
+            with self.assertRaises(OSError):self.sample(job,api)
+            self.assertEqual(len([e for e in api.events if e[0]=='census']),1)
+        source=Path(winjob.__file__).read_text(encoding='utf-8');tree=ast.parse(source);klass=next(n for n in tree.body if isinstance(n,ast.ClassDef)and n.name=='OwnedJob')
+        callers=[n.name for n in klass.body if isinstance(n,ast.FunctionDef)and any(isinstance(c,ast.Call)and isinstance(c.func,ast.Attribute)and c.func.attr=='_sample_absent_from_census'for c in ast.walk(n))]
+        self.assertEqual(callers,['sample'])
 
 class ReadbackTests(unittest.TestCase):
     def test_numeric_readback_is_durable_before_any_fake_command(self):

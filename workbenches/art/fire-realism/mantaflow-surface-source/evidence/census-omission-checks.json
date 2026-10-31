@@ -1,0 +1,38 @@
+{
+  "scope": "code-only sampling-census; pure/static and mocked APIs only",
+  "parentCommit": "782d72deb84f92f78726418e4220e05014e9fed1",
+  "sourcePins": {
+    "author.py": "9debc5ca5502b72ed1a8c8554b5ce1266b956f36fa5521558efa700d9a377d85",
+    "grid.py": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247",
+    "policy.py": "1ffa372668d1951524c1485fe9c0151fc848775f2b0fe845e962c8c3afb713b0",
+    "state.py": "3d1837b91b73bfd8836bdbc2cb8f080b229be589fa865c21bbd9f68b0a0e31c4",
+    "surface.py": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152",
+    "supervisor.py": "a4e66831aa5ad22c0c276f96b9cecd4b4e533c7222bd5cf0af91155166c0bd2c",
+    "winjob.py": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee",
+    "settings.json": "c0e15f205b3cdd85f84427a3a32b1c05123fb9054fcb4351810b4ae716157d2d",
+    "helper-provenance.json": "0878bcf7df35ac19ea61bfc782fd0e1742827f0306150bf796a98ea8a3653c3c"
+  },
+  "checkedUtc": "2026-10-31T08:00:49.441258+00:00",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\baals\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "workbenches\\art\\fire-realism\\mantaflow-surface-source\\check_static.py"
+      ],
+      "scriptSha256": "70c2347a3ec715bbbdbd800f8fc7b3c2c441de706baf2539fbbe58167331f3ec",
+      "exitCode": 0,
+      "log": "test_half_voxel_math_is_not_clearance_proof (__main__.GeometryTests.test_half_voxel_math_is_not_clearance_proof) ... ok\ntest_invalid_geometry_refuses_fallback (__main__.GeometryTests.test_invalid_geometry_refuses_fallback) ... ok\ntest_useful_asymmetric_connected_surface (__main__.GeometryTests.test_useful_asymmetric_connected_surface) ... ok\ntest_bake_binds_prepared_actual_data_and_original_deadline (__main__.PolicyTests.test_bake_binds_prepared_actual_data_and_original_deadline) ... ok\ntest_complete_evaluated_input_recipe (__main__.PolicyTests.test_complete_evaluated_input_recipe) ... ok\ntest_consumed_bake_failure_keeps_its_real_cause (__main__.PolicyTests.test_consumed_bake_failure_keeps_its_real_cause) ... ok\ntest_duplicate_permission_keys_are_not_silently_overridden (__main__.PolicyTests.test_duplicate_permission_keys_are_not_silently_overridden) ... ok\ntest_exact_owned_claim_is_charged_and_prior_claim_is_not_adopted (__main__.PolicyTests.test_exact_owned_claim_is_charged_and_prior_claim_is_not_adopted) ... ok\ntest_frozen_settings_and_limits (__main__.PolicyTests.test_frozen_settings_and_limits) ... ok\ntest_no_implicit_or_stale_permit (__main__.PolicyTests.test_no_implicit_or_stale_permit) ... ok\ntest_registration_reserve_covers_inflight_and_unknown_failure (__main__.PolicyTests.test_registration_reserve_covers_inflight_and_unknown_failure) ... ok\ntest_single_utc_uptime_deadline (__main__.PolicyTests.test_single_utc_uptime_deadline) ... ok\ntest_terminal_and_final_persistence (__main__.PolicyTests.test_terminal_and_final_persistence) ... ok\ntest_nested_effector_gravity_is_compared_not_just_pointer_name (__main__.StateAndBoundaryTests.test_nested_effector_gravity_is_compared_not_just_pointer_name) ... ok\ntest_no_bake_operator_in_prepare (__main__.StateAndBoundaryTests.test_no_bake_operator_in_prepare) ... ok\ntest_preserves_unknown_actual_buoyancy_and_delete_flag (__main__.StateAndBoundaryTests.test_preserves_unknown_actual_buoyancy_and_delete_flag) ... ok\ntest_source_syntax_and_pure_helper_pin (__main__.StateAndBoundaryTests.test_source_syntax_and_pure_helper_pin) ... ok\ntest_unordered_flags_are_cross_hashseed_stable_but_vectors_are_ordered (__main__.StateAndBoundaryTests.test_unordered_flags_are_cross_hashseed_stable_but_vectors_are_ordered) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.496s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\baals\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "workbenches\\art\\fire-realism\\mantaflow-surface-source\\check_guard_sampling.py"
+      ],
+      "scriptSha256": "a0483c29973591f530f138ba97566b274bf13729a0903e915a0c8354bc52fdb5",
+      "exitCode": 0,
+      "log": "test_numeric_readback_is_durable_before_any_fake_command (__main__.ReadbackTests.test_numeric_readback_is_durable_before_any_fake_command) ... ok\ntest_wrong_caps_flags_and_unknown_query_save_failure_without_command (__main__.ReadbackTests.test_wrong_caps_flags_and_unknown_query_save_failure_without_command) ... ok\ntest_actual_callback_uses_original_clock_and_stop_without_recursion (__main__.SamplingTests.test_actual_callback_uses_original_clock_and_stop_without_recursion) ... ok\ntest_callback_stop_deadline_or_unknown_failure_never_skips (__main__.SamplingTests.test_callback_stop_deadline_or_unknown_failure_never_skips) ... ok\ntest_census_rule_is_sampling_only_and_partial_initial_lists_abort (__main__.SamplingTests.test_census_rule_is_sampling_only_and_partial_initial_lists_abort) ... ok\ntest_error87_accounting_membership_and_budget_failures_keep_original (__main__.SamplingTests.test_error87_accounting_membership_and_budget_failures_keep_original) ... ok\ntest_error87_complete_same_job_absence_omits_only_current_memory (__main__.SamplingTests.test_error87_complete_same_job_absence_omits_only_current_memory) ... ok\ntest_error87_requires_complete_absence_and_same_job_census (__main__.SamplingTests.test_error87_requires_complete_absence_and_same_job_census) ... ok\ntest_failed_or_unexpected_wait_is_never_an_exit_proof (__main__.SamplingTests.test_failed_or_unexpected_wait_is_never_an_exit_proof) ... ok\ntest_fatal_sample_details_are_persisted_before_rethrow (__main__.SamplingTests.test_fatal_sample_details_are_persisted_before_rethrow) ... ok\ntest_identity_mismatch_and_unclassified_errors_are_strict (__main__.SamplingTests.test_identity_mismatch_and_unclassified_errors_are_strict) ... ok\ntest_journal_is_bounded_and_departures_keep_job_peaks (__main__.SamplingTests.test_journal_is_bounded_and_departures_keep_job_peaks) ... ok\ntest_live_member_is_unchanged_and_handle_closes_once (__main__.SamplingTests.test_live_member_is_unchanged_and_handle_closes_once) ... ok\ntest_membership_failure_is_fatal_before_wait (__main__.SamplingTests.test_membership_failure_is_fatal_before_wait) ... ok\ntest_one_deadline_clipped_wait_and_one_aggregate_requested_budget (__main__.SamplingTests.test_one_deadline_clipped_wait_and_one_aggregate_requested_budget) ... ok\ntest_open_permission_or_missing_handle_cannot_be_skipped (__main__.SamplingTests.test_open_permission_or_missing_handle_cannot_be_skipped) ... ok\ntest_preidentity_signaled_owned_handle_skips_without_queries (__main__.SamplingTests.test_preidentity_signaled_owned_handle_skips_without_queries) ... ok\ntest_remember_and_termination_never_gain_exit_tolerance (__main__.SamplingTests.test_remember_and_termination_never_gain_exit_tolerance) ... ok\ntest_same_query_errors_for_live_handle_keep_original_cause (__main__.SamplingTests.test_same_query_errors_for_live_handle_keep_original_cause) ... ok\ntest_three_specific_query_errors_skip_only_after_confirmed_exit (__main__.SamplingTests.test_three_specific_query_errors_skip_only_after_confirmed_exit) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 0.093s\n\nOK\n"
+    }
+  ]
+}

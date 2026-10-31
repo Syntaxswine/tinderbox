@@ -32,7 +32,7 @@ def process_query_check(value,pid,stage,label,partial):
 class OwnedJob:
     def __init__(self,process_limit,aggregate_limit):
         if os.name!='nt':raise RuntimeError('Windows Job enforcement required; no fallback')
-        self.k=ctypes.WinDLL('kernel32',use_last_error=True);self.p=ctypes.WinDLL('psapi',use_last_error=True);self.h=None;self.joined=False;self.disarmed=False;self.known={};self.process_limit=process_limit;self.aggregate_limit=aggregate_limit;self.limit_readback={'status':'not-queried','actual':None};self.sampling_events=[];self.sampling_counts={'events':0,'confirmedExitedSkips':0,'failures':0,'dropped':0};self.sample_sequence=0;self.last_sample=None
+        self.k=ctypes.WinDLL('kernel32',use_last_error=True);self.p=ctypes.WinDLL('psapi',use_last_error=True);self.h=None;self.joined=False;self.disarmed=False;self.known={};self.process_limit=process_limit;self.aggregate_limit=aggregate_limit;self.limit_readback={'status':'not-queried','actual':None};self.sampling_events=[];self.sampling_counts={'events':0,'confirmedExitedSkips':0,'censusOmissions':0,'failures':0,'dropped':0};self.sample_sequence=0;self.last_sample=None
         k=self.k
         for name,args,result in [('CreateJobObjectW',[ctypes.c_void_p,W.LPCWSTR],HANDLE),('SetInformationJobObject',[HANDLE,ctypes.c_int,ctypes.c_void_p,W.DWORD],W.BOOL),('QueryInformationJobObject',[HANDLE,ctypes.c_int,ctypes.c_void_p,W.DWORD,ctypes.POINTER(W.DWORD)],W.BOOL),('AssignProcessToJobObject',[HANDLE,HANDLE],W.BOOL),('IsProcessInJob',[HANDLE,HANDLE,ctypes.POINTER(W.BOOL)],W.BOOL),('GetProcessTimes',[HANDLE,*([ctypes.POINTER(W.FILETIME)]*4)],W.BOOL),('QueryFullProcessImageNameW',[HANDLE,W.DWORD,W.LPWSTR,ctypes.POINTER(W.DWORD)],W.BOOL),('OpenProcess',[W.DWORD,W.BOOL,W.DWORD],HANDLE),('TerminateProcess',[HANDLE,W.UINT],W.BOOL),('GetExitCodeProcess',[HANDLE,ctypes.POINTER(W.DWORD)],W.BOOL),('WaitForSingleObject',[HANDLE,W.DWORD],W.DWORD),('CloseHandle',[HANDLE],W.BOOL)]:
             fn=getattr(k,name);fn.argtypes=args;fn.restype=result
@@ -85,13 +85,60 @@ class OwnedJob:
         if who['creationFileTime']<self.me['creationFileTime']:raise RuntimeError('Unexpected older member of newly created owned Job')
         if pid in self.known and self.known[pid]!=who:raise RuntimeError('Owned member PID was reused; refuse identity confusion')
         self.known[pid]=who;return who
+    def sample_census(self):
+        # Sampling only: one bounded query, never a truncated/partial PID list.
+        count=1024
+        class IDS(ctypes.Structure):_fields_=[('assigned',W.DWORD),('listed',W.DWORD),('pids',SIZE*count)]
+        ids=IDS();ok=self.k.QueryInformationJobObject(self.h,3,ctypes.byref(ids),ctypes.sizeof(ids),None)
+        error=ctypes.get_last_error()if not ok else None
+        assigned=int(ids.assigned);returned=int(ids.listed);pids=[int(ids.pids[i])for i in range(min(returned,count))]
+        malformed=returned>count or any(pid<=0 for pid in pids)or len(set(pids))!=len(pids)
+        return {'jobHandle':int(self.h.value)if hasattr(self.h,'value')else int(self.h),'capacity':count,'querySucceeded':bool(ok),'queryWin32Error':error,'assignedCount':assigned,'returnedCount':returned,'truncated':assigned!=returned or returned>count,'malformed':malformed,'complete':bool(ok)and assigned==returned and not malformed,'pids':pids}
+    def _sample_absent_from_census(self,pid,error,wait_check):
+        # ONLY sample's null-handle ERROR_INVALID_PARAMETER case calls this.
+        # A census omission is never a lifetime identity/exit/termination proof.
+        if not isinstance(error,OSError)or error.errno!=87:raise error
+        evidence={'initialCensus':self.sample_initial_census,'refreshedCensus':None,'controllerMembershipConfirmed':False,'sameJobHandleVerified':False,'jobAccounting':None,'remainingRunBeforeMs':None,'remainingRunAfterMs':None,'predicateFailure':None,'afterBudgetFailure':None,'creationFileTime':None,'executable':None,'exitCause':None,'meaning':'absent from refreshed Job census; only current memory observation omitted'}
+        def budget(phase):
+            key='remainingRun'+phase.title()+'Ms'
+            try:
+                value=float(wait_check())
+                if not math.isfinite(value):raise SamplingBudgetError('Unknown census budget')
+                evidence[key]=value
+                if value<=0:raise SamplingBudgetError('Original census deadline expired',value)
+            except BaseException as exc:
+                remaining=getattr(exc,'remaining_ms',None)
+                if isinstance(remaining,(int,float))and math.isfinite(remaining):evidence[key]=remaining
+                raise
+        failure=None
+        try:
+            budget('before');refreshed=self.sample_census();evidence['refreshedCensus']=refreshed
+            current=int(self.h.value)if hasattr(self.h,'value')else int(self.h)
+            evidence['sameJobHandleVerified']=refreshed['jobHandle']==self.sample_initial_census['jobHandle']==current
+            if not evidence['sameJobHandleVerified']or not refreshed['complete']:raise RuntimeError('Refreshed sampling census is not complete on the same owned Job')
+            if pid in refreshed['pids']:raise RuntimeError('Failed-open PID is still in the complete refreshed Job census')
+            evidence['controllerMembershipConfirmed']=self.contains(self.k.GetCurrentProcess())
+            if not evidence['controllerMembershipConfirmed']or self.me['pid']!=os.getpid()or self.me['pid']not in refreshed['pids']:raise RuntimeError('Controller membership is not confirmed by the same owned Job and complete census')
+            actual=self.info();evidence['jobAccounting']=actual
+            if actual['processLimitBytes']!=self.process_limit or actual['aggregateLimitBytes']!=self.aggregate_limit or actual['flags']&0x2300!=0x2300 or actual['flags']&0x1800:raise RuntimeError('Census omission requires unchanged hard caps and disabled breakaway')
+        except BaseException as exc:
+            failure=exc;evidence['predicateFailure']={'type':type(exc).__name__,'error':str(exc)}
+        finally:
+            try:budget('after')
+            except BaseException as exc:
+                evidence['afterBudgetFailure']={'type':type(exc).__name__,'error':str(exc)}
+                if failure is None:failure=exc
+        if failure is not None:
+            self._sample_note(pid,'open-process','abort-refreshed-census-check',False,error,census_evidence=evidence)
+            raise error from failure
+        self._sample_note(pid,'open-process','omit-absent-from-refreshed-job-census',False,error,census_evidence=evidence)
     def sampling_report(self):
         return {'counts':dict(self.sampling_counts),'eventLimit':SAMPLE_EVENT_LIMIT,'events':[dict(e)for e in self.sampling_events],'lastSample':self.last_sample}
-    def _sample_note(self,pid,stage,disposition,owned,error=None,partial=None,identity_verified=False,wait_result=None,wait_error=None,wait_timing=None):
+    def _sample_note(self,pid,stage,disposition,owned,error=None,partial=None,identity_verified=False,wait_result=None,wait_error=None,wait_timing=None,census_evidence=None):
         known=self.known.get(pid);observed=dict(partial or {'pid':pid})
-        event={'sequence':self.sample_sequence,'pid':pid,'queryStage':stage,'disposition':disposition,'exactJobMembershipConfirmed':owned,'originalWin32Error':getattr(error,'original_win32_error',getattr(error,'winerror',None)or getattr(error,'errno',None)),'error':str(error)if error is not None else None,'waitResult':wait_result,'waitWin32Error':wait_error,'waitTiming':wait_timing,'previouslyKnownIdentity':dict(known)if known is not None else None,'knownIdentityMeaning':'previously recorded; this event does not revalidate it'if known is not None else'not previously obtained','observedIdentity':observed,'observedIdentityComplete':all(k in observed for k in ['pid','creationFileTime','executable']),'observedIdentityRevalidated':identity_verified,'exitObservationDoesNotProveQueryErrorCause':True}
+        event={'sequence':self.sample_sequence,'pid':pid,'queryStage':stage,'disposition':disposition,'exactJobMembershipConfirmed':owned,'originalWin32Error':getattr(error,'original_win32_error',getattr(error,'winerror',None)or getattr(error,'errno',None)),'error':str(error)if error is not None else None,'waitResult':wait_result,'waitWin32Error':wait_error,'waitTiming':wait_timing,'censusEvidence':census_evidence,'previouslyKnownIdentity':dict(known)if known is not None else None,'knownIdentityMeaning':'previously recorded; this event does not revalidate it'if known is not None else'not previously obtained','observedIdentity':observed,'observedIdentityComplete':all(k in observed for k in ['pid','creationFileTime','executable']),'observedIdentityRevalidated':identity_verified,'exitObservationDoesNotProveQueryErrorCause':True}
         self.sampling_counts['events']+=1
-        self.sampling_counts['confirmedExitedSkips'if disposition=='skip-confirmed-exited'else'failures']+=1
+        self.sampling_counts['confirmedExitedSkips'if disposition=='skip-confirmed-exited'else'censusOmissions'if disposition=='omit-absent-from-refreshed-job-census'else'failures']+=1
         self.sampling_events.append(event)
         if len(self.sampling_events)>SAMPLE_EVENT_LIMIT:self.sampling_events.pop(0);self.sampling_counts['dropped']+=1
     def _sample_exit(self,handle,pid,stage,error=None,partial=None,identity_verified=False,wait_check=None):
@@ -140,12 +187,18 @@ class OwnedJob:
         self.sample_grace_remaining_ms=SAMPLE_WAIT_BUDGET_MS
         records=[];self.sample_sequence+=1;self.last_sample={'sequence':self.sample_sequence,'complete':False,'members':records,'sumPrivateBytes':0,'job':None}
         try:
-            for pid in self.members():
-                # No missing/denied OpenProcess is treated as a proved exit.
-                # Termination's separate open_member()/identity policy is intact.
+            self.sample_initial_census=self.sample_census();self.last_sample['initialCensus']=self.sample_initial_census
+            if not self.sample_initial_census['complete']:
+                exc=OSError(self.sample_initial_census['queryWin32Error']or 0,'Initial sampling census is incomplete/malformed')
+                self._sample_note(None,'initial-job-census','abort-incomplete-census',False,exc,census_evidence={'initialCensus':self.sample_initial_census});raise exc
+            for pid in self.sample_initial_census['pids']:
+                # Error 87 may omit one memory observation ONLY after a complete
+                # fresh same-Job census and all safety/accounting/budget checks.
+                # This gives no lifetime identity or termination authority.
                 h=self.k.OpenProcess(0x1000|0x400|0x10|0x100000|1,False,pid)
                 if not h:
                     error=ctypes.get_last_error();exc=OSError(error,'Open sampling member handle')
+                    if error==87:self._sample_absent_from_census(pid,exc,wait_check);continue
                     self._sample_note(pid,'open-process','abort-no-owned-handle',False,exc);raise exc
                 try:
                     try:owned=self.contains(h)
