@@ -22,7 +22,7 @@ const cell = (id, phase = 'burning') => ({id, phase, x: 3.25, y: 3.25, size: .5,
 const origin = {x: 2, y: 5, h: .85};
 const discharge = {version: 1, active: true, tool: 'flamethrower', origin, shapeOrigin: origin, heading: 0, connectRays: true,
   rays: [-.2, 0, .2].map(angle => ({angle, x: 5, y: 5 + Math.tan(angle) * 3, h: .85, distance: 3 / Math.cos(angle)}))};
-const building = {id: 'actual', prefabId: 'fixture', destroyed: false, intensity: .8, burnedFraction: .1, sourceBounds: {min: [3, 0, 3], max: [5, 4.24, 6]}, footprintCellIds: ['a'], burningCellIds: ['a']};
+const building = {id: 'actual', prefabId: 'fixture', destroyed: false, intensity: .8, burnedFraction: .1, sourceBounds: {min: [3, 0, 3], max: [5, 4.24, 6]}, footprintCellIds: ['a'], burningCellIds: ['a'], fireSites: [{id: 'native-front', kind: 'facade', position: [3, 0, 3.25], normal: [-1, 0, 0], baseElevation: 0, span: {width: 1, height: 2}, sourceCellIds: ['a'], sourcePartId: 'fixture-native-wall/front', sourceFaceIndex: 0}]};
 const frame = (time, extra = {}) => ({version: 1, tick: Math.round(time * 60), worldTime: time, playerTime: time, paused: false, cells: [cell('a')], camera: cameraRecord,
   player: {x: -5, y: -5, tool: 'torch', radius: .3}, anchors: {muzzle: {x: 2, y: .85, z: 5}, torchTip: {x: 1, y: 1, z: 1}}, torch: {phase: 'lit', remainingSeconds: 4}, discharge, buildingVisuals: [building], events: [], ...extra});
 const mesh = e => e.root.children.find(o => o.isMesh);
@@ -30,6 +30,7 @@ function sources(e, keep) {
   const g = mesh(e).geometry, ids = e.diagnostics().sortedSemanticIds, result = {};
   for (let i = 0; i < g.instanceCount; i++) {
     const kind = g.attributes.iPolicy.array[i * 3]; if (!keep(kind)) continue;
+    if (ids[i].startsWith('building:')) continue; // Native facade contact is the separately accepted0.6 correction.
     result[ids[i]] = Object.fromEntries(['iOrigin', 'iAxis', 'iShape', 'iPolicy'].map(name => {const a = g.attributes[name]; return [name, [...a.array.slice(i * a.itemSize, (i + 1) * a.itemSize)]];}));
   }
   return result;
@@ -45,11 +46,11 @@ const lightState = e => e.root.children.filter(o => o.isPointLight).map(l => ({p
 try {
   for (const time of [0, .1, .5, 1, 2]) {
     const f = frame(time); oldEffect.update(f); effect.update(f);
-    assert.deepEqual(sources(effect, k => k === 0 || k === 2), sources(oldEffect, k => k === 0 || k === 2), 'actual non-smoke/jet-soot supports remain identical to frozen0.4');
+    assert.deepEqual(sources(effect, k => k === 0 || k === 2), sources(oldEffect, k => k === 0 || k === 2), 'ground/torch/jet/jet-soot supports remain identical to frozen0.4');
     assert.deepEqual(lightState(effect), lightState(oldEffect), 'light placement/energy unchanged');
   }
   assert.ok(effect.diagnostics().layers.some(l => l.name === 'Legitimate building smoke'));
-  assert.ok(Object.values(sources(effect, k => k === 3)).length > 0, 'only actual supplied burning building sources receive soot kind3');
+  assert.equal(effect.diagnostics().nativeFacadeSites, 1, 'only actual supplied burning building sites receive facade presentation');
   const g = mesh(effect).geometry; assert.ok(Object.keys(g.attributes).length <= 16, 'attributes fit the WebGL2 minimum vertex-attribute budget');
   const ids = effect.diagnostics().sortedSemanticIds;
   for (let i = 0; i < g.instanceCount; i++) {

@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "id": "tb034-fire-reference",
   "status": "unaccepted-reference-candidate",
   "referenceFrozen": false,
@@ -18,8 +18,8 @@
     },
     {
       "path": "assets/art/fire-realism/index.js",
-      "bytes": 25376,
-      "sha256": "663415f2add2d0f2e0bbcd2a29627eb60c782f5355c3f022edb10e17ffaadec2"
+      "bytes": 28741,
+      "sha256": "06acb0713cf4c4a8f9e30299ae370eac99b791d2a078fd9b3ce63b7bf0961c22"
     },
     {
       "path": "assets/art/fire-realism/smoke-billows.js",
@@ -42,7 +42,7 @@
     "65536 input cells; at most4096 observed emitting/history cells,256 rays,64 building groups and384 jet-smoke records"
   ],
   "hashBasis": "Runtime own-source UTF-8 LF bytes, matching Git blobs and canonical project package text.",
-  "artistVersion": "0.5.0-reference-candidate",
-  "correctsCandidate": "1505c87f6e251450961283b979941742306b8377",
-  "preFreezeQualityCorrection": "Actual native0.4 image and68 original decoded frames show a smooth gray column. Ground/building smoke now uses four advected analytic billows with eroded rotating density; small gray ground versus legitimate building soot. Flames, jet/jet-soot, exposure/lights, gameplay and3.2-second tails preserved. No quality/cost acceptance."
+  "artistVersion": "0.6.0-reference-candidate",
+  "correctsCandidate": "a312932ac2f958fb74d181954fcd057a4a4ffec4",
+  "preFreezeQualityCorrection": "Native street evidence shows AABB rim fire under porch/corner despite real burning wood. Optional actual exterior facade sites now require part/face/native-base/normal/source-cell evidence; max8 stable representative pairs, no AABB fallback. Ground/torch/jet and smoke0.5 optics preserved; no heat/fuel/roof physics or quality/cost acceptance."
 }

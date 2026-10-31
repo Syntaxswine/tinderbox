@@ -2,7 +2,7 @@ import {createTongueGeometry} from './geometry.js';
 import {vertexShader, fragmentShader} from './shaders.js';
 import {prepareSmokeBillows, SMOKE_BILLOW_COUNT} from './smoke-billows.js';
 
-export const FIRE_REALISM_VERSION = '0.5.0-reference-candidate';
+export const FIRE_REALISM_VERSION = '0.6.0-reference-candidate';
 const finite = Number.isFinite;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, finite(x) ? x : a));
 const point = p => p && [p.x, p.y, p.h].every(finite);
@@ -27,7 +27,7 @@ export function createFireRealism(T, options = {}) {
   if (quality !== 'reference') throw new RangeError('Optimized fire is unavailable until the detailed reference is reviewed and frozen.');
   const maxCells = options.maxCells ?? 4096, maxRays = options.maxRays ?? 256, maxBuildings = options.maxBuildings ?? 64;
   if (!Number.isInteger(maxCells) || maxCells < 1 || maxCells > 4096 || !Number.isInteger(maxRays) || maxRays < 2 || maxRays > 256 || !Number.isInteger(maxBuildings) || maxBuildings < 1 || maxBuildings > 64) throw new RangeError('Invalid bounded fire capacity');
-  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 1, densitySteps: 32, groundAndTorchDensitySteps: 32, jetDensitySteps: 18, smokeDensitySteps: 32, jetSmokeDensitySteps: 18, smokeBillowsPerInstance: SMOKE_BILLOW_COUNT});
+  const settings = Object.freeze({quality, maxCells, maxRays, maxBuildings, smokeTailSeconds: 3.2, jetSmokeTailSeconds: 3.2, maxJetSmoke: 384, raySteps: 1, densitySteps: 32, groundAndTorchDensitySteps: 32, jetDensitySteps: 18, smokeDensitySteps: 32, jetSmokeDensitySteps: 18, smokeBillowsPerInstance: SMOKE_BILLOW_COUNT, maxFacadeCandidates: 32, maxFacadePairs: 8});
   const root = new T.Group(); root.name = 'TB-034 detailed fire reference candidate';
   const owned = {geometries: new Set(), materials: new Set(), textures: new Set()};
   const rayData = new Float32Array(256 * 4), rayTable = new T.DataTexture(rayData, 256, 1, T.RGBAFormat, T.FloatType);
@@ -41,7 +41,7 @@ export function createFireRealism(T, options = {}) {
     fuelJet: {value: 0}, jetAxisOrigin: {value: new T.Vector3()}, jetExtent: {value: 1}, jetTipHeight: {value: 0},
     opaqueDepth: {value: white}, opaqueDepthSize: {value: new T.Vector2(1, 1)}, opaqueDepthEnabled: {value: 0}, opaqueViewProjection: {value: new T.Matrix4()}
   };
-  const capacity = maxCells * 4 + (maxRays + 1) * settings.raySteps + settings.maxJetSmoke + maxBuildings * 8 + 3;
+  const capacity = maxCells * 4 + (maxRays + 1) * settings.raySteps + settings.maxJetSmoke + maxBuildings * settings.maxFacadePairs * 2 + 3;
   const geometry = createTongueGeometry(T); owned.geometries.add(geometry);
   const arrays = {iOrigin: new Float32Array(capacity * 3), iAxis: new Float32Array(capacity * 3), iShape: new Float32Array(capacity * 4), iPolicy: new Float32Array(capacity * 3)};
   for (let i = 0; i < SMOKE_BILLOW_COUNT; i++) arrays[`iBillow${i}`] = new Float32Array(capacity * 4);
@@ -55,7 +55,7 @@ export function createFireRealism(T, options = {}) {
   const records = [], counts = new Map(), byId = new Map();
   let closed = false, lastTime = null, lastTick = null, paused = false, updates = 0, lastJetBucket = null, generation = null;
   let state, order = [], sortMode = 'semantic-id; missing camera', discardedStartupEvents = 0;
-  const blankState = () => ({burningCells: 0, smokeColumns: 0, jetSmokeColumns: 0, buildingGroups: 0, unsupportedBuildingGroups: 0, discharge: 'inactive', torch: 'unlit', warnings: [], transientPresentation: 'External explicit legacy-transient component; not duplicated by this factory'});
+  const blankState = () => ({burningCells: 0, smokeColumns: 0, jetSmokeColumns: 0, buildingGroups: 0, unsupportedBuildingGroups: 0, nativeFacadeGroups: 0, nativeFacadeSites: 0, invalidFacadeSites: 0, unavailableFacadeGroups: 0, selectedFacadeSites: [], discharge: 'inactive', torch: 'unlit', warnings: [], transientPresentation: 'External explicit legacy-transient component; not duplicated by this factory'});
   function clear() {
     history.clear(); jetSmokeHistory.clear(); records.length = 0; byId.clear(); counts.clear(); order = []; geometry.instanceCount = 0;
     for (const l of lights) l.intensity = 0;
@@ -222,17 +222,54 @@ export function createFireRealism(T, options = {}) {
       const footprint = new Set(b.footprintCellIds), sources = [...new Set(b.burningCellIds)].sort((a, c) => String(a).localeCompare(String(c))).map(id => footprint.has(id) ? byId.get(id) : null).filter(c => c?.phase === 'burning' && c.intensity > 0);
       if (!sources.length || !(b.intensity > 0)) continue;
       state.buildingGroups++;
-      for (let i = 0; i < Math.min(4, sources.length); i++) {
-        const c = sources[Math.floor(i * sources.length / Math.min(4, sources.length))], s = seed(`building:${b.id}:${c.id}`), x = clamp(c.x, min[0], max[0]), z = clamp(c.y, min[2], max[2]);
-        const faces = [{d: Math.abs(x - min[0]), p: [min[0], min[1] + .03, z]}, {d: Math.abs(x - max[0]), p: [max[0], min[1] + .03, z]}, {d: Math.abs(z - min[2]), p: [x, min[1] + .03, min[2]]}, {d: Math.abs(z - max[2]), p: [x, min[1] + .03, max[2]]}].sort((a, d) => a.d - d.d);
-        const p = faces[0].p, intensity = Math.min(clamp(c.intensity), clamp(b.intensity));
-        // Ground-floor facade attachment is a coarse rendering adaptation of an
-        // already-burning group. No roof or upper-floor heat is invented.
-        add('Legitimate ground-floor facade tongues', `building:${b.id}:${c.id}:flame`, p, [0, 1, 0], .22 + s * .08, Math.min(max[1] - min[1], .7 + intensity * 1.3), intensity * .65, s);
-        add('Legitimate building smoke', `building:${b.id}:${c.id}:smoke`, [p[0], p[1] + .4, p[2]], [0, 1, 0], .42 + s * .15, 2.1 + intensity * 1.3, intensity * .42, seed(`${b.id}:${c.id}:smoke`), 3);
+      if (!Array.isArray(b.fireSites) || !b.fireSites.length) {state.unavailableFacadeGroups++; state.warnings.push(`Native facade attachment unavailable for ${b.id}; no aggregate-AABB substitute`); continue;}
+      if (b.fireSites.length > settings.maxFacadeCandidates) throw new RangeError('Native facade candidate capacity exceeded');
+      const live = new Map(sources.map(c => [c.id, c])), seenSites = new Set(), sites = [];
+      const identity = id => typeof id === 'string' && id.length > 0 || Number.isSafeInteger(id) && id >= 0;
+      for (const site of b.fireSites) {
+        const p = site?.position, n = site?.normal, span = site?.span, ids = site?.sourceCellIds;
+        const valid = identity(site?.id) && !seenSites.has(site.id) && site.kind === 'facade' && identity(site.sourcePartId) && Number.isInteger(site.sourceFaceIndex) && site.sourceFaceIndex >= 0 && Array.isArray(p) && p.length === 3 && p.every(finite) && Array.isArray(n) && n.length === 3 && n.every(finite) && Math.abs(Math.hypot(...n) - 1) < .001 && finite(site.baseElevation) && finite(span?.width) && finite(span?.height) && span.width > 0 && span.height > 0 && p[1] >= site.baseElevation - 1e-5 && p[1] < site.baseElevation + span.height && Array.isArray(ids) && ids.length > 0 && ids.every(id => live.has(id));
+        if (!valid) {state.invalidFacadeSites++; state.warnings.push(`Invalid native facade site omitted for ${b.id}`); continue;}
+        seenSites.add(site.id); sites.push(site);
+      }
+      if (!sites.length) {state.unavailableFacadeGroups++; continue;}
+      const selected = selectFacadeSites(sites, settings.maxFacadePairs);
+      state.nativeFacadeGroups++;
+      for (const site of selected) {
+        const s = seed(`building:${b.id}:${site.id}`), p = site.position, n = site.normal;
+        const intensity = Math.min(clamp(b.intensity), Math.max(...site.sourceCellIds.map(id => clamp(live.get(id).intensity))));
+        const radius = Math.min(site.span.width * .38, .20 + s * .10), offset = radius * .55;
+        const contact = [p[0] + n[0] * offset, p[1] + n[1] * offset + .018, p[2] + n[2] * offset];
+        const height = Math.min(site.baseElevation + site.span.height - p[1], .7 + intensity * 1.3);
+        // Actual exterior wall evidence replaces slab/porch/stair AABB rims.
+        // A small overlap keeps the reaction attached; opaque depth still stops
+        // hidden density. This presents an already-burning coarse group only.
+        add('Legitimate ground-floor facade tongues', `building:${b.id}:${site.id}:flame`, contact, [n[0] * .10, 1, n[2] * .10], radius, height, intensity * .65, s);
+        add('Legitimate building smoke', `building:${b.id}:${site.id}:smoke`, [contact[0], contact[1] + .4, contact[2]], [n[0] * .08, 1, n[2] * .08], .42 + s * .15, 2.1 + intensity * 1.3, intensity * .42, seed(`${b.id}:${site.id}:smoke`), 3);
         state.smokeColumns++;
+        state.nativeFacadeSites++; state.selectedFacadeSites.push({buildingId: b.id, id: site.id, sourcePartId: site.sourcePartId, sourceFaceIndex: site.sourceFaceIndex});
       }
     }
+  }
+  function selectFacadeSites(sites, maximum) {
+    const ordered = [...sites].sort((a, b) => String(a.id) < String(b.id) ? -1 : String(a.id) > String(b.id) ? 1 : 0);
+    if (ordered.length <= maximum) return ordered;
+    const mean = [0, 0, 0]; for (const s of ordered) for (let j = 0; j < 3; j++) mean[j] += s.position[j] / ordered.length;
+    const distance = (a, b) => a.reduce((n, x, i) => n + (x - b[i]) ** 2, 0);
+    const scale = Math.max(.01, ...ordered.map(s => distance(s.position, mean)));
+    const selected = [], remaining = [...ordered];
+    while (selected.length < maximum && remaining.length) {
+      let best = 0, bestScore = -Infinity;
+      for (let i = 0; i < remaining.length; i++) {
+        const s = remaining[i];
+        const gap = selected.length ? Math.min(...selected.map(t => distance(s.position, t.position))) / scale : distance(s.position, mean) / scale;
+        const normalCoverage = selected.length ? 1 - Math.max(...selected.map(t => s.normal.reduce((n, x, j) => n + x * t.normal[j], 0))) : 0;
+        const score = gap + normalCoverage * 1.5;
+        if (score > bestScore + 1e-12) {bestScore = score; best = i;}
+      }
+      selected.push(remaining.splice(best, 1)[0]);
+    }
+    return selected;
   }
   function carried(t, anchors, player) {
     if (player?.tool !== 'torch') {state.torch = 'unequipped'; return;}
@@ -264,7 +301,7 @@ export function createFireRealism(T, options = {}) {
   }
   function diagnostics() {
     const stats = [...counts].map(([name, instances]) => ({name, instances, trianglesPerInstance: geometry.userData.triangles, triangles: instances * geometry.userData.triangles}));
-    return {version: FIRE_REALISM_VERSION, quality, referenceAccepted: false, optimizedAvailable: false, settings, presentationOnly: true, ...state, warnings: [...state.warnings], worldTime: shared.clock.value, paused, updates, discardedStartupEvents,
+    return {version: FIRE_REALISM_VERSION, quality, referenceAccepted: false, optimizedAvailable: false, settings, presentationOnly: true, ...state, warnings: [...state.warnings], selectedFacadeSites: state.selectedFacadeSites.map(s => ({...s})), worldTime: shared.clock.value, paused, updates, discardedStartupEvents,
       layers: stats, triangles: records.length * geometry.userData.triangles, sortedInstances: records.length, sortMode, sortedSemanticIds: [...order], transparency: 'Centroid-sorted alpha; intersecting transparent volumes remain approximate and need actual camera/motion review',
       allocatedBufferBytes: (geometry.index?.array.byteLength || 0) + Object.values(geometry.attributes).reduce((n, a) => n + a.array.byteLength, 0), ownedTextureBytes: [...owned.textures].reduce((n, t) => n + (t.image?.data?.byteLength || 0), 0),
       boundedLights: 3, activeLights: lights.filter(l => l.intensity > 0).length, resources: Object.fromEntries(Object.entries(owned).map(([k, s]) => [k, s.size])), borrowedField: shared.fieldEnabled.value === 1, borrowedOpaqueDepth: shared.opaqueDepthEnabled.value === 1,

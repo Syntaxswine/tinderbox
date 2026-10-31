@@ -1,11 +1,11 @@
 {
-  "task": "TB-034-smoke-billow-quality-iteration-05",
-  "recordedAt": "2026-10-30T23:59:36Z",
-  "integrationBase": "d0f64ef8e61908debf575ed28bba9d9619278f84",
-  "correctsArtistCandidate": "1505c87f6e251450961283b979941742306b8377",
+  "task": "TB-034-native-facade-contact-iteration-06",
+  "recordedAt": "2026-10-31T00:08:15Z",
+  "integrationBase": "a312932ac2f958fb74d181954fcd057a4a4ffec4",
+  "correctsArtistCandidate": "a312932ac2f958fb74d181954fcd057a4a4ffec4",
   "publishedControl": "dc7f537a83a7e832a0dfa0757d0b2700b909c053",
   "branch": "codex/fire-realism-art-corrections",
-  "artistVersion": "0.5.0-reference-candidate",
+  "artistVersion": "0.6.0-reference-candidate",
   "actualPreviousCandidateReview": {
     "candidate": "1505c87f6e251450961283b979941742306b8377",
     "evidence": "Architect primary artifacts/qa/fire-realism/render-round-05/reference-match-isometric-bright-frame60.jpg+json and decoded-round-04/contact-motion/",
@@ -108,7 +108,7 @@
     },
     "build": {
       "files": 3461,
-      "bytes": 163345807,
+      "bytes": 163349186,
       "sourcePhotosDistributed": false,
       "diagnosticWorkbenchDistributed": false
     },
@@ -123,22 +123,25 @@
       "passed": 32,
       "failed": 1,
       "reason": "Whole primary UI suite run from isolated art cwd: static UI-source guard opens workbenches/fire-realism/review.js, which is intentionally absent here. No UI file copied or edited; full combined checkout rerun required before promotion."
-    }
+    },
+    "nativeFacadeContract": "pass; actual base/outward contact, source-part/face audit, missing/stale/invalid evidence,8-of32 coverage, stable equivalent ordering and detached diagnostics",
+    "nativeActualFixtureReplay": "pass; exact runtime15-site Ashland fixture ->8 pairs/4 normals, no invalid/unavailable sites, native base0 instead of slab-.12; source placement only, no visual claim"
   },
   "webgl": {
-    "status": "pending-exact0.5-native-review",
+    "status": "pending-exact0.6-native-review",
     "newBrowserAttempt": false,
     "shaderCompiled": false,
     "motionReviewed": false,
     "gpuTimed": false,
-    "reason": "Actual native0.4 still and ordered original decoded frames inspected; root will render0.5 after exact intake. No artist browser/server."
+    "reason": "Smoke0.5 and facade0.6 are independent checkpoints. Matching runtime provider2d532cc is committed; actual combined native still/motion/occlusion review remains architect-owned."
   },
   "limitations": [
-    "Actual0.5 shader compilation, native motion/stills and GPU costs remain unperformed",
-    "Native building emission contact remains a separate confirmed defect; aggregate AABB sites need the proposed runtime-owned native exterior attachment field before correction",
+    "Exact0.5 smoke and0.6 combined facade appearance still require actual source-pinned native captures/motion",
+    "Opening/roofline presentation is deferred and does not waive final building-fire review",
+    "Whole UI suite belongs in combined checkout; isolated-art foreign run had an unrelated missing UI-source path, while affected raw-hash/reference tests passed2/2",
     "Centroid-sorted intersecting transparent volumes remain approximate",
     "Independent clipped rays remain an explicit safe surface fallback",
-    "No visually accepted/frozen detailed baseline or optimized variant exists"
+    "No accepted/frozen detailed baseline, optimized delivery or GPU-cost ratio exists"
   ],
   "helpers": {
     "serversStarted": 0,
@@ -166,5 +169,47 @@
     "frameApiChanged": false,
     "shaderCompiled": false,
     "newMotionReviewed": false
+  },
+  "nativeFacadeCorrection": {
+    "contractCommit": "2a89edfe3683719545780fdf84713c479c27565d",
+    "runtimeProviderCommit": "2d532ccc941f99e3e1b14a2362a6bf46a0aa1030",
+    "runtimeProviderBase": "87806a1155b95ec10cc8aa64ead572a28ca73328",
+    "field": "buildingVisuals[].fireSites",
+    "kind": "Actual ground-floor native exterior facade only; opening/roofline sites deferred",
+    "maxCandidates": 32,
+    "maxPairs": 8,
+    "requiredEvidence": [
+      "sourcePartId",
+      "sourceFaceIndex",
+      "actual world position/baseElevation",
+      "unit outward normal",
+      "native span",
+      "nonempty current burning-footprint sourceCellIds"
+    ],
+    "selection": "Stable spatial distance plus exterior-normal coverage; no camera-facing relocation",
+    "missingEvidence": "No facade substitute; keep ground fire/smoke compatible and report unavailable native contact",
+    "actualReplay": {
+      "inputSha256": "095d33b714c872f5aeadfa15e759b95d66140981fce91098090f286d503f0215",
+      "source": "Runtime helper actual street-frame30.json",
+      "tick": 30,
+      "burningCells": 128,
+      "sourceGroups": 1,
+      "candidates": 15,
+      "selected": 8,
+      "normalDirections": 4,
+      "invalid": 0,
+      "unavailable": 0,
+      "actualBaseElevation": 0,
+      "priorAggregateMinY": -0.11999999865889549,
+      "outwardPlaneContact": "pass; actual emitted origins lie just outward of the real native wall planes",
+      "inputUnchanged": true,
+      "reorderedInputsStable": true,
+      "webgl": false,
+      "visibleContactAccepted": false
+    },
+    "runtimeChangesInArtist": false,
+    "geometryMutation": false,
+    "additionalHeatFuel": false,
+    "renderedAcceptance": false
   }
 }

@@ -79,8 +79,23 @@ effect.update(base(2, [], {player: {...base(2).player, tool: 'torch'}, anchors: 
 effect.update(base(3, [], {player: {...base(3).player, tool: 'torch'}, torch: {phase: 'lit', remainingSeconds: 1}})); assert.equal(instances(effect, 'Finite carried torch'), 3);
 effect.update(base(4, [], {player: {...base(4).player, tool: 'torch'}, torch: {phase: 'lit', remainingSeconds: 0}})); assert.equal(instances(effect, 'Finite carried torch'), 0);
 
-const building = {id: 'actual-house', prefabId: 'test-only', destroyed: false, burnedFraction: .1, sourceBounds: {min: [2, 0, 2], max: [4, 4.24, 5]}, footprintCellIds: ['a'], burningCellIds: ['a'], intensity: .9};
+const nativeSite = {id: 'front-wall', kind: 'facade', position: [2.5, 0, 2], normal: [0, 0, -1], baseElevation: 0, span: {width: 1, height: 2}, sourceCellIds: ['a'], sourcePartId: 'fixture-native-wall/front', sourceFaceIndex: 4};
+const building = {id: 'actual-house', prefabId: 'test-only', destroyed: false, burnedFraction: .1, sourceBounds: {min: [1.7, -.12, 1.7], max: [4.3, 4.24, 8]}, footprintCellIds: ['a'], burningCellIds: ['a'], intensity: .9, fireSites: [nativeSite]};
 effect.reset(); effect.update(base(1, [cell('a')], {buildingVisuals: [building]})); assert.equal(effect.diagnostics().buildingGroups, 1); assert.ok(instances(effect, 'Legitimate ground-floor facade tongues') > 0);
+assert.equal(effect.diagnostics().nativeFacadeSites, 1);
+const contactIndex = effect.diagnostics().sortedSemanticIds.indexOf('building:actual-house:front-wall:flame'), contactData = mesh(effect).geometry.attributes.iOrigin.array;
+assert.ok(contactData[contactIndex * 3 + 1] >= 0 && contactData[contactIndex * 3 + 1] < .03, 'attachment uses actual native wall base, never slab/stair aggregate minY');
+assert.ok(contactData[contactIndex * 3 + 2] < 2, 'attachment is just outside the actual outward wall face');
+const audit = effect.diagnostics(); audit.selectedFacadeSites[0].sourcePartId = 'mutated'; assert.equal(effect.diagnostics().selectedFacadeSites[0].sourcePartId, nativeSite.sourcePartId);
+effect.update(base(1.1, [cell('a')], {buildingVisuals: [{...building, fireSites: undefined}]})); assert.equal(instances(effect, 'Legitimate ground-floor facade tongues'), 0); assert.equal(effect.diagnostics().unavailableFacadeGroups, 1); assert.match(effect.diagnostics().warnings.join(' '), /no aggregate-AABB substitute/);
+for (const patch of [{sourcePartId: null}, {sourceFaceIndex: -1}, {normal: [0, 0, -2]}, {kind: 'roofline'}, {sourceCellIds: ['foreign']}]) {
+  effect.update(base(1.2, [cell('a')], {buildingVisuals: [{...building, fireSites: [{...nativeSite, ...patch}]}]})); assert.equal(effect.diagnostics().nativeFacadeSites, 0); assert.equal(effect.diagnostics().invalidFacadeSites, 1);
+}
+const distributed = Array.from({length: 32}, (_, i) => {const side = Math.floor(i / 8), t = i % 8 * .25; return {...nativeSite, id: `native-${String(i).padStart(2, '0')}`, sourcePartId: `wall-${i}`, position: [[2 + t, 0, 2], [4, 0, 2 + t], [2 + t, 0, 4], [2, 0, 2 + t]][side], normal: [[0, 0, -1], [1, 0, 0], [0, 0, 1], [-1, 0, 0]][side]};});
+effect.reset(); effect.update(base(1, [cell('a')], {buildingVisuals: [{...building, fireSites: distributed}]})); const chosen = effect.diagnostics().selectedFacadeSites;
+assert.equal(chosen.length, 8); const sides = new Set(chosen.map(s => Math.floor(Number(s.id.slice(7)) / 8))); assert.equal(sides.size, 4, 'representative choice retains exterior normal/spatial coverage');
+effect.reset(); effect.update(base(1, [cell('a')], {buildingVisuals: [{...building, fireSites: [...distributed].reverse()}]})); assert.deepEqual(effect.diagnostics().selectedFacadeSites, chosen, 'equivalent native site ordering cannot move emission');
+assert.throws(() => effect.update(base(1.1, [cell('a')], {buildingVisuals: [{...building, fireSites: [...distributed, {...nativeSite, id: 'excess'}]}]})), /candidate capacity/);
 effect.update(base(2, [cell('a')], {buildingVisuals: [{...building, footprintCellIds: []}]})); assert.equal(effect.diagnostics().buildingGroups, 0, 'unrelated burning grass cannot ignite a facade');
 effect.update(base(3, [cell('a', 'spent')], {buildingVisuals: [building]})); assert.equal(effect.diagnostics().buildingGroups, 0);
 effect.update(base(4, [], {buildingVisuals: [{id: 'old-placeholder', burning: true}]})); assert.equal(effect.diagnostics().unsupportedBuildingGroups, 1);
@@ -101,4 +116,4 @@ effect.update(base(1.1, [], {eventReceipts: {generation: 2, reset: true, primed:
 for (let i = 0; i < 30; i++) {effect.reset(); effect.update(base(1, [cell('a')], {fieldUniforms})); assert.deepEqual(effect.diagnostics().resources, resources);}
 effect.reset(); assert.equal(effect.diagnostics().triangles, 0); effect.dispose(); effect.dispose();
 for (const n of disposal.values()) assert.equal(n, 1, 'owned resources dispose exactly once'); assert.equal(borrowedDisposals, 0); assert.equal(effect.root.children.length, 0); field.dispose(); depth.dispose(); fractionalDepth.dispose();
-console.log('PASS: actual shared-Three lifecycle, 65536-cell input/4096-source bound, pause/rewind/reset, finite world-clock smoke, real 25-ray resolver compatibility, outside-native-muzzle short fans, selected finite torch, legitimate building membership, camera/source-order sorting, borrowed current-camera depth validation. Shader compilation, actual visual correctness, GPU cost and acceptance remain unperformed.');
+console.log('PASS: actual shared-Three lifecycle, 65536-cell input/4096-source bound, pause/rewind/reset, finite world-clock smoke, real25-ray compatibility, outside-native-muzzle short fans, finite selected torch, native facade provenance/base/contact/coverage/limits, equivalent-site ordering, detached audit and borrowed current-camera depth. Shader compilation, actual visual correctness, GPU cost and acceptance remain unperformed.');
