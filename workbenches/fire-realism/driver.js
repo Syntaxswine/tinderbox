@@ -1,3 +1,4 @@
+import {presentFireReviewCallback} from '../../tools/fire-realism/live-cadence.js';
 import {placeFireReviewCamera} from '../../tools/fire-realism/camera.js';
 import * as T from '../../src/runtime/three.js';
 import {createArtScene} from '../../src/art/index.js';
@@ -81,10 +82,11 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     const size=renderer.getDrawingBufferSize(new T.Vector2());lastMetrics={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lines:renderer.info.render.lines,points:renderer.info.render.points,
       geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,width:size.x,height:size.y,pixelRatio:renderer.getPixelRatio(),toneMapping:renderer.toneMapping,outputColorSpace:renderer.outputColorSpace};
   }
-  function advance(){const before=performance.now();snapshot=sim.advance();latestCpu.simulationMs=performance.now()-before;frameIndex=sim.frameIndex;updateArt(false);}
+  function advanceSimulation(){const before=performance.now();snapshot=sim.advance();latestCpu.simulationMs=performance.now()-before;frameIndex=sim.frameIndex;return snapshot;}
+  function advance(){advanceSimulation();updateArt(false);}
   function loop(now){
     if(closed||phase!=='playing')return;
-    try{if(lastNow!==null){const frames=playbackClock.advance(Math.max(0,(now-lastNow)/1000));for(let i=0;i<frames;i++)advance();}lastNow=now;draw();notify();if(phase==='playing')animation=win.requestAnimationFrame(loop);}catch(cause){fail(cause);}
+    try{const frames=lastNow===null?0:playbackClock.advance(Math.max(0,(now-lastNow)/1000));lastNow=now;latestCpu.liveCallback=presentFireReviewCallback({frames,advance:advanceSimulation,observe:next=>art.observeFireReviewSnapshot(next),present:()=>updateArt(false),draw:()=>draw()});notify();if(phase==='playing')animation=win.requestAnimationFrame(loop);}catch(cause){fail(cause);}
   }
   function fail(cause){pauseLoop();phase='error';error={code:'RENDER_ERROR',message:cause.message||String(cause)};cancelRequested=true;notify(true);}
   const frame=()=>new Promise(resolve=>win.requestAnimationFrame(resolve));
@@ -176,7 +178,7 @@ export async function createFireReviewDriver({root,uiRoot=root,mountUI,onChange=
     }catch(cause){availability.optimized={available:false,reason:cause.message,sourceCommit:optimizedDelivery.sourceCommit||null};}finally{probe?.dispose();}}
     const controlResponse=await fetch(new URL('../../tools/fire-realism/control-manifest.json',import.meta.url));if(!controlResponse.ok)throw Error('Frozen current-fire control manifest unavailable');
     const controlManifest=await controlResponse.json();if(controlManifest.commit!==CONTROL)throw Error('Current-fire control revision mismatch');
-    const owned=['src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/camera.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
+    const owned=['src/art/index.js','src/art/fire-frame.js','src/art/fire-review-effect.js','src/art/scene-depth.js','src/art/fire-sites.js','src/art/neighborhood.js','tools/fire-realism/scenarios.js','tools/fire-realism/live-cadence.js','tools/fire-realism/camera.js','tools/fire-realism/fixed-pose.js','tools/fire-realism/profiling.js','workbenches/fire-realism/driver.js'];
     for(const path of [...controlManifest.files.map(f=>f.path),...owned]){
       const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing comparison source: '+path);
       const bytes=new TextEncoder().encode((await response.text()).split(String.fromCharCode(13)).join(''));

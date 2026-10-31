@@ -24,11 +24,21 @@ export function createFireReviewEffect(T,assets,fieldUniforms,{renderer,scene,ar
     const selected=variant();if(selected)selected.root.visible=true;
   }
   try{select(initialMode);}catch(error){current.dispose();transients.dispose();for(const v of variants.values())v.dispose();depth.dispose();root.clear();throw error;}
-  return {root,setMode:select,
+  return {root,setMode:select,observeSnapshot(snapshot){if(!closed)frameAdapter.observe(snapshot);},
     update(snapshot,time,anchors={}){
       if(closed)return;updates++;buildingVisuals=burningBuildingVisuals(snapshot,anchors.housing);lastDischarge=dischargePresentation(snapshot.discharge,anchors.muzzle);
-      if(mode==='current'){current.update(snapshot,time,anchors);return;}
-      if(mode==='no-fire'||!factoryForMode())return;
+      if(mode==='current'){
+        const receipts=frameAdapter.consumeEventReceipts(snapshot);
+        // Frozen current control retains its raw-history/startup/ID semantics.
+        // Merge only actually observed fresh events and preserve their old age.
+        const raw=snapshot.events||[],rawIds=new Set(raw.map(event=>event.id));
+        const fresh=receipts.events.map(event=>({...event,worldTime:Number.isFinite(event.worldTime)?event.worldTime:event.receivedWorldTime})),byId=new Map(fresh.map(event=>[event.id,event]));
+        // Keep raw ordering and duplicates so current's original ID cursor still
+        // decides which historical record wins; prepend only missing observations.
+        const events=[...fresh.filter(event=>!rawIds.has(event.id)),...raw.map(event=>byId.get(event.id)||event)];
+        current.update({...snapshot,events},time,anchors);return;
+      }
+      if(mode==='no-fire'||!factoryForMode()){frameAdapter.consumeEventReceipts(snapshot);return;}
       frame=frameAdapter.update({...snapshot,clocks:{...snapshot.clocks,world:time,player:Number.isFinite(anchors.firePlayerTime)?anchors.firePlayerTime:snapshot.clocks.player}},{camera:anchors.camera,viewport:anchors.viewport,anchors,fieldUniforms,
         buildingVisuals});
       if(frame.eventReceipts.reset){transients.reset();for(const v of variants.values())v.reset();}
@@ -47,7 +57,7 @@ export function createFireReviewEffect(T,assets,fieldUniforms,{renderer,scene,ar
     diagnostics(){const selected=variants.get(mode);return {mode,updates,discharge:lastDischarge,burningBuildingIds:buildingVisuals.map(group=>group.id),buildingVisuals:structuredClone(buildingVisuals),
       current:mode==='current'?current.diagnostics():null,artist:selected?.diagnostics()||null,
       legacyTransients:mode==='reference'||mode==='optimized'?{source:'Published painted Molotov/barrel bursts only',...transients.diagnostics()}:null,
-      opaqueDepth:depth.diagnostics(),disposed:closed};},
-    dispose(){if(closed)return;closed=true;current.dispose();transients.dispose();for(const v of variants.values())v.dispose();variants.clear();depth.dispose();root.removeFromParent();root.clear();}
+      opaqueDepth:depth.diagnostics(),receiptQueue:frameAdapter.diagnostics(),disposed:closed};},
+    dispose(){if(closed)return;closed=true;current.dispose();transients.dispose();for(const v of variants.values())v.dispose();variants.clear();frameAdapter.reset();frame=null;buildingVisuals=[];depth.dispose();root.removeFromParent();root.clear();}
   };
 }

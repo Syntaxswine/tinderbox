@@ -32,21 +32,34 @@ export function burningBuildingVisuals(snapshot,housing){
   });
 }
 export function createFireFrameAdapter(){
-  let generation=null,lastWorld=null,lastPlayerTime=null,lastTick=null,highestId=-Infinity,primed=false;
-  function reset(){generation=null;lastWorld=lastPlayerTime=lastTick=null;highestId=-Infinity;primed=false;}
-  function update(snapshot,{camera,viewport={},anchors={},fieldUniforms,buildingVisuals=[]}={}){
-    const nextGeneration=snapshot.diagnostics?.generation??0,worldTime=snapshot.clocks.world,playerTime=snapshot.clocks.player;
-    const restarted=generation!==nextGeneration||lastWorld!==null&&(worldTime<lastWorld||snapshot.tick<lastTick);
-    if(restarted)reset();
-    const fresh=[];
+  let generation=null,lastWorld=null,lastPlayerTime=null,lastObservedWorld=null,lastTick=null,highestId=-Infinity,primed=false,pendingReset=false,pendingEvents=[];
+  function reset(){generation=null;lastWorld=lastPlayerTime=lastObservedWorld=lastTick=null;highestId=-Infinity;primed=false;pendingReset=false;pendingEvents=[];}
+  // Cheap receipt observation may run at each hidden fixed step. Full cell,
+  // native-house and camera preparation waits for the actually presented frame.
+  function observe(snapshot){
+    const nextGeneration=snapshot.diagnostics?.generation??0,worldTime=snapshot.clocks.world;
+    const restarted=generation!==nextGeneration||lastObservedWorld!==null&&(worldTime<lastObservedWorld||snapshot.tick<lastTick);
+    if(restarted){reset();pendingReset=true;}
     for(const event of snapshot.events||[]){
       if(typeof event.id!=='number'||!finite(event.id)||event.id<=highestId)continue;
-      if(primed)fresh.push({...copy(event),receivedWorldTime:worldTime});
+      if(primed){
+        if(pendingEvents.length>=4096)throw RangeError('Pending fire receipt capacity exceeded; present or reset before observing more steps');
+        pendingEvents.push({...copy(event),receivedWorldTime:worldTime,receivedGeneration:nextGeneration});
+      }
       highestId=Math.max(highestId,event.id);
     }
+    generation=nextGeneration;lastObservedWorld=worldTime;lastTick=snapshot.tick;primed=true;
+  }
+  function consumeEventReceipts(snapshot){
+    observe(snapshot);
+    const receipts={generation,primed:true,highestId:finite(highestId)?highestId:null,events:pendingEvents,reset:pendingReset};
+    pendingEvents=[];pendingReset=false;return receipts;
+  }
+  function update(snapshot,{camera,viewport={},anchors={},fieldUniforms,buildingVisuals=[]}={}){
+    const eventReceipts=consumeEventReceipts(snapshot),worldTime=snapshot.clocks.world,playerTime=snapshot.clocks.player;
     const worldDelta=snapshot.paused||lastWorld===null?0:Math.max(0,worldTime-lastWorld);
     const playerDelta=snapshot.paused||lastWorld===null?0:Math.max(0,playerTime-(lastPlayerTime??playerTime));
-    generation=nextGeneration;lastWorld=worldTime;lastTick=snapshot.tick;lastPlayerTime=playerTime;primed=true;
+    lastWorld=worldTime;lastPlayerTime=playerTime;
     const p=snapshot.player,m=anchors.muzzle,q=anchors.muzzleQuaternion;
     const borrowed=fieldUniforms?{field:{value:fieldUniforms.field.value},grid:{value:{x:fieldUniforms.grid.value.x,y:fieldUniforms.grid.value.y}},cellSize:{value:fieldUniforms.cellSize.value}}:null;
     return {version:1,tick:snapshot.tick,worldTime,playerTime,worldDelta,playerDelta,paused:snapshot.paused,
@@ -58,8 +71,8 @@ export function createFireFrameAdapter(){
       anchors:{muzzle:m?{x:m.x,y:m.y,z:m.z}:null,muzzleQuaternion:q?.toArray?.()||(Array.isArray(q)?[...q]:null),
         torchTip:p.tool==='torch'&&m?{x:m.x,y:m.y,z:m.z}:null},
       cells:copy(snapshot.cells),discharge:copy(snapshot.discharge),torch:copy(p.torch),events:copy(snapshot.events),
-      eventReceipts:{generation,primed:true,highestId:finite(highestId)?highestId:null,events:fresh,reset:restarted},
+      eventReceipts,
       fieldUniforms:borrowed,buildingVisuals:copy(buildingVisuals),opaqueDepth:null};
   }
-  return {update,reset};
+  return {update,observe,consumeEventReceipts,reset,diagnostics:()=>({generation,primed,pendingEvents:pendingEvents.length,pendingReset,highestId:finite(highestId)?highestId:null,lastObservedWorld,lastTick})};
 }
