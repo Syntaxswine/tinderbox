@@ -53,7 +53,7 @@ export function createGroundField(T){
     texture.minFilter=texture.magFilter=T.NearestFilter;texture.generateMipmaps=false;
     uniforms.field.value=texture;uniforms.grid.value.set(cols,rows);uniforms.cellSize.value=size;
     geometry=pool.geometry(new T.PlaneGeometry(cols*size,rows*size));geometry.rotateX(-Math.PI/2);
-    mesh=new T.Mesh(geometry,material);mesh.position.set(cols*size/2,.018,rows*size/2);mesh.renderOrder=1;root.add(mesh);
+    mesh=new T.Mesh(geometry,material);mesh.position.set(cols*size/2,.018,rows*size/2);mesh.renderOrder=-1;root.add(mesh);
   }
   return {root,uniforms,update(snapshot){
     resize(snapshot.world);data.fill(0);

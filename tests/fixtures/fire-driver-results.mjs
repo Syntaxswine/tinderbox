@@ -2,6 +2,7 @@
 // The actual driver source/state/notify/measure functions are evaluated intact;
 // only renderer/art/browser transports are replaced with declared test fixtures.
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
@@ -64,7 +65,7 @@ try{
  }});
  const first=await driver.measure({modes:['current'],warmupFrames:1,sampleFrames:128,trials:2,poseFrame:45});
  const archived=JSON.stringify(first),rawSamples=first.gpu.trials.reduce((n,t)=>n+t.gpu.length,0),oldBytes=Buffer.byteLength(archived);
- assert.equal(first.status,'complete');assert.equal(rawSamples,512);assert.ok(oldBytes>100000,'Prior report must be nontrivial');assert.deepEqual(driver.state().results,first);
+ assert.equal(first.status,'complete');assert.equal(rawSamples,512);const groundHash=createHash('sha256').update(fs.readFileSync(path.join(project,'src/art/ground-field.js'),'utf8').replaceAll('\r','')).digest('hex');assert.equal(first.sourceFingerprints.adapterRuntimeFiles['src/art/ground-field.js']?.sha256,groundHash,'The actual driver report must fingerprint the loaded underlay source');assert.ok(oldBytes>100000,'Prior report must be nontrivial');assert.deepEqual(driver.state().results,first);
  stage='invalid';
  for(const options of [{warmupFrames:0},{sampleFrames:1},{trials:0}]){
   const count=notifications.length;await assert.rejects(driver.measure({modes:['current'],warmupFrames:1,sampleFrames:16,trials:1,...options}),RangeError);
@@ -81,5 +82,5 @@ try{
  stage='unavailable';const before=notifications.length,unavailable=await driver.measure({modes:['optimized'],warmupFrames:1,sampleFrames:16,trials:1,poseFrame:45});
  assert.equal(unavailable.status,'unavailable');assert.deepEqual(driver.state().results,unavailable);assert.ok(notifications.slice(before).every(n=>n.phase!=='measuring'));
  assert.equal(queries.size,0);await driver.dispose();assert.equal(rendererDisposed,1);assert.equal(artCreated,artDisposed);assert.equal(callbacks.size,0);
- console.log(JSON.stringify({kind:'api-only-driver-results-regression',source:'Actual unmodified driver module; API-only renderer/art/RAF fixtures',priorRawSamples:rawSamples,priorReportBytes:oldBytes,invalidRequests:6,collectingNotifications:measuring.length,maxCollectingDomBytes:Math.max(...domBytes),newCancelledRawSamples:freshSamples,newStatus:second.status,archivedReportUnchanged:JSON.stringify(first)===archived,queriesRemaining:queries.size,callbacksRemaining:callbacks.size,artCreated,artDisposed,rendererDisposed,gpuEvidence:false,retainedHelpers:[]}));
+ console.log(JSON.stringify({kind:'api-only-driver-results-regression',source:'Actual unmodified driver module; API-only renderer/art/RAF fixtures',priorRawSamples:rawSamples,priorReportBytes:oldBytes,invalidRequests:6,collectingNotifications:measuring.length,maxCollectingDomBytes:Math.max(...domBytes),newCancelledRawSamples:freshSamples,newStatus:second.status,archivedReportUnchanged:JSON.stringify(first)===archived,queriesRemaining:queries.size,callbacksRemaining:callbacks.size,artCreated,artDisposed,rendererDisposed,groundFieldFingerprinted:true,gpuEvidence:false,retainedHelpers:[]}));
 }finally{if(driver&&rendererDisposed===0)await driver.dispose();globalThis.fetch=priorFetch;assert.equal(queries.size,0);assert.equal(callbacks.size,0);}
