@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "authority": "e771defaae95f5493b004d28ba231eee193bf183",
+  "layoutAmendment": "1e3d6943b375b68f72f77f1346ae5118226a82de",
+  "parent": "f93828adf59c96398b1b9c7e623ed5fefaf5de03",
+  "dataControlTree": "a1be9735d01617b19acde8bd6c1f2c1c3cf998df",
+  "baseManifest": {
+    "bytes": 80047,
+    "sha256": "b975e2eff7466190a4e528cfdff1a276a5bd17599e59cbe1e1b01d3a7a73490b"
+  },
+  "response": "Explicit uncalibrated artist-selected F squared response; no stronger physical derivation claim.",
+  "rnaPrimary": {
+    "commit": "5afeabba6097c311e11a3845dadf0f709adadeed",
+    "path": "source/blender/makesrna/intern/rna_fluid.cc",
+    "bytes": 133231,
+    "sha256": "348842e7e8a66fcf9e7dc4fbd53bfc20e0fe896a7ebd321beaf777870400c869",
+    "lines": [
+      1098,
+      1121
+    ]
+  },
+  "preparedRna": {
+    "sha256": "c23ed17fb363534e57233e7655c44a0aacffb681072d165682df7c9a694aa66e",
+    "ignition": 1.5,
+    "maxTemperature": 3
+  },
+  "parentAttributesBeforeRaw": {
+    "bytes": 1137,
+    "sha256": "2981c1ea9c6acf20a55b374e118727fd2a155bc5715a4ef08d7786ec027b1296"
+  },
+  "parentAttributesAppended": "corridor-emission-vector.js text eol=lf\ncorridor-emission-vector-transfer.js text eol=lf\ncorridor-emission-vector.manifest.json text eol=lf\n",
+  "sourceOnly": true,
+  "noDataBodyReadOrFactoryRenderer": true,
+  "immutableSourcePins": [
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/index.js",
+      "bytes": 14176,
+      "sha256": "e0948b76ce7fdc82cf922eb807b17e81bb947ca18001054c723e7180b44b7ae8"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/normalization-transfer.js",
+      "bytes": 2426,
+      "sha256": "1bccb3911347f726e87884a26d3df791c1ca6cb6a60d46464e851ca5db7a4262"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/linear-hdr-transfer.js",
+      "bytes": 1534,
+      "sha256": "f795a68b48381e1aaa27f3f2da7c619dcc65b890529bfa66475662bea7aa2b0e"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/manifest.json",
+      "bytes": 80047,
+      "sha256": "b975e2eff7466190a4e528cfdff1a276a5bd17599e59cbe1e1b01d3a7a73490b"
+    }
+  ],
+  "fragment": {
+    "before": {
+      "bytes": 5898,
+      "sha256": "ea335a90333b3e45eec404a1eb3d2859ad586e3210b06a864ec3e3529c446d24"
+    },
+    "after": {
+      "bytes": 6843,
+      "sha256": "4656d42c25d406761c4d59f1f8ee80427c3af843180d96372d14e92a7546f817"
+    },
+    "substitutionUnits": 6,
+    "fullInverse": "recoverCornerEmissionVector restores complete original fragment; tests refuse outside changes."
+  },
+  "dataAbi": {
+    "storeAdded": 0,
+    "prepareAlias": "prepareCorridorEmissionVectorData === original prepareCorridorSourceDiagnosticData",
+    "evidenceAlias": "corridorEmissionVectorPayloadEvidence === original corridorSourceDiagnosticPayloadEvidence",
+    "auditAlias": "auditCorridorEmissionVectorRGBA === original auditCorridorSourceDiagnosticRGBA",
+    "closureModules": 64,
+    "originalModules": 62,
+    "newSourceUsageBytes": 11196348,
+    "originalResources": 193,
+    "unchangedCpuProofSha256": "8fbfe3d28c81478c8497618a7585c3933e5156a459acc6794722cc43b235d730"
+  },
+  "parentAttributesBeforeGit": {
+    "bytes": 1137,
+    "sha256": "2981c1ea9c6acf20a55b374e118727fd2a155bc5715a4ef08d7786ec027b1296"
+  },
+  "attributesRule": "Working prefix preserved raw byte-for-byte; for Git metadata only CRLF normalizes to original canonicalLF blob. Runtime sources/manifest stay rawLF exact. Three newliteralrules only."
+}
