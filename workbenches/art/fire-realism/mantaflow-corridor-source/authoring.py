@@ -42,15 +42,21 @@ def attribute_snapshot(mesh):
         for i,a in enumerate(mesh.attributes):
             if i>=ATTRIBUTE_CAPTURE_LIMIT:break
             row={'name':None,'domain':None,'dataType':None,'dataCount':None};r['attributes'].append(row)
+            for field,property_name in [('name','name'),('domain','domain'),('dataType','data_type')]:
+                try:row[field]=_plain_attribute_value(getattr(a,property_name))
+                except Exception as exc:error('attribute:'+str(i)+':'+field,exc)
+            data=None
             try:
-                row.update({'name':_plain_attribute_value(a.name),'domain':_plain_attribute_value(a.domain),'dataType':_plain_attribute_value(a.data_type),'dataCount':len(a.data)})
-                if a.name=='sharp_face':
-                    row['values']=[]
-                    if row['dataCount']>34:error('sharp_face',ValueError('Flat-face extent exceeds34; prefix only, refuse'))
-                    for j,value in enumerate(a.data):
+                data=a.data;row['dataCount']=len(data)
+            except Exception as exc:error('attribute:'+str(i)+':dataCount',exc)
+            if row['name']=='sharp_face'and data is not None:
+                row['values']=[]
+                try:
+                    if row['dataCount']is not None and row['dataCount']>34:error('sharp_face',ValueError('Flat-face extent exceeds34; prefix only, refuse'))
+                    for j,value in enumerate(data):
                         if j>=34:break
                         row['values'].append(_plain_attribute_value(value.value))
-            except Exception as exc:error('attribute:'+str(i),exc)
+                except Exception as exc:error('attribute:'+str(i)+':values',exc)
         if len(mesh.polygons)>34:error('polygons',ValueError('Polygon inventory exceeds34; prefix only, refuse'))
         for i,face in enumerate(mesh.polygons):
             if i>=34:break

@@ -297,8 +297,55 @@ def fake_successful_semantics():
     assert [r[0]for r in a.persisted]==['original','candidate-allocation','candidate','candidate-provenance','installed']
     assert a.events.index('persist:candidate-provenance')<a.events.index('swap')<a.events.index('persist:installed')
     assert len(a.result['observation'])==7 and a.result['observation']==observation
-    assert a.result['attributePreflight']['observation']['polygons']==old_attributes['polygons']
+    assert a.result['attributePreflight']['observation']==old_attributes
+    assert a.result['attributeCandidate']['observation']==a.result['attributeInstalled']['observation']==new_attributes
 check('fake complete install preserves seven geometric fields and independently regenerated all-flat semantics',fake_successful_semantics)
+
+def partial_attribute_getter_facts():
+    from types import SimpleNamespace
+    def replacement(mode):
+        reads={'name':0,'domain':0,'data_type':0,'data':0,'count':0}
+        class Values:
+            def __len__(self):
+                reads['count']+=1
+                if mode=='count':raise RuntimeError('synthetic unreadable count')
+                return 23
+            def __iter__(self):return iter([SimpleNamespace(value=True)for _ in range(23)])
+        values=Values()
+        class Attribute:
+            @property
+            def name(self):
+                reads['name']+=1
+                if mode=='name':raise RuntimeError('synthetic unreadable name')
+                assert reads['name']==1;return 'sharp_face'
+            @property
+            def domain(self):reads['domain']+=1;assert reads['domain']==1;return 'FACE'
+            @property
+            def data_type(self):
+                reads['data_type']+=1
+                if mode=='type':raise RuntimeError('synthetic unreadable type')
+                assert reads['data_type']==1;return 'BOOLEAN'
+            @property
+            def data(self):reads['data']+=1;assert reads['data']==1;return values
+        return Attribute(),reads
+    for mode in ['type','count','name']:
+        attribute,reads=replacement(mode)
+        result=fake_attribute_run(old_mutation=lambda mesh:setattr(mesh,'attributes',type(mesh.attributes)([*mesh.attributes[:-1],attribute])))
+        assert isinstance(result.error,AttributeRefused)and result.counters['allocation']==result.counters['swap']==result.counters['vector']==0
+        evidence=result.persisted[0][1];partial=evidence['observation']['attributes'][-1]
+        assert evidence['passed']is False and evidence['observation']['captureComplete']is False
+        assert partial['domain']=='FACE'and partial['name']==(None if mode=='name'else'sharp_face')
+        assert partial['dataType']==(None if mode=='type'else'BOOLEAN')and partial['dataCount']==(None if mode=='count'else 23)
+        assert evidence['observation']['captureErrors'][0]['message']=='synthetic unreadable '+mode
+        assert reads=={'name':1,'domain':1,'data_type':1,'data':1,'count':1}
+    attribute,reads=replacement(None)
+    success=fake_attribute_run(old_mutation=lambda mesh:setattr(mesh,'attributes',type(mesh.attributes)([*mesh.attributes[:-1],attribute])))
+    assert success.error is None and success.result['attributePreflight']['passed']and reads=={'name':1,'domain':1,'data_type':1,'data':1,'count':1}
+    attribute,reads=replacement('type')
+    failed_save=fake_attribute_run(old_mutation=lambda mesh:setattr(mesh,'attributes',type(mesh.attributes)([*mesh.attributes[:-1],attribute])),fail_stage='original')
+    assert isinstance(failed_save.error,BaseExceptionGroup)and isinstance(failed_save.error.exceptions[0],AttributeRefused)
+    assert failed_save.error.exceptions[0].observation['observation']['attributes'][-1]['name']=='sharp_face'and failed_save.counters['allocation']==0
+check('independent readable attribute fields survive type/count/name faults, persist refusal and never allocate',partial_attribute_getter_facts)
 
 def segment(text,qualname):
     tree=ast.parse(text);node=tree

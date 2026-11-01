@@ -125,3 +125,14 @@ normalizer/deleter calls and prove invalid old input cannot allocate/swap, inval
 new output cannot swap, and persistence failures stop. Old geometric/state/clock/
 terminal/registration checks remain. Actual Blender inventory, preparation and
 solver/native gates require a separate fresh-candidate decision; none is released.
+
+
+The minimal child after1f preserves readable attribute facts if a later getter
+throws. Name/domain/type are captured independently; the data reference and count
+are read once, and successful observation/schema is unchanged. Missing type/count/
+name stays explicit with per-field errors and the same structured refusal before
+allocation. Plain fakes cover each failure, retained facts, one-read access,
+persistence failure/no allocation, and normal complete observations. The frozen
+independent3945-byte witness SHA f8f8213c is read-only; its failure is synthetic,
+not an observed Blender API failure.1f/c16/provisional sources and the unexecuted1f
+02proposal remain preserved; no actual execution or rebinding follows this child.

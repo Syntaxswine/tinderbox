@@ -348,8 +348,8 @@
       "originalBytes": 11516,
       "originalSha256": "4b8c5e06fa9b75ae019bddb4e9f4ecefcec6eca766e364bb457b840045859eff",
       "originalGitBlob": "60590522484b8e0cf111cac633e89715f4d69096",
-      "currentBytes": 25646,
-      "currentSha256": "83361532e746382be9e162f789972c2ea43e54596e96a995bdd42392c0296990",
+      "currentBytes": 25968,
+      "currentSha256": "a16307ca235f9cc1b58a0a6e1738ffd5f248b751b0b3b5b430ff3f0b02b44708",
       "reason": "Strict observed/persisted flat-face source compatibility only; seven-field geometry/math unchanged. Original frozen reference retained; other10 corridor/17 weighted references stay raw exact."
     },
     "geometricFunctionHashes": {
@@ -368,6 +368,22 @@
     },
     "noGeometryRecipePhysicsClockOpticsChange": true,
     "actualNewToolOrSceneRun": false,
-    "structuralSchemaAuthority": "Existing four names plus unchanged seven-field geometry only; actual domains/types/counts recorded, with no new enum/domain/extent assertions."
+    "structuralSchemaAuthority": "Existing four names plus unchanged seven-field geometry only; actual domains/types/counts recorded, with no new enum/domain/extent assertions.",
+    "partialAttributeCaptureChild": {
+      "authority": "25af559873dd15bb0a0fbc0c93f77c61f38a10f3",
+      "parentCommit": "1f4269ce6c850da7931cf51be5712b4814ebdcc3",
+      "parentAuthoringBytes": 25646,
+      "parentAuthoringSha256": "83361532e746382be9e162f789972c2ea43e54596e96a995bdd42392c0296990",
+      "independentSyntheticWitness": {
+        "path": "C:/Users/baals/.codex/worktrees/tinderbox-code/tinderbox/artifacts/qa/fire-realism/corridor-flat-1f-independent-attributes.py",
+        "bytes": 3945,
+        "sha256": "f8f8213c94982c4a7fae8737545a63adef5cdedada0af60e9136531cfac1f31b",
+        "readOnly": true,
+        "meaning": "Synthetic data_type getter failure exposes lost name/domain under atomic dict evaluation. Not an actual API failure."
+      },
+      "change": "Only attribute_snapshot field capture: independent name/domain/type assignments; data pointer and count read once; readable facts and per-field errors retained. Existing success schema, strict refusal/persistence and limits unchanged.",
+      "outsideAttributeSnapshotSha256": "f554846d3785389fec6294baee60f4b21dc58f40bef5abc07eea865b859be44d",
+      "actualApiOrRun": false
+    }
   }
 }
