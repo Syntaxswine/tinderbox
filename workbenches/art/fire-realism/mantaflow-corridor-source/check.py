@@ -8,6 +8,7 @@ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3];sys.path.insert(0,str(
 from clipping import clip_mesh
 from source import load_settings,validate_settings,derive_plan,bits,f32,canonical
 from authoring import verify_observation,ObservationRefused
+from realization import expected_realization,IDENTITY,words
 GROUPS=[];REFUSALS=0
 
 def check(name,fn):
@@ -130,12 +131,53 @@ def observed_gate():
 check('plain readback topology/group/float32/transform/type refusal witness',observed_gate)
 
 def storage_boundary():
-    o,p,l,w=observation_fixture(boundary=True)
-    try:verify_observation(o,p,l,w)
-    except ObservationRefused as e:
-        assert 'open strip' in str(e);assert e.observation is o
-    else:raise AssertionError('Float32 boundary crossing must refuse, not widen epsilon')
-check('future stored-boundary precision failure remains explicit and unwaived',storage_boundary)
+    o,p,l,w=observation_fixture(boundary=True);gate=verify_observation(o,p,l,w)
+    assert gate['passed']is True and gate['expectedFloat32RealizationMatched']is True
+    assert gate['strictOpenStripPassed']is False
+    realized=gate['expectedRealization'];assert realized['nominalRationalCertified']is True and realized['nominalCrossingCount']>0
+    expected=Q(f32(.1))-Q(.1);assert expected>0
+    assert Q(realized['maximumNominalPenetrationExact'])==expected
+    assert realized['roundingToleranceUsed']is False
+check('inward boundary rounding reported truthfully and exact realization separately matched',storage_boundary)
+
+def recorded_original():
+    intended=expected_realization(PLAN,IDENTITY);assert intended['nominalCrossingCount']==10 and intended['strictOpenStripPassed']is False
+    positions=[[f32(x),f32(y),f32(SETTINGS['source']['planeZ'])] for x,y in SETTINGS['source']['polygon']]
+    payload={'vertices':positions,'polygons':SETTINGS['emissionWeights']['triangleIndexMap']}
+    assert hashlib.sha256(json.dumps(payload,separators=(',',':')).encode()).hexdigest()=='20ff4e997b3ab044871268963d3c145834d378ce00a1b5535d5f69ac647c91d5'
+    plan=derive_plan(SETTINGS,original_positions=positions);realized=expected_realization(plan,IDENTITY)
+    assert realized['nominalCrossingCount']==8 and realized['maximumNominalPenetrationMetres']==6.6544191192046895e-9
+    assert realized['positionBitsLE']==words(realized['positionsFloat32'])
+    # Independent old barycentric-local arithmetic equals the new nominal-world
+    # realization under this recorded identity; neither path changes a weight.
+    for face in plan['mesh']['faces']:
+        original=SETTINGS['emissionWeights']['triangleIndexMap'][face['sourceFace']]
+        for index,row in zip(face['indices'],face['barycentric']):
+            b=list(map(Q,row));local=[sum(b[k]*Q(positions[original[k]][j]) for k in range(3)) for j in range(3)]
+            assert [bits(float(v)) for v in local]==realized['positionBitsLE'][index]
+            weight=sum(b[k]*Q(SETTINGS['emissionWeights']['vertexWeights'][original[k]]['weight']) for k in range(3))
+            assert bits(float(weight))==plan['expectedFloat32WeightBits'][index]
+    assert len(realized['signedCoordinateErrors'])==40 and len(realized['perSide'])==40
+check('fixed intended and metadata-hash-bound original float32 models',recorded_original)
+
+def wrong_bits_or_expectation():
+    o,p,l,w=observation_fixture()
+    def next_word(v):
+        code=struct.unpack('<I',struct.pack('<f',v))[0]
+        return struct.unpack('<f',struct.pack('<I',code+1))[0]
+    a=deepcopy(o);a['localPositions'][0][0]=next_word(a['localPositions'][0][0]);assert abs(a['localPositions'][0][0]-o['localPositions'][0][0])<1e-7
+    refuse(lambda:verify_observation(a,p,l,w))
+    a=deepcopy(o);a['worldPositions'][0][0]=next_word(a['worldPositions'][0][0]);refuse(lambda:verify_observation(a,p,l,w))
+    a=deepcopy(o);fake=deepcopy(l);fake[0][0]=next_word(fake[0][0]);a['localPositions']=deepcopy(fake);a['worldPositions']=deepcopy(fake)
+    try:verify_observation(a,p,fake,w)
+    except ObservationRefused as exc:
+        assert 'Caller expectation' in str(exc);assert exc.observation is a
+    else:raise AssertionError('Caller cannot approve a falsified expected representation')
+    refuse(lambda:verify_observation(a,p,fake,w))
+    nonidentity=deepcopy(w);nonidentity[0][3]=1e-12;a=deepcopy(o);a['world']=nonidentity
+    refuse(lambda:verify_observation(a,p,l,nonidentity));refuse(lambda:expected_realization(p,nonidentity))
+    typed=deepcopy(w);typed[0][0]=True;refuse(lambda:expected_realization(p,typed))
+check('one-ULP stored errors, falsified caller expectations and nonidentity refuse',wrong_bits_or_expectation)
 
 def pins_and_scope():
     prov=json.loads((HERE/'provenance.json').read_text(encoding='utf-8'))
@@ -144,11 +186,11 @@ def pins_and_scope():
         assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()==row['gitBlob']
     assert len(prov['immutableSourceFiles'])==17
     assert json.loads((HERE/'source-plan.json').read_text(encoding='utf-8'))==PLAN
-    for name in ['clipping.py','source.py','authoring.py','check.py']:
+    for name in ['clipping.py','source.py','authoring.py','realization.py','check.py']:
         tree=ast.parse((HERE/name).read_text(encoding='utf-8'),filename=name)
         assert not any(isinstance(n,ast.Import)and any(a.name=='bpy' for a in n.names) for n in ast.walk(tree))
         compile(tree,name,'exec')
     assert not (HERE/'supervisor.py').exists() and not (HERE/'winjob.py').exists()
     assert prov['reuse']['actualExecutionEntry']is None
-check('17 raw/Git source pins, deterministic plan, four ASTs and no new runner',pins_and_scope)
+check('17 raw/Git source pins, deterministic plan, five ASTs and no new runner',pins_and_scope)
 print(json.dumps({'kind':'corridor-pure-source-check-v1','groups':len(GROUPS),'refusals':REFUSALS,'passed':GROUPS,'actualBlenderOrFieldsOrFeedOrNativeProof':False},sort_keys=True))

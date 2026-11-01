@@ -5,6 +5,7 @@ fresh-copy/cache/deadline/permit controller must own any future invocation.
 from fractions import Fraction as Q
 import math,struct
 from source import derive_plan,validate_settings,bits,f32
+from realization import expected_realization,require_identity,words
 
 # Same native-metre transform precision guard as frozen weighted author.py.
 INHERITED_WORLD_PRECISION_METRES=1e-7
@@ -27,15 +28,18 @@ def snapshot(source):
             'vertices':[{'vertex':int(v.index),'memberships':[{'group':int(g.group),'weight':float(g.weight)} for g in v.groups]} for v in mesh.vertices]}
 
 def verify_observation(observed,plan,expected_local,expected_world):
-    """Strict intended/stored correspondence; no actual-emission or grid claim."""
+    """Exact expected stored representation; nominal penetration is separate."""
     try:
         if set(observed)!={'objectName','world','localPositions','worldPositions','faces','groups','vertices'}:raise ValueError('Unexpected stored source observation schema')
-        mesh=plan['mesh'];profile=plan['derivedProfile'];n=list(map(Q,mesh['normalExact']));lo=Q(mesh['lowerExact']);hi=Q(mesh['upperExact'])
+        require_identity(expected_world);require_identity(observed['world'])
+        realized=expected_realization(plan,expected_world)
+        if words(expected_local)!=realized['positionBitsLE']:raise ValueError('Caller expectation differs from independent expected float32 realization')
+        mesh=plan['mesh'];profile=plan['derivedProfile']
         count=len(mesh['vertices'])
         if observed['objectName']!=profile['objectName'] or observed['world']!=expected_world:raise ValueError('Object/transform changed')
         if observed['faces']!=[f['indices'] for f in mesh['faces']]:raise ValueError('Face/index/winding/provenance mapping changed')
         if len(observed['localPositions'])!=count or len(observed['worldPositions'])!=count:raise ValueError('Stored vertex extent changed')
-        if [[bits(v) for v in p] for p in observed['localPositions']]!=[[bits(v) for v in p] for p in expected_local]:raise ValueError('Requested local float32 coordinates changed')
+        if words(observed['localPositions'])!=realized['positionBitsLE'] or words(observed['worldPositions'])!=realized['positionBitsLE']:raise ValueError('Actual local/world coordinate bits differ from independent expected float32 realization')
         if any(len(p)!=3 or any(type(v)is not float or not math.isfinite(v) for v in p) for p in observed['worldPositions']):raise ValueError('Finite typed three-component stored world positions required')
         if max(p[2] for p in observed['worldPositions'])-min(p[2] for p in observed['worldPositions'])>1e-10:raise ValueError('Inherited flat-plane guard failed')
         maximum=max(abs(a-b) for p,v in zip(observed['worldPositions'],mesh['vertices']) for a,b in zip(p,v['position']))
@@ -43,15 +47,13 @@ def verify_observation(observed,plan,expected_local,expected_world):
         for face in mesh['faces']:
             a,b,c=[observed['worldPositions'][i] for i in face['indices']]
             if (Q(b[0])-Q(a[0]))*(Q(c[1])-Q(a[1]))-(Q(b[1])-Q(a[1]))*(Q(c[0])-Q(a[0]))<=0:raise ValueError('Stored triangle degenerate/downward; no silent omission')
-            for i in face['indices']:
-                p=observed['worldPositions'][i];d=sum(n[k]*Q(p[k]) for k in range(2))
-                if not (d<=lo if face['side']=='negative' else d>=hi):raise ValueError('Stored source entered intended open strip; no precision waiver')
         expected_groups=[{'name':profile['groupName'],'index':profile['groupIndex']}]
         if observed['groups']!=expected_groups or len(observed['vertices'])!=count or type(observed['groups'][0]['index'])is not int:raise ValueError('Group/deform extent missing/collided')
         for i,row in enumerate(observed['vertices']):
             expected=[{'group':profile['groupIndex'],'weight':f32(profile['vertexWeights'][i]['weight'])}]
             if set(row)!={'vertex','memberships'} or type(row['vertex'])is not int or row['vertex']!=i or row['memberships']!=expected or type(row['memberships'][0]['group'])is not int or type(row['memberships'][0]['weight'])is not float or bits(row['memberships'][0]['weight'])!=plan['expectedFloat32WeightBits'][i]:raise ValueError('Complete derived-index float32 membership mismatch')
-        return {'passed':True,'vertices':count,'faces':len(mesh['faces']),'maximumWorldErrorMetres':maximum,'strictOpenStripPassed':True,'effectiveInputGridProved':False}
+        return {'passed':True,'vertices':count,'faces':len(mesh['faces']),'maximumWorldErrorMetres':maximum,
+                'expectedFloat32RealizationMatched':True,'strictOpenStripPassed':realized['strictOpenStripPassed'],'expectedRealization':realized,'effectiveInputGridProved':False}
     except (KeyError,TypeError,IndexError,ValueError) as exc:
         raise ObservationRefused(str(exc),observed) from exc
 
@@ -70,22 +72,20 @@ def install(bpy,source,flow,settings,guard):
     if len(old.materials) or len(old.uv_layers) or len(old.color_attributes) or old.shape_keys is not None or any(p.material_index!=0 or p.use_smooth for p in old.polygons):raise ValueError('Unexpected source material/UV/color/shape/smoothing attributes; refuse rather than discard')
     names={a.name for a in old.attributes}
     if not names.issubset(BUILTIN_MESH_ATTRIBUTES):raise ValueError('Unreviewed source mesh attributes; no silent discard')
-    original_world=matrix_record(source.matrix_world)
+    original_world=matrix_record(source.matrix_world);require_identity(original_world)
     wanted=[[x,y,s['source']['planeZ']] for x,y in s['source']['polygon']]
     observed=[[float(v) for v in source.matrix_world@p.co] for p in old.vertices]
     if max(abs(a-b) for p,q in zip(observed,wanted) for a,b in zip(p,q))>INHERITED_WORLD_PRECISION_METRES:raise ValueError('Original source world positions differ')
-    # Actual tool-only import is deliberately inside the later authorized hook.
-    from mathutils import Vector
+    # Identity makes original local/world coordinates identical; prove the old25
+    # source representation before using its primitives, with no inverse fallback.
+    original_expected=[[f32(v) for v in p] for p in wanted]
+    if words(observed)!=words(original_expected):raise ValueError('Actual original source position bits differ from fixed expected float32 baseline')
     plan=derive_plan(s,original_positions=observed)
-    original_local=[[Q(float(c)) for c in v.co] for v in old.vertices];inherited={}
-    for face in plan['mesh']['faces']:
-        original=base['triangleIndexMap'][face['sourceFace']]
-        for index,bary in zip(face['indices'],face['barycentric']):
-            b=list(map(Q,bary));p=tuple(sum(b[k]*original_local[original[k]][j] for k in range(3)) for j in range(3))
-            if index in inherited and inherited[index]!=p:raise ValueError('Shared vertex local provenance differs; no averaging')
-            inherited[index]=p
-    local=[Vector([float(v) for v in inherited[i]]) for i in range(len(plan['mesh']['vertices']))]
-    expected_local=[[f32(float(v)) for v in p] for p in local]
+    realized=expected_realization(plan,original_world)
+    expected_local=realized['positionsFloat32']
+    # Expectation above is complete before the first tool-only Vector call.
+    from mathutils import Vector
+    local=[Vector(p) for p in expected_local]
     guard();mesh=bpy.data.meshes.new('CorridorSource1893')
     if mesh.name!='CorridorSource1893':raise ValueError('Fresh corridor mesh name collision; preserve failure')
     mesh.from_pydata(local,[],[f['indices'] for f in plan['mesh']['faces']]);mesh.update();source.data=mesh
@@ -98,7 +98,7 @@ def install(bpy,source,flow,settings,guard):
     if flow.density_vertex_group!=base['groupName']:raise ValueError('Actual group selector mismatch')
     guard();record=snapshot(source);gate=verify_observation(record,plan,expected_local,original_world)
     return {'kind':'corridor-source-install-observation-v1','plan':plan,'originalWorld':original_world,'expectedLocalFloat32':expected_local,
-            'observation':record,'geometryAndGroupGate':gate,'originalMeshPreservedNotFreed':old.name,'effectiveInputGridProved':False}
+            'observation':record,'expectedRealization':realized,'geometryAndGroupGate':gate,'originalMeshPreservedNotFreed':old.name,'effectiveInputGridProved':False}
 
 def observe_pair(bpy,scene,domain,source,flow,installed,guard):
     """Future four-frame/reloaded-scene gate; borrowed data captured before restore."""
