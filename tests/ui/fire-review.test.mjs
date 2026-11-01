@@ -2,7 +2,107 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash,webcrypto} from 'node:crypto';
-import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,sourceSummary,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot} from '../../workbenches/fire-realism/review.js';
+import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,sourceSummary,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot,LIVE_CAPTURE_ENDPOINT_PROTOCOL} from '../../workbenches/fire-realism/review.js';
+// These endpoint tests run the actual binding and recorder; clocks/driver/encoding
+// are declared API fixtures, not browser, GPU, compositor or encoded-tick proof.
+function endpointClock(t){
+  let now=0,next=0;const timers=new Map();
+  t.mock.method(performance,'now',()=>now);
+  t.mock.method(globalThis,'setTimeout',(fn,ms)=>{const id=++next;timers.set(id,{fn,at:now+ms});return id;});
+  t.mock.method(globalThis,'clearTimeout',id=>timers.delete(id));
+  return {timers,now:()=>now,at(ms){assert.ok(ms>=now);now=ms;},fire(at){const row=[...timers].find(([,v])=>v.at===at);assert.ok(row,'Missing deadline '+at);timers.delete(row[0]);row[1].fn();}};
+}
+async function endpointFixture(t,options={}){
+  const clock=endpointClock(t),doc=new EventTarget(),reader=clipReaderFixture(),tracks=[{stops:0,stop(){this.stops++;}}];doc.hidden=false;
+  let instance,watcher=null,sequence=0,leaseDisposals=0,streamAcquisitions=0,settings;
+  class Recorder extends EventTarget{
+    static isTypeSupported(){return true;}
+    constructor(){super();instance=this;this.state='inactive';this.mimeType='video/webm';}
+    start(){this.state='recording';if(options.startDelay)clock.at(options.startDelay);}
+    stop(){this.state='inactive';if(options.stopDelay)clock.at(clock.now()+options.stopDelay);if(options.silentStop)return;const event=new Event('dataavailable');event.data=new Blob(['endpoint-fixture'],{type:this.mimeType});this.dispatchEvent(event);this.dispatchEvent(new Event('stop'));}
+  }
+  doc.defaultView={MediaRecorder:Recorder};const canvas={width:1280,height:800,captureStream(){streamAcquisitions++;return {getTracks:()=>tracks};}};
+  const f=await fixture({signal:options.signal,liveEndpointProtocol:LIVE_CAPTURE_ENDPOINT_PROTOCOL,FileReaderCtor:reader.FileReaderCtor,renderRoot:{ownerDocument:doc,querySelector:()=>canvas},createMotionRecorder:config=>{settings=config;return createCanvasMotionRecorder(config);},methods:options.methods});
+  if(!options.oldDriver)f.driver.observeLiveDraws=callbacks=>{assert.equal(watcher,null);watcher=callbacks;let disposed=false;return {generation:17,simulationGeneration:2,dispose(){if(disposed)return;disposed=true;leaseDisposals++;watcher=null;}};};
+  f.emit({});
+  const submitted=(tick,{frameIndex=tick,worldTime=tick/60,playerTime=tick/60,...patch}={})=>{
+    f.emit({tick,frameIndex,worldTime,playerTime});
+    const receipt={sequence:++sequence,generation:17,simulationGeneration:2,frameIndex,tick,worldTime,playerTime,rafTimestampMs:clock.now(),callbackEnteredAtMs:clock.now(),renderReturnedAtMs:clock.now(),...patch};
+    watcher?.onSubmitted(receipt);return receipt;
+  };
+  const invalidate=reason=>watcher?.onInvalidated({reason,generation:17});
+  return {...f,clock,doc,tracks,submitted,invalidate,instance:()=>instance,watcher:()=>watcher,leaseDisposals:()=>leaseDisposals,streamAcquisitions:()=>streamAcquisitions,settings:()=>settings};
+}
+test('Submitted endpoint waits past nominal599 for natural start+600 and detaches before Pause redraw',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});assert.equal(f.settings().requestedStopDeadlineMs,10500);
+  f.clock.at(10000);f.submitted(644);f.clock.fire(10000);await Promise.resolve();assert.equal(f.instance().state,'recording');
+  const pause=f.driver.pause;f.driver.pause=()=>{assert.equal(f.watcher(),null);pause();f.submitted(9999);};
+  f.clock.at(10020);f.submitted(645);await Promise.resolve();const result=await f.binding.motionEvidence();
+  assert.equal(result.status,'complete');assert.equal(result.version,2);assert.equal(result.start.tick,45);assert.equal(result.endpoint.targetTick,645);assert.equal(result.endpoint.firstTargetDraw.tick,645);assert.equal(result.endpoint.lastSubmittedDraw.tick,645);
+  assert.equal(result.endpoint.targetObservedByDeadline,true);assert.equal(result.endpoint.intervalComplete,true);assert.equal(result.endpoint.encodedEndpointTick,null);assert.equal(result.endpoint.gpuCompletion,null);assert.equal(result.endpoint.compositorPresentation,null);
+  assert.equal(result.recording.maximumDurationMs,10500);assert.equal(result.recording.nominalStopAfterMs,10000);assert.equal(result.recording.requestedMaximumStopMs,10500);assert.equal(result.recording.stopRequestedAfterMs,10020);assert.equal(result.recording.mediaRecorderStopCalledAfterMs,10020);
+  assert.equal(f.leaseDisposals(),1);assert.equal(f.tracks[0].stops,1);assert.equal(f.clock.timers.size,0);assert.equal(f.calls.filter(x=>x[0]==='pause').length,1);assert.ok(f.updates.at(-1).recording.clip);await f.binding.dispose();
+});
+test('Submitted early target waits nominal; setup time never resets the recorder anchor',async t=>{
+  const f=await endpointFixture(t,{startDelay:400});await f.binding.intent({type:'record'});assert.deepEqual([...f.clock.timers.values()].map(x=>x.at).sort((a,b)=>a-b),[10000,10500]);
+  f.clock.at(9900);f.submitted(645);await Promise.resolve();assert.equal(f.instance().state,'recording');f.clock.at(10000);f.clock.fire(10000);await Promise.resolve();const result=await f.binding.motionEvidence();assert.equal(result.status,'complete');assert.equal(result.endpoint.recorderStartMonotonicMs,0);assert.equal(result.recording.stopRequestedAfterMs,10000);await f.binding.dispose();
+});
+test('State-only progress stops inconclusive at the original requested maximum',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(10000);f.emit({tick:645,frameIndex:645,worldTime:10.75,playerTime:10.75});f.clock.fire(10000);f.clock.at(10500);f.clock.fire(10500);const result=await f.binding.motionEvidence();
+  assert.equal(result.status,'inconclusive');assert.equal(result.endpoint.firstTargetDraw,null);assert.equal(result.endpoint.intervalComplete,false);assert.equal(result.recording.maximumCallbackAfterMs,10500);assert.ok(f.updates.at(-1).recording.clip,'Valid bounded diagnostic media remains inspectable');assert.equal(f.tracks[0].stops,1);await f.binding.dispose();
+});
+test('Submitted no progress stays inconclusive with exact unchanged source clocks',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(10500);f.clock.fire(10500);const result=await f.binding.motionEvidence();assert.equal(result.status,'inconclusive');assert.equal(result.start.tick,result.end.tick);assert.equal(result.start.worldTime,result.end.worldTime);assert.equal(result.endpoint.lastSubmittedDraw,null);assert.equal(f.tracks[0].stops,1);await f.binding.dispose();
+});
+test('Submitted world/player clocks retain powder-style ratios instead of imposing tick/60',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(10000);f.submitted(645,{worldTime:4.25,playerTime:15.75});await Promise.resolve();const result=await f.binding.motionEvidence();assert.equal(result.status,'complete');assert.equal(result.end.worldTime,4.25);assert.equal(result.end.playerTime,15.75);assert.equal(result.endpoint.firstTargetDraw.worldTime,4.25);await f.binding.dispose();
+});
+test('Submitted Pause callback wall work is separated from native stop-call drain',async t=>{
+  const f=await endpointFixture(t,{stopDelay:20});await f.binding.intent({type:'record'});const pause=f.driver.pause;f.driver.pause=()=>{f.clock.at(f.clock.now()+7);pause();};f.clock.at(10000);f.submitted(645);await Promise.resolve();const result=await f.binding.motionEvidence();assert.equal(result.recording.stopReason,'live-interval-complete');assert.equal(result.recording.stopRequestedAfterMs,10000);assert.equal(result.recording.mediaRecorderStopCalledAfterMs,10007);assert.equal(result.recording.stopCallbackMs,7);assert.equal(result.recording.afterNativeStopCallMs,20);assert.equal(result.recording.encoderDrainMs,27);await f.binding.dispose();
+});
+test('A target first observed after10500 cannot be rescued by a delayed maximum callback',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(10501);f.submitted(645);f.clock.fire(10500);const result=await f.binding.motionEvidence();
+  assert.equal(result.status,'inconclusive');assert.equal(result.endpoint.firstTargetObservedAfterMs,10501);assert.equal(result.endpoint.targetObservedByDeadline,false);assert.equal(result.recording.stopDeadlineOverrunMs,1);assert.match(result.reason,/after the fixed/);await f.binding.dispose();
+});
+for(const maximumFirst of [false,true])test('A timely target remains distinct from late stop/drain, timer order '+maximumFirst,async t=>{
+  const f=await endpointFixture(t,{stopDelay:30});await f.binding.intent({type:'record'});f.clock.at(9990);f.submitted(645);f.clock.at(10600);f.clock.fire(maximumFirst?10500:10000);await Promise.resolve();const result=await f.binding.motionEvidence();
+  assert.equal(result.status,'complete');assert.equal(result.endpoint.firstTargetObservedAfterMs,9990);assert.equal(result.recording.stopRequestedAfterMs,10600);assert.equal(result.recording.stopDeadlineOverrunMs,100);assert.equal(result.recording.encoderDrainMs,30);assert.equal(result.recording.wallOverrunMs,130);assert.equal(result.recording.nominalWallOverrunMs,630);assert.equal(f.tracks[0].stops,1);await f.binding.dispose();
+});
+test('Manual Pause/stop at a full wall interval cannot masquerade as the owned endpoint stop',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(2500);f.submitted(195);f.driver.pause();f.invalidate('paused');f.clock.at(10000);f.clock.fire(10000);await Promise.resolve();const result=await f.binding.motionEvidence();assert.equal(result.status,'inconclusive');assert.equal(result.endpoint.interrupted.reason,'paused');assert.equal(result.endpoint.intervalComplete,false);await f.binding.dispose();
+});
+test('Submitted source/configuration drift and malformed draw receipt never qualify',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(10000);f.submitted(645,{simulationGeneration:3});await Promise.resolve();const result=await f.binding.motionEvidence();assert.equal(result.status,'unavailable');assert.match(result.reason,/identity, clocks or order/);assert.equal(f.tracks[0].stops,1);assert.equal(f.updates.at(-1).recording.clip,null);await f.binding.dispose();
+});
+test('Submitted lifecycle invalidation wins over a previously timely target',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(9990);f.submitted(645);f.invalidate('configuration-change');await Promise.resolve();const result=await f.binding.motionEvidence();assert.equal(result.status,'inconclusive');assert.equal(result.endpoint.intervalComplete,false);assert.match(result.reason,/configuration-change/);assert.equal(f.leaseDisposals(),1);await f.binding.dispose();
+});
+for(const action of ['hidden','abort','dispose'])test('Submitted '+action+' retires stream/observer and suppresses retained diagnostic media',async t=>{
+  const abort=new AbortController(),f=await endpointFixture(t,{signal:abort.signal});await f.binding.intent({type:'record'});f.clock.at(10000);f.submitted(645);
+  if(action==='hidden'){f.doc.hidden=true;f.doc.dispatchEvent(new Event('visibilitychange'));}else if(action==='abort')abort.abort();else await f.binding.dispose();
+  const result=await f.binding.motionEvidence();assert.equal(result.status,'cancelled');assert.equal(f.tracks[0].stops,1);assert.equal(f.watcher(),null);assert.equal(f.clock.timers.size,0);assert.ok(f.updates.every(x=>!x.recording.clip));await f.binding.dispose();
+});
+test('New protocol refuses missing observer support before acquiring any stream',async t=>{
+  const f=await endpointFixture(t,{oldDriver:true});assert.equal(f.updates.at(-1).recording.liveEndpoint.supported,false);await assert.rejects(f.binding.intent({type:'record'}),/live-draw driver API/);assert.equal(f.streamAcquisitions(),0);await f.binding.dispose();
+});
+test('Submitted start/capture mismatch and setup error retire acquired stream with no observer leak',async t=>{
+  const f=await endpointFixture(t);const play=f.driver.play;f.driver.play=()=>{play();f.emit({tick:46});};await assert.rejects(f.binding.intent({type:'record'}),/not coherent/);assert.equal(f.tracks[0].stops,1);assert.equal(f.clock.timers.size,0);assert.equal(f.watcher(),null);assert.equal(f.updates.at(-1).recording.active,false);await f.binding.dispose();
+});
+test('Submitted source mismatch at retirement and explicit manual stop retain only inconclusive diagnostics',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(10000);f.submitted(645);f.emit({diagnostics:{sourceFingerprints:{publishedControl:'changed-fixture'}}});
+  const result=await f.binding.intent({type:'stop-record'});assert.equal(result.status,'inconclusive');assert.equal(result.endpoint.intervalComplete,false);assert.match(result.reason,/identity changed/);assert.ok(f.updates.at(-1).recording.clip);await f.binding.dispose();
+});
+test('Submitted stale queued stop/receipt cannot stop a replacement recording',async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});const old=f.watcher();f.clock.at(10000);f.submitted(645);await f.binding.intent({type:'cancel-record'});await f.binding.intent({type:'record'});
+  old.onSubmitted({});await Promise.resolve();assert.equal(f.instance().state,'recording');assert.equal(f.updates.at(-1).recording.active,true);assert.equal(f.leaseDisposals(),1);await f.binding.intent({type:'cancel-record'});assert.equal(f.leaseDisposals(),2);await f.binding.dispose();
+});
+for(const thrown of [null,undefined,Object.defineProperty({},'name',{get(){throw Error('name getter');}}),{toString(){throw Error('toString');}}])test('Submitted stop observation errors cannot escape before Pause/track retirement: '+(thrown===null?'null':typeof thrown),async t=>{
+  const f=await endpointFixture(t);await f.binding.intent({type:'record'});f.clock.at(10000);f.submitted(645);const state=f.driver.state;let once=true;f.driver.state=()=>{if(once){once=false;throw thrown;}return state();};
+  await Promise.resolve();const result=await f.binding.motionEvidence();assert.equal(result.status,'unavailable');assert.equal(f.calls.filter(x=>x[0]==='pause').length,1);assert.equal(f.tracks[0].stops,1);assert.equal(f.clock.timers.size,0);assert.equal(f.watcher(),null);await f.binding.dispose();
+});
+test('Submitted missing stop event keeps the five-second requested drain and no diagnostic Blob',async t=>{
+  const f=await endpointFixture(t,{silentStop:true});await f.binding.intent({type:'record'});f.clock.at(10500);f.clock.fire(10500);assert.equal(f.tracks[0].stops,1);f.clock.at(15500);f.clock.fire(15500);const result=await f.binding.motionEvidence();assert.equal(result.status,'unavailable');assert.equal(f.updates.at(-1).recording.clip,null);assert.match(result.reason,/did not finish/);assert.equal(f.clock.timers.size,0);await f.binding.dispose();
+});
 const base='http://localhost:4552/nested/fire-ui/workbenches/fire-realism/index.html';
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
 function state(){return {version:1,phase:'ready',configuration:{mode:'current',scenario:'match-contact',view:'isometric',lighting:'bright',population:null,seed:1893,characterId:'bear',viewport:{width:1280,height:800,pixelRatio:1}},frameIndex:45,tick:45,worldTime:.75,playerTime:.75,
@@ -14,7 +114,7 @@ async function fixture(options={}){
     measure:async options=>{calls.push(['measure',options]);return current.results;},cancelMeasurement:async()=>{calls.push(['cancel']);},captureFrame:()=>({mimeType:'image/jpeg',dataUrl:'data:image/jpeg;base64,dGVzdA==',frameIndex:current.frameIndex,tick:current.tick,configuration:structuredClone(current.configuration),sourceFingerprints:current.diagnostics.sourceFingerprints,hardware:{renderer:'DOM test fixture only'}}),dispose:async()=>calls.push(['dispose'])};
   Object.assign(driver,options.methods||{});
   const mountUI=()=>{},delivery={byMode:{reference:{sourceCommit:'R'}}},receipt={kind:'fixture-only'};
-  const binding=await bindReviewDriver({shell,createDriver:async config=>{calls.push(['create',config.root.id,config.uiRoot.id]);assert.equal(config.mountUI,mountUI);assert.equal(config.artistDelivery,delivery);assert.equal(config.referenceAcceptance,receipt);observer=config.onChange;return driver;},mountUI,artistDelivery:delivery,referenceAcceptance:receipt,onDownload:(...args)=>downloads.push(args),references:[{id:'fixture',label:'Fixture'}],...(options.createMotionRecorder?{createMotionRecorder:options.createMotionRecorder}:{}),...(options.FileReaderCtor?{FileReaderCtor:options.FileReaderCtor}:{}),...(options.signal?{signal:options.signal}:{}),...(options.cryptoApi?{cryptoApi:options.cryptoApi}:{}),...(options.createReportEvidence?{createReportEvidence:options.createReportEvidence}:{})});
+  const binding=await bindReviewDriver({shell,createDriver:async config=>{calls.push(['create',config.root.id,config.uiRoot.id]);assert.equal(config.mountUI,mountUI);assert.equal(config.artistDelivery,delivery);assert.equal(config.referenceAcceptance,receipt);observer=config.onChange;return driver;},mountUI,artistDelivery:delivery,referenceAcceptance:receipt,onDownload:(...args)=>downloads.push(args),references:[{id:'fixture',label:'Fixture'}],...(options.createMotionRecorder?{createMotionRecorder:options.createMotionRecorder}:{}),...(options.FileReaderCtor?{FileReaderCtor:options.FileReaderCtor}:{}),...(options.signal?{signal:options.signal}:{}),...(options.cryptoApi?{cryptoApi:options.cryptoApi}:{}),...(options.createReportEvidence?{createReportEvidence:options.createReportEvidence}:{}),...(options.liveEndpointProtocol?{liveEndpointProtocol:options.liveEndpointProtocol}:{})});
   return {binding,calls,updates,downloads,cameraResources,driver,reportClears:()=>reportClears,emit:patch=>{current={...current,...patch};observer(driver.state());}};
 }
 test('Review includes the driver modes, real powder scenario and six critique categories',()=>{
@@ -367,7 +467,7 @@ test('Cold boot resolves the one fixed optional delivery before any driver or UI
 });
 test('Configured boot forwards only verified delivery and existing reference acceptance arguments',async()=>{
   const referenceAcceptance={kind:'fixture-only-reference'},optimizedAcceptance={kind:'fixture-only-optimized'},artistDelivery={byMode:{reference:{createFireRealism:()=>{}},optimized:{createFireRealism:()=>{},retainedQualityAcceptance:optimizedAcceptance}}};
-  const f=bootHarness({delivery:{status:'configured',artistDelivery,referenceAcceptance,descriptor:{sha256:'fixture-only'},extra:'must not reach the driver'}});await f.boot.ready;assert.equal(f.startRoot,f.root);assert.equal(f.startOptions.artistDelivery,artistDelivery);assert.equal(f.startOptions.referenceAcceptance,referenceAcceptance);assert.equal(f.startOptions.artistDelivery.byMode.optimized.retainedQualityAcceptance,optimizedAcceptance);assert.deepEqual(Object.keys(f.startOptions).sort(),['artistDelivery','createDriver','mountUI','referenceAcceptance','signal']);assert.equal(f.startOptions.createDriver,f.driverFactory);assert.equal(f.startOptions.mountUI,f.mountUI);await f.boot.dispose();
+  const f=bootHarness({delivery:{status:'configured',artistDelivery,referenceAcceptance,descriptor:{sha256:'fixture-only'},extra:'must not reach the driver'}});await f.boot.ready;assert.equal(f.startRoot,f.root);assert.equal(f.startOptions.artistDelivery,artistDelivery);assert.equal(f.startOptions.referenceAcceptance,referenceAcceptance);assert.equal(f.startOptions.artistDelivery.byMode.optimized.retainedQualityAcceptance,optimizedAcceptance);assert.deepEqual(Object.keys(f.startOptions).sort(),['artistDelivery','createDriver','liveEndpointProtocol','mountUI','referenceAcceptance','signal']);assert.equal(f.startOptions.liveEndpointProtocol,LIVE_CAPTURE_ENDPOINT_PROTOCOL);assert.equal(f.startOptions.createDriver,f.driverFactory);assert.equal(f.startOptions.mountUI,f.mountUI);await f.boot.dispose();
 });
 test('Configured loader failures and invalid configuration states never import a debug fallback',async()=>{
   for(const options of [{loadDelivery:()=>{throw Error('Configured delivery raw hash mismatch');}}, {delivery:{status:'configured',artistDelivery:null,referenceAcceptance:null}}, {delivery:{status:'unconfigured',artistDelivery:{byMode:{}},referenceAcceptance:null}}, {delivery:{status:'invented-approved-state'}}]){

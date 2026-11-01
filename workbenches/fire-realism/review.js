@@ -12,6 +12,7 @@ export const RUBRIC = Object.freeze([
   ['shape','Silhouette & depth'], ['flow','Flow & breakup'], ['colour','Colour & opacity'],
   ['contact','Smoke, contact & light'], ['artefacts','Repetition, pop & aliasing'], ['readability','Animal & HUD readability']
 ]);
+export const LIVE_CAPTURE_ENDPOINT_PROTOCOL='submitted-live-600-v1';
 const PLANS = Object.freeze({'current-reference':['current','reference'],'reference-optimized':['reference','optimized'],all:['current','reference','optimized']});
 const VIEWS=[{id:'isometric',label:'Isometric gameplay'},{id:'oblique',label:'Closer oblique'}];
 const LIGHTING=[{id:'bright',label:'Bright surroundings'},{id:'dim',label:'Dim surroundings'}];
@@ -131,33 +132,43 @@ export function createTimingReportEvidence({report,FileReaderCtor=globalThis.Fil
 }
 /** Records only the owned canvas stream. Never requests a camera, microphone or display. */
 export function createCanvasMotionRecorder({canvas,MediaRecorderCtor=globalThis.MediaRecorder,maxDurationMs=10000,
-  schedule=setTimeout,cancelSchedule=clearTimeout,now=()=>performance.now(),onStopping=()=>{}}={}){
+  schedule=setTimeout,cancelSchedule=clearTimeout,now=()=>performance.now(),onStopping=()=>{},requestedStopDeadlineMs,maximumStopReason=()=> 'live-maximum-deadline'}={}){
   if(typeof canvas?.captureStream!=='function'||typeof MediaRecorderCtor!=='function')throw Error('Canvas motion recording is unavailable in this browser.');
   if(!Number.isFinite(maxDurationMs)||maxDurationMs<=0||maxDurationMs>10000)throw RangeError('Motion capture nominal timer must be at most ten seconds.');
+  const submitted=requestedStopDeadlineMs!==undefined;
+  if(submitted&&(requestedStopDeadlineMs!==10500||maxDurationMs!==10000))throw RangeError('Submitted live capture requires nominal10000/requested maximum10500 ms.');
   const stream=canvas.captureStream(60),tracks=stream.getTracks(),chunks=[];let recorder,ttl=null,drain=null,settled=false,stopping=false,tracksStopped=false,stopReason='manual',failure=null,bytes=0,stopRequestedAfterMs=null;
-  const startedAt=now();let resolve;const finished=new Promise(r=>{resolve=r;});
+  let startedAt=now(),maximumCallbackAfterMs=null,mediaRecorderStopCalledAfterMs=null;let resolve;const finished=new Promise(r=>{resolve=r;});
   const stopTracks=()=>{if(tracksStopped)return;tracksStopped=true;for(const track of tracks)try{track.stop();}catch(cause){failure ||= cause;}};
   function cleanup(){if(ttl!==null)cancelSchedule(ttl);if(drain!==null)cancelSchedule(drain);stopTracks();recorder?.removeEventListener('dataavailable',data);recorder?.removeEventListener('stop',complete);recorder?.removeEventListener('error',error);}
   function complete(){
     if(settled)return;settled=true;cleanup();const cancelled=['cancelled','disposed','aborted'].includes(stopReason),mimeType=recorder?.mimeType||'video/webm';
     const blob=!failure&&!cancelled&&bytes?new Blob(chunks,{type:mimeType}):null;chunks.length=0;const wallDurationMs=Math.max(0,now()-startedAt);
     resolve({status:cancelled?'cancelled':blob?'complete':'unavailable',reason:failure?.message||(cancelled?'Recording discarded':blob?stopReason:'No encoded canvas frames were received'),mimeType,blob,
-      bytes:blob?.size||0,wallDurationMs,maximumDurationMs:maxDurationMs,nominalStopAfterMs:maxDurationMs,stopRequestedAfterMs,
+      bytes:blob?.size||0,wallDurationMs,maximumDurationMs:submitted?requestedStopDeadlineMs:maxDurationMs,nominalStopAfterMs:maxDurationMs,stopRequestedAfterMs,
+      ...(submitted?{requestedMaximumStopMs:requestedStopDeadlineMs,recorderStartMonotonicMs:startedAt,requestedStopReason:stopReason,maximumCallbackAfterMs,mediaRecorderStopCalledAfterMs,stopCallbackMs:mediaRecorderStopCalledAfterMs===null?null:Math.max(0,mediaRecorderStopCalledAfterMs-stopRequestedAfterMs),afterNativeStopCallMs:mediaRecorderStopCalledAfterMs===null?null:Math.max(0,wallDurationMs-mediaRecorderStopCalledAfterMs),nominalWallOverrunMs:Math.max(0,wallDurationMs-maxDurationMs),stopDeadlineOverrunMs:stopRequestedAfterMs===null?null:Math.max(0,stopRequestedAfterMs-requestedStopDeadlineMs)}:{}),
       schedulingOverrunMs:stopReason==='ten-second-limit'&&stopRequestedAfterMs!==null?Math.max(0,stopRequestedAfterMs-maxDurationMs):null,
-      encoderDrainMs:stopRequestedAfterMs===null?null:Math.max(0,wallDurationMs-stopRequestedAfterMs),wallOverrunMs:Math.max(0,wallDurationMs-maxDurationMs),requestedCaptureFps:60,canvas:{width:canvas.width,height:canvas.height}});
+      encoderDrainMs:stopRequestedAfterMs===null?null:Math.max(0,wallDurationMs-stopRequestedAfterMs),wallOverrunMs:Math.max(0,wallDurationMs-(submitted?requestedStopDeadlineMs:maxDurationMs)),requestedCaptureFps:60,canvas:{width:canvas.width,height:canvas.height}});
   }
   function stop(reason='manual'){
     if(settled||stopping)return finished;stopping=true;stopReason=reason;stopRequestedAfterMs=Math.max(0,now()-startedAt);if(ttl!==null)cancelSchedule(ttl);try{onStopping(reason);}catch(cause){failure=cause;}
-    try{if(recorder?.state!=='inactive')recorder.stop();else complete();}catch(cause){failure=cause;complete();}
+    try{if(recorder?.state!=='inactive'){if(submitted)mediaRecorderStopCalledAfterMs=Math.max(0,now()-startedAt);recorder.stop();}else complete();}catch(cause){failure=cause;complete();}
     finally{stopTracks();if(!settled)drain=schedule(()=>{failure=Error('Recorder did not finish after stop; no valid motion export.');complete();},5000);}return finished;
   }
   function data(event){if(settled||!event.data?.size)return;if(bytes+event.data.size>64*1024*1024){failure=Error('Recording reached its 64 MiB safety bound.');void stop('size-limit');return;}chunks.push(event.data);bytes+=event.data.size;}
   function error(event){failure=event.error||Error('Canvas encoder failed.');void stop('encoder-error');}
   try{
     const mimeType=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm','video/mp4'].find(type=>MediaRecorderCtor.isTypeSupported?.(type));
-    recorder=new MediaRecorderCtor(stream,mimeType?{mimeType}:undefined);recorder.addEventListener('dataavailable',data);recorder.addEventListener('stop',complete);recorder.addEventListener('error',error);recorder.start(250);if(!settled)ttl=schedule(()=>{void stop('ten-second-limit');},maxDurationMs);
+    recorder=new MediaRecorderCtor(stream,mimeType?{mimeType}:undefined);recorder.addEventListener('dataavailable',data);recorder.addEventListener('stop',complete);recorder.addEventListener('error',error);
+    if(submitted)startedAt=now();recorder.start(250);
+    if(!settled)ttl=schedule(()=>{
+      if(!submitted){void stop('ten-second-limit');return;}
+      maximumCallbackAfterMs=Math.max(0,now()-startedAt);let reason='live-maximum-deadline';
+      try{const selected=maximumStopReason();if(!['live-maximum-deadline','live-interval-complete'].includes(selected))throw Error('Invalid owned live deadline reason');reason=selected;}catch{failure=Error('Live deadline observation failed.');}
+      void stop(reason);
+    },submitted?Math.max(0,startedAt+requestedStopDeadlineMs-now()):maxDurationMs);
   }catch(cause){failure=cause;cleanup();throw cause;}
-  return {finished,stop,dispose:()=>stop('disposed')};
+  return {finished,stop,dispose:()=>stop('disposed'),...(submitted?{startedAtMonotonicMs:startedAt}:{})};
 }
 export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,baseUrl}={}){
   if(!root?.ownerDocument)throw TypeError('Review shell needs a DOM root.');
@@ -209,7 +220,7 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     if(state.phase==='error')return false;
     if(action==='measure')return state.capabilities?.gpuTimer?.available===true;
     if(['record-camera-live','record-camera-paused'].includes(action))return state.recording?.available===true&&state.recording?.cameraReview?.available===true&&state.availability?.[state.configuration?.mode]?.available===true;
-    if(action==='record')return state.recording?.available===true&&state.availability?.[state.configuration?.mode]?.available===true;
+    if(action==='record')return state.recording?.available===true&&state.recording?.liveEndpoint?.supported!==false&&state.availability?.[state.configuration?.mode]?.available===true;
     return state.availability?.[state.configuration?.mode]?.available===true;
   }
   function optionList(select,items,value,empty='Unavailable'){
@@ -239,10 +250,11 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     if(signature!==lastMotionSignature){
       clearMotionEvidence();lastMotionSignature=signature;const target=find('[data-motion-evidence]');
       const cameraDiagnostic=result?.kind==='actual-canvas-camera-review'&&result.status==='inconclusive'&&result.cameraSweep?.status==='cancelled'&&result.cameraMetadata?.status==='available';
-      if(clip&&(result?.status==='complete'||cameraDiagnostic)&&validMotionHref(clip)){
+      const liveDiagnostic=result?.kind==='actual-canvas-live-recording'&&result.version===2&&result.status==='inconclusive'&&result.endpoint?.protocol===LIVE_CAPTURE_ENDPOINT_PROTOCOL&&result.retainedClip?.status==='available',diagnostic=cameraDiagnostic||liveDiagnostic;
+      if(clip&&(result?.status==='complete'||diagnostic)&&validMotionHref(clip)){
         mediaAbort=new AbortController();const link=doc.createElement('a'),video=doc.createElement('video'),caption=doc.createElement('p');link.dataset.motionSave='';link.textContent='Save video';link.download=clip.name;
-        video.dataset.motionPreview='';video.preload='none';video.controls=true;video.playsInline=true;video.muted=true;video.setAttribute('aria-label',cameraDiagnostic?'Inconclusive actual camera-review recording':'Latest completed actual canvas recording');
-        caption.textContent=(cameraDiagnostic?'Inconclusive camera review · '+result.reason+' · ':'Latest completed actual canvas clip · ')+clip.bytes+' encoded bytes. Playback is optional; no autoplay.';target.append(link,video,caption);
+        video.dataset.motionPreview='';video.preload='none';video.controls=true;video.playsInline=true;video.muted=true;video.setAttribute('aria-label',diagnostic?'Inconclusive actual '+(cameraDiagnostic?'camera-review':'live')+' recording':'Latest completed actual canvas recording');
+        caption.textContent=(diagnostic?'Inconclusive '+(cameraDiagnostic?'camera review':'live endpoint')+' · '+result.reason+' · ':'Latest completed actual canvas clip · ')+clip.bytes+' encoded bytes. Playback is optional; no autoplay.';target.append(link,video,caption);
         video.addEventListener('play',()=>{if(mediaLocked)video.pause();},{signal:mediaAbort.signal});link.addEventListener('click',event=>{if(mediaLocked)event.preventDefault();},{signal:mediaAbort.signal});
       }else{const p=doc.createElement('p');p.textContent=result?.retainedClip?.reason||'No completed actual motion clip retained.';target.append(p);}
       if(result)target.append(evidenceDetails(result,'Exact motion evidence metadata','motionMetadata'));
@@ -290,7 +302,7 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     if(disposed)return;const s=state,c=s.configuration||{},r=s.results,renderer=s.diagnostics?.renderer,p=s.progress;
     const reason=s.error?.message||s.reason||(s.phase==='playing'?'Live diagnostic playback.':s.phase==='measuring'?'Measuring a fixed authoritative pose.':s.phase==='cancelling'?'Cancelling and retiring GPU queries.':'Paused diagnostic view; acceptance remains separate.');
     text('[data-status]',(s.connected?'Driver connected · '+s.phase+'. ':'Driver unavailable. ')+reason);root.setAttribute('aria-busy',String(!!(pending||busy()||s.recording?.active)));
-    text('[data-recording-status]',s.recording?.active?(s.recording.stopping?'Stopping the encoder and retiring its owned tracks…':s.recording?.cameraReview?.active?'Recording actual '+s.recording.cameraReview.worldPlayback+' camera sweep · driver completion or the nominal ten-second recorder safety timer stops capture.':'Recording actual live playback · nominal ten-second stop timer; actual elapsed time will be reported.'):s.recording?.lastResult?s.recording.lastResult.status+' · '+s.recording.lastResult.reason:s.recording?.available?'Canvas recording available. Start/end clocks and source metadata accompany the video.':s.recording?.reason||'Motion recording unavailable until an actual canvas and encoder are connected.');
+    text('[data-recording-status]',s.recording?.active?(s.recording.stopping?'Stopping the encoder and retiring its owned tracks…':s.recording?.cameraReview?.active?'Recording actual '+s.recording.cameraReview.worldPlayback+' camera sweep · driver completion or the nominal ten-second recorder safety timer stops capture.':s.recording?.liveEndpoint?.protocol===LIVE_CAPTURE_ENDPOINT_PROTOCOL?'Recording actual live playback · natural 600-tick submitted interval and nominal ten seconds; requested maximum10.5s, with actual overrun reported.':'Recording actual live playback · nominal ten-second stop timer; actual elapsed time will be reported.'):s.recording?.lastResult?s.recording.lastResult.status+' · '+s.recording.lastResult.reason:s.recording?.liveEndpoint?.supported===false?s.recording.liveEndpoint.reason:s.recording?.available?'Canvas recording available. Start/end clocks and source metadata accompany the video.':s.recording?.reason||'Motion recording unavailable until an actual canvas and encoder are connected.');
     const sweep=s.cameraSweep,review=s.recording?.cameraReview;text('[data-camera-status]',review?.available&&s.recording?.available!==true?'Camera review supported; recording unavailable. '+(s.recording?.reason||'Actual canvas encoder unavailable.'):review?.available?sweep?.status+' · '+(sweep?.preset||CAMERA_SWEEP_PRESET)+' · '+(sweep?.elapsedSeconds??0)+' / '+(sweep?.durationSeconds??8)+' s · '+(sweep?.sampledDraws??0)+' rendered samples · '+(sweep?.restored===false?'Camera held; restoration required.':sweep?.active?'Sweep active.':'Static pose restored.')+(sweep?.reason?' '+sweep.reason:''):review?.reason||'This driver does not expose the validated camera-review API.');
     for(const b of all('[data-mode]')){const a=s.availability?.[b.dataset.mode];b.disabled=!can('select')||a?.available!==true;b.title=a?.reason||a?.sourceCommit||(a?.available?'Available':'Unavailable');b.setAttribute('aria-pressed',String(c.mode===b.dataset.mode));}
     text('[data-mode-reason]',MODES.map(m=>{const a=s.availability?.[m.id];return m.label+': '+(a?.available?'available'+(a.sourceCommit?' · '+a.sourceCommit:' · local source, revision unpinned'):(a?.reason||'unavailable'));}).join(' | '));
@@ -336,7 +348,8 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
   return {renderRoot:find('[data-render-root]'),uiRoot:find('[data-ui-root]'),setCameraEvidence,clearCameraEvidence,clearMotionEvidence(){clearMotionEvidence();state={...state,recording:{...state.recording,clip:null,lastResult:null}};},clearReportEvidence(){clearReportEvidence();state={...state,reportEvidence:null};},update(next){if(disposed)return;state=next||EMPTY;render();},dispose(){if(disposed)return;clearMotionEvidence();clearReportEvidence();clearCameraEvidence();captureAbort?.abort();disposed=true;state=EMPTY;abort.abort();observer?.disconnect();root.replaceChildren();root.classList.remove('fire-review');root.removeAttribute('aria-busy');}};
 }
 /** UI method routing only. Clocks, GPU statistics and acceptance stay in the driver. */
-export async function bindReviewDriver({shell,createDriver,mountUI,signal,artistDelivery=null,referenceAcceptance=null,references=[],referenceError=null,onDownload=()=>{},createMotionRecorder=createCanvasMotionRecorder,FileReaderCtor,cryptoApi=globalThis.crypto,createReportEvidence=createTimingReportEvidence}={}){
+export async function bindReviewDriver({shell,createDriver,mountUI,signal,artistDelivery=null,referenceAcceptance=null,references=[],referenceError=null,onDownload=()=>{},createMotionRecorder=createCanvasMotionRecorder,FileReaderCtor,cryptoApi=globalThis.crypto,createReportEvidence=createTimingReportEvidence,diagnosticTiming=false,liveEndpointProtocol='timer-only-v1'}={}){
+  if(!['timer-only-v1',LIVE_CAPTURE_ENDPOINT_PROTOCOL].includes(liveEndpointProtocol))throw RangeError('Unknown live capture endpoint protocol');
   let driver,closed=false,disposal=null,lastState=EMPTY,captures=[],captureSequence=0,motion=null,motionWork=null,recordingActive=false,recordingStopping=false,lastMotion=null,retainedClip=null,clipReader=null,motionGeneration=0,measurementActive=false,reportTask=null,reportGeneration=0,reportEvidence=null,cameraSession=null,cameraEvidenceTask=null;
   const recorderCtor=shell.renderRoot.ownerDocument?.defaultView?.MediaRecorder||globalThis.MediaRecorder,readerCtor=FileReaderCtor||shell.renderRoot.ownerDocument?.defaultView?.FileReader||globalThis.FileReader;
   const recordingSupport=()=>{const canvas=shell.renderRoot.querySelector?.('canvas');return {available:typeof canvas?.captureStream==='function'&&typeof recorderCtor==='function',canvas};};
@@ -344,6 +357,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
     reason:typeof driver?.startCameraSweep!=='function'||typeof driver?.stopCameraSweep!=='function'||typeof driver?.cameraSweepEvidence!=='function'?'This driver does not expose the validated camera-review API.':next.cameraSweep?.supported===true?null:next.cameraSweep?.reason||'This camera configuration has not passed full-path framing validation.'});
   const publish=next=>{if(closed)return;lastState=next;const support=recordingSupport();shell.update({...next,connected:true,references,referenceError,captures,reviewEvidenceLocked:measurementActive,reportEvidence,
     recording:{available:support.available,reason:support.available?null:'Actual canvas captureStream or MediaRecorder is unavailable.',active:recordingActive,stopping:recordingStopping,lastResult:lastMotion,clip:retainedClip,
+        liveEndpoint:{protocol:liveEndpointProtocol,supported:liveEndpointProtocol==='timer-only-v1'||typeof driver?.observeLiveDraws==='function',reason:liveEndpointProtocol!=='timer-only-v1'&&typeof driver?.observeLiveDraws!=='function'?'This driver does not expose the submitted live-draw API.':null},
       cameraReview:{...cameraSupport(next),active:!!cameraSession,worldPlayback:cameraSession?.worldPlayback??null}}});
     const session=cameraSession;if(session&&next.cameraSweep?.active)session.started=true;
     if(session?.started&&!session.stopping&&(!next.cameraSweep?.active&&['complete','interrupted','cancelled'].includes(next.cameraSweep?.status)||next.phase==='error')){if(next.phase==='error')session.error ||= Error(next.error?.message||next.cameraSweep?.reason||'The actual review scene failed.');void stopCameraRecording(next.phase==='error'?'camera-error':next.cameraSweep.status==='complete'?'camera-sweep-complete':'camera-sweep-interrupted');}
@@ -360,6 +374,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
   }
   const configure=async patch=>{const before=driver.state(),preserve=Object.keys(patch).every(key=>['mode','view','lighting','viewport'].includes(key));const next=await driver.configure(patch);if(preserve&&before.frameIndex>0&&next.availability?.[next.configuration.mode]?.available)await driver.seek(before.frameIndex);publish(driver.state());return driver.state();};
   async function startMotion(){
+    const setupStarted=diagnosticTiming?performance.now():null;let setupWallMs=null,stopProvenance=null;
     const initial=driver.state(),support=recordingSupport();
     if(!support.available)throw Error('Actual canvas recording is unavailable.');
     if(!['ready','playing'].includes(initial.phase)||measurementActive||!initial.availability?.[initial.configuration.mode]?.available)throw Error('Motion recording requires an available live render, outside measurement.');
@@ -368,8 +383,16 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
     try{
       const {dataUrl,...evidence}=await driver.captureFrame();firstFrame=evidence;
       if(closed||signal?.aborted||generation!==motionGeneration){recordingActive=false;return;}
-      motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:()=>{recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}}});
+      motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,onStopping:reason=>{
+        if(diagnosticTiming){try{const before=driver.state(),trace=before.liveTrace;stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,observedAtMs:performance.now(),phaseBeforePause:before.phase,traceBeforePause:trace?{active:trace.active,status:trace.status,startedMs:trace.startedMs,endedMs:trace.endedMs}:null};}catch(cause){
+          let error={name:'Error',message:'Stop provenance observation failed; thrown value could not be normalized.'};
+          try{const name=cause?.name,message=cause?.message;error={name:typeof name==='string'?name.slice(0,128):'Error',message:(typeof message==='string'?message:String(cause)).slice(0,4096)};}catch{}
+          stopProvenance={kind:'diagnostic-recorder-stop-v1',reason,error};
+        }}
+        recordingStopping=true;if(!closed){driver.pause();endState=driver.state();publish(endState);}
+      }});
       driver.play();
+      if(diagnosticTiming)setupWallMs=performance.now()-setupStarted;
     }catch(error){recordingActive=false;await motion?.dispose();motion=null;publish(driver.state());throw error;}
     const startState=driver.state(),startedAt=new Date().toISOString();publish(startState);
     motionWork=motion.finished.then(async report=>{
@@ -382,6 +405,8 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
         end:{recordedAt:new Date().toISOString(),frameIndex:end.frameIndex,tick:end.tick,worldTime:end.worldTime,playerTime:end.playerTime,workload:end.workload},
         recording:{mimeType:report.mimeType,bytes:report.bytes,canvas:report.canvas,wallDurationMs:report.wallDurationMs,maximumDurationMs:report.maximumDurationMs,nominalStopAfterMs:report.nominalStopAfterMs??report.maximumDurationMs,
           stopRequestedAfterMs:report.stopRequestedAfterMs??null,schedulingOverrunMs:report.schedulingOverrunMs??null,encoderDrainMs:report.encoderDrainMs??null,wallOverrunMs:report.wallOverrunMs??null,requestedCaptureFps:report.requestedCaptureFps}};
+      const retentionStarted=diagnosticTiming?performance.now():null;
+      if(diagnosticTiming)metadata.diagnosticTiming={setupWallMs,retentionWallMs:null,stopProvenance,scope:'Host wall boundaries, including waits; not native encoder or compositor CPU. Stop provenance is sampled once before the existing Pause, outside RAF sampling.'};
       motion=null;
       if(closed||generation!==motionGeneration)return metadata;
       if(status==='complete'){
@@ -394,9 +419,83 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
           retainedClip={...clip,id:'motion-'+generation,name};metadata.retainedClip={status:'available',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,bytes:clip.bytes};
         }catch(error){metadata.retainedClip={status:'unavailable',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,reason:error.message};}
       }
+      if(diagnosticTiming)metadata.diagnosticTiming.retentionWallMs=performance.now()-retentionStarted;
       if(!closed&&generation===motionGeneration){lastMotion=metadata;recordingActive=false;recordingStopping=false;publish(driver.state());}
       return metadata;
     }).catch(error=>{if(!closed&&generation===motionGeneration){recordingActive=false;recordingStopping=false;motion=null;lastMotion={status:'unavailable',reason:error.message};publish(driver.state());}return {status:'unavailable',reason:error.message};});
+  }
+  async function startSubmittedMotion(){
+    const initial=driver.state(),support=recordingSupport();
+    if(!support.available||typeof driver.observeLiveDraws!=='function')throw Error('Submitted live recording requires the actual canvas encoder and live-draw driver API.');
+    if(doc.hidden||!['ready','playing'].includes(initial.phase)||measurementActive||initial.cameraSweep?.active||initial.cameraSweep?.restored===false||!initial.availability?.[initial.configuration.mode]?.available)throw Error('Submitted live recording requires a visible available static-camera scene, outside measurement.');
+    retireClip();const generation=motionGeneration;recordingActive=true;recordingStopping=false;publish(initial);
+    const session={lease:null,timer:null,retired:false,stopQueued:false,error:null,invalidated:null,startMs:null,start:null,driverGeneration:null,simulationGeneration:null,targetTick:null,last:null,first:null,nominalCallbackAfterMs:null};
+    const errorRecord=cause=>{let error={name:'Error',message:'Live endpoint observation failed; thrown value could not be normalized.'};try{const name=cause?.name,message=cause?.message;error={name:typeof name==='string'?name.slice(0,128):'Error',message:(typeof message==='string'?message:String(cause)).slice(0,4096)};}catch{}return error;};
+    const failed=cause=>{session.error ||= errorRecord(cause);};
+    const eligible=()=>!!session.first&&session.first.observedAtMs<=session.startMs+10500&&!session.error&&!session.invalidated;
+    const retire=()=>{if(session.retired)return;session.retired=true;if(session.timer!==null)clearTimeout(session.timer);session.timer=null;try{session.lease?.dispose();}catch(cause){failed(cause);}session.lease=null;};
+    const queueStop=reason=>{if(session.retired||session.stopQueued)return;session.stopQueued=true;queueMicrotask(()=>{if(closed||generation!==motionGeneration||session.retired)return;void motion?.stop(reason);});};
+    const consider=()=>{if(session.retired)return;const now=performance.now();if(session.error)queueStop('live-observation-error');else if(session.invalidated)queueStop('live-interrupted');else if(eligible()&&now>=session.startMs+10000)queueStop('live-interval-complete');else if(now>=session.startMs+10500)queueStop('live-maximum-deadline');};
+    const observe=receipt=>{
+      if(session.retired||closed||generation!==motionGeneration)return;
+      try{
+        const observedAtMs=performance.now(),last=session.last;
+        if(!receipt||!['sequence','generation','simulationGeneration','frameIndex','tick'].every(key=>Number.isSafeInteger(receipt[key])&&receipt[key]>=0)||!['worldTime','playerTime','rafTimestampMs','callbackEnteredAtMs','renderReturnedAtMs'].every(key=>Number.isFinite(receipt[key])&&receipt[key]>=0)||receipt.generation!==session.driverGeneration||receipt.simulationGeneration!==session.simulationGeneration||receipt.renderReturnedAtMs<receipt.callbackEnteredAtMs||observedAtMs<receipt.renderReturnedAtMs||receipt.tick<session.start.tick||receipt.frameIndex<session.start.frameIndex||receipt.worldTime<session.start.worldTime||receipt.playerTime<session.start.playerTime||last&&(receipt.sequence<=last.sequence||receipt.tick<last.tick||receipt.frameIndex<last.frameIndex||receipt.worldTime<last.worldTime||receipt.playerTime<last.playerTime))throw Error('Submitted live draw identity, clocks or order is inconsistent.');
+        session.last={sequence:receipt.sequence,generation:receipt.generation,simulationGeneration:receipt.simulationGeneration,frameIndex:receipt.frameIndex,tick:receipt.tick,worldTime:receipt.worldTime,playerTime:receipt.playerTime,rafTimestampMs:receipt.rafTimestampMs,callbackEnteredAtMs:receipt.callbackEnteredAtMs,renderReturnedAtMs:receipt.renderReturnedAtMs,observedAtMs};
+        if(!session.first&&receipt.tick>=session.targetTick)session.first={...session.last};
+      }catch(cause){failed(cause);}consider();
+    };
+    let firstFrame,startState,endState=null,startedAt;
+    try{
+      const {dataUrl,...evidence}=await driver.captureFrame();firstFrame=evidence;
+      if(closed||signal?.aborted||generation!==motionGeneration){retire();recordingActive=false;return;}
+      motion=createMotionRecorder({canvas:support.canvas,MediaRecorderCtor:recorderCtor,maxDurationMs:10000,requestedStopDeadlineMs:10500,
+        maximumStopReason:()=>eligible()&&performance.now()>=session.startMs+10000?'live-interval-complete':'live-maximum-deadline',onStopping:()=>{
+          retire();recordingStopping=true;
+          if(!closed){
+            let before;try{before=driver.state();}catch(cause){failed(cause);}
+            // Retire the observer before Pause's synchronous redraw/notification. Known driver invalidation already owns its transition.
+            if(!session.invalidated&&(!before||before.phase==='playing'))try{driver.pause();}catch(cause){failed(cause);}
+            try{endState=driver.state();publish(endState);}catch(cause){failed(cause);}
+          }
+        }});
+      session.startMs=motion.startedAtMonotonicMs;
+      if(!Number.isFinite(session.startMs)||session.retired)throw Error('Recorder did not expose an active monotonic submitted-live start.');
+      driver.play();startState=driver.state();startedAt=new Date().toISOString();
+      if(!['frameIndex','tick'].every(key=>Number.isSafeInteger(startState[key])&&startState[key]>=0)||!['worldTime','playerTime'].every(key=>Number.isFinite(startState[key])&&startState[key]>=0)||!Number.isSafeInteger(startState.tick+600)||startState.phase!=='playing'||firstFrame.frameIndex!==startState.frameIndex||firstFrame.tick!==startState.tick||JSON.stringify(firstFrame.configuration)!==JSON.stringify(startState.configuration)||JSON.stringify(firstFrame.sourceFingerprints)!==JSON.stringify(startState.diagnostics?.sourceFingerprints))throw Error('Captured JPEG and live start identity are not coherent.');
+      session.start={frameIndex:startState.frameIndex,tick:startState.tick,worldTime:startState.worldTime,playerTime:startState.playerTime};session.targetTick=startState.tick+600;
+      session.lease=driver.observeLiveDraws({onSubmitted:observe,onInvalidated:event=>{if(session.retired)return;try{session.invalidated={reason:typeof event?.reason==='string'?event.reason.slice(0,128):'unknown-driver-transition',generation:event?.generation??null};if(['render-error','observer-error'].includes(session.invalidated.reason))failed(Error('The live driver failed: '+session.invalidated.reason));}catch(cause){failed(cause);}consider();}});
+      if(!session.lease||!['generation','simulationGeneration'].every(key=>Number.isSafeInteger(session.lease[key])&&session.lease[key]>=0)||typeof session.lease.dispose!=='function')throw Error('Driver did not issue a valid live draw observation lease.');
+      session.driverGeneration=session.lease.generation;session.simulationGeneration=session.lease.simulationGeneration;
+      session.timer=setTimeout(()=>{session.nominalCallbackAfterMs=Math.max(0,performance.now()-session.startMs);consider();},Math.max(0,session.startMs+10000-performance.now()));
+      consider();publish(startState);
+    }catch(cause){failed(cause);retire();recordingActive=false;await motion?.dispose();motion=null;if(!closed)try{publish(driver.state());}catch{}throw Error(session.error.message);}
+    motionWork=motion.finished.then(async report=>{
+      retire();let end=endState;
+      if(!end)try{end=driver.state();}catch(cause){failed(cause);end=startState;}
+      const advanced=end.frameIndex>startState.frameIndex&&end.tick>startState.tick&&end.worldTime>startState.worldTime&&(!session.last||['frameIndex','tick','worldTime','playerTime'].every(key=>Number.isFinite(end[key])&&end[key]>=session.last[key]));
+      const coherent=JSON.stringify(end.configuration)===JSON.stringify(startState.configuration)&&JSON.stringify(end.diagnostics?.sourceFingerprints)===JSON.stringify(firstFrame.sourceFingerprints);
+      const intervalComplete=eligible()&&advanced&&coherent&&report.reason==='live-interval-complete'&&report.stopRequestedAfterMs>=10000&&report.recorderStartMonotonicMs===session.startMs&&report.maximumDurationMs===10500&&report.nominalStopAfterMs===10000&&report.requestedMaximumStopMs===10500;
+      let status=report.status,reason=report.reason;
+      if(status!=='cancelled'&&session.error){status='unavailable';reason=session.error.message;}
+      else if(status==='complete'&&!intervalComplete){status='inconclusive';reason=session.invalidated?'The live driver interval was interrupted: '+session.invalidated.reason:session.first&&!eligible()?'The target draw was first observed after the fixed requested deadline.':!coherent?'The live source/configuration identity changed.':'The intended live interval and owned automatic stop were not both observed.';}
+      const metadata={version:2,kind:'actual-canvas-live-recording',status,reason,scope:'Actual canvas media and successful CPU render submission only; DOM HUD excluded. No encoded-frame/world-tick, compositor, GPU completion, quality or cost proof.',
+        configuration:structuredClone(startState.configuration),sourceFingerprints:structuredClone(firstFrame.sourceFingerprints),hardware:structuredClone(firstFrame.hardware),
+        start:{recordedAt:startedAt,frameIndex:startState.frameIndex,tick:startState.tick,worldTime:startState.worldTime,playerTime:startState.playerTime,workload:startState.workload},end:{recordedAt:new Date().toISOString(),frameIndex:end.frameIndex,tick:end.tick,worldTime:end.worldTime,playerTime:end.playerTime,workload:end.workload},
+        endpoint:{protocol:LIVE_CAPTURE_ENDPOINT_PROTOCOL,requestedTicks:600,startTick:startState.tick,targetTick:session.targetTick,driverGeneration:session.driverGeneration,simulationGeneration:session.simulationGeneration,recorderStartMonotonicMs:session.startMs,requestedNominalStopMs:10000,requestedMaximumStopMs:10500,nominalCallbackAfterMs:session.nominalCallbackAfterMs,
+          lastSubmittedDraw:session.last,firstTargetDraw:session.first,firstTargetObservedAfterMs:session.first?session.first.observedAtMs-session.startMs:null,targetObservedByDeadline:!!session.first&&session.first.observedAtMs<=session.startMs+10500,intervalComplete,interrupted:session.invalidated,error:session.error,encodedEndpointTick:null,gpuCompletion:null,compositorPresentation:null},
+        recording:{mimeType:report.mimeType,bytes:report.bytes,canvas:report.canvas,wallDurationMs:report.wallDurationMs,maximumDurationMs:report.maximumDurationMs,nominalStopAfterMs:report.nominalStopAfterMs,requestedMaximumStopMs:report.requestedMaximumStopMs,
+          stopReason:report.requestedStopReason??report.reason,stopRequestedAfterMs:report.stopRequestedAfterMs??null,maximumCallbackAfterMs:report.maximumCallbackAfterMs??null,mediaRecorderStopCalledAfterMs:report.mediaRecorderStopCalledAfterMs??null,stopCallbackMs:report.stopCallbackMs??null,afterNativeStopCallMs:report.afterNativeStopCallMs??null,stopDeadlineOverrunMs:report.stopDeadlineOverrunMs??null,nominalWallOverrunMs:report.nominalWallOverrunMs??null,encoderDrainMs:report.encoderDrainMs??null,wallOverrunMs:report.wallOverrunMs??null,requestedCaptureFps:report.requestedCaptureFps}};
+      motion=null;if(closed||generation!==motionGeneration)return metadata;
+      if(status==='complete'||status==='inconclusive')try{
+        if(!(report.blob instanceof Blob)||report.blob.size!==report.bytes)throw Error('Encoded Blob bytes do not match the recording report.');
+        const reader=createMotionClipReader({blob:report.blob,FileReaderCtor:readerCtor});clipReader=reader;let clip;try{clip=await reader.finished;}finally{if(clipReader===reader)clipReader=null;}
+        if(closed||generation!==motionGeneration)return metadata;
+        retainedClip={...clip,id:'motion-'+generation,name:'tinderbox-'+startState.configuration.mode+'-'+startState.configuration.scenario+'-motion-'+startState.frameIndex+'-'+end.frameIndex+(clip.mimeType.includes('mp4')?'.mp4':'.webm')};metadata.retainedClip={status:'available',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,bytes:clip.bytes};
+      }catch(cause){metadata.retainedClip={status:'unavailable',maximumEncodedBytes:MAX_RETAINED_MOTION_BYTES,reason:errorRecord(cause).message};}
+      if(!closed&&generation===motionGeneration){lastMotion=metadata;recordingActive=false;recordingStopping=false;try{publish(driver.state());}catch(cause){failed(cause);}}
+      return metadata;
+    }).catch(cause=>{retire();const result={version:2,kind:'actual-canvas-live-recording',status:'unavailable',reason:errorRecord(cause).message};if(!closed&&generation===motionGeneration){recordingActive=false;recordingStopping=false;motion=null;lastMotion=result;try{publish(driver.state());}catch{}}return result;});
   }
   function stopCameraRecording(reason){
     const session=cameraSession;if(!session)return Promise.reject(Error('No camera-review recording is active.'));
@@ -477,7 +576,7 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
       case 'seek':await driver.seek(command.frame);publish(driver.state());return;
       case 'measure':{measurementActive=true;const retiring=retireReport('New measurement cleared prior report evidence.'),generation=reportGeneration;publish(driver.state());try{await retiring;if(closed||generation!==reportGeneration)return;const report=await driver.measure({modes:command.modes});measurementActive=false;if(!closed&&generation===reportGeneration&&report)await prepareReport(report,generation);return report;}finally{measurementActive=false;if(!closed)publish(driver.state());}}
       case 'cancel':{const retiring=retireReport('Cancellation cleared report evidence; prepare the actual returned report again while idle.');publish(driver.state());const report=await driver.cancelMeasurement();await retiring;return report;}
-      case 'record':await startMotion();return;
+      case 'record':await (liveEndpointProtocol===LIVE_CAPTURE_ENDPOINT_PROTOCOL?startSubmittedMotion():startMotion());return;
       case 'record-camera-live':await startCameraRecording('live');return;
       case 'record-camera-paused':await startCameraRecording('paused');return;
       case 'restore-camera':if(typeof driver.stopCameraSweep!=='function')throw Error('Camera review API is unavailable.');driver.stopCameraSweep({restoreStatic:true});publish(driver.state());return;
@@ -495,9 +594,9 @@ export async function bindReviewDriver({shell,createDriver,mountUI,signal,artist
   function dispose(){if(disposal)return disposal;closed=true;if(cameraSession)cameraSession.cancelled=true;retireClip();const reportRetirement=retireReport('Review disposed.');captures=[];signal?.removeEventListener('abort',abort);doc?.removeEventListener('visibilitychange',hidden);disposal=(async()=>{await motion?.dispose();await motionWork;await reportRetirement;await driver?.dispose();})();return disposal;}
   try{driver=await createDriver({root:shell.renderRoot,uiRoot:shell.uiRoot,mountUI,signal,artistDelivery,referenceAcceptance,onChange:publish});if(closed){await driver.dispose();return {intent,dispose};}publish(driver.state());}
   catch(error){signal?.removeEventListener('abort',abort);doc?.removeEventListener('visibilitychange',hidden);if(!closed)shell.update({...EMPTY,references,referenceError,reason:'Actual WebGL driver failed: '+error.message,error:{message:error.message}});return {intent,dispose,unavailable:error.message};}
-  return {intent,state:()=>structuredClone(lastState),dispose};
+  return {intent,state:()=>structuredClone(lastState),motionEvidence(){if(!motionWork)return Promise.reject(Error('No live recording has started.'));return motionWork.then(result=>structuredClone(result));},dispose};
 }
-export async function startFireReview(root,{createDriver,mountUI,signal,fetchDossier=async requestSignal=>{const response=await fetch(new URL('../../art/source/fire-realism/references.json',import.meta.url),{signal:requestSignal});if(!response.ok)throw Error('Reference dossier HTTP '+response.status);return response.json();},artistDelivery=null,referenceAcceptance=null,onDownload}={}){
+export async function startFireReview(root,{createDriver,mountUI,signal,fetchDossier=async requestSignal=>{const response=await fetch(new URL('../../art/source/fire-realism/references.json',import.meta.url),{signal:requestSignal});if(!response.ok)throw Error('Reference dossier HTTP '+response.status);return response.json();},artistDelivery=null,referenceAcceptance=null,onDownload,diagnosticTiming=false,liveEndpointProtocol='timer-only-v1'}={}){
   const controller=new AbortController(),downloadReleases=new Set();let binding,referenceError=null,references=[];
   const externalAbort=()=>controller.abort();if(signal?.aborted)controller.abort();else signal?.addEventListener('abort',externalAbort,{once:true});
   const save=onDownload||((value,name,type)=>{let release;release=download(root.ownerDocument,value,name,type,()=>downloadReleases.delete(release));if(release)downloadReleases.add(release);});
@@ -505,7 +604,7 @@ export async function startFireReview(root,{createDriver,mountUI,signal,fetchDos
   try{references=photoReferences(await fetchDossier(controller.signal));}catch(error){referenceError=error.message;}
   if(controller.signal.aborted){signal?.removeEventListener('abort',externalAbort);shell.dispose();throw new DOMException('Review startup aborted','AbortError');}
   shell.update({...EMPTY,reason:'Connecting the actual WebGL driver.',references,referenceError});
-  binding=await bindReviewDriver({shell,createDriver,mountUI:options=>mountUI({...options,autoOpenPauseMenu:false}),signal:controller.signal,artistDelivery,referenceAcceptance,references,referenceError,onDownload:save});
+  binding=await bindReviewDriver({shell,createDriver,mountUI:options=>mountUI({...options,autoOpenPauseMenu:false}),signal:controller.signal,artistDelivery,referenceAcceptance,references,referenceError,onDownload:save,diagnosticTiming,liveEndpointProtocol});
   if(controller.signal.aborted){signal?.removeEventListener('abort',externalAbort);await binding.dispose();for(const release of downloadReleases)release();downloadReleases.clear();shell.dispose();throw new DOMException('Review startup aborted','AbortError');}
   let disposal=null;return {shell,binding,dispose(){if(disposal)return disposal;signal?.removeEventListener('abort',externalAbort);controller.abort();disposal=(async()=>{await binding.dispose();for(const release of downloadReleases)release();downloadReleases.clear();shell.dispose();})();return disposal;}};
 }
@@ -532,7 +631,7 @@ export function createFireReviewBoot(root,{signal,loadDelivery=async options=>{c
       // No driver/public-art module is imported until delivery verification resolves.
       const [driverModule,uiModule]=await Promise.all([importDriver(),importUI()]);
       if(aborted())return {status:'aborted'};
-      active=await startReview(root,{createDriver:driverModule.createFireReviewDriver,mountUI:uiModule.mountUI,signal:lifetime.signal,artistDelivery:delivery.artistDelivery,referenceAcceptance:delivery.referenceAcceptance});
+      active=await startReview(root,{createDriver:driverModule.createFireReviewDriver,mountUI:uiModule.mountUI,signal:lifetime.signal,artistDelivery:delivery.artistDelivery,referenceAcceptance:delivery.referenceAcceptance,liveEndpointProtocol:LIVE_CAPTURE_ENDPOINT_PROTOCOL});
       if(aborted()){await disposeActive();return {status:'aborted'};}
       return {status:'started',deliveryStatus:delivery.status};
     }catch(error){
