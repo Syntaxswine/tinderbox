@@ -2,7 +2,7 @@
 Implementation-only delivery: do NOT invoke before architect reviews exact pins.
 Prepare exits; controller reports its bounded wait, never claims itself retired.
 """
-import argparse,ctypes,hashlib,json,math,os,re,shutil,subprocess,sys,time,traceback
+import argparse,ctypes,hashlib,json,math,os,re,shutil,stat,subprocess,sys,time,traceback
 from pathlib import Path
 from policy import verify_preparation,verify_bake_witness,load_weighted_control,extra_inputs,checked_input,registration_sources,BASELINE_SETTINGS_REL,BASELINE_SETTINGS_SHA,PROPOSAL,SCIENTIFIC_PROPOSAL,REALIZATION_AMENDMENT
 from datetime import datetime,timezone
@@ -62,12 +62,25 @@ def sample_and_record(job,out,run):
 
 def utc(epoch):return datetime.fromtimestamp(epoch,timezone.utc).isoformat().replace('+00:00','Z')
 def safe_tree_bytes(folder):
-    total=0
-    for base,dirs,files in os.walk(folder,followlinks=False):
-        for name in dirs+files:
-            p=Path(base)/name;st=p.lstat()
-            if p.is_symlink()or getattr(st,'st_file_attributes',0)&0x400:raise RuntimeError('Scratch contains reparse point; refuse uncertain accounting')
-        total+=sum((Path(base)/name).stat().st_size for name in files)
+    # One non-following metadata observation supplies each entry's type and size.
+    # This is a polled logical-byte sample, not an atomic snapshot or disk quota.
+    def plain_directory(path):
+        observed=path.lstat()
+        if stat.S_ISLNK(observed.st_mode)or getattr(observed,'st_file_attributes',0)&0x400 or not stat.S_ISDIR(observed.st_mode):raise RuntimeError('Scratch directory is not plain; refuse uncertain accounting')
+    def walk_error(error):raise error
+    folder=Path(folder);plain_directory(folder);total=0
+    for base,dirs,files in os.walk(folder,followlinks=False,onerror=walk_error):
+        base=Path(base)
+        for name in dirs:plain_directory(base/name)
+        for name in files:
+            try:observed=(base/name).lstat()
+            except FileNotFoundError as error:
+                if error.errno!=2 or getattr(error,'winerror',None)not in(None,2):raise
+                # Only an enumerated file may vanish; its walked parent must
+                # still exist as a plain directory. No retry or invented size.
+                plain_directory(base);continue
+            if stat.S_ISLNK(observed.st_mode)or getattr(observed,'st_file_attributes',0)&0x400 or not stat.S_ISREG(observed.st_mode):raise RuntimeError('Scratch file is not plain/regular; refuse uncertain accounting')
+            total+=observed.st_size
     return total
 
 def read_atomic_json(path):

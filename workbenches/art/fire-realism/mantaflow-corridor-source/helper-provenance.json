@@ -546,5 +546,43 @@
     "CORE": 16,
     "officialSourcePaths": 23,
     "actualApiOrRun": false
+  },
+  "scratchSamplingAmendment": {
+    "authority": "0301148c089928142e003a719008dffda1e0e853",
+    "primaryProposalPath": "docs/proposals/corridor-scratch-sampling-race.md",
+    "parentCommit": "dfbf2261b0cd6d5704f1809926e005359925d067",
+    "parentSupervisorBytes": 30475,
+    "parentSupervisorSha256": "aa1572ec95b123fb5246cd37fe40e6868a4bd7feae9bb3dbeede5820e00afbfa",
+    "oldImportLine": "import argparse,ctypes,hashlib,json,math,os,re,shutil,subprocess,sys,time,traceback",
+    "newImportLine": "import argparse,ctypes,hashlib,json,math,os,re,shutil,stat,subprocess,sys,time,traceback",
+    "oldSamplerSource": "def safe_tree_bytes(folder):\n    total=0\n    for base,dirs,files in os.walk(folder,followlinks=False):\n        for name in dirs+files:\n            p=Path(base)/name;st=p.lstat()\n            if p.is_symlink()or getattr(st,'st_file_attributes',0)&0x400:raise RuntimeError('Scratch contains reparse point; refuse uncertain accounting')\n        total+=sum((Path(base)/name).stat().st_size for name in files)\n    return total",
+    "oldSamplerSha256": "f39e3ad8fda41ea74a25c5c61f83f3664371e500cfc32c9a28bda67bc540d612",
+    "newSamplerSha256": "ed22d5ffac85902d335ca42409a2c8a02d76df9a83b4ffcf31358f7d5e828837",
+    "inverse": "Restore only new sampler source and stat import to exact dfbf, then apply unchanged historical reload-anchor inverse to766. Earlier argument-only evidence remains historical, not a claim about this cumulative module.",
+    "observedFailure": {
+      "bytes": 89773,
+      "sha256": "54ca211596019a142eb6e104ef5f76a014b69400522762b209a5aabcd17bf3ac",
+      "error": "FileNotFoundError/WinError2 on enumerated progress.json.writing; exact concurrent rename instant not traced.",
+      "attempt03": "Consumed/failed/retired; no complete raw export; inputs and partial cache preserved."
+    },
+    "historicalNegativeWitness": {
+      "path": "artifacts/qa/fire-realism/scratch-race-diagnosis-root/corridor-dfbf-scratch-race-witness.py",
+      "primaryRootReadOnly": true,
+      "bytes": 2467,
+      "sha256": "7a98b3b0a5d0386edd2d6ab19a3d6ea49a919c8eb8febb09fcc2b17246bd5d19",
+      "meaning": "Unchanged frozen old scanner negative witness3/3; not a corrected-source test or real filesystem race."
+    },
+    "diagnosis": {
+      "bytes": 5092,
+      "sha256": "3090d13fd7b2e508cb05d19f6908e5f39c350cb835eb48900319f3f71b35ae8c",
+      "primaryDirectory": "artifacts/qa/fire-realism/scratch-race-diagnosis-root"
+    },
+    "semantics": "One nonfollowing lstat supplies present entry type/size; validate root and every enumerated directory; os.walk errors propagate. Only enumerated file errno2 with absent/WinError2 may vanish after fresh plain existing parent lstat. WinError3/other errors/reparse/special types fatal. Present staging counts; no suffix skip/retry/grace.",
+    "interface": "Integer logical-byte sample; unchanged caller aggregate >=2GiB, no atomic snapshot/disk quota claim.",
+    "sourceCount": {
+      "CORE": 16,
+      "official": 23
+    },
+    "actualFilesystemRaceApiOrHelper": false
   }
 }

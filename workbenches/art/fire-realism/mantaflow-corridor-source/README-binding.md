@@ -165,7 +165,7 @@ absent, never manufactured or claimed unchanged. No extra evaluation pass is add
 
 The independent controller receives that saved installed observation as a fourth
 `verify_bake_witness` argument; the raw prepared RNA state stays the third. The
-sole supervisor text change is this argument, with exact inverse hash proof. Author
+sole supervisor change at dfbf is this argument, with its historical inverse proof. Author
 passes the same saved observation. A reload record cannot choose its own expected
 anchor. No fake RNA field, new reader/module, process framework or input-E proof is
 introduced. Existing16CORE/23official sources, dynamic reserves,900s/2GiB/CPU4,
@@ -176,3 +176,40 @@ schema/type/count/missing/duplicate/unknown/refusal/persistence cases, regenerat
 state, installed/selected/reload corruption and evaluated absence. The unchanged
 3945B partial-getter witness remains a separate producer regression. Only later
 ROOT review and a fresh explicit candidate permit can authorize preparation.
+
+
+## Polled scratch sampling source amendment
+
+Current sampler authority is PRIMARY `0301148c089928142e003a719008dffda1e0e853`,
+`docs/proposals/corridor-scratch-sampling-race.md`. Preparation03 and its saved
+reload gate passed, but the sole bake stopped at last saved frame12 on an
+enumerated `progress.json.writing` disappearing at `lstat`. This is consistent
+with atomic promotion, not an independently traced rename instant.03 stays
+failed/consumed/retired; partial cache and all old source/data/evidence are frozen.
+
+`safe_tree_bytes` now uses one nonfollowing metadata result for each present
+entry's type/reparse status/size. The root and enumerated directories must be
+plain existing directories; walked traversal errors propagate. Present ordinary
+staging files count normally. Only FileNotFoundError with errno2 and absent or
+Windows error2 for an enumerated file may contribute zero, and only after its
+walked parent is freshly revalidated as a plain existing directory. Windows
+error3, missing root/directory, traversal/permission/other errors, reparses,
+symlinks and unsupported special types refuse. There is no suffix skip, second
+file lookup, invented size, retry, grace or cap change. This remains a polled
+logical-byte sample, not an atomic filesystem snapshot or hard disk quota.
+
+Only the sampler and necessary stdlib `stat` import change supervisor runtime
+bytes. Current checks first invert those to exact dfbf, then apply the preserved
+historical reload-anchor argument inverse to766. The old argument-only evidence
+is not relabelled as a proof about the cumulative module. Integer ABI and the
+caller aggregate `>=2GiB` refusal stay exact, alongside all Author/Policy,
+geometry/selection/193curve/physics/sourceplan/Job/clock/permit/terminal code.
+Existing16CORE/23official sources and dynamic actual-byte reserves remain.
+
+`python -B check_binding.py` adds deterministic memory-only Path/walk fakes,
+including second-lookup traps, present staging, file disappearance, strict
+root/directory/traversal/error/reparse/special-type and parent-revalidation
+refusals. It imports no supervisor/controller/WinJob/Blender/API and creates no
+filesystem fixture or race. The unchanged2467-byte old-code witness is historical
+negative evidence only. No04 permit, preparation, helper, API or bake is authorized;
+independent exact-source review and a separate ROOT decision remain necessary.

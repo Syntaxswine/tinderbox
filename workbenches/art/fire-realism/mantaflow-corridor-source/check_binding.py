@@ -1,7 +1,7 @@
 """Tiny source/model fixtures; no bpy, mathutils, winjob or controller import.
 Uses synthetic state and a16x16x1 geometric fixture, not actual scene/field data.
 """
-import ast,hashlib,json,math,struct,sys
+import ast,hashlib,json,math,stat,struct,sys
 from copy import deepcopy
 from pathlib import Path
 sys.dont_write_bytecode=True
@@ -423,6 +423,88 @@ def segment(text,qualname):
         node=next(n for n in node.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))and n.name==part)
     return ast.get_source_segment(text,node)
 
+def sampler_fixture(metadata,walked):
+    # Compile only the function definition; never import supervisor/WinJob.
+    from types import SimpleNamespace as N
+    node=next(n for n in ast.parse((HERE/'supervisor.py').read_text()).body if isinstance(n,ast.FunctionDef)and n.name=='safe_tree_bytes')
+    calls=[];counts={}
+    class MemoryPath:
+        def __init__(self,name):self.name=str(name)
+        def __str__(self):return self.name
+        def __truediv__(self,name):return MemoryPath(self.name+'/'+name)
+        def lstat(self):
+            calls.append(self.name);index=counts.get(self.name,0);counts[self.name]=index+1
+            value=metadata[self.name]
+            if type(value)is list:
+                if index>=len(value):raise AssertionError('Unexpected second metadata lookup:'+self.name)
+                value=value[index]
+            elif index:raise AssertionError('Unexpected second metadata lookup:'+self.name)
+            if isinstance(value,BaseException):raise value
+            return N(st_mode=value[0],st_size=value[1],st_file_attributes=value[2])
+        def stat(self):raise AssertionError('Following lookup forbidden')
+        def is_symlink(self):raise AssertionError('Extra type lookup forbidden')
+    class MemoryOS:
+        @staticmethod
+        def walk(folder,*,followlinks,onerror):
+            assert str(folder)=='owned-root'and followlinks is False and callable(onerror)
+            for row in walked:
+                if isinstance(row,BaseException):onerror(row);raise AssertionError('Traversal error swallowed')
+                yield row
+    env={'Path':MemoryPath,'os':MemoryOS,'stat':stat}
+    exec(compile(ast.Module(body=[node],type_ignores=[]),'scratch-sampler-memory-fixture','exec'),env)
+    return lambda:env['safe_tree_bytes']('owned-root'),calls
+
+def sampler_error(fn,expected_type,exact=None):
+    global REFUSALS
+    try:fn()
+    except expected_type as error:
+        if exact is not None:assert error is exact # Preserve original errno/WinError.
+        REFUSALS+=1;return
+    raise AssertionError('Expected strict scratch-sampler refusal')
+
+DIR=(stat.S_IFDIR|0o700,0,0);REG=(stat.S_IFREG|0o600,32,0)
+def scratch_stable_single_observation():
+    f,calls=sampler_fixture({'owned-root':DIR,'owned-root/sub':DIR,'owned-root/progress.json':REG,'owned-root/progress.json.writing':(stat.S_IFREG|0o600,64,0),'owned-root/sub/data':(stat.S_IFREG|0o600,7,0)},[('owned-root',['sub'],['progress.json','progress.json.writing']),('owned-root/sub',[],['data'])])
+    result=f();assert type(result)is int and result==103
+    assert calls==['owned-root','owned-root/sub','owned-root/progress.json','owned-root/progress.json.writing','owned-root/sub/data']
+    # A second file lstat/stat/type lookup would fail; no clamp at the cap.
+    f,calls=sampler_fixture({'owned-root':DIR,'owned-root/large':(stat.S_IFREG|0o600,2*1024**3,0)},[('owned-root',[],['large'])]);assert f()==2*1024**3
+check('scratch stable/present staging counts use one nonfollowing metadata observation',scratch_stable_single_observation)
+
+def scratch_vanished_file():
+    for name,windows in [('progress.json.writing',True),('ordinary-data',False)]:
+        gone=FileNotFoundError(2,'synthetic enumerated file vanished',name)
+        if windows:gone.winerror=2
+        f,calls=sampler_fixture({'owned-root':[DIR,DIR],'owned-root/'+name:gone,'owned-root/stable':REG},[('owned-root',[],[name,'stable'])])
+        assert f()==32 and calls==['owned-root','owned-root/'+name,'owned-root','owned-root/stable']
+check('scratch file ENOENT/WinError2 alone permits zero after fresh plain parent validation',scratch_vanished_file)
+
+def scratch_root_directory_and_walk_refusals():
+    for error in [FileNotFoundError(2,'missing root'),PermissionError(13,'unreadable root')]:
+        f,_=sampler_fixture({'owned-root':error},[]);sampler_error(f,type(error),error)
+    for mode,attrs in [(stat.S_IFREG,0),(stat.S_IFLNK,0),(stat.S_IFDIR,0x400),(stat.S_IFIFO,0)]:
+        f,_=sampler_fixture({'owned-root':(mode,0,attrs)},[]);sampler_error(f,RuntimeError)
+    for entry in [FileNotFoundError(2,'missing directory'),PermissionError(13,'unreadable directory'),(stat.S_IFLNK,0,0),(stat.S_IFDIR,0,0x400),(stat.S_IFIFO,0,0)]:
+        f,_=sampler_fixture({'owned-root':DIR,'owned-root/sub':entry},[('owned-root',['sub'],[])])
+        sampler_error(f,type(entry)if isinstance(entry,BaseException)else RuntimeError,entry if isinstance(entry,BaseException)else None)
+    error=PermissionError(13,'synthetic traversal failure');f,_=sampler_fixture({'owned-root':DIR},[error]);sampler_error(f,PermissionError,error)
+    error=FileNotFoundError(2,'synthetic walked directory disappeared');error.winerror=3
+    f,_=sampler_fixture({'owned-root':DIR},[error]);sampler_error(f,FileNotFoundError,error)
+check('scratch missing/reparse/special roots and directories or traversal errors stay fatal',scratch_root_directory_and_walk_refusals)
+
+def scratch_file_and_revalidated_parent_refusals():
+    wrong_path=FileNotFoundError(2,'path not found');wrong_path.winerror=3
+    wrong_win=FileNotFoundError(2,'other Windows error');wrong_win.winerror=5
+    errors=[wrong_path,wrong_win,FileNotFoundError(3,'not ENOENT'),FileNotFoundError('unknown errno'),PermissionError(13,'file denied'),OSError(5,'file I/O')]
+    for error in errors:
+        f,calls=sampler_fixture({'owned-root':DIR,'owned-root/data':error},[('owned-root',[],['data'])]);sampler_error(f,type(error),error);assert calls==['owned-root','owned-root/data']
+    for mode,attrs in [(stat.S_IFLNK,0),(stat.S_IFREG,0x400),(stat.S_IFIFO,0),(stat.S_IFDIR,0)]:
+        f,_=sampler_fixture({'owned-root':DIR,'owned-root/data':(mode,32,attrs)},[('owned-root',[],['data'])]);sampler_error(f,RuntimeError)
+    for parent in [FileNotFoundError(2,'parent missing'),PermissionError(13,'parent unreadable'),(stat.S_IFDIR,0,0x400),(stat.S_IFREG,0,0)]:
+        gone=FileNotFoundError(2,'enumerated file vanished');gone.winerror=2
+        f,calls=sampler_fixture({'owned-root':[DIR,parent],'owned-root/data':gone},[('owned-root',[],['data'])]);sampler_error(f,type(parent)if isinstance(parent,BaseException)else RuntimeError,parent if isinstance(parent,BaseException)else None);assert calls==['owned-root','owned-root/data','owned-root']
+check('scratch WinError3/unknown/file errors and failed parent revalidation refuse unchanged',scratch_file_and_revalidated_parent_refusals)
+
 def static_mechanisms():
     old=HERE.with_name('mantaflow-weighted-source');frozen=json.loads((HERE/'helper-provenance.json').read_text())
     for row in frozen['rawIdenticalPrimitives']:
@@ -442,11 +524,16 @@ def static_mechanisms():
     assert 'attributes.remove'not in (HERE/'authoring.py').read_text()and 'attributes.new'not in (HERE/'authoring.py').read_text()
     for name in ['source_envelope','expected_inputs','new_deadline','remaining_seconds','terminal_report','check_bake_permit_presence','registration_reserve','unresolved_registration_charge','unique_json_pairs']:
         assert segment((HERE/'policy.py').read_text(),name)==segment((old/'policy.py').read_text(),name)
-    for name in ['sha','save','once','create_owned_claim','owned_claim_bytes','join_and_record_limits','remaining_sampling_wait_ms','sample_and_record','utc','safe_tree_bytes','read_atomic_json','Controller.persist','Controller.guard','Controller.hide_startup','Controller.launch','Controller.wait','Controller.terminate_child','Controller.git_bytes','Controller.run_blender','Controller.finish','main']:
+    for name in ['sha','save','once','create_owned_claim','owned_claim_bytes','join_and_record_limits','remaining_sampling_wait_ms','sample_and_record','utc','read_atomic_json','Controller.persist','Controller.guard','Controller.hide_startup','Controller.launch','Controller.wait','Controller.terminate_child','Controller.git_bytes','Controller.run_blender','Controller.finish','main']:
         assert segment((HERE/'supervisor.py').read_text(),name)==segment((old/'supervisor.py').read_text(),name),name
-    inverse=frozen['editorSelectionAmendment']['supervisorArgumentInverse'];supervisor=(HERE/'supervisor.py').read_text()
-    assert supervisor.count(inverse['newCall'])==1
-    assert hashlib.sha256(supervisor.replace(inverse['newCall'],inverse['oldCall']).encode()).hexdigest()==inverse['parentSha256']
+    supervisor=(HERE/'supervisor.py').read_text();sampler=frozen['scratchSamplingAmendment']
+    assert hashlib.sha256(segment(supervisor,'safe_tree_bytes').encode()).hexdigest()==sampler['newSamplerSha256']
+    assert supervisor.count(sampler['newImportLine'])==1
+    restored=supervisor.replace(sampler['newImportLine'],sampler['oldImportLine'],1).replace(segment(supervisor,'safe_tree_bytes'),sampler['oldSamplerSource'],1)
+    assert len(restored.encode())==sampler['parentSupervisorBytes']and hashlib.sha256(restored.encode()).hexdigest()==sampler['parentSupervisorSha256']
+    inverse=frozen['editorSelectionAmendment']['supervisorArgumentInverse']
+    assert restored.count(inverse['newCall'])==1
+    assert hashlib.sha256(restored.replace(inverse['newCall'],inverse['oldCall']).encode()).hexdigest()==inverse['parentSha256']
     new=(HERE/'author.py').read_text();baseline=(old/'author.py').read_text()
     for name in ['sha','save','f32','set_observed','set_half_rate','Author.guard','Author.ready','Author.objects','Author.grid_input','main']:assert segment(new,name)==segment(baseline,name),name
     assert new.count('bpy.ops.fluid.bake_data()')==1 and new.count('early_response(values,')==1
