@@ -43,3 +43,9 @@ native/global8/28/optimized/hardware20–33% gates. No fitted replacement light,
 gain/palette/field/bake change or promotion follows. Raw97/50positive,98zero and
 all admission/reference/inputE flags remain false. ROOT owns independent source
 review and any later native comparison.
+
+The narrow child under PRIMARY `d370ae96f80d1e673289f882070574a25f902d58`
+preserves215 and adds an independent failure boolean. Null, undefined, false,
+zero and empty-string throws retain exact identity; subsequent update/reset
+rethrow, diagnostics stay failed and disposal is not retried. The complete
+wrapper inverse restores215 exactly. No light/material/guard behavior changes.

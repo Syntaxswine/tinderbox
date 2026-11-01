@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "authority": "344202f12ea2756508f60e14de393cce0b83c737",
+  "authority": "d370ae96f80d1e673289f882070574a25f902d58",
   "primaryPath": "docs/proposals/zero-spill-causal-control.md",
   "parent": "34af2a3f091f05054387602291cf1876cd741606",
   "immutableAssetTree": "a1be9735d01617b19acde8bd6c1f2c1c3cf998df",
@@ -76,7 +76,7 @@
     "modules": 68,
     "immutableControlModules": 66,
     "newModules": 2,
-    "esmBytes": 11206824,
+    "esmBytes": 11206846,
     "sourceCeilingBytes": 67108864,
     "resources": 193,
     "gzipBytes": 93359324,
@@ -86,14 +86,46 @@
     "allOtherLimitsUnchanged": true
   },
   "checks": {
-    "pureGroups": 9,
-    "refusals": 31,
-    "syntaxFiles": 4,
+    "pureGroups": 10,
+    "refusals": 76,
+    "syntaxFiles": 2,
     "originalAssignmentDetectorFalsePositivePreserved": true,
     "partialCleanupRetentionFixture": true,
     "dataNamespaceEvaluated": false,
     "actualFactoryOrRenderer": false,
-    "gpuOrNativeProof": false
+    "gpuOrNativeProof": false,
+    "syntaxScope": "Only the changed wrapper and focused check; unchanged helper/source syntax inherited from215."
   },
-  "cleanupScope": "Requested/applied intensity, actual root light retention and delegate light count are separate. Partial cleanup does not imply native/GPU retirement; original/suppression/cleanup errors survive, disposal is not retried."
+  "cleanupScope": "Requested/applied intensity, actual root light retention and delegate light count are separate. Partial cleanup does not imply native/GPU retirement; original/suppression/cleanup errors survive, disposal is not retried.",
+  "initialAuthority": "344202f12ea2756508f60e14de393cce0b83c737",
+  "sourceCorrection": {
+    "parent": "215bfcd9b0c4ef8a602c35fbe09d6a19237b29fd",
+    "scope": "Independent boolean failure sentinel; exact thrown values and one-time cleanup. All helper/material/light/data behavior unchanged.",
+    "beforeWrapper": {
+      "bytes": 3666,
+      "sha256": "7d8cb26f10644845d84d0d57f4b279120200dc246b50715d38f973edd41169c5"
+    },
+    "sourceInverse": "Five token sites: boolean initialization, failure flag assignment, two subsequent-call guards and diagnostic status. Inverse returns exact215 wrapper bytes.",
+    "falseyValues": [
+      "null",
+      "undefined",
+      "false",
+      "0",
+      "empty string"
+    ],
+    "oldQA": "artifacts/qa/fire-realism/zero-spill-coupled/source-review-01 remains unchanged; child evidence is separate.",
+    "runtimeDeltaBytes": 22,
+    "plainMockCoverage": {
+      "values": 5,
+      "origins": [
+        "update",
+        "reset",
+        "dispose"
+      ],
+      "originalThrows": 15,
+      "subsequentUpdateResetRethrows": 30,
+      "cleanupAttemptsPerCase": 1,
+      "diagnosticsFailed": true
+    }
+  }
 }
