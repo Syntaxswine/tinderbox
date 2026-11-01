@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "authority": "344202f12ea2756508f60e14de393cce0b83c737",
+  "primaryPath": "docs/proposals/zero-spill-causal-control.md",
+  "parent": "34af2a3f091f05054387602291cf1876cd741606",
+  "immutableAssetTree": "a1be9735d01617b19acde8bd6c1f2c1c3cf998df",
+  "baseManifest": {
+    "bytes": 82964,
+    "sha256": "f19a492547520893b7dad9fb658d15847481a8fab8f6b9ff49a6a4bff7de7934"
+  },
+  "fragmentUnchanged": {
+    "bytes": 6839,
+    "sha256": "c7b63613e9499a4d5570f9e9c3cec96ba069a68e1b2732e4bd89b01e4346d75a"
+  },
+  "vertexUnchanged": {
+    "bytes": 166,
+    "sha256": "eae6cf07c42792006b85a9f52320589b371c6b768592d28bd041f9e7535f4a35"
+  },
+  "sourceChange": "Only the guarded owned PointLight intensity is forced0 after delegated updates. No light removal/visibility trick; all material/source state retained.",
+  "sourceStateInverse": "Remove the additive wrapper to recover the immutable coupled delegate and its ordinary requested intensity; no GPU/cache reversal claim.",
+  "calibrationLimit": "Source light/attenuation arithmetic is not measured irradiance or native pixels. The ablation is not an accepted unlit product or useful R.",
+  "parentAttributesBeforeRaw": {
+    "bytes": 1414,
+    "sha256": "bbea3fbbbacc112ae9988b624b5545f7aa0dddc1d6ac314481e6723be3afa66d"
+  },
+  "parentAttributesAppended": "zero-spill-coupled.js text eol=lf\nzero-spill-coupled-transfer.js text eol=lf\nzero-spill-coupled.manifest.json text eol=lf\n",
+  "sourceOnly": true,
+  "actualFactoryOrRenderer": false,
+  "immutableSourceInputs": [
+    {
+      "path": "assets/art/fire-realism/coupled-corner-emission.js",
+      "commit": "34af2a3f091f05054387602291cf1876cd741606",
+      "gitBlob": "6d1e9107f96ec30f40485413ea941e37a9e66b0c",
+      "bytes": 1839,
+      "sha256": "2b88db298cc2d09bd6f78921b0d4893ba26dd9695a2878112003b368eeaef782"
+    },
+    {
+      "path": "assets/art/fire-realism/coupled-corner-emission-transfer.js",
+      "commit": "34af2a3f091f05054387602291cf1876cd741606",
+      "gitBlob": "8690a9724715c0ec5d3e2b2fe6abfd619f10101d",
+      "bytes": 2782,
+      "sha256": "f1f18d00b52c6a00b9e0892734557739091b0acecb74c79d1acb990c37bd76cf"
+    },
+    {
+      "path": "assets/art/fire-realism/coupled-corner-emission.manifest.json",
+      "commit": "34af2a3f091f05054387602291cf1876cd741606",
+      "gitBlob": "046fc49cdbea5829d696f94096b4d85201f97099",
+      "bytes": 82964,
+      "sha256": "f19a492547520893b7dad9fb658d15847481a8fab8f6b9ff49a6a4bff7de7934"
+    },
+    {
+      "path": "assets/art/fire-realism/corridor-emission-vector-transfer.js",
+      "commit": "34af2a3f091f05054387602291cf1876cd741606",
+      "gitBlob": "19f7857561292d806934201424afc1e8ed461b79",
+      "bytes": 5231,
+      "sha256": "0f293a5a212789a94f4378a3d2577279b9d3c27fa25ab88677d92df5c95095e8"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/index.js",
+      "commit": "34af2a3f091f05054387602291cf1876cd741606",
+      "gitBlob": "5ed6119448f0bdb3007553a5aa916acb9ae3dbd1",
+      "bytes": 14176,
+      "sha256": "e0948b76ce7fdc82cf922eb807b17e81bb947ca18001054c723e7180b44b7ae8"
+    }
+  ],
+  "colorApiSource": {
+    "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+    "commit": "34af2a3f091f05054387602291cf1876cd741606",
+    "bytes": 1462227,
+    "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+    "getHexPhysicalLine": 15840,
+    "defaultColorSpace": "SRGBColorSpace",
+    "scope": "Pinned source semantics only; Color/Three API was not instantiated."
+  },
+  "closure": {
+    "modules": 68,
+    "immutableControlModules": 66,
+    "newModules": 2,
+    "esmBytes": 11206824,
+    "sourceCeilingBytes": 67108864,
+    "resources": 193,
+    "gzipBytes": 93359324,
+    "sparseBytes": 97999209,
+    "resourceBodyReads": 0,
+    "storesAdded": 0,
+    "allOtherLimitsUnchanged": true
+  },
+  "checks": {
+    "pureGroups": 9,
+    "refusals": 31,
+    "syntaxFiles": 4,
+    "originalAssignmentDetectorFalsePositivePreserved": true,
+    "partialCleanupRetentionFixture": true,
+    "dataNamespaceEvaluated": false,
+    "actualFactoryOrRenderer": false,
+    "gpuOrNativeProof": false
+  },
+  "cleanupScope": "Requested/applied intensity, actual root light retention and delegate light count are separate. Partial cleanup does not imply native/GPU retirement; original/suppression/cleanup errors survive, disposal is not retried."
+}
