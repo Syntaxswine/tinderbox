@@ -9,7 +9,7 @@ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3];sys.path.insert(0,str(
 import policy
 from source import load_settings,f32,digest
 from realization import IDENTITY,words
-from authoring import verify_observation
+from authoring import (verify_observation,attribute_snapshot,verify_flat_attributes,verify_flat_provenance,verify_install_attributes,verify_attribute_pair,AttributeRefused,install)
 from prediction import closest_triangle,union_sample,predict,early_response
 from state import flatten
 GROUPS=[];REFUSALS=0
@@ -50,6 +50,22 @@ def kernel_refusals():
         refuse(lambda weights=weights,faces=faces,radius=radius:union_sample([0,0,0],tri,faces,weights,['negative'],radius))
 check('kernel numeric/mapping refusals',kernel_refusals)
 
+def flat_record(vertex_count,faces,name):
+    edges={tuple(sorted((a,b)))for face in faces for a,b in zip(face,face[1:]+face[:1])};n=len(faces)
+    counts={'vertices':vertex_count,'edges':len(edges),'corners':3*n,'faces':n}
+    # Illustrative local metadata, not additional actual RNA enum targets.
+    return {'kind':'corridor-mesh-attribute-observation-v1','meshName':name,'counts':counts,'attributeCount':5,
+            'attributes':[{'name':'position','domain':'POINT','dataType':'FLOAT_VECTOR','dataCount':vertex_count},
+             {'name':'.edge_verts','domain':'EDGE','dataType':'INT32_2D','dataCount':len(edges)},
+             {'name':'.corner_vert','domain':'CORNER','dataType':'INT','dataCount':3*n},
+             {'name':'.corner_edge','domain':'CORNER','dataType':'INT','dataCount':3*n},
+             {'name':'sharp_face','domain':'FACE','dataType':'BOOLEAN','dataCount':n,'values':[True]*n}],
+            'polygons':[{'index':i,'useSmooth':False,'materialIndex':0}for i in range(n)],
+            'authoredRestrictions':{'materialCount':0,'uvLayerCount':0,'colorAttributeCount':0,'shapeKeysPresent':False},'captureComplete':True,'captureErrors':[]}
+def attribute_evidence(stage,observation):
+    return {'kind':'corridor-attribute-evidence-v1','stage':stage,'passed':True,'observation':observation,
+            'proof':verify_flat_attributes(observation,observation['counts']['vertices'],observation['counts']['faces'],mesh_name=observation['meshName'])}
+
 s=load_settings();plan,realized=policy.expected_model(s);profile=plan['derivedProfile'];mesh,groups,dimensions=policy.expected_mesh_and_groups(s)
 observation={'objectName':profile['objectName'],'world':deepcopy(IDENTITY),'localPositions':deepcopy(realized['positionsFloat32']),'worldPositions':deepcopy(realized['positionsFloat32']),
  'faces':[r['indices']for r in plan['mesh']['faces']],'groups':[{'name':profile['groupName'],'index':0}],
@@ -73,10 +89,20 @@ grid={'resolution':[16,16,1],'origin':[-.3125,-.3125,.02083333395421505],'spacin
 control={'baselineActualState':baseline,'preparedActualState':weighted,'activeOriginalBOTH':active,'evaluatedCurve':curve,'geometricKernelPrediction':{'grid':grid}}
 gate=verify_observation(observation,plan,realized['positionsFloat32'],IDENTITY)
 installed={'plan':plan,'expectedRealization':realized,'observation':observation,'expectedLocalFloat32':realized['positionsFloat32'],'originalWorld':IDENTITY,'geometryAndGroupGate':gate,'effectiveInputGridProved':False}
+old_attributes=flat_record(25,s['emissionWeights']['triangleIndexMap'],'SurfaceSource1893')
+new_attributes=flat_record(len(plan['mesh']['vertices']),[r['indices']for r in plan['mesh']['faces']],'CorridorSource1893')
+installed.update({'attributePreflight':attribute_evidence('original',deepcopy(old_attributes)),
+ 'attributeAllocation':{'kind':'corridor-attribute-candidate-allocation-v1','allocatedMeshName':'CorridorSource1893','sourceMeshBeforeSwap':'SurfaceSource1893','sourceStillOriginal':True,'sourceSwapped':False},
+ 'attributeCandidate':attribute_evidence('candidate',deepcopy(new_attributes)),'attributeInstalled':attribute_evidence('installed',deepcopy(new_attributes)),
+ 'attributeProvenance':{'kind':'corridor-attribute-evidence-v1','stage':'candidate-provenance','passed':True,'observation':{'original':deepcopy(old_attributes),'candidate':deepcopy(new_attributes)},'proof':verify_flat_provenance(old_attributes,new_attributes,plan)}})
+installed['attributeGate']=verify_install_attributes(installed,plan)
 rows={str(f):{'frame':f,'original':deepcopy(observation),'evaluated':deepcopy(observation),'flowFlags':deepcopy(flags),'domainFlagsBefore':[False,False],'domainFlagsDuring':[False,False],'domainFlagsAfter':[False,False],
  'gates':{'original':deepcopy(gate),'evaluated':deepcopy(gate)},'effectiveInputGridProved':False}for f in [1,2,91,193]}
+for row in rows.values():
+    row['attributeReadbacks']={'original':deepcopy(new_attributes),'evaluated':deepcopy(new_attributes)};row['attributeOrigin']=deepcopy(old_attributes)
+    row['attributeGates']=verify_attribute_pair(row['attributeReadbacks'],plan,row['attributeOrigin'])
 opened=policy.compare_original(control,before,'fresh');prepared=policy.compare_prepared(control,after,'fresh',s)
-report={'cacheRedirectBeforeEvaluation':{'newObserved':'fresh'},'baselineActualState':before,'preparedActualState':after,
+report={'flatFaceAmendmentCommit':policy.FLAT_FACE_AMENDMENT,'cacheRedirectBeforeEvaluation':{'newObserved':'fresh'},'baselineActualState':before,'preparedActualState':after,
  'actualStateComparison':{'passed':True,'openedOriginal':opened,'preparedAgainstWeighted':prepared},'weightedControlComparison':prepared,'activeOriginalBOTH':active,'evaluatedCurve':curve,
  'corridorInstall':installed,'sourceReadbacks':rows,'kernelPrediction':predict(observation,plan,grid,s,active),'actualInputGridProof':False,
  'actualClippedEmitter':{'mesh':mesh,'planSha256':digest(plan),'observation':observation}}
@@ -157,6 +183,123 @@ def permits_reserves():
     for key,value in [('proposalCommit',policy.SCIENTIFIC_PROPOSAL),('kind','tinderbox-weighted-source-authorization-v1'),('candidateCommit','b'*40),('output','old')]:refuse(lambda key=key,value=value:policy.validate_permit({**p,key:value},'prepare','fresh',{'a':'b'},'a'*40,150.))
 check('exact23-source dynamic reserve, unresolved charging, unchanged deadline and bound permits',permits_reserves)
 
+def attribute_oracle_refusals():
+    assert verify_flat_attributes(old_attributes,25,23)['passed']and verify_flat_attributes(new_attributes,40,34)['sharpFaceTrueCount']==34
+    assert len(verify_flat_provenance(old_attributes,new_attributes,plan)['faceProvenance'])==34
+    structural=deepcopy(old_attributes);structural['attributes'][0].update({'domain':'REPORTED_DOMAIN','dataType':'REPORTED_TYPE','dataCount':999})
+    observed_only=verify_flat_attributes(structural,25,23);assert observed_only['structuralSchemasInterpreted']is False and observed_only['structuralAttributes'][0]['dataCount']==999
+    mutations=[(['attributes',4,'domain'],'POINT'),(['attributes',4,'dataType'],'INT'),(['attributes',4,'dataCount'],22),(['attributes',4,'values',0],1),(['attributes',4,'values',0],False),(['polygons',0,'useSmooth'],True),(['polygons',0,'materialIndex'],1),(['authoredRestrictions','uvLayerCount'],1),(['captureComplete'],False),(['captureErrors'],{}),(['attributes'],None)]
+    for path,value in mutations:
+        bad=change(old_attributes,path,value);refuse(lambda bad=bad:verify_flat_attributes(bad,25,23))
+    bad=deepcopy(old_attributes);bad['attributes'].pop();bad['attributeCount']-=1;refuse(lambda:verify_flat_attributes(bad,25,23))
+    bad=deepcopy(old_attributes);bad['attributes'].append(deepcopy(bad['attributes'][0]));bad['attributeCount']+=1;refuse(lambda:verify_flat_attributes(bad,25,23))
+    bad=deepcopy(old_attributes);bad['attributes'].append({'name':'unexpected','domain':'POINT','dataType':'FLOAT','dataCount':25});bad['attributeCount']+=1;refuse(lambda:verify_flat_attributes(bad,25,23))
+    extra=deepcopy(new_attributes);extra['attributes'].append({'name':'evaluated_only','domain':'POINT','dataType':'FLOAT','dataCount':40});extra['attributeCount']+=1
+    refuse(lambda:verify_flat_attributes(extra,40,34))
+    extra['meshName']='ReportedEvaluatedMeshName' # Not a new ID-name assumption beyond the seven geometric fields.
+    proof=verify_flat_attributes(extra,40,34,evaluated=True);assert proof['evaluatedOnlyAttributes'][0]['name']=='evaluated_only'and proof['evaluatedExtrasAuthorizeDiscard']is False
+    bad=deepcopy(plan);bad['mesh']['faces'][0]['sourceFace']=23;refuse(lambda:verify_flat_provenance(old_attributes,new_attributes,bad))
+check('strict typed FACE/BOOLEAN/all-True, flat polygon, schema/count/unknown/duplicate and provenance refusals',attribute_oracle_refusals)
+
+def attribute_gate_corruption():
+    for path,value in [(['corridorInstall','attributePreflight','proof','faces'],24),(['corridorInstall','attributeCandidate','observation','attributes',4,'values',0],False),(['corridorInstall','attributeProvenance','proof','faceProvenance',0,'sourceFace'],22),(['corridorInstall','attributeAllocation','sourceSwapped'],True),(['sourceReadbacks','91','attributeGates','passed'],False),(['sourceReadbacks','1','attributeOrigin','attributes',4,'values',0],1)]:
+        bad=change(report,path,value);refuse(lambda bad=bad:policy.verify_preparation(bad,s,control))
+    row=deepcopy(rows['1']);row['attributeReadbacks']['original']['attributes'][4]['values'][0]=False
+    refuse(lambda:policy.verify_bake_witness({'kind':'corridor-source-prebake-observation-v1','observation':row},s,after))
+check('installed/selected/saved-reload attribute and provenance proof corruption refuses',attribute_gate_corruption)
+
+# Minimal local fakes; never import/execute actual bpy or mathutils. Normalizers
+# and deleters deliberately throw. They cannot make a bad input look valid.
+def fake_attribute_run(old_mutation=None,new_mutation=None,fail_stage=None):
+    from types import SimpleNamespace,ModuleType
+    events=[];persisted=[];counters={'allocation':0,'swap':0,'vector':0,'normalizer':0}
+    class Attributes(list):
+        def new(self,*a,**kw):counters['normalizer']+=1;raise AssertionError('Normalizer forbidden')
+        def remove(self,*a,**kw):counters['normalizer']+=1;raise AssertionError('Attribute delete forbidden')
+    class Mesh:
+        def __init__(self,name):
+            self.name=name;self.materials=[];self.uv_layers=[];self.color_attributes=[];self.shape_keys=None;self.vertices=[];self.polygons=[];self.edges=[];self.loops=[];self.attributes=Attributes()
+        def shade_flat(self):counters['normalizer']+=1;raise AssertionError('Old/new shading override forbidden')
+        def build(self,positions,faces):
+            self.vertices=[SimpleNamespace(index=i,co=list(p),groups=[])for i,p in enumerate(positions)]
+            self.polygons=[SimpleNamespace(index=i,vertices=list(f),use_smooth=False,material_index=0)for i,f in enumerate(faces)]
+            record=flat_record(len(positions),faces,self.name);self.edges=[None]*record['counts']['edges'];self.loops=[None]*record['counts']['corners']
+            self.attributes=Attributes([SimpleNamespace(name=r['name'],domain=r['domain'],data_type=r['dataType'],data=[SimpleNamespace(value=v)for v in r['values']]if 'values'in r else[None]*r['dataCount'])for r in record['attributes']])
+        def from_pydata(self,positions,edges,faces):
+            events.append('construct');assert edges==[];self.build(positions,faces)
+            if new_mutation:new_mutation(self)
+        def update(self):pass
+    class Matrix:
+        def __iter__(self):return iter(IDENTITY)
+        def __matmul__(self,p):return list(p)
+    class Groups(list):
+        def new(self,name):
+            g=SimpleNamespace(name=name,index=0)
+            def add(indices,value,mode):
+                assert mode=='REPLACE'
+                for i in indices:source.data.vertices[i].groups.append(SimpleNamespace(group=0,weight=f32(value)))
+            g.add=add;self.append(g);return g
+    class Source:
+        def __init__(self,mesh):self._mesh=mesh;self.name=s['emissionWeights']['objectName'];self.matrix_world=Matrix();self.vertex_groups=Groups()
+        @property
+        def data(self):return self._mesh
+        @data.setter
+        def data(self,value):events.append('swap');counters['swap']+=1;self._mesh=value
+    original=Mesh('SurfaceSource1893');original.build(plan['originalPositions'],s['emissionWeights']['triangleIndexMap']);source=Source(original)
+    if old_mutation:old_mutation(original)
+    flow=SimpleNamespace(density_vertex_group='',volume_density=0.0,use_absolute=True,use_plane_init=True,surface_distance=.5,flow_type='BOTH',bl_rna=SimpleNamespace(properties={'density_vertex_group':SimpleNamespace(is_readonly=False,type='STRING')}))
+    def allocate(name):events.append('allocate');counters['allocation']+=1;return Mesh(name)
+    fake_bpy=SimpleNamespace(data=SimpleNamespace(meshes=SimpleNamespace(new=allocate)))
+    fake_math=ModuleType('mathutils');fake_math.__fake_fixture_only__=True
+    def vector(p):counters['vector']+=1;return list(p)
+    fake_math.Vector=vector
+    def persist(stage,evidence):
+        events.append('persist:'+stage)
+        if stage==fail_stage:raise OSError('Synthetic persistence refusal')
+        persisted.append((stage,deepcopy(evidence)))
+    assert 'mathutils'not in sys.modules
+    sys.modules['mathutils']=fake_math;result=error=None
+    try:
+        try:result=install(fake_bpy,source,flow,s,lambda:None,persist)
+        except (AttributeRefused,OSError,BaseExceptionGroup)as exc:error=exc
+    finally:del sys.modules['mathutils']
+    assert counters['normalizer']==0
+    return SimpleNamespace(result=result,error=error,events=events,persisted=persisted,counters=counters,original=original,source=source)
+
+def fake_preflight_refusals():
+    def unknown(mesh):mesh.attributes.append(type(mesh.attributes[0])(name='not_allowed',domain='POINT',data_type='FLOAT',data=[None]*25))
+    a=fake_attribute_run(old_mutation=unknown);assert isinstance(a.error,AttributeRefused)and a.counters['allocation']==a.counters['swap']==a.counters['vector']==0 and a.source.data is a.original
+    assert a.persisted[0][0]=='original'and a.persisted[0][1]['passed']is False and a.persisted[0][1]['observation']['attributes'][-1]['name']=='not_allowed'
+    def wrong_domain(mesh):mesh.attributes[-1].domain='POINT'
+    def wrong_typed_value(mesh):mesh.attributes[-1].data[0].value=1
+    def missing(mesh):del mesh.attributes[-1]
+    def smooth(mesh):mesh.polygons[0].use_smooth=True
+    def duplicate(mesh):mesh.attributes.append(mesh.attributes[0])
+    for mutate in [wrong_domain,wrong_typed_value,missing,smooth,duplicate]:
+        r=fake_attribute_run(old_mutation=mutate)
+        assert isinstance(r.error,AttributeRefused)and r.counters['allocation']==r.counters['vector']==r.counters['swap']==0
+        assert r.persisted[0][1]['passed']is False and r.persisted[0][1]['observation']['captureComplete']is True
+    b=fake_attribute_run(fail_stage='original');assert isinstance(b.error,OSError)and b.counters['allocation']==b.counters['vector']==b.counters['swap']==0
+    c=fake_attribute_run(old_mutation=unknown,fail_stage='original');assert isinstance(c.error,BaseExceptionGroup)and len(c.error.exceptions)==2 and c.counters['allocation']==0
+check('fake invalid old attributes/persistence refusal preserve evidence and cannot allocate/swap',fake_preflight_refusals)
+
+def fake_candidate_refusals():
+    def false_value(mesh):mesh.attributes[-1].data[0].value=False
+    a=fake_attribute_run(new_mutation=false_value);assert isinstance(a.error,AttributeRefused)and a.counters['allocation']==1 and a.counters['swap']==0 and a.source.data is a.original
+    assert [r[0]for r in a.persisted]==['original','candidate-allocation','candidate']and a.persisted[-1][1]['passed']is False
+    assert a.events.index('persist:original')<a.events.index('allocate')<a.events.index('persist:candidate-allocation')<a.events.index('construct')<a.events.index('persist:candidate')
+    b=fake_attribute_run(fail_stage='candidate');assert isinstance(b.error,OSError)and b.counters['swap']==0
+    c=fake_attribute_run(fail_stage='candidate-allocation');assert isinstance(c.error,OSError)and c.counters['swap']==0 and 'construct'not in c.events
+check('fake invalid regenerated values/persistence cannot reach source swap; allocation recorded separately',fake_candidate_refusals)
+
+def fake_successful_semantics():
+    a=fake_attribute_run();assert a.error is None and a.result['attributeGate']['passed']and a.counters['swap']==1
+    assert [r[0]for r in a.persisted]==['original','candidate-allocation','candidate','candidate-provenance','installed']
+    assert a.events.index('persist:candidate-provenance')<a.events.index('swap')<a.events.index('persist:installed')
+    assert len(a.result['observation'])==7 and a.result['observation']==observation
+    assert a.result['attributePreflight']['observation']['polygons']==old_attributes['polygons']
+check('fake complete install preserves seven geometric fields and independently regenerated all-flat semantics',fake_successful_semantics)
+
 def segment(text,qualname):
     tree=ast.parse(text);node=tree
     for part in qualname.split('.'):
@@ -168,8 +311,18 @@ def static_mechanisms():
     for row in frozen['rawIdenticalPrimitives']:
         raw=(HERE/row['name']).read_bytes();assert len(raw)==row['bytes']and hashlib.sha256(raw).hexdigest()==row['sha256']and raw==(old/row['name']).read_bytes()
     for row in [*frozen['immutableWeightedSourceFiles'],*frozen['frozenCorridorFiles']]:
-        raw=(ROOT/row['path']).read_bytes();assert len(raw)==row['bytes']and hashlib.sha256(raw).hexdigest()==row['sha256']
-        assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()==row['gitBlob']
+        raw=(ROOT/row['path']).read_bytes();exception=frozen['flatFaceAttributeAmendment']['authoringException']
+        if row['path']==exception['path']:
+            assert row['sha256']==exception['originalSha256']and row['gitBlob']==exception['originalGitBlob']
+            assert len(raw)==exception['currentBytes']and hashlib.sha256(raw).hexdigest()==exception['currentSha256']
+            assert exception['authority']=='25af559873dd15bb0a0fbc0c93f77c61f38a10f3'
+        else:
+            assert len(raw)==row['bytes']and hashlib.sha256(raw).hexdigest()==row['sha256']
+            assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()==row['gitBlob']
+    for name,expected in frozen['flatFaceAttributeAmendment']['geometricFunctionHashes'].items():
+        assert hashlib.sha256(segment((HERE/'authoring.py').read_text(),name).encode()).hexdigest()==expected
+    assert (HERE/'authoring.py').read_text().count('source.data=mesh')==1
+    assert 'attributes.remove'not in (HERE/'authoring.py').read_text()and 'attributes.new'not in (HERE/'authoring.py').read_text()
     for name in ['source_envelope','expected_inputs','new_deadline','remaining_seconds','terminal_report','check_bake_permit_presence','registration_reserve','unresolved_registration_charge','unique_json_pairs']:
         assert segment((HERE/'policy.py').read_text(),name)==segment((old/'policy.py').read_text(),name)
     for name in ['sha','save','once','create_owned_claim','owned_claim_bytes','join_and_record_limits','remaining_sampling_wait_ms','sample_and_record','utc','safe_tree_bytes','read_atomic_json','Controller.persist','Controller.guard','Controller.hide_startup','Controller.launch','Controller.wait','Controller.terminate_child','Controller.git_bytes','Controller.run_blender','Controller.finish','main']:

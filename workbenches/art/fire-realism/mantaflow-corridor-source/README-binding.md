@@ -5,8 +5,9 @@ This additive kit binds the frozen59c geometry/realization seam to the exercised
 `62487a9255b4b06e04ba7844615ff4162f7f2aff`,
 `docs/proposals/corridor-registered-author-binding.md` in the architect checkout.
 The frozen scientific settings retain f915375;7f74a68 is the separate exact-f32
-realization amendment. Neither settings nor the eleven existing corridor files
-is rewritten. The five primitives are raw-identical6af copies.
+realization amendment. Original c16 preserved all eleven prior corridor files; the
+flat-face child below explicitly changes only authoring.py among them. Settings
+and the other ten remain exact. The five primitives are raw-identical6af copies.
 
 `author.py` installs the clipped emitter immediately after the unchanged25-vertex
 fresh mesh and before group/curve use. `policy.py` derives expected stored40-vertex,
@@ -71,10 +72,56 @@ unchanged full13-group geometry/realization check is run in a Git-frozen59c sour
 fixture, with the original in-place failure preserved. The binding suite also
 executes all12 substantive unchanged current geometry/weight/realization groups,
 records only the exact old final namespace assertion as an expected refusal (never
-a pass), and verifies all11 frozen corridor and17 weighted source records byte-for-byte. These
+a pass), and verifies the ten still-frozen corridor and seventeen weighted source records
+byte-for-byte, with the explicit authoring.py amendment and exact old Git reference. These
 checks never import bpy/mathutils/WinJob/controller, read a scene/field or create
 an actual run path.
 Native all-four-cell response, full support/rays, terminal gates, finite-motion
 morphology and hardware cost remain unknown. Nominal retained weighted surface
 66.18% and83.05/16.95 bank split predict a weak-bank risk; they are not actual
 kernel feed/mass/CFD and are not compensated. No R/O or quality acceptance follows.
+
+
+## Flat-face compatibility child (source only)
+
+Primary amendment `25af559873dd15bb0a0fbc0c93f77c61f38a10f3`,
+`docs/proposals/corridor-flat-face-attributes.md`, explicitly permits only the
+narrow authoring.py exception to the old11-file byte gate. The other10 and all17
+weighted references stay exact; original authoring referencec16/4b8c5e06 remains
+in provenance. Binding/scientific/realization authorities and16CORE/23source names
+stay unchanged. The consumed c16 attempt remains failed, immutable and un-retried.
+Its actual attribute names are unknown. Pinned47,080-byte `bpy_types.py` SHAa19691c3
+shows `from_pydata` defaults to flat shading and creates FACE/BOOLEAN `sharp_face`
+with every valueTrue. This is source evidence, not a retrospective observation.
+
+Only that strict generated-flat case is admitted in addition to the four existing
+structural names. Bounded plain inventories record every attribute name/domain/
+type/extent, complete typed flat values, polygon flat/material flags and authored
+material/UV/color/shape restrictions. Unknown/duplicate attributes, malformed inventory, wrong sharp_face schema/count/
+value, smooth/mixed faces and incomplete captures refuse with structured evidence.
+The four old structural names retain only their existing name/geometry-witness
+authority; their actual domains/types/counts are reported without invented enum
+or domain/extent rules. Read-only evaluated-only metadata is likewise reported. No old
+attribute is removed, normalized or shaded. Successful original preflight is saved
+through the existing atomic Author save before any clipped allocation; persistence
+failure stops. Allocation has its own record; unchanged `from_pydata` construction
+is inspected and saved before source swap. All34 derived faces independently retain
+the original23 all-flat source-face provenance and no authored data is discarded.
+
+The seven-field geometry snapshot and exact float32/transform/topology/weight
+functions remain byte-identical. Attribute records are separate for installation,
+selected1/2/91/193 and fresh saved/reloaded1. Borrowed evaluated attributes are
+captured while valid, with existing finally restoration. Evaluated-only metadata
+is reported separately and cannot authorize discarding any pre-install attribute.
+Historical install-origin evidence is labelled historical, never freshly observed
+old geometry. The pure policy recomputes every attribute/provenance proof at the
+preparation and reload gates; missing or falsified proofs cannot reuse old c16 data.
+
+Current command remains `python -B check_binding.py`. Attribute cases use plain
+records and minimal fake mesh/source/storage objects; a temporary **fake** Vector
+module resolves the source-only import and is removed afterwards. No actual bpy or
+mathutils module/API, scene, Job/controller/helper or tool run occurs. Fakes reject
+normalizer/deleter calls and prove invalid old input cannot allocate/swap, invalid
+new output cannot swap, and persistence failures stop. Old geometric/state/clock/
+terminal/registration checks remain. Actual Blender inventory, preparation and
+solver/native gates require a separate fresh-candidate decision; none is released.
