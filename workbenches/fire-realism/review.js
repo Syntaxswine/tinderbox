@@ -15,6 +15,23 @@ export const RUBRIC = Object.freeze([
 export const LIVE_CAPTURE_ENDPOINT_PROTOCOL='submitted-live-600-v1';
 export const HDR_PRESENTATION_CONTRACT='common-linear-hdr-neutral-v1';
 export const MAX_TRANSFER_CHECK_BYTES=256*1024;
+/** Display public declarations separately from reported target evidence; no availability inference. */
+export function presentationRows(state={}){
+  const renderer=state.diagnostics?.renderer,identity=state.diagnostics?.sourceFingerprints?.presentation,presentation=state.presentation;
+  const rows=[['Outer renderer',renderer?.outputColorSpace?renderer.outputColorSpace+' / '+(renderer.toneMapping??'Unavailable'):'Unavailable · outer renderer state not reported']];
+  if(!identity&&!presentation)return [...rows,['Common HDR','No common HDR contract reported']];
+  const declared=identity?.contract===HDR_PRESENTATION_CONTRACT;
+  rows.push(['Declared common HDR',declared?Object.fromEntries(['contract','toneMapping','exposure','format','samples','sourceEncoding','finalOETF'].map(key=>[key,identity[key]??'Unavailable'])):
+    'Unavailable · '+(identity?'unsupported declared contract: '+(identity.contract??'not reported'):'immutable presentation identity not reported')]);
+  const known=presentation?.contract===HDR_PRESENTATION_CONTRACT;
+  const status=!presentation?'Unavailable · public presentation state not reported':!known?'Unavailable · unsupported public contract: '+(presentation.contract??'not reported'):
+    presentation.available===true?'Available · public driver state':'Unavailable · '+(presentation.reason||'public availability not reported as available');
+  rows.push(['Common HDR availability',status]);
+  const target=known&&presentation.available===true?presentation.target:null;
+  rows.push(['Actual HDR target',target?Object.fromEntries(['width','height','internalFormat','type','samples','framebufferStatus','glError'].map(key=>[key,target[key]??'Unavailable'])):
+    'Unavailable · actual target/sample evidence not reported for an available common HDR presentation']);
+  return rows;
+}
 const isHdr=state=>state?.presentation?.contract===HDR_PRESENTATION_CONTRACT;
 function presentationSummary(state){
   if(!state?.presentation)return null;
@@ -334,7 +351,7 @@ export function createReviewShell({root,onIntent,initialState=EMPTY,onExport,bas
     const hasRender=s.connected&&renderer?.width>0&&s.availability?.[c.mode]?.available===true&&!['initializing','error','disposed'].includes(s.phase);find('[data-render-empty]').hidden=hasRender;find('[data-ui-root]').hidden=!hasRender;
     text('[data-render-title]',s.connected?'Selected render unavailable':'Renderer unavailable');text('[data-render-reason]',s.error?.message||s.availability?.[c.mode]?.reason||s.reason||'No actual WebGL scene is connected.');text('[data-render-caption]',hasRender?(c.mode+' · '+c.scenario+' · '+c.view+' · '+c.lighting+' · preview, not motion evidence'):'No actual frame or motion evidence.');
     text('[data-frame="tick"]',s.connected?String(s.tick)+' / '+s.frameIndex:'Unavailable');text('[data-frame="world"]',s.connected?metricText({state:'measured',value:s.worldTime,unit:'s'}):'Unavailable');text('[data-frame="player"]',s.connected?metricText({state:'measured',value:s.playerTime,unit:'s'}):'Unavailable');text('[data-frame="canvas"]',renderer?.width?renderer.width+' × '+renderer.height+' px · DPR '+renderer.pixelRatio:'Unavailable');
-    record('[data-live-record]',[['Requested canvas',c.viewport?c.viewport.width+' × '+c.viewport.height+' CSS px':null],['Actual workload',s.workload],['GPU timer',s.capabilities?.gpuTimer?.available?'Available':s.capabilities?.gpuTimer?.reason||'Unavailable'],['Output / mapping',renderer?.outputColorSpace?renderer.outputColorSpace+' / '+renderer.toneMapping:null]]);
+    record('[data-live-record]',[['Requested canvas',c.viewport?c.viewport.width+' × '+c.viewport.height+' CSS px':null],['Actual workload',s.workload],['GPU timer',s.capabilities?.gpuTimer?.available?'Available':s.capabilities?.gpuTimer?.reason||'Unavailable'],...presentationRows(s)]);
     const refSig=JSON.stringify([s.references,s.referenceError]);if(lastReference!==refSig){lastReference=refSig;const q=find('[data-reference]');q.disabled=!optionList(q,s.references,q.value,'No verified source files');showReference();}
     text('[data-baseline]',s.referenceAcceptance==='accepted'?'Driver validated the architect’s detailed-baseline receipt.':'Detailed baseline not yet accepted · receipt '+(s.referenceAcceptance||'missing')+'.');
     text('[data-evidence-state]',evidenceLabel(r?.status));text('[data-evidence-reason]',isHdr(s)?s.capabilities?.gpuTimer?.reason||'Hardware measurement is unavailable for this HDR appearance experiment.':r?.reason||(!s.capabilities?.gpuTimer?.available?s.capabilities?.gpuTimer?.reason:'No hardware timing report has been supplied.')||'No hardware timing report has been supplied.');

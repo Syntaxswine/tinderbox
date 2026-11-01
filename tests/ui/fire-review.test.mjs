@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash,webcrypto} from 'node:crypto';
-import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,sourceSummary,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot,LIVE_CAPTURE_ENDPOINT_PROTOCOL,HDR_PRESENTATION_CONTRACT,MAX_TRANSFER_CHECK_BYTES} from '../../workbenches/fire-realism/review.js';
+import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,presentationRows,safeUrl,localAsset,reviewRecord,photoReferences,sourceSummary,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot,LIVE_CAPTURE_ENDPOINT_PROTOCOL,HDR_PRESENTATION_CONTRACT,MAX_TRANSFER_CHECK_BYTES} from '../../workbenches/fire-realism/review.js';
 // These endpoint tests run the actual binding and recorder; clocks/driver/encoding
 // are declared API fixtures, not browser, GPU, compositor or encoded-tick proof.
 function endpointClock(t){
@@ -493,6 +493,29 @@ test('Pagehide aborts pending startup and disposes a late completed binding exac
 
 // Public API fixtures below test UI routing/retirement, never native HDR rendering.
 const HDR_IDENTITY={contract:HDR_PRESENTATION_CONTRACT,toneMapping:'Three r180 NeutralToneMapping',exposure:1,format:'RGBA16F',samples:4,sourceEncoding:'linear-working-rgb',finalOETF:'sRGB'};
+test('Presentation rows name the outer renderer without inventing a common HDR result',()=>{
+  const s={diagnostics:{renderer:{outputColorSpace:'srgb',toneMapping:0}}},before=structuredClone(s),rows=Object.fromEntries(presentationRows(s));
+  assert.deepEqual(rows,{'Outer renderer':'srgb / 0','Common HDR':'No common HDR contract reported'});assert.deepEqual(s,before);
+  assert.equal(Object.hasOwn(rows,'Output / mapping'),false);assert.match(Object.fromEntries(presentationRows())['Outer renderer'],/Unavailable/);
+});
+test('HDR rows keep immutable declarations separate from actual target dimensions and samples',()=>{
+  const target={width:777,height:443,internalFormat:'RGBA16F',type:'HalfFloatType',samples:2,framebufferStatus:36053,glError:0};
+  const s={configuration:{viewport:{width:1280,height:800}},diagnostics:{renderer:{outputColorSpace:'srgb',toneMapping:0},sourceFingerprints:{presentation:HDR_IDENTITY}},presentation:{contract:HDR_PRESENTATION_CONTRACT,available:true,target,get lastTransferProof(){throw Error('Do not traverse a transfer proof to label the live target');}}};
+  const rows=Object.fromEntries(presentationRows(s));assert.equal(rows['Outer renderer'],'srgb / 0');assert.deepEqual(rows['Declared common HDR'],HDR_IDENTITY);assert.match(rows['Common HDR availability'],/^Available/);assert.deepEqual(rows['Actual HDR target'],target);
+  assert.equal(rows['Declared common HDR'].samples,4);assert.equal(rows['Actual HDR target'].samples,2);assert.equal(rows['Actual HDR target'].width,777);assert.equal(s.configuration.viewport.width,1280);
+});
+test('HDR rows leave absent, unavailable and unsupported actual evidence explicit without declaration fallback',()=>{
+  const s={configuration:{viewport:{width:1280,height:800}},diagnostics:{sourceFingerprints:{presentation:HDR_IDENTITY}}};
+  let rows=Object.fromEntries(presentationRows(s));assert.match(rows['Common HDR availability'],/public presentation state not reported/);assert.match(rows['Actual HDR target'],/^Unavailable/);assert.equal(rows['Declared common HDR'].samples,4);
+  s.presentation={contract:HDR_PRESENTATION_CONTRACT,available:true,target:{width:390,height:844,internalFormat:'RGBA16F'}};rows=Object.fromEntries(presentationRows(s));assert.equal(rows['Actual HDR target'].samples,'Unavailable');assert.equal(rows['Actual HDR target'].width,390);assert.equal(rows['Actual HDR target'].type,'Unavailable');
+  s.presentation.target=null;assert.match(Object.fromEntries(presentationRows(s))['Actual HDR target'],/^Unavailable/);
+  s.presentation={contract:HDR_PRESENTATION_CONTRACT,available:false,reason:'RGBA16F unsupported',target:{samples:4}};rows=Object.fromEntries(presentationRows(s));assert.match(rows['Common HDR availability'],/RGBA16F unsupported/);assert.match(rows['Actual HDR target'],/^Unavailable/);
+  s.presentation={contract:HDR_PRESENTATION_CONTRACT,target:{samples:4}};rows=Object.fromEntries(presentationRows(s));assert.match(rows['Common HDR availability'],/availability not reported/);assert.match(rows['Actual HDR target'],/^Unavailable/);
+  s.presentation={contract:'unknown-contract',available:true,target:{samples:4}};rows=Object.fromEntries(presentationRows(s));assert.match(rows['Common HDR availability'],/unsupported public contract: unknown-contract/);assert.match(rows['Actual HDR target'],/^Unavailable/);
+  s.presentation={contract:HDR_PRESENTATION_CONTRACT,available:true,target:{samples:2}};s.diagnostics.sourceFingerprints={};rows=Object.fromEntries(presentationRows(s));assert.match(rows['Declared common HDR'],/immutable presentation identity not reported/);assert.equal(rows['Actual HDR target'].samples,2);
+  s.diagnostics.sourceFingerprints.presentation={contract:'unknown-declaration'};assert.match(Object.fromEntries(presentationRows(s))['Declared common HDR'],/unsupported declared contract: unknown-declaration/);
+});
+
 function attachHdr(f,{leaseApi=true,proofStatus='pass'}={}){
   let held=false,acquires=0,releases=0,probes=0;const order=[],capture=f.driver.captureFrame,dispose=f.driver.dispose;
   const proof={kind:'common-linear-hdr-transfer-proof-v1',contract:HDR_PRESENTATION_CONTRACT,status:proofStatus,fixtureOnly:true,hdrReadback:{beforeDisplay:true,floatValues:[1.25,0,0,0]},hardware:{renderer:'Declared API fixture, not actual hardware'}};
