@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "proposalCommit": "a27014fa26e338b4a8ed144fc23d1280845ec2f3",
+  "sourceCommit": "5ad453e7004a45e7864b07dd3e75a38017cadc47",
+  "presentationContract": "common-linear-hdr-neutral-v1",
+  "sourceOnly": true,
+  "frozenFactory": {
+    "path": "assets/art/fire-realism/fluid-contact-weighted-source-diagnostic-01/index.js",
+    "bytes": 13747,
+    "sha256": "bff803911d5b8d7855fa1cb710ec4a6ca200f9a1220ed218c47359d77108a462"
+  },
+  "frozenManifest": {
+    "path": "assets/art/fire-realism/fluid-contact-weighted-source-diagnostic-01/manifest.json",
+    "bytes": 80624,
+    "sha256": "752dc485ab760c0ffa6121101969c3e114f6867f7825677c84464c7af4398c33"
+  },
+  "unchangedOpticalGenerators": [
+    {
+      "path": "assets/art/fire-realism/fluid-contact-weighted-source-diagnostic-01/shaders.js",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-weighted-source-diagnostic-01/emission-transfer.js",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-weighted-source-diagnostic-01/normalization-transfer.js",
+      "bytes": 2426,
+      "sha256": "1bccb3911347f726e87884a26d3df791c1ca6cb6a60d46464e851ca5db7a4262"
+    }
+  ],
+  "newSources": [
+    {
+      "path": "assets/art/fire-realism/fluid-weighted-linear-hdr.js",
+      "bytes": 14590,
+      "sha256": "dfcea630c797ce00ce1c08a9a1f7c7e90849f286bc3b9dd9e1876495a2cfc508"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-weighted-linear-hdr-transfer.js",
+      "bytes": 1666,
+      "sha256": "e60ac0c207aaeefd4fd873aefd0dab7727b583e8425e1192af2f21ce17f61d48"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-weighted-linear-hdr.manifest.json",
+      "bytes": 83209,
+      "sha256": "a74981783b547b2cdb65f6455f484e300856d42485348443dbb8682f3af553fa"
+    }
+  ],
+  "allowedFactorySourceChanges": [
+    "Ten static imports rebased to frozen descendant modules; one pure helper import",
+    "Four export names/version/root/diagnostic identities",
+    "Exact required own presentationContract guard before cache/texture allocation",
+    "Full normalized-fragment guard then one local source-palette OETF body replaced by identity"
+  ],
+  "completeFactoryInverseRequired": true,
+  "immutableDependencies": 60,
+  "reachableModules": 62,
+  "unchangedResourceDeclarations": 193,
+  "newMeasuredEsmBytes": 10842221,
+  "esmUsageIncreaseBytes": 2509,
+  "sourceCapacityBytes": 67108864,
+  "otherCapacityAndOwnershipRecordsUnchanged": true,
+  "storeOwnership": "One module-level store shared by four exports; old index/store is neither imported nor reexported. No copied packet/data namespace.",
+  "colorTransport": "j=6*F*G*linearWarm + ks*linearSoot; k=ks. G/legibility enter once as before. Associated C/A direct output preserves C>0 at alpha0. No local/final gamma or tone map in volume shader.",
+  "runtimeBoundary": "Runtime owns common RGBA16F scene/volume composition and one pinned Three r180 Neutral/exposure1/final sRGB. All selected modes/no-fire/current use common pipeline. Artist only declares/guards its integration contract; no target/probe/renderer is allocated.",
+  "fieldPrecision": "Existing two RGBA32F field buffers/textures and interpolation remain unchanged; RGBA16F is a separate common scene-output target, not scalar quantization.",
+  "rights": "Original Tinderbox source adaptation on existing original authored weighted fields; no new photo/texture/tool/source intake. Existing module/provenance/licenses untouched.",
+  "limitations": [
+    "No actual clipping cause inferred from R35; tone map cannot create missing folds.",
+    "Whole display model/world colors may change; no no-fire/old display pixel equality claim.",
+    "No independent Kelvin/radiometric reconstruction, source-dose compensation, curve/gain/exponent sweep.",
+    "Raw97 failure/admissionfalse, finite four-cell clocks/support/floor/overhang and unsupported layouts remain.",
+    "No prepare/audit/data decode/factory/renderer/GPU/probe or native validation; no timing/cost/reference/optimized/receipt acceptance."
+  ],
+  "parentAttributes": "Unchanged in ART by architect instruction; root93c32e7 owns the three exact LF intake rules."
+}
