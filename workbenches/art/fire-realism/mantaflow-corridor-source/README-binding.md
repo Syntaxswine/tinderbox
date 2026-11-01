@@ -94,8 +94,9 @@ Its actual attribute names are unknown. Pinned47,080-byte `bpy_types.py` SHAa196
 shows `from_pydata` defaults to flat shading and creates FACE/BOOLEAN `sharp_face`
 with every valueTrue. This is source evidence, not a retrospective observation.
 
-Only that strict generated-flat case is admitted in addition to the four existing
-structural names. Bounded plain inventories record every attribute name/domain/
+The flat-face amendment admits its strict generated-flat case. The later editor-
+selection amendment below adds only three exact generated editor schemas; the four
+existing structural names retain report-only schema metadata. Bounded plain inventories record every attribute name/domain/
 type/extent, complete typed flat values, polygon flat/material flags and authored
 material/UV/color/shape restrictions. Unknown/duplicate attributes, malformed inventory, wrong sharp_face schema/count/
 value, smooth/mixed faces and incomplete captures refuse with structured evidence.
@@ -136,3 +137,42 @@ persistence failure/no allocation, and normal complete observations. The frozen
 independent3945-byte witness SHA f8f8213c is read-only; its failure is synthetic,
 not an observed Blender API failure.1f/c16/provisional sources and the unexecuted1f
 02proposal remain preserved; no actual execution or rebinding follows this child.
+
+
+## Generated editor-selection source amendment
+
+Current authority is PRIMARY `2b6991fc40079fa7801b7f273f1e1067fe3a0867`,
+`docs/proposals/corridor-editor-selection-attributes.md` (including94312e6 plus the
+sole supervisor-argument exception). Flat-face25af is separate historical authority.
+Preparation02 observed three selection schemas but **no values**; both old attempts
+remain consumed. Pinned primary references/line ranges and the complete RT findings
+are in helper-provenance.json; unavailable raw C++ file hashes are not invented.
+
+Only `.select_vert` POINT/BOOLEAN, `.select_edge` EDGE/BOOLEAN and `.select_poly`
+FACE/BOOLEAN are classified for this fresh scratch route. Complete actual typed
+Boolean arrays must match observed domain counts, bounded40/102/34.47edges are
+fully captured. No Boolean coercion, default, uniformity, selection operator,
+attribute deletion or normalization is used. Unknown/malformed/incomplete captures
+refuse with durable original evidence before allocation. The four old structural
+schemas remain reported only. Sharp-face/flat/material0 proof is unchanged.
+
+Original-to-clipped selection is explicitly **regenerated editor state**, not old
+value/index lineage. Original and candidate arrays are retained separately;
+candidate-to-installed records agree. Selected1/2/91/193 and reloaded1 original
+values must match the saved installed actual candidate. Evaluated selection is
+read-only: each exact layer is explicitly present (with validated full values) or
+absent, never manufactured or claimed unchanged. No extra evaluation pass is added.
+
+The independent controller receives that saved installed observation as a fourth
+`verify_bake_witness` argument; the raw prepared RNA state stays the third. The
+sole supervisor text change is this argument, with exact inverse hash proof. Author
+passes the same saved observation. A reload record cannot choose its own expected
+anchor. No fake RNA field, new reader/module, process framework or input-E proof is
+introduced. Existing16CORE/23official sources, dynamic reserves,900s/2GiB/CPU4,
+193curves, scientific controls/raw gates and published/native optics remain fixed.
+
+Current pure/fake checks cover mixed/True/False arrays,47edge capture, bounds,
+schema/type/count/missing/duplicate/unknown/refusal/persistence cases, regenerated
+state, installed/selected/reload corruption and evaluated absence. The unchanged
+3945B partial-getter witness remains a separate producer regression. Only later
+ROOT review and a fresh explicit candidate permit can authorize preparation.

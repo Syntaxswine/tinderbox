@@ -348,9 +348,10 @@
       "originalBytes": 11516,
       "originalSha256": "4b8c5e06fa9b75ae019bddb4e9f4ecefcec6eca766e364bb457b840045859eff",
       "originalGitBlob": "60590522484b8e0cf111cac633e89715f4d69096",
-      "currentBytes": 25968,
-      "currentSha256": "a16307ca235f9cc1b58a0a6e1738ffd5f248b751b0b3b5b430ff3f0b02b44708",
-      "reason": "Strict observed/persisted flat-face source compatibility only; seven-field geometry/math unchanged. Original frozen reference retained; other10 corridor/17 weighted references stay raw exact."
+      "currentBytes": 28500,
+      "currentSha256": "cd42886b76f0b9ec0fd0bcde216ed9fefca9dfb42b07c1e544333e0ce6f70c6e",
+      "reason": "Strict observed/persisted flat-face source compatibility only; seven-field geometry/math unchanged. Original frozen reference retained; other10 corridor/17 weighted references stay raw exact.",
+      "latestAuthority": "2b6991fc40079fa7801b7f273f1e1067fe3a0867"
     },
     "geometricFunctionHashes": {
       "matrix_record": "b9d9eb298865132b3b8664bcf5f9240638389300baf975f69017c74c3962b229",
@@ -385,5 +386,165 @@
       "outsideAttributeSnapshotSha256": "f554846d3785389fec6294baee60f4b21dc58f40bef5abc07eea865b859be44d",
       "actualApiOrRun": false
     }
+  },
+  "editorSelectionAmendment": {
+    "authority": "2b6991fc40079fa7801b7f273f1e1067fe3a0867",
+    "earlierSourceDispatch": "94312e6e5869e9a868e3aa5397bbaf2e1d9882e8",
+    "path": "docs/proposals/corridor-editor-selection-attributes.md",
+    "location": "architect primary checkout; not copied",
+    "parentCandidate": "766444afa67242b76e25dcf3db00d5394a8131e5",
+    "sourceReport": {
+      "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\fire-realism\\selection-source-peer-root\\corridor-selection-source-investigation.md",
+      "bytes": 7941,
+      "sha256": "1aec3d03fb7b8c4ef21aa86783643d9558cc8081a4a72d53251628fe83a19d20"
+    },
+    "sourceEvidence": {
+      "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\fire-realism\\selection-source-peer-root\\corridor-selection-source-evidence.json",
+      "bytes": 9090,
+      "sha256": "8792b4bcb58e13468ad26a83e1a8d34a3a05322de97c464aa20953df1e2e32d1"
+    },
+    "remotePrimaryReferences": [
+      {
+        "path": "source/blender/editors/mesh/mesh_data.cc",
+        "url": "https://github.com/blender/blender/blob/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/editors/mesh/mesh_data.cc",
+        "sourceLineRanges": [
+          [
+            745,
+            771
+          ],
+          [
+            774,
+            805
+          ],
+          [
+            842,
+            875
+          ],
+          [
+            881,
+            914
+          ]
+        ],
+        "lineConvention": "L0 is first source line; sourceLine = L + 1",
+        "rawFileHashAvailable": false
+      },
+      {
+        "path": "source/blender/makesrna/intern/rna_mesh.cc",
+        "url": "https://github.com/blender/blender/blob/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/makesrna/intern/rna_mesh.cc",
+        "sourceLineRanges": [
+          [
+            198,
+            206
+          ],
+          [
+            408,
+            431
+          ],
+          [
+            560,
+            583
+          ],
+          [
+            1216,
+            1239
+          ],
+          [
+            2412,
+            2416
+          ],
+          [
+            2436,
+            2439
+          ],
+          [
+            2495,
+            2499
+          ]
+        ],
+        "lineConvention": "L0 is first source line; sourceLine = L + 1",
+        "rawFileHashAvailable": false
+      },
+      {
+        "path": "source/blender/makesrna/intern/rna_mesh_api.cc",
+        "url": "https://github.com/blender/blender/blob/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/makesrna/intern/rna_mesh_api.cc",
+        "sourceLineRanges": [
+          [
+            168,
+            190
+          ]
+        ],
+        "lineConvention": "L0 is first source line; sourceLine = L + 1",
+        "rawFileHashAvailable": false
+      },
+      {
+        "path": "source/blender/blenkernel/intern/mesh_calc_edges.cc",
+        "url": "https://github.com/blender/blender/blob/5afeabba6097c311e11a3845dadf0f709adadeed/source/blender/blenkernel/intern/mesh_calc_edges.cc",
+        "sourceLineRanges": [
+          [
+            164,
+            219
+          ]
+        ],
+        "lineConvention": "L0 is first source line; sourceLine = L + 1",
+        "rawFileHashAvailable": false
+      }
+    ],
+    "observed02Inventory": {
+      "path": "C:\\Users\\baals\\.codex\\worktrees\\fire-art-corrections\\tinderbox\\artifacts\\qa\\fire-realism\\mantaflow-corridor-source\\corridor-source-20261101-02\\prepare.attribute-original.json",
+      "bytes": 4267,
+      "sha256": "e861437b22663c3da94b3a5d8c74b5b763f05fc7fcdd4dba2dcfc745ae0959b4",
+      "selectionValuesObserved": false,
+      "schemasObserved": [
+        {
+          "name": ".select_vert",
+          "domain": "POINT",
+          "dataType": "BOOLEAN",
+          "dataCount": 25
+        },
+        {
+          "name": ".select_edge",
+          "domain": "EDGE",
+          "dataType": "BOOLEAN",
+          "dataCount": 47
+        },
+        {
+          "name": ".select_poly",
+          "domain": "FACE",
+          "dataType": "BOOLEAN",
+          "dataCount": 23
+        }
+      ],
+      "status": "Failed consumed original preflight, unchanged; new code never fills historical values."
+    },
+    "classification": {
+      ".select_vert": {
+        "domain": "POINT",
+        "dataType": "BOOLEAN",
+        "limit": 40
+      },
+      ".select_edge": {
+        "domain": "EDGE",
+        "dataType": "BOOLEAN",
+        "limit": 102
+      },
+      ".select_poly": {
+        "domain": "FACE",
+        "dataType": "BOOLEAN",
+        "limit": 34
+      }
+    },
+    "selectionDisposition": "Actual complete original/candidate arrays recorded; candidate state regenerated by unchanged constructor. No old-to-new per-index lineage/default/uniformity/mass/input-E claim. Candidate/installed agree; selected/reload original matches external saved installed anchor. Evaluated present/absent is read-only and explicit.",
+    "supervisorArgumentInverse": {
+      "parentCommit": "766444afa67242b76e25dcf3db00d5394a8131e5",
+      "parentBytes": 30410,
+      "parentSha256": "2cc698ffb27667a753e7f0bad5d58f86b6498ee10e32b9412d7df9c1978e5fce",
+      "oldCall": "verify_bake_witness(corridor,self.s,prepared['preparedActualState'])",
+      "newCall": "verify_bake_witness(corridor,self.s,prepared['preparedActualState'],prepared['corridorInstall']['attributeInstalled']['observation'])",
+      "occurrences": 1,
+      "allOtherTextIdentical": true
+    },
+    "CORE": 16,
+    "officialSourcePaths": 23,
+    "actualApiOrRun": false
   }
 }

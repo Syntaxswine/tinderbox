@@ -54,17 +54,20 @@ def flat_record(vertex_count,faces,name):
     edges={tuple(sorted((a,b)))for face in faces for a,b in zip(face,face[1:]+face[:1])};n=len(faces)
     counts={'vertices':vertex_count,'edges':len(edges),'corners':3*n,'faces':n}
     # Illustrative local metadata, not additional actual RNA enum targets.
-    return {'kind':'corridor-mesh-attribute-observation-v1','meshName':name,'counts':counts,'attributeCount':5,
+    return {'kind':'corridor-mesh-attribute-observation-v1','meshName':name,'counts':counts,'attributeCount':8,
             'attributes':[{'name':'position','domain':'POINT','dataType':'FLOAT_VECTOR','dataCount':vertex_count},
              {'name':'.edge_verts','domain':'EDGE','dataType':'INT32_2D','dataCount':len(edges)},
              {'name':'.corner_vert','domain':'CORNER','dataType':'INT','dataCount':3*n},
              {'name':'.corner_edge','domain':'CORNER','dataType':'INT','dataCount':3*n},
+             {'name':'.select_vert','domain':'POINT','dataType':'BOOLEAN','dataCount':vertex_count,'values':[bool(i%2)for i in range(vertex_count)]},
+             {'name':'.select_edge','domain':'EDGE','dataType':'BOOLEAN','dataCount':len(edges),'values':[i%3==0 for i in range(len(edges))]},
+             {'name':'.select_poly','domain':'FACE','dataType':'BOOLEAN','dataCount':n,'values':[False]*n},
              {'name':'sharp_face','domain':'FACE','dataType':'BOOLEAN','dataCount':n,'values':[True]*n}],
             'polygons':[{'index':i,'useSmooth':False,'materialIndex':0}for i in range(n)],
             'authoredRestrictions':{'materialCount':0,'uvLayerCount':0,'colorAttributeCount':0,'shapeKeysPresent':False},'captureComplete':True,'captureErrors':[]}
 def attribute_evidence(stage,observation):
     return {'kind':'corridor-attribute-evidence-v1','stage':stage,'passed':True,'observation':observation,
-            'proof':verify_flat_attributes(observation,observation['counts']['vertices'],observation['counts']['faces'],mesh_name=observation['meshName'])}
+            'proof':verify_flat_attributes(observation,observation['counts']['vertices'],observation['counts']['faces'],mesh_name=observation['meshName'],require_editor_selection=True)}
 
 s=load_settings();plan,realized=policy.expected_model(s);profile=plan['derivedProfile'];mesh,groups,dimensions=policy.expected_mesh_and_groups(s)
 observation={'objectName':profile['objectName'],'world':deepcopy(IDENTITY),'localPositions':deepcopy(realized['positionsFloat32']),'worldPositions':deepcopy(realized['positionsFloat32']),
@@ -99,10 +102,10 @@ installed['attributeGate']=verify_install_attributes(installed,plan)
 rows={str(f):{'frame':f,'original':deepcopy(observation),'evaluated':deepcopy(observation),'flowFlags':deepcopy(flags),'domainFlagsBefore':[False,False],'domainFlagsDuring':[False,False],'domainFlagsAfter':[False,False],
  'gates':{'original':deepcopy(gate),'evaluated':deepcopy(gate)},'effectiveInputGridProved':False}for f in [1,2,91,193]}
 for row in rows.values():
-    row['attributeReadbacks']={'original':deepcopy(new_attributes),'evaluated':deepcopy(new_attributes)};row['attributeOrigin']=deepcopy(old_attributes)
-    row['attributeGates']=verify_attribute_pair(row['attributeReadbacks'],plan,row['attributeOrigin'])
+    row['attributeReadbacks']={'original':deepcopy(new_attributes),'evaluated':deepcopy(new_attributes)};row['attributeOrigin']=deepcopy(old_attributes);row['attributeAnchor']=deepcopy(new_attributes)
+    row['attributeGates']=verify_attribute_pair(row['attributeReadbacks'],plan,row['attributeOrigin'],new_attributes)
 opened=policy.compare_original(control,before,'fresh');prepared=policy.compare_prepared(control,after,'fresh',s)
-report={'flatFaceAmendmentCommit':policy.FLAT_FACE_AMENDMENT,'cacheRedirectBeforeEvaluation':{'newObserved':'fresh'},'baselineActualState':before,'preparedActualState':after,
+report={'editorSelectionAmendmentCommit':policy.EDITOR_SELECTION_AMENDMENT,'flatFaceAmendmentCommit':policy.FLAT_FACE_AMENDMENT,'cacheRedirectBeforeEvaluation':{'newObserved':'fresh'},'baselineActualState':before,'preparedActualState':after,
  'actualStateComparison':{'passed':True,'openedOriginal':opened,'preparedAgainstWeighted':prepared},'weightedControlComparison':prepared,'activeOriginalBOTH':active,'evaluatedCurve':curve,
  'corridorInstall':installed,'sourceReadbacks':rows,'kernelPrediction':predict(observation,plan,grid,s,active),'actualInputGridProof':False,
  'actualClippedEmitter':{'mesh':mesh,'planSha256':digest(plan),'observation':observation}}
@@ -138,17 +141,17 @@ check('193-row control/expected clock and clipped-descriptor/input-E refusals',c
 
 def pair_refusals():
     for path,value in [(['frame'],2),(['flowFlags','use_absolute'],False),(['flowFlags','surface_distance'],1.),(['domainFlagsAfter'],[True,True]),(['evaluated','vertices',0,'memberships',0,'weight'],.9),(['original','world',0,3],.001),(['gates','evaluated','passed'],False)]:
-        bad=change(rows['1'],path,value);refuse(lambda bad=bad:policy.verify_pair(bad,s,after,1))
+        bad=change(rows['1'],path,value);refuse(lambda bad=bad:policy.verify_pair(bad,s,after,1,new_attributes))
     bad=deepcopy(report);del bad['sourceReadbacks']['91'];refuse(lambda:policy.verify_preparation(bad,s,control))
 check('four-frame actual/evaluated bits/group/flags/restore refusals',pair_refusals)
 
 def reload_pair():
     row=deepcopy(rows['1']);row['domainFlagsBefore']=row['domainFlagsAfter']=[True,True]
     record={'kind':'corridor-source-prebake-observation-v1','observation':row}
-    proof=policy.verify_bake_witness(record,s,after)
+    proof=policy.verify_bake_witness(record,s,after,new_attributes)
     assert proof['passed']and proof['freshFrame1Only']and proof['rechecked193RowsAfterReload']is False
-    refuse(lambda:policy.verify_bake_witness(change(record,['observation','frame'],91),s,after))
-    refuse(lambda:policy.verify_bake_witness(change(record,['kind'],'weighted-source-prebake-observation-v1'),s,after))
+    refuse(lambda:policy.verify_bake_witness(change(record,['observation','frame'],91),s,after,new_attributes))
+    refuse(lambda:policy.verify_bake_witness(change(record,['kind'],'weighted-source-prebake-observation-v1'),s,after,new_attributes))
 check('fresh saved-scene frame1 gate without invented193 re-evaluation',reload_pair)
 
 def early_output():
@@ -188,7 +191,7 @@ def attribute_oracle_refusals():
     assert len(verify_flat_provenance(old_attributes,new_attributes,plan)['faceProvenance'])==34
     structural=deepcopy(old_attributes);structural['attributes'][0].update({'domain':'REPORTED_DOMAIN','dataType':'REPORTED_TYPE','dataCount':999})
     observed_only=verify_flat_attributes(structural,25,23);assert observed_only['structuralSchemasInterpreted']is False and observed_only['structuralAttributes'][0]['dataCount']==999
-    mutations=[(['attributes',4,'domain'],'POINT'),(['attributes',4,'dataType'],'INT'),(['attributes',4,'dataCount'],22),(['attributes',4,'values',0],1),(['attributes',4,'values',0],False),(['polygons',0,'useSmooth'],True),(['polygons',0,'materialIndex'],1),(['authoredRestrictions','uvLayerCount'],1),(['captureComplete'],False),(['captureErrors'],{}),(['attributes'],None)]
+    mutations=[(['attributes',7,'domain'],'POINT'),(['attributes',7,'dataType'],'INT'),(['attributes',7,'dataCount'],22),(['attributes',7,'values',0],1),(['attributes',7,'values',0],False),(['polygons',0,'useSmooth'],True),(['polygons',0,'materialIndex'],1),(['authoredRestrictions','uvLayerCount'],1),(['captureComplete'],False),(['captureErrors'],{}),(['attributes'],None)]
     for path,value in mutations:
         bad=change(old_attributes,path,value);refuse(lambda bad=bad:verify_flat_attributes(bad,25,23))
     bad=deepcopy(old_attributes);bad['attributes'].pop();bad['attributeCount']-=1;refuse(lambda:verify_flat_attributes(bad,25,23))
@@ -202,10 +205,10 @@ def attribute_oracle_refusals():
 check('strict typed FACE/BOOLEAN/all-True, flat polygon, schema/count/unknown/duplicate and provenance refusals',attribute_oracle_refusals)
 
 def attribute_gate_corruption():
-    for path,value in [(['corridorInstall','attributePreflight','proof','faces'],24),(['corridorInstall','attributeCandidate','observation','attributes',4,'values',0],False),(['corridorInstall','attributeProvenance','proof','faceProvenance',0,'sourceFace'],22),(['corridorInstall','attributeAllocation','sourceSwapped'],True),(['sourceReadbacks','91','attributeGates','passed'],False),(['sourceReadbacks','1','attributeOrigin','attributes',4,'values',0],1)]:
+    for path,value in [(['corridorInstall','attributePreflight','proof','faces'],24),(['corridorInstall','attributeCandidate','observation','attributes',7,'values',0],False),(['corridorInstall','attributeProvenance','proof','faceProvenance',0,'sourceFace'],22),(['corridorInstall','attributeAllocation','sourceSwapped'],True),(['sourceReadbacks','91','attributeGates','passed'],False),(['sourceReadbacks','1','attributeOrigin','attributes',7,'values',0],1)]:
         bad=change(report,path,value);refuse(lambda bad=bad:policy.verify_preparation(bad,s,control))
-    row=deepcopy(rows['1']);row['attributeReadbacks']['original']['attributes'][4]['values'][0]=False
-    refuse(lambda:policy.verify_bake_witness({'kind':'corridor-source-prebake-observation-v1','observation':row},s,after))
+    row=deepcopy(rows['1']);row['attributeReadbacks']['original']['attributes'][7]['values'][0]=False
+    refuse(lambda:policy.verify_bake_witness({'kind':'corridor-source-prebake-observation-v1','observation':row},s,after,new_attributes))
 check('installed/selected/saved-reload attribute and provenance proof corruption refuses',attribute_gate_corruption)
 
 # Minimal local fakes; never import/execute actual bpy or mathutils. Normalizers
@@ -347,6 +350,73 @@ def partial_attribute_getter_facts():
     assert failed_save.error.exceptions[0].observation['observation']['attributes'][-1]['name']=='sharp_face'and failed_save.counters['allocation']==0
 check('independent readable attribute fields survive type/count/name faults, persist refusal and never allocate',partial_attribute_getter_facts)
 
+def editor_layer(observation,name):return next(row for row in observation['attributes']if row['name']==name)
+def without_editor(observation,names):
+    r=deepcopy(observation);r['attributes']=[a for a in r['attributes']if a['name']not in names];r['attributeCount']=len(r['attributes']);return r
+
+def editor_values_and_regeneration():
+    result=fake_attribute_run();assert result.error is None
+    actual=result.result['attributePreflight']['observation'];edge=editor_layer(actual,'.select_edge')
+    assert edge['dataCount']==47 and len(edge['values'])==47 and True in edge['values']and False in edge['values']
+    for bit in [True,False]:
+        record=deepcopy(old_attributes)
+        for name in ['.select_vert','.select_edge','.select_poly']:
+            row=editor_layer(record,name);row['values']=[bit]*row['dataCount']
+        assert verify_flat_attributes(record,25,23,require_editor_selection=True)['editorSelection']['.select_poly']['values']==[bit]*23
+    candidate=deepcopy(new_attributes);editor_layer(candidate,'.select_vert')['values']=[True]*40
+    proof=verify_flat_provenance(old_attributes,candidate,plan)['editorSelectionTransition']
+    assert proof['disposition']=='regenerated-by-unchanged-constructor'and proof['oldToNewValueLineageClaimed']is False
+    assert proof['original']['.select_vert']['dataCount']==25 and proof['candidate']['.select_vert']['dataCount']==40
+check('complete mixed/True/False selection arrays including47edges, explicit regeneration without lineage',editor_values_and_regeneration)
+
+def editor_schema_refusals():
+    for name in ['.select_vert','.select_edge','.select_poly']:
+        index=next(i for i,r in enumerate(old_attributes['attributes'])if r['name']==name)
+        for suffix,value in [(['domain'],'WRONG'),(['dataType'],'FLOAT'),(['dataCount'],1),(['values'],[]),(['values',0],1)]:
+            bad=change(old_attributes,['attributes',index,*suffix],value);refuse(lambda bad=bad:verify_flat_attributes(bad,25,23,require_editor_selection=True))
+        for original in [old_attributes,new_attributes]:
+            bad=without_editor(original,[name]);refuse(lambda bad=bad:verify_flat_attributes(bad,bad['counts']['vertices'],bad['counts']['faces'],require_editor_selection=True))
+    bad=deepcopy(old_attributes);bad['attributes'].append(deepcopy(editor_layer(bad,'.select_edge')));bad['attributeCount']+=1;refuse(lambda:verify_flat_attributes(bad,25,23,require_editor_selection=True))
+    bad=deepcopy(old_attributes);bad['attributes'].append({'name':'.select_custom','domain':'POINT','dataType':'BOOLEAN','dataCount':25});bad['attributeCount']+=1;refuse(lambda:verify_flat_attributes(bad,25,23,require_editor_selection=True))
+check('only three exact selection schemas; malformed values/counts/missing/duplicates/unknowns refuse',editor_schema_refusals)
+
+def editor_source_failures():
+    from types import SimpleNamespace
+    for name,limit in [('.select_vert',40),('.select_edge',102),('.select_poly',34)]:
+        def overflow(mesh,name=name,limit=limit):next(a for a in mesh.attributes if a.name==name).data=[SimpleNamespace(value=True)for _ in range(limit+1)]
+        result=fake_attribute_run(old_mutation=overflow)
+        assert isinstance(result.error,AttributeRefused)and result.counters['allocation']==0 and result.counters['swap']==0
+        partial=result.persisted[0][1]['observation'];assert partial['captureComplete']is False and len(editor_layer(partial,name)['values'])==limit
+    def missing(mesh):mesh.attributes[:]=[a for a in mesh.attributes if a.name!='.select_edge']
+    old=fake_attribute_run(old_mutation=missing);new=fake_attribute_run(new_mutation=missing)
+    assert isinstance(old.error,AttributeRefused)and old.counters['allocation']==0
+    assert isinstance(new.error,AttributeRefused)and new.counters['swap']==0
+    class BrokenValue:
+        @property
+        def value(self):raise RuntimeError('synthetic unreadable selection value')
+    def broken(mesh):next(a for a in mesh.attributes if a.name=='.select_edge').data[17]=BrokenValue()
+    result=fake_attribute_run(old_mutation=broken);assert isinstance(result.error,AttributeRefused)and result.counters['allocation']==0
+    partial=result.persisted[0][1]['observation'];assert partial['captureComplete']is False and editor_layer(partial,'.select_edge')['dataCount']==47 and len(editor_layer(partial,'.select_edge')['values'])==17
+    failure=fake_attribute_run(old_mutation=missing,fail_stage='original');assert isinstance(failure.error,BaseExceptionGroup)and failure.counters['allocation']==0
+check('bounded overflow/partial values and missing-source/persistence failures cannot allocate or swap',editor_source_failures)
+
+def editor_anchor_and_evaluated():
+    bad=deepcopy(installed);layer=editor_layer(bad['attributeInstalled']['observation'],'.select_edge');layer['values'][0]=not layer['values'][0]
+    bad['attributeInstalled']['proof']=verify_flat_attributes(bad['attributeInstalled']['observation'],40,34,require_editor_selection=True)
+    refuse(lambda:verify_install_attributes(bad,plan))
+    row=deepcopy(rows['1']);layer=editor_layer(row['attributeReadbacks']['original'],'.select_vert');layer['values'][0]=not layer['values'][0]
+    row['attributeAnchor']=deepcopy(row['attributeReadbacks']['original'])
+    row['attributeGates']=verify_attribute_pair(row['attributeReadbacks'],plan,row['attributeOrigin'],row['attributeAnchor']) # Internally consistent forgery must still fail external anchor.
+    refuse(lambda:policy.verify_bake_witness({'kind':'corridor-source-prebake-observation-v1','observation':row},s,after,new_attributes))
+    bad=deepcopy(report);bad['sourceReadbacks']['91']=row;bad['sourceReadbacks']['91']['frame']=91;refuse(lambda:policy.verify_preparation(bad,s,control))
+    missing=without_editor(new_attributes,['.select_vert','.select_edge','.select_poly']);before_copy=deepcopy(missing)
+    proof=verify_attribute_pair({'original':new_attributes,'evaluated':missing},plan,old_attributes,new_attributes)
+    assert all(r=={'present':False}for r in proof['evaluated']['editorSelection'].values())and missing==before_copy
+    assert proof['originalSelectionMatchesInstalled']is True
+    bad=deepcopy(new_attributes);editor_layer(bad,'.select_edge')['dataType']='FLOAT'
+    refuse(lambda:verify_attribute_pair({'original':new_attributes,'evaluated':bad},plan,old_attributes,new_attributes))
+check('external installed anchor defeats self-chosen reload data; evaluated presence/absence stays honest',editor_anchor_and_evaluated)
+
 def segment(text,qualname):
     tree=ast.parse(text);node=tree
     for part in qualname.split('.'):
@@ -374,6 +444,9 @@ def static_mechanisms():
         assert segment((HERE/'policy.py').read_text(),name)==segment((old/'policy.py').read_text(),name)
     for name in ['sha','save','once','create_owned_claim','owned_claim_bytes','join_and_record_limits','remaining_sampling_wait_ms','sample_and_record','utc','safe_tree_bytes','read_atomic_json','Controller.persist','Controller.guard','Controller.hide_startup','Controller.launch','Controller.wait','Controller.terminate_child','Controller.git_bytes','Controller.run_blender','Controller.finish','main']:
         assert segment((HERE/'supervisor.py').read_text(),name)==segment((old/'supervisor.py').read_text(),name),name
+    inverse=frozen['editorSelectionAmendment']['supervisorArgumentInverse'];supervisor=(HERE/'supervisor.py').read_text()
+    assert supervisor.count(inverse['newCall'])==1
+    assert hashlib.sha256(supervisor.replace(inverse['newCall'],inverse['oldCall']).encode()).hexdigest()==inverse['parentSha256']
     new=(HERE/'author.py').read_text();baseline=(old/'author.py').read_text()
     for name in ['sha','save','f32','set_observed','set_half_rate','Author.guard','Author.ready','Author.objects','Author.grid_input','main']:assert segment(new,name)==segment(baseline,name),name
     assert new.count('bpy.ops.fluid.bake_data()')==1 and new.count('early_response(values,')==1

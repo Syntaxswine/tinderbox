@@ -238,7 +238,7 @@ class Controller:
         once(self.out/'bake-authorization.used.json',{'permit':bake,'sha256':bake_sha,'consumedAtEpoch':time.time(),'runRecordSha256':run_sha});self.run.update({'state':'baking','bakeClaimed':True,'bakePermitSha256':bake_sha});save(self.out/'run.json',self.run)
         self.run_blender('bake',bake);save(self.out/'original-inputs-after-bake.json',self.original_inputs())
         corridor=json.loads((self.out/'bake-corridor-recheck.json').read_text());prepared=json.loads((self.out/'prepare.json').read_text())
-        if corridor.get('passed')is not True or verify_bake_witness(corridor,self.s,prepared['preparedActualState'])!=corridor.get('gate'):raise RuntimeError('Required saved/reloaded corridor witness invalid')
+        if corridor.get('passed')is not True or verify_bake_witness(corridor,self.s,prepared['preparedActualState'],prepared['corridorInstall']['attributeInstalled']['observation'])!=corridor.get('gate'):raise RuntimeError('Required saved/reloaded corridor witness invalid')
         raw=json.loads((self.out/'raw-manifest.json').read_text());valid=raw['terminalValidation']['rawGatesPassed']
         self.run.update({'state':'export-complete'if valid else'failed','rawExportComplete':valid,'rawManifestSha256':sha(self.out/'raw-manifest.json'),'completedEpoch':time.time()});save(self.out/'run.json',self.run);self.guard()
         if not valid:raise RuntimeError('Actual raw source validation failed')

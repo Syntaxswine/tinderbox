@@ -9,7 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from grid import sample_age,little_endian_bytes,scalar_stats,positive_support
 from policy import (CORE_FILES,validate_settings,expected_inputs,remaining_seconds,terminal_report,
                     load_weighted_control,extra_inputs,checked_input,compare_original,compare_prepared,compare_reloaded,
-                    verify_preparation,verify_bake_witness,WEIGHTED_CONTROL,PROPOSAL,SCIENTIFIC_PROPOSAL,REALIZATION_AMENDMENT,FLAT_FACE_AMENDMENT)
+                    verify_preparation,verify_bake_witness,WEIGHTED_CONTROL,PROPOSAL,SCIENTIFIC_PROPOSAL,REALIZATION_AMENDMENT,FLAT_FACE_AMENDMENT,EDITOR_SELECTION_AMENDMENT)
 from surface import triangulate
 from state import capture
 from weights import verify_blank_record
@@ -83,7 +83,7 @@ class Author:
     def observe_corridor(self,scene,domain,source,fs,installed):
         try:
             row=observe_pair(self.bpy,scene,domain,source,fs,installed,self.guard)
-            save(self.out/(self.args.phase+'.attribute-frame-'+str(row['frame'])+'.json'),{'frame':row['frame'],'historicalInstallOrigin':row['attributeOrigin'],'currentReadbacks':row['attributeReadbacks'],'proof':row['attributeGates']})
+            save(self.out/(self.args.phase+'.attribute-frame-'+str(row['frame'])+'.json'),{'frame':row['frame'],'historicalInstallOrigin':row['attributeOrigin'],'installedActualAnchor':row['attributeAnchor'],'currentReadbacks':row['attributeReadbacks'],'proof':row['attributeGates']})
             return row
         except AttributeRefused as exc:
             try:save(self.out/(self.args.phase+'.attribute-readback-refused.json'),{'observation':exc.observation,'error':str(exc),'valid':False})
@@ -141,7 +141,7 @@ class Author:
         weighted=compare_prepared(self.weighted_prepare,after,cache,self.s)
         diff={'passed':opened['passed']and weighted['passed'],'openedOriginal':opened,'preparedAgainstWeighted':weighted}
         report={'version':1,'status':'actual-preparation-observations-no-bake-approval',
-                'bindingProposalCommit':PROPOSAL,'flatFaceAmendmentCommit':FLAT_FACE_AMENDMENT,'scientificProposalCommit':SCIENTIFIC_PROPOSAL,'realizationAmendmentCommit':REALIZATION_AMENDMENT,
+                'bindingProposalCommit':PROPOSAL,'flatFaceAmendmentCommit':FLAT_FACE_AMENDMENT,'editorSelectionAmendmentCommit':EDITOR_SELECTION_AMENDMENT,'scientificProposalCommit':SCIENTIFIC_PROPOSAL,'realizationAmendmentCommit':REALIZATION_AMENDMENT,
                 'controlV5Identities':self.controls,'weightedControlIdentities':WEIGHTED_CONTROL,'weightedControlComparison':weighted,
                 'burningRateObservation':rate_observation,'originalBlendSha256':self.s['original']['blendSha256'],
                 'cacheRedirectBeforeEvaluation':{'originalObserved':old_cache,'newObserved':str(cache)},
@@ -176,7 +176,7 @@ class Author:
         fs=source.modifiers['FiniteGrassInflow'].flow_settings
         loaded={'kind':'corridor-source-prebake-observation-v1','observation':self.observe_corridor(scene,domain,source,fs,prepared['corridorInstall']),'passed':False}
         save(self.out/'bake-corridor-recheck.json',loaded)
-        loaded['gate']=verify_bake_witness(loaded,self.s,prepared['preparedActualState']);loaded['passed']=True;save(self.out/'bake-corridor-recheck.json',loaded)
+        loaded['gate']=verify_bake_witness(loaded,self.s,prepared['preparedActualState'],prepared['corridorInstall']['attributeInstalled']['observation']);loaded['passed']=True;save(self.out/'bake-corridor-recheck.json',loaded)
         if Path(ds.cache_directory).resolve()!=self.out/'cache':raise RuntimeError('Baking may only target fresh task cache')
         self.guard();bpy.ops.object.select_all(action='DESELECT');domain.select_set(True);bpy.context.view_layer.objects.active=domain
         def progress(sc):save(self.out/'progress.json',{'phase':'bake','frame':sc.frame_current,'atEpoch':time.time()});self.guard()
@@ -211,7 +211,7 @@ class Author:
         terminal=terminal_report(flame_curve,self.s);terminal['initialAllThreeChannelsActuallyZero']=initial_zero;terminal['rawGatesPassed']&=initial_zero
         if not initial_zero:terminal['failures'].append('Initial actual fields are not all zero; no preroll or fabrication permitted')
         save(self.out/'raw-validation.json',terminal)
-        manifest={'controlV5':self.s['controlV5'],'burningRateCounterfactual':self.s['counterfactual'],'version':1,'id':self.s['id'],'scope':'Original actual authoring fields only; no asset placeholder, native acceptance or optimization','status':'raw-export-valid-awaits-independent-review'if terminal['rawGatesPassed']else'raw-export-failed-preserved','tool':self.s['tool'],'sourcePins':self.run['sourcePins'],'sourceBlendSha256':self.run['preparedBlendSha256'],'originalBlendSha256':self.s['original']['blendSha256'],'sampleCount':193,'samples':records,'initialConditionObservedZero':initial_zero,'ageRange':[0,6.4],'burnAgeRange':[0,3.2],'tailMaximum':3.2,'boundaryReactionFailed':reaction_boundary,'belowGroundReactionFailed':below,'upperOverhangApproved':False,'scalarFormat':'Original observed f32LE Xfastest,YthenZ; no quantization/crop/terminal overwrite','scalarOrigin':'Actual domainMin+cell_size/2; no mesh modifier offset','inheritedUnclippedSourceSettings':self.s['source'],'actualClippedEmitter':{'mesh':prepared['preparedActualState']['sourceMesh'],'planSha256':digest(prepared['corridorInstall']['plan']),'originalSourceFaces':prepared['corridorInstall']['plan']['preservedOriginalTriangles'],'preparedReportSha256':self.run['prepareReportSha256'],'savedFrame1WitnessSha256':sha(self.out/'bake-corridor-recheck.json'),'flatFaceAttributeGateSha256':digest(prepared['corridorInstall']['attributeGate']),'sourcePins':self.run['sourcePins']},'earlySolverResponses':early_responses,'actualInputGridProof':False,'weightedControl':WEIGHTED_CONTROL,'bindingProposalCommit':PROPOSAL,'flatFaceAmendmentCommit':FLAT_FACE_AMENDMENT,'scientificProposalCommit':SCIENTIFIC_PROPOSAL,'realizationAmendmentCommit':REALIZATION_AMENDMENT,'cachePrecision':{'requested':'32','observed':ds.openvdb_data_depth},'terminalValidation':terminal}
+        manifest={'controlV5':self.s['controlV5'],'burningRateCounterfactual':self.s['counterfactual'],'version':1,'id':self.s['id'],'scope':'Original actual authoring fields only; no asset placeholder, native acceptance or optimization','status':'raw-export-valid-awaits-independent-review'if terminal['rawGatesPassed']else'raw-export-failed-preserved','tool':self.s['tool'],'sourcePins':self.run['sourcePins'],'sourceBlendSha256':self.run['preparedBlendSha256'],'originalBlendSha256':self.s['original']['blendSha256'],'sampleCount':193,'samples':records,'initialConditionObservedZero':initial_zero,'ageRange':[0,6.4],'burnAgeRange':[0,3.2],'tailMaximum':3.2,'boundaryReactionFailed':reaction_boundary,'belowGroundReactionFailed':below,'upperOverhangApproved':False,'scalarFormat':'Original observed f32LE Xfastest,YthenZ; no quantization/crop/terminal overwrite','scalarOrigin':'Actual domainMin+cell_size/2; no mesh modifier offset','inheritedUnclippedSourceSettings':self.s['source'],'actualClippedEmitter':{'mesh':prepared['preparedActualState']['sourceMesh'],'planSha256':digest(prepared['corridorInstall']['plan']),'originalSourceFaces':prepared['corridorInstall']['plan']['preservedOriginalTriangles'],'preparedReportSha256':self.run['prepareReportSha256'],'savedFrame1WitnessSha256':sha(self.out/'bake-corridor-recheck.json'),'flatFaceAttributeGateSha256':digest(prepared['corridorInstall']['attributeGate']),'sourcePins':self.run['sourcePins']},'earlySolverResponses':early_responses,'actualInputGridProof':False,'weightedControl':WEIGHTED_CONTROL,'bindingProposalCommit':PROPOSAL,'flatFaceAmendmentCommit':FLAT_FACE_AMENDMENT,'editorSelectionAmendmentCommit':EDITOR_SELECTION_AMENDMENT,'scientificProposalCommit':SCIENTIFIC_PROPOSAL,'realizationAmendmentCommit':REALIZATION_AMENDMENT,'cachePrecision':{'requested':'32','observed':ds.openvdb_data_depth},'terminalValidation':terminal}
         save(self.out/'raw-manifest.json',manifest);self.guard()
         if sha(self.original)!=self.s['original']['blendSha256']:raise RuntimeError('Original saved scene changed')
         if not terminal['rawGatesPassed']:raise RuntimeError('Actual raw gates failed; preserve full data, no retry or integration')

@@ -20,6 +20,7 @@ class AttributeRefused(ObservationRefused):
     """Plain attribute evidence survives a strict refusal; no geometry schema change."""
 
 ATTRIBUTE_CAPTURE_LIMIT=32
+EDITOR_SELECTION_RULES={'.select_vert':('POINT','vertices',40),'.select_edge':('EDGE','edges',102),'.select_poly':('FACE','faces',34)}
 
 def _plain_attribute_value(value):
     if value is None or type(value)in(bool,int):return value
@@ -49,12 +50,13 @@ def attribute_snapshot(mesh):
             try:
                 data=a.data;row['dataCount']=len(data)
             except Exception as exc:error('attribute:'+str(i)+':dataCount',exc)
-            if row['name']=='sharp_face'and data is not None:
+            name=row['name'];value_limit=34 if name=='sharp_face'else(EDITOR_SELECTION_RULES[name][2]if type(name)is str and name in EDITOR_SELECTION_RULES else None)
+            if value_limit is not None and data is not None:
                 row['values']=[]
                 try:
-                    if row['dataCount']is not None and row['dataCount']>34:error('sharp_face',ValueError('Flat-face extent exceeds34; prefix only, refuse'))
+                    if row['dataCount']is not None and row['dataCount']>value_limit:error(str(name),ValueError('Boolean extent exceeds'+str(value_limit)+'; prefix only, refuse'))
                     for j,value in enumerate(data):
-                        if j>=34:break
+                        if j>=value_limit:error(str(name),ValueError('Boolean iterator exceeds bound; prefix only, refuse'));break
                         row['values'].append(_plain_attribute_value(value.value))
                 except Exception as exc:error('attribute:'+str(i)+':values',exc)
         if len(mesh.polygons)>34:error('polygons',ValueError('Polygon inventory exceeds34; prefix only, refuse'))
@@ -64,7 +66,7 @@ def attribute_snapshot(mesh):
     except Exception as exc:error('mesh-capture',exc)
     return r
 
-def verify_flat_attributes(observed,vertex_count,face_count,*,evaluated=False,mesh_name=None):
+def verify_flat_attributes(observed,vertex_count,face_count,*,evaluated=False,mesh_name=None,require_editor_selection=False):
     """Only generated all-flat sharp_face is additional pre-install authority."""
     from source import digest
     expected_keys={'kind','meshName','counts','attributeCount','attributes','polygons','authoredRestrictions','captureComplete','captureErrors'}
@@ -75,7 +77,7 @@ def verify_flat_attributes(observed,vertex_count,face_count,*,evaluated=False,me
     if counts['vertices']!=vertex_count or counts['faces']!=face_count or counts['corners']!=3*face_count or not 0<counts['edges']<=3*face_count or not 0<vertex_count<=40 or not 0<face_count<=34:raise ValueError('Source topology extents do not support flat-face proof')
     rows=observed['attributes'];n=observed['attributeCount']
     if type(rows)is not list or type(n)is not int or not 1<=n<=ATTRIBUTE_CAPTURE_LIMIT or len(rows)!=n:raise ValueError('Attribute inventory extent mismatch')
-    seen=set();sharp=None;extra=[]
+    seen=set();sharp=None;extra=[];selection={name:{'present':False}for name in EDITOR_SELECTION_RULES}
     for row in rows:
         if type(row)is not dict or any(type(row.get(k))is not str or not 0<len(row[k])<=128 for k in ['name','domain','dataType']):raise ValueError('Typed attribute names/schema required')
         name=row['name']
@@ -85,6 +87,10 @@ def verify_flat_attributes(observed,vertex_count,face_count,*,evaluated=False,me
         if name=='sharp_face':
             if set(row)!={'name','domain','dataType','dataCount','values'}or row['domain']!='FACE'or row['dataType']!='BOOLEAN'or row['dataCount']!=face_count or type(row['values'])is not list or len(row['values'])!=face_count or any(type(v)is not bool or v is not True for v in row['values']):raise ValueError('sharp_face must be FACE/BOOLEAN, complete actual bool True per face')
             sharp=row
+        elif name in EDITOR_SELECTION_RULES:
+            domain,extent,limit=EDITOR_SELECTION_RULES[name]
+            if set(row)!={'name','domain','dataType','dataCount','values'}or row['domain']!=domain or row['dataType']!='BOOLEAN'or row['dataCount']!=counts[extent]or row['dataCount']>limit or type(row['values'])is not list or len(row['values'])!=row['dataCount']or any(type(v)is not bool for v in row['values']):raise ValueError('Complete typed generated editor-selection layer required:'+name)
+            selection[name]={'present':True,'domain':row['domain'],'dataType':row['dataType'],'dataCount':row['dataCount'],'values':list(row['values'])}
         elif name in BUILTIN_MESH_ATTRIBUTES:
             if set(row)!={'name','domain','dataType','dataCount'}:raise ValueError('Malformed structural attribute inventory:'+name)
             # Existing name/seven-field geometry authority only. Actual schema
@@ -94,24 +100,25 @@ def verify_flat_attributes(observed,vertex_count,face_count,*,evaluated=False,me
             extra.append(row)
         else:raise ValueError('Unreviewed pre-install/original attribute:'+name)
     if sharp is None:raise ValueError('Generated sharp_face observation missing')
+    if require_editor_selection and any(not r['present']for r in selection.values()):raise ValueError('Required original/candidate editor-selection layer missing')
     polys=observed['polygons']
     if type(polys)is not list or len(polys)!=face_count:raise ValueError('Complete polygon flat flags required')
     for i,face in enumerate(polys):
         if type(face)is not dict or set(face)!={'index','useSmooth','materialIndex'}or type(face['index'])is not int or face['index']!=i or type(face['useSmooth'])is not bool or face['useSmooth']is not False or type(face['materialIndex'])is not int or face['materialIndex']!=0:raise ValueError('Every source polygon must be actually flat/material0')
     if observed['authoredRestrictions']!={'materialCount':0,'uvLayerCount':0,'colorAttributeCount':0,'shapeKeysPresent':False}or any(type(observed['authoredRestrictions'].get(k))is not int for k in ['materialCount','uvLayerCount','colorAttributeCount'])or type(observed['authoredRestrictions'].get('shapeKeysPresent'))is not bool:raise ValueError('Authored material/UV/color/shape data may not be discarded')
     return {'kind':'corridor-flat-face-proof-v1','passed':True,'vertices':vertex_count,'faces':face_count,'sharpFaceTrueCount':face_count,'allPolygonsFlat':True,
-            'observationSha256':digest(observed),'structuralAttributes':[r for r in rows if r['name']in BUILTIN_MESH_ATTRIBUTES],'structuralSchemasInterpreted':False,'evaluatedOnlyAttributes':extra,'evaluatedExtrasAuthorizeDiscard':False}
+            'observationSha256':digest(observed),'structuralAttributes':[r for r in rows if r['name']in BUILTIN_MESH_ATTRIBUTES],'structuralSchemasInterpreted':False,'evaluatedOnlyAttributes':extra,'evaluatedExtrasAuthorizeDiscard':False,'editorSelection':selection}
 
 def verify_flat_provenance(original,candidate,plan):
     from source import digest
-    verify_flat_attributes(original,25,len(plan['preservedOriginalTriangles']),mesh_name='SurfaceSource1893')
-    verify_flat_attributes(candidate,len(plan['mesh']['vertices']),len(plan['mesh']['faces']),mesh_name='CorridorSource1893')
+    original_proof=verify_flat_attributes(original,25,len(plan['preservedOriginalTriangles']),mesh_name='SurfaceSource1893',require_editor_selection=True)
+    candidate_proof=verify_flat_attributes(candidate,len(plan['mesh']['vertices']),len(plan['mesh']['faces']),mesh_name='CorridorSource1893',require_editor_selection=True)
     mapping=[]
     for i,face in enumerate(plan['mesh']['faces']):
         source_face=face['sourceFace']
         if type(source_face)is not int or not 0<=source_face<len(plan['preservedOriginalTriangles']):raise ValueError('Flat-face source provenance index invalid')
         mapping.append({'candidateFace':i,'sourceFace':source_face,'expectedSharpFace':True,'expectedUseSmooth':False,'expectedMaterialIndex':0})
-    return {'passed':True,'originalObservationSha256':digest(original),'candidateObservationSha256':digest(candidate),'faceProvenance':mapping,'expectation':'Original verified all-flat semantics; never inferred from candidate values'}
+    return {'passed':True,'originalObservationSha256':digest(original),'candidateObservationSha256':digest(candidate),'faceProvenance':mapping,'expectation':'Original verified all-flat semantics; never inferred from candidate values','editorSelectionTransition':{'disposition':'regenerated-by-unchanged-constructor','original':original_proof['editorSelection'],'candidate':candidate_proof['editorSelection'],'oldToNewValueLineageClaimed':False}}
 
 def _persist_attribute_evidence(stage,observations,validator,persist):
     """Existing Author atomic-save callback; a failed save always stops progress."""
@@ -127,27 +134,30 @@ def _persist_attribute_evidence(stage,observations,validator,persist):
 
 def inspect_flat_attributes(mesh,vertex_count,face_count,stage,persist,mesh_name):
     observed=attribute_snapshot(mesh)
-    return _persist_attribute_evidence(stage,observed,lambda:verify_flat_attributes(observed,vertex_count,face_count,mesh_name=mesh_name),persist)
+    return _persist_attribute_evidence(stage,observed,lambda:verify_flat_attributes(observed,vertex_count,face_count,mesh_name=mesh_name,require_editor_selection=True),persist)
 
 def verify_install_attributes(installed,plan):
     from source import canonical
     original=installed['attributePreflight'];candidate=installed['attributeCandidate'];current=installed['attributeInstalled'];allocation=installed['attributeAllocation']
     for evidence,stage,vertices,faces,name in [(original,'original',25,len(plan['preservedOriginalTriangles']),'SurfaceSource1893'),(candidate,'candidate',len(plan['mesh']['vertices']),len(plan['mesh']['faces']),'CorridorSource1893'),(current,'installed',len(plan['mesh']['vertices']),len(plan['mesh']['faces']),'CorridorSource1893')]:
-        proof=verify_flat_attributes(evidence['observation'],vertices,faces,mesh_name=name)
+        proof=verify_flat_attributes(evidence['observation'],vertices,faces,mesh_name=name,require_editor_selection=True)
         if evidence.get('kind')!='corridor-attribute-evidence-v1'or evidence.get('stage')!=stage or evidence.get('passed')is not True or canonical(evidence.get('proof'))!=canonical(proof):raise ValueError('Installed flat attribute evidence/proof corrupt')
     if canonical(allocation)!=canonical({'kind':'corridor-attribute-candidate-allocation-v1','allocatedMeshName':'CorridorSource1893','sourceMeshBeforeSwap':'SurfaceSource1893','sourceStillOriginal':True,'sourceSwapped':False}):raise ValueError('Separate pre-swap allocation witness required')
     provenance=verify_flat_provenance(original['observation'],candidate['observation'],plan)
     reported=installed['attributeProvenance']
     if reported.get('kind')!='corridor-attribute-evidence-v1'or reported.get('stage')!='candidate-provenance'or reported.get('passed')is not True or canonical(reported.get('observation'))!=canonical({'original':original['observation'],'candidate':candidate['observation']})or canonical(reported.get('proof'))!=canonical(provenance):raise ValueError('Flat attribute provenance evidence corrupt')
     if canonical(candidate['observation'])!=canonical(current['observation']):raise ValueError('Installed source attribute semantics changed after allocation')
-    return {'passed':True,'original':original['proof'],'candidate':candidate['proof'],'installed':current['proof'],'faceProvenance':provenance['faceProvenance']}
+    return {'passed':True,'original':original['proof'],'candidate':candidate['proof'],'installed':current['proof'],'faceProvenance':provenance['faceProvenance'],'editorSelectionTransition':provenance['editorSelectionTransition']}
 
-def verify_attribute_pair(readbacks,plan,origin):
+def verify_attribute_pair(readbacks,plan,origin,expected_anchor):
     if set(readbacks)!={'original','evaluated'}:raise ValueError('Separate original/evaluated attribute observations required')
-    original=verify_flat_attributes(readbacks['original'],len(plan['mesh']['vertices']),len(plan['mesh']['faces']),mesh_name='CorridorSource1893')
+    from source import canonical,digest
+    original=verify_flat_attributes(readbacks['original'],len(plan['mesh']['vertices']),len(plan['mesh']['faces']),mesh_name='CorridorSource1893',require_editor_selection=True)
+    anchor=verify_flat_attributes(expected_anchor,len(plan['mesh']['vertices']),len(plan['mesh']['faces']),mesh_name='CorridorSource1893',require_editor_selection=True)
+    if canonical(original['editorSelection'])!=canonical(anchor['editorSelection']):raise ValueError('Current original editor selection differs from installed actual anchor')
     evaluated=verify_flat_attributes(readbacks['evaluated'],len(plan['mesh']['vertices']),len(plan['mesh']['faces']),evaluated=True)
     provenance=verify_flat_provenance(origin,readbacks['original'],plan)
-    return {'passed':True,'original':original,'evaluated':evaluated,'historicalInstallOriginSha256':provenance['originalObservationSha256'],'faceProvenance':provenance['faceProvenance'],'originIsFreshlyReobserved':False}
+    return {'passed':True,'original':original,'evaluated':evaluated,'historicalInstallOriginSha256':provenance['originalObservationSha256'],'faceProvenance':provenance['faceProvenance'],'originIsFreshlyReobserved':False,'installedActualAnchorSha256':digest(expected_anchor),'originalSelectionMatchesInstalled':True,'evaluatedSelection':'present/absent observed only; never created or claimed unchanged'}
 
 def matrix_record(matrix):return [[float(v) for v in row] for row in matrix]
 
@@ -259,6 +269,7 @@ def observe_pair(bpy,scene,domain,source,flow,installed,guard):
                 'domainFlagsDuring':[dm.show_viewport,dm.show_render],
                 'flowFlags':{k:getattr(flow,k) for k in ['density_vertex_group','volume_density','use_absolute','use_plane_init','surface_distance','flow_type']}}
         record['attributeReadbacks']={'original':attribute_snapshot(source.data),'evaluated':attribute_snapshot(evaluated.data)}
+        record['attributeAnchor']=installed['attributeInstalled']['observation']
         record['attributeOrigin']=installed['attributePreflight']['observation'] # Historical install witness, not a new old-mesh evaluation.
         guard()
     except BaseException as exc:primary=exc
@@ -274,7 +285,7 @@ def observe_pair(bpy,scene,domain,source,flow,installed,guard):
     if record['flowFlags']!=flags or any(type(record['flowFlags'][k])is not type(v) for k,v in flags.items()):raise ObservationRefused('Flow selector/flags changed',record)
     record['gates']={k:verify_observation(record[k],p,installed['expectedLocalFloat32'],installed['originalWorld']) for k in ['original','evaluated']}
     if record['original']!=record['evaluated']:raise ObservationRefused('Evaluated source differs from original',record)
-    try:record['attributeGates']=verify_attribute_pair(record['attributeReadbacks'],p,record['attributeOrigin'])
+    try:record['attributeGates']=verify_attribute_pair(record['attributeReadbacks'],p,record['attributeOrigin'],installed['attributeInstalled']['observation'])
     except (ValueError,KeyError,TypeError,IndexError)as exc:raise AttributeRefused(str(exc),record)from exc
     record['effectiveInputGridProved']=False
     return record

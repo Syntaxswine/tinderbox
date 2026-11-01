@@ -4,6 +4,7 @@ from pathlib import Path
 from copy import deepcopy
 OWNER='01a17e9b-a6db-7490-94cd-7d863747e5d3'
 PROPOSAL='62487a9255b4b06e04ba7844615ff4162f7f2aff'
+EDITOR_SELECTION_AMENDMENT='2b6991fc40079fa7801b7f273f1e1067fe3a0867'
 FLAT_FACE_AMENDMENT='25af559873dd15bb0a0fbc0c93f77c61f38a10f3'
 SCIENTIFIC_PROPOSAL='f915375c4f8df71dbb1a9e1f932406e7e10a32b6'
 REALIZATION_AMENDMENT='7f74a68eaeee13ee84509b4792e8a14b48891f43'
@@ -181,7 +182,7 @@ def _same(a,b):
     return canonical(a)==canonical(b)
 
 
-def verify_pair(row,settings,prepared_state,frame):
+def verify_pair(row,settings,prepared_state,frame,expected_attribute_anchor):
     from authoring import verify_observation,verify_attribute_pair
     from realization import IDENTITY
     plan,realized=expected_model(settings)
@@ -193,7 +194,8 @@ def verify_pair(row,settings,prepared_state,frame):
     if row['domainFlagsDuring']!=[False,False]or row['domainFlagsBefore']!=row['domainFlagsAfter']:raise ValueError('Source-only isolation/restoration failed')
     gates={key:verify_observation(row[key],plan,realized['positionsFloat32'],IDENTITY)for key in ['original','evaluated']}
     if not _same(row['original'],row['evaluated'])or not _same(row.get('gates'),gates)or row.get('effectiveInputGridProved')is not False:raise ValueError('Original/evaluated realization or reported gate mismatch')
-    attribute_gate=verify_attribute_pair(row['attributeReadbacks'],plan,row['attributeOrigin'])
+    if not _same(row['attributeAnchor'],expected_attribute_anchor):raise ValueError('Record cannot choose its own installed selection anchor')
+    attribute_gate=verify_attribute_pair(row['attributeReadbacks'],plan,row['attributeOrigin'],expected_attribute_anchor)
     if not _same(attribute_gate,row.get('attributeGates')):raise ValueError('Original/evaluated attribute proof corrupt')
     mesh,groups,_=expected_mesh_and_groups(settings)
     if prepared_state['sourceMesh']!=mesh or prepared_state['sourceVertexGroups']!=groups or prepared_state['sourceWorld']!=IDENTITY:raise ValueError('Source witness is not bound to prepared actual state')
@@ -207,6 +209,7 @@ def verify_preparation(report,settings,control):
     from authoring import verify_observation,verify_install_attributes
     from realization import IDENTITY
     from prediction import predict
+    if report.get('editorSelectionAmendmentCommit')!=EDITOR_SELECTION_AMENDMENT:raise ValueError('Explicit editor-selection source amendment required')
     if report.get('flatFaceAmendmentCommit')!=FLAT_FACE_AMENDMENT:raise ValueError('Explicit flat-face source amendment required')
     validate_settings(settings);plan,realized=expected_model(settings);cache=report['cacheRedirectBeforeEvaluation']['newObserved']
     before=compare_original(control,report['baselineActualState'],cache);after=compare_prepared(control,report['preparedActualState'],cache,settings)
@@ -229,16 +232,16 @@ def verify_preparation(report,settings,control):
     rows=report['sourceReadbacks']
     if set(rows)!=set(map(str,[1,2,91,193])):raise ValueError('Exactly four source frame observations required')
     if any(not _same(row['attributeOrigin'],installed['attributePreflight']['observation'])for row in rows.values()):raise ValueError('Readback historical attribute origin differs from install')
-    proofs=[verify_pair(rows[str(frame)],settings,report['preparedActualState'],frame)for frame in [1,2,91,193]]
+    proofs=[verify_pair(rows[str(frame)],settings,report['preparedActualState'],frame,installed['attributeInstalled']['observation'])for frame in [1,2,91,193]]
     prediction=predict(rows['1']['original'],plan,control['geometricKernelPrediction']['grid'],settings,active)
     if not prediction['passed']or prediction['actualInputGridProof']is not False or not _same(prediction,report['kernelPrediction']):raise ValueError('Labelled source kernel prediction invalid; not actual input-E')
     if report.get('actualInputGridProof')is not False:raise ValueError('Actual input-E is not exposed by this route')
     return {'kind':'corridor-source-preparation-witness-v1','passed':True,'frames':[1,2,91,193],'curveRows':193,'planSha256':digest(plan),
             'sourceMeshSha256':proofs[0]['sourceMeshSha256'],'expectedFloat32RealizationMatched':True,'strictOpenStripPassed':realized['strictOpenStripPassed'],
-            'nominalCrossings':realized['nominalCrossingCount'],'actualMeshGroupRnaCurvesObserved':True,'kernelIsSourcePrediction':True,'flatFaceAttributesPreserved':True,'flatFaceAmendmentCommit':FLAT_FACE_AMENDMENT,'actualInputGridProof':False}
+            'nominalCrossings':realized['nominalCrossingCount'],'actualMeshGroupRnaCurvesObserved':True,'kernelIsSourcePrediction':True,'flatFaceAttributesPreserved':True,'flatFaceAmendmentCommit':FLAT_FACE_AMENDMENT,'editorSelectionAmendmentCommit':EDITOR_SELECTION_AMENDMENT,'actualInputGridProof':False}
 
 
-def verify_bake_witness(record,settings,prepared_state):
+def verify_bake_witness(record,settings,prepared_state,expected_attribute_anchor):
     if record.get('kind')!='corridor-source-prebake-observation-v1':raise ValueError('Fresh saved/reloaded source witness required')
-    proof=verify_pair(record['observation'],settings,prepared_state,1)
+    proof=verify_pair(record['observation'],settings,prepared_state,1,expected_attribute_anchor)
     return {'passed':True,'freshFrame1Only':True,'rechecked193RowsAfterReload':False,'proof':proof,'actualInputGridProof':False}
