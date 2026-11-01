@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "authority": "8314fa36f58fff7cf8f04ce13ff460d2dd2674eb",
+  "primaryPath": "docs/proposals/coupled-corner-transport.md",
+  "parent": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+  "dataControl": "f93828adf59c96398b1b9c7e623ed5fefaf5de03",
+  "dataControlTree": "a1be9735d01617b19acde8bd6c1f2c1c3cf998df",
+  "baseManifest": {
+    "bytes": 81654,
+    "sha256": "ac4e51c3692f022154cc876ce772ac2b5c3231ff86f76a7cb5b1323b25c7b352"
+  },
+  "response": "Uncalibrated coupled FP emission/filteredF extinction; same6 and existingG once. No physical/Kelvin/ray calibration.",
+  "priorFailure": "R32 already true6r/6r with biased postfilter/localOETF older fields; R34 cornerF2/rawF extinction. No claim matched transport itself was untried.",
+  "beforeFragment": {
+    "bytes": 6843,
+    "sha256": "4656d42c25d406761c4d59f1f8ee80427c3af843180d96372d14e92a7546f817"
+  },
+  "substitution": {
+    "before": "return (F*F)*palette;",
+    "after": "return F*palette;",
+    "occurrences": 1
+  },
+  "uniformState": {
+    "before": 0,
+    "after": 6,
+    "inverse": "Original verified uniform object identity restored by recoverCoupledOpticalState; all other uniforms/vertex unchanged. Standard needsUpdate program invalidation is separate, not a reversible GPU/cache state claim."
+  },
+  "parentAttributesBeforeRaw": {
+    "bytes": 1277,
+    "sha256": "e5d7b7a21466af40ad1fddf3e4571d79548276a10eeefb666d23910457825a5a"
+  },
+  "parentAttributesBeforeCanonical": {
+    "bytes": 1277,
+    "sha256": "e5d7b7a21466af40ad1fddf3e4571d79548276a10eeefb666d23910457825a5a"
+  },
+  "parentAttributesAppended": "coupled-corner-emission.js text eol=lf\ncoupled-corner-emission-transfer.js text eol=lf\ncoupled-corner-emission.manifest.json text eol=lf\n",
+  "sourceOnly": true,
+  "noDataFactoryRenderer": true,
+  "immutableSourceInputs": [
+    {
+      "path": "assets/art/fire-realism/corridor-emission-vector.js",
+      "commit": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+      "gitBlob": "f9dca33c1d3eba9d1579311ed932703fb62b2487",
+      "bytes": 1835,
+      "sha256": "b7f7dc5e445e6334b3253cdb38dbc3f533815f979e53b7f65e97866cb12c2647"
+    },
+    {
+      "path": "assets/art/fire-realism/corridor-emission-vector-transfer.js",
+      "commit": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+      "gitBlob": "19f7857561292d806934201424afc1e8ed461b79",
+      "bytes": 5231,
+      "sha256": "0f293a5a212789a94f4378a3d2577279b9d3c27fa25ab88677d92df5c95095e8"
+    },
+    {
+      "path": "assets/art/fire-realism/corridor-emission-vector.manifest.json",
+      "commit": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+      "gitBlob": "25d3e1c610931c561d2c747b2c54368c13543fdb",
+      "bytes": 81654,
+      "sha256": "ac4e51c3692f022154cc876ce772ac2b5c3231ff86f76a7cb5b1323b25c7b352"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/shaders.js",
+      "commit": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+      "gitBlob": "12d2f08e9ca9bb17bab5a3c94586bdcbb1aa4bdc",
+      "bytes": 5673,
+      "sha256": "acd6668537ef58c1a72a106668c431598c188ecb4019759b413b4131abae7272"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/emission-transfer.js",
+      "commit": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+      "gitBlob": "e848573c71663d7803247d6c2ab07fdde1b40cc4",
+      "bytes": 4948,
+      "sha256": "7b1767b551f809db7b19c397091b3adc382a6eb9fd0da0890223b04ab0662ed4"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/normalization-transfer.js",
+      "commit": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+      "gitBlob": "11e27ad913d420611f3a4cf39fbd798b8295e582",
+      "bytes": 2426,
+      "sha256": "1bccb3911347f726e87884a26d3df791c1ca6cb6a60d46464e851ca5db7a4262"
+    },
+    {
+      "path": "assets/art/fire-realism/fluid-contact-corridor-source-diagnostic-01/linear-hdr-transfer.js",
+      "commit": "c90ece68c5b7b0cbefccff0f26be4f4a4ecfcab6",
+      "gitBlob": "42ef238675c47688f3f07d4514cb4b4d943cd8ba",
+      "bytes": 1534,
+      "sha256": "f795a68b48381e1aaa27f3f2da7c619dcc65b890529bfa66475662bea7aa2b0e"
+    }
+  ],
+  "afterFragment": {
+    "bytes": 6839,
+    "sha256": "c7b63613e9499a4d5570f9e9c3cec96ba069a68e1b2732e4bd89b01e4346d75a"
+  },
+  "vertex": {
+    "bytes": 166,
+    "sha256": "eae6cf07c42792006b85a9f52320589b371c6b768592d28bd041f9e7535f4a35",
+    "unchanged": true
+  },
+  "closure": {
+    "modules": 66,
+    "immutableControlModules": 64,
+    "newModules": 2,
+    "esmBytes": 11200969,
+    "sourceCeilingBytes": 67108864,
+    "resources": 193,
+    "gzipBytes": 93359324,
+    "sparseBytes": 97999209,
+    "resourceBodyReads": 0,
+    "originalStoreAdded": 0,
+    "unchangedResourceDeclarations": true
+  },
+  "checks": {
+    "pureGroups": 9,
+    "refusals": 23,
+    "syntaxFiles": 4,
+    "dataNamespaceEvaluated": false,
+    "actualFactoryOrRenderer": false,
+    "gpuOrNativeProof": false
+  }
+}
