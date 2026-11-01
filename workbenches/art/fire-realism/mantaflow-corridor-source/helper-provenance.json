@@ -1,0 +1,313 @@
+{
+  "kind": "corridor-registered-author-binding-provenance-v1",
+  "bindingAuthority": {
+    "commit": "62487a9255b4b06e04ba7844615ff4162f7f2aff",
+    "path": "docs/proposals/corridor-registered-author-binding.md",
+    "location": "architect primary checkout; not copied"
+  },
+  "scientificAuthority": {
+    "commit": "f915375c4f8df71dbb1a9e1f932406e7e10a32b6",
+    "settingsUnchanged": true
+  },
+  "realizationAmendment": "7f74a68eaeee13ee84509b4792e8a14b48891f43",
+  "artistParentCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+  "sourceBaselineCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+  "rawIdenticalPrimitives": [
+    {
+      "name": "grid.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/grid.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "bytes": 2971,
+      "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+    },
+    {
+      "name": "state.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/state.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "bytes": 5675,
+      "sha256": "4115d7cef15fce3ea3e8061333b64949493fd8dca15ee5339b0153bd89093e08"
+    },
+    {
+      "name": "surface.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/surface.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "bytes": 5950,
+      "sha256": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152"
+    },
+    {
+      "name": "weights.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/weights.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "bytes": 16518,
+      "sha256": "07ea08cb90b6f205dad4dc07f8004f74b3ada87dc6041104fa5a85e9cc202107"
+    },
+    {
+      "name": "winjob.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/winjob.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "bytes": 22699,
+      "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee"
+    }
+  ],
+  "immutableWeightedSourceFiles": [
+    {
+      "path": "docs/art/fire-realism/weighted-surface-source.md",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "bbec9bcb012f0bf5afbe90d9bb6d81ed5cd4e863",
+      "bytes": 2494,
+      "sha256": "e0c5812aa67fe86c76a87bd73b27ff6e1d6acc7d618ed3f2e8334bed76688ef5"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/.gitattributes",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "fb6eb3c340860397d0b0229cdee5451a70aaf86e",
+      "bytes": 103,
+      "sha256": "9897af2469e1a55315e5d0c13f15b69e71b0ea14cb33067c61aece624ca800f6"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/.gitignore",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "c18dd8d83ceed1806b50b0aaa46beb7e335fff13",
+      "bytes": 13,
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/README.md",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "aae67724f91814aa00eb7596f475798822b30103",
+      "bytes": 4660,
+      "sha256": "3aadb813d432e58c5e54b946ade4d8d37ca6e21d00f66904e068e653f9d7dfe7"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/author.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "09a7f9481b116c06cf799beb6c350f566ac2f278",
+      "bytes": 24872,
+      "sha256": "3ac3ead888f74cde7f2e2ce0df91d5c7f7fdbd9b7c93dd7cb452dcf2d3c20565"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/check_source.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "ab2b7aa962e9184e619b8ed9e491ca242694415d",
+      "bytes": 17453,
+      "sha256": "5edae876e915e42a93a903e948262849252ae5d30e3a58316f718f355a213820"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/grid.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "2b595c98886f78c66eb23463441653a7fdff4795",
+      "bytes": 2971,
+      "sha256": "11c9255be51432d8973a4fb8760ed2c3151eafeed25bbce5307c796569309247"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/helper-provenance.json",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "3ac2cc6def3bbd64a1cea6f1a52512b2dfc97bc7",
+      "bytes": 11415,
+      "sha256": "14d2fe947729c27c9675db003c3a1bc0b7fd04d3cbe6f8129d3a0e93065c70a4"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/policy.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "ecf104c8bf9935b1d22442641ee91fc75c46475d",
+      "bytes": 13317,
+      "sha256": "8d53f011c8cc8c69ab03a0757194b5912501784c16730744e56d58919bdd0449"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/profile-prediction.json",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "8ed9e30e86500965f0047683fa3523cd8e2787dd",
+      "bytes": 10903,
+      "sha256": "989fd46cb8db0e9ab267b8425af7ee8c247af283390507d3c10bff79baaf9f58"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/review-pins.json",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "17a79faa58396808e0c6e342fa61488908e3721f",
+      "bytes": 3652,
+      "sha256": "06d8540c03689fc10dba6cdd9d18bda1de5831819cf5eca68c23ea3b078720ca"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/settings.json",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "88a02205adf2ca31c0c5392a0d35ccee4f94c73f",
+      "bytes": 9676,
+      "sha256": "c60d9a76c306d04a21fc97733a00d69c45e4e8dd280de6d5c141af518bdd6a40"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/state.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "b1c7e2b88e1546ce4ce33e711e8be080bdf8dab3",
+      "bytes": 5675,
+      "sha256": "4115d7cef15fce3ea3e8061333b64949493fd8dca15ee5339b0153bd89093e08"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/supervisor.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "ea8ede13a373cb0b05431c71b4a416f7eb3886fe",
+      "bytes": 29706,
+      "sha256": "c886c8c7545c2d65201b3011d430d6e3fefd64142fdbfd6452476b1d1963548c"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/surface.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "0df36001c9d1020456003611ad72506ca496ee42",
+      "bytes": 5950,
+      "sha256": "0d5d62c4f25fcbcfd12718ccebf426e9e3b8dd7d50c8e0bf2997236dad380152"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/weights.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "f5d260f794692fa63132ac10029822ec093575f5",
+      "bytes": 16518,
+      "sha256": "07ea08cb90b6f205dad4dc07f8004f74b3ada87dc6041104fa5a85e9cc202107"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-weighted-source/winjob.py",
+      "sourceCommit": "6afbcf3e288bd39d7ec6a291572bb472779ef8cd",
+      "gitBlob": "92fa8b2c53fa55c39896f3a34d1a7b996aaaf09c",
+      "bytes": 22699,
+      "sha256": "2763cb83251ee15077b27acce03e448904888eaee2ed978f6fd79ffd94e8b8ee"
+    }
+  ],
+  "derivedSources": [
+    {
+      "name": "author.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/author.py",
+      "bytes": 24872,
+      "sha256": "3ac3ead888f74cde7f2e2ce0df91d5c7f7fdbd9b7c93dd7cb452dcf2d3c20565",
+      "adaptation": "Install/readback/full-state/control/actual-emitter/early already-loaded D/F metadata only; sole bake_data and raw gates unchanged."
+    },
+    {
+      "name": "policy.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/policy.py",
+      "bytes": 13317,
+      "sha256": "8d53f011c8cc8c69ab03a0757194b5912501784c16730744e56d58919bdd0449",
+      "adaptation": "Separate binding authority;16CORE/23official source/input pins; strict expected source/control/curve/witness checks. Limits/reserve/terminal/deadline bodies unchanged."
+    },
+    {
+      "name": "supervisor.py",
+      "sourcePath": "workbenches/art/fire-realism/mantaflow-weighted-source/supervisor.py",
+      "bytes": 29706,
+      "sha256": "c886c8c7545c2d65201b3011d430d6e3fefd64142fdbfd6452476b1d1963548c",
+      "adaptation": "Only namespace/authority/input/inventory and corridor witness call sites. Guard/Job/lifetime/STOP/retirement algorithms unchanged."
+    }
+  ],
+  "runtimeInputs": {
+    "weightedPrepare": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/prepare.json",
+      "bytes": 214114,
+      "sha256": "ccdb1e67e8611c138e6763dc6b69744865281b9e77150210c3a095c483da21e3"
+    },
+    "weightedPreparedScene": {
+      "path": "artifacts/qa/fire-realism/mantaflow-weighted-source/weighted-source-20261031-01/surface-source.blend",
+      "bytes": 474375,
+      "sha256": "362fe0bd5731a7aaf5043c39f49d15ceb602e67b4acb11a747f8bd42bdb03162"
+    }
+  },
+  "observableOrdering": {
+    "beforeSolver": [
+      "original/evaluated stored geometry/deform memberships",
+      "actual RNA full-state/control comparison",
+      "193 evaluated source curve rows",
+      "labelled nearest-triangle kernel prediction"
+    ],
+    "actualInputGridProof": false,
+    "afterSoleBake": "Frame1/2/3 per-cell lower-band D/F responses from already-loaded export arrays. Not input-E, mass, flux, energy or radiance."
+  },
+  "registration": {
+    "coreCount": 16,
+    "officialSourceCount": 23,
+    "extras": [
+      "README.md",
+      "package.json",
+      "docs/source-baseline.json",
+      "verified-tool.json",
+      "owned exclusive claim",
+      "immutable sibling weighted settings.json",
+      "README-binding.md"
+    ],
+    "reserve": "Unchanged dynamic source-copy plus double atomic-metadata model plus4096 shared reserve per attempt. Unknown/failed reserves remain charged. No192KiB cap;266855B old anchor is not a limit."
+  },
+  "rights": "Original procedural Tinderbox source; preserves upstream provenance. No new reference asset or rights inference.",
+  "status": "SOURCE_ONLY; no actual preparation, solve, input-grid observation, export, native acceptance or optimized cost proof.",
+  "frozenCorridorFiles": [
+    {
+      "path": "docs/art/fire-realism/resolved-corridor-source.md",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 2483,
+      "sha256": "8854c4ac80e7ae764c71fd78f796daa7864367d92260d18e4f182f4c44065b3e",
+      "gitBlob": "e7d8b86f9d0b12a0d2ff976769c0537a005ff1a1"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/.gitattributes",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "gitBlob": "fcadb2cf97913f58a2523f535336e725c6b59d1f"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/README.md",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 6627,
+      "sha256": "c95c255dffd0976603cc06f22043fcfd9f8c1a40ee2664279337392ff9213045",
+      "gitBlob": "3c2c3901532bcb9417cf3a0ea55975f39472f6f0"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/authoring.py",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 11516,
+      "sha256": "4b8c5e06fa9b75ae019bddb4e9f4ecefcec6eca766e364bb457b840045859eff",
+      "gitBlob": "60590522484b8e0cf111cac633e89715f4d69096"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/check.py",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 13510,
+      "sha256": "2242c9d93870429ba77fef3ea70d597625cf2119359d4bc5da9f1f1e88feb0a5",
+      "gitBlob": "0efa16493643ab5edf8dd1e32ec4d86d05ae2731"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/clipping.py",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 7364,
+      "sha256": "edd00a2e801d641611e8d478421713f540608f632e5c06676c13b11516631b93",
+      "gitBlob": "95ee93a38f136dee678fee9419c7972e3d7cebb4"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/provenance.json",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 9966,
+      "sha256": "78dbc5c60ed169a3ca40988abcad7929f43e75eef87249959dc8bbebfdee20ed",
+      "gitBlob": "42239e01607dd3b82e6ce3c6e8c5a4b5c0ca3e52"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/realization.py",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 3940,
+      "sha256": "f0fa60e6d54ad787ee62273e2df020efd0e4cdd7b4870a751c32504304b4c055",
+      "gitBlob": "09744f172cab637733e3a78715b98941a1ac7364"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/settings.json",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 10168,
+      "sha256": "46018be54fe187a8acb03f71c0a045e4b34444251a1d0297126f3588c144268b",
+      "gitBlob": "2644e06b2050ce1b3abd6573e1ce402a645a16d3"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/source-plan.json",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 70822,
+      "sha256": "ab76d336b2a2c8aa7437f2a7b57cfae93ed029209703d6ca9429553172542bf2",
+      "gitBlob": "37e80ac537f4b41f767b3bda514b09a187a38998"
+    },
+    {
+      "path": "workbenches/art/fire-realism/mantaflow-corridor-source/source.py",
+      "sourceCommit": "59c1c0fb74d0c7da385bdd3112ddb29320351b9e",
+      "bytes": 5342,
+      "sha256": "e3fb0b93b0fcc8b5d371b210aaddf6ef75e8a3672fa645dbd4d6654b679cf2cd",
+      "gitBlob": "1581c656c8494d4c189b938e71645ff33d07ddd4"
+    }
+  ]
+}
