@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash,webcrypto} from 'node:crypto';
-import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,sourceSummary,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot,LIVE_CAPTURE_ENDPOINT_PROTOCOL} from '../../workbenches/fire-realism/review.js';
+import {MODES,SCENARIOS,RUBRIC,evidenceLabel,metricText,measurementRows,safeUrl,localAsset,reviewRecord,photoReferences,sourceSummary,bindReviewDriver,createCanvasMotionRecorder,createMotionClipReader,MAX_RETAINED_MOTION_BYTES,createTimingReportEvidence,MAX_TIMING_REPORT_BYTES,createFireReviewBoot,LIVE_CAPTURE_ENDPOINT_PROTOCOL,HDR_PRESENTATION_CONTRACT,MAX_TRANSFER_CHECK_BYTES} from '../../workbenches/fire-realism/review.js';
 // These endpoint tests run the actual binding and recorder; clocks/driver/encoding
 // are declared API fixtures, not browser, GPU, compositor or encoded-tick proof.
 function endpointClock(t){
@@ -22,7 +22,7 @@ async function endpointFixture(t,options={}){
     stop(){this.state='inactive';if(options.stopDelay)clock.at(clock.now()+options.stopDelay);if(options.silentStop)return;const event=new Event('dataavailable');event.data=new Blob(['endpoint-fixture'],{type:this.mimeType});this.dispatchEvent(event);this.dispatchEvent(new Event('stop'));}
   }
   doc.defaultView={MediaRecorder:Recorder};const canvas={width:1280,height:800,captureStream(){streamAcquisitions++;return {getTracks:()=>tracks};}};
-  const f=await fixture({signal:options.signal,liveEndpointProtocol:LIVE_CAPTURE_ENDPOINT_PROTOCOL,FileReaderCtor:reader.FileReaderCtor,renderRoot:{ownerDocument:doc,querySelector:()=>canvas},createMotionRecorder:config=>{settings=config;return createCanvasMotionRecorder(config);},methods:options.methods});
+  const f=await fixture({signal:options.signal,liveEndpointProtocol:LIVE_CAPTURE_ENDPOINT_PROTOCOL,FileReaderCtor:reader.FileReaderCtor,renderRoot:{ownerDocument:doc,querySelector:()=>canvas},createMotionRecorder:config=>{settings=config;return createCanvasMotionRecorder(config);},methods:options.methods,initialState:options.initialState});
   if(!options.oldDriver)f.driver.observeLiveDraws=callbacks=>{assert.equal(watcher,null);watcher=callbacks;let disposed=false;return {generation:17,simulationGeneration:2,dispose(){if(disposed)return;disposed=true;leaseDisposals++;watcher=null;}};};
   f.emit({});
   const submitted=(tick,{frameIndex=tick,worldTime=tick/60,playerTime=tick/60,...patch}={})=>{
@@ -170,7 +170,7 @@ test('Source summary selects small paired records without serializing fire or re
     for(const field of ['hardware','fire','results','captures'])assert.equal(Object.hasOwn(visible.liveScene,field),false);
     assert.equal(Object.hasOwn(visible.historicalEvidence.timingReport,'gpu'),false);assert.equal(Object.hasOwn(visible.historicalEvidence.latestJpeg,'dataUrl'),false);
   }
-  assert.deepEqual(sourceSummary(state()).historicalEvidence,{timingReport:null,latestJpeg:null,latestMotion:null});
+  assert.deepEqual(sourceSummary(state()).historicalEvidence,{timingReport:null,latestJpeg:null,latestMotion:null,latestTransferCheck:null});
 });
 test('Portrait capture stays paired after desktop configure and later report replacement',async()=>{
   const portrait={width:390,height:844,pixelRatio:1.75},desktop={width:1280,height:800,pixelRatio:1},initial=state();initial.configuration.viewport=portrait;
@@ -488,4 +488,102 @@ test('Abort after imports begin prevents late binding without claiming native im
 });
 test('Pagehide aborts pending startup and disposes a late completed binding exactly once',{timeout:5000},async()=>{
   const binding=deferred(),f=bootHarness({binding:binding.promise});await f.started.promise;f.target.dispatchEvent(new Event('pagehide'));assert.equal(f.startOptions.signal.aborted,true);binding.resolve(f.active);assert.deepEqual(await f.boot.ready,{status:'aborted'});const a=f.boot.dispose(),b=f.boot.dispose();assert.equal(a,b);await a;assert.equal(f.activeDisposals,1);assert.equal(f.errorDisposals,0);assert.equal(f.target.handlers.size,0);
+});
+
+
+// Public API fixtures below test UI routing/retirement, never native HDR rendering.
+const HDR_IDENTITY={contract:HDR_PRESENTATION_CONTRACT,toneMapping:'Three r180 NeutralToneMapping',exposure:1,format:'RGBA16F',samples:4,sourceEncoding:'linear-working-rgb',finalOETF:'sRGB'};
+function attachHdr(f,{leaseApi=true,proofStatus='pass'}={}){
+  let held=false,acquires=0,releases=0,probes=0;const order=[],capture=f.driver.captureFrame,dispose=f.driver.dispose;
+  const proof={kind:'common-linear-hdr-transfer-proof-v1',contract:HDR_PRESENTATION_CONTRACT,status:proofStatus,fixtureOnly:true,hdrReadback:{beforeDisplay:true,floatValues:[1.25,0,0,0]},hardware:{renderer:'Declared API fixture, not actual hardware'}};
+  const patchPresentation=patch=>f.emit({presentation:{...f.driver.state().presentation,...patch}});
+  if(leaseApi)f.driver.acquirePresentationRecording=()=>{assert.equal(held,false);held=true;acquires++;order.push('acquire');patchPresentation({recordingActive:true});let released=false;return Object.freeze({dispose(){if(released)return;released=true;held=false;releases++;order.push('release');patchPresentation({recordingActive:false});}});};
+  f.driver.captureFrame=()=>{order.push('capture');assert.equal(held,true,'HDR capture began before the presentation lease');const cap=capture();return {...cap,presentation:structuredClone(f.driver.state().presentation)};};
+  f.driver.checkLinearHdrTransfer=()=>{assert.equal(held,false);probes++;return structuredClone(proof);};
+  f.driver.dispose=async()=>{order.push('driver-dispose');assert.equal(held,false,'Driver disposed before the presentation lease');return dispose();};
+  f.emit({paused:true,presentation:{contract:HDR_PRESENTATION_CONTRACT,settings:{...HDR_IDENTITY},recordingActive:false,transferProofBusy:false,lastTransferProof:null},diagnostics:{...f.driver.state().diagnostics,sourceFingerprints:{...f.driver.state().diagnostics.sourceFingerprints,presentation:{...HDR_IDENTITY}}}});
+  return {...f,hdr:{held:()=>held,acquires:()=>acquires,releases:()=>releases,probes:()=>probes,order,proof}};
+}
+test('HDR transfer check is explicit, preserves the exact public result and saves only on a separate gesture',async()=>{
+  const f=attachHdr(await fixture());assert.equal(f.hdr.probes(),0);assert.equal(f.downloads.length,0);
+  const result=await f.binding.intent({type:'transfer-check'});assert.deepEqual(result,f.hdr.proof);assert.equal(f.hdr.probes(),1);assert.equal(f.downloads.length,0);
+  const view=f.updates.at(-1).transferCheck;assert.equal(view.text,JSON.stringify(result,null,2)+'\n');assert.ok(Buffer.byteLength(view.text)<=MAX_TRANSFER_CHECK_BYTES);assert.deepEqual(JSON.parse(view.text),result);
+  await f.binding.intent({type:'transfer-result'});assert.equal(f.downloads.length,1);assert.deepEqual(f.downloads[0],[result,'tinderbox-hdr-transfer-check.json','application/json']);
+  await assert.rejects(f.binding.intent({type:'measure',modes:['reference']}),/HDR appearance experiment/);assert.equal(f.calls.some(x=>x[0]==='measure'),false);
+  await f.binding.dispose();
+});
+test('HDR probe readiness refuses busy, playing, held camera and trace states before public operation',async()=>{
+  for(const patch of [{phase:'playing'},{paused:false},{phase:'measuring'},{cameraSweep:{active:false,restored:false}},{cameraSweep:{active:false,restored:true,status:'preparing'}},{liveTrace:{active:true}}]){
+    const f=attachHdr(await fixture());f.emit(patch);assert.equal(f.updates.at(-1).transferCheck.available,false);await assert.rejects(f.binding.intent({type:'transfer-check'}));assert.equal(f.hdr.probes(),0);await f.binding.dispose();
+  }
+  const old=await fixture();await assert.rejects(old.binding.intent({type:'transfer-check'}),/not selected/);await old.binding.dispose();
+});
+test('HDR transfer unavailability/failure remain actual statuses; oversized result refuses an unverified replacement',async()=>{
+  for(const status of ['failed','unavailable']){const f=attachHdr(await fixture(),{proofStatus:status});assert.equal((await f.binding.intent({type:'transfer-check'})).status,status);assert.equal(f.updates.at(-1).transferCheck.result.status,status);await f.binding.dispose();}
+  const f=attachHdr(await fixture());f.driver.checkLinearHdrTransfer=()=>({...f.hdr.proof,padding:'x'.repeat(MAX_TRANSFER_CHECK_BYTES)});await assert.rejects(f.binding.intent({type:'transfer-check'}),/256 KiB/);assert.equal(f.updates.at(-1).transferCheck.result,null);assert.equal(f.downloads.length,0);await f.binding.dispose();
+});
+test('HDR source summary separates immutable settings, live diagnostics and paired historical capture presentation',()=>{
+  const s=state();s.presentation={contract:HDR_PRESENTATION_CONTRACT,recordingActive:true,lastTransferProof:{kind:'fixture',contract:HDR_PRESENTATION_CONTRACT,status:'pass',get unneededArray(){throw Error('Do not traverse proof payload while rendering summary');}}};
+  s.diagnostics.sourceFingerprints.presentation=HDR_IDENTITY;s.captures=[{id:'old',configuration:{viewport:{width:390}},sourceFingerprints:{presentation:HDR_IDENTITY},presentation:{contract:HDR_PRESENTATION_CONTRACT,recordingActive:false,format:'old target'},hardware:{renderer:'old hardware'}}];
+  s.recording={lastResult:{presentationIdentity:HDR_IDENTITY,start:{presentation:s.presentation},end:{presentation:s.presentation}}};const summary=sourceSummary(s);assert.equal(summary.historicalEvidence.latestMotion.start.presentation.lastTransferProof.status,'pass');assert.deepEqual(summary.liveScene.presentation.identity,HDR_IDENTITY);assert.equal(summary.liveScene.presentation.diagnostics.recordingActive,true);assert.equal(summary.historicalEvidence.latestJpeg.presentation.diagnostics.format,'old target');assert.equal(summary.historicalEvidence.latestJpeg.presentation.diagnostics.recordingActive,false);assert.doesNotThrow(()=>JSON.stringify(summary));assert.equal(Object.hasOwn(summary.liveScene.presentation.lastTransferProof,'unneededArray'),false);
+});
+test('HDR submitted recording lease spans actual paused encoder drain and releases once before another probe',async t=>{
+  const f=attachHdr(await endpointFixture(t,{silentStop:true}));await f.binding.intent({type:'record'});assert.equal(f.hdr.held(),true);assert.deepEqual(f.hdr.order.slice(0,2),['acquire','capture']);
+  f.clock.at(10000);f.submitted(645);await Promise.resolve();assert.equal(f.driver.state().phase,'ready');assert.equal(f.tracks[0].stops,1);assert.equal(f.hdr.held(),true);assert.equal(f.hdr.releases(),0);await assert.rejects(f.binding.intent({type:'transfer-check'}),/Stop or discard/);assert.equal(f.hdr.probes(),0);
+  const event=new Event('dataavailable');event.data=new Blob(['hdr-fixture'],{type:'video/webm'});f.instance().dispatchEvent(event);f.instance().dispatchEvent(new Event('stop'));
+  const result=await f.binding.motionEvidence();await Promise.resolve();assert.equal(result.status,'complete');assert.equal(result.version,2);assert.deepEqual(result.presentationIdentity,HDR_IDENTITY);assert.equal(result.start.presentation.recordingActive,true);assert.equal(result.end.presentation.recordingActive,true);assert.equal(f.hdr.held(),false);assert.equal(f.hdr.releases(),1);assert.equal(f.clock.timers.size,0);
+  await f.binding.intent({type:'transfer-check'});assert.equal(f.hdr.probes(),1);await f.binding.dispose();assert.equal(f.hdr.releases(),1);
+});
+test('HDR submitted presentation drift is inconclusive without changing endpoint or source clocks',async t=>{
+  const f=attachHdr(await endpointFixture(t));await f.binding.intent({type:'record'});f.clock.at(10000);f.submitted(645);f.emit({presentation:{...f.driver.state().presentation,contract:'unexpected-presentation'}});
+  const result=await f.binding.motionEvidence();assert.equal(result.status,'inconclusive');assert.equal(result.endpoint.intervalComplete,false);assert.equal(result.end.tick,645);assert.equal(result.end.presentation.contract,'unexpected-presentation');assert.equal(f.hdr.releases(),1);await f.binding.dispose();
+});
+test('HDR legacy live recording keeps its timer protocol and exact presentation snapshots',async()=>{
+  const f=attachHdr(await motionBindingFixture());await f.binding.intent({type:'record'});assert.equal(f.hdr.held(),true);f.emit({tick:90,frameIndex:90,worldTime:1.5,playerTime:1.5});const result=await f.binding.intent({type:'stop-record'});
+  assert.equal(result.version,1);assert.equal(result.status,'complete');assert.equal(result.recording.nominalStopAfterMs,10000);assert.equal(Object.hasOwn(result,'endpoint'),false);assert.deepEqual(result.presentationIdentity,HDR_IDENTITY);assert.equal(f.hdr.releases(),1);assert.equal(f.downloads.length,0);await f.binding.dispose();
+});
+for(const world of ['live','paused'])test('HDR '+world+' camera recording holds its lease until encoder/ledger retirement and restores the camera',async()=>{
+  const f=attachHdr(await cameraBindingFixture({deferredStop:true}));await f.binding.intent({type:'record-camera-'+world});f.sample(world==='live'?{frameIndex:90,tick:90,worldTime:1.5,playerTime:1.5}:undefined);f.sample();const stopping=f.binding.intent({type:'stop-record'});assert.equal(f.hdr.held(),true);assert.equal(f.hdr.releases(),0);await assert.rejects(f.binding.intent({type:'transfer-check'}),/Stop or discard/);
+  f.finish();const result=await stopping;assert.equal(result.status,'complete');const metadata=JSON.parse(f.cameraResources[0].text);assert.deepEqual(metadata.presentationIdentity,HDR_IDENTITY);assert.equal(metadata.start.presentation.recordingActive,true);assert.equal(metadata.end.presentation.recordingActive,true);assert.equal(f.hdr.releases(),1);assert.equal(f.driver.state().cameraSweep.restored,true);assert.equal(f.calls.some(x=>x[0]==='play'),world==='live');assert.equal(/"samples":\s*\[/.test(JSON.stringify(f.updates)),false,'Camera ledger arrays entered published state');await f.binding.dispose();
+});
+test('Every HDR recording route refuses missing lease support before any capture/encoder work',async t=>{
+  for(const route of ['record','record-camera-live','record-camera-paused']){
+    const f=attachHdr(route==='record'?await endpointFixture(t):await cameraBindingFixture(),{leaseApi:false});assert.equal(f.updates.at(-1).recording.available,false);await assert.rejects(f.binding.intent({type:route}),/lease API/);assert.equal(f.hdr.order.includes('capture'),false);assert.equal(f.hdr.acquires(),0);await f.binding.dispose();
+  }
+});
+test('HDR setup error and camera validation error release once after owned recording cleanup',async t=>{
+  const live=attachHdr(await endpointFixture(t));live.driver.play=()=>{throw Error('play fixture failure');};await assert.rejects(live.binding.intent({type:'record'}),/play fixture failure/);assert.equal(live.tracks[0].stops,1);assert.equal(live.clock.timers.size,0);assert.equal(live.hdr.releases(),1);await live.binding.dispose();
+  const camera=attachHdr(await cameraBindingFixture({startError:true}));await assert.rejects(camera.binding.intent({type:'record-camera-paused'}),/framing rejected/);assert.equal(camera.hdr.releases(),1);assert.equal(camera.driver.state().cameraSweep.restored,true);await camera.binding.dispose();
+});
+test('HDR disposal during capture suppresses late media and releases before driver disposal',async t=>{
+  const f=attachHdr(await endpointFixture(t)),gate=deferred();f.driver.captureFrame=()=>gate.promise;const starting=f.binding.intent({type:'record'});await Promise.resolve();assert.equal(f.hdr.held(),true);await f.binding.dispose();assert.equal(f.hdr.held(),false);assert.equal(f.hdr.releases(),1);assert.ok(f.hdr.order.indexOf('release')<f.hdr.order.indexOf('driver-dispose'));gate.resolve({sourceFingerprints:{},hardware:{}});await starting;assert.equal(f.streamAcquisitions(),0);assert.equal(f.clock.timers.size,0);
+});
+test('HDR cancellation and missing stop-event timeout retire media before releasing the presentation',async t=>{
+  const f=attachHdr(await endpointFixture(t,{silentStop:true}));await f.binding.intent({type:'record'});const disposing=f.binding.dispose();await Promise.resolve();assert.equal(f.hdr.held(),true);assert.equal(f.tracks[0].stops,1);f.clock.at(5000);f.clock.fire(5000);await disposing;assert.equal(f.hdr.releases(),1);assert.equal(f.hdr.held(),false);assert.equal(f.clock.timers.size,0);assert.ok(f.hdr.order.indexOf('release')<f.hdr.order.indexOf('driver-dispose'));
+});
+
+test('HDR JPEG metadata retains exact driver presentation/probe evidence without borrowing current hardware',async()=>{
+  const f=attachHdr(await fixture()),current=f.driver.state(),presentation={...current.presentation,lastTransferProof:f.hdr.proof};
+  f.driver.captureFrame=()=>({mimeType:'image/jpeg',dataUrl:'data:image/jpeg;base64,dGVzdA==',tick:45,frameIndex:45,configuration:current.configuration,sourceFingerprints:current.diagnostics.sourceFingerprints,hardware:{renderer:'fixture capture hardware'},presentation});
+  const capture=await f.binding.intent({type:'capture'});await f.binding.intent({type:'save-capture-metadata',id:capture.id});assert.deepEqual(f.downloads[0][0].presentation,presentation);assert.deepEqual(f.downloads[0][0].sourceFingerprints.presentation,HDR_IDENTITY);assert.equal(f.downloads[0][0].hardware.renderer,'fixture capture hardware');assert.equal(f.hdr.acquires(),0);await f.binding.dispose();
+});
+for(const action of ['cancel-record','hidden','abort'])test('HDR '+action+' retires the owned live encoder/observer before idempotent lease release',async t=>{
+  const abort=new AbortController(),f=attachHdr(await endpointFixture(t,{signal:abort.signal}));await f.binding.intent({type:'record'});
+  if(action==='cancel-record')await f.binding.intent({type:action});else if(action==='hidden'){f.doc.hidden=true;f.doc.dispatchEvent(new Event('visibilitychange'));await f.binding.motionEvidence();}else{abort.abort();await f.binding.dispose();}
+  await Promise.resolve();assert.equal(f.hdr.releases(),1);assert.equal(f.hdr.held(),false);assert.equal(f.tracks[0].stops,1);assert.equal(f.watcher(),null);assert.equal(f.clock.timers.size,0);assert.ok(f.updates.every(x=>!x.recording.clip));await f.binding.dispose();assert.equal(f.hdr.releases(),1);
+});
+test('HDR missing capture presentation refuses v2 evidence and retires already acquired media',async t=>{
+  const f=attachHdr(await endpointFixture(t)),capture=f.driver.captureFrame;f.driver.captureFrame=()=>{const {presentation,...rest}=capture();return rest;};
+  await assert.rejects(f.binding.intent({type:'record'}),/not coherent/);assert.equal(f.tracks[0].stops,1);assert.equal(f.watcher(),null);assert.equal(f.clock.timers.size,0);assert.equal(f.hdr.releases(),1);await f.binding.dispose();
+});
+
+test('HDR lease-release errors cannot skip driver disposal or enable later HDR evidence',async t=>{
+  const f=attachHdr(await endpointFixture(t)),acquire=f.driver.acquirePresentationRecording;
+  f.driver.acquirePresentationRecording=()=>{const lease=acquire();return {dispose(){lease.dispose();throw null;}};};
+  await f.binding.intent({type:'record'});await f.binding.intent({type:'cancel-record'});assert.equal(f.hdr.releases(),1);assert.equal(f.updates.at(-1).recording.available,false);await assert.rejects(f.binding.intent({type:'record'}),/could not be retired/);await f.binding.dispose();assert.equal(f.hdr.order.at(-1),'driver-dispose');
+});
+
+test('HDR v2 cannot claim coherent evidence when the static presentation fingerprint is missing',async t=>{
+  const f=attachHdr(await endpointFixture(t)),snapshot=f.driver.state();delete snapshot.diagnostics.sourceFingerprints.presentation;f.emit({diagnostics:snapshot.diagnostics});
+  await assert.rejects(f.binding.intent({type:'record'}),/not coherent/);assert.equal(f.tracks[0].stops,1);assert.equal(f.hdr.releases(),1);assert.equal(f.watcher(),null);await f.binding.dispose();
 });
