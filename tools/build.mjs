@@ -4,6 +4,12 @@ import {createHash} from 'node:crypto';
 const root = fs.realpathSync(process.cwd()), output = path.resolve(root, 'dist'), marker = '.tinderbox-build';
 const intake = JSON.parse(fs.readFileSync(path.join(root, 'assets/art/neighborhood-intake.json'), 'utf8'));
 const imported = new Set([...intake.runtimeFiles, ...(intake.supportFiles || [])].map(file => file.installedPath));
+const cottages=JSON.parse(fs.readFileSync('docs/engineering/playable-cottage-pair/intake.json','utf8'));
+for(const file of cottages.files){
+  const bytes=fs.readFileSync(file.installedPath);
+  if(bytes.length!==file.bytes||createHash('sha256').update(bytes).digest('hex')!==file.sha256)throw Error('Changed Ashland pair intake: '+file.installedPath);
+  imported.add(file.installedPath);
+}
 const places=JSON.parse(fs.readFileSync('assets/art/places-intake.json','utf8'));
 const landmarkFiles=new Set(places.publicFiles),landmarkDirectories=[...places.sources.map(source=>'assets/art/'+source.directory+'/'),'assets/art/exposition-new-york/','assets/art/exploration-access/','assets/art/medicine-pickups/'];
 for(const file of places.files)imported.add(file.installedPath);

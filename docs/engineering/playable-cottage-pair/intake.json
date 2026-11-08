@@ -1,0 +1,75 @@
+{
+  "sourceCommit": "8e9f23289c93c487f86a0f4416b77cc955b2472a",
+  "nautilus": {
+    "sourcePath": "packages/wind-core",
+    "sourceCommit": "4ef13e738845f9bd35aed35ea982ea4f0cbc210a",
+    "recipe": "workbenches/fire-realism/gaussian-patch/bake-pair-wind.mjs",
+    "inputs": "The original recipe uses the paired placement and closed body and roof proxies. Gameplay translates the frozen samples with both houses."
+  },
+  "runtimeDependencies": {
+    "house-tile-art.js": ["shared Three.js", "native Ashland group", "existing housing oak texture"],
+    "wall-shroud.js": ["shared Three.js", "splats.js", "scene camera", "cottage wind sampler"],
+    "splats.js": ["shared Three.js"],
+    "airborne-embers.js": ["shared Three.js", "live ember samples"],
+    "night-cottage-lighting.js": ["shared Three.js", "live cottage fire cells"],
+    "wind-sampler.js": ["pair-wind.json"]
+  },
+  "files": [
+    {
+      "sourcePath": "workbenches/art/fire-realism/gaussian-patch/house-tile-art.js",
+      "installedPath": "src/reuse/ashland/house-tile-art.js",
+      "sourceSha256": "114b587ef9d4d3d6d2063d6a9bd7911b0f8ccabdc486f0633a24ab88d066191c",
+      "sha256": "114b587ef9d4d3d6d2063d6a9bd7911b0f8ccabdc486f0633a24ab88d066191c",
+      "bytes": 14676,
+      "adapted": false
+    },
+    {
+      "sourcePath": "workbenches/art/fire-realism/gaussian-patch/wall-shroud.js",
+      "installedPath": "src/reuse/ashland/wall-shroud.js",
+      "sourceSha256": "6ad58667dd9f08131a7f64419c063d3228f943b38bd58948b644b0a370c936d6",
+      "sha256": "6ad58667dd9f08131a7f64419c063d3228f943b38bd58948b644b0a370c936d6",
+      "bytes": 9988,
+      "adapted": false
+    },
+    {
+      "sourcePath": "workbenches/art/fire-realism/gaussian-patch/splats.js",
+      "installedPath": "src/reuse/ashland/splats.js",
+      "sourceSha256": "05935bb39993cec938f2389cf6726a6839bc5af282e171ede78db80588fb171c",
+      "sha256": "05935bb39993cec938f2389cf6726a6839bc5af282e171ede78db80588fb171c",
+      "bytes": 14343,
+      "adapted": false
+    },
+    {
+      "sourcePath": "workbenches/art/fire-realism/gaussian-patch/airborne-embers.js",
+      "installedPath": "src/reuse/ashland/airborne-embers.js",
+      "sourceSha256": "a09ea6e793fa09e174a169127d03b00b4a48bf3418f49ad249f4f7fa878f9364",
+      "sha256": "a09ea6e793fa09e174a169127d03b00b4a48bf3418f49ad249f4f7fa878f9364",
+      "bytes": 6455,
+      "adapted": false
+    },
+    {
+      "sourcePath": "workbenches/art/fire-realism/gaussian-patch/night-cottage-lighting.js",
+      "installedPath": "src/reuse/ashland/night-cottage-lighting.js",
+      "sourceSha256": "e74d424173807d200999d6792c39463613112126d38c412b3e3dcff94bdc4eb2",
+      "sha256": "e74d424173807d200999d6792c39463613112126d38c412b3e3dcff94bdc4eb2",
+      "bytes": 4689,
+      "adapted": false
+    },
+    {
+      "sourcePath": "workbenches/fire-realism/gaussian-patch/pair-wind.json",
+      "installedPath": "assets/art/ashland-pair/pair-wind.json",
+      "sourceSha256": "458314f7ef202d32481a48f4447b46a9e7693080d21c73aadbf87123ef88761b",
+      "sha256": "458314f7ef202d32481a48f4447b46a9e7693080d21c73aadbf87123ef88761b",
+      "bytes": 398771,
+      "adapted": false
+    },
+    {
+      "sourcePath": "workbenches/fire-realism/gaussian-patch/house-spread.js",
+      "installedPath": "src/reuse/ashland/wind-sampler.js",
+      "sourceSha256": "acbe0c6b01d658d74f4c47d5b040e14b8d38a9db6e4b1e459ffcbdbf00941ed2",
+      "sha256": "3c6e3d5d3121ce4cb09c8e20bdab861a2841f4166bfec624897f5750ef403ce3",
+      "bytes": 2381,
+      "adapted": true
+    }
+  ]
+}

@@ -5,7 +5,7 @@ export function localPoint(player, aim, range) {
   const heading = aimHeading(player, aim), reach = Math.min(range, distance(player, aim));
   return {x: player.x + Math.cos(heading) * reach, y: player.y + Math.sin(heading) * reach};
 }
-export function discreteTool(state, field, config, event) {
+export function discreteTool(state, field, config, event, cottages) {
   const p = state.player, stock = p.inventory, tool = p.tool;
   if (tool === 'jerry-can') {
     if (stock.gas <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty'});
@@ -14,7 +14,9 @@ export function discreteTool(state, field, config, event) {
   if (tool === 'matches') {
     const spec = config.tools.matches, point = localPoint(p, state.aim, spec.range), tile = field.tileAt(point);
     if (stock.matches < 1) return event('tool-rejected', point, {tool, reason: 'empty', result: 'empty', tile});
-    stock.matches--; recordIgnition(state, event, tool, point, field.seed(p, field.tileCells(tile), spec.heat, tool), {tile});
+    stock.matches--;
+    const siding=cottages?.heatSurface(p,point,spec.heat,tool);
+    recordIgnition(state, event, tool, point, siding?{cells:[siding],result:'heated'}:field.seed(p, field.tileCells(tile), spec.heat, tool), {tile});
   }
   if (tool === 'torch') {
     if (p.torch.phase === 'spent' || stock.torchFuel <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty', result: 'empty'});
@@ -23,7 +25,8 @@ export function discreteTool(state, field, config, event) {
       event('tool-use', p, {tool, result: 'lit'}); return;
     }
     const spec = config.tools.torch, target = localPoint(p, state.aim, spec.range);
-    const point = impactPoint(p, target, state.obstacles), result = field.seed(p, field.candidates(point, spec.radius), spec.heat, tool);
+    const point = impactPoint(p, target, state.obstacles), siding=cottages?.heatSurface(p,target,spec.heat,tool);
+    const result = siding?{cells:[siding],result:'heated'}:field.seed(p, field.candidates(point, spec.radius), spec.heat, tool);
     if (result.result === 'no-fuel' && distance(point, target) > 1e-8) result.result = 'blocked';
     recordIgnition(state, event, tool, point, result);
     if (result.cells.length) { p.heading = aimHeading(p, state.aim); p.usingTool = true; state.discharge = resolveDischarge(state, config, field.def, point); }
@@ -55,7 +58,7 @@ export function ageTorch(state, config, worldDelta, event) {
     event('torch-spent', p, {tool: 'torch'});
   }
 }
-export function heldTool(state, field, config, delta, event, world) {
+export function heldTool(state, field, config, delta, event, world, cottages) {
   const p = state.player, tool = p.tool;
   if (!state.input.primary || tool !== 'flamethrower') return;
   const spec = config.tools[tool], key = 'flamethrowerFuel';
@@ -66,12 +69,13 @@ export function heldTool(state, field, config, delta, event, world) {
   p.heading = aimHeading(p, state.aim); p.usingTool = true;
   field.cone(p, p.heading, spec.range, spec.halfAngle, heat, tool);
   state.discharge = resolveDischarge(state, config, world);
+  cottages?.heatDischarge(state.discharge,heat);
   if (p.inventory[key] <= 1e-10) {
     p.inventory[key] = 0; state.input.primary = false; p.usingTool = false;
     state.discharge = inactiveDischarge(state.tick); event('tool-empty', p, {tool});
   }
 }
-export function projectilesStep(state, field, config, delta, event) {
+export function projectilesStep(state, field, config, delta, event, cottages) {
   const spec = config.tools.molotov, alive = [];
   for (const projectile of state.projectiles) {
     const target = {x: projectile.targetX, y: projectile.targetY}, d = distance(projectile, target);
@@ -82,6 +86,7 @@ export function projectilesStep(state, field, config, delta, event) {
     const height = t => 0.8 * (1 - t) + 0.1 * t + Math.sin(t * Math.PI) * Math.min(2, full * 0.35);
     const impact = impactPoint(projectile, next, state.obstacles, {startHeight: projectile.h, endHeight: height(nextProgress)});
     const hit = distance(impact, next) > 1e-8;
+    if(hit)cottages?.heatSurface(projectile,next,spec.heat*.70,'molotov',projectile.h,height(nextProgress));
     projectile.x = impact.x; projectile.y = impact.y;
     projectile.progress = full ? clamp(1 - distance(projectile, target) / full, 0, 1) : 1;
     projectile.h = height(projectile.progress);

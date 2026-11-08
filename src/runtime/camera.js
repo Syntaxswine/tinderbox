@@ -2,7 +2,9 @@ import * as THREE from './three.js';
 export function createCameraRig(container, renderer, world, {x = 10, h = 14, y = 12} = {}) {
   const camera = new THREE.OrthographicCamera(-10, 10, 10, -10, 0.1, Math.max(150,(world.width+world.height+(world.camera?.maxHeight||0)+100)*3));
   const target = new THREE.Vector3(world.width / 2, 0, world.height / 2);
+  const [followX,followY]=world.camera?.followOffset??[0,0];
   let zoom = 1, mode = world.camera?.followPlayer ? 'follow' : 'overview', player;
+  function targetPlayer(){target.set(player.x+followX,player.elevation||0,player.y+followY);}
   function place() {
     const scale=world.camera?.overviewBounds?Math.max(1,Math.hypot(world.width,world.height,world.camera.maxHeight||0)*1.5/Math.hypot(x,h,y)):1;
     camera.position.copy(target).add(new THREE.Vector3(x, h, y).multiplyScalar(scale)); camera.lookAt(target); camera.updateMatrixWorld();
@@ -23,15 +25,17 @@ export function createCameraRig(container, renderer, world, {x = 10, h = 14, y =
     const span = (mode==='follow' ? (w <= 650 ? world.camera?.phoneSpan||10 : world.camera?.span||12) : overviewSpan) * 1.05 / zoom;
     camera.left = -span * aspect / 2; camera.right = span * aspect / 2;
     camera.top = span / 2; camera.bottom = -span / 2;
-    if(mode==='follow'&&player)target.set(player.x,player.elevation||0,player.y);
+    if(mode==='follow'&&player)targetPlayer();
     else if(!world.camera?.overviewBounds)target.set(world.width/2,0,world.height/2);
     place();
     camera.updateProjectionMatrix(); renderer.setSize(w, height, false);
   }
-  function screenToWorld(clientX, clientY) {
+  function screenToWorld(clientX, clientY, pickSurface) {
     const box = renderer.domElement.getBoundingClientRect();
     plane.constant=-(player?.elevation||0);
     ray.setFromCamera(new THREE.Vector2((clientX - box.left) / box.width * 2 - 1, -(clientY - box.top) / box.height * 2 + 1), camera);
+    const surface=pickSurface?.(ray.ray);
+    if(surface)return surface;
     if (!ray.ray.intersectPlane(plane, point) || point.x < 0 || point.z < 0 || point.x >= world.width || point.z >= world.height) return null;
     return {x: point.x, y: point.z};
   }
@@ -52,7 +56,7 @@ export function createCameraRig(container, renderer, world, {x = 10, h = 14, y =
   function magnify(factor) { zoom = THREE.MathUtils.clamp(zoom * factor, 0.65, 3); resize(); }
   function update(next) {
     player=next;
-    if (mode==='follow' && player) { target.set(player.x, player.elevation||0, player.y); place(); }
+    if (mode==='follow' && player) { targetPlayer(); place(); }
     else if(mode==='overview'&&player&&world.camera?.overviewBounds){target.y=(world.camera.overviewBounds.min[1]+world.camera.overviewBounds.max[1])/2+(player.elevation||0);place();}
   }
   function setMode(value){if(!['overview','follow'].includes(value))return false;mode=value;zoom=1;resize();return true;}

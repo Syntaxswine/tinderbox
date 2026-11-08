@@ -40,8 +40,9 @@ export function configuration(override) {
   const value = merge(DEFAULT_CONFIG, override);
   function check(object, prefix = '') {
     for (const [key, entry] of Object.entries(object)) {
-      if (entry && typeof entry === 'object') check(entry, prefix + key + '.');
-      else if (typeof entry === 'number' && (!Number.isFinite(entry) || entry < 0)) throw Error('Invalid config: ' + prefix + key);
+      const path=prefix+key,signedCameraAxis=path==='input.cameraX'||path==='input.cameraY';
+      if (entry && typeof entry === 'object') check(entry, path + '.');
+      else if (typeof entry === 'number' && (!Number.isFinite(entry) || entry < 0&&!signedCameraAxis)) throw Error('Invalid config: ' + path);
     }
   }
   check(value);

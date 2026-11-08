@@ -51,8 +51,12 @@ export function scenarioDefinition(scenario = 'street') {
   const compiled = compileModules(result.modules, result); result.modules = compiled.modules; result.obstacles.push(...compiled.obstacles);
   const housing = compileBuildings(result.buildings, result); result.buildings = housing.buildings; result.obstacles.push(...housing.obstacles);
   result.pickups=preparePickups(result.pickups,result,result.obstacles);
-  if (result.camera && (Object.keys(result.camera).some(key => !['followPlayer', 'span', 'phoneSpan'].includes(key)) ||
-      result.camera.followPlayer !== true || ![result.camera.span, result.camera.phoneSpan].every(value => Number.isFinite(value) && value >= 10 && value <= 30))) throw Error('Invalid scenario camera');
+  if (result.camera) {
+    const {followPlayer,span,phoneSpan,followOffset}=result.camera;
+    if (Object.keys(result.camera).some(key => !['followPlayer', 'span', 'phoneSpan', 'followOffset'].includes(key)) ||
+        followPlayer !== true || ![span,phoneSpan].every(value => Number.isFinite(value) && value >= 10 && value <= 30) ||
+        (followOffset!==undefined&&(!Array.isArray(followOffset)||followOffset.length!==2||!followOffset.every(Number.isFinite)))) throw Error('Invalid scenario camera');
+  }
   if (result.player.hp !== undefined && (!Number.isFinite(result.player.hp) || result.player.hp < 0)) throw Error('Invalid player health');
   if (![result.player.x, result.player.y].every(Number.isFinite)) throw Error('Invalid player position');
   for (const object of result.obstacles) {

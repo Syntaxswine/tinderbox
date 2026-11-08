@@ -1,0 +1,295 @@
+import {COTTAGE_IDS,COTTAGE_ORIGIN,COTTAGE_OFFSET} from '../content/cottage-pair.js';
+import {boxInterval,lineClear} from './geometry.js';
+import {WIDTH,DEPTH,UPPER,EAVE,RIDGE,PITCH,OVERHANG,roofHeight,roofNormal,tileIndex,makeTiles,createCottageTopology} from './cottage-topology.js';
+
+export const COTTAGE_BURN_SECONDS=30, COTTAGE_EMBER_LIMIT=84;
+const EPS=1e-8, IGNITION=1, EMBER_IGNITION=.30, MAX_FLIGHT=9.35;
+const spentAfter={walls:16,roof:11,upper:11,lower:10};
+const cap=(x,lo=0,hi=1)=>Math.max(lo,Math.min(hi,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const point=(lot,site)=>({x:lot.building.x+site.x,y:lot.building.y+site.z});
+const layerFor=site=>site.layer==='walls'?'upper':site.layer;
+const present=(lot,site)=>!lot.building.destroyed&&lot.tiles[site.tile][layerFor(site)];
+const burning=(lot,site)=>site.phase==='burning'&&present(lot,site);
+function flameAt(site,time){
+  if(site.ignitedAt===null||site.phase!=='burning')return 0;
+  const age=time-site.ignitedAt;
+  return (.14+.86*cap(age/.28))*(1-.64*cap((age-1.3)/3))*(1-.70*cap((age-spentAfter[site.layer]+1.5)/1.5));
+}
+
+// Only the experimental pair has structural fuel. Keep its ground footprint
+// solid and noncombustible, with collision columns owned by the same masks as art.
+export function prepareCottageFootprints(definition){
+  const ids=new Set(COTTAGE_IDS);
+  definition.obstacles=definition.obstacles.flatMap(box=>{
+    if(!ids.has(box.buildingId))return [box];
+    if(box.role!=='foundation')return [{...box,material:'masonry'}];
+    const building=definition.buildings.find(b=>b.id===box.buildingId);
+    return makeTiles().map(({index,x,z})=>{
+      const left=x===0?box.x-box.width/2:building.x+x;
+      const right=x===WIDTH-1?box.x+box.width/2:building.x+x+1;
+      const top=z===0?box.y-box.depth/2:building.y+z;
+      const bottom=z===DEPTH-1?box.y+box.depth/2:building.y+z+1;
+      return {...box,id:box.id+':'+index,x:(left+right)/2,y:(top+bottom)/2,width:right-left,depth:bottom-top,
+        material:'masonry',height:box.height,cottageTile:index};
+    });
+  });
+  for(const b of definition.buildings.filter(b=>ids.has(b.id))){
+    b.footprints=definition.obstacles.filter(o=>o.buildingId===b.id);
+    b.colliderIds=b.footprints.map(o=>o.id);
+  }
+}
+
+function firstBlock(from,to,obstacles,startHeight=0,endHeight=startHeight){
+  let first=null;
+  for(const object of obstacles){
+    if(object.destroyed||object.blocksHeat===false)continue;
+    for(const box of [object,...(object.heatBarriers||[])]){
+      const span=boxInterval(from,to,box);
+      if(!span||span[1]<=EPS)continue;
+      let [lo,hi]=span;
+      const vertical=endHeight-startHeight,top=box.height+.05;
+      if(Math.abs(vertical)<EPS){
+        if(startHeight<0||startHeight>top)continue;
+      }else{
+        const a=-startHeight/vertical,b=(top-startHeight)/vertical;
+        lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));
+        if(lo>hi||hi<=EPS)continue;
+      }
+      if(!first||lo<first.t)first={t:lo,box};
+    }
+  }
+  return first;
+}
+
+function roofContact(lot,a,b){
+  if(lot.building.destroyed)return null;
+  const {x,y:z}=lot.building;
+  let first=null;
+  for(const sign of [-1,1]){
+    const height=p=>RIDGE-sign*PITCH*(p.x-x-WIDTH/2);
+    const da=a.y-height(a),db=b.y-height(b);
+    if(da<=0||db>0)continue;
+    const t=da/(da-db),px=lerp(a.x,b.x,t)-x,pz=lerp(a.z,b.z,t)-z;
+    if(px< -OVERHANG||px>WIDTH+OVERHANG||pz< -OVERHANG||pz>DEPTH+OVERHANG||sign*(px-WIDTH/2)<-EPS)continue;
+    const tile=tileIndex(px,pz);
+    if(!lot.tiles[tile].roof)continue;
+    if(!first||t<first.t)first={t,lot,kind:'roof',site:lot.byId.get('roof:'+tile)};
+  }
+  return first;
+}
+
+export function createCottageFire({buildings,obstacles,sampleWind,seed}){
+  if(typeof sampleWind!=='function')throw Error('The Ashland pair requires its checked wind sampler');
+  const lots=COTTAGE_IDS.map((id,i)=>{
+    const building=buildings.find(b=>b.id===id);
+    const x=COTTAGE_ORIGIN.x+i*COTTAGE_OFFSET.x,z=COTTAGE_ORIGIN.z+i*COTTAGE_OFFSET.z;
+    if(!building||building.prefabId!=='ashland-worker'||building.quarterTurns!==0||building.x!==x||building.y!==z)throw Error('Cottage placement must match the pinned pair bake');
+    const topology=createCottageTopology(building,sampleWind);
+    return {...topology,building,tiles:makeTiles(),colliders:obstacles.filter(o=>o.buildingId===id),firstIgnition:null,
+      deadline:null,nextWave:Infinity,waves:0,fallen:new Set(),drops:[],retiredAt:null};
+  });
+  const byBuilding=new Map(lots.map(l=>[l.building.id,l]));
+  const byObstacle=new Map(obstacles.map(o=>[o.id,o]));
+  const embers=[];
+  let rng=(20261107+seed-1893)>>>0,launches=0,hotRoofContacts=0,coolRoofContacts=0,misses=0;
+  function random(){rng=(Math.imul(rng,1664525)+1013904223)>>>0;return rng/0x100000000;}
+  function heat(lot,site,amount,cause,anchor){
+    if(!site||!present(lot,site)||site.phase==='spent'||!(amount>0))return null;
+    if(site.phase!=='burning'){
+      site.heat=Math.min(2.5,site.heat+amount);
+      if(!site.cause||amount>=site.cause.amount)site.cause={...cause,amount,anchor};
+    }
+    return site;
+  }
+  function wallSite(lot,x,z,origin,height=UPPER){
+    let best=null,score=Infinity;
+    for(const s of lot.walls){
+      if(s.band!==(height>UPPER+1?1:0)||!present(lot,s))continue;
+      const w=point(lot,s),normalDistance=Math.abs((x-w.x)*s.nx+(z-w.y)*s.nz);
+      if(normalDistance>.045||origin&&(origin.x-w.x)*s.nx+(origin.y-w.y)*s.nz<=EPS)continue;
+      const d=Math.hypot(x-w.x,z-w.y);
+      if(d<.62&&d<score){best=s;score=d;}
+    }
+    return best;
+  }
+  function heatSurface(from,to,amount,kind,startHeight=0,endHeight=startHeight){
+    const hit=firstBlock(from,to,obstacles,startHeight,endHeight);
+    if(!hit||hit.box.cottageTile===undefined)return null;
+    const lot=byBuilding.get(hit.box.buildingId),x=lerp(from.x,to.x,hit.t),z=lerp(from.y,to.y,hit.t);
+    // Aimed tools heat the lowest exposed siding above the brick plinth.
+    const site=wallSite(lot,x,z,from,lerp(startHeight,endHeight,hit.t));
+    return heat(lot,site,amount,{kind});
+  }
+  function heatDischarge(discharge,amount){
+    const touched=new Set();
+    for(const ray of discharge.rays){
+      const hit=byObstacle.get(ray.obstacleId);
+      if(hit?.cottageTile===undefined||hit.destroyed)continue;
+      const lot=byBuilding.get(hit.buildingId),site=wallSite(lot,ray.x,ray.y,discharge.origin,ray.h);
+      if(!site||touched.has(site))continue;
+      touched.add(site);heat(lot,site,amount*.42,{kind:'flamethrower'});
+    }
+  }
+  function ignite(lot,site,time,event){
+    site.ignitedAt=time;site.phase='burning';
+    site.parentId=site.cause?.cellId??null;
+    site.ignitionKind=site.cause?.kind??'heat';
+    if(site.cause?.anchor)site.anchor=site.cause.anchor;
+    const p=point(lot,site);
+    if(lot.firstIgnition===null){
+      lot.firstIgnition={cellId:site.id,face:site.face,layer:site.layer,time,kind:site.ignitionKind};
+      lot.deadline=time+COTTAGE_BURN_SECONDS;lot.nextWave=time+4.4;
+    }
+    event('cottage-ignition',p,{buildingId:lot.building.id,cellId:site.id,layer:site.layer,face:site.face,
+      worldTime:time,cause:site.ignitionKind,parentCellId:site.parentId,sourceId:site.cause?.sourceId??null});
+  }
+  function exposeFromGround(lot,field,dt){
+    for(const s of lot.walls){
+      if(s.band||s.phase==='burning'||!present(lot,s))continue;
+      const w=point(lot,s),edge={x:w.x+s.nx*.12,y:w.y+s.nz*.12};
+      for(const d of [.38,.84]){
+        const cell=field.at({x:w.x+s.nx*d,y:w.y+s.nz*d});
+        if(cell?.phase==='burning'&&lineClear(cell,edge,obstacles))heat(lot,s,dt*.66*cell.intensity,{kind:'ground-heat',cellId:cell.id});
+      }
+    }
+  }
+  function retire(lot,tile,layer){
+    lot.tiles[tile][layer]=false;
+    if(layer==='lower')lot.tiles[tile].ash=1;
+    for(const s of lot.sites)if(s.tile===tile&&layerFor(s)===layer)s.phase='spent';
+  }
+  function applyMasks(lot){
+    let live=0;
+    for(const tile of lot.tiles)live+=Number(tile.roof)+Number(tile.upper)+Number(tile.lower);
+    lot.building.burnedFraction=1-live/(lot.tiles.length*3);
+    for(const o of lot.colliders){
+      const tile=lot.tiles[o.cottageTile];
+      o.destroyed=lot.building.destroyed||(tile&&!tile.roof&&!tile.upper&&!tile.lower)||false;
+      if(tile&&!o.destroyed)o.height=tile.roof?EAVE:tile.upper?EAVE:UPPER;
+    }
+  }
+  function releaseDebris(lot,time,event){
+    for(const layer of ['roof','upper']){
+      if(lot.fallen.has(layer))continue;
+      const s=lot.sites.find(s=>s.layer===layer&&burning(lot,s)&&time-s.ignitedAt>=(layer==='roof'?3.15:2.15));
+      if(!s)continue;
+      const kind=layer==='roof'?'board':'crate',half=kind==='board'?.045:.17;
+      lot.fallen.add(layer);
+      lot.drops.push({id:lot.building.id+':'+kind,kind,tile:s.tile,x:s.x,z:s.z,y:s.y+half,
+        half,releaseTime:time,fromY:s.y,ignitionTime:time-.32,landedAt:null,layer,heat:.86});
+      retire(lot,s.tile,layer);
+      event('cottage-debris-release',point(lot,s),{buildingId:lot.building.id,tile:s.tile,layer,worldTime:time});
+    }
+  }
+  function moveDebris(lot,time,event){
+    for(const drop of lot.drops){
+      if(drop.landedAt!==null)continue;
+      const age=time-drop.releaseTime, y=drop.fromY-.5*9.81*age*age, tile=lot.tiles[drop.tile];
+      const layer=drop.layer==='roof'&&tile.upper?'upper':tile.lower?'lower':null;
+      const floor=layer==='upper'?UPPER:0;
+      if(y>floor){drop.y=y+drop.half;continue;}
+      const hitTime=drop.releaseTime+Math.sqrt(2*(drop.fromY-floor)/9.81);
+      drop.y=floor+drop.half;drop.landedAt=hitTime;
+      event('cottage-debris-contact',{x:lot.building.x+drop.x,y:lot.building.y+drop.z},
+        {buildingId:lot.building.id,tile:drop.tile,layer,worldTime:hitTime,sourceId:drop.id});
+      if(layer)heat(lot,lot.byId.get(layer+':'+drop.tile),1.24,{kind:'falling-fuel',sourceId:drop.id});
+    }
+    lot.drops=lot.drops.filter(d=>time-d.releaseTime<4);
+  }
+  function spawn(lot,time){
+    if(time+EPS<lot.nextWave||lot.waves>=14||launches>=COTTAGE_EMBER_LIMIT)return;
+    const active=lot.sites.filter(s=>s.layer==='roof'&&burning(lot,s)&&flameAt(s,time)>=.16);
+    if(!active.length)return;
+    lot.waves++;lot.nextWave=time+.69;
+    for(let n=0;n<6&&launches<COTTAGE_EMBER_LIMIT;n++){
+      const s=active[Math.floor(random()*active.length)],x=s.x+.42*(random()-.5),z=s.z+.55*(random()-.5);
+      const angle=2*Math.PI*random(),kick=.20+.95*random(),lift=2.9+2.5*random();
+      const h=(.71+.28*random())*(.91+.09*flameAt(s,time));
+      embers.push({id:'cottage-ember-'+(++launches),sourceBuildingId:lot.building.id,sourceCellId:s.id,
+        time,x:lot.building.x+x,y:roofHeight(x)+.075,z:lot.building.y+z,vx:kick*Math.cos(angle),vy:.8*lift,vz:kick*Math.sin(angle),
+        initialHeat:h,heat:h,lift,liftTime:.82+.58*random(),settling:.47+.68*random(),coolingTime:3.4+4.2*random(),responseTime:.23+.22*random()});
+    }
+  }
+  function transport(dt,time,event){
+    for(let i=embers.length-1;i>=0;i--){
+      const a=embers[i],age=time-a.time,air=sampleWind(a.x,a.y,a.z,[0,0,0]);
+      const drag=1-Math.exp(-dt/a.responseTime),loft=a.lift*Math.exp(-Math.max(0,age-dt)/a.liftTime);
+      const vx=lerp(a.vx,air[0],drag),vy=lerp(a.vy,air[1]+loft-a.settling,drag),vz=lerp(a.vz,air[2],drag);
+      const b={x:a.x+(a.vx+vx)*dt/2,y:a.y+(a.vy+vy)*dt/2,z:a.z+(a.vz+vz)*dt/2};
+      let hit=b.y<=0?{kind:'ground',t:cap(a.y/(a.y-b.y))}:null;
+      for(const lot of lots){
+        const candidate=roofContact(lot,a,b);
+        if(candidate&&(!hit||candidate.t<hit.t))hit=candidate;
+      }
+      const solid=firstBlock({x:a.x,y:a.z},{x:b.x,y:b.z},obstacles,a.y,b.y);
+      if(solid&&(!hit||solid.t<hit.t))hit={...solid,kind:'solid'};
+      const currentHeat=a.initialHeat*Math.exp(-age/a.coolingTime);
+      if(hit){
+        const contactTime=time-dt*(1-hit.t),h=a.initialHeat*Math.exp(-(contactTime-a.time)/a.coolingTime);
+        if(hit.kind==='roof'){
+          const {lot,site}=hit,hot=h>=EMBER_IGNITION,x=lerp(a.x,b.x,hit.t),z=lerp(a.z,b.z,hit.t);
+          const localX=x-lot.building.x,localZ=z-lot.building.y;
+          if(hot)hotRoofContacts++;else coolRoofContacts++;
+          event('cottage-ember-contact',{x,y:z},{buildingId:lot.building.id,sourceBuildingId:a.sourceBuildingId,
+            cellId:site.id,sourceId:a.id,heat:h,hot,worldTime:contactTime});
+          heat(lot,site,hot?1.12:Math.min(.35,h),{kind:'ember',sourceId:a.id},
+            {x:localX,y:roofHeight(localX),z:localZ,...roofNormal(localX)});
+        }else misses++;
+        embers.splice(i,1);
+      }else if(age>=MAX_FLIGHT||currentHeat<.065){misses++;embers.splice(i,1);}
+      else Object.assign(a,b,{vx,vy,vz,heat:currentHeat});
+    }
+  }
+  function step(dt,time,field,event){
+    for(const lot of lots){
+      if(lot.building.destroyed)continue;
+      if(lot.deadline!==null&&time+EPS>=lot.deadline){
+        for(const tile of lot.tiles)for(const layer of ['roof','upper','lower'])if(tile[layer])retire(lot,tile.index,layer);
+        lot.building.destroyed=true;lot.retiredAt=lot.deadline;lot.drops=[];
+        applyMasks(lot);
+        event('building-burnout',lot.building,{buildingId:lot.building.id,worldTime:lot.deadline});
+      }
+    }
+    transport(dt,time,event);
+    for(const lot of lots){
+      if(lot.building.destroyed)continue;
+      exposeFromGround(lot,field,dt);
+      moveDebris(lot,time,event);
+      // Only already-burning sources transfer during this tick. Several paths
+      // may heat the same target; cooling wins when they are too weak.
+      for(const s of lot.sites)if(burning(lot,s)&&time-s.ignitedAt>=.16&&time-s.ignitedAt<spentAfter[s.layer]){
+        for(const {target,seconds} of s.links)heat(lot,target,dt/seconds*(.66+.34*flameAt(s,time)),{kind:'surface-spread',cellId:s.id});
+      }
+      for(const s of lot.sites){
+        if(!present(lot,s))continue;
+        if(s.phase==='burning'&&time-s.ignitedAt>=spentAfter[s.layer]){
+          if(s.layer==='walls')s.phase='spent';else retire(lot,s.tile,s.layer);
+        }else if(s.phase!=='burning'&&s.phase!=='spent'){
+          s.heat=Math.max(0,s.heat-.075*dt);
+          if(s.heat>=IGNITION)ignite(lot,s,time,event);
+          else if(s.heat<=EPS)s.cause=null;
+        }
+      }
+      releaseDebris(lot,time,event);applyMasks(lot);spawn(lot,time);
+    }
+  }
+  function snapshot(time){
+    return {version:1,worldTime:time,buildings:lots.map(lot=>({
+      id:lot.building.id,x:lot.building.x,z:lot.building.y,firstIgnition:lot.firstIgnition&&{...lot.firstIgnition},
+      deadline:lot.deadline,retiredAt:lot.retiredAt,gone:lot.building.destroyed,char:lot.building.burnedFraction,
+      tiles:lot.tiles.map(t=>({...t})),
+      cells:lot.sites.filter(s=>s.ignitedAt!==null).map(s=>{
+        const flame=burning(lot,s)?flameAt(s,time):0,age=time-s.ignitedAt;
+        return {id:s.id,face:s.face,layer:s.layer,part:s.layer==='upper'||s.layer==='lower'?'ground':s.layer,tile:s.tile,
+          x:s.x,y:s.y,z:s.z,nx:s.nx,ny:s.ny,nz:s.nz,...s.anchor,ignitionTime:s.ignitedAt,parentId:s.parentId,
+          cause:s.ignitionKind,flame,smoke:flame*cap((age-.12)/.55)*.56};
+      }),
+      drops:lot.drops.map(d=>({id:d.id,kind:d.kind,x:d.x,y:d.y,z:d.z,rx:0,ry:.16,rz:d.landedAt===null?.23:0,
+        state:d.landedAt===null?'falling':'landed',ignitionTime:d.ignitionTime,flame:d.heat*(1-cap((time-d.releaseTime-1.3)/2.7)),
+        smoke:.4*d.heat*(1-cap((time-d.releaseTime-1.7)/2.3))}))
+    })),embers:embers.map(({id,x,y,z,vx,vy,vz,heat,sourceBuildingId})=>({id,x,y,z,vx,vy,vz,heat,sourceBuildingId})),
+    diagnostics:{launches,hotRoofContacts,coolRoofContacts,misses,maxEmbers:COTTAGE_EMBER_LIMIT}};
+  }
+  return {heatSurface,heatDischarge,step,snapshot};
+}

@@ -13,7 +13,7 @@ import {loadNeighborhoodKit,createNeighborhood} from './neighborhood.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
 const medicineUrl=new URL('../../assets/art/medicine-pickups/index.js',import.meta.url);
-export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href)}={}){
+export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire}={}){
   if(!T?.TextureLoader||!scene?.add)throw new TypeError('createArtScene requires the shared THREE module and a scene.');
   const base=new URL(assetBaseUrl,import.meta.url);if(!base.pathname.endsWith('/'))base.pathname+='/';
   const selected={flame:'effects/painted-fire/flame-atlas-v1.png',smoke:'effects/painted-fire/smoke-atlas-v1.png',
@@ -26,7 +26,8 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   if(failure!==-1){pool.dispose();throw new Error('Tinderbox art asset failed: '+entries[failure][1],{cause:loaded[failure].reason});}
   if(signal?.aborted){pool.dispose();throw new DOMException('Visit cancelled','AbortError');}
   const assets=Object.fromEntries(entries.map(([name],i)=>{const texture=loaded[i].value;texture.colorSpace=T.SRGBColorSpace;return [name,texture];}));
-  let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
+  let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
+  const cottageIds=new Set(cottageFire?.buildings.map(b=>b.id)??[]);
   const actors=new Map(),muzzlePoint=new T.Vector3();
   try{
     if(renderer)civilianKit=await loadCivilianKit({THREE:T,renderer,assetBaseUrl:base.href});
@@ -40,8 +41,13 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     exterior=createExteriorKit(T,materials,assets,renderer);
     toolProps=createToolProps(T,materials);root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root);
     if(housingKit){housing=createNeighborhood(T,housingKit);root.add(housing.root);}
+    if(cottageFire){
+      const {createCottagePairArt}=await import('./cottage-pair.js');
+      if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
+      cottages=createCottagePairArt(T,housingKit,initialWorld.buildings,cottageWind,renderer);root.add(cottages.root);
+    }
     if(initialPickups.length){const {createMedicinePickups}=await medicineLoader();if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');medicine=createMedicinePickups(T,{materials,textures:assets});root.add(medicine.root);}
-    if(!scene.children.some(object=>object.isLight)){
+    if(!cottages&&!scene.children.some(object=>object.isLight)){
     root.add(new T.HemisphereLight(0xe2e4c7,0x5c624d,2.0));
     keyLight=new T.DirectionalLight(0xffe6be,2.4);keyLight.position.set(-4,12,5);keyLight.target.position.set(10,0,8);root.add(keyLight,keyLight.target);
     keyLight.castShadow=true;keyLight.shadow.mapSize.set(1024,1024);keyLight.shadow.camera.left=-16;keyLight.shadow.camera.right=16;keyLight.shadow.camera.top=16;keyLight.shadow.camera.bottom=-16;keyLight.shadow.bias=-.00025;keyLight.shadow.normalBias=.025;
@@ -62,7 +68,9 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       medicine?.update(snapshot.pickups||[],{worldTime,paused:snapshot.paused});
       if(map.buildings?.length&&!housing)throw new Error('Catalogue housing was not loaded for this scene');
       world.update({...map,obstacles:(map.obstacles||[]).filter(o=>!o.moduleId&&!o.buildingId)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
-      housing?.update(map,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,trail:snapshot.cells.filter(cell=>cell.depositedFuel>0&&Math.hypot(cell.x-player.x,cell.y-player.y)<2.5).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))});
+      const standardHousing=cottages?{...map,buildings:map.buildings.filter(b=>!cottageIds.has(b.id))}:map;
+      housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,trail:snapshot.cells.filter(cell=>cell.depositedFuel>0&&Math.hypot(cell.x-player.x,cell.y-player.y)<2.5).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))});
+      cottages?.update(snapshot.cottageFire,{camera:timing.camera,player});
       fire.update(snapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
       footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:.56;
       ring.position.set(player.x,.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);
@@ -85,12 +93,12 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     function dispose(){
       if(disposed)return;disposed=true;
       for(const record of actors.values())record.model.dispose();actors.clear();
-      medicine?.dispose();civilianKit?.dispose();exterior.dispose();housing?.dispose();housingKit?.dispose();
+      medicine?.dispose();civilianKit?.dispose();exterior.dispose();cottages?.dispose();housing?.dispose();housingKit?.dispose();
       fire.dispose();toolProps.dispose();field.dispose();bearKit.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
     }
-    return {update,dispose,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
-      diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),exterior:exterior.diagnostics(),housing:housing?.diagnostics()||null,medicine:medicine?.diagnostics?.()||null,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics()})};
+    return {update,dispose,pickAimSurface:cottages?.pickAimSurface,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
+      diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),exterior:exterior.diagnostics(),housing:housing?.diagnostics()||null,medicine:medicine?.diagnostics?.()||null,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics(),...(cottages?{cottages:cottages.diagnostics()}:{})})};
   }catch(error){
-    for(const record of actors.values())record.model.dispose();medicine?.dispose();civilianKit?.dispose();exterior?.dispose();housing?.dispose();housingKit?.dispose();fire?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();bearKit?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
+    for(const record of actors.values())record.model.dispose();medicine?.dispose();civilianKit?.dispose();exterior?.dispose();cottages?.dispose();housing?.dispose();housingKit?.dispose();fire?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();bearKit?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
   }
 }

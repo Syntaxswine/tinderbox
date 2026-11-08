@@ -2,6 +2,7 @@ import * as UI from './ui/index.js';
 import {PLACES} from './content/places.js';
 import {CHARACTERS,DEFAULT_CHARACTER_ID} from './content/characters.js';
 import {createApplication} from './runtime/application.js';
+import {COTTAGE_PAIR_SCENARIO,catalogueCottageMode} from './content/cottage-pair.js';
 const applications=new WeakMap();
 export let currentApplication=null;
 
@@ -55,7 +56,10 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
     createVisit:createVisit||(async(place,visitOptions)=>{
       if(place.id==='catalogue-street'){
         const [{createRuntime},{createArtScene}]=await Promise.all([import('./runtime/index.js'),import('./art/index.js')]);
-        return createRuntime({root:viewport,uiRoot:hud,scenario:'neighborhood',seed:1893,mountUI:ui.mountUI,createArtScene,autoStart,onSnapshot,...visitOptions,
+        const cottageMode=catalogueCottageMode(win.location?.search);
+        const cottageWind=cottageMode?await (await import('./reuse/ashland/wind.js')).loadCottageWind(cottageMode,visitOptions.signal):undefined;
+        return createRuntime({root:viewport,uiRoot:hud,scenario:cottageMode?COTTAGE_PAIR_SCENARIO:'neighborhood',cottageWind,
+          config:cottageMode?{input:{cameraY:-12}}:undefined,seed:1893,mountUI:ui.mountUI,createArtScene,autoStart,onSnapshot,...visitOptions,
           uiOptions:{mode:'gameplay',placeTitle:place.title,onExitToMenu:visitOptions.onExitToMenu}});
       }
       const {createLandmarkRuntime}=await import('./runtime/landmark.js');return createLandmarkRuntime({place,root:viewport,uiRoot:hud,mountUI:ui.mountUI,autoStart,onSnapshot,...visitOptions});
