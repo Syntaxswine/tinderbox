@@ -8,6 +8,7 @@ import {CHARACTER_PROFILES} from '../content/characters.js';
 import {pickupContacts} from './pickups.js';
 import {COTTAGE_IDS} from '../content/cottage-pair.js';
 import {createCottageFire,prepareCottageFootprints} from './cottage-fire.js';
+import {createHousingFire} from './housing-fire.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
@@ -17,6 +18,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   const config = configuration(characterId==='bear'?override:{...override,player:{...override?.player,radius:profile.radius}}), definition = scenarioDefinition(scenario);
   if (!Number.isSafeInteger(seed)) throw Error('Seed must be a safe integer');
   const playableCottages=definition.id==='cottage-pair';
+  const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
   let state, field, buildingFuel, cottages, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
@@ -69,7 +71,9 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       const cells = field.cells.filter(cell => colliders.some(obstacle => inBox(cell, obstacle)));
       const initialSurfaceFuel = cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
       if (!cells.length || initialSurfaceFuel <= EPS) throw Error('Building needs a finite dry-wood footprint');
-      return {building, colliders, cells, initialSurfaceFuel};
+      const group={building,colliders,cells,initialSurfaceFuel};
+      if(catalogue)group.structure=createHousingFire(group,state.obstacles);
+      return group;
     });
   }
   initialize();
@@ -107,7 +111,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (state.primaryNeedsRelease) return;
       const rising = command.pressed && !state.input.primary;
       state.input.primary = command.pressed;
-      if (rising) discreteTool(state, field, config, event,cottages);
+      if (rising) discreteTool(state, field, config, event,cottages,catalogue);
       return;
     }
     if (command.type === 'drug') {
@@ -203,9 +207,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for (const result of state.ignitionResults) result.record.result = result.cells.some(cell => cell.phase === 'burning') ? 'ignited' : 'heated';
     state.ignitionResults = [];
     for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');
-    // A catalogue prefab is one coarse ground-fuel group. Keep every footprint
-    // until the whole group is spent, then remove its collision and art together.
     for (const group of buildingFuel) if (!group.building.destroyed) {
+      if(group.structure){group.structure.step(state.clocks.world,event);continue;}
       const surface = group.cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
       group.building.burnedFraction = clamp(1 - surface / group.initialSurfaceFuel, 0, 1);
       if (group.cells.every(cell => cell.surfaceFuel + cell.depositedFuel <= EPS)) {

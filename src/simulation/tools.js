@@ -1,11 +1,11 @@
-import {distance, impactPoint, clamp} from './geometry.js';
+import {distance, firstHeatContact, impactPoint, clamp} from './geometry.js';
 import {resolveDischarge, inactiveDischarge} from './discharge.js';
 export function aimHeading(player, aim) { return Math.atan2(aim.y - player.y, aim.x - player.x); }
 export function localPoint(player, aim, range) {
   const heading = aimHeading(player, aim), reach = Math.min(range, distance(player, aim));
   return {x: player.x + Math.cos(heading) * reach, y: player.y + Math.sin(heading) * reach};
 }
-export function discreteTool(state, field, config, event, cottages) {
+export function discreteTool(state, field, config, event, cottages, catalogue) {
   const p = state.player, stock = p.inventory, tool = p.tool;
   if (tool === 'jerry-can') {
     if (stock.gas <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty'});
@@ -16,6 +16,15 @@ export function discreteTool(state, field, config, event, cottages) {
     if (stock.matches < 1) return event('tool-rejected', point, {tool, reason: 'empty', result: 'empty', tile});
     stock.matches--;
     const siding=cottages?.strikeSiding(p,state.aim,spec.range,spec.heat);
+    const contact=!siding&&catalogue?firstHeatContact(p,point,state.obstacles):null;
+    if(contact?.box.buildingId&&contact.box.material==='wood'){
+      // The swept contact already passed the player's reach and obstruction
+      // checks. Select the existing fuel cell just inside that exposed face.
+      const t=contact.t+.00001;
+      const surface={x:p.x+(point.x-p.x)*t,y:p.y+(point.y-p.y)*t};
+      const cell=field.at(surface);
+      if(cell)return recordIgnition(state,event,tool,surface,field.seed(surface,[cell],spec.heat,tool),{tile:field.tileAt(surface)});
+    }
     recordIgnition(state, event, tool, point, siding??field.seed(p, field.tileCells(tile), spec.heat, tool), {tile});
   }
   if (tool === 'torch') {

@@ -1,5 +1,5 @@
 import {COTTAGE_IDS,COTTAGE_ORIGIN,COTTAGE_OFFSET} from '../content/cottage-pair.js';
-import {boxInterval,distance,lineClear} from './geometry.js';
+import {firstHeatContact,distance,lineClear} from './geometry.js';
 import {WIDTH,DEPTH,UPPER,EAVE,RIDGE,RIM,PITCH,OVERHANG,roofHeight,roofNormal,tileIndex,makeTiles,createCottageTopology} from './cottage-topology.js';
 
 export const COTTAGE_BURN_SECONDS=30, COTTAGE_EMBER_LIMIT=84;
@@ -11,10 +11,11 @@ const point=(lot,site)=>({x:lot.building.x+site.x,y:lot.building.y+site.z});
 const layerFor=site=>site.layer==='walls'?'upper':site.layer;
 const present=(lot,site)=>!lot.building.destroyed&&lot.tiles[site.tile][layerFor(site)];
 const burning=(lot,site)=>site.phase==='burning'&&present(lot,site);
+const burnDuration=site=>site.burnSeconds??spentAfter[site.layer];
 function flameAt(site,time){
   if(site.ignitedAt===null||site.phase!=='burning')return 0;
   const age=time-site.ignitedAt;
-  return (.14+.86*cap(age/.28))*(1-.64*cap((age-1.3)/3))*(1-.70*cap((age-spentAfter[site.layer]+1.5)/1.5));
+  return (.14+.86*cap(age/.28))*(1-.64*cap((age-1.3)/3))*(1-.70*cap((age-burnDuration(site)+1.5)/1.5));
 }
 
 // Only the experimental pair has structural fuel. Keep its ground footprint
@@ -38,28 +39,6 @@ export function prepareCottageFootprints(definition){
     b.footprints=definition.obstacles.filter(o=>o.buildingId===b.id);
     b.colliderIds=b.footprints.map(o=>o.id);
   }
-}
-
-function firstBlock(from,to,obstacles,startHeight=0,endHeight=startHeight){
-  let first=null;
-  for(const object of obstacles){
-    if(object.destroyed||object.blocksHeat===false)continue;
-    for(const box of [object,...(object.heatBarriers||[])]){
-      const span=boxInterval(from,to,box);
-      if(!span||span[1]<=EPS)continue;
-      let [lo,hi]=span;
-      const vertical=endHeight-startHeight,top=box.height+.05;
-      if(Math.abs(vertical)<EPS){
-        if(startHeight<0||startHeight>top)continue;
-      }else{
-        const a=-startHeight/vertical,b=(top-startHeight)/vertical;
-        lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));
-        if(lo>hi||hi<=EPS)continue;
-      }
-      if(!first||lo<first.t)first={t:lo,box};
-    }
-  }
-  return first;
 }
 
 function roofContact(lot,a,b){
@@ -87,7 +66,7 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
     if(!building||building.prefabId!=='ashland-worker'||building.quarterTurns!==0||building.x!==x||building.y!==z)throw Error('Cottage placement must match the pinned pair bake');
     const topology=createCottageTopology(building,sampleWind);
     return {...topology,building,tiles:makeTiles(),colliders:obstacles.filter(o=>o.buildingId===id),firstIgnition:null,
-      deadline:null,nextWave:Infinity,waves:0,fallen:new Set(),drops:[],retiredAt:null};
+      deadline:null,nextWave:Infinity,waves:0,fallen:new Set(),drops:[],retiredAt:null,lastJoist:null};
   });
   const byBuilding=new Map(lots.map(l=>[l.building.id,l]));
   const byObstacle=new Map(obstacles.map(o=>[o.id,o]));
@@ -114,7 +93,7 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
     return best;
   }
   function sidingContact(from,to,startHeight=0,endHeight=startHeight){
-    const hit=firstBlock(from,to,obstacles,startHeight,endHeight);
+    const hit=firstHeatContact(from,to,obstacles,startHeight,endHeight);
     if(!hit||hit.box.cottageTile===undefined)return null;
     const lot=byBuilding.get(hit.box.buildingId),x=lerp(from.x,to.x,hit.t),z=lerp(from.y,to.y,hit.t);
     // Aimed tools heat the lowest exposed siding above the brick plinth.
@@ -158,6 +137,12 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
       lot.firstIgnition={cellId:site.id,face:site.face,layer:site.layer,time,kind:site.ignitionKind};
       lot.deadline=time+COTTAGE_BURN_SECONDS;lot.nextWave=time+4.4;
     }
+    if(site.layer==='lower'&&site.ignitionKind==='falling-fuel'&&lot.lastJoist===null){
+      // A heavier lower member catches from the actual falling fuel and
+      // outlasts the boards around it. It remains a single live support.
+      lot.lastJoist=site.tile;
+      site.burnSeconds=Math.max(spentAfter.lower,lot.deadline-time);
+    }
     event('cottage-ignition',p,{buildingId:lot.building.id,cellId:site.id,layer:site.layer,face:site.face,
       worldTime:time,cause:site.ignitionKind,parentCellId:site.parentId,sourceId:site.cause?.sourceId??null});
   }
@@ -184,6 +169,17 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
       const tile=lot.tiles[o.cottageTile];
       o.destroyed=lot.building.destroyed||(tile&&!tile.roof&&!tile.upper&&!tile.lower)||false;
       if(tile&&!o.destroyed)o.height=tile.roof?EAVE:tile.upper?EAVE:UPPER;
+    }
+  }
+  function settleLooseSupports(lot,time){
+    if(lot.deadline===null||lot.deadline-time>2)return;
+    const limit=4+Math.floor((lot.tiles.length*3-4)*cap((lot.deadline-time-.25)/1.75));
+    let live=0;
+    for(const tile of lot.tiles)live+=Number(tile.roof)+Number(tile.upper)+Number(tile.lower);
+    for(const layer of ['roof','upper','lower'])for(const tile of lot.tiles){
+      if(live<=limit)return;
+      if(!tile[layer]||layer==='lower'&&tile.index===lot.lastJoist)continue;
+      retire(lot,tile.index,layer);live--;
     }
   }
   function releaseDebris(lot,time,event){
@@ -239,7 +235,7 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
         const candidate=roofContact(lot,a,b);
         if(candidate&&(!hit||candidate.t<hit.t))hit=candidate;
       }
-      const solid=firstBlock({x:a.x,y:a.z},{x:b.x,y:b.z},obstacles,a.y,b.y);
+      const solid=firstHeatContact({x:a.x,y:a.z},{x:b.x,y:b.z},obstacles,a.y,b.y);
       if(solid&&(!hit||solid.t<hit.t))hit={...solid,kind:'solid'};
       const currentHeat=a.initialHeat*Math.exp(-age/a.coolingTime);
       if(hit){
@@ -275,12 +271,12 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
       moveDebris(lot,time,event);
       // Only already-burning sources transfer during this tick. Several paths
       // may heat the same target; cooling wins when they are too weak.
-      for(const s of lot.sites)if(burning(lot,s)&&time-s.ignitedAt>=.16&&time-s.ignitedAt<spentAfter[s.layer]){
+      for(const s of lot.sites)if(burning(lot,s)&&time-s.ignitedAt>=.16&&time-s.ignitedAt<burnDuration(s)){
         for(const {target,seconds} of s.links)heat(lot,target,dt/seconds*(.66+.34*flameAt(s,time)),{kind:'surface-spread',cellId:s.id});
       }
       for(const s of lot.sites){
         if(!present(lot,s))continue;
-        if(s.phase==='burning'&&time-s.ignitedAt>=spentAfter[s.layer]){
+        if(s.phase==='burning'&&time-s.ignitedAt>=burnDuration(s)){
           if(s.layer==='walls')s.phase='spent';else retire(lot,s.tile,s.layer);
         }else if(s.phase!=='burning'&&s.phase!=='spent'){
           s.heat=Math.max(0,s.heat-.075*dt);
@@ -288,7 +284,7 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
           else if(s.heat<=EPS)s.cause=null;
         }
       }
-      releaseDebris(lot,time,event);applyMasks(lot);spawn(lot,time);
+      releaseDebris(lot,time,event);settleLooseSupports(lot,time);applyMasks(lot);spawn(lot,time);
     }
   }
   function snapshot(time){

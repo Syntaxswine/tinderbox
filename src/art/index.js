@@ -40,7 +40,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     world=createWorld(T,materials);bear=bearKit.create();field=createGroundField(T);fire=createFire(T,assets,field.uniforms);
     exterior=createExteriorKit(T,materials,assets,renderer);
     toolProps=createToolProps(T,materials);root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root);
-    if(housingKit){housing=createNeighborhood(T,housingKit);root.add(housing.root);}
+    if(housingKit){housing=createNeighborhood(T,housingKit);root.add(housing.root,housing.fireRoot);}
     if(cottageFire){
       const {createCottagePairArt}=await import('./cottage-pair.js');
       if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
@@ -69,8 +69,8 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       if(map.buildings?.length&&!housing)throw new Error('Catalogue housing was not loaded for this scene');
       world.update({...map,obstacles:(map.obstacles||[]).filter(o=>!o.moduleId&&!o.buildingId)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
       const standardHousing=cottages?{...map,buildings:map.buildings.filter(b=>!cottageIds.has(b.id))}:map;
-      housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,trail:snapshot.cells.filter(cell=>cell.depositedFuel>0&&Math.hypot(cell.x-player.x,cell.y-player.y)<2.5).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))});
-      cottages?.update(snapshot.cottageFire,{camera:timing.camera,player});
+      const housingShadows=housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,worldTime,sampleWind:cottageWind,trail:snapshot.cells.filter(cell=>cell.depositedFuel>0&&Math.hypot(cell.x-player.x,cell.y-player.y)<2.5).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))});
+      cottages?.update(snapshot.cottageFire,{camera:timing.camera,player,housingShadows});
       fire.update(snapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
       footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:.56;
       ring.position.set(player.x,.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);

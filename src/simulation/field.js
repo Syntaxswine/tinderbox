@@ -109,6 +109,9 @@ export class HeatField {
       const sourcePolicy = fire.propagation[source.depositedFuel > EPS ? 'gas' : source.material] || fire.propagation.wood;
       for (const neighbour of this.neighbours[i]) {
         const target = this.cells[neighbour.index];
+        // Keep the two wood surfaces independent at a shared party wall,
+        // including subcells whose centres fall just outside the native rim.
+        if(source.surfaceFuel>EPS&&target.surfaceFuel>EPS&&source.houseParty?.neighbors.has(target.houseParty?.id))continue;
         const targetPolicy = fire.propagation[target.depositedFuel > EPS ? 'gas' : target.material] || fire.propagation.wood;
         const speed = fire.frontSpeed * Math.min(sourcePolicy.speedScale, targetPolicy.speedScale);
         if (target.surfaceFuel + target.depositedFuel <= EPS || target.phase === 'burning' ||
@@ -145,5 +148,5 @@ export class HeatField {
     const cell = this.at(point); if (!cell) return 0;
     return Math.max(cell.phase === 'burning' ? cell.intensity : 0, clamp((cell.heat - this.config.fire.damageHeatStart) / this.config.fire.damageHeatSpan, 0, 1));
   }
-  snapshot() { return this.cells.map(({ignitedAt, cause, ...cell}) => ({...cell})); }
+  snapshot() { return this.cells.map(({ignitedAt, cause, houseParty, ...cell}) => ({...cell})); }
 }

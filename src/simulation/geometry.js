@@ -89,6 +89,28 @@ export function boxInterval(a, b, o) {
   }
   return [lo, hi];
 }
+export function firstHeatContact(from,to,obstacles,startHeight=0,endHeight=startHeight){
+  const epsilon=1e-8;
+  let first=null;
+  for(const object of obstacles){
+    if(object.destroyed||object.blocksHeat===false)continue;
+    for(const box of [object,...(object.heatBarriers||[])]){
+      const span=boxInterval(from,to,box);
+      if(!span||span[1]<=epsilon)continue;
+      let [lo,hi]=span;
+      const vertical=endHeight-startHeight,top=box.height+.05;
+      if(Math.abs(vertical)<epsilon){
+        if(startHeight<0||startHeight>top)continue;
+      }else{
+        const a=-startHeight/vertical,b=(top-startHeight)/vertical;
+        lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));
+        if(lo>hi||hi<=epsilon)continue;
+      }
+      if(!first||lo<first.t)first={t:lo,box};
+    }
+  }
+  return first;
+}
 export function lineClear(a, b, obstacles, {ignoreBarrels = true} = {}) {
   for (const o of obstacles) {
     if (o.destroyed || o.blocksHeat === false || ignoreBarrels && o.kind === 'barrel') continue;

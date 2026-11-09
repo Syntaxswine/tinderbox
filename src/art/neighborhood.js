@@ -3,6 +3,10 @@ import {HOPKINS_HOUSING_URL, createHopkinsHouse} from './hopkins-housing.js';
 import {createMonroeRowHouse,monroePartyWalls} from './row-house.js';
 import {removeTree} from './resources.js';
 import {HOUSING_PLANS} from '../content/housing-plans.js';
+import {createHousingSectionMask} from './housing-section-mask.js';
+import {housingFlameSites} from './housing-flame-sites.js';
+import {createWallShroud} from '../reuse/ashland/wall-shroud.js';
+import {housingSectionAt,housingSectionGrid} from '../content/housing-sections.js';
 
 // One six-texture owner serves both immutable source catalogues.
 export async function loadNeighborhoodKit(T, {renderer} = {}) {
@@ -22,12 +26,20 @@ export async function loadNeighborhoodKit(T, {renderer} = {}) {
 
 export function createNeighborhood(T, library) {
   const root = new T.Group(); root.name = 'Catalogue neighborhood';
+  const fireRoot = new T.Group(); fireRoot.name = 'Catalogue façade flames';
   const models = new Map(), charColor = new T.Color('#261e16');
   const raycaster = new T.Raycaster(), hit = new T.Vector3(), projected = new T.Vector3();
-  let disposed = false, builds = 0, observed = [], occludingBuildingIds = [], projection = null;
-  function update(world, {camera, player, muzzle, trail = [], viewport} = {}) {
+  let disposed = false, builds = 0, observed = [], occludingBuildingIds = [], projection = null, fire;
+  const disposeModel=record=>{record.mask?.dispose();record.model.dispose();};
+  function update(world, {camera, player, muzzle, trail = [], viewport, worldTime=0, sampleWind} = {}) {
     if (disposed) return;
-    const instances = world.buildings || [], active = new Set(); observed = [];
+    const instances = world.buildings || [], active = new Set(),flames=[];
+    const liveNeighbors=new Map(instances.filter(b=>!b.destroyed).map(b=>[b.id,b]));
+    let shadowsDirty=false;
+    observed = [];
+    if(!fire&&instances.some(b=>b.sections)){
+      fire=createWallShroud(T,{maxCells:80,profile:'house'});fireRoot.add(fire.root);
+    }
     for (const instance of instances) {
       observed.push({id: instance.id, prefabId: instance.prefabId, visible: !instance.destroyed, burnedFraction: instance.burnedFraction});
       if (instance.destroyed) continue;
@@ -35,7 +47,7 @@ export function createNeighborhood(T, library) {
       const partyWalls=monroePartyWalls(instance,instances);
       const key = JSON.stringify([instance.prefabId, instance.x, instance.y, instance.quarterTurns,partyWalls]);
       let record = models.get(instance.id);
-      if (record && record.key !== key) { record.model.dispose(); models.delete(instance.id); record = null; }
+      if (record && record.key !== key) { disposeModel(record); models.delete(instance.id); record = null; }
       if (!record) {
         const create = instance.prefabId==='monroe-row'?createMonroeRowHouse:instance.collection === 'hopkins' ? createHopkinsHouse : createGrossHouse;
         const model = create(T, library, instance.prefabId, {furnished: false, partyWalls: instance.prefabId==='monroe-row'?partyWalls:false});
@@ -51,13 +63,33 @@ export function createNeighborhood(T, library) {
         });
         model.root.updateMatrixWorld(true);
         record = {key, model, colors, shadows, meshCount, triangleCount, bounds: new T.Box3().setFromObject(model.root), faded: false};
+        if(instance.sections){
+          record.mask=createHousingSectionMask(T,model.root,instance.prefabId);
+          record.flameSites=housingFlameSites(model.house,instance);
+        }
         models.set(instance.id, record); root.add(model.root); builds++;
+        shadowsDirty=true;
       }
-      record.model.setNeighborsVisible?.({left:instances.some(b=>b.id===partyWalls.left&&!b.destroyed),right:instances.some(b=>b.id===partyWalls.right&&!b.destroyed)});
+      if(record.model.setNeighborsVisible){
+        const left=liveNeighbors.get(partyWalls.left);
+        const grid=left?.sections&&housingSectionGrid(left.prefabId);
+        const exposedOnLeft=grid?z=>left.sections[housingSectionAt(grid,record.model.house.width,z)].present===false:undefined;
+        shadowsDirty=record.model.setNeighborsVisible({left:Boolean(left),exposedOnLeft})||shadowsDirty;
+      }
+      if(record.mask){
+        shadowsDirty=record.mask.update(instance.sections)||shadowsDirty;
+        record.clearedSections=instance.sections.filter(section=>!section.present).map(section=>section.index);
+        const structural=instance.sections.some(section=>section.fire)?record.flameSites(instance,liveNeighbors):[];
+        record.structuralFlames=structural.length;flames.push(...structural);
+      }
       const amount = Math.min(1, Math.max(0, instance.burnedFraction || 0));
       for (const [material, original] of record.colors) material.color.copy(original.color).lerp(charColor, amount * .85);
     }
-    for (const [id, record] of models) if (!active.has(id)) { record.model.dispose(); models.delete(id); }
+    for (const [id, record] of models) if (!active.has(id)) { disposeModel(record); models.delete(id);shadowsDirty=true; }
+    if(fire&&camera){
+      if(flames.length>80&&player)flames.sort((a,b)=>Math.hypot(a.x-player.x,a.z-player.y)-Math.hypot(b.x-player.x,b.z-player.y));
+      fire.update({time:worldTime,cells:flames.slice(0,80),camera,sampleWind});
+    }
     const samples = [], occluding = new Set(); projection = null;
     if (camera && player) {
       camera.updateMatrixWorld();
@@ -81,16 +113,21 @@ export function createNeighborhood(T, library) {
         material.transparent = faded || original.transparent; material.depthWrite = faded ? false : original.depthWrite;
         if (faded !== record.faded) material.needsUpdate = true;
       }
-      if (faded !== record.faded) for (const [mesh, castShadow] of record.shadows) mesh.castShadow = faded ? false : castShadow;
+      if (faded !== record.faded){
+        for (const [mesh, castShadow] of record.shadows) mesh.castShadow = faded ? false : castShadow;
+        shadowsDirty=true;
+      }
       record.faded = faded;
     }
+    return shadowsDirty;
   }
-  return {root, update,
+  return {root,fireRoot,update,
     diagnostics: () => ({disposed, builds, active: models.size, instances: structuredClone(observed), occludingBuildingIds: [...occludingBuildingIds],
       occlusionMethod: 'Conservative bounds of actual source meshes; presentation-only fade', projection: structuredClone(projection),
       models: [...models.entries()].map(([id, record]) => ({...record.model.diagnostics(), instanceId: id, opacityScale: record.faded ? .18 : 1,
         sourceMeshCount: record.meshCount, sourceTriangleCount: record.triangleCount, sourceBounds: {min: record.bounds.min.toArray(), max: record.bounds.max.toArray()},
+        ...(record.mask?{clearedSections:[...record.clearedSections],structuralFlames:record.structuralFlames}:{}),
         nativeScale: record.model.root.scale.toArray(), position: record.model.root.position.toArray(), rotation: record.model.root.rotation.y}))}),
-    dispose() { if (disposed) return; disposed = true; for (const record of models.values()) record.model.dispose(); models.clear(); removeTree(root); }
+    dispose() { if (disposed) return; disposed = true; for (const record of models.values()) disposeModel(record); models.clear();fire?.dispose();removeTree(fireRoot);removeTree(root); }
   };
 }

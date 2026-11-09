@@ -91,7 +91,8 @@ function trimJoins(T,model,walls,pool){
       if(!positions.length)continue;
       const capGeometry=new T.BufferGeometry();capGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));capGeometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));capGeometry.setAttribute('grossUV',capGeometry.attributes.uv.clone());capGeometry.computeVertexNormals();
       const materials=[mesh.material].flat(),material=materials.find(m=>['Painted exterior','Brick basement'].includes(m.name))||materials[0];
-      const cap=new T.Mesh(pool.geometry(capGeometry),material);cap.name='Monroe sealed join cap';cap.position.copy(mesh.position);cap.quaternion.copy(mesh.quaternion);cap.scale.copy(mesh.scale);cap.castShadow=mesh.castShadow;cap.receiveShadow=mesh.receiveShadow;cap.userData={partySide:plane.side,sourceRole:mesh.name};mesh.parent.add(cap);caps.push(cap);stats.capMeshes++;
+      const z=(Math.min(...hull.map(v=>v[2]))+Math.max(...hull.map(v=>v[2])))/2;
+      const cap=new T.Mesh(pool.geometry(capGeometry),material);cap.name='Monroe sealed join cap';cap.position.copy(mesh.position);cap.quaternion.copy(mesh.quaternion);cap.scale.copy(mesh.scale);cap.castShadow=mesh.castShadow;cap.receiveShadow=mesh.receiveShadow;cap.userData={partySide:plane.side,partyZ:z,sourceRole:mesh.name};mesh.parent.add(cap);caps.push(cap);stats.capMeshes++;
     }
   }
   return {caps,stats};
@@ -104,7 +105,14 @@ export function createMonroeRowHouse(T,library,id,{partyWalls={left:null,right:n
   const catalogue={...library.catalogue,houses:library.catalogue.houses.map(h=>h.id===id?house:h)};
   let model;
   try{model=createGrossHouse(T,{...library,catalogue},id,{...options,partyWalls:false});const derived=trimJoins(T,model,partyWalls,pool);let disposed=false;
-    function setNeighborsVisible({left=false}={}){for(const cap of derived.caps)cap.visible=cap.userData.partySide==='right'||!left;}
+    function setNeighborsVisible({left=false,exposedOnLeft}={}){
+      let changed=false;
+      for(const cap of derived.caps){
+        const visible=cap.userData.partySide==='right'||!left||Boolean(exposedOnLeft?.(cap.userData.partyZ));
+        if(cap.visible!==visible){cap.visible=visible;changed=true;}
+      }
+      return changed;
+    }
     setNeighborsVisible();
     return {...model,house,setNeighborsVisible,diagnostics:()=>({...model.diagnostics(),rowVariant:{partyWalls:{...partyWalls},...derived.stats,visibleCaps:derived.caps.filter(c=>c.visible).length,resources:pool.counts()}}),dispose(){if(disposed)return;disposed=true;model.dispose();pool.dispose();}};
   }catch(error){model?.dispose();pool.dispose();throw error;}
