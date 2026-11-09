@@ -1,4 +1,4 @@
-import {mountDoorAction} from './door-action.js';
+import {mountContextAction} from './door-action.js';
 import {mountLanternPreview} from './lantern-preview.js';
 import {ETCHING_SIZE, ETCHING_FRAMES, OIL_LANTERN_SIZE, OIL_LANTERN_FRAME, OIL_BARREL_SIZE, OIL_BARREL_FRAME} from './etching-frames.js';
 import {mountMap} from './map.js';
@@ -103,7 +103,8 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   const on=(target,type,handler,options)=>{target.addEventListener(type,handler,options);listeners.push(()=>target.removeEventListener(type,handler,options));};
   const emit=command=>{if(!disposed)onCommand(command);};
   const blocked=()=>!view||view.locked||Boolean(menu)||exiting;
-  const doorAction=exploring?mountDoorAction({shell,onProjectInteraction,onCommand:emit,isBlocked:blocked,mark:icon('play')}):null;
+  const contextBlocked=()=>blocked()||(!exploring&&Boolean(view?.lanternAim||lanternPending));
+  const contextAction=mountContextAction({shell,onProjectInteraction,onCommand:emit,isBlocked:contextBlocked,spaceShortcut:exploring,mark:icon('play')});
   const capture=(element,id)=>{try{element.setPointerCapture(id);}catch{/* Window listeners cover unavailable capture. */}};
   const release=(element,id)=>{if(element&&id!==null)try{if(element.hasPointerCapture(id))element.releasePointerCapture(id);}catch{/* Already released. */}};
   function sendMove(vector){
@@ -143,7 +144,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     if(beginAction(button,'lantern')){releaseTrigger();paint();}
   }
   function cancelInput(){
-    lanternPress=null;
+    lanternPress=null;contextAction.cancelPress();
     if(view?.lanternAim||lanternPending)lockLanternTransition(true);else clearMotion();
     releaseTrigger();emit({type:'cancel-input'});
   }
@@ -164,13 +165,15 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   function paint(){
     if(!view)return;
     const gated=blocked(),aim=gated?null:view.lanternAim;
-    doorAction?.update(view.navigation?.interaction,gated);
+    const promptLostFocus=contextAction.update(exploring?view.navigation.interaction:view.interaction,contextBlocked());
     lanternPreview?.update(aim);
     const aimState=aim?[Boolean(aim.target),aim.adjusting,aim.canThrow]:null;
-    const signature=exploring?JSON.stringify([view.paused,view.navigation,menu,exiting,doorAction?.isVisible()]):JSON.stringify([view.characterName,view.tool.id,view.hp,view.maxHp,view.inventory,view.pouring,view.paused,view.effects,view.torch,view.lanternKnown,aimState,Boolean(lanternPending),feedback,menu,primaryTool,primarySources.size,exiting]);
-    if(signature===renderSignature)return;renderSignature=signature;
+    const signature=exploring?JSON.stringify([view.paused,view.navigation,menu,exiting,contextAction.isVisible()]):JSON.stringify([view.characterName,view.tool.id,view.hp,view.maxHp,view.inventory,view.pouring,view.paused,view.effects,view.torch,view.lanternKnown,aimState,Boolean(lanternPending),feedback,menu,primaryTool,primarySources.size,exiting]);
+    if(signature===renderSignature){if(promptLostFocus)restorePromptFocus();return;}
+    renderSignature=signature;
     const controlsLocked=gated||Boolean(lanternPending);
     stick.disabled=controlsLocked;stick.setAttribute('aria-disabled',String(controlsLocked));pause.disabled=false;
+    if(promptLostFocus)restorePromptFocus();
     for(const button of all('[data-zoom]')){button.disabled=!hasZoom;button.title=hasZoom?'Camera framing only':'Camera zoom awaits runtime connection';}
     for(const button of all('[data-exit-to-menu]'))button.disabled=!hasExit;
     if(exploring){
@@ -183,11 +186,11 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       if(find('[data-map-character]').textContent!==(character||'Player'))find('[data-map-character]').textContent=character||'Player';
       if(location.textContent!==navigation.locationLabel)location.textContent=navigation.locationLabel;
       shell.dataset.nativeLevel=navigation.level===null?'':String(navigation.level);
-      const actionHint=doorAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?navigation.interaction.label+' · E / Space':navigation.interaction.reason):'Drag the stick or use WASD to explore.';
+      const actionHint=contextAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?navigation.interaction.label+' · E / Space':navigation.interaction.reason):'Drag the stick or use WASD to explore.';
       if(hint.textContent!==actionHint)hint.textContent=actionHint;
       for(const button of all('[data-view]'))button.disabled=gated;
       find('[data-death]').hidden=true;paintMenu();
-      const announcement='Location: '+navigation.locationLabel+'.'+(!view.paused&&doorAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?' '+navigation.interaction.label+' available.':' '+navigation.interaction.reason):'')+(view.paused?' Paused.':'');
+      const announcement='Location: '+navigation.locationLabel+'.'+(!view.paused&&contextAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?' '+navigation.interaction.label+' available.':' '+navigation.interaction.reason):'')+(view.paused?' Paused.':'');
       if(announcement!==previousAnnouncement){find('[data-announcement]').textContent=announcement;previousAnnouncement=announcement;}
       return;
     }
@@ -295,7 +298,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     }
     if(blocked()||lanternPending||editable(event.target))return;
     if(moveCodes.has(event.code)){event.preventDefault();if(!event.repeat){keys.add(event.code);updateMovement();}}
-    else if(exploring&&(event.code==='KeyE'||event.code==='Space'&&(active===doc.body||active===stick||active?.tagName==='CANVAS'))){event.preventDefault();if(!event.repeat)requestInteraction();}
+    else if(event.code==='KeyE'||exploring&&event.code==='Space'&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){event.preventDefault();if(!event.repeat)contextAction.request();}
     else if(!exploring&&/^Digit[1-5]$/.test(event.code)&&!event.repeat){event.preventDefault();selectTool(TOOLS[Number(event.code.at(-1))-1].id);}
     else if(!exploring&&(event.code==='Space'||event.code==='Enter'&&view.tool.id==='molotov')&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){
       event.preventDefault();
@@ -313,7 +316,12 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   on(doc,'visibilitychange',()=>{if(doc.hidden){cancelInput();paint();}});
   on(shell,'contextmenu',event=>{if(event.target.closest('[data-stick],[data-tool]'))event.preventDefault();});
   for(const button of all('[data-zoom]'))on(button,'click',()=>{if(!disposed&&!button.disabled&&hasZoom)onZoom(button.dataset.zoom==='in'?1.15:1/1.15);});
-  function requestInteraction(){doorAction?.request();}
+  function restorePromptFocus(){
+    if(menu||exiting)return;
+    const field=root.parentElement?.querySelector('canvas[tabindex]');
+    const fallback=stick.disabled?(field&&!field.closest('[hidden]')?field:pause):stick;
+    fallback.focus({preventScroll:true});
+  }
   for(const button of all('[data-view]'))on(button,'click',()=>{if(!blocked())emit({type:button.dataset.view});});
   for(const button of all('[data-exit-to-menu]'))on(button,'click',()=>{if(disposed||!hasExit)return;exiting=true;cancelInput();paint();onExitToMenu();});
   if(cancelAim)on(cancelAim,'click',requestAimCancel);
@@ -349,6 +357,6 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       if(changedAim&&!blocked()&&(priorFocus===cancelAim||priorFocus===doc.body||aiming&&priorFocus===buttons.get('molotov')))stick.focus({preventScroll:true});
       if(restoreFocus){if(previousFocus?.isConnected&&previousFocus!==doc.body&&gameplayFocus(previousFocus)&&!previousFocus.disabled&&!previousFocus.closest('[hidden]'))previousFocus.focus({preventScroll:true});else pause.focus({preventScroll:true});}
     },
-    dispose(){if(disposed)return;cancelInput();disposed=true;doorAction?.dispose();lanternPreview?.dispose();unbindPreferences();for(const remove of listeners.splice(0))remove();shell.remove();}
+    dispose(){if(disposed)return;cancelInput();disposed=true;contextAction.dispose();lanternPreview?.dispose();unbindPreferences();for(const remove of listeners.splice(0))remove();shell.remove();}
   };
 }

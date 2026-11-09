@@ -1,0 +1,269 @@
+{
+  "before": {
+    "interaction": {
+      "id": "bell-and-alder:entry",
+      "kind": "door",
+      "action": "open",
+      "label": "Open",
+      "enabled": true,
+      "reason": "",
+      "anchor": [
+        40,
+        1.65,
+        17
+      ]
+    },
+    "paused": false,
+    "aim": null,
+    "stock": 3,
+    "focus": "BODY"
+  },
+  "afterPickup": {
+    "scope": "Controlled v1 snapshot fixture; no game physics or WebGL",
+    "viewport": [
+      1280,
+      800,
+      1
+    ],
+    "state": {
+      "interaction": null,
+      "paused": false,
+      "aim": null,
+      "stock": 3,
+      "focus": "stick"
+    },
+    "commands": [
+      {
+        "type": "interact",
+        "portalId": "bell-and-alder:entry",
+        "action": "open"
+      },
+      {
+        "type": "interact",
+        "portalId": "bell-and-alder:entry",
+        "action": "close"
+      },
+      {
+        "type": "interact",
+        "objectId": "bell-and-alder:hand-lantern",
+        "action": "take"
+      }
+    ],
+    "events": [
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "focusin",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Enter",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Enter",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Space",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Space",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "focusin",
+        "code": "",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      }
+    ]
+  },
+  "afterTool": {
+    "scope": "Controlled v1 snapshot fixture; no game physics or WebGL",
+    "viewport": [
+      1280,
+      800,
+      1
+    ],
+    "state": {
+      "interaction": null,
+      "paused": false,
+      "aim": null,
+      "stock": 3,
+      "focus": "stick"
+    },
+    "commands": [
+      {
+        "type": "interact",
+        "portalId": "bell-and-alder:entry",
+        "action": "open"
+      },
+      {
+        "type": "interact",
+        "portalId": "bell-and-alder:entry",
+        "action": "close"
+      },
+      {
+        "type": "interact",
+        "objectId": "bell-and-alder:hand-lantern",
+        "action": "take"
+      },
+      {
+        "type": "select-tool",
+        "tool": "matches"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      }
+    ],
+    "events": [
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "focusin",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Enter",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Enter",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Space",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Space",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "prompt",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "focusin",
+        "code": "",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Space",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Space",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      }
+    ]
+  }
+}

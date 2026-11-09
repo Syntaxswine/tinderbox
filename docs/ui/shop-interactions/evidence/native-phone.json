@@ -1,0 +1,137 @@
+{
+  "before": {
+    "interaction": {
+      "id": "bell-and-alder:hand-lantern",
+      "kind": "lantern",
+      "action": "take",
+      "label": "Take lantern",
+      "enabled": true,
+      "reason": "",
+      "anchor": [
+        41.65,
+        1.2,
+        11.6
+      ]
+    },
+    "paused": false,
+    "aim": null,
+    "stock": 3,
+    "focus": "BODY"
+  },
+  "after": {
+    "scope": "Controlled v1 snapshot fixture; no game physics or WebGL",
+    "viewport": [
+      390,
+      844,
+      1
+    ],
+    "state": {
+      "interaction": null,
+      "paused": false,
+      "aim": null,
+      "stock": 3,
+      "focus": "stick"
+    },
+    "commands": [
+      {
+        "type": "select-tool",
+        "tool": "molotov"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      },
+      {
+        "type": "cancel-input"
+      },
+      {
+        "type": "interact",
+        "objectId": "bell-and-alder:hand-lantern",
+        "action": "take"
+      }
+    ],
+    "events": [
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "focusin",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "focusin",
+        "code": "",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "KeyE",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "KeyE",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Escape",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Escape",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "KeyE",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "KeyE",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      }
+    ]
+  }
+}

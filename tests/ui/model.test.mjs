@@ -4,7 +4,7 @@ import {readFileSync, existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
-import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf, navigationOf, doorInteractionOf, lanternAimOf} from '../../src/ui/model.js';
+import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf, navigationOf, doorInteractionOf, lanternAimOf, interactionOf} from '../../src/ui/model.js';
 import {fixture} from '../../workbenches/ui/fixtures.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 test('five tool IDs and effect definitions preserve the scene contract', () => {
@@ -128,4 +128,16 @@ test('lantern aim is authoritative, copied and unavailable on legacy snapshots',
   aim.adjusting=false;aim.canThrow=true;assert.equal(viewOf(snap).primaryDisabled,false);
   snap.player.inventory.molotovs=0;assert.equal(viewOf(snap).primaryDisabled,true);
   snap.player.tool='flamethrower';assert.equal(viewOf(snap).lanternAim,null);assert.match(viewOf(snap).toolHint,/where you face/);
+});
+
+test('street context accepts only exact door and lantern actions and copies the anchor', () => {
+  const target={id:'bell-and-alder:hand-lantern',kind:'lantern',action:'take',label:'Take lantern',enabled:true,reason:'',anchor:[41.65,1.2,11.6]};
+  const snap=fixture();snap.player.interaction=target;
+  const view=viewOf(snap);
+  assert.deepEqual(view.interaction,target);
+  assert.notEqual(view.interaction.anchor,target.anchor);
+  assert.equal(navigationOf(snap).interaction,null,'Lantern is not a landmark action');
+  for(const invalid of [{...target,action:'open'},{...target,kind:'door'},{...target,kind:'crate'},{...target,anchor:[0,NaN,0]}]){
+    assert.equal(interactionOf(invalid),null);
+  }
 });

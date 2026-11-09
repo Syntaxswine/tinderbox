@@ -1,5 +1,6 @@
 import {runDoorChecks} from './door-checks.js';
 import {runLanternChecks} from './lantern-checks.js';
+import {runShopInteractionChecks} from './shop-interaction-checks.js';
 import {runMovementChecks} from './movement-checks.js';
 import {mountUI,mountMainMenu,mountTitleScreen,createInterfacePreferences} from '../../src/ui/index.js';
 import {fixture,createFakeSnapshotAdapter,PLACE_FIXTURES,CHARACTER_FIXTURES,explorationFixture} from '../../workbenches/ui/fixtures.js';
@@ -504,6 +505,7 @@ await check('The four current test maps request distinct IDs and restore their o
 results.push(...await runMovementChecks(host));
 results.push(...await runDoorChecks(host));
 results.push(...await runLanternChecks(host));
+results.push(...await runShopInteractionChecks(host));
 
 for(const r of results){const li=document.createElement('li');li.dataset.status=r.status;li.textContent=(r.status==='pass'?'PASS ':'FAIL ')+r.name+(r.message?' — '+r.message:'');document.querySelector('#checks').append(li);}
 document.querySelector('#summary').textContent=results.filter(r=>r.status==='pass').length+' / '+results.length+' passed';
