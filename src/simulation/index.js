@@ -4,6 +4,7 @@ import {HeatField, materialAt} from './field.js';
 import {clamp, normalized, movementVector, moveDisc, distance, lineClear, freePoint} from './geometry.js';
 import {aimHeading, discreteTool, heldTool, projectilesStep, ageTorch} from './tools.js';
 import {inactiveDischarge} from './discharge.js';
+import {adjustLanternAim, cancelLanternAim, refreshLanternPreview} from './lantern.js';
 import {CHARACTER_PROFILES} from '../content/characters.js';
 import {pickupContacts} from './pickups.js';
 import {COTTAGE_IDS} from '../content/cottage-pair.js';
@@ -30,6 +31,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function clearInput(reason) {
     const pouring = state.player.pouring;
+    cancelLanternAim(state);
     state.discharge = inactiveDischarge(state.tick);
     state.primaryNeedsRelease ||= state.input.primary;
     state.input = {move: {x: 0, y: 0}, primary: false};
@@ -48,7 +50,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       clocks: {active: 0, player: 0, world: 0, playerScale: 1, worldScale: 1},
       player: {id:characterId==='bear'?'bear':'hero',characterId,species:characterId,height:profile.height, x: start.x, y: start.y, radius: config.player.radius, heading: start.heading ?? 0, moving: false,
         hp: clamp(start.hp ?? config.player.maxHp, 0, config.player.maxHp), maxHp: config.player.maxHp,
-        tool: start.tool ?? 'matches', pouring: false, usingTool: false, inventory, travelled: 0},
+        tool: start.tool ?? 'matches', pouring: false, usingTool: false, inventory, travelled: 0, lanternAim: null},
       effects: {powder: {expiresAt: 0}, inversion: {expiresAt: 0}},
       pickups:def.pickups.map(pickup=>({...pickup,consumed:false})),
       obstacles: def.obstacles.map(o => ({...o, destroyed: false})),
@@ -56,7 +58,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       actors: def.actors.map(a => ({...a, route: a.route?.map(p => ({...p})) ?? [{x: a.x, y: a.y}],
         routeIndex: a.route?.length > 1 ? 1 : 0, heading: 0, moving: false, hp: a.hp ?? 100, travelled: 0})),
       aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y}, closeAim: null,
-      discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
+      discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false,
+      moveNeedsNeutral: false, lanternPreview: null, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
     state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
@@ -88,9 +91,10 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     }
     return direction;
   }
-  function faceCloseAim() {
+  function facePointAim(explicit = false) {
     const p = state.player;
-    if ((p.tool === 'matches' || p.tool === 'torch') && state.closeAim && distance(p, state.closeAim) > EPS) {
+    if ((p.tool === 'matches' || p.tool === 'torch' || explicit && p.tool === 'flamethrower') &&
+        state.closeAim && distance(p, state.closeAim) > EPS) {
       p.heading = aimHeading(p, state.closeAim);
     }
   }
@@ -102,30 +106,50 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function apply(command) {
     const p = state.player;
-    if (command.type === 'reset') { const tick = state.tick, held = state.input.primary || state.primaryNeedsRelease; commands = []; initialize(tick); state.primaryNeedsRelease = held; event('reset', state.player, {generation}); return 'reset'; }
+    if (command.type === 'reset') {
+      cancelLanternAim(state);
+      const {tick, moveNeedsNeutral} = state, held = state.input.primary || state.primaryNeedsRelease;
+      commands = [];
+      initialize(tick);
+      state.primaryNeedsRelease = held;
+      state.moveNeedsNeutral = moveNeedsNeutral;
+      event('reset', state.player, {generation});
+      return 'reset';
+    }
     if (command.type === 'pause') {
       state.paused = command.paused; if (state.paused) clearInput('pause'); event('pause', p, {paused: state.paused}); return;
     }
     if (command.type === 'cancel-input') { clearInput('cancel-input'); return; }
     if (command.type === 'select-tool') {
       if (p.tool !== command.tool) {
+        cancelLanternAim(state);
         state.primaryNeedsRelease ||= state.input.primary;
         state.input.primary = false; p.usingTool = false; state.discharge = inactiveDischarge(state.tick);
         if (p.pouring) event('pour', p, {active: false, reason: 'tool-change'});
         p.pouring = false; p.tool = command.tool; event('tool-selected', p, {tool: p.tool});
-        faceCloseAim();
+        facePointAim();
       }
       return;
     }
     if (command.type === 'primary' && !command.pressed) { state.input.primary = false; state.primaryNeedsRelease = false; return; }
+    if (command.type === 'move' && command.x === 0 && command.y === 0) state.moveNeedsNeutral = false;
     if (state.paused || p.hp <= 0) {
       if (command.type === 'primary' && command.pressed) state.primaryNeedsRelease = true;
       return;
     }
-    if (command.type === 'move') { state.input.move = normalized(command.x, command.y); faceMovement(); return; }
+    if (command.type === 'move') {
+      if (state.moveNeedsNeutral) return;
+      state.input.move = normalized(command.x, command.y);
+      if (p.lanternAim) adjustLanternAim(p, state.input.move, definition, config);
+      else faceMovement();
+      return;
+    }
     if (command.type === 'aim') {
       state.aim = {x: command.x, y: command.y};
-      if (command.hover !== true) { state.closeAim = state.aim; faceCloseAim(); }
+      if (command.hover !== true && !p.lanternAim) {
+        state.closeAim = state.aim;
+        facePointAim(true);
+      }
       return;
     }
     if (command.type === 'primary') {
@@ -199,9 +223,12 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     const playerDelta = config.step * playerScale, worldDelta = config.step * worldScale;
     state.clocks.active += config.step; state.clocks.player += playerDelta; state.clocks.world += worldDelta;
     if (p.hp > 0) {
-      const direction = faceMovement(inverted);
-      const path = moveDisc(p, direction.x * config.player.speed * playerDelta, direction.y * config.player.speed * playerDelta,
-        p.radius, definition, state.obstacles, field.size);
+      let path = [{x: p.x, y: p.y}];
+      if (!p.lanternAim) {
+        const direction = faceMovement(inverted);
+        path = moveDisc(p, direction.x * config.player.speed * playerDelta, direction.y * config.player.speed * playerDelta,
+          p.radius, definition, state.obstacles, field.size);
+      }
       state.acceptedPath = path;
       let walked = 0;
       for (let i = 1; i < path.length; i++) {
@@ -248,6 +275,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for (const name of ['powder', 'inversion']) if (state.effects[name].expiresAt > 0 && !activeEffect(name)) {
       state.effects[name].expiresAt = 0; event('drug-expired', p, {drug: name});
     }
+    refreshLanternPreview(state, config);
     state.clocks.playerScale = activeEffect('powder') ? config.drugs.playerScale : 1;
     state.clocks.worldScale = activeEffect('powder') ? config.drugs.worldScale : 1;
   }
@@ -262,7 +290,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       return copy;
     });
     return {version: 1, tick: state.tick, paused: state.paused,
-      clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory},
+      clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory}, lanternAim: structuredClone(state.player.lanternAim),
         torch: {...state.player.torch, remainingSeconds: state.player.inventory.torchFuel / config.tools.torch.fuelPerSecond}},
       effects: Object.fromEntries(['powder', 'inversion'].map(name => [name,
         {active: activeEffect(name), remaining: Math.max(0, state.effects[name].expiresAt - state.clocks.active)}])),

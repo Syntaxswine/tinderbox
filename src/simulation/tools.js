@@ -1,5 +1,6 @@
-import {distance, firstHeatContact, impactPoint, clamp} from './geometry.js';
+import {distance, firstHeatContact, impactPoint, worldRayTarget} from './geometry.js';
 import {resolveDischarge, inactiveDischarge} from './discharge.js';
+import {advanceLantern, useLantern} from './lantern.js';
 export function aimHeading(player, aim) { return Math.atan2(aim.y - player.y, aim.x - player.x); }
 export function localPoint(player, aim, range) {
   const heading = aimHeading(player, aim), reach = Math.min(range, distance(player, aim));
@@ -7,11 +8,7 @@ export function localPoint(player, aim, range) {
 }
 function closeTarget(player, aim, range, world) {
   if (aim) return localPoint(player, aim, range);
-  const x = Math.cos(player.heading), y = Math.sin(player.heading);
-  const edgeX = x === 0 ? Infinity : ((x > 0 ? world.width : 0) - player.x) / x;
-  const edgeY = y === 0 ? Infinity : ((y > 0 ? world.height : 0) - player.y) / y;
-  const reach = Math.min(range, edgeX, edgeY);
-  return {x: player.x + x * reach, y: player.y + y * reach};
+  return worldRayTarget(player, {x: Math.cos(player.heading), y: Math.sin(player.heading)}, range, world);
 }
 function heatAhead(state, field, target, spec, cottages, housing) {
   const {player, obstacles} = state, tool = player.tool;
@@ -75,16 +72,7 @@ export function discreteTool(state, field, config, event, cottages, housing) {
     }
     return;
   }
-  if (tool === 'molotov') {
-    const spec = config.tools.molotov;
-    if (stock.molotovs < 1 || distance(p, state.aim) > spec.range || distance(p, state.aim) < 0.15) {
-      return event('tool-rejected', p, {tool, reason: stock.molotovs < 1 ? 'empty' : 'range'});
-    }
-    stock.molotovs--;
-    const projectile = {id: 'molotov:' + ++state.projectileSequence, x: p.x, y: p.y, fromX: p.x, fromY: p.y,
-      targetX: state.aim.x, targetY: state.aim.y, progress: 0, h: 0.8};
-    state.projectiles.push(projectile); event('tool-use', p, {tool, projectileId: projectile.id});
-  }
+  if (tool === 'molotov') useLantern(state, event);
 }
 function recordIgnition(state, event, tool, point, result, extra = {}) {
   const accepted = result.cells.length > 0;
@@ -124,9 +112,9 @@ export function heldTool(state, field, config, delta, event, world, cottages, ho
   if (used <= 1e-10) { state.input.primary = false; event('tool-empty', p, {tool}); return; }
   p.inventory[key] = Math.max(0, p.inventory[key] - used);
   const heat = spec.heatPerSecond * (spec.fuelPerSecond > 0 ? used / spec.fuelPerSecond : delta);
-  p.heading = aimHeading(p, state.aim); p.usingTool = true;
-  field.cone(p, p.heading, spec.range, spec.halfAngle, heat, tool);
+  p.usingTool = true;
   state.discharge = resolveDischarge(state, config, world);
+  field.cone(p, state.discharge.heading, spec.range, spec.halfAngle, heat, tool);
   cottages?.heatDischarge(state.discharge,heat);
   if(housing?.size)heatHousingDischarge(state.discharge,heat,state.obstacles,housing);
   if (p.inventory[key] <= 1e-10) {
@@ -137,30 +125,23 @@ export function heldTool(state, field, config, delta, event, world, cottages, ho
 export function projectilesStep(state, field, config, delta, event, cottages, housing) {
   const spec = config.tools.molotov, alive = [];
   for (const projectile of state.projectiles) {
-    const target = {x: projectile.targetX, y: projectile.targetY}, d = distance(projectile, target);
-    const step = Math.min(d, spec.speed * delta), ratio = d > 1e-10 ? step / d : 1;
-    const next = {x: projectile.x + (target.x - projectile.x) * ratio, y: projectile.y + (target.y - projectile.y) * ratio};
-    const full = Math.hypot(projectile.targetX - projectile.fromX, projectile.targetY - projectile.fromY);
-    const nextProgress = full ? clamp(1 - distance(next, target) / full, 0, 1) : 1;
-    const height = t => 0.8 * (1 - t) + 0.1 * t + Math.sin(t * Math.PI) * Math.min(2, full * 0.35);
-    const nextHeight = height(nextProgress);
-    const impact = impactPoint(projectile, next, state.obstacles, {startHeight: projectile.h, endHeight: nextHeight});
-    const hit = distance(impact, next) > 1e-8;
+    const {next, position, progress, hit, finished} = advanceLantern(projectile, spec.speed * delta, state.obstacles);
     let surfaceHit;
-    if(hit){
-      surfaceHit=cottages?.heatSurface(projectile,next,spec.heat*.70,'molotov',projectile.h,nextHeight);
-      const contact=housing&&firstHeatContact(projectile,next,state.obstacles,projectile.h,nextHeight);
-      if(contact&&!surfaceHit)surfaceHit=housing.get(contact.box.buildingId)?.strike(
-        contact.box,projectile,{...next,h:nextHeight},spec.heat*.70,'molotov')?.site;
+    if (hit) {
+      surfaceHit = cottages?.heatSurface(projectile, next, spec.heat * .70, 'molotov', projectile.h, next.h);
+      const contact = housing && firstHeatContact(projectile, next, state.obstacles, projectile.h, next.h);
+      if (contact && !surfaceHit) {
+        surfaceHit = housing.get(contact.box.buildingId)?.strike(contact.box, projectile, next, spec.heat * .70, 'molotov')?.site;
+      }
     }
-    projectile.x = impact.x; projectile.y = impact.y;
-    projectile.progress = full ? clamp(1 - distance(projectile, target) / full, 0, 1) : 1;
-    projectile.h = height(projectile.progress);
-    if (hit || step >= d - 1e-10) {
-      field.addPool(impact, spec.radius, spec.fuel);
-      if(!surfaceHit)field.emit(impact, spec.radius, spec.heat, 'molotov');
-      event('molotov-impact', impact, {projectileId: projectile.id});
-    } else alive.push(projectile);
+    if (finished) {
+      field.addPool(position, spec.radius, spec.fuel);
+      if (!surfaceHit) field.emit(position, spec.radius, spec.heat, 'molotov');
+      event('molotov-impact', position, {projectileId: projectile.id, h: position.h});
+    } else {
+      Object.assign(projectile, position, {progress});
+      alive.push(projectile);
+    }
   }
   state.projectiles = alive;
 }
