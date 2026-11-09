@@ -10,12 +10,13 @@
 - A UI specialist owns the joystick, HUD, buttons and menus in a separate worktree.
 - Tools: matches, jerry cans, Molotov cocktails, torches, and the flamethrower. Pouring toggles on/off while moving and follows the bear's speed; escaping fire advancing along that trail is an intended tactic.
 - Matches ignite one tile per press; subsequent spread depends on fuel. A torch is lit once, burns for a fixed time while carried, and ignites nearby tiles on an action press. The active implementation contract is [Milestone 06](milestones/06-row-houses-and-ignition.md).
+- A lit, equipped torch illuminates nearby ground and walls as the player moves. The carried light follows the existing world-time fuel clock. The Ignite action applies heat.
 - Powder speeds the bear and slows everyone else, including fire. Healing pills restore health; inversion pills reverse the movement joystick by 180 degrees (NE becomes SW).
 - The user requests three times the preview's base player movement speed: 9 m/s instead of 3 m/s, across the street and landmark visits. Preserve powder's existing multiplier and world/fire timing. The movement/joystick correction is assigned in [Milestone 09](milestones/09-movement-and-joystick.md).
 - Doors use Farmyard's nearby floating Open/Close button, activated with one click. Runtime owns reach and safe door state; UI presents the contextual action. The focused contract is [Milestone 10](milestones/10-contextual-doors.md).
 - Drugs and medicine activate automatically when the player walks over their world pickups. The accepted six-button UI has no manual drug controls; simulation, ground art and HUD must agree on one-time collection.
 - Explore neighborhood exteriors with Paperboy as a spatial/aesthetic reference. The user has now requested playable interiors and stairs for the landmark visits. Combine tile-based world structure with free movement.
-- Fire quality and readily spreading, causally plausible fire are central. Its gameplay state and appearance must agree.
+- Fire spreads when a source burns hot and long enough to bring neighboring fuel to its ignition threshold. The receiver cools as the heat falls. Grass catches easily and burns briefly. Timber needs more exposure, then supplies stronger heat for longer. The gameplay state and appearance must agree.
 - Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
 - Monroe row houses join consecutively at their native frontage. Joining sides have no windows; side windows belong on exposed row ends.
 
