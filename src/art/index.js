@@ -15,6 +15,7 @@ import {createToolProps} from './tool-props.js';
 import {createSidingPreheat} from './siding-preheat.js';
 import {loadNeighborhoodKit,createNeighborhood} from './neighborhood.js';
 import {BELL_AND_ALDER} from '../content/bell-and-alder-layout.js';
+import {createWitnessReaction} from './witness-reaction.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
 const medicineUrl=new URL('../../assets/art/medicine-pickups/index.js',import.meta.url);
@@ -34,6 +35,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,sidingPreheat,firelight,streetNight,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
   const cottageIds=new Set(cottageFire?.buildings.map(b=>b.id)??[]);
   const actors=new Map(),muzzlePoint=new T.Vector3();
+  let witnessReaction;
   try{
     if(renderer)civilianKit=await loadCivilianKit({THREE:T,renderer,assetBaseUrl:base.href});
     if(initialWorld?.buildings?.length)housingKit=await loadNeighborhoodKit(T,{renderer});
@@ -109,12 +111,15 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
         record.model.update(actor,worldTime);
       }
       for(const [id,record]of actors)if(!active.has(id)){record.model.dispose();actors.delete(id);}
+      const witness=snapshot.witness;
+      if(witness?.reaction&&!witnessReaction){witnessReaction=createWitnessReaction(T);root.add(witnessReaction.root);}
+      witnessReaction?.update(snapshot.actors?.find(actor=>actor.id===witness?.actorId),witness?.reaction);
       lastSnapshot={tick:snapshot.tick,worldTime,playerTime};updates++;
     }
     function dispose(){
       if(disposed)return;disposed=true;
       for(const record of actors.values())record.model.dispose();actors.clear();
-      medicine?.dispose();shop?.dispose();civilianKit?.dispose();exterior.dispose();cottages?.dispose();housing?.dispose();housingKit?.dispose();
+      medicine?.dispose();shop?.dispose();witnessReaction?.dispose();civilianKit?.dispose();exterior.dispose();cottages?.dispose();housing?.dispose();housingKit?.dispose();
       sidingPreheat.dispose();fire.dispose();firelight.dispose();streetNight?.dispose();toolProps.dispose();field.dispose();bearKit.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
     }
     return {update,dispose,pickAimSurface:cottages?.pickAimSurface,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),

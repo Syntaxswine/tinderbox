@@ -47,3 +47,12 @@ export const NEIGHBORHOOD_SCENARIO = {
   modules: BELL_AND_ALDER.modules,
   obstacles: [...NEIGHBORHOOD_BASE.obstacles, ...BELL_AND_ALDER.obstacles]
 };
+
+const clerk = {x: 40.8, y: 19.8};
+const witnessId = 'neighbor-goat';
+export const SHOP_WITNESS_SCENARIO = {
+  ...NEIGHBORHOOD_SCENARIO,
+  player: {...NEIGHBORHOOD_SCENARIO.player, x: 40, y: 18.4},
+  shopWitness: witnessId,
+  actors: NEIGHBORHOOD_SCENARIO.actors.map(actor => actor.id === witnessId ? {...actor, ...clerk, route: [clerk]} : actor)
+};

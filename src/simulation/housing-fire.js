@@ -78,7 +78,7 @@ export function createHousingFire(group,obstacles,config,wind){
     stepSurfaceFire(sites,dt,time,present,site=>{
       event('structure-ignition',{x:site.world.x,y:site.world.z},{buildingId:building.id,siteId:site.publicId,
         part:site.layer==='floor'?'ground':site.layer,height:site.y,worldTime:time,cause:site.ignitionKind,
-        parentSiteId:site.ignitionKind==='surface-spread'?`${building.id}/${site.parentId}`:site.parentId,heat:site.heat});
+        parentSiteId:site.ignitionKind==='surface-spread'?`${building.id}/${site.parentId}`:site.parentId,heat:site.heat},site);
     });
     let remainingArea=0,changed=false;
     for(const {sites:owned,view} of sections){

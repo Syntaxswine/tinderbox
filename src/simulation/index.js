@@ -11,6 +11,7 @@ import {COTTAGE_IDS} from '../content/cottage-pair.js';
 import {createCottageFire,prepareCottageFootprints} from './cottage-fire.js';
 import {createHousingFire,prepareHousingFootprints} from './housing-fire.js';
 import {createShopInteractions} from './shop.js';
+import {createShopWitness} from './shop-witness.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
@@ -23,11 +24,12 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
   if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
-  let state, field, buildingFuel, obstacleFuel, housing, cottages, shop, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  let state, field, buildingFuel, obstacleFuel, housing, cottages, shop, witness, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
-  function event(type, point = state.player, extra = {}) {
+  function event(type, point = state.player, extra = {}, fuelSite = point) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
     state.events.push(record); if (state.events.length > config.events.capacity) state.events.shift();
+    if (witness && (type === 'ignition' || type === 'structure-ignition')) witness.confirmIgnition(record, fuelSite);
     return record;
   }
   function clearInput(reason) {
@@ -63,6 +65,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       moveNeedsNeutral: false, lanternPreview: null, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
     state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
     shop = createShopInteractions(def, state, event);
+    const clerk = shop && def.id === 'neighborhood' && state.actors.find(actor => actor.id === def.shopWitness && actor.species);
+    witness = clerk ? createShopWitness(clerk, state.player, state.obstacles) : null;
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
     state.tiles = [];
@@ -164,7 +168,11 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (state.primaryNeedsRelease) return;
       const rising = command.pressed && !state.input.primary;
       state.input.primary = command.pressed;
-      if (rising) discreteTool(state, field, config, event,cottages,housing);
+      if (rising) {
+        const before = state.ignitionResults.length;
+        discreteTool(state, field, config, event,cottages,housing);
+        if (witness && state.ignitionResults.length > before) witness.recordStrike(state.ignitionResults[before]);
+      }
       return;
     }
     if (command.type === 'drug') {
@@ -220,6 +228,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function step() {
     state.tick++;
+    witness?.beginStep();
     state.player.moving = state.player.usingTool = false; state.discharge = inactiveDischarge(state.tick); state.ignitionResults = [];
     const due = commands.filter(c => c.atTick <= state.tick).sort((a, b) => a.atTick - b.atTick || a.sequence - b.sequence);
     commands = commands.filter(c => c.atTick > state.tick);
@@ -285,6 +294,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       state.effects[name].expiresAt = 0; event('drug-expired', p, {drug: name});
     }
     refreshLanternPreview(state, config);
+    if (witness) witness.update(state.clocks.world, shop.carriesLantern());
     state.clocks.playerScale = activeEffect('powder') ? config.drugs.playerScale : 1;
     state.clocks.worldScale = activeEffect('powder') ? config.drugs.worldScale : 1;
   }
@@ -313,6 +323,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
       discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       ...(cottages?{cottageFire:cottages.snapshot(state.clocks.world)}:{}),
+      ...(witness ? {witness: witness.snapshot()} : {}),
       structureFire:[...(cottages?.samples(state.clocks.world)??[]), ...Array.from(housing?.values()??[]).flatMap(lot=>lot.samples(state.clocks.world))],
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
         acceptedPath: state.acceptedPath.map(p => ({...p})), fuel: {...field.stats,
@@ -343,7 +354,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
       return snapshot();
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; cottages=null; shop=null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; cottages=null; shop=null; witness=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }
