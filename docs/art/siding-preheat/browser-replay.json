@@ -1,0 +1,419 @@
+{
+  "kind": "exact coder snapshot replay; no preheat fields injected",
+  "base": "7ba748719f848d3e41020d3f6e7d4ecbac378264",
+  "coder": "e33065f8570a60d83c2f8990f1ad7e34cff6b156",
+  "source": {
+    "src/simulation/cottage-fire.js": "c3a5bafd0cbbd785824afc9708c7acf95d2245eee6300c9ee6697c522c21e9eb",
+    "src/simulation/housing-fire.js": "ab7a1864e40d99f7fd615580be00b0fd64aa12991fdf24299f5967fcb49b1bba",
+    "src/simulation/index.js": "d0e82382a2360f2b7939cf5cffb593f8b978fed54bb46a0ec15fb5b882dd2ac1"
+  },
+  "config": {
+    "input": {
+      "cameraRelative": false
+    },
+    "fire": {
+      "damagePerSecond": 0
+    }
+  },
+  "siteId": "right:3,0",
+  "sourceId": "cell:105,27",
+  "summaries": [
+    {
+      "pour": "short",
+      "volume": 0.02200000000000074,
+      "peakHeat": 0.794250000000002,
+      "sourceBurnout": 1.2499999999999998,
+      "ignition": null,
+      "cooled": 11.850000000000177
+    },
+    {
+      "pour": "long",
+      "volume": 0.04200000000000047,
+      "peakHeat": 0.9997500000000026,
+      "sourceBurnout": null,
+      "ignition": 1.5666666666666653,
+      "cooled": null
+    }
+  ],
+  "wind": "calm",
+  "records": [
+    {
+      "label": "11-short-cold",
+      "heatFraction": 0,
+      "fixtureIgnition": false,
+      "replayed": {
+        "heatFraction": 0,
+        "ageFromMatch": -0.016666666666666663,
+        "sourceBurning": false,
+        "siteBurning": false
+      },
+      "warning": {
+        "sites": 0,
+        "splats": 0,
+        "maxSites": 12,
+        "maxSplats": 36
+      },
+      "normalWallSmoke": 0,
+      "normalWallFlames": 0,
+      "groundFire": 0,
+      "worldTime": 0.15,
+      "exposure": 1,
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        52.99958607942295,
+        15.53355763853973,
+        -38.307743179414764,
+        0.9999999999999998
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "12-short-peak",
+      "heatFraction": 0.794250000000002,
+      "fixtureIgnition": false,
+      "replayed": {
+        "heatFraction": 0.794250000000002,
+        "ageFromMatch": 1.2499999999999998,
+        "sourceBurning": false,
+        "siteBurning": false
+      },
+      "warning": {
+        "sites": 1,
+        "splats": 3,
+        "maxSites": 12,
+        "maxSplats": 36
+      },
+      "normalWallSmoke": 0,
+      "normalWallFlames": 0,
+      "groundFire": 0,
+      "worldTime": 1.4166666666666665,
+      "exposure": 1,
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        52.99958607942295,
+        15.53355763853973,
+        -38.307743179414764,
+        0.9999999999999998
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "13-short-cooling",
+      "heatFraction": 0.5767500000000066,
+      "fixtureIgnition": false,
+      "replayed": {
+        "heatFraction": 0.5767500000000066,
+        "ageFromMatch": 4.14999999999999,
+        "sourceBurning": false,
+        "siteBurning": false
+      },
+      "warning": {
+        "sites": 1,
+        "splats": 3,
+        "maxSites": 12,
+        "maxSplats": 36
+      },
+      "normalWallSmoke": 0,
+      "normalWallFlames": 0,
+      "groundFire": 0,
+      "worldTime": 4.316666666666657,
+      "exposure": 1,
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        52.99958607942295,
+        15.53355763853973,
+        -38.307743179414764,
+        0.9999999999999998
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "14-short-cooled",
+      "heatFraction": 0,
+      "fixtureIgnition": false,
+      "replayed": {
+        "heatFraction": 0,
+        "ageFromMatch": 11.850000000000177,
+        "sourceBurning": false,
+        "siteBurning": false
+      },
+      "warning": {
+        "sites": 0,
+        "splats": 0,
+        "maxSites": 12,
+        "maxSplats": 36
+      },
+      "normalWallSmoke": 0,
+      "normalWallFlames": 0,
+      "groundFire": 0,
+      "worldTime": 12.016666666666843,
+      "exposure": 1,
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        52.99958607942295,
+        15.53355763853973,
+        -38.307743179414764,
+        0.9999999999999998
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "21-long-preheat",
+      "heatFraction": 0.9997500000000026,
+      "fixtureIgnition": false,
+      "replayed": {
+        "heatFraction": 0.9997500000000026,
+        "ageFromMatch": 1.5499999999999987,
+        "sourceBurning": true,
+        "siteBurning": false
+      },
+      "warning": {
+        "sites": 1,
+        "splats": 3,
+        "maxSites": 12,
+        "maxSplats": 36
+      },
+      "normalWallSmoke": 0,
+      "normalWallFlames": 0,
+      "groundFire": 2,
+      "worldTime": 1.733333333333332,
+      "exposure": 1,
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.15963217933906,
+        15.405375344726998,
+        -38.16472379102793,
+        0.9999999999999998
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "22-long-ignition",
+      "heatFraction": 0,
+      "fixtureIgnition": false,
+      "replayed": {
+        "heatFraction": 0,
+        "ageFromMatch": 2.1666666666666634,
+        "sourceBurning": true,
+        "siteBurning": true
+      },
+      "warning": {
+        "sites": 3,
+        "splats": 8,
+        "maxSites": 12,
+        "maxSplats": 36
+      },
+      "normalWallSmoke": 1,
+      "normalWallFlames": 6,
+      "groundFire": 2,
+      "worldTime": 2.3499999999999965,
+      "exposure": 1,
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.15963217933906,
+        15.405375344726998,
+        -38.16472379102793,
+        0.9999999999999998
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    }
+  ]
+}
