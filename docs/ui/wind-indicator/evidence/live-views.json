@@ -1,0 +1,111 @@
+{
+  "routes": {
+    "windDesktop": {
+      "canvas": [
+        1280,
+        494
+      ],
+      "kind": "direction",
+      "label": "Wind blowing toward the lower right of the ground plan.",
+      "map": {
+        "bottom": 206.1875,
+        "height": 194.1875,
+        "left": 1116,
+        "right": 1268,
+        "top": 12,
+        "width": 152,
+        "x": 1116,
+        "y": 12
+      },
+      "mode": "gameplay",
+      "rotation": "rotate(49.99973686255565 14 14)",
+      "sixControls": 6,
+      "viewport": [
+        1280,
+        800,
+        1
+      ]
+    },
+    "windPhone": {
+      "canvas": [
+        390,
+        420
+      ],
+      "kind": "direction",
+      "label": "Wind blowing toward the lower right of the ground plan.",
+      "map": {
+        "bottom": 172.78125,
+        "height": 160.78125,
+        "left": 266,
+        "right": 378,
+        "top": 12,
+        "width": 112,
+        "x": 266,
+        "y": 12
+      },
+      "mode": "gameplay",
+      "rotation": "rotate(49.99973686255565 14 14)",
+      "sixControls": 6,
+      "viewport": [
+        390,
+        844,
+        1
+      ]
+    },
+    "calmPhone": {
+      "canvas": [
+        390,
+        420
+      ],
+      "kind": "calm",
+      "label": "Wind: calm.",
+      "map": {
+        "bottom": 172.78125,
+        "height": 160.78125,
+        "left": 266,
+        "right": 378,
+        "top": 12,
+        "width": 112,
+        "x": 266,
+        "y": 12
+      },
+      "mode": "gameplay",
+      "rotation": null,
+      "sixControls": 6,
+      "viewport": [
+        390,
+        844,
+        1
+      ]
+    },
+    "streetPhone": {
+      "canvas": [
+        390,
+        420
+      ],
+      "kind": "calm",
+      "label": "Wind: calm.",
+      "map": {
+        "bottom": 172.78125,
+        "height": 160.78125,
+        "left": 266,
+        "right": 378,
+        "top": 12,
+        "width": 112,
+        "x": 266,
+        "y": 12
+      },
+      "mode": "gameplay",
+      "rotation": null,
+      "sixControls": 6,
+      "viewport": [
+        390,
+        844,
+        1
+      ]
+    }
+  },
+  "calmErrors": [],
+  "streetErrors": [],
+  "review": "Production title and map route with the game canvas. No injected renderer or test snapshot."
+}

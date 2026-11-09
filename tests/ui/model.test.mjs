@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf, navigationOf, doorInteractionOf, lanternAimOf} from '../../src/ui/model.js';
 import {fixture} from '../../workbenches/ui/fixtures.js';
+import {windView} from '../../src/ui/wind.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 test('five tool IDs and effect definitions preserve the scene contract', () => {
   assert.deepEqual(TOOLS.map(tool => tool.id), ['matches','jerry-can','molotov','torch','flamethrower']);
@@ -128,4 +129,14 @@ test('lantern aim is authoritative, copied and unavailable on legacy snapshots',
   aim.adjusting=false;aim.canThrow=true;assert.equal(viewOf(snap).primaryDisabled,false);
   snap.player.inventory.molotovs=0;assert.equal(viewOf(snap).primaryDisabled,true);
   snap.player.tool='flamethrower';assert.equal(viewOf(snap).lanternAim,null);assert.match(viewOf(snap).toolHint,/where you face/);
+});
+
+test('the wind vane points downwind on the plan and separates calm from missing data', () => {
+  assert.equal(windView({x:2,y:0}).angle,0);
+  assert.equal(windView({x:0,y:2}).angle,90);
+  assert.equal(windView({x:-2,y:-2}).angle,-135);
+  assert.match(windView({x:1,y:2}).description,/toward the lower right/);
+  assert.deepEqual(windView({x:0,y:0}),{angle:null,description:'Wind: calm.'});
+  assert.equal(windView(null),null);
+  assert.equal(windView({x:NaN,y:2}),null);
 });

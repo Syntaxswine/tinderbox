@@ -263,3 +263,21 @@
   .tb-lantern-landing .tb-landing-ring,.tb-lantern-landing path { stroke:CanvasText; }
   .tb-lantern-landing .tb-landing-outline { stroke:Canvas; }
 }
+
+/* The vane belongs to the ground plan, so its direction follows the plan's axes. */
+.tb-wind {
+  display:flex; justify-content:center; align-items:center; gap:5px;
+  border-top:1px solid #c8a16b80; margin-top:4px; padding-top:2px;
+}
+.tb-wind svg { width:26px; height:26px; flex:none; }
+.tb-wind-dial { fill:#f3dfb1; stroke:#9c703e; stroke-width:1.25; }
+.tb-wind-ticks { fill:none; stroke:#a58152; stroke-width:1; }
+.tb-wind-mark { fill:#352314; }
+.tb-wind-copy { display:grid; justify-items:start; color:var(--ink); }
+.tb-wind-copy b { font:700 9px/1.2 var(--label); letter-spacing:.85px; }
+.tb-wind-copy small { font:400 11px/1.05 var(--text); letter-spacing:0; color:var(--muted); }
+@media(forced-colors:active) {
+  .tb-wind-dial { fill:Canvas; stroke:CanvasText; }
+  .tb-wind-ticks { stroke:CanvasText; }
+  .tb-wind-mark { fill:CanvasText; }
+}

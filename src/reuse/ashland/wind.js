@@ -9,8 +9,9 @@ export function translateCottageWind(bake){
   const local=makeHouseWindSampler(bake);
   return (x,y,z,out)=>local(x-COTTAGE_ORIGIN.x,y,z-COTTAGE_ORIGIN.z,out);
 }
-export async function loadCottageWind(mode,signal){
-  if(mode==='calm')return calmCottageWind;
+// One checked payload serves both the fire's local sampler and the HUD's prevailing flow.
+export async function loadCottageWeather(mode,signal){
+  if(mode==='calm')return {sampleWind:calmCottageWind,prevailing:{x:0,y:0}};
   if(mode!=='wind')throw Error('Unknown cottage wind mode');
   const response=await fetch(PAIR_WIND_URL,{signal});
   if(!response.ok)throw Error('The Ashland wind field could not be loaded.');
@@ -18,5 +19,11 @@ export async function loadCottageWind(mode,signal){
   const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw))),b=>b.toString(16).padStart(2,'0')).join('');
   if(hash!==PAIR_WIND_SHA256)throw Error('Unexpected Ashland wind bake.');
   if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-  return translateCottageWind(JSON.parse(raw));
+  const bake=JSON.parse(raw),flow=bake.unobstructedInflowAt3m;
+  const prevailing=Array.isArray(flow)&&Number.isFinite(flow[0])&&Number.isFinite(flow[2])?
+    {x:flow[0],y:flow[2]}:null;
+  return {sampleWind:translateCottageWind(bake),prevailing};
+}
+export async function loadCottageWind(mode,signal){
+  return (await loadCottageWeather(mode,signal)).sampleWind;
 }

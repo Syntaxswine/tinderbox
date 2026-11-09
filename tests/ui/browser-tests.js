@@ -4,13 +4,14 @@ import {runMovementChecks} from './movement-checks.js';
 import {mountUI,mountMainMenu,mountTitleScreen,createInterfacePreferences} from '../../src/ui/index.js';
 import {fixture,createFakeSnapshotAdapter,PLACE_FIXTURES,CHARACTER_FIXTURES,explorationFixture} from '../../workbenches/ui/fixtures.js';
 import {createSimulation} from '../../src/simulation/index.js';
+import {loadCottageWeather} from '../../src/reuse/ashland/wind.js';
 const host=document.querySelector('#fixture-root'),results=[];
 const equal=(a,b,message='Values differ')=>{if(JSON.stringify(a)!==JSON.stringify(b))throw Error(message+': '+JSON.stringify(a)+' != '+JSON.stringify(b));};
 const ok=(value,message)=>{if(!value)throw Error(message);};
 function deepFreeze(value){Object.freeze(value);for(const item of Object.values(value))if(item&&typeof item==='object'&&!Object.isFrozen(item))deepFreeze(item);return value;}
-function make(name='ready',zoom=true,preferences){
+function make(name='ready',zoom=true,preferences,{wind}={}){
   const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
-  const commands=[],zooms=[],ui=mountUI({root,preferences,onCommand:c=>commands.push(c),...(zoom?{onZoom:f=>zooms.push(f)}:{})});
+  const commands=[],zooms=[],ui=mountUI({root,preferences,wind,onCommand:c=>commands.push(c),...(zoom?{onZoom:f=>zooms.push(f)}:{})});
   const snapshot=fixture(name);snapshot.player.lanternAim=null;
   ui.update(deepFreeze(snapshot));return{root,commands,zooms,ui,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
 }
@@ -501,6 +502,31 @@ await check('The four current test maps request distinct IDs and restore their o
   }finally{menu.close();}
 });
 
+await check('Ground-plan wind reads the checked prevailing flow, fits the HUD, and distinguishes calm',async s=>{
+  ok(!s.find('[data-wind]'),'Missing weather displayed as a reading');
+  const weather=await loadCottageWeather('wind');
+  equal(weather.prevailing,{x:1.429,y:1.703});
+  ok(weather.sampleWind(52.84,1,13.5)[2]<0,'Expected the pinned local recirculation at spawn');
+  const calm=await loadCottageWeather('calm');
+  const cases=[[weather.prevailing,'direction'],[calm.prevailing,'calm']];
+  for(const [wind,kind] of cases){
+    const fixture=make('ready',true,undefined,{wind});
+    try{
+      const plate=fixture.find('[data-wind]'),plan=fixture.find('.tb-map').getBoundingClientRect();
+      equal(plate.dataset.wind,kind);
+      ok(getComputedStyle(plate).pointerEvents==='none','The vane intercepted input');
+      const frame=fixture.root.getBoundingClientRect(),vitals=fixture.find('.tb-vitals').getBoundingClientRect();
+      ok(plan.left>=vitals.right&&plan.right<=frame.right&&plan.bottom<fixture.find('.tb-console').getBoundingClientRect().top,'The plan or vane overlaps the HUD');
+      if(kind==='calm'){ok(plate.textContent.includes('Calm'),'No calm text');equal(plate.querySelector('.tb-wind-mark').getAttribute('transform'),null);}
+      else{
+        ok(plate.getAttribute('aria-label').includes('lower right of the ground plan'),'Vane not labelled in plan coordinates');
+        const angle=Number(plate.querySelector('.tb-wind-mark').getAttribute('transform').split(/[ (]/)[1]);
+        ok(angle>49&&angle<51,'The arrow points away from the checked downwind direction');
+      }
+      equal(fixture.root.querySelectorAll('.left-controls button,.right-controls button').length,6);
+    }finally{fixture.close();}
+  }
+});
 results.push(...await runMovementChecks(host));
 results.push(...await runDoorChecks(host));
 results.push(...await runLanternChecks(host));

@@ -2,6 +2,7 @@ import {mountDoorAction} from './door-action.js';
 import {mountLanternPreview} from './lantern-preview.js';
 import {ETCHING_SIZE, ETCHING_FRAMES, OIL_LANTERN_SIZE, OIL_LANTERN_FRAME, OIL_BARREL_SIZE, OIL_BARREL_FRAME} from './etching-frames.js';
 import {mountMap} from './map.js';
+import {mountWindIndicator} from './wind.js';
 import {bindInterfacePreferences, interfacePreferences} from './preferences.js';
 import {TOOLS, normalizeStick, pointerStick, stockText, viewOf, toolFeedbackOf, navigationOf, lanternHint} from './model.js';
 export {mountMainMenu} from './main-menu.js';
@@ -45,7 +46,7 @@ const markup = '<header class="tb-top">' +
   '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Tap tool · Space for selected tool</dd></div><div><dt>Medicine</dt><dd>Walk over it to use it</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Tap Oil barrel to start or stop pouring. Tap Torch to light, then tap to ignite nearby fuel. Press Oil lantern to aim, drag the stick, release, then press Throw lantern. Escape cancels aim. Hold Flamethrower to spray where you face. Walk over drugs or medicine to use them. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
-export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
+export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, wind, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
   if (!root?.ownerDocument || typeof onCommand !== 'function') throw new TypeError('mountUI requires a DOM root and onCommand callback.');
   if(!['gameplay','explore'].includes(mode))throw new TypeError('Unknown UI mode.');
   const exploring=mode==='explore',hasExit=typeof onExitToMenu==='function';
@@ -64,6 +65,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   const unbindPreferences=bindInterfacePreferences(shell,preferences);
   const stick=find('[data-stick]'),thumb=find('.tb-stick-thumb'),pause=find('[data-pause]'),menuElement=find('[data-menu]'),map=mountMap(find('[data-map]'),{label:exploring?'Place plan':'Ground plan',playerLabel:exploring?'Player':'Bear'});
   const lanternPreview=exploring?null:mountLanternPreview({root,shell,onProjectInteraction});
+  if(!exploring)mountWindIndicator(find('.tb-map figcaption'),wind);
   if(!exploring)find('.tb-console').insertAdjacentHTML('afterbegin',
     '<div class="tb-lantern-guide" data-lantern-guide hidden><span id="tb-lantern-hint'+suffix+'" data-lantern-hint></span><button type="button" data-cancel-aim title="Cancel aim (Esc)">Cancel aim</button></div>');
   const cancelAim=find('[data-cancel-aim]'),stickCaption=find('.tb-stick-caption');

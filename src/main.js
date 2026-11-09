@@ -57,10 +57,10 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
       if(place.id==='catalogue-street'){
         const [{createRuntime},{createArtScene}]=await Promise.all([import('./runtime/index.js'),import('./art/index.js')]);
         const cottageMode=catalogueCottageMode(win.location?.search);
-        const cottageWind=cottageMode?await (await import('./reuse/ashland/wind.js')).loadCottageWind(cottageMode,visitOptions.signal):undefined;
-        return createRuntime({root:viewport,uiRoot:hud,scenario:cottageMode?COTTAGE_PAIR_SCENARIO:'neighborhood',cottageWind,
+        const weather=cottageMode?await (await import('./reuse/ashland/wind.js')).loadCottageWeather(cottageMode,visitOptions.signal):null;
+        return createRuntime({root:viewport,uiRoot:hud,scenario:cottageMode?COTTAGE_PAIR_SCENARIO:'neighborhood',cottageWind:weather?.sampleWind,
           config:cottageMode?{input:{cameraY:-12}}:undefined,seed:1893,mountUI:ui.mountUI,createArtScene,autoStart,onSnapshot,...visitOptions,
-          uiOptions:{mode:'gameplay',placeTitle:place.title,onExitToMenu:visitOptions.onExitToMenu}});
+          uiOptions:{mode:'gameplay',placeTitle:place.title,onExitToMenu:visitOptions.onExitToMenu,wind:weather?weather.prevailing:{x:0,y:0}}});
       }
       const {createLandmarkRuntime}=await import('./runtime/landmark.js');return createLandmarkRuntime({place,root:viewport,uiRoot:hud,mountUI:ui.mountUI,autoStart,onSnapshot,...visitOptions});
     })});

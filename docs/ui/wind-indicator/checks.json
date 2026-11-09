@@ -1,0 +1,132 @@
+{
+  "base": "e2dd5ffb750d8a40ce9d4dd3c72ba30001841cd2",
+  "preservedUiCheckpoint": "2f80e8cb02a67615447e84d0539ebe02e729ce60",
+  "source": {
+    "installedPath": "assets/art/ashland-pair/pair-wind.json",
+    "sourceCommit": "4ef13e738845f9bd35aed35ea982ea4f0cbc210a",
+    "sourcePath": "packages/wind-core",
+    "sha256": "458314f7ef202d32481a48f4447b46a9e7693080d21c73aadbf87123ef88761b",
+    "prevailingVectorXHeightZ": [
+      1.429,
+      0,
+      1.703
+    ],
+    "modified": false
+  },
+  "offline": {
+    "node tools/check.mjs": {
+      "testsPassed": 222,
+      "scripts": 182,
+      "staticModules": 217,
+      "artImports": 5,
+      "artSyntaxDependencyChecks": 45,
+      "provenance": "pass"
+    },
+    "node tools/build.mjs": {
+      "files": 3485,
+      "bytes": 163876191
+    },
+    "node tools/check-release.mjs": {
+      "verifiedFiles": 3485,
+      "manifestSha256": "a3a5c001b223326d176140819f52097523b9926e3a3c1efe0ce0db43a5897b09"
+    }
+  },
+  "browser": {
+    "domSuites": [
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 800,
+          "width": 1280
+        },
+        "passed": 103,
+        "total": 103,
+        "failed": [],
+        "windCheck": {
+          "name": "Ground-plan wind reads the checked prevailing flow, fits the HUD, and distinguishes calm",
+          "status": "pass"
+        }
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        },
+        "passed": 103,
+        "total": 103,
+        "failed": [],
+        "windCheck": {
+          "name": "Ground-plan wind reads the checked prevailing flow, fits the HUD, and distinguishes calm",
+          "status": "pass"
+        }
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        },
+        "passed": 103,
+        "total": 103,
+        "failed": [],
+        "windCheck": {
+          "name": "Ground-plan wind reads the checked prevailing flow, fits the HUD, and distinguishes calm",
+          "status": "pass"
+        }
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        },
+        "passed": 103,
+        "total": 103,
+        "failed": [],
+        "windCheck": {
+          "name": "Ground-plan wind reads the checked prevailing flow, fits the HUD, and distinguishes calm",
+          "status": "pass"
+        }
+      }
+    ],
+    "productionRoute": "Play → Catalogue Street, actual game canvas and normal menu flow, no injected renderer or snapshot",
+    "liveRecord": "evidence/live-views.json",
+    "physicalPhone": false,
+    "screenshots": [
+      {
+        "file": "evidence/desktop-wind.jpg",
+        "viewport": [
+          1280,
+          800
+        ],
+        "sha256": "a7ae7bdb9a3085e29864fc858a1d8d958919c6e0a3f7ec3a696468ea8ec21683"
+      },
+      {
+        "file": "evidence/phone-wind.jpg",
+        "viewport": [
+          390,
+          844
+        ],
+        "sha256": "aed6cbcf50ccd09ee3ecea3ab345fd3e7799edc53b70522370365805fb3f73d3"
+      },
+      {
+        "file": "evidence/phone-calm.jpg",
+        "viewport": [
+          390,
+          844
+        ],
+        "sha256": "489608d5d2768d487d74eed3b32b3dc955034900b3143f272c6db63be3ddad9d"
+      }
+    ]
+  },
+  "helper": {
+    "port": 4552,
+    "originalExited": true,
+    "portReleased": true,
+    "retained": false,
+    "browserClosed": true,
+    "preservedFiles": 22,
+    "receipt": "Ignored local artifacts/wind-indicator-ui/helper/cleanup-receipt.json"
+  }
+}
