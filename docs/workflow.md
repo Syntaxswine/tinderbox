@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/contextual-doors` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | TB-033: contextual-door contract, exact intake, combined QC and promotion |
-| Artist | `codex/medicine-pickup-art` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Completed access/medicine candidates; no new art assigned for door correction |
-| Coder | Assigned `codex/contextual-doors-coder` from `99b95b0` | `C:/Users/baals/.codex/worktrees/coding/tinderbox` | TB-031: authoritative reachable door actions and camera projection; preserve gallery WIP separately |
+| Architect | `codex/review-shared-fire` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Shared fire contract, combined QC and promotion |
+| Artist | `codex/shared-firelight-art` from `080634a` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Street lighting and structural fire presentation |
+| Coder | `codex/shared-structural-fire-coder` from `080634a` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Shared combustion, native surface topology, tools and behavior checks |
 | UI designer | Assigned `codex/contextual-doors-ui` from `99b95b0` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-032: floating Open/Close button and actual browser input evidence |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current focused correction is [Milestone 10](milestones/10-contextual-doors.md), from published `99b95b0`. TB-031 and TB-032 are assigned to the existing coder/UI workers; TB-033 is the architect's combined gate. The completed movement correction remains part of the base. No gallery WIP or new asset intake belongs to this task.
+The current focused correction is [Milestone 12](milestones/12-shared-fire.md), from published `080634a`. The architect checks the shared fire behavior and lighting on Catalogue Street and the Ashland pair. [Milestone 10](milestones/10-contextual-doors.md) records the preceding door assignment, and the movement and door corrections remain part of the base.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
