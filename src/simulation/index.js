@@ -221,8 +221,9 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for (const actor of state.actors) actorStep(actor, worldDelta);
     projectilesStep(state, field, config, worldDelta, event,cottages);
     ageTorch(state, config, worldDelta, event);
+    cottages?.exchangeGround(field,worldDelta,state.clocks.world);
     field.step(worldDelta, state.clocks.world, event); barrels();
-    cottages?.step(worldDelta,state.clocks.world,field,event);
+    cottages?.step(worldDelta,state.clocks.world,event);
     for (const result of state.ignitionResults) result.record.result = result.cells.some(cell => cell.phase === 'burning') ? 'ignited' : 'heated';
     state.ignitionResults = [];
     for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');

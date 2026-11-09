@@ -6,7 +6,9 @@ export const DEFAULT_CONFIG = Object.freeze({
   drugs: {duration: 8, playerScale: 1.5, worldScale: 0.35, healing: 35},
   fuel: {gasPerMetre: 0.08, gasBurnRate: 0.018, surfaceBurnRate: 0.025, surfaceDensity: {grass: 0.32, wood: 1.2}},
   fire: {frontSpeed: 4, heatRate: 40, cooling: 0.3, damagePerSecond: 18,
-    propagation: {gas: {speedScale: 1, heatScale: 1}, grass: {speedScale: .5, heatScale: .65}, wood: {speedScale: .2, heatScale: .35}},
+    // Source output and receiving response are independent of the ignition threshold.
+    propagation: {gas: {speedScale: 1, heatScale: 1, receiveScale: 1},
+      grass: {speedScale: .5, heatScale: .15, receiveScale: 1}, wood: {speedScale: .2, heatScale: 1.1, receiveScale: .035}},
     ignition: {gas: 0.6, grass: 0.85, wood: 1.1}, maxHeat: 4, burnHeat: 1.5, minIntensity: 0.5, intensityRise: 3, damageHeatStart: 0.4, damageHeatSpan: 1.6},
   tools: {
     emissionClock: 'player', presentationHeight: 1.05, matches: {range: 0.85, heat: 1.8},

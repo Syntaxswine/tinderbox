@@ -1,5 +1,6 @@
 import {clamp, distance, inObstacle, lineClear, rasterSegments, impactPoint} from './geometry.js';
 const EPS = 1e-10;
+export const activeFuel = cell => cell.depositedFuel > EPS ? 'gas' : cell.material;
 export function materialAt(def, p) {
   let material = 'paving';
   for (const patch of def.patches || []) if (p.x >= patch.x && p.x < patch.x + patch.width && p.y >= patch.y && p.y < patch.y + patch.depth) material = patch.material;
@@ -100,23 +101,28 @@ export class HeatField {
       cell.heat = Math.min(this.config.fire.maxHeat, cell.heat + heat); cell.cause = cause;
     }
   }
+  heatOutput(material) {
+    const {fire} = this.config;
+    return fire.heatRate * (fire.propagation[material] ?? fire.propagation.wood).heatScale;
+  }
   step(delta, worldTime, event) {
     const {fire, fuel} = this.config; this.delta.fill(0);
     // Only sources burning before this pass can transfer heat. Each edge also
     // waits for its world-time travel deadline: no connected-component flood fill.
     for (let i = 0; i < this.cells.length; i++) {
       const source = this.cells[i]; if (source.phase !== 'burning') continue;
-      const sourcePolicy = fire.propagation[source.depositedFuel > EPS ? 'gas' : source.material] || fire.propagation.wood;
+      const material = activeFuel(source), sourcePolicy = fire.propagation[material] ?? fire.propagation.wood;
+      const output = this.heatOutput(material);
       for (const neighbour of this.neighbours[i]) {
         const target = this.cells[neighbour.index];
         // Keep the two wood surfaces independent at a shared party wall,
         // including subcells whose centres fall just outside the native rim.
         if(source.surfaceFuel>EPS&&target.surfaceFuel>EPS&&source.houseParty?.neighbors.has(target.houseParty?.id))continue;
-        const targetPolicy = fire.propagation[target.depositedFuel > EPS ? 'gas' : target.material] || fire.propagation.wood;
+        const targetPolicy = fire.propagation[activeFuel(target)] ?? fire.propagation.wood;
         const speed = fire.frontSpeed * Math.min(sourcePolicy.speedScale, targetPolicy.speedScale);
         if (target.surfaceFuel + target.depositedFuel <= EPS || target.phase === 'burning' ||
             worldTime + EPS < source.ignitedAt + neighbour.distance / speed || !lineClear(source, target, this.obstacles)) continue;
-        this.delta[neighbour.index] += fire.heatRate * Math.min(sourcePolicy.heatScale, targetPolicy.heatScale) / neighbour.distance * Math.max(fire.minIntensity, source.intensity) * delta;
+        this.delta[neighbour.index] += output * targetPolicy.receiveScale / neighbour.distance * delta;
         if (!target.cause) target.cause = source.id;
       }
     }
@@ -139,8 +145,11 @@ export class HeatField {
         const threshold = cell.depositedFuel > EPS ? fire.ignition.gas : fire.ignition[cell.material] ?? Infinity;
         if (total > EPS && cell.heat >= threshold) {
           cell.phase = 'burning'; cell.ignitedAt = worldTime; cell.intensity = fire.minIntensity;
-          event('ignition', cell, {cellId: cell.id, cause: cell.cause});
-        } else if (cell.phase !== 'spent') cell.phase = cell.heat > 0.03 ? 'heating' : 'cold';
+          event('ignition', cell, {cellId: cell.id, cause: cell.cause, heat: cell.heat});
+        } else if (cell.phase !== 'spent') {
+          cell.phase = cell.heat > 0.03 ? 'heating' : 'cold';
+          if (cell.heat <= EPS) cell.cause = null;
+        }
       }
     }
   }

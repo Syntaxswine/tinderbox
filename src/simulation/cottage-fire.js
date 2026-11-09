@@ -1,9 +1,11 @@
 import {COTTAGE_IDS,COTTAGE_ORIGIN,COTTAGE_OFFSET} from '../content/cottage-pair.js';
 import {firstHeatContact,distance,lineClear} from './geometry.js';
+import {activeFuel} from './field.js';
 import {WIDTH,DEPTH,UPPER,EAVE,RIDGE,RIM,PITCH,OVERHANG,roofHeight,roofNormal,tileIndex,makeTiles,createCottageTopology} from './cottage-topology.js';
 
 export const COTTAGE_BURN_SECONDS=30, COTTAGE_EMBER_LIMIT=84;
 const EPS=1e-8, IGNITION=1, EMBER_IGNITION=.30, MAX_FLIGHT=9.35;
+const groundContacts=[[.38,.024],[.84,.018]];
 const spentAfter={walls:16,roof:11,upper:11,lower:10};
 const cap=(x,lo=0,hi=1)=>Math.max(lo,Math.min(hi,x));
 const lerp=(a,b,t)=>a+(b-a)*t;
@@ -144,15 +146,30 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
       site.burnSeconds=Math.max(spentAfter.lower,lot.deadline-time);
     }
     event('cottage-ignition',p,{buildingId:lot.building.id,cellId:site.id,layer:site.layer,face:site.face,
-      worldTime:time,cause:site.ignitionKind,parentCellId:site.parentId,sourceId:site.cause?.sourceId??null});
+      worldTime:time,cause:site.ignitionKind,parentCellId:site.parentId,sourceId:site.cause?.sourceId??null,heat:site.heat});
   }
-  function exposeFromGround(lot,field,dt){
-    for(const s of lot.walls){
-      if(s.band||s.phase==='burning'||!present(lot,s))continue;
-      const w=point(lot,s),edge={x:w.x+s.nx*.12,y:w.y+s.nz*.12};
-      for(const d of [.38,.84]){
-        const cell=field.at({x:w.x+s.nx*d,y:w.y+s.nz*d});
-        if(cell?.phase==='burning'&&lineClear(cell,edge,obstacles))heat(lot,s,dt*.66*cell.intensity,{kind:'ground-heat',cellId:cell.id});
+  function exchangeGround(field,dt,time){
+    const sidingOutput=field.heatOutput('wood');
+    for(const lot of lots){
+      if(lot.building.destroyed||lot.deadline!==null&&time+EPS>=lot.deadline)continue;
+      for(const s of lot.walls){
+        if(s.band||s.phase==='spent'||!present(lot,s))continue;
+        const wallBurning=s.phase==='burning';
+        if(wallBurning&&time-s.ignitedAt>=burnDuration(s))continue;
+        const w=point(lot,s),edge={x:w.x+s.nx*.12,y:w.y+s.nz*.12};
+        let previous;
+        for(const [distance,coupling] of groundContacts){
+          const cell=field.at({x:w.x+s.nx*distance,y:w.y+s.nz*distance});
+          if(!cell||cell===previous)continue;
+          previous=cell;
+          if(wallBurning){
+            if(cell.phase!=='burning'&&cell.surfaceFuel+cell.depositedFuel>EPS){
+              field.seed(edge,[cell],dt*coupling*sidingOutput,'cottage-siding');
+            }
+          }else if(cell.phase==='burning'&&lineClear(cell,edge,obstacles)){
+            heat(lot,s,dt*coupling*field.heatOutput(activeFuel(cell)),{kind:'ground-heat',cellId:cell.id});
+          }
+        }
       }
     }
   }
@@ -254,7 +271,7 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
       else Object.assign(a,b,{vx,vy,vz,heat:currentHeat});
     }
   }
-  function step(dt,time,field,event){
+  function step(dt,time,event){
     for(const lot of lots){
       if(lot.building.destroyed)continue;
       if(lot.deadline!==null&&time+EPS>=lot.deadline){
@@ -267,7 +284,6 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
     transport(dt,time,event);
     for(const lot of lots){
       if(lot.building.destroyed)continue;
-      exposeFromGround(lot,field,dt);
       moveDebris(lot,time,event);
       // Only already-burning sources transfer during this tick. Several paths
       // may heat the same target; cooling wins when they are too weak.
@@ -302,7 +318,9 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
         state:d.landedAt===null?'falling':'landed',ignitionTime:d.ignitionTime,flame:d.heat*(1-cap((time-d.releaseTime-1.3)/2.7)),
         smoke:.4*d.heat*(1-cap((time-d.releaseTime-1.7)/2.3))}))
     })),embers:embers.map(({id,x,y,z,vx,vy,vz,heat,sourceBuildingId})=>({id,x,y,z,vx,vy,vz,heat,sourceBuildingId})),
-    diagnostics:{launches,hotRoofContacts,coolRoofContacts,misses,maxEmbers:COTTAGE_EMBER_LIMIT}};
+    diagnostics:{launches,hotRoofContacts,coolRoofContacts,misses,maxEmbers:COTTAGE_EMBER_LIMIT,sidingIgnitionHeat:IGNITION,
+      warmingSiding:lots.flatMap(lot=>lot.walls.filter(s=>!s.band&&s.phase==='cold'&&s.heat>EPS&&present(lot,s))
+        .map(s=>({buildingId:lot.building.id,cellId:s.id,heat:s.heat})))}};
   }
-  return {igniteSiding,heatSurface,heatDischarge,step,snapshot};
+  return {igniteSiding,heatSurface,heatDischarge,exchangeGround,step,snapshot};
 }
