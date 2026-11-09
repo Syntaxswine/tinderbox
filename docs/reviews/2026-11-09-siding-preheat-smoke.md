@@ -1,0 +1,19 @@
+# Siding smoke before ignition
+
+Approved for Pages after a normal-menu night playtest. Heated siding emits small gray wisps that strengthen as it approaches ignition. They fade with retained heat after the nearby fire goes out. Ordinary flame and smoke take over at a site when it catches.
+
+## Intake
+
+- Published base `7ba748719f848d3e41020d3f6e7d4ecbac378264`.
+- Coder final `a49a92a19d54d38b54c90f4e2f902c0c51f6db55`. The existing world-time heat now reaches the renderer. Ordinary housing can warn again when surviving wood reheats after a local fire. The [simulation handoff](../engineering/siding-preheat.md) records the field shapes and focused tests.
+- Artist final `4d60bc58d8617b7e4cb0a3f152001c216a1f35a6`, taken as `b33d489443ed9eed4c7603be8d8740db0556c1d7`. The shared renderer uses native Ashland wall sites and the closest exposed exterior anchor in the ordinary housing section. The [art handoff](../art/siding-preheat/README.md) records the placement, tuning, replay and JPGs.
+- The diff is scoped to the smoke cue, its snapshot fields, focused tests and review evidence. The empty path diff for `assets`, `vendor`, `src/reuse` and `docs/source-baseline.json` and the provenance check verify the existing pins.
+
+## Combined review
+
+- `node tools/check.mjs` passed 207 tests, 170 script syntax checks, 205 static module checks, the shared Three check and provenance. `node tools/build.mjs` and `node tools/check-release.mjs` verified 3,475 files and 163,820,645 bytes at the nested project URL. The manifest SHA-256 is `65d7a36b231e5a6c2fda28c639e231d4f8cbe2f6a6d7becaa20c51a6d93f1cb9`.
+- An independent deterministic replay compared ground fuel, heat, fire and Ashland masks, heat and combustion to the published build. Both pour traces matched the published solver. In the short trace the selected wall peaked at 0.849 of its ignition heat, still had 0.849 when the paving burned out and had cleared its preheat entry by 14 seconds. In the longer trace the site began burning 1.567 world seconds after the paving ignition. The preheat sample and active fire never coexisted for that wall ID.
+- In the combined WebGL build, the architect entered **Play → Bear → Catalogue Street** with `?cottages=calm` and used the Oil barrel, movement stick, scene aim and Matches at default night zoom. The light pour ignited one paving cell and left the siding standing. With ground fire already out, a small wisp was visible on the wall in the capture around 2.4 seconds after the match. It weakened around 6 seconds and cleared by 14 seconds. A longer pour produced visible siding flame and ordinary smoke that persisted after the paving went dark. The ground plan counts ground cells, so the ignition and cooling decisions used the wall frames directly. The browser reported zero console errors.
+- The ordinary Hopkins route verifies normalized heat and clears the sample on real ignition. A focused test also verifies the sample returns for surviving wood after local flameout and clears on support loss. The artist reviewed ordinary house anchor placement in the fixture and ran the playable Ashland sequences at the same default zoom. [Cold](../art/siding-preheat/previews/11-short-cold.jpg), [warm](../art/siding-preheat/previews/12-short-peak.jpg), [cooling](../art/siding-preheat/previews/13-short-cooling.jpg), [cooled](../art/siding-preheat/previews/14-short-cooled.jpg) and [ignited](../art/siding-preheat/previews/22-long-ignition.jpg) frames are in the art handoff. Independent captures and timestamps are in local `artifacts/qa/siding-smoke/architect-b33d489/`.
+
+The opacity curve starts above 0.43 of ignition heat. One depth-tested batch draws up to 12 onscreen sites and 36 splats, prioritizing hotter siding. The release is scoped to exterior siding on Catalogue Street, including the Ashland cottage test. The temporary preview tab and server were closed and port 4555 was released.
