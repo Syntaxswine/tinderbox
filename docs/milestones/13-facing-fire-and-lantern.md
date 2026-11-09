@@ -1,0 +1,13 @@
+# Flamethrower facing and lantern aim
+
+The published build `192d3ba0ea8ae2a30e74960be3508ecc363ae3e6` takes the flamethrower heading from the stored cursor position at emission. At the Ashland spawn that turns the first cone from west to east. The lantern spends one on its first press and launches toward the stored cursor position.
+
+While the flamethrower is held, the cone and heat follow the avatar's facing. Movement turns the avatar, including while firing. A fresh scene tap with the tool equipped can also turn the avatar. Cursor hover keeps the current facing. The existing fuel rate, clipped fan and contacts govern the actual fire.
+
+The lantern uses the grenade interaction in the pinned Farmyard and Animal Factory Tactics solo build. Its `sites/tactical-animal/dist/app.js` arms and commits the grenade. Its `grenade-controls.js` uses a dead zone and scales reach by stick displacement. The source is commit `30a3b8cae5f36bb0c1df3685b7fba16f701c2083`, with grenade control blob `6cd555b80ef41f779c59fd20f294994c15cb4ee0`. Tinderbox keeps the existing lantern projectile and six-metre reach.
+
+The first press arms the lantern. The avatar stands still while the stick sets direction and reach. Releasing the stick holds the last intentional target. A second distinct press after release throws once and spends one lantern. The scene continues on its world clock while aiming. Escape, the contextual cancel action, pause, death, reset, focus loss and tool changes cancel the aim. Movement inversion continues to apply to movement. Lantern aim uses the camera axes and the normal stick direction.
+
+`snapshot.player.lanternAim` is `null` while idle. The armed state supplies `{target, impact, path, adjusting, canThrow}`. The target is a ground point `{x,y}`. The impact and preview path use `{x,y,h}` with `h` as height. An unplaced aim has a null target and impact and an empty path. The existing `move`, `select-tool`, `primary` and `cancel-input` commands own the interactions. The simulation predicts the path and first impact using the same collision and trajectory as the thrown lantern. The HUD projects the preview, changes the stick caption to **Aim**, and updates the launcher from **Aim lantern** to **Throw lantern**.
+
+The coder owns `codex/facing-fire-and-lantern-coder` in `coding-9200`. The UI specialist owns `codex/facing-fire-and-lantern-ui` in `fire-ui-reconcile`. The architect reviews both exact candidates on `codex/review-facing-fire-and-lantern`. The gate covers facing changes while firing, ground and wall heat, mouse and touch aiming, keyboard access, aim retention on release, first impact, and cancellation without spending a lantern. Verify the normal menu route at night before promoting.

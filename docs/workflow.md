@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-shared-fire` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Shared fire contract, combined QC and promotion |
+| Architect | `codex/review-facing-fire-and-lantern` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Tool contract, combined QC and promotion |
 | Artist | `codex/shared-firelight-art` from `080634a` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Street lighting and structural fire presentation |
-| Coder | `codex/shared-structural-fire-coder` from `080634a` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Shared combustion, native surface topology, tools and behavior checks |
-| UI designer | Assigned `codex/contextual-doors-ui` from `99b95b0` | `C:/Users/baals/.codex/worktrees/tinderbox-ui/tinderbox` | TB-032: floating Open/Close button and actual browser input evidence |
+| Coder | `codex/facing-fire-and-lantern-coder` from `192d3ba` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Facing, lantern state, trajectory and runtime checks |
+| UI designer | `codex/facing-fire-and-lantern-ui` from `192d3ba` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Aim and throw controls, projected preview and input checks |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current focused correction is [Milestone 12](milestones/12-shared-fire.md), from published `080634a`. The architect checks the shared fire behavior and lighting on Catalogue Street and the Ashland pair. [Milestone 10](milestones/10-contextual-doors.md) records the preceding door assignment, and the movement and door corrections remain part of the base.
+The current focused correction is [Milestone 13](milestones/13-facing-fire-and-lantern.md), from published `192d3ba`. The architect checks both tool flows on the normal night route. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the tools.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
