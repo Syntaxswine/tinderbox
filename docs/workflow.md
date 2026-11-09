@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-shop-interactions` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Shop interaction contract, combined QC and promotion |
-| Artist | `codex/shop-interactions-art` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Glazed door, lantern and light presentation |
-| Coder | `codex/shop-interactions-coder` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Reach, safe door movement, pickup and lifecycle |
-| UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Shared floating action and shortcut bindings |
+| Architect | `codex/review-bell-witness` from `92e8ec0` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Witness test and uniform assignments, candidate review |
+| Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Source research and first Chicago patrol uniform fit |
+| Coder | `codex/bell-and-alder-witness-coder` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Opt-in single witness test on Catalogue Street |
+| UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Existing contextual action and controls; no new assignment |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current assignment is [working shop doors and portable light](milestones/15-shop-interactions.md), from published `b5b8de6`. The [shop interaction review](reviews/2026-11-09-shop-interactions.md) records acceptance on the normal Catalogue Street route. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
+The current assignments are the [Bell & Alder witness test and first Chicago animal uniform](milestones/16-bell-witness-and-chicago-uniform.md), from published `92e8ec0`. The witness is a separate test candidate and the uniform is a separate art candidate. The [shop interaction review](reviews/2026-11-09-shop-interactions.md) records acceptance of the existing door and lantern on the normal Catalogue Street route. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
