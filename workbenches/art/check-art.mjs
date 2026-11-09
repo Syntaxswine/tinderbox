@@ -22,10 +22,13 @@ for(const file of code){
   assert(check.status===0,'Syntax failure '+file+'\n'+check.stderr);
   const text=fs.readFileSync(file,'utf8');
   if(file.includes(path.join('src','art'))){
-    // This frozen window adapter injects the host Three namespace; its filename
-    // is not a second engine. tools/check.mjs verifies the actual import graph.
-    const injectedRenderer='../../vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js';
-    for(const dependency of text.matchAll(/(?:from|import)\s*['"]([^'"]*three[^'"]*)['"]/g))assert(dependency[1]===injectedRenderer,'Production art imported a second THREE instance: '+dependency[1]);
+    // These frozen providers accept the host Three namespace. The actual
+    // renderer implementation is verified separately by tools/check.mjs.
+    const injectedRenderers=new Set([
+      '../../vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/window-kit/three.js',
+      '../../vendor/nautilus-engine/2fa0befbfbdc6b0e44f5a14a6f785f44e7a95d74/packages/city-props/three.js'
+    ]);
+    for(const dependency of text.matchAll(/(?:from|import)\s*['"]([^'"]*three[^'"]*)['"]/g))assert(injectedRenderers.has(dependency[1]),'Production art imported a second THREE instance: '+dependency[1]);
     assert(!/Tactical Animal|C:\\|https?:\/\//.test(text),'External runtime dependency in '+file);
   }
   for(const match of text.matchAll(/(?:from\s*|import\s*)['"](\.[^'"]+)['"]/g)){
