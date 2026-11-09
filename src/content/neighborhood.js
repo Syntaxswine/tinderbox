@@ -1,11 +1,12 @@
 import {CIVILIAN_PROFILES} from './exterior-kit.js';
+import {BELL_AND_ALDER} from './bell-and-alder-layout.js';
 
 const civilian = (id, species, x, y, route) => ({id, ...CIVILIAN_PROFILES[species], x, y, route,
   hp: 100, speed: .8, team: 'civilian', headgear: 'none', equipment: 'none'});
 
 // Fictional facing blocks. Monroe repeats at its native 7m frontage to form
 // the published row-house arrangement; adjacency is compiled from placement.
-export const NEIGHBORHOOD_SCENARIO = {
+export const NEIGHBORHOOD_BASE = {
   id: 'neighborhood', width: 51, height: 47, player: {x: 20, y: 18, tool: 'jerry-can'},
   camera: {followPlayer: true, span: 12, phoneSpan: 10},
   // Bounded prototype placements on the open street; use one existing dose.
@@ -37,4 +38,11 @@ export const NEIGHBORHOOD_SCENARIO = {
     civilian('neighbor-horse', 'horse', 7, 17, [{x: 7, y: 17}, {x: 17, y: 17}]),
     civilian('neighbor-goat', 'goat', 29, 24.5, [{x: 29, y: 24.5}, {x: 19, y: 24.5}])
   ]
+};
+
+export const NEIGHBORHOOD_SCENARIO = {
+  ...NEIGHBORHOOD_BASE,
+  patches: [...NEIGHBORHOOD_BASE.patches, ...BELL_AND_ALDER.patches],
+  modules: BELL_AND_ALDER.modules,
+  obstacles: [...NEIGHBORHOOD_BASE.obstacles, ...BELL_AND_ALDER.obstacles]
 };
