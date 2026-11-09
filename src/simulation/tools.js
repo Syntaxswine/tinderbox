@@ -5,40 +5,62 @@ export function localPoint(player, aim, range) {
   const heading = aimHeading(player, aim), reach = Math.min(range, distance(player, aim));
   return {x: player.x + Math.cos(heading) * reach, y: player.y + Math.sin(heading) * reach};
 }
+function closeTarget(player, aim, range, world) {
+  if (aim) return localPoint(player, aim, range);
+  const x = Math.cos(player.heading), y = Math.sin(player.heading);
+  const edgeX = x === 0 ? Infinity : ((x > 0 ? world.width : 0) - player.x) / x;
+  const edgeY = y === 0 ? Infinity : ((y > 0 ? world.height : 0) - player.y) / y;
+  const reach = Math.min(range, edgeX, edgeY);
+  return {x: player.x + x * reach, y: player.y + y * reach};
+}
+function heatAhead(state, field, target, spec, cottages, catalogue) {
+  const {player, obstacles} = state, tool = player.tool;
+  const siding = cottages?.igniteSiding(player, state.closeAim ?? target, spec.range, spec.heat, tool);
+  if (siding) return siding;
+  const contact = catalogue ? firstHeatContact(player, target, obstacles) : null;
+  if (contact) {
+    const dx = target.x - player.x, dy = target.y - player.y;
+    const point = {x: player.x + dx * contact.t, y: player.y + dy * contact.t};
+    // A blocked ray cannot seed a raster cell shared by the screen and siding.
+    if (contact.box.material !== 'wood') return {point, cells: [], result: 'blocked'};
+    // The first face is already reachable. Sample its fuel just inside the edge.
+    const inside = {x: point.x + dx * .00001, y: point.y + dy * .00001};
+    const cell = field.at(inside);
+    if (cell) return {point, tile: field.tileAt(inside), ...field.seed(inside, [cell], spec.heat, tool)};
+    return {point, cells: [], result: 'no-fuel'};
+  }
+  if (tool === 'matches') {
+    const tile = field.tileAt(target);
+    return {point: target, tile, ...field.seed(player, field.tileCells(tile), spec.heat, tool)};
+  }
+  const point = impactPoint(player, target, obstacles);
+  const result = field.seed(player, field.candidates(point, spec.radius), spec.heat, tool);
+  if (result.result === 'no-fuel' && distance(point, target) > 1e-8) result.result = 'blocked';
+  return {point, ...result};
+}
 export function discreteTool(state, field, config, event, cottages, catalogue) {
   const p = state.player, stock = p.inventory, tool = p.tool;
   if (tool === 'jerry-can') {
     if (stock.gas <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty'});
     p.pouring = !p.pouring; event('pour', p, {active: p.pouring}); return;
   }
-  if (tool === 'matches') {
-    const spec = config.tools.matches, point = localPoint(p, state.aim, spec.range), tile = field.tileAt(point);
-    if (stock.matches < 1) return event('tool-rejected', point, {tool, reason: 'empty', result: 'empty', tile});
-    stock.matches--;
-    const siding=cottages?.strikeSiding(p,state.aim,spec.range,spec.heat);
-    const contact=!siding&&catalogue?firstHeatContact(p,point,state.obstacles):null;
-    if(contact?.box.buildingId&&contact.box.material==='wood'){
-      // The swept contact already passed the player's reach and obstruction
-      // checks. Select the existing fuel cell just inside that exposed face.
-      const t=contact.t+.00001;
-      const surface={x:p.x+(point.x-p.x)*t,y:p.y+(point.y-p.y)*t};
-      const cell=field.at(surface);
-      if(cell)return recordIgnition(state,event,tool,surface,field.seed(surface,[cell],spec.heat,tool),{tile:field.tileAt(surface)});
+  if (tool === 'matches' || tool === 'torch') {
+    const spec = config.tools[tool], target = closeTarget(p, state.closeAim, spec.range, field.def);
+    if (tool === 'matches') {
+      if (stock.matches < 1) return event('tool-rejected', target, {tool, reason: 'empty', result: 'empty', tile: field.tileAt(target)});
+      stock.matches--;
+    } else {
+      if (p.torch.phase === 'spent' || stock.torchFuel <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty', result: 'empty'});
+      if (p.torch.phase === 'unlit') {
+        p.torch.phase = 'lit'; event('torch-lit', p, {tool, durationSeconds: p.torch.durationSeconds});
+        event('tool-use', p, {tool, result: 'lit'}); return;
+      }
     }
-    recordIgnition(state, event, tool, point, siding??field.seed(p, field.tileCells(tile), spec.heat, tool), {tile});
-  }
-  if (tool === 'torch') {
-    if (p.torch.phase === 'spent' || stock.torchFuel <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty', result: 'empty'});
-    if (p.torch.phase === 'unlit') {
-      p.torch.phase = 'lit'; event('torch-lit', p, {tool, durationSeconds: p.torch.durationSeconds});
-      event('tool-use', p, {tool, result: 'lit'}); return;
-    }
-    const spec = config.tools.torch, target = localPoint(p, state.aim, spec.range);
-    const point = impactPoint(p, target, state.obstacles), siding=cottages?.heatSurface(p,target,spec.heat,tool);
-    const result = siding?{cells:[siding],result:'heated'}:field.seed(p, field.candidates(point, spec.radius), spec.heat, tool);
-    if (result.result === 'no-fuel' && distance(point, target) > 1e-8) result.result = 'blocked';
-    recordIgnition(state, event, tool, point, result);
-    if (result.cells.length) { p.heading = aimHeading(p, state.aim); p.usingTool = true; state.discharge = resolveDischarge(state, config, field.def, point); }
+    const result = heatAhead(state, field, target, spec, cottages, catalogue);
+    const point = result.point ?? target;
+    recordIgnition(state, event, tool, point, result, tool === 'matches' ? {tile: result.tile ?? field.tileAt(point)} : {});
+    if (tool === 'torch' && result.cells.length) { p.usingTool = true; state.discharge = resolveDischarge(state, config, field.def, point); }
+    return;
   }
   if (tool === 'molotov') {
     const spec = config.tools.molotov;

@@ -61,8 +61,9 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     if(disposed||externalSignal?.aborted){created.dispose();throw new DOMException('Visit cancelled','AbortError');}art=created;
     ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});
     renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Move with the joystick, WASD or arrows.');
-    const aim=event=>{const point=camera.screenToWorld(event.clientX,event.clientY,art.pickAimSurface);if(point)dispatch({type:'aim',...point});};
-    renderer.domElement.addEventListener('pointermove',aim,{signal});renderer.domElement.addEventListener('pointerdown',event=>{if(event.button===0)aim(event);},{signal});
+    const aim=(event,hover)=>{const point=camera.screenToWorld(event.clientX,event.clientY,art.pickAimSurface);if(point)dispatch({type:'aim',...point,hover});};
+    renderer.domElement.addEventListener('pointermove',event=>aim(event,true),{signal});
+    renderer.domElement.addEventListener('pointerdown',event=>{if(event.button===0)aim(event,false);},{signal});
     present(snapshot,0);if(autoStart)animation=win.requestAnimationFrame(frame);
     return {dispatch,advance,snapshot:()=>sim.snapshot(),metrics:()=>({...lastMetrics}),screenToWorld:camera.screenToWorld,projectInteraction,zoom,artDiagnostics:()=>art?.diagnostics?.(),dispose};
   }catch(error){dispose();throw error;}

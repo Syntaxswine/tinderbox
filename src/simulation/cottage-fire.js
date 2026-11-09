@@ -98,24 +98,24 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
     const lot=byBuilding.get(hit.box.buildingId),x=lerp(from.x,to.x,hit.t),z=lerp(from.y,to.y,hit.t);
     // Aimed tools heat the lowest exposed siding above the brick plinth.
     const site=wallSite(lot,x,z,from,lerp(startHeight,endHeight,hit.t));
-    return site&&site.phase!=='spent'?{lot,site,t:hit.t}:null;
+    return site&&site.phase!=='spent'?{lot,site,t:hit.t,point:{x,y:z,h:site.y}}:null;
   }
   function heatSurface(from,to,amount,kind,startHeight=0,endHeight=startHeight){
     const contact=sidingContact(from,to,startHeight,endHeight);
     return contact?heat(contact.lot,contact.site,amount,{kind}):null;
   }
-  function strikeSiding(from,aim,range,amount){
+  function igniteSiding(from,aim,range,amount,kind){
     const contact=sidingContact(from,aim);
     if(!contact)return null;
-    const {lot,site,t}=contact;
+    const {lot,site,t,point}=contact;
     if(t*distance(from,aim)>range+EPS){
       // Siding picks land just inside the cottage. Ordinary ground aims beyond
       // the footprint still use the existing range-clamped ground tile.
       const x=aim.x-lot.building.x,z=aim.y-lot.building.y;
-      return x>=-RIM&&x<=WIDTH+RIM&&z>=-RIM&&z<=DEPTH+RIM?{cells:[],result:'range'}:null;
+      return kind==='matches'&&x>=-RIM&&x<=WIDTH+RIM&&z>=-RIM&&z<=DEPTH+RIM?{cells:[],result:'range'}:null;
     }
-    const heated=heat(lot,site,amount,{kind:'matches'});
-    return heated?{cells:[heated],result:'heated'}:null;
+    const heated=heat(lot,site,amount,{kind});
+    return heated?{point,cells:[heated],result:'heated'}:null;
   }
   function heatDischarge(discharge,amount){
     const touched=new Set();
@@ -304,5 +304,5 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
     })),embers:embers.map(({id,x,y,z,vx,vy,vz,heat,sourceBuildingId})=>({id,x,y,z,vx,vy,vz,heat,sourceBuildingId})),
     diagnostics:{launches,hotRoofContacts,coolRoofContacts,misses,maxEmbers:COTTAGE_EMBER_LIMIT}};
   }
-  return {strikeSiding,heatSurface,heatDischarge,step,snapshot};
+  return {igniteSiding,heatSurface,heatDischarge,step,snapshot};
 }

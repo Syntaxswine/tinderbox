@@ -59,6 +59,7 @@ export function scenarioDefinition(scenario = 'street') {
   }
   if (result.player.hp !== undefined && (!Number.isFinite(result.player.hp) || result.player.hp < 0)) throw Error('Invalid player health');
   if (![result.player.x, result.player.y].every(Number.isFinite)) throw Error('Invalid player position');
+  if (result.player.heading !== undefined && !Number.isFinite(result.player.heading)) throw Error('Invalid player heading');
   for (const object of result.obstacles) {
     if (![object.width, object.depth, object.height].every(v => Number.isFinite(v) && v > 0)) throw Error('Invalid obstacle dimensions');
     if (object.radius !== undefined && (!Number.isFinite(object.radius) || object.radius <= 0)) throw Error('Invalid obstacle radius');

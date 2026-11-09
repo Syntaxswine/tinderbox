@@ -2,7 +2,7 @@ import {configuration, TOOLS, DRUGS} from './config.js';
 import {scenarioDefinition} from './fixtures.js';
 import {HeatField, materialAt} from './field.js';
 import {clamp, normalized, movementVector, moveDisc, distance, lineClear, freePoint} from './geometry.js';
-import {discreteTool, heldTool, projectilesStep, ageTorch} from './tools.js';
+import {aimHeading, discreteTool, heldTool, projectilesStep, ageTorch} from './tools.js';
 import {inactiveDischarge} from './discharge.js';
 import {CHARACTER_PROFILES} from '../content/characters.js';
 import {pickupContacts} from './pickups.js';
@@ -45,7 +45,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     if (!Number.isFinite(torchDuration)) throw Error('Invalid initial torch duration');
     state = {tick, paused: false, seed, events: [], input: {move: {x: 0, y: 0}, primary: false},
       clocks: {active: 0, player: 0, world: 0, playerScale: 1, worldScale: 1},
-      player: {id:characterId==='bear'?'bear':'hero',characterId,species:characterId,height:profile.height, x: start.x, y: start.y, radius: config.player.radius, heading: 0, moving: false,
+      player: {id:characterId==='bear'?'bear':'hero',characterId,species:characterId,height:profile.height, x: start.x, y: start.y, radius: config.player.radius, heading: start.heading ?? 0, moving: false,
         hp: clamp(start.hp ?? config.player.maxHp, 0, config.player.maxHp), maxHp: config.player.maxHp,
         tool: start.tool ?? 'matches', pouring: false, usingTool: false, inventory, travelled: 0},
       effects: {powder: {expiresAt: 0}, inversion: {expiresAt: 0}},
@@ -54,7 +54,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       buildings: def.buildings.map(building => ({...building, destroyed: false, burnedFraction: 0})),
       actors: def.actors.map(a => ({...a, route: a.route?.map(p => ({...p})) ?? [{x: a.x, y: a.y}],
         routeIndex: a.route?.length > 1 ? 1 : 0, heading: 0, moving: false, hp: a.hp ?? 100, travelled: 0})),
-      aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y},
+      aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y}, closeAim: null,
       discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
     state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
@@ -78,6 +78,20 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   initialize();
   const activeEffect = name => state.effects[name].expiresAt > state.clocks.active + EPS;
+  function faceMovement(inverted = activeEffect('inversion')) {
+    const direction = movementVector(state.input.move, inverted, config.input);
+    if (Math.hypot(direction.x, direction.y) > EPS) {
+      state.player.heading = Math.atan2(direction.y, direction.x);
+      state.closeAim = null;
+    }
+    return direction;
+  }
+  function faceCloseAim() {
+    const p = state.player;
+    if ((p.tool === 'matches' || p.tool === 'torch') && state.closeAim && distance(p, state.closeAim) > EPS) {
+      p.heading = aimHeading(p, state.closeAim);
+    }
+  }
   function useDrug(kind,point=state.player,extra={}){
     const p=state.player;if(kind==='healing'&&p.hp>=p.maxHp)return false;
     if(kind==='healing')p.hp=Math.min(p.maxHp,p.hp+config.drugs.healing);
@@ -97,6 +111,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
         state.input.primary = false; p.usingTool = false; state.discharge = inactiveDischarge(state.tick);
         if (p.pouring) event('pour', p, {active: false, reason: 'tool-change'});
         p.pouring = false; p.tool = command.tool; event('tool-selected', p, {tool: p.tool});
+        faceCloseAim();
       }
       return;
     }
@@ -105,8 +120,12 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (command.type === 'primary' && command.pressed) state.primaryNeedsRelease = true;
       return;
     }
-    if (command.type === 'move') { state.input.move = normalized(command.x, command.y); return; }
-    if (command.type === 'aim') { state.aim = {x: command.x, y: command.y}; return; }
+    if (command.type === 'move') { state.input.move = normalized(command.x, command.y); faceMovement(); return; }
+    if (command.type === 'aim') {
+      state.aim = {x: command.x, y: command.y};
+      if (command.hover !== true) { state.closeAim = state.aim; faceCloseAim(); }
+      return;
+    }
     if (command.type === 'primary') {
       if (state.primaryNeedsRelease) return;
       const rising = command.pressed && !state.input.primary;
@@ -178,7 +197,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     const playerDelta = config.step * playerScale, worldDelta = config.step * worldScale;
     state.clocks.active += config.step; state.clocks.player += playerDelta; state.clocks.world += worldDelta;
     if (p.hp > 0) {
-      const direction = movementVector(state.input.move, inverted, config.input);
+      const direction = faceMovement(inverted);
       const path = moveDisc(p, direction.x * config.player.speed * playerDelta, direction.y * config.player.speed * playerDelta,
         p.radius, definition, state.obstacles, field.size);
       state.acceptedPath = path;
@@ -191,7 +210,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
           if (p.inventory.gas <= EPS) { p.inventory.gas = 0; p.pouring = false; event('pour', path[i], {active: false, reason: 'empty'}); }
         }
       }
-      if (walked > EPS) { const end = path.at(-1); p.heading = Math.atan2(end.y - p.y, end.x - p.x); p.x = end.x; p.y = end.y; p.moving = true; p.travelled += walked; }
+      if (walked > EPS) { const end = path.at(-1); p.x = end.x; p.y = end.y; p.moving = true; p.travelled += walked; }
       for(const {pickup,point}of resetting?[]:pickupContacts(state.pickups,path,p.radius,state.obstacles)){
         if(useDrug(pickup.kind,point,{source:'pickup',pickupId:pickup.id})){
           pickup.consumed=true;event('pickup-used',pickup,{pickupId:pickup.id,kind:pickup.kind,actorId:p.id});

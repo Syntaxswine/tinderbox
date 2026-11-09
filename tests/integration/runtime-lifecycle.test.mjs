@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import {createRuntime} from '../../src/runtime/index.js';
 import {createSimulation} from '../../src/simulation/index.js';
 import {loadOwnedPair} from '../../src/reuse/loading.js';
-function fixture(){
+function fixture(scenario='tiny'){
   const counts={renderer:0,context:0,observer:0,art:0,ui:0,simulation:0,frames:0};
   class Node extends EventTarget{constructor(){super();this.clientWidth=900;this.clientHeight=600;this.children=[];}append(child){this.children.push(child);child.parent=this;}remove(){if(this.parent)this.parent.children=this.parent.children.filter(c=>c!==this);}setAttribute(){}getBoundingClientRect(){return{left:0,top:0,width:900,height:600};}}
   const win=new EventTarget();win.requestAnimationFrame=()=>++counts.frames;win.cancelAnimationFrame=()=>{counts.frames=0;};const doc=new EventTarget();doc.defaultView=win;
   const root=new Node();root.ownerDocument=doc;const canvas=new Node();
   const renderer={domElement:canvas,info:{render:{calls:0},memory:{geometries:0,textures:0}},setPixelRatio(){},setClearColor(){},setSize(){},render(){},getContext:()=>({getExtension:()=>null,getParameter:()=> 'Renderer API fixture; no WebGL'}),forceContextLoss(){counts.context++;},dispose(){counts.renderer++;}};
-  const sim=createSimulation({scenario:'tiny'}),release=sim.dispose;sim.dispose=()=>{counts.simulation++;release();};
+  const sim=createSimulation({scenario}),release=sim.dispose;sim.dispose=()=>{counts.simulation++;release();};
   return {counts,root,canvas,renderer,sim,options:{root,simulation:sim,rendererFactory:()=>renderer,observerFactory:()=>({observe(){},disconnect(){counts.observer++;}}),autoStart:false,
     createArtScene:async()=>({update(){},dispose(){counts.art++;}}),mountUI:()=>({update(){},dispose(){counts.ui++;}})}};
 }
@@ -45,4 +45,39 @@ test('exiting never advances queued gameplay, and a failed cleanup still release
   let advances=0;const advance=f.sim.advance;f.sim.advance=delta=>{advances++;return advance(delta);};runtime.dispatch({type:'use'});runtime.dispose();runtime.dispose();
   assert.equal(advances,0);assert.deepEqual(runtime.metrics().cleanupErrors,['observer cleanup failed']);
   for(const key of ['renderer','context','observer','art','ui','simulation'])assert.equal(f.counts[key],1,key);assert.equal(f.root.children.length,0);
+});
+
+test('a canvas tap sets exact close aim, later hover only updates ranged aim, and the HUD sends a single strike', async () => {
+  const f = fixture({width: 8, height: 8, player: {x: 4.25, y: 4.25},
+    patches: [{x: 0, y: 0, width: 8, depth: 8, material: 'grass'}]});
+  let send;
+  const runtime = await createRuntime({...f.options, mountUI: ({onCommand}) => {
+    send = onCommand;
+    return {update() {}, dispose() {}};
+  }});
+  function pointer(type, x, y, pointerType) {
+    const screen = runtime.projectInteraction([x, 0, y]);
+    assert.ok(screen.visible);
+    f.canvas.dispatchEvent(Object.assign(new Event(type), {button: 0, clientX: screen.x, clientY: screen.y, pointerType}));
+  }
+  try {
+    pointer('pointerdown', 4.25, 3.7, 'touch');
+    pointer('pointermove', 4.95, 4.25, 'mouse');
+    const aiming = runtime.advance(1 / 60);
+    assert.ok(Math.abs(aiming.player.heading + Math.PI / 2) < 1e-8);
+    assert.ok(Math.abs(aiming.aim.x - 4.95) < 1e-8);
+    send({type: 'select-tool', tool: 'matches'});
+    send({type: 'primary', pressed: true});
+    send({type: 'primary', pressed: false});
+    const strike = runtime.advance(1 / 60);
+    const use = strike.events.find(event => event.type === 'tool-use');
+    assert.deepEqual(use.tile, {x: 4, y: 3, width: 1, depth: 1});
+    assert.ok(Math.abs(use.y - 3.7) < 1e-8);
+    assert.equal(strike.player.inventory.matches, 11);
+    send({type: 'select-tool', tool: 'flamethrower'});
+    send({type: 'primary', pressed: true});
+    const jet = runtime.advance(1 / 60).discharge;
+    assert.equal(jet.tool, 'flamethrower');
+    assert.ok(Math.abs(jet.heading) < 1e-8);
+  } finally { runtime.dispose(); }
 });

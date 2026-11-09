@@ -87,7 +87,7 @@ function resolvedFan(origin, heading, halfAngle, reach, world, obstacles) {
 export function resolveDischarge(state, config, world, torchPoint = null) {
   const p = state.player, tool = p.tool, spec = config.tools[tool];
   const origin = {x: p.x, y: p.y, h: config.tools.presentationHeight};
-  const shapeOrigin = torchPoint ? {...torchPoint, h: origin.h} : {...origin};
+  const shapeOrigin = torchPoint ? {...torchPoint, h: torchPoint.h ?? origin.h} : {...origin};
   const radius = tool === 'torch' ? spec.radius : 0;
   const halfAngle = tool === 'torch' ? Math.PI : spec.halfAngle;
   const fan = resolvedFan(shapeOrigin, p.heading, halfAngle, tool === 'torch' ? radius : spec.range, world, state.obstacles);

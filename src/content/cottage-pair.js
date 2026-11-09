@@ -5,7 +5,7 @@ export const COTTAGE_ORIGIN=Object.freeze({x:46,z:10});
 export const COTTAGE_OFFSET=Object.freeze({x:9,z:10.75});
 export const COTTAGE_PAIR_SCENARIO={
   ...NEIGHBORHOOD_SCENARIO,id:'cottage-pair',width:64,
-  player:{x:52.84,y:13.5,tool:'matches'},
+  player:{x:52.84,y:13.5,heading:Math.PI,tool:'matches'},
   camera:{followPlayer:true,span:19,phoneSpan:25,followOffset:[3,2.5]},
   patches:[...NEIGHBORHOOD_SCENARIO.patches,{x:42,y:6,width:22,depth:23,material:'paving'}],
   buildings:[
