@@ -10,7 +10,9 @@ import {COTTAGE_IDS,COTTAGE_ORIGIN,COTTAGE_PAIR_SCENARIO,catalogueCottageMode} f
 import {translateCottageWind,calmCottageWind,PAIR_WIND_URL,PAIR_WIND_SHA256} from '../../src/reuse/ashland/wind.js';
 import {makeHouseWindSampler} from '../../src/reuse/ashland/wind-sampler.js';
 import {createCottagePairArt} from '../../src/art/cottage-pair.js';
+import {COTTAGE_OUTDOOR_BUDGET} from '../../src/art/cottage-firelight.js';
 import {roofHeight} from '../../src/simulation/cottage-topology.js';
+import {toolFeedbackOf} from '../../src/ui/model.js';
 
 const bake=readFileSync(PAIR_WIND_URL),wind=translateCottageWind(JSON.parse(bake));
 const make=(extra={})=>createSimulation({scenario:COTTAGE_PAIR_SCENARIO,seed:1893,cottageWind:wind,...extra});
@@ -115,6 +117,31 @@ test('solid blockers prevent a match reaching siding; the held jet uses real cli
   }finally{blocked.dispose();jet.dispose();}
 });
 
+test('cottage matches report range at the actual siding contact and strike one tile at the limit',()=>{
+  function strike(x,aim){
+    const scenario={...COTTAGE_PAIR_SCENARIO,player:{x,y:13.5,tool:'matches'}};
+    const sim=make({scenario});
+    try{return match(sim,aim);}finally{sim.dispose();}
+  }
+  const out=strike(52.941,52.075),miss=out.events.find(e=>e.tool==='matches');
+  assert.equal(miss.type,'tool-rejected');
+  assert.equal(miss.reason,'range');
+  assert.equal(miss.heatedCells,0);
+  assert.equal(toolFeedbackOf(miss),'Target out of reach. Move closer.');
+  assert.equal(out.player.inventory.matches,11);
+  assertCold(out);
+
+  const edge=strike(52.94,52.075),hit=edge.events.find(e=>e.tool==='matches');
+  assert.equal(hit.result,'ignited');
+  assert.equal(hit.heatedCells,1);
+  assert.equal(first(edge).firstIgnition.cellId,'right:3,0');
+  assert.equal(first(edge).cells.length,1);
+
+  const ground=strike(52.941,44);
+  assert.equal(ground.events.find(e=>e.tool==='matches').result,'no-fuel');
+  assertCold(ground);
+});
+
 test('powder slows the cottage world clock; pause, reset and re-entry do not replay fire',()=>{
   const sim=make();
   try{
@@ -132,7 +159,7 @@ test('powder slows the cottage world clock; pause, reset and re-entry do not rep
   const fresh=make();try{assertCold(fresh.snapshot());}finally{fresh.dispose();}
 });
 
-test('the phone camera can target visible siding and native Three presentation follows live support masks',()=>{
+test('native cottage art supports phone aim, live masks and a bounded outdoor firelight budget',()=>{
   const catalogue=JSON.parse(readFileSync(new URL('../../assets/art/gross-housing-v1/houses.json',import.meta.url)));
   const config={input:{cameraY:-12}},input=configuration(config).input;
   const sim=make({config}),viewport={clientWidth:390,clientHeight:420};
@@ -149,6 +176,10 @@ test('the phone camera can target visible siding and native Three presentation f
     update();
     const cold=art.diagnostics();
     assert.ok(cold.houses.every(h=>h.art.visibleTriangles>0&&h.fire.walls.activeCells===0));
+    const outdoor=art.root.getObjectByName('Cottage outdoor firelight');
+    const spots=outdoor.children.filter(object=>object.isSpotLight);
+    assert.equal(spots.length,6);
+    assert.ok(spots.every(light=>!light.castShadow&&light.intensity===0));
     const projected=new T.Vector3(52.08,2.60,13.5).project(camera);
     const px=(projected.x+1)*viewport.clientWidth/2,py=(1-projected.y)*viewport.clientHeight/2;
     assert.ok(px>=0&&px<=viewport.clientWidth&&py>=0&&py<=viewport.clientHeight);
@@ -159,9 +190,26 @@ test('the phone camera can target visible siding and native Three presentation f
     assert.equal(first(s).firstIgnition.cellId,'right:3,0');
     assert.equal(art.diagnostics().houses[0].fire.walls.activeCells,1);
     assert.equal(art.diagnostics().houses[1].fire.walls.activeCells,0);
-    for(let i=0;i<172;i++)s=sim.advance(.25);
+    let [source,receiver]=art.diagnostics().outdoorLight.cottages;
+    assert.ok(source.local>0);
+    assert.equal(source.spill+receiver.spill+receiver.local,0);
+    for(let i=0;i<38;i++)s=sim.advance(.25);
+    update();
+    [source,receiver]=art.diagnostics().outdoorLight.cottages;
+    assert.equal(source.spill,COTTAGE_OUTDOOR_BUDGET);
+    assert.equal(source.local,0);
+    assert.equal(receiver.spill+receiver.local,0);
+    assert.equal(s.cottageFire.buildings[1].firstIgnition,null);
+    assert.ok(spots.slice(0,3).every(light=>light.intensity>0));
+    for(let i=38;i<84;i++)s=sim.advance(.25);
+    update();
+    [source,receiver]=art.diagnostics().outdoorLight.cottages;
+    assert.ok(source.spill>0&&source.spill+source.local<COTTAGE_OUTDOOR_BUDGET);
+    assert.ok(receiver.spill+receiver.local>0&&receiver.spill+receiver.local<=COTTAGE_OUTDOOR_BUDGET);
+    for(let i=84;i<172;i++)s=sim.advance(.25);
     update();
     assert.ok(art.diagnostics().houses.every(h=>h.art.visibleTriangles===0&&h.art.ashTiles===42));
+    assert.ok(spots.every(light=>light.intensity===0));
     assertMask(s);
   }finally{art?.dispose();art?.dispose();sim.dispose();}
   assert.equal(renderer.shadowMap.enabled,false);assert.equal(art.root.children.length,0);

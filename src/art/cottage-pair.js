@@ -1,4 +1,5 @@
 import {createGrossHouse} from './gross-housing.js';
+import {createCottageFirelight} from './cottage-firelight.js';
 import {COTTAGE_IDS,COTTAGE_ORIGIN} from '../content/cottage-pair.js';
 import {COTTAGE_EMBER_LIMIT} from '../simulation/cottage-fire.js';
 import {WIDTH,DEPTH,EAVE,RIM,tileIndex} from '../simulation/cottage-topology.js';
@@ -13,7 +14,7 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
   if(typeof sampleWind!=='function')throw Error('Cottage presentation needs the same wind sampler as gameplay');
   const root=new T.Group(),records=new Map(),ray=new T.Raycaster(),p=new T.Vector3(),ndc=new T.Vector3(),hit=new T.Vector3(),sidingHit=new T.Vector3();
   root.name='Playable Ashland cottage pair';
-  let night,embers,disposed=false;
+  let night,outdoorLight,embers,disposed=false;
   const shadow=renderer?.shadowMap,oldShadow=shadow&&{enabled:shadow.enabled,type:shadow.type};
   function dispose(){
     if(disposed)return;disposed=true;
@@ -21,7 +22,7 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
       for(const effect of Object.values(record.fx))effect.dispose();
       record.tiles?.dispose();record.house.dispose();record.root.removeFromParent();
     }
-    records.clear();embers?.dispose();night?.dispose();
+    records.clear();embers?.dispose();outdoorLight?.dispose();night?.dispose();
     if(shadow)Object.assign(shadow,oldShadow);
     root.removeFromParent();root.clear();
   }
@@ -33,9 +34,13 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
     renderer?.setClearColor(night.clearColor);
     root.add(night.root);
     embers=createAirborneEmbers(T,{maxEmbers:COTTAGE_EMBER_LIMIT});root.add(embers.root);
-    for(const id of COTTAGE_IDS){
+    const pair=COTTAGE_IDS.map(id=>{
       const b=buildings.find(b=>b.id===id);
       if(!b)throw Error('Missing native Ashland cottage '+id);
+      return b;
+    });
+    for(const b of pair){
+      const {id}=b;
       const house=createGrossHouse(T,library,b.prefabId,{furnished:false}),group=new T.Group();
       const record={root:group,house,fx:{},materials:new Map(),shadows:new Map(),faded:false,pose:null};
       records.set(id,record);
@@ -56,6 +61,8 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
         record.fx[layer]=createWallShroud(T,{maxCells,profile:'house'});root.add(record.fx[layer].root);
       }
     }
+    outdoorLight=createCottageFirelight(T,pair,night.fireLights);
+    root.add(outdoorLight.root);
   }catch(error){dispose();throw error;}
   const char=new T.Color(0x372a23);
   function fades(record,player,camera,gone){
@@ -112,11 +119,12 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
       if(camera)for(const [layer,fx] of Object.entries(record.fx))fx.update({time:frame.worldTime,cells:layers[layer],camera,sampleWind});
     }
     night.update({sourceCells:lightCells[0],receiverCells:lightCells[1]});
+    outdoorLight.update(lightCells);
     embers.update(frame.embers);
     if(shadowChanged)night.moon.shadow.needsUpdate=true;
   }
   function diagnostics(){
-    return {disposed,embers:embers?.stats(),houses:[...records.entries()].map(([id,r])=>({id,art:r.tiles.diagnostics(),
+    return {disposed,embers:embers?.stats(),outdoorLight:outdoorLight?.diagnostics(),houses:[...records.entries()].map(([id,r])=>({id,art:r.tiles.diagnostics(),
       fire:Object.fromEntries(Object.entries(r.fx).map(([key,v])=>[key,v.stats()])),faded:r.faded}))};
   }
   return {root,update,pickAimSurface,diagnostics,dispose};

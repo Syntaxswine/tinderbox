@@ -2,6 +2,8 @@
 
 This coder candidate starts from the published `dc7f537a83a7e832a0dfa0757d0b2700b909c053` game. The opt-in uses the real Catalogue Street map entry, movement, zoom, player selection and tools.
 
+The [night lighting correction](night-light-review.md) records the later matched firelight, range feedback and cost checks.
+
 ## Try it
 
 Run `node tools/build.mjs` and `node tools/serve.mjs --root dist --base /tinderbox/` from the candidate checkout. Open `http://127.0.0.1:4550/tinderbox/?cottages=1` and choose **Play → Catalogue Street**. Use `?cottages=calm` for the still-air comparison.

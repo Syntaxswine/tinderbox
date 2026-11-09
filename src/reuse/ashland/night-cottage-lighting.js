@@ -13,6 +13,7 @@ function distanceSquared(a, b) {
 }
 
 function setLocalLight(light, seed, cells, strength) {
+  light.userData.outdoorFire = Boolean(seed && category(seed) === 'shell');
   if (!seed) {
     light.position.set(0, 0, 0);
     light.intensity = 0;
@@ -125,5 +126,5 @@ export function createNightCottageLighting(T) {
     root.clear();
   }
 
-  return {root, moon, clearColor, update, dispose};
+  return {root, moon, clearColor, fireLights: cottages, update, dispose};
 }

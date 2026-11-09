@@ -14,6 +14,17 @@
     "night-cottage-lighting.js": ["shared Three.js", "live cottage fire cells"],
     "wind-sampler.js": ["pair-wind.json"]
   },
+  "adaptations": [
+    {
+      "sourceCommit": "999c8b41bc80defaba3aa57e2337ece2217463b2",
+      "sourcePath": "workbenches/fire-realism/gaussian-patch/night-ground-firelight.js",
+      "sourceSha256": "ff7d1a439f6a035d33f441a2ce29574359ad62d7cfc57aa8bfcc05f7bfa7938b",
+      "installedPath": "src/art/cottage-firelight.js",
+      "installedLfSha256": "397e87f2dccda27491f5866f9333a6044902928293999ba6c4deaaf3aea4ad7f",
+      "dependencies": ["shared Three.js", "existing local night lights", "live cottage fire cells", "native cottage placement"],
+      "adaptation": "Retains the heat-weighted directional lobes, penumbra-aware power and practical crossfade. Applies game-scale flux, wider penumbrae and shadowless lights in the playable night trial."
+    }
+  ],
   "files": [
     {
       "sourcePath": "workbenches/art/fire-realism/gaussian-patch/house-tile-art.js",
@@ -49,10 +60,11 @@
     },
     {
       "sourcePath": "workbenches/art/fire-realism/gaussian-patch/night-cottage-lighting.js",
+      "sourceCommit": "999c8b41bc80defaba3aa57e2337ece2217463b2",
       "installedPath": "src/reuse/ashland/night-cottage-lighting.js",
-      "sourceSha256": "e74d424173807d200999d6792c39463613112126d38c412b3e3dcff94bdc4eb2",
-      "sha256": "e74d424173807d200999d6792c39463613112126d38c412b3e3dcff94bdc4eb2",
-      "bytes": 4689,
+      "sourceSha256": "f2fc6f32414d9fa497926ffa08994b3beb26380683a96f9992a2db28dcf6dbf8",
+      "sha256": "f2fc6f32414d9fa497926ffa08994b3beb26380683a96f9992a2db28dcf6dbf8",
+      "bytes": 4787,
       "adapted": false
     },
     {

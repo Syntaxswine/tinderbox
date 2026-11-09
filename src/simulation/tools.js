@@ -15,8 +15,8 @@ export function discreteTool(state, field, config, event, cottages) {
     const spec = config.tools.matches, point = localPoint(p, state.aim, spec.range), tile = field.tileAt(point);
     if (stock.matches < 1) return event('tool-rejected', point, {tool, reason: 'empty', result: 'empty', tile});
     stock.matches--;
-    const siding=cottages?.heatSurface(p,point,spec.heat,tool);
-    recordIgnition(state, event, tool, point, siding?{cells:[siding],result:'heated'}:field.seed(p, field.tileCells(tile), spec.heat, tool), {tile});
+    const siding=cottages?.strikeSiding(p,state.aim,spec.range,spec.heat);
+    recordIgnition(state, event, tool, point, siding??field.seed(p, field.tileCells(tile), spec.heat, tool), {tile});
   }
   if (tool === 'torch') {
     if (p.torch.phase === 'spent' || stock.torchFuel <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty', result: 'empty'});
