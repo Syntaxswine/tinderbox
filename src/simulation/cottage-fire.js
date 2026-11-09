@@ -308,6 +308,8 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
       id:lot.building.id,x:lot.building.x,z:lot.building.y,firstIgnition:lot.firstIgnition&&{...lot.firstIgnition},
       deadline:lot.deadline,retiredAt:lot.retiredAt,gone:lot.building.destroyed,char:lot.building.burnedFraction,
       tiles:lot.tiles.map(t=>({...t})),
+      preheat:lot.walls.filter(s=>s.phase==='cold'&&Number.isFinite(s.heat)&&s.heat>0&&present(lot,s))
+        .map(({id,x,y,z,nx,ny,nz,heat})=>({id,x,y,z,nx,ny,nz,heatFraction:cap(heat/IGNITION)})),
       cells:lot.sites.filter(s=>s.ignitedAt!==null).map(s=>{
         const flame=burning(lot,s)?flameAt(s,time):0,age=time-s.ignitedAt;
         return {id:s.id,face:s.face,layer:s.layer,part:s.layer==='upper'||s.layer==='lower'?'ground':s.layer,tile:s.tile,

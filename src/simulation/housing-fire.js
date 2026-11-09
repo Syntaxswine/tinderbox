@@ -10,13 +10,13 @@ function toPlan(building,point){
 
 // Use the very same finite ground fuel that powered the original housing.
 // Each cell belongs to one local section of its existing footprint.
-export function createHousingFire(group,obstacles){
+export function createHousingFire(group,obstacles,woodIgnition){
   const {building,colliders,cells,initialSurfaceFuel}=group;
   const grid=housingSectionGrid(building.prefabId);
   const localBoxes=localHousingFootprints(building.prefabId,building.partyWalls);
   const plan=HOUSING_PLANS[building.prefabId],odd=building.quarterTurns%2;
   const sections=Array.from({length:grid.cols*grid.rows},(_,index)=>({
-    cells:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,fire:null}
+    cells:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,fire:null,preheat:null}
   }));
   building.sections=sections.map(section=>section.view);
   const neighbors=new Set(Object.values(building.partyWalls).filter(Boolean));
@@ -69,10 +69,17 @@ export function createHousingFire(group,obstacles){
     for(const {cells:owned,view} of sections){
       if(!view.present)continue;
       let remaining=0,weight=0,x=0,z=0,peak=0,first=Infinity;
-      for(const {cell,x:cx,y:cz} of owned){
+      let hottest=null;
+      const canPreheat=view.firstIgnition===null&&woodIgnition>0;
+      for(const entry of owned){
+        const {cell,x:cx,y:cz}=entry;
         surface+=cell.surfaceFuel;
         remaining+=cell.surfaceFuel+cell.depositedFuel;
-        if(cell.phase!=='burning')continue;
+        if(cell.phase!=='burning'){
+          if(canPreheat&&cell.phase!=='spent'&&cell.ignitedAt===null&&cell.material==='wood'&&cell.surfaceFuel>EPS&&
+            Number.isFinite(cell.heat)&&cell.heat>(hottest?.cell.heat??0))hottest=entry;
+          continue;
+        }
         const intensity=cell.intensity;
         weight+=intensity;x+=cx*intensity;z+=cz*intensity;peak=Math.max(peak,intensity);
         first=Math.min(first,cell.ignitedAt);
@@ -81,6 +88,7 @@ export function createHousingFire(group,obstacles){
         view.firstIgnition??=first;
         view.fire={x:x/weight,z:z/weight,flame:peak,ignitionTime:first};
       }else view.fire=null;
+      view.preheat=hottest&&view.firstIgnition===null?{x:hottest.x,z:hottest.y,heatFraction:Math.min(1,hottest.cell.heat/woodIgnition)}:null;
       if(view.firstIgnition!==null&&remaining<=EPS){
         view.present=false;changed=true;
         event('building-section-burnout',building,{buildingId:building.id,section:view.index,worldTime:time});

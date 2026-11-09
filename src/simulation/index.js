@@ -72,7 +72,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       const initialSurfaceFuel = cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
       if (!cells.length || initialSurfaceFuel <= EPS) throw Error('Building needs a finite dry-wood footprint');
       const group={building,colliders,cells,initialSurfaceFuel};
-      if(catalogue)group.structure=createHousingFire(group,state.obstacles);
+      if(catalogue)group.structure=createHousingFire(group,state.obstacles,config.fire.ignition.wood);
       return group;
     });
   }
