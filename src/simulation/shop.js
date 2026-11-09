@@ -55,6 +55,7 @@ export function createShopInteractions(world, state, event) {
   }
   return {
     interaction,
+    carriesLantern: () => taken,
     accepts(command) {
       if (Object.hasOwn(command, 'portalId')) {
         return !Object.hasOwn(command, 'objectId') && command.portalId === doorId &&
