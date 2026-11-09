@@ -231,3 +231,35 @@
 .tb-ui .tb-tool-feedback { grid-column:1/3; width:100%; max-width:230px; margin-top:3px; color:#ffe3ad; font:400 11px/1.25 var(--text); overflow-wrap:anywhere; }
 .tb-ui [data-tool=torch] [data-stock] { font-variant-numeric:tabular-nums; }
 .tb-ui [data-torch-phase=spent] [data-stock] { color:var(--umber); }
+
+
+/* Lantern aiming uses the existing deck without shifting the stick. */
+.tb-ui .tb-lantern-guide {
+  position:absolute; bottom:calc(100% + 9px); left:50%; transform:translateX(-50%);
+  width:min(352px,100%); display:flex; align-items:center; justify-content:space-between; gap:9px;
+  padding:4px 6px 4px 11px; border:2px solid #b89458; border-radius:3px;
+  background:#f3dfb1; color:#352314; box-shadow:0 3px 12px #150c08ad;
+  font:400 14px/1.2 var(--text); text-shadow:none;
+}
+.tb-ui .tb-lantern-guide button {
+  flex:none; min-width:44px; min-height:44px; padding:5px 8px;
+  border:1px solid #664524; border-radius:2px; background:#633d26; color:#fff0d0;
+  font:600 10px/1.1 var(--label);
+}
+.tb-ui .tb-lantern-guide button:focus-visible { outline-color:#53351e; outline-offset:2px; }
+.tb-ui[data-lantern-aim=true] .tb-stick-caption { color:#fff2c5; }
+.tb-ui[data-lantern-aim=true] .tb-stick-ring { border-color:#e4b66f; }
+.tb-lantern-preview { position:absolute; inset:0; width:100%; height:100%; overflow:hidden; pointer-events:none; }
+.tb-lantern-preview>circle,.tb-landing-center { fill:#ffe7a8; stroke:#241508; stroke-width:1.5; }
+.tb-lantern-landing .tb-landing-outline { fill:none; stroke:#201309; stroke-width:5; }
+.tb-lantern-landing .tb-landing-ring,.tb-lantern-landing path { fill:none; stroke:#fff1c5; stroke-width:2; }
+.tb-lantern-preview[data-locked=false] .tb-landing-ring { stroke-dasharray:3 2; }
+@media(max-height:580px) and (min-width:600px) {
+  .tb-ui[data-lantern-aim=true] .tb-stick-caption { display:block; position:absolute; bottom:6px; margin:0; text-shadow:0 1px 2px #1d1008,0 0 4px #1d1008; pointer-events:none; }
+}
+@media(forced-colors:active) {
+  .tb-ui .tb-lantern-guide,.tb-ui .tb-lantern-guide button { background:Canvas; color:CanvasText; border-color:CanvasText; }
+  .tb-ui[data-lantern-aim=true] .tb-stick-caption { color:CanvasText; }
+  .tb-lantern-landing .tb-landing-ring,.tb-lantern-landing path { stroke:CanvasText; }
+  .tb-lantern-landing .tb-landing-outline { stroke:Canvas; }
+}

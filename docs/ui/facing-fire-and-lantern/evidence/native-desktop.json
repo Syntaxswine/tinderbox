@@ -1,0 +1,410 @@
+{
+  "armed": {
+    "tick": 2,
+    "aim": {
+      "target": null,
+      "impact": null,
+      "path": [],
+      "adjusting": false,
+      "canThrow": false
+    },
+    "stock": 3,
+    "tool": "molotov",
+    "paused": false
+  },
+  "mouseLocked": {
+    "tick": 10,
+    "aim": {
+      "target": {
+        "x": 6.4,
+        "y": 2.4
+      },
+      "impact": {
+        "x": 6.4,
+        "y": 2.4,
+        "h": 0.02
+      },
+      "path": [
+        {
+          "x": 0.4,
+          "y": 1,
+          "h": 0.8
+        },
+        {
+          "x": 1.8,
+          "y": 1.4,
+          "h": 2.1
+        },
+        {
+          "x": 3.2,
+          "y": 1.7,
+          "h": 2.4
+        },
+        {
+          "x": 4.7,
+          "y": 2,
+          "h": 1.8
+        },
+        {
+          "x": 6.4,
+          "y": 2.4,
+          "h": 0.02
+        }
+      ],
+      "adjusting": false,
+      "canThrow": true
+    },
+    "stock": 3,
+    "tool": "molotov",
+    "paused": false
+  },
+  "mouseDone": {
+    "tick": 11,
+    "aim": null,
+    "stock": 2,
+    "tool": "molotov",
+    "paused": false
+  },
+  "keyboardLocked": {
+    "tick": 14,
+    "aim": {
+      "target": {
+        "x": 6.4,
+        "y": 2.4
+      },
+      "impact": {
+        "x": 6.4,
+        "y": 2.4,
+        "h": 0.02
+      },
+      "path": [
+        {
+          "x": 0.4,
+          "y": 1,
+          "h": 0.8
+        },
+        {
+          "x": 1.8,
+          "y": 1.4,
+          "h": 2.1
+        },
+        {
+          "x": 3.2,
+          "y": 1.7,
+          "h": 2.4
+        },
+        {
+          "x": 4.7,
+          "y": 2,
+          "h": 1.8
+        },
+        {
+          "x": 6.4,
+          "y": 2.4,
+          "h": 0.02
+        }
+      ],
+      "adjusting": false,
+      "canThrow": true
+    },
+    "stock": 2,
+    "tool": "molotov",
+    "paused": false
+  },
+  "keyboardDone": {
+    "tick": 15,
+    "aim": null,
+    "stock": 1,
+    "tool": "molotov",
+    "paused": false
+  },
+  "cancelled": {
+    "kind": "Controlled fixed snapshot fixture; no game physics or WebGL",
+    "viewport": [
+      1280,
+      800,
+      1
+    ],
+    "state": {
+      "tick": 19,
+      "aim": null,
+      "stock": 1,
+      "tool": "molotov",
+      "paused": false
+    },
+    "commands": [
+      {
+        "type": "select-tool",
+        "tool": "molotov"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      },
+      {
+        "type": "move",
+        "x": 0.14336917562724016,
+        "y": 0.08792562724014337
+      },
+      {
+        "type": "move",
+        "x": 0.21505376344086022,
+        "y": 0.14168906810035842
+      },
+      {
+        "type": "move",
+        "x": 0.3046594982078853,
+        "y": 0.19545250896057348
+      },
+      {
+        "type": "move",
+        "x": 0.3763440860215054,
+        "y": 0.24921594982078854
+      },
+      {
+        "type": "move",
+        "x": 0.44802867383512546,
+        "y": 0.2850582437275986
+      },
+      {
+        "type": "move",
+        "x": 0.5197132616487455,
+        "y": 0.33882168458781364
+      },
+      {
+        "type": "move",
+        "x": 0.5913978494623656,
+        "y": 0.3925851254480287
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "select-tool",
+        "tool": "molotov"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      },
+      {
+        "type": "select-tool",
+        "tool": "molotov"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 1
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "select-tool",
+        "tool": "molotov"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      },
+      {
+        "type": "select-tool",
+        "tool": "molotov"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      },
+      {
+        "type": "move",
+        "x": 1,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "cancel-input"
+      }
+    ],
+    "events": [
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "stick",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "stick",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "stick",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Enter",
+        "button": "molotov",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Enter",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "ArrowUp",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "ArrowUp",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Space",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Space",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Enter",
+        "button": "molotov",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Enter",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "ArrowRight",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "ArrowRight",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keydown",
+        "code": "Escape",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      },
+      {
+        "type": "keyup",
+        "code": "Escape",
+        "button": "stick",
+        "pointerType": "",
+        "trusted": true
+      }
+    ]
+  }
+}

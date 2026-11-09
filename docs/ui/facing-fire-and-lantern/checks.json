@@ -1,0 +1,128 @@
+{
+  "base": "192d3ba0ea8ae2a30e74960be3508ecc363ae3e6",
+  "preservedUiCheckpoint": "076d2dd7caf42a1354d5886fa3c562d3ea9e8b4a",
+  "donor": {
+    "commit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+    "appBlob": "79f3efff669610061409558b8a067960f82994f9",
+    "grenadeControlsBlob": "6cd555b80ef41f779c59fd20f294994c15cb4ee0",
+    "mode": "Read-only behavioral reference. No imported bytes."
+  },
+  "offline": {
+    "node tools/check.mjs": {
+      "passed": 214,
+      "failed": 0,
+      "ownScripts": 179,
+      "staticModules": 214,
+      "artImports": 5,
+      "artSyntaxDependencyChecks": 45,
+      "provenance": "pass"
+    },
+    "node tools/build.mjs": {
+      "files": 3483,
+      "bytes": 163867376
+    },
+    "node tools/check-release.mjs": {
+      "verifiedFiles": 3483,
+      "relativePaths": "pass"
+    }
+  },
+  "runtimeSnapshotCheck": {
+    "coder": "b635889a6b062299afe6bb7187888897f97d0569",
+    "mode": "Read-only Node handshake using actual coder simulation and this UI model; no runtime import into the branch",
+    "armedStock": 4,
+    "pathSamples": 13,
+    "readyTarget": {
+      "x": 9.953974545908801,
+      "y": 8.347815446835106
+    },
+    "impactHeight": 0.10000000000000013,
+    "afterThrowStock": 3,
+    "cancelledWithoutPause": true
+  },
+  "browser": {
+    "backend": "Codex in-app browser; production HUD over a controlled SVG night fixture; no WebGL scene",
+    "domChecks": [
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 800,
+          "width": 1280
+        },
+        "passed": 102,
+        "total": 102
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        },
+        "passed": 102,
+        "total": 102
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        },
+        "passed": 102,
+        "total": 102
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        },
+        "passed": 102,
+        "total": 102
+      }
+    ],
+    "fullResults": "evidence/dom-checks.json",
+    "desktopNative": {
+      "primaryPresses": 5,
+      "trustedEvents": 21,
+      "trace": "evidence/native-desktop.json"
+    },
+    "phoneNative": {
+      "trustedEvents": 9,
+      "trace": "evidence/native-phone.json"
+    },
+    "touch": "Synthetic touch pointer regressions only. Phone viewport uses native mouse, not physical touch hardware.",
+    "jpgs": [
+      {
+        "path": "evidence/desktop-aim-locked.jpg",
+        "size": [
+          1280,
+          800
+        ],
+        "sha256": "bbd9f56799bb4a2812e3cfd6409f8d3708a36b5fd948e83ce9ad73ec5da10a8b"
+      },
+      {
+        "path": "evidence/phone-awaiting-aim.jpg",
+        "size": [
+          390,
+          844
+        ],
+        "sha256": "82d09c5a05014b07d3c6be0a3d80ac45876a1de00b802d9f6f306e7930c36469"
+      },
+      {
+        "path": "evidence/phone-aim-locked.jpg",
+        "size": [
+          390,
+          844
+        ],
+        "sha256": "a3302cd43a72c9f8b9871860f4fe79ca595fde31a09d6fb8e08e0c78a7063366"
+      }
+    ]
+  },
+  "helper": {
+    "port": 4552,
+    "scope": "Finite local preview",
+    "lifecycle": "Graceful private stop marker after validating PID, creation FILETIME and executable; original exited and port released. Browser tab closed and viewport reset.",
+    "retained": false,
+    "preservedFiles": 23,
+    "receipt": "Ignored local artifacts/facing-lantern-ui/helper/cleanup-receipt.json"
+  }
+}
