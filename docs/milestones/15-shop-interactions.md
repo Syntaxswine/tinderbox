@@ -1,0 +1,21 @@
+# Working shop door and portable light
+
+First playable object interactions on standard Catalogue Street, based on published `b5b8de6ffabe665b82556eeb097e1983f293ba80`. Bell & Alder opens with a closed pair of native glazed leaves in its existing two-metre entrance. The nearby floating button opens or closes both leaves with one press. The Eastlake display holds a lit Nautilus hand lantern on its pedestal. **Take lantern** transfers its model and light to the character's belt. The pendant lights the counter separately. One portable light is available per scene reset.
+
+## Runtime and art contract
+
+- The native entrance is centered at X 40, Z 17. Closed leaf centers are (39.5, 17) and (40.5, 17). Open leaf centers are (39, 16.5) and (41, 16.5). Each leaf uses the native 1 × 1.65 × .12 m shape and the existing glazing collision material. Runtime owns both settled poses, uses their live boxes for movement and tool obstructions, and refuses a destination pose that overlaps a character. Use the same one-click state change as the landmark doors.
+- The door ID is `bell-and-alder:entry` and the lantern ID is `bell-and-alder:hand-lantern`. The pedestal keeps the existing `bell-and-alder:parlor-lamp` footprint ID at X 41.65, Z 11.60. Place the pinned `city1880-hand-lantern-lit` on the native pedestal at Y .747. If the stand burns away before pickup, retire the placed lantern and its light. After pickup, the stand and carried light have separate lifecycles.
+- The simulation publishes `world.shop` on this visit with `door: {id, open, leaves}` and `lantern: {id, state, position}`. Leaf poses are `{id, x, y, width, depth, height, heading}`, where planar `y` is world Z. The lantern state is `placed`, `carried` or `spent`. Its Three world position is `[x, h, z]` while placed and `null` otherwise. The renderer uses the authoritative player pose for the carried model, and one emitter follows the pinned flame anchor.
+- Use `player.interaction` with the existing `{id, kind, action, label, enabled, reason, anchor}` shape. A door has kind `door` and action `open` or `close`. The pickup has kind `lantern`, action `take` and label **Take lantern**. Use about 1.65 m reach and clear access, ignoring the target's own leaf or the supporting pedestal when checking its reach. The simulation checks the same exact action again when it is consumed and rejects stale, paused, dead, blocked or out-of-reach requests.
+- Door commands keep `{type:'interact', portalId:id, action}`. Pickup uses `{type:'interact', objectId:id, action:'take'}`. The same projected timber button serves both. On the street, **E** invokes the contextual action and **Space** operates the selected tool. Suppress the contextual action during active throw aiming. A carried light uses its own object state. The throw button uses its weapon stock and aim state.
+
+## Assignments and acceptance
+
+The artist owns the pedestal, lantern, glazing presentation and light in `src/content/bell-and-alder-layout.js` and `src/art/bell-and-alder.js` on `codex/shop-interactions-art` in the existing artist checkout. Reuse the already installed Nautilus prop library and Farmyard surface materials. Include a focused pose and light check.
+
+The coder owns the street scenario and simulation, including reach, collision, safe poses, pickup, reset and stand burnout, on `codex/shop-interactions-coder` in the existing coder checkout. Test the art and runtime together against the production scenario. Existing shop walk-through checks now open the door first.
+
+The UI specialist owns the shared projected button, its labels and shortcut bindings on `codex/shop-interactions-ui` in the existing UI checkout. Keep landmark commands compatible and verify that a street action fits around the existing control deck.
+
+The architect reviews the exact combined package on the normal route. Verify a closed door stops the bear, a click opens it, the bear can enter, the button responds safely around the threshold, and **Take lantern** transfers light from the display to the character. Walk outside, check nearby surface light and the darker display, and test reset. Preserve the separate Ashland replay and the four-map menu through the relevant checks.

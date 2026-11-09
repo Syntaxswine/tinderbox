@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-bell-and-alder` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Bell & Alder scope, combined QC and promotion |
-| Artist | `codex/bell-and-alder-art` from `e2dd5ff` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Pinned Nautilus intake, shop layout and night presentation |
-| Coder | `codex/bell-and-alder-coder` from `e2dd5ff` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Catalogue Street placement, collision, fire and integration checks |
-| UI designer | `codex/facing-fire-and-lantern-ui` from `192d3ba` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Aim and throw controls, projected preview and input checks |
+| Architect | `codex/review-shop-interactions` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Shop interaction contract, combined QC and promotion |
+| Artist | `codex/shop-interactions-art` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Glazed door, lantern and light presentation |
+| Coder | `codex/shop-interactions-coder` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Reach, safe door movement, pickup and lifecycle |
+| UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Shared floating action and shortcut bindings |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current assignment is [Bell & Alder](milestones/14-bell-and-alder.md), from published `e2dd5ff`. The [shop review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake, layout and acceptance on standard Catalogue Street. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the accepted flamethrower and lantern behavior. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the shop.
+The current assignment is [working shop doors and portable light](milestones/15-shop-interactions.md), from published `b5b8de6`. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
