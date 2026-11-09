@@ -107,7 +107,7 @@ test('native bear clears street/gaps and is blocked by foundations, porches and 
       assert.equal(freePoint(point, .56, world, world.obstacles), false);
     }
     assert.equal(lineClear({x: 2, y: 6}, {x: 12, y: 6}, world.obstacles), false);
-    assert.equal(lineClear({x: 2, y: 6}, {x: 3, y: 6, size: .5}, world.obstacles), true);
+    assert.equal(lineClear({x: 2, y: 6}, {x: 3, y: 6, size: .5}, world.obstacles), false, 'ground heat stops at the foundation');
     assert.ok(freePoint({x: 24.2, y: 8}, .01, world, world.obstacles), 'elevated gambrel eave did not become a filled ground box');
   } finally { simulation.dispose(); }
 });

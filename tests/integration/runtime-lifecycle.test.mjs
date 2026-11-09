@@ -17,6 +17,17 @@ test('renderer construction/setup failure releases the simulation and every part
   const a=fixture();await assert.rejects(createRuntime({...a.options,rendererFactory(){throw Error('WebGL unavailable');}}),/WebGL/);assert.equal(a.counts.simulation,1);assert.equal(a.root.children.length,0);
   const b=fixture();b.renderer.setPixelRatio=()=>{throw Error('setup failed');};await assert.rejects(createRuntime(b.options),/setup/);assert.equal(b.counts.renderer,1);assert.equal(b.counts.simulation,1);assert.equal(b.counts.context,1);
 });
+test('the art scene receives the runtime-owned daylight objects',async()=>{
+  const f=fixture();
+  const runtime=await createRuntime({...f.options,createArtScene:async({scene,defaultLights})=>{
+    assert.equal(defaultLights.length,2);
+    assert.ok(defaultLights.every(light=>scene.children.includes(light)));
+    assert.equal(defaultLights[0].intensity,2.3);
+    assert.equal(defaultLights[1].intensity,2.5);
+    return {update(){},dispose(){}};
+  }});
+  runtime.dispose();
+});
 test('abort during art loading stops the renderer immediately and disposes late art before mounting UI',async()=>{
   const f=fixture(),controller=new AbortController();let resolve;const art=new Promise(r=>resolve=r);
   const pending=createRuntime({...f.options,signal:controller.signal,createArtScene:()=>art});controller.abort();assert.equal(f.counts.renderer,1);assert.equal(f.root.children.length,0);

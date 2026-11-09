@@ -22,7 +22,7 @@ function press(sim) {
 function trace({kind, shielded = false, cottage = false, passes = 4}) {
   const x = cottage ? 52.5 : 10.5, y = cottage ? 13.5 : 34.5;
   const sourceId = cottage ? 'cell:105,27' : 'cell:21,69';
-  const receiverId = cottage ? 'right:3,0' : 'cell:20,69';
+  const receiverId = cottage ? 'right:3,0' : 'hopkins-nine/wall:0:7,4|7,5:0';
   const base = cottage ? COTTAGE_PAIR_SCENARIO : {id: 'neighborhood', width: 16, height: 44,
     buildings: [{id: hopkinsId, ...hopkins}]};
   const scenario = {...base, patches: kind === 'gas' ? [] : [patch(x, y, kind)],
@@ -46,11 +46,14 @@ function trace({kind, shielded = false, cottage = false, passes = 4}) {
       if (start === null && sourceStart) start = sourceStart.tick * step;
       if (end === null && sourceEnd) end = sourceEnd.tick * step;
       const first = cottage ? snapshot.events.find(event => event.type === 'cottage-ignition' && event.buildingId === 'ashland-cottage')
-        : snapshot.events.find(event => event.type === 'ignition' && event.cellId === receiverId);
-      const heating = cottage ? snapshot.cottageFire.diagnostics.warmingSiding?.find(site => site.cellId === receiverId)?.heat : findCell(snapshot, receiverId).heat;
+        : snapshot.events.find(event => event.type === 'structure-ignition' && event.siteId === receiverId);
+      const sample = snapshot.structureFire.find(site => site.id === receiverId && site.ignitionTime === null);
+      const heating = cottage ? snapshot.cottageFire.diagnostics.warmingSiding?.find(site => site.cellId === receiverId)?.heat
+        : (sample?.heatFraction ?? 0) * threshold;
       if (first && arrival === null) {
-        assert.equal(first.cellId, receiverId);
-        arrival = cottage ? first.worldTime : first.tick * step;
+        assert.equal(first.cellId ?? first.siteId, receiverId);
+        if (!cottage) assert.equal(first.parentSiteId, sourceId);
+        arrival = first.worldTime;
         ignitionHeat = first.heat;
       }
       if (arrival === null && (heating ?? 0) > peak) { peak = heating; peakTime = time; }
