@@ -34,15 +34,13 @@ export function inObstacle(p, o, inset = 0) {
 export function freePoint(p, radius, world, obstacles) {
   if (![p.x, p.y, radius].every(Number.isFinite) || radius <= 0 || p.x < radius || p.y < radius || p.x > world.width - radius || p.y > world.height - radius) return false;
   for (const o of obstacles) {
-    if (o.destroyed || o.solid === false) continue;
-    if (o.kind === 'barrel') { if (distance(p, o) < radius + (o.radius ?? o.width / 2) - EPS) return false; }
-    else {
-      const dx = Math.max(Math.abs(p.x - o.x) - o.width / 2, 0);
-      const dy = Math.max(Math.abs(p.y - o.y) - o.depth / 2, 0);
-      if (Math.hypot(dx, dy) < radius - EPS) return false;
-    }
+    if (!o.destroyed && o.solid !== false && discOverlapsObstacle(p, radius, o)) return false;
   }
   return true;
+}
+export function discOverlapsObstacle(p, radius, o) {
+  return o.kind === 'barrel' ? distance(p, o) < radius + (o.radius ?? o.width / 2) - EPS
+    : pointBoxDistance(p, o) < radius - EPS;
 }
 function pointSegmentDistance(p, a, b) {
   const dx = b.x - a.x, dy = b.y - a.y, length2 = dx * dx + dy * dy;
