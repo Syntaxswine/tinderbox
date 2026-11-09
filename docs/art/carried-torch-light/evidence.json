@@ -1,0 +1,96 @@
+{
+  "base": "801807b2e71638101861c875c2d23c9ad73ad17b",
+  "source": {
+    "path": "src/art/carried-torch.js",
+    "sha256": "550a9525eaf1223679d4f8d66dd6ef4c24e31693f63f950919c61f089aa20dbe"
+  },
+  "assets": "Existing pinned painted torch and shared Three r180; no new source asset",
+  "images": {
+    "previews/01-unlit.jpg": {
+      "bytes": 89603,
+      "sha256": "1a5c262e6fd8a06496ccac57d733d4a1ed5c5231a7289b5d56568d3903126bfe"
+    },
+    "previews/02-lit.jpg": {
+      "bytes": 90131,
+      "sha256": "44aa686a49592ec65153f07886e4147739bf5776a7b27d3775809a2916417b62"
+    },
+    "previews/02b-wall-shadow-off-control.jpg": {
+      "bytes": 90114,
+      "sha256": "29c294a03f3d978c0fb1f440f9085bad374e813c8fe56d9e61505d1e65c227af"
+    },
+    "previews/03-walking-end.jpg": {
+      "bytes": 78950,
+      "sha256": "f5f3c9133f5124ee31d16d30847ba23d7578dd1859fa63a9993db91055bd8114"
+    },
+    "previews/04-turned-to-wall.jpg": {
+      "bytes": 79040,
+      "sha256": "9ba3826a5339322392924f603cb2ff23d65090ebb096b5a3feb3b85fb7128f89"
+    },
+    "previews/05-wall-shadow-off-control.jpg": {
+      "bytes": 79017,
+      "sha256": "e040f02830c600f3b19eae8793e8c21370ef1ccbc2ead9b722b073aa1186e4ea"
+    },
+    "previews/06-holstered.jpg": {
+      "bytes": 78472,
+      "sha256": "27b9f2b0285ec619808ebf539fad53b01bbac2248adb1f47a83f6cd952f21b34"
+    }
+  },
+  "buildManifestSha256": "be66edc8fda4919e650b8091fb0d925ad1f81a0cdb81450889ed1e045db38900",
+  "matchedProbes": {
+    "sampleRadiusPixels": 3,
+    "nearPaving": {
+      "world": [
+        52.75,
+        0.015,
+        13.05
+      ],
+      "unlit": [
+        62.43,
+        72.51,
+        81.76
+      ],
+      "lit": [
+        153.94,
+        121.94,
+        97.16
+      ]
+    },
+    "facingSiding": {
+      "world": [
+        52.09,
+        0.62,
+        13.2
+      ],
+      "unlit": [
+        46.92,
+        52.86,
+        58.67
+      ],
+      "lit": [
+        154.51,
+        122.76,
+        88.53
+      ]
+    },
+    "farPaving": {
+      "world": [
+        56.6,
+        0.015,
+        13.15
+      ],
+      "unlit": [
+        62.71,
+        74.71,
+        87.53
+      ],
+      "lit": [
+        62.71,
+        74.71,
+        87.53
+      ]
+    }
+  },
+  "testCount": 201,
+  "webgl": "passed focused artist review",
+  "port4551Released": true
+}
