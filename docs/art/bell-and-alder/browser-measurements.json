@@ -1,0 +1,305 @@
+{
+  "kind": "Packaged production street renderer and solver with local Bell & Alder composition fixture",
+  "records": [
+    {
+      "label": "01-approach",
+      "player": [
+        40,
+        18.24
+      ],
+      "radius": 0.56,
+      "clock": 0,
+      "lamps": [
+        {
+          "id": "bell-and-alder:parlor-lamp",
+          "visible": true,
+          "position": [
+            41.65,
+            1.009,
+            11.6
+          ],
+          "intensity": 4.8,
+          "reach": 3.4
+        },
+        {
+          "id": "bell-and-alder:shop-lamp",
+          "visible": true,
+          "position": [
+            38.5,
+            1.736,
+            12.5
+          ],
+          "intensity": 8.5,
+          "reach": 4.7
+        }
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "exposure": 1,
+      "camera": {
+        "target": [
+          40,
+          0,
+          18.24
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.05133928571428571,
+        0,
+        0,
+        0,
+        0,
+        0.15873015873015872,
+        0,
+        0,
+        0,
+        0,
+        -0.0033675702980299716,
+        0,
+        0,
+        0,
+        -1.0003367570298032,
+        1
+      ],
+      "view": [
+        0.768221279597376,
+        -0.42727431270911115,
+        0.4767312946227962,
+        0,
+        -5.551115123125784e-17,
+        0.7446780878644506,
+        0.6674238124719147,
+        0,
+        -0.6401843996644799,
+        -0.5127291752509335,
+        0.5720775535473552,
+        0,
+        -19.05188773401493,
+        26.443152664941476,
+        -50.48012332501864,
+        1
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "02-approach-lamps-off",
+      "player": [
+        40,
+        18.24
+      ],
+      "radius": 0.56,
+      "clock": 0,
+      "lamps": [
+        {
+          "id": "bell-and-alder:parlor-lamp",
+          "visible": true,
+          "position": [
+            41.65,
+            1.009,
+            11.6
+          ],
+          "intensity": 0,
+          "reach": 3.4
+        },
+        {
+          "id": "bell-and-alder:shop-lamp",
+          "visible": true,
+          "position": [
+            38.5,
+            1.736,
+            12.5
+          ],
+          "intensity": 0,
+          "reach": 4.7
+        }
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "exposure": 1,
+      "camera": {
+        "target": [
+          40,
+          0,
+          18.24
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.05133928571428571,
+        0,
+        0,
+        0,
+        0,
+        0.15873015873015872,
+        0,
+        0,
+        0,
+        0,
+        -0.0033675702980299716,
+        0,
+        0,
+        0,
+        -1.0003367570298032,
+        1
+      ],
+      "view": [
+        0.768221279597376,
+        -0.42727431270911115,
+        0.4767312946227962,
+        0,
+        -5.551115123125784e-17,
+        0.7446780878644506,
+        0.6674238124719147,
+        0,
+        -0.6401843996644799,
+        -0.5127291752509335,
+        0.5720775535473552,
+        0,
+        -19.05188773401493,
+        26.443152664941476,
+        -50.48012332501864,
+        1
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "03-inside",
+      "player": [
+        40,
+        13.739999999999936
+      ],
+      "radius": 0.56,
+      "clock": 0.5166666666666666,
+      "lamps": [
+        {
+          "id": "bell-and-alder:parlor-lamp",
+          "visible": true,
+          "position": [
+            41.65,
+            1.009,
+            11.6
+          ],
+          "intensity": 4.8,
+          "reach": 3.4
+        },
+        {
+          "id": "bell-and-alder:shop-lamp",
+          "visible": true,
+          "position": [
+            38.5,
+            1.736,
+            12.5
+          ],
+          "intensity": 8.5,
+          "reach": 4.7
+        }
+      ],
+      "canvas": [
+        1280,
+        414
+      ],
+      "exposure": 1,
+      "camera": {
+        "target": [
+          40,
+          0,
+          13.739999999999936
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.05133928571428571,
+        0,
+        0,
+        0,
+        0,
+        0.15873015873015872,
+        0,
+        0,
+        0,
+        0,
+        -0.0033675702980299716,
+        0,
+        0,
+        0,
+        -1.0003367570298032,
+        1
+      ],
+      "view": [
+        0.768221279597376,
+        -0.4272743127091108,
+        0.476731294622796,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719145,
+        0,
+        -0.6401843996644797,
+        -0.5127291752509332,
+        0.5720775535473555,
+        0,
+        -21.932717532505134,
+        24.13587137631222,
+        -47.9057743340555,
+        0.9999999999999998
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    }
+  ],
+  "matchedLightingControl": true,
+  "medianLumaByProbe": {
+    "sales floor": {
+      "world": [
+        38.85,
+        0.001,
+        13.55
+      ],
+      "pixel": [
+        710,
+        112
+      ],
+      "lampsOff": 42.26,
+      "lampsOn": 65.85
+    },
+    "Eastlake floor": {
+      "world": [
+        41.65,
+        0.001,
+        12.3
+      ],
+      "pixel": [
+        807,
+        130
+      ],
+      "lampsOff": 42.4,
+      "lampsOn": 74.71
+    },
+    "road control": {
+      "world": [
+        40,
+        0.001,
+        21.0
+      ],
+      "pixel": [
+        582,
+        253
+      ],
+      "lampsOff": 46.46,
+      "lampsOn": 46.46
+    }
+  }
+}
