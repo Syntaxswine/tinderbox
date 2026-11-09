@@ -2,6 +2,8 @@
 
 Both assignments begin from the published [shop interaction checkpoint](../reviews/2026-11-09-shop-interactions.md), `92e8ec0fe3251c63a73cf1651f1e3b2c63c5cbde`. Reuse the [existing worktrees](../workflow.md). The tests and art can proceed independently.
 
+The [architect's review](../reviews/2026-11-09-bell-witness.md) records the tested candidates. Neither candidate changes the published game.
+
 ## Coder: one witness
 
 Use one existing civilian at Bell & Alder in an opt-in test on Catalogue Street. Keep the six tool buttons, movement controls and current contextual door and pickup actions. The ordinary visit, Ashland replay and other maps keep their current behavior. This trial adds no inventory, pursuit or citywide stealth rules.
