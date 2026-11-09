@@ -4,7 +4,7 @@ import {readFileSync, existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
-import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf, navigationOf, doorInteractionOf} from '../../src/ui/model.js';
+import {TOOLS, DRUGS, normalizeStick, pointerStick, viewOf, remainingText, toolFeedbackOf, navigationOf, doorInteractionOf, lanternAimOf} from '../../src/ui/model.js';
 import {fixture} from '../../workbenches/ui/fixtures.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 test('five tool IDs and effect definitions preserve the scene contract', () => {
@@ -113,4 +113,19 @@ test('door targets copy exact authoritative IDs/actions/anchors and reject parti
   assert.deepEqual(door,input);assert.notEqual(door.anchor,input.anchor);door.anchor[0]=9;assert.equal(JSON.stringify(input),before);
   for(const patch of [{id:''},{kind:'passage'},{action:'toggle'},{label:' '},{enabled:1},{anchor:[1,2]},{anchor:[1,NaN,2]}])assert.equal(doorInteractionOf({...input,...patch}),null);
   assert.equal(doorInteractionOf(null),null);assert.equal(doorInteractionOf({label:'Open door',enabled:true}),null);
+});
+
+test('lantern aim is authoritative, copied and unavailable on legacy snapshots', () => {
+  const snap=fixture();snap.player.tool='molotov';snap.player.lanternAim=null;
+  assert.equal(viewOf(snap).primaryLabel,'Aim lantern');assert.equal(viewOf(snap).primaryDisabled,false);
+  delete snap.player.lanternAim;assert.equal(viewOf(snap).primaryDisabled,true);
+  const aim={target:{x:5,y:6},impact:{x:4,y:6,h:.8},path:[{x:1,y:2,h:.3},{x:2,y:3,h:NaN}],adjusting:true,canThrow:false};
+  snap.player.lanternAim=aim;
+  const view=viewOf(snap);assert.equal(view.primaryLabel,'Throw lantern');assert.equal(view.primaryDisabled,true);
+  assert.deepEqual(view.lanternAim.path,[{x:1,y:2,h:.3}]);assert.notEqual(view.lanternAim.target,aim.target);assert.notEqual(view.lanternAim.impact,aim.impact);
+  assert.equal(lanternAimOf({target:aim.target,adjusting:true}),null);
+  assert.equal(lanternAimOf({...aim,target:null,canThrow:true}),null);
+  aim.adjusting=false;aim.canThrow=true;assert.equal(viewOf(snap).primaryDisabled,false);
+  snap.player.inventory.molotovs=0;assert.equal(viewOf(snap).primaryDisabled,true);
+  snap.player.tool='flamethrower';assert.equal(viewOf(snap).lanternAim,null);assert.match(viewOf(snap).toolHint,/where you face/);
 });

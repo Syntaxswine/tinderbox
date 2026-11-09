@@ -1,4 +1,5 @@
 import {runDoorChecks} from './door-checks.js';
+import {runLanternChecks} from './lantern-checks.js';
 import {runMovementChecks} from './movement-checks.js';
 import {mountUI,mountMainMenu,mountTitleScreen,createInterfacePreferences} from '../../src/ui/index.js';
 import {fixture,createFakeSnapshotAdapter,PLACE_FIXTURES,CHARACTER_FIXTURES,explorationFixture} from '../../workbenches/ui/fixtures.js';
@@ -10,7 +11,8 @@ function deepFreeze(value){Object.freeze(value);for(const item of Object.values(
 function make(name='ready',zoom=true,preferences){
   const root=document.createElement('div');root.style.cssText='position:absolute;inset:0';host.append(root);
   const commands=[],zooms=[],ui=mountUI({root,preferences,onCommand:c=>commands.push(c),...(zoom?{onZoom:f=>zooms.push(f)}:{})});
-  ui.update(deepFreeze(fixture(name)));return{root,commands,zooms,ui,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
+  const snapshot=fixture(name);snapshot.player.lanternAim=null;
+  ui.update(deepFreeze(snapshot));return{root,commands,zooms,ui,find:s=>root.querySelector(s),close:()=>{ui.dispose();root.remove();}};
 }
 const key=(target,type,code,extra={})=>target.dispatchEvent(new KeyboardEvent(type,{code,key:code==='Space'?' ':code,bubbles:true,cancelable:true,...extra}));
 const pointer=(target,type,id,x=0,y=0)=>target.dispatchEvent(new PointerEvent(type,{pointerId:id,pointerType:'touch',button:0,clientX:x,clientY:y,bubbles:true,cancelable:true}));
@@ -24,10 +26,10 @@ function real(){
   const step=(n=1)=>{let value;for(let i=0;i<n;i++)value=simulation.advance(1/60);ui.update(value);return value;};
   ui.update(simulation.snapshot());return{root,ui,simulation,commands,step,find:s=>root.querySelector(s),close:()=>{ui.dispose();simulation.dispose();root.remove();}};
 }
-await check('Exact vertical banks: matches, torch, flamethrower / oil barrel, throw lantern, menu',s=>{
+await check('Exact vertical banks: matches, torch, flamethrower / oil barrel, lantern, menu',s=>{
   const left=[...s.root.querySelectorAll('.left-controls button')],right=[...s.root.querySelectorAll('.right-controls button')];
   equal(left.map(b=>b.dataset.tool),['matches','torch','flamethrower']);equal(right.map(b=>b.dataset.tool||'menu'),['jerry-can','molotov','menu']);
-  equal(left.map(b=>b.querySelector('.switch-label').textContent),['MATCHESSTRIKE','TORCHLIGHT','FLAMETHROWER']);equal(right.map(b=>b.querySelector('.switch-label').textContent),['OILBARREL','THROWLANTERN','MENU']);
+  equal(left.map(b=>b.querySelector('.switch-label').textContent),['MATCHESSTRIKE','TORCHLIGHT','FLAMETHROWER']);equal(right.map(b=>b.querySelector('.switch-label').textContent),['OILBARREL','AIMLANTERN','MENU']);
   for(const bank of [left,right])for(let i=1;i<bank.length;i++)ok(bank[i].getBoundingClientRect().top>=bank[i-1].getBoundingClientRect().bottom,'Bank order is not vertical');
   equal(s.root.querySelectorAll('[data-tool]').length,5);equal(s.root.querySelectorAll('[data-drug],[data-picker],[data-tools]').length,0);
 });
@@ -120,7 +122,7 @@ await check('Independent mounts scope ARIA and clipping and preserve caller sibl
 });
 await check('All controls are at least 44px, contained, correctly flanking the joystick and map',s=>{
   const frame=s.root.getBoundingClientRect(),stick=s.find('[data-stick]').getBoundingClientRect();
-  for(const b of s.root.querySelectorAll('.tb-console button,[data-zoom]')){const r=b.getBoundingClientRect();ok(r.width>=44&&r.height>=44,'Undersized '+b.getAttribute('aria-label'));ok(r.left>=frame.left-.5&&r.right<=frame.right+.5&&r.top>=frame.top-.5&&r.bottom<=frame.bottom+.5,'Clipped '+b.getAttribute('aria-label'));}
+  for(const b of s.root.querySelectorAll('.tb-console button,[data-zoom]')){if(b.closest('[hidden]'))continue;const r=b.getBoundingClientRect();ok(r.width>=44&&r.height>=44,'Undersized '+b.getAttribute('aria-label'));ok(r.left>=frame.left-.5&&r.right<=frame.right+.5&&r.top>=frame.top-.5&&r.bottom<=frame.bottom+.5,'Clipped '+b.getAttribute('aria-label'));}
   for(const b of s.root.querySelectorAll('.left-controls button'))ok(b.getBoundingClientRect().right<=stick.left,'Left bank crosses stick');
   for(const b of s.root.querySelectorAll('.right-controls button'))ok(b.getBoundingClientRect().left>=stick.right,'Right bank crosses stick');
   const map=s.find('.tb-map').getBoundingClientRect();ok(map.left>frame.width/2&&map.bottom<s.find('.tb-console').getBoundingClientRect().top,'Map placement');ok(s.find('[data-zoom]').getBoundingClientRect().left<70,'Zoom placement');
@@ -142,8 +144,8 @@ await check('Synchronous snapshot callbacks can acknowledge selection and pour w
     ui.update(adapter.snapshot());root.querySelector('[data-tool="jerry-can"]').click();ok(adapter.snapshot().player.pouring,'Synchronous pour lost');root.querySelector('[data-tool="jerry-can"]').click();ok(!adapter.snapshot().player.pouring,'Synchronous stop lost');
   }finally{ui.dispose();root.remove();}
 });
-await check('Real simulation: matches and lantern clicks consume exactly one item each',()=>{
-  const s=real();try{tool(s,'matches').click();let n=s.step();equal(n.player.inventory.matches,11);tool(s,'molotov').click();n=s.step();equal(n.player.inventory.molotovs,3);equal(n.player.tool,'molotov');}finally{s.close();}
+await check('Real simulation: a match click consumes exactly one match',()=>{
+  const s=real();try{tool(s,'matches').click();equal(s.step().player.inventory.matches,11);}finally{s.close();}
 });
 await check('Real simulation: barrel toggle pours while moving and stops without cancelling movement',()=>{
   const s=real();try{tool(s,'jerry-can').click();let n=s.step();ok(n.player.pouring,'Pour did not start');downStick(s);const gas=n.player.inventory.gas;n=s.step(10);ok(n.player.moving&&n.player.inventory.gas<gas,'No moving trail');tool(s,'jerry-can').click();n=s.step();ok(!n.player.pouring&&n.player.moving,'Stop cancelled movement');}finally{s.close();}
@@ -501,6 +503,7 @@ await check('The four current test maps request distinct IDs and restore their o
 
 results.push(...await runMovementChecks(host));
 results.push(...await runDoorChecks(host));
+results.push(...await runLanternChecks(host));
 
 for(const r of results){const li=document.createElement('li');li.dataset.status=r.status;li.textContent=(r.status==='pass'?'PASS ':'FAIL ')+r.name+(r.message?' — '+r.message:'');document.querySelector('#checks').append(li);}
 document.querySelector('#summary').textContent=results.filter(r=>r.status==='pass').length+' / '+results.length+' passed';

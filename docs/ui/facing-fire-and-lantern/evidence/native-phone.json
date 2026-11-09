@@ -1,0 +1,199 @@
+{
+  "input": "Trusted mouse events in phone-shaped viewport; not hardware touch",
+  "armed": {
+    "tick": 2,
+    "aim": {
+      "target": null,
+      "impact": null,
+      "path": [],
+      "adjusting": false,
+      "canThrow": false
+    },
+    "stock": 3,
+    "tool": "molotov",
+    "paused": false
+  },
+  "locked": {
+    "tick": 10,
+    "aim": {
+      "target": {
+        "x": 6.4,
+        "y": 2.4
+      },
+      "impact": {
+        "x": 6.4,
+        "y": 2.4,
+        "h": 0.02
+      },
+      "path": [
+        {
+          "x": 0.4,
+          "y": 1,
+          "h": 0.8
+        },
+        {
+          "x": 1.8,
+          "y": 1.4,
+          "h": 2.1
+        },
+        {
+          "x": 3.2,
+          "y": 1.7,
+          "h": 2.4
+        },
+        {
+          "x": 4.7,
+          "y": 2,
+          "h": 1.8
+        },
+        {
+          "x": 6.4,
+          "y": 2.4,
+          "h": 0.02
+        }
+      ],
+      "adjusting": false,
+      "canThrow": true
+    },
+    "stock": 3,
+    "tool": "molotov",
+    "paused": false
+  },
+  "cancelled": {
+    "kind": "Controlled fixed snapshot fixture; no game physics or WebGL",
+    "viewport": [
+      390,
+      844,
+      1
+    ],
+    "state": {
+      "tick": 11,
+      "aim": null,
+      "stock": 3,
+      "tool": "molotov",
+      "paused": false
+    },
+    "commands": [
+      {
+        "type": "select-tool",
+        "tool": "molotov"
+      },
+      {
+        "type": "primary",
+        "pressed": true
+      },
+      {
+        "type": "primary",
+        "pressed": false
+      },
+      {
+        "type": "move",
+        "x": 0.14090177133655393,
+        "y": 0.10882145732689211
+      },
+      {
+        "type": "move",
+        "x": 0.2214170692431562,
+        "y": 0.14907910628019325
+      },
+      {
+        "type": "move",
+        "x": 0.30193236714975846,
+        "y": 0.18933675523349436
+      },
+      {
+        "type": "move",
+        "x": 0.36231884057971014,
+        "y": 0.24972322866344607
+      },
+      {
+        "type": "move",
+        "x": 0.4428341384863124,
+        "y": 0.2899808776167472
+      },
+      {
+        "type": "move",
+        "x": 0.5032206119162641,
+        "y": 0.35036735104669886
+      },
+      {
+        "type": "move",
+        "x": 0.5837359098228664,
+        "y": 0.390625
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "cancel-input"
+      }
+    ],
+    "events": [
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "molotov",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "stick",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "stick",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "stick",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerdown",
+        "code": "",
+        "button": "cancel aim",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "pointerup",
+        "code": "",
+        "button": "cancel aim",
+        "pointerType": "mouse",
+        "trusted": true
+      },
+      {
+        "type": "click",
+        "code": "",
+        "button": "cancel aim",
+        "pointerType": "mouse",
+        "trusted": true
+      }
+    ]
+  }
+}

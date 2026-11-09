@@ -1,9 +1,9 @@
 export const TOOLS = Object.freeze([
   {id: 'matches', label: 'Matches', face: 'MATCHES', stock: 'matches', action: 'Strike', hint: 'One press · one ground tile', unit: 'left'},
   {id: 'jerry-can', label: 'Oil barrel', face: 'OIL|BARREL', stock: 'gas', action: 'Pour', hint: 'Tap to pour · keep moving', unit: 'gas'},
-  {id: 'molotov', label: 'Oil lantern', face: 'OIL|LANTERN', stock: 'molotovs', action: 'Throw', hint: 'Throw toward your aim', unit: 'left'},
+  {id: 'molotov', label: 'Oil lantern', face: 'OIL|LANTERN', stock: 'molotovs', action: 'Aim lantern', hint: 'Press to aim, then press again to throw.', unit: 'left'},
   {id: 'torch', label: 'Torch', face: 'TORCH', stock: 'torchFuel', action: 'Light', hint: 'Press once to light, then press to ignite nearby fuel', unit: 'fuel'},
-  {id: 'flamethrower', label: 'Flamethrower', face: 'FLAME|THROWER', stock: 'flamethrowerFuel', action: 'Spray', hint: 'Hold to spray toward your aim', unit: 'fuel'}
+  {id: 'flamethrower', label: 'Flamethrower', face: 'FLAME|THROWER', stock: 'flamethrowerFuel', action: 'Spray', hint: 'Hold to spray where you face.', unit: 'fuel'}
 ].map(Object.freeze));
 
 export const DRUGS = Object.freeze([
@@ -68,6 +68,25 @@ export function toolFeedbackOf(event) {
   return tool==='matches'?'Match used.':'Torch action used.';
 }
 
+// The simulation supplies the target and arc; the HUD only copies world points.
+const lanternPoint = (p, height = false) => p && Number.isFinite(p.x) && Number.isFinite(p.y) &&
+  (!height || Number.isFinite(p.h)) ? (height ? {x:p.x,y:p.y,h:p.h} : {x:p.x,y:p.y}) : null;
+export function lanternAimOf(value) {
+  if (!value || typeof value.adjusting !== 'boolean' || typeof value.canThrow !== 'boolean') return null;
+  const target=lanternPoint(value.target),impact=lanternPoint(value.impact,true);
+  if ((value.target!==null&&!target) || (value.impact!==null&&!impact) || !Array.isArray(value.path) || (value.canThrow&&!target)) return null;
+  const path=value.path.slice(0,32).map(p=>lanternPoint(p,true)).filter(Boolean);
+  return {target,impact,path,adjusting:value.adjusting,canThrow:value.canThrow};
+}
+
+export function lanternHint(aim, known) {
+  if (!known) return 'Lantern aiming unavailable.';
+  if (!aim) return 'Press to aim, then press again to throw.';
+  if (aim.canThrow) return 'Aim locked. Press Throw lantern.';
+  if (!aim.target || aim.adjusting) return 'Drag to aim. Pull farther for distance. Release to lock.';
+  return 'Adjust your aim before throwing.';
+}
+
 // Presentation only. This function neither mutates a snapshot nor advances time.
 export function viewOf(snapshot) {
   if (!snapshot || snapshot.version !== 1 || !snapshot.player) throw new TypeError('Tinderbox UI requires a v1 snapshot.');
@@ -79,15 +98,17 @@ export function viewOf(snapshot) {
   const stock = Math.max(0, Number(inventory[tool.stock]) || 0);
   const pouring = Boolean(player.pouring && tool.id === 'jerry-can');
   const torch=torchViewOf(player),torchSelected=tool.id==='torch';
+  const armed=lanternAimOf(player.lanternAim),lanternKnown=player.lanternAim===null||armed!==null;
+  const lanternSelected=tool.id==='molotov',lanternAim=lanternSelected?armed:null;
   return {
-    characterName:characterNameOf(player)||'Bear',torch, player, tool, inventory, dead, locked, paused: Boolean(snapshot.paused), stock, pouring,
+    characterName:characterNameOf(player)||'Bear',torch,lanternAim,lanternKnown, player, tool, inventory, dead, locked, paused: Boolean(snapshot.paused), stock, pouring,
     hp: Math.max(0, Math.min(player.maxHp || 100, player.hp || 0)),
     maxHp: Math.max(1, player.maxHp || 100),
-    primaryLabel: pouring ? 'Stop' : torchSelected ? torch.label : tool.action,
-    primaryMode: pouring ? 'POURING' : torchSelected ? torch.status : stock<=0 ? 'EMPTY' : tool.id==='flamethrower' ? 'HOLD' : 'PRESS',
+    primaryLabel: pouring ? 'Stop' : torchSelected ? torch.label : lanternAim ? 'Throw lantern' : tool.action,
+    primaryMode: pouring ? 'POURING' : torchSelected ? torch.status : stock<=0 ? 'EMPTY' : tool.id==='flamethrower' ? 'HOLD' : lanternSelected&&!lanternKnown ? 'WAIT' : lanternAim ? 'AIM' : 'PRESS',
     resourceText: torchSelected ? torch.resource : stockText(stock)+' '+tool.unit+(stock<=0?' · EMPTY':''),
-    toolHint: torchSelected ? torch.hint : tool.hint,
-    primaryDisabled: locked || (stock <= 0 && !pouring) || (torchSelected && torch.disabled),
+    toolHint: torchSelected ? torch.hint : lanternSelected ? lanternHint(lanternAim,lanternKnown) : tool.hint,
+    primaryDisabled: locked || (stock <= 0 && !pouring) || (torchSelected && torch.disabled) || (lanternSelected && (!lanternKnown || Boolean(lanternAim && !lanternAim.canThrow))),
     effects: {
       powder: {active: Boolean(effects.powder?.active), remaining: remainingText(effects.powder?.remaining)},
       inversion: {active: Boolean(effects.inversion?.active), remaining: remainingText(effects.inversion?.remaining)}
