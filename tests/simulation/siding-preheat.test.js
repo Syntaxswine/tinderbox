@@ -130,7 +130,7 @@ test('the ordinary Hopkins siding reports local wood preheat at the configured t
   } finally { sim.dispose(); }
 });
 
-test('section preheat selects the hottest live wood and clears when that section loses support', () => {
+test('section preheat selects the hottest live wood, resumes after flameout and clears on support loss', () => {
   const hopkins = NEIGHBORHOOD_SCENARIO.buildings.find(building => building.id === 'hopkins-nine');
   const {buildings: [building], obstacles} = scenarioDefinition({width: 16, height: 44, buildings: [hopkins]});
   const cells = [
@@ -145,9 +145,20 @@ test('section preheat selects the hottest live wood and clears when that section
   assert.deepEqual(section.preheat, {x: 6.75, z: 4.25, heatFraction: .25});
   Object.assign(cells[0], {phase: 'burning', ignitedAt: 2, intensity: .5});
   structure.step(2, () => {});
+  assert.ok(section.fire);
   assert.equal(section.preheat, null);
-  for (const cell of cells) Object.assign(cell, {phase: 'spent', surfaceFuel: 0, depositedFuel: 0});
+  Object.assign(cells[0], {phase: 'spent', surfaceFuel: 0, heat: 1.2});
+  Object.assign(cells[1], {phase: 'cold', heat: 0});
   structure.step(3, () => {});
+  assert.equal(section.present, true);
+  assert.equal(section.firstIgnition, 2);
+  assert.equal(section.fire, null);
+  assert.equal(section.preheat, null);
+  Object.assign(cells[1], {phase: 'heating', heat: .70});
+  structure.step(4, () => {});
+  assert.deepEqual(section.preheat, {x: 6.75, z: 4.25, heatFraction: .35});
+  for (const cell of cells) Object.assign(cell, {phase: 'spent', surfaceFuel: 0, depositedFuel: 0});
+  structure.step(5, () => {});
   assert.equal(section.present, false);
   assert.equal(section.preheat, null);
 });

@@ -70,13 +70,12 @@ export function createHousingFire(group,obstacles,woodIgnition){
       if(!view.present)continue;
       let remaining=0,weight=0,x=0,z=0,peak=0,first=Infinity;
       let hottest=null;
-      const canPreheat=view.firstIgnition===null&&woodIgnition>0;
       for(const entry of owned){
         const {cell,x:cx,y:cz}=entry;
         surface+=cell.surfaceFuel;
         remaining+=cell.surfaceFuel+cell.depositedFuel;
         if(cell.phase!=='burning'){
-          if(canPreheat&&cell.phase!=='spent'&&cell.ignitedAt===null&&cell.material==='wood'&&cell.surfaceFuel>EPS&&
+          if(woodIgnition>0&&cell.phase!=='spent'&&cell.ignitedAt===null&&cell.material==='wood'&&cell.surfaceFuel>EPS&&
             Number.isFinite(cell.heat)&&cell.heat>(hottest?.cell.heat??0))hottest=entry;
           continue;
         }
@@ -88,7 +87,7 @@ export function createHousingFire(group,obstacles,woodIgnition){
         view.firstIgnition??=first;
         view.fire={x:x/weight,z:z/weight,flame:peak,ignitionTime:first};
       }else view.fire=null;
-      view.preheat=hottest&&view.firstIgnition===null?{x:hottest.x,z:hottest.y,heatFraction:Math.min(1,hottest.cell.heat/woodIgnition)}:null;
+      view.preheat=hottest&&!view.fire?{x:hottest.x,z:hottest.y,heatFraction:Math.min(1,hottest.cell.heat/woodIgnition)}:null;
       if(view.firstIgnition!==null&&remaining<=EPS){
         view.present=false;changed=true;
         event('building-section-burnout',building,{buildingId:building.id,section:view.index,worldTime:time});
