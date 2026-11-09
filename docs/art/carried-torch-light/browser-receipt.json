@@ -1,0 +1,794 @@
+{
+  "fixedView": true,
+  "fixedTurnedView": true,
+  "traveled": 3.300000000000009,
+  "anchorMoved": 4.69722781221011,
+  "turnRadians": 4.017650704187987,
+  "afterReset": {
+    "active": false,
+    "phase": "unlit",
+    "worldTime": 0.016666666666666666,
+    "frame": 0,
+    "remainingSeconds": 41.66666666666667,
+    "anchor": null,
+    "light": {
+      "intensity": 0,
+      "reach": 3.8,
+      "castsShadow": true,
+      "source": null,
+      "pullback": 0
+    },
+    "resources": {
+      "geometries": 1,
+      "materials": 1,
+      "textures": 1,
+      "objects": 1
+    },
+    "presentationOnly": true
+  },
+  "records": [
+    {
+      "label": "01-unlit",
+      "player": {
+        "x": 52.84,
+        "y": 13.5,
+        "heading": 3.141592653589793,
+        "tool": "torch"
+      },
+      "worldTime": 0.016666666666666666,
+      "torch": {
+        "active": false,
+        "phase": "unlit",
+        "worldTime": 0.016666666666666666,
+        "frame": 0,
+        "remainingSeconds": 41.66666666666667,
+        "anchor": null,
+        "light": {
+          "intensity": 0,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": null,
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "burning": 0,
+      "burningCottage": 0,
+      "matchCount": 12,
+      "events": [
+        "pause",
+        "tool-selected"
+      ],
+      "view": {
+        "target": [
+          55.84,
+          0,
+          16
+        ],
+        "span": 19.95,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "viewMatrix": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.14042664734913,
+        15.655330817661826,
+        -38.44361159838227,
+        0.9999999999999998
+      ],
+      "exposure": 1,
+      "toneMapping": 0,
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1280,
+        414
+      ],
+      "calls": 210
+    },
+    {
+      "label": "02-lit",
+      "player": {
+        "x": 52.84,
+        "y": 13.5,
+        "heading": 3.141592653589793,
+        "tool": "torch"
+      },
+      "worldTime": 0.03333333333333333,
+      "torch": {
+        "active": true,
+        "phase": "lit",
+        "worldTime": 0.03333333333333333,
+        "frame": 0,
+        "remainingSeconds": 41.650000000000006,
+        "lightPullback": 0.3181138830084175,
+        "lightSource": [
+          52.24178932768809,
+          1.174,
+          13.300596442562693
+        ],
+        "anchor": [
+          51.940000000000005,
+          1.054,
+          13.2
+        ],
+        "size": [
+          0.28376365797577696,
+          0.5475395775422813
+        ],
+        "light": {
+          "intensity": 4.661831523887763,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": [
+            52.24178932768809,
+            1.174,
+            13.300596442562693
+          ],
+          "pullback": 0.3181138830084175
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "burning": 0,
+      "burningCottage": 0,
+      "matchCount": 12,
+      "events": [
+        "pause",
+        "tool-selected",
+        "torch-lit",
+        "tool-use"
+      ],
+      "view": {
+        "target": [
+          55.84,
+          0,
+          16
+        ],
+        "span": 19.95,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "viewMatrix": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.14042664734913,
+        15.655330817661826,
+        -38.44361159838227,
+        0.9999999999999998
+      ],
+      "exposure": 1,
+      "toneMapping": 0,
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1280,
+        414
+      ],
+      "calls": 212
+    },
+    {
+      "label": "02b-wall-shadow-off-control",
+      "player": {
+        "x": 52.84,
+        "y": 13.5,
+        "heading": 3.141592653589793,
+        "tool": "torch"
+      },
+      "worldTime": 0.03333333333333333,
+      "torch": {
+        "active": true,
+        "phase": "lit",
+        "worldTime": 0.03333333333333333,
+        "frame": 0,
+        "remainingSeconds": 41.650000000000006,
+        "lightPullback": 0.3181138830084175,
+        "lightSource": [
+          52.24178932768809,
+          1.174,
+          13.300596442562693
+        ],
+        "anchor": [
+          51.940000000000005,
+          1.054,
+          13.2
+        ],
+        "size": [
+          0.28376365797577696,
+          0.5475395775422813
+        ],
+        "light": {
+          "intensity": 4.661831523887763,
+          "reach": 3.8,
+          "castsShadow": false,
+          "source": [
+            52.24178932768809,
+            1.174,
+            13.300596442562693
+          ],
+          "pullback": 0.3181138830084175
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "burning": 0,
+      "burningCottage": 0,
+      "matchCount": 12,
+      "events": [
+        "pause",
+        "tool-selected",
+        "torch-lit",
+        "tool-use"
+      ],
+      "view": {
+        "target": [
+          55.84,
+          0,
+          16
+        ],
+        "span": 19.95,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "viewMatrix": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.14042664734913,
+        15.655330817661826,
+        -38.44361159838227,
+        0.9999999999999998
+      ],
+      "exposure": 1,
+      "toneMapping": 0,
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1280,
+        414
+      ],
+      "calls": 212,
+      "diagnosticOnly": true
+    },
+    {
+      "label": "03-walking-end",
+      "player": {
+        "x": 54.95260851889273,
+        "y": 10.964869777328602,
+        "heading": -0.8760580505981935,
+        "tool": "torch"
+      },
+      "worldTime": 0.41666666666666663,
+      "torch": {
+        "active": true,
+        "phase": "lit",
+        "worldTime": 0.41666666666666663,
+        "frame": 1,
+        "remainingSeconds": 41.266666666666715,
+        "lightPullback": 0,
+        "lightSource": [
+          55.75924086246998,
+          1.174,
+          10.465525945590308
+        ],
+        "anchor": [
+          55.75924086246998,
+          1.054,
+          10.465525945590308
+        ],
+        "size": [
+          0.27237390890890883,
+          0.5380192730408674
+        ],
+        "light": {
+          "intensity": 4.474714217789216,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": [
+            55.75924086246998,
+            1.174,
+            10.465525945590308
+          ],
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "burning": 0,
+      "burningCottage": 0,
+      "matchCount": 12,
+      "events": [
+        "pause",
+        "tool-selected",
+        "torch-lit",
+        "tool-use"
+      ],
+      "view": {
+        "target": [
+          57.95260851889273,
+          0,
+          13.464869777328602
+        ],
+        "span": 19.95,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "viewMatrix": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.14042664734906,
+        17.857829398819153,
+        -40.90104928833497,
+        0.9999999999999998
+      ],
+      "exposure": 1,
+      "toneMapping": 0,
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1280,
+        414
+      ],
+      "calls": 147
+    },
+    {
+      "label": "04-turned-to-wall",
+      "player": {
+        "x": 54.95260851889273,
+        "y": 10.964869777328602,
+        "heading": 3.141592653589793,
+        "tool": "torch"
+      },
+      "worldTime": 0.4333333333333333,
+      "torch": {
+        "active": true,
+        "phase": "lit",
+        "worldTime": 0.4333333333333333,
+        "frame": 1,
+        "remainingSeconds": 41.25000000000005,
+        "lightPullback": 0,
+        "lightSource": [
+          54.05260851889273,
+          1.174,
+          10.664869777328601
+        ],
+        "anchor": [
+          54.05260851889273,
+          1.054,
+          10.664869777328601
+        ],
+        "size": [
+          0.2709460463908083,
+          0.53424297739979
+        ],
+        "light": {
+          "intensity": 4.451256476420422,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": [
+            54.05260851889273,
+            1.174,
+            10.664869777328601
+          ],
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "burning": 0,
+      "burningCottage": 0,
+      "matchCount": 12,
+      "events": [
+        "pause",
+        "tool-selected",
+        "torch-lit",
+        "tool-use"
+      ],
+      "view": {
+        "target": [
+          57.95260851889273,
+          0,
+          13.464869777328602
+        ],
+        "span": 19.95,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "viewMatrix": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.14042664734906,
+        17.857829398819153,
+        -40.90104928833497,
+        0.9999999999999998
+      ],
+      "exposure": 1,
+      "toneMapping": 0,
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1280,
+        414
+      ],
+      "calls": 147
+    },
+    {
+      "label": "05-wall-shadow-off-control",
+      "player": {
+        "x": 54.95260851889273,
+        "y": 10.964869777328602,
+        "heading": 3.141592653589793,
+        "tool": "torch"
+      },
+      "worldTime": 0.4333333333333333,
+      "torch": {
+        "active": true,
+        "phase": "lit",
+        "worldTime": 0.4333333333333333,
+        "frame": 1,
+        "remainingSeconds": 41.25000000000005,
+        "lightPullback": 0,
+        "lightSource": [
+          54.05260851889273,
+          1.174,
+          10.664869777328601
+        ],
+        "anchor": [
+          54.05260851889273,
+          1.054,
+          10.664869777328601
+        ],
+        "size": [
+          0.2709460463908083,
+          0.53424297739979
+        ],
+        "light": {
+          "intensity": 4.451256476420422,
+          "reach": 3.8,
+          "castsShadow": false,
+          "source": [
+            54.05260851889273,
+            1.174,
+            10.664869777328601
+          ],
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "burning": 0,
+      "burningCottage": 0,
+      "matchCount": 12,
+      "events": [
+        "pause",
+        "tool-selected",
+        "torch-lit",
+        "tool-use"
+      ],
+      "view": {
+        "target": [
+          57.95260851889273,
+          0,
+          13.464869777328602
+        ],
+        "span": 19.95,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "viewMatrix": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.14042664734906,
+        17.857829398819153,
+        -40.90104928833497,
+        0.9999999999999998
+      ],
+      "exposure": 1,
+      "toneMapping": 0,
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1280,
+        414
+      ],
+      "calls": 147,
+      "diagnosticOnly": true
+    },
+    {
+      "label": "06-holstered",
+      "player": {
+        "x": 54.95260851889273,
+        "y": 10.964869777328602,
+        "heading": 3.141592653589793,
+        "tool": "matches"
+      },
+      "worldTime": 0.44999999999999996,
+      "torch": {
+        "active": false,
+        "phase": "lit",
+        "worldTime": 0.44999999999999996,
+        "frame": 1,
+        "remainingSeconds": 41.233333333333384,
+        "anchor": null,
+        "light": {
+          "intensity": 0,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": null,
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "burning": 0,
+      "burningCottage": 0,
+      "matchCount": 12,
+      "events": [
+        "pause",
+        "tool-selected",
+        "torch-lit",
+        "tool-use",
+        "tool-selected"
+      ],
+      "view": {
+        "target": [
+          57.95260851889273,
+          0,
+          13.464869777328602
+        ],
+        "span": 19.95,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.03242481203007519,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "viewMatrix": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        53.14042664734906,
+        17.857829398819153,
+        -40.90104928833497,
+        0.9999999999999998
+      ],
+      "exposure": 1,
+      "toneMapping": 0,
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1280,
+        414
+      ],
+      "calls": 146
+    }
+  ]
+}
