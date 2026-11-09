@@ -1,0 +1,19 @@
+# Bell & Alder on Catalogue Street
+
+The user requests Nautilus's period shop interiors and Eastlake furniture for Tinderbox. Build one walk-in dry goods shop with an Eastlake display area in the open lot east of Ashland Cottage on standard Catalogue Street. This is a fictional shop for the 1893 setting, adapted from the Nautilus kit styled for about 1885. Use the existing night scene and default game camera.
+
+## Source and scope
+
+The release base is `e2dd5ffb750d8a40ce9d4dd3c72ba30001841cd2`. The [Bell & Alder source](https://github.com/Syntaxswine/nautilus-engine/tree/2fa0befbfbdc6b0e44f5a14a6f785f44e7a95d74) is the exact GitHub tip of `codex/1880-city-props` when inspected. Its `docs/city-props.md`, `assets/city-props/NOTICE.md`, catalogue and Workshop sample govern the source evidence. This is the latest original city prop set with both requested families. Use the host-Three `packages/city-props` dependency closure and source paint atlas, preserving bytes, authored metre scale, pivots, UVs, attachment points, source notice and hashes. Use the authored map-density geometry.
+
+Use a bounded room near world X 36–44 and Z 9–17. Face its customer entrance toward the road at positive Z. Give the entrance at least 1.4 m of clear passage by leaving two adjacent native bays open. Keep a clear aisle through the merchandise and preserve native 1 × 2 × 0.16 m wall modules. Compose stock shelves, a paneled counter and glazed display or scale, and a short run of storefront glazing and a dry goods sign. Use a settee or armchair, a table and a chair or another distinctly Eastlake piece in the display area. Use one or two of the kit's kerosene fixtures with localized warm light. Place low or mounted details outside the passage. Compose a readable isometric cutaway with visible boundaries and a clear entrance.
+
+## Work split
+
+The artist owns the immutable intake, its provenance, `src/content/bell-and-alder-layout.js` and `src/art/bell-and-alder.js` on `codex/bell-and-alder-art` in the existing `art-assets` checkout. Export `BELL_AND_ALDER` with `id: 'bell-and-alder'`, the timber floor `patches`, native wall `modules` and solid prop `obstacles` in the existing scenario shape. Prop obstacles carry `shopId: 'bell-and-alder'`. Use their stable IDs to tie each placed model to its rotated measured box and the authoritative destruction flag. Record measured widths and render JPGs at intended play scale.
+
+The art entry is `createBellAndAlder(T, {renderer, signal})`. It resolves to `{root, update(world, {player, camera}), dispose(), diagnostics()}`. It owns the borrowed templates, visit texture and lamps and retires their resources with the visit. The shared exterior renderer handles native wall modules. The art entry reads the live prop collider IDs and hides the corresponding geometry on burnout.
+
+The coder owns production wiring and focused behavior checks on `codex/bell-and-alder-coder` in the existing `coding-9200` checkout. Compose the artist's patches, modules and obstacles into normal `NEIGHBORHOOD_SCENARIO`. Use the existing movement, heat, material and wood burnout rules. Omit tagged prop colliders from the fallback box renderer and mount the art entry only on the shop visit. Test that the full native bear can enter and exit, collision and rendered fixtures agree, and timber fixture burnout releases its footprint. Include the separate Ashland replay and landmark menus in the regression check. Keep gameplay separate from the artist's renderer and record the exact artist commit used for combined validation.
+
+The architect freezes both deliveries, verifies Git object provenance and the packaged dependency closure, and checks approach, entrance, aisle, solid fixtures, fire, night readability, and return through the normal route. The result needs an in-game JPG and the standard promotion gate.

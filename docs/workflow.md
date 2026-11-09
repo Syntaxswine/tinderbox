@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-facing-fire-and-lantern` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Tool contract, combined QC and promotion |
-| Artist | `codex/shared-firelight-art` from `080634a` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Street lighting and structural fire presentation |
-| Coder | `codex/facing-fire-and-lantern-coder` from `192d3ba` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Facing, lantern state, trajectory and runtime checks |
+| Architect | `codex/review-bell-and-alder` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Bell & Alder scope, combined QC and promotion |
+| Artist | `codex/bell-and-alder-art` from `e2dd5ff` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Pinned Nautilus intake, shop layout and night presentation |
+| Coder | `codex/bell-and-alder-coder` from `e2dd5ff` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Catalogue Street placement, collision, fire and integration checks |
 | UI designer | `codex/facing-fire-and-lantern-ui` from `192d3ba` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Aim and throw controls, projected preview and input checks |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current focused correction is [Milestone 13](milestones/13-facing-fire-and-lantern.md), from published `192d3ba`. The [architect's review](reviews/2026-11-09-facing-fire-and-lantern.md) records the exact candidates and acceptance on the normal night route. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the tools.
+The current assignment is [Bell & Alder](milestones/14-bell-and-alder.md), from published `e2dd5ff`. The artist and coder share one room layout for presentation, traversal and combustion. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the accepted flamethrower and lantern behavior. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the shop.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
