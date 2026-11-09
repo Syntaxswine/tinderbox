@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current assignment is [working shop doors and portable light](milestones/15-shop-interactions.md), from published `b5b8de6`. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
+The current assignment is [working shop doors and portable light](milestones/15-shop-interactions.md), from published `b5b8de6`. The [shop interaction review](reviews/2026-11-09-shop-interactions.md) records acceptance on the normal Catalogue Street route. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
