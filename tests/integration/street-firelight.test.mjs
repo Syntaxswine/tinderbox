@@ -94,6 +94,25 @@ test('a full pool fades its outgoing roof cluster before relocating and ignores 
   assert.equal(pool.root.children.length, 0);
 });
 
+test('distant roof fires leave all six nearby terrain lights in the pool', () => {
+  const cells = [[4, 4], [4, 8], [8, 4], [8, 8], [1, 4], [4, 1]].map(([x, y]) => ({x, y,
+    phase: 'burning', size: .5, intensity: 1, surfaceFuel: .2, depositedFuel: 0}));
+  const distant = groupStructureFire([[26, 26], [26, 31], [31, 26], [31, 31]].map(([x, z], i) => ({
+    id: 'distant/roof-' + i, buildingId: 'distant', part: 'roof', x, y: 5, z,
+    nx: 0, ny: 1, nz: 0, area: 2, exposed: true, flame: 1})));
+  const frame = {player: {x: 5, y: 5}, cells};
+  const terrainOnly = createStreetFirelight(T, {catalogue: true});
+  const mixed = createStreetFirelight(T, {catalogue: true});
+  try {
+    terrainOnly.update(frame, new Map(), 0);
+    mixed.update(frame, distant, 0);
+    const {lights} = checkBudget(terrainOnly);
+    assert.equal(lights.length, 6);
+    assert.equal(mixed.diagnostics().surfaceSites, 4);
+    assert.deepEqual(checkBudget(mixed).lights, lights);
+  } finally { terrainOnly.dispose(); mixed.dispose(); }
+});
+
 test('the shared replay pool keeps its original long-range roof and adds no spotlight', () => {
   const pool = createStreetFirelight(T);
   try {

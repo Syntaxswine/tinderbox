@@ -50,13 +50,14 @@ function source(cluster, lotEnergy, player, catalogue) {
   const score = power * falloff / (1 + .19 * distance ** 2);
   const roof = catalogue && kind === 'roof';
   return {key, kind, buildingId, x, y, z, power: roof ? Math.min(ROOF_POWER, power) : power,
-    reach: roof ? ROOF_REACH : catalogue ? reach * .81 : reach, distance, score};
+    reach: roof ? ROOF_REACH : catalogue ? reach * .81 : reach, distance, score, inRankingRange: distance < reach};
 }
 
 function roofLights(ranked) {
   const selected = [];
   for (const item of ranked) {
-    if (item.kind !== 'roof' || selected.some(other => other.buildingId === item.buildingId &&
+    // Reserve slots within the structural ranking radius. The short lamp reach governs illumination at the roof.
+    if (item.kind !== 'roof' || !item.inRankingRange || selected.some(other => other.buildingId === item.buildingId &&
         Math.hypot(other.x - item.x, other.z - item.z) < ROOF_SPACING)) continue;
     selected.push(item);
     if (selected.length === ROOF_LIGHTS) break;
