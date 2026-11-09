@@ -1,0 +1,252 @@
+{
+  "base": "b5b8de6ffabe665b82556eeb097e1983f293ba80",
+  "preservedWindUi": "adbb401d64cd10931f712647102e6a5ab13fc286",
+  "source": {
+    "contract": "docs/milestones/15-shop-interactions.md",
+    "reuse": "Existing contextual door plate and pointing-hand engraving; no new donor bytes."
+  },
+  "offline": {
+    "node tools/check.mjs": {
+      "testsPassed": 225,
+      "scripts": 186,
+      "staticModules": 231,
+      "artImports": 5,
+      "artSyntaxDependencyChecks": 47,
+      "provenance": "pass"
+    },
+    "node tools/build.mjs": {
+      "files": 3501,
+      "bytes": 166699044
+    },
+    "node tools/check-release.mjs": {
+      "verifiedFiles": 3501,
+      "manifestSha256": "b371f665c8e4fdbf4345330ed007c46d5607dbc6d3ab937984e775f0bc35be12"
+    }
+  },
+  "browser": {
+    "domSuites": [
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 800,
+          "width": 1280
+        },
+        "passed": 111,
+        "total": 111,
+        "shopCases": [
+          {
+            "name": "Shop Open, Close and Take use one timber action and exact portal/object commands",
+            "status": "pass"
+          },
+          {
+            "name": "Space respects focus: a prompt activates itself and a stick press uses the tool",
+            "status": "pass"
+          },
+          {
+            "name": "Unavailable, disabled and offscreen shop context cannot be invoked",
+            "status": "pass"
+          },
+          {
+            "name": "A held shop press cannot retarget, even after the same action disappears and returns",
+            "status": "pass"
+          },
+          {
+            "name": "Pickup disappearance restores stick focus and does not spend a throwable",
+            "status": "pass"
+          },
+          {
+            "name": "Pause hides the shop action, discards its old press and restores a valid prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Pending, active and cancelling throwable aim suppress the shop prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Death and lost projection hide the plate without stealing unrelated focus",
+            "status": "pass"
+          },
+          {
+            "name": "Shop prompt fits around the deck, plan, vitals and zoom controls at viewport edges",
+            "status": "pass"
+          }
+        ]
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        },
+        "passed": 111,
+        "total": 111,
+        "shopCases": [
+          {
+            "name": "Shop Open, Close and Take use one timber action and exact portal/object commands",
+            "status": "pass"
+          },
+          {
+            "name": "Space respects focus: a prompt activates itself and a stick press uses the tool",
+            "status": "pass"
+          },
+          {
+            "name": "Unavailable, disabled and offscreen shop context cannot be invoked",
+            "status": "pass"
+          },
+          {
+            "name": "A held shop press cannot retarget, even after the same action disappears and returns",
+            "status": "pass"
+          },
+          {
+            "name": "Pickup disappearance restores stick focus and does not spend a throwable",
+            "status": "pass"
+          },
+          {
+            "name": "Pause hides the shop action, discards its old press and restores a valid prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Pending, active and cancelling throwable aim suppress the shop prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Death and lost projection hide the plate without stealing unrelated focus",
+            "status": "pass"
+          },
+          {
+            "name": "Shop prompt fits around the deck, plan, vitals and zoom controls at viewport edges",
+            "status": "pass"
+          }
+        ]
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        },
+        "passed": 111,
+        "total": 111,
+        "shopCases": [
+          {
+            "name": "Shop Open, Close and Take use one timber action and exact portal/object commands",
+            "status": "pass"
+          },
+          {
+            "name": "Space respects focus: a prompt activates itself and a stick press uses the tool",
+            "status": "pass"
+          },
+          {
+            "name": "Unavailable, disabled and offscreen shop context cannot be invoked",
+            "status": "pass"
+          },
+          {
+            "name": "A held shop press cannot retarget, even after the same action disappears and returns",
+            "status": "pass"
+          },
+          {
+            "name": "Pickup disappearance restores stick focus and does not spend a throwable",
+            "status": "pass"
+          },
+          {
+            "name": "Pause hides the shop action, discards its old press and restores a valid prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Pending, active and cancelling throwable aim suppress the shop prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Death and lost projection hide the plate without stealing unrelated focus",
+            "status": "pass"
+          },
+          {
+            "name": "Shop prompt fits around the deck, plan, vitals and zoom controls at viewport edges",
+            "status": "pass"
+          }
+        ]
+      },
+      {
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        },
+        "passed": 111,
+        "total": 111,
+        "shopCases": [
+          {
+            "name": "Shop Open, Close and Take use one timber action and exact portal/object commands",
+            "status": "pass"
+          },
+          {
+            "name": "Space respects focus: a prompt activates itself and a stick press uses the tool",
+            "status": "pass"
+          },
+          {
+            "name": "Unavailable, disabled and offscreen shop context cannot be invoked",
+            "status": "pass"
+          },
+          {
+            "name": "A held shop press cannot retarget, even after the same action disappears and returns",
+            "status": "pass"
+          },
+          {
+            "name": "Pickup disappearance restores stick focus and does not spend a throwable",
+            "status": "pass"
+          },
+          {
+            "name": "Pause hides the shop action, discards its old press and restores a valid prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Pending, active and cancelling throwable aim suppress the shop prompt",
+            "status": "pass"
+          },
+          {
+            "name": "Death and lost projection hide the plate without stealing unrelated focus",
+            "status": "pass"
+          },
+          {
+            "name": "Shop prompt fits around the deck, plan, vitals and zoom controls at viewport edges",
+            "status": "pass"
+          }
+        ]
+      }
+    ],
+    "nativeDesktop": "evidence/native-desktop.json",
+    "nativePhone": "evidence/native-phone.json",
+    "scope": "Native mouse and keyboard on the production HUD with controlled v1 snapshots and an SVG background; no WebGL or physical handset. Synthetic touch covers pointer routing.",
+    "screenshots": [
+      {
+        "file": "evidence/desktop-open.jpg",
+        "viewport": [
+          1280,
+          800
+        ],
+        "sha256": "7d75750031f56f8e62eac29f1f9874a335407e67b9f04587565f8139142d65bd"
+      },
+      {
+        "file": "evidence/phone-take.jpg",
+        "viewport": [
+          390,
+          844
+        ],
+        "sha256": "6f5797fb03327e829024f57f8873638a9e1e2462964e013e7e02d42070e390d1"
+      }
+    ]
+  },
+  "runtimeReview": {
+    "status": "pending combined gate",
+    "reason": "No frozen simulation hookup was available during UI review; the committed renderer-side counterpart did not yet publish the v1 shop state."
+  },
+  "helper": {
+    "port": 4552,
+    "originalExited": true,
+    "portReleased": true,
+    "retained": false,
+    "browserClosed": true,
+    "preservedFiles": 22,
+    "receipt": "Ignored local artifacts/shop-interactions-ui/helper/cleanup-receipt.json"
+  }
+}

@@ -101,7 +101,7 @@ export function viewOf(snapshot) {
   const armed=lanternAimOf(player.lanternAim),lanternKnown=player.lanternAim===null||armed!==null;
   const lanternSelected=tool.id==='molotov',lanternAim=lanternSelected?armed:null;
   return {
-    characterName:characterNameOf(player)||'Bear',torch,lanternAim,lanternKnown, player, tool, inventory, dead, locked, paused: Boolean(snapshot.paused), stock, pouring,
+    characterName:characterNameOf(player)||'Bear',torch,lanternAim,lanternKnown,interaction:interactionOf(player.interaction), player, tool, inventory, dead, locked, paused: Boolean(snapshot.paused), stock, pouring,
     hp: Math.max(0, Math.min(player.maxHp || 100, player.hp || 0)),
     maxHp: Math.max(1, player.maxHp || 100),
     primaryLabel: pouring ? 'Stop' : torchSelected ? torch.label : lanternAim ? 'Throw lantern' : tool.action,
@@ -133,7 +133,9 @@ export function navigationOf(snapshot) {
 }
 
 // Copy the authoritative target; legacy/partial records never become actions.
-export function doorInteractionOf(value){
-  if(value?.kind!=='door'||typeof value.id!=='string'||!value.id.trim()||!['open','close'].includes(value.action)||typeof value.label!=='string'||!value.label.trim()||typeof value.enabled!=='boolean'||!Array.isArray(value.anchor)||value.anchor.length!==3||!value.anchor.every(Number.isFinite))return null;
-  return {id:value.id,kind:'door',action:value.action,label:value.label.trim(),enabled:value.enabled,reason:typeof value.reason==='string'?value.reason:'',anchor:[...value.anchor]};
+export function interactionOf(value){
+  const supported=value?.kind==='door'?['open','close'].includes(value.action):value?.kind==='lantern'&&value.action==='take';
+  if(!supported||typeof value.id!=='string'||!value.id.trim()||typeof value.label!=='string'||!value.label.trim()||typeof value.enabled!=='boolean'||!Array.isArray(value.anchor)||value.anchor.length!==3||!value.anchor.every(Number.isFinite))return null;
+  return {id:value.id,kind:value.kind,action:value.action,label:value.label.trim(),enabled:value.enabled,reason:typeof value.reason==='string'?value.reason:'',anchor:[...value.anchor]};
 }
+export function doorInteractionOf(value){return value?.kind==='door'?interactionOf(value):null;}
