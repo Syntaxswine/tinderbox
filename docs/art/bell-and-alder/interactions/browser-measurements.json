@@ -1,0 +1,413 @@
+{
+  "kind": "Packaged Catalogue Street renderer with controlled shop snapshot poses",
+  "records": [
+    {
+      "label": "01-closed",
+      "door": {
+        "id": "bell-and-alder:entry",
+        "open": false,
+        "leaves": [
+          {
+            "id": "bell-and-alder:entry:left",
+            "position": [
+              39.5,
+              0,
+              17
+            ],
+            "heading": 0
+          },
+          {
+            "id": "bell-and-alder:entry:right",
+            "position": [
+              40.5,
+              0,
+              17
+            ],
+            "heading": 0
+          }
+        ]
+      },
+      "lantern": {
+        "id": "bell-and-alder:hand-lantern",
+        "state": "placed",
+        "visible": true,
+        "position": [
+          41.65,
+          0.747,
+          11.6
+        ]
+      },
+      "lights": [
+        {
+          "id": "bell-and-alder:parlor-lamp",
+          "objectId": "bell-and-alder:hand-lantern",
+          "visible": true,
+          "position": [
+            41.65,
+            0.885,
+            11.6
+          ],
+          "intensity": 4.8,
+          "reach": 3.4
+        },
+        {
+          "id": "bell-and-alder:shop-lamp",
+          "objectId": "bell-and-alder:shop-lamp",
+          "visible": true,
+          "position": [
+            38.5,
+            1.736,
+            12.5
+          ],
+          "intensity": 8.5,
+          "reach": 4.7
+        }
+      ],
+      "player": [
+        40,
+        17.76,
+        -1.5707963267948966
+      ],
+      "worldTime": 0,
+      "canvas": [
+        1280,
+        414
+      ],
+      "exposure": 1,
+      "camera": {
+        "target": [
+          40,
+          0,
+          17.76
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.05133928571428571,
+        0,
+        0,
+        0,
+        0,
+        0.15873015873015872,
+        0,
+        0,
+        0,
+        0,
+        -0.0033675702980299716,
+        0,
+        0,
+        0,
+        -1.0003367570298032,
+        1
+      ],
+      "view": [
+        0.768221279597376,
+        -0.42727431270911115,
+        0.4767312946227962,
+        0,
+        -5.551115123125784e-17,
+        0.7446780878644506,
+        0.6674238124719147,
+        0,
+        -0.6401843996644799,
+        -0.5127291752509335,
+        0.5720775535473552,
+        0,
+        -19.359176245853877,
+        26.19704266082103,
+        -50.20552609931592,
+        1
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "02-open",
+      "door": {
+        "id": "bell-and-alder:entry",
+        "open": true,
+        "leaves": [
+          {
+            "id": "bell-and-alder:entry:left",
+            "position": [
+              39,
+              0,
+              16.5
+            ],
+            "heading": -1.5707963267948966
+          },
+          {
+            "id": "bell-and-alder:entry:right",
+            "position": [
+              41,
+              0,
+              16.5
+            ],
+            "heading": 1.5707963267948966
+          }
+        ]
+      },
+      "lantern": {
+        "id": "bell-and-alder:hand-lantern",
+        "state": "placed",
+        "visible": true,
+        "position": [
+          41.65,
+          0.747,
+          11.6
+        ]
+      },
+      "lights": [
+        {
+          "id": "bell-and-alder:parlor-lamp",
+          "objectId": "bell-and-alder:hand-lantern",
+          "visible": true,
+          "position": [
+            41.65,
+            0.885,
+            11.6
+          ],
+          "intensity": 4.8,
+          "reach": 3.4
+        },
+        {
+          "id": "bell-and-alder:shop-lamp",
+          "objectId": "bell-and-alder:shop-lamp",
+          "visible": true,
+          "position": [
+            38.5,
+            1.736,
+            12.5
+          ],
+          "intensity": 8.5,
+          "reach": 4.7
+        }
+      ],
+      "player": [
+        40,
+        17.76,
+        -1.5707963267948966
+      ],
+      "worldTime": 0,
+      "canvas": [
+        1280,
+        414
+      ],
+      "exposure": 1,
+      "camera": {
+        "target": [
+          40,
+          0,
+          17.76
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.05133928571428571,
+        0,
+        0,
+        0,
+        0,
+        0.15873015873015872,
+        0,
+        0,
+        0,
+        0,
+        -0.0033675702980299716,
+        0,
+        0,
+        0,
+        -1.0003367570298032,
+        1
+      ],
+      "view": [
+        0.768221279597376,
+        -0.42727431270911115,
+        0.4767312946227962,
+        0,
+        -5.551115123125784e-17,
+        0.7446780878644506,
+        0.6674238124719147,
+        0,
+        -0.6401843996644799,
+        -0.5127291752509335,
+        0.5720775535473552,
+        0,
+        -19.359176245853877,
+        26.19704266082103,
+        -50.20552609931592,
+        1
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "label": "03-carried",
+      "door": {
+        "id": "bell-and-alder:entry",
+        "open": true,
+        "leaves": [
+          {
+            "id": "bell-and-alder:entry:left",
+            "position": [
+              39,
+              0,
+              16.5
+            ],
+            "heading": -1.5707963267948966
+          },
+          {
+            "id": "bell-and-alder:entry:right",
+            "position": [
+              41,
+              0,
+              16.5
+            ],
+            "heading": 1.5707963267948966
+          }
+        ]
+      },
+      "lantern": {
+        "id": "bell-and-alder:hand-lantern",
+        "state": "carried",
+        "visible": true,
+        "position": [
+          40.3528,
+          0.47439999999999993,
+          17.860000000000003
+        ]
+      },
+      "lights": [
+        {
+          "id": "bell-and-alder:parlor-lamp",
+          "objectId": "bell-and-alder:hand-lantern",
+          "visible": true,
+          "position": [
+            40.3528,
+            0.6123999999999999,
+            17.860000000000003
+          ],
+          "intensity": 4.8,
+          "reach": 3.4
+        },
+        {
+          "id": "bell-and-alder:shop-lamp",
+          "objectId": "bell-and-alder:shop-lamp",
+          "visible": true,
+          "position": [
+            38.5,
+            1.736,
+            12.5
+          ],
+          "intensity": 8.5,
+          "reach": 4.7
+        }
+      ],
+      "player": [
+        40,
+        17.76,
+        -1.5707963267948966
+      ],
+      "worldTime": 0,
+      "canvas": [
+        1280,
+        414
+      ],
+      "exposure": 1,
+      "camera": {
+        "target": [
+          40,
+          0,
+          17.76
+        ],
+        "span": 12.600000000000001,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      },
+      "projection": [
+        0.05133928571428571,
+        0,
+        0,
+        0,
+        0,
+        0.15873015873015872,
+        0,
+        0,
+        0,
+        0,
+        -0.0033675702980299716,
+        0,
+        0,
+        0,
+        -1.0003367570298032,
+        1
+      ],
+      "view": [
+        0.768221279597376,
+        -0.42727431270911115,
+        0.4767312946227962,
+        0,
+        -5.551115123125784e-17,
+        0.7446780878644506,
+        0.6674238124719147,
+        0,
+        -0.6401843996644799,
+        -0.5127291752509335,
+        0.5720775535473552,
+        0,
+        -19.359176245853877,
+        26.19704266082103,
+        -50.20552609931592,
+        1
+      ],
+      "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    }
+  ],
+  "fixedViewAndExposure": true,
+  "medianLumaByProbe": {
+    "parlor floor": {
+      "world": [
+        41.18,
+        0.001,
+        12.27
+      ],
+      "pixel": [
+        785,
+        131
+      ],
+      "placed": 70.32,
+      "carried": 45.89
+    },
+    "sidewalk": {
+      "world": [
+        40.97,
+        0.001,
+        18.05
+      ],
+      "pixel": [
+        658,
+        225
+      ],
+      "placed": 93.46,
+      "carried": 171.38
+    },
+    "sales floor": {
+      "world": [
+        38.85,
+        0.001,
+        13.55
+      ],
+      "pixel": [
+        700,
+        120
+      ],
+      "placed": 66.92,
+      "carried": 66.92
+    }
+  }
+}

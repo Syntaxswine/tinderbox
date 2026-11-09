@@ -79,8 +79,60 @@ for (const object of art.root.children) {
   assert.ok([...actual.min.toArray(), ...actual.max.toArray()].every((value,i)=>Math.abs(value-expected[i])<2e-6), box.id);
 }
 assert.equal(lamps.length, 2);
-assert.deepEqual(art.diagnostics().lights.map(l=>l.position), [[41.65,1.009,11.6],[38.5,1.736,12.5]]);
-const parlorLamp = shopLayout.id + ':parlor-lamp';
+const {door, lantern} = shopLayout;
+const parlorLamp = lantern.pedestalId;
+const lampInfo = () => art.diagnostics().lights.find(l => l.id === parlorLamp);
+const standFlame = [lantern.position[0], lantern.position[1] + .138, lantern.position[2]];
+assert.equal(lampInfo().objectId, lantern.id);
+assert.deepEqual(art.diagnostics().lights.map(l=>l.position), [standFlame,[38.5,1.736,12.5]]);
+assert.deepEqual(art.diagnostics().door.leaves, []);
+const doorRoot = art.root.getObjectByName(door.id), portable = art.root.getObjectByName(lantern.id);
+const portableLight = portable.getObjectByName(lantern.id + ':flame-light');
+const {width, depth, height} = door;
+const closedLeaves = [
+  {id:door.id+':left',x:39.5,y:17,width,depth,height,heading:0},
+  {id:door.id+':right',x:40.5,y:17,width,depth,height,heading:0}
+];
+const openLeaves = [
+  {id:door.id+':right',x:41,y:16.5,width:depth,depth:width,height,heading:Math.PI/2},
+  {id:door.id+':left',x:39,y:16.5,width:depth,depth:width,height,heading:-Math.PI/2}
+];
+const withShop = (world, open, state) => ({...world, shop:{
+  door:{id:door.id,open,leaves:open?openLeaves:closedLeaves},
+  lantern:{id:lantern.id,state,position:state==='placed' ? [...lantern.position] : null}
+}});
+function verifyLeaves(poses) {
+  for (const pose of poses) {
+    const leaf = doorRoot.getObjectByName(pose.id);
+    assert.equal(leaf.userData.colliderId, pose.id);
+    assert.deepEqual(leaf.position.toArray(), [pose.x,0,pose.y]);
+    assert.equal(leaf.rotation.y, -pose.heading);
+    assert.ok(leaf.children.some(mesh=>mesh.name==='store-glass'&&mesh.material.transparent));
+    const bounds = new T.Box3().setFromObject(leaf, true);
+    const expected = [pose.x-pose.width/2,0,pose.y-pose.depth/2,pose.x+pose.width/2,height,pose.y+pose.depth/2];
+    assert.ok([...bounds.min.toArray(),...bounds.max.toArray()].every((value,i)=>Math.abs(value-expected[i])<2e-6), pose.id);
+  }
+}
+art.update(withShop(first.world,false,'placed'),{player:first.player});
+verifyLeaves(closedLeaves);
+art.update(withShop(first.world,true,'placed'),{player:first.player});
+verifyLeaves(openLeaves);
+assert.deepEqual(lampInfo().position, standFlame);
+const player = {...first.player, x:40, y:18.5, heading:-Math.PI/2};
+art.update(withShop(first.world,true,'carried'),{player});
+const carry = art.diagnostics().lantern.position;
+assert.ok(carry[0]>player.x+.30 && carry[1]>.4 && carry[1]<.6 && carry[2]>player.y);
+assert.equal(portable.rotation.y, -player.heading);
+assert.ok(portable.getObjectByName('Lantern leather hanger').visible);
+assert.equal(art.root.getObjectByName(lantern.id), portable);
+assert.equal(portable.getObjectByName(lantern.id + ':flame-light'), portableLight);
+assert.deepEqual(lampInfo().position, [carry[0],carry[1]+.138,carry[2]]);
+const moved = {...player, x:42, y:20, heading:0};
+art.update(withShop(first.world,true,'carried'),{player:moved});
+const movedFlame = lampInfo().position;
+assert.ok(movedFlame[0]<moved.x && movedFlame[2]>moved.y+.30);
+assert.notDeepEqual(movedFlame, [carry[0],carry[1]+.138,carry[2]]);
+assert.equal(art.diagnostics().lights.filter(l=>l.visible).length,2);
 const seeded = createSimulation({scenario:{...scenario, ignitions:fuel.get(parlorLamp).map(({x,y})=>({x,y,radius:.035,heat:2.1}))},
   config, characterId:'bear'});
 let burnt;
@@ -93,7 +145,17 @@ assert.ok(burnt.world.obstacles.some(o=>o.id===shopLayout.id+':settee'));
 art.update(burnt.world,{player:burnt.player});
 assert.equal(art.diagnostics().placements.find(p=>p.id===parlorLamp).visible,false);
 assert.equal(art.diagnostics().lights.find(l=>l.id===parlorLamp).visible,false);
+art.update(withShop(burnt.world,true,'spent'),{player:moved});
+assert.equal(art.diagnostics().lantern.visible,false);
+art.update(withShop(burnt.world,true,'carried'),{player:moved});
+assert.equal(art.diagnostics().placements.find(p=>p.id===parlorLamp).visible,false);
+assert.equal(art.diagnostics().lantern.visible,true);
+assert.deepEqual(lampInfo().position, movedFlame);
+art.update(withShop(first.world,false,'placed'),{player:first.player});
+assert.deepEqual(lampInfo().position, standFlame);
+verifyLeaves(closedLeaves);
 art.update(first.world);
+assert.deepEqual(art.diagnostics().door.leaves, []);
 assert.ok(art.diagnostics().lights.every(l=>l.visible));
 
 const counts={geometry:0,materials:0,textures:0};
@@ -125,4 +187,5 @@ console.log(JSON.stringify({pass:true, source:pin, copiedFiles:provenance.files.
   matchedRotatedSolidBounds:boxOf.size, entranceMetres:right-left, nativeBearRadius:first.player.radius,
   insideZ:inside.y, exitedZ:outside.y,
   timberGridCenters:Object.fromEntries([...fuel].map(([id,cells])=>[id,cells.length])),
-  parlorLampBurnoutSeconds:burnt.clocks.world, ownedResourcesDisposed:counts, lateAtlasDisposed:lateDisposals},null,2));
+  parlorStandBurnoutSeconds:burnt.clocks.world, doorPosesVerified:4, sameLanternAndEmitter:true,
+  standFlame, carriedFlame:movedFlame, ownedResourcesDisposed:counts, lateAtlasDisposed:lateDisposals},null,2));
