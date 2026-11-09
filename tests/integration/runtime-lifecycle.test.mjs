@@ -58,7 +58,7 @@ test('exiting never advances queued gameplay, and a failed cleanup still release
   for(const key of ['renderer','context','observer','art','ui','simulation'])assert.equal(f.counts[key],1,key);assert.equal(f.root.children.length,0);
 });
 
-test('a canvas tap sets exact close aim, later hover only updates ranged aim, and the HUD sends a single strike', async () => {
+test('a canvas tap sets exact close aim and turns an equipped jet while hover cannot turn either', async () => {
   const f = fixture({width: 8, height: 8, player: {x: 4.25, y: 4.25},
     patches: [{x: 0, y: 0, width: 8, depth: 8, material: 'grass'}]});
   let send;
@@ -89,6 +89,11 @@ test('a canvas tap sets exact close aim, later hover only updates ranged aim, an
     send({type: 'primary', pressed: true});
     const jet = runtime.advance(1 / 60).discharge;
     assert.equal(jet.tool, 'flamethrower');
-    assert.ok(Math.abs(jet.heading) < 1e-8);
+    assert.ok(Math.abs(jet.heading + Math.PI / 2) < 1e-8);
+    pointer('pointerdown', 4.95, 4.25, 'touch');
+    pointer('pointermove', 4.25, 3.7, 'mouse');
+    const turned = runtime.advance(1 / 60);
+    assert.ok(Math.abs(turned.player.heading) < 1e-8);
+    assert.equal(turned.discharge.heading, turned.player.heading);
   } finally { runtime.dispose(); }
 });

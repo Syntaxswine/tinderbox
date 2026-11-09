@@ -158,12 +158,18 @@ test('the thrown lantern uses actual timber contact or the ground field that hea
   for (const onBarrel of [false, true]) {
     const scenario = {id: 'neighborhood', width: 16, height: 44, buildings: [hopkins], obstacles: onBarrel ? [barrel] : [],
       player: {x: 13.25, y: 34.63, tool: 'molotov'}};
-    const sim = createSimulation({scenario, config: {fire: {damagePerSecond: 0}}});
+    const sim = createSimulation({scenario, config: {input: {cameraRelative: false}, fire: {damagePerSecond: 0}}});
     try {
-      sim.dispatch({type: 'aim', x: onBarrel ? barrel.x : 8.5, y: 34.63});
+      press(sim);
+      const reach = scenario.player.x - (onBarrel ? barrel.x : 8.5);
+      sim.dispatch({type: 'move', x: -(.12 + .88 * reach / 6), y: 0});
+      sim.dispatch({type: 'move', x: 0, y: 0});
+      const preview = sim.advance(step).player.lanternAim.impact;
       let snapshot = press(sim);
       for (let i = 0; i < 40 && !snapshot.events.some(event => event.type === 'molotov-impact'); i++) snapshot = sim.advance(step);
       assert.equal(snapshot.events.filter(event => event.type === 'molotov-impact').length, 1);
+      const impact = snapshot.events.find(event => event.type === 'molotov-impact');
+      for (const key of ['x', 'y', 'h']) near(impact[key], preview[key]);
       const ignition = snapshot.events.find(event => event.type === 'structure-ignition');
       if (onBarrel) {
         assert.equal(ignition, undefined);

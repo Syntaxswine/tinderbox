@@ -44,8 +44,13 @@ test('a source that exhausts before its travel deadline cannot ignite the whole 
 test('Molotov follows its visible arc over a low crate and hits a tall building first', () => {
   function thrown(height) {
     const sim = createSimulation({scenario: plain({player: {x: 2, y: 4, tool: 'molotov'},
-      obstacles: [{id: 'obstruction', x: 4, y: 4, width: 0.5, depth: 1, height, material: 'masonry', kind: 'wall'}]})});
-    sim.dispatch({type: 'aim', x: 7, y: 4}); sim.dispatch({type: 'primary', pressed: true});
+      obstacles: [{id: 'obstruction', x: 4, y: 4, width: 0.5, depth: 1, height, material: 'masonry', kind: 'wall'}]}),
+      config: {input: {cameraRelative: false}}});
+    sim.dispatch({type: 'primary', pressed: true});
+    sim.dispatch({type: 'primary', pressed: false});
+    sim.dispatch({type: 'move', x: .12 + .88 * 5 / 6, y: 0});
+    sim.dispatch({type: 'move', x: 0, y: 0});
+    sim.dispatch({type: 'primary', pressed: true});
     return run(sim, 1).events.find(e => e.type === 'molotov-impact');
   }
   close(thrown(0.5).x, 7); assert.ok(thrown(3).x < 3.75);
@@ -71,7 +76,9 @@ test('empty held tools and invalid throws consume no invented fuel or items', ()
   close(s.player.inventory.torchFuel, 0); assert.equal(s.player.usingTool, false);
   assert.equal(s.events.filter(e => e.type === 'torch-spent').length, 1); assert.equal(s.player.torch.phase, 'spent');
   sim.dispatch({type:'primary',pressed:false}); sim.dispatch({type: 'select-tool', tool: 'molotov'}); sim.dispatch({type: 'aim', x: 10, y: 4}); sim.dispatch({type: 'primary', pressed: true});
+  sim.dispatch({type: 'primary', pressed: false}); sim.dispatch({type: 'primary', pressed: true});
   s = sim.advance(1 / 60); assert.equal(s.player.inventory.molotovs, 4); assert.equal(s.projectiles.length, 0);
+  assert.equal(s.player.lanternAim.target, null);
 });
 
 test('repeated inversion refreshes without toggling off or changing aim and selected tool', () => {

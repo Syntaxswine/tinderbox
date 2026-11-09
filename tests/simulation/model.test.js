@@ -7,6 +7,13 @@ const plain = (extra = {}) => ({id: 'test', width: 30, height: 16, player: {x: 3
 const model = (scenario = plain(), config = {}) => createSimulation({scenario, config: {input: {cameraRelative: false}, fire: {damagePerSecond: 0}, ...config}});
 function run(sim, seconds, hz = 60) { let snapshot; for (let i = 0; i < Math.round(seconds * hz); i++) snapshot = sim.advance(1 / hz); return snapshot; }
 function startPour(sim, direction = {x: 1, y: 0}) { sim.dispatch({type: 'primary', pressed: true}); sim.dispatch({type: 'primary', pressed: false}); sim.dispatch({type: 'move', ...direction}); }
+function throwLanternEast(sim, distance) {
+  sim.dispatch({type: 'primary', pressed: true});
+  sim.dispatch({type: 'primary', pressed: false});
+  sim.dispatch({type: 'move', x: .12 + .88 * distance / DEFAULT_CONFIG.tools.molotov.range, y: 0});
+  sim.dispatch({type: 'move', x: 0, y: 0});
+  sim.dispatch({type: 'primary', pressed: true});
+}
 function comparable(snapshot) { const copy = structuredClone(snapshot); delete copy.diagnostics.alpha; delete copy.diagnostics.lastSteps; return copy; }
 const fuelTotal = s => s.cells.reduce((n, c) => n + c.depositedFuel, 0);
 
@@ -130,7 +137,8 @@ test('solid wall prevents spread and protects explosions; barrel chains are exac
 test('all tools have finite stock and common field outcomes; Molotov flight follows world time', () => {
   for (const tool of ['matches', 'torch', 'flamethrower', 'molotov']) {
     const sim = model(plain({player: {x: 3.25, y: 5.25, tool}, patches: [{x: 0, y: 0, width: 30, depth: 10, material: 'grass'}]}));
-    sim.dispatch({type: 'aim', x: 4.1, y: 5.25}); sim.dispatch({type: 'primary', pressed: true});
+    if (tool === 'molotov') throwLanternEast(sim, .85);
+    else { sim.dispatch({type: 'aim', x: 4.1, y: 5.25}); sim.dispatch({type: 'primary', pressed: true}); }
     if (tool === 'torch') { run(sim, 1/60); sim.dispatch({type:'primary',pressed:false}); sim.dispatch({type:'primary',pressed:true}); }
     const s = run(sim, 0.8);
     assert.ok(s.cells.some(c => c.phase === 'burning'), tool);
@@ -138,7 +146,7 @@ test('all tools have finite stock and common field outcomes; Molotov flight foll
     assert.ok(s.player.inventory[key] < DEFAULT_CONFIG.inventory[key], tool);
   }
   const make = powder => { const sim = model(plain({player: {x: 3.25, y: 5.25, tool: 'molotov'}}));
-    if (powder) sim.dispatch({type: 'drug', drug: 'powder'}); sim.dispatch({type: 'aim', x: 8.25, y: 5.25}); sim.dispatch({type: 'primary', pressed: true}); return sim; };
+    if (powder) sim.dispatch({type: 'drug', drug: 'powder'}); throwLanternEast(sim, 5); return sim; };
   assert.equal(run(make(false), 0.8).projectiles.length, 0); assert.equal(run(make(true), 0.8).projectiles.length, 1);
 });
 

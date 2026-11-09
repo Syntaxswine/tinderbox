@@ -20,6 +20,13 @@ export function worldToStick(vector, input) {
   return normalized((vector.x * input.cameraY - vector.y * input.cameraX) / n,
     (-vector.x * input.cameraX - vector.y * input.cameraY) / n);
 }
+export function worldRayTarget(from, direction, reach, world) {
+  const {x, y} = direction;
+  const edgeX = x === 0 ? Infinity : ((x > 0 ? world.width : 0) - from.x) / x;
+  const edgeY = y === 0 ? Infinity : ((y > 0 ? world.height : 0) - from.y) / y;
+  const length = Math.min(reach, edgeX, edgeY);
+  return {x: clamp(from.x + x * length, 0, world.width), y: clamp(from.y + y * length, 0, world.height)};
+}
 export function inObstacle(p, o, inset = 0) {
   if (o.kind === 'barrel') return distance(p, o) <= (o.radius ?? o.width / 2) + inset;
   return Math.abs(p.x - o.x) <= o.width / 2 + inset && Math.abs(p.y - o.y) <= o.depth / 2 + inset;

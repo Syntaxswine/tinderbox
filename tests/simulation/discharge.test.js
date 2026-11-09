@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {createSimulation} from '../../src/simulation/index.js';
+import {createSimulation, DEFAULT_CONFIG, movementVector} from '../../src/simulation/index.js';
 const close = (a, b, eps = 1e-8) => assert.ok(Math.abs(a - b) <= eps, `${a} != ${b}`);
 const plain = extra => ({id: 'discharge-qc', width: 12, height: 10, player: {x: 2.25, y: 5.25, tool: 'flamethrower'}, obstacles: [], actors: [], ...extra});
 function armed(scenario = plain(), config = {}) {
@@ -118,14 +118,50 @@ test('partial and empty stock bound heat and stop the shape exactly when fuel en
   }
 });
 
-test('powder and inversion preserve held aim while resource use follows player time', () => {
+test('powder preserves the emission clock and inversion turns the held jet with the player', () => {
   const sim = armed(), before = sim.advance(1 / 60);
   sim.dispatch({type: 'drug', drug: 'powder'}); sim.dispatch({type: 'drug', drug: 'inversion'}); sim.dispatch({type: 'move', x: 1, y: 0});
   const after = sim.advance(1 / 60); assert.equal(after.discharge.active, true);
   close(before.player.inventory.flamethrowerFuel - after.player.inventory.flamethrowerFuel, 0.3 * 1.5 / 60);
   close(after.clocks.world - before.clocks.world, 0.35 / 60);
-  close(after.discharge.heading, Math.atan2(after.aim.y - after.player.y, after.aim.x - after.player.x));
+  const facing = movementVector({x: 1, y: 0}, true, DEFAULT_CONFIG.input);
+  close(after.discharge.heading, Math.atan2(facing.y, facing.x));
+  close(after.discharge.heading, after.player.heading);
   assert.deepEqual(after.discharge.origin, {x: after.player.x, y: after.player.y, h: 1.05});
+});
+
+test('a held jet and its heat turn with the avatar without using old taps or hover', () => {
+  const sim = createSimulation({scenario: plain({player: {x: 5.25, y: 5.25, tool: 'jerry-can', heading: Math.PI / 2}}),
+    config: {input: {cameraRelative: false}, fire: {cooling: 0, damagePerSecond: 0}}});
+  const cell = (snapshot, x, y) => snapshot.cells.find(c => c.x === x && c.y === y);
+  try {
+    sim.dispatch({type: 'aim', x: 9, y: 5.25});
+    sim.dispatch({type: 'aim', x: 5.25, y: 1, hover: true});
+    sim.dispatch({type: 'select-tool', tool: 'flamethrower'});
+    sim.dispatch({type: 'primary', pressed: true});
+    const south = sim.advance(1 / 60);
+    close(south.discharge.heading, Math.PI / 2);
+    close(south.discharge.heading, south.player.heading);
+    assert.ok(cell(south, 5.25, 7.25).heat > 0);
+    assert.equal(cell(south, 7.25, 5.25).heat, 0);
+    assert.equal(cell(south, 5.25, 3.25).heat, 0);
+
+    sim.dispatch({type: 'move', x: -1, y: 0});
+    const west = sim.advance(1 / 60);
+    assert.ok(west.player.moving && west.discharge.active);
+    close(west.discharge.heading, Math.PI);
+    close(west.discharge.heading, west.player.heading);
+    assert.ok(cell(west, 3.25, 5.25).heat > 0);
+    assert.equal(cell(west, 7.25, 5.25).heat, 0);
+
+    sim.dispatch({type: 'move', x: 0, y: 0});
+    sim.dispatch({type: 'aim', x: 5, y: 2, hover: true});
+    close(sim.advance(1 / 60).discharge.heading, Math.PI);
+    sim.dispatch({type: 'aim', x: 9, y: 5.25});
+    const east = sim.advance(1 / 60);
+    close(east.discharge.heading, 0);
+    assert.ok(cell(east, 7.25, 5.25).heat > 0);
+  } finally { sim.dispose(); }
 });
 
 test('discharge honors rotated aim and world edges; complex masks have a bounded safe fallback', () => {
