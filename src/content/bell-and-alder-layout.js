@@ -19,6 +19,8 @@ const prop = (id, form, x, y, {quarterTurns = 0, material = null} = {}) => Objec
 });
 const wood = {material: 'wood'};
 const faceAisle = {...wood, quarterTurns: 3};
+const pedestal = prop('parlor-lamp', 'pedestal-table', 41.65, 11.6, wood);
+const pedestalHeight = .747;
 const props = [
   prop('shelf-west', 'shelf-stocked', 37.5, 9.58, wood),
   prop('shelf-east', 'shelf-stocked', 38.5, 9.58, wood),
@@ -29,7 +31,7 @@ const props = [
   prop('settee', 'settee', 42.6, 10.48, wood),
   prop('table', 'pedestal-table', 42.6, 12, wood),
   prop('chair', 'side-chair', 42.15, 13.45, wood),
-  prop('parlor-lamp', 'table-lamp-lit', 41.65, 11.6, wood),
+  pedestal,
   prop('shop-lamp', 'shop-pendant-lit', 38.5, 12.5),
   prop('trade-sign', 'hanging-sign-goods', 43.5, 17.579),
   ...[37.5, 38.5, 41.5, 42.5].map((x, i) => prop('cornice-' + i, 'room-cornice', x, 9.57)),
@@ -46,9 +48,8 @@ const measured = {
   'city1880-glass-case': [-.499, -.3185, .499, .3265, 1.107],
   'city1880-bolt-rack': [-.484, -.4195, .484, .3935, 1.181497],
   'city1880-settee': [-.8705, -.3025, .8705, .3305, 1.1],
-  'city1880-pedestal-table': [-.311947, -.328, .311947, .328, .747],
+  'city1880-pedestal-table': [-.311947, -.328, .311947, .328, pedestalHeight],
   'city1880-side-chair': [-.241, -.238, .241, .2255, 1.1],
-  'city1880-table-lamp-lit': [-.311947, -.328, .311947, .328, 1.275],
   'city1880-shop-window': [-.5, -.0585, .5, .135, 2.12]
 };
 function obstacle(placement) {
@@ -62,6 +63,10 @@ function obstacle(placement) {
 export const BELL_AND_ALDER = Object.freeze({
   id: SHOP_ID,
   entrance: Object.freeze({x: 40, y: 17, width: 2}),
+  door: Object.freeze({id: SHOP_ID + ':entry',
+    width: ASSET_SCALE.doorWidth, depth: ASSET_SCALE.doorThickness, height: ASSET_SCALE.doorHeight}),
+  lantern: Object.freeze({id: SHOP_ID + ':hand-lantern', assetId: 'city1880-hand-lantern-lit',
+    pedestalId: pedestal.id, position: Object.freeze([pedestal.x, pedestalHeight, pedestal.y])}),
   patches: Object.freeze([Object.freeze({...lot, material: 'wood'})]),
   modules: Object.freeze([
     ...along(8, i => wall('rear-' + i, 36.5 + i, 9)),
