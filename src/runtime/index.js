@@ -48,8 +48,10 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
   try{
     renderer=rendererFactory();renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setClearColor(0x35281e);root.append(renderer.domElement);
     scene=new THREE.Scene();
+    const defaultLights=[];
     if(!snapshot.cottageFire){
-      scene.add(new THREE.HemisphereLight(0xfff1d1,0x334852,2.3));const sun=new THREE.DirectionalLight(0xffffff,2.5);sun.position.set(-8,16,6);scene.add(sun);
+      const sky=new THREE.HemisphereLight(0xfff1d1,0x334852,2.3),sun=new THREE.DirectionalLight(0xffffff,2.5);
+      sun.position.set(-8,16,6);defaultLights.push(sky,sun);scene.add(...defaultLights);
     }
     camera=createCameraRig(root,renderer,snapshot.world,{x:settings.input.cameraX,h:14,y:settings.input.cameraY});
     observer=observerFactory(()=>{camera.resize();if(art&&!disposed)try{present(snapshot,0);}catch(error){dispose();onError(error);}});observer.observe(root);
@@ -57,7 +59,7 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     renderer.domElement.addEventListener('webglcontextlost',event=>{if(disposed)return;event.preventDefault();dispose();onError(Error('Graphics context lost. Return to the places menu and try again.'));},{signal});
     win.addEventListener('blur',loseFocus,{signal});doc?.addEventListener('visibilitychange',()=>{if(doc.hidden)loseFocus();lastTime=null;},{signal});
     if(doc?.hidden||typeof doc?.hasFocus==='function'&&!doc.hasFocus())loseFocus();
-    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire}):createDiagnosticScene({THREE,scene,config:settings});
+    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights}):createDiagnosticScene({THREE,scene,config:settings});
     if(disposed||externalSignal?.aborted){created.dispose();throw new DOMException('Visit cancelled','AbortError');}art=created;
     ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});
     renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Move with the joystick, WASD or arrows.');

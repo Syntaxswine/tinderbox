@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createSimulation, DEFAULT_CONFIG} from '../../src/simulation/index.js';
+import {configuration} from '../../src/simulation/config.js';
 import {COTTAGE_PAIR_SCENARIO} from '../../src/content/cottage-pair.js';
 import {NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
 import {housingSectionAt, housingSectionGrid} from '../../src/content/housing-sections.js';
@@ -103,7 +104,7 @@ test('the ordinary Hopkins siding reports local wood preheat at the configured t
     patches: [{x: 10.5, y: 34.5, width: .5, depth: .5, material: 'grass'}]};
   const woodThreshold = 1.6;
   const sim = createSimulation({scenario, config: {...config, fire: {...config.fire, ignition: {wood: woodThreshold}}}});
-  const x = 10.25 - hopkins.x, z = 34.75 - hopkins.y;
+  const id = 'hopkins-nine/wall:0:7,4|7,5:0', x = 7.08, z = 4.5;
   const sectionId = housingSectionAt(housingSectionGrid(hopkins.prefabId), x, z);
   const section = snapshot => snapshot.world.buildings[0].sections[sectionId];
   try {
@@ -112,53 +113,52 @@ test('the ordinary Hopkins siding reports local wood preheat at the configured t
     assert.deepEqual(lastUse(press(sim)).cellIds, ['cell:21,69']);
     let snapshot;
     for (let i = 0; i < 8; i++) snapshot = sim.advance(.25);
-    const wood = snapshot.cells.find(cell => cell.id === 'cell:20,69');
+    const wood = snapshot.structureFire.find(site => site.id === id);
     const sample = section(snapshot).preheat;
     assert.equal(section(snapshot).fire, null);
-    assert.deepEqual(sample, {x, z, heatFraction: wood.heat / woodThreshold});
-    assert.ok(sample.heatFraction > .05 && sample.heatFraction < 1);
+    assert.equal(wood.ignitionTime, null);
+    assert.equal(wood.flame, 0);
+    assert.deepEqual(sample, {x, z, heatFraction: wood.heatFraction});
+    assert.ok(sample.heatFraction > .02 && sample.heatFraction < 1);
+    wood.heatFraction = -10;
+    assert.equal(sim.snapshot().structureFire.find(site => site.id === id).heatFraction, sample.heatFraction);
     sample.z = -10;
     assert.equal(section(sim.snapshot()).preheat.z, z);
     move(sim, -1, 0, 5);
     sim.dispatch({type: 'aim', x: 9.9, y: 34.75});
     const struck = press(sim);
-    assert.deepEqual(lastUse(struck).cellIds, ['cell:20,69']);
+    assert.deepEqual(lastUse(struck).cellIds, [id]);
     assert.ok(section(struck).fire);
     assert.equal(section(struck).preheat, null);
-    t.diagnostic(JSON.stringify({house: hopkins.id, section: sectionId, x, z, woodHeat: report(wood.heat), woodThreshold,
+    t.diagnostic(JSON.stringify({house: hopkins.id, section: sectionId, x, z, woodHeat: report(sample.heatFraction * woodThreshold), woodThreshold,
       heatFraction: report(sample.heatFraction), preheatOnIgnition: null}));
   } finally { sim.dispose(); }
 });
 
-test('section preheat selects the hottest live wood, resumes after flameout and clears on support loss', () => {
+test('section preheat selects the hottest live wood and resumes after the local flame goes out', () => {
   const hopkins = NEIGHBORHOOD_SCENARIO.buildings.find(building => building.id === 'hopkins-nine');
   const {buildings: [building], obstacles} = scenarioDefinition({width: 16, height: 44, buildings: [hopkins]});
-  const cells = [
-    {x: 9.25, y: 34.25, material: 'wood', heat: .24, surfaceFuel: .05, depositedFuel: 0, phase: 'heating', ignitedAt: null},
-    {x: 9.75, y: 34.25, material: 'wood', heat: .50, surfaceFuel: .05, depositedFuel: 0, phase: 'heating', ignitedAt: null},
-    {x: 10.25, y: 34.25, material: 'paving', heat: .58, surfaceFuel: 0, depositedFuel: .01, phase: 'heating', ignitedAt: null},
-    {x: 10.25, y: 34.75, material: 'wood', heat: 1.2, surfaceFuel: 0, depositedFuel: 0, phase: 'spent', ignitedAt: .1}
-  ];
-  const structure = createHousingFire({building, colliders: obstacles, cells, initialSurfaceFuel: .1}, [...obstacles], 2);
-  const section = building.sections[housingSectionAt(housingSectionGrid(hopkins.prefabId), 6.75, 4.25)];
-  structure.step(1, () => {});
-  assert.deepEqual(section.preheat, {x: 6.75, z: 4.25, heatFraction: .25});
-  Object.assign(cells[0], {phase: 'burning', ignitedAt: 2, intensity: .5});
-  structure.step(2, () => {});
+  const structure = createHousingFire({building, colliders: obstacles}, [...obstacles],
+    configuration({fuel: {surfaceBurnRate: 1.5}}));
+  const section = building.sections[housingSectionAt(housingSectionGrid(hopkins.prefabId), 7.08, 4.5)];
+  const foundation = obstacles.find(box => box.role === 'foundation');
+  const strike = (y, heat) => structure.strike(foundation, {x: 10.8, y}, {x: 9.9, y}, heat, 'torch');
+  const tick = n => structure.step(step, n * step, () => {});
+  const first = strike(34.5, .26), other = strike(35.5, .58);
+  tick(1);
+  assert.equal(section.preheat.z, 5.5);
+  near(section.preheat.heatFraction, other.site.heat / DEFAULT_CONFIG.fire.ignition.wood);
+  strike(34.5, 1.8);
+  tick(2);
   assert.ok(section.fire);
   assert.equal(section.preheat, null);
-  Object.assign(cells[0], {phase: 'spent', surfaceFuel: 0, heat: 1.2});
-  Object.assign(cells[1], {phase: 'cold', heat: 0});
-  structure.step(3, () => {});
+  for (let n = 3; n <= 14; n++) tick(n);
   assert.equal(section.present, true);
-  assert.equal(section.firstIgnition, 2);
+  assert.equal(section.firstIgnition, 2 * step);
   assert.equal(section.fire, null);
-  assert.equal(section.preheat, null);
-  Object.assign(cells[1], {phase: 'heating', heat: .70});
-  structure.step(4, () => {});
-  assert.deepEqual(section.preheat, {x: 6.75, z: 4.25, heatFraction: .35});
-  for (const cell of cells) Object.assign(cell, {phase: 'spent', surfaceFuel: 0, depositedFuel: 0});
-  structure.step(5, () => {});
-  assert.equal(section.present, false);
-  assert.equal(section.preheat, null);
+  assert.equal(section.preheat.z, 5.5);
+  assert.equal(first.site.phase, 'spent');
+  const samples = structure.samples(14 * step);
+  assert.ok(samples.every(site => site.id !== first.site.publicId));
+  assert.equal(samples.find(site => site.id === other.site.publicId).heatFraction, section.preheat.heatFraction);
 });

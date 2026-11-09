@@ -1,4 +1,5 @@
 import {clamp, distance, inObstacle, lineClear, rasterSegments, impactPoint} from './geometry.js';
+import {ignites, storedHeat} from './combustion.js';
 const EPS = 1e-10;
 export const activeFuel = cell => cell.depositedFuel > EPS ? 'gas' : cell.material;
 export function materialAt(def, p) {
@@ -115,9 +116,6 @@ export class HeatField {
       const output = this.heatOutput(material);
       for (const neighbour of this.neighbours[i]) {
         const target = this.cells[neighbour.index];
-        // Keep the two wood surfaces independent at a shared party wall,
-        // including subcells whose centres fall just outside the native rim.
-        if(source.surfaceFuel>EPS&&target.surfaceFuel>EPS&&source.houseParty?.neighbors.has(target.houseParty?.id))continue;
         const targetPolicy = fire.propagation[activeFuel(target)] ?? fire.propagation.wood;
         const speed = fire.frontSpeed * Math.min(sourcePolicy.speedScale, targetPolicy.speedScale);
         if (target.surfaceFuel + target.depositedFuel <= EPS || target.phase === 'burning' ||
@@ -129,7 +127,7 @@ export class HeatField {
     const areaScale = (this.size / 0.5) ** 2;
     for (let i = 0; i < this.cells.length; i++) {
       const cell = this.cells[i], burning = cell.phase === 'burning';
-      cell.heat = clamp(cell.heat + this.delta[i] - fire.cooling * delta, 0, fire.maxHeat);
+      cell.heat = storedHeat(cell.heat, this.delta[i], fire.cooling, delta, fire.maxHeat);
       if (burning) {
         const gas = Math.min(cell.depositedFuel, fuel.gasBurnRate * areaScale * delta);
         const surface = Math.min(cell.surfaceFuel, fuel.surfaceBurnRate * areaScale * delta);
@@ -143,7 +141,7 @@ export class HeatField {
       } else {
         const total = cell.surfaceFuel + cell.depositedFuel;
         const threshold = cell.depositedFuel > EPS ? fire.ignition.gas : fire.ignition[cell.material] ?? Infinity;
-        if (total > EPS && cell.heat >= threshold) {
+        if (ignites(cell.heat, threshold, total - EPS)) {
           cell.phase = 'burning'; cell.ignitedAt = worldTime; cell.intensity = fire.minIntensity;
           event('ignition', cell, {cellId: cell.id, cause: cell.cause, heat: cell.heat});
         } else if (cell.phase !== 'spent') {
@@ -157,5 +155,5 @@ export class HeatField {
     const cell = this.at(point); if (!cell) return 0;
     return Math.max(cell.phase === 'burning' ? cell.intensity : 0, clamp((cell.heat - this.config.fire.damageHeatStart) / this.config.fire.damageHeatSpan, 0, 1));
   }
-  snapshot() { return this.cells.map(({ignitedAt, cause, houseParty, ...cell}) => ({...cell})); }
+  snapshot() { return this.cells.map(({ignitedAt, cause, ...cell}) => ({...cell})); }
 }

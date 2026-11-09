@@ -1,6 +1,9 @@
 import {buildingPoint,localHousingFootprints} from '../content/buildings.js';
 import {housingSectionAt,housingSectionBounds,housingSectionGrid} from '../content/housing-sections.js';
 import {HOUSING_PLANS} from '../content/housing-plans.js';
+import {ASSET_SCALE} from '../content/asset-scale.js';
+import {createHousingTopology} from './housing-topology.js';
+import {exchangeSurfaceGround, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample} from './surface-fire.js';
 
 const EPS=1e-9;
 function toPlan(building,point){
@@ -8,24 +11,31 @@ function toPlan(building,point){
     {x:point.x-building.x,y:point.y-building.y});
 }
 
-// Use the very same finite ground fuel that powered the original housing.
-// Each cell belongs to one local section of its existing footprint.
-export function createHousingFire(group,obstacles,woodIgnition){
-  const {building,colliders,cells,initialSurfaceFuel}=group;
+// The old coarse movement footprint is a barrier, not a second wood source.
+export function prepareHousingFootprints(definition, excluded){
+  const ids=new Set(definition.buildings.filter(b=>!excluded.includes(b.id)).map(b=>b.id));
+  for(const obstacle of definition.obstacles)if(ids.has(obstacle.buildingId))obstacle.material='masonry';
+  for(const building of definition.buildings)if(ids.has(building.id)){
+    building.footprints=definition.obstacles.filter(o=>o.buildingId===building.id);
+  }
+}
+
+export function createHousingFire(group,obstacles,config,wind){
+  const {building,colliders}=group;
   const grid=housingSectionGrid(building.prefabId);
   const localBoxes=localHousingFootprints(building.prefabId,building.partyWalls);
   const plan=HOUSING_PLANS[building.prefabId],odd=building.quarterTurns%2;
+  const {sites,panels,porch}=createHousingTopology(building,plan,localBoxes,config,wind);
   const sections=Array.from({length:grid.cols*grid.rows},(_,index)=>({
-    cells:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,fire:null,preheat:null}
+    sites:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,fire:null,preheat:null}
   }));
   building.sections=sections.map(section=>section.view);
-  const neighbors=new Set(Object.values(building.partyWalls).filter(Boolean));
-  const party=neighbors.size?{id:building.id,neighbors}:null;
-  for(const cell of cells){
-    const point=toPlan(building,cell);
-    sections[housingSectionAt(grid,point.x,point.y)].cells.push({cell,...point});
-    if(party)cell.houseParty=party;
-  }
+  for(const site of sites)sections[site.section].sites.push(site);
+  const present=site=>sections[site.section].view.present;
+  const initialArea=sites.reduce((sum,site)=>sum+site.area,0);
+  const lowPanels=panels.filter(panel=>panel.level===0);
+  for(const panel of lowPanels)panel.section=housingSectionAt(grid,panel.x,panel.z);
+  const groundSites=lowPanels.flatMap(panel=>panel.low?[panel.low]:[]);
   const fragments=new Map();
   for(const section of sections){
     const {minX,maxX,minZ,maxZ}=section.bounds;
@@ -63,37 +73,42 @@ export function createHousingFire(group,obstacles,woodIgnition){
     obstacles.push(...activeBoxes);
     building.colliderIds=activeBoxes.map(box=>box.id);
   }
-  function step(time,event){
+  function step(dt,time,event){
     if(building.destroyed)return;
-    let surface=0,changed=false;
-    for(const {cells:owned,view} of sections){
+    stepSurfaceFire(sites,dt,time,present,site=>{
+      event('structure-ignition',{x:site.world.x,y:site.world.z},{buildingId:building.id,siteId:site.publicId,
+        part:site.layer==='floor'?'ground':site.layer,height:site.y,worldTime:time,cause:site.ignitionKind,
+        parentSiteId:site.ignitionKind==='surface-spread'?`${building.id}/${site.parentId}`:site.parentId,heat:site.heat});
+    });
+    let remainingArea=0,changed=false;
+    for(const {sites:owned,view} of sections){
       if(!view.present)continue;
-      let remaining=0,weight=0,x=0,z=0,peak=0,first=Infinity;
+      let live=false,weight=0,x=0,z=0,peak=0,first=Infinity;
       let hottest=null;
-      for(const entry of owned){
-        const {cell,x:cx,y:cz}=entry;
-        surface+=cell.surfaceFuel;
-        remaining+=cell.surfaceFuel+cell.depositedFuel;
-        if(cell.phase!=='burning'){
-          if(woodIgnition>0&&cell.phase!=='spent'&&cell.ignitedAt===null&&cell.material==='wood'&&cell.surfaceFuel>EPS&&
-            Number.isFinite(cell.heat)&&cell.heat>(hottest?.cell.heat??0))hottest=entry;
+      for(const site of owned){
+        if(site.phase==='spent')continue;
+        live=true;
+        if(site.phase==='cold'){
+          remainingArea+=site.area;
+          if(site.layer==='walls'&&site.fuel.threshold>0&&site.heat>(hottest?.heat??0))hottest=site;
           continue;
         }
-        const intensity=cell.intensity;
-        weight+=intensity;x+=cx*intensity;z+=cz*intensity;peak=Math.max(peak,intensity);
-        first=Math.min(first,cell.ignitedAt);
+        remainingArea+=site.area*Math.max(0,1-(time-site.ignitedAt)/surfaceDuration(site));
+        const intensity=surfaceFlame(site,time);
+        weight+=intensity;x+=site.x*intensity;z+=site.z*intensity;peak=Math.max(peak,intensity);
+        first=Math.min(first,site.ignitedAt);
       }
       if(weight>0){
         view.firstIgnition??=first;
         view.fire={x:x/weight,z:z/weight,flame:peak,ignitionTime:first};
       }else view.fire=null;
-      view.preheat=hottest&&!view.fire?{x:hottest.x,z:hottest.y,heatFraction:Math.min(1,hottest.cell.heat/woodIgnition)}:null;
-      if(view.firstIgnition!==null&&remaining<=EPS){
+      view.preheat=hottest&&!view.fire?{x:hottest.x,z:hottest.z,heatFraction:Math.min(1,hottest.heat/hottest.fuel.threshold)}:null;
+      if(view.firstIgnition!==null&&!live){
         view.present=false;changed=true;
         event('building-section-burnout',building,{buildingId:building.id,section:view.index,worldTime:time});
       }
     }
-    building.burnedFraction=initialSurfaceFuel-surface>EPS?Math.min(1,1-surface/initialSurfaceFuel):0;
+    building.burnedFraction=initialArea-remainingArea>EPS?Math.min(1,1-remainingArea/initialArea):0;
     if(changed){
       replaceCollision();
       if(sections.every(section=>!section.view.present)){
@@ -102,5 +117,53 @@ export function createHousingFire(group,obstacles,woodIgnition){
       }
     }
   }
-  return {step};
+
+  function strike(box,from,to,amount,kind,touched){
+    if(building.destroyed)return null;
+    function strikeAt(contact){
+      const site=contact?.site;
+      if(!site||!present(site)||touched?.has(site))return null;
+      if(!heatSurfaceSite(site,amount,{kind}))return {t:contact.t,result:'no-fuel'};
+      touched?.add(site);
+      return contact;
+    }
+    if(box.role!=='foundation'){
+      return strikeAt({site:porch.get(box.role)});
+    }
+    const a=toPlan(building,from),b=toPlan(building,to);
+    let first;
+    for(const panel of lowPanels){
+      const {nx,nz,low}=panel,offset=ASSET_SCALE.wallThickness/2;
+      if(!sections[low?.section??panel.section].view.present)continue;
+      const x=panel.x+nx*offset,z=panel.z+nz*offset;
+      const start=(a.x-x)*nx+(a.y-z)*nz,end=(b.x-x)*nx+(b.y-z)*nz;
+      if(start<=EPS||end>EPS)continue;
+      const t=start/(start-end);
+      if(first&&t>=first.t)continue;
+      const along=(a.x+(b.x-a.x)*t-x)*-nz+(a.y+(b.y-a.y)*t-z)*nx;
+      if(Math.abs(along)>panel.length/2+EPS)continue;
+      let site=low;
+      if(to.h!==undefined){
+        const height=from.h+(to.h-from.h)*t-panel.y;
+        if(height<0||height>ASSET_SCALE.wallHeight)site=null;
+        else if(height>ASSET_SCALE.wallHeight/2)site=panel.high;
+      }
+      first={site,t};
+    }
+    return strikeAt(first);
+  }
+  function exchangeGround(field,dt,time){
+    if(!building.destroyed)for(const site of groundSites)if(present(site)){
+      exchangeSurfaceGround(site,site.world,field,obstacles,dt,time,'structure-siding');
+    }
+  }
+  function samples(time){
+    if(building.destroyed)return [];
+    return sites.filter(site=>present(site)&&(site.phase==='burning'||site.phase==='cold'&&site.heat>0)).map(site=>{
+      const exposed=site.exposed||!sections[site.section].sites.some(other=>
+        other.layer!=='walls'&&other.y>site.y&&other.phase!=='spent');
+      return surfaceSample(building,site,time,exposed);
+    });
+  }
+  return {step,strike,exchangeGround,samples};
 }

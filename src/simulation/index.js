@@ -8,7 +8,7 @@ import {CHARACTER_PROFILES} from '../content/characters.js';
 import {pickupContacts} from './pickups.js';
 import {COTTAGE_IDS} from '../content/cottage-pair.js';
 import {createCottageFire,prepareCottageFootprints} from './cottage-fire.js';
-import {createHousingFire} from './housing-fire.js';
+import {createHousingFire,prepareHousingFootprints} from './housing-fire.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
@@ -20,7 +20,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   const playableCottages=definition.id==='cottage-pair';
   const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
-  let state, field, buildingFuel, cottages, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
+  let state, field, buildingFuel, housing, cottages, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
@@ -66,14 +67,15 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     }
     field = new HeatField(def, config, state.obstacles);
     cottages=playableCottages?createCottageFire({buildings:state.buildings,obstacles:state.obstacles,sampleWind:cottageWind,seed}):null;
-    buildingFuel = state.buildings.filter(b=>!cottages||!COTTAGE_IDS.includes(b.id)).map(building => {
-      const colliders = state.obstacles.filter(obstacle => obstacle.buildingId === building.id);
+    const lots=state.buildings.filter(building=>!cottages||!COTTAGE_IDS.includes(building.id)).map(building=>({
+      building,colliders:state.obstacles.filter(obstacle=>obstacle.buildingId===building.id)
+    }));
+    housing=catalogue?new Map(lots.map(lot=>[lot.building.id,createHousingFire(lot,state.obstacles,config,cottageWind)])):null;
+    buildingFuel = catalogue ? [] : lots.map(({building,colliders}) => {
       const cells = field.cells.filter(cell => colliders.some(obstacle => inBox(cell, obstacle)));
       const initialSurfaceFuel = cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
       if (!cells.length || initialSurfaceFuel <= EPS) throw Error('Building needs a finite dry-wood footprint');
-      const group={building,colliders,cells,initialSurfaceFuel};
-      if(catalogue)group.structure=createHousingFire(group,state.obstacles,config.fire.ignition.wood);
-      return group;
+      return {building,colliders,cells,initialSurfaceFuel};
     });
   }
   initialize();
@@ -130,7 +132,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (state.primaryNeedsRelease) return;
       const rising = command.pressed && !state.input.primary;
       state.input.primary = command.pressed;
-      if (rising) discreteTool(state, field, config, event,cottages,catalogue);
+      if (rising) discreteTool(state, field, config, event,cottages,housing);
       return;
     }
     if (command.type === 'drug') {
@@ -216,19 +218,20 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
           pickup.consumed=true;event('pickup-used',pickup,{pickupId:pickup.id,kind:pickup.kind,actorId:p.id});
         }
       }
-      heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition,cottages);
+      heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition,cottages,housing);
     }
     for (const actor of state.actors) actorStep(actor, worldDelta);
-    projectilesStep(state, field, config, worldDelta, event,cottages);
+    projectilesStep(state, field, config, worldDelta, event,cottages,housing);
     ageTorch(state, config, worldDelta, event);
     cottages?.exchangeGround(field,worldDelta,state.clocks.world);
+    for(const lot of housing?.values()??[])lot.exchangeGround(field,worldDelta,state.clocks.world);
     field.step(worldDelta, state.clocks.world, event); barrels();
     cottages?.step(worldDelta,state.clocks.world,event);
+    for(const lot of housing?.values()??[])lot.step(worldDelta,state.clocks.world,event);
     for (const result of state.ignitionResults) result.record.result = result.cells.some(cell => cell.phase === 'burning') ? 'ignited' : 'heated';
     state.ignitionResults = [];
     for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');
     for (const group of buildingFuel) if (!group.building.destroyed) {
-      if(group.structure){group.structure.step(state.clocks.world,event);continue;}
       const surface = group.cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
       group.building.burnedFraction = clamp(1 - surface / group.initialSurfaceFuel, 0, 1);
       if (group.cells.every(cell => cell.surfaceFuel + cell.depositedFuel <= EPS)) {
@@ -271,6 +274,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
       discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       ...(cottages?{cottageFire:cottages.snapshot(state.clocks.world)}:{}),
+      structureFire:[...(cottages?.samples(state.clocks.world)??[]), ...Array.from(housing?.values()??[]).flatMap(lot=>lot.samples(state.clocks.world))],
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
         acceptedPath: state.acceptedPath.map(p => ({...p})), fuel: {...field.stats,
           remainingDepositedFuel: cells.reduce((sum, c) => sum + c.depositedFuel, 0)},
@@ -299,7 +303,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
       return snapshot();
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; cottages=null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; housing=null; cottages=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }

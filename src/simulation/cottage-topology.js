@@ -1,3 +1,5 @@
+import {surfaceSite, surfaceTravel} from './surface-fire.js';
+
 // Native Ashland coordinates and opening links from the cottage replay.
 // The live graph uses one roof support column per footprint tile.
 export const WIDTH=6, DEPTH=7, UPPER=2.12, EAVE=4.20, RIDGE=5.64, RIM=.08, OVERHANG=.25;
@@ -10,22 +12,20 @@ export const makeTiles=()=>Array.from({length:WIDTH*DEPTH},(_,index)=>({index,x:
 const upperDoors=new Set(['3/4','5/11','15/16','20/26','33/34','39/40']);
 const room=(x,z)=>x<4?(z<4?'parlor':'kitchen'):z===0?'hall':z<4?'bed-a':z<6?'bed-b':'pantry';
 const wallId=(side,col,band)=>side+':'+col+','+band;
+const fuel=Object.fromEntries(Object.entries({walls:16,roof:11,upper:11,lower:10}).map(([layer,seconds])=>
+  [layer,{material:'wood',seconds,threshold:1,cooling:.075,limit:2.5}]));
 function edgeSeconds(a,b,wa,wb){
   if(a.layer==='upper'&&b.layer==='upper')return 1.1+(room(a.tile%WIDTH,Math.floor(a.tile/WIDTH))!==room(b.tile%WIDTH,Math.floor(b.tile/WIDTH))?.22:0);
   if(a.layer==='lower'&&b.layer==='lower')return 1.16+((a.tile<18)!==(b.tile<18)?.30:0);
-  const dx=b.x-a.x,dy=b.y-a.y,dz=b.z-a.z,chord=Math.hypot(dx,dy,dz);
   const eave=(a.layer==='walls')!==(b.layer==='walls'),corner=a.layer==='walls'&&b.layer==='walls'&&a.face!==b.face;
   const ridge=a.layer==='roof'&&b.layer==='roof'&&a.face!==b.face;
-  const length=eave?Math.hypot(dx,dz,dy)+.16:corner?Math.hypot(Math.abs(dx)+Math.abs(dz),dy):ridge?Math.hypot(dx,2*(RIDGE-a.y)):chord;
-  const slope=dy/length;
-  const along=((wa[0]+wb[0])*dx+(wa[1]+wb[1])*dy+(wa[2]+wb[2])*dz)/(2*chord);
-  return length/(1.17+slope*(slope>=0?.95:.42)+clamp(.48*along,-.40,.40))+(eave?.53:corner?.18:0);
+  return surfaceTravel(a,b,wa,wb,{eave,corner,length:ridge?Math.hypot(b.x-a.x,2*(RIDGE-a.y)):undefined});
 }
 
 export function createCottageTopology(origin,sampleWind){
   const sites=[],byId=new Map(),winds=new Map(),walls=[];
   const add=(id,face,layer,tile,x,y,z,nx,ny,nz)=>{
-    const s={id,face,layer,tile,x,y,z,nx,ny,nz,links:[],heat:0,ignitedAt:null,phase:'cold',parentId:null,cause:null};
+    const s=surfaceSite({id,face,layer,tile,x,y,z,nx,ny,nz,area:layer==='roof'?1/ny:1},fuel[layer]);
     sites.push(s);byId.set(id,s);
     winds.set(s,layer==='roof'||layer==='walls'?sampleWind(origin.x+x+.56*nx,y+.56*ny,origin.y+z+.56*nz,[0,0,0]):[0,0,0]);
     if(layer==='walls')walls.push(s);
