@@ -10,6 +10,7 @@ import {pickupContacts} from './pickups.js';
 import {COTTAGE_IDS} from '../content/cottage-pair.js';
 import {createCottageFire,prepareCottageFootprints} from './cottage-fire.js';
 import {createHousingFire,prepareHousingFootprints} from './housing-fire.js';
+import {createShopInteractions} from './shop.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
@@ -22,7 +23,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
   if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
-  let state, field, buildingFuel, obstacleFuel, housing, cottages, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  let state, field, buildingFuel, obstacleFuel, housing, cottages, shop, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
@@ -61,6 +62,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false,
       moveNeedsNeutral: false, lanternPreview: null, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
     state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
+    shop = createShopInteractions(def, state, event);
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
     state.tiles = [];
@@ -142,6 +144,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (command.type === 'primary' && command.pressed) state.primaryNeedsRelease = true;
       return;
     }
+    if (command.type === 'interact') { shop?.interact(command); return; }
     if (command.type === 'move') {
       if (state.moveNeedsNeutral) return;
       state.input.move = normalized(command.x, command.y);
@@ -297,12 +300,14 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     });
     return {version: 1, tick: state.tick, paused: state.paused,
       clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory}, lanternAim: structuredClone(state.player.lanternAim),
+        ...(shop ? {interaction: shop.interaction()} : {}),
         torch: {...state.player.torch, remainingSeconds: state.player.inventory.torchFuel / config.tools.torch.fuelPerSecond}},
       effects: Object.fromEntries(['powder', 'inversion'].map(name => [name,
         {active: activeEffect(name), remaining: Math.max(0, state.effects[name].expiresAt - state.clocks.active)}])),
       world: {width: definition.width, height: definition.height, tileSize: definition.tileSize, modules,
         buildings: state.buildings.map(building => structuredClone(building)),
         ...(definition.camera ? {camera: structuredClone(definition.camera)} : {}),
+        ...(shop ? {shop: shop.snapshot()} : {}),
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
         obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => structuredClone(o))},
       cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
@@ -318,7 +323,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   function dispatch(command) {
     if (disposed || !command || typeof command !== 'object') return false;
     const {type} = command;
-    if (!['move', 'aim', 'select-tool', 'primary', 'drug', 'pause', 'reset', 'cancel-input'].includes(type)) return false;
+    if (!['move', 'aim', 'select-tool', 'primary', 'drug', 'pause', 'reset', 'cancel-input', 'interact'].includes(type)) return false;
+    if (type === 'interact' && !shop?.accepts(command)) return false;
     if (['move', 'aim'].includes(type) && ![command.x, command.y].every(Number.isFinite)) return false;
     if (type === 'aim' && (command.x < 0 || command.y < 0 || command.x >= definition.width || command.y >= definition.height)) return false;
     if (type === 'select-tool' && !TOOLS.includes(command.tool) || type === 'drug' && !DRUGS.includes(command.drug)) return false;
@@ -337,7 +343,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
       return snapshot();
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; cottages=null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; cottages=null; shop=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }

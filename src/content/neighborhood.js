@@ -42,6 +42,7 @@ export const NEIGHBORHOOD_BASE = {
 
 export const NEIGHBORHOOD_SCENARIO = {
   ...NEIGHBORHOOD_BASE,
+  shopId: BELL_AND_ALDER.id,
   patches: [...NEIGHBORHOOD_BASE.patches, ...BELL_AND_ALDER.patches],
   modules: BELL_AND_ALDER.modules,
   obstacles: [...NEIGHBORHOOD_BASE.obstacles, ...BELL_AND_ALDER.obstacles]
