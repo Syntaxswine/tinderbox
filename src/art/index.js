@@ -44,17 +44,15 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
     world=createWorld(T,materials);bear=bearKit.create();field=createGroundField(T);fire=createFire(T,assets,field.uniforms);sidingPreheat=createSidingPreheat(T);
     exterior=createExteriorKit(T,materials,assets,renderer);
-    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T);
+    if(housingKit&&!cottageFire)streetNight=createStreetNight(T,scene,renderer,defaultLights);
+    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,{catalogue:!!streetNight});
     root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root,sidingPreheat.root,firelight.root);
     if(housingKit){housing=createNeighborhood(T,housingKit);root.add(housing.root,housing.fireRoot);}
     if(cottageFire){
       const {createCottagePairArt}=await import('./cottage-pair.js');
       if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
       cottages=createCottagePairArt(T,housingKit,initialWorld.buildings,cottageWind,renderer,{sharedFirelight:true});root.add(cottages.root);
-    }else if(housing){
-      streetNight=createStreetNight(T,scene,renderer,defaultLights);
-      if(streetNight)root.add(streetNight.root);
-    }
+    }else if(streetNight)root.add(streetNight.root);
     if(initialWorld?.obstacles?.some(o=>o.shopId===BELL_AND_ALDER.id)){
       const {createBellAndAlder}=await import('./bell-and-alder.js');
       if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');

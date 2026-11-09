@@ -6,8 +6,8 @@ export function createStreetNight(T, scene, renderer, defaultLights = []) {
 
   const root = new T.Group();
   root.name = 'Catalogue Street night';
-  const sky = new T.HemisphereLight(0x8ca9df, 0x4a5672, .99);
-  const moon = new T.DirectionalLight(0xb9cdff, 1);
+  const sky = new T.HemisphereLight(0x7296df, 0x29374f, .36);
+  const moon = new T.DirectionalLight(0xa8c4ff, .38);
   sky.name = 'Cool night sky fill';
   moon.name = 'Catalogue moonlight';
   moon.position.set(-20.5, 20, 13);
@@ -15,7 +15,7 @@ export function createStreetNight(T, scene, renderer, defaultLights = []) {
 
   const oldClear = renderer?.getClearColor?.(new T.Color());
   const oldAlpha = renderer?.getClearAlpha?.();
-  renderer?.setClearColor(0x101b30);
+  renderer?.setClearColor(0x0b1223);
   const shadow = renderer?.shadowMap;
   const oldShadow = shadow && {enabled: shadow.enabled, type: shadow.type};
   if (shadow) {
