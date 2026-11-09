@@ -31,7 +31,7 @@ export function createNeighborhood(T, library) {
   const raycaster = new T.Raycaster(), hit = new T.Vector3(), projected = new T.Vector3();
   let disposed = false, builds = 0, observed = [], occludingBuildingIds = [], projection = null, fire;
   const disposeModel=record=>{record.mask?.dispose();record.model.dispose();};
-  function update(world, {camera, player, muzzle, trail = [], viewport, worldTime=0, sampleWind} = {}) {
+  function update(world, {camera, player, muzzle, trail = [], viewport, worldTime=0, sampleWind, preheatSites} = {}) {
     if (disposed) return;
     const instances = world.buildings || [], active = new Set(),flames=[];
     const liveNeighbors=new Map(instances.filter(b=>!b.destroyed).map(b=>[b.id,b]));
@@ -108,6 +108,7 @@ export function createNeighborhood(T, library) {
     occludingBuildingIds = [...occluding];
     for (const [id, record] of models) {
       const faded = occluding.has(id);
+      if(preheatSites&&!faded&&record.flameSites)record.flameSites.appendPreheat(liveNeighbors.get(id),liveNeighbors,preheatSites);
       for (const [material, original] of record.colors) {
         material.opacity = original.opacity * (faded ? .18 : 1);
         material.transparent = faded || original.transparent; material.depthWrite = faded ? false : original.depthWrite;

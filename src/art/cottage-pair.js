@@ -90,7 +90,7 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
     }
     return best;
   }
-  function update(frame,{camera,player,housingShadows=false}={}){
+  function update(frame,{camera,player,housingShadows=false,preheatSites}={}){
     if(disposed)return;
     if(frame?.version!==1)throw Error('Missing authoritative cottage fire frame');
     const lightCells=[];
@@ -117,6 +117,13 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
       record.faded=faded;
       const layers={walls:[],roof:[],upper:[],lower:[],debris:[]};
       const world=cell=>({...cell,id:state.id+'/'+cell.id,x:state.x+cell.x,z:state.z+cell.z});
+      if(preheatSites&&!state.gone&&!faded&&Array.isArray(state.preheat)&&state.preheat.length){
+        const ignited=new Set(state.cells.filter(cell=>cell.layer==='walls').map(cell=>cell.id));
+        for(const sample of state.preheat){
+          if(!sample||![sample.x,sample.z].every(Number.isFinite)||ignited.has(sample.id))continue;
+          if(state.tiles[tileIndex(sample.x,sample.z)]?.upper)preheatSites.push(world(sample));
+        }
+      }
       for(const cell of state.cells)if(cell.flame>0||cell.smoke>0){
         const vent=cell.layer==='lower'?openings.get(cell.tile):null;
         const visible=vent?{...cell,...vent,part:'walls'}:cell;
