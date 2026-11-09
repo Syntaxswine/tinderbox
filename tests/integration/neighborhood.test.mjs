@@ -257,7 +257,7 @@ test('source-bounds occlusion fades houses behind the bear and in gaps, restores
   } finally { view.dispose(); simulation.dispose(); }
 });
 
-test('production composition instantiates eight native house instances without duplicate generic boxes (row-art semantics await artist; no WebGL)', async () => {
+test('production composition mounts the native houses and Bell & Alder without duplicate generic boxes (no WebGL)', async () => {
   const oldFetch = globalThis.fetch, oldLoad = T.TextureLoader.prototype.loadAsync, oldDocument = globalThis.document;
   const renderer = Object.create(T.WebGLRenderer.prototype), rendererState = {target: null, projections: 0, disposed: 0};
   Object.defineProperty(renderer, 'outputColorSpace', {value: T.SRGBColorSpace, writable: true});
@@ -282,6 +282,18 @@ test('production composition instantiates eight native house instances without d
     art.update(snapshot, {camera: rig.camera, viewport: {width: 390, height: 420}});
     const diagnostics = art.diagnostics();
     assert.equal(diagnostics.housing.active, 8); assert.equal(diagnostics.bearProtagonist.species, 'bear');
+    assert.ok(diagnostics.bellAndAlder);
+    const renderedShopProps = [];
+    scene.traverse(node => {
+      if (node.userData.colliderId?.startsWith('bell-and-alder:')) {
+        assert.ok(node.visible);
+        renderedShopProps.push(node.userData.colliderId);
+      }
+    });
+    assert.deepEqual(renderedShopProps.sort(),
+      snapshot.world.obstacles.filter(o => o.shopId === 'bell-and-alder').map(o => o.id).sort());
+    assert.ok(diagnostics.exterior.modules > 0);
+    assert.equal(diagnostics.exterior.modules, snapshot.world.modules.length);
     assert.equal(diagnostics.bearProtagonist.paint, 'native-normal-projection');
     assert.deepEqual(diagnostics.civilianActors.map(actor => actor.species).sort(), ['goat', 'horse']);
     assert.ok(diagnostics.housing.projection.bearHeightPixels > 45); assert.equal(rendererState.projections, 12);

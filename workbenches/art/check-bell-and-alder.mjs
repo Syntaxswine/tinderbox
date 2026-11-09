@@ -24,10 +24,7 @@ for (const file of [...provenance.files, ...provenance.sourceEvidence]) {
   assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), file.gitBlob);
 }
 
-const scenario = {...NEIGHBORHOOD_SCENARIO, player:{x:40,y:18.2}, actors:[],
-  patches:[...NEIGHBORHOOD_SCENARIO.patches, ...shopLayout.patches],
-  modules:shopLayout.modules,
-  obstacles:[...NEIGHBORHOOD_SCENARIO.obstacles, ...shopLayout.obstacles]};
+const scenario = {...NEIGHBORHOOD_SCENARIO, player:{x:40,y:18.2}, actors:[]};
 const config = {input:{cameraRelative:false}, fire:{damagePerSecond:0}};
 const sim = createSimulation({scenario, config, characterId:'bear'});
 const first = sim.snapshot(), boxOf = new Map(shopLayout.obstacles.map(o => [o.id, o]));

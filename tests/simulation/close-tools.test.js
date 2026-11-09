@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createSimulation, DEFAULT_CONFIG, movementVector} from '../../src/simulation/index.js';
 import {COTTAGE_PAIR_SCENARIO} from '../../src/content/cottage-pair.js';
-import {NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
+import {NEIGHBORHOOD_BASE, NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
 import {calmCottageWind} from '../../src/reuse/ashland/wind.js';
 
 const step = 1 / 60;
@@ -39,7 +39,7 @@ test('a match follows spawn facing and then the new world direction after moveme
 
 test('a blocked step can turn the player to strike or torch the same ordinary Catalogue Street siding', () => {
   for (const tool of ['matches', 'torch']) {
-    const scenario = {...NEIGHBORHOOD_SCENARIO, player: {x: 10.65, y: 34.63, tool}, patches: [], actors: []};
+    const scenario = {...NEIGHBORHOOD_BASE, player: {x: 10.65, y: 34.63, tool}, patches: [], actors: []};
     const sim = createSimulation({scenario, config: {input: {cameraRelative: false}}});
     try {
       sim.dispatch({type: 'move', x: -1, y: 0});

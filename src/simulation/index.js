@@ -22,7 +22,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
   if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
-  let state, field, buildingFuel, housing, cottages, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  let state, field, buildingFuel, obstacleFuel, housing, cottages, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
@@ -69,6 +69,11 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       state.tiles.push({...point, size: def.tileSize, material: materialAt(def, point)});
     }
     field = new HeatField(def, config, state.obstacles);
+    // Ungrouped timber has fixed footprints. Cache its live cell references
+    // here and rebuild them with the field on reset.
+    obstacleFuel = state.obstacles.filter(o => !o.buildingId && o.material === 'wood').map(obstacle => ({
+      obstacle, cells: field.cells.filter(cell => inBox(cell, obstacle))
+    }));
     cottages=playableCottages?createCottageFire({buildings:state.buildings,obstacles:state.obstacles,sampleWind:cottageWind,seed}):null;
     const lots=state.buildings.filter(building=>!cottages||!COTTAGE_IDS.includes(building.id)).map(building=>({
       building,colliders:state.obstacles.filter(obstacle=>obstacle.buildingId===building.id)
@@ -267,10 +272,11 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
         event('building-burnout', {x: group.building.x, y: group.building.y}, {buildingId: group.building.id});
       }
     }
-    // Legacy ungrouped wood keeps its reviewed individual-footprint behavior.
-    for (const o of state.obstacles) if (!o.buildingId && !o.destroyed && o.material === 'wood') {
-      const cells = field.cells.filter(c => inBox(c, o));
-      if (cells.length && cells.every(c => c.surfaceFuel + c.depositedFuel <= EPS)) { o.destroyed = true; event('obstacle-burnout', o, {objectId: o.id}); }
+    for (const {obstacle, cells} of obstacleFuel) {
+      if (!obstacle.destroyed && cells.length && cells.every(c => c.surfaceFuel + c.depositedFuel <= EPS)) {
+        obstacle.destroyed = true;
+        event('obstacle-burnout', obstacle, {objectId: obstacle.id});
+      }
     }
     for (const name of ['powder', 'inversion']) if (state.effects[name].expiresAt > 0 && !activeEffect(name)) {
       state.effects[name].expiresAt = 0; event('drug-expired', p, {drug: name});
@@ -331,7 +337,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
       return snapshot();
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; housing=null; cottages=null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; cottages=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }
