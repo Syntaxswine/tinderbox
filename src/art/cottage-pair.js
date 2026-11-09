@@ -11,7 +11,7 @@ import {createNightCottageLighting} from '../reuse/ashland/night-cottage-lightin
 
 // Presentation only: the ordinary Catalogue Street visit supplies the camera,
 // actual structural mask, sparks and debris. The replay is never instantiated.
-export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
+export function createCottagePairArt(T,library,buildings,sampleWind,renderer,{sharedFirelight=false}={}){
   if(typeof sampleWind!=='function')throw Error('Cottage presentation needs the same wind sampler as gameplay');
   const root=new T.Group(),records=new Map(),ray=new T.Raycaster(),p=new T.Vector3(),ndc=new T.Vector3(),hit=new T.Vector3(),sidingHit=new T.Vector3();
   root.name='Playable Ashland cottage pair';
@@ -29,6 +29,7 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
   }
   try{
     night=createNightCottageLighting(T);
+    if(sharedFirelight)for(const light of night.fireLights.flat())light.removeFromParent();
     night.moon.position.x+=COTTAGE_ORIGIN.x;night.moon.position.z+=COTTAGE_ORIGIN.z;
     night.moon.target.position.x+=COTTAGE_ORIGIN.x;night.moon.target.position.z+=COTTAGE_ORIGIN.z;
     if(shadow){shadow.enabled=true;shadow.type=T.PCFShadowMap;}
@@ -63,8 +64,10 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
         record.fx[layer]=createWallShroud(T,{maxCells,profile:'house'});root.add(record.fx[layer].root);
       }
     }
-    outdoorLight=createCottageFirelight(T,pair,night.fireLights);
-    root.add(outdoorLight.root);
+    if(!sharedFirelight){
+      outdoorLight=createCottageFirelight(T,pair,night.fireLights);
+      root.add(outdoorLight.root);
+    }
   }catch(error){dispose();throw error;}
   const char=new T.Color(0x372a23);
   function fades(record,player,camera,gone){
@@ -90,7 +93,7 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
     }
     return best;
   }
-  function update(frame,{camera,player,housingShadows=false,preheatSites}={}){
+  function update(frame,{camera,player,housingShadows=false,preheatSites,structureSites}={}){
     if(disposed)return;
     if(frame?.version!==1)throw Error('Missing authoritative cottage fire frame');
     const lightCells=[];
@@ -124,18 +127,25 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer){
           if(state.tiles[tileIndex(sample.x,sample.z)]?.upper)preheatSites.push(world(sample));
         }
       }
+      if(structureSites)for(const site of structureSites.get(state.id)||[]){
+        if(site.part==='walls'||site.part==='roof')layers[site.part].push(site);
+      }
+      // Floor openings and debris still carry cottage tile and vent data in the original frame.
       for(const cell of state.cells)if(cell.flame>0||cell.smoke>0){
+        if(structureSites&&(cell.layer==='walls'||cell.layer==='roof'))continue;
         const vent=cell.layer==='lower'?openings.get(cell.tile):null;
         const visible=vent?{...cell,...vent,part:'walls'}:cell;
         layers[cell.layer].push(world(visible));
       }
       for(const drop of state.drops)layers.debris.push(world({...drop,part:'ground',face:'falling fuel',
         y:drop.y+(drop.kind==='crate'?.19:.08),nx:0,ny:1,nz:0}));
-      lightCells.push([...layers.walls,...layers.roof,...layers.upper,...layers.lower.map(cell=>({...cell,part:'ground'})),...layers.debris]);
+      if(outdoorLight)lightCells.push([...layers.walls,...layers.roof,...layers.upper,...layers.lower.map(cell=>({...cell,part:'ground'})),...layers.debris]);
       if(camera)for(const [layer,fx] of Object.entries(record.fx))fx.update({time:frame.worldTime,cells:layers[layer],camera,sampleWind});
     }
-    night.update({sourceCells:lightCells[0],receiverCells:lightCells[1]});
-    outdoorLight.update(lightCells);
+    if(outdoorLight){
+      night.update({sourceCells:lightCells[0],receiverCells:lightCells[1]});
+      outdoorLight.update(lightCells);
+    }
     embers.update(frame.embers);
     if(shadowChanged)night.moon.shadow.needsUpdate=true;
   }

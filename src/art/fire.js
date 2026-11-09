@@ -67,14 +67,13 @@ export function createFire(T,assets,fieldUniforms){
   const discharge=createDischarge(T,assets.flame),carriedTorch=createCarriedTorch(T,assets.flame);root.add(discharge.root,carriedTorch.root);
   const history=new Map(),eventsSeen=new Set(),eventOrder=[],explosions=[];
   let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false;
-  const lights=Array.from({length:3},()=>{const light=new T.PointLight(0xffad52,0,4,2);root.add(light);return light;});
   function reset(){carriedTorch.reset();history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;}
   function update(snapshot,time,anchors={}){
     const clock=Number.isFinite(time)?time:snapshot.clocks?.world||0;
     if(clock<lastWorld-1e-8||snapshot.tick<lastTick)reset();
     lastWorld=clock;lastTick=snapshot.tick;worldClock.value=clock;bear.value.set(snapshot.player.x,1,snapshot.player.y);
     for(const l of layers)l.begin();capped=false;
-    const activeIds=new Set(),lightGroups=new Map();
+    const activeIds=new Set();
     for(const cell of snapshot.cells||[]){
       activeIds.add(cell.id);const old=history.get(cell.id);
       const entry=old&&old.phase===cell.phase?old:{phase:cell.phase,at:cell.phase==='spent'&&!old?clock-5:clock};
@@ -85,8 +84,6 @@ export function createFire(T,assets,fieldUniforms){
           const n=hash(seed*100+i+11);
           if(!flames.add(cell.x+(n-.5)*.14,.025,cell.y+(hash(seed*23+i)-.5)*.12,w*(.78+n*.28),h*(.65+hash(seed*9+i)*.70),.58+intensity*.24,hash(seed*59+i)))capped=true;
         }
-        const key=Math.floor(cell.x/2)+','+Math.floor(cell.y/2),g=lightGroups.get(key)||{x:0,y:0,weight:0};
-        g.x+=cell.x*intensity;g.y+=cell.y*intensity;g.weight+=intensity;lightGroups.set(key,g);
       }
       const tail=cell.phase==='spent'?Math.max(0,1-(clock-entry.at)/3.2):0;
       if((cell.phase==='burning'||tail>0)&&seed>.38){
@@ -116,11 +113,9 @@ export function createFire(T,assets,fieldUniforms){
       const phase=clamp(age/.90)*2.999,opacity=Math.max(0,1-age/1.5),growth=.35+Math.sqrt(age)*e.radius;
       for(let j=0;j<4;j++){const angle=j*2.399+e.seed*7;bursts.add(e.x+Math.cos(angle)*age*.40,.10+j*.07,e.y+Math.sin(angle)*age*.40,growth,growth*(.85+j*.06),opacity*.73,hash(e.seed*89+j),phase);}
     }
-    const groups=[...lightGroups.values()].sort((a,b)=>b.weight-a.weight);
-    lights.forEach((light,i)=>{const g=groups[i];light.intensity=g?Math.min(3.5,g.weight*.65):0;if(g)light.position.set(g.x/g.weight,.60,g.y/g.weight);});
     discharge.update(snapshot.discharge,clock,anchors);carriedTorch.update(snapshot,clock,anchors);
     primed=true;for(const l of layers)l.end();
   }
-  return {root,update,reset,dispose(){carriedTorch.dispose();discharge.dispose();root.removeFromParent();root.clear();pool.dispose();for(const l of lights)l.shadow?.dispose();},
+  return {root,update,reset,dispose(){carriedTorch.dispose();discharge.dispose();root.removeFromParent();root.clear();pool.dispose();},
     diagnostics:()=>({flameCards:flames.count,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
 }

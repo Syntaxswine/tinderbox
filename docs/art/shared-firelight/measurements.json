@@ -1,0 +1,827 @@
+{
+  "ordinary": {
+    "run": "run-1794246476130020000",
+    "fixedView": true,
+    "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "canvas": [
+      1280,
+      414
+    ],
+    "positions": {
+      "02-small-ground": [
+        {
+          "kind": "terrain",
+          "buildingId": null,
+          "position": [
+            12.75,
+            0.85,
+            37.25
+          ],
+          "intensity": 7.070296727073856,
+          "reach": 4.7
+        }
+      ],
+      "03-single-upper-wall": [
+        {
+          "kind": "walls",
+          "buildingId": "hopkins-thirteen",
+          "position": [
+            14.557970719416232,
+            3.46,
+            36.5
+          ],
+          "intensity": 14.371399930853539,
+          "reach": 8.3186565416879
+        }
+      ],
+      "04-full-structure": [
+        {
+          "kind": "walls",
+          "buildingId": "hopkins-thirteen",
+          "position": [
+            14.169738445607136,
+            1.8056847383265433,
+            37.01143842055782
+          ],
+          "intensity": 27.104821194744833,
+          "reach": 15.07267406853746
+        },
+        {
+          "kind": "roof",
+          "buildingId": "hopkins-thirteen",
+          "position": [
+            20.515441176470585,
+            4.245771286425001,
+            36.748774509803916
+          ],
+          "intensity": 33.538361406661814,
+          "reach": 15.539801975344831
+        },
+        {
+          "kind": "walls",
+          "buildingId": "hopkins-thirteen",
+          "position": [
+            13.657336585371542,
+            1.8250898692810456,
+            34.544730392156865
+          ],
+          "intensity": 38.57511447142264,
+          "reach": 15.925381339500586
+        },
+        {
+          "kind": "walls",
+          "buildingId": "hopkins-thirteen",
+          "position": [
+            17.529382169450592,
+            1.8620366270879454,
+            40.01623266339089
+          ],
+          "intensity": 37.970759705141916,
+          "reach": 15.958250778051859
+        },
+        {
+          "kind": "walls",
+          "buildingId": "hopkins-thirteen",
+          "position": [
+            13.709575601369583,
+            3.9834124438742777,
+            34.59364977549711
+          ],
+          "intensity": 36.32735851028163,
+          "reach": 15.825274557759311
+        },
+        {
+          "kind": "walls",
+          "buildingId": "hopkins-thirteen",
+          "position": [
+            17.45389473684211,
+            3.9446315789473685,
+            38.99536877814354
+          ],
+          "intensity": 35.049535585528695,
+          "reach": 15.858898943540673
+        }
+      ]
+    },
+    "groundTile": [
+      12.75,
+      37.25,
+      0.5
+    ],
+    "values": {
+      "near ground": {
+        "world": [
+          13.25,
+          0.002,
+          37.4
+        ],
+        "pixel": [
+          677,
+          196
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 67.6,
+            "rgb": [
+              55,
+              71,
+              71
+            ]
+          },
+          "02-small-ground": {
+            "luma": 142.4,
+            "rgb": [
+              176,
+              137,
+              89
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 84.56,
+            "rgb": [
+              87,
+              85,
+              73
+            ]
+          },
+          "04-full-structure": {
+            "luma": 174.43,
+            "rgb": [
+              224,
+              167,
+              98
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 67.6,
+            "rgb": [
+              55,
+              71,
+              71
+            ]
+          },
+          "06-spent": {
+            "luma": 67.6,
+            "rgb": [
+              55,
+              71,
+              71
+            ]
+          }
+        }
+      },
+      "ground by facing house": {
+        "world": [
+          11.15,
+          0.002,
+          35.45
+        ],
+        "pixel": [
+          667,
+          148
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 68.6,
+            "rgb": [
+              56,
+              72,
+              72
+            ]
+          },
+          "02-small-ground": {
+            "luma": 78.44,
+            "rgb": [
+              74,
+              80,
+              75
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 75.44,
+            "rgb": [
+              71,
+              77,
+              73
+            ]
+          },
+          "04-full-structure": {
+            "luma": 133.98,
+            "rgb": [
+              164,
+              130,
+              86
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 68.6,
+            "rgb": [
+              56,
+              72,
+              72
+            ]
+          },
+          "06-spent": {
+            "luma": 70.02,
+            "rgb": [
+              59,
+              73,
+              73
+            ]
+          }
+        }
+      },
+      "facing siding": {
+        "world": [
+          10.085,
+          1.93,
+          35.25
+        ],
+        "pixel": [
+          650,
+          97
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 44.54,
+            "rgb": [
+              34,
+              47,
+              64
+            ]
+          },
+          "02-small-ground": {
+            "luma": 56.94,
+            "rgb": [
+              56,
+              57,
+              68
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 64.14,
+            "rgb": [
+              75,
+              64,
+              66
+            ]
+          },
+          "04-full-structure": {
+            "luma": 144.85,
+            "rgb": [
+              167,
+              143,
+              103
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 44.54,
+            "rgb": [
+              34,
+              47,
+              64
+            ]
+          },
+          "06-spent": {
+            "luma": 44.54,
+            "rgb": [
+              34,
+              47,
+              64
+            ]
+          }
+        }
+      },
+      "source siding": {
+        "world": [
+          18.6,
+          3.04,
+          38.08
+        ],
+        "pixel": [
+          771,
+          206
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 37.86,
+            "rgb": [
+              37,
+              38,
+              37
+            ]
+          },
+          "02-small-ground": {
+            "luma": 37.86,
+            "rgb": [
+              37,
+              38,
+              37
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 41.85,
+            "rgb": [
+              46,
+              41,
+              38
+            ]
+          },
+          "04-full-structure": {
+            "luma": 121.13,
+            "rgb": [
+              182,
+              110,
+              55
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 37.86,
+            "rgb": [
+              37,
+              38,
+              37
+            ]
+          },
+          "06-spent": {
+            "luma": 37.86,
+            "rgb": [
+              37,
+              38,
+              37
+            ]
+          }
+        }
+      }
+    },
+    "fullFixture": {
+      "walls": 62,
+      "roof": 62
+    },
+    "worldTime": 7,
+    "preheat": {
+      "sites": 1,
+      "splats": 3,
+      "maxSites": 12,
+      "maxSplats": 36
+    },
+    "ordinaryFlames": {
+      "walls": 53,
+      "roof": 27,
+      "ground": 0
+    },
+    "cottageFlames": null,
+    "coldSharedEmitters": 0,
+    "warmOnlySharedEmitters": 0,
+    "spentSharedEmitters": 0
+  },
+  "ashland": {
+    "run": "run-1794246487451596400",
+    "fixedView": true,
+    "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "canvas": [
+      1280,
+      414
+    ],
+    "positions": {
+      "02-small-ground": [
+        {
+          "kind": "terrain",
+          "buildingId": null,
+          "position": [
+            53.25,
+            0.85,
+            14.75
+          ],
+          "intensity": 6.969326494349066,
+          "reach": 4.7
+        }
+      ],
+      "03-single-upper-wall": [
+        {
+          "kind": "walls",
+          "buildingId": "ashland-cottage",
+          "position": [
+            53.44202928058377,
+            2.98,
+            14.5
+          ],
+          "intensity": 14.836656826986644,
+          "reach": 8.3186565416879
+        }
+      ],
+      "04-full-structure": [
+        {
+          "kind": "walls",
+          "buildingId": "ashland-cottage",
+          "position": [
+            53.72726347031174,
+            2.898661052631579,
+            12.40778947368421
+          ],
+          "intensity": 28.497519994216834,
+          "reach": 14.582207001484488
+        },
+        {
+          "kind": "roof",
+          "buildingId": "ashland-cottage",
+          "position": [
+            51.16156774381158,
+            6.667475573268945,
+            12.440359477124185
+          ],
+          "intensity": 57.31315200893743,
+          "reach": 16
+        },
+        {
+          "kind": "walls",
+          "buildingId": "ashland-cottage",
+          "position": [
+            53.628417724002425,
+            2.98,
+            15.02140762463343
+          ],
+          "intensity": 21.742062571575037,
+          "reach": 14.111512971440119
+        },
+        {
+          "kind": "walls",
+          "buildingId": "ashland-cottage",
+          "position": [
+            53.737135602444425,
+            4.096209150326797,
+            12.559640522875815
+          ],
+          "intensity": 27.28876912900686,
+          "reach": 14.629217154497272
+        },
+        {
+          "kind": "walls",
+          "buildingId": "ashland-cottage",
+          "position": [
+            53.61654897260175,
+            3.9799999999999995,
+            14.910539215686272
+          ],
+          "intensity": 19.535202034261513,
+          "reach": 14.05499510762741
+        },
+        {
+          "kind": "roof",
+          "buildingId": "ashland-cottage",
+          "position": [
+            50.95404604586391,
+            6.601687345321426,
+            15.014910130718956
+          ],
+          "intensity": 47.68423603615825,
+          "reach": 15.925381339500586
+        }
+      ]
+    },
+    "groundTile": [
+      53.25,
+      14.75,
+      0.5
+    ],
+    "values": {
+      "near paving": {
+        "world": [
+          53.55,
+          0.002,
+          15.22
+        ],
+        "pixel": [
+          687,
+          195
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 63.74,
+            "rgb": [
+              54,
+              65,
+              77
+            ]
+          },
+          "02-small-ground": {
+            "luma": 172.55,
+            "rgb": [
+              234,
+              161,
+              107
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 109.5,
+            "rgb": [
+              137,
+              103,
+              86
+            ]
+          },
+          "04-full-structure": {
+            "luma": 193.4,
+            "rgb": [
+              255,
+              183,
+              116
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 63.74,
+            "rgb": [
+              55,
+              65,
+              77
+            ]
+          },
+          "06-spent": {
+            "luma": 63.74,
+            "rgb": [
+              55,
+              65,
+              77
+            ]
+          }
+        }
+      },
+      "paving by facing house": {
+        "world": [
+          54.5,
+          0.002,
+          19.45
+        ],
+        "pixel": [
+          616,
+          158
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 92.46,
+            "rgb": [
+              82,
+              94,
+              108
+            ]
+          },
+          "02-small-ground": {
+            "luma": 92.46,
+            "rgb": [
+              82,
+              94,
+              108
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 95.94,
+            "rgb": [
+              91,
+              96,
+              108
+            ]
+          },
+          "04-full-structure": {
+            "luma": 133.01,
+            "rgb": [
+              159,
+              127,
+              116
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 92.46,
+            "rgb": [
+              82,
+              94,
+              108
+            ]
+          },
+          "06-spent": {
+            "luma": 92.46,
+            "rgb": [
+              82,
+              94,
+              108
+            ]
+          }
+        }
+      },
+      "facing siding": {
+        "world": [
+          57.1,
+          3.0,
+          20.668
+        ],
+        "pixel": [
+          558,
+          122
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 47.75,
+            "rgb": [
+              42,
+              50,
+              64
+            ]
+          },
+          "02-small-ground": {
+            "luma": 47.75,
+            "rgb": [
+              42,
+              50,
+              64
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 51.74,
+            "rgb": [
+              48,
+              53,
+              65
+            ]
+          },
+          "04-full-structure": {
+            "luma": 95.19,
+            "rgb": [
+              119,
+              89,
+              74
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 47.75,
+            "rgb": [
+              42,
+              50,
+              64
+            ]
+          },
+          "06-spent": {
+            "luma": 47.75,
+            "rgb": [
+              42,
+              50,
+              64
+            ]
+          }
+        }
+      },
+      "source siding": {
+        "world": [
+          52.082,
+          1.5,
+          14.9
+        ],
+        "pixel": [
+          715,
+          162
+        ],
+        "frames": {
+          "01-cold": {
+            "luma": 42.37,
+            "rgb": [
+              39,
+              43,
+              46
+            ]
+          },
+          "02-small-ground": {
+            "luma": 117.64,
+            "rgb": [
+              168,
+              108,
+              65
+            ]
+          },
+          "03-single-upper-wall": {
+            "luma": 106.88,
+            "rgb": [
+              151,
+              98,
+              61
+            ]
+          },
+          "04-full-structure": {
+            "luma": 164.96,
+            "rgb": [
+              235,
+              152,
+              82
+            ]
+          },
+          "05-smoke-and-warm-only": {
+            "luma": 42.37,
+            "rgb": [
+              39,
+              43,
+              46
+            ]
+          },
+          "06-spent": {
+            "luma": 42.37,
+            "rgb": [
+              39,
+              43,
+              46
+            ]
+          }
+        }
+      }
+    },
+    "fullFixture": {
+      "walls": 32,
+      "roof": 28
+    },
+    "worldTime": 7,
+    "preheat": {
+      "sites": 0,
+      "splats": 0,
+      "maxSites": 12,
+      "maxSplats": 36
+    },
+    "ordinaryFlames": {
+      "walls": 0,
+      "roof": 0,
+      "ground": 0
+    },
+    "cottageFlames": [
+      {
+        "id": "ashland-cottage",
+        "fire": {
+          "walls": {
+            "activeCells": 32,
+            "flameSplats": 192,
+            "smokeSplats": 38,
+            "maxSplats": 416
+          },
+          "roof": {
+            "activeCells": 28,
+            "flameSplats": 168,
+            "smokeSplats": 41,
+            "maxSplats": 336
+          },
+          "upper": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 336
+          },
+          "lower": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 336
+          },
+          "debris": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 16
+          }
+        },
+        "faded": false
+      },
+      {
+        "id": "ashland-downwind",
+        "fire": {
+          "walls": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 416
+          },
+          "roof": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 336
+          },
+          "upper": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 336
+          },
+          "lower": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 336
+          },
+          "debris": {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 16
+          }
+        },
+        "faded": false
+      }
+    ],
+    "coldSharedEmitters": 0,
+    "warmOnlySharedEmitters": 0,
+    "spentSharedEmitters": 0
+  }
+}
