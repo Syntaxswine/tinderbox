@@ -29,15 +29,15 @@ export function createNeighborhood(T, library) {
   const fireRoot = new T.Group(); fireRoot.name = 'Catalogue façade flames';
   const models = new Map(), charColor = new T.Color('#261e16');
   const raycaster = new T.Raycaster(), hit = new T.Vector3(), projected = new T.Vector3();
-  let disposed = false, builds = 0, observed = [], occludingBuildingIds = [], projection = null, fire;
+  let disposed = false, builds = 0, observed = [], occludingBuildingIds = [], projection = null, fire, burningSurfaces = {walls:0,roof:0,ground:0};
   const disposeModel=record=>{record.mask?.dispose();record.model.dispose();};
-  function update(world, {camera, player, muzzle, trail = [], viewport, worldTime=0, sampleWind, preheatSites} = {}) {
+  function update(world, {camera, player, muzzle, trail = [], viewport, worldTime=0, sampleWind, preheatSites, structureSites} = {}) {
     if (disposed) return;
     const instances = world.buildings || [], active = new Set(),flames=[];
     const liveNeighbors=new Map(instances.filter(b=>!b.destroyed).map(b=>[b.id,b]));
     let shadowsDirty=false;
     observed = [];
-    if(!fire&&instances.some(b=>b.sections)){
+    if(!fire&&(instances.some(b=>b.sections)||structureSites?.size)){
       fire=createWallShroud(T,{maxCells:80,profile:'house'});fireRoot.add(fire.root);
     }
     for (const instance of instances) {
@@ -79,16 +79,24 @@ export function createNeighborhood(T, library) {
       if(record.mask){
         shadowsDirty=record.mask.update(instance.sections)||shadowsDirty;
         record.clearedSections=instance.sections.filter(section=>!section.present).map(section=>section.index);
-        const structural=instance.sections.some(section=>section.fire)?record.flameSites(instance,liveNeighbors):[];
-        record.structuralFlames=structural.length;flames.push(...structural);
       }
+      // The street uses live surfaces. Keep the section preview for standalone consumers of this factory.
+      const structural=structureSites ? (structureSites.get(instance.id) || [])
+        : (record.flameSites && instance.sections.some(section=>section.fire) ? record.flameSites(instance,liveNeighbors) : []);
+      record.structuralFlames=structural.length;flames.push(...structural);
       const amount = Math.min(1, Math.max(0, instance.burnedFraction || 0));
       for (const [material, original] of record.colors) material.color.copy(original.color).lerp(charColor, amount * .85);
     }
     for (const [id, record] of models) if (!active.has(id)) { disposeModel(record); models.delete(id);shadowsDirty=true; }
     if(fire&&camera){
-      if(flames.length>80&&player)flames.sort((a,b)=>Math.hypot(a.x-player.x,a.z-player.y)-Math.hypot(b.x-player.x,b.z-player.y));
-      fire.update({time:worldTime,cells:flames.slice(0,80),camera,sampleWind});
+      if(flames.length>80&&player){
+        const priority = site => Math.hypot(site.x-player.x,site.z-player.y) + (site.flame>0 ? -2*site.flame : 8);
+        flames.sort((a,b)=>priority(a)-priority(b));
+      }
+      const drawn=flames.slice(0,80);
+      burningSurfaces={walls:0,roof:0,ground:0};
+      for(const site of drawn)if(site.flame>0&&Object.hasOwn(burningSurfaces,site.part))burningSurfaces[site.part]++;
+      fire.update({time:worldTime,cells:drawn,camera,sampleWind});
     }
     const samples = [], occluding = new Set(); projection = null;
     if (camera && player) {
@@ -123,7 +131,7 @@ export function createNeighborhood(T, library) {
     return shadowsDirty;
   }
   return {root,fireRoot,update,
-    diagnostics: () => ({disposed, builds, active: models.size, instances: structuredClone(observed), occludingBuildingIds: [...occludingBuildingIds],
+    diagnostics: () => ({disposed, builds, active: models.size, instances: structuredClone(observed), occludingBuildingIds: [...occludingBuildingIds], burningSurfaces:{...burningSurfaces},
       occlusionMethod: 'Conservative bounds of actual source meshes; presentation-only fade', projection: structuredClone(projection),
       models: [...models.entries()].map(([id, record]) => ({...record.model.diagnostics(), instanceId: id, opacityScale: record.faded ? .18 : 1,
         sourceMeshCount: record.meshCount, sourceTriangleCount: record.triangleCount, sourceBounds: {min: record.bounds.min.toArray(), max: record.bounds.max.toArray()},
