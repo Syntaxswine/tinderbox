@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current assignment is [Bell & Alder](milestones/14-bell-and-alder.md), from published `e2dd5ff`. The artist and coder share one room layout for presentation, traversal and combustion. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the accepted flamethrower and lantern behavior. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the shop.
+The current assignment is [Bell & Alder](milestones/14-bell-and-alder.md), from published `e2dd5ff`. The [shop review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake, layout and acceptance on standard Catalogue Street. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the accepted flamethrower and lantern behavior. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the shop.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
