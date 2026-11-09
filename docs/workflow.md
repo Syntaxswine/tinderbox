@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The current focused correction is [Milestone 13](milestones/13-facing-fire-and-lantern.md), from published `192d3ba`. The architect checks both tool flows on the normal night route. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the tools.
+The current focused correction is [Milestone 13](milestones/13-facing-fire-and-lantern.md), from published `192d3ba`. The [architect's review](reviews/2026-11-09-facing-fire-and-lantern.md) records the exact candidates and acceptance on the normal night route. [Milestone 12](milestones/12-shared-fire.md) records the shared fire behavior and lighting used by the tools.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
