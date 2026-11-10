@@ -123,6 +123,40 @@ test('finite fire advances locally from prior state, conserves fuel and burns ou
   assert.ok(s.cells.some(c => c.phase === 'spent'));
 });
 
+const fuelInCell = (x, litresPerMetre) => ({
+  from: {x: x - .125, y: 4.25}, to: {x: x + .125, y: 4.25}, litresPerMetre
+});
+
+test('the fire front retreats to the rightmost cell still burning', () => {
+  const sim = model(plain({width: 12, height: 8,
+    fuelLines: [fuelInCell(2.25, .144), fuelInCell(8.25, .036)],
+    ignitions: [2.25, 8.25].map(x => ({x, y: 4.25, heat: 3, radius: .01}))
+  }));
+  try {
+    const lit = sim.advance(1 / 60);
+    assert.equal(lit.diagnostics.frontX, 8.25);
+    sim.advance(.25);
+    const retreat = sim.advance(.25);
+    assert.deepEqual(retreat.cells.filter(cell => cell.phase === 'burning').map(cell => cell.x), [2.25]);
+    assert.equal(retreat.diagnostics.frontX, 2.25);
+    assert.equal(run(sim, 2).diagnostics.frontX, 0);
+  } finally { sim.dispose(); }
+});
+
+test('remaining deposited fuel uses the exact published row-major reduction', () => {
+  // Add right to left so insertion order is numerically distinct from publication order.
+  const sim = model(plain({width: 12, height: 8,
+    fuelLines: [fuelInCell(8.25, 1.2), fuelInCell(5.25, .8), fuelInCell(2.25, .4)]
+  }));
+  try {
+    const snapshot = sim.snapshot(), deposits = snapshot.cells.map(cell => cell.depositedFuel).filter(Boolean);
+    assert.deepEqual(deposits, [.1, .2, .3]);
+    const total = fuelTotal(snapshot);
+    assert.notEqual(total, deposits.toReversed().reduce((sum, value) => sum + value, 0));
+    assert.equal(snapshot.diagnostics.fuel.remainingDepositedFuel, total);
+  } finally { sim.dispose(); }
+});
+
 test('solid wall prevents spread and protects explosions; barrel chains are exactly once', () => {
   const wall = {id: 'wall', x: 6, y: 4, width: 0.5, depth: 8, height: 2, material: 'masonry', kind: 'wall'};
   const barrier = model({id: 'barrier', width: 12, height: 8, player: {x: 1, y: 1}, obstacles: [wall], actors: [],
