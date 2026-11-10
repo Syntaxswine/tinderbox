@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-bell-and-alder-officer` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Officer trial intake, visual review and promotion |
+| Architect | `codex/review-cottage-fire-interactions` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Storefront crash and fire interactions review and promotion |
 | Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
-| Coder | `codex/bell-and-alder-officer-coder` from `f82ec40` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Witness evidence, officer states, draw and shot verification |
+| Coder | `codex/cottage-fire-interactions-coder` from `a39c3a4` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Storefront collision, NPC ignition, and blast and grass heat transfer |
 | UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Shared floating action and shortcut bindings |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -92,6 +92,8 @@ TB-023 is the architect's source/geometry/visual acceptance and later integratio
 The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. The user accepted the delayed Nautilus bear and requires selectable animals; the existing native goat, horse and AFT bear apply to every destination. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
+
+The [Catalogue Street review](reviews/2026-11-09-catalogue-fire-interactions.md) records the storefront crash reproduction and acceptance for actor, barrel and grass fire.
 
 The [Bell & Alder officer review](reviews/2026-11-09-bell-and-alder-officer.md) records acceptance for the opt-in witness trial. The [Chicago patrol review](reviews/2026-11-09-chicago-police-sidearm.md) records the uniform, sidearm provenance and normal Catalogue Street patrol. The [shop interaction review](reviews/2026-11-09-shop-interactions.md) records working doors and portable light. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
 
