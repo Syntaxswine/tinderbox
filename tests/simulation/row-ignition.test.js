@@ -43,7 +43,10 @@ test('the eight-instance demo keeps detached join/barrier metadata and original 
   try{const snapshot=demo.snapshot(),units=snapshot.world.buildings.filter(b=>b.prefabId==='monroe-row');
     assert.deepEqual([snapshot.world.width,snapshot.world.height],[51,47]);assert.equal(snapshot.world.buildings.length,8);
     assert.deepEqual(units.map(b=>[b.x,b.y,b.quarterTurns]),[[27,31,0],[34,31,0],[41,31,0]]);
-    units[1].partyWalls.left='changed';snapshot.world.obstacles.find(o=>o.heatBarriers?.length).heatBarriers[0].width=999;
+    units[1].partyWalls.left='changed';
+    const barrier=snapshot.world.obstacles.find(o=>o.heatBarriers?.length).heatBarriers[0];
+    assert.throws(()=>{barrier.width=999;},TypeError);
+    const editable=structuredClone(barrier);editable.width=999;
     assert.equal(demo.snapshot().world.buildings[6].partyWalls.left,'monroe-row-house');
     assert.notEqual(demo.snapshot().world.obstacles.find(o=>o.heatBarriers?.length).heatBarriers[0].width,999);
   }finally{demo.dispose();}
