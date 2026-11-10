@@ -10,7 +10,7 @@ function closeTarget(player, aim, range, world) {
   if (aim) return localPoint(player, aim, range);
   return worldRayTarget(player, {x: Math.cos(player.heading), y: Math.sin(player.heading)}, range, world);
 }
-function heatAhead(state, field, target, spec, cottages, housing) {
+function heatAhead(state, field, target, spec, cottages, housing, onHeat) {
   const {player, obstacles} = state, tool = player.tool;
   const siding = cottages?.igniteSiding(player, state.closeAim ?? target, spec.range, spec.heat, tool);
   if (siding) return siding;
@@ -20,7 +20,7 @@ function heatAhead(state, field, target, spec, cottages, housing) {
     const pointAt = t => ({x: player.x + dx * t, y: player.y + dy * t});
     const lot = housing.get(contact.box.buildingId);
     if (lot) {
-      const strike = lot.strike(contact.box, player, target, spec.heat, tool);
+      const strike = lot.strike(contact.box, player, target, spec.heat, tool, {onHeat});
       const t = strike?.t ?? contact.t;
       if (!strike?.site) return {point: pointAt(t), cells: [], result: strike?.result ?? 'blocked'};
       // The thermal site can lie just inside the coarse collision rim.
@@ -34,19 +34,19 @@ function heatAhead(state, field, target, spec, cottages, housing) {
     // The first face is already reachable. Sample its fuel just inside the edge.
     const inside = {x: point.x + dx * .00001, y: point.y + dy * .00001};
     const cell = field.at(inside);
-    if (cell) return {point, tile: field.tileAt(inside), ...field.seed(inside, [cell], spec.heat, tool)};
+    if (cell) return {point, tile: field.tileAt(inside), ...field.seed(inside, [cell], spec.heat, tool, onHeat)};
     return {point, cells: [], result: 'no-fuel'};
   }
   if (tool === 'matches') {
     const tile = field.tileAt(target);
-    return {point: target, tile, ...field.seed(player, field.tileCells(tile), spec.heat, tool)};
+    return {point: target, tile, ...field.seed(player, field.tileCells(tile), spec.heat, tool, onHeat)};
   }
   const point = impactPoint(player, target, obstacles);
-  const result = field.seed(player, field.candidates(point, spec.radius), spec.heat, tool);
+  const result = field.seed(player, field.candidates(point, spec.radius), spec.heat, tool, onHeat);
   if (result.result === 'no-fuel' && distance(point, target) > 1e-8) result.result = 'blocked';
   return {point, ...result};
 }
-export function discreteTool(state, field, config, event, cottages, housing) {
+export function discreteTool(state, field, config, event, cottages, housing, witness) {
   const p = state.player, stock = p.inventory, tool = p.tool;
   if (tool === 'jerry-can') {
     if (stock.gas <= 1e-10) return event('tool-rejected', p, {tool, reason: 'empty'});
@@ -64,7 +64,7 @@ export function discreteTool(state, field, config, event, cottages, housing) {
         event('tool-use', p, {tool, result: 'lit'}); return;
       }
     }
-    const result = heatAhead(state, field, target, spec, cottages, housing);
+    const result = heatAhead(state, field, target, spec, cottages, housing, witness?.observeAction(tool));
     const point = result.point ?? target;
     recordIgnition(state, event, tool, point, result, tool === 'matches' ? {tile: result.tile ?? field.tileAt(point)} : {});
     if (tool === 'torch' && result.cells.length) {
@@ -72,7 +72,7 @@ export function discreteTool(state, field, config, event, cottages, housing) {
     }
     return;
   }
-  if (tool === 'molotov') useLantern(state, event);
+  if (tool === 'molotov') useLantern(state, event, witness?.observeRelease);
 }
 function recordIgnition(state, event, tool, point, result, extra = {}) {
   const accepted = result.cells.length > 0;
@@ -90,7 +90,7 @@ export function ageTorch(state, config, worldDelta, event) {
     event('torch-spent', p, {tool: 'torch'});
   }
 }
-function heatHousingDischarge(discharge, amount, obstacles, housing) {
+function heatHousingDischarge(discharge, amount, obstacles, housing, onHeat) {
   const boxes = new Map(obstacles.map(box => [box.id, box]));
   const touched = new Set(), from = discharge.origin;
   for (const ray of discharge.rays) {
@@ -100,11 +100,11 @@ function heatHousingDischarge(discharge, amount, obstacles, housing) {
     const reach = Math.min(discharge.range, ray.distance + .02);
     const to = {x: from.x + Math.cos(ray.angle) * reach, y: from.y + Math.sin(ray.angle) * reach};
     if (firstHeatContact(from, to, obstacles, ray.h)?.box === box) {
-      lot.strike(box, from, to, amount * .42, 'flamethrower', touched);
+      lot.strike(box, from, to, amount * .42, 'flamethrower', {touched,onHeat});
     }
   }
 }
-export function heldTool(state, field, config, delta, event, world, cottages, housing) {
+export function heldTool(state, field, config, delta, event, world, cottages, housing, witness) {
   const p = state.player, tool = p.tool;
   if (!state.input.primary || tool !== 'flamethrower') return;
   const spec = config.tools[tool], key = 'flamethrowerFuel';
@@ -114,29 +114,31 @@ export function heldTool(state, field, config, delta, event, world, cottages, ho
   const heat = spec.heatPerSecond * (spec.fuelPerSecond > 0 ? used / spec.fuelPerSecond : delta);
   p.usingTool = true;
   state.discharge = resolveDischarge(state, config, world);
-  field.cone(p, state.discharge.heading, spec.range, spec.halfAngle, heat, tool);
+  const onHeat = witness?.observeAction(tool);
+  field.cone(p, state.discharge.heading, spec.range, spec.halfAngle, heat, tool, onHeat);
   cottages?.heatDischarge(state.discharge,heat);
-  if(housing?.size)heatHousingDischarge(state.discharge,heat,state.obstacles,housing);
+  if(housing?.size)heatHousingDischarge(state.discharge,heat,state.obstacles,housing,onHeat);
   if (p.inventory[key] <= 1e-10) {
     p.inventory[key] = 0; state.input.primary = false; p.usingTool = false;
     state.discharge = inactiveDischarge(state.tick); event('tool-empty', p, {tool});
   }
 }
-export function projectilesStep(state, field, config, delta, event, cottages, housing) {
+export function projectilesStep(state, field, config, delta, event, cottages, housing, witness) {
   const spec = config.tools.molotov, alive = [];
   for (const projectile of state.projectiles) {
     const {next, position, progress, hit, finished} = advanceLantern(projectile, spec.speed * delta, state.obstacles);
-    let surfaceHit;
-    if (hit) {
-      surfaceHit = cottages?.heatSurface(projectile, next, spec.heat * .70, 'molotov', projectile.h, next.h);
-      const contact = housing && firstHeatContact(projectile, next, state.obstacles, projectile.h, next.h);
-      if (contact && !surfaceHit) {
-        surfaceHit = housing.get(contact.box.buildingId)?.strike(contact.box, projectile, next, spec.heat * .70, 'molotov')?.site;
-      }
-    }
     if (finished) {
+      const onHeat = witness?.observeImpact(projectile, position);
+      let surfaceHit;
+      if (hit) {
+        surfaceHit = cottages?.heatSurface(projectile, next, spec.heat * .70, 'molotov', projectile.h, next.h);
+        const contact = housing && firstHeatContact(projectile, next, state.obstacles, projectile.h, next.h);
+        if (contact && !surfaceHit) {
+          surfaceHit = housing.get(contact.box.buildingId)?.strike(contact.box, projectile, next, spec.heat * .70, 'molotov', {onHeat})?.site;
+        }
+      }
       field.addPool(position, spec.radius, spec.fuel);
-      if (!surfaceHit) field.emit(position, spec.radius, spec.heat, 'molotov');
+      if (!surfaceHit) field.emit(position, spec.radius, spec.heat, 'molotov', {onHeat});
       event('molotov-impact', position, {projectileId: projectile.id, h: position.h});
     } else {
       Object.assign(projectile, position, {progress});

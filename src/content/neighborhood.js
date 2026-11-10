@@ -52,11 +52,11 @@ export const NEIGHBORHOOD_SCENARIO = {
   }]
 };
 
-const clerk = {x: 40.8, y: 19.8};
-const witnessId = 'neighbor-goat';
+const observationPost = {x: 40.8, y: 19.8};
 export const SHOP_WITNESS_SCENARIO = {
   ...NEIGHBORHOOD_SCENARIO,
   player: {...NEIGHBORHOOD_SCENARIO.player, x: 40, y: 18.4},
-  shopWitness: witnessId,
-  actors: NEIGHBORHOOD_SCENARIO.actors.map(actor => actor.id === witnessId ? {...actor, ...clerk, route: [clerk]} : actor)
+  shopWitness: CHICAGO_PATROL.id,
+  actors: NEIGHBORHOOD_SCENARIO.actors.map(actor => actor.id === CHICAGO_PATROL.id ?
+    {...actor, ...observationPost, route: [observationPost]} : actor)
 };

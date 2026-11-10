@@ -1,6 +1,7 @@
 import * as SharedThree from '../runtime/three.js';
 import {CHICAGO_PATROL, CIVILIAN_PROFILES, validateChicagoPatrol, validateCivilian} from '../content/exterior-kit.js';
 import {createChicago1893BeatUniform} from '../art/chicago-beat-uniform.js';
+import {createPatrolPistolPose} from './patrol-pistol.js';
 import {createWeaponModel} from '../../vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/weapon-models.js';
 import {createLightHorse} from '../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-light-model.js';
 import {createGoatWorker} from '../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-worker.js';
@@ -39,7 +40,7 @@ export function createCivilianRig(species, data) {
 }
 export function createChicagoPatrolRig(data) {
   const rig = createStreetRig(CHICAGO_PATROL.species, data, validateChicagoPatrol);
-  let uniform, pistol, disposed = false;
+  let uniform, pistol, posePistol, pistolPose, disposed = false;
   function dispose() {
     if (disposed) return;
     disposed = true;
@@ -56,13 +57,18 @@ export function createChicagoPatrolRig(data) {
     pistol.root.rotation.set(0, 1.10, -Math.PI / 2, 'YXZ');
     pistol.root.rotateY(-.34);
     rig.worker.skeleton.getBoneByName('hips').add(pistol.root);
+    posePistol = createPatrolPistolPose(rig.worker, pistol);
   } catch (error) {
     dispose();
     throw error;
   }
-  return {...rig, dispose, diagnostics: () => ({...rig.diagnostics(), armed: true, uniform: uniform.diagnostics(),
-    sidearm: {id: pistol.id, label: pistol.label, carry: 'belt', parts: pistol.parts.length,
-      visible: !disposed && rig.root.visible && pistol.root.visible}})};
+  return {...rig, dispose, update(actor, worldTime, aim) {
+    rig.update(actor, worldTime);
+    pistolPose = posePistol(actor, aim);
+  }, diagnostics: () => ({...rig.diagnostics(), armed: true, uniform: uniform.diagnostics(),
+    sidearm: {id: pistol.id, label: pistol.label, carry: pistolPose?.progress === 1 ? 'aim' : pistolPose ? 'draw' : 'belt',
+      parts: pistol.parts.length, visible: !disposed && rig.root.visible && pistol.root.visible},
+    ...(pistolPose ? {pistolPose} : {})})};
 }
 export async function loadCivilianKit({THREE, renderer, assetBaseUrl = CIVILIAN_ASSET_BASE_URL} = {}) {
   if (!THREE || THREE.SkinnedMesh !== SharedThree.SkinnedMesh || !(renderer instanceof SharedThree.WebGLRenderer)) throw Error('Civilian kit requires the shared THREE namespace and its borrowed WebGLRenderer; no substitute animals');

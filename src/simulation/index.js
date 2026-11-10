@@ -12,6 +12,7 @@ import {createCottageFire,prepareCottageFootprints} from './cottage-fire.js';
 import {createHousingFire,prepareHousingFootprints} from './housing-fire.js';
 import {createShopInteractions} from './shop.js';
 import {createShopWitness} from './shop-witness.js';
+import {CHICAGO_PATROL} from '../content/exterior-kit.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
@@ -26,10 +27,10 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
   let state, field, buildingFuel, obstacleFuel, housing, cottages, shop, witness, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
-  function event(type, point = state.player, extra = {}, fuelSite = point) {
+  function event(type, point = state.player, extra = {}, fuelSite = point, ignitionProof) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
     state.events.push(record); if (state.events.length > config.events.capacity) state.events.shift();
-    if (witness && (type === 'ignition' || type === 'structure-ignition')) witness.confirmIgnition(record, fuelSite);
+    if (witness && ignitionProof) witness.confirmIgnition(record, fuelSite, ignitionProof);
     return record;
   }
   function clearInput(reason) {
@@ -65,8 +66,9 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       moveNeedsNeutral: false, lanternPreview: null, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
     state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
     shop = createShopInteractions(def, state, event);
-    const clerk = shop && def.id === 'neighborhood' && state.actors.find(actor => actor.id === def.shopWitness && actor.species);
-    witness = clerk ? createShopWitness(clerk, state.player, state.obstacles) : null;
+    const officer = shop && def.id === 'neighborhood' && def.shopWitness === CHICAGO_PATROL.id &&
+      state.actors.find(actor => actor.id === CHICAGO_PATROL.id);
+    witness = officer ? createShopWitness(officer, state.player, state.obstacles, {event, hurt}) : null;
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
     state.tiles = [];
@@ -168,11 +170,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (state.primaryNeedsRelease) return;
       const rising = command.pressed && !state.input.primary;
       state.input.primary = command.pressed;
-      if (rising) {
-        const before = state.ignitionResults.length;
-        discreteTool(state, field, config, event,cottages,housing);
-        if (witness && state.ignitionResults.length > before) witness.recordStrike(state.ignitionResults[before]);
-      }
+      if (rising) discreteTool(state, field, config, event,cottages,housing,witness);
       return;
     }
     if (command.type === 'drug') {
@@ -228,7 +226,6 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function step() {
     state.tick++;
-    witness?.beginStep();
     state.player.moving = state.player.usingTool = false; state.discharge = inactiveDischarge(state.tick); state.ignitionResults = [];
     const due = commands.filter(c => c.atTick <= state.tick).sort((a, b) => a.atTick - b.atTick || a.sequence - b.sequence);
     commands = commands.filter(c => c.atTick > state.tick);
@@ -262,10 +259,10 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
           pickup.consumed=true;event('pickup-used',pickup,{pickupId:pickup.id,kind:pickup.kind,actorId:p.id});
         }
       }
-      heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition,cottages,housing);
+      heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition,cottages,housing,witness);
     }
     for (const actor of state.actors) actorStep(actor, worldDelta);
-    projectilesStep(state, field, config, worldDelta, event,cottages,housing);
+    projectilesStep(state, field, config, worldDelta, event,cottages,housing,witness);
     ageTorch(state, config, worldDelta, event);
     cottages?.exchangeGround(field,worldDelta,state.clocks.world);
     for(const lot of housing?.values()??[])lot.exchangeGround(field,worldDelta,state.clocks.world);

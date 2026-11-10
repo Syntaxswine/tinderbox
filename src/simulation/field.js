@@ -69,9 +69,14 @@ export class HeatField {
     for (const cell of targets) { cell.depositedFuel += amount / targets.length; if (cell.phase === 'spent') cell.phase = 'cold'; }
     this.stats.molotovFuel += amount; return amount;
   }
-  emit(point, radius, heat, cause, {wallsProtect = true} = {}) {
+  heatCell(cell, amount, cause, onHeat) {
+    const before = cell.heat;
+    cell.heat = Math.min(this.config.fire.maxHeat, before + amount); cell.cause = cause;
+    onHeat?.(cell, before);
+  }
+  emit(point, radius, heat, cause, {wallsProtect = true, onHeat} = {}) {
     for (const cell of this.candidates(point, radius)) if (!wallsProtect || lineClear(point, cell, this.obstacles)) {
-      cell.heat = Math.min(this.config.fire.maxHeat, cell.heat + heat); cell.cause = cause;
+      this.heatCell(cell, heat, cause, onHeat);
     }
   }
   tileAt(point) {
@@ -84,22 +89,22 @@ export class HeatField {
     return this.cells.filter(cell => cell.x - this.size / 2 >= tile.x - EPS && cell.y - this.size / 2 >= tile.y - EPS &&
       cell.x + this.size / 2 <= tile.x + tile.width + EPS && cell.y + this.size / 2 <= tile.y + tile.depth + EPS);
   }
-  seed(origin, targets, heat, cause) {
+  seed(origin, targets, heat, cause, onHeat) {
     const visible = targets.filter(cell => {
       if (!lineClear(origin, cell, this.obstacles)) return false;
       const hit = impactPoint(origin, cell, this.obstacles);
       return Math.abs(hit.x - cell.x) <= cell.size / 2 + .003 && Math.abs(hit.y - cell.y) <= cell.size / 2 + .003;
     });
     const cells = visible.filter(cell => cell.surfaceFuel + cell.depositedFuel > EPS);
-    for (const cell of cells) { cell.heat = Math.min(this.config.fire.maxHeat, cell.heat + heat); cell.cause = cause; }
+    for (const cell of cells) this.heatCell(cell, heat, cause, onHeat);
     return {result: cells.length ? 'heated' : visible.length ? 'no-fuel' : 'blocked', cells};
   }
-  cone(origin, heading, range, halfAngle, heat, cause) {
+  cone(origin, heading, range, halfAngle, heat, cause, onHeat) {
     const ux = Math.cos(heading), uy = Math.sin(heading), cosine = Math.cos(halfAngle);
     for (const cell of this.candidates(origin, range)) {
       const dx = cell.x - origin.x, dy = cell.y - origin.y, d = Math.hypot(dx, dy);
       if (d < 0.15 || d > range || (dx * ux + dy * uy) / d < cosine || !lineClear(origin, cell, this.obstacles)) continue;
-      cell.heat = Math.min(this.config.fire.maxHeat, cell.heat + heat); cell.cause = cause;
+      this.heatCell(cell, heat, cause, onHeat);
     }
   }
   heatOutput(material) {
@@ -127,7 +132,8 @@ export class HeatField {
     const areaScale = (this.size / 0.5) ** 2;
     for (let i = 0; i < this.cells.length; i++) {
       const cell = this.cells[i], burning = cell.phase === 'burning';
-      cell.heat = storedHeat(cell.heat, this.delta[i], fire.cooling, delta, fire.maxHeat);
+      const preTransfer = cell.heat, incoming = this.delta[i];
+      cell.heat = storedHeat(preTransfer, incoming, fire.cooling, delta, fire.maxHeat);
       if (burning) {
         const gas = Math.min(cell.depositedFuel, fuel.gasBurnRate * areaScale * delta);
         const surface = Math.min(cell.surfaceFuel, fuel.surfaceBurnRate * areaScale * delta);
@@ -143,7 +149,9 @@ export class HeatField {
         const threshold = cell.depositedFuel > EPS ? fire.ignition.gas : fire.ignition[cell.material] ?? Infinity;
         if (ignites(cell.heat, threshold, total - EPS)) {
           cell.phase = 'burning'; cell.ignitedAt = worldTime; cell.intensity = fire.minIntensity;
-          event('ignition', cell, {cellId: cell.id, cause: cell.cause, heat: cell.heat});
+          const required = threshold + fire.cooling * delta;
+          event('ignition', cell, {cellId: cell.id, cause: cell.cause, heat: cell.heat}, cell,
+            {required, incoming, independent: preTransfer >= required});
         } else if (cell.phase !== 'spent') {
           cell.phase = cell.heat > 0.03 ? 'heating' : 'cold';
           if (cell.heat <= EPS) cell.cause = null;

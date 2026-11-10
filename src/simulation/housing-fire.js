@@ -78,7 +78,8 @@ export function createHousingFire(group,obstacles,config,wind){
     stepSurfaceFire(sites,dt,time,present,site=>{
       event('structure-ignition',{x:site.world.x,y:site.world.z},{buildingId:building.id,siteId:site.publicId,
         part:site.layer==='floor'?'ground':site.layer,height:site.y,worldTime:time,cause:site.ignitionKind,
-        parentSiteId:site.ignitionKind==='surface-spread'?`${building.id}/${site.parentId}`:site.parentId,heat:site.heat},site);
+        parentSiteId:site.ignitionKind==='surface-spread'?`${building.id}/${site.parentId}`:site.parentId,heat:site.heat},site,
+        {required:site.fuel.threshold+site.fuel.cooling*dt,incoming:0,independent:site.parentId===null});
     });
     let remainingArea=0,changed=false;
     for(const {sites:owned,view} of sections){
@@ -118,12 +119,14 @@ export function createHousingFire(group,obstacles,config,wind){
     }
   }
 
-  function strike(box,from,to,amount,kind,touched){
+  function strike(box,from,to,amount,kind,{touched,onHeat}={}){
     if(building.destroyed)return null;
     function strikeAt(contact){
       const site=contact?.site;
       if(!site||!present(site)||touched?.has(site))return null;
+      const before=site.heat;
       if(!heatSurfaceSite(site,amount,{kind}))return {t:contact.t,result:'no-fuel'};
+      onHeat?.(site,before);
       touched?.add(site);
       return contact;
     }

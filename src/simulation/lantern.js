@@ -39,7 +39,7 @@ function launch(origin, target) {
     targetX: target.x, targetY: target.y, progress: 0, h: LAUNCH_HEIGHT};
 }
 
-export function useLantern(state, event) {
+export function useLantern(state, event, onRelease) {
   const player = state.player, tool = player.tool, aim = player.lanternAim;
   if (player.inventory.molotovs < 1) return event('tool-rejected', player, {tool, reason: 'empty'});
   if (!aim) {
@@ -54,6 +54,7 @@ export function useLantern(state, event) {
   cancelLanternAim(state);
   player.inventory.molotovs--;
   state.projectiles.push(projectile);
+  onRelease?.(projectile);
   event('tool-use', player, {tool, projectileId: projectile.id});
 }
 

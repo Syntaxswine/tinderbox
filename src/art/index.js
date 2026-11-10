@@ -99,7 +99,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:.56;
       ring.position.set(player.x,.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);
       arrow.position.set(player.x,0,player.y);arrow.rotation.y=-(player.heading||0);arrow.scale.set(footprintRadius,1,footprintRadius);
-      const active=new Set();
+      const active=new Set(),witness=snapshot.witness;
       for(const actor of snapshot.actors||[]){
         if(actor.id===player.id)continue;active.add(actor.id);
         const patrol=actor.team===CHICAGO_PATROL.team,tagged=Object.hasOwn(actor,'species');
@@ -111,12 +111,11 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
           const model=patrol?civilianKit.createPatrol(actor):tagged?civilianKit.create(actor):createActor(T,materials);
           record={key,model};actors.set(actor.id,record);root.add(model.root);
         }
-        record.model.update(actor,worldTime);
+        record.model.update(actor,worldTime,actor.id===witness?.actorId?witness.aim:undefined);
       }
       for(const [id,record]of actors)if(!active.has(id)){record.model.dispose();actors.delete(id);}
-      const witness=snapshot.witness;
-      if(witness?.reaction&&!witnessReaction){witnessReaction=createWitnessReaction(T);root.add(witnessReaction.root);}
-      witnessReaction?.update(snapshot.actors?.find(actor=>actor.id===witness?.actorId),witness?.reaction);
+      if(witness&&(witness.reaction.kind!=='relaxed'||witness.shot)&&!witnessReaction){witnessReaction=createWitnessReaction(T);root.add(witnessReaction.root);}
+      witnessReaction?.update(snapshot.actors?.find(actor=>actor.id===witness?.actorId),witness?.reaction,witness?.shot,worldTime);
       lastSnapshot={tick:snapshot.tick,worldTime,playerTime};updates++;
     }
     function dispose(){
@@ -128,6 +127,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     return {update,dispose,pickAimSurface:cottages?.pickAimSurface,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
       diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
         patrolActors:[...actors.entries()].filter(([,r])=>r.key==='patrol').map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
+        witness:witnessReaction?.diagnostics()??null,
         exterior:exterior.diagnostics(),housing:housing?.diagnostics()||null,bellAndAlder:shop?.diagnostics()||null,medicine:medicine?.diagnostics?.()||null,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics(),firelight:firelight.diagnostics(),preheat:sidingPreheat.stats(),...(cottages?{cottages:cottages.diagnostics()}:{})})};
   }catch(error){
     for(const record of actors.values())record.model.dispose();medicine?.dispose();shop?.dispose();civilianKit?.dispose();exterior?.dispose();cottages?.dispose();housing?.dispose();housingKit?.dispose();sidingPreheat?.dispose();fire?.dispose();firelight?.dispose();streetNight?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();bearKit?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;

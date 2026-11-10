@@ -6,6 +6,7 @@ import {CHICAGO_1893_BEAT} from '../../src/art/chicago-beat-uniform.js';
 import {CHICAGO_PATROL} from '../../src/content/exterior-kit.js';
 import {COTTAGE_PAIR_SCENARIO} from '../../src/content/cottage-pair.js';
 import {NEIGHBORHOOD_BASE, NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
+import {patrolMuzzle} from '../../src/content/patrol-pistol.js';
 import {calmCottageWind} from '../../src/reuse/ashland/wind.js';
 import {CIVILIAN_ASSET_BASE_URL, createChicagoPatrolRig, createCivilianRig} from '../../src/reuse/civilians.js';
 import {scenarioDefinition} from '../../src/simulation/fixtures.js';
@@ -126,4 +127,35 @@ test('the native pistol follows the hips and clears the posed coat and hands', (
     assert.ok(clothingGap > .003, `Clothing clearance ${clothingGap} m`);
     assert.ok(beltGap >= 0 && beltGap < .005, `Belt clearance ${beltGap} m`);
   } finally { rig.dispose(); civilian.dispose(); }
+});
+
+test('the trial draws the one native pistol into the right palm and aligns its muzzle to the ballistic ray', () => {
+  const data = JSON.parse(readFileSync(new URL(officer.model, CIVILIAN_ASSET_BASE_URL)));
+  const rig = createChicagoPatrolRig(data);
+  try {
+    const pistol = rig.root.getObjectByName('TT-33 belt sidearm');
+    const beltPosition = pistol.position.clone(), beltRotation = pistol.quaternion.clone();
+    const pose = {...officer, x:40.8, y:19.8, hp:100, travelled:0, moving:false};
+    for (const heading of [0, -Math.PI / 2, Math.PI - .2]) for (const range of [.85, 2.4, 6]) {
+      const actor = {...pose, heading}, aim = {x: actor.x + range * Math.cos(heading), y: actor.y + range * Math.sin(heading), h:1.26};
+      for (const progress of [.14, .28, .56, 1]) {
+        rig.update(actor, progress, {...aim, progress});
+        const {pistolPose, sidearm} = rig.diagnostics();
+        assert.ok(pistolPose.muzzle.every(Number.isFinite));
+        assert.equal(sidearm.carry, progress === 1 ? 'aim' : 'draw');
+        if (progress >= .28) assert.ok(pistolPose.gripError < 1e-6, `Palm gap ${pistolPose.gripError} m`);
+        if (progress === 1) {
+          const {x,y,h} = patrolMuzzle(actor), muzzle = new T.Vector3(...pistolPose.muzzle);
+          assert.ok(muzzle.distanceTo(new T.Vector3(x,h,y)) < 1e-6);
+          const bore = new T.Vector3(1,0,0).applyQuaternion(pistol.getWorldQuaternion(new T.Quaternion()));
+          assert.ok(bore.angleTo(new T.Vector3(aim.x,aim.h,aim.y).sub(muzzle)) < 1e-6);
+        }
+      }
+    }
+    rig.update({...pose, heading:0}, 5);
+    assert.deepEqual(pistol.position, beltPosition);
+    assert.deepEqual(pistol.quaternion.toArray(), beltRotation.toArray());
+    assert.equal(rig.root.getObjectByName(pistol.name), pistol);
+    assert.equal(rig.diagnostics().sidearm.carry, 'belt');
+  } finally { rig.dispose(); }
 });
