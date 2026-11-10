@@ -99,7 +99,10 @@ function heatHousingDischarge(discharge, amount, obstacles, housing, onHeat) {
     // Allow the collision rim and ray skin without applying heat beyond reach.
     const reach = Math.min(discharge.range, ray.distance + .02);
     const to = {x: from.x + Math.cos(ray.angle) * reach, y: from.y + Math.sin(ray.angle) * reach};
-    if (firstHeatContact(from, to, obstacles, ray.h)?.box === box) {
+    // The clipped facing ray still chooses the first visible blocker.
+    // A porch contact can reach down to its deck or lower stair fuel.
+    const height = box.role === 'porch' ? box.height : box.role === 'stairs' ? box.height / 2 : ray.h;
+    if (firstHeatContact(from, to, obstacles, ray.h, Math.min(ray.h,height))?.box === box) {
       lot.strike(box, from, to, amount * .42, 'flamethrower', {touched,onHeat});
     }
   }

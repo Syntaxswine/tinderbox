@@ -8,10 +8,22 @@ export function materialAt(def, p) {
   for (const o of def.obstacles) if (inObstacle(p, o)) material = o.material;
   return material;
 }
+function publishCell({id,x,y,size,material,surfaceFuel,depositedFuel,heat,phase,intensity}) {
+  return Object.freeze({id,x,y,size,material,surfaceFuel,depositedFuel,heat,phase,intensity});
+}
+
 export class HeatField {
+  #dirty = new Set();
+  #published;
+  #deposited = new Set();
+  #burningColumns;
+  #frontColumn = -1;
+  publishedStats = {remainingDepositedFuel: 0, burningCells: 0, frontX: 0};
+
   constructor(def, config, obstacles) {
     this.def = def; this.config = config; this.obstacles = obstacles;
     this.size = def.fireCellSize; this.cols = Math.round(def.width / this.size); this.rows = Math.round(def.height / this.size);
+    this.#burningColumns = new Uint32Array(this.cols);
     this.stats = {pouredFuel: 0, fixtureFuel: 0, molotovFuel: 0, burnedDepositedFuel: 0, burnedSurfaceFuel: 0};
     this.cells = Array.from({length: this.cols * this.rows}, (_, i) => {
       const x = (i % this.cols + 0.5) * this.size, y = (Math.floor(i / this.cols) + 0.5) * this.size;
@@ -56,9 +68,11 @@ export class HeatField {
     for (const span of rasterSegments(a, b, this.size)) {
       const amount = Math.min(stock - used, span.length * rate);
       if (amount <= EPS) break;
-      const cell = this.cells[span.row * this.cols + span.col];
+      const index = span.row * this.cols + span.col;
+      const cell = this.cells[index];
       if (!cell) throw Error('Accepted fuel path left the world');
       cell.depositedFuel += amount; used += amount;
+      this.#dirty.add(index);
       if (cell.phase === 'spent') cell.phase = cell.heat > 0.03 ? 'heating' : 'cold';
     }
     this.stats[ledger] += used; return used;
@@ -66,12 +80,21 @@ export class HeatField {
   addPool(point, radius, amount) {
     const targets = this.candidates(point, radius).filter(cell => cell.material !== 'masonry' && lineClear(point, cell, this.obstacles));
     if (!targets.length) return 0;
-    for (const cell of targets) { cell.depositedFuel += amount / targets.length; if (cell.phase === 'spent') cell.phase = 'cold'; }
+    for (const cell of targets) {
+      cell.depositedFuel += amount / targets.length;
+      if (cell.phase === 'spent') cell.phase = 'cold';
+      this.#markCell(cell);
+    }
     this.stats.molotovFuel += amount; return amount;
+  }
+  #markCell(cell) {
+    const index = Math.floor(cell.y / this.size) * this.cols + Math.floor(cell.x / this.size);
+    if (this.cells[index] === cell) this.#dirty.add(index);
   }
   heatCell(cell, amount, cause, onHeat) {
     const before = cell.heat;
     cell.heat = Math.min(this.config.fire.maxHeat, before + amount); cell.cause = cause;
+    if (!Object.is(cell.heat, before)) this.#markCell(cell);
     onHeat?.(cell, before);
   }
   emit(point, radius, heat, cause, {wallsProtect = true, onHeat} = {}) {
@@ -130,10 +153,11 @@ export class HeatField {
     }
     const areaScale = (this.size / 0.5) ** 2;
     for (let i = 0; i < this.cells.length; i++) {
-      const cell = this.cells[i], burning = cell.phase === 'burning';
+      const cell = this.cells[i], phase = cell.phase, burning = phase === 'burning';
       const preTransfer = cell.heat, incoming = this.delta[i], rubbleHeat = rubble?.heat[i] ?? 0;
       cell.heat = storedHeat(preTransfer, incoming + rubbleHeat, fire.cooling, delta, fire.maxHeat);
       if (burning) {
+        this.#dirty.add(i);
         const gas = Math.min(cell.depositedFuel, fuel.gasBurnRate * areaScale * delta);
         const surface = Math.min(cell.surfaceFuel, fuel.surfaceBurnRate * areaScale * delta);
         cell.depositedFuel = Math.max(0, cell.depositedFuel - gas); cell.surfaceFuel = Math.max(0, cell.surfaceFuel - surface);
@@ -158,6 +182,7 @@ export class HeatField {
           cell.phase = cell.heat > 0.03 ? 'heating' : 'cold';
           if (cell.heat <= EPS) cell.cause = null;
         }
+        if (!Object.is(cell.heat, preTransfer) || cell.phase !== phase) this.#dirty.add(i);
       }
     }
   }
@@ -175,5 +200,44 @@ export class HeatField {
     const cell = this.at(point); if (!cell) return 0;
     return Math.max(cell.phase === 'burning' ? cell.intensity : 0, clamp((cell.heat - this.config.fire.damageHeatStart) / this.config.fire.damageHeatSpan, 0, 1));
   }
-  snapshot() { return this.cells.map(({ignitedAt, cause, ...cell}) => ({...cell})); }
+  snapshot() {
+    const previous = this.#published;
+    if (previous && !this.#dirty.size) return previous;
+    let next = previous ? null : this.cells.map(publishCell);
+    let depositedChanged = false;
+    for (const index of this.#dirty) {
+      const cell = this.cells[index], old = previous?.[index];
+      if (old) {
+        if (old.phase === cell.phase && Object.is(old.heat, cell.heat) &&
+          Object.is(old.surfaceFuel, cell.surfaceFuel) && Object.is(old.depositedFuel, cell.depositedFuel) &&
+          Object.is(old.intensity, cell.intensity)) continue;
+        next ??= previous.slice();
+        next[index] = publishCell(cell);
+      }
+      if (!Object.is(old?.depositedFuel ?? 0, cell.depositedFuel)) {
+        depositedChanged = true;
+        if (cell.depositedFuel !== 0) this.#deposited.add(index);
+        else this.#deposited.delete(index);
+      }
+      const burning = cell.phase === 'burning';
+      if ((old?.phase === 'burning') !== burning) {
+        const column = index % this.cols, change = burning ? 1 : -1;
+        this.#burningColumns[column] += change;
+        this.publishedStats.burningCells += change;
+        if (burning) this.#frontColumn = Math.max(this.#frontColumn, column);
+      }
+    }
+    this.#dirty.clear();
+    if (depositedChanged) {
+      // The old reduction visited every cell in row-major order. Skipping
+      // zeros preserves that floating-point order without scanning the grid.
+      let remaining = 0;
+      for (const index of [...this.#deposited].sort((a,b) => a-b)) remaining += this.cells[index].depositedFuel;
+      this.publishedStats.remainingDepositedFuel = remaining;
+    }
+    while (this.#frontColumn >= 0 && !this.#burningColumns[this.#frontColumn]) this.#frontColumn--;
+    this.publishedStats.frontX = this.#frontColumn < 0 ? 0 : (this.#frontColumn + .5) * this.size;
+    if (next) this.#published = Object.freeze(next);
+    return this.#published;
+  }
 }

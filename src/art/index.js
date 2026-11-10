@@ -7,6 +7,7 @@ import {createWorld,createActor} from './world.js';
 import {createExteriorKit} from './exterior-kit.js';
 import {loadCivilianKit} from '../reuse/civilians.js';
 import {createGroundField} from './ground-field.js';
+import {createCellReader,createTrailReader,isImmutableRecordArray} from './cell-publication.js';
 import {createBurnedHouseRubble} from './burned-house-rubble.js';
 import {createFire} from './fire.js';
 import {groupStructureFire} from './structure-fire.js';
@@ -37,6 +38,16 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,rubble,sidingPreheat,firelight,streetNight,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
   const cottageIds=new Set(cottageFire?.buildings.map(b=>b.id)??[]);
   const actors=new Map(),muzzlePoint=new T.Vector3();
+  const readCells=createCellReader(),nearbyTrail=createTrailReader(readCells);
+  let lastObstacles,plainObstacles;
+  function groundObstacles(obstacles){
+    const immutable=isImmutableRecordArray(obstacles);
+    if(immutable&&obstacles===lastObstacles)return plainObstacles;
+    plainObstacles=(obstacles||[]).filter(o=>!o.moduleId&&!o.buildingId&&o.shopId!==BELL_AND_ALDER.id);
+    lastObstacles=immutable?obstacles:undefined;
+    if(immutable)Object.freeze(plainObstacles);
+    return plainObstacles;
+  }
   let witnessReaction;
   try{
     if(renderer)civilianKit=await loadCivilianKit({THREE:T,renderer,assetBaseUrl:base.href});
@@ -46,9 +57,9 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     const materials=createMaterials(T,pool,assets);
     bearKit=await loadCharacterKit({characterId,THREE:T,renderer,assetBaseUrl:bearAssetBaseUrl,materials,signal});
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-    world=createWorld(T,materials);bear=bearKit.create();field=createGroundField(T);fire=createFire(T,assets,field.uniforms);sidingPreheat=createSidingPreheat(T);
+    world=createWorld(T,materials);bear=bearKit.create();field=createGroundField(T,readCells);fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
     exterior=createExteriorKit(T,materials,assets,renderer);
-    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T);
+    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,readCells);
     root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root,sidingPreheat.root,firelight.root);
     if(housingKit){
       housing=createNeighborhood(T,housingKit);rubble=createBurnedHouseRubble(T);
@@ -90,13 +101,13 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       const worldTime=Number.isFinite(timing.worldTime)?timing.worldTime:snapshot.clocks?.world||0;
       medicine?.update(snapshot.pickups||[],{worldTime,paused:snapshot.paused});
       if(map.buildings?.length&&!housing)throw new Error('Catalogue housing was not loaded for this scene');
-      world.update({...map,obstacles:(map.obstacles||[]).filter(o=>!o.moduleId&&!o.buildingId&&o.shopId!==BELL_AND_ALDER.id)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
+      world.update({...map,obstacles:groundObstacles(map.obstacles)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
       shop?.update(map,{player,camera:timing.camera});
       const standardHousing=cottages?{...map,buildings:map.buildings.filter(b=>!cottageIds.has(b.id))}:map;
       const preheatSites=[],structureSites=groupStructureFire(snapshot.structureFire);
       const rubbleSites=rubble?.update(snapshot,worldTime);
       firelight.update(snapshot,structureSites,worldTime,rubbleSites);
-      const housingShadows=housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,worldTime,sampleWind:cottageWind,preheatSites,structureSites,trail:snapshot.cells.filter(cell=>cell.depositedFuel>0&&Math.hypot(cell.x-player.x,cell.y-player.y)<2.5).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))});
+      const housingShadows=housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,worldTime,sampleWind:cottageWind,preheatSites,structureSites,trail:nearbyTrail(snapshot.cells,player)});
       cottages?.update(snapshot.cottageFire,{camera:timing.camera,player,housingShadows,preheatSites,
         structureSites:Array.isArray(snapshot.structureFire)?structureSites:undefined});
       sidingPreheat.update({sites:preheatSites,time:worldTime,camera:timing.camera,player,sampleWind:cottageWind});

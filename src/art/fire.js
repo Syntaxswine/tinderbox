@@ -2,8 +2,9 @@
 import {Resources,clamp,seedOf,hash} from './resources.js';
 import {createCarriedTorch} from './carried-torch.js';
 import {createDischarge} from './discharge.js';
+import {createCellReader} from './cell-publication.js';
 const MAX_CELLS=4096;
-export function createFire(T,assets,fieldUniforms){
+export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
   const pool=new Resources(),root=new T.Group();root.name='Painted authoritative fire';
   const worldClock={value:0},bear={value:new T.Vector3()},layers=[];
   function layer(map,kind,capacity){
@@ -60,16 +61,58 @@ export function createFire(T,assets,fieldUniforms){
         if(this.count>=capacity)return false;const i=this.count++;
         offsets.set([x,y,z],i*3);shapes.set([w,h,opacity,seed],i*4);info.set([phase,extra],i*2);return true;
       },
-      end(){geometry.instanceCount=this.count;for(const name of ['iOffset','iShape','iInfo'])geometry.getAttribute(name).needsUpdate=true;}
+      end(){geometry.instanceCount=this.count;if(this.count)for(const name of ['iOffset','iShape','iInfo'])geometry.getAttribute(name).needsUpdate=true;}
     };layers.push(value);return value;
   }
   const flames=layer(assets.flame,0,MAX_CELLS*2),smoke=layer(assets.smoke,1,MAX_CELLS),bursts=layer(assets.burst,2,64);
   const discharge=createDischarge(T,assets.flame),carriedTorch=createCarriedTorch(T,assets.flame);root.add(discharge.root,carriedTorch.root);
   const history=new Map(),eventsSeen=new Set(),eventOrder=[],explosions=[];
   let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false,actorFlames=0,rubbleFlames=0,rubbleSmoke=0;
-  function reset(){carriedTorch.reset();history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;}
+  let publishedCells;
+  const cardCells=[];
+  function reset(){
+    carriedTorch.reset();history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;
+    publishedCells=undefined;cardCells.length=0;
+  }
+  function trackCell(cell,clock){
+    const old=history.get(cell.id);
+    if(old&&old.phase===cell.phase)return old;
+    const entry={phase:cell.phase,at:cell.phase==='spent'&&!old?clock-5:clock};
+    history.set(cell.id,entry);
+    return entry;
+  }
+  function syncPublication(view,clock){
+    const {cells,previous,changes,sameOrder}=view;
+    if(publishedCells&&previous===publishedCells&&sameOrder){
+      for(const i of changes)if(cells[i].phase!==publishedCells[i].phase)trackCell(cells[i],clock);
+    }else{
+      const ids=new Set(cells.map(cell=>cell.id));
+      if(ids.size!==cells.length)return false;
+      for(const cell of cells)trackCell(cell,clock);
+      for(const id of history.keys())if(!ids.has(id))history.delete(id);
+    }
+    publishedCells=cells;
+    return true;
+  }
+  function drawCell(cell,entry,clock,world){
+    const seed=seedOf(cell.id),intensity=clamp(cell.intensity);
+    if(cell.phase==='burning'&&intensity>0){
+      const h=.30+intensity*(cell.depositedFuel>0?1.2:.94),w=(cell.size||world.fireCellSize||.5)*1.8;
+      for(let i=0;i<2;i++){
+        const n=hash(seed*100+i+11);
+        if(!flames.add(cell.x+(n-.5)*.14,.025,cell.y+(hash(seed*23+i)-.5)*.12,w*(.78+n*.28),h*(.65+hash(seed*9+i)*.70),.58+intensity*.24,hash(seed*59+i)))capped=true;
+      }
+    }
+    const tail=cell.phase==='spent'?Math.max(0,1-(clock-entry.at)/3.2):0;
+    if((cell.phase==='burning'||tail>0)&&seed>.38){
+      const strength=cell.phase==='burning'?intensity:tail*.45;
+      const drift=((clock*.13+seed)%1);
+      smoke.add(cell.x+(seed-.5)*.2,.20+drift*.55,cell.y,.55+seed*.35,1.05+strength*.9+drift*.55,.30*strength*(1-drift*.45),seed);
+    }
+  }
   function update(snapshot,time,anchors={}){
     const clock=Number.isFinite(time)?time:snapshot.clocks?.world||0;
+    const earlier=clock<lastWorld;
     if(clock<lastWorld-1e-8||snapshot.tick<lastTick)reset();
     lastWorld=clock;lastTick=snapshot.tick;worldClock.value=clock;bear.value.set(snapshot.player.x,1,snapshot.player.y);
     for(const l of layers)l.begin();capped=false;actorFlames=0;rubbleFlames=0;rubbleSmoke=0;
@@ -86,26 +129,31 @@ export function createFire(T,assets,fieldUniforms){
         else capped=true;
       }
     }
-    const activeIds=new Set();
-    for(const cell of snapshot.cells||[]){
-      activeIds.add(cell.id);const old=history.get(cell.id);
-      const entry=old&&old.phase===cell.phase?old:{phase:cell.phase,at:cell.phase==='spent'&&!old?clock-5:clock};
-      history.set(cell.id,entry);const seed=seedOf(cell.id),intensity=clamp(cell.intensity);
-      if(cell.phase==='burning'&&intensity>0){
-        const h=.30+intensity*(cell.depositedFuel>0?1.2:.94),w=(cell.size||snapshot.world.fireCellSize||.5)*1.8;
-        for(let i=0;i<2;i++){
-          const n=hash(seed*100+i+11);
-          if(!flames.add(cell.x+(n-.5)*.14,.025,cell.y+(hash(seed*23+i)-.5)*.12,w*(.78+n*.28),h*(.65+hash(seed*9+i)*.70),.58+intensity*.24,hash(seed*59+i)))capped=true;
-        }
+    const cells=snapshot.cells||[];
+    const view=readCells(cells),changed=cells!==publishedCells;
+    if(view&&(!changed||syncPublication(view,clock))){
+      if(changed||earlier){
+        cardCells.length=0;
+        for(const cell of view.fire)cardCells.push(cell);
       }
-      const tail=cell.phase==='spent'?Math.max(0,1-(clock-entry.at)/3.2):0;
-      if((cell.phase==='burning'||tail>0)&&seed>.38){
-        const strength=cell.phase==='burning'?intensity:tail*.45;
-        const drift=((clock*.13+seed)%1);
-        smoke.add(cell.x+(seed-.5)*.2,.20+drift*.55,cell.y,.55+seed*.35,1.05+strength*.9+drift*.55,.30*strength*(1-drift*.45),seed);
+      let kept=0;
+      for(const cell of cardCells){
+        const entry=history.get(cell.id);
+        if(cell.phase==='spent'&&clock-entry.at>=3.2)continue;
+        cardCells[kept++]=cell;
+        drawCell(cell,entry,clock,snapshot.world);
       }
+      cardCells.length=kept;
+    }else{
+      // Legacy callers can edit records in place or provide irregular lists.
+      publishedCells=undefined;cardCells.length=0;
+      const activeIds=new Set();
+      for(const cell of cells){
+        activeIds.add(cell.id);
+        drawCell(cell,trackCell(cell,clock),clock,snapshot.world);
+      }
+      for(const id of history.keys())if(!activeIds.has(id))history.delete(id);
     }
-    for(const id of history.keys())if(!activeIds.has(id))history.delete(id);
     for(const site of anchors.rubble||[]){
       const seed=seedOf(site.id),flame=site.flame;
       if(flame>.015){
