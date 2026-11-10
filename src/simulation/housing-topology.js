@@ -95,10 +95,11 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
     link(nearest(floors[level]), nearest(floors[level + 1]), {gain: 1.4});
   }
 
-  const roofVertices = new Map();
-  for (const {id, vertices, level, x, y, z, nx, ny, nz, area} of roofPanels(plan, building.partyWalls)) {
+  const roofVertices = new Map(), roofSeams = {left: [], right: []};
+  for (const {id, vertices, seamEdges, level, x, y, z, nx, ny, nz, area} of roofPanels(plan, building.partyWalls)) {
     const site = add({id: `roof:${id}`, layer: 'roof', level, x, y, z, nx, ny, nz, area, exposed: true}, 'roof');
     roofSites.push({site, vertices});
+    for (const {side, a, b} of seamEdges) roofSeams[side].push({site, a, b});
     for (const key of new Set(vertices.map(vertexKey))) {
       const neighbors = roofVertices.get(key) ?? [];
       for (const other of neighbors) link(other, site, {gain: 1.55});
@@ -144,5 +145,5 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
     link(deck, post);
     link(post, roof, {eave: true});
   }
-  return {sites, panels, porch};
+  return {sites, panels, porch, roofSeams};
 }

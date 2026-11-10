@@ -11,6 +11,7 @@ import {pickupContacts} from './pickups.js';
 import {COTTAGE_IDS} from '../content/cottage-pair.js';
 import {createCottageFire,prepareCottageFootprints} from './cottage-fire.js';
 import {createHousingFire,prepareHousingFootprints} from './housing-fire.js';
+import {createJoinedRoofHeat} from './joined-roof-fire.js';
 import {createShopInteractions} from './shop.js';
 import {createShopWitness} from './shop-witness.js';
 import {CHICAGO_PATROL} from '../content/exterior-kit.js';
@@ -26,7 +27,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
   if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
-  let state, field, buildingFuel, obstacleFuel, housing, cottages, shop, witness, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  let state, field, buildingFuel, obstacleFuel, housing, joinedRoof, cottages, shop, witness, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}, fuelSite = point, ignitionProof) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
@@ -89,6 +90,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       building,colliders:state.obstacles.filter(obstacle=>obstacle.buildingId===building.id)
     }));
     housing=catalogue?new Map(lots.map(lot=>[lot.building.id,createHousingFire(lot,state.obstacles,config,cottageWind)])):null;
+    joinedRoof = housing ? createJoinedRoofHeat(housing) : null;
     buildingFuel = catalogue ? [] : lots.map(({building,colliders}) => {
       const cells = field.cells.filter(cell => colliders.some(obstacle => inBox(cell, obstacle)));
       const initialSurfaceFuel = cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
@@ -298,6 +300,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for(const lot of housing?.values()??[])lot.exchangeGround(field,worldDelta,state.clocks.world);
     field.step(worldDelta, state.clocks.world, event); barrels();
     cottages?.step(worldDelta,state.clocks.world,event);
+    joinedRoof?.exchange(worldDelta,state.clocks.world);
     for(const lot of housing?.values()??[])lot.step(worldDelta,state.clocks.world,event);
     for (const result of state.ignitionResults) result.record.result = result.cells.some(cell => cell.phase === 'burning') ? 'ignited' : 'heated';
     state.ignitionResults = [];
@@ -382,7 +385,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       while (accumulator + EPS >= config.step && lastSteps < limit) { accumulator = Math.max(0, accumulator - config.step); step(); lastSteps++; }
       return snapshot();
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; cottages=null; shop=null; witness=null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; shop=null; witness=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }

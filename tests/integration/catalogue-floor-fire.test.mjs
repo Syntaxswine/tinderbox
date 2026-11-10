@@ -140,9 +140,10 @@ for(const fixture of [
     assert.ok(parents.some(e=>e.siteId.startsWith(fixture.id+'/eave:1:')));
     assert.equal(parents.at(-1).siteId,match.cellIds[0]);
     assert.ok(firstClear>path.at(-1)&&finalClear>firstClear);
-    assert.deepEqual(s.structureFire,[]);
+    const neighbors = new Set(Object.values(initial.partyWalls).filter(Boolean));
+    assert.ok(s.structureFire.every(site => neighbors.has(site.buildingId)));
     assert.ok(s.world.buildings.find(b=>b.id===initial.id).destroyed);
-    assert.ok(s.world.buildings.filter(b=>b.id!==initial.id).every(b=>!b.destroyed&&b.burnedFraction===0));
+    assert.ok(s.world.buildings.filter(b=>b.id!==initial.id&&!neighbors.has(b.id)).every(b=>!b.destroyed&&b.burnedFraction===0));
     const ms=time=>+time?.toFixed(3);
     t.diagnostic(JSON.stringify({path:path.map(ms),firstRoof:ms(first('roof:')?.worldTime),firstClear:ms(firstClear),finalClear:ms(finalClear),parents:parents.map(e=>e.siteId)}));
   }finally{art.dispose();sim.dispose();}
@@ -167,11 +168,17 @@ test('quarter-turned Monroe neighbors keep separate starts, supports and clearan
     const [a,b,c]=s.world.buildings;
     assert.ok(first(b)>first(a)+3&&first(b)<Infinity);
     assert.equal(first(c),Infinity);
-    for(let i=0;i<155&&!s.world.buildings[0].destroyed;i++)s=sim.advance(.25);
+    let third;
+    for(let i=0;i<155&&!s.world.buildings[0].destroyed;i++){
+      s=sim.advance(.25);
+      third??=s.events.find(e=>e.type==='structure-ignition'&&e.buildingId==='unit-2');
+    }
     assert.equal(s.world.buildings[0].destroyed,true);
     assert.equal(s.world.buildings[1].destroyed,false);
     assert.ok(s.world.obstacles.some(o=>o.buildingId==='unit-1'&&o.heatBarriers?.length));
-    assert.ok(s.world.buildings[2].sections.every(section=>section.present&&section.firstIgnition===null));
-    assert.ok(s.structureFire.every(site=>site.buildingId==='unit-1'));
+    assert.ok(third?.parentSiteId.startsWith('unit-1/roof:main:'));
+    assert.equal(third.cause,'joined-roof');
+    assert.equal(s.world.buildings[2].destroyed,false);
+    assert.ok(s.structureFire.every(site=>site.buildingId==='unit-1'||site.buildingId==='unit-2'));
   }finally{sim.dispose();}
 });

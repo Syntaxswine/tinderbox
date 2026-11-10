@@ -25,7 +25,7 @@ export function createHousingFire(group,obstacles,config,wind){
   const grid=housingSectionGrid(building.prefabId);
   const localBoxes=localHousingFootprints(building.prefabId,building.partyWalls);
   const plan=HOUSING_PLANS[building.prefabId],odd=building.quarterTurns%2;
-  const {sites,panels,porch}=createHousingTopology(building,plan,localBoxes,config,wind);
+  const {sites,panels,porch,roofSeams}=createHousingTopology(building,plan,localBoxes,config,wind);
   const sections=Array.from({length:grid.cols*grid.rows},(_,index)=>({
     sites:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,fire:null,preheat:null}
   }));
@@ -174,5 +174,5 @@ export function createHousingFire(group,obstacles,config,wind){
       return surfaceSample(building,site,time,exposed);
     });
   }
-  return {step,strike,heatBlast,exchangeGround,samples};
+  return {step,strike,heatBlast,exchangeGround,samples,roof:{building,seams:roofSeams,present}};
 }

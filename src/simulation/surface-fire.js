@@ -25,6 +25,12 @@ export function surfaceFlame(site, time) {
     (1 - .70 * unit((age - surfaceDuration(site) + 1.5) / 1.5));
 }
 
+export function surfaceOutput(site, time) {
+  const age = time - site.ignitedAt;
+  if (site.phase !== 'burning' || age < .16 || age >= surfaceDuration(site)) return 0;
+  return (.66 + .34 * surfaceFlame(site, time)) * (site.fuel.output ?? 1);
+}
+
 export function surfaceTravel(a, b, wa, wb, {length, corner = false, eave = false} = {}) {
   const dx = b.x - a.x, dy = b.y - a.y, dz = b.z - a.z, chord = Math.hypot(dx, dy, dz);
   if (chord <= EPS) return .16;
@@ -47,9 +53,8 @@ export function stepSurfaceFire(sites, dt, time, present, onIgnition, onSpent) {
   // New ignitions are resolved only after this pass over already active sources.
   for (const site of sites) {
     if (site.phase !== 'burning' || !present(site)) continue;
-    const age = time - site.ignitedAt;
-    if (age < .16 || age >= surfaceDuration(site)) continue;
-    const activity = (.66 + .34 * surfaceFlame(site, time)) * (site.fuel.output ?? 1);
+    const activity = surfaceOutput(site, time);
+    if (activity <= 0) continue;
     for (const {target, seconds, gain = 1} of site.links) {
       if (present(target)) heatSurfaceSite(target, dt / seconds * activity * gain, {kind: 'surface-spread', cellId: site.id});
     }
@@ -89,7 +94,8 @@ export function surfaceSample(building, site, time, exposed) {
     ...worldSurface(building, site.anchor ?? site), area: site.area, exposed, flame,
     smoke: flame ? flame * unit((time - site.ignitedAt - .12) / .55) * .56 : 0,
     heatFraction: unit(site.heat / (site.fuel.threshold || 1)),
-    ignitionTime: site.ignitedAt};
+    ignitionTime: site.ignitedAt,
+    ...(site.cause?.kind === 'joined-roof' ? {cause: site.cause.kind, parentSiteId: site.cause.cellId} : {})};
 }
 
 export function heatBlastSiding(site, world, span, origin, blast, obstacles, cause) {

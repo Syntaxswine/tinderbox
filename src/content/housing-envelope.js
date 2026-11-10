@@ -151,6 +151,7 @@ function planeArea(poly) {
 // actual planar facet, including where a square straddles a ridge or valley.
 export function roofPanels(house, partyWalls) {
   const result = new Map();
+  const joinPlanes = Object.entries({left: 0, right: house.width}).filter(([side]) => partyWalls[side]);
   function add(poly, level, group) {
     if (partyWalls.left) poly = clip(poly, p => p[0]);
     if (partyWalls.right) poly = clip(poly, p => house.width - p[0]);
@@ -162,10 +163,19 @@ export function roofPanels(house, partyWalls) {
       const metric = planeArea(part);
       if (!metric) continue;
       const id = `${group}:${level}:${u},${v}`;
-      if (!result.has(id)) result.set(id, {id, level, u, v, area: 0, largest: 0, vertices: []});
+      if (!result.has(id)) result.set(id, {id, level, u, v, area: 0, largest: 0, vertices: [], seamEdges: []});
       const panel = result.get(id);
       panel.area += metric.area;
       panel.vertices.push(...part);
+      // Preserve actual facet edges on the clipped main-roof join. Flattened
+      // panel vertices can include points on different, disconnected facets.
+      if (group === 'main') for (const [side, x] of joinPlanes) {
+        for (const [i, a] of part.entries()) {
+          const b = part[(i + 1) % part.length];
+          if (Math.abs(a[0] - x) < EPS && Math.abs(b[0] - x) < EPS &&
+              Math.hypot(a[1] - b[1], a[2] - b[2]) > EPS) panel.seamEdges.push({side, a, b});
+        }
+      }
       if (metric.area > panel.largest) {
         const [x, y, z] = part.reduce((sum, p) => sum.map((n, k) => n + p[k] / part.length), [0, 0, 0]);
         const [nx, ny, nz] = metric.normal;
