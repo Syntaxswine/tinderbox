@@ -33,7 +33,7 @@ export async function startGame({root = document.querySelector('#game'), autoSta
     runtime = await createRuntime({root:viewport, uiRoot:hud, scenario:'neighborhood', seed:1893, ...options,
       autoStart, mountUI, createArtScene:async args => (art = await createArtScene(args)), onSnapshot, onError:showError});
     const canvas = viewport.querySelector('canvas');
-    canvas.tabIndex = 0; canvas.setAttribute('aria-label', 'Tinderbox exterior street. Point or tap to aim. Move with WASD or arrows.');
+    canvas.tabIndex = 0; canvas.setAttribute('aria-label', 'Tinderbox exterior street. Drag the joystick to move.');
     if (loading) loading.hidden = true;
   } catch (error) { showError(error); throw error; }
   const onPageHide = event => { if (!event.persisted) runtime.dispose(); };
@@ -47,7 +47,7 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
   if(!root)throw Error('A game root is required');
   if(applications.has(root))return applications.get(root);
   if(typeof ui.mountMainMenu!=='function'||typeof ui.mountTitleScreen!=='function')throw Error('The menu could not load. Please reload to try again.');
-  const viewport=root.querySelector('#viewport'),hud=root.querySelector('#hud'),titleRoot=root.querySelector('#title-screen'),menuRoot=root.querySelector('#main-menu'),loading=root.querySelector('#load-state'),help=root.querySelector('.field-help');
+  const viewport=root.querySelector('#viewport'),hud=root.querySelector('#hud'),titleRoot=root.querySelector('#title-screen'),menuRoot=root.querySelector('#main-menu'),loading=root.querySelector('#load-state');
   const doc=root.ownerDocument,win=doc.defaultView,controller=new AbortController();let app,title=null;
   const cancel=doc.createElement('button');cancel.type='button';cancel.textContent='Back to places';loading.append(cancel);
   const menu=ui.mountMainMenu({root:menuRoot,places:PLACES,characters:CHARACTERS,selectedCharacterId,onSelect:id=>app?.select(id),onSelectCharacter:id=>app?.selectCharacter(id),onBackToTitle:()=>app?.returnToTitle()});
@@ -56,7 +56,7 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
       const playing=state.phase==='visit',busy=state.phase==='loading',atTitle=state.phase==='title';menuRoot.hidden=playing||atTitle;titleRoot.hidden=!atTitle;hud.hidden=!playing;viewport.hidden=state.phase==='menu'||atTitle;loading.hidden=!busy;
       if(atTitle&&!title)title=ui.mountTitleScreen({root:titleRoot,onStart:()=>app?.openMenu()});
       if(!atTitle&&title){title.dispose();title=null;}
-      if(help)help.hidden=!playing;root.dataset.mode=playing?(state.placeId==='catalogue-street'?'gameplay':'explore'):'menu';
+      root.dataset.mode=playing?(state.placeId==='catalogue-street'?'gameplay':'explore'):'menu';
       if(busy)loading.querySelector('span').textContent='Opening '+PLACES.find(p=>p.id===state.loadingId).title+'…';
       menu.update({loadingId:state.loadingId,error:state.error,selectedCharacterId:state.selectedCharacterId});
     },

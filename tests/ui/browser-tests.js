@@ -106,6 +106,11 @@ await check('Menu pauses and resumes authoritatively; reset emits the contract c
 });
 await check('Options trap focus and Escape returns without triggering tools',s=>{
   s.find('[data-pause]').click();s.ui.update(fixture('paused'));s.find('[data-options]').click();const first=s.find('[data-reduce-motion]'),last=s.find('[data-back]');
+  const shortcuts=s.find('.tb-keyboard-help');
+  ok(!shortcuts.open,'Keyboard list visible by default');
+  ok(s.find('[data-options-panel]').innerText.includes('Tap the floating button'),'Touch instructions missing');
+  equal([...shortcuts.querySelectorAll('dd')].map(dd=>dd.textContent),['WASD or arrow keys','E','1–5','Space','Esc','Esc or P']);
+  equal(s.find('[data-resume]').querySelector('kbd'),null,'Resume advertises a key');
   ok(document.activeElement===first,'Wrong focus');key(first,'keydown','Tab',{shiftKey:true});ok(document.activeElement===last,'Reverse trap failed');key(last,'keydown','Tab');ok(document.activeElement===first,'Forward trap failed');
   const n=s.commands.length;key(first,'keydown','Space');key(first,'keyup','Space');equal(s.commands.length,n);key(first,'keydown','Escape');equal(s.find('[data-menu-title]').textContent,'Paused');
 });
@@ -418,7 +423,11 @@ await check('Exploration camera requests preserve the raw held joystick and do n
 });
 await check('Contextual interaction, Space and E send one edge without changing the location or movement',()=>{
   const nav=makeExplore('door');try{
-    const stick=nav.find('[data-stick]');stick.focus();key(stick,'keydown','KeyW');key(stick,'keydown','KeyE');key(stick,'keydown','KeyE',{repeat:true});key(stick,'keyup','KeyE');
+    const stick=nav.find('[data-stick]'),action=nav.find('[data-interact]');
+    equal(action.textContent,action.querySelector('[data-door-label]').textContent);
+    equal(action.getAttribute('aria-keyshortcuts'),'E Space');
+    equal(nav.find('[data-interaction-hint]').textContent,'Tap the floating button.');
+    stick.focus();key(stick,'keydown','KeyW');key(stick,'keydown','KeyE');key(stick,'keydown','KeyE',{repeat:true});key(stick,'keyup','KeyE');
     key(stick,'keydown','Space');key(stick,'keydown','Space',{repeat:true});key(stick,'keyup','Space');nav.find('[data-interact]').click();
     equal(nav.commands.filter(c=>c.type==='interact').length,3);ok(!nav.commands.some(c=>['primary','select-tool','drug'].includes(c.type)),'Interaction leaked to gameplay');
     equal(nav.find('[data-location-label]').textContent,'Entrance hall');ok(!nav.commands.some(c=>c.type==='move'&&c.x===0&&c.y===0),'Interaction stopped walking');
@@ -455,6 +464,11 @@ await check('Title Options opens without starting a map and Back or Escape resto
     const open=title.find('[data-title-options-open]');open.click();
     ok(!title.find('[data-title-options]').hidden,'Options did not open');
     equal(document.activeElement,title.find('.tb-title-options h2'));
+    const [touch,keyboard]=title.root.querySelectorAll('.tb-title-controls');
+    equal(touch.querySelector('summary').textContent,'Touch controls');
+    ok(touch.textContent.includes('Tap the floating button'),'Title touch instructions missing');
+    equal(keyboard.querySelector('summary').textContent,'Keyboard shortcuts');
+    ok(!keyboard.open,'Title keyboard guide visible by default');
     title.find('[data-title-start]').click();equal(title.starts,[],'Hidden Play started a map');
     title.find('[data-title-options-back]').click();equal(document.activeElement,open);
     open.click();key(title.find('.tb-title-options h2'),'keydown','Escape');

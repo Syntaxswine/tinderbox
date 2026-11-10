@@ -62,7 +62,7 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights}):createDiagnosticScene({THREE,scene,config:settings});
     if(disposed||externalSignal?.aborted){created.dispose();throw new DOMException('Visit cancelled','AbortError');}art=created;
     ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});
-    renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Move with the joystick, WASD or arrows.');
+    renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Drag the joystick to move.');
     const aim=(event,hover)=>{const point=camera.screenToWorld(event.clientX,event.clientY,art.pickAimSurface);if(point)dispatch({type:'aim',...point,hover});};
     renderer.domElement.addEventListener('pointermove',event=>aim(event,true),{signal});
     renderer.domElement.addEventListener('pointerdown',event=>{if(event.button===0)aim(event,false);},{signal});

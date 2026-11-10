@@ -75,7 +75,6 @@
 .tb-stick-ring { width:100px; height:100px; }
 .tb-stick-thumb { width:59px; height:59px; left:calc(50% - 29.5px); top:calc(50% - 29.5px); }
 .tb-stick-caption { font-size:8px; letter-spacing:2px; margin-top:6px; }
-.tb-stick-caption>span { display:none; }
 .tb-stick:disabled { opacity:.55; }
 .tb-picker { position:absolute; bottom:calc(max(12px,env(safe-area-inset-bottom)) + 232px); left:50%; transform:translateX(-50%); width:min(460px,calc(100% - 24px)); max-height:calc(100% - 265px); overflow:auto; padding:12px; pointer-events:auto; z-index:30; }
 .tb-ui .tb-picker::before { inset:0; background-size:16px 16px; }
@@ -98,7 +97,8 @@
 [data-pause-note] { font-style:italic; }
 .tb-menu-button { min-height:48px; width:100%; display:flex; gap:12px; align-items:center; padding:12px; margin-top:10px; border:1px solid; text-align:left; font:700 12px/1.3 var(--label)!important; }
 .tb-menu-button>.switch-glyph { width:21px; height:21px; fill:currentColor; flex:none; }
-.tb-menu-button kbd { margin-left:auto; color:var(--muted); font-size:9px; }
+.tb-keyboard-help summary { min-height:44px; padding:12px 0; border-top:1px solid #7a604055; font:700 14px/1.4 var(--display); cursor:pointer; }
+.tb-keyboard-help summary:focus-visible { outline:3px solid currentColor; outline-offset:2px; }
 .tb-option { min-height:48px; display:flex; align-items:center; gap:12px; border-bottom:1px solid #b0874a66; font:11px/1.4 var(--label); cursor:pointer; }
 .tb-option input { width:20px; height:20px; margin:0; accent-color:#ead09b; }
 .tb-key-guide { margin:20px 0; font:400 12px/1.5 var(--text); }

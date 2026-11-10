@@ -37,12 +37,14 @@ const markup = '<header class="tb-top">' +
   '<section class="battle-bottom tb-console tb-wood-panel" aria-label="Player control deck">' +
   '<div class="thumb-layout tb-controls">' +
   '<div class="left-controls" role="group" aria-label="Matches, torch and flamethrower">' + leftButtons + '</div>' +
-  '<div class="stick-column tb-stick-group"><div class="tb-selected"><span data-selected-icon aria-hidden="true"></span><strong data-tool-name>—</strong><span class="tb-selected-stock" data-selected-stock id="tb-tool-resource" aria-live="off"></span><span class="tb-sr-only" data-tool-hint></span><span class="tb-loadout-state" data-loadout-state>SELECT A TOOL</span><span class="tb-tool-feedback" data-tool-feedback id="tb-tool-feedback" hidden></span></div><button type="button" class="tb-stick" data-stick aria-label="Movement joystick. Drag to move. Keyboard: W A S D or arrow keys." aria-describedby="tb-movement-help"><span class="stick-ring tb-stick-ring"></span><span class="tb-stick-thumb">' + icon('movement') + '</span><span class="stick-north tb-stick-n">▲</span></button><span class="stick-caption tb-micro tb-stick-caption" id="tb-movement-help">MOVE <span>WASD / ↑↓←→</span></span></div>' +
+  '<div class="stick-column tb-stick-group"><div class="tb-selected"><span data-selected-icon aria-hidden="true"></span><strong data-tool-name>—</strong><span class="tb-selected-stock" data-selected-stock id="tb-tool-resource" aria-live="off"></span><span class="tb-sr-only" data-tool-hint></span><span class="tb-loadout-state" data-loadout-state>SELECT A TOOL</span><span class="tb-tool-feedback" data-tool-feedback id="tb-tool-feedback" hidden></span></div><button type="button" class="tb-stick" data-stick aria-label="Movement joystick. Drag to move." aria-describedby="tb-movement-help"><span class="stick-ring tb-stick-ring"></span><span class="tb-stick-thumb">' + icon('movement') + '</span><span class="stick-north tb-stick-n">▲</span></button><span class="stick-caption tb-micro tb-stick-caption" id="tb-movement-help">MOVE</span></div>' +
   '<div class="right-controls" role="group" aria-label="Oil barrel, lantern and menu">' + rightButtons +
   '<button type="button" class="square-control industrial-switch tb-pause" data-pause aria-label="Menu — pause and open scene menu" aria-expanded="false"><span class="switch-legend">'+icon('pause')+'<span class="switch-label">MENU</span></span></button></div></div></section>' +
   '<div class="tb-menu-backdrop" data-menu hidden><section class="tb-menu tb-wood-panel" role="dialog" aria-modal="true" aria-labelledby="tb-menu-title"><div class="tb-menu-heading"><div class="tb-masthead" aria-hidden="true"><span>THE</span><strong>TINDERBOX</strong></div><div class="tb-issue" aria-hidden="true"><span>EXPOSITION · 1893</span><span>FIELD EDITION</span></div><h1 id="tb-menu-title" tabindex="-1" data-menu-title>Paused</h1></div>' +
-  '<div data-pause-panel><p class="tb-menu-note" data-pause-note>The trail can wait.</p><button type="button" class="tb-menu-button tb-resume" data-resume>' + icon('play') + '<span>Resume scene</span><kbd>ESC</kbd></button><button type="button" class="tb-menu-button" data-options>' + icon('options') + '<span>Controls & options</span></button><button type="button" class="tb-menu-button" data-reset>' + icon('reset') + '<span>Reset test scene</span></button></div>' +
-  '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Tap tool · Space for selected tool</dd></div><div><dt>Medicine</dt><dd>Walk over it to use it</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Tap Oil barrel to start or stop pouring. Tap Torch to light, then tap to ignite nearby fuel. Press Oil lantern to aim, drag the stick, release, then press Throw lantern. Escape cancels aim. Hold Flamethrower to spray where you face. Walk over drugs or medicine to use them. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
+  '<div data-pause-panel><p class="tb-menu-note" data-pause-note>The trail can wait.</p><button type="button" class="tb-menu-button tb-resume" data-resume>' + icon('play') + '<span>Resume scene</span></button><button type="button" class="tb-menu-button" data-options>' + icon('options') + '<span>Controls & options</span></button><button type="button" class="tb-menu-button" data-reset>' + icon('reset') + '<span>Reset test scene</span></button></div>' +
+  '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><p class="tb-menu-note">Drag the stick to move. Tap the floating button when it appears by a door or object. Tap Menu to pause.</p>' +
+    '<p class="tb-menu-note" data-touch-help>Tap Oil barrel to start or stop pouring. Tap Torch to light it, then tap again to ignite nearby fuel. Tap Aim lantern, drag and release the stick, then tap Throw lantern. Tap Cancel aim to return to movement. Hold Flamethrower to spray where you face. Walk over drugs or medicine to use them. Inversion reverses movement.</p>' +
+    '<details class="tb-keyboard-help"><summary>Keyboard shortcuts</summary><dl class="tb-key-guide"><div><dt>Move</dt><dd>WASD or arrow keys</dd></div><div><dt>Nearby action</dt><dd>E</dd></div><div><dt>Select tool</dt><dd>1–5</dd></div><div><dt>Use tool</dt><dd>Space</dd></div><div><dt>Cancel aim</dt><dd>Esc</dd></div><div><dt>Pause</dt><dd>Esc or P</dd></div></dl></details><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
 export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
@@ -65,20 +67,20 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   const stick=find('[data-stick]'),thumb=find('.tb-stick-thumb'),pause=find('[data-pause]'),menuElement=find('[data-menu]'),map=mountMap(find('[data-map]'),{label:exploring?'Place plan':'Ground plan',playerLabel:exploring?'Player':'Bear'});
   const lanternPreview=exploring?null:mountLanternPreview({root,shell,onProjectInteraction});
   if(!exploring)find('.tb-console').insertAdjacentHTML('afterbegin',
-    '<div class="tb-lantern-guide" data-lantern-guide hidden><span id="tb-lantern-hint'+suffix+'" data-lantern-hint></span><button type="button" data-cancel-aim title="Cancel aim (Esc)">Cancel aim</button></div>');
+    '<div class="tb-lantern-guide" data-lantern-guide hidden><span id="tb-lantern-hint'+suffix+'" data-lantern-hint></span><button type="button" data-cancel-aim>Cancel aim</button></div>');
   const cancelAim=find('[data-cancel-aim]'),stickCaption=find('.tb-stick-caption');
   if(exploring){
     find('.tb-health').hidden=true;find('.tb-effects').hidden=true;find('.tb-zoom').hidden=true;find('.tb-selected').hidden=true;
     const title=doc.createElement('p');title.className='tb-visit-title';title.textContent=placeTitle||'Exploration';find('.tb-vitals').append(title);
     const character=doc.createElement('p');character.className='tb-visit-character';character.dataset.characterName='';character.hidden=true;find('.tb-vitals').append(character);
-    find('.tb-stick-group').insertAdjacentHTML('afterbegin','<div class="tb-visit-context"><span class="tb-micro">LOCATION</span><strong data-location-label id="tb-visit-location'+suffix+'" aria-live="off">Location pending</strong><span data-interaction-hint id="tb-interaction-hint'+suffix+'">Drag the stick or use WASD to explore.</span></div>');
+    find('.tb-stick-group').insertAdjacentHTML('afterbegin','<div class="tb-visit-context"><span class="tb-micro">LOCATION</span><strong data-location-label id="tb-visit-location'+suffix+'" aria-live="off">Location pending</strong><span data-interaction-hint id="tb-interaction-hint'+suffix+'">Drag the stick to explore.</span></div>');
     stick.setAttribute('aria-describedby','tb-movement-help'+suffix+' tb-visit-location'+suffix);
     find('.left-controls').setAttribute('aria-label','Camera view');find('.right-controls').setAttribute('aria-label','Visit navigation');
     find('.tb-map figcaption b').textContent='PLACE PLAN';find('.tb-map figcaption>span').innerHTML='<i></i><span data-map-character>Player</span>';
     find('[data-reset]').hidden=true;find('[data-reset]').disabled=true;
     find('[data-resume]>span').textContent='Resume visit';
-    find('[data-options-panel] .tb-key-guide').innerHTML='<div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Interact</dt><dd>E · Space · contextual button</dd></div><div><dt>View</dt><dd>Overview · Follow player</dd></div><div><dt>Places</dt><dd>Return to the main menu</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div>';
-    [...find('[data-options-panel]').querySelectorAll('.tb-menu-note')].at(-1).textContent='Walk through the grounds, halls and galleries. Use E or Space when an action is available. Walk on stairs to reach another floor.';
+    find('.tb-key-guide').innerHTML='<div><dt>Move</dt><dd>WASD or arrow keys</dd></div><div><dt>Nearby action</dt><dd>E or Space</dd></div><div><dt>Pause</dt><dd>Esc or P</dd></div>';
+    find('[data-touch-help]').textContent='Walk on stairs to reach another floor. Tap Overview or Follow to change the view. Tap Places to choose another map.';
   }
   if(hasExit){
     const back=doc.createElement('button');back.type='button';back.className='tb-menu-button';back.dataset.exitToMenu='';back.innerHTML=icon('play')+'<span>Return to places</span>';find('[data-pause-panel]').append(back);
@@ -186,7 +188,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       if(find('[data-map-character]').textContent!==(character||'Player'))find('[data-map-character]').textContent=character||'Player';
       if(location.textContent!==navigation.locationLabel)location.textContent=navigation.locationLabel;
       shell.dataset.nativeLevel=navigation.level===null?'':String(navigation.level);
-      const actionHint=contextAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?navigation.interaction.label+' · E / Space':navigation.interaction.reason):'Drag the stick or use WASD to explore.';
+      const actionHint=contextAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?'Tap the floating button.':navigation.interaction.reason):'Drag the stick to explore.';
       if(hint.textContent!==actionHint)hint.textContent=actionHint;
       for(const button of all('[data-view]'))button.disabled=gated;
       find('[data-death]').hidden=true;paintMenu();
@@ -198,8 +200,8 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     find('[data-lantern-guide]').hidden=!aim;
     find('[data-lantern-hint]').textContent=aim?lanternHint(aim,true):'';
     cancelAim.disabled=gated;cancelAim.setAttribute('aria-disabled',String(controlsLocked));
-    stickCaption.firstChild.textContent=aim?'AIM ':'MOVE ';
-    stick.setAttribute('aria-label',aim?'Lantern aim joystick. Drag to aim. Keyboard: W A S D or arrow keys.':'Movement joystick. Drag to move. Keyboard: W A S D or arrow keys.');
+    stickCaption.firstChild.textContent=aim?'AIM':'MOVE';
+    stick.setAttribute('aria-label',aim?'Lantern aim joystick. Drag to aim.':'Movement joystick. Drag to move.');
     stick.setAttribute('aria-describedby','tb-movement-help'+suffix+(aim?' tb-lantern-hint'+suffix:''));
     const animal=view.characterName;
     find('.tb-health-meter').setAttribute('aria-label',animal+' health');
@@ -287,7 +289,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey||!gameplayFocus(doc.activeElement))return;
     const active=doc.activeElement;
     if(event.code==='Tab'&&menu){
-      const focusable=all('[data-menu] button,[data-menu] input').filter(e=>!e.disabled&&!e.closest('[hidden]')),index=focusable.indexOf(active);
+      const focusable=all('[data-menu] button,[data-menu] input,[data-menu] summary').filter(e=>!e.disabled&&!e.closest('[hidden]')),index=focusable.indexOf(active);
       if(event.shiftKey&&index<=0){event.preventDefault();focusable.at(-1)?.focus();}
       else if(!event.shiftKey&&(index<0||index===focusable.length-1)){event.preventDefault();focusable[0]?.focus();}return;
     }

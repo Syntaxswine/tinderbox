@@ -4,9 +4,8 @@ let instance=0;
 
 export function mountContextAction({shell,onProjectInteraction,onCommand,isBlocked,spaceShortcut=false,mark=''}){
   const doc=shell.ownerDocument,button=doc.createElement('button');
-  const shortcut=spaceShortcut?'E / Space':'E';
   button.type='button';button.className='tb-door-action tb-wood-panel';button.dataset.interact='';button.hidden=true;button.disabled=true;
-  button.innerHTML=mark+'<span class="tb-door-copy"><strong data-door-label></strong><small>'+shortcut+'</small><span data-door-reason hidden></span></span><i class="tb-door-pointer" aria-hidden="true"></i>';
+  button.innerHTML=mark+'<span class="tb-door-copy"><strong data-door-label></strong><span data-door-reason hidden></span></span><i class="tb-door-pointer" aria-hidden="true"></i>';
   const label=button.querySelector('[data-door-label]'),reason=button.querySelector('[data-door-reason]');
   reason.id='tb-door-reason-'+(++instance);button.setAttribute('aria-describedby',reason.id);
   button.setAttribute('aria-keyshortcuts',spaceShortcut?'E Space':'E');shell.append(button);
@@ -32,8 +31,7 @@ export function mountContextAction({shell,onProjectInteraction,onCommand,isBlock
     if(label.textContent!==interaction.label)label.textContent=interaction.label;
     const explanation=interaction.enabled?'':interaction.reason||'Action unavailable.';
     if(reason.textContent!==explanation)reason.textContent=explanation;reason.hidden=interaction.enabled;
-    const accessible=interaction.label+(spaceShortcut?'. E or Space.':'. E.')+(explanation?' '+explanation:'');
-    if(button.getAttribute('aria-label')!==accessible)button.setAttribute('aria-label',accessible);
+    if(button.getAttribute('aria-label')!==interaction.label)button.setAttribute('aria-label',interaction.label);
     const title=explanation||interaction.label;if(button.title!==title)button.title=title;
     button.style.maxWidth=Math.max(0,Math.min(260,right-left))+'px';button.hidden=false;
     const size=button.getBoundingClientRect(),floor=Math.min(bottom,deck.getBoundingClientRect().top-box.top-16);
@@ -69,22 +67,38 @@ export function mountContextAction({shell,onProjectInteraction,onCommand,isBlock
   function cancelPress(){if(pressed)pressed.revision=-1;}
   const click=event=>{
     // A pointer click must belong to this press. A keyboard/AT click uses detail 0.
-    if(event.detail>0&&(pressed?.pointerId===undefined||(event.pointerId>0&&pressed.pointerId!==event.pointerId)))return;
+    if(event.detail>0||event.pointerType){
+      if(pressed?.pointerId===undefined||pressed.releaseOnUp||(event.pointerId>0&&pressed.pointerId!==event.pointerId))return;
+    }
     const expected=pressed;pressed=null;
     if(expected&&expected.revision!==revision)return;
     request();
   };
-  const pointerdown=event=>{if(event.button===0&&available())pressed={revision,pointerId:event.pointerId};};
+  const pointerdown=event=>{
+    if(event.button===0&&available())pressed={
+      revision,pointerId:event.pointerId,releaseOnUp:event.pointerType==='touch'&&!event.isPrimary
+    };
+  };
+  const pointerup=event=>{
+    if(!pressed?.releaseOnUp||event.pointerId!==pressed.pointerId)return;
+    const expected=pressed;pressed=null;
+    // The second finger can release without generating a click while the stick is held.
+    if(expected.revision===revision&&button.contains(doc.elementFromPoint(event.clientX,event.clientY)))request();
+  };
+  const pointercancel=event=>{if(event.pointerId===pressed?.pointerId)cancelPress();};
   const keydown=event=>{
     if(event.code!=='Enter'&&event.code!=='Space')return;
     event.stopPropagation();
     if(event.repeat)event.preventDefault();else if(available())pressed={revision};
   };
-  const listeners=[['click',click],['keydown',keydown],['pointerdown',pointerdown],['pointercancel',cancelPress],['blur',cancelPress]];
-  for(const [type,fn] of listeners)button.addEventListener(type,fn);
+  const listeners=[
+    [button,'click',click],[button,'keydown',keydown],[button,'pointerdown',pointerdown],
+    [button,'blur',cancelPress],[doc.defaultView,'pointerup',pointerup],[doc.defaultView,'pointercancel',pointercancel]
+  ];
+  for(const [target,type,fn] of listeners)target.addEventListener(type,fn);
   return {update,request,cancelPress,isVisible:()=>!button.hidden,dispose(){
     if(disposed)return;hide();disposed=true;
-    for(const [type,fn] of listeners)button.removeEventListener(type,fn);
+    for(const [target,type,fn] of listeners)target.removeEventListener(type,fn);
     button.remove();
   }};
 }

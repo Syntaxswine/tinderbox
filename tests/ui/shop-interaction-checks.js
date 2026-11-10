@@ -10,7 +10,13 @@ const toolPress=[{type:'select-tool',tool:'matches'},{type:'primary',pressed:tru
 const ok=(condition,message)=>{if(!condition)throw Error(message);};
 const equal=(a,b,message='Values differ')=>ok(JSON.stringify(a)===JSON.stringify(b),message+': '+JSON.stringify(a));
 const key=(el,type,code,repeat=false)=>el.dispatchEvent(new KeyboardEvent(type,{code,bubbles:true,cancelable:true,repeat}));
-const pointer=(el,type,pointerId=11)=>el.dispatchEvent(new PointerEvent(type,{pointerId,pointerType:'touch',detail:type==='click'?1:0,button:0,bubbles:true,cancelable:true}));
+const pointer=(el,type,pointerId=11,extra={})=>el.dispatchEvent(new PointerEvent(type,{
+  pointerId,pointerType:'touch',isPrimary:true,detail:type==='click'?1:0,button:0,bubbles:true,cancelable:true,...extra
+}));
+const secondaryTouch=button=>{
+  const box=button.getBoundingClientRect();
+  return {isPrimary:false,clientX:box.left+box.width/2,clientY:box.top+box.height/2};
+};
 
 export async function runShopInteractionChecks(host){
   await document.fonts.ready;
@@ -34,7 +40,9 @@ export async function runShopInteractionChecks(host){
   await check('Shop Open, Close and Take use one timber action and exact portal/object commands',s=>{
     equal(s.root.querySelectorAll('[data-interact]').length,1);
     ok(!s.find('.tb-console [data-interact]'),'Added a permanent control');
-    equal(s.button.querySelector('small').textContent,'E');
+    equal(s.button.textContent,entry.label);
+    equal(s.button.getAttribute('aria-label'),entry.label);
+    equal(s.button.getAttribute('aria-keyshortcuts'),'E');
     s.stick.focus();key(s.stick,'keydown','KeyE');key(s.stick,'keydown','KeyE',true);
     s.set({interaction:{...entry,action:'close',label:'Close'}});
     pointer(s.button,'pointerdown');pointer(s.button,'pointerup');pointer(s.button,'click');
@@ -72,6 +80,41 @@ export async function runShopInteractionChecks(host){
     equal(s.commands,[]);
     pointer(s.button,'pointerdown');pointer(s.button,'click',12);pointer(s.button,'click');
     equal(s.commands,[openCommand]);
+  });
+  await check('A second finger can tap each shop action once while the stick is held',s=>{
+    const stickBox=s.stick.getBoundingClientRect();
+    pointer(s.stick,'pointerdown',7,{clientX:stickBox.right-8,clientY:stickBox.top+8});
+    ok(s.commands[0]?.type==='move'&&s.commands[0].x>0,'First finger did not start movement');
+    for(const [interaction,command] of [[entry,openCommand],[{...entry,action:'close',label:'Close'},closeCommand],[take,takeCommand]]){
+      s.set({interaction});
+      const touch=secondaryTouch(s.button),n=s.commands.length;
+      pointer(s.button,'pointerdown',11,touch);
+      pointer(s.button,'pointerup',12,touch);
+      equal(s.commands.length,n,'Unrelated release activated the action');
+      pointer(s.button,'pointerup',11,touch);
+      equal(s.commands.slice(n),[command],'Second finger did not activate on release');
+      pointer(s.button,'click',11,touch);
+      equal(s.commands.slice(n),[command],'Compatibility click repeated the action');
+    }
+    ok(s.stick.dataset.moving==='true','Second finger released the stick');
+    pointer(window,'pointerup',7);
+    equal(s.commands.at(-1),{type:'move',x:0,y:0});
+  });
+  await check('An outside release, cancelled touch or changed target cannot activate the prompt',s=>{
+    const touch=secondaryTouch(s.button);
+    pointer(s.button,'pointerdown',11,touch);
+    pointer(s.button,'pointerup',11,{...touch,clientY:0});
+    pointer(s.button,'click',11,touch);
+    pointer(s.button,'pointerdown',11,touch);
+    pointer(window,'pointercancel',11,touch);
+    pointer(s.button,'pointerup',11,touch);
+    pointer(s.button,'pointerdown',11,touch);
+    s.set({interaction:take});
+    pointer(s.button,'pointerup',11,secondaryTouch(s.button));
+    equal(s.commands,[]);
+    pointer(s.button,'pointerdown',11,secondaryTouch(s.button));
+    pointer(s.button,'pointerup',11,secondaryTouch(s.button));
+    equal(s.commands,[takeCommand],'A fresh tap did not recover after cancellation');
   });
   await check('Pickup disappearance restores stick focus and does not spend a throwable',s=>{
     const state=s.set({interaction:take}),stock=state.player.inventory.molotovs;
