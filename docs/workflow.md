@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-cottage-fire-interactions` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Storefront crash and fire interactions review and promotion |
+| Architect | `codex/review-joined-house-fire` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Joined Monroe roof fire review and promotion |
 | Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
-| Coder | `codex/cottage-fire-interactions-coder` from `a39c3a4` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Storefront collision, NPC ignition, and blast and grass heat transfer |
+| Coder | `codex/joined-house-fire-coder` from `5c1963e` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Native roof seam heat transfer and regression checks |
 | UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Shared floating action and shortcut bindings |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -92,6 +92,8 @@ TB-023 is the architect's source/geometry/visual acceptance and later integratio
 The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. The user accepted the delayed Nautilus bear and requires selectable animals; the existing native goat, horse and AFT bear apply to every destination. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
+
+The [joined Monroe roof review](reviews/2026-11-09-joined-house-fire.md) records the native seam, weak and separated controls, and the packaged cottage visit.
 
 The [Catalogue Street review](reviews/2026-11-09-catalogue-fire-interactions.md) records the storefront crash reproduction and acceptance for actor, barrel and grass fire.
 
