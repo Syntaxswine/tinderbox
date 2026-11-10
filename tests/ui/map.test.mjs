@@ -159,3 +159,40 @@ test('mounted and public map views still project mutable fixtures in place',()=>
   assert.equal(fire.attributes.get('d'),'M4 2h0.5v0.5h-0.5Z');
   assert.equal(host.dataset.fireCount,'1');
 });
+
+
+test('mounted ground plan reads in-place edits inside frozen layer lists',()=>{
+  const tile = {x:1.5,y:.5,size:1,material:'paving'};
+  const obstacle = {x:2.5,y:2.5,width:1,depth:1};
+  const first = {id:'a',x:.25,y:.25,phase:'cold'};
+  const second = {id:'b',x:.75,y:.25,phase:'cold'};
+  const tiles = Object.freeze([Object.freeze({...tile,x:.5,material:'grass'}),tile]);
+  const obstacles = Object.freeze([Object.freeze({...obstacle,x:.5}),obstacle]);
+  const cells = Object.freeze([Object.freeze({x:1.25,y:.25,phase:'cold'}),first,second]);
+  const snapshot = snapshotForMap({width:4,height:4,tiles,obstacles},cells);
+  const {update,host,terrain,buildings,fire} = mountedMap();
+  update(snapshot);
+  assert.equal(host.dataset.fireCount,'0');
+
+  tile.x = 2.5;
+  obstacle.destroyed = true;
+  first.phase = 'burning';
+  update(snapshot);
+  assert.deepEqual({
+    tile:terrain.children[1].attributes.get('d'),
+    buildings:buildings.attributes.get('d'),
+    fire:fire.attributes.get('d'),
+    count:host.dataset.fireCount
+  },{
+    tile:'M2 0h1v1h-1Z',
+    buildings:'M0 2h1v1h-1Z',
+    fire:'M0 0h0.5v0.5h-0.5Z',
+    count:'1'
+  });
+
+  first.phase = 'spent';
+  second.phase = 'burning';
+  update({...snapshot});
+  assert.equal(fire.attributes.get('d'),'M0.5 0h0.5v0.5h-0.5Z');
+  assert.equal(host.dataset.fireCount,'1');
+});
