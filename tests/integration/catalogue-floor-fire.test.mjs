@@ -59,7 +59,8 @@ test('Ashland vents actual floor fuel, then retires individual native supports i
     assert.ok(s.structureFire.some(site=>site.flame===0&&site.smoke>0&&site.id.endsWith(':smolder')));
     assert.ok(Math.abs(s.cottageFire.buildings[1].firstIgnition.time-s.cottageFire.buildings[0].firstIgnition.time-11.95)<1e-8);
 
-    let partial=false;
+    let partial=false,lowered=false;
+    const oldColumns=s.world.obstacles;
     const events=new Map();
     while(s.clocks.world<190&&s.cottageFire.buildings.some(lot=>!lot.gone)){
       s=sim.advance(.25);
@@ -73,6 +74,13 @@ test('Ashland vents actual floor fuel, then retires individual native supports i
           assert.ok(!tile.upper||tile.lower);
           assert.equal(columns.has(tile.index),tile.lower);
           if(tile.lower)assert.equal(columns.get(tile.index).height,tile.upper?EAVE:UPPER);
+          if(!lowered&&tile.lower&&!tile.upper){
+            const column=columns.get(tile.index);
+            assert.equal(oldColumns.find(box=>box.id===column.id).height,EAVE);
+            assert.notEqual(s.world.obstacles,oldColumns);
+            assert.equal(sim.snapshot().world.obstacles,s.world.obstacles);
+            lowered=true;
+          }
         }
         for(const box of boxes.filter(box=>box.supportTile!==undefined))assert.ok(house.tiles[box.supportTile].upper);
         if(!partial&&!house.gone&&house.tiles.some(tile=>!tile.lower)){
@@ -88,7 +96,7 @@ test('Ashland vents actual floor fuel, then retires individual native supports i
         }
       }
     }
-    assert.ok(partial);
+    assert.ok(partial&&lowered);
     for(const house of s.cottageFire.buildings){
       assert.ok(house.gone);
       const endings=[...events.values()].filter(event=>event.buildingId===house.id);

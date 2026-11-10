@@ -153,9 +153,46 @@ test('all tools have finite stock and common field outcomes; Molotov flight foll
 test('invalid input/resources never create NaN or stock; snapshots are detached; reset is repeatable', () => {
   const sim = model(); assert.equal(sim.dispatch({type: 'move', x: NaN, y: 0}), false); assert.equal(sim.dispatch({type: 'aim', x: 500, y: 0}), false);
   assert.equal(sim.dispatch({type: 'drug', drug: 'unknown'}), false); assert.equal(sim.dispatch({type: 'move', x: 1, y: 0, atTick: 0}), false);
-  const s = sim.snapshot(); s.player.inventory.gas = 500; s.cells[0].heat = 99; close(sim.snapshot().player.inventory.gas, 4); close(sim.snapshot().cells[0].heat, 0);
+  const s = sim.snapshot(), editable = structuredClone(s);
+  s.player.inventory.gas = 500;
+  assert.throws(() => { s.cells[0].heat = 99; }, TypeError);
+  editable.cells[0].heat = 99;
+  close(sim.snapshot().player.inventory.gas, 4); close(sim.snapshot().cells[0].heat, 0);
   startPour(sim); run(sim, 0.2); sim.dispatch({type: 'reset'}); const reset = sim.advance(1 / 60); close(reset.player.inventory.gas, 4); close(reset.player.x, 3.25); assert.equal(reset.player.pouring, false);
   assert.ok(reset.events.every(e => e.id > 0));
   const hitch = sim.advance(60); assert.ok(hitch.diagnostics.lastSteps <= 15); close(hitch.diagnostics.droppedRealSeconds, 59.75);
   sim.dispose(); assert.equal(sim.dispatch({type: 'reset'}), false); assert.throws(() => sim.snapshot(), /disposed/);
+});
+
+test('published ground records share only unchanged values and keep old snapshots intact', () => {
+  const sim = model(plain({
+    player: {x: 3.25, y: 5.25, tool: 'matches'},
+    patches: [{x: 4, y: 5, width: 1, depth: 1, material: 'grass'}]
+  }));
+  try {
+    const before = sim.snapshot();
+    assert.ok(Object.isFrozen(before.cells) && Object.isFrozen(before.cells[0]));
+    assert.ok(Object.isFrozen(before.world.tiles) && Object.isFrozen(before.world.tiles[0]));
+    assert.equal(sim.advance(1 / 60).cells, before.cells);
+    const bytes = JSON.stringify(before.cells);
+    sim.dispatch({type: 'aim', x: 4, y: 5.25});
+    sim.dispatch({type: 'primary', pressed: true});
+    const lit = sim.advance(1 / 60), index = lit.cells.findIndex(cell => cell.phase === 'burning');
+    assert.ok(index > 0);
+    assert.notEqual(lit.cells, before.cells);
+    assert.notEqual(lit.cells[index], before.cells[index]);
+    assert.equal(lit.cells[0], before.cells[0]);
+    assert.equal(lit.world.tiles, before.world.tiles);
+    assert.equal(lit.world.obstacles, before.world.obstacles);
+    assert.equal(sim.snapshot().cells, lit.cells);
+    assert.equal(JSON.stringify(before.cells), bytes);
+    assert.equal(lit.diagnostics.burningCells, lit.cells.filter(cell => cell.phase === 'burning').length);
+    assert.equal(lit.diagnostics.frontX, Math.max(0, ...lit.cells.filter(cell => cell.phase === 'burning').map(cell => cell.x)));
+    sim.dispatch({type: 'reset'});
+    const reset = sim.advance(1 / 60);
+    assert.notEqual(reset.cells, before.cells);
+    assert.notEqual(reset.world.tiles, before.world.tiles);
+    assert.notEqual(reset.world.obstacles, before.world.obstacles);
+    assert.equal(JSON.stringify(reset.cells), bytes);
+  } finally { sim.dispose(); }
 });

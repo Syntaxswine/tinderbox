@@ -11,6 +11,7 @@ import {pickupContacts} from './pickups.js';
 import {COTTAGE_IDS} from '../content/cottage-pair.js';
 import {createCottageFire,prepareCottageFootprints} from './cottage-fire.js';
 import {createHousingFire,prepareHousingFootprints} from './housing-fire.js';
+import {createObstaclePublisher} from './published-obstacles.js';
 import {createRubbleHeat} from './rubble-heat.js';
 import {createJoinedRoofHeat} from './joined-roof-fire.js';
 import {createShopInteractions} from './shop.js';
@@ -28,7 +29,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
   if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
-  let state, field, buildingFuel, obstacleFuel, housing, joinedRoof, cottages, rubble, shop, witness, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
+  let state, field, buildingFuel, obstacleFuel, housing, joinedRoof, cottages, rubble, shop, witness, publishObstacles, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}, fuelSite = point, ignitionProof) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
@@ -78,8 +79,10 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     state.tiles = [];
     for (let y = 0; y < def.height; y += def.tileSize) for (let x = 0; x < def.width; x += def.tileSize) {
       const point = {x: x + def.tileSize / 2, y: y + def.tileSize / 2};
-      state.tiles.push({...point, size: def.tileSize, material: materialAt(def, point)});
+      state.tiles.push(Object.freeze({...point, size: def.tileSize, material: materialAt(def, point)}));
     }
+    Object.freeze(state.tiles);
+    publishObstacles = createObstaclePublisher();
     field = new HeatField(def, config, state.obstacles);
     rubble = catalogue ? createRubbleHeat(field) : null;
     // Ungrouped timber has fixed footprints. Cache its live cell references
@@ -333,7 +336,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function snapshot() {
     if (disposed) throw Error('Simulation disposed');
-    const cells = field.snapshot(), present = new Set(state.obstacles.filter(o => !o.destroyed).map(o => o.id));
+    const cells = field.snapshot(), obstacles = publishObstacles(state.obstacles), present = new Set(obstacles.map(o => o.id));
     const intactSupport = new Map(definition.modules.map(m => [m.id, m.colliderIds.length > 0 && m.colliderIds.every(id => present.has(id))]));
     const modules = definition.modules.map(module => {
       const copy = structuredClone(module);
@@ -352,8 +355,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
         ...(rubble ? {rubble: rubble.snapshot()} : {}),
         ...(definition.camera ? {camera: structuredClone(definition.camera)} : {}),
         ...(shop ? {shop: shop.snapshot()} : {}),
-        fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
-        obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => structuredClone(o))},
+        fireCellSize: definition.fireCellSize, tiles: state.tiles, obstacles},
       cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, flamerHeat, burn, ...actor}) => ({...actor, ...(burn ? {burn: {...burn}} : {})})),
       discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       ...(cottages?{cottageFire:cottages.snapshot(state.clocks.world)}:{}),
@@ -361,10 +363,10 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       structureFire:[...(cottages?.samples(state.clocks.world)??[]), ...Array.from(housing?.values()??[]).flatMap(lot=>lot.samples(state.clocks.world))],
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
         acceptedPath: state.acceptedPath.map(p => ({...p})), fuel: {...field.stats,
-          remainingDepositedFuel: cells.reduce((sum, c) => sum + c.depositedFuel, 0)},
+          remainingDepositedFuel: field.publishedStats.remainingDepositedFuel},
         localHeatIndex: field.heatIndex(state.player,1),
-        burningCells: cells.filter(c => c.phase === 'burning').length,
-        frontX: Math.max(0, ...cells.filter(c => c.phase === 'burning').map(c => c.x))}};
+        burningCells: field.publishedStats.burningCells,
+        frontX: field.publishedStats.frontX}};
   }
   function dispatch(command) {
     if (disposed || !command || typeof command !== 'object') return false;
@@ -393,7 +395,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (disposed) throw Error('Simulation disposed');
       return field.heatIndex(point,radius);
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; }
+    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }
