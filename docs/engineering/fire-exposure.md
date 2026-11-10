@@ -1,8 +1,23 @@
 # Fire exposure on Catalogue Street
 
+## November 10 porch and setback follow-up
+
+The Hopkins 12 deck has eight 1 m timber sites at 0.48 m. Each site uses its own part of the outer perimeter. The entry, post and stairs connect to nearby deck timber, and adjacent pieces use the existing surface travel rule. The stair fire sample represents the middle tread at 0.32 m.
+
+| Round-two replay | Result |
+| --- | --- |
+| Match west of the shipped Hopkins 12 porch | Lawn 8.5 m east catches at +5.72 s from adjacent grass, compared with +1.83 s from the deck on `26931d9` and +5.80 s from grass on `720f7b6`. |
+| Two isolated half-metre grass cells 7 m apart | Both local deck sites warm to 0.829 of ignition and cool without catching. |
+| Paved porch gap | The eight deck sites light consecutively at 0.70 s intervals from adjacent pieces. The far lawn catches at +6.65 s across this fixture. The 5 m wall control takes +6.07 s. |
+| Single match against the deck | The match lights one piece. The first ground wave lights two adjacent cells spanning 0.5 m, compared with 22 cells on `26931d9`. |
+
+Hopkins 9 and 13 retain the published rectangular movement and ground-heat collider. Elevated rays and lanterns use private blockers compiled from the native room and wall plans and clipped with the live sections. The open rectangular stone top is at 0.36 m. The 0.12 m room slab and rim bring occupied floors to 0.48 m, where the ground-storey walls start. The two porches use low decks and treads with post and rail cover. A lantern that hits the room rim immediately beside low siding can heat that timber. A lantern that hits the open plinth lands on stone. Preview and flight use the same query.
+
+The original `r04` replay reaches all 21 setback panels with the lantern and 18 with the flamethrower. Each remaining centerline shot starts 4.60 m from its wall face, beyond the 4.50 m flame range. The same lantern replay with an aim point 0.45 m past the face instead of 0.30 m also reaches all 21, clearing the deep slab rims. The ground-only approaches in this sweep stay cold at the setback panels.
+
 ## November 10 frontage follow-up
 
-The hostile review measured alternating cold half-metres on the Hopkins 9 east siding. The frontage now follows the native exposed edge at each of the existing 0.38 m and 0.84 m depths. Every 0.5 m of contact contributes the existing band strength. Partial lengths scale with overlap. A cell reached twice by the same site uses its strongest clear contact. The porch deck and stairs use their existing perimeters. The post uses its native exposed base. Live section and masonry cover still gate those paths.
+The hostile review measured alternating cold half-metres on the Hopkins 9 east siding. The frontage now follows the native exposed edge at each of the existing 0.38 m and 0.84 m depths. Every 0.5 m of contact contributes the existing band strength. Partial lengths scale with overlap. A cell reached twice by the same site uses its strongest clear contact. The local deck and stair pieces each couple along their share of the outer perimeter. The post uses its native exposed base. Live section and masonry cover still gate those paths.
 
 | Replay | World-time observation |
 | --- | --- |
@@ -11,8 +26,8 @@ The hostile review measured alternating cold half-metres on the Hopkins 9 east s
 | Hopkins 15 full lawn, four cells lit by one match | Siding catches at 0.950 s, 0.933 s after the match. |
 | Hopkins 15 earlier two-cell control | With both contacts exposed, siding catches at 2.383 s. |
 | Hopkins 15 isolated one-cell control | Peak siding heat is 0.567 of ignition. The grass is spent and siding cools to zero by 11.567 s. |
-| Hopkins 12 native front lawn | Ground fire ignites the stairs at 1.850 s and deck at 1.950 s. A separate ground source warms the exposed post before any structure ignites. |
-| Hopkins 12 facing flamethrower | The deck or stairs catch at 0.233 s when exposed. The short masonry screen, facing away and out-of-range controls leave the porch cold. |
+| Hopkins 12 native front lawn | Ground fire ignites the stairs at 1.850 s and the first deck piece at 2.433 s. A separate ground source warms the exposed post before any structure ignites. |
+| Hopkins 12 facing flamethrower | Three neighboring deck pieces or the stair site catch at 0.233 s in the respective exposed shots. The short masonry screen, facing away and out-of-range controls leave the porch cold. |
 
 The single-cell torch traces in `tests/simulation/fire-exposure.test.js` were re-run at their established sources. Hopkins gas and timber still cross at 1.717 s and 1.550 s after source ignition. Its isolated grass peaks at 0.624 game heat, under the 1.10 threshold. Ashland's short gas dose peaks at 0.686 and cools. The sustained dose crosses at 1.567 s. Both masonry-screened receivers stay at zero.
 
@@ -36,7 +51,7 @@ Fire spread depends on whether adjacent fuel heats the receiver long enough to i
 
 After the existing distance and travel-time check, a burning ground cell transfers its own output through the receiver multiplier and distance. The receiver cools at 0.30 heat units per world second. A lit source can contribute until its finite fuel runs out. The 0.5 m grass and full timber cells last 3.20 and 12.00 world seconds. Gas duration follows the amount poured. The existing flame intensity and damage use their own values. Direct match and torch applications still seed the selected patch immediately.
 
-Ashland exchanges heat only through its two existing outward ground probes at 0.38 m and 0.84 m. Their couplings are 0.024 and 0.018 of source output. The low wall uses its existing 1.00 threshold and 0.075 cooling per world second. A burning low wall can heat existing ground fuel through those same clear probes. This is a local, plan-view contact model. The paved gap has zero fuel until the player deposits some. The native structure's internal spread, Nautilus ember flight, roof contact, falling fuel and 30-second deadlines use the accepted paths. The shared ground solver applies the three fuel profiles in diagnostic scenes as well.
+Ashland exchanges ground heat along the full exposed siding at 0.38 m and 0.84 m. Each 0.5 m of contact contributes 0.024 or 0.018 of source output at its respective depth. The low wall uses a 1.00 threshold and cools at 0.075 per world second. A burning low wall heats existing ground fuel through the same clear frontage. The paved gap has zero fuel until the player deposits some. Internal spread, Nautilus ember flight, roof contact and falling fuel advance on world time. Each structural component has its own 150-second decay clock from ignition. The shared ground solver applies the three fuel profiles in diagnostic scenes as well.
 
 ## Controlled replays
 

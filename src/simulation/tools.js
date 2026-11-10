@@ -1,4 +1,4 @@
-import {distance, firstHeatContact, impactPoint, worldRayTarget} from './geometry.js';
+import {boxInterval, distance, elevatedBlockers, firstHeatContact, impactPoint, worldRayTarget} from './geometry.js';
 import {resolveDischarge, inactiveDischarge} from './discharge.js';
 import {advanceLantern, useLantern} from './lantern.js';
 export function aimHeading(player, aim) { return Math.atan2(aim.y - player.y, aim.x - player.x); }
@@ -20,7 +20,7 @@ function heatAhead(state, field, target, spec, cottages, housing, onHeat) {
     const pointAt = t => ({x: player.x + dx * t, y: player.y + dy * t});
     const lot = housing.get(contact.box.buildingId);
     if (lot) {
-      const strike = lot.strike(contact.box, player, target, spec.heat, tool, {onHeat});
+      const strike = lot.strike(contact.box, player, target, spec.heat, tool, {onHeat, contact});
       const t = strike?.t ?? contact.t;
       if (!strike?.site) return {point: pointAt(t), cells: [], result: strike?.result ?? 'blocked'};
       // The thermal site can lie just inside the coarse collision rim.
@@ -92,18 +92,39 @@ export function ageTorch(state, config, worldDelta, event) {
 }
 function heatHousingDischarge(discharge, amount, obstacles, housing, onHeat) {
   const boxes = new Map(obstacles.map(box => [box.id, box]));
-  const touched = new Set(), from = discharge.origin;
+  const touched = new Set(), from = discharge.origin, decks = [];
+  for (const box of obstacles) {
+    if (box.destroyed || box.blocksHeat === false || (box.role !== 'porch' && box.role !== 'stairs')) continue;
+    if (distance(from, box) > discharge.range + Math.hypot(box.width, box.depth) / 2) continue;
+    for (const shape of elevatedBlockers(box) ?? []) if (shape.surface === 'deck') decks.push(shape);
+  }
   for (const ray of discharge.rays) {
     const box = boxes.get(ray.obstacleId), lot = housing.get(box?.buildingId);
-    if (!lot) continue;
+    if (!lot && !decks.length) continue;
     // Allow the collision rim and ray skin without applying heat beyond reach.
     const reach = Math.min(discharge.range, ray.distance + .02);
-    const to = {x: from.x + Math.cos(ray.angle) * reach, y: from.y + Math.sin(ray.angle) * reach};
-    // The clipped facing ray still chooses the first visible blocker.
-    // A porch contact can reach down to its deck or lower stair fuel.
-    const height = box.role === 'porch' ? box.height : box.role === 'stairs' ? box.height / 2 : ray.h;
-    if (firstHeatContact(from, to, obstacles, ray.h, Math.min(ray.h,height))?.box === box) {
-      lot.strike(box, from, to, amount * .42, 'flamethrower', {touched,onHeat});
+    const dx = Math.cos(ray.angle) * reach, dy = Math.sin(ray.angle) * reach;
+    const to = {x: from.x + dx, y: from.y + dy};
+    if (lot) {
+      const height = box.role === 'porch' ? box.height : box.role === 'stairs' ? box.height / 2 : ray.h;
+      const endHeight = elevatedBlockers(box) ? ray.h : Math.min(ray.h, height);
+      const contact = firstHeatContact(from, to, obstacles, ray.h, endHeight);
+      if (contact?.box === box) lot.strike(box, from, to, amount * .42, 'flamethrower', {touched, onHeat, contact});
+    }
+    // The two height-aware porches leave clear air above low timber. Check the
+    // lower contact on the same ray, using a descending path to the near deck.
+    let deck, entry = Infinity;
+    for (const shape of decks) {
+      const span = boxInterval(from, to, shape);
+      if (span && span[0] < entry) { deck = shape; entry = span[0]; }
+    }
+    if (!deck) continue;
+    const t = Math.min(1, entry + .02 / reach);
+    const low = {x: from.x + dx * t, y: from.y + dy * t};
+    const contact = firstHeatContact(from, low, obstacles, ray.h, Math.min(ray.h, deck.top - .002));
+    if (contact?.volume?.surface === 'deck') {
+      housing.get(contact.box.buildingId).strike(contact.box, from, low, amount * .42, 'flamethrower',
+        {touched, onHeat, contact});
     }
   }
 }
@@ -128,22 +149,38 @@ export function heldTool(state, field, config, delta, event, world, cottages, ho
   }
   return {discharge, heat};
 }
+function lanternPoolOrigin(position, impact) {
+  if (impact?.volume?.surface !== 'wall') return position;
+  const {box} = impact;
+  const x = box.width / 2 - Math.abs(position.x - box.x);
+  const y = box.depth / 2 - Math.abs(position.y - box.y);
+  const margin = Math.min(x, y);
+  // A flush .16 m wall face lies 1 cm inside the coarse ground collider.
+  // Move the ground spill outside that lip while keeping the true arc impact.
+  if (margin < 0 || margin > .011) return position;
+  const skin = margin + .0001;
+  return x <= y ? {...position, x: position.x + Math.sign(position.x - box.x) * skin} :
+    {...position, y: position.y + Math.sign(position.y - box.y) * skin};
+}
+
 export function projectilesStep(state, field, config, delta, event, cottages, housing, witness) {
   const spec = config.tools.molotov, alive = [];
   for (const projectile of state.projectiles) {
-    const {next, position, progress, hit, finished} = advanceLantern(projectile, spec.speed * delta, state.obstacles);
+    const {next, position, progress, hit, contact: impact, finished} =
+      advanceLantern(projectile, spec.speed * delta, state.obstacles);
     if (finished) {
       const onHeat = witness?.observeImpact(projectile, position);
       let surfaceHit;
       if (hit) {
-        surfaceHit = cottages?.heatSurface(projectile, next, spec.heat * .70, 'molotov', projectile.h, next.h);
-        const contact = housing && firstHeatContact(projectile, next, state.obstacles, projectile.h, next.h);
-        if (contact && !surfaceHit) {
-          surfaceHit = housing.get(contact.box.buildingId)?.strike(contact.box, projectile, next, spec.heat * .70, 'molotov', {onHeat})?.site;
+        if (!impact?.volume) surfaceHit = cottages?.heatSurface(projectile, next, spec.heat * .70, 'molotov', projectile.h, next.h);
+        const contact = impact?.volume ? impact : housing && firstHeatContact(projectile, next, state.obstacles, projectile.h, next.h);
+        if (contact && !surfaceHit && (impact?.volume || !contact.volume)) {
+          surfaceHit = housing.get(contact.box.buildingId)?.strike(contact.box, projectile, next, spec.heat * .70, 'molotov', {onHeat, contact})?.site;
         }
       }
-      field.addPool(position, spec.radius, spec.fuel);
-      if (!surfaceHit) field.emit(position, spec.radius, spec.heat, 'molotov', {onHeat});
+      const ground = lanternPoolOrigin(position, impact);
+      field.addPool(ground, spec.radius, spec.fuel);
+      if (!surfaceHit) field.emit(ground, spec.radius, spec.heat, 'molotov', {onHeat});
       event('molotov-impact', position, {projectileId: projectile.id, h: position.h});
     } else {
       Object.assign(projectile, position, {progress});
