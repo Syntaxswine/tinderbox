@@ -10,6 +10,7 @@
   - The commissioning session re-ran the whole round 1 bench and the round 1 reviewer's probes on `26931d9`, re-took the frame cost in a browser with the old tree beside the new one, and re-ran every MUST-FIX by hand. The table near the end says how.
   - Labels are as in round 1: **measured**, **code-reading**, **judgment**.
 - **Evidence:** [`evidence/hostile-review-round-2/`](evidence/hostile-review-round-2/README.md).
+- **Direction (the owner, 2026-11-10):** hand N1, N2 and the S9 tests to Codex. The brief is [`2026-11-10-hostile-review-round-2-handoff.md`](2026-11-10-hostile-review-round-2-handoff.md). The reviewer builds nothing.
 - **This branch changes nothing in the game.** It adds this record and the probes, and merges `26931d9` so they run on the fixed tree.
 
 A **cell** is one 0.5 m square of the ground heat grid. A **site** is one fire-carrying patch of a house. Times are world seconds.
@@ -85,7 +86,7 @@ Hopkins 9 and Hopkins 13 are L-shaped. Each one's collision box is the plan's fu
 
 These walls burn only by spread from a neighbouring panel. Fix B's record says every exposed half metre can now catch; that is true of the 388 half-metres in open air (D15) and false of these.
 
-**Smallest fix (proposal):** build each house's collision from its plan outline, so a notch is open ground with its own cells. That is a content and collision change, the coder's and the architect's call.
+**Smallest fix (proposal), revised while writing the handoff:** the comment at `buildings.js:7-9` says the low plinth really does fill the rectangle. So ground fire stopped by a metre of masonry is defensible, and matches and a torch are short tools. The defect is that the flamethrower and thrown fire cannot reach visible wood 1.1 m away, because the box is full height where the house is not. Keep the plinth at its real 0.48 m and build the solid above it from the plan's rooms. That is a content and collision change, the coder's and the architect's call.
 
 ### Still open from round 1, unchanged
 
@@ -175,9 +176,9 @@ Rungs 0 and 1 of round 1's order are done, apart from N1 and N2. Rungs 2 to 6 ar
 
 | # | Decision | Options | Recommendation |
 | --- | --- | --- | --- |
-| 1 | Should a porch burn as one piece? | Yes, as now: fire runs its length in under 2 s; or one site per metre | One site per metre. It keeps "spreads easily" and stops the jump across paving |
-| 2 | Should the notch walls on Hopkins 9 and 13 be lightable? | Leave them to catch by spread; or build the collision from the plan outline | Build it from the outline. A player aiming a flamethrower at visible wood expects it to burn |
-| 3 | Who takes N1, N2 and the three tests in S9? | Hand to Codex, as with round 1; or leave for now | Hand to Codex. All three are small and in the code the fixes just touched |
+| 1 | Should a porch burn as one piece? | Yes, as now: fire runs its length in under 2 s; or one site per metre | One site per metre. It keeps "spreads easily" and stops the jump across paving. **Handed to Codex** |
+| 2 | Should the notch walls on Hopkins 9 and 13 be lightable? | Leave them to catch by spread; or let the flamethrower and thrown fire reach them over the plinth | Let them be reached. A player aiming a flamethrower at visible wood expects it to burn. **Handed to Codex** |
+| 3 | Who takes N1, N2 and the three tests in S9? | Hand to Codex, as with round 1; or leave for now | **Decided 2026-11-10: hand to Codex** |
 | 4 | Round 1's decisions 1 to 5 (tile size, reach, climb speed, landmark fire, whether a lawn fire always takes everything) | See round 1 | Unchanged |
 | 5 | Go on to rung 2, the lattice under the ground field? | Yes; or stop at the contact fixes | Yes, after N1 and N2. Every clause of the sentence that scored "No" is still "No" |
 
