@@ -1,0 +1,19 @@
+# Ashland radiant heat and rubble review
+
+The runtime candidate is `10fb820c768c152b30c5b1999598401028f0cfb0` from published `2084e72644b229069ead5e762064dea4674d6223`. Radiation runs in the authored Ashland pair. Burning exterior panels send heat across clear sightlines to facing siding. Each contribution scales with burning area, output, both facing angles, and the inverse square of distance within the modeled range. The siding accumulates those contributions and cools on world time. The rates are tuned for gameplay. [NIST SP 1169, §6.1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1169.pdf)
+
+The simulation prepares 2,074 candidate links from the pinned geometry and checks current column heights, roof masks, and exterior cover during the transfer. It collects heat before either house resolves ignition. The ignition event identifies the strongest contributing site and its house. The normal cottage route runs both windborne embers and radiation.
+
+The artist's rubble factory enters from `27cdd01fa5a3c83932e5aeabac87011e16412458`. Its Git blob is `ba62f984b40533b2a03f471fcd4e7714473d7d91` and its SHA-256 is `f799e304afce78519d24a6d62210f8edde7cb1765c50d33f58b3f59c45d14599`. The factory uses the six native Catalogue plans from artist intake `56b028c2935b5a97fe259618f38e0a1550928ab4` and the existing Farmyard flame and smoke atlases pinned at `30a3b8cae5f36bb0c1df3685b7fba16f701c2083`. The atlas hashes match the artist's record. The normal Catalogue scene reads each house's burnout and shows five ember pockets, smoke, and a low spill within the shared light budget. The pile remains visible when the visual heat finishes fading after 24 world seconds. [Artist source record](https://github.com/Syntaxswine/tinderbox/blob/27cdd01fa5a3c83932e5aeabac87011e16412458/docs/art/burn-aftermath/README.md)
+
+## Controlled replay
+
+- On the prior package, the calm pair with bare paving left the receiver cold through the donor's full burn. With radiation enabled and embers disabled on the same geometry, the facing siding began to warm near 1.77 s and caught at 6.97 s from `ashland-cottage/right:6,1` with 38 contributing panels. Both lower floors and roofs visibly burned in the snapshots and both buildings retired 30 s after their own ignitions.
+- The identical match and a tall masonry screen produced zero receiving preheat. Five short-lived donor panels raised the siding to about 6.6% of the ignition threshold before it cooled to zero. Doubling distance from 4 m to 8 m at fixed angles reduced the measured contribution to one quarter. The wind-only control still ignited `roof:9` from ember 21 at 11.97 s.
+- An independent replay observed the first real Ashland ruin with five hot pockets, both ruins after cooling, and reset clearing the piles. The coder also verified the production fire batch on ordinary Hopkins 15 after collapse and checked all 24 native plan and rotation combinations.
+
+## Package and browser evidence
+
+The coder and architect each passed all 257 tests with `node tools/check.mjs`. The architect's `node tools/build.mjs` and `node tools/check-release.mjs` verified the 3,510 files and their nested project URL. The rebuilt manifest SHA-256 `b037580b1ec9a83ddb0522a981a0e0d202db54452182b33ae32455044b6c619d` matches the package used in the browser.
+
+In the 1280 × 720 WebGL replay of the normal `?cottages=1` route at default zoom, one match led to facing-wall ignition about 7.4 world seconds later, before the receiver's first hot ember contact. The captures show the dark receiving roof above the first burning wall, the first ruin glowing while the second house still burns, and both cold ruins. Pause froze the outputs and reset cleared them. The browser reported zero errors. The isolated browser and server exited and released their ports. JPGs and receipts are in ignored `artifacts/qa/ashland-radiant-heat/combined/`.
