@@ -1,0 +1,18 @@
+== catalogue-death-and-reset: 694 advances + 0 extra snapshots audited in 11.4 s ==
+   peak burning cells 450 | cell list reused 168 times | records republished 183445 (value-identical republish: 8667) | obstacle list reused 690
+   event types exercised: barrel-explosion burnout death ignition pour reset structure-ignition tool-rejected tool-selected tool-use
+   no mismatch of any kind
+== small-fixtures: 13738 advances + 2 extra snapshots audited in 27.7 s ==
+   peak burning cells 290 | cell list reused 7737 times | records republished 899695 (value-identical republish: 944) | obstacle list reused 13722
+   event types exercised: barrel-explosion building-burnout burnout ignition molotov-impact obstacle-burnout pour reset tool-rejected tool-selected tool-use
+   no mismatch of any kind
+== odd-grids: 2955 advances + 0 extra snapshots audited in 6.9 s ==
+   peak burning cells 1592 | cell list reused 12 times | records republished 1426482 (value-identical republish: 0) | obstacle list reused 2946
+   event types exercised: barrel-explosion burnout ignition molotov-impact obstacle-burnout pour tool-selected tool-use
+   no mismatch of any kind
+== lantern-on-siding: 363 advances + 0 extra snapshots audited in 1 s ==
+   peak burning cells 9 | cell list reused 88 times | records republished 2287 (value-identical republish: 0) | obstacle list reused 362
+   event types exercised: burnout ignition molotov-impact structure-ignition tool-use
+   no mismatch of any kind
+
+RESULT: published == live in every audited frame

@@ -1,0 +1,8 @@
+== this tree ==
+   full lawn       : match lit 4 cells | peak siding preheat 0.987 of ignition | siding IGNITES 0.933 s after the match (world 0.95 s), cause ground-heat
+   0.5 x 1 m strip : match lit 2 cells | peak siding preheat 0.993 of ignition | siding IGNITES 2.367 s after the match (world 2.383 s), cause ground-heat
+   one 0.5 m cell   : match lit 1 cells | peak siding preheat 0.567 of ignition | no ignition; siding back to zero at world 11.55 s
+== m5 720f7b6 (control) ==
+   full lawn       : match lit 4 cells | peak siding preheat 0.992 of ignition | siding IGNITES 1.983 s after the match (world 2 s), cause ground-heat
+   0.5 x 1 m strip : match lit 2 cells | peak siding preheat 0.567 of ignition | no ignition; siding back to zero at world 11.55 s
+   one 0.5 m cell   : match lit 1 cells | peak siding preheat 0.567 of ignition | no ignition; siding back to zero at world 11.55 s

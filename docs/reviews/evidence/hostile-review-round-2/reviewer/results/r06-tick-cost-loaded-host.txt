@@ -1,0 +1,8 @@
+== idle: CPU ms per advance, median of 5 interleaved rounds ==
+   old   10.287 ms  (rounds: 9.71, 11.67, 9.87, 11.04, 10.29)
+   m5    2.63 ms  (rounds: 2.86, 2.4, 2.63, 3.1, 2.21)
+   head  2.787 ms  (rounds: 3.13, 2.68, 2.79, 3.33, 2.48)
+== burning: CPU ms per advance, median of 5 interleaved rounds ==
+   old   17.573 ms  (rounds: 19.04, 18.95, 17.57, 16.75, 14.49)  peak burning cells 915, mean 354.6, peak warm/burning structure sites 1017
+   m5    9.885 ms  (rounds: 10.72, 9.03, 9.89, 10.66, 8.03)  peak burning cells 915, mean 354.6, peak warm/burning structure sites 1017
+   head  10.115 ms  (rounds: 10.11, 9.48, 10.69, 10.91, 7.85)  peak burning cells 1005, mean 354.6, peak warm/burning structure sites 1069

@@ -1,0 +1,13 @@
+tree: this checkout
+match: ignited at (2.75, 11.25)
+porch deck ignites: 0.7 s after the match, cause ground-heat, parent cell:6,24
+ground cells lit by the house in its first tick of lighting ground: 1, spanning 0.5 m east-west, at 0.77 s
+ground cells lit by the house within 1 s of that tick: 7
+first lawn cell beyond the east end of the porch: 1.83 s after the match at x = 11.25 (8.5 m from the match), cause structure-siding => 4.6 m per s
+
+tree: m5 (given as an argument)
+match: ignited at (2.75, 11.25)
+porch deck ignites: 6.22 s after the match, cause surface-spread, parent hopkins-twelve/wall:0:5,0|6,0:0
+ground cells lit by the house in its first tick of lighting ground: 1, spanning 0.5 m east-west, at 6.12 s
+ground cells lit by the house within 1 s of that tick: 7
+first lawn cell beyond the east end of the porch: 5.8 s after the match at x = 11.25 (8.5 m from the match), cause cell:21,24 => 1.5 m per s

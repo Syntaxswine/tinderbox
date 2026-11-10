@@ -1,0 +1,9 @@
+schedule                                final tick  world s    buildings destroyed  state hash
+--------------------------------------  ----------  ---------  -------------------  ----------------
+60 Hz (one tick per call)               2401        40.016667  0                    a8ebf447f0b3eda1
+60 Hz again                             2401        40.016667  0                    a8ebf447f0b3eda1
+30 Hz (two ticks per call)              2401        40.016667  0                    a8ebf447f0b3eda1
+120 Hz (a tick every other call)        2401        40.016667  0                    a8ebf447f0b3eda1
+hitching: 1, 1, 9 and 3 ticks per call  2401        40.016667  0                    a8ebf447f0b3eda1
+
+All schedules end in the identical state.

@@ -1,0 +1,40 @@
+
+== A02-pool-not-marked-dirty (simulation/field.js) ==
+   audit mismatches under the mutant:
+     cells.depositedFuel-stale x746 (first: advance tick 28 gen 0 cell:20,67 published 0 live 0.03333333333333333)
+     diag.remainingDepositedFuel x121 (first: advance tick 28 gen 0 published 0 expected 0.3)
+   RESULT: 2 mismatch kind(s)
+
+== A07-compare-drops-intensity (simulation/field.js) ==
+   audit: no mismatch on lantern-on-siding, odd-grids, small-fixtures, catalogue-death-and-reset => equivalent on these scripts
+   RESULT: published == live in every audited frame
+
+== A11-remaining-fuel-summed-out-of-order (simulation/field.js) ==
+   audit mismatches under the mutant:
+     diag.remainingDepositedFuel x156 (first: advance tick 67 gen 0 published 0.9161999999999926 expected 0.9161999999999925)
+     diag.remainingDepositedFuel x102 (first: advance tick 17 gen 0 published 0.18000000000000582 expected 0.18000000000000585)
+   RESULT: 2 mismatch kind(s)
+
+== A12-frontX-never-retreats (simulation/field.js) ==
+   audit mismatches under the mutant:
+     diag.frontX x103 (first: advance tick 261 gen 0 published 10.75 expected 10.25)
+     diag.frontX x1873 (first: advance tick 373 gen 0 published 7.875 expected 3.375)
+     diag.frontX x10458 (first: advance tick 794 gen 0 published 19.75 expected 7.75)
+   RESULT: 3 mismatch kind(s)
+
+== A20-ground-texture-trusts-any-change-list (art/ground-field.js) ==
+   mutant : texels for cell a (burning in C) and b (heating in C): [0,0,0,0,0,0.35,0,0]  expected [0,0.75,0.27,1, 0,0.35,0,0]
+   control: texels for cell a (burning in C) and b (heating in C): [0,0.75,0.27,1,0,0.35,0,0]  expected [0,0.75,0.27,1, 0,0.35,0,0]
+
+== A21-firelight-ignores-cell-size-change (art/street-firelight.js) ==
+   mutant : terrain light intensity with 0.5 m cells 7.188, then the same list with 1 m cells 7.188 (a real snapshot always carries cell.size, so the simulation cannot produce this)
+   control: terrain light intensity with 0.5 m cells 7.188, then the same list with 1 m cells 21.789 (a real snapshot always carries cell.size, so the simulation cannot produce this)
+
+== A25-map-keeps-box-of-moved-cell (ui/map.js) ==
+   only differs when a cell keeps its list index and changes x or y; the simulation never moves a cell (r09: 29,800 real frames identical). Equivalent on real snapshots.
+
+== B04-collapsed-section-still-takes-ground-heat (simulation/surface-fire.js) ==
+   measured by r13-support-gate.mjs: the gate is the deciding check 0 times in a whole-street burn to total collapse.
+
+== B05-collapsed-section-still-lights-ground (simulation/surface-fire.js) ==
+   measured by r13-support-gate.mjs: the gate is the deciding check 0 times in a whole-street burn to total collapse.

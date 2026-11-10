@@ -1,0 +1,13 @@
+Wall ms per frame, means over 600 frames. "step + snapshot" is one advance(); the other rows re-read that snapshot.
+
+per-frame work                               Catalogue Street, nothing lit  Catalogue Street, lawn fire  opening test street, nothing lit (control)
+-------------------------------------------  -----------------------------  ---------------------------  ------------------------------------------
+simulation: one advance() (step + snapshot)  1.24                           5.59                         0.08
+art/fire.js update                           0.012                          1.381                        0.004
+art/ground-field.js update                   0.002                          0.072                        0.001
+art/street-firelight.js update               0.005                          0.102                        0.003
+art/index.js nearby trail                    0.001                          0.004                        0
+art/world.js update                          0.003                          0.013                        0.001
+ui/map.js update                             0.008                          0.635                        0.004
+art and UI passes, total                     0.03                           2.21                         0.01
+peak burning cells                           0                              706                          0

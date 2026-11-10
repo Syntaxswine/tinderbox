@@ -1,0 +1,177 @@
+{
+ "A": [
+  {
+   "fuel": "gas",
+   "lattice 0°": 3.75,
+   "shipped 0°": 3.75,
+   "lattice 22.5°": 3.516,
+   "shipped 22.5°": 3.516,
+   "lattice 45°": 3.769,
+   "shipped 45°": 3.769,
+   "worst difference over 9 directions": "0%",
+   "reached": "1024/1024"
+  },
+  {
+   "fuel": "grass",
+   "lattice 0°": 1.579,
+   "shipped 0°": 1.579,
+   "lattice 22.5°": 1.595,
+   "shipped 22.5°": 1.595,
+   "lattice 45°": 1.512,
+   "shipped 45°": 1.512,
+   "worst difference over 9 directions": "0%",
+   "reached": "1024/1024"
+  },
+  {
+   "fuel": "wood",
+   "lattice 0°": 0.526,
+   "shipped 0°": 0.526,
+   "lattice 22.5°": 0.547,
+   "shipped 22.5°": 0.547,
+   "lattice 45°": 0.525,
+   "shipped 45°": 0.525,
+   "worst difference over 9 directions": "0%",
+   "reached": "1024/1024"
+  }
+ ],
+ "B": [
+  {
+   "up setting": 1,
+   "down setting": 1,
+   "+x": 0.533,
+   "-x": 0.533,
+   "+y": 0.533,
+   "-y": 0.533,
+   "up": 0.533,
+   "down": 0.533,
+   "level diagonal": 0.571,
+   "diagonal up": 0.571,
+   "diagonal down": 0.571,
+   "corner up": 0.58,
+   "corner down": 0.58,
+   "up : level : down": "1 : 1 : 1"
+  },
+  {
+   "up setting": 2,
+   "down setting": 0.5,
+   "+x": 0.525,
+   "-x": 0.525,
+   "+y": 0.525,
+   "-y": 0.525,
+   "up": 1,
+   "down": 0.327,
+   "level diagonal": 0.557,
+   "diagonal up": 0.926,
+   "diagonal down": 0.388,
+   "corner up": 0.837,
+   "corner down": 0.418,
+   "up : level : down": "1.9 : 1 : 0.62"
+  },
+  {
+   "up setting": 3,
+   "down setting": 0.35,
+   "+x": 0.525,
+   "-x": 0.525,
+   "+y": 0.525,
+   "-y": 0.525,
+   "up": 1.5,
+   "down": 0.27,
+   "level diagonal": 0.555,
+   "diagonal up": 1.307,
+   "diagonal down": 0.336,
+   "corner up": 1.06,
+   "corner down": 0.365,
+   "up : level : down": "2.86 : 1 : 0.51"
+  }
+ ],
+ "C1": [
+  {
+   "model": "shipped game",
+   "flames out s": 27.18,
+   "north lawn": "100%",
+   "south lawn": "0%",
+   "north houses caught": "3/3",
+   "south houses caught": "0/5",
+   "drums": 2
+  },
+  {
+   "model": "lattice kernel, contact only",
+   "flames out s": 39.8,
+   "north lawn": "100%",
+   "south lawn": "0%",
+   "north houses caught": "3/3",
+   "south houses caught": "0/5",
+   "drums": 2
+  }
+ ],
+ "C2": [
+  {
+   "house": "hopkins-nine",
+   "tiles": 1300,
+   "upper storey s": "1.3 (0.97)",
+   "roof s": "1.47 (3.02)",
+   "last ignition s": "7.17 (8.38)",
+   "flames out s": "16.17 (18.33)",
+   "other houses lit": "none"
+  },
+  {
+   "house": "hopkins-fifteen",
+   "tiles": 1760,
+   "upper storey s": "1.3 (0.97)",
+   "roof s": "2.58 (2.65)",
+   "last ignition s": "8.87 (9.32)",
+   "flames out s": "17.87 (19.25)",
+   "other houses lit": "none"
+  },
+  {
+   "house": "monroe-row-middle",
+   "tiles": 1820,
+   "upper storey s": "1.3 (1.17)",
+   "roof s": "2.58 (3.62)",
+   "last ignition s": "10.97 (10.88)",
+   "flames out s": "19.97 (20.58)",
+   "other houses lit": "monroe-row-house @4.6, monroe-row-east @3.6"
+  }
+ ],
+ "C3": [
+  {
+   "rule": "contact only",
+   "Hopkins 13, 5 m east": "no",
+   "Monroe row, 4 m beyond that": "no",
+   "Hopkins 12, across the street": "no",
+   "bystander touching the wall: damage": "318 hp",
+   "bystander 0.8 m out: damage": "0 hp",
+   "drum 0.75 m from the wall": "never"
+  },
+  {
+   "rule": "contact + weak radiation (gain 0.012, 10 m)",
+   "Hopkins 13, 5 m east": "at 6.4 s",
+   "Monroe row, 4 m beyond that": "at 15.3 s",
+   "Hopkins 12, across the street": "no",
+   "bystander touching the wall: damage": "341 hp",
+   "bystander 0.8 m out: damage": "0 hp",
+   "drum 0.75 m from the wall": "never"
+  },
+  {
+   "rule": "contact + strong radiation (gain 0.06, 20 m)",
+   "Hopkins 13, 5 m east": "at 2.3 s",
+   "Monroe row, 4 m beyond that": "at 7.3 s",
+   "Hopkins 12, across the street": "at 13.9 s",
+   "bystander touching the wall: damage": "359 hp",
+   "bystander 0.8 m out: damage": "336 hp",
+   "drum 0.75 m from the wall": "at 4.1 s"
+  }
+ ],
+ "D": {
+  "tiles": 18242,
+  "fuelledTiles": 16230,
+  "latticeCpuPerTick": 0.25,
+  "changedPerTick": 1530.8,
+  "peakChanged": 4290,
+  "peakBurning": 2783,
+  "shippedStepCpu": 3.08,
+  "shippedSnapshotCpu": 1.42,
+  "shippedPublishedPerTick": 9588,
+  "linkVisitsPerTick": 13801
+ }
+}
