@@ -15,6 +15,7 @@ import {createToolProps} from './tool-props.js';
 import {createSidingPreheat} from './siding-preheat.js';
 import {loadNeighborhoodKit,createNeighborhood} from './neighborhood.js';
 import {BELL_AND_ALDER} from '../content/bell-and-alder-layout.js';
+import {CHICAGO_PATROL} from '../content/exterior-kit.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
 const medicineUrl=new URL('../../assets/art/medicine-pickups/index.js',import.meta.url);
@@ -99,12 +100,14 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       const active=new Set();
       for(const actor of snapshot.actors||[]){
         if(actor.id===player.id)continue;active.add(actor.id);
-        const tagged=Object.prototype.hasOwnProperty.call(actor,'species'),key=tagged?'civilian:'+actor.species:'legacy-provisional';
+        const patrol=actor.team===CHICAGO_PATROL.team,tagged=Object.hasOwn(actor,'species');
+        const key=patrol?'patrol':tagged?'civilian:'+actor.species:'legacy-provisional';
         let record=actors.get(actor.id);
         if(record&&record.key!==key){record.model.dispose();actors.delete(actor.id);record=null;}
         if(!record){
-          if(tagged&&!civilianKit)throw new Error('Species-tagged civilians require the borrowed shared renderer');
-          const model=tagged?civilianKit.create(actor):createActor(T,materials);record={key,model};actors.set(actor.id,record);root.add(model.root);
+          if((tagged||patrol)&&!civilianKit)throw new Error('Native street actors require the borrowed shared renderer');
+          const model=patrol?civilianKit.createPatrol(actor):tagged?civilianKit.create(actor):createActor(T,materials);
+          record={key,model};actors.set(actor.id,record);root.add(model.root);
         }
         record.model.update(actor,worldTime);
       }
@@ -118,7 +121,9 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       sidingPreheat.dispose();fire.dispose();firelight.dispose();streetNight?.dispose();toolProps.dispose();field.dispose();bearKit.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
     }
     return {update,dispose,pickAimSurface:cottages?.pickAimSurface,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
-      diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),exterior:exterior.diagnostics(),housing:housing?.diagnostics()||null,bellAndAlder:shop?.diagnostics()||null,medicine:medicine?.diagnostics?.()||null,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics(),firelight:firelight.diagnostics(),preheat:sidingPreheat.stats(),...(cottages?{cottages:cottages.diagnostics()}:{})})};
+      diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
+        patrolActors:[...actors.entries()].filter(([,r])=>r.key==='patrol').map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
+        exterior:exterior.diagnostics(),housing:housing?.diagnostics()||null,bellAndAlder:shop?.diagnostics()||null,medicine:medicine?.diagnostics?.()||null,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics(),firelight:firelight.diagnostics(),preheat:sidingPreheat.stats(),...(cottages?{cottages:cottages.diagnostics()}:{})})};
   }catch(error){
     for(const record of actors.values())record.model.dispose();medicine?.dispose();shop?.dispose();civilianKit?.dispose();exterior?.dispose();cottages?.dispose();housing?.dispose();housingKit?.dispose();sidingPreheat?.dispose();fire?.dispose();firelight?.dispose();streetNight?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();bearKit?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
   }

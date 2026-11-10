@@ -1,4 +1,4 @@
-import {CIVILIAN_PROFILES} from './exterior-kit.js';
+import {CHICAGO_PATROL, CIVILIAN_PROFILES} from './exterior-kit.js';
 import {BELL_AND_ALDER} from './bell-and-alder-layout.js';
 
 const civilian = (id, species, x, y, route) => ({id, ...CIVILIAN_PROFILES[species], x, y, route,
@@ -45,5 +45,9 @@ export const NEIGHBORHOOD_SCENARIO = {
   shopId: BELL_AND_ALDER.id,
   patches: [...NEIGHBORHOOD_BASE.patches, ...BELL_AND_ALDER.patches],
   modules: BELL_AND_ALDER.modules,
-  obstacles: [...NEIGHBORHOOD_BASE.obstacles, ...BELL_AND_ALDER.obstacles]
+  obstacles: [...NEIGHBORHOOD_BASE.obstacles, ...BELL_AND_ALDER.obstacles],
+  actors: [...NEIGHBORHOOD_BASE.actors, {
+    ...CHICAGO_PATROL, x: 37.6, y: 18.4, hp: 100, speed: .8,
+    route: [{x: 37.6, y: 18.4}, {x: 42.4, y: 18.4}]
+  }]
 };

@@ -1,7 +1,7 @@
 import {EXPOSITION_SCENARIO} from '../content/exposition.js';
 import {NEIGHBORHOOD_SCENARIO} from '../content/neighborhood.js';
 import {compileBuildings} from '../content/buildings.js';
-import {compileModules, validateCivilian} from '../content/exterior-kit.js';
+import {CHICAGO_PATROL, compileModules, validateChicagoPatrol, validateCivilian} from '../content/exterior-kit.js';
 import {preparePickups} from './pickups.js';
 const obstacle = (id, x, y, width, depth, height, material, kind = 'building') =>
   ({id, x, y, width, depth, height, material, kind});
@@ -65,7 +65,13 @@ export function scenarioDefinition(scenario = 'street') {
     if (object.radius !== undefined && (!Number.isFinite(object.radius) || object.radius <= 0)) throw Error('Invalid obstacle radius');
   }
   for (const actor of result.actors) {
-    if (actor.species !== undefined || actor.team === 'civilian') validateCivilian(actor);
+    if (actor.id === CHICAGO_PATROL.id || actor.team === CHICAGO_PATROL.team) {
+      validateChicagoPatrol(actor);
+      if (result.id !== NEIGHBORHOOD_SCENARIO.id || result.shopId !== NEIGHBORHOOD_SCENARIO.shopId) {
+        throw Error('The Chicago patrol belongs to regular Catalogue Street');
+      }
+    } else if (actor.species !== undefined || actor.team === 'civilian' || actor.uniform !== undefined ||
+        (actor.equipment !== undefined && actor.equipment !== 'none')) validateCivilian(actor);
     if (actor.hp !== undefined && (!Number.isFinite(actor.hp) || actor.hp < 0)) throw Error('Invalid actor health');
     if (actor.speed !== undefined && (!Number.isFinite(actor.speed) || actor.speed < 0)) throw Error('Invalid actor speed');
     if (actor.route?.some(p => ![p.x, p.y].every(Number.isFinite))) throw Error('Invalid actor route');

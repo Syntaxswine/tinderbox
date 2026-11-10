@@ -11,12 +11,24 @@ export const CIVILIAN_PROFILES = Object.freeze({
   goat: Object.freeze({species: 'goat', appearance: 'normal', radius: 0.62, height: 1.7,
     model: '../tactics/goat-10k-data.json', paint: 'characters/lowpoly-proof/goat-worker-model-paint-v1.png', sourceRef: 'farmyard:normal-goat'})
 });
+export const CHICAGO_PATROL = Object.freeze({
+  ...CIVILIAN_PROFILES.goat, id: 'chicago-beat-officer', team: 'police',
+  headgear: 'helmet', uniform: 'chicago-1893-city-beat', equipment: 'pistol'
+});
+const patrolIdentity = Object.entries(CHICAGO_PATROL);
+
 function positive(n, name) { if (!Number.isFinite(n) || n <= 0) throw Error('Invalid module ' + name); }
 export function validateCivilian(actor) {
-  const profile = CIVILIAN_PROFILES[actor.species];
-  if (!profile || actor.appearance !== 'normal' || actor.team !== 'civilian' || actor.headgear !== 'none' || actor.equipment !== 'none') throw Error('Civilian identity must be allowlisted normal horse/goat, civilian team, no headgear/equipment');
+  const profile = Object.hasOwn(CIVILIAN_PROFILES, actor.species) ? CIVILIAN_PROFILES[actor.species] : null;
+  if (!profile || actor.appearance !== 'normal' || actor.team !== 'civilian' || actor.id === CHICAGO_PATROL.id ||
+      actor.headgear !== 'none' || actor.equipment !== 'none' || actor.uniform !== undefined) {
+    throw Error('Civilian identity must be allowlisted normal horse/goat, civilian team, no uniform/headgear/equipment');
+  }
   if (!Number.isFinite(actor.radius) || actor.radius < profile.radius) throw Error('Civilian radius is smaller than measured envelope');
   return profile;
+}
+export function validateChicagoPatrol(actor) {
+  if (!patrolIdentity.every(([key, value]) => actor[key] === value)) throw Error('Invalid Chicago patrol identity or equipment');
 }
 export function compileModules(input = [], world) {
   if (!Array.isArray(input) || input.length > 128) throw Error('Invalid module list');

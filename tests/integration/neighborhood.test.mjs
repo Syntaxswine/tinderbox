@@ -7,7 +7,7 @@ import * as T from '../../src/runtime/three.js';
 import {ASSET_SCALE} from '../../src/content/asset-scale.js';
 import {HOUSING_PLANS, HOUSING_SOURCE_COMMIT} from '../../src/content/housing-plans.js';
 import {compileBuildings, buildingPoint, localHousingFootprints} from '../../src/content/buildings.js';
-import {NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
+import {NEIGHBORHOOD_BASE, NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
 import {scenarioDefinition} from '../../src/simulation/fixtures.js';
 import {createSimulation, SCENARIOS} from '../../src/simulation/index.js';
 import {freePoint, lineClear, inObstacle, moveDisc} from '../../src/simulation/geometry.js';
@@ -257,7 +257,7 @@ test('source-bounds occlusion fades houses behind the bear and in gaps, restores
   } finally { view.dispose(); simulation.dispose(); }
 });
 
-test('production composition mounts the native houses and Bell & Alder without duplicate generic boxes (no WebGL)', async () => {
+test('production composition mounts the houses, shop and one equipped patrol without duplicate art (no WebGL)', async () => {
   const oldFetch = globalThis.fetch, oldLoad = T.TextureLoader.prototype.loadAsync, oldDocument = globalThis.document;
   const renderer = Object.create(T.WebGLRenderer.prototype), rendererState = {target: null, projections: 0, disposed: 0};
   Object.defineProperty(renderer, 'outputColorSpace', {value: T.SRGBColorSpace, writable: true});
@@ -296,7 +296,12 @@ test('production composition mounts the native houses and Bell & Alder without d
     assert.equal(diagnostics.exterior.modules, snapshot.world.modules.length);
     assert.equal(diagnostics.bearProtagonist.paint, 'native-normal-projection');
     assert.deepEqual(diagnostics.civilianActors.map(actor => actor.species).sort(), ['goat', 'horse']);
-    assert.ok(diagnostics.housing.projection.bearHeightPixels > 45); assert.equal(rendererState.projections, 12);
+    assert.ok(diagnostics.civilianActors.every(actor => !actor.armed));
+    const [officer] = diagnostics.patrolActors;
+    assert.equal(diagnostics.patrolActors.length, 1);
+    assert.deepEqual(officer.sidearm, {id:'pistol', label:'TT-33 pistol', carry:'belt', parts:15, visible:true});
+    assert.deepEqual(Object.values(officer.uniform.pieces), Array(6).fill(true));
+    assert.ok(diagnostics.housing.projection.bearHeightPixels > 45); assert.equal(rendererState.projections, 16);
     const generic = scene.getObjectByName('Snapshot exterior');
     assert.deepEqual(generic.children.filter(child => child.name.startsWith('obstacle:')).map(child => child.name).sort(), ['obstacle:street-drum-east', 'obstacle:street-drum-west']);
     assert.equal(JSON.stringify(snapshot), before);
@@ -304,10 +309,26 @@ test('production composition mounts the native houses and Bell & Alder without d
       simulation.dispatch({type: 'select-tool', tool}); const next = simulation.advance(1 / 60); art.update(next, {camera: rig.camera});
       assert.equal(art.diagnostics().bearProtagonist.selectedTool, tool); assert.ok(art.diagnostics().bearProtagonist.finiteAnchors);
     }
+    const sidearm = scene.getObjectByName('TT-33 belt sidearm');
+    assert.equal(sidearm.parent.name, 'hips');
+    const gunMeshes = sidearm.children.filter(child => child.isMesh);
+    const gunMaterials = new Set(gunMeshes.map(mesh => mesh.material));
+    let gunGeometryReleases = 0, gunMaterialReleases = 0;
+    for (const mesh of gunMeshes) mesh.geometry.addEventListener('dispose', () => gunGeometryReleases++);
+    for (const material of gunMaterials) material.addEventListener('dispose', () => gunMaterialReleases++);
+    assert.ok(simulation.dispatch({type:'reset'}));
+    art.update(simulation.advance(1 / 60), {camera: rig.camera});
+    const mounted = [];
+    scene.traverse(node => { if (node.name === sidearm.name) mounted.push(node); });
+    assert.deepEqual(mounted, [sidearm]);
+    assert.equal(rendererState.projections, 16);
     const geometry = scene.getObjectByName('Catalogue neighborhood').children[0].getObjectByName('New raised plinth').geometry;
     geometry.addEventListener('dispose', () => geometryReleases++);
     for (const texture of originals) texture.addEventListener('dispose', () => originalReleases++);
     art.dispose(); art.dispose(); assert.equal(geometryReleases, 1); assert.equal(originalReleases, originals.length);
+    assert.equal(sidearm.parent, null);
+    assert.equal(gunGeometryReleases, gunMeshes.length);
+    assert.equal(gunMaterialReleases, gunMaterials.size);
     assert.equal(scene.children.length, 0); assert.equal(rendererState.disposed, 0); assert.equal(rendererState.target, null);
   } finally {
     art?.dispose(); simulation.dispose(); globalThis.fetch = oldFetch; T.TextureLoader.prototype.loadAsync = oldLoad;
@@ -322,7 +343,7 @@ test('second row preserves the original street and has a continuous native-bear 
     {id: 'ashland-cottage', prefabId: 'ashland-worker', x: 33, y: 10, quarterTurns: 2}
   ]);
   assert.deepEqual(NEIGHBORHOOD_SCENARIO.player, {x: 20, y: 18, tool: 'jerry-can'});
-  assert.deepEqual(NEIGHBORHOOD_SCENARIO.actors.map(({id, x, y, route}) => ({id, x, y, route})), [
+  assert.deepEqual(NEIGHBORHOOD_BASE.actors.map(({id, x, y, route}) => ({id, x, y, route})), [
     {id: 'neighbor-horse', x: 7, y: 17, route: [{x: 7, y: 17}, {x: 17, y: 17}]},
     {id: 'neighbor-goat', x: 29, y: 24.5, route: [{x: 29, y: 24.5}, {x: 19, y: 24.5}]}
   ]);
