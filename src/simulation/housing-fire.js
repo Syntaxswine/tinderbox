@@ -4,7 +4,7 @@ import {HOUSING_PLANS} from '../content/housing-plans.js';
 import {ASSET_SCALE} from '../content/asset-scale.js';
 import {STRUCTURE_DECAY_SECONDS} from './config.js';
 import {createHousingTopology} from './housing-topology.js';
-import {exchangeSurfaceGround, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample, retainedStructureHeat, structureSmolder} from './surface-fire.js';
+import {exchangeSurfaceGround, surfaceGroundContacts, worldSurface, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample, retainedStructureHeat, structureSmolder} from './surface-fire.js';
 
 const EPS=1e-9;
 function toPlan(building,point){
@@ -26,7 +26,7 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
   const grid=housingSectionGrid(building.prefabId);
   const localBoxes=localHousingFootprints(building.prefabId,building.partyWalls);
   const plan=HOUSING_PLANS[building.prefabId],odd=building.quarterTurns%2;
-  const {sites,panels,porch,roofSeams}=createHousingTopology(building,plan,localBoxes,config,wind);
+  const {sites,panels,porch,porchPost,roofSeams}=createHousingTopology(building,plan,localBoxes,config,wind);
   const sections=Array.from({length:grid.cols*grid.rows},(_,index)=>({
     sites:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,retiredAt:null,fire:null,preheat:null}
   }));
@@ -36,7 +36,27 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
   const initialArea=sites.reduce((sum,site)=>sum+site.area,0);
   const lowPanels=panels.filter(panel=>panel.level===0);
   for(const panel of lowPanels)panel.section=housingSectionAt(grid,panel.x,panel.z);
-  const groundSites=lowPanels.flatMap(panel=>panel.low?[panel.low]:[]);
+  const groundSites=lowPanels.flatMap(panel=>panel.low?[{site:panel.low,fronts:[{...panel.low.world,span:panel.length}]}]:[]);
+  for(const {role,x,y:z,width,depth} of localBoxes){
+    const site=porch.get(role);
+    if(!site)continue;
+    const fronts=[
+      {x:x-width/2,z,nx:-1,nz:0,span:depth}, {x:x+width/2,z,nx:1,nz:0,span:depth},
+      {x,z:z-depth/2,nx:0,nz:-1,span:width}, {x,z:z+depth/2,nx:0,nz:1,span:width}
+    ].map(front=>({...worldSurface(building,{...front,y:0,ny:0}),span:front.span}));
+    groundSites.push({site,fronts});
+  }
+  if(porchPost){
+    // Use the exposed face of the native .18 m porch post base.
+    const {x,z,nx,nz}=porchPost.world;
+    groundSites.push({site:porchPost,fronts:[{x:x+nx*.09,z:z+nz*.09,nx,nz,span:.18}]});
+  }
+  let groundField;
+  const supportAt=point=>{
+    const local=toPlan(building,point);
+    return housingSectionAt(grid,local.x,local.y);
+  };
+  const supported=index=>sections[index].view.present;
   const fragments=new Map();
   for(const section of sections){
     const {minX,maxX,minZ,maxZ}=section.bounds;
@@ -165,8 +185,13 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
     }
   }
   function exchangeGround(field,dt,time){
-    if(!building.destroyed)for(const site of groundSites)if(present(site)){
-      exchangeSurfaceGround(site,site.world,field,obstacles,dt,time,'structure-siding');
+    if(building.destroyed)return;
+    if(groundField!==field){
+      for(const ground of groundSites)ground.frontage=surfaceGroundContacts(field,ground.fronts,supportAt);
+      groundField=field;
+    }
+    for(const {site,frontage} of groundSites)if(present(site)){
+      exchangeSurfaceGround(site,frontage,field,obstacles,dt,time,'structure-siding',supported);
     }
   }
   function samples(time){

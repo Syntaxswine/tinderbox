@@ -1,7 +1,7 @@
 import {COTTAGE_IDS,COTTAGE_ORIGIN,COTTAGE_OFFSET} from '../content/cottage-pair.js';
 import {firstHeatContact,distance} from './geometry.js';
 import {STRUCTURE_DECAY_SECONDS} from './config.js';
-import {exchangeSurfaceGround, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceFlame as flameAt, surfaceSample, worldSurface, retainedStructureHeat, structureSmolder} from './surface-fire.js';
+import {exchangeSurfaceGround, surfaceGroundContacts, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceFlame as flameAt, surfaceSample, worldSurface, retainedStructureHeat, structureSmolder} from './surface-fire.js';
 import {createCottageRadiation} from './cottage-radiation.js';
 import {WIDTH,DEPTH,UPPER,EAVE,RIDGE,RIM,PITCH,OVERHANG,roofHeight,roofNormal,tileIndex,makeTiles,createCottageTopology} from './cottage-topology.js';
 
@@ -149,8 +149,14 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed,radiation
   function exchangeGround(field,dt,time){
     for(const lot of lots){
       if(lot.building.destroyed)continue;
-      for(const s of lot.walls){
-        if(!s.band&&present(lot,s))exchangeSurfaceGround(s,worldSurface(lot.building,s),field,obstacles,dt,time,'cottage-siding');
+      if(lot.groundField!==field){
+        lot.groundSites=lot.walls.filter(site=>!site.band).map(site=>({
+          site,frontage:surfaceGroundContacts(field,[{...worldSurface(lot.building,site),span:1}])
+        }));
+        lot.groundField=field;
+      }
+      for(const {site,frontage} of lot.groundSites)if(present(lot,site)){
+        exchangeSurfaceGround(site,frontage,field,obstacles,dt,time,'cottage-siding');
       }
     }
   }

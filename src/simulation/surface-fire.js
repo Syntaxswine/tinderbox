@@ -1,11 +1,11 @@
 import {buildingPoint} from '../content/buildings.js';
-import {clamp, lineClear} from './geometry.js';
+import {boxInterval, clamp, lineClear, rasterSegments} from './geometry.js';
 import {activeFuel} from './field.js';
 import {ignites, storedHeat} from './combustion.js';
 
 const EPS = 1e-8;
 const contacts = [[.38, .024], [.84, .018]];
-// An exposed grass front transfers less heat than gas. The two contact rows
+// An exposed grass front transfers less heat than gas. The two depth bands
 // can heat siding together while an isolated grass cell cools before ignition.
 const grassSidingCoupling = 2.5;
 const unit = value => clamp(value, 0, 1);
@@ -127,23 +127,47 @@ export function heatBlastSiding(site, world, span, origin, blast, obstacles, cau
   }
 }
 
-export function exchangeSurfaceGround(site, world, field, obstacles, dt, time, cause) {
+export function surfaceGroundContacts(field, fronts, supportAt) {
+  const byCell = new Map();
+  for (const {x,z,nx,nz,span} of fronts) for (const [distance,coupling] of contacts) {
+    const a = {x:x+nx*distance+nz*span/2, y:z+nz*distance-nx*span/2};
+    const b = {x:x+nx*distance-nz*span/2, y:z+nz*distance+nx*span/2};
+    for (const run of rasterSegments(a,b,field.size)) {
+      const cell = field.at({x:(run.col+.5)*field.size, y:(run.row+.5)*field.size});
+      if (!cell) continue;
+      const interval = boxInterval(a,b,{x:cell.x,y:cell.y,width:field.size,depth:field.size});
+      if (!interval) continue;
+      const t = (interval[0]+interval[1])/2;
+      const point = {x:a.x+(b.x-a.x)*t-nx*distance, y:a.y+(b.y-a.y)*t-nz*distance};
+      const edge = {x:point.x+nx*.12, y:point.y+nz*.12};
+      const probe = {edge, support:supportAt?.(point), coupling:coupling*run.length/.5};
+      if (!byCell.has(cell)) byCell.set(cell,[]);
+      byCell.get(cell).push(probe);
+    }
+  }
+  // Coarser grids and corners can reach the same cell by multiple paths.
+  // Keep its strongest clear path, without heating the same fuel twice.
+  return Array.from(byCell,([cell,probes])=>({cell,probes:probes.sort((a,b)=>b.coupling-a.coupling)}));
+}
+
+export function exchangeSurfaceGround(site, frontage, field, obstacles, dt, time, cause, supported) {
   const burning = site.phase === 'burning';
   if (site.phase === 'spent' || burning && time - site.ignitedAt >= surfaceDuration(site)) return;
-  const {x, z, nx, nz} = world, edge = {x: x + nx * .12, y: z + nz * .12};
-  let previous;
-  for (const [distance, coupling] of contacts) {
-    const cell = field.at({x: x + nx * distance, y: z + nz * distance});
-    if (!cell || cell === previous) continue;
-    previous = cell;
+  for (const {cell,probes} of frontage) {
     if (burning) {
-      if (cell.phase !== 'burning' && cell.surfaceFuel + cell.depositedFuel > EPS) {
-        field.seed(edge, [cell], dt * coupling * field.heatOutput(site.fuel.material), cause);
+      if (cell.phase === 'burning' || cell.surfaceFuel + cell.depositedFuel <= EPS) continue;
+      for (const {edge,coupling,support} of probes) {
+        if (supported && !supported(support)) continue;
+        if (field.seed(edge,[cell],dt*coupling*field.heatOutput(site.fuel.material),cause).cells.length) break;
       }
-    } else if (cell.phase === 'burning' && lineClear(cell, edge, obstacles)) {
-      const material = activeFuel(cell);
-      const gain = material === 'grass' ? grassSidingCoupling : 1;
-      heatSurfaceSite(site, dt * coupling * gain * field.heatOutput(material), {kind: 'ground-heat', cellId: cell.id});
+    } else if (cell.phase === 'burning') {
+      for (const {edge,coupling,support} of probes) {
+        if (supported && !supported(support) || !lineClear(cell,edge,obstacles)) continue;
+        const material = activeFuel(cell);
+        const gain = material === 'grass' ? grassSidingCoupling : 1;
+        heatSurfaceSite(site,dt*coupling*gain*field.heatOutput(material),{kind:'ground-heat',cellId:cell.id});
+        break;
+      }
     }
   }
 }
