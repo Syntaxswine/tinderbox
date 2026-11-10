@@ -5,6 +5,9 @@ import {ignites, storedHeat} from './combustion.js';
 
 const EPS = 1e-8;
 const contacts = [[.38, .024], [.84, .018]];
+// An exposed grass front transfers less heat than gas. The two contact rows
+// can heat siding together while an isolated grass cell cools before ignition.
+const grassSidingCoupling = 2.5;
 const unit = value => clamp(value, 0, 1);
 
 export function surfaceSite(geometry, fuel) {
@@ -89,6 +92,22 @@ export function surfaceSample(building, site, time, exposed) {
     ignitionTime: site.ignitedAt};
 }
 
+export function heatBlastSiding(site, world, span, origin, blast, obstacles, cause) {
+  if (site.phase !== 'cold') return;
+  const {x, z, nx, nz} = world;
+  const dx = origin.x - x, dz = origin.y - z;
+  if (dx * nx + dz * nz <= EPS) return;
+  // A blast can touch the end of a board even when its centre is out of range.
+  // Measure against the exposed segment in the same plane as the ground blast.
+  const along = clamp(-dx * nz + dz * nx, -span / 2, span / 2);
+  const contact = {x: x - nz * along, y: z + nx * along};
+  if (Math.hypot(contact.x - origin.x, contact.y - origin.y) > blast.blastRadius + EPS) return;
+  const edge = {x: contact.x + nx * .02, y: contact.y + nz * .02};
+  if (!blast.wallsProtect || lineClear(origin, edge, obstacles, {allowWoodEndpoints: false})) {
+    heatSurfaceSite(site, blast.heat, {kind: cause});
+  }
+}
+
 export function exchangeSurfaceGround(site, world, field, obstacles, dt, time, cause) {
   const burning = site.phase === 'burning';
   if (site.phase === 'spent' || burning && time - site.ignitedAt >= surfaceDuration(site)) return;
@@ -103,7 +122,9 @@ export function exchangeSurfaceGround(site, world, field, obstacles, dt, time, c
         field.seed(edge, [cell], dt * coupling * field.heatOutput(site.fuel.material), cause);
       }
     } else if (cell.phase === 'burning' && lineClear(cell, edge, obstacles)) {
-      heatSurfaceSite(site, dt * coupling * field.heatOutput(activeFuel(cell)), {kind: 'ground-heat', cellId: cell.id});
+      const material = activeFuel(cell);
+      const gain = material === 'grass' ? grassSidingCoupling : 1;
+      heatSurfaceSite(site, dt * coupling * gain * field.heatOutput(material), {kind: 'ground-heat', cellId: cell.id});
     }
   }
 }

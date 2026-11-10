@@ -1,9 +1,10 @@
 import {configuration, TOOLS, DRUGS} from './config.js';
 import {scenarioDefinition} from './fixtures.js';
 import {HeatField, materialAt} from './field.js';
-import {clamp, normalized, movementVector, moveDisc, distance, lineClear, freePoint} from './geometry.js';
+import {clamp, normalized, movementVector, moveDisc, distance, inHeatCone, lineClear, freePoint} from './geometry.js';
 import {aimHeading, discreteTool, heldTool, projectilesStep, ageTorch} from './tools.js';
 import {inactiveDischarge} from './discharge.js';
+import {ignites, storedHeat} from './combustion.js';
 import {adjustLanternAim, cancelLanternAim, refreshLanternPreview} from './lantern.js';
 import {CHARACTER_PROFILES} from '../content/characters.js';
 import {pickupContacts} from './pickups.js';
@@ -60,7 +61,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       obstacles: def.obstacles.map(o => ({...o, destroyed: false})),
       buildings: def.buildings.map(building => ({...building, destroyed: false, burnedFraction: 0})),
       actors: def.actors.map(a => ({...a, route: a.route?.map(p => ({...p})) ?? [{x: a.x, y: a.y}],
-        routeIndex: a.route?.length > 1 ? 1 : 0, heading: 0, moving: false, hp: a.hp ?? 100, travelled: 0})),
+        routeIndex: a.route?.length > 1 ? 1 : 0, heading: 0, moving: false, hp: a.hp ?? 100, travelled: 0,
+        flamerHeat: 0, burn: null})),
       aim: {x: Math.min(def.width - 0.01, start.x + 0.8), y: start.y}, closeAim: null,
       discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false,
       moveNeedsNeutral: false, lanternPreview: null, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
@@ -187,6 +189,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     if (target.hp === 0) {
       target.moving = false; event('death', target, {actorId: target.id, cause});
       if (target === state.player) clearInput('death');
+      else { target.burn = null; target.flamerHeat = 0; }
     }
   }
   function barrels() {
@@ -198,7 +201,10 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       // Remove before queue expansion. Rendering and duplicate IDs cannot reapply.
       barrel.destroyed = true;
       event('barrel-explosion', barrel, {objectId: barrel.id, radius: config.barrel.blastRadius});
-      field.emit(barrel, config.barrel.blastRadius, config.barrel.heat, 'barrel:' + barrel.id, {wallsProtect: config.barrel.wallsProtect});
+      const cause = 'barrel:' + barrel.id;
+      field.emit(barrel, config.barrel.blastRadius, config.barrel.heat, cause, {wallsProtect: config.barrel.wallsProtect});
+      cottages?.heatBlast(barrel, config.barrel, cause);
+      for (const lot of housing?.values() ?? []) lot.heatBlast(barrel, config.barrel, cause);
       for (const target of [state.player, ...state.actors]) {
         const d = distance(barrel, target);
         if (d <= config.barrel.blastRadius && (!config.barrel.wallsProtect || lineClear(barrel, target, state.obstacles))) {
@@ -207,6 +213,28 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       }
       for (const next of state.obstacles) if (next.kind === 'barrel' && !next.destroyed &&
         distance(barrel, next) <= config.barrel.blastRadius && (!config.barrel.wallsProtect || lineClear(barrel, next, state.obstacles))) pending.push(next.id);
+    }
+  }
+  function heatActors(emission, dt) {
+    const time = state.clocks.world, fire = config.fire;
+    const cone = emission?.discharge;
+    const ux = Math.cos(cone?.heading ?? 0), uy = Math.sin(cone?.heading ?? 0);
+    const cosine = Math.cos(cone?.halfAngle ?? 0);
+    for (const actor of state.actors) {
+      if (actor.hp <= 0) continue;
+      const hit = cone && inHeatCone(cone.origin, actor, ux, uy, cone.range, cosine) &&
+        lineClear(cone.origin, actor, state.obstacles, {allowWoodEndpoints: false});
+      if (actor.burn && time + EPS >= actor.burn.expiresAt) actor.burn = null;
+      if (actor.burn) {
+        if (hit) actor.burn.expiresAt = time + fire.actorBurnSeconds;
+        continue;
+      }
+      actor.flamerHeat = storedHeat(actor.flamerHeat, hit ? emission.heat : 0, fire.cooling, dt, fire.maxHeat);
+      if (hit && ignites(actor.flamerHeat, fire.actorIgnitionHeat, fire.actorBurnSeconds)) {
+        actor.flamerHeat = 0;
+        actor.burn = {ignitedAt: time, expiresAt: time + fire.actorBurnSeconds};
+        event('actor-ignition', actor, {actorId: actor.id, cause: 'flamethrower', worldTime: time});
+      }
     }
   }
   function actorStep(actor, delta) {
@@ -236,6 +264,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     const playerScale = powder ? config.drugs.playerScale : 1, worldScale = powder ? config.drugs.worldScale : 1;
     const playerDelta = config.step * playerScale, worldDelta = config.step * worldScale;
     state.clocks.active += config.step; state.clocks.player += playerDelta; state.clocks.world += worldDelta;
+    let emission;
     if (p.hp > 0) {
       let path = [{x: p.x, y: p.y}];
       if (!p.lanternAim) {
@@ -259,8 +288,9 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
           pickup.consumed=true;event('pickup-used',pickup,{pickupId:pickup.id,kind:pickup.kind,actorId:p.id});
         }
       }
-      heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition,cottages,housing,witness);
+      emission = heldTool(state, field, config, config.tools.emissionClock === 'player' ? playerDelta : config.step, event, definition,cottages,housing,witness);
     }
+    heatActors(emission, worldDelta);
     for (const actor of state.actors) actorStep(actor, worldDelta);
     projectilesStep(state, field, config, worldDelta, event,cottages,housing,witness);
     ageTorch(state, config, worldDelta, event);
@@ -272,6 +302,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for (const result of state.ignitionResults) result.record.result = result.cells.some(cell => cell.phase === 'burning') ? 'ignited' : 'heated';
     state.ignitionResults = [];
     for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');
+    for (const actor of state.actors) if (actor.burn) hurt(actor, config.fire.damagePerSecond * worldDelta, 'flamethrower-burn');
     for (const group of buildingFuel) if (!group.building.destroyed) {
       const surface = group.cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
       group.building.burnedFraction = clamp(1 - surface / group.initialSurfaceFuel, 0, 1);
@@ -317,7 +348,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
         ...(shop ? {shop: shop.snapshot()} : {}),
         fireCellSize: definition.fireCellSize, tiles: state.tiles.map(t => ({...t})),
         obstacles: state.obstacles.filter(o => !o.destroyed).map(({destroyed, ...o}) => structuredClone(o))},
-      cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, ...actor}) => ({...actor})),
+      cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, flamerHeat, burn, ...actor}) => ({...actor, ...(burn ? {burn: {...burn}} : {})})),
       discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       ...(cottages?{cottageFire:cottages.snapshot(state.clocks.world)}:{}),
       ...(witness ? {witness: witness.snapshot()} : {}),

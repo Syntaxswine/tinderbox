@@ -22,10 +22,10 @@ export function createShopInteractions(world, state, event) {
   if (world.shopId !== shopId) return null;
   const {obstacles, player, actors} = state;
   const poses = {open: entryLeaves(true), close: entryLeaves(false)};
-  const firstLeaf = obstacles.length;
   if (poses.close.some(leaf => obstacles.some(box => box.id === leaf.id))) throw Error('Scenario IDs must be unique');
   // Keep movable leaves out of the static ground material and timber footprints.
-  obstacles.push(...poses.close.map(leaf => ({...leaf})));
+  const liveLeaves = poses.close.map(leaf => ({...leaf}));
+  obstacles.push(...liveLeaves);
   const support = obstacles.find(box => box.id === pedestalId);
   let open = false, taken = false;
 
@@ -67,10 +67,15 @@ export function createShopInteractions(world, state, event) {
       const target = interaction();
       if (!target?.enabled || target.id !== (command.portalId ?? command.objectId) || target.action !== command.action) return;
       if (target.kind === 'door') {
+        const slots = liveLeaves.map(leaf => obstacles.indexOf(leaf));
+        if (slots.includes(-1)) return;
         open = command.action === 'open';
-        // Preserve the array shared by HeatField. New box identities invalidate
-        // any cached lantern trajectory that used the previous poses.
-        poses[command.action].forEach((leaf, index) => { obstacles[firstLeaf + index] = {...leaf}; });
+        // Collapse can remove entries in the shared array before the door.
+        // Keep new box identities so lantern trajectories invalidate on a pose change.
+        poses[command.action].forEach((pose, index) => {
+          const leaf = {...pose};
+          obstacles[slots[index]] = liveLeaves[index] = leaf;
+        });
         event('portal-state', entrance, {portalId: doorId, open});
       } else {
         taken = true;
@@ -78,8 +83,7 @@ export function createShopInteractions(world, state, event) {
       }
     },
     snapshot() {
-      const leaves = obstacles.slice(firstLeaf, firstLeaf + poses.close.length)
-        .map(({id, x, y, width, depth, height, heading}) => ({id, x, y, width, depth, height, heading}));
+      const leaves = liveLeaves.map(({id, x, y, width, depth, height, heading}) => ({id, x, y, width, depth, height, heading}));
       const state = lanternState();
       return {door: {id: doorId, open, leaves}, lantern: {id: lanternId, state,
         position: state === 'placed' ? [...position] : null}};

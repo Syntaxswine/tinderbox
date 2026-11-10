@@ -3,7 +3,7 @@ import {housingSectionAt,housingSectionBounds,housingSectionGrid} from '../conte
 import {HOUSING_PLANS} from '../content/housing-plans.js';
 import {ASSET_SCALE} from '../content/asset-scale.js';
 import {createHousingTopology} from './housing-topology.js';
-import {exchangeSurfaceGround, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample} from './surface-fire.js';
+import {exchangeSurfaceGround, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample} from './surface-fire.js';
 
 const EPS=1e-9;
 function toPlan(building,point){
@@ -155,6 +155,12 @@ export function createHousingFire(group,obstacles,config,wind){
     }
     return strikeAt(first);
   }
+  function heatBlast(origin,blast,cause){
+    if(building.destroyed)return;
+    for(const {low, length} of lowPanels)if(low&&present(low)){
+      heatBlastSiding(low,low.world,plan.style.wall==='brick'?0:length,origin,blast,obstacles,cause);
+    }
+  }
   function exchangeGround(field,dt,time){
     if(!building.destroyed)for(const site of groundSites)if(present(site)){
       exchangeSurfaceGround(site,site.world,field,obstacles,dt,time,'structure-siding');
@@ -168,5 +174,5 @@ export function createHousingFire(group,obstacles,config,wind){
       return surfaceSample(building,site,time,exposed);
     });
   }
-  return {step,strike,exchangeGround,samples};
+  return {step,strike,heatBlast,exchangeGround,samples};
 }

@@ -1,4 +1,4 @@
-import {clamp, distance, inObstacle, lineClear, rasterSegments, impactPoint} from './geometry.js';
+import {clamp, distance, inObstacle, inHeatCone, lineClear, rasterSegments, impactPoint} from './geometry.js';
 import {ignites, storedHeat} from './combustion.js';
 const EPS = 1e-10;
 export const activeFuel = cell => cell.depositedFuel > EPS ? 'gas' : cell.material;
@@ -102,8 +102,7 @@ export class HeatField {
   cone(origin, heading, range, halfAngle, heat, cause, onHeat) {
     const ux = Math.cos(heading), uy = Math.sin(heading), cosine = Math.cos(halfAngle);
     for (const cell of this.candidates(origin, range)) {
-      const dx = cell.x - origin.x, dy = cell.y - origin.y, d = Math.hypot(dx, dy);
-      if (d < 0.15 || d > range || (dx * ux + dy * uy) / d < cosine || !lineClear(origin, cell, this.obstacles)) continue;
+      if (!inHeatCone(origin, cell, ux, uy, range, cosine) || !lineClear(origin, cell, this.obstacles)) continue;
       this.heatCell(cell, heat, cause, onHeat);
     }
   }

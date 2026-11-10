@@ -66,13 +66,26 @@ export function createFire(T,assets,fieldUniforms){
   const flames=layer(assets.flame,0,MAX_CELLS*2),smoke=layer(assets.smoke,1,MAX_CELLS),bursts=layer(assets.burst,2,64);
   const discharge=createDischarge(T,assets.flame),carriedTorch=createCarriedTorch(T,assets.flame);root.add(discharge.root,carriedTorch.root);
   const history=new Map(),eventsSeen=new Set(),eventOrder=[],explosions=[];
-  let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false;
+  let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false,actorFlames=0;
   function reset(){carriedTorch.reset();history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;}
   function update(snapshot,time,anchors={}){
     const clock=Number.isFinite(time)?time:snapshot.clocks?.world||0;
     if(clock<lastWorld-1e-8||snapshot.tick<lastTick)reset();
     lastWorld=clock;lastTick=snapshot.tick;worldClock.value=clock;bear.value.set(snapshot.player.x,1,snapshot.player.y);
-    for(const l of layers)l.begin();capped=false;
+    for(const l of layers)l.begin();capped=false;actorFlames=0;
+    // Carry the flame cards with the live body. Ground fire uses the rest of
+    // the same instance budget.
+    for(const actor of snapshot.actors||[]){
+      if(!actor.burn||actor.hp<=0)continue;
+      const height=actor.height??1.66,radius=actor.radius??.5;
+      const h=(actor.elevation??0)+height*.36,c=Math.cos(actor.heading),s=Math.sin(actor.heading);
+      const seed=seedOf(actor.id);
+      for(const side of [-1,1]){
+        const offset=side*radius*.56;
+        if(flames.add(actor.x-s*offset,h,actor.y+c*offset,radius*1.6,height*.88,.83,hash(seed*59+side)))actorFlames++;
+        else capped=true;
+      }
+    }
     const activeIds=new Set();
     for(const cell of snapshot.cells||[]){
       activeIds.add(cell.id);const old=history.get(cell.id);
@@ -117,5 +130,5 @@ export function createFire(T,assets,fieldUniforms){
     primed=true;for(const l of layers)l.end();
   }
   return {root,update,reset,dispose(){carriedTorch.dispose();discharge.dispose();root.removeFromParent();root.clear();pool.dispose();},
-    diagnostics:()=>({flameCards:flames.count,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
+    diagnostics:()=>({flameCards:flames.count,actorFlameCards:actorFlames,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
 }

@@ -172,8 +172,12 @@ test('the thrown lantern uses actual timber contact or the ground field that hea
       for (const key of ['x', 'y', 'h']) near(impact[key], preview[key]);
       const ignition = snapshot.events.find(event => event.type === 'structure-ignition');
       if (onBarrel) {
-        assert.equal(ignition, undefined);
-        assert.equal(snapshot.events.filter(event => event.type === 'barrel-explosion').length, 1);
+        const blasts = snapshot.events.filter(event => event.type === 'barrel-explosion');
+        assert.equal(blasts.length, 1);
+        assert.equal(blasts[0].objectId, barrel.id);
+        assert.ok(snapshot.events.filter(event => event.type === 'structure-ignition').every(event =>
+          event.cause === 'barrel:' + barrel.id && event.tick === blasts[0].tick));
+        assert.equal(ignition?.cause, 'barrel:' + barrel.id);
         assert.ok(snapshot.events.some(event => event.type === 'ignition' && event.cause === 'molotov'));
       } else {
         assert.equal(ignition?.cause, 'molotov');

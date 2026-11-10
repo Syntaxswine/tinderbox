@@ -114,14 +114,16 @@ export function heldTool(state, field, config, delta, event, world, cottages, ho
   const heat = spec.heatPerSecond * (spec.fuelPerSecond > 0 ? used / spec.fuelPerSecond : delta);
   p.usingTool = true;
   state.discharge = resolveDischarge(state, config, world);
+  const discharge = state.discharge;
   const onHeat = witness?.observeAction(tool);
-  field.cone(p, state.discharge.heading, spec.range, spec.halfAngle, heat, tool, onHeat);
+  field.cone(p, discharge.heading, spec.range, spec.halfAngle, heat, tool, onHeat);
   cottages?.heatDischarge(state.discharge,heat);
   if(housing?.size)heatHousingDischarge(state.discharge,heat,state.obstacles,housing,onHeat);
   if (p.inventory[key] <= 1e-10) {
     p.inventory[key] = 0; state.input.primary = false; p.usingTool = false;
     state.discharge = inactiveDischarge(state.tick); event('tool-empty', p, {tool});
   }
+  return {discharge, heat};
 }
 export function projectilesStep(state, field, config, delta, event, cottages, housing, witness) {
   const spec = config.tools.molotov, alive = [];

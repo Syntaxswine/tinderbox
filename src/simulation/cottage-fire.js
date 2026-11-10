@@ -1,6 +1,6 @@
 import {COTTAGE_IDS,COTTAGE_ORIGIN,COTTAGE_OFFSET} from '../content/cottage-pair.js';
 import {firstHeatContact,distance} from './geometry.js';
-import {exchangeSurfaceGround, heatSurfaceSite, stepSurfaceFire, surfaceFlame as flameAt, surfaceSample, worldSurface} from './surface-fire.js';
+import {exchangeSurfaceGround, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceFlame as flameAt, surfaceSample, worldSurface} from './surface-fire.js';
 import {WIDTH,DEPTH,UPPER,EAVE,RIDGE,RIM,PITCH,OVERHANG,roofHeight,roofNormal,tileIndex,makeTiles,createCottageTopology} from './cottage-topology.js';
 
 export const COTTAGE_BURN_SECONDS=30, COTTAGE_EMBER_LIMIT=84;
@@ -130,6 +130,11 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
     }
     event('cottage-ignition',p,{buildingId:lot.building.id,cellId:site.id,layer:site.layer,face:site.face,
       worldTime:time,cause:site.ignitionKind,parentCellId:site.parentId,sourceId:site.cause?.sourceId??null,heat:site.heat});
+  }
+  function heatBlast(origin,blast,cause){
+    for(const lot of lots)for(const site of lot.walls)if(!site.band&&present(lot,site)){
+      heatBlastSiding(site,worldSurface(lot.building,site),1,origin,blast,obstacles,cause);
+    }
   }
   function exchangeGround(field,dt,time){
     for(const lot of lots){
@@ -284,5 +289,5 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed}){
       return surfaceSample(lot.building,s,time,s.layer==='walls'||s.layer==='roof'||!tile.roof&&(s.layer==='upper'||!tile.upper));
     }).filter(Boolean));
   }
-  return {igniteSiding,heatSurface,heatDischarge,exchangeGround,step,snapshot,samples};
+  return {igniteSiding,heatSurface,heatDischarge,heatBlast,exchangeGround,step,snapshot,samples};
 }

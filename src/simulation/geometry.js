@@ -116,7 +116,12 @@ export function firstHeatContact(from,to,obstacles,startHeight=0,endHeight=start
   }
   return first;
 }
-export function lineClear(a, b, obstacles, {ignoreBarrels = true} = {}) {
+export function inHeatCone(origin, target, ux, uy, range, cosine) {
+  const dx = target.x - origin.x, dy = target.y - origin.y, distance = Math.hypot(dx, dy);
+  return distance >= .15 && distance <= range && (dx * ux + dy * uy) / distance >= cosine;
+}
+
+export function lineClear(a, b, obstacles, {ignoreBarrels = true, allowWoodEndpoints = true} = {}) {
   for (const o of obstacles) {
     if (o.destroyed || o.blocksHeat === false || ignoreBarrels && o.kind === 'barrel') continue;
     for (const barrier of o.heatBarriers || []) {
@@ -124,7 +129,8 @@ export function lineClear(a, b, obstacles, {ignoreBarrels = true} = {}) {
       if (span && span[1] > EPS && span[0] < 1 - EPS) return false;
     }
     // A combustible obstacle can be heated at its own surface, then become a source.
-    if (o.material === 'wood' && (inObstacle(a, o, (a.size ?? 0) / 2) || inObstacle(b, o, (b.size ?? 0) / 2))) continue;
+    if (allowWoodEndpoints && o.material === 'wood' &&
+        (inObstacle(a, o, (a.size ?? 0) / 2) || inObstacle(b, o, (b.size ?? 0) / 2))) continue;
     const span = boxInterval(a, b, o);
     if (span && span[1] > EPS && span[0] < 1 - EPS) return false;
   }
