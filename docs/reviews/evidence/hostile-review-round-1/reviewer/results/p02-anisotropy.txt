@@ -1,0 +1,18 @@
+== Part 1: gas line on paving (repo fixture; 0 and 45 deg are the repo's own cases = control) ==
+{"cellSize":0.5,"headingDeg":0,"arrival":1.0833,"cellsLit":17,"burnMin":1.117,"burnMedian":2.233,"burnMax":2.233}
+{"cellSize":0.5,"headingDeg":45,"arrival":1.1167,"cellsLit":12,"burnMin":1.583,"burnMedian":3.15,"burnMax":3.15}
+{"cellSize":0.5,"headingDeg":26.565,"arrival":1.15,"cellsLit":22,"burnMin":1.25,"burnMedian":1.25,"burnMax":2.5}
+{"cellSize":0.5,"headingDeg":22.5,"arrival":1.2333,"cellsLit":22,"burnMin":0.133,"burnMedian":1.883,"burnMax":2.417}
+{"cellSize":0.5,"headingDeg":14.036,"arrival":1.1833,"cellsLit":21,"burnMin":0.067,"burnMedian":2.3,"burnMax":2.3}
+{"cellSize":0.5,"headingDeg":63.435,"arrival":1.15,"cellsLit":22,"burnMin":1.25,"burnMedian":1.25,"burnMax":2.5}
+{"cellSize":0.25,"headingDeg":0,"arrival":1.0833,"cellsLit":32,"burnMin":4.45,"burnMedian":4.45,"burnMax":4.45}
+{"cellSize":0.25,"headingDeg":45,"arrival":1.1167,"cellsLit":23,"burnMin":3.95,"burnMedian":6.3,"burnMax":6.3}
+{"cellSize":0.25,"headingDeg":26.565,"arrival":1.1833,"cellsLit":43,"burnMin":0.017,"burnMedian":4.983,"burnMax":4.983}
+{"cellSize":0.25,"headingDeg":22.5,"arrival":1.2167,"cellsLit":42,"burnMin":0.15,"burnMedian":4.133,"burnMax":4.817}
+{"cellSize":0.25,"headingDeg":14.036,"arrival":1.1833,"cellsLit":39,"burnMin":0.017,"burnMedian":4.583,"burnMax":4.583}
+{"cellSize":0.25,"headingDeg":63.435,"arrival":1.1833,"cellsLit":43,"burnMin":0.017,"burnMedian":4.983,"burnMax":4.983}
+repo cases only: max/min = 1.0308  | all headings: max/min = 1.1385
+
+== Part 2: grass area front, single-cell ignition (0/90/180 deg equal = symmetry control) ==
+{"cellSize":0.5,"arrival6m":{"0":3.8167,"45":3.75,"90":3.8167,"180":3.8167,"26.565":3.8667,"22.5":3.8667,"63.435":3.8667},"ringCells":36,"secondsPerMetre":{"min":0.6361,"max":0.6644,"ratio":1.0444},"slowestBearingDeg":-131.6}
+{"cellSize":0.25,"arrival6m":{"0":4.0167,"45":3.9833,"90":4.0167,"180":4.0167,"26.565":3.9167,"22.5":3.85,"63.435":3.9167},"ringCells":128,"secondsPerMetre":{"min":0.6479,"max":0.6727,"ratio":1.0383},"slowestBearingDeg":-94.8}

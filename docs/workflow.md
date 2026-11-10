@@ -8,6 +8,7 @@
 | Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
 | Coder | `codex/segment-decay-coder` from `14ffede` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Native section clocks, local support, and cooling rubble heat |
 | UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Shared floating action and shortcut bindings |
+| Reviewer (Claude) | `claude/hostile-review` from `4fc97bb` | `C:/Users/baals/Local Storage/AI/tinderbox` | Hostile review rounds: records and probes under `docs/reviews/` only, no runtime changes |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -96,6 +97,8 @@ The user requested completed buildings as main-menu destinations and explicitly 
 The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-heat.md) records the gap, screen and short-burn controls and the packaged collapse and cooling sequence.
 
 The [segment decay and rubble heat review](reviews/2026-11-10-segment-decay-and-rubble-heat.md) records the independent structural clocks, local support loss, and sustained heat controls on the ground.
+
+The [hostile review, round 1](reviews/2026-11-10-hostile-review-round-1.md) records measured findings on how fire spreads and a proposal for one tile lattice. It is not a promotion record: it changes no runtime, and its proposed order awaits the owner and the architect.
 
 The [joined Monroe roof review](reviews/2026-11-09-joined-house-fire.md) records the native seam, weak and separated controls, and the packaged cottage visit.
 
