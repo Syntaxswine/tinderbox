@@ -243,13 +243,13 @@ test('a sustained grass front catches siding and a weaker grass strike cools, in
   const houseId = 'hopkins-fifteen';
   for (const long of [true, false]) {
     const scenario = {...NEIGHBORHOOD_SCENARIO, actors: [], player: {x: 25.48, y: 8.5, tool: 'matches'},
-      ...(long ? {} : {patches: [{x: 24.5, y: 8, width: .5, depth: 1, material: 'grass'}]})};
+      ...(long ? {} : {patches: [{x: 24.5, y: 8.5, width: .5, depth: .5, material: 'grass'}]})};
     const sim = createSimulation({scenario, seed: 1893});
     function replay(partition) {
       let snapshot = strike(sim, 24.85, 8.5);
       const started = snapshot.clocks.world;
       const ignition = snapshot.events.find(event => event.type === 'tool-use');
-      assert.equal(ignition.heatedCells, long ? 4 : 2);
+      assert.equal(ignition.heatedCells, long ? 4 : 1);
       assert.ok(!snapshot.events.some(event => event.type === 'structure-ignition'));
       let peak = 0, first, sourceBurnout;
       for (let n = 0; n < (long ? 11 : 56); n++) {
@@ -264,7 +264,7 @@ test('a sustained grass front catches siding and a weaker grass strike cools, in
         assert.ok(first);
         assert.equal(first.cause, 'ground-heat');
         assert.ok(ignition.cellIds.includes(first.parentSiteId));
-        assert.ok(first.worldTime - started > 1);
+        near(first.worldTime - started, 56 * step);
       } else {
         assert.ok(sourceBurnout && peak > 0 && peak < 1);
         assert.equal(first, undefined);

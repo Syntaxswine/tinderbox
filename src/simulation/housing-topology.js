@@ -136,14 +136,15 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
     link(site, entry?.low);
   }
   const porchRoof = roofSites.filter(({site}) => site.id.startsWith('roof:porch:'));
+  let porchPost;
   if (porchRoof.length) {
     const deck = porch.get('porch'), {x, z} = plan.porch;
     const position = {x: x + .12, z: z + .12};
     const {site: roof} = porchRoof.reduce((a, b) => planar(b.site, position) < planar(a.site, position) ? b : a);
-    const post = add({id: 'porch-post', layer: 'walls', level: 0, ...position, y: deck.y + .95, nx: 0, ny: 0, nz: -1,
+    porchPost = add({id: 'porch-post', layer: 'walls', level: 0, ...position, y: deck.y + .95, nx: 0, ny: 0, nz: -1,
       area: .36, exposed: true}, 'joinery');
-    link(deck, post);
-    link(post, roof, {eave: true});
+    link(deck, porchPost);
+    link(porchPost, roof, {eave: true});
   }
-  return {sites, panels, porch, roofSeams};
+  return {sites, panels, porch, porchPost, roofSeams};
 }

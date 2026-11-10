@@ -27,3 +27,27 @@ test('held-out diagonal and half-resolution fire fronts remain finite with docum
   assert.ok(Math.max(...times) / Math.min(...times) <= 1.25, 'Prototype direction/resolution sensitivity must remain within 25%');
   t.diagnostic('4 m front arrival: ' + JSON.stringify(measurements));
 });
+
+test('gas, grass and timber keep their distinct ground front arrivals', () => {
+  const size=8,step=1/60;
+  const targets=['cell:7,6','cell:10,6','cell:9,9'];
+  for(const [kind,ticks] of [['gas',[9,33,34]],['grass',[20,77,85]],['wood',[62,243,257]]]){
+    const scenario={id:'ground-front-'+kind,width:size,height:size,player:{x:.8,y:.8},
+      patches:kind==='gas'?[]:[{x:0,y:0,width:size,depth:size,material:kind}],
+      fuelLines:kind==='gas'?Array.from({length:size*2},(_,i)=>({
+        from:{x:.001,y:(i+.5)*.5},to:{x:size-.001,y:(i+.5)*.5},litresPerMetre:.08
+      })):[],ignitions:[{x:3.25,y:3.25,radius:.01,heat:3}]};
+    const sim=createSimulation({scenario,config:{fire:{damagePerSecond:0},events:{capacity:1024}}});
+    const arrivals=new Map();
+    try {
+      for(let n=0;n<300&&arrivals.size<targets.length;n+=15){
+        for(const event of sim.advance(15*step).events){
+          if(event.type==='ignition'&&targets.includes(event.cellId)&&!arrivals.has(event.cellId)){
+            arrivals.set(event.cellId,event.tick);
+          }
+        }
+      }
+      assert.deepEqual(targets.map(id=>arrivals.get(id)),ticks,kind);
+    } finally {sim.dispose();}
+  }
+});

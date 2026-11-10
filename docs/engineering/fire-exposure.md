@@ -1,5 +1,27 @@
 # Fire exposure on Catalogue Street
 
+## November 10 frontage follow-up
+
+The hostile review measured alternating cold half-metres on the Hopkins 9 east siding. The frontage now follows the native exposed edge at each of the existing 0.38 m and 0.84 m depths. Every 0.5 m of contact contributes the existing band strength. Partial lengths scale with overlap. A cell reached twice by the same site uses its strongest clear contact. The porch deck and stairs use their existing perimeters. The post uses its native exposed base. Live section and masonry cover still gate those paths.
+
+| Replay | World-time observation |
+| --- | --- |
+| Hopkins 9 east siding, near gas contact `cell:20,68` or `cell:20,69` | Both halves ignite at 1.267 s, with the respective ground cell as the parent. All eight exposed rows 68–75 catch in the full contact sweep. |
+| Hopkins 9 east siding, farther gas contact `cell:21,68` or `cell:21,69` | Both halves ignite at 1.733 s. |
+| Hopkins 15 full lawn, four cells lit by one match | Siding catches at 0.950 s, 0.933 s after the match. |
+| Hopkins 15 earlier two-cell control | With both contacts exposed, siding catches at 2.383 s. |
+| Hopkins 15 isolated one-cell control | Peak siding heat is 0.567 of ignition. The grass is spent and siding cools to zero by 11.567 s. |
+| Hopkins 12 native front lawn | Ground fire ignites the stairs at 1.850 s and deck at 1.950 s. A separate ground source warms the exposed post before any structure ignites. |
+| Hopkins 12 facing flamethrower | The deck or stairs catch at 0.233 s when exposed. The short masonry screen, facing away and out-of-range controls leave the porch cold. |
+
+The single-cell torch traces in `tests/simulation/fire-exposure.test.js` were re-run at their established sources. Hopkins gas and timber still cross at 1.717 s and 1.550 s after source ignition. Its isolated grass peaks at 0.624 game heat, under the 1.10 threshold. Ashland's short gas dose peaks at 0.686 and cools. The sustained dose crosses at 1.567 s. Both masonry-screened receivers stay at zero.
+
+The ground-front regression checks the existing gas, grass and timber arrival ticks at fixed axis and diagonal positions. An identity mutation passes. Ignoring the receiver multiplier or substituting the gas ignition threshold fails those arrivals. Suppressing ordinary house-to-ground transfer fails the separate adjacent-lawn replay. The mutation checks substitute source in memory through the review's loader hook.
+
+The ten-case one-match census matches the published `4fc97bb` replay's burned zones, house ignition and collapse sets, and barrel order. The north and south lawn fires remain on their respective sides. The Monroe bare-brick strike reports `blocked`, and road and paving report `no-fuel`. The north-lawn active flame window ends at 27.18 s, compared with 35.93 s in the earlier census.
+
+## Earlier exposure replays
+
 The candidate starts from published `801807b2e71638101861c875c2d23c9ad73ad17b`. In the same controlled replays on that revision, grass and gas both ignited the Hopkins receiver after 0.667 world seconds and the Ashland receiver after 1.750 seconds. The ground solver limited outgoing heat by the receiver's output setting. The Ashland ground contact used the same flame-intensity gain for every fuel.
 
 Fire spread depends on whether adjacent fuel heats the receiver long enough to ignite before the source goes out. The values below are game tuning in dimensionless heat units. [US Forest Service flame residence research](https://research.fs.usda.gov/firelab/projects/burningrate) · [NIST cellulosic ignition experiments](https://www.nist.gov/publications/ignition-cellulosic-fuels-heated-and-radiative-surfaces-nist-tn-1481)
