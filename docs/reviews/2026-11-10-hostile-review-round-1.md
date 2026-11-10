@@ -11,6 +11,7 @@
   - Labels: **measured** means run and quoted; **code-reading** cites source at `4fc97bb`; **judgment** is an assessment.
 - **Evidence:** [`evidence/hostile-review-round-1/`](evidence/hostile-review-round-1/README.md) holds every probe, how to run it and which finding it supports.
 - **Scope:** the simulation side of fire on Catalogue Street and the Ashland cottage pair, and what a frame of it costs. Art direction, UI, landmark geometry and the non-fire systems were not reviewed.
+- **Direction (the owner, 2026-11-10): "Hand to Codex."** The first two fixes, grid publishing and wall contact, go to the architect to assign. The reviewer builds nothing. The brief is [`2026-11-10-hostile-review-round-1-handoff.md`](2026-11-10-hostile-review-round-1-handoff.md). The other decisions at the end of this record are still open.
 - **This branch changes nothing in the game.** It adds this record, the probes, and one registry row and one index sentence in `docs/workflow.md`.
 
 Three words are used throughout. A **cell** is one 0.5 m square of the ground heat grid. A **site** is one fire-carrying patch of a house: a band of wall, a patch of floor, a roof panel. A **section** is a 2 m by 2 m column of a house's plan, the unit that collapses. Times are world seconds, the clock fire runs on. Without powder, one world second is one real second.
@@ -141,21 +142,23 @@ A match targets a sixth unit, the 1 m map tile, which is four cells (`tools.js:4
 
 | Measure | Opening test street | Catalogue Street, nothing lit | Ratio |
 | --- | ---: | ---: | ---: |
-| Simulation, one step and one snapshot, CPU ms per frame (`tick-cost.mjs`) | 1.15 | 11.9 | 10 |
-| Snapshot plus the two art modules that re-read every cell, CPU ms per frame (`art-cell-loops.mjs`) | 0.94 | 14.9 | 16 |
-| Whole frame in the browser, median ms (`browser-frame-cost.md`) | 3.1 to 3.2 | 63 to 68 | 20 |
+| Simulation, one step and one snapshot, CPU ms per frame (`tick-cost.mjs`) | 0.39 | 4.48 | 11 |
+| Every per-frame pass over all cells or all tiles, CPU ms per frame (`art-cell-loops.mjs`) | 1.09 | 6.52 | 6 |
+| Whole frame in the browser, median ms (`browser-frame-cost.md`) | 1.1 | 16.6 | 15 |
 | Draw calls | 87 | 2,431 | 28 |
 
 A 60 Hz frame allows 16.7 ms.
 
+**Correction, 2026-11-10.** The first version of this table was measured while the host was at 100% CPU and gave 11.9 ms, 14.9 ms and 63 to 68 ms. The load inflated the large scene about three times. The figures above were re-taken with the host at 25% load. The ratios held; the absolute cost did not. With nothing lit, a Catalogue Street frame takes the whole 60 Hz budget on a desktop with an RTX 3080, and not four times it.
+
 - 43% of idle simulation CPU is one line, the per-cell copy in `field.js:178` (`profile-frame.mjs`).
-- During a lawn fire the simulation alone takes 11 to 19 ms of CPU per frame.
-- The recorded figures, simulation p95 1.10 and 1.30 ms, were taken on the opening test street. The control reproduces them here, on the same machine, at 1.0 to 1.2 ms. They were never retaken on Catalogue Street.
-- On `14ffede` the browser figure was 56.5 ms against a 4.3 ms control.
+- During a lawn fire the simulation alone takes 4.3 to 6.7 ms of CPU per frame.
+- Two consumers serialise all 2,397 map tiles to JSON every frame to learn that nothing changed (`src/art/world.js:74`, `src/ui/map.js:35`).
+- The recorded figures, simulation p95 1.10 and 1.30 ms, were taken on the opening test street and never retaken on Catalogue Street.
 
 **Root cause (code-reading).** `snapshot()` rebuilds every cell, tile and building each frame (`field.js:178`, `index.js:336-366`). `src/art/fire.js:93` and `src/art/ground-field.js:60` then walk all 9,588 cells again, and `fire.js` hashes each cell's id string every frame.
 
-**Why it matters.** Tile tracking over a larger map or more levels is unaffordable this way, and the landmark maps are 4 to 21 times the area of Catalogue Street. It is also the game today: 63 to 68 ms is about 15 frames a second. That figure comes from one loaded desktop with the browser pane hidden. The control reading normally under the same conditions is what makes it usable.
+**Why it matters.** Tile tracking over a larger map or more levels is unaffordable this way, and the landmark maps are 4 to 21 times the area of Catalogue Street. It is also the game today: the idle frame already fills the budget on a strong desktop, measured with the browser pane hidden, so a phone will not hold 60 Hz.
 
 **Direction.** Keep state in typed arrays and publish only the tiles that changed. Rendering is two thirds of the frame and outside this review; 2,431 draw calls want their own look.
 
@@ -352,7 +355,7 @@ Each rung can ship alone and has a check that can fail. Nothing here is started.
 | M2 | Both | `pathways.mjs`, `one-match-census.mjs` and `structure-spread.mjs` re-run; reviewer's `p17` and `p03` 3b re-run | Holds. Rubble now reaches the bear and the drum after 150 s |
 | M3 | Reviewer | `p07`, `p03` 3d and `p08` 8a re-run; the three code paths read | Holds |
 | M4 | Both | `p03` 3a, `p14` and `p12` re-run; `structure-spread.mjs` | Holds |
-| M5 | Both | `tick-cost.mjs`, `profile-frame.mjs`, `art-cell-loops.mjs` and the browser comparison re-run | Holds |
+| M5 | Both | `tick-cost.mjs`, `profile-frame.mjs`, `art-cell-loops.mjs` and the browser comparison re-run, then re-taken on a quiet host | Holds as a ratio; the absolute figures were corrected down about three times |
 | "The Ashland 30 s clock hides deleted spread" | Reviewer | The 30 s deadline no longer exists on `4fc97bb`. `collapse-clock.mjs` asks the same question of the 150 s clock | Superseded by S1 |
 | "Rubble is cold" | Reviewer | `p08` 8c re-run | Fixed on master during the review (D10) |
 | S3 | Reviewer | `p02` re-run | Holds |

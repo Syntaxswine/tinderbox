@@ -98,7 +98,7 @@ The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-
 
 The [segment decay and rubble heat review](reviews/2026-11-10-segment-decay-and-rubble-heat.md) records the independent structural clocks, local support loss, and sustained heat controls on the ground.
 
-The [hostile review, round 1](reviews/2026-11-10-hostile-review-round-1.md) records measured findings on how fire spreads and a proposal for one tile lattice. It is not a promotion record: it changes no runtime, and its proposed order awaits the owner and the architect.
+The [hostile review, round 1](reviews/2026-11-10-hostile-review-round-1.md) records measured findings on how fire spreads and a proposal for one tile lattice. It is not a promotion record and changes no runtime. On 2026-11-10 the owner handed its first two fixes to the architect: see the [handoff brief](reviews/2026-11-10-hostile-review-round-1-handoff.md). The rest of its proposed order awaits the owner.
 
 The [joined Monroe roof review](reviews/2026-11-09-joined-house-fire.md) records the native seam, weak and separated controls, and the packaged cottage visit.
 

@@ -26,7 +26,19 @@ origin, same load, same instrument. `simulationMs` is the game's own metric
 If load or the hidden pane inflated the numbers, the control would read high. It reads
 1.0 to 1.2 ms and 2.1 to 2.8 ms, which is the recorded figure.
 
-## Result (medians, ms per frame)
+## Correction, 2026-11-10: quiet-host figures
+
+The control did not remove the load effect. Load inflated the large scene about three
+times and the small control much less. Re-taken on `4fc97bb` with the host at 25% load:
+
+| Scene | Simulation | View | Whole frame | Draw calls |
+| --- | ---: | ---: | ---: | ---: |
+| Opening test street (control) | 0.4 | 0.7 | 1.1 | 87 |
+| Catalogue Street, nothing lit | 4.2 to 4.4 | 11.9 to 12.3 | 16.6 | 2431 |
+
+Use these. The tables below are the loaded-host sessions, kept for the record.
+
+## Loaded-host sessions (medians, ms per frame)
 
 | Commit | Scene | State | Burning cells / sites | Simulation | View | Whole frame | Draw calls |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
