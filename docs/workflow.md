@@ -4,10 +4,11 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-segment-decay` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Segment decay and rubble heat review and promotion |
+| Architect | `codex/review-hostile-round-1` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Hostile review corrections, combined checks and promotion |
 | Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
-| Coder | `codex/segment-decay-coder` from `14ffede` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Native section clocks, local support, and cooling rubble heat |
-| UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Shared floating action and shortcut bindings |
+| Art review helper | `codex/hostile-review-art` from `4fc97bb` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Fire, ground and geometry snapshot consumers |
+| Coder | `codex/hostile-review-runtime` from `4fc97bb` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Snapshot publication and fire contact |
+| UI designer | `codex/hostile-review-map` from `4fc97bb` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Ground plan snapshot consumer |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -96,6 +97,8 @@ The user requested completed buildings as main-menu destinations and explicitly 
 The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-heat.md) records the gap, screen and short-burn controls and the packaged collapse and cooling sequence.
 
 The [segment decay and rubble heat review](reviews/2026-11-10-segment-decay-and-rubble-heat.md) records the independent structural clocks, local support loss, and sustained heat controls on the ground.
+
+The [hostile review corrections](reviews/2026-11-10-hostile-round-1-fixes.md) record the accepted M5 snapshot and M3 siding and porch fixes, with the exact worker commits and combined checks.
 
 The [joined Monroe roof review](reviews/2026-11-09-joined-house-fire.md) records the native seam, weak and separated controls, and the packaged cottage visit.
 
