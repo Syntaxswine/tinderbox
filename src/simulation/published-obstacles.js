@@ -27,7 +27,7 @@ export function createObstaclePublisher() {
   let published = Object.freeze([]);
   const views = new WeakMap();
   return obstacles => {
-    let next, index = 0;
+    let next, index = 0, shareable = true;
     for (const box of obstacles) {
       if (box.destroyed) continue;
       let view = views.get(box);
@@ -43,11 +43,15 @@ export function createObstaclePublisher() {
         // Custom fixtures can carry native mutable values such as typed
         // arrays. Preserve the old detached-clone behavior for those.
         if (plain) views.set(box,view);
+        else shareable = false;
       }
       if (!next && view.record !== published[index]) next = published.slice(0,index);
       if (next) next.push(view.record);
       index++;
     }
+    // Consumers use the frozen array as the sharing contract. Never
+    // retain a mutable fallback array or any of its mutable records.
+    if (!shareable) return next;
     if (next) published = Object.freeze(next);
     else if (index !== published.length) published = Object.freeze(published.slice(0,index));
     return published;

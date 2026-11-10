@@ -196,3 +196,20 @@ test('published ground records share only unchanged values and keep old snapshot
     assert.equal(JSON.stringify(reset.cells), bytes);
   } finally { sim.dispose(); }
 });
+
+test('custom mutable obstacle metadata keeps a detached array and does not advertise sharing', () => {
+  const sim = model(plain({obstacles:[{id:'custom-box',x:9,y:9,width:1,depth:1,height:2,
+    material:'masonry',metadata:new Uint8Array([3,1])}]}));
+  try {
+    const first = sim.snapshot().world.obstacles;
+    assert.equal(Object.isFrozen(first), false);
+    first[0].metadata[0] = 99;
+    first[0].x = 123;
+    first.length = 0;
+    const second = sim.snapshot().world.obstacles;
+    assert.equal(Object.isFrozen(second), false);
+    assert.equal(second.length, 1);
+    assert.equal(second[0].x, 9);
+    assert.deepEqual(second[0].metadata, new Uint8Array([3,1]));
+  } finally { sim.dispose(); }
+});
