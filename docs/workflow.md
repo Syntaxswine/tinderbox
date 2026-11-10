@@ -4,9 +4,9 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-chicago-police-sidearm` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Patrol intake, visual review and promotion |
+| Architect | `codex/review-bell-and-alder-officer` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Officer trial intake, visual review and promotion |
 | Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
-| Coder | `codex/chicago-police-sidearm-coder` from `535150c` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Street patrol identity, native sidearm mount and verification |
+| Coder | `codex/bell-and-alder-officer-coder` from `f82ec40` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Witness evidence, officer states, draw and shot verification |
 | UI designer | `codex/shop-interactions-ui` from `b5b8de6` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Shared floating action and shortcut bindings |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -93,7 +93,7 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 ## Promotion gate
 
-The [Chicago patrol review](reviews/2026-11-09-chicago-police-sidearm.md) records the accepted uniform, sidearm provenance and checks on the normal Catalogue Street route. The [shop interaction review](reviews/2026-11-09-shop-interactions.md) records working doors and portable light. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
+The [Bell & Alder officer review](reviews/2026-11-09-bell-and-alder-officer.md) records acceptance for the opt-in witness trial. The [Chicago patrol review](reviews/2026-11-09-chicago-police-sidearm.md) records the uniform, sidearm provenance and normal Catalogue Street patrol. The [shop interaction review](reviews/2026-11-09-shop-interactions.md) records working doors and portable light. The [Bell & Alder review](reviews/2026-11-09-bell-and-alder.md) records the pinned intake and playable layout. The [tool correction review](reviews/2026-11-09-facing-fire-and-lantern.md) records the separate throwable lantern's aim and release controls.
 
 For the current milestone-08 checkpoint only, the user explicitly requested publication as-is before the remaining route and visual checks, with corrections later. The [preview release record](reviews/2026-10-29-explorable-places.md) documents that exception, the exact code and deferred checks. Do not represent preview publication as full acceptance. Later corrections follow the normal gate below.
 
