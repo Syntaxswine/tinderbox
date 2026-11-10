@@ -58,11 +58,11 @@ function trimCornerTriangles(origin, rays, blockers) {
     // Radial shortening only removes triangle area, including from neighboring fans.
   }
 }
-function resolvedFan(origin, heading, halfAngle, reach, world, obstacles) {
+function resolvedFan(origin, heading, halfAngle, reach, world, obstacles, elevated) {
   const blockers = [];
   for (const box of obstacles) {
     if (box.destroyed || box.blocksHeat === false || box.kind === 'barrel') continue;
-    const volumes = elevatedBlockers(box);
+    const volumes = elevated ? elevatedBlockers(box) : null;
     if (!volumes) blockers.push(box);
     else for (const shape of volumes) {
       if (origin.h >= shape.bottom && origin.h <= shape.top && solidDistance(origin, shape) <= reach) blockers.push(shape);
@@ -96,7 +96,8 @@ export function resolveDischarge(state, config, world, torchPoint = null) {
   const shapeOrigin = torchPoint ? {...torchPoint, h: torchPoint.h ?? origin.h} : {...origin};
   const radius = tool === 'torch' ? spec.radius : 0;
   const halfAngle = tool === 'torch' ? Math.PI : spec.halfAngle;
-  const fan = resolvedFan(shapeOrigin, p.heading, halfAngle, tool === 'torch' ? radius : spec.range, world, state.obstacles);
+  const fan = resolvedFan(shapeOrigin, p.heading, halfAngle, tool === 'torch' ? radius : spec.range,
+    world, state.obstacles, tool === 'flamethrower');
   return {version: 1, tick: state.tick, active: true, tool, origin, shapeOrigin, heading: p.heading,
     range: spec.range, radius, halfAngle, ...fan,
     lead: torchPoint ? {from: {...origin}, to: {...shapeOrigin}} : null};
