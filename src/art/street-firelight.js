@@ -25,15 +25,15 @@ function add(clusters, key, kind, buildingId, site, energy) {
 
 function source(cluster, lotEnergy, player) {
   const {key, kind, buildingId, energy, nx, ny, nz} = cluster;
-  const terrain = kind === 'terrain', growth = Math.sqrt(energy);
+  const terrain = kind === 'terrain', rubble = kind === 'rubble', growth = Math.sqrt(energy);
   const normalLength = Math.hypot(nx, ny, nz);
-  const offset = terrain ? .72 + Math.min(.56, .26 * growth)
+  const offset = rubble ? .38 : terrain ? .72 + Math.min(.56, .26 * growth)
     : kind === 'walls' ? 1.0 + Math.min(1.32, .42 * growth) : .70 + Math.min(.95, .29 * growth);
   const x = cluster.x / energy + offset * nx / normalLength;
-  const y = cluster.y / energy + offset * ny / normalLength + (terrain ? 0 : .36);
+  const y = cluster.y / energy + offset * ny / normalLength + (terrain || rubble ? 0 : .36);
   const z = cluster.z / energy + offset * nz / normalLength;
-  const power = terrain ? Math.min(44, 22 * energy ** .8) : Math.min(84, 19 * energy ** .82);
-  const reach = terrain ? Math.min(7.5, 3.8 + 1.8 * growth)
+  const power = rubble ? Math.min(4, 9 * energy ** .8) : terrain ? Math.min(44, 22 * energy ** .8) : Math.min(84, 19 * energy ** .82);
+  const reach = rubble ? 3 : terrain ? Math.min(7.5, 3.8 + 1.8 * growth)
     : Math.min(16, 5.5 + 2.0 * growth + Math.min(6, 1.27 * Math.sqrt(lotEnergy.get(buildingId))));
   const distance = Math.hypot(x - player.x, y - 1, z - player.y);
   const falloff = Math.max(.05, 1 - (distance / reach) ** 2);
@@ -52,7 +52,7 @@ export function createStreetFirelight(T) {
   });
   let selected = [], terrainSites = 0, surfaceSites = 0, candidates = 0, disposed = false;
 
-  function update(snapshot, buildings, time) {
+  function update(snapshot, buildings, time, rubbleSites = []) {
     if (disposed) return;
     const clusters = new Map(), lotEnergy = new Map();
     terrainSites = surfaceSites = 0;
@@ -81,6 +81,10 @@ export function createStreetFirelight(T) {
         lotEnergy.set(buildingId, (lotEnergy.get(buildingId) || 0) + energy);
         surfaceSites++;
       }
+    }
+    for (const site of rubbleSites) {
+      const key = ['rubble', site.buildingId, bin(site.x), bin(site.z)].join('/');
+      add(clusters, key, 'rubble', site.buildingId, {...site, nx: 0, ny: 1, nz: 0}, site.area * site.glow);
     }
     const ranked = [...clusters.values()].map(cluster => source(cluster, lotEnergy, snapshot.player));
     candidates = ranked.length;

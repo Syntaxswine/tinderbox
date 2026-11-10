@@ -42,7 +42,7 @@ export function createFire(T,assets,fieldUniforms){
             float lum=dot(c.rgb,vec3(.299,.587,.114));
             c.rgb=mix(vec3(.045,.051,.045),vec3(.25,.26,.23),lum);
             c.a*=smoothstep(0.,.18,p.y);
-          }else if(kind<.5){
+          }else if(kind<.5&&info.y<.5){
             vec2 cell=floor(paintWorld.xz/cellSize);
             if(any(lessThan(cell,vec2(0.)))||any(greaterThanEqual(cell,grid)))discard;
             float live=texture2D(field,(cell+.5)/grid).a;
@@ -66,13 +66,13 @@ export function createFire(T,assets,fieldUniforms){
   const flames=layer(assets.flame,0,MAX_CELLS*2),smoke=layer(assets.smoke,1,MAX_CELLS),bursts=layer(assets.burst,2,64);
   const discharge=createDischarge(T,assets.flame),carriedTorch=createCarriedTorch(T,assets.flame);root.add(discharge.root,carriedTorch.root);
   const history=new Map(),eventsSeen=new Set(),eventOrder=[],explosions=[];
-  let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false,actorFlames=0;
+  let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false,actorFlames=0,rubbleFlames=0,rubbleSmoke=0;
   function reset(){carriedTorch.reset();history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;}
   function update(snapshot,time,anchors={}){
     const clock=Number.isFinite(time)?time:snapshot.clocks?.world||0;
     if(clock<lastWorld-1e-8||snapshot.tick<lastTick)reset();
     lastWorld=clock;lastTick=snapshot.tick;worldClock.value=clock;bear.value.set(snapshot.player.x,1,snapshot.player.y);
-    for(const l of layers)l.begin();capped=false;actorFlames=0;
+    for(const l of layers)l.begin();capped=false;actorFlames=0;rubbleFlames=0;rubbleSmoke=0;
     // Carry the flame cards with the live body. Ground fire uses the rest of
     // the same instance budget.
     for(const actor of snapshot.actors||[]){
@@ -106,6 +106,17 @@ export function createFire(T,assets,fieldUniforms){
       }
     }
     for(const id of history.keys())if(!activeIds.has(id))history.delete(id);
+    for(const site of anchors.rubble||[]){
+      const seed=seedOf(site.id),flame=site.flame;
+      if(flame>.015){
+        if(flames.add(site.x,site.y,site.z,.27+flame*.27,.15+flame*.56,.25+flame*.52,seed,0,1))rubbleFlames++;
+        else capped=true;
+      }
+      const drift=(clock*.19+seed)%1;
+      if(smoke.add(site.x+drift*.36,site.y+.12+drift*.26,site.z-drift*.17,
+        .42+drift*.65,.64+drift*.80,.22*site.smoke*(1-drift*.54),seed))rubbleSmoke++;
+      else capped=true;
+    }
     for(const event of snapshot.events||[]){
       const key=typeof event.id+':'+event.id;if(eventsSeen.has(key))continue;
       if(typeof event.id==='number'&&event.id<=highestEvent)continue;
@@ -130,5 +141,5 @@ export function createFire(T,assets,fieldUniforms){
     primed=true;for(const l of layers)l.end();
   }
   return {root,update,reset,dispose(){carriedTorch.dispose();discharge.dispose();root.removeFromParent();root.clear();pool.dispose();},
-    diagnostics:()=>({flameCards:flames.count,actorFlameCards:actorFlames,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
+    diagnostics:()=>({flameCards:flames.count,actorFlameCards:actorFlames,rubbleFlameCards:rubbleFlames,rubbleSmokeCards:rubbleSmoke,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
 }

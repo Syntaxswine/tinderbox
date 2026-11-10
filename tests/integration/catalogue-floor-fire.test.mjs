@@ -30,7 +30,7 @@ const cameraAt=(snapshot,z)=> {
 };
 
 test('both Ashland basements vent actual live floor fuel while lower supports remain',()=>{
-  const sim=createSimulation({scenario:COTTAGE_PAIR_SCENARIO,cottageWind:wind,seed:1893});
+  const sim=createSimulation({scenario:COTTAGE_PAIR_SCENARIO,cottageWind:wind,seed:1893,config:{cottage:{radiation:false}}});
   const initial=sim.snapshot(),camera=cameraAt(initial,-12);
   const art=createCottagePairArt(T,library,initial.world.buildings,wind);
   try{

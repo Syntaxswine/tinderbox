@@ -11,7 +11,7 @@ import {createNightCottageLighting} from '../reuse/ashland/night-cottage-lightin
 
 // Presentation only: the ordinary Catalogue Street visit supplies the camera,
 // actual structural mask, sparks and debris. The replay is never instantiated.
-export function createCottagePairArt(T,library,buildings,sampleWind,renderer,{sharedFirelight=false}={}){
+export function createCottagePairArt(T,library,buildings,sampleWind,renderer,{sharedFirelight=false,rubbleAfterBurnout=false}={}){
   if(typeof sampleWind!=='function')throw Error('Cottage presentation needs the same wind sampler as gameplay');
   const root=new T.Group(),records=new Map(),ray=new T.Raycaster(),p=new T.Vector3(),ndc=new T.Vector3(),hit=new T.Vector3(),sidingHit=new T.Vector3();
   root.name='Playable Ashland cottage pair';
@@ -102,7 +102,9 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer,{sh
       const record=records.get(state.id);
       if(!record)throw Error('Unexpected cottage presentation ID');
       record.aimState=state;
-      record.house.root.visible=!state.gone;record.tiles.update(state);
+      record.house.root.visible=!state.gone;
+      record.tiles.root.visible=!rubbleAfterBurnout||!state.gone;
+      record.tiles.update(state);
       const {openings,changed}=record.lower.update(state,frame.worldTime,camera);
       record.lowerOpenings=[...openings.values()];
       shadowChanged||=changed;

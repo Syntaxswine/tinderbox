@@ -85,7 +85,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     obstacleFuel = state.obstacles.filter(o => !o.buildingId && o.material === 'wood').map(obstacle => ({
       obstacle, cells: field.cells.filter(cell => inBox(cell, obstacle))
     }));
-    cottages=playableCottages?createCottageFire({buildings:state.buildings,obstacles:state.obstacles,sampleWind:cottageWind,seed}):null;
+    cottages=playableCottages?createCottageFire({buildings:state.buildings,obstacles:state.obstacles,sampleWind:cottageWind,seed,...config.cottage}):null;
     const lots=state.buildings.filter(building=>!cottages||!COTTAGE_IDS.includes(building.id)).map(building=>({
       building,colliders:state.obstacles.filter(obstacle=>obstacle.buildingId===building.id)
     }));

@@ -51,7 +51,7 @@ test('opt-in routing preserves the regular street; the exact Nautilus bake follo
 test('player-selected match contacts drive distinct routes; the receiver requires live contact, with exact separate clearances',()=>{
   function run(cottageWind,left=false){
     const scenario=left?{...COTTAGE_PAIR_SCENARIO,player:{x:45.25,y:13.5,tool:'matches'}}:COTTAGE_PAIR_SCENARIO;
-    const sim=make({cottageWind,scenario});
+    const sim=make({cottageWind,scenario,config:{cottage:{radiation:false}}});
     const receipts=new Map(),frozen=new Map();
     try{
       assertCold(sim.advance(.25));
@@ -161,7 +161,7 @@ test('powder slows the cottage world clock; pause, reset and re-entry do not rep
 
 test('native cottage art supports phone aim, live masks and a bounded outdoor firelight budget',()=>{
   const catalogue=JSON.parse(readFileSync(new URL('../../assets/art/gross-housing-v1/houses.json',import.meta.url)));
-  const config={input:{cameraY:-12}},input=configuration(config).input;
+  const config={input:{cameraY:-12},cottage:{radiation:false}},input=configuration(config).input;
   const sim=make({config}),viewport={clientWidth:390,clientHeight:420};
   const renderer={setClearColor(){},setSize(){},shadowMap:{enabled:false,type:T.BasicShadowMap},
     domElement:{getBoundingClientRect:()=>({left:0,top:0,width:viewport.clientWidth,height:viewport.clientHeight})}};
@@ -171,7 +171,11 @@ test('native cottage art supports phone aim, live masks and a bounded outdoor fi
     const rig=createCameraRig(viewport,renderer,s.world,{x:input.cameraX,y:input.cameraY});
     rig.update(s.player);
     const {camera}=rig;
-    art=createCottagePairArt(T,{catalogue,textures:{}},s.world.buildings,wind,renderer);
+    art=createCottagePairArt(T,{catalogue,textures:{}},s.world.buildings,wind,renderer,{rubbleAfterBurnout:true});
+    const tileLayers=[];
+    art.root.traverse(object=>{if(object.name==='Ashland falling wood and ash')tileLayers.push(object);});
+    assert.equal(tileLayers.length,2);
+    assert.ok(tileLayers.every(layer=>layer.visible));
     const update=()=>art.update(s.cottageFire,{camera,player:s.player});
     update();
     const cold=art.diagnostics();
@@ -209,6 +213,7 @@ test('native cottage art supports phone aim, live masks and a bounded outdoor fi
     for(let i=84;i<172;i++)s=sim.advance(.25);
     update();
     assert.ok(art.diagnostics().houses.every(h=>h.art.visibleTriangles===0&&h.art.ashTiles===42));
+    assert.ok(tileLayers.every(layer=>!layer.visible));
     assert.ok(spots.every(light=>light.intensity===0));
     assertMask(s);
   }finally{art?.dispose();art?.dispose();sim.dispose();}

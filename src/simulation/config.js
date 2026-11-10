@@ -17,6 +17,7 @@ export const DEFAULT_CONFIG = Object.freeze({
     flamethrower: {range: 4.5, halfAngle: Math.PI / 8, heatPerSecond: 12, fuelPerSecond: 0.3},
     molotov: {range: 6, speed: 7, radius: 0.9, fuel: 0.3, heat: 2.2}
   },
+  cottage: {radiation: true, embers: true},
   barrel: {radius: 0.328, height: 0.8, ignitionHeat: 1.4, blastRadius: 2.5, heat: 2.8, damage: 50, wallsProtect: true},
   inventory: {matches: 12, gas: 4, molotovs: 4, torchFuel: 5,
     flamethrowerFuel: 6, powder: 4, healing: 3, inversion: 3},
