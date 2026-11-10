@@ -4,6 +4,8 @@ import {readFileSync} from 'node:fs';
 import * as T from '../../src/runtime/three.js';
 import {createCameraRig} from '../../src/runtime/camera.js';
 import {createSimulation} from '../../src/simulation/index.js';
+import {STRUCTURE_DECAY_SECONDS} from '../../src/simulation/config.js';
+import {EAVE,UPPER} from '../../src/simulation/cottage-topology.js';
 import {COTTAGE_PAIR_SCENARIO} from '../../src/content/cottage-pair.js';
 import {NEIGHBORHOOD_SCENARIO} from '../../src/content/neighborhood.js';
 import {HOUSING_PLANS} from '../../src/content/housing-plans.js';
@@ -29,13 +31,13 @@ const cameraAt=(snapshot,z)=> {
   rig.update(snapshot.player);return rig.camera;
 };
 
-test('both Ashland basements vent actual live floor fuel while lower supports remain',()=>{
+test('Ashland vents actual floor fuel, then retires individual native supports in world time',()=>{
   const sim=createSimulation({scenario:COTTAGE_PAIR_SCENARIO,cottageWind:wind,seed:1893,config:{cottage:{radiation:false}}});
   const initial=sim.snapshot(),camera=cameraAt(initial,-12);
-  const art=createCottagePairArt(T,library,initial.world.buildings,wind);
+  const art=createCottagePairArt(T,library,initial.world.buildings,wind,undefined,{rubbleAfterBurnout:true});
   try{
     let s=press(sim,51,13.5);
-    const visible=new Set(),remainingAtEnd=new Map();
+    const visible=new Set();
     for(let i=0;i<172;i++){
       s=sim.advance(.25);
       const houses=s.cottageFire.buildings;
@@ -50,16 +52,63 @@ test('both Ashland basements vent actual live floor fuel while lower supports re
           }
         }
       }
-      for(const house of houses)if(!house.gone&&house.deadline&&house.deadline-s.clocks.world<.27){
-        remainingAtEnd.set(house.id,house.tiles.reduce((n,t)=>n+Number(t.roof)+Number(t.upper)+Number(t.lower),0));
-        assert.ok(house.cells.some(c=>c.layer==='lower'&&c.flame>.025&&c.cause==='falling-fuel'),'a legitimately ignited lower remnant burns until clearance');
-      }
     }
     assert.equal(visible.size,2,'both lower storeys are readable from the normal camera');
-    assert.equal(remainingAtEnd.size,2);
-    assert.ok([...remainingAtEnd.values()].every(count=>count>0&&count<=4));
-    for(const b of s.cottageFire.buildings)assert.equal(b.retiredAt,b.firstIgnition.time+30);
+    assert.ok(s.cottageFire.buildings.every(lot=>lot.char>0&&lot.tiles.every(tile=>tile.roof&&tile.upper&&tile.lower)));
+    assert.deepEqual(s.world.rubble,[]);
+    assert.ok(s.structureFire.some(site=>site.flame===0&&site.smoke>0&&site.id.endsWith(':smolder')));
     assert.ok(Math.abs(s.cottageFire.buildings[1].firstIgnition.time-s.cottageFire.buildings[0].firstIgnition.time-11.95)<1e-8);
+
+    let partial=false;
+    const events=new Map();
+    while(s.clocks.world<190&&s.cottageFire.buildings.some(lot=>!lot.gone)){
+      s=sim.advance(.25);
+      if(s.clocks.world<STRUCTURE_DECAY_SECONDS)continue;
+      for(const event of s.events)if(event.type==='building-section-burnout'||event.type==='building-burnout')events.set(event.id,event);
+      for(const house of s.cottageFire.buildings){
+        const boxes=s.world.obstacles.filter(box=>box.buildingId===house.id);
+        const columns=new Map(boxes.filter(box=>box.cottageTile!==undefined).map(box=>[box.cottageTile,box]));
+        for(const tile of house.tiles){
+          assert.ok(!tile.roof||tile.upper);
+          assert.ok(!tile.upper||tile.lower);
+          assert.equal(columns.has(tile.index),tile.lower);
+          if(tile.lower)assert.equal(columns.get(tile.index).height,tile.upper?EAVE:UPPER);
+        }
+        for(const box of boxes.filter(box=>box.supportTile!==undefined))assert.ok(house.tiles[box.supportTile].upper);
+        if(!partial&&!house.gone&&house.tiles.some(tile=>!tile.lower)){
+          partial=true;
+          art.update(s.cottageFire,{camera,player:s.player});
+          const rendered=art.diagnostics().houses.find(item=>item.id===house.id);
+          assert.ok(rendered.art.visibleTriangles>0);
+          assert.equal(rendered.art.ashTiles,0);
+          const rubble=s.world.rubble.find(lot=>lot.buildingId===house.id);
+          assert.equal(rubble.metres,1);
+          assert.deepEqual(rubble.sections.map(section=>section.index).sort((a,b)=>a-b),
+            house.tiles.filter(tile=>!tile.lower).map(tile=>tile.index));
+        }
+      }
+    }
+    assert.ok(partial);
+    for(const house of s.cottageFire.buildings){
+      assert.ok(house.gone);
+      const endings=[...events.values()].filter(event=>event.buildingId===house.id);
+      const layers=endings.filter(event=>event.type==='building-section-burnout');
+      assert.equal(layers.length,126);
+      for(const event of layers){
+        const tile=house.tiles[event.section];
+        assert.equal(tile.retiredAt[event.layer],event.worldTime);
+        if(event.cause==='decay')assert.ok(Math.abs(event.worldTime-event.ignitionTime-STRUCTURE_DECAY_SECONDS)<1e-7);
+        else assert.equal(tile.retiredAt[event.supportLayer],event.worldTime);
+      }
+      assert.ok(layers.some(event=>event.cause==='support'));
+      assert.ok(Math.max(...layers.map(event=>event.worldTime))>layers[0].worldTime+10);
+      assert.deepEqual(endings.filter(event=>event.type==='building-burnout').map(event=>event.worldTime),[house.retiredAt]);
+      assert.equal(layers.at(-1).worldTime,house.retiredAt);
+      assert.ok(!s.world.obstacles.some(box=>box.buildingId===house.id));
+    }
+    const tile=s.cottageFire.buildings[0].tiles[0],retiredAt=tile.retiredAt.lower;
+    tile.retiredAt.lower=-1;
+    assert.equal(sim.snapshot().cottageFire.buildings[0].tiles[0].retiredAt.lower,retiredAt);
   }finally{art.dispose();sim.dispose();}
 });
 
@@ -82,12 +131,15 @@ for(const fixture of [
     const ignitions=new Map();
     const first=prefix=>[...ignitions.values()].find(e=>e.siteId.startsWith(fixture.id+'/'+prefix));
     let surface=false,partial=false,roofFlameFrames=0,firstClear,finalClear;
-    for(let i=0;i<152;i++){
+    for(let i=0;i<(STRUCTURE_DECAY_SECONDS+25)*4;i++){
       s=sim.advance(.25);
       const building=s.world.buildings.find(b=>b.id===fixture.id);
       for(const e of s.events)if(e.buildingId===fixture.id){
         if(e.type==='structure-ignition')ignitions.set(e.siteId,e);
-        if(e.type==='building-section-burnout')firstClear??=e.worldTime;
+        if(e.type==='building-section-burnout'){
+          firstClear??=e.worldTime;
+          assert.ok(Math.abs(e.worldTime-e.ignitionTime-STRUCTURE_DECAY_SECONDS)<1e-7);
+        }
         if(e.type==='building-burnout')finalClear??=e.worldTime;
       }
       const samples=s.structureFire.filter(site=>site.buildingId===fixture.id);
@@ -100,7 +152,7 @@ for(const fixture of [
         assert.ok(Math.abs(Math.hypot(site.nx,site.ny,site.nz)-1)<1e-8);
         assert.ok([site.flame,site.smoke,site.heatFraction].every(value=>value>=0&&value<=1));
       }
-      if(!surface||!partial){
+      if(!surface||!partial&&firstClear!==undefined){
         art.update(s.world,{camera,player:s.player,worldTime:s.clocks.world});
         const rendered=art.diagnostics().models.find(b=>b.instanceId===fixture.id);
         surface||=(rendered?.structuralFlames??0)>0;
@@ -169,7 +221,7 @@ test('quarter-turned Monroe neighbors keep separate starts, supports and clearan
     assert.ok(first(b)>first(a)+3&&first(b)<Infinity);
     assert.equal(first(c),Infinity);
     let third;
-    for(let i=0;i<155&&!s.world.buildings[0].destroyed;i++){
+    for(let i=0;i<(STRUCTURE_DECAY_SECONDS+25)*4&&!s.world.buildings[0].destroyed;i++){
       s=sim.advance(.25);
       third??=s.events.find(e=>e.type==='structure-ignition'&&e.buildingId==='unit-2');
     }

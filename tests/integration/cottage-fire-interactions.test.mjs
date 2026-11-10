@@ -39,7 +39,12 @@ test('Bell & Alder leaves retain identity and collision after a real Monroe coll
     ...SHOP_WITNESS_SCENARIO, player: {x: 38.5, y: 30.35, tool: 'matches'}
   }});
   const leavesOf = snapshot => snapshot.world.obstacles.filter(box => box.portalId === shopDoor);
-  const others = snapshot => snapshot.world.obstacles.filter(box => box.portalId !== shopDoor).map(box => box.id);
+  const verifyUnrelated = (before, after) => {
+    const changed = new Set(after.events.filter(event => event.tick === after.tick && event.type === 'building-section-burnout')
+      .map(event => event.buildingId));
+    const ids = snapshot => snapshot.world.obstacles.filter(box => box.portalId !== shopDoor && !changed.has(box.buildingId)).map(box => box.id);
+    assert.deepEqual(ids(after), ids(before));
+  };
   const use = snapshot => {
     const {id, action, enabled} = snapshot.player.interaction;
     assert.equal(id, shopDoor);
@@ -62,13 +67,13 @@ test('Bell & Alder leaves retain identity and collision after a real Monroe coll
     assert.ok(ignited.events.some(event => event.type === 'structure-ignition' && event.buildingId === houseId));
     walk(sim, 38.5, 18.35);
     let snapshot = walk(sim, 40, 18.35);
-    for (let n = 0; n < 112 && !houseOf(snapshot, houseId).destroyed; n++) snapshot = sim.advance(.25);
+    for (let n = 0; n < 700 && !houseOf(snapshot, houseId).destroyed; n++) snapshot = sim.advance(.25);
     assert.equal(houseOf(snapshot, houseId).destroyed, true);
     assert.ok(!snapshot.world.obstacles.some(box => box.buildingId === houseId));
     assert.equal(snapshot.player.interaction.action, 'open');
     const opened = use(snapshot);
     verify(opened, true);
-    assert.deepEqual(others(opened), others(snapshot));
+    verifyUnrelated(snapshot, opened);
     verify(snapshot, false);
     const threshold = walk(sim, 40, 17);
     assert.equal(threshold.player.interaction.enabled, false);
@@ -77,7 +82,7 @@ test('Bell & Alder leaves retain identity and collision after a real Monroe coll
     const inside = walk(sim, 40, 15.85);
     const closed = use(inside);
     verify(closed, false);
-    assert.deepEqual(others(closed), others(inside));
+    verifyUnrelated(inside, closed);
     const reset = act(sim, {type: 'reset'});
     verify(reset, false);
     assert.deepEqual(reset.world.shop.door, cold.world.shop.door);
@@ -176,7 +181,7 @@ test('the existing east drum heats exposed siding, which burns through the norma
         event.cause === 'barrel:' + barrelId && event.tick === blast.tick && event.parentSiteId === null));
       const ignitionBySite = new Map();
       let roof, partial, clear;
-      for (let n = 0; n < 104; n++) {
+      for (let n = 0; n < 700; n++) {
         for (const event of snapshot.events) if (event.buildingId === houseId) {
           if (event.type === 'structure-ignition') {
             ignitionBySite.set(event.siteId, event);
@@ -200,7 +205,7 @@ test('the existing east drum heats exposed siding, which burns through the norma
   }
 });
 
-test('the same blast input reaches the Ashland wall graph and preserves its own clearance deadline', () => {
+test('the same blast input reaches the Ashland wall graph and starts local support clocks', () => {
   const barrel = {id: 'cottage-drum-probe', x: 53.5, y: 13.5, width: .656, depth: .656, height: .8, material: 'steel', kind: 'barrel'};
   const scenario = {...COTTAGE_PAIR_SCENARIO, obstacles: [...COTTAGE_PAIR_SCENARIO.obstacles, barrel],
     player: {x: 57.1, y: 13.5, heading: Math.PI, tool: 'flamethrower'}};
@@ -214,11 +219,13 @@ test('the same blast input reaches the Ashland wall graph and preserves its own 
     assert.equal(initial.firstIgnition.kind, 'barrel:' + barrel.id);
     assert.equal(initial.firstIgnition.layer, 'walls');
     assert.equal(initial.gone, false);
-    assert.equal(initial.deadline, initial.firstIgnition.time + 30);
+    const struck=initial.tiles.find(tile=>tile.ignitedAt.upper===initial.firstIgnition.time);
+    assert.ok(struck);
     for (let n = 0; n < 24 && !snapshot.cottageFire.buildings[0].cells.some(cell => cell.layer === 'roof'); n++) snapshot = sim.advance(.25);
     const active = snapshot.cottageFire.buildings[0];
     assert.ok(active.cells.some(cell => cell.layer === 'roof' && cell.cause === 'surface-spread'));
-    assert.equal(active.deadline, initial.deadline);
+    assert.equal(active.tiles[struck.index].ignitedAt.upper,struck.ignitedAt.upper);
+    assert.ok(active.tiles.some(tile=>tile.ignitedAt.roof>struck.ignitedAt.upper));
     assert.equal(snapshot.cottageFire.buildings[1].firstIgnition, null);
   } finally { sim.dispose(); }
 });

@@ -48,11 +48,11 @@ test('opt-in routing preserves the regular street; the exact Nautilus bake follo
   try{const s=ordinary.snapshot();assert.equal(s.cottageFire,undefined);assert.equal(s.world.buildings.find(b=>b.id===COTTAGE_IDS[0]).quarterTurns,2);}finally{ordinary.dispose();}
 });
 
-test('player-selected match contacts drive distinct routes; the receiver requires live contact, with exact separate clearances',()=>{
+test('player-selected match contacts drive distinct routes; the receiver requires live contact',()=>{
   function run(cottageWind,left=false){
     const scenario=left?{...COTTAGE_PAIR_SCENARIO,player:{x:45.25,y:13.5,tool:'matches'}}:COTTAGE_PAIR_SCENARIO;
     const sim=make({cottageWind,scenario,config:{cottage:{radiation:false}}});
-    const receipts=new Map(),frozen=new Map();
+    const receipts=new Map();
     try{
       assertCold(sim.advance(.25));
       let s=match(sim,left?47:51);
@@ -64,28 +64,22 @@ test('player-selected match contacts drive distinct routes; the receiver require
         s=sim.advance(.25);assertMask(s);
         for(const b of s.cottageFire.buildings){
           if(!b.firstIgnition)assert.equal(b.cells.length,0);
-          else{
-            const old=frozen.get(b.id);
-            if(old)assert.equal(b.deadline,old);
-            else frozen.set(b.id,b.deadline);
-            assert.ok(Math.abs(b.deadline-b.firstIgnition.time-30)<1e-9);
-          }
+          assert.ok(b.tiles.every(tile=>tile.roof&&tile.upper&&tile.lower));
+          assert.equal(b.retiredAt,null);
         }
         for(const e of s.events)receipts.set(e.id,e);
       }
       assert.equal(s.cottageFire.diagnostics.launches,84);assert.equal(s.cottageFire.embers.length,0);
       const all=[...receipts.values()],source=first(s),receiver=s.cottageFire.buildings[1];
-      assert.equal(source.retiredAt,source.deadline);
       if(receiver.firstIgnition){
         const e=all.find(e=>e.type==='cottage-ignition'&&e.buildingId===receiver.id);
         const impact=all.find(c=>c.type==='cottage-ember-contact'&&c.sourceId===e.sourceId&&c.buildingId===receiver.id);
         assert.equal(e.cause,'ember');assert.equal(impact.hot,true);assert.ok(impact.worldTime<=e.worldTime);
-        assert.equal(receiver.retiredAt,receiver.deadline);
         const firstRoof=receiver.cells.find(c=>c.id===receiver.firstIgnition.cellId);
         assert.equal(firstRoof.x+receiver.x,impact.x);assert.ok(Math.abs(firstRoof.y-roofHeight(firstRoof.x))<1e-9);
       }
       for(const b of s.cottageFire.buildings.filter(b=>b.firstIgnition)){
-        assert.equal(all.filter(e=>e.type==='building-burnout'&&e.buildingId===b.id).length,1);
+        assert.ok(!all.some(e=>e.type==='building-burnout'&&e.buildingId===b.id));
         for(const layer of ['upper','lower']){
           const event=all.find(e=>e.type==='cottage-ignition'&&e.buildingId===b.id&&e.layer===layer);
           assert.equal(event.cause,'falling-fuel');
@@ -149,7 +143,10 @@ test('powder slows the cottage world clock; pause, reset and re-entry do not rep
     sim.dispatch({type:'drug',drug:'powder'});
     const before=sim.snapshot(),powder=sim.advance(.25);
     assert.ok(Math.abs(powder.cottageFire.worldTime-before.cottageFire.worldTime-.0875)<1e-9);
-    assert.equal(first(powder).deadline,first(before).deadline);
+    const clock=first(before).tiles.find(tile=>tile.ignitedAt.upper!==undefined);
+    assert.equal(first(powder).tiles[clock.index].ignitedAt.upper,clock.ignitedAt.upper);
+    clock.ignitedAt.upper=-1;
+    assert.equal(first(sim.snapshot()).tiles[clock.index].ignitedAt.upper,first(powder).firstIgnition.time);
     sim.dispatch({type:'pause',paused:true});
     assert.deepEqual(sim.advance(.25).cottageFire,powder.cottageFire);
     sim.dispatch({type:'reset'});const reset=sim.advance(1/60);
@@ -212,8 +209,8 @@ test('native cottage art supports phone aim, live masks and a bounded outdoor fi
     assert.ok(receiver.spill+receiver.local>0&&receiver.spill+receiver.local<=COTTAGE_OUTDOOR_BUDGET);
     for(let i=84;i<172;i++)s=sim.advance(.25);
     update();
-    assert.ok(art.diagnostics().houses.every(h=>h.art.visibleTriangles===0&&h.art.ashTiles===42));
-    assert.ok(tileLayers.every(layer=>!layer.visible));
+    assert.ok(art.diagnostics().houses.every(h=>h.art.visibleTriangles>0&&h.art.ashTiles===0));
+    assert.ok(tileLayers.every(layer=>layer.visible));
     assert.ok(spots.every(light=>light.intensity===0));
     assertMask(s);
   }finally{art?.dispose();art?.dispose();sim.dispose();}

@@ -142,7 +142,7 @@ test('a spent siding target reports no fuel and reset restores its stable site I
     sim.advance(.25);
     const spent = press(sim);
     assert.equal(lastUse(spent).reason, 'no-fuel');
-    assert.deepEqual(spent.structureFire, []);
+    assert.ok(spent.structureFire.every(site=>site.flame===0));
     assert.ok(spent.world.buildings[0].sections.every(section => section.present));
     sim.dispatch({type: 'reset'});
     const reset = sim.advance(step);

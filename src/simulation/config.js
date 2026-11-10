@@ -1,4 +1,5 @@
 // Tunable TB-004 prototype values. Metres, seconds, HP and litres (fuel).
+export const STRUCTURE_DECAY_SECONDS = 150;
 export const DEFAULT_CONFIG = Object.freeze({
   step: 1 / 60, maxCatchUp: 0.25,
   player: {speed: 9, radius: 0.56, maxHp: 100},

@@ -86,6 +86,19 @@ export function worldSurface(building, local) {
   return {x: world.x, y: local.y, z: world.y, nx: normal.x, ny: local.ny, nz: normal.y};
 }
 
+// A charred support can retain heat after its spreading surface flame is spent.
+export function retainedStructureHeat(ignitedAt,time) {
+  if(!Number.isFinite(ignitedAt))return 0;
+  const age=Math.max(0,time-ignitedAt);
+  return Math.min(1,age/8)*Math.exp(-age/260);
+}
+export function structureSmolder(building,site,time,ignitedAt) {
+  const part=site.layer==='walls'||site.layer==='roof'?site.layer:'ground';
+  return {id:`${building.id}/${site.id}:smolder`,buildingId:building.id,part,
+    ...worldSurface(building,site.anchor??site),area:site.area,exposed:true,flame:0,
+    smoke:.16*retainedStructureHeat(ignitedAt,time),ignitionTime:ignitedAt};
+}
+
 export function surfaceSample(building, site, time, exposed) {
   const flame = surfaceFlame(site, time);
   if (!flame && (site.phase !== 'cold' || !(site.heat > 0))) return null;

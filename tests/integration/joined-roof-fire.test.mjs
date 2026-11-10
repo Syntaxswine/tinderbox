@@ -86,7 +86,7 @@ function verifyContact(receipt, source, receiver) {
 test('published touching Monroe roofs warm and catch without grass in normal, witness and actual-wind Ashland visits', t => {
   const wind = translateCottageWind(JSON.parse(readFileSync(PAIR_WIND_URL)));
   for (const [mode, definition, cottageWind, seconds] of [
-    ['regular', NEIGHBORHOOD_SCENARIO, undefined, 33],
+    ['regular', NEIGHBORHOOD_SCENARIO, undefined, 180],
     ['witness', SHOP_WITNESS_SCENARIO, undefined, 11],
     ['cottages', COTTAGE_PAIR_SCENARIO, wind, 11]
   ]) {
@@ -148,7 +148,7 @@ test('the three-unit seam chain uses transformed roof edges and has the same tim
 test('unjoined lots stay cold and shorter roof burns leave only temporary seam preheat', t => {
   const {scenario, aim} = rotatedRow(0, .3);
   assert.ok(scenario.buildings.pop());
-  const separated = replay(scenario, aim, 'unit-0', ['unit-1'], {seconds: 25});
+  const separated = replay(scenario, aim, 'unit-0', ['unit-1'], {seconds: 170});
   assert.equal(house(separated.initial, 'unit-0').partyWalls.right, null);
   assert.ok(house(separated.end, 'unit-0').destroyed);
   assert.equal(separated.preheat.size, 0);
@@ -165,6 +165,6 @@ test('unjoined lots stay cold and shorter roof burns leave only temporary seam p
     assert.equal(weak.first.has(id), false);
     assert.ok(house(weak.end, id).sections.every(section => section.present && section.firstIgnition === null));
   }
-  assert.deepEqual(weak.end.structureFire, []);
+  assert.ok(weak.end.structureFire.every(site=>site.buildingId===middle&&site.flame===0&&site.smoke>0));
   t.diagnostic(JSON.stringify({weakPeak: Object.fromEntries(weak.peak)}));
 });

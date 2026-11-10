@@ -2,8 +2,9 @@ import {buildingPoint,localHousingFootprints} from '../content/buildings.js';
 import {housingSectionAt,housingSectionBounds,housingSectionGrid} from '../content/housing-sections.js';
 import {HOUSING_PLANS} from '../content/housing-plans.js';
 import {ASSET_SCALE} from '../content/asset-scale.js';
+import {STRUCTURE_DECAY_SECONDS} from './config.js';
 import {createHousingTopology} from './housing-topology.js';
-import {exchangeSurfaceGround, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample} from './surface-fire.js';
+import {exchangeSurfaceGround, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample, retainedStructureHeat, structureSmolder} from './surface-fire.js';
 
 const EPS=1e-9;
 function toPlan(building,point){
@@ -20,14 +21,14 @@ export function prepareHousingFootprints(definition, excluded){
   }
 }
 
-export function createHousingFire(group,obstacles,config,wind){
+export function createHousingFire(group,obstacles,config,wind,retireGround){
   const {building,colliders}=group;
   const grid=housingSectionGrid(building.prefabId);
   const localBoxes=localHousingFootprints(building.prefabId,building.partyWalls);
   const plan=HOUSING_PLANS[building.prefabId],odd=building.quarterTurns%2;
   const {sites,panels,porch,roofSeams}=createHousingTopology(building,plan,localBoxes,config,wind);
   const sections=Array.from({length:grid.cols*grid.rows},(_,index)=>({
-    sites:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,fire:null,preheat:null}
+    sites:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,retiredAt:null,fire:null,preheat:null}
   }));
   building.sections=sections.map(section=>section.view);
   for(const site of sites)sections[site.section].sites.push(site);
@@ -76,6 +77,9 @@ export function createHousingFire(group,obstacles,config,wind){
   function step(dt,time,event){
     if(building.destroyed)return;
     stepSurfaceFire(sites,dt,time,present,site=>{
+      const section=sections[site.section];
+      section.view.firstIgnition??=site.ignitedAt;
+      if(site.exposed&&(site.layer==='walls'||site.layer==='roof')&&site.y>(section.vent?.y??-Infinity))section.vent=site;
       event('structure-ignition',{x:site.world.x,y:site.world.z},{buildingId:building.id,siteId:site.publicId,
         part:site.layer==='floor'?'ground':site.layer,height:site.y,worldTime:time,cause:site.ignitionKind,
         parentSiteId:site.ignitionKind==='surface-spread'?`${building.id}/${site.parentId}`:site.parentId,heat:site.heat},site,
@@ -84,11 +88,17 @@ export function createHousingFire(group,obstacles,config,wind){
     let remainingArea=0,changed=false;
     for(const {sites:owned,view} of sections){
       if(!view.present)continue;
-      let live=false,weight=0,x=0,z=0,peak=0,first=Infinity;
+      if(view.firstIgnition!==null&&time+EPS>=view.firstIgnition+STRUCTURE_DECAY_SECONDS){
+        view.present=false;view.retiredAt=time;view.fire=view.preheat=null;changed=true;
+        retireGround?.(building,grid.metres,view.index,time,retainedStructureHeat(view.firstIgnition,time));
+        event('building-section-burnout',building,{buildingId:building.id,section:view.index,worldTime:time,
+          ignitionTime:view.firstIgnition,cause:'decay'});
+        continue;
+      }
+      let weight=0,x=0,z=0,peak=0,first=Infinity;
       let hottest=null;
       for(const site of owned){
         if(site.phase==='spent')continue;
-        live=true;
         if(site.phase==='cold'){
           remainingArea+=site.area;
           if(site.layer==='walls'&&site.fuel.threshold>0&&site.heat>(hottest?.heat??0))hottest=site;
@@ -99,15 +109,8 @@ export function createHousingFire(group,obstacles,config,wind){
         weight+=intensity;x+=site.x*intensity;z+=site.z*intensity;peak=Math.max(peak,intensity);
         first=Math.min(first,site.ignitedAt);
       }
-      if(weight>0){
-        view.firstIgnition??=first;
-        view.fire={x:x/weight,z:z/weight,flame:peak,ignitionTime:first};
-      }else view.fire=null;
+      view.fire=weight>0?{x:x/weight,z:z/weight,flame:peak,ignitionTime:first}:null;
       view.preheat=hottest&&!view.fire?{x:hottest.x,z:hottest.z,heatFraction:Math.min(1,hottest.heat/hottest.fuel.threshold)}:null;
-      if(view.firstIgnition!==null&&!live){
-        view.present=false;changed=true;
-        event('building-section-burnout',building,{buildingId:building.id,section:view.index,worldTime:time});
-      }
     }
     building.burnedFraction=initialArea-remainingArea>EPS?Math.min(1,1-remainingArea/initialArea):0;
     if(changed){
@@ -168,11 +171,15 @@ export function createHousingFire(group,obstacles,config,wind){
   }
   function samples(time){
     if(building.destroyed)return [];
-    return sites.filter(site=>present(site)&&(site.phase==='burning'||site.phase==='cold'&&site.heat>0)).map(site=>{
+    const current=sites.filter(site=>present(site)&&(site.phase==='burning'||site.phase==='cold'&&site.heat>0)).map(site=>{
       const exposed=site.exposed||!sections[site.section].sites.some(other=>
-        other.layer!=='walls'&&other.y>site.y&&other.phase!=='spent');
+        other.layer!=='walls'&&other.y>site.y);
       return surfaceSample(building,site,time,exposed);
     });
+    for(const {view,vent} of sections)if(view.present&&!view.fire&&vent){
+      current.push(structureSmolder(building,vent,time,view.firstIgnition));
+    }
+    return current;
   }
   return {step,strike,heatBlast,exchangeGround,samples,roof:{building,seams:roofSeams,present}};
 }

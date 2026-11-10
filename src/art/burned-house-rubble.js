@@ -1,7 +1,9 @@
 import {HOUSING_PLANS} from '../content/housing-plans.js';
+import {housingSectionAt,housingSectionGrid,RUBBLE_BURN_SECONDS} from '../content/housing-sections.js';
+import {createHousingSectionMask} from './housing-section-mask.js';
 import {Resources, clamp, hash, seedOf} from './resources.js';
 
-export const RUBBLE_BURN_SECONDS = 24;
+export {RUBBLE_BURN_SECONDS};
 const EMBER_BED = [[.24, .25], [.70, .22], [.47, .53], [.23, .74], [.74, .73]];
 // Irregular timber with a split point at each end. Coordinates are in the
 // piece's own length and width, so rotating the lot does not stretch any piece.
@@ -9,7 +11,7 @@ const SPLINTER = [[-.50,-.38],[-.36,-.50],[.38,-.46],[.50,-.22],[.37,-.03],
   [.47,.24],[.28,.48],[-.42,.50],[-.50,.23],[-.38,.04]];
 const BRICK = [[-.49,-.48],[.34,-.50],[.50,-.29],[.47,.43],[-.40,.50],[-.50,.22]];
 
-function buildPile(T, plan, id, material) {
+function buildPile(T, plan, id, material, grid) {
   const {width, depth} = plan;
   let randomIndex = seedOf(id) * 10000;
   const random = () => hash(++randomIndex);
@@ -133,6 +135,25 @@ function buildPile(T, plan, id, material) {
       breadth: between(.085, .27), thickness: between(.068, .16), yaw: between(0, Math.PI), pitch, stone: true});
   }
 
+  if (grid) {
+    const {cols, rows, metres} = grid;
+    const occupied = new Set(pockets.map(pocket => housingSectionAt(grid, pocket.x, pocket.z)));
+    for (let index = 0; index < cols * rows; index++) {
+      if (occupied.has(index)) continue;
+      // Keep some small crevices in every native cell, even when the
+      // artist's five larger coal pockets happen to lie in other cells.
+      const x0 = index % cols * metres, z0 = Math.floor(index / cols) * metres;
+      const x = x0 + (Math.min(width, x0 + metres) - x0) * between(.37, .63);
+      const z = z0 + (Math.min(depth, z0 + metres) - z0) * between(.38, .62);
+      const y = .105;
+      for (let n = 0; n < 3; n++) {
+        const cx = x + between(-.17, .17), cz = z + between(-.14, .14);
+        face(coals, [cx-.10,y,cz], [cx,y+.01,cz+.044], [cx+.09,y,cz+.022], 0xc83d15, between(.55, .95));
+      }
+      pockets.push({id:id+':coals:section:'+index,x,y:y+.02,z,phase:random(),flameSeconds:between(13,19),buildingId:id,area:.19});
+    }
+  }
+
   function mesh(batch, material) {
     const geometry = new T.BufferGeometry();
     geometry.setAttribute('position', new T.Float32BufferAttribute(batch.position, 3));
@@ -165,6 +186,8 @@ export function createBurnedHouseRubble(T) {
     record.rubble.geometry.dispose();
     record.glow.geometry.dispose();
     record.glow.material.dispose();
+    record.mask?.dispose();
+    if (record.mask) record.rubble.material.dispose();
   }
 
   function update(snapshot, time) {
@@ -178,8 +201,11 @@ export function createBurnedHouseRubble(T) {
     lastTick = snapshot.tick;
     generation = snapshot.diagnostics?.generation;
     const active = new Set(), standing = new Set(), sites = [];
+    const sectional = snapshot.world.rubble;
+    const byBuilding = new Map(sectional?.map(lot => [lot.buildingId, lot]));
     for (const building of snapshot.world.buildings || []) {
-      if (!building.destroyed) {
+      const sectionLot = byBuilding.get(building.id);
+      if (!sectionLot && (sectional || !building.destroyed)) {
         standing.add(building.id);
         continue;
       }
@@ -188,11 +214,18 @@ export function createBurnedHouseRubble(T) {
       active.add(id);
       let record = lots.get(id);
       if (!record) {
-        record = buildPile(T, plan, id, material);
+        const grid = sectionLot && housingSectionGrid(prefabId, sectionLot.metres);
+        record = buildPile(T, plan, id, grid ? material.clone() : material, grid);
         record.root.position.set(x, 0, y);
         record.root.rotation.y = -quarterTurns * Math.PI / 2;
         root.add(record.root);
+        record.root.updateMatrixWorld(true);
+        if (grid) {
+          record.mask = createHousingSectionMask(T, record.root, prefabId, {metres:grid.metres, glowMaterial:record.glow.material});
+          record.sections = Array.from({length:grid.cols*grid.rows}, (_,index)=>({index,present:false,glow:0,age:0,heat:0}));
+        }
         for (const pocket of record.pockets) {
+          if (grid) pocket.section = housingSectionAt(grid, pocket.x, pocket.z);
           const point = record.root.localToWorld(new T.Vector3(pocket.x, pocket.y, pocket.z));
           Object.assign(pocket, {x: point.x, y: point.y, z: point.z});
         }
@@ -201,19 +234,35 @@ export function createBurnedHouseRubble(T) {
         const retiredAt = cottage?.retiredAt ?? burnout?.worldTime;
         // A restored ruin with no dated transition starts cold. A live to
         // destroyed edge covers older snapshots without a timed event.
-        record.retiredAt = Number.isFinite(retiredAt) && retiredAt <= time ? retiredAt : previous.has(id) ? time : null;
+        record.retiredAt = sectionLot?.sections[0]?.retiredAt ?? (Number.isFinite(retiredAt) && retiredAt <= time ? retiredAt : previous.has(id) ? time : null);
         lots.set(id, record);
       }
-      const age = record.retiredAt === null ? RUBBLE_BURN_SECONDS : time - record.retiredAt;
-      const remaining = clamp(1 - age / RUBBLE_BURN_SECONDS);
-      record.glow.visible = remaining > 0;
-      record.glow.material.opacity = remaining ** 1.35 * (.70 + .11 * Math.sin(time * 4.2 + seedOf(id) * 16));
+      const age = record.retiredAt === null ? RUBBLE_BURN_SECONDS : Math.max(0, time - record.retiredAt);
+      const flutterGlow = .70 + .11 * Math.sin(time * 4.2 + seedOf(id) * 16);
+      let remaining = clamp(1 - age / RUBBLE_BURN_SECONDS);
+      if (sectionLot) {
+        for (const {index, retiredAt, retainedHeat} of sectionLot.sections) {
+          const section = record.sections[index], age = Math.max(0, time - retiredAt);
+          const left = clamp(1 - age / RUBBLE_BURN_SECONDS);
+          Object.assign(section, {present:true, age, heat:retainedHeat, glow:retainedHeat * left ** 1.35});
+        }
+        record.mask.update(record.sections);
+        record.glow.visible = record.sections.some(section => section.glow > 0);
+        record.glow.material.opacity = flutterGlow;
+      } else {
+        record.glow.visible = remaining > 0;
+        record.glow.material.opacity = remaining ** 1.35 * flutterGlow;
+      }
       if (!record.glow.visible) continue;
       for (const pocket of record.pockets) {
+        const section = record.sections?.[pocket.section], ageInSection = section?.age ?? age;
+        const heat = section?.heat ?? 1;
+        remaining = clamp(1 - ageInSection / RUBBLE_BURN_SECONDS);
+        if (!remaining || !heat) continue;
         const {phase, flameSeconds} = pocket;
         const flutter = .73 + .27 * Math.sin(time * (4 + phase * 2) + phase * 34);
-        const flame = clamp(1 - age / flameSeconds) ** .82 * flutter;
-        sites.push({...pocket, flame, smoke: remaining ** .9, glow: remaining * flutter});
+        const flame = heat * clamp(1 - ageInSection / flameSeconds) ** .82 * flutter;
+        sites.push({...pocket, flame, smoke: heat * remaining ** .9, glow: heat * remaining * flutter});
       }
     }
     for (const [id, record] of lots) if (!active.has(id)) {
@@ -226,6 +275,7 @@ export function createBurnedHouseRubble(T) {
 
   return {root, update, diagnostics: () => [...lots].map(([id, record]) => ({
     id, retiredAt: record.retiredAt, glowing: record.glow.visible,
+    ...(record.sections ? {sections:record.sections.filter(section => section.present).map(({index,glow}) => ({index,glow}))} : {}),
     triangles: (record.rubble.geometry.attributes.position.count + record.glow.geometry.attributes.position.count) / 3
   })), dispose() {
     if (disposed) return;

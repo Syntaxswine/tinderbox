@@ -73,11 +73,10 @@ test('the authored gap admits sustained radiation, while a tall screen and a col
   assert.equal(clear.snapshot.cottageFire.diagnostics.launches, 0);
   assert.equal(clear.snapshot.cottageFire.diagnostics.radiantLinks, 2074);
   const [source, receiver] = clear.snapshot.cottageFire.buildings;
-  near(source.retiredAt, source.firstIgnition.time + 30);
-  near(receiver.retiredAt, first.worldTime + 30);
-  assert.ok(source.retiredAt < receiver.retiredAt);
-  assert.ok(clear.snapshot.world.obstacles.every(box => !COTTAGE_IDS.includes(box.buildingId)));
-  t.diagnostic(JSON.stringify({first, roof: roof.worldTime, retired: [source.retiredAt, receiver.retiredAt]}));
+  assert.equal(source.retiredAt,null);
+  assert.equal(receiver.retiredAt,null);
+  assert.ok([source,receiver].every(lot=>lot.tiles.every(tile=>tile.lower&&tile.upper&&tile.roof)));
+  t.diagnostic(JSON.stringify({first, roof: roof.worldTime, duration:clear.snapshot.clocks.world}));
 
   for (const [radiation, screened] of [[true, true], [false, false]]) {
     const control = run({cottageWind: wind, radiation, embers: false, screened, seconds: 32});
@@ -85,7 +84,7 @@ test('the authored gap admits sustained radiation, while a tall screen and a col
     assert.equal(control.warm.size, 0);
     assert.equal(control.snapshot.cottageFire.buildings[1].firstIgnition, null);
     assert.equal(control.snapshot.cottageFire.buildings[1].gone, false);
-    near(control.snapshot.cottageFire.buildings[0].retiredAt, source.retiredAt);
+    assert.equal(control.snapshot.cottageFire.buildings[0].retiredAt,source.retiredAt);
   }
 });
 

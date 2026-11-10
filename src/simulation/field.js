@@ -110,7 +110,7 @@ export class HeatField {
     const {fire} = this.config;
     return fire.heatRate * (fire.propagation[material] ?? fire.propagation.wood).heatScale;
   }
-  step(delta, worldTime, event) {
+  step(delta, worldTime, event, rubble) {
     const {fire, fuel} = this.config; this.delta.fill(0);
     // Only sources burning before this pass can transfer heat. Each edge also
     // waits for its world-time travel deadline: no connected-component flood fill.
@@ -131,8 +131,8 @@ export class HeatField {
     const areaScale = (this.size / 0.5) ** 2;
     for (let i = 0; i < this.cells.length; i++) {
       const cell = this.cells[i], burning = cell.phase === 'burning';
-      const preTransfer = cell.heat, incoming = this.delta[i];
-      cell.heat = storedHeat(preTransfer, incoming, fire.cooling, delta, fire.maxHeat);
+      const preTransfer = cell.heat, incoming = this.delta[i], rubbleHeat = rubble?.heat[i] ?? 0;
+      cell.heat = storedHeat(preTransfer, incoming + rubbleHeat, fire.cooling, delta, fire.maxHeat);
       if (burning) {
         const gas = Math.min(cell.depositedFuel, fuel.gasBurnRate * areaScale * delta);
         const surface = Math.min(cell.surfaceFuel, fuel.surfaceBurnRate * areaScale * delta);
@@ -149,14 +149,27 @@ export class HeatField {
         if (ignites(cell.heat, threshold, total - EPS)) {
           cell.phase = 'burning'; cell.ignitedAt = worldTime; cell.intensity = fire.minIntensity;
           const required = threshold + fire.cooling * delta;
-          event('ignition', cell, {cellId: cell.id, cause: cell.cause, heat: cell.heat}, cell,
-            {required, incoming, independent: preTransfer >= required});
+          const fromRubble = rubbleHeat > 0 && preTransfer + incoming < required;
+          if (fromRubble) cell.cause = 'rubble';
+          event('ignition', cell, {cellId: cell.id, cause: cell.cause, heat: cell.heat,
+            ...(fromRubble ? {sourceId: rubble.donors[i], worldTime} : {})}, cell,
+            {required, incoming: incoming + rubbleHeat, independent: preTransfer >= required});
         } else if (cell.phase !== 'spent') {
           cell.phase = cell.heat > 0.03 ? 'heating' : 'cold';
           if (cell.heat <= EPS) cell.cause = null;
         }
       }
     }
+  }
+  heatIndex(point, radius = this.size) {
+    const max = this.config.fire.maxHeat;
+    if (!max || ![point?.x, point?.y, radius].every(Number.isFinite) || radius < 0) return 0;
+    // Average nearby cells within up to three metres. Heat remains the
+    // existing per-cell gameplay value, including on noncombustible paving.
+    const reach = Math.min(3, radius);
+    const cells = this.candidates(point, reach).filter(cell => distance(cell, point) <= reach + EPS);
+    const heat = cells.length ? cells.reduce((sum, cell) => sum + cell.heat, 0) / cells.length : this.at(point)?.heat ?? 0;
+    return clamp(heat / max, 0, 1);
   }
   exposure(point) {
     const cell = this.at(point); if (!cell) return 0;

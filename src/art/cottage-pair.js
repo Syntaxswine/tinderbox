@@ -103,8 +103,11 @@ export function createCottagePairArt(T,library,buildings,sampleWind,renderer,{sh
       if(!record)throw Error('Unexpected cottage presentation ID');
       record.aimState=state;
       record.house.root.visible=!state.gone;
-      record.tiles.root.visible=!rubbleAfterBurnout||!state.gone;
-      record.tiles.update(state);
+      const localRubble=rubbleAfterBurnout&&state.tiles[0]?.retiredAt!==undefined;
+      record.tiles.root.visible=!rubbleAfterBurnout||!state.gone||localRubble&&state.drops.length>0;
+      // Shared rubble owns this ground cell once its lower support falls.
+      const tiles=localRubble&&state.tiles.some(tile=>tile.ash)?state.tiles.map(tile=>({...tile,ash:0})):state.tiles;
+      record.tiles.update(tiles===state.tiles?state:{...state,tiles});
       const {openings,changed}=record.lower.update(state,frame.worldTime,camera);
       record.lowerOpenings=[...openings.values()];
       shadowChanged||=changed;
