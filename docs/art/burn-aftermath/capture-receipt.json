@@ -1,0 +1,486 @@
+{
+  "programs": 24,
+  "allProgramLogsEmpty": true,
+  "kind": "Actual packaged art driven by the public match commands in a calm Ashland scenario with a study grass verge",
+  "fixedNativeCamera": true,
+  "retiredAt": 30.016666666666666,
+  "studyGrassPatch": {
+    "x": 53,
+    "y": 12,
+    "width": 5,
+    "depth": 7,
+    "material": "grass"
+  },
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "records": [
+    {
+      "label": "01-intact",
+      "worldTime": 0,
+      "retiredAt": null,
+      "houseGone": false,
+      "ashLayerVisible": true,
+      "playerHp": 100,
+      "houseColliders": 44,
+      "grassSpent": 0,
+      "grassBurning": 0,
+      "rubble": [],
+      "flameCards": 0,
+      "smokeCards": 0,
+      "rubbleLights": [],
+      "drawCalls": 183,
+      "projection": [
+        0.05639097744360903,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        49.39662827811125,
+        14.441871769567946,
+        -37.08969472165352,
+        0.9999999999999998
+      ],
+      "viewport": [
+        1280,
+        720
+      ],
+      "exposure": 1,
+      "scarRgb": [
+        47,
+        57,
+        54
+      ]
+    },
+    {
+      "label": "02-burning-rubble",
+      "worldTime": 30.483333333332883,
+      "retiredAt": 30.016666666666666,
+      "houseGone": true,
+      "ashLayerVisible": false,
+      "playerHp": 100,
+      "houseColliders": 0,
+      "grassSpent": 123,
+      "grassBurning": 17,
+      "rubble": [
+        {
+          "id": "ashland-cottage",
+          "retiredAt": 30.016666666666666,
+          "glowing": true,
+          "triangles": 3000
+        }
+      ],
+      "flameCards": 39,
+      "smokeCards": 105,
+      "rubbleLights": [
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            50.41770165702896,
+            0.5912137257767609,
+            11.829358721006464
+          ],
+          "intensity": 1.6961290648098784,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            48.004789453256095,
+            0.621685737510299,
+            12.49012291107658
+          ],
+          "intensity": 3.525461841474852,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            50.189083638502595,
+            0.5824588145927192,
+            15.195218641022947
+          ],
+          "intensity": 1.480503166534858,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            47.54748943633312,
+            0.6675337855770704,
+            15.057485446994615
+          ],
+          "intensity": 2.3026888883020864,
+          "reach": 3
+        }
+      ],
+      "drawCalls": 139,
+      "projection": [
+        0.05639097744360903,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        49.39662827811125,
+        14.441871769567946,
+        -37.08969472165352,
+        0.9999999999999998
+      ],
+      "viewport": [
+        1280,
+        720
+      ],
+      "exposure": 1,
+      "scarRgb": [
+        16,
+        15,
+        13
+      ]
+    },
+    {
+      "label": "05-rubble-detail",
+      "worldTime": 30.483333333332883,
+      "retiredAt": 30.016666666666666,
+      "houseGone": true,
+      "ashLayerVisible": false,
+      "playerHp": 100,
+      "houseColliders": 0,
+      "grassSpent": 123,
+      "grassBurning": 17,
+      "rubble": [
+        {
+          "id": "ashland-cottage",
+          "retiredAt": 30.016666666666666,
+          "glowing": true,
+          "triangles": 3000
+        }
+      ],
+      "flameCards": 39,
+      "smokeCards": 105,
+      "rubbleLights": [
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            50.41770165702896,
+            0.5912137257767609,
+            11.829358721006464
+          ],
+          "intensity": 1.6961290648098784,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            48.004789453256095,
+            0.621685737510299,
+            12.49012291107658
+          ],
+          "intensity": 3.525461841474852,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            50.189083638502595,
+            0.5824588145927192,
+            15.195218641022947
+          ],
+          "intensity": 1.480503166534858,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            47.54748943633312,
+            0.6675337855770704,
+            15.057485446994615
+          ],
+          "intensity": 2.3026888883020864,
+          "reach": 3
+        }
+      ],
+      "drawCalls": 40,
+      "projection": [
+        0.20270270270270274,
+        0,
+        0,
+        0,
+        0,
+        0.3603603603603604,
+        0,
+        0,
+        0,
+        0,
+        -0.016673614005835766,
+        0,
+        0,
+        0,
+        -1.0008336807002918,
+        1
+      ],
+      "view": [
+        -0.7474093186836598,
+        -0.36764006127059634,
+        0.55337157109286,
+        0,
+        8.326672684688678e-17,
+        0.8329345138161943,
+        0.55337157109286,
+        0,
+        -0.6643638388299201,
+        0.41359506892942083,
+        -0.6225430174794672,
+        0,
+        46.72138696571411,
+        12.577311158624546,
+        -33.713471254368635,
+        1.0000000000000002
+      ],
+      "viewport": [
+        1280,
+        720
+      ],
+      "exposure": 1,
+      "scarRgb": null
+    },
+    {
+      "label": "03-smoldering",
+      "worldTime": 48.53333333333186,
+      "retiredAt": 30.016666666666666,
+      "houseGone": true,
+      "ashLayerVisible": false,
+      "playerHp": 100,
+      "houseColliders": 0,
+      "grassSpent": 140,
+      "grassBurning": 0,
+      "rubble": [
+        {
+          "id": "ashland-cottage",
+          "retiredAt": 30.016666666666666,
+          "glowing": true,
+          "triangles": 3000
+        }
+      ],
+      "flameCards": 0,
+      "smokeCards": 22,
+      "rubbleLights": [
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            50.41770165702896,
+            0.5912137257767609,
+            11.829358721006464
+          ],
+          "intensity": 0.5997537454252688,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            48.12333287025177,
+            0.6129122915835967,
+            12.69370205004326
+          ],
+          "intensity": 1.2835963408983877,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            50.189083638502595,
+            0.5824588145927192,
+            15.195218641022947
+          ],
+          "intensity": 0.632841258820634,
+          "reach": 3
+        },
+        {
+          "kind": "rubble",
+          "buildingId": "ashland-cottage",
+          "position": [
+            47.54748943633312,
+            0.6675337855770704,
+            15.057485446994617
+          ],
+          "intensity": 0.576300841895142,
+          "reach": 3
+        }
+      ],
+      "drawCalls": 138,
+      "projection": [
+        0.05639097744360903,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        49.39662827811125,
+        14.441871769567946,
+        -37.08969472165352,
+        0.9999999999999998
+      ],
+      "viewport": [
+        1280,
+        720
+      ],
+      "exposure": 1,
+      "scarRgb": [
+        11,
+        11,
+        9
+      ]
+    },
+    {
+      "label": "04-cooled",
+      "worldTime": 54.433333333331525,
+      "retiredAt": 30.016666666666666,
+      "houseGone": true,
+      "ashLayerVisible": false,
+      "playerHp": 100,
+      "houseColliders": 0,
+      "grassSpent": 140,
+      "grassBurning": 0,
+      "rubble": [
+        {
+          "id": "ashland-cottage",
+          "retiredAt": 30.016666666666666,
+          "glowing": false,
+          "triangles": 3000
+        }
+      ],
+      "flameCards": 0,
+      "smokeCards": 0,
+      "rubbleLights": [],
+      "drawCalls": 135,
+      "projection": [
+        0.05639097744360903,
+        0,
+        0,
+        0,
+        0,
+        0.10025062656641605,
+        0,
+        0,
+        0,
+        0,
+        -0.0031600568810238585,
+        0,
+        0,
+        0,
+        -1.0003160056881024,
+        1
+      ],
+      "view": [
+        -0.7682212795973757,
+        -0.427274312709111,
+        0.4767312946227959,
+        0,
+        -5.5511151231257815e-17,
+        0.7446780878644507,
+        0.6674238124719146,
+        0,
+        -0.6401843996644797,
+        0.5127291752509333,
+        -0.5720775535473552,
+        0,
+        49.39662827811125,
+        14.441871769567946,
+        -37.08969472165352,
+        0.9999999999999998
+      ],
+      "viewport": [
+        1280,
+        720
+      ],
+      "exposure": 1,
+      "scarRgb": [
+        11,
+        11,
+        9
+      ]
+    }
+  ]
+}

@@ -42,7 +42,7 @@ export function createFire(T,assets,fieldUniforms){
             float lum=dot(c.rgb,vec3(.299,.587,.114));
             c.rgb=mix(vec3(.045,.051,.045),vec3(.25,.26,.23),lum);
             c.a*=smoothstep(0.,.18,p.y);
-          }else if(kind<.5){
+          }else if(kind<.5&&info.y<.5){
             vec2 cell=floor(paintWorld.xz/cellSize);
             if(any(lessThan(cell,vec2(0.)))||any(greaterThanEqual(cell,grid)))discard;
             float live=texture2D(field,(cell+.5)/grid).a;
@@ -93,6 +93,13 @@ export function createFire(T,assets,fieldUniforms){
       }
     }
     for(const id of history.keys())if(!activeIds.has(id))history.delete(id);
+    for(const site of anchors.rubble||[]){
+      const seed=seedOf(site.id),flame=site.flame;
+      if(flame>.015&&!flames.add(site.x,site.y,site.z,.27+flame*.27,.15+flame*.56,.25+flame*.52,seed,0,1))capped=true;
+      const drift=(clock*.19+seed)%1;
+      if(!smoke.add(site.x+drift*.36,site.y+.12+drift*.26,site.z-drift*.17,
+        .42+drift*.65,.64+drift*.80,.22*site.smoke*(1-drift*.54),seed))capped=true;
+    }
     for(const event of snapshot.events||[]){
       const key=typeof event.id+':'+event.id;if(eventsSeen.has(key))continue;
       if(typeof event.id==='number'&&event.id<=highestEvent)continue;
