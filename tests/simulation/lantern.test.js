@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createSimulation, DEFAULT_CONFIG, worldToStick} from '../../src/simulation/index.js';
+import {createSimulation, DEFAULT_CONFIG, SCENARIOS, worldToStick} from '../../src/simulation/index.js';
 
 const {step} = DEFAULT_CONFIG;
 const press = {type: 'primary', pressed: true}, release = {type: 'primary', pressed: false};
@@ -119,6 +119,37 @@ test('the flight meets its preview on a descending hit, including when powder ex
       assert.equal(landed.player.inventory.molotovs, 3);
     } finally { sim.dispose(); }
   }
+});
+
+test('a lantern that breaks against siding publishes its unlit pool on impact', () => {
+  const sim = createSimulation({scenario: {...SCENARIOS.neighborhood, patches: [],
+    player: {x: 13.2, y: 34.63, tool: 'molotov'}},
+    config: {input: {cameraRelative: false}, fire: {damagePerSecond: 0}}});
+  try {
+    tick(sim, press);
+    const locked = tick(sim, release, move(-(.12 + .88 * 4.7 / DEFAULT_CONFIG.tools.molotov.range)), neutral);
+    assert.equal(locked.player.lanternAim.canThrow, true);
+    let before = tick(sim, press);
+    let landed = sim.advance(step);
+    while (!last(landed, 'molotov-impact') && landed.tick < 60) {
+      before = landed;
+      landed = sim.advance(step);
+    }
+    assert.equal(before.diagnostics.fuel.remainingDepositedFuel, 0);
+    assert.ok(before.cells.every(cell => cell.depositedFuel === 0));
+    const impact = last(landed, 'molotov-impact');
+    assert.ok(impact && impact.h > 1);
+    assert.equal(last(landed, 'structure-ignition')?.cause, 'molotov');
+    const pool = landed.cells.filter(cell => cell.depositedFuel > 0);
+    assert.ok(pool.length > 1);
+    assert.ok(pool.every(cell => cell.phase === 'cold' && cell.heat === 0));
+    const dose = DEFAULT_CONFIG.tools.molotov.fuel / pool.length;
+    for (const cell of pool) assert.equal(cell.depositedFuel, dose, cell.id);
+    const total = pool.reduce((fuel, cell) => fuel + cell.depositedFuel, 0);
+    near(total, DEFAULT_CONFIG.tools.molotov.fuel);
+    assert.equal(landed.diagnostics.fuel.remainingDepositedFuel, total);
+    assert.equal(sim.snapshot().cells, landed.cells);
+  } finally { sim.dispose(); }
 });
 
 test('a locked preview updates when a burning obstruction clears', () => {
