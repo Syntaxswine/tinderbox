@@ -1,9 +1,10 @@
 
 import {Resources,seedOf,removeTree} from './resources.js';
+import {isImmutableRecordArray} from './cell-publication.js';
 export function createWorld(T,materials){
   const root=new T.Group();root.name='Snapshot exterior';
-  let pool=new Resources(),signature='',builds=0;
-  const V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z);
+  let pool=new Resources(),builds=0;
+  let width,height,tileSize,lastTiles,lastObstacles,tileSignature,obstacleSignature;
   function build(world){
     pool.dispose();pool=new Resources();root.clear();builds++;
     const cube=pool.geometry(new T.BoxGeometry(1,1,1)),ball=pool.geometry(new T.SphereGeometry(1,10,7));
@@ -71,8 +72,14 @@ export function createWorld(T,materials){
     }
   }
   return {root,update(world){
-    const next=JSON.stringify([world.width,world.height,world.tiles,world.obstacles]);
-    if(next!==signature){signature=next;build(world);}
+    const tiles=isImmutableRecordArray(world.tiles)?world.tiles:undefined;
+    const obstacles=isImmutableRecordArray(world.obstacles)?world.obstacles:undefined;
+    const nextTiles=tiles&&tiles===lastTiles?tileSignature:JSON.stringify(world.tiles??null);
+    const nextObstacles=obstacles&&obstacles===lastObstacles?obstacleSignature:JSON.stringify(world.obstacles??null);
+    if(!builds||world.width!==width||world.height!==height||world.tileSize!==tileSize
+      ||nextTiles!==tileSignature||nextObstacles!==obstacleSignature)build(world);
+    width=world.width;height=world.height;tileSize=world.tileSize;
+    lastTiles=tiles;lastObstacles=obstacles;tileSignature=nextTiles;obstacleSignature=nextObstacles;
   },counts:()=>({...pool.counts(),builds}),dispose(){removeTree(root);pool.dispose();}};
 }
 export function createActor(T,materials){

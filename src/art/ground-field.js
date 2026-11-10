@@ -1,8 +1,10 @@
 
 import {Resources,clamp} from './resources.js';
-export function createGroundField(T){
+import {createCellReader} from './cell-publication.js';
+export function createGroundField(T,readCells=createCellReader()){
   const pool=new Resources(),root=new T.Group();root.name='Authoritative gas / heat / char mask';
   let cols=1,rows=1,size=.5,data=new Float32Array(4),texture,geometry,mesh;
+  let previousCells,rowMajor=false,scratch;
   const uniforms={field:{value:null},grid:{value:new T.Vector2(1,1)},cellSize:{value:.5}};
   const material=pool.material(new T.ShaderMaterial({
     transparent:true,depthWrite:false,depthTest:true,side:T.DoubleSide,uniforms,
@@ -46,26 +48,57 @@ export function createGroundField(T){
   }));
   function resize(world){
     const nextSize=world.fireCellSize||.5,nextCols=Math.max(1,Math.ceil(world.width/nextSize)),nextRows=Math.max(1,Math.ceil(world.height/nextSize));
-    if(texture&&cols===nextCols&&rows===nextRows&&size===nextSize)return;
+    if(texture&&cols===nextCols&&rows===nextRows&&size===nextSize)return false;
     if(texture){texture.dispose();pool.textures.delete(texture);geometry.dispose();pool.geometries.delete(geometry);mesh.removeFromParent();}
     cols=nextCols;rows=nextRows;size=nextSize;data=new Float32Array(cols*rows*4);
+    previousCells=undefined;rowMajor=false;scratch=undefined;
     texture=pool.texture(new T.DataTexture(data,cols,rows,T.RGBAFormat,T.FloatType));
     texture.minFilter=texture.magFilter=T.NearestFilter;texture.generateMipmaps=false;
     uniforms.field.value=texture;uniforms.grid.value.set(cols,rows);uniforms.cellSize.value=size;
     geometry=pool.geometry(new T.PlaneGeometry(cols*size,rows*size));geometry.rotateX(-Math.PI/2);
     mesh=new T.Mesh(geometry,material);mesh.position.set(cols*size/2,.018,rows*size/2);mesh.renderOrder=1;root.add(mesh);
+    return true;
   }
+
+  function texel(cell){
+    const x=Math.floor(cell.x/size),y=Math.floor(cell.y/size);
+    return x>=0&&y>=0&&x<cols&&y<rows?y*cols+x:-1;
+  }
+
+  function write(target,index,cell){
+    const i=index*4;
+    const fuel=Math.fround(Math.min(1,Math.sqrt(Math.max(0,cell.depositedFuel||0))*2));
+    const warm=Math.fround(cell.phase==='heating'?.24+clamp(cell.heat)*.55:cell.phase==='burning'?clamp(cell.intensity)*.75:0);
+    const char=Math.fround(cell.phase==='spent'?(/grass|wood/.test(cell.material)?1:.85):cell.phase==='burning'?.27:0);
+    const live=cell.phase==='burning'?1:0;
+    if(Object.is(target[i],fuel)&&Object.is(target[i+1],warm)&&Object.is(target[i+2],char)&&target[i+3]===live)return false;
+    target[i]=fuel;target[i+1]=warm;target[i+2]=char;target[i+3]=live;
+    return true;
+  }
+
   return {root,uniforms,update(snapshot){
-    resize(snapshot.world);data.fill(0);
-    for(const cell of snapshot.cells||[]){
-      const x=Math.floor(cell.x/size),y=Math.floor(cell.y/size);
-      if(x<0||y<0||x>=cols||y>=rows)continue;
-      const i=(y*cols+x)*4;
-      data[i]=Math.min(1,Math.sqrt(Math.max(0,cell.depositedFuel||0))*2);
-      data[i+1]=cell.phase==='heating'?.24+clamp(cell.heat)*.55:cell.phase==='burning'?clamp(cell.intensity)*.75:0;
-      data[i+2]=cell.phase==='spent'?(/grass|wood/.test(cell.material)?1:.85):cell.phase==='burning'?.27:0;
-      data[i+3]=cell.phase==='burning'?1:0;
+    let dirty=resize(snapshot.world);
+    const cells=snapshot.cells||[],view=readCells(cells);
+    if(view&&previousCells===cells)return;
+    const changes=view&&rowMajor&&view.previous===previousCells?view.changes:null;
+    rowMajor=Boolean(view)&&cells.length===cols*rows
+      &&(changes?changes.every(i=>texel(cells[i])===i):cells.every((cell,i)=>texel(cell)===i));
+    if(rowMajor){
+      if(changes)for(const i of changes)dirty=write(data,i,cells[i])||dirty;
+      else for(let i=0;i<cells.length;i++)dirty=write(data,i,cells[i])||dirty;
+    }else{
+      // Keep last-wins order and clear absent texels for mutable or irregular input.
+      scratch??=new Float32Array(data.length);
+      scratch.fill(0);
+      for(const cell of cells){
+        const i=texel(cell);
+        if(i>=0)write(scratch,i,cell);
+      }
+      for(let i=0;i<data.length;i++)if(!Object.is(data[i],scratch[i])){
+        data[i]=scratch[i];dirty=true;
+      }
     }
-    texture.needsUpdate=true;
+    previousCells=view?cells:undefined;
+    if(dirty)texture.needsUpdate=true;
   },dispose(){root.removeFromParent();root.clear();pool.dispose();},counts:()=>pool.counts()};
 }

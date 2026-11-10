@@ -1,4 +1,5 @@
 import {clamp, seedOf} from './resources.js';
+import {createCellReader} from './cell-publication.js';
 
 const LIGHT_COUNT = 6;
 const TOTAL_POWER = 215;
@@ -41,7 +42,7 @@ function source(cluster, lotEnergy, player) {
   return {key, kind, buildingId, x, y, z, power, reach, distance, score};
 }
 
-export function createStreetFirelight(T) {
+export function createStreetFirelight(T, readCells = createCellReader()) {
   const root = new T.Group();
   root.name = 'Shared street firelight';
   const lights = Array.from({length: LIGHT_COUNT}, (_, i) => {
@@ -52,11 +53,15 @@ export function createStreetFirelight(T) {
   });
   let selected = [], terrainSites = 0, surfaceSites = 0, candidates = 0, disposed = false;
 
-  function update(snapshot, buildings, time, rubbleSites = []) {
-    if (disposed) return;
-    const clusters = new Map(), lotEnergy = new Map();
-    terrainSites = surfaceSites = 0;
-    for (const cell of snapshot.cells || []) {
+  let terrainCells, terrainSize, cachedTerrain;
+  function terrain(snapshot) {
+    const cells = snapshot.cells || [];
+    const view = readCells(cells);
+    const size = snapshot.world?.fireCellSize;
+    if (view && terrainCells === cells && terrainSize === size) return cachedTerrain;
+    const clusters = new Map();
+    let sites = 0;
+    for (const cell of view?.burning ?? cells) {
       if (cell.phase !== 'burning' || !(cell.intensity > 0) || ![cell.x, cell.y].every(Number.isFinite)) continue;
       const size = cell.size ?? snapshot.world.fireCellSize;
       if (!Number.isFinite(size) || size <= 0) continue;
@@ -68,8 +73,20 @@ export function createStreetFirelight(T) {
       if (!(energy > 0)) continue;
       const site = {x: cell.x, y: 0, z: cell.y, nx: 0, ny: 1, nz: 0};
       add(clusters, 'terrain/' + bin(site.x) + '/' + bin(site.z), 'terrain', null, site, energy);
-      terrainSites++;
+      sites++;
     }
+    terrainCells = view ? cells : undefined;
+    terrainSize = size;
+    cachedTerrain = {clusters, sites};
+    return cachedTerrain;
+  }
+
+  function update(snapshot, buildings, time, rubbleSites = []) {
+    if (disposed) return;
+    const ground = terrain(snapshot);
+    const clusters = new Map(ground.clusters), lotEnergy = new Map();
+    terrainSites = ground.sites;
+    surfaceSites = 0;
     for (const [buildingId, sites] of buildings) {
       for (const site of sites) {
         if (site.exposed !== true || site.flame <= 0) continue;
