@@ -1,4 +1,4 @@
-import {clamp, distance, impactPoint, movementVector, worldRayTarget} from './geometry.js';
+import {clamp, distance, impactContact, movementVector, worldRayTarget} from './geometry.js';
 
 const DEAD_ZONE = .12, MIN_RANGE = .15, LAUNCH_HEIGHT = .8, LANDING_HEIGHT = .1;
 const MAX_TRACE_STEPS = 192, PATH_SEGMENTS = 12, EPS = 1e-9;
@@ -73,10 +73,13 @@ export function advanceLantern(projectile, travel, obstacles) {
   const range = Math.hypot(projectile.targetX - projectile.fromX, projectile.targetY - projectile.fromY);
   const progressAt = point => range ? clamp(1 - distance(point, target) / range, 0, 1) : 1;
   next.h = arcHeight(progressAt(next), range);
-  const point = impactPoint(projectile, next, obstacles, {startHeight: projectile.h, endHeight: next.h});
+  const contact = impactContact(projectile, next, obstacles, projectile.h, next.h);
+  const fraction = contact?.travel ?? 1;
+  const point = {x: projectile.x + (next.x - projectile.x) * fraction,
+    y: projectile.y + (next.y - projectile.y) * fraction};
   const hit = distance(point, next) > 1e-8, progress = progressAt(point);
   const position = {...point, h: arcHeight(progress, range)};
-  return {next, position, progress, hit, finished: hit || step >= remaining - 1e-10};
+  return {next, position, progress, hit, contact, finished: hit || step >= remaining - 1e-10};
 }
 
 function sameBlockers(record, obstacles) {

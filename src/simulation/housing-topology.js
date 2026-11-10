@@ -8,6 +8,29 @@ const planar = (a, b) => Math.hypot(a.x - b.x, a.z - b.z);
 const vertexKey = point => point.map(v => Math.round(v * 1e5)).join(',');
 const burnSeconds = {floor: 10, wall: 8, joinery: 7, fascia: 7, roof: 10, porch: 8};
 const woodOutput = fire => fire.heatRate * fire.propagation.wood.heatScale;
+const nearest = (point, sites) => sites.reduce((best, site) =>
+  !best || planar(point, site) < planar(point, best) ? site : best, null);
+
+function deckPieces({role, x, y: z, height, width, depth}) {
+  const stairs = role === 'stairs';
+  const alongX = !stairs && width >= depth;
+  const count = Math.ceil(alongX ? width : depth);
+  const steps = Math.max(3, Math.ceil(height / .18));
+  return Array.from({length: count}, (_, index) => {
+    const w = alongX ? width / count : width, d = alongX ? depth : depth / count;
+    const cx = alongX ? x - width / 2 + (index + .5) * w : x;
+    const cz = alongX ? z : z - depth / 2 + (index + .5) * d;
+    const fronts = [];
+    // Cut edges between pieces are covered by the adjacent timber.
+    if (!alongX || index === 0) fronts.push({x: cx - w / 2, z: cz, nx: -1, nz: 0, span: d});
+    if (!alongX || index === count - 1) fronts.push({x: cx + w / 2, z: cz, nx: 1, nz: 0, span: d});
+    if (alongX || index === 0) fronts.push({x: cx, z: cz - d / 2, nx: 0, nz: -1, span: w});
+    if (alongX || index === count - 1) fronts.push({x: cx, z: cz + d / 2, nx: 0, nz: 1, span: w});
+    const y = stairs ? height * (1 + Math.floor((index + .5) * steps / count)) / steps : height;
+    const id = count === 1 ? `deck:${role}` : `deck:${role}:${index}`;
+    return {id, x: cx, y, z: cz, area: w * d, fronts};
+  });
+}
 
 export function createHousingTopology(building, plan, footprints, config, wind) {
   const grid = housingSectionGrid(building.prefabId), sites = [], panels = [], roofSites = [], floors = [], porch = new Map();
@@ -128,22 +151,25 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
   }
 
   for (const footprint of footprints.filter(box => box.role !== 'foundation')) {
-    const {role, x, y: z, height, width, depth} = footprint;
-    const site = add({id: `deck:${role}`, layer: 'floor', level: 0, x, y: height * (role === 'stairs' ? .5 : 1), z,
-      nx: 0, ny: 1, nz: 0, area: width * depth, exposed: true}, 'porch');
-    porch.set(role, site);
-    const entry = panels.find(panel => panel.level === 0 && panel.opening === 'entry');
-    link(site, entry?.low);
+    const pieces = deckPieces(footprint).map(piece => add({...piece, layer: 'floor', level: 0,
+      nx: 0, ny: 1, nz: 0, exposed: true}, 'porch'));
+    for (let index = 1; index < pieces.length; index++) link(pieces[index - 1], pieces[index]);
+    porch.set(footprint.role, pieces);
   }
+  const deck = porch.get('porch') ?? [], stairs = porch.get('stairs') ?? [];
+  const entry = panels.find(panel => panel.level === 0 && panel.opening === 'entry');
+  if (entry?.low) link(nearest(entry, deck), entry.low);
+  if (stairs.length) link(stairs.at(-1), nearest(stairs.at(-1), deck));
+
   const porchRoof = roofSites.filter(({site}) => site.id.startsWith('roof:porch:'));
   let porchPost;
   if (porchRoof.length) {
-    const deck = porch.get('porch'), {x, z} = plan.porch;
-    const position = {x: x + .12, z: z + .12};
+    const {x, z} = plan.porch;
+    const position = {x: x + .12, z: z + .12}, postDeck = nearest(position, deck);
     const {site: roof} = porchRoof.reduce((a, b) => planar(b.site, position) < planar(a.site, position) ? b : a);
-    porchPost = add({id: 'porch-post', layer: 'walls', level: 0, ...position, y: deck.y + .95, nx: 0, ny: 0, nz: -1,
+    porchPost = add({id: 'porch-post', layer: 'walls', level: 0, ...position, y: postDeck.y + .95, nx: 0, ny: 0, nz: -1,
       area: .36, exposed: true}, 'joinery');
-    link(deck, porchPost);
+    link(postDeck, porchPost);
     link(porchPost, roof, {eave: true});
   }
   return {sites, panels, porch, porchPost, roofSeams};
