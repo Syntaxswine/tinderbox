@@ -1,3 +1,4 @@
+import {runTrainChecks} from './train-checks.js';
 import {runDoorChecks} from './door-checks.js';
 import {runLanternChecks} from './lantern-checks.js';
 import {runShopInteractionChecks} from './shop-interaction-checks.js';
@@ -502,6 +503,7 @@ await check('The four current test maps request distinct IDs and restore their o
   }finally{menu.close();}
 });
 
+results.push(...await runTrainChecks(host));
 results.push(...await runMovementChecks(host));
 results.push(...await runDoorChecks(host));
 results.push(...await runLanternChecks(host));

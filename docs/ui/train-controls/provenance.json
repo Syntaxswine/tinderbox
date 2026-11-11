@@ -1,0 +1,51 @@
+{
+  "recordedOn": "2026-11-11",
+  "kind": "reference-only source review",
+  "repository": "https://github.com/Syntaxswine/nautilus-engine.git",
+  "commit": "5577773727b757c3142cb2ded0a10315e25cd41d",
+  "references": [
+    {
+      "path": "packages/train-core/contract.js",
+      "bytes": 460,
+      "sha256": "fec8a1cc2e5912fe4dbe2dbd8c5164d3d0a79fa0c75758d386cfcade8bae8fba"
+    },
+    {
+      "path": "packages/train-core/index.d.ts",
+      "bytes": 2377,
+      "sha256": "9fa826457a03b0a14128c2d6032275f4d0af953599c7596e8dbd825631eb98a8"
+    },
+    {
+      "path": "packages/train-ui/index.js",
+      "bytes": 24005,
+      "sha256": "dab88476d3d372367bfac0df40163917707edb25273b58ddf225cc7470009f52"
+    },
+    {
+      "path": "packages/train-ui/feedback.js",
+      "bytes": 5108,
+      "sha256": "255cee4d59a483c3688209d2ff280e4f0ae7608bad40d5c59ff4b681a4430401"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 8811,
+      "sha256": "d6b2035207f19e3e9b95c72282e6140ad6b01ade274c6f458bf124e984c32ccd"
+    }
+  ],
+  "implementation": "Tinderbox-authored compact DOM/CSS controls against the documented Nautilus v1 session. Original local oscillator click.",
+  "reusedArtRecords": [
+    "assets/art/ui/typography/manifest.json",
+    "assets/art/ui/eastlake-controls.json",
+    "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/ui.json"
+  ],
+  "contract": {
+    "id": "nautilus-drivable-trains",
+    "version": 1,
+    "profile": "bounded-rail-driver-v1"
+  },
+  "defaults": {
+    "forwardI": 0.5,
+    "forwardII": 1,
+    "reverse": 0.5,
+    "brake": 1,
+    "detentThreshold": 0.62
+  }
+}

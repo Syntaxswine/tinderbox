@@ -1,0 +1,1261 @@
+{
+  "scope": "Scripted Nautilus v1 connector acknowledgements in the production HUD; trusted mouse input at phone size",
+  "runs": [
+    {
+      "commands": [
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/2",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 1,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        }
+      ],
+      "confirmed": {
+        "actorId": "player",
+        "cabFacing": 1,
+        "carId": "preview/cab",
+        "entranceId": "cab",
+        "expected": {
+          "actorRevision": 1,
+          "controlRevision": 2,
+          "occupancyRevision": 1
+        },
+        "mode": "driver",
+        "train": {
+          "controls": {
+            "brake": 0,
+            "direction": "forward",
+            "leaseId": "preview/lease/1",
+            "power": 0.5
+          },
+          "signedSpeedMps": 0,
+          "speedMps": 0,
+          "stock": "steam",
+          "stopped": true
+        },
+        "trainId": "preview/steam",
+        "walkingAllowed": false
+      },
+      "events": [
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 744
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 740
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 735
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 731
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 727
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 723
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 718
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 714
+        }
+      ],
+      "state": {
+        "blocked": false,
+        "fault": false,
+        "feedback": {
+          "muted": false,
+          "played": 1,
+          "state": "running",
+          "voices": 1
+        },
+        "gear": 1,
+        "leaseId": "preview/lease/1",
+        "mode": "driver"
+      },
+      "viewport": [
+        390,
+        844,
+        1
+      ]
+    },
+    {
+      "commands": [
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/2",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 1,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/3",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 2,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 1,
+          "trainId": "preview/steam",
+          "type": "drive"
+        }
+      ],
+      "confirmed": {
+        "actorId": "player",
+        "cabFacing": 1,
+        "carId": "preview/cab",
+        "entranceId": "cab",
+        "expected": {
+          "actorRevision": 1,
+          "controlRevision": 3,
+          "occupancyRevision": 1
+        },
+        "mode": "driver",
+        "train": {
+          "controls": {
+            "brake": 0,
+            "direction": "forward",
+            "leaseId": "preview/lease/1",
+            "power": 1
+          },
+          "signedSpeedMps": 0,
+          "speedMps": 0,
+          "stock": "steam",
+          "stopped": true
+        },
+        "trainId": "preview/steam",
+        "walkingAllowed": false
+      },
+      "events": [
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 744
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 740
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 735
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 731
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 727
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 723
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 718
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 710
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 706
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 702
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 698
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 693
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 689
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 685
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 681
+        }
+      ],
+      "state": {
+        "blocked": false,
+        "fault": false,
+        "feedback": {
+          "muted": false,
+          "played": 2,
+          "state": "running",
+          "voices": 0
+        },
+        "gear": 0,
+        "leaseId": "preview/lease/1",
+        "mode": "driver"
+      },
+      "viewport": [
+        390,
+        844,
+        1
+      ]
+    },
+    {
+      "commands": [
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/2",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 1,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/3",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 2,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 1,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/4",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 3,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/5",
+          "direction": "neutral",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 4,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/6",
+          "direction": "reverse",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 5,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        }
+      ],
+      "confirmed": {
+        "actorId": "player",
+        "cabFacing": 1,
+        "carId": "preview/cab",
+        "entranceId": "cab",
+        "expected": {
+          "actorRevision": 1,
+          "controlRevision": 6,
+          "occupancyRevision": 1
+        },
+        "mode": "driver",
+        "train": {
+          "controls": {
+            "brake": 0,
+            "direction": "reverse",
+            "leaseId": "preview/lease/1",
+            "power": 0.5
+          },
+          "signedSpeedMps": 0,
+          "speedMps": 0,
+          "stock": "steam",
+          "stopped": true
+        },
+        "trainId": "preview/steam",
+        "walkingAllowed": false
+      },
+      "events": [
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 744
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 740
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 735
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 731
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 727
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 723
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 718
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 710
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 706
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 702
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 698
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 693
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 689
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 685
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 694
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 706
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 719
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 731
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 744
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 756
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 769
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 781
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 781
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 781
+        }
+      ],
+      "state": {
+        "blocked": false,
+        "fault": false,
+        "feedback": {
+          "muted": false,
+          "played": 5,
+          "state": "running",
+          "voices": 1
+        },
+        "gear": 3,
+        "leaseId": "preview/lease/1",
+        "mode": "driver"
+      },
+      "viewport": [
+        390,
+        844,
+        1
+      ]
+    },
+    {
+      "commands": [
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/2",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 1,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/3",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 2,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 1,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/4",
+          "direction": "forward",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 3,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/5",
+          "direction": "neutral",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 4,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 0,
+          "commandId": "preview/drive/6",
+          "direction": "reverse",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 5,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0.5,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "brake": 1,
+          "commandId": "preview/drive/7",
+          "direction": "neutral",
+          "expected": {
+            "actorRevision": 1,
+            "controlRevision": 6,
+            "occupancyRevision": 1
+          },
+          "leaseId": "preview/lease/1",
+          "power": 0,
+          "trainId": "preview/steam",
+          "type": "drive"
+        },
+        {
+          "actorId": "player",
+          "commandId": "preview/release/8",
+          "leaseId": "preview/lease/1",
+          "type": "release"
+        }
+      ],
+      "confirmed": {
+        "actorId": "player",
+        "cabFacing": 1,
+        "carId": "preview/cab",
+        "entranceId": "cab",
+        "expected": {
+          "actorRevision": 1,
+          "controlRevision": 8,
+          "occupancyRevision": 1
+        },
+        "mode": "driver",
+        "train": {
+          "controls": {
+            "brake": 1,
+            "direction": "neutral",
+            "leaseId": null,
+            "power": 0
+          },
+          "signedSpeedMps": 0,
+          "speedMps": 0,
+          "stock": "steam",
+          "stopped": true
+        },
+        "trainId": "preview/steam",
+        "walkingAllowed": false
+      },
+      "events": [
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 748
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 744
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 740
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 735
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 731
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 727
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 723
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 718
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 714
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 710
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 706
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 702
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 698
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 693
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 689
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 685
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 188,
+          "y": 681
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 694
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 706
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 719
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 731
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 744
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 756
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 769
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 188,
+          "y": 781
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 188,
+          "y": 781
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 188,
+          "y": 781
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 760
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerdown",
+          "x": 239,
+          "y": 760
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 763
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 766
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 768
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 771
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 774
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 777
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 779
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointermove",
+          "x": 239,
+          "y": 782
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "pointerup",
+          "x": 239,
+          "y": 782
+        },
+        {
+          "pointerType": "mouse",
+          "trusted": true,
+          "type": "click",
+          "x": 239,
+          "y": 782
+        }
+      ],
+      "state": {
+        "blocked": false,
+        "fault": false,
+        "feedback": {
+          "muted": false,
+          "played": 6,
+          "state": "running",
+          "voices": 0
+        },
+        "gear": 2,
+        "leaseId": null,
+        "mode": "driver"
+      },
+      "viewport": [
+        390,
+        844,
+        1
+      ]
+    }
+  ]
+}

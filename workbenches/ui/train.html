@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tinderbox train-control study</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../../src/ui/styles.css">
+<style>
+html,body{height:100%;margin:0;overflow:hidden;background:#30221a}
+#field{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 30%,#6d4b2e60,transparent 65%),linear-gradient(150deg,#322924,#1c1918)}
+#hud{position:fixed;inset:0}
+.study-tools{position:fixed;z-index:24;top:145px;left:50%;transform:translateX(-50%);width:min(270px,75vw);text-align:center;color:#e5cda4;font:13px/1.4 Georgia,serif}
+.study-tools h1{font:700 24px/1.25 Besley,Georgia,serif;margin:0 0 7px;color:#f3dfb1}
+.study-tools p{margin:0 0 12px}
+.study-tools button{font:13px Georgia,serif;min-height:44px;padding:8px 14px;border:1px solid #a5814b;background:#49311f;color:#f3dfb1;border-radius:3px}
+.study-tools details{margin-top:10px}.study-tools summary{min-height:44px;line-height:44px;cursor:pointer}
+.study-tools small{display:block;font-size:11px;opacity:.7}
+.study-tools label{display:block;min-height:44px}
+@media(max-height:580px) and (min-width:600px){.study-tools{top:20px;width:280px}.study-tools h1{font-size:18px}.study-tools p{font-size:11px;margin-bottom:3px}.study-tools details{display:none}}
+#trace{display:none}
+</style></head><body><div id="field" aria-hidden="true"></div><div id="hud"></div>
+<section class="study-tools"><h1>At the regulator</h1><p>Slide the lever into gear.<br>Pull the chain to brake.</p>
+<button type="button" id="walk">Walk</button> <button type="button" id="sound" aria-pressed="false">Sound on</button>
+<details><summary>Review controls</summary><label><input type="checkbox" id="refuse"> Refuse a shift</label><small>Scripted train connector for interface review.</small></details></section>
+<pre id="trace" aria-hidden="true"></pre><script type="module" src="./train-workbench.js"></script></body></html>
