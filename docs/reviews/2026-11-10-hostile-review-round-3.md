@@ -10,6 +10,7 @@
   - The commissioning session re-ran the bench and the earlier rounds' reviewer probes on `c855e62`, took the frame cost in a browser with `26931d9` beside it, and re-ran the MUST-FIX by hand with a separately written probe. The table near the end says how.
   - Labels as before: **measured**, **code-reading**, **judgment**.
 - **Evidence:** [`evidence/hostile-review-round-3/`](evidence/hostile-review-round-3/README.md).
+- **Direction (the owner, 2026-11-11):** hand N3, the S12 tests, S14 and the house-contents notes to Codex. The brief is [`2026-11-10-hostile-review-round-3-handoff.md`](2026-11-10-hostile-review-round-3-handoff.md). The reviewer builds nothing.
 - **This branch changes nothing in the game.** It adds this record and the probes.
 
 A **cell** is one 0.5 m square of the ground heat grid. A **site** is one fire-carrying patch of a house. A **dud** is a thrown lantern that is spent and leaves nothing: no oil on the ground, no heated site, no ignition. Hopkins 9 and Hopkins 13 are the two **set-back** houses, whose walls stand back from a rectangular stone plinth. Times are world seconds.
@@ -196,7 +197,7 @@ Unchanged from round 2. The two passes are a second and third local repair of th
 | # | Question | Options | Recommendation |
 | --- | --- | --- | --- |
 | 1 | What should a lantern do when it comes down on stone inside a house's outline? | The oil runs to the nearest open ground and burns there; or the lantern is a miss, as now | The oil runs off. A spent lantern that does nothing reads as a bug |
-| 2 | Who takes N3, the tests in S12, and S14? | Hand to Codex, as before; or leave | Hand to Codex |
+| 2 | Who takes N3, the tests in S12, and S14? | Hand to Codex, as before; or leave | **Decided 2026-11-11: hand to Codex, house contents included** |
 | 3 | Should a house's contents be fuel: furniture with a finish that can flash, oil stores, coal stores? | Yes, all three, placed by room; yes, stores only; no | Yes, all three, after the lattice decision, because each is one fuel class on a tile there and a new special case here |
 | 4 | Round 1's decisions 1 to 5 and whether to start rung 2 | See rounds 1 and 2 | Unchanged: start rung 2 |
 
