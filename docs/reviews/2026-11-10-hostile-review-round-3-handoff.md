@@ -80,7 +80,13 @@ The shipped code is correct here. Each breakage below passes all 291 tests today
 
 **Evaluation, added 2026-11-11 at the owner's request.** [`2026-11-11-house-contents-evaluation.md`](2026-11-11-house-contents-evaluation.md) trials the table above in memory and finds it changes almost nothing as plain extra fuel: one match has a house fully alight in 10 s whatever is inside. It recommends building the room as a fire unit that flashes over and vents through its windows, with the oil store as a burst and the coal store as heat in the wreck, and it has four pictures of what that might look like. Read it before writing the contract; its four decisions are the owner's.
 
-**Decided by the owner, 2026-11-11:** a house should burn for a minute or more after one match, not the 21 s of flame it has today. The other three decisions (rooms as fire units, fire through a window, furniture shown on the street) are still open.
+**Decided by the owner, 2026-11-11:** a house should burn for a minute or more after one match, not the 21 s of flame it has today. He then answered the other three:
+
+- **The unit is the tile, not the room:** "the tile is a fire unit, but it draws from the tiles around it, if that makes sense." Do not build room-level states or a flashover event. A tile's fire depends on what its neighbours hold and how hot they are; a room's behaviour should come out of that.
+- **Fire through a window:** "agreed", for the lantern and the flamethrower.
+- **Usable buildings:** "buildings should be usable. you will only see furniture inside when there is someone in the building or xray view." The street's houses become enterable, and the interior is drawn only while someone is inside or an x-ray view is on.
+
+The evaluation's section "The owner's decisions" gives the reviewer's reading of each. The tile answer points at the lattice of round 1; whether it settles round 1's open lattice decisions is the owner's to say.
 
 **Sequencing (the reviewer's recommendation; the owner's call).** In the proposed lattice each of these is a fuel class and an amount on one tile. In today's house graph each is a new kind of site with its own rules. The owner has not yet decided the lattice questions from round 1. The architect should say which way the contract goes before a coder starts, and should not let this wait behind Items 1 to 3.
 

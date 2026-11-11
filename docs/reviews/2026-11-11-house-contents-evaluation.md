@@ -106,6 +106,8 @@ In the lattice proposed in round 1, contents are a fuel class and an amount on a
 
 ## Recommendation
 
+**Superseded in part by the owner's decision 2, below: the unit is the tile, not the room.** What follows is the recommendation as it was made.
+
 Build the room. It is the unit the owner's two notes need, and it is also a tile at the scale of a house: fire tracked room by room, moving through doors, up stairs and out of windows.
 
 1. Decide how long a house should burn (below). At 21 s, rooms will not show.
@@ -128,8 +130,28 @@ Four pictures, in [`evidence/house-contents-trial/pictures/`](evidence/house-con
 
 **The player will not see the contents.** On the street the walls and roof hide them, and an oil can is about 15 pixels wide even in the close cutaway. What a player would read is the effect: a window that starts to glow, the room behind it going up, flame out of that window onto the lawn, a burst from the kitchen, and a red patch in the wreck afterwards.
 
-## Decisions for the owner
+## The owner's decisions, 2026-11-11
 
+The owner answered all four questions. His words are quoted; the readings are the reviewer's.
+
+| # | Question | The owner's answer | What it means for the build (the reviewer's reading) |
+| --- | --- | --- | --- |
+| 1 | How long should a house burn after one match? | "minute or more" | Today it is 21 s of flame. Spread between a house's pieces has to slow by several times, or the pieces have to burn longer |
+| 2 | Is a room a fire unit? | "the tile is a fire unit, but it draws from the tiles around it, if that makes sense" | **Not the room. The tile.** Each tile carries its own fire, and how it burns depends on its neighbours: what they hold and how hot they are. A room is then not a thing the code names; it is what a group of tiles does when walls and a ceiling keep their heat in. This corrects the recommendation above, and it chooses Route C, the lattice, over Route B |
+| 3 | Can the bear put fire inside through a window? | "agreed" | Lantern and flamethrower both pass through a window and land in the tiles behind it |
+| 4 | Is furniture shown on the street? | "buildings should be usable. you will only see furniture inside when there is someone in the building or xray view." | Two things. The street's houses become places the bear can enter, which they are not today. And the inside, furniture included, is drawn only while someone is in the building or an x-ray view is on; otherwise the house shows its shell |
+
+**What answer 2 changes.** Room-level rules in Route B (a room's state, flashover as one event) are not to be built. Their effects should come out of tiles:
+
+- A tile heats faster when the tiles around it are burning and enclosed, so a furnished room's tiles go up close together without a rule that says "room".
+- A window or door is an open face between two tiles, so flame leaves a room through it by the same rule that moves fire anywhere.
+- Furniture, oil and coal are what a tile holds: a fuel class, an amount and a finish. An oil tile that bursts feeds its neighbours; a coal tile keeps burning after the tiles around it have gone.
+
+It is also an answer, in the owner's own words, to the first half of his original sentence ("tracked in a tile by tile modular way"), and it bears on round 1's open lattice decisions. Whether that settles them is for the owner to say; this record does not assume it.
+
+**What answer 4 adds.** Usable buildings are a larger piece of work than anything else here: doors that open, floors and stairs the bear can walk, collision inside, and a view that shows the interior. The landmark maps already have walk-in interiors and stairs; the catalogue houses on the street do not. Fire inside a building the bear is standing in also makes the inside a place where the bear can be hurt.
+
+## Decisions as first put to the owner
 | # | Question | Options | Recommendation |
 | --- | --- | --- | --- |
 | 1 | How long should a house burn after one match? | About 20 s of flame, as now; or a minute or more, room by room | **Decided by the owner, 2026-11-11: a minute or more.** The fire still catches at once; it then has somewhere to go |
