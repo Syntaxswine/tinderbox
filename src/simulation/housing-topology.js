@@ -1,5 +1,6 @@
 import {ASSET_SCALE as scale} from '../content/asset-scale.js';
-import {exteriorPlanEdges, inFloor, roofPanels} from '../content/housing-envelope.js';
+import {exteriorPlanEdges, roofPanels} from '../content/housing-envelope.js';
+import {compileFloorSupport, floorPatchBorders, floorPatchContains} from '../content/housing-floors.js';
 import {housingSectionAt, housingSectionGrid} from '../content/housing-sections.js';
 import {DEFAULT_CONFIG} from './config.js';
 import {surfaceSite, surfaceTravel, worldSurface} from './surface-fire.js';
@@ -60,19 +61,19 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
 
   for (const [level, floor] of plan.floors.entries()) {
     const deckY = plan.plinth + level * scale.floorSpacing;
+    const support = compileFloorSupport(plan, level, grid);
     const deck = new Map();
-    for (let row = 0; row < grid.rows; row++) for (let col = 0; col < grid.cols; col++) {
-      const x = 2 * col + Math.min(2, plan.width - 2 * col) / 2;
-      const z = 2 * row + Math.min(2, plan.depth - 2 * row) / 2;
-      if (level && !inFloor(floor, x, z)) continue;
-      // At ground level the full native plinth carries the supported deck.
-      const site = add({id: `floor:${level}:${col},${row}`, layer: 'floor', level, x, y: deckY + .02, z,
-        nx: 0, ny: 1, nz: 0, area: Math.min(2, plan.width - 2 * col) * Math.min(2, plan.depth - 2 * row), exposed: false}, 'floor');
-      if (col) link(site, deck.get(`${col - 1},${row}`));
-      if (row) link(site, deck.get(`${col},${row - 1}`));
-      deck.set(`${col},${row}`, site);
+    for (const patch of support.patches) {
+      const {section, x, y, z, area, floorRadius} = patch;
+      const col = section % grid.cols, row = Math.floor(section / grid.cols);
+      const pieces = support.bySection.get(section);
+      const suffix = pieces.length === 1 ? '' : ':' + pieces.indexOf(patch);
+      const site = add({id: `floor:${level}:${col},${row}${suffix}`, layer: 'floor', level, x, y, z,
+        nx: 0, ny: 1, nz: 0, area, floorRadius, exposed: false}, 'floor');
+      deck.set(patch, site);
     }
-    floors.push([...deck.values()]);
+    for (const [patch, site] of deck) for (const neighbor of patch.neighbors) link(site, deck.get(neighbor));
+    floors.push(deck);
     for (const edge of exteriorPlanEdges(floor)) {
       const {nx, nz, x, z, opening} = edge;
       const side = nx === -1 && x === 0 ? 'left' : nx === 1 && x === plan.width ? 'right' : null;
@@ -89,8 +90,8 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
         panel[band ? 'high' : 'low'] = site;
       }
       link(panel.low, panel.high);
-      const nearest = floors[level].reduce((a, b) => !a || planar(panel.low, b) < planar(panel.low, a) ? b : a, null);
-      if (nearest && planar(panel.low, nearest) <= 2.2) link(panel.low, nearest, {gain: 1.65});
+      const touching = support.patches.filter(patch => floorPatchBorders(patch, edge.a, edge.b));
+      link(panel.low, nearest(panel.low, touching.map(patch => deck.get(patch))), {gain: 1.65});
     }
   }
 
@@ -110,12 +111,16 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
     }
   }
   for (const [level, floor] of plan.floors.entries()) {
-    if (!floors[level + 1]?.length) continue;
-    const stairs = floor.stairs;
-    if (!stairs) continue;
-    const x = stairs.x + .5, z = stairs.z + 1.5;
-    const nearest = sites => sites.reduce((a, b) => !a || planar({x, z}, b) < planar({x, z}, a) ? b : a, null);
-    link(nearest(floors[level]), nearest(floors[level + 1]), {gain: 1.4});
+    const stairs = floor.stairs, upper = floors[level + 1];
+    if (!stairs || !upper?.size) continue;
+    const {x, z} = stairs, lower = floors[level];
+    const foot = [x + .5, z + .125], landing = {x: x + .5, z: z + 3};
+    const lowerPatch = [...lower.keys()].find(patch => floorPatchContains(patch, foot));
+    const topEdge = [[x, landing.z], [x + 1, landing.z]];
+    const sideEdges = [[[x, landing.z - .25], topEdge[0]], [[x + 1, landing.z - .25], topEdge[1]]];
+    const candidates = [...upper.keys()].filter(patch =>
+      [topEdge, ...sideEdges].some(([a, b]) => floorPatchBorders(patch, a, b)));
+    link(lower.get(lowerPatch), nearest(landing, candidates.map(patch => upper.get(patch))), {gain: 1.4});
   }
 
   const roofVertices = new Map(), roofSeams = {left: [], right: []};

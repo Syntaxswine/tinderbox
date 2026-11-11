@@ -104,7 +104,8 @@ export function surfaceSample(building, site, time, exposed) {
   if (!flame && (site.phase !== 'cold' || !(site.heat > 0))) return null;
   return {id: `${building.id}/${site.id}`, buildingId: building.id,
     part: site.layer === 'walls' || site.layer === 'roof' ? site.layer : 'ground',
-    ...worldSurface(building, site.anchor ?? site), area: site.area, exposed, flame,
+    ...worldSurface(building, site.anchor ?? site), area: site.area,
+    ...(site.floorRadius !== undefined ? {floorRadius: site.floorRadius} : {}), exposed, flame,
     smoke: flame ? flame * unit((time - site.ignitedAt - .12) / .55) * .56 : 0,
     heatFraction: unit(site.heat / (site.fuel.threshold || 1)),
     ignitionTime: site.ignitedAt,

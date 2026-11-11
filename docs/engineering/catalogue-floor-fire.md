@@ -1,5 +1,19 @@
 # Catalogue Street structural fire correction
 
+## November 10 native floor support follow-up
+
+A match from X 10.68, Z 34.50 toward X 10.02 ignited the east siding of Hopkins 9. On `968e88a`, floor fire then appeared at X 9.50, Y 0.50, Z 33.00 after 1.50 world seconds. A downward ray through the pinned house mesh found no oak there. The raised stone top measured Y 0.36. Two more unsupported sites caught at +2.783 and +3.067 s.
+
+The floor graph now derives fuel from the oak triangles emitted by the pinned Gross assembler and its Hopkins and Monroe consumers. The source catalogue and generated plans have the same room coordinates. The compiler takes the union of rendered half-metre coverage, including the diagonal bays, native upper projections and stair openings. Overlapping room triangles in three source tiles count once. Each connected patch owns its exact supported area and one live section. Same-storey links require a shared edge, exterior wall links meet the oak edge, and stair links use the timber at the foot and landing.
+
+Floor flame origins sit on the rendered oak level. The installed shroud limits the horizontal reach of floor flame splats, including wind tilt, to the patch's interior radius. Smoke rises and drifts from its supported source. The shared light budget uses the floor site's supported area. Existing section masks retire the same floor patch from fuel, flame and light at collapse. Ground rubble follows the established section retirement events.
+
+The pinned Ashland pair has two full 42 m² oak levels at Y 0 and Y 2.12. It uses the same support compiler on its one-metre tile grid. Falling fuel looks up the live floor it lands on. Lower-window vents continue to draw at the opening of a genuinely burning tile. The regular Ashland house uses its catalogue graph. The pavilion routes and standalone ground-raster burnout fixture use their own paths.
+
+`tests/integration/house-floor-support.test.mjs` replays the Hopkins 9 strike, checks the assembled oak coverage through all quarter turns and the joined Monroe variant, and measures the narrow-floor flame bounds in strong wind. The installed shroud adaptation and original source SHA are recorded in [the cottage intake](playable-cottage-pair/intake.json).
+
+## Earlier structural fire correction
+
 The coder branch starts from the published `8f7a6b048f60f761a5fd169f479fc8ee1c0eca57` release. On that release, both Ashland cottages could have burning lower fuel behind their closed shell. Hopkins and Monroe retained the whole visible house and all three ground colliders until the last ground fuel was exhausted. The three focused regression cases reproduced the missing visible floor or façade fire before the correction.
 
 ## What the runtime does

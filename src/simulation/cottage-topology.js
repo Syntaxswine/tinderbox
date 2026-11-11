@@ -1,3 +1,6 @@
+import {housingSectionGrid} from '../content/housing-sections.js';
+import {compileFloorSupport} from '../content/housing-floors.js';
+import {HOUSING_PLANS} from '../content/housing-plans.js';
 import {surfaceSite, surfaceTravel} from './surface-fire.js';
 
 // Native Ashland coordinates and opening links from the cottage replay.
@@ -24,8 +27,12 @@ function edgeSeconds(a,b,wa,wb){
 
 export function createCottageTopology(origin,sampleWind){
   const sites=[],byId=new Map(),winds=new Map(),walls=[];
-  const add=(id,face,layer,tile,x,y,z,nx,ny,nz)=>{
-    const s=surfaceSite({id,face,layer,tile,x,y,z,nx,ny,nz,area:layer==='roof'?1/ny:1},fuel[layer]);
+  const grid=housingSectionGrid(origin.prefabId,1),plan=HOUSING_PLANS[origin.prefabId];
+  const floors={upper:compileFloorSupport(plan,0,grid),lower:compileFloorSupport(plan,-1,grid)};
+  const add=(id,face,layer,tile,x,y,z,nx,ny,nz,floor)=>{
+    const geometry={id,face,layer,tile,x,y,z,nx,ny,nz,area:layer==='roof'?1/ny:floor?.area??1};
+    if(floor)geometry.floorRadius=floor.floorRadius;
+    const s=surfaceSite(geometry,fuel[layer]);
     sites.push(s);byId.set(id,s);
     winds.set(s,layer==='roof'||layer==='walls'?sampleWind(origin.x+x+.56*nx,y+.56*ny,origin.y+z+.56*nz,[0,0,0]):[0,0,0]);
     if(layer==='walls')walls.push(s);
@@ -58,7 +65,11 @@ export function createCottageTopology(origin,sampleWind){
     if(x===0||x===WIDTH-1)link('roof:'+index,wallId(side,z,1));
     for(const layer of ['upper','lower']){
       const id=layer+':'+index;
-      add(id,layer,layer,index,cx,layer==='upper'?UPPER:.03,cz,0,1,0);
+      const patches=floors[layer].bySection.get(index);
+      // The checked Ashland bake uses a continuous slab in each one-metre tile.
+      if(patches?.length!==1||Math.abs(patches[0].area-1)>1e-8)throw Error('Ashland floor support differs from its native tile');
+      const floor=patches[0];
+      add(id,layer,layer,index,floor.x,floor.y,floor.z,0,1,0,floor);
       for(const [px,pz] of [[x-1,z],[x,z-1]]){
         if(px<0||pz<0)continue;
         const previous=pz*WIDTH+px;
