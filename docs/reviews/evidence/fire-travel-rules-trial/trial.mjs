@@ -25,10 +25,10 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   report(1, ok ? 'MET' : 'MISSED', 'grass front: straight ' + round(g.axis, 3) + ' m/s along the grid, ' + round(g.diagonal, 3) + ' on its diagonal; from one tile, 32 directions timed from 6 m to 24 m out, '
     + round(g.point.min, 3) + ' to ' + round(g.point.max, 3) + ' (mean ' + round(g.point.mean, 3) + ')   [target: every one within 7 % of 1.5, that is 1.395 to 1.605]');
 }
-// 2. A lawn fire lights the wall it reaches: three plans, four sides each.
+// 2. A lawn fire lights the wall it reaches: six plans, four sides each.
 {
   const waits = [];
-  for (const planId of ['hopkins-4-15', 'hopkins-4-12', 'ashland-worker']) for (const at of strikesOf(planId).filter(s => s.startsWith('wall') && !s.endsWith(':in'))) {
+  for (const planId of PLANS) for (const at of strikesOf(planId).filter(s => s.startsWith('wall') && !s.endsWith(':in'))) {
     const world = make(), a = house(world, 'A', planId, 8, 8, {}), [, side, ci, cj] = at.split(':');
     lawn(world, 0, 0, Math.round((16 + a.plan.width) / PITCH), Math.round((16 + a.plan.depth) / PITCH));
     const wall = outsideWalls(world, a).find(w => w.side === side && w.tile.i === a.origin[0] + +ci && w.tile.j === a.origin[1] + +cj);
@@ -37,7 +37,7 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
     run(world, 15);
     waits.push(wall.fuel.litAt !== null && wall.outside.fuels[0].litAt !== null ? wall.fuel.litAt - wall.outside.fuels[0].litAt : Infinity);
   }
-  report(2, waits.every(w => w < 2) ? (Math.max(...waits) > 1.9 ? 'EDGE' : 'MET') : 'MISSED', 'a wall lights ' + Math.min(...waits).toFixed(3) + ' to ' + Math.max(...waits).toFixed(3) + ' s after the grass against it, on ' + waits.length + ' walls of three plans   [target: under 2 s]');
+  report(2, waits.every(w => w < 2) ? (Math.max(...waits) > 1.9 ? 'EDGE' : 'MET') : 'MISSED', 'a wall lights ' + Math.min(...waits).toFixed(3) + ' to ' + Math.max(...waits).toFixed(3) + ' s after the grass against it, on ' + waits.length + ' walls of six plans; ' + waits.filter(w => w >= 2).length + ' of them at 2 s or more. The wait is a constant of the numbers, clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = ' + (DEFAULT_FUELS.clapboard.delay * DEFAULT_FUELS.clapboard.lightAt / (DEFAULT_RULES.maxHeat * (1 - DEFAULT_RULES.loss * DEFAULT_RULES.step))).toFixed(2) + ' s, rounded up to a step   [target: under 2 s]');
 }
 // 3. Up a wall against along it, on a free-standing wall with no floors or partitions.
 {
@@ -63,17 +63,23 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   const t7 = r => r.firstFall !== null && r.firstFall >= 60 && r.firstFall <= 150;
   report(7, verdict(rows, t7), 'first upper floor or roof part falls: ' + count(rows, t7) + ' in range; ' + range(num(rows, r => r.firstFall)) + ' s. This is the burn time of frame and roof timber (68 s) plus the time to light it   [target: 60 to 150 s]');
   const before = r => r.groundLit !== null && (r.fallToGround === null || r.groundLit < r.fallToGround), within = r => r.groundLit !== null && r.fallToGround !== null && r.groundLit >= r.fallToGround && r.groundLit - r.fallToGround <= 5;
+  const roofFirst = r => r.groundRoofLit !== null && (r.fallToGround === null || r.groundRoofLit < r.fallToGround);
   const lags = up.filter(r => r.groundLit !== null && r.fallToGround !== null).map(r => r.groundLit - r.fallToGround);
-  report(8, verdict(up, within), 'upstairs fires: ground floor lit before anything fell to it in ' + count(up, before) + '; lit within 5 s of the first fall in ' + count(up, within) + '; lag ' + range(lags) + ' s   [target: only after a fall, then within 5 s]');
+  report(8, verdict(up, r => within(r) && !roofFirst(r)), 'upstairs fires: something inside the ground storey lit before anything fell to it in ' + count(up, before) + '. A ROOF OVER A GROUND-STOREY ROOM (a low roof beside the upper storey) lit before anything fell in ' + count(up, roofFirst)
+    + ', from the air above it. Ground storey lit within 5 s of the first fall in ' + count(up, within) + '; lag ' + range(lags) + ' s. What falls first is embers; review round 2 found that with almost no embers only 3 of 21 are within 5 s   [target: only after a fall, then within 5 s]');
+  const small = rows.filter(r => r.firstFallDrop === 1 && r.firstFallCarried === 0).length;
+  say('    target 7: in ' + small + ' of ' + rows.length + ' strikes the first fall is embers of a spent roof or wall dropping one half-storey, carrying nothing');
   results.survey = {strikes: rows.length, neverLitMax: Math.max(...rows.map(r => r.neverLit)), ledgerWorst: Math.max(...rows.map(r => Math.abs(r.ledger))), embersShare: range(rows.map(r => 100 * r.embersShare))};
 }
-// 9. Kitchen against dining room, Hopkins 15, all contents.
+// 9. Stores. The same kitchen fire with and without the oil and coal, on six plans; and kitchen against
+// dining room on Hopkins 15 with and without them (review round 2, M4: the room's position is a confound).
 {
-  const wreck = r => { const classes = {}; for (const tile of r.world.active) for (const fuel of tile.fuels) if (fuel.lit) classes[fuel.cls] = (classes[fuel.cls] ?? 0) + 1; return JSON.stringify(classes); };
-  const k = burn({at: 'room:0:kitchen', seconds: 300}), d = burn({at: 'room:0:dining', seconds: 300});
-  const burstAt = r => r.world.events.filter(e => e.type === 'burst').map(e => round(e.time, 1)).join(', ');
-  report(9, Math.abs(k.half - d.half) >= 5 ? 'MET' : 'WEAK', (k.half > d.half ? 'the kitchen fire takes the house more SLOWLY. ' : '') + 'kitchen fire: room alight ' + round(k.roomAll) + ' s, half the house ' + round(k.half) + ' s, oil bursts at ' + burstAt(k) + ' s; dining-room fire: ' + round(d.roomAll) + ' s, ' + round(d.half) + ' s, oil at ' + burstAt(d)
-    + ' s. Burning at 300 s: ' + wreck(k) + ' against ' + wreck(d) + '   [target: a stated difference; the trial\'s own mark is 5 s on half alight]');
+  const NO_STORES = {furniture: true, lacquer: 'some'}, gains = [];
+  for (const planId of PLANS) { const withStores = burn({planId, at: 'room:0:kitchen', seconds: 150}), without = burn({planId, at: 'room:0:kitchen', seconds: 150, contents: NO_STORES}); gains.push(without.half - withStores.half); }
+  const heat = r => { let sum = 0; for (const tile of r.world.active) sum += tile.heat; return round(sum, 1); };
+  const k = burn({at: 'room:0:kitchen', seconds: 300}), d = burn({at: 'room:0:dining', seconds: 300}), k0 = burn({at: 'room:0:kitchen', seconds: 300, contents: NO_STORES}), d0 = burn({at: 'room:0:dining', seconds: 300, contents: NO_STORES});
+  report(9, 'PARTLY', 'a kitchen fire reaches half the house ' + range(gains) + ' s sooner with the oil and coal than without, on six plans. Hopkins 15, kitchen against dining room: with stores ' + round(k.half) + ' against ' + round(d.half) + ' s; without ' + round(k0.half) + ' against ' + round(d0.half)
+    + ' s, so most of that difference is where the room is. Heat left in the wreck at 300 s: ' + heat(k) + ' against ' + heat(d) + ' (kitchen, dining, with stores); without stores ' + heat(k0) + ' and ' + heat(d0) + '   [target: a stated, measured difference in time to half alight and in heat left in the wreck]');
 }
 // 10. Paving.
 {
@@ -86,16 +92,21 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
 }
 // 11, 12. The house next door.
 {
-  const table = [];
-  for (const gap of [1, 2, 2.5, 3, 5, 8]) table.push(pair(gap, 'bare', 'wall:x-:0:10'));
-  table.push(pair(2, 'bare', 'room:0:kitchen'));
-  for (const gap of [3, 8]) table.push(pair(gap, 'lawn', 'wall:x-:0:10'));
-  for (const p of table) say('    gap ' + String(p.gap).padEnd(4) + p.ground.padEnd(5) + ' strike ' + p.at.padEnd(15) + ' neighbour ' + (p.neighbourLit === null ? 'never (200 s)' : 'lit at ' + round(p.neighbourLit) + ' s, ' + round(p.afterFacing) + ' s after A\'s facing wall first burnt')
-    + '; A half alight at ' + round(p.half) + ' s' + (p.grassLit !== null ? '; grass lit at ' + round(p.grassLit) + ' s' : ''));
-  const two = table.filter(p => p.gap === 2 && p.ground === 'bare'), eight = table.find(p => p.gap === 8 && p.ground === 'bare'), lawn8 = table.find(p => p.gap === 8 && p.ground === 'lawn');
-  report(11, two.every(p => p.afterFacing !== null && p.afterFacing <= 30) ? 'MET' : 'MISSED', 'bare ground, 2 m: the neighbour lights ' + two.map(p => round(p.afterFacing)).join(' and ') + ' s after the facing wall of the burning house first burns (match on its far wall, and in its kitchen). At 2.5 m and wider it never does   [target: yes, within 30 s]');
+  const table = [], farWall = planId => strikesOf(planId).find(s => s.startsWith('wall:x-') && !s.endsWith(':in'));
+  for (const gap of [1, 2, 2.5, 3, 5, 8]) table.push(pair(gap, 'bare', farWall('hopkins-4-15')));
+  for (const gap of [3, 8]) table.push(pair(gap, 'lawn', farWall('hopkins-4-15')));
+  const byPlan = PLANS.map(planId => planId === 'hopkins-4-15' ? table.find(p => p.gap === 2) : pair(2, 'bare', farWall(planId), {}, {}, 200, planId));
+  const byStrike = strikesOf('hopkins-4-15').filter(s => s.startsWith('room')).map(at => pair(2, 'bare', at));
+  const line = p => '    ' + p.plan.padEnd(15) + 'gap ' + String(p.gap).padEnd(4) + p.ground.padEnd(5) + ' strike ' + p.at.padEnd(15) + ' neighbour ' + (p.neighbourLit === null ? 'never (200 s)' : 'lit at ' + round(p.neighbourLit) + ' s, ' + round(p.afterFacing) + ' s after A\'s facing wall first burnt')
+    + '; A half alight at ' + round(p.half) + ' s' + (p.grassLit !== null ? '; grass lit at ' + round(p.grassLit) + ' s' : '');
+  for (const p of [...table, ...byPlan.filter(p => p.plan !== 'hopkins-4-15'), ...byStrike]) say(line(p));
+  const ok = p => p.afterFacing !== null && p.afterFacing <= 30, n = (list) => list.filter(ok).length + ' of ' + list.length;
+  const eight = table.find(p => p.gap === 8 && p.ground === 'bare'), lawn8 = table.find(p => p.gap === 8 && p.ground === 'lawn'), wider = table.filter(p => p.ground === 'bare' && p.gap > 2).every(p => p.neighbourLit === null);
+  report(11, byPlan.every(ok) && byStrike.every(ok) ? 'MET' : byPlan.filter(ok).length >= 3 ? 'PARTLY' : 'MISSED', 'bare ground, 2 m, a pair of the same plan, match on the far wall: the neighbour lights within 30 s of the facing wall first burning on ' + n(byPlan) + ' plans ('
+    + byPlan.map(p => p.plan.replace('hopkins-4-', 'H').replace('-worker', '').replace('-row', '') + ' ' + (p.afterFacing === null ? 'never' : round(p.afterFacing, 0) + ' s')).join(', ') + '). Hopkins 15 with the furniture lit in each room: ' + n(byStrike) + '. '
+    + (wider ? 'At 2.5 m and wider it never does' : 'At 2.5 m or wider it sometimes does') + '   [target: yes, within 30 s]');
   report(12, eight.neighbourLit === null ? (lawn8.neighbourLit === null ? 'MET' : 'PARTLY') : 'MISSED', '8 m: on bare ground ' + (eight.neighbourLit === null ? 'never' : 'lit at ' + round(eight.neighbourLit) + ' s') + '; with lawn between, ' + (lawn8.neighbourLit === null ? 'never' : 'lit at ' + round(lawn8.neighbourLit) + ' s, carried by the grass') + '   [target: no]');
-  results.pairs = table;
+  results.pairs = [...table, ...byPlan, ...byStrike];
 }
 report(13, 'UNTESTED', 'a lantern is never a dud: the scene has no stone plinth and the kernel has no lantern');
 // 14. Ledger and time step.
@@ -109,8 +120,11 @@ report(13, 'UNTESTED', 'a lantern is never a dud: the scene has no stone plinth 
 {
   const one = burn({seconds: 150, timed: true}), width = one.a.plan.width;
   const three = burn({seconds: 150, timed: true, at: 'room:0:hall', neighbours: [['B', 6 + width + 2, 6], ['C', 6, 6 + one.a.plan.depth + 2]], before: world => lawn(world, 0, 0, 70, 70)});
+  const eightHouses = [];
+  for (let n = 1; n < 8; n++) eightHouses.push(['N' + n, 6 + (n % 4) * (width + 3), 6 + Math.floor(n / 4) * (one.a.plan.depth + 3)]);
+  const eight = burn({seconds: 150, timed: true, at: 'room:0:hall', neighbours: eightHouses, before: world => lawn(world, 0, 0, Math.round((12 + 4 * (width + 3)) / PITCH), Math.round((12 + 2 * (one.a.plan.depth + 3)) / PITCH))});
   const show = r => round(r.cost.mean, 1) + ' ms mean, ' + round(r.cost.p95, 1) + ' ms 95th centile, ' + round(r.cost.max, 1) + ' ms worst, ' + r.peakActive + ' tiles active at peak';
-  report(15, 'MISSED', 'cost per step of 1/30 s over 150 s (one step covers two of today\'s 1/60 s frames): one house ' + show(one) + '; three houses on a lawn, all burning, ' + show(three) + '. Today\'s game: 3 to 5 ms per 1/60 s frame   [target: no more than today\'s]');
+  report(15, 'MISSED', 'cost per step of 1/30 s over 150 s (one step covers two of today\'s 1/60 s frames): one house ' + show(one) + '; three houses on a lawn, all burning, ' + show(three) + '; eight houses on a lawn, one struck, ' + show(eight) + '. Today\'s game: 3 to 5 ms per 1/60 s frame   [target: no more than today\'s]');
 }
 say('rules: ' + JSON.stringify(DEFAULT_RULES));
 say('fuels: ' + JSON.stringify(DEFAULT_FUELS));

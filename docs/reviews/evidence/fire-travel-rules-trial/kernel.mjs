@@ -17,10 +17,10 @@ export const PITCH = .5, LAYER = 1.06, DT = 1 / 30;
 export const DEFAULT_FUELS = {
   grass: {lightAt: .85, delay: .18, burnFor: 3, out: .7, radiates: .1},
   oil: {lightAt: .6, delay: 0, burnFor: 14, out: 3},
-  clapboard: {lightAt: 1.1, delay: 5, burnFor: 20, out: 1},
+  clapboard: {lightAt: 1.1, delay: 4.5, burnFor: 20, out: 1},
   partition: {lightAt: 1.1, delay: 5, burnFor: 90, out: 1},
   door: {lightAt: 1.1, delay: 5, burnFor: 50, out: 1},
-  roof: {lightAt: 1.1, delay: 3, burnFor: 80, out: 1},
+  roof: {lightAt: 1.1, delay: 8, burnFor: 80, out: 1},
   frame: {lightAt: 1.3, delay: 3, burnFor: 80, out: 1.2},
   furniture: {lightAt: 1.1, delay: 3, burnFor: 30, out: 1.5},
   cloth: {lightAt: .8, delay: .5, burnFor: 10, out: 1},
@@ -41,7 +41,9 @@ export const DEFAULT_RULES = {
   through: 4,         // Rule 5: a surface lit on one side gives the far side (share consumed)^through
   reach: 3, radiantGain: .5, radiantEvery: .5,          // Rule 6
   reachUnderCover: false,   // Rule 6: reach is for fire in the open. false: only tiles with nothing closed above them reach or are reached
-  burstAt: 1.4, burstRadius: 1.5,                        // Rule 8
+  burstRadius: 1.5, burstPulse: 2,                       // Rule 8. A can bursts when its oil would light
+  charFades: .5,      // Rule 2: char lost per second below the lighting point
+  sight: .5,          // Rule 6: a face that passes at least this much does not block a line
   emberShare: .15,    // Rule 7: the last share of a surface does not burn in place; it falls as embers
   fallPulse: 2.5
 };
@@ -54,7 +56,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
   const dt = rules.step, radiantTicks = Math.max(1, Math.round(rules.radiantEvery / dt));
   const tiles = new Map(), faces = new Map(), active = new Set(), events = [];
   const key = (i, j, k) => ((k + 2) * 512 + (j + 64)) * 512 + (i + 64);
-  let time = 0, listenersStale = true, warmed = [];
+  let time = 0, listenersStale = true, warmed = [], topLayer = 0;
   const ledger = {laid: 0, burnt: 0, fellAsEmbers: 0}, stats = {ticks: 0, visits: 0, ignitions: 0, relinks: 0, sightLines: 0};
 
   const tileAt = (i, j, k) => tiles.get(key(i, j, k));
@@ -66,6 +68,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     if (!tile) {
       tile = {id, i, j, k, heat: 0, incoming: 0, rad: 0, fuels: [], room, building, out: 0, radOut: 0, links: null, listens: false};
       tiles.set(id, tile);
+      if (k > topLayer) topLayer = k;
       around(i, j, k, stale);
     }
     return tile;
@@ -175,7 +178,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     }
     const share = fuel.amount / cells.length;
     fuel.amount = 0; fuel.spentAt = time; ledger.laid -= fuel.start;
-    for (const cell of cells) { addFuel(cell, 'oil', share, {lit: true}); cell.heat = Math.min(rules.maxHeat, cell.heat + 2); active.add(cell); }
+    for (const cell of cells) { addFuel(cell, 'oil', share, {lit: true}); cell.heat = Math.min(rules.maxHeat, cell.heat + rules.burstPulse); active.add(cell); }
     events.push({type: 'burst', time, at: [tile.i, tile.j, tile.k], building: tile.building, tiles: cells.length});
   }
   function spend(tile, fuel) {
@@ -198,14 +201,15 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     for (let s = 1; s <= steps; s++) {
       const ni = Math.round(a.i + (b.i - a.i) * s / steps), nj = Math.round(a.j + (b.j - a.j) * s / steps), nk = Math.round(a.k + (b.k - a.k) * s / steps);
       if (ni === ci && nj === cj && nk === ck) continue;
-      if (pathPass(ci, cj, ck, [ni - ci, nj - cj, nk - ck]) < .5) return false;
+      if (pathPass(ci, cj, ck, [ni - ci, nj - cj, nk - ck]) < rules.sight) return false;
       ci = ni; cj = nj; ck = nk;
     }
     return true;
   }
   // Bookkeeping only: a tile "listens" if some unlit fuel could read the warmth that reaches it (its own,
-  // or a surface in the next tile that faces it). Warmth on a tile nothing reads has no effect, so
-  // skipping those tiles changes no result.
+  // or a surface in the next tile that faces it). Warmth on a tile nothing reads lights nothing, so
+  // skipping those tiles changes no measure; review round 2 (S6) found it does change which tiles are
+  // awake, and so the order of some events in the log.
   function markListeners() {
     listenersStale = false;
     for (const tile of tiles.values()) for (const fuel of tile.fuels) if (fuel.face) { const other = across(tile, fuel.face); if (other) other.listens = true; }
@@ -215,7 +219,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     let open = memo.get(tile);
     if (open === undefined) {
       open = true;
-      for (let k = tile.k; k <= tile.k + 8 && open; k++) if (passOf(faceBetween(tile.i, tile.j, k, 2, 1)) < .5) open = false;
+      for (let k = tile.k; k <= topLayer && open; k++) if (passOf(faceBetween(tile.i, tile.j, k, 2, 1)) < rules.sight) open = false;
       memo.set(tile, open);
     }
     return open;
@@ -297,7 +301,6 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
         let exposure = Math.max(tile.heat, tile.rad), from = null;
         if (fuel.face) { const other = across(tile, fuel.face); if (other) { const there = Math.max(other.heat, other.rad); if (there > exposure) { exposure = there; from = other; } } }
         if (exposure > 1e-3) alive = true;
-        if (fuel.store === 'oil' && exposure >= rules.burstAt) { burst(tile, fuel); continue; }
         if (exposure >= spec.lightAt) {
           fuel.char += dt * exposure / spec.lightAt;
           if (fuel.char >= spec.delay) {
@@ -305,7 +308,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
             fuel.lit = true; fuel.litAt = time; fuel.near = from; stats.ignitions++;
             events.push({type: 'lit', time, at: [tile.i, tile.j, tile.k], cls: fuel.cls, building: tile.building, room: tile.room});
           }
-        } else if (fuel.char > 0) fuel.char = Math.max(0, fuel.char - dt * .5);
+        } else if (fuel.char > 0) fuel.char = Math.max(0, fuel.char - dt * rules.charFades);
       }
       // Glass breaks when the tile on either side is hot enough.
       if (tile.heat >= rules.glassBreaks) for (let axis = 0; axis < 2; axis++) for (const stepDir of [-1, 1]) {

@@ -79,11 +79,12 @@ export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at
   const fall = ev.find(e => mine(e) && e.type === 'fall' && (e.cause === 'roof' || e.cause === 'floor' && e.from[2] > 0));
   const fallToGround = ev.find(e => mine(e) && e.type === 'fall' && e.from[2] >= 2 && e.to[2] < 2);
   const groundLit = ev.find(e => mine(e) && e.type === 'lit' && e.at[2] < 2 && e.cls !== 'roof' && e.cause !== 'match');   // a low roof lit from the wall above it is not the ground floor
+  const groundRoofLit = ev.find(e => mine(e) && e.type === 'lit' && e.at[2] < 2 && e.cls === 'roof');
   const upstairsLit = ev.find(e => mine(e) && e.type === 'lit' && e.at[2] >= 2 && e.cause !== 'match');
   const firstOf = name => ev.find(e => e.type === 'lit' && e.building === name)?.time ?? null;
   const sorted = timed ? [...costs].sort((p, q) => p - q) : null;
   return {world, a, others, struck, n: initial.length, half, roomAll, roomLit: items.filter(x => x.fuel.litAt !== null).length, roomN: items.length,
-    flameUntil, fall, fallToGround, groundLit, upstairsLit, peakActive, shareAtPeak, never: initial.filter(x => x.fuel.litAt === null && x.fuel.amount > 0).length,
+    flameUntil, fall, fallToGround, groundLit, groundRoofLit, upstairsLit, peakActive, shareAtPeak, never: initial.filter(x => x.fuel.litAt === null && x.fuel.amount > 0).length,
     neighbours: Object.fromEntries(neighbours.map(([name]) => [name, firstOf(name)])),
     ledger: world.ledger.laid - world.ledger.burnt - world.remaining(),
     cost: timed ? {mean: costs.reduce((s, v) => s + v, 0) / steps, p95: sorted[Math.floor(.95 * steps)], max: sorted[steps - 1]} : null};

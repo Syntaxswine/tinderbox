@@ -1,0 +1,41 @@
+strikes 101 wall 24, wall-in 24, room 53
+T4 wall in 10..20: 4 of 24 | under 10: 0 | over 20: 20 | range 16 to 41.27 | median(author) 27.43 median(true) 27.15
+T4 wall-in in 10..20: 14 of 24 | under 10: 3 | over 20: 7 | range 3.93 to 28.63 | median(author) 17 median(true) 16.95
+T4 room in 10..20: 29 of 53 | under 10: 21 | over 20: 3 | range 2.13 to 26.97 | median(author) 12.2 median(true) 12.2
+T5 all 58 of 101 | under 40: 37 | over 70: 6 | range 25.57 to 76.67 median 42.57 42.57
+    hopkins-4-15    12 of 18 median 45.03 true median 43.83 range 30.73 to 66.37 fuel objects 1545
+    hopkins-4-12    3 of 16 median 35.87 true median 35.735 range 25.57 to 43.57 fuel objects 881
+    hopkins-4-09    11 of 18 median 42.5 true median 42.05 range 29.1 to 74.53 fuel objects 1122
+    hopkins-4-13    9 of 17 median 40.7 true median 40.7 range 27.83 to 51.67 fuel objects 982
+    ashland-worker  11 of 14 median 42.87 true median 42.32 range 25.87 to 53.87 fuel objects 520
+    monroe-row      12 of 18 median 51.83 true median 51.599999999999994 range 34.63 to 76.67 fuel objects 1642
+T6 flameUntil 131 to 236 | under 90: 0 | at 300 (cut off by the run length): 0
+T7 firstFall 69.27 to 80.83 causes {"roof":62,"floor":39}
+T8 upstairs strikes 21
+    hopkins-4-15    room:1:bed-c     fallToGround 64.3 groundLit 65.73 frame lag 1.43 firstFall(roof/floor) 69.3 half 66.37
+    hopkins-4-15    room:1:bed-b     fallToGround 46.67 groundLit 48.13 frame lag 1.46 firstFall(roof/floor) 69.3 half 51.43
+    hopkins-4-15    room:1:bed-a     fallToGround 42.57 groundLit 44.43 frame lag 1.86 firstFall(roof/floor) 69.27 half 48.83
+    hopkins-4-15    room:1:hall      fallToGround 24.53 groundLit 26.27 frame lag 1.74 firstFall(roof/floor) 69.3 half 45.3
+    hopkins-4-12    room:1:bed-b     fallToGround 41.47 groundLit 44.67 frame lag 3.20 firstFall(roof/floor) 69.27 half 43.57
+    hopkins-4-12    room:1:hall      fallToGround 22.63 groundLit 24.07 frame lag 1.44 firstFall(roof/floor) 69.3 half 37.5
+    hopkins-4-12    room:1:servant   fallToGround 39.53 groundLit 40.93 frame lag 1.40 firstFall(roof/floor) 69.3 half 41.63
+    hopkins-4-09    room:1:bed-a     fallToGround 34.83 groundLit 37.33 partition lag 2.50 firstFall(roof/floor) 69.3 half 48.1
+    hopkins-4-09    room:1:hall      fallToGround 23.17 groundLit 24.8 frame lag 1.63 firstFall(roof/floor) 69.3 half 43.4
+    hopkins-4-09    room:1:bed-b     fallToGround 53.33 groundLit 55.33 frame lag 2.00 firstFall(roof/floor) 69.27 half 51.93
+    hopkins-4-09    room:1:bed-c     fallToGround 50.5 groundLit 61.53 frame lag 11.03 firstFall(roof/floor) 69.3 half 62.37
+    hopkins-4-09    room:1:closet    fallToGround 69.5 groundLit 69.53 lacquer lag 0.03 firstFall(roof/floor) 69.3 half 74.53
+    hopkins-4-13    room:1:bed-c     fallToGround 34.3 groundLit 37.23 partition lag 2.93 firstFall(roof/floor) 69.27 half 49.9
+    hopkins-4-13    room:1:hall      fallToGround 19.07 groundLit 19.27 lacquer lag 0.20 firstFall(roof/floor) 69.27 half 41.7
+    hopkins-4-13    room:1:bed-b     fallToGround 46.6 groundLit 46.9 lacquer lag 0.30 firstFall(roof/floor) 69.3 half 51.67
+    monroe-row      room:1:bed-a     fallToGround 69.8 groundLit 71.17 frame lag 1.37 firstFall(roof/floor) 69.3 half 73.13
+    monroe-row      room:1:bed-b     fallToGround 69.63 groundLit 71.03 frame lag 1.40 firstFall(roof/floor) 69.3 half 73.43
+    monroe-row      room:1:hall      fallToGround 69.93 groundLit 71.3 frame lag 1.37 firstFall(roof/floor) 69.3 half 51.37
+    monroe-row      room:1:bath      fallToGround 69.93 groundLit 71.3 frame lag 1.37 firstFall(roof/floor) 69.3 half 76.67
+    monroe-row      room:1:bed-d     fallToGround 69.63 groundLit 69.63 lacquer lag 0.00 firstFall(roof/floor) 69.27 half 72.93
+    monroe-row      room:1:bed-c     fallToGround 69.8 groundLit 71.17 frame lag 1.37 firstFall(roof/floor) 69.3 half 74.9
+S2 ground-floor strikes: upstairs first lit 1.87 to 25.97 median 3.53 3.53 n 80 null 14
+     wall 2.53 to 8.23 median 4.27
+     wall-in 1.87 to 25.97 median 1.87
+     room 2.27 to 25.03 median 3.47
+neverLit max 0 ledger worst 5.7231718586514546e-8 embers share 0.1458 to 0.1484
+wall-outside strikes where half the HOUSE is reached before the struck ROOM is alight: 8 of 24

@@ -1,0 +1,27 @@
+wall:x+:15:7       empty      room 25.2 -> 25.2 (counted 87 -> 101) | half 26.87 -> 33.67 (25 %) | first fall 71.33 -> 71.33 
+fuel objects, as drawn: {"frame":337,"clapboard":200,"roof":224,"partition":97,"furniture":8,"door":9,"oil":1,"coal":1,"cloth":3,"lacquer":1}
+fuel objects, mirrored: {"frame":339,"clapboard":204,"roof":224,"partition":95,"furniture":8,"door":9,"cloth":3,"lacquer":2,"oil":1,"coal":1}
+wall:x+:15:7       furnished  room 25.4 -> 19.73 (counted 89 -> 104) | half 26.63 -> 33.73 (27 %) | first fall 71.33 -> 71.33 | 1 verdict(s) flip
+wall:x+:15:7:in    empty      room 15.87 -> 15.87 (counted 87 -> 101) | half 33.43 -> 38.63 (16 %) | first fall 69.87 -> 69.87 
+wall:x+:15:7:in    furnished  room 15.7 -> 15.33 (counted 89 -> 104) | half 32.43 -> 36.5 (13 %) | first fall 69.87 -> 69.87 
+wall:x-:0:7        empty      room 31.03 -> 31.07 (counted 124 -> 108) | half 26.17 -> 26.3 (1 %) | first fall 73.37 -> 73.37 
+wall:x-:0:7        furnished  room 26.87 -> 25.6 (counted 125 -> 109) | half 25.8 -> 25.33 (-2 %) | first fall 73.37 -> 73.37 
+wall:x-:0:7:in     empty      room 21.13 -> 21.17 (counted 124 -> 108) | half 38.83 -> 39.13 (1 %) | first fall 69.87 -> 69.87 
+wall:x-:0:7:in     furnished  room 16.9 -> 16.6 (counted 125 -> 109) | half 37.73 -> 37.5 (-1 %) | first fall 69.87 -> 69.87 
+wall:y+:8:13       empty      room 34.43 -> 34.43 (counted 124 -> 108) | half 27.5 -> 27.4 (0 %) | first fall 71.87 -> 71.87 
+wall:y+:8:13       furnished  room 27.43 -> 30.53 (counted 125 -> 109) | half 25.57 -> 26.73 (5 %) | first fall 71.87 -> 71.87 
+wall:y+:8:13:in    empty      room 20.3 -> 20.3 (counted 124 -> 108) | half 36.6 -> 36.57 (0 %) | first fall 69.37 -> 69.37 
+wall:y+:8:13:in    furnished  room 14.07 -> 16.63 (counted 125 -> 109) | half 35.87 -> 36.67 (2 %) | first fall 69.37 -> 69.37 
+wall:y-:8:0        empty      room 31.43 -> 31.43 (counted 107 -> 117) | half 26.3 -> 26.5 (1 %) | first fall 71.87 -> 71.87 
+wall:y-:8:0        furnished  room 31.43 -> 31.43 (counted 108 -> 118) | half 25.87 -> 25.3 (-2 %) | first fall 71.87 -> 71.87 
+wall:y-:8:0:in     empty      room 17 -> 17 (counted 107 -> 117) | half 37.67 -> 31.87 (-15 %) | first fall 69.37 -> 69.37 
+wall:y-:8:0:in     furnished  room 17 -> 17 (counted 108 -> 118) | half 35.6 -> 31.63 (-11 %) | first fall 69.37 -> 69.37 
+room:0:dining      furnished  room 14 -> 14.03 (counted 145 -> 133) | half 42.7 -> 40.83 (-4 %) | first fall 69.3 -> 69.3 
+room:0:sitting     furnished  room 14.27 -> 14.2 (counted 108 -> 118) | half 36.57 -> 39.47 (8 %) | first fall 71.47 -> 69.53 
+room:0:kitchen     furnished  room 7.23 -> 11.93 (counted 125 -> 109) | half 35.1 -> 35.1 (0 %) | first fall 69.33 -> 69.33 | 1 verdict(s) flip
+room:0:hall        furnished  room 8.77 -> 8.77 (counted 46 -> 48) | half 28.77 -> 33.5 (16 %) | first fall 72.73 -> 69.9 
+room:0:bed-a       furnished  room 12.23 -> 11.93 (counted 89 -> 104) | half 37.23 -> 37.13 (0 %) | first fall 71.37 -> 69.37 
+room:1:bed-b       furnished  room 14.33 -> 13.23 (counted 201 -> 218) | half 43.57 -> 37.47 (-14 %) | first fall 69.27 -> 69.3 | 1 verdict(s) flip
+room:1:hall        furnished  room 9.2 -> 9.2 (counted 49 -> 49) | half 37.5 -> 33.97 (-9 %) | first fall 69.3 -> 69.3 
+room:1:servant     furnished  room 10.73 -> 10.4 (counted 116 -> 105) | half 41.63 -> 39.8 (-4 %) | first fall 69.3 -> 69.27 | 1 verdict(s) flip
+hopkins-4-12: furnished strikes 16; |change in half| median 1.87 s, worst 7.1 s; |change in room| worst 5.67 s; target 4 and 5 verdicts that flip: 4 of 48

@@ -108,9 +108,11 @@ export function house(world, name, planId, ox, oy, contents = {}) {
       }
     }
   }
-  // Outside air: one ring of empty tiles round the house on every layer, so the outside of a wall has a
-  // tile to burn into and to be warmed from. They hold nothing and carry no label.
-  const top = 2 * p.floors.length - 1, houseTiles = [...rooms.values()].flatMap(record => record.tiles);
+  // Outside air: one ring of empty tiles round the house on every layer and one layer of them above its
+  // highest roof, so the outside of every wall and the top of every roof has a tile to burn into and to be
+  // warmed from (review round 2, M1: the first builder left the top roof with nothing above it). They hold
+  // nothing and carry no label.
+  const top = 2 * p.floors.length, houseTiles = [...rooms.values()].flatMap(record => record.tiles);
   for (const tile of houseTiles) for (let dj = -1; dj <= 1; dj++) for (let di = -1; di <= 1; di++) for (let k = 0; k <= top; k++)
     if (!world.tileAt(tile.i + di, tile.j + dj, k)) world.addTile(tile.i + di, tile.j + dj, k);
   // Contents, by room type, at the room's middle cell.
