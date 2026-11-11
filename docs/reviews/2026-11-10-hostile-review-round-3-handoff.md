@@ -78,6 +78,8 @@ The shipped code is correct here. Each breakage below passes all 291 tests today
 | Lamp oil | A can in the kitchen or pantry; a lamp in each lit room | Lights readily, flares, and spills as a burning pool. The lantern and the street drum each do half of this already |
 | Coal | A bin in the basement service room or by the kitchen; a scuttle at the stove | Hard to light, then burns hot for a long time. It should feed the heat of the collapsed house, which today follows a 150 s clock whatever burned |
 
+**Evaluation, added 2026-11-11 at the owner's request.** [`2026-11-11-house-contents-evaluation.md`](2026-11-11-house-contents-evaluation.md) trials the table above in memory and finds it changes almost nothing as plain extra fuel: one match has a house fully alight in 10 s whatever is inside. It recommends building the room as a fire unit that flashes over and vents through its windows, with the oil store as a burst and the coal store as heat in the wreck, and it has four pictures of what that might look like. Read it before writing the contract; its four decisions are the owner's.
+
 **Sequencing (the reviewer's recommendation; the owner's call).** In the proposed lattice each of these is a fuel class and an amount on one tile. In today's house graph each is a new kind of site with its own rules. The owner has not yet decided the lattice questions from round 1. The architect should say which way the contract goes before a coder starts, and should not let this wait behind Items 1 to 3.
 
 **Owners.** The fuel model is the coder's. Placement, whether furniture is shown on the street, and how a flashing piece or a burning coal bin looks are the artist's. Anything the player is told about a store is the UI specialist's.
