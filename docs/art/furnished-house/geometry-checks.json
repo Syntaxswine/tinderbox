@@ -11,7 +11,7 @@
     "Buried porch roof faces no longer cross the upper front chamber"
   ],
   "counts": {
-    "surfaces": 2550,
+    "surfaces": 2562,
     "floorPatches": 676,
     "items": 16,
     "parts": 73
@@ -21,6 +21,232 @@
     "nativeDoorHeight": 1.65,
     "nativeDoorWidth": 1,
     "routeAdaptations": [
+      {
+        "type": "relocated-hall-console",
+        "sourceRoom": "hall",
+        "prototypeRoom": "living",
+        "baseline": {
+          "position": [
+            5.1499999999999995,
+            0.48,
+            1.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "bounds": {
+            "min": [
+              4.549999976158142,
+              0.48000000596046444,
+              0.9250000029802323
+            ],
+            "max": [
+              5.750000023841857,
+              1.2350000001490116,
+              1.2749999970197679
+            ]
+          }
+        },
+        "position": [
+          6.3,
+          0.48,
+          5.1
+        ],
+        "rotationY": 1.5707963267948966,
+        "reason": "Clear the actual entrance hall using existing supported living-room floor; no furniture scaling."
+      },
+      {
+        "type": "translated-stair-rails",
+        "parts": [
+          {
+            "name": "Stair newel",
+            "baseline": [
+              5,
+              0.86,
+              4
+            ],
+            "position": [
+              4.88,
+              0.86,
+              4
+            ],
+            "translation": [
+              -0.12,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair newel",
+            "baseline": [
+              5,
+              1.5666666666666664,
+              5
+            ],
+            "position": [
+              4.88,
+              1.5666666666666664,
+              5
+            ],
+            "translation": [
+              -0.12,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair newel",
+            "baseline": [
+              5,
+              2.2733333333333334,
+              6
+            ],
+            "position": [
+              4.88,
+              2.2733333333333334,
+              6
+            ],
+            "translation": [
+              -0.12,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair newel",
+            "baseline": [
+              5,
+              2.98,
+              7
+            ],
+            "position": [
+              4.88,
+              2.98,
+              7
+            ],
+            "translation": [
+              -0.12,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair handrail",
+            "baseline": [
+              5,
+              2.32,
+              5.5
+            ],
+            "position": [
+              4.88,
+              2.32,
+              5.5
+            ],
+            "translation": [
+              -0.12,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair newel",
+            "baseline": [
+              6,
+              0.86,
+              4
+            ],
+            "position": [
+              6.04,
+              0.86,
+              4
+            ],
+            "translation": [
+              0.04,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair newel",
+            "baseline": [
+              6,
+              1.5666666666666664,
+              5
+            ],
+            "position": [
+              6.04,
+              1.5666666666666664,
+              5
+            ],
+            "translation": [
+              0.04,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair newel",
+            "baseline": [
+              6,
+              2.2733333333333334,
+              6
+            ],
+            "position": [
+              6.04,
+              2.2733333333333334,
+              6
+            ],
+            "translation": [
+              0.04,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair newel",
+            "baseline": [
+              6,
+              2.98,
+              7
+            ],
+            "position": [
+              6.04,
+              2.98,
+              7
+            ],
+            "translation": [
+              0.04,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Stair handrail",
+            "baseline": [
+              6,
+              2.32,
+              5.5
+            ],
+            "position": [
+              6.04,
+              2.32,
+              5.5
+            ],
+            "translation": [
+              0.04,
+              0,
+              0
+            ]
+          }
+        ],
+        "treadsUnchanged": true,
+        "baselineNewelClear": 0.935,
+        "adaptedNewelClear": 1.095,
+        "remainingLimit": "The adjacent partition inside face at X5.92 and the upper slab notch X5 still constrain the retained 1m-diameter body. Rail clearance alone is not a full stair-route pass."
+      },
       {
         "wallEdge": "4,6|4,7",
         "level": 0,
@@ -74,7 +300,22 @@
         "nativeLeafRetained": true,
         "transomAlwaysOpen": true,
         "nominalWidth": 1,
-        "clearBetweenJambs": 1.015
+        "clearBetweenJambs": 1.015,
+        "standOffHinge": 0.15,
+        "fullyOpenAngle": 3.141592653589793,
+        "baselineLeafBounds": {
+          "min": [
+            3.016495445974997,
+            0.4800000119209289,
+            6.693195124466397
+          ],
+          "max": [
+            4.0149213928963725,
+            2.1299999880790708,
+            7.058114988368747
+          ]
+        },
+        "reason": "Move the hinge outward by native-part translation so a 180-degree leaf clears the wall instead of embedding in it."
       },
       {
         "wallEdge": "5,0|6,0",
@@ -129,7 +370,22 @@
         "nativeLeafRetained": true,
         "transomAlwaysOpen": true,
         "nominalWidth": 1,
-        "clearBetweenJambs": 1.015
+        "clearBetweenJambs": 1.015,
+        "standOffHinge": 0.15,
+        "fullyOpenAngle": 3.141592653589793,
+        "baselineLeafBounds": {
+          "min": [
+            5,
+            0.4800000119209289,
+            -0.05999999865889549
+          ],
+          "max": [
+            6,
+            2.1299999880790708,
+            0.05999999865889549
+          ]
+        },
+        "reason": "Move the hinge outward by native-part translation so a 180-degree leaf clears the wall instead of embedding in it."
       }
     ],
     "measuredGoat": {
@@ -148,9 +404,9 @@
       "radius": 0.5
     },
     "routeLimitations": [
-      "Baseline hall console blocks the 2m hall at z0.925..1.275; recorded prototype relocation needed before claiming an entrance route.",
-      "Baseline stair newels reduce clear width to .935m; the .5m-radius conservative profile does not fit. Actual raw goat diameter .880311482m fits geometrically; coder owns the safe traversal envelope.",
-      "At 90 degrees the native leaf reduces the measured clear throat below1m; preserve this measured width rather than silently widening."
+      "Hall console was explicitly moved to supported living-room floor; baseline and adapted transforms are recorded.",
+      "Translated stair rails clear1.095m, but the actual adjacent partition and upper notch constrain a continuous1m-diameter ascent. Further composed opening/support decision is required; do not claim a full stair passage from rail bounds alone.",
+      "The route leaves use a recorded .15m stand-off and180-degree opening; the native leaf dimensions remain1x1.65x.12m."
     ],
     "stair": {
       "x": 5,
