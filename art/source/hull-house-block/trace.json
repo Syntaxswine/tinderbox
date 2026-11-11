@@ -1,0 +1,2322 @@
+{
+  "version": 1,
+  "assetId": "hull-house-block",
+  "representedDate": "Chicago around 1893",
+  "source": {
+    "id": "HH-MAP-N1",
+    "publication": "Hull-House Maps and Papers",
+    "published": 1895,
+    "fieldwork": 1893,
+    "pdfPage": 257,
+    "correspondingWagePdfPage": 261,
+    "url": "https://homicide.northwestern.edu/docs_hc/pdf/Hull-House-Maps-and-Papers-1895.pdf",
+    "sourceImage": "nat1-original.png",
+    "sourceCrop": "selected-block-nat1.png",
+    "cropInSourcePixels": [
+      180,
+      285,
+      1570,
+      575
+    ],
+    "traceCoordinateSystem": "Pixels in the selected crop, X right/east and Y down/south. Black outlines traced; household colors ignored.",
+    "blockCornersPixels": [
+      [
+        40,
+        70
+      ],
+      [
+        1535,
+        85
+      ],
+      [
+        1534,
+        524
+      ],
+      [
+        35,
+        516
+      ]
+    ],
+    "idealizedRectPixels": [
+      40,
+      70,
+      1535,
+      524
+    ]
+  },
+  "calibration": {
+    "source": "HH-SANBORN-1906",
+    "sheet": "100W",
+    "sourceUrl": "https://www.loc.gov/item/sanborn01790_018/",
+    "printedScale": "Scale of Feet, 0 to 150 ft",
+    "rulerPixels": {
+      "image": "sanborn-1906-sheet100-small.jpg",
+      "zero": [
+        1153,
+        1752
+      ],
+      "feet150": [
+        1374,
+        1752
+      ]
+    },
+    "metresPerPixel": 0.20687782805429863,
+    "estimatedBlockMetres": [
+      257,
+      73.3
+    ],
+    "gameBlockMetres": [
+      258,
+      74
+    ],
+    "uncertainty": "Overall block scale approximately +/-2 m in length and +/-1 m in depth. Individual 1895 plot proportions disagree locally with printed feet labels by up to about 15%; treat intra-block extents as a source-traced massing study, not survey accuracy.",
+    "adaptations": [
+      "The later insurance scale checks stable street-block bounds; its 1906 building changes are not silently treated as 1893 construction.",
+      "Printed 50-ft frontages and 118/119-ft depths on the 1895 map were read as cross-checks. No uniform scale ruler was read on that original plate.",
+      "Source rectangle is straightened; component coordinates snap to whole metres. Individual source vertices can move by up to half a grid step, plus paper skew.",
+      "The printed 8-ft individual court is about 2.44 m. The traced common image projection snaps it to 3 m nominal (2.84 m conservative clear), about 23 percent wider than that printed dimension. This narrow-width discrepancy is an explicit local adaptation beyond the broad 15-percent plot estimate."
+    ]
+  },
+  "block": {
+    "width": 258,
+    "depth": 74,
+    "streets": {
+      "north": "W. Polk Street",
+      "south": "Ewing Street",
+      "west": "S. Halsted Street",
+      "east": "S. Desplaines Street"
+    }
+  },
+  "buildings": [
+    {
+      "id": "halsted-338-north",
+      "sourcePolygon": [
+        [
+          40,
+          104
+        ],
+        [
+          68,
+          104
+        ],
+        [
+          68,
+          130
+        ],
+        [
+          40,
+          130
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "338"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Small northern structure; exact door number unassigned."
+    },
+    {
+      "id": "halsted-338-middle",
+      "sourcePolygon": [
+        [
+          40,
+          199
+        ],
+        [
+          78,
+          199
+        ],
+        [
+          78,
+          228
+        ],
+        [
+          40,
+          228
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "338"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "halsted-338-south",
+      "sourcePolygon": [
+        [
+          40,
+          247
+        ],
+        [
+          99,
+          247
+        ],
+        [
+          99,
+          276
+        ],
+        [
+          40,
+          276
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "338"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "halsted-342",
+      "sourcePolygon": [
+        [
+          40,
+          303
+        ],
+        [
+          138,
+          303
+        ],
+        [
+          138,
+          334
+        ],
+        [
+          40,
+          334
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "342"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "halsted-344",
+      "sourcePolygon": [
+        [
+          45,
+          346
+        ],
+        [
+          112,
+          346
+        ],
+        [
+          112,
+          376
+        ],
+        [
+          45,
+          376
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "342",
+        "346"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Intermediate frontage; individual number unresolved."
+    },
+    {
+      "id": "halsted-346",
+      "sourcePolygon": [
+        [
+          42,
+          392
+        ],
+        [
+          146,
+          392
+        ],
+        [
+          146,
+          421
+        ],
+        [
+          42,
+          421
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "346"
+      ],
+      "levels": 3,
+      "physicalWall": "brick",
+      "roof": "flat",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "halsted-348",
+      "sourcePolygon": [
+        [
+          53,
+          435
+        ],
+        [
+          147,
+          435
+        ],
+        [
+          147,
+          466
+        ],
+        [
+          53,
+          466
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "346",
+        "350"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Intermediate frontage; individual number unresolved."
+    },
+    {
+      "id": "halsted-350",
+      "sourcePolygon": [
+        [
+          42,
+          478
+        ],
+        [
+          142,
+          478
+        ],
+        [
+          142,
+          510
+        ],
+        [
+          42,
+          510
+        ]
+      ],
+      "street": "S. Halsted",
+      "printedNumbers": [
+        "350"
+      ],
+      "levels": 2,
+      "physicalWall": "brick",
+      "roof": "flat",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-228-front",
+      "sourcePolygon": [
+        [
+          148,
+          100
+        ],
+        [
+          174,
+          100
+        ],
+        [
+          174,
+          177
+        ],
+        [
+          148,
+          177
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "228"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-228-rear",
+      "sourcePolygon": [
+        [
+          148,
+          245
+        ],
+        [
+          204,
+          245
+        ],
+        [
+          204,
+          288
+        ],
+        [
+          148,
+          288
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "228"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-224",
+      "sourcePolygon": [
+        [
+          271,
+          94
+        ],
+        [
+          326,
+          94
+        ],
+        [
+          326,
+          237
+        ],
+        [
+          302,
+          237
+        ],
+        [
+          302,
+          157
+        ],
+        [
+          271,
+          157
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "224",
+        "225",
+        "221"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Stepped printed outline simplified to an orthogonal native polygon."
+    },
+    {
+      "id": "polk-222",
+      "sourcePolygon": [
+        [
+          333,
+          97
+        ],
+        [
+          357,
+          97
+        ],
+        [
+          357,
+          166
+        ],
+        [
+          333,
+          166
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "222"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-218",
+      "sourcePolygon": [
+        [
+          392,
+          102
+        ],
+        [
+          413,
+          102
+        ],
+        [
+          413,
+          171
+        ],
+        [
+          392,
+          171
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "218"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-214",
+      "sourcePolygon": [
+        [
+          459,
+          106
+        ],
+        [
+          494,
+          106
+        ],
+        [
+          494,
+          161
+        ],
+        [
+          479,
+          161
+        ],
+        [
+          479,
+          288
+        ],
+        [
+          459,
+          288
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "217",
+        "213",
+        "214"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-209-workshop",
+      "sourcePolygon": [
+        [
+          512,
+          78
+        ],
+        [
+          589,
+          78
+        ],
+        [
+          589,
+          240
+        ],
+        [
+          512,
+          240
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "209"
+      ],
+      "levels": 2,
+      "physicalWall": "brick",
+      "roof": "flat",
+      "footprintEvidence": "inferred-within-uncolored-commercial-plot",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Earlier map leaves this nonresidential plot uncolored. Later insurance shows industrial premises; this conservative mass is provisional."
+    },
+    {
+      "id": "polk-208-service",
+      "sourcePolygon": [
+        [
+          601,
+          176
+        ],
+        [
+          621,
+          176
+        ],
+        [
+          621,
+          296
+        ],
+        [
+          601,
+          296
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "208"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "outline-role-uncertain",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Narrow printed return; interpreted as a low service wing pending earlier insurance evidence."
+    },
+    {
+      "id": "polk-204-front",
+      "sourcePolygon": [
+        [
+          692,
+          101
+        ],
+        [
+          725,
+          101
+        ],
+        [
+          725,
+          192
+        ],
+        [
+          692,
+          192
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "204"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-204-rear",
+      "sourcePolygon": [
+        [
+          736,
+          235
+        ],
+        [
+          776,
+          235
+        ],
+        [
+          776,
+          290
+        ],
+        [
+          736,
+          290
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "204"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-198",
+      "sourcePolygon": [
+        [
+          864,
+          102
+        ],
+        [
+          902,
+          102
+        ],
+        [
+          902,
+          179
+        ],
+        [
+          864,
+          179
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "198"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-194",
+      "sourcePolygon": [
+        [
+          916,
+          102
+        ],
+        [
+          964,
+          102
+        ],
+        [
+          964,
+          189
+        ],
+        [
+          916,
+          189
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "194"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-194-annex",
+      "sourcePolygon": [
+        [
+          967,
+          101
+        ],
+        [
+          991,
+          101
+        ],
+        [
+          991,
+          165
+        ],
+        [
+          967,
+          165
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "194"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-190",
+      "sourcePolygon": [
+        [
+          1002,
+          102
+        ],
+        [
+          1031,
+          102
+        ],
+        [
+          1031,
+          166
+        ],
+        [
+          1002,
+          166
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "190"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-186-rear",
+      "sourcePolygon": [
+        [
+          1101,
+          182
+        ],
+        [
+          1138,
+          182
+        ],
+        [
+          1138,
+          292
+        ],
+        [
+          1101,
+          292
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "186"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-186-front",
+      "sourcePolygon": [
+        [
+          1149,
+          112
+        ],
+        [
+          1181,
+          112
+        ],
+        [
+          1181,
+          168
+        ],
+        [
+          1149,
+          168
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "186"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-182-front",
+      "sourcePolygon": [
+        [
+          1227,
+          100
+        ],
+        [
+          1255,
+          100
+        ],
+        [
+          1255,
+          172
+        ],
+        [
+          1227,
+          172
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "182"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-182-rear",
+      "sourcePolygon": [
+        [
+          1227,
+          204
+        ],
+        [
+          1255,
+          204
+        ],
+        [
+          1255,
+          249
+        ],
+        [
+          1227,
+          249
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "182"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-178-front",
+      "sourcePolygon": [
+        [
+          1275,
+          112
+        ],
+        [
+          1312,
+          112
+        ],
+        [
+          1312,
+          153
+        ],
+        [
+          1275,
+          153
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "178"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-178-rear",
+      "sourcePolygon": [
+        [
+          1269,
+          211
+        ],
+        [
+          1355,
+          211
+        ],
+        [
+          1355,
+          264
+        ],
+        [
+          1269,
+          264
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "178"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "outline-role-uncertain",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Horizontal printed outline, partly coincident with survey color divisions."
+    },
+    {
+      "id": "polk-174-front",
+      "sourcePolygon": [
+        [
+          1363,
+          88
+        ],
+        [
+          1401,
+          88
+        ],
+        [
+          1401,
+          168
+        ],
+        [
+          1363,
+          168
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "174"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-174-rear",
+      "sourcePolygon": [
+        [
+          1402,
+          186
+        ],
+        [
+          1444,
+          186
+        ],
+        [
+          1444,
+          231
+        ],
+        [
+          1402,
+          231
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "174"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "polk-170-front",
+      "sourcePolygon": [
+        [
+          1450,
+          111
+        ],
+        [
+          1491,
+          111
+        ],
+        [
+          1491,
+          137
+        ],
+        [
+          1450,
+          137
+        ]
+      ],
+      "street": "W. Polk",
+      "printedNumbers": [
+        "170"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "desplaines-north-return",
+      "sourcePolygon": [
+        [
+          1495,
+          160
+        ],
+        [
+          1534,
+          160
+        ],
+        [
+          1534,
+          286
+        ],
+        [
+          1495,
+          286
+        ]
+      ],
+      "street": "S. Desplaines",
+      "printedNumbers": [
+        "355"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "outline-role-uncertain",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Eastern return interpreted within the printed parcel, not copied from later household colors."
+    },
+    {
+      "id": "ewing-203-rear",
+      "sourcePolygon": [
+        [
+          240,
+          343
+        ],
+        [
+          268,
+          343
+        ],
+        [
+          268,
+          401
+        ],
+        [
+          240,
+          401
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "206",
+        "204",
+        "203"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-203-front",
+      "sourcePolygon": [
+        [
+          293,
+          457
+        ],
+        [
+          320,
+          457
+        ],
+        [
+          320,
+          514
+        ],
+        [
+          293,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "203"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-199",
+      "sourcePolygon": [
+        [
+          337,
+          319
+        ],
+        [
+          363,
+          319
+        ],
+        [
+          363,
+          487
+        ],
+        [
+          337,
+          487
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "199"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-198-rear",
+      "sourcePolygon": [
+        [
+          417,
+          403
+        ],
+        [
+          441,
+          403
+        ],
+        [
+          441,
+          457
+        ],
+        [
+          417,
+          457
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "198"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-195-front",
+      "sourcePolygon": [
+        [
+          417,
+          483
+        ],
+        [
+          441,
+          483
+        ],
+        [
+          441,
+          514
+        ],
+        [
+          417,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "196",
+        "195"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-192-workshop",
+      "sourcePolygon": [
+        [
+          513,
+          357
+        ],
+        [
+          585,
+          357
+        ],
+        [
+          585,
+          515
+        ],
+        [
+          513,
+          515
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "192"
+      ],
+      "levels": 2,
+      "physicalWall": "brick",
+      "roof": "flat",
+      "footprintEvidence": "commercial-outline-with-inferred-use",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Printed internal rectangle in an uncolored plot. Industrial use is inferred from the later insurance comparison."
+    },
+    {
+      "id": "ewing-188-workshop",
+      "sourcePolygon": [
+        [
+          607,
+          341
+        ],
+        [
+          638,
+          341
+        ],
+        [
+          638,
+          303
+        ],
+        [
+          682,
+          303
+        ],
+        [
+          682,
+          515
+        ],
+        [
+          607,
+          515
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "188"
+      ],
+      "levels": 3,
+      "physicalWall": "brick",
+      "roof": "flat",
+      "footprintEvidence": "commercial-outline-with-inferred-use",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-181",
+      "sourcePolygon": [
+        [
+          690,
+          452
+        ],
+        [
+          721,
+          452
+        ],
+        [
+          721,
+          514
+        ],
+        [
+          690,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "184",
+        "181"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-177",
+      "sourcePolygon": [
+        [
+          781,
+          452
+        ],
+        [
+          840,
+          452
+        ],
+        [
+          840,
+          516
+        ],
+        [
+          781,
+          516
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "177"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-175-rear",
+      "sourcePolygon": [
+        [
+          908,
+          406
+        ],
+        [
+          929,
+          406
+        ],
+        [
+          929,
+          442
+        ],
+        [
+          908,
+          442
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "175"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-175-front",
+      "sourcePolygon": [
+        [
+          878,
+          454
+        ],
+        [
+          902,
+          454
+        ],
+        [
+          902,
+          515
+        ],
+        [
+          878,
+          515
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "175"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-171",
+      "sourcePolygon": [
+        [
+          952,
+          419
+        ],
+        [
+          986,
+          419
+        ],
+        [
+          986,
+          514
+        ],
+        [
+          952,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "172",
+        "171"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-169-front",
+      "sourcePolygon": [
+        [
+          1017,
+          458
+        ],
+        [
+          1036,
+          458
+        ],
+        [
+          1036,
+          514
+        ],
+        [
+          1017,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "170",
+        "169"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-169-rear",
+      "sourcePolygon": [
+        [
+          1004,
+          303
+        ],
+        [
+          1022,
+          303
+        ],
+        [
+          1022,
+          409
+        ],
+        [
+          1004,
+          409
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "170",
+        "169"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-167",
+      "sourcePolygon": [
+        [
+          1093,
+          419
+        ],
+        [
+          1118,
+          419
+        ],
+        [
+          1118,
+          514
+        ],
+        [
+          1093,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "168",
+        "167"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-163",
+      "sourcePolygon": [
+        [
+          1183,
+          388
+        ],
+        [
+          1211,
+          388
+        ],
+        [
+          1211,
+          517
+        ],
+        [
+          1183,
+          517
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "164",
+        "163"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-159-front",
+      "sourcePolygon": [
+        [
+          1228,
+          436
+        ],
+        [
+          1265,
+          436
+        ],
+        [
+          1265,
+          514
+        ],
+        [
+          1228,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "160",
+        "159"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-159-rear",
+      "sourcePolygon": [
+        [
+          1228,
+          361
+        ],
+        [
+          1245,
+          361
+        ],
+        [
+          1245,
+          411
+        ],
+        [
+          1228,
+          411
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "160",
+        "159"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-155-front",
+      "sourcePolygon": [
+        [
+          1291,
+          426
+        ],
+        [
+          1313,
+          426
+        ],
+        [
+          1313,
+          514
+        ],
+        [
+          1291,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "156",
+        "155"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-155-rear",
+      "sourcePolygon": [
+        [
+          1315,
+          320
+        ],
+        [
+          1356,
+          320
+        ],
+        [
+          1356,
+          424
+        ],
+        [
+          1315,
+          424
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "156",
+        "155"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": "Whole-metre snapping closes a small source gap at the front-house corner [220,58]. The inferred rear house uses one native level so its gable eaves remain below the front roof. Original height is unknown; native wall corners meet here."
+    },
+    {
+      "id": "ewing-151",
+      "sourcePolygon": [
+        [
+          1362,
+          428
+        ],
+        [
+          1396,
+          428
+        ],
+        [
+          1396,
+          514
+        ],
+        [
+          1362,
+          514
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "152",
+        "151"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "ewing-east-small",
+      "sourcePolygon": [
+        [
+          1424,
+          438
+        ],
+        [
+          1444,
+          438
+        ],
+        [
+          1444,
+          516
+        ],
+        [
+          1424,
+          516
+        ]
+      ],
+      "street": "Ewing",
+      "printedNumbers": [
+        "151"
+      ],
+      "levels": 1,
+      "physicalWall": "wood",
+      "roof": "gable",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "desplaines-365",
+      "sourcePolygon": [
+        [
+          1458,
+          480
+        ],
+        [
+          1533,
+          480
+        ],
+        [
+          1533,
+          520
+        ],
+        [
+          1458,
+          520
+        ]
+      ],
+      "street": "S. Desplaines",
+      "printedNumbers": [
+        "365"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    },
+    {
+      "id": "desplaines-361",
+      "sourcePolygon": [
+        [
+          1492,
+          314
+        ],
+        [
+          1534,
+          314
+        ],
+        [
+          1534,
+          343
+        ],
+        [
+          1492,
+          343
+        ]
+      ],
+      "street": "S. Desplaines",
+      "printedNumbers": [
+        "361"
+      ],
+      "levels": 2,
+      "physicalWall": "wood",
+      "roof": "flat",
+      "footprintEvidence": "printed-outline",
+      "facadeEvidence": "unpictured property; comparable UIC photographs and original text",
+      "heightEvidence": "inferred native levels; later insurance comparison where compatible",
+      "note": ""
+    }
+  ],
+  "parcels": [
+    {
+      "id": "north-1",
+      "surveyLot": "3",
+      "sourceRect": [
+        40,
+        70,
+        144,
+        300
+      ]
+    },
+    {
+      "id": "north-2",
+      "surveyLot": "4",
+      "sourceRect": [
+        144,
+        70,
+        237,
+        300
+      ]
+    },
+    {
+      "id": "north-3",
+      "surveyLot": "9",
+      "sourceRect": [
+        237,
+        70,
+        329,
+        300
+      ]
+    },
+    {
+      "id": "north-4",
+      "surveyLot": "10",
+      "sourceRect": [
+        329,
+        70,
+        413,
+        300
+      ]
+    },
+    {
+      "id": "north-5",
+      "surveyLot": "15",
+      "sourceRect": [
+        413,
+        70,
+        504,
+        300
+      ]
+    },
+    {
+      "id": "north-6",
+      "surveyLot": "16",
+      "sourceRect": [
+        504,
+        70,
+        598,
+        300
+      ]
+    },
+    {
+      "id": "north-7",
+      "surveyLot": "21",
+      "sourceRect": [
+        598,
+        70,
+        688,
+        300
+      ]
+    },
+    {
+      "id": "north-8",
+      "surveyLot": "22",
+      "sourceRect": [
+        688,
+        70,
+        778,
+        300
+      ]
+    },
+    {
+      "id": "north-9",
+      "surveyLot": "1",
+      "sourceRect": [
+        778,
+        70,
+        908,
+        300
+      ]
+    },
+    {
+      "id": "north-10",
+      "surveyLot": "2",
+      "sourceRect": [
+        908,
+        70,
+        998,
+        300
+      ]
+    },
+    {
+      "id": "north-11",
+      "surveyLot": "3",
+      "sourceRect": [
+        998,
+        70,
+        1092,
+        300
+      ]
+    },
+    {
+      "id": "north-12",
+      "surveyLot": "4",
+      "sourceRect": [
+        1092,
+        70,
+        1182,
+        300
+      ]
+    },
+    {
+      "id": "north-13",
+      "surveyLot": "5",
+      "sourceRect": [
+        1182,
+        70,
+        1267,
+        300
+      ]
+    },
+    {
+      "id": "north-14",
+      "surveyLot": "6",
+      "sourceRect": [
+        1267,
+        70,
+        1358,
+        300
+      ]
+    },
+    {
+      "id": "north-15",
+      "surveyLot": "7",
+      "sourceRect": [
+        1358,
+        70,
+        1447,
+        300
+      ]
+    },
+    {
+      "id": "north-16",
+      "surveyLot": "8",
+      "sourceRect": [
+        1447,
+        70,
+        1535,
+        300
+      ]
+    },
+    {
+      "id": "south-1",
+      "surveyLot": "8",
+      "sourceRect": [
+        237,
+        300,
+        327,
+        524
+      ]
+    },
+    {
+      "id": "south-2",
+      "surveyLot": "11",
+      "sourceRect": [
+        327,
+        300,
+        413,
+        524
+      ]
+    },
+    {
+      "id": "south-3",
+      "surveyLot": "14",
+      "sourceRect": [
+        413,
+        300,
+        504,
+        524
+      ]
+    },
+    {
+      "id": "south-4",
+      "surveyLot": "17",
+      "sourceRect": [
+        504,
+        300,
+        598,
+        524
+      ]
+    },
+    {
+      "id": "south-5",
+      "surveyLot": "20",
+      "sourceRect": [
+        598,
+        300,
+        687,
+        524
+      ]
+    },
+    {
+      "id": "south-6",
+      "surveyLot": "23",
+      "sourceRect": [
+        687,
+        300,
+        778,
+        524
+      ]
+    },
+    {
+      "id": "south-7",
+      "surveyLot": "16",
+      "sourceRect": [
+        778,
+        300,
+        908,
+        524
+      ]
+    },
+    {
+      "id": "south-8",
+      "surveyLot": "15",
+      "sourceRect": [
+        908,
+        300,
+        998,
+        524
+      ]
+    },
+    {
+      "id": "south-9",
+      "surveyLot": "14",
+      "sourceRect": [
+        998,
+        300,
+        1092,
+        524
+      ]
+    },
+    {
+      "id": "south-10",
+      "surveyLot": "13",
+      "sourceRect": [
+        1092,
+        300,
+        1182,
+        524
+      ]
+    },
+    {
+      "id": "south-11",
+      "surveyLot": "12",
+      "sourceRect": [
+        1182,
+        300,
+        1225,
+        524
+      ]
+    },
+    {
+      "id": "south-12",
+      "surveyLot": "11",
+      "sourceRect": [
+        1225,
+        300,
+        1267,
+        524
+      ]
+    },
+    {
+      "id": "south-13",
+      "surveyLot": "10",
+      "sourceRect": [
+        1267,
+        300,
+        1358,
+        524
+      ]
+    },
+    {
+      "id": "south-14",
+      "surveyLot": "9",
+      "sourceRect": [
+        1358,
+        300,
+        1447,
+        524
+      ]
+    },
+    {
+      "id": "south-15",
+      "surveyLot": "corner",
+      "sourceRect": [
+        1447,
+        300,
+        1535,
+        524
+      ]
+    },
+    {
+      "id": "halsted-1",
+      "surveyLot": "1",
+      "sourceRect": [
+        40,
+        300,
+        217,
+        342
+      ]
+    },
+    {
+      "id": "halsted-2",
+      "surveyLot": "2",
+      "sourceRect": [
+        40,
+        342,
+        217,
+        385
+      ]
+    },
+    {
+      "id": "halsted-3",
+      "surveyLot": "3",
+      "sourceRect": [
+        40,
+        385,
+        217,
+        429
+      ]
+    },
+    {
+      "id": "halsted-4",
+      "surveyLot": "4",
+      "sourceRect": [
+        40,
+        429,
+        217,
+        474
+      ]
+    },
+    {
+      "id": "halsted-5",
+      "surveyLot": "5",
+      "sourceRect": [
+        40,
+        474,
+        217,
+        524
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "id": "halsted-ewing-court",
+      "sourcePolygon": [
+        [
+          218,
+          303
+        ],
+        [
+          236,
+          303
+        ],
+        [
+          236,
+          516
+        ],
+        [
+          218,
+          516
+        ]
+      ],
+      "kind": "individual-court-entrance",
+      "note": "No public through alley. Continues north to the rear-property boundary only."
+    }
+  ],
+  "sourceLimits": [
+    "Survey colors encode occupants, not wall materials or roof geometry.",
+    "Original text printed pages 4 and 6 supports predominantly timber street fronts and no public alley here.",
+    "No matching pre-1894 photograph for an individual modeled frontage was located. The 1891 image is nearby Hull-House; the c1900 yard view is a later comparison.",
+    "Household subdivisions, large survey lot numerals and colored bands are not extra buildings or storey counts.",
+    "Later insurance confirms a mixed timber/brick industrial block; per-property changes remain unresolved."
+  ]
+}

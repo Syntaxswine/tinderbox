@@ -1,0 +1,164 @@
+{
+  "task": "Hull-House block, art-only massing preview",
+  "representedDate": "Chicago around1893",
+  "sources": [
+    {
+      "id": "HH-MAP-N1",
+      "title": "Hull-House Maps and Papers, Nationalities Map No. 1",
+      "publication": 1895,
+      "fieldwork": "April 6 to July 15, 1893",
+      "url": "https://homicide.northwestern.edu/docs_hc/pdf/Hull-House-Maps-and-Papers-1895.pdf",
+      "index": "https://homicide.northwestern.edu/pubs/hullhouse/maps/",
+      "pdfPage": 257,
+      "rotation": "90 degrees counter-clockwise after Poppler rendering",
+      "use": "Manual black-outline and parcel trace of Halsted/Desplaines/Polk/Ewing. Household colors never become physical materials.",
+      "rights": "Original 1895 US publication is public domain by publication age. Northwestern scan is attributed; no separate scan license was located. Only the two original-plan crops are redistributed in the editable source folder.",
+      "installed": "art/source/hull-house-block/reference/nationalities-selected.png"
+    },
+    {
+      "id": "HH-MAP-W1",
+      "title": "Hull-House Maps and Papers, Wage Map No. 1",
+      "publication": 1895,
+      "pdfPage": 261,
+      "url": "https://homicide.northwestern.edu/docs_hc/pdf/Hull-House-Maps-and-Papers-1895.pdf",
+      "use": "Independent reading of the same outline base and historic address groups.",
+      "rights": "Same original 1895 publication, public domain by age.",
+      "installed": "art/source/hull-house-block/reference/wage-selected.png",
+      "secondaryRightsEvidence": "https://commons.wikimedia.org/wiki/File:WAGEMAP1.pdf"
+    },
+    {
+      "id": "HH-TEXT-1895",
+      "title": "Map Notes and Comments, Hull-House Maps and Papers",
+      "publication": 1895,
+      "url": "https://homicide.northwestern.edu/docs_hc/pdf/Hull-House-Maps-and-Papers-1895.pdf",
+      "printedPages": [
+        4,
+        6,
+        8
+      ],
+      "pdfPages": [
+        14,
+        16,
+        18
+      ],
+      "visuallyReviewedPdfPages": [
+        14,
+        16
+      ],
+      "use": "Printed pages4/6: predominantly frame cross-street dwellings, some brick shops, rear houses and individual passages; no public alley between Polk and Ewing. Page8 explains the outline-map base and household coloring; extracted text reviewed.",
+      "rights": "Original 1895 US publication, public domain by age. Full PDF remains an ignored research cache."
+    },
+    {
+      "id": "HH-FIELDWORK",
+      "title": "Florence Kelley in Chicago: Hull House Maps and Papers",
+      "date": "Modern Northwestern historical context",
+      "url": "https://florencekelley.northwestern.edu/historical/hullhouse",
+      "use": "Confirms 1895 publication and April6-July15 1893 underlying survey.",
+      "rights": "Link and factual paraphrase only."
+    },
+    {
+      "id": "HH-SANBORN-1906",
+      "title": "Sanborn Fire Insurance Map from Chicago, Cook County, Illinois, Vol.1 North and West Division",
+      "publication": 1906,
+      "sheet": "100W",
+      "url": "https://www.loc.gov/item/sanborn01790_018/",
+      "imageUrl": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790190601N:01790_01N_1906-0100/full/pct:25/0/default.jpg",
+      "use": "Key identifies exact selected block on sheet100. Readable 0-150 feet ruler calibrates overall block bounds. Later building colors/storeys are comparison only.",
+      "installed": "art/source/hull-house-block/reference/sanborn-1906-sheet100.jpg",
+      "rights": "LOC Sanborn collection declares its online content public domain and free to reuse. Credit: Library of Congress, Geography and Map Division.",
+      "rightsEvidence": "rights property in the cached LOC item response; response was truncated later in its resources array and is not a complete JSON document.",
+      "uncertainty": "No accessible original 1894 core-city volume was located in the 104-volume LOC Chicago index. Do not backdate 1906 industrial premises or extensions."
+    },
+    {
+      "id": "HH-PHOTO-3488",
+      "title": "Hull-House",
+      "date": "1891",
+      "identifier": "JAMC_0000_0131_0146",
+      "repository": "Richard J. Daley Library, University of Illinois at Chicago",
+      "url": "https://collections.carli.illinois.edu/digital/collection/uic_7sh/id/3488",
+      "metadataUrl": "https://collections.carli.illinois.edu/digital/api/singleitem/collection/uic_7sh/id/3488",
+      "description": "First known photograph of Charles Hull's original house after if became Hull-House, with some people seated on the front stairs and Butler Art Gallery visible on the left.",
+      "photographer": null,
+      "relation": "Nearby settlement comparison, west of the modeled block",
+      "use": "Sash proportions, brick cornice and mixed timber/brick vocabulary; no exact facade copied",
+      "rights": "This image may be used freely, with attribution, for research, study and educational purposes. For permission to publish, distribute, or use this image for any other purpose, please contact Special Collections and University Archives, University of Illinois at Chicago Library at lib-spec@uic.libanswers.com",
+      "pixelsRedistributed": false,
+      "scanTextureUsed": false,
+      "chronology": "1891 comparison predates fieldwork",
+      "limitations": "Date taken from the UIC catalogue; not a photograph of any selected property."
+    },
+    {
+      "id": "HH-PHOTO-3446",
+      "title": "Dilapidated housing in the Hull-House neighborhood",
+      "date": "c. 1900",
+      "identifier": "JAMC_0000_0000_1054b",
+      "repository": "Richard J. Daley Library, University of Illinois at Chicago",
+      "url": "https://collections.carli.illinois.edu/digital/collection/uic_7sh/id/3446",
+      "metadataUrl": "https://collections.carli.illinois.edu/digital/api/singleitem/collection/uic_7sh/id/3446",
+      "description": "Exteriors of dilapidated housing in the Hull-House neighborhood. Hull-House Board member William Deknatel captioned the photo \"Our back yard\"",
+      "photographer": "Lewis Hine",
+      "relation": "Later neighborhood yard comparison; exact photographed property unlocated",
+      "use": "Clapboards, rear porches, exterior timber steps and repair rhythm; placement is inferred",
+      "rights": "This image may be used freely, with attribution, for research, study and educational purposes. For permission to publish, distribute, or use this image for any other purpose, please contact Special Collections and University Archives, University of Illinois at Chicago Library at lib-spec@uic.libanswers.com",
+      "pixelsRedistributed": false,
+      "scanTextureUsed": false,
+      "chronology": "c1900 comparison is later than the game; later settlement expansion is excluded",
+      "limitations": "UIC item labels c1900 and credits Lewis Hine. That combination needs curator confirmation; do not assert a precise exposure year or author from this record alone."
+    },
+    {
+      "id": "HH-PHOTO-3491",
+      "title": "Exterior of Hull-House building complex",
+      "date": "c. 1900",
+      "identifier": "JAMC_0000_0135_0156",
+      "repository": "Richard J. Daley Library, University of Illinois at Chicago",
+      "url": "https://collections.carli.illinois.edu/digital/collection/uic_7sh/id/3491",
+      "metadataUrl": "https://collections.carli.illinois.edu/digital/api/singleitem/collection/uic_7sh/id/3491",
+      "description": "Exterior of Hull-House building complex looking north along Halsted Street.",
+      "photographer": null,
+      "relation": "Nearby settlement comparison, west of the modeled block",
+      "use": "Sash proportions, brick cornice and mixed timber/brick vocabulary; no exact facade copied",
+      "rights": "This image may be used freely, with attribution, for research, study and educational purposes. For permission to publish, distribute, or use this image for any other purpose, please contact Special Collections and University Archives, University of Illinois at Chicago Library at lib-spec@uic.libanswers.com",
+      "pixelsRedistributed": false,
+      "scanTextureUsed": false,
+      "chronology": "c1900 comparison is later than the game; later settlement expansion is excluded",
+      "limitations": "Date taken from the UIC catalogue; not a photograph of any selected property."
+    }
+  ],
+  "excluded": [
+    {
+      "item": 3448,
+      "date": "c1907",
+      "reason": "Juvenile court at Ewing and Halsted is later construction; excluded."
+    },
+    {
+      "item": 3489,
+      "date": "c1920s",
+      "reason": "Halsted view with Geis Clothing is much later; excluded."
+    },
+    {
+      "item": 3450,
+      "date": "c1910",
+      "reason": "Later settlement exterior; excluded."
+    },
+    {
+      "item": 3513,
+      "date": "c1901",
+      "reason": "Rear porches metadata lead only; image not used."
+    }
+  ],
+  "evidenceClasses": {
+    "sourceMatched": "Block boundaries, interpreted black footprints, historic parcel/address groups and court location.",
+    "comparablePhoto": "1891 settlement brick/sash vocabulary; c1900 later neighborhood timber porches, repairs and stairs.",
+    "inferred": "Every facade opening and native level count; 45-degree or flat roof choice; wood/brick distribution except broad district pattern; generic trades; cloth placement; fence construction; landing and stairs."
+  },
+  "remaining": [
+    "No photograph of an exact selected frontage was located.",
+    "Household color divisions may obscure physical outlines; flagged provisional masses retain their source gap.",
+    "1906 industrial comparison cannot establish 1893 industrial footprint or proprietor.",
+    "Roof materials and chimney positions are unverified.",
+    "Original survey plot numerals are not storey counts.",
+    "Native closed doors cannot clear the native goat; traversal is deferred."
+  ],
+  "noExternalContact": true,
+  "noNewDonorRevision": true
+}

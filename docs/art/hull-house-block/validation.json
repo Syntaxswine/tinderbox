@@ -1,0 +1,99 @@
+{
+  "task": "Hull-House block first art candidate",
+  "branch": "codex/hull-house-block-art",
+  "baseCommit": "c855e627bdee963e930644839a60c027a03935de",
+  "proposalCommit": "955728b9ed9d196ca523864700a9c74d641dd11d",
+  "scope": [
+    "art/source/hull-house-block",
+    "assets/art/hull-house-block",
+    "docs/art/hull-house-block"
+  ],
+  "repository": {
+    "command": "node tools/check.mjs",
+    "tests": 291,
+    "passed": 291,
+    "failed": 0,
+    "art": "5 byte-preserved imports; 52 syntax/dependency checks; shared THREE",
+    "log": {
+      "path": "artifacts/helpers/hull-house-review/full-checks.log",
+      "bytes": 40292,
+      "sha256": "5f4397aa6a064ba642c1af09d5822f77c3c08a2e92a303f49ea1d80682fe61e9"
+    }
+  },
+  "focused": {
+    "command": "node art/source/hull-house-block/check.mjs",
+    "passed": 25,
+    "failed": 0,
+    "receipt": {
+      "path": "docs/art/hull-house-block/checks.json",
+      "bytes": 4494,
+      "sha256": "84ca50ffa0ae8c799a345a0052974f38d06f757b6b14299bf2c2638dd27b3032"
+    }
+  },
+  "build": {
+    "commands": [
+      "node tools/build.mjs",
+      "node tools/check-release.mjs"
+    ],
+    "files": 3525,
+    "bytes": 168659519,
+    "manifest": {
+      "path": "dist/build-manifest.json",
+      "bytes": 794039,
+      "sha256": "5cd56b0951d48116fda200c96089b2fdcc96b1946b9e35d63e90d574568b42fe"
+    },
+    "relativeReferences": "passed"
+  },
+  "evidence": {
+    "nativeWebGL": {
+      "path": "docs/art/hull-house-block/webgl.json",
+      "bytes": 33198,
+      "sha256": "efeba7cb1dda1c7b928f6beb4e2e1e4c00db5936390d929d3a04e515d3adbb7e"
+    },
+    "planProof": {
+      "path": "art/source/hull-house-block/plan-proof.json",
+      "bytes": 1393,
+      "sha256": "c1a4aaed1895e208a7641dc15d111d200f3bb445025368787454a1707a20961e"
+    },
+    "sources": {
+      "path": "art/source/hull-house-block/sources.json",
+      "bytes": 9856,
+      "sha256": "b4b07f41f88c0d0b7e15aa3fd39b5ba8fe8340bcff9e6763705c92486d0fa057"
+    },
+    "trace": {
+      "path": "art/source/hull-house-block/trace.json",
+      "bytes": 48433,
+      "sha256": "6e544ac37a8ffe12328c8ed889c7e8b9a97055cfb49ea723075b9fca923afee6"
+    },
+    "images": {
+      "path": "docs/art/hull-house-block/visual-review.json",
+      "bytes": 2590,
+      "sha256": "d4a91d5b01781e37f8f163806ca383c5f9099218d3705c2169f1c29fc7cd9ec0"
+    },
+    "cleanup": {
+      "path": "docs/art/hull-house-block/helper-retirement.json",
+      "bytes": 246,
+      "sha256": "db1d4266d0a3efe1755978f7a55a42515340f25f039b1d953ea83ffbcab0b417"
+    }
+  },
+  "handoff": {
+    "sourceAndRuntimeSyntax": 20,
+    "localMarkdownReferences": 18,
+    "runtimeManifest": {
+      "path": "assets/art/hull-house-block/manifest.json",
+      "bytes": 6734,
+      "sha256": "2bf14dcf03c9c7c13d549ac2be0e87ace77cf9ac8b4d961232dd4662b0f13bdf"
+    },
+    "readme": {
+      "path": "docs/art/hull-house-block/README.md",
+      "bytes": 11870,
+      "sha256": "d2a213b6a2beea6febbbf493c1b5ff56805bec3b4a003adbb9b13efe9c041a34"
+    }
+  },
+  "limitations": [
+    "Art candidate awaits architect/owner JPG review and later production contract.",
+    "No production placement, navigation, gameplay door controls or fire behavior.",
+    "Unpictured facades, roof forms, heights and the narrow-court adaptation remain explicit.",
+    "No retained helper or preview."
+  ]
+}

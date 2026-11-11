@@ -1,0 +1,32 @@
+{
+  "sourceCommit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+  "sourceBranch": "codex/modular-stockyard-art",
+  "reason": "Owner liked the stockyard JPG checkpoint; authorized next brief permits explicit selected later-art intake. Reuse the metre sculpt helper, pleated cloth and licensed lettering workflow.",
+  "files": [
+    {
+      "source": "assets/art/stockyards/forms.js",
+      "sha256": "ba117fddaffc5df18f06f0cb1efd31c8c107433babdaa6b22f236427bbdea37f",
+      "installed": "art/source/hull-house-block/forms.js",
+      "adaptation": "Byte-preserved at intake; any later task adaptation recorded in the final manifest."
+    },
+    {
+      "source": "assets/art/stockyards/parts.js",
+      "sha256": "a7589eef97b421d0c42efe1f4e03bc6323c31584d14aed073332c13d9fb14756",
+      "installed": [
+        "art/source/hull-house-block/cloth.js",
+        "art/source/hull-house-block/lettering.js"
+      ],
+      "adaptation": "Extract only the two cloth recipes and the lettering function; no gate or pen assembly copied."
+    },
+    {
+      "source": "art/source/stockyards/make-lettering.py",
+      "sha256": "d89c1a5466b685616719ad1ddea393cd82446374bbd1d493e9754236c9935bc1",
+      "installed": "art/source/hull-house-block/make-lettering.py",
+      "adaptation": "Output destination and used-character set changed."
+    }
+  ],
+  "newDonorRevisions": [],
+  "fontManifest": "assets/art/ui/typography/manifest.json",
+  "windowPin": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "nativeWalls": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js"
+}

@@ -1,0 +1,110 @@
+{
+  "cache": "artifacts/research/hull-house-block",
+  "retained": [
+    {
+      "path": "artifacts/research/hull-house-block/maps-papers-1895.pdf",
+      "bytes": 18037893,
+      "sha256": "5d5dfb4523a567a45bd916cffd9d8079a3251f9601d8d829853ef291c47124f8"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/maps-papers-1895.txt",
+      "bytes": 372587,
+      "sha256": "a9498194e76a3c71b796b972fa2b2cf9dc11f7b7c507ee26b88431b4eeb9a7a1"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/nat1-original.png",
+      "bytes": 14257049,
+      "sha256": "27a3422ef912453a3733a323e65ec2379bbcf34610468f3321cc80fbcf7924a7"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/wage1-original.png",
+      "bytes": 14582894,
+      "sha256": "8f4c4e7abde11d422e5278b02c0c36bebe4bb6492eac889322a1fe64330a27e8"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/selected-block-nat1.png",
+      "bytes": 1419655,
+      "sha256": "ac634715ccd87e7e05641a0db81180f82f90ef231f0bcbdc8974399a48364c3d"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/selected-block-wage1.png",
+      "bytes": 1430701,
+      "sha256": "9569ad2e52a8cc24d1f1b2326d539e40307955951ec50ad0949e6806ceec7e0b"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/comments-014.png",
+      "bytes": 97473,
+      "sha256": "110f7127c4519eb1b191507c78d6457bf40b84cf0433685c6511d1c8affe0980"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/comments-016.png",
+      "bytes": 97110,
+      "sha256": "b9915457085b566ec4404a0a8e4ad7761a0b83cd77e34b37deab07a4a59689df"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/sanborn-1906-key.jpg",
+      "bytes": 431178,
+      "sha256": "769284c116532726a1d50aba6590426b08477408a4c6f6e98c0377d300e20981"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/sanborn-1906-sheet100-small.jpg",
+      "bytes": 315250,
+      "sha256": "b3f586c235f632590cbf9d5522e5be11813ab237b47de6b9027f27576f284856"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/sanborn-selected-block.png",
+      "bytes": 808106,
+      "sha256": "957c092005e08ac83d2c89c3d092404133f3734ee1d3f727d21cba712e189160"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/sanborn-scale-study.png",
+      "bytes": 121121,
+      "sha256": "1d37b4319ada9a70504c04d3eb507414fd50a5b6d108157f5ce83ce2c5d4e3b9"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/sanborn-100-info.json",
+      "bytes": 1418,
+      "sha256": "11380b46d2a5d53ab9af82a5c4843f9aacc280e12e2934052d6f48b47f6cec3a"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/sanborn-chicago-index.json",
+      "bytes": 314311,
+      "sha256": "2d858068c3cbf35ae674bda9737fcf374fa1e9a05cf275b6e31ee8c94e731160"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/photo-3488.json",
+      "bytes": 3857,
+      "sha256": "dc6b82adfde905d2b1a396f09c7c87950809e8dc96fbd872217176842e8ca65f"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/photo-3488.jpg",
+      "bytes": 66932,
+      "sha256": "0222e91594c307de3c494633e4dde00febc6b7fe1364b37daaaa8daff01fd262"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/photo-3446.json",
+      "bytes": 3754,
+      "sha256": "29b8b39e341f6d37d5a758dac55553f21a1c5fa298d98ae1107765ed04edf842"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/photo-3446.jpg",
+      "bytes": 67153,
+      "sha256": "95c164b879abb079c080dd51dcccfcd9d4b0c16f6a1e7e53cf8856a05d233479"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/photo-3491.json",
+      "bytes": 3815,
+      "sha256": "3a4c82e96f7c7b059bd4601e3c6eca080b96ac9e33823c62346e2448a1e07c3e"
+    },
+    {
+      "path": "artifacts/research/hull-house-block/photo-3491.jpg",
+      "bytes": 79845,
+      "sha256": "084b87f489c91d8b4064df99ec0ff2a66599ef3a62ce1c0019720bc41ae3af8a"
+    }
+  ],
+  "excludedDamaged": [
+    "sanborn-1906-nw.json is truncated after its rights field; not used as a complete item document.",
+    "sanborn-1906-sheet100.jpg is a partial JPEG; use the complete pct25 image."
+  ],
+  "regeneration": "Original volume: pdftoppm -f257 -l257 -scale-to3600 -png, then rotate90 counter-clockwise and crop as trace.json. Wage page261 likewise. See source URLs and trace calibration endpoints."
+}

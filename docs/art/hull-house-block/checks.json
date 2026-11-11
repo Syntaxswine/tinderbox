@@ -1,0 +1,154 @@
+{
+  "task": "Hull-House block art",
+  "passed": 25,
+  "failed": 0,
+  "three": "180",
+  "statistics": {
+    "disposed": false,
+    "buildings": 56,
+    "meshes": 670,
+    "triangles": 2569416,
+    "geometries": 512,
+    "ownedMaterials": 21,
+    "instanceBatches": 159,
+    "nativeSlabs": 37627,
+    "windows": 1221,
+    "doors": 57,
+    "bounds": {
+      "min": [
+        -20,
+        -0.11999999731779099,
+        -12
+      ],
+      "max": [
+        270,
+        9.271820068359375,
+        86
+      ]
+    }
+  },
+  "groups": [
+    {
+      "name": "Source trace: 56 stable building IDs and disjoint whole-metre footprints",
+      "passed": true,
+      "buildings": 56,
+      "nativeFootprintCells": 4684,
+      "openGroundCells": 14408,
+      "maxGridVertexShift": 0.6949665810487055,
+      "overlaps": 0
+    },
+    {
+      "name": "Actual grid area equals every source-traced native footprint",
+      "passed": true
+    },
+    {
+      "name": "Native wall, door, floor pitch and centred two-cell period windows",
+      "passed": true,
+      "windows": 1221,
+      "doors": 57
+    },
+    {
+      "name": "All instanced slabs remain 1 x .12 x 1 m with white vertex colours and translation-only placement",
+      "passed": true,
+      "batches": 159,
+      "nativeSlabs": 37627
+    },
+    {
+      "name": "Supported ground excludes every house footprint; house ground slabs cover those holes exactly",
+      "passed": true
+    },
+    {
+      "name": "Every vertical gable end uses its wall skin, never roof covering",
+      "passed": true,
+      "gableEnds": 86
+    },
+    {
+      "name": "Gable roofs retain the existing 1:1 slope and declared 0.16 m eaves",
+      "passed": true
+    },
+    {
+      "name": "Snapped Ewing155 native wall corner retains vertically separated gable eaves; inferred rear level is explicit",
+      "passed": true
+    },
+    {
+      "name": "Roof covering UVs keep physical metre density along every sloping triangle edge",
+      "passed": true,
+      "edges": 43128
+    },
+    {
+      "name": "Actual courtyard meshes clear a 1.44 m wide by 1.72 m high swept envelope",
+      "passed": true,
+      "samples": 2295,
+      "candidates": 0,
+      "geometryOnly": true,
+      "productionNavigation": "deferred"
+    },
+    {
+      "name": "Inferred rear porch and 12-step stair meet exactly at the native upper landing",
+      "passed": true
+    },
+    {
+      "name": "Pinned Nautilus period window templates contain finite, preserved source UVs",
+      "passed": true
+    },
+    {
+      "name": "Working and jubilee skins toggle only cloth visibility and allocate no resources",
+      "passed": true
+    },
+    {
+      "name": "Quarter turn 0: measured bounds, all building footprints and floor elevations transform together",
+      "passed": true
+    },
+    {
+      "name": "Quarter turn 1: measured bounds, all building footprints and floor elevations transform together",
+      "passed": true
+    },
+    {
+      "name": "Quarter turn 2: measured bounds, all building footprints and floor elevations transform together",
+      "passed": true
+    },
+    {
+      "name": "Quarter turn 3: measured bounds, all building footprints and floor elevations transform together",
+      "passed": true
+    },
+    {
+      "name": "Standalone building anchor at quarter turn 0",
+      "passed": true
+    },
+    {
+      "name": "Standalone building anchor at quarter turn 1",
+      "passed": true
+    },
+    {
+      "name": "Standalone building anchor at quarter turn 2",
+      "passed": true
+    },
+    {
+      "name": "Standalone building anchor at quarter turn 3",
+      "passed": true
+    },
+    {
+      "name": "Adjacent complete block assemblies: street slabs meet once at their outer boundary and houses remain separate",
+      "passed": true
+    },
+    {
+      "name": "Invalid dimensions, rotations, unknown IDs and appearance slots reject before construction",
+      "passed": true
+    },
+    {
+      "name": "Owned geometry, materials and instancing buffers dispose exactly once; borrowed resources and shader hook survive",
+      "passed": true,
+      "geometries": 9,
+      "materials": 9,
+      "instanceBatches": 3
+    },
+    {
+      "name": "Canonical source exports, runtime dependency hashes and unchanged lettering license",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Geometry checks do not establish gameplay traversal, collision or fire behavior.",
+    "Source trace and inferred property details remain subject to architect and owner review."
+  ]
+}
