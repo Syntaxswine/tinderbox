@@ -151,6 +151,23 @@ It is also an answer, in the owner's own words, to the first half of his origina
 
 **What answer 4 adds.** Usable buildings are a larger piece of work than anything else here: doors that open, floors and stairs the bear can walk, collision inside, and a view that shows the interior. The landmark maps already have walk-in interiors and stairs; the catalogue houses on the street do not. Fire inside a building the bear is standing in also makes the inside a place where the bear can be hurt.
 
+**A fifth direction from the owner, 2026-11-11: fire goes both ways.** "real fire is bidirectional. heat rises and flame goes up easy, but also burning materials drop down and carry fire to lower levels."
+
+These are two different things, and a tile needs both (the reviewer's reading):
+
+| Direction | What carries it | Rule for a tile |
+| --- | --- | --- |
+| Up | Heat and flame | A burning tile heats the tile above it more strongly, and sooner, than the tiles beside it |
+| Down | Burning material that falls | A tile that burns through lets go of what it held. That material, still burning, lands on the first tile below that can hold it and lights it. This moves fuel as well as heat |
+
+What the tree has today (code-reading):
+
+- **The Ashland cottage pair already does both.** Its model drops burning pieces under gravity onto the floor below and lights it (`src/simulation/cottage-fire.js:225-251`, cause `falling-fuel`), and throws embers.
+- **The street's houses do neither as a transport.** Fire moves down only along the same links it moves up, a little more slowly (`surfaceTravel`, `src/simulation/surface-fire.js:40`: the slope term is .95 upward and .42 downward). Nothing falls. Round 1 measured fire climbing only 5 to 23 % faster than it creeps.
+- **The reference lattice from round 1 has only the first half.** `lattice-kernel.mjs` has an `up` and a `down` multiplier on heat. It has no falling material, so it needs that rule added before it matches this direction.
+
+Falling material is also how the stores should behave: oil runs down and pools on the floor below, and a coal bin whose floor burns out drops, still burning, into the basement or the wreck.
+
 ## Decisions as first put to the owner
 | # | Question | Options | Recommendation |
 | --- | --- | --- | --- |

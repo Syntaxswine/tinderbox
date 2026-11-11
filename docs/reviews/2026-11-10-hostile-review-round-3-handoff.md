@@ -86,6 +86,8 @@ The shipped code is correct here. Each breakage below passes all 291 tests today
 - **Fire through a window:** "agreed", for the lantern and the flamethrower.
 - **Usable buildings:** "buildings should be usable. you will only see furniture inside when there is someone in the building or xray view." The street's houses become enterable, and the interior is drawn only while someone is inside or an x-ray view is on.
 
+- **Fire goes both ways:** "real fire is bidirectional. heat rises and flame goes up easy, but also burning materials drop down and carry fire to lower levels." Up is heat and flame; down is burning material that falls and lights what it lands on. The Ashland pair already drops burning pieces (`src/simulation/cottage-fire.js:225-251`); the street's houses and round 1's reference lattice do not.
+
 The evaluation's section "The owner's decisions" gives the reviewer's reading of each. The tile answer points at the lattice of round 1; whether it settles round 1's open lattice decisions is the owner's to say.
 
 **Sequencing (the reviewer's recommendation; the owner's call).** In the proposed lattice each of these is a fuel class and an amount on one tile. In today's house graph each is a new kind of site with its own rules. The owner has not yet decided the lattice questions from round 1. The architect should say which way the contract goes before a coder starts, and should not let this wait behind Items 1 to 3.
