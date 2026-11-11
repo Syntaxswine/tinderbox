@@ -147,7 +147,11 @@ Attacked by the reviewer and held. D20 to D31 continue round 2's numbering.
 
 Also held on the bench: the state hash under five frame schedules, reset against fresh, no open-air wall half-metre without a usable ground cell (`r03`), and `ground-front.mjs` and round 1's two cottage probes with 0 changed lines. The reviewer found the Ashland pair identical to `26931d9` over 220 s, calm and windy.
 
-## The owner's note: lacquer on the furniture
+## The owner's notes: what is inside the houses
+
+Two notes from the owner, one during the round and one after it. Both say the same thing about the model: a house is not only its shell.
+
+### Lacquer on the furniture
 
 **The owner, 2026-11-10, during this round:** "there is a non zero chance of nitrocellulose lacquer on the furniture."
 
@@ -161,6 +165,28 @@ On the history, from a short search and not from a fire-science source: nitrocel
 
 The design reading (judgment): house contents as their own fuel, placed where the furniture is drawn, with a finish that sets how readily a piece lights and how fast flame runs over it. A lacquered piece would light at a touch and flash over its surface before the wood under it burns. In the proposed lattice this is one more fuel class on a tile, not a new mechanism.
 
+### Oil and coal stores
+
+**The owner, 2026-11-11, after the round:** "oil and coal are stored in abundance in certain points in the house."
+
+What the game does today (code-reading):
+
+- **No house holds any stored fuel.** A house's fire graph is its surfaces: floor, wall, joinery, fascia, roof, porch.
+- **The rooms that would hold it are already named.** Every plan has a kitchen; four of six have a pantry; the two plans with a basement (Ashland worker, Monroe row) have "service" rooms there (`src/content/housing-plans.js`). Each kitchen has a cast-iron stove modelled (`src/art/gross-housing.js:186-187`), hidden on the street with the furniture.
+- **The only stored fuel in the game is outdoors.** Two steel drums stand in Catalogue Street (`src/content/neighborhood.js:34-35`). A drum goes off at heat 1.4 with a 2.5 m blast (`src/simulation/config.js:22`), on the ground grid.
+- So the mechanism exists, a point store that goes off when heated, but a house has nowhere to put one.
+
+On the history, from general knowledge and not looked up: an 1893 house burned coal in the kitchen stove and for heat, kept in a bin in the cellar or by the kitchen with a scuttle at the stove, and lit its rooms with kerosene lamps, with the oil kept in a can in the kitchen, pantry or cellar. Every lamp is itself a small oil store.
+
+The design reading (judgment): two stores that behave in opposite ways, placed by room type.
+
+| Store | Where | How it should burn |
+| --- | --- | --- |
+| Lamp oil | A can in the kitchen or pantry; a lamp in each lit room | Lights readily, flares, and spills as a burning pool. The lantern and the street drum already do each half of this |
+| Coal | A bin in the basement or by the kitchen; a scuttle at the stove | Hard to light, then burns hot for a long time. It would give the heat of a collapsed house a cause, where today that heat follows a 150 s clock |
+
+Both make where a fire starts in a house matter: a kitchen fire and a bedroom fire would not be the same fire. In the proposed lattice a store is a fuel load of a given class and amount on one tile. In today's house graph it would be a new kind of site with its own rules, a fifth special case.
+
 ## The proposal, after the passes
 
 Unchanged from round 2. The two passes are a second and third local repair of the seam between the ground grid and the house graphs, and each added a special case: a deck cut one way, a blocker set for two plans by name, a pool origin moved for a wall within 0.011 m. N3 came out of that seam. One lattice of fire tiles, with height, would not have the seam.
@@ -171,7 +197,7 @@ Unchanged from round 2. The two passes are a second and third local repair of th
 | --- | --- | --- | --- |
 | 1 | What should a lantern do when it comes down on stone inside a house's outline? | The oil runs to the nearest open ground and burns there; or the lantern is a miss, as now | The oil runs off. A spent lantern that does nothing reads as a bug |
 | 2 | Who takes N3, the tests in S12, and S14? | Hand to Codex, as before; or leave | Hand to Codex |
-| 3 | Should furniture be fuel, and can a finish make it flash? | Yes, as house contents with a finish; yes, shop only; no | Yes, after the lattice decision, because it is cheap there and a fourth special case here |
+| 3 | Should a house's contents be fuel: furniture with a finish that can flash, oil stores, coal stores? | Yes, all three, placed by room; yes, stores only; no | Yes, all three, after the lattice decision, because each is one fuel class on a tile there and a new special case here |
 | 4 | Round 1's decisions 1 to 5 and whether to start rung 2 | See rounds 1 and 2 | Unchanged: start rung 2 |
 
 ## Independent verification
