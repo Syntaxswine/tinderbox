@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "status": "Initial artist interface using coder proposal; geometry follows in the next checkpoint.",
+  "factory": "createFurnishedHouseArt(THREE, {renderer, data})",
+  "returns": [
+    "root",
+    "update(frame, view)",
+    "diagnostics()",
+    "dispose()"
+  ],
+  "coordinateSystem": "Local metres; X/Z ground, Y up; original house origin retained.",
+  "data": {
+    "version": 1,
+    "prefabId": "hopkins-4-15",
+    "buildingId": "furnished-hopkins15",
+    "sourceHashes": "Array of {path,commit,bytes,sha256}",
+    "module": [
+      1,
+      1,
+      2.12
+    ],
+    "thermalCell": [
+      0.5,
+      1.06,
+      0.5
+    ],
+    "gridOrigin": [
+      0,
+      0.48,
+      0
+    ],
+    "levels": "Array {id,index,floorY,wallTop,floorTriangles,stairVoid}",
+    "surfaces": "Array {id,kind,level,triangles,normal,thickness,material,bounds,sourceMeshBindings,supportSurfaceIds,fuelClass,fuelAmount,finish}; one canonical record per physical patch",
+    "openings": "Array {id,surfaceId,level,kind,bounds,polygon,pivot,closedTransform,openTransform,sourceMeshBindings}; source geometry and prototype adaptations distinguished",
+    "furnitureParts": "Array {id,itemId,level,sourceMeshBinding,matrix,bounds,material,fuelClass,fuelAmount,finish,supportSurfaceIds}",
+    "items": "Array grouping actual furnitureParts by itemId; independent item transforms and support bindings",
+    "stores": "Array {id,itemId,kind,level,position,bounds,amount,amountUnit,supportSurfaceIds,fuelPartId}; fuel appears once in furnitureParts",
+    "render": "Canonical source geometries, physical material appearances and per-fragment source/item bindings; no new donor import",
+    "navigation": "Measured baseline bounds and explicit authorized adaptations; freeze after coder passage measurement"
+  },
+  "frame": {
+    "version": 1,
+    "revision": "monotonic state revision",
+    "tick": "simulation tick",
+    "worldTime": "authoritative seconds",
+    "full": "true on initial/reset frame",
+    "boundaries": "Array {id,sourceSurfaceId,triangles or polygon,intact,openFraction,charFraction,heatFraction}; additional patch coverage retires only its actual geometry",
+    "supports": "Same stable sourceSurfaceId/coverage convention as boundaries",
+    "items": "Array {id or itemId,position,quaternion,intact,remainingFraction,charFraction}; matrix accepted as an alternative pose",
+    "falls": "Array {id,itemId,position,quaternion,flame,smoke,ignitionTime}; moved fuel remains the same item",
+    "events": "Array of authoritative window-break, spill, support-failure and landing records",
+    "metrics": "Authoritative accounting and budgets; presentation never derives gameplay",
+    "fireSamples": "Published structural-fire fields plus sourceSurfaceId or itemId; floorFootprint triangles or floorRadius bounds the visible horizontal envelope",
+    "tombstones": "Array of stable ids, or {collection,id}; records removed from retained state. An intact:false record is also accepted.",
+    "occupancy": "Optional debug records {id,bounds,heatFraction,occupied}; x-ray shows these actual simulation records when supplied"
+  },
+  "view": {
+    "mode": "exterior|auto|cutaway|xray",
+    "level": "0 or 1",
+    "camera": "borrowed host camera",
+    "observer": "optional {x,y,z,height}; presentation only",
+    "sampleWind": "optional function supplied by the host; no frozen Ashland wind field applied to Hopkins"
+  },
+  "rules": [
+    "Cutaway never changes physical openings or surviving support.",
+    "An opening openFraction changes glass/door presentation; intact:false retires the physical record and its shadow.",
+    "Physical patch coverage is required for a runtime patch smaller than an artist surface.",
+    "Full frames replace state; later frames merge stable-ID changes and tombstones. Reset/backward seek clears prior state.",
+    "Fuel amounts are finite prototype units, not a calibrated real-world mass model. Coder owns burn profiles.",
+    "Original 1.65 m doors remain identified until the measured passage decision. No actor is resized."
+  ]
+}
