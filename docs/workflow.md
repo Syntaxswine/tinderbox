@@ -4,8 +4,8 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/stockyard-art-proposal` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Stockyard art proposal, source review and JPG intake |
-| Artist | Assigned `codex/modular-stockyard-art` from `c855e62` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Modular covered swine pen and custom entrance gate with JPG previews |
+| Architect | `codex/hull-house-block-proposal` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Neighborhood block proposal, district sources and JPG intake |
+| Artist | `codex/modular-stockyard-art`, then assigned `codex/hull-house-block-art` from `c855e62` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Stockyard JPG checkpoint, followed by the Hull-House neighborhood block preview |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
 | Coder | `codex/house-floor-fire-footprints` from `968e88a` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Native floor fire support and targeted regressions |
 | UI designer | `codex/hostile-round-2-map` from `26931d9` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Ground-plan compatibility with editable records |
@@ -95,6 +95,8 @@ The user requested completed buildings as main-menu destinations and explicitly 
 ## Promotion gate
 
 The [stockyard art proposal](milestones/16-stockyard-art.md) assigns the covered pen bay and the custom entrance gate to the existing artist. The first handoff includes JPG previews for the owner before a production wiring assignment.
+
+The [Hull-House block proposal](milestones/17-hull-house-block.md) is the artist's next assignment after that JPG checkpoint. The [neighborhood source plan](research/chicago-neighborhoods/README.md) records Packingtown, Maxwell–Jefferson and the Near North Side research sequence.
 
 The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-heat.md) records the gap, screen and short-burn controls and the packaged collapse and cooling sequence.
 
