@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-11",
+  "base": "c855e627bdee963e930644839a60c027a03935de",
+  "proposal": "812cffa900290a04524aa3bae32676cada0ba9cb",
+  "checks": {
+    "focusedGroups": 62,
+    "repositoryTests": 291,
+    "repositoryFailures": 0,
+    "syntaxDependencies": 52,
+    "bytePreservedImports": 5,
+    "exportSourcesMatch": true,
+    "sourceJpgManifestHashes": true,
+    "docReferences": true
+  },
+  "package": {
+    "files": 3522,
+    "bytes": 170287921,
+    "manifestSha256": "5ebdc6cf94b0176c8a0135fad4bcbb8d044068e4e6568d75d46e437c5befa277",
+    "nestedUrlCheck": "passed",
+    "researchAndJpgsExcluded": true
+  },
+  "visual": {
+    "views": 7,
+    "pixels": [
+      1600,
+      1070
+    ],
+    "programs": 12,
+    "allProgramsAndShadersClean": true,
+    "gpu": {
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "vendor": "Google Inc. (NVIDIA)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+    },
+    "reviewed": true
+  },
+  "helpers": {
+    "serverExited": true,
+    "browserExited": true,
+    "port": 4551,
+    "released": true,
+    "testProfileRemoved": true,
+    "restart": "artifacts/helpers/stockyard-review/restart.json"
+  },
+  "scope": [
+    "art/source/stockyards/",
+    "assets/art/stockyards/",
+    "docs/art/stockyards/"
+  ],
+  "limitations": [
+    "Art fixture only; production placement, gameplay, collision, fire and traversal are deferred.",
+    "Pen dimensions, hidden construction and some material identifications remain game adaptations.",
+    "Postcard c.1901-07 dressing is removable; it is not established 1893 decoration.",
+    "Original Maryland catalogue returned an empty HTTP 202; Commons attribution and US PD label verified."
+  ]
+}
