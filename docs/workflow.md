@@ -4,8 +4,8 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-hostile-round-3` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Floor-fire package review and promotion |
-| Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
+| Architect | `codex/stockyard-art-proposal` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Stockyard art proposal, source review and JPG intake |
+| Artist | Assigned `codex/modular-stockyard-art` from `c855e62` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Modular covered swine pen and custom entrance gate with JPG previews |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
 | Coder | `codex/house-floor-fire-footprints` from `968e88a` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Native floor fire support and targeted regressions |
 | UI designer | `codex/hostile-round-2-map` from `26931d9` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Ground-plan compatibility with editable records |
@@ -93,6 +93,8 @@ TB-023 is the architect's source/geometry/visual acceptance and later integratio
 The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. The user accepted the delayed Nautilus bear and requires selectable animals; the existing native goat, horse and AFT bear apply to every destination. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
+
+The [stockyard art proposal](milestones/16-stockyard-art.md) assigns the covered pen bay and the custom entrance gate to the existing artist. The first handoff includes JPG previews for the owner before a production wiring assignment.
 
 The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-heat.md) records the gap, screen and short-burn controls and the packaged collapse and cooling sequence.
 
