@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "actor": "native unarmed goat",
+  "samples": 404,
+  "height": 1.64951753616333,
+  "radius": 0.44015574131862367,
+  "minY": -2.636779683484747e-16,
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "baselineDoor": {
+    "width": 1,
+    "height": 1.65
+  },
+  "retainedCollisionEnvelope": {
+    "radius": 0.5,
+    "height": 1.66
+  },
+  "stair": {
+    "width": 1,
+    "run": 3,
+    "rise": 2.12,
+    "treads": 12,
+    "riser": 0.17666666666666667
+  },
+  "conclusion": "Retained collision envelope exceeds baseline lintel by .01m. Full 2m clear opening is a native full-height composition. Width is one collision diameter; centered movement is required. No actor resizing."
+}
