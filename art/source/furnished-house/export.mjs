@@ -1,0 +1,174 @@
+import fs from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as T from '../../../src/runtime/three.js';
+import {createHopkinsHouse} from '../../../src/art/hopkins-housing.js';
+import {housePlanEdges} from '../../../src/art/gross-housing.js';
+import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume} from './geometry.mjs';
+const BASE='c855e627bdee963e930644839a60c027a03935de',OUT='workbenches/furnished-house/house-data.json';
+const catalogue=JSON.parse(fs.readFileSync('assets/art/hopkins-housing-v1/houses.json')),house=catalogue.houses.find(h=>h.id==='hopkins-4-15');
+const model=createHopkinsHouse(T,{catalogue,textures:{}},house.id),sourceMeshes=[],surfaces=[],openings=[],items=[],furnitureParts=[],stores=[],levels=[];
+const sourceHashes=['src/art/gross-housing.js','src/art/hopkins-housing.js','src/art/gambrel-roof.js','src/art/nautilus-windows.js','assets/art/hopkins-housing-v1/houses.json','assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json','src/content/housing-floors.js'].map(path=>{const b=fs.readFileSync(path);return {path,commit:BASE,bytes:b.length,sha256:createHash('sha256').update(b).digest('hex')};});
+const routeAdaptations=[],extraGeometry=[];
+const routeEdges=new Set(['5,0|6,0','4,6|4,7']);
+const sourceId=new Map(),floorGroups=new Map(),wallGroups=new Map(),meshById=new Map(),matIndex=new Map(),materials=[],raw=new Map();
+const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const r3=v=>v.map(round),triArea=triangles=>triangles.reduce((n,t)=>n+triangleArea(t),0);
+function levelOf(o){for(let p=o;p;p=p.parent)if(/^Level /.test(p.name))return Number(p.name.slice(6));return null;}
+function wallOf(o){for(let p=o;p;p=p.parent)if(p.name.startsWith('wall:'))return p;return null;}
+function materialId(m){
+ if(matIndex.has(m))return matIndex.get(m);const id='appearance-'+materials.length;
+ const texture={'Painted exterior':'gross-housing-v1/clapboard-ivory-v1.png','Botanical wallpaper':'gross-housing-v1/wallpaper-botanical-v1.png','Oak boards':'gross-housing-v1/floorboards-oak-v1.png','Brick basement':'exposition-skins-v1/brick-sienna-v1.png','Roof covering':'gross-housing-v1/cedar-shingles-v1.png','Gable shingles':'gross-housing-v1/cedar-shingles-v1.png'}[m.name];
+ materials.push({id,name:m.name,color:m.color?.getHex()??0xffffff,roughness:m.roughness??.9,metalness:m.metalness??0,texture:texture?'../../assets/art/'+texture:null,repeat:m.name==='Brick basement'?.5:1,physicalUV:true});matIndex.set(m,id);return id;
+}
+function geometryTriangles(o){
+ const g=o.geometry,p=g.attributes.position,n=g.attributes.normal,uv=g.attributes.uv,guv=g.attributes.grossUV||uv,indices=g.index?.array||Array.from({length:p.count},(_,i)=>i),normalMatrix=new T.Matrix3().getNormalMatrix(o.matrixWorld),triangles=[];
+ for(let i=0;i<indices.length;i+=3){
+  const group=g.groups.find(a=>i>=a.start&&i<a.start+a.count),material=Array.isArray(o.material)?o.material[group?.materialIndex||0]:o.material;
+  const vertices=[0,1,2].map(k=>{const j=indices[i+k],q=new T.Vector3().fromBufferAttribute(p,j).applyMatrix4(o.matrixWorld),nn=n?new T.Vector3().fromBufferAttribute(n,j).applyMatrix3(normalMatrix).normalize():new T.Vector3(0,1,0);return [...q.toArray(),...nn.toArray(),uv?.getX(j)||0,uv?.getY(j)||0,guv?.getX(j)||0,guv?.getY(j)||0];});
+  if(triangleArea(vertices.map(v=>v.slice(0,3)))>1e-10)triangles.push({vertices,materialId:materialId(material)});
+ }return triangles;
+}
+function surface(spec){
+ spec.triangles=spec.triangles.map(t=>t.map(r3));spec.area=round(triArea(spec.triangles));if(spec.area<1e-8)return null;
+ spec.normal=r3(spec.normal||normal(spec.triangles[0]));spec.bounds=spec.bounds||bounds(spec.triangles.flat());spec.bounds={min:r3(spec.bounds.min),max:r3(spec.bounds.max)};
+ spec.sourceMeshBindings??=[];spec.supportSurfaceIds??=[];spec.fuelClass??=spec.material==='timber'?(spec.kind==='roof'?'roof':'frame'):null;spec.fuelAmount??=spec.fuelClass?round(spec.area):0;spec.finish??=null;
+ surfaces.push(spec);return spec;
+}
+function visibleHip(poly){
+ let polys=[poly];for(const p of house.roofAssembly.pieces)polys=polys.flatMap(v=>subtractGambrel(v,p,house.plinth));
+ for(const floor of surfaces.filter(s=>s.kind==='floor'&&s.level===1)){
+  const next=[];for(const p of polys){const b=bounds(p);if([0,1,2].some(i=>b.max[i]<floor.bounds.min[i]-1e-7||b.min[i]>floor.bounds.max[i]+1e-7))next.push(p);else next.push(...subtractBox(p,floor.bounds));}polys=next;
+ }
+ return polys;
+}
+function rectangle(a,b,y0,y1){
+ const q=[[a[0],y0,a[1]],[b[0],y0,b[1]],[b[0],y1,b[1]],[a[0],y1,a[1]]];return polygonTriangles(q);
+}
+function supportFor(b,level){
+ return surfaces.filter(s=>s.kind==='floor'&&s.level===level&&s.bounds.max[0]>b.min[0]+1e-7&&s.bounds.min[0]<b.max[0]-1e-7&&s.bounds.max[2]>b.min[2]+1e-7&&s.bounds.min[2]<b.max[2]-1e-7).map(s=>s.id);
+}
+try{
+ // Authorized composed transom adaptation: native leaf retained, source lintel/header transposed.
+ model.root.updateMatrixWorld(true);
+ const routeWalls=[];model.root.traverse(o=>{if(o.name.startsWith('wall:')&&levelOf(o)===0&&routeEdges.has(o.userData.edge))routeWalls.push(o);});
+ for(const wall of routeWalls){
+  const removed=[];for(const o of [...wall.children])if(['Native door lintel','Door header'].includes(o.name)){
+   const b=new T.Box3().setFromObject(o);removed.push({name:o.name,bounds:{min:b.min.toArray(),max:b.max.toArray()},dimensions:o.userData.nativeDimensions});wall.remove(o);
+  }
+  const oldCasing=wall.children.find(o=>o.name==='Door casing'),g=new T.BoxGeometry(1.14,.08,.21),head=new T.Mesh(g,oldCasing.material);extraGeometry.push(g);head.name='Prototype transposed door header';head.position.set(0,2.04,0);head.castShadow=head.receiveShadow=true;head.userData.prototypeAdaptation=true;wall.add(head);
+  routeAdaptations.push({wallEdge:wall.userData.edge,level:0,type:'full-height-transom-frame',baselineClearHeight:1.65,prototypeClearHeight:2,removed,headerBottomY:2.48,headerTopY:2.56,nativeLeafRetained:true,transomAlwaysOpen:true,nominalWidth:1,clearBetweenJambs:1.015});
+ }
+ // Capture closed native leaf geometry. Opening animation is owned by the frame.
+ const authoredDoorAngles=new Map();model.root.traverse(o=>{if(o.children.some(c=>c.name==='Native closed-door leaf')){authoredDoorAngles.set(o,o.rotation.y);o.rotation.y=0;}});
+ model.root.updateMatrixWorld(true);
+ function walk(o,path='house'){
+  const id=path+'/'+slug(o.name||o.type);sourceId.set(o,id);
+  if(o.isMesh){const record={id,name:o.name,level:levelOf(o),matrix:o.matrixWorld.toArray().map(round),bounds:bounds(geometryTriangles(o).flatMap(t=>t.vertices.map(v=>v.slice(0,3)))),materialIds:[...new Set(geometryTriangles(o).map(t=>t.materialId))],sourceRole:o.userData.assetRole||null};
+   sourceMeshes.push(record);meshById.set(id,o);raw.set(id,geometryTriangles(o));if(o.name.startsWith('Room floor:')){if(!floorGroups.has(record.level))floorGroups.set(record.level,[]);floorGroups.get(record.level).push(record);}
+  }
+  o.children.forEach((c,i)=>walk(c,id+'/'+i));
+ }walk(model.root);
+ for(let level=0;level<house.floors.length;level++){
+  const floorY=house.plinth+level*2.12,groups=new Map(),floorTriangles=[];
+  for(const mesh of floorGroups.get(level))for(const t of raw.get(mesh.id)){
+   const xyz=t.vertices.map(v=>v.slice(0,3)),cx=xyz.reduce((n,p)=>n+p[0],0)/3,cz=xyz.reduce((n,p)=>n+p[2],0)/3,key=Math.floor(cx*2+1e-7)+','+Math.floor(cz*2+1e-7);
+   if(!groups.has(key))groups.set(key,{triangles:[],bindings:new Set()});const group=groups.get(key);group.triangles.push(xyz);group.bindings.add(mesh.id);floorTriangles.push(xyz);
+  }
+  for(const [key,g]of groups){const b=bounds(g.triangles.flat());b.min[1]=floorY-.12;b.max[1]=floorY;surface({id:'floor/l'+level+'/'+key,kind:'floor',level,triangles:g.triangles,normal:[0,1,0],thickness:.12,material:'timber',bounds:b,sourceMeshBindings:[...g.bindings],derivedClosedSlab:true,floorY,undersideY:round(floorY-.12),undersideTriangles:g.triangles.map(t=>[...t].reverse().map(p=>[p[0],floorY-.12,p[2]]))});}
+  levels.push({id:'level-'+level,index:level,label:house.floors[level].label,floorY:round(floorY),wallTop:round(floorY+2),floorTriangles:floorTriangles.map(t=>t.map(r3)),area:round(triArea(floorTriangles)),stairVoid:level?{min:[5,round(floorY-.12),4],max:[6,round(floorY),7],type:'rear-edge-notch'}:null,rooms:house.floors[level].rooms});
+ }
+ // Derive solid wall patches from the actual source panel boxes, not room cells.
+ for(const record of sourceMeshes){
+  const o=meshById.get(record.id),wall=wallOf(o);if(!wall)continue;
+  if(!wallGroups.has(wall))wallGroups.set(wall,[]);
+  const isSolid=/^(Native wall unit|Nautilus cut-end wall panel|Native window sill|New Victorian window sill|Native window lintel|Native door lintel|Nautilus cut window pier|Nautilus cut door pier)$/.test(o.name)||o.userData.group==='walls';
+  if(!isSolid)continue;
+  const level=record.level,faceNormal=new T.Vector3(0,0,-1).transformDirection(wall.matrixWorld).toArray(),axis=Math.abs(faceNormal[0])>.5?2:0,fixed=axis===0?2:0,b=record.bounds,fixedAt=wall.getWorldPosition(new T.Vector3()).toArray()[fixed],n=surfaces.length;
+  for(const [u0,u1]of intervalParts(b.min[axis],b.max[axis],.5))for(const [v0,v1]of intervalParts(b.min[1],b.max[1],1.06,levels[level].floorY)){
+   const a=axis===0?[u0,fixedAt]:[fixedAt,u0],c=axis===0?[u1,fixedAt]:[fixedAt,u1],triangles=rectangle(a,c,v0,v1),bb=bounds(triangles.flat());bb.min[fixed]=fixedAt-.08;bb.max[fixed]=fixedAt+.08;
+   const s=surface({id:'wall/l'+level+'/'+slug(wall.userData.edge)+'/'+sourceMeshes.indexOf(record)+'/'+round(u0)+'/'+round(v0),kind:'wall',level,triangles,normal:faceNormal,thickness:.16,material:'timber',bounds:bb,sourceMeshBindings:[record.id],roomIds:wall.userData.rooms,exterior:wall.userData.rooms.length===1,fuelClass:wall.userData.rooms.length===1?'clapboard':'partition'});s.supportSurfaceIds=supportFor(s.bounds,level);
+  }
+  if(!wallGroups.has(wall))wallGroups.set(wall,[]);wallGroups.get(wall).push(...surfaces.slice(n));
+ }
+ for(let level=0;level<house.floors.length;level++)for(const edge of housePlanEdges(house,house.floors[level]).filter(e=>e.opening)){
+  const kind=edge.opening==='entry'?'door':edge.opening,wall=[...wallGroups.keys()].find(w=>levelOf(w)===level&&w.userData.edge===edge.id);
+  if(!wall)throw Error('Opening wall binding missing '+edge.id);
+  const y=levels[level].floorY,n=new T.Vector3(0,0,-1).transformDirection(wall.matrixWorld).toArray(),span=Math.hypot(edge.b[0]-edge.a[0],edge.b[1]-edge.a[1]),cx=(edge.a[0]+edge.b[0])/2,cz=(edge.a[1]+edge.b[1])/2;
+  const width=kind==='window'?1:span,bottom=kind==='window'?.35:0,top=kind==='window'?1.55:1.65,tangent=[(edge.b[0]-edge.a[0])/span,(edge.b[1]-edge.a[1])/span];
+  const a=[cx-tangent[0]*width/2,cz-tangent[1]*width/2],b=[cx+tangent[0]*width/2,cz+tangent[1]*width/2],triangles=rectangle(a,b,y+bottom,y+top),id='opening/l'+level+'/'+slug(edge.id);
+  const box=bounds(triangles.flat());for(let i=0;i<3;i++){box.min[i]-=Math.abs(n[i])*.08;box.max[i]+=Math.abs(n[i])*.08;}
+  const leaf=wall.getObjectByName('Native closed-door leaf'),hinge=leaf?.parent,pivot=hinge?hinge.getWorldPosition(new T.Vector3()).toArray():[cx,y+bottom,cz],closed=hinge?.matrixWorld.toArray()||new T.Matrix4().makeTranslation(...pivot).toArray(),open=hinge?new T.Matrix4().multiplyMatrices(hinge.matrixWorld,new T.Matrix4().makeRotationY(Math.PI/2)).toArray():closed;
+  const bindings=sourceMeshes.filter(m=>{const o=meshById.get(m.id);return wallOf(o)===wall&&(kind==='window'?/glass/i.test(o.name):leaf&&o.parent===hinge);}).map(m=>m.id);
+  surface({id,kind:kind==='arch'?'door':kind,level,triangles,normal:n,thickness:kind==='window'?.035:.12,material:kind==='window'?'glass':kind==='arch'?'air':'timber',bounds:box,sourceMeshBindings:bindings,fuelClass:kind==='door'?'door':null,fuelAmount:kind==='door'?round(width*(top-bottom)*.45):0,openingId:id});
+  const adapted=level===0&&kind==='door'&&routeEdges.has(edge.id),sourceBounds=JSON.parse(JSON.stringify(box));
+  let transomSurfaceId=null;
+  if(adapted){transomSurfaceId=id+'/transom';const t=rectangle(a,b,y+1.65,y+2);surface({id:transomSurfaceId,kind:'door',level,triangles:t,normal:n,thickness:.16,material:'air',sourceMeshBindings:[],fuelClass:null,fuelAmount:0,openingId:id,initialOpenFraction:1,alwaysOpen:true});box.max[1]=round(y+2);}
+  openings.push({id,surfaceId:id,transomSurfaceId,baselineBounds:sourceBounds,prototypeAdapted:adapted,clearHeightWhenOpen:adapted?2:top-bottom,leafHeight:kind==='door'?1.65:null,level,kind,entry:edge.opening==='entry',roomIds:edge.rooms,bounds:box,polygon:[triangles[0][0],triangles[0][1],triangles[0][2],triangles[1][2]],pivot:r3(pivot),closedTransform:closed.map(round),openTransform:open.map(round),axis:[0,1,0],maxOpenAngle:Math.PI/2,authoredOpenAngle:hinge?authoredDoorAngles.get(hinge)||0:0,initialOpenFraction:kind==='arch'?1:0,span,openingWidth:width,bottomY:round(y+bottom),topY:round(y+(adapted?2:top)),normal:r3(n),sourceWallBinding:sourceId.get(wall),sourceMeshBindings:bindings,windowProfile:edge.windowProfile||null,navigationStatus:adapted?'Authorized 2m transom frame; actual leaf-open width and route obstacles remain measured separately':'Measured native opening; no silent widening'});
+ }
+ // Preserve the exposed gambrel union; remove only hip faces buried inside it.
+ for(const record of sourceMeshes){
+  const o=meshById.get(record.id),roof=!!o.userData.roofTile||o.parent.name==='Removable roofs'&&o.name==='New roof envelope',gable=/gable closure/.test(o.name);
+  if(!roof&&!gable)continue;
+  const grouped=new Map();
+  for(const t of raw.get(record.id)){
+   let polygons=[t.vertices];if(roof&&!o.userData.roofTile)polygons=visibleHip(t.vertices);
+   for(const poly of polygons)for(const p of gridPieces(poly)){
+    const tris=polygonTriangles(p).filter(t=>triangleArea(t.map(v=>v.slice(0,3)))>1e-9);if(!tris.length)continue;
+    const centre=[0,1,2].map(i=>p.reduce((n,v)=>n+v[i],0)/p.length),nn=normal(tris[0].map(v=>v.slice(0,3))),key=[...centre.map((v,i)=>Math.floor((v-(i===1?.48:0))/(i===1?1.06:.5)+1e-6)),...nn.map(v=>Math.round(v*100))].join(',');
+    if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(...tris.map(t=>t.map(v=>v.slice(0,3))));
+   }
+  }
+  for(const [key,triangles]of grouped){let nn=normal(triangles[0]);if(roof&&nn[1]<0)nn=nn.map(v=>-v);
+   surface({id:(roof?'roof/':'gable/')+sourceMeshes.indexOf(record)+'/'+key,kind:roof?'roof':'wall',level:1,triangles,normal:nn,thickness:roof?.06:.16,material:'timber',sourceMeshBindings:[record.id],fuelClass:roof?'roof':'clapboard',exterior:true,derivedExposedUnion:roof&&!o.userData.roofTile});
+  }
+ }
+ // Noncombustible source masonry. Texture or paint never decides fuel.
+ for(const record of sourceMeshes.filter(m=>/New raised plinth|New Hopkins brick chimney|Chimney cap/.test(m.name))){
+  const grouped=new Map();for(const t of raw.get(record.id)){const xyz=t.vertices.map(v=>v.slice(0,3)),n=normal(xyz),key=n.map(v=>Math.round(v)).join(',');if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(xyz);}
+  for(const [key,triangles]of grouped)surface({id:'masonry/'+sourceMeshes.indexOf(record)+'/'+key,kind:'plinth',level:record.name==='New raised plinth'?0:1,triangles,normal:normal(triangles[0]),thickness:.12,material:record.name==='New raised plinth'?'stone':'brick',sourceMeshBindings:[record.id],fuelClass:null,fuelAmount:0});
+ }
+ // Separate real pieces inside the nine procedural furnishing groups.
+ const itemMap=new Map();
+ model.root.traverse(g=>{
+  if(!g.name.startsWith('Furnishing:'))return;const level=levelOf(g),floor=house.floors[level],room=floor.rooms.find(r=>{const x=g.position.x,z=g.position.z,xs=r.polygon.map(p=>p[0]),zs=r.polygon.map(p=>p[1]);return x>=Math.min(...xs)&&x<=Math.max(...xs)&&z>=Math.min(...zs)&&z<=Math.max(...zs);});if(!room)throw Error('Unplaced furnishing');
+  for(const o of g.children.filter(c=>c.isMesh)){
+   let type=room.type==='bedroom'?'bed':room.type==='hall'?'console':['sitting','parlor'].includes(room.type)?(/rug/i.test(o.name)?'rug':'settee'):room.type==='kitchen'?(/stove/i.test(o.name)?'stove':'work-table'):room.type==='dining'?(/chair/i.test(o.name)?'chair-'+(o.position.z<0?'north':'south'):'table'):'cabinet';
+   const itemId='item/l'+level+'/'+room.id+'/'+type,record=sourceMeshes.find(m=>m.id===sourceId.get(o)),material=(Array.isArray(o.material)?o.material[0]:o.material).name,physical=/iron/i.test(material)?'iron':/linen|upholstery|rug/i.test(material)?'cloth':'timber';
+   if(!itemMap.has(itemId))itemMap.set(itemId,{id:itemId,level,roomId:room.id,type,position:g.position.toArray().map(round),quaternion:[0,0,0,1],partIds:[],sourceGroupBinding:sourceId.get(g),supportSurfaceIds:[]});
+   const item=itemMap.get(itemId),part={id:itemId+'/'+slug(o.name)+'/'+g.children.indexOf(o),itemId,level,sourceMeshBinding:record.id,matrix:record.matrix,bounds:record.bounds,material:physical,fuelClass:physical==='timber'?'furniture':physical==='cloth'?'cloth':null,fuelAmount:0,finish:null,supportSurfaceIds:supportFor(record.bounds,level),volume:boundsVolume(record.bounds)};
+   furnitureParts.push(part);item.partIds.push(part.id);
+  }
+ });
+ for(const item of itemMap.values()){
+  const parts=furnitureParts.filter(p=>p.itemId===item.id),points=parts.flatMap(p=>[p.bounds.min,p.bounds.max]);item.bounds=bounds(points);item.supportSurfaceIds=[...new Set(parts.flatMap(p=>p.supportSurfaceIds))];item.footprint=[[item.bounds.min[0],item.bounds.min[2]],[item.bounds.max[0],item.bounds.min[2]],[item.bounds.max[0],item.bounds.max[2]],[item.bounds.min[0],item.bounds.max[2]]];
+  for(const material of ['timber','cloth']){const subset=parts.filter(p=>p.material===material),total=subset.reduce((n,p)=>n+p.volume,0);for(const p of subset){p.fuelAmount=round((material==='timber'?1:item.type==='bed'?.6:.3)*p.volume/total);if(material==='timber')p.finish={fuelClass:/parlor|bed-c|dining\/table/.test(item.id)?'lacquer':'varnish',amount:round(.10*p.volume/total),appearance:'Existing wood finish; prototype finite coating, separate from core fuel'};}}
+  items.push(item);
+ }
+ // Actual source support under every patch is explicit.
+ for(const s of surfaces)if(!s.supportSurfaceIds.length&&s.kind!=='floor'&&s.kind!=='plinth')s.supportSurfaceIds=supportFor(s.bounds,s.level);
+ const parameters={amountUnit:'prototype-fuel-unit',wallFuelPerSquareMetre:1,floorFuelPerSquareMetre:1,roofFuelPerSquareMetre:1,furnitureCorePerItem:1,bedClothPerItem:.6,otherClothPerItem:.3,finishPerTimberItem:.10,oilStore:3,coalStore:1,note:'Finite prototype quantities. Coder owns burn rates, energy, ignition thresholds and support failure. No calibrated real-world masses asserted.'};
+ const storeDefinitions=[
+  {id:'store/kitchen/oil',kind:'oil',position:[.65,.48,6.65],size:[.42,.56,.34],amount:parameters.oilStore,material:'iron'},
+  {id:'store/kitchen/coal',kind:'coal',position:[1.10,.48,8.65],size:[.72,.52,.62],amount:parameters.coalStore,material:'timber'}
+ ];
+ for(const def of storeDefinitions){
+  const [x,y,z]=def.position,[w,h,d]=def.size,b={min:[x-w/2,y,z-d/2],max:[x+w/2,y+h,z+d/2]},supportSurfaceIds=supportFor(b,0),itemId=def.id,partId=def.id+'/contents';
+  stores.push({...def,itemId,level:0,bounds:b,amountUnit:parameters.amountUnit,supportSurfaceIds,fuelPartId:partId,prototypePlacement:true});
+  items.push({id:itemId,level:0,roomId:'kitchen',type:def.kind+'-store',position:def.position,quaternion:[0,0,0,1],partIds:[partId,def.id+'/container'],bounds:b,supportSurfaceIds,prototypePlacement:true});
+  furnitureParts.push({id:partId,itemId,level:0,sourceMeshBinding:null,matrix:new T.Matrix4().makeTranslation(x,y,z).toArray(),bounds:b,material:def.kind,fuelClass:def.kind,fuelAmount:def.amount,finish:null,supportSurfaceIds,proceduralStoreContents:true},
+   {id:def.id+'/container',itemId,level:0,sourceMeshBinding:null,matrix:new T.Matrix4().makeTranslation(x,y,z).toArray(),bounds:b,material:def.material,fuelClass:def.material==='timber'?'furniture':null,fuelAmount:def.material==='timber'?.25:0,finish:null,supportSurfaceIds,proceduralStoreContainer:true});
+ }
+ const geometry=[];
+ for(const record of sourceMeshes){
+  const o=meshById.get(record.id);if(o.name.startsWith('Room floor:'))continue;
+  let triangles=raw.get(record.id);if(o.parent.name==='Removable roofs'&&o.name==='New roof envelope')triangles=triangles.flatMap(t=>{const polys=visibleHip(t.vertices);return polys.flatMap(poly=>polygonTriangles(poly).map(vertices=>({vertices,materialId:t.materialId})));});
+  geometry.push({id:record.id,triangles:triangles.map(t=>({materialId:t.materialId,vertices:t.vertices.map(v=>v.map(round))}))});
+ }
+ const data={version:1,prefabId:house.id,buildingId:'furnished-hopkins15',units:'metres',sourceCommit:BASE,contractCommit:'3596f41cbeb0a85c648c44b789a838ed5a8dc139',sourceHashes,module:[1,1,2.12],thermalCell:[.5,1.06,.5],gridOrigin:[0,.48,0],levels,surfaces,openings,furnitureParts,items,stores,parameters,sourceMeshes,render:{materials,geometry,vertexLayout:['x','y','z','nx','ny','nz','u','v','physicalU','physicalV']},
+ navigation:{status:'Source baseline measured; composed opening adaptation awaits actual coder gait result',nativeDoorHeight:1.65,nativeDoorWidth:1,routeAdaptations,measuredGoat:{samples:404,height:1.649517536,radius:.440155741,scale:[1,1,1],source:'Coder gait measurement'},conservativeProfile:{height:1.66,radius:.5},routeLimitations:['Baseline hall console blocks the 2m hall at z0.925..1.275; recorded prototype relocation needed before claiming an entrance route.','Baseline stair newels reduce clear width to .935m; the .5m-radius conservative profile does not fit. Actual raw goat diameter .880311482m fits geometrically; coder owns the safe traversal envelope.','At 90 degrees the native leaf reduces the measured clear throat below1m; preserve this measured width rather than silently widening.'],stair:{x:5,z:4,width:1,run:3,rise:2.12},noCharacterRescaling:true},
+ adaptations:['Closed .12 m floor slab faces are inferred from the real oak support; source surfaces stay at .48 and2.60m.','Only buried hip-roof faces inside the gambrel union are removed; visible native roof forms are retained.','Oil and coal stores are explicit prototype placements; finite quantities and finishes are game parameters.','Canonical wall patches include actual partial opening panels and never fill the stair notch.'],
+ sourceGaps:['Native door clearance pending measured passage result.','The original floor meshes have no closed slab/ceiling volume.','Some baseline rugs overhang the oak edge; fuel support references use actual overlap, not their rectangular reservation.']};
+ fs.mkdirSync('workbenches/furnished-house',{recursive:true});fs.writeFileSync(OUT,JSON.stringify(data)+'\n');
+ const summary={levels:levels.map(l=>({id:l.id,floorY:l.floorY,area:l.area})),surfaces:surfaces.length,kinds:surfaces.reduce((n,s)=>(n[s.kind]=(n[s.kind]||0)+1,n),{}),openings:openings.length,items:items.length,furnitureParts:furnitureParts.length,stores:stores.map(s=>({id:s.id,position:s.position,amount:s.amount,supports:s.supportSurfaceIds.length})),sourceMeshes:sourceMeshes.length,renderTriangles:geometry.reduce((n,g)=>n+g.triangles.length,0),bytes:fs.statSync(OUT).size};
+ fs.writeFileSync('art/source/furnished-house/export-summary.json',JSON.stringify(summary,null,2)+'\n');console.log(JSON.stringify(summary));
+}finally{model.dispose();for(const g of extraGeometry)g.dispose();}

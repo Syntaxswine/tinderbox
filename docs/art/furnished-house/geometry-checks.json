@@ -1,0 +1,164 @@
+{
+  "passed": 7,
+  "failed": 0,
+  "groups": [
+    "Native module, exact level planes and actual floor union areas",
+    "Stable surface and component identities are unique",
+    "Measured physical faces and inert material fuel boundaries",
+    "Closed derived slabs preserve the real upper stair notch and support planes",
+    "Finite oil/coal stores have actual floor support and one fuel record each",
+    "Authorized full-height route openings retain native leaves and separate always-open transom boundaries",
+    "Buried porch roof faces no longer cross the upper front chamber"
+  ],
+  "counts": {
+    "surfaces": 2550,
+    "floorPatches": 676,
+    "items": 16,
+    "parts": 73
+  },
+  "navigation": {
+    "status": "Source baseline measured; composed opening adaptation awaits actual coder gait result",
+    "nativeDoorHeight": 1.65,
+    "nativeDoorWidth": 1,
+    "routeAdaptations": [
+      {
+        "wallEdge": "4,6|4,7",
+        "level": 0,
+        "type": "full-height-transom-frame",
+        "baselineClearHeight": 1.65,
+        "prototypeClearHeight": 2,
+        "removed": [
+          {
+            "name": "Native door lintel",
+            "bounds": {
+              "min": [
+                3.9200000017881393,
+                2.130000002980232,
+                6
+              ],
+              "max": [
+                4.079999998211861,
+                2.4799999970197675,
+                7
+              ]
+            },
+            "dimensions": [
+              1,
+              0.3500000000000001,
+              0.16
+            ]
+          },
+          {
+            "name": "Door header",
+            "bounds": {
+              "min": [
+                3.8950000032782555,
+                2.16000000089407,
+                5.930000007152557
+              ],
+              "max": [
+                4.1049999967217445,
+                2.2399999991059305,
+                7.069999992847443
+              ]
+            },
+            "dimensions": [
+              1.14,
+              0.08,
+              0.21
+            ]
+          }
+        ],
+        "headerBottomY": 2.48,
+        "headerTopY": 2.56,
+        "nativeLeafRetained": true,
+        "transomAlwaysOpen": true,
+        "nominalWidth": 1,
+        "clearBetweenJambs": 1.015
+      },
+      {
+        "wallEdge": "5,0|6,0",
+        "level": 0,
+        "type": "full-height-transom-frame",
+        "baselineClearHeight": 1.65,
+        "prototypeClearHeight": 2,
+        "removed": [
+          {
+            "name": "Native door lintel",
+            "bounds": {
+              "min": [
+                5,
+                2.130000002980232,
+                -0.07999999821186066
+              ],
+              "max": [
+                6,
+                2.4799999970197675,
+                0.07999999821186066
+              ]
+            },
+            "dimensions": [
+              1,
+              0.3500000000000001,
+              0.16
+            ]
+          },
+          {
+            "name": "Door header",
+            "bounds": {
+              "min": [
+                4.930000007152557,
+                2.16000000089407,
+                -0.10499999672174454
+              ],
+              "max": [
+                6.069999992847443,
+                2.2399999991059305,
+                0.10499999672174454
+              ]
+            },
+            "dimensions": [
+              1.14,
+              0.08,
+              0.21
+            ]
+          }
+        ],
+        "headerBottomY": 2.48,
+        "headerTopY": 2.56,
+        "nativeLeafRetained": true,
+        "transomAlwaysOpen": true,
+        "nominalWidth": 1,
+        "clearBetweenJambs": 1.015
+      }
+    ],
+    "measuredGoat": {
+      "samples": 404,
+      "height": 1.649517536,
+      "radius": 0.440155741,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "Coder gait measurement"
+    },
+    "conservativeProfile": {
+      "height": 1.66,
+      "radius": 0.5
+    },
+    "routeLimitations": [
+      "Baseline hall console blocks the 2m hall at z0.925..1.275; recorded prototype relocation needed before claiming an entrance route.",
+      "Baseline stair newels reduce clear width to .935m; the .5m-radius conservative profile does not fit. Actual raw goat diameter .880311482m fits geometrically; coder owns the safe traversal envelope.",
+      "At 90 degrees the native leaf reduces the measured clear throat below1m; preserve this measured width rather than silently widening."
+    ],
+    "stair": {
+      "x": 5,
+      "z": 4,
+      "width": 1,
+      "run": 3,
+      "rise": 2.12
+    },
+    "noCharacterRescaling": true
+  }
+}
