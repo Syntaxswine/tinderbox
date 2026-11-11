@@ -1,0 +1,99 @@
+{
+  "units": "metres",
+  "feetToMetres": 0.3048,
+  "measurementSource": "SY-NPS-1977 PDF page 5; later description of restored building, not a period measured plan",
+  "gate": [
+    {
+      "feature": "Facade nominal width",
+      "sourceFeet": 50,
+      "sourceMetres": 15.24,
+      "gameMetres": 15,
+      "changePercent": -1.57,
+      "note": "Ground stone span -7.75..7.25 m around central-arch anchor. Roof eaves extend overall geometry to about 15.16 m; paving is separate."
+    },
+    {
+      "feature": "Central arch width",
+      "sourceFeet": 16,
+      "sourceMetres": 4.8768,
+      "gameMetres": 5,
+      "changePercent": 2.53,
+      "note": "Source says almost 16 feet. Plinth reduces full-height conservative ground corridor to 4.92 m."
+    },
+    {
+      "feature": "Central arch crown",
+      "sourceFeet": 17,
+      "sourceMetres": 5.1816,
+      "gameMetres": 5.18,
+      "changePercent": -0.03,
+      "note": "3.80 m spring line plus 1.38 m elliptical rise."
+    },
+    {
+      "feature": "North side arch width",
+      "sourceFeet": 7.5,
+      "sourceMetres": 2.286,
+      "gameMetres": 2.5,
+      "changePercent": 9.36,
+      "note": "Local -X side; 2.42 m conservative ground corridor after plinth. Small rounding retains clear native traversal envelope."
+    },
+    {
+      "feature": "South side arch width",
+      "sourceFeet": 6,
+      "sourceMetres": 1.8288,
+      "gameMetres": 2,
+      "changePercent": 9.36,
+      "note": "Local +X side; 1.92 m conservative ground corridor after plinth."
+    },
+    {
+      "feature": "Central section roof height",
+      "sourceFeet": 32,
+      "sourceMetres": 9.7536,
+      "gameMetres": 9.77,
+      "changePercent": 0.17,
+      "note": "Source says almost 32 feet. Includes ridge cap, excludes optional decorative frame."
+    },
+    {
+      "feature": "Side arch spring/crown",
+      "sourceFeet": null,
+      "gameMetres": [
+        2.18,
+        2.95
+      ],
+      "note": "Inferred game section; no written source height was found."
+    },
+    {
+      "feature": "Gate depth",
+      "sourceFeet": null,
+      "gameMetres": 1.4,
+      "note": "Stone depth inferred. Roof depth extends to 2.3 m behind central anchor. No surveyed depth claim."
+    }
+  ],
+  "pen": {
+    "bay": [
+      4,
+      4
+    ],
+    "gateClearWidth": 2,
+    "fenceReservePitch": 1,
+    "fenceHeight": 1.443,
+    "roofSlope": 0.14,
+    "roofCoverEquation": "Y=3.06-0.14*Z",
+    "roofDeckEquation": "Y=3.02-0.14*Z",
+    "roofClearanceAtBackHeader": 2.15,
+    "groundFloor": 0,
+    "sourceFact": "Covered hog/sheep pens and repeat roof arrays are visible/identified in the period prints.",
+    "gameAdaptations": [
+      "4 x 4 m bay and 2 m service gate are architect defaults, retained because no useful atlas pen measurement was read.",
+      "Single-pitch roof, six horizontal boards, 1 m post/run pitch, timber trough, iron fittings, floor wear, bracing and roof-board carpentry are inferred.",
+      "Festive pen dressing and SWINE sign are owner-directed adaptations, not documentary evidence of a particular 1893 pen."
+    ],
+    "atlasInspection": "SY-ATLAS printed sheet 15 SKELETON, scan filename 00000028. Full displayed sheet inspected before any measurement. No printed scale suitable for pen measurement read. SY-1890 baseline 100 ft per inch applies to its perspective baseline; not used as a global image calibration."
+  },
+  "uncertainties": [
+    "City dates gate around 1875; NPS description says around 1879. Both predate 1893; no new exact completion date asserted.",
+    "Source period views are fronts or distant views. Masonry joints, rear treatment and hidden construction are simplified.",
+    "NPS restoration notes replacement of older sheet metal with oxidized copper in 1971. The brown roof skin does not assert a precise 1893 metal or fuel response.",
+    "Postcard framework material, cloth fiber, exact star count and the decoration event are unverified. Flag field is a reduced graphic motif.",
+    "Attached gatehouses, portcullis and side iron closure leaves are omitted from this art checkpoint.",
+    "Metre grid and native 2.12 m floor pitch are preserved. Landmark masonry is custom sculpted; no native wall or character is stretched."
+  ]
+}

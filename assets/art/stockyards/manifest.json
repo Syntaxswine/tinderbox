@@ -1,0 +1,73 @@
+{
+  "assetId": "stockyards",
+  "version": 1,
+  "baseCommit": "c855e627bdee963e930644839a60c027a03935de",
+  "proposalCommit": "812cffa900290a04524aa3bae32676cada0ba9cb",
+  "branch": "codex/modular-stockyard-art",
+  "hostThreeRevisionTested": "180",
+  "enginePin": "90054d07134116a5d9661f8318a76fe68f922aad",
+  "nativeProfile": {
+    "tile": 1,
+    "wallHeight": 2,
+    "wallThickness": 0.16,
+    "floorPitch": 2.12,
+    "slab": 0.12,
+    "bayWidth": 4,
+    "bayDepth": 4,
+    "serviceGateClearWidth": 2
+  },
+  "runtimeFiles": [
+    {
+      "path": "assets/art/stockyards/index.js",
+      "bytes": 21137,
+      "sha256": "bd72966d76f0abe67c7f222db681c42108dfc4532295e746c8c70d5cd0f7d2ee"
+    },
+    {
+      "path": "assets/art/stockyards/forms.js",
+      "bytes": 7250,
+      "sha256": "ba117fddaffc5df18f06f0cb1efd31c8c107433babdaa6b22f236427bbdea37f"
+    },
+    {
+      "path": "assets/art/stockyards/parts.js",
+      "bytes": 15862,
+      "sha256": "a7589eef97b421d0c42efe1f4e03bc6323c31584d14aed073332c13d9fb14756"
+    },
+    {
+      "path": "assets/art/stockyards/letters.js",
+      "bytes": 135356,
+      "sha256": "803e19b371f915c43b4feca8fbd8f316f14a0d6b7e1d2329fbc54d5585fc1315"
+    },
+    {
+      "path": "assets/art/stockyards/kit.json",
+      "bytes": 3275345,
+      "sha256": "ee98ee787239a1262859b964fd85b05e8d44c26253b1d10b6ae3e2baaee37f27"
+    },
+    {
+      "path": "assets/art/stockyards/LETTERING-OFL.txt",
+      "bytes": 4393,
+      "sha256": "e8d81ba3b06080b764626d4385f319344e102ddf2c08bb4209412ac22d695f69"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "vendor/nautilus-engine/90054d07134116a5d9661f8318a76fe68f922aad/packages/map-core/wall-runs.js",
+      "bytes": 8795,
+      "sha256": "6d01eb4b49d6ba20ae71e4bb2cab095c80e63be5d14b6ff43f509a9cfc76633d"
+    }
+  ],
+  "newDonorImports": [],
+  "sourceRecords": [
+    "art/source/stockyards/sources.json",
+    "art/source/stockyards/measurements.json"
+  ],
+  "lettering": {
+    "font": "Besley",
+    "sourceManifest": "assets/art/ui/typography/manifest.json",
+    "license": "assets/art/ui/typography/besley/OFL.txt",
+    "sourceSha256": "71f352d8859c787631a0978161d48497a72caa69dcae6996d6712a564df86c1e",
+    "adaptation": "Subset outline geometry of used uppercase letters. Original font is unchanged."
+  },
+  "geometry": "Original procedural geometry; historical scans are reference only, never runtime textures.",
+  "ownership": "Host Three, supplied materials and textures are borrowed. Default and cloned materials, all generated geometry and batching buffers are owned. dispose is idempotent; skins and gate angle changes reuse resources.",
+  "integration": "Candidate art provider. Production placement, gameplay, collisions, gate controls and fire behavior await the owner JPG review and later coder contract."
+}
