@@ -1,0 +1,202 @@
+{
+ "rules": {
+  "rate": 4,
+  "maxHeat": 4,
+  "lossInside": 2.5,
+  "lossPerOpenFace": 1,
+  "lossOutside": 2,
+  "up": 3,
+  "upDiagonal": 2,
+  "downDiagonal": 0.06,
+  "down": 0.04,
+  "pass": {
+   "glass": 0.05,
+   "timber": 0.02,
+   "masonry": 0.005
+  },
+  "glassBreaks": 1.6,
+  "reach": 3,
+  "radiantGain": 0.5,
+  "radiantEvery": 0.5,
+  "burstAt": 1.4,
+  "burstRadius": 1.5,
+  "fallPulse": 2.5
+ },
+ "fuels": {
+  "grass": {
+   "lightAt": 0.85,
+   "delay": 0.15,
+   "burnFor": 3,
+   "out": 0.7,
+   "radiates": 0.1
+  },
+  "oil": {
+   "lightAt": 0.6,
+   "delay": 0,
+   "burnFor": 14,
+   "out": 3
+  },
+  "clapboard": {
+   "lightAt": 1.1,
+   "delay": 5,
+   "burnFor": 25,
+   "out": 1
+  },
+  "roof": {
+   "lightAt": 1.1,
+   "delay": 3,
+   "burnFor": 60,
+   "out": 1
+  },
+  "frame": {
+   "lightAt": 1.3,
+   "delay": 3,
+   "burnFor": 60,
+   "out": 1.2
+  },
+  "furniture": {
+   "lightAt": 1.1,
+   "delay": 3,
+   "burnFor": 30,
+   "out": 1.5
+  },
+  "cloth": {
+   "lightAt": 0.8,
+   "delay": 0.5,
+   "burnFor": 10,
+   "out": 1
+  },
+  "lacquer": {
+   "lightAt": 0.5,
+   "delay": 0,
+   "burnFor": 4,
+   "out": 1.6
+  },
+  "coal": {
+   "lightAt": 1.6,
+   "delay": 15,
+   "burnFor": 300,
+   "out": 0.8
+  },
+  "embers": {
+   "lightAt": 0.7,
+   "delay": 0,
+   "burnFor": 8,
+   "out": 1,
+   "radiates": 0.1
+  }
+ },
+ "results": {
+  "1": {
+   "measure": "grass front speed, eight directions",
+   "value": "1.46 m/s, spread 3.4 %",
+   "target": "1.5 m/s, within 7 %",
+   "pass": true
+  },
+  "2": {
+   "measure": "lawn fire at the wall lights it",
+   "value": "1.53 s after the grass beside it",
+   "target": "under 2 s",
+   "pass": true
+  },
+  "3": {
+   "measure": "fire up a wall against along it",
+   "value": "0.7 m/s up, 0.26 m/s along: 2.7 to 1",
+   "target": "2.5 to 3.5 to 1",
+   "pass": true
+  },
+  "4": {
+   "measure": "one match on a wall: the room behind fully alight",
+   "value": "17.97 s",
+   "target": "10 to 20 s",
+   "pass": true
+  },
+  "5": {
+   "measure": "same: half the house alight",
+   "value": "36.23 s",
+   "target": "40 to 70 s",
+   "pass": false
+  },
+  "6": {
+   "measure": "same: flame in the house for",
+   "value": "122.5 s",
+   "target": "90 s or more",
+   "pass": true
+  },
+  "7": {
+   "measure": "same: first floor or roof part falls",
+   "value": "64.27 s (floor)",
+   "target": "between 60 and 150 s, when its support is spent",
+   "pass": true
+  },
+  "8": {
+   "measure": "a fire started upstairs reaches the ground floor",
+   "value": "ground floor first lit at 18 s; first fall to it at 16.2 s",
+   "target": "only after something falls, then within 5 s",
+   "pass": true
+  },
+  "9": {
+   "measure": "a kitchen fire against a dining-room fire",
+   "value": "half alight at 28.73 s against 33.27 s; oil burst at 0.1, 19.3 s against 17.6, 40 s; burning in the wreck at 300 s: [\"coal\"] against [\"coal\"]",
+   "target": "a stated, measured difference",
+   "pass": false
+  },
+  "10": {
+   "measure": "lawn fire across 0.5 m of paving",
+   "value": "does not cross",
+   "target": "does not cross",
+   "pass": true
+  },
+  "11": {
+   "measure": "a burning house lights the house 2 m beside it",
+   "value": "at 9.3 s",
+   "target": "yes, within 30 s of the facing wall burning",
+   "pass": true
+  },
+  "12": {
+   "measure": "the same across the street, 8 m",
+   "value": "no",
+   "target": "no",
+   "pass": true
+  },
+  "13": {
+   "measure": "a lantern is never a dud",
+   "value": "not tested: the scene has no stone plinth and the kernel has no lantern",
+   "target": "never a dud",
+   "pass": null
+  },
+  "14": {
+   "measure": "fuel ledger closes (laid - burnt - left)",
+   "value": "3.0e-7",
+   "target": "zero",
+   "pass": true
+  },
+  "15": {
+   "measure": "cost per step of 1/30 s, three houses",
+   "value": "5.62 ms mean; 4128 tiles, 2744 active at peak",
+   "target": "no more than today (3 to 5 ms per 1/60 s)",
+   "pass": true
+  },
+  "detail": {
+   "sittingRoom": {
+    "lit": 133,
+    "need": 132,
+    "last": 17.96666666666672,
+    "first": 0
+   },
+   "glassBroken": 28,
+   "oilBursts": [
+    40,
+    59.5
+   ],
+   "wreckAt300s": {
+    "fuelsBurning": 1,
+    "output": 0.8,
+    "classes": [
+     "coal"
+    ]
+   },
+   "facingWallFirstLit": 3.13
+  }
+ }
+}

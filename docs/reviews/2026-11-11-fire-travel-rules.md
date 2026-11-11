@@ -2,7 +2,7 @@
 
 - **Asked by the owner, 2026-11-11:** "i would like you to use your reasoning to come up with the rules for fire travel to implement."
 - **What this is:** a rule set, reasoned from the owner's decisions and from what three review rounds measured. It is a proposal for the architect's contract. The reviewer builds none of it.
-- **Not tested.** No rule here has been run, in the game or in the reference kernel. Every number is a starting value with a target it must meet; the targets are at the end, written before any trial so they cannot be bent to fit one.
+- **Trialled once, outside the game.** The rules as first written failed most of their targets. The section "Trial, 2026-11-11" gives the results and the corrections, which replace the matching text in the rules. The targets were written before the trial.
 - **Tree:** `c855e62`.
 
 ## What the rules must satisfy
@@ -177,6 +177,77 @@ To be measured on the shipped street with the review's probes, before any of thi
 | 14 | Same state under five frame schedules; ledger closes | Yes | Yes |
 | 15 | Simulation cost per frame, burning street | No more than today's | About 3 to 5 ms |
 
+## Trial, 2026-11-11: the rules run, and what they got wrong
+
+The owner asked for the trial ("Run the trial"). The rules were run in a stand-alone kernel on a scene built from the real Hopkins 15 plan: its rooms, windows, doors and stairs, a second house 2 m beside it and a third 8 m across. Evidence: [`evidence/fire-travel-rules-trial/`](evidence/fire-travel-rules-trial/README.md). It is not the game and nothing in the game changed.
+
+**As first written, the rules missed 11 of the 14 targets that could be tested.** After the corrections below they meet 12.
+
+| # | Target | First run, rules as written | After the corrections | |
+| --- | --- | --- | --- | --- |
+| 1 | Grass front 1.5 m/s, within 7 % | Did not spread from one tile | 1.46 m/s, spread 3.4 % | Met |
+| 2 | Lawn fire lights a wall in under 2 s | Never | 1.53 s | Met |
+| 3 | Up a wall against along it, 2.5 to 3.5 to 1 | 2.0 to 1 | 2.7 to 1 (0.70 m/s up, 0.26 m/s along) | Met |
+| 4 | The room behind the match fully alight, 10 to 20 s | Not by 20 s | 18.0 s | Met |
+| 5 | Half the house alight, 40 to 70 s | 13.3 s | 36.2 s | **Missed, by 4 s** |
+| 6 | Flame in the house for 90 s or more | 83.5 s | 122.5 s | Met |
+| 7 | First floor or roof part falls, 60 to 150 s | 28.6 s | 64.3 s | Met |
+| 8 | An upstairs fire reaches the ground floor only after something falls | 3.4 s, before any fall | 18.0 s, 1.8 s after embers fall down the stairwell | Met |
+| 9 | A kitchen fire differs from a dining-room fire | 8.9 s against 8.7 s | Half alight at 28.7 s against 33.3 s; the oil goes at 0.1 s against 17.6 s | **Weak: 4.5 s** |
+| 10 | Lawn fire does not cross 0.5 m of paving | Does not | Does not | Met |
+| 11 | The house 2 m beside a burning one catches | Never | 6 s after the facing wall is alight | Met |
+| 12 | The house 8 m across does not | Does not | Does not | Met |
+| 13 | A lantern is never a dud | | | Not tested: the scene has no stone plinth and the kernel no lantern |
+| 14 | The fuel ledger closes | Yes | Yes, to 3e-7 | Met |
+| 15 | Cost per frame no more than today | | 4.7 ms per step for three houses, 2,744 tiles active at the peak | **Not shown** |
+
+On 9: the trial's own pass mark was a 5 s difference, set before the run, and 4.5 s misses it. After 300 s the only thing still burning in either wreck is the coal. On 15: the kernel is unoptimised and the street has eight houses, so this says the cost is the same order as today's, not that it fits.
+
+### Corrections to the rules
+
+Each was found by a target failing. They replace the matching text above.
+
+| Rule | As written | Corrected | What showed it |
+| --- | --- | --- | --- |
+| 2 | A fuel lights when its tile reaches its lighting point | It chars first. Above its lighting point a fuel chars at a rate set by how hot the tile is, and lights after a delay: none for grass, oil and lacquer, 3 s for frame and furniture, 5 s for clapboard, 15 s for coal | Without it a wall lit in a tenth of a second per tile and the house was alight in 13 s |
+| 3 | Loss depends on enclosure | Kept, with a second requirement: **one burning tile must be able to light its neighbour alone.** Grass needed more output (0.7) and outdoor loss less (2 per second) | A single lit grass tile never spread |
+| 4 | Down 0.25, diagonally down 0.4 | **Down 0.04, diagonally down 0.06.** Up 3 and diagonally up 2 stand | Heat went down an open stairwell and lit the ground floor in 3.4 s |
+| 5 | Timber passes 0.1, glass 0.15 | **Timber 0.02, glass 0.05, masonry 0.005** | A fully burning room pushed enough through a 0.1 partition to light the next room at once |
+| 5, new | | **A surface lit from one side burns on that side** until it is burnt through. A burning partition, floor or door does not heat the room behind it | Partitions and ceilings were lighting the far room the moment they caught |
+| 5, new | | **A wall is one surface from storey to storey.** Fire climbs it past the floor that meets it | Fire stopped at each ceiling and the climb ratio stayed near 2 to 1 |
+| 5, new | | **Doors start shut,** as thinner timber than the partition round them | With every door open the rooms were one space |
+| 6 | Output over distance squared, 3 m | Kept, with a gain of 0.5, **grass and embers radiating a tenth of their output,** and reach used only between different things, not inside one building | At full strength a grass front crossed paving; inside a house it lit walls through floors |
+| 7 | Embers are a small, short fuel | **Embers give as much as clapboard for 8 s, and a fall gives a pulse of 2.5.** What falls lands on its own storey's floor if that still holds | Embers that fell down the stairwell lit nothing for 46 s |
+
+### The fuel table, as tuned
+
+| Class | Lights at | Char delay | Burns for | Output |
+| --- | ---: | ---: | ---: | ---: |
+| Grass | 0.85 | 0.15 s | 3 s | 0.7 (a tenth of it across a gap) |
+| Poured gas, lamp oil | 0.6 | 0 | 14 s | 3 |
+| Clapboard, partition, door | 1.1 | 5 s | 25 s (partition), 12 s (door) | 1 |
+| Roof | 1.1 | 3 s | 60 s | 1 |
+| Floor and frame timber | 1.3 | 3 s | 60 s | 1.2 |
+| Furniture | 1.1 | 3 s | 30 s | 1.5 |
+| Cloth, bedding | 0.8 | 0.5 s | 10 s | 1 |
+| Lacquer finish | 0.5 | 0 | 4 s | 1.6 |
+| Coal | 1.6 | 15 s | 300 s | 0.8 |
+| Embers | 0.7 | 0 | 8 s | 1 (a tenth across a gap) |
+
+### What the trial says about the rules
+
+- **Rooms do come out of tiles.** With shut doors, partitions that hold heat, and surfaces that burn on one side, the room behind the match is fully alight at 18 s while the house is at half only at 36 s. No rule names a room. The uncertainty flagged under Limits was about loss alone; it took the three face rules as well.
+- **The owner's "up easy, down by falling" holds.** A fire started upstairs did not reach the ground floor until embers fell, and the first floor came down at 64 s because its timber was spent, with no clock.
+- **Contents still matter less than the shell.** The kitchen's oil moved the half-alight time by 4.5 s. Stores are a small share of a house's fuel in this table; if the owner wants them to matter more, the amounts go up, not the rules.
+- **Target 5 is still missed.** The house reaches half alight 4 s early. More delay on clapboard would fix it and would break target 2; the honest state is that these two pull against each other at this tile size.
+
+### Limits of the trial
+
+- **One plan, one layout, no wind, no lawn round the houses** in the house runs. One run per case; the kernel has no randomness.
+- **The kernel was written and tuned by the same author as the rules,** in one sitting, with no independent review. Its faults found on the way (falling debris landing on the wrong storey, reach working through floors) were the author's own.
+- **Eleven numbers were changed to reach these results.** They are tuned to this scene and may not hold on another.
+- **Not tested:** lanterns and the other tools, the plinth, wind, a joined row, the landmark maps, and anything a player would see.
+
 ## What these rules decide, and what they leave to the owner
 
 They follow the owner's five answers of 2026-11-11 without change. They also propose a value for three of round 1's open decisions, which the owner has not yet ruled on and said "not yet" to starting:
@@ -191,7 +262,7 @@ They follow the owner's five answers of 2026-11-11 without change. They also pro
 
 ## Limits
 
-- **Untested.** The natural next step is to run these rules in the round 1 reference kernel against the fifteen targets and correct the numbers. That would be evidence only, in this worktree.
+- **Trialled in a kernel only,** by the author of the rules; see the trial section and its limits.
 - **The numbers are reasoned, not sourced.** No fire-science figure was looked up. Ratios between classes were set so the targets could plausibly be met.
 - **Rule 3's enclosure effect is the least certain.** If rooms do not go up together by loss alone, the fix is in the loss numbers, not a room rule.
 - **Cost.** A two-storey house is a few thousand tiles against about 480 sites today. Rule 12 keeps the visited set small, but target 15 has to be measured.
