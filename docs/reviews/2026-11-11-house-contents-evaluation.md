@@ -132,7 +132,7 @@ Four pictures, in [`evidence/house-contents-trial/pictures/`](evidence/house-con
 
 | # | Question | Options | Recommendation |
 | --- | --- | --- | --- |
-| 1 | How long should a house burn after one match? | About 20 s of flame, as now; or a minute or more, room by room | Longer. It does not conflict with "spread easily": the fire still catches at once, and it then has somewhere to go |
+| 1 | How long should a house burn after one match? | About 20 s of flame, as now; or a minute or more, room by room | **Decided by the owner, 2026-11-11: a minute or more.** The fire still catches at once; it then has somewhere to go |
 | 2 | Is a room a fire unit? | Yes; or keep the house as one graph of surfaces | Yes |
 | 3 | Can the bear put fire inside through a window? | Yes, lantern and flamethrower; lantern only; no | Yes, both |
 | 4 | Is furniture shown on the street? | Never; through windows and after a wall falls; always | Through windows and after a wall falls. Its cost in draw calls was not measured |
