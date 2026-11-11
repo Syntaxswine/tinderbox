@@ -88,7 +88,9 @@ The shipped code is correct here. Each breakage below passes all 291 tests today
 
 - **Fire goes both ways:** "real fire is bidirectional. heat rises and flame goes up easy, but also burning materials drop down and carry fire to lower levels." Up is heat and flame; down is burning material that falls and lights what it lands on. The Ashland pair already drops burning pieces (`src/simulation/cottage-fire.js:225-251`); the street's houses and round 1's reference lattice do not.
 
-The evaluation's section "The owner's decisions" gives the reviewer's reading of each. The tile answer points at the lattice of round 1; whether it settles round 1's open lattice decisions is the owner's to say.
+The evaluation's section "The owner's decisions" gives the reviewer's reading of each.
+
+**Rules, added 2026-11-11 at the owner's request.** [`2026-11-11-fire-travel-rules.md`](2026-11-11-fire-travel-rules.md) turns those answers into twelve rules for how fire travels on tiles, with a fuel table and fifteen targets. They are untested, and the owner has said "not yet" to starting the lattice, so treat them as the proposal to write a contract from when he says go. The tile answer points at the lattice of round 1; whether it settles round 1's open lattice decisions is the owner's to say.
 
 **Sequencing (the reviewer's recommendation; the owner's call).** In the proposed lattice each of these is a fuel class and an amount on one tile. In today's house graph each is a new kind of site with its own rules. The owner has not yet decided the lattice questions from round 1. The architect should say which way the contract goes before a coder starts, and should not let this wait behind Items 1 to 3.
 
