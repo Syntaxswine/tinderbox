@@ -12,6 +12,8 @@ Use a 4 by 4 m initial bay with a 2 m clear service gate as architect-selected g
 
 Use warm weathered wood, dull ironwork and restrained earth tones that read in Tinderbox's night lighting. Show the bare ground or paving as its own surface. A reused lantern can establish atmosphere in the preview. The first assembly needs only the pen structure and its fittings.
 
+The owner approved banners, ribbons and bunting as skins on November 10. Their direction carries the fair's jubilation into the city, including the stockyards, with an intentionally strange contrast around food production. Include a festive skin on both the pen and entrance gate and show it prominently in the JPG previews. Give the cloth pieces stable attachment points and replaceable material slots so the same treatment can extend to later city assets.
+
 ## Custom stockyard entrance
 
 Build the Union Stock Yard Gate's principal stone masses, central arch, flanking pedestrian arches, piers and characteristic ornament from the available period views. Preserve the real architectural proportions. The overall landmark can have its own dimensions while its attachment points follow the game's metre convention. Check clear passage against the current native characters and show the scale reference in the preview.
