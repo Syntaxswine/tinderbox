@@ -1,0 +1,144 @@
+done north-lawn
+done north-corner
+done south-lawn
+done hopkins-9-siding
+done hopkins-15-siding
+done monroe-middle-sash
+done monroe-brick
+done shop-floor
+done road
+done paving
+case                strike   flames out (s)  last collapse (s)  all quiet (s)  north lawn  south lawn  shop floor  houses lit  houses gone  drums  deaths  player hp  peak cells  peak sites
+------------------  -------  --------------  -----------------  -------------  ----------  ----------  ----------  ----------  -----------  -----  ------  ---------  ----------  ----------
+north-lawn          ignited  29.18           167.15             202.35         100%        0%          0%          3/8         3/8          2      -       20.2       667         614
+north-corner        ignited  37.52           170.72             206.1          100%        0%          0%          3/8         3/8          2      -       20.2       297         545
+south-lawn          ignited  39.27           177.05             212.27         0%          100%        0%          5/8         5/8          0      -       20.2       536         626
+hopkins-9-siding    ignited  42.02           179.55             214.85         0%          100%        0%          5/8         5/8          0      bear    0          811         504
+hopkins-15-siding   ignited  27.1            164.88             200.35         100%        0%          0%          3/8         3/8          2      bear    0          559         637
+monroe-middle-sash  ignited  38.6            176.6              211.93         0%          100%        0%          5/8         5/8          0      bear    0          463         692
+monroe-brick        blocked  0               -                  0              0%          0%          0%          0/8         0/8          0      -       100        0           0
+shop-floor          ignited  24.35           -                  24.35          0%          0%          100%        0/8         0/8          0      bear    0          237         0
+road                no-fuel  0               -                  0              0%          0%          0%          0/8         0/8          0      -       100        0           0
+paving              no-fuel  0               -                  0              0%          0%          0%          0/8         0/8          0      -       100        0           0
+
+Per-house first ignition (world s after the strike tick) / cause / burnout:
+
+north-lawn — open grass in front of the Ashland cottage
+house              first ignition  cause                    burnout   sections  burned
+-----------------  --------------  -----------------------  --------  --------  ------
+hopkins-twelve     10.6            ground-heat              167.15    16        1
+hopkins-fifteen    2.88            barrel:street-drum-east  160.08    25        1
+ashland-cottage    2.13            ground-heat              157.75    12        1
+hopkins-nine       never           -                        standing  0         0
+hopkins-thirteen   never           -                        standing  0         0
+monroe-row-house   never           -                        standing  0         0
+monroe-row-middle  never           -                        standing  0         0
+monroe-row-east    never           -                        standing  0         0
+
+north-corner — far NW corner of the north lawn
+house              first ignition  cause        burnout   sections  burned
+-----------------  --------------  -----------  --------  --------  ------
+hopkins-twelve     2.22            ground-heat  157.02    16        1
+hopkins-fifteen    8.62            ground-heat  165.23    25        1
+ashland-cottage    16.8            ground-heat  170.72    12        1
+hopkins-nine       never           -            standing  0         0
+hopkins-thirteen   never           -            standing  0         0
+monroe-row-house   never           -            standing  0         0
+monroe-row-middle  never           -            standing  0         0
+monroe-row-east    never           -            standing  0         0
+
+south-lawn — open grass behind Hopkins 13
+house              first ignition  cause        burnout   sections  burned
+-----------------  --------------  -----------  --------  --------  ------
+hopkins-twelve     never           -            standing  0         0
+hopkins-fifteen    never           -            standing  0         0
+ashland-cottage    never           -            standing  0         0
+hopkins-nine       4.2             ground-heat  159.37    20        1
+hopkins-thirteen   4.05            ground-heat  159.27    16        1
+monroe-row-house   9.13            ground-heat  165.13    28        1
+monroe-row-middle  15.55           ground-heat  172.35    28        1
+monroe-row-east    19.98           ground-heat  177.05    28        1
+
+hopkins-9-siding — documented east clapboard strike
+house              first ignition  cause           burnout   sections  burned
+-----------------  --------------  --------------  --------  --------  ------
+hopkins-twelve     never           -               standing  0         0
+hopkins-fifteen    never           -               standing  0         0
+ashland-cottage    never           -               standing  0         0
+hopkins-nine       0.48            surface-spread  155.17    20        1
+hopkins-thirteen   4.82            ground-heat     159.45    16        1
+monroe-row-house   13.33           ground-heat     168.48    28        1
+monroe-row-middle  18.17           ground-heat     175.03    28        1
+monroe-row-east    22.77           ground-heat     179.55    28        1
+
+hopkins-15-siding — documented east clapboard strike
+house              first ignition  cause           burnout   sections  burned
+-----------------  --------------  --------------  --------  --------  ------
+hopkins-twelve     9.83            ground-heat     164.88    16        1
+hopkins-fifteen    0.48            surface-spread  156.63    25        1
+ashland-cottage    3.48            ground-heat     157.45    12        1
+hopkins-nine       never           -               standing  0         0
+hopkins-thirteen   never           -               standing  0         0
+monroe-row-house   never           -               standing  0         0
+monroe-row-middle  never           -               standing  0         0
+monroe-row-east    never           -               standing  0         0
+
+monroe-middle-sash — documented north window sash strike
+house              first ignition  cause           burnout   sections  burned
+-----------------  --------------  --------------  --------  --------  ------
+hopkins-twelve     never           -               standing  0         0
+hopkins-fifteen    never           -               standing  0         0
+ashland-cottage    never           -               standing  0         0
+hopkins-nine       22              ground-heat     176.6     20        1
+hopkins-thirteen   12.38           ground-heat     167.5     16        1
+monroe-row-house   5.82            ground-heat     164.23    28        1
+monroe-row-middle  0.55            surface-spread  158.85    28        1
+monroe-row-east    2.92            ground-heat     163.25    28        1
+
+monroe-brick — bare Monroe brick beside that sash
+house              first ignition  cause  burnout   sections  burned
+-----------------  --------------  -----  --------  --------  ------
+hopkins-twelve     never           -      standing  0         0
+hopkins-fifteen    never           -      standing  0         0
+ashland-cottage    never           -      standing  0         0
+hopkins-nine       never           -      standing  0         0
+hopkins-thirteen   never           -      standing  0         0
+monroe-row-house   never           -      standing  0         0
+monroe-row-middle  never           -      standing  0         0
+monroe-row-east    never           -      standing  0         0
+
+shop-floor — timber floor inside Bell & Alder
+house              first ignition  cause  burnout   sections  burned
+-----------------  --------------  -----  --------  --------  ------
+hopkins-twelve     never           -      standing  0         0
+hopkins-fifteen    never           -      standing  0         0
+ashland-cottage    never           -      standing  0         0
+hopkins-nine       never           -      standing  0         0
+hopkins-thirteen   never           -      standing  0         0
+monroe-row-house   never           -      standing  0         0
+monroe-row-middle  never           -      standing  0         0
+monroe-row-east    never           -      standing  0         0
+
+road — the road itself
+house              first ignition  cause  burnout   sections  burned
+-----------------  --------------  -----  --------  --------  ------
+hopkins-twelve     never           -      standing  0         0
+hopkins-fifteen    never           -      standing  0         0
+ashland-cottage    never           -      standing  0         0
+hopkins-nine       never           -      standing  0         0
+hopkins-thirteen   never           -      standing  0         0
+monroe-row-house   never           -      standing  0         0
+monroe-row-middle  never           -      standing  0         0
+monroe-row-east    never           -      standing  0         0
+
+paving — the paved strip between lawn and road
+house              first ignition  cause  burnout   sections  burned
+-----------------  --------------  -----  --------  --------  ------
+hopkins-twelve     never           -      standing  0         0
+hopkins-fifteen    never           -      standing  0         0
+ashland-cottage    never           -      standing  0         0
+hopkins-nine       never           -      standing  0         0
+hopkins-thirteen   never           -      standing  0         0
+monroe-row-house   never           -      standing  0         0
+monroe-row-middle  never           -      standing  0         0
+monroe-row-east    never           -      standing  0         0

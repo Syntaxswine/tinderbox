@@ -1,0 +1,14 @@
+round 0: create HEAD 197.3 ms tip2 88.5 ms; at end burning cells HEAD 0 tip2 0, structure samples HEAD 0 tip2 0
+round 1: create HEAD 75.8 ms tip2 71 ms; at end burning cells HEAD 0 tip2 0, structure samples HEAD 0 tip2 0
+round 2: create HEAD 66.5 ms tip2 66.1 ms; at end burning cells HEAD 0 tip2 0, structure samples HEAD 0 tip2 0
+round 3: create HEAD 62.7 ms tip2 60.3 ms; at end burning cells HEAD 0 tip2 0, structure samples HEAD 0 tip2 0
+
+per advance(1/60), wall clock ms, 4 rounds, 120-step blocks alternated in one process
+phase               blocks   HEAD median   tip2 median   median paired ratio HEAD/tip2   [min..max ratio]
+idle                    32        0.9497        0.8625        1.102                     [1.02..1.18]
+flame                    4        3.8792        2.6219        1.479                     [1.43..1.53]
+burn 3-20s              32        2.8936        2.5153        1.126                     [0.98..1.45]
+burn 20-60s             80        1.6267        1.3497         1.11                     [0.95..1.55]
+burn 60-150s           180         1.237         1.125        1.096                     [0.97..1.34]
+collapse 150-200s      100        1.6751        1.5998        1.036                     [0.91..1.42]
+createSimulation median: HEAD 71.2 ms, tip2 68.6 ms

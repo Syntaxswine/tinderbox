@@ -1,0 +1,14 @@
+== 9a. Default street lawn fire: state digest at tick 1201 (20 s) under different frame partitions ==
+60 Hz                {"tick":1201,"digest":"e0621fa65a910493"}
+30 Hz                {"tick":1201,"digest":"e0621fa65a910493"}
+4 Hz hitch frames    {"tick":1201,"digest":"e0621fa65a910493"}
+irregular            {"tick":1201,"digest":"e0621fa65a910493"}
+60 Hz repeat         {"tick":1201,"digest":"e0621fa65a910493"}
+
+== 9b. Fuel ledger in the same fire plus a poured trail and a thrown lantern ==
+deposited: poured 0.36 lantern 0.3 burned 0.66 remaining 0 | worst ledger error (L) 1.38e-14
+surface: initial 461.258 burned 221.6 remaining 239.658 | worst error 1.59e-10 | gas inventory used 0.36 lanterns left 3
+
+== 9c. Event window (capacity 256): are events lost between consecutive frames in the big fire? ==
+60 Hz frames             | total events 6833 | max new events in one frame 20 | events never visible to a frame-by-frame view 0 in 0 frames
+0.25 s catch-up frames   | total events 6833 | max new events in one frame 128 | events never visible to a frame-by-frame view 0 in 0 frames

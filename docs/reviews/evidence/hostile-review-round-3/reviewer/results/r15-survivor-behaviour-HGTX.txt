@@ -1,0 +1,94 @@
+
+### H04-no-posts-rails-balusters
+  probe r07-lantern-dud-repro.mjs: 2 of 14 output lines differ
+      was: DUD  D  at the east porch post of Hopkins 13 from the lawn
+      now: fire D  at the east porch post of Hopkins 13 from the lawn
+      was: stance (19.88,26.5) range 3.5 m; preview (19.88,29.03) h=1.23; impact (19.88,29.03) h=1.23; pool laid 0 L; structure sites lit 0; ground cells lit 0; lanterns left 3
+      now: stance (19.88,26.5) range 3.5 m; preview (19.88,29.7) h=0.48; impact (19.88,29.7) h=0.48; pool laid 0 L; structure sites lit 188; ground cells lit 433; lanterns left 3
+  probe r04-lantern-sweep.mjs hopkins-4-13: 2 of 8 output lines differ
+      was: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 249, pool fire only 27, DUD 64, came to rest inside 0, preview != flight 0, never landed 0
+      now: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 256, pool fire only 27, DUD 57, came to rest inside 0, preview != flight 0, never landed 0
+      was: TOTAL HEAD: throws 340, structure lit 249, pool fire only 27, dud 64, inside 0, preview != flight 0
+      now: TOTAL HEAD: throws 340, structure lit 256, pool fire only 27, dud 57, inside 0, preview != flight 0
+  probe r05-flame-sweep.mjs hopkins-4-13: 4 of 5 output lines differ
+      was: HEAD hopkins-4-13 q0: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q0: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 59; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 55
+      was: HEAD hopkins-4-13 q1: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q1: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 59; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 55
+      was: HEAD hopkins-4-13 q2: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q2: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 59; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 55
+      was: HEAD hopkins-4-13 q3: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q3: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 59; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 55
+
+### H06-every-stair-tread-full-height
+  probe r04-lantern-sweep.mjs hopkins-4-13: no difference
+  probe r05-flame-sweep.mjs hopkins-4-13: no difference
+
+### H08-no-floor-slabs
+  probe r04-lantern-sweep.mjs hopkins-4-13: no difference
+  probe r04-lantern-sweep.mjs hopkins-4-09: no difference
+  probe r18-lantern-panel-census.mjs: no difference
+
+### G01-shapes-tested-as-bounding-boxes
+  probe r18-lantern-panel-census.mjs: 3 of 2 output lines differ
+      was: HEAD setback: 21 panels thrown at; that panel lit by the lantern 21; any structure lit 21; nothing lit at all 0; pool laid 0 L of 6.3 L thrown
+      now: HEAD setback: 21 panels thrown at; that panel lit by the lantern 19; any structure lit 19; nothing lit at all 2; pool laid 0 L of 6.3 L thrown
+      was: (none)
+      now: hopkins-4-09 q0 setback wall:0:2,1|3,0 from 3.25 m: impact h=1.396 pool 0 L, any structure lit false
+      was: (none)
+      now: hopkins-4-09 q0 setback wall:0:5,0|6,1 from 3 m: impact h=1.385 pool 0 L, any structure lit false
+  probe r05-flame-sweep.mjs hopkins-4-09: 21 of 5 output lines differ
+      was: HEAD hopkins-4-09 q0: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: HEAD hopkins-4-09 q0: shots 399 (skipped 15); heated wall panels 816 of which ILLEGIT 0; heated deck sections 67; OTHER sites 0; plainly exposed panels 391 of which MISSED 4; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      was: HEAD hopkins-4-09 q1: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: missed: wall:0:2,1|3,0:0 stance local(2.91,-0.89) world(19.41,14.11) heading 125deg distance 1.4
+      was: HEAD hopkins-4-09 q2: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: missed: wall:0:5,0|6,1:0 stance local(4.91,-0.89) world(21.41,14.11) heading 55deg distance 1.48
+      was: HEAD hopkins-4-09 q3: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: missed: wall:0:5,0|6,1:0 stance local(5.91,-0.89) world(22.41,14.11) heading 90deg distance 1.36
+      was: TOTAL HEAD: shots 1596, heated panels 3364, ILLEGIT 0, OTHER 0, exposed 1564, MISSED 0, never-heated wood panels 0/128, unconnected fans 0
+      now: missed: wall:0:5,0|6,1:0 stance local(5.91,-2.09) world(22.41,12.91) heading 90deg distance 2.54
+      was: (none)
+      now: HEAD hopkins-4-09 q1: shots 399 (skipped 15); heated wall panels 816 of which ILLEGIT 0; heated deck sections 67; OTHER sites 0; plainly exposed panels 391 of which MISSED 4; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+  probe r04-lantern-sweep.mjs hopkins-4-09: 6 of 8 output lines differ
+      was: HEAD hopkins-4-09 q0: throws 359 (stances skipped 9) -> structure lit 273, pool fire only 26, DUD 60, came to rest inside 0, preview != flight 0, never landed 0
+      now: HEAD hopkins-4-09 q0: throws 359 (stances skipped 9) -> structure lit 258, pool fire only 26, DUD 75, came to rest inside 0, preview != flight 0, never landed 0
+      was: dud: stance(26.09,15.91) dir(-1,0) range 2.8 impact world(23.484,15.91) h=0.361 local(6.984,0.91) pool=0
+      now: dud: stance(24.79,15.91) dir(-1,0) range 3.7 impact world(22.557,15.91) h=1.605 local(6.057,0.91) pool=0
+      was: dud: stance(26.09,15.91) dir(-1,0) range 3.7 impact world(22.593,15.91) h=0.36 local(6.093,0.91) pool=0
+      now: dud: stance(26.09,15.91) dir(-1,0) range 2.8 impact world(23.484,15.91) h=0.361 local(6.984,0.91) pool=0
+      was: dud: stance(27.59,15.91) dir(-1,0) range 4.3 impact world(23.497,15.91) h=0.36 local(6.997,0.91) pool=0
+      now: dud: stance(26.09,15.91) dir(-1,0) range 3.7 impact world(22.593,15.91) h=0.36 local(6.093,0.91) pool=0
+      was: dud: stance(27.59,15.91) dir(-1,0) range 5.2 impact world(22.602,15.91) h=0.36 local(6.102,0.91) pool=0
+      now: dud: stance(26.09,15.91) dir(-1,0) range 5 impact world(22.557,15.91) h=1.699 local(6.057,0.91) pool=0
+      was: TOTAL HEAD: throws 359, structure lit 273, pool fire only 26, dud 60, inside 0, preview != flight 0
+      now: TOTAL HEAD: throws 359, structure lit 258, pool fire only 26, dud 75, inside 0, preview != flight 0
+
+### T03-flame-end-height-always-drops
+  probe r05-flame-sweep.mjs hopkins-4-09: 4 of 5 output lines differ
+      was: HEAD hopkins-4-09 q0: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: HEAD hopkins-4-09 q0: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 80; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      was: HEAD hopkins-4-09 q1: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: HEAD hopkins-4-09 q1: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 80; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      was: HEAD hopkins-4-09 q2: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: HEAD hopkins-4-09 q2: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 80; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      was: HEAD hopkins-4-09 q3: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 69; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+      now: HEAD hopkins-4-09 q3: shots 399 (skipped 15); heated wall panels 841 of which ILLEGIT 0; heated deck sections 81; OTHER sites 0; plainly exposed panels 391 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/399, max rays 106
+  probe r05-flame-sweep.mjs hopkins-4-13: 4 of 5 output lines differ
+      was: HEAD hopkins-4-13 q0: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q0: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 62; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      was: HEAD hopkins-4-13 q1: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q1: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 62; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      was: HEAD hopkins-4-13 q2: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q2: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 62; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      was: HEAD hopkins-4-13 q3: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 60; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+      now: HEAD hopkins-4-13 q3: shots 378 (skipped 18); heated wall panels 797 of which ILLEGIT 0; heated deck sections 62; OTHER sites 0; plainly exposed panels 382 of which MISSED 0; ground-storey wood panels never heated by any shot 0/32; fans not connected 0/378, max rays 112
+  probe r17-grazing-flame.mjs: no difference
+
+### T04-lantern-volume-hit-also-asks-cottages
+  probe r07-lantern-dud-repro.mjs: no difference
+  probe r18-lantern-panel-census.mjs: no difference
+
+### X03-corner-trim-uses-box-distance
+  probe r05-flame-sweep.mjs hopkins-4-09: no difference
+  probe r05-flame-sweep.mjs hopkins-4-13: no difference

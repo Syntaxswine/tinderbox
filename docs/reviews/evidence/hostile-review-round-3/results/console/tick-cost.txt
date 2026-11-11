@@ -1,0 +1,16 @@
+Mean CPU ms per tick (user + system) on AMD Ryzen 7 5800X 8-Core Processor, Node v24.15.0. 60 Hz frame budget: 16.67 ms.
+"frame cpu" = one advance() = one step + one snapshot, which is what the game runs per rendered frame at 60 Hz.
+
+phase                                  burning cells  burning sites  step cpu  snapshot cpu  frame cpu  % of 60 Hz budget  step wall p50  snapshot wall p50
+-------------------------------------  -------------  -------------  --------  ------------  ---------  -----------------  -------------  -----------------
+idle street, nothing lit               0              0              0.76      0.57          1.32       8                  0.65           0.46
+lawn fire 0-4 s                        267            28             3.09      1.19          4.28       26                 2.07           0.78
+lawn fire 4-8 s                        269            322            2.85      1.77          4.62       28                 2.37           1.19
+lawn fire 8-12 s                       652            617            3.59      1.69          5.28       32                 3.31           1.59
+lawn fire 12-16 s                      668            610            3.64      1.7           5.33       32                 2.8            1.61
+lawn fire 16-20 s                      474            599            3.1       1.25          4.35       26                 2.32           1.48
+lawn fire 20-24 s                      129            368            2.15      1.04          3.19       19                 1.61           1.15
+lawn fire 24-28 s                      0              176            1.7       0.84          2.55       15                 1.34           0.89
+lawn fire 28-32 s                      0              16             1.69      0.52          2.21       13                 0.82           0.74
+lawn fire 32-36 s                      0              0              0.58      0.85          1.43       9                  0.72           0.71
+opening test street (20 x 16 m), idle  0              0              0.09      0             0.09       1                  0.05           0.01

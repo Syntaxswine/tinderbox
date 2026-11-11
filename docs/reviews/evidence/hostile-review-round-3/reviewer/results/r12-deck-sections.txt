@@ -1,0 +1,88 @@
+
+== HEAD c855e62
+(1) fronts vs perimeter
+    hopkins-4-12 q0 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+    hopkins-4-12 q0 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    hopkins-4-12 q1 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+    hopkins-4-12 q1 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    hopkins-4-15 q0 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+    hopkins-4-15 q0 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    hopkins-4-15 q1 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+    hopkins-4-15 q1 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    hopkins-4-09 q0 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+    hopkins-4-09 q0 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    hopkins-4-09 q1 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+    hopkins-4-09 q1 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    hopkins-4-13 q0 porch: 3 sections (3 x 1 m), sum of section areas 3 vs 3 m2, fronts 8, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+    hopkins-4-13 q0 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    hopkins-4-13 q1 porch: 3 sections (3 x 1 m), sum of section areas 3 vs 3 m2, fronts 8, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+    hopkins-4-13 q1 stairs: 1 sections (1.275 x 0.715 m), sum of section areas 0.9116 vs 0.9116 m2, fronts 4, total span 3.98 m vs perimeter 3.98 m, fronts off the outline 0, heights 0.32
+    monroe-row q0 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 1.06
+    monroe-row q0 stairs: 2 sections (1.275 x 1.375 m), sum of section areas 1.7531 vs 1.7531 m2, fronts 6, total span 5.3 m vs perimeter 5.3 m, fronts off the outline 0, heights 0.353/0.883
+    monroe-row q1 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 1.06
+    monroe-row q1 stairs: 2 sections (1.275 x 1.375 m), sum of section areas 1.7531 vs 1.7531 m2, fronts 6, total span 5.3 m vs perimeter 5.3 m, fronts off the outline 0, heights 0.353/0.883
+    ashland-worker q0 porch: 2 sections (2 x 1 m), sum of section areas 2 vs 2 m2, fronts 6, total span 6 m vs perimeter 6 m, fronts off the outline 0, heights 2.12
+    ashland-worker q0 stairs: 3 sections (1.275 x 2.695 m), sum of section areas 3.4361 vs 3.4361 m2, fronts 8, total span 7.94 m vs perimeter 7.94 m, fronts off the outline 0, heights 0.53/1.237/1.943
+    ashland-worker q1 porch: 2 sections (2 x 1 m), sum of section areas 2 vs 2 m2, fronts 6, total span 6 m vs perimeter 6 m, fronts off the outline 0, heights 2.12
+    ashland-worker q1 stairs: 3 sections (1.275 x 2.695 m), sum of section areas 3.4361 vs 3.4361 m2, fronts 8, total span 7.94 m vs perimeter 7.94 m, fronts off the outline 0, heights 0.53/1.237/1.943
+(2) match on one end of the deck, paving, 20 s: section@ignition time
+    hopkins-4-12 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+    hopkins-4-12 east end: tool-use:ignited:deck:porch:7 | porch:0@4.92 porch:1@4.22 porch:2@3.52 porch:3@2.82 porch:4@2.12 porch:5@1.42 porch:6@0.72 porch:7@0.02(matches) stairs@2.35 porch-post@5.55 | porch roof@6.48
+    hopkins-4-15 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 stairs@2.35 porch-post@0.65 | porch roof@1.58
+    hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@1.65 porch-post@2.75 | porch roof@3.48
+    hopkins-4-09 west end: tool-rejected:blocked: | porch:0@- porch:1@- stairs@- porch-post@- | porch roof@-
+    hopkins-4-09 east end: stance not legal (Invalid player spawn/tool)
+    hopkins-4-13 west end: stance not legal (Invalid player spawn/tool)
+    hopkins-4-13 east end: stance not legal (Invalid player spawn/tool)
+    monroe-row west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 stairs:0@2.42 stairs:1@1.65 porch-post@0.65 | porch roof@1.58
+    monroe-row east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@1.72 stairs:1@0.95 porch-post@1.35 | porch roof@2.28
+    ashland-worker west end: stance not legal (Invalid player spawn/tool)
+    ashland-worker east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@2.7 stairs:1@1.72 stairs:2@0.73 | porch roof@-
+(3) match on the stairs, paving, 20 s
+    hopkins-4-12: tool-use:ignited:deck:stairs | porch:0@4.35 porch:1@3.65 porch:2@2.95 porch:3@2.25 porch:4@1.55 porch:5@0.85 porch:6@1.55 porch:7@2.25 stairs@0.02(matches) porch-post@4.98 | porch roof@5.92
+    hopkins-4-15: tool-use:ignited:deck:stairs | porch:0@2.25 porch:1@1.55 porch:2@0.85 porch:3@1.55 stairs@0.02(matches) porch-post@2.88 | porch roof@3.62
+    hopkins-4-09: tool-use:ignited:deck:stairs | porch:0@1.55 porch:1@0.85 stairs@0.02(matches) porch-post@2.18 | porch roof@3.12
+    hopkins-4-13: tool-use:ignited:deck:stairs | porch:0@1.28 porch:1@0.58 porch:2@1.28 stairs@0.02(matches) porch-post@1.78 | porch roof@2.72
+    monroe-row: tool-use:ignited:deck:stairs:0 | porch:0@2.02 porch:1@1.32 stairs:0@0.02(matches) stairs:1@0.5 porch-post@2.65 | porch roof@3.58
+    ashland-worker: tool-use:ignited:deck:stairs:0 | porch:0@2.45 porch:1@1.75 stairs:0@0.02(matches) stairs:1@0.58 stairs:2@1.15 | porch roof@-
+(4) grass strip 1 m wide beside one END of the deck only, match on the grass, 25 s
+    hopkins-4-12 west end strip: tool-use:ignited:cell:30,30+cell:31,30+cell:30,31+cell:31,31 | porch:0@0.63(ground-heat) porch:1@1.33 porch:2@2.03 porch:3@2.73 porch:4@3.43 porch:5@4.13 porch:6@4.83 porch:7@5.53 stairs@5.07 porch-post@1.27 | porch roof@2.2
+    hopkins-4-12 east end strip: tool-use:ignited:cell:48,30+cell:49,30+cell:48,31+cell:49,31 | porch:0@5.53 porch:1@4.83 porch:2@4.13 porch:3@3.43 porch:4@2.73 porch:5@2.03 porch:6@1.33 porch:7@0.63(ground-heat) stairs@2.97 porch-post@6.17 | porch roof@7.1
+    hopkins-4-12 front strip under section 1 only: tool-use:ignited:cell:34,28+cell:35,28 | porch:0@1.8 porch:1@1.1(ground-heat) porch:2@1.8 porch:3@2.5 porch:4@3.2 porch:5@3.9 porch:6@4.6 porch:7@5.3 stairs@4.83 porch-post@2.43 | porch roof@3.37
+    hopkins-4-15 west end strip: tool-use:ignited:cell:34,28+cell:35,28+cell:34,29+cell:35,29 | porch:0@0.72(ground-heat) porch:1@1.42 porch:2@2.12 porch:3@2.82 stairs@3.05 porch-post@1.35 | porch roof@2.28
+    hopkins-4-15 east end strip: tool-use:ignited:cell:44,28+cell:45,28+cell:44,29+cell:45,29 | porch:0@2.82 porch:1@2.12 porch:2@1.42 porch:3@0.72(ground-heat) stairs@2.35 porch-post@3.45 | porch roof@3.05
+    hopkins-4-15 front strip under section 1 only: tool-use:ignited:cell:38,24+cell:39,24+cell:38,25+cell:39,25 | porch:0@1.65 porch:1@0.95(ground-heat) porch:2@1.65 porch:3@2.35 stairs@2 porch-post@2.28 | porch roof@3.22
+(5) Hopkins 12, match on the west end, each quarter turn
+    q0: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+    q1: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+    q2: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+    q3: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+
+== tip2 26931d9 (control)
+(2) match on one end of the deck, paving, 20 s: section@ignition time
+    hopkins-4-12 west end: tool-use:ignited:deck:porch | porch@0.02(matches) stairs@2.73 porch-post@2.27 | porch roof@3.2
+    hopkins-4-12 east end: tool-use:ignited:deck:porch | porch@0.02(matches) stairs@2.73 porch-post@2.27 | porch roof@3.2
+    hopkins-4-15 west end: tool-use:ignited:deck:porch | porch@0.02(matches) stairs@2.37 porch-post@1.13 | porch roof@2.07
+    hopkins-4-15 east end: tool-use:ignited:deck:porch | porch@0.02(matches) stairs@2.37 porch-post@1.13 | porch roof@2.07
+    hopkins-4-09 west end: tool-rejected:blocked: | porch@- stairs@- porch-post@- | porch roof@-
+    hopkins-4-09 east end: stance not legal (Invalid player spawn/tool)
+    hopkins-4-13 west end: stance not legal (Invalid player spawn/tool)
+    hopkins-4-13 east end: stance not legal (Invalid player spawn/tool)
+    monroe-row west end: tool-use:ignited:deck:porch | porch@0.02(matches) stairs@2.82 porch-post@0.75 | porch roof@1.68
+    monroe-row east end: tool-use:ignited:deck:porch | porch@0.02(matches) stairs@2.82 porch-post@0.75 | porch roof@1.68
+    ashland-worker west end: stance not legal (Invalid player spawn/tool)
+    ashland-worker east end: tool-use:ignited:deck:porch | porch@0.02(matches) stairs@2.73 | porch roof@-
+(3) match on the stairs, paving, 20 s
+    hopkins-4-12: tool-use:ignited:deck:stairs | porch@2.55 stairs@0.02(matches) porch-post@4.8 | porch roof@5.73
+    hopkins-4-15: tool-use:ignited:deck:stairs | porch@2.15 stairs@0.02(matches) porch-post@3.27 | porch roof@3.43
+    hopkins-4-09: tool-use:ignited:deck:stairs | porch@2.15 stairs@0.02(matches) porch-post@2.88 | porch roof@3.82
+    hopkins-4-13: tool-use:ignited:deck:stairs | porch@1.38 stairs@0.02(matches) porch-post@2.2 | porch roof@2.92
+    monroe-row: tool-use:ignited:deck:stairs | porch@2.38 stairs@0.02(matches) porch-post@3.12 | porch roof@3.6
+    ashland-worker: tool-use:ignited:deck:stairs | porch@1.97 stairs@0.02(matches) | porch roof@-
+(4) grass strip 1 m wide beside one END of the deck only, match on the grass, 25 s
+    hopkins-4-12 west end strip: tool-use:ignited:cell:30,30+cell:31,30+cell:30,31+cell:31,31 | porch@0.63(ground-heat) stairs@3.35 porch-post@2.88 | porch roof@3.82
+    hopkins-4-12 east end strip: tool-use:ignited:cell:48,30+cell:49,30+cell:48,31+cell:49,31 | porch@0.63(ground-heat) stairs@3.35 porch-post@2.88 | porch roof@3.82
+    hopkins-4-12 front strip under section 1 only: tool-use:ignited:cell:34,28+cell:35,28 | porch@1.1(ground-heat) stairs@3.82 porch-post@3.35 | porch roof@4.28
+    hopkins-4-15 west end strip: tool-use:ignited:cell:34,28+cell:35,28+cell:34,29+cell:35,29 | porch@0.72(ground-heat) stairs@3.07 porch-post@1.83 | porch roof@2.77
+    hopkins-4-15 east end strip: tool-use:ignited:cell:44,28+cell:45,28+cell:44,29+cell:45,29 | porch@0.72(ground-heat) stairs@3.07 porch-post@1.83 | porch roof@2.77
+    hopkins-4-15 front strip under section 1 only: tool-use:ignited:cell:38,24+cell:39,24+cell:38,25+cell:39,25 | porch@0.95(ground-heat) stairs@2.07 porch-post@2.07 | porch roof@3

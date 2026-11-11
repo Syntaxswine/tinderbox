@@ -1,0 +1,21 @@
+== 3a. Tool reach on Hopkins 9 east clapboard (paving only). plinth 0.48, wall L0 0.48..2.48, L1 2.60..4.60, roof up to 6.2 ==
+matches       {"total":284,"maxHeightAny":6.17,"toolCaused":[{"site":"wall:0:7,4|7,5:0","part":"walls","height":0.98,"cause":"matches"}],"maxHeightTool":0.98}  destroyed false
+torch         {"total":284,"maxHeightAny":6.17,"toolCaused":[{"site":"wall:0:7,4|7,5:0","part":"walls","height":0.98,"cause":"torch"}],"maxHeightTool":0.98}  destroyed false
+flamethrower  {"total":284,"maxHeightAny":6.17,"toolCaused":[{"site":"wall:0:6,3|6,4:0","part":"walls","height":0.98,"cause":"flamethrower"},{"site":"wall:0:7,4|7,5:0","part":"walls","height":0.98,"cause":"flamethrower"},{"site":"wall:0:7,5|7,6:0","part":"walls","height":0.98,"cause":"flamethrower"}],"maxHeightTool":0.98}  destroyed false
+molotov       {"total":284,"maxHeightAny":6.17,"toolCaused":[{"site":"wall:0:7,4|7,5:1","part":"walls","height":1.98,"cause":"molotov"}],"maxHeightTool":1.98} impact h=1.77 x=10.08 destroyed false
+molotov-high  {"total":284,"maxHeightAny":6.17,"toolCaused":[{"site":"wall:0:7,4|7,5:1","part":"walls","height":1.98,"cause":"molotov"}],"maxHeightTool":1.98} impact h=2.43 x=10.08 destroyed false
+
+== 3b. Does a burning house hurt? Player hugs the struck wall for the whole burn (default damage 18 HP/s). ==
+paving, structure fire only: house destroyed false at world 30.02 | player hp 100 | nearest flaming site (plan distance) 0.75 m | peak flaming sites within 2 m: 19
+CONTROL, burning gas under the player for 3 s: player hp 46
+
+== 3c. Burning gas next to a drum on paving ==
+CONTROL fixture gas line straight under the drum (dy=0)    | cells ignited  17 | exploded true
+fixture gas line 0.50 m beside the drum centre             | cells ignited  17 | exploded true
+fixture gas line 0.75 m beside the drum centre             | cells ignited  17 | exploded false
+REAL pour: player walks past at 0.90 m (closest possible 0.888) | cells ignited  19 | nearest fuelled cell centre 1 m | fuel in the 5 trigger cells 0 | exploded false | drum still present true
+REAL pour: player walks past at 1.00 m                     | cells ignited  19 | nearest fuelled cell centre 1 m | fuel in the 5 trigger cells 0 | exploded false | drum still present true
+
+== 3d. Lawn fire versus a wooden porch and stairs (Hopkins 12, porch spans the whole front) ==
+grass 10x4 m touching the porch front and stairs | grass cells burned 158 | peak siding/deck preheat fraction 1 | first structure ignition h12/deck:stairs cause=ground-heat t=1.85 | destroyed false
+CONTROL same-size grass against the west side wall | grass cells burned 160 | peak siding/deck preheat fraction 1 | first structure ignition h12/wall:0:0,2|0,3:0 cause=ground-heat t=2.43 | destroyed false

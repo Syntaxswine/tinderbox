@@ -76,7 +76,7 @@ Two readings beside the checks, neither a defect:
 | lawn fire 8 to 12 s | 4.10, 4.11 | 4.09, 3.90 |
 | lawn fire 12 to 16 s | 3.58, 3.01 | 3.96, 3.17 |
 
-  No measurable cost from either pass.
+  No cost that this instrument can see. **Corrected by [round 3](2026-11-10-hostile-review-round-3.md), S15:** these readings scatter by about 15 % between runs, and a paired measurement found the two passes cost about 10 % more per frame.
 
 ## Not checked
 
