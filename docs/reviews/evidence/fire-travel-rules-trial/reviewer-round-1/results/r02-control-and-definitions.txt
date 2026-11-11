@@ -1,0 +1,16 @@
+(a) CONTROL original kernel+scene vs reviewer copies, trial scene, 120 s: events 7857 vs 7857, identical log: true
+
+(b) target 4, "room fully alight" in trial.mjs = (count of lit EVENTS labelled with the room) >= fuelCount, time = the last such event.
+  fuelCount (taken before contents are added) = 132; lit events in room = 133; last at 17.97 s
+  stricter: every fuel object that started in the room has litAt set: 133 of 133; time of the last = 17.97 s
+  by class: frame x96 last 17.97; clapboard:wall x36 last 15.27; furniture x1 last 13.47
+
+  target 5, "half the house alight" in trial.mjs = the time of the (N/2)th lit EVENT in building A, where N = structural fuels only (contents excluded from N, included in events).
+  trial N = 1528, all fuels at start = 1545; cumulative-ignited half (all fuels) at 36.5 s; half BURNING AT ONCE first at 41.5 s; peak share burning at once 83.8 %
+
+  target 11 says "a FULLY BURNING house lights the house 2 m beside it". In the trial the match is struck on the wall that faces B.
+  B starts to char at 5.87 s with 37 of 1545 fuels (31 tiles) burning in A; max radiant on B 1.23
+  B lights at 9.3 s with 150 of 1545 fuels (120 tiles) burning in A = 9.7 % of the house; max radiant on B 1.92 (heat cap is 4)
+
+  target 8: first fall to ground floor 16.2 s (cause wall, from 23,21,2 to 23,21,0, carried []); first ground lit EVENT 18 s (clapboard at 23,21,1)
+  the falling thing is embers from a spent WALL/DOOR face, not a floor: 0.2 of a tile of embers made at the moment the face is spent

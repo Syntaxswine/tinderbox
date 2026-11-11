@@ -1,0 +1,39 @@
+(a) STRAIGHT grass front from a lit line, 120 m lawn (no curvature). Speed normal to the front, m/s:
+    front along the grid axis:  2-10 m 1.875, 10-30 m 1.875, 30-60 m 1.875
+    front along the diagonal:   2-10 m 1.768, 10-30 m 1.768, 30-50 m 1.717
+    steady axis 1.875 against diagonal 1.717 m/s: 8.8 % apart; against the 1.5 m/s target: axis 25 %, diagonal 14.4 %
+
+(b) target 2 (a lawn fire at a clapboard wall lights it in under 2 s after the grass beside it). Lawn 3 m all round, grass lit 2.5 m out from the middle of each side.
+    hopkins-4-15   x+  grass beside the wall lit 1.67 s   first fuel of the house lit 3.23 s   lag 1.57   that wall tile 3.23 s   house fuels lit by 25 s: 80
+    hopkins-4-15   x-  grass beside the wall lit 1.67 s   first fuel of the house lit 3.2 s    lag 1.53   that wall tile 3.2 s    house fuels lit by 25 s: 80
+    hopkins-4-15   y+  grass beside the wall lit 1.67 s   first fuel of the house lit 3.23 s   lag 1.57   that wall tile 3.23 s   house fuels lit by 25 s: 80
+    hopkins-4-15   y-  grass beside the wall lit 1.67 s   first fuel of the house lit 3.2 s    lag 1.53   that wall tile 3.2 s    house fuels lit by 25 s: 80
+    ashland-worker x+  grass beside the wall lit 1.67 s   first fuel of the house lit 3.23 s   lag 1.57   that wall tile 3.23 s   house fuels lit by 25 s: 52
+    ashland-worker x-  grass beside the wall lit 1.67 s   first fuel of the house lit 3.2 s    lag 1.53   that wall tile 3.2 s    house fuels lit by 25 s: 52
+    ashland-worker y+  grass beside the wall lit 1.67 s   first fuel of the house lit 3.23 s   lag 1.57   that wall tile 3.23 s   house fuels lit by 25 s: 52
+    ashland-worker y-  grass beside the wall lit 1.67 s   first fuel of the house lit 3.2 s    lag 1.53   that wall tile 3.2 s    house fuels lit by 25 s: 52
+    hopkins-4-09   x+  grass beside the wall lit 1.67 s   first fuel of the house lit 3.23 s   lag 1.57   that wall tile 3.23 s   house fuels lit by 25 s: 68
+    hopkins-4-09   x-  grass beside the wall lit 1.67 s   first fuel of the house lit 3.2 s    lag 1.53   that wall tile 3.2 s    house fuels lit by 25 s: 68
+    hopkins-4-09   y+  grass beside the wall lit 1.67 s   first fuel of the house lit 2.37 s   lag 0.7    that wall tile 3.23 s   house fuels lit by 25 s: 68
+    hopkins-4-09   y-  grass beside the wall lit 1.67 s   first fuel of the house lit 2.83 s   lag 1.17   that wall tile 3.23 s   house fuels lit by 25 s: 68
+    target 2 met in 12 of 12
+
+(c) Hopkins 15, the trial strike, neighbour B at 2 m, 200 s.
+scene                                                         4 room   5 half   half@once6 flame  7 fall       11 B     fuels
+as the trial (CONTROL)                                        17.97    36.5     41.5     122.5    64.27 floor  9.3      1545
+every door open                                               17.97    22.9     23       95.5     64.27 floor  9.3      1525
+no contents                                                   17.97    35.57    42       126      64.27 floor  9.3      1528
+furniture only                                                17.97    36.63    42       126      64.27 floor  9.3      1541
+all furniture lacquered                                       17.97    36.07    39       121      64.27 floor  9.3      1554
+plan shifted 0.125 m off the grid (glass faces 28 -> 0)       17.53    35.97    41       122      62.83 floor  7.73     1573
+match moved along the same wall to tile j = 0 (trial: 4)      21.93    38.9     42.5     125      62.83 floor  8.5      1545
+match moved along the same wall to tile j = 2 (trial: 4)      19.73    37.5     42.5     123.5    62.83 floor  7.7      1545
+match moved along the same wall to tile j = 6 (trial: 4)      16.93    35.13    38       121      62.83 floor  8.13     1545
+match moved along the same wall to tile j = 8 (trial: 4)      18.93    34.87    36       121      62.83 floor  7.83     1545
+match moved along the same wall to tile j = 10 (trial: 4)     21.2     34       36       120.5    62.83 floor  7.73     1545
+match moved along the same wall to tile j = 14 (trial: 4)     15.13    37.47    41       124.5    61.37 roof   8.03     1545
+match moved along the same wall to tile j = 18 (trial: 4)     15.47    41.27    44       127.5    61.17 roof   6.3      1545
+match on the same wall upstairs (k = 2)                       18.87    59.1     61.5     138      61.17 roof   6.33     1545
+
+(d) Rule 7: "A liquid does not wait for the floor to fail. Burning oil runs through a floor at once." Rule 8: "... and through any burnt floor".
+    a 3-tile can of oil upstairs (bed-b), furniture lit beside it: can bursts at 0.13 s over 23 tiles on k = 2; oil first reaches the ground storey at never (burnt out upstairs: 14 s per tile-full, floor needs 60 s)

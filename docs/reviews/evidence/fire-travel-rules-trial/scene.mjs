@@ -20,10 +20,9 @@ const hash = text => [...text].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0
 
 export function lawn(world, i0, j0, i1, j1) {
   for (let j = j0; j < j1; j++) for (let i = i0; i < i1; i++) {
-    if (world.tileAt(i, j, 0)) continue;
-    const tile = world.addTile(i, j, 0);
+    const tile = world.tileAt(i, j, 0) ?? world.addTile(i, j, 0);
+    if (tile.building || tile.fuels.length) continue;
     world.addFuel(tile, 'grass', 1);
-    tile.radiantTarget = true;
   }
 }
 export function paving(world, i0, j0, i1, j1) {
@@ -47,7 +46,7 @@ export function house(world, name, planId, ox, oy, contents = {}) {
     if (!rooms.has(label)) rooms.set(label, {label, floor: f, id: room.id, type: room.type, tiles: [], cells: []});
     const record = rooms.get(label);
     record.cells.push([ci, cj]);
-    for (const k of [2 * f, 2 * f + 1]) record.tiles.push(world.addTile(oi + ci, oj + cj, k, {inside: true, room: label, building: name}));
+    for (const k of [2 * f, 2 * f + 1]) record.tiles.push(world.addTile(oi + ci, oj + cj, k, {room: label, building: name}));
   }
   const onSegment = (segments, mx, mz) => segments?.some(([x0, z0, x1, z1]) =>
     Math.abs(x0 - x1) < 1e-6 ? Math.abs(mx - x0) < 1e-6 && mz > Math.min(z0, z1) && mz < Math.max(z0, z1)
@@ -96,20 +95,24 @@ export function house(world, name, planId, ox, oy, contents = {}) {
           if (k === k0 + 1 && onSegment(floor.windows, mx, mz)) { world.setFace(i, j, k, axis, step, 'glass'); continue; }
           const object = world.setFace(i, j, k, axis, step, 'timber');
           world.addFuel(tile, 'clapboard', 1, {face: {axis, step, object}});
-          tile.radiantTarget = true;
         }
       } else if (other !== room && step > 0) {
         // Partition between two rooms, built once from the lower-numbered side.
         if (openPairs.has(f + ':' + [room.id, other.id].sort().join('|'))) continue;
         const door = doorFaces.has([f, ci, cj, axis, step].join(':'));
         for (const [tile, k] of [[low, k0], [high, k0 + 1]]) {
-          // A door starts shut: thinner timber than the partition round it, so it burns through sooner.
+          // A door starts shut. It is its own fuel class, thinner than the partition round it.
           const object = world.setFace(i, j, k, axis, step, 'timber');
-          world.addFuel(tile, 'clapboard', door && k === k0 ? .5 : 1, {face: {axis, step, object}});
+          world.addFuel(tile, door && k === k0 ? 'door' : 'partition', 1, {face: {axis, step, object}});
         }
       }
     }
   }
+  // Outside air: one ring of empty tiles round the house on every layer, so the outside of a wall has a
+  // tile to burn into and to be warmed from. They hold nothing and carry no label.
+  const top = 2 * p.floors.length - 1, houseTiles = [...rooms.values()].flatMap(record => record.tiles);
+  for (const tile of houseTiles) for (let dj = -1; dj <= 1; dj++) for (let di = -1; di <= 1; di++) for (let k = 0; k <= top; k++)
+    if (!world.tileAt(tile.i + di, tile.j + dj, k)) world.addTile(tile.i + di, tile.j + dj, k);
   // Contents, by room type, at the room's middle cell.
   for (const record of rooms.values()) {
     const [ci, cj] = record.cells[Math.floor(record.cells.length / 2)];

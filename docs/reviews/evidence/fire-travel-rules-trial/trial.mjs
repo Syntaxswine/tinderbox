@@ -1,125 +1,119 @@
 // Runs the proposed fire-travel rules in the trial kernel against the targets in
 // docs/reviews/2026-11-11-fire-travel-rules.md. Evidence only; nothing here touches the game.
-//   node docs/reviews/evidence/fire-travel-rules-trial/trial.mjs [json of rule overrides] [json of fuel overrides]
+//   1. node docs/reviews/evidence/fire-travel-rules-trial/survey.mjs <plan>     (once per plan, six plans; a few minutes each)
+//   2. node docs/reviews/evidence/fire-travel-rules-trial/trial.mjs             (about ten minutes; reads the surveys)
+// Second version, after review round 1: targets 4 to 8 are counted over every plan and strike, not one;
+// grass is timed on steady fronts; the neighbour is lit from a house struck on its far side; cost is given
+// as mean, 95th centile and worst step.
 import fs from 'node:fs';
 import path from 'node:path';
-import {createWorld, DEFAULT_FUELS, DEFAULT_RULES, PITCH, LAYER, DT} from './kernel.mjs';
-import {lawn, paving, house} from './scene.mjs';
+import {DEFAULT_FUELS, DEFAULT_RULES} from './kernel.mjs';
+import {make, burn, house, lawn, paving, outsideWalls, strikesOf, round, quantile, PLANS, ALL, PITCH, LAYER} from './measure.mjs';
+import {grass} from './grass.mjs';
+import {pair} from './pair.mjs';
+import {bareWall} from './wall.mjs';
 
-const ruleOverrides = process.argv[2] ? JSON.parse(process.argv[2]) : {};
-const fuelOverrides = process.argv[3] ? JSON.parse(process.argv[3]) : {};
-const fuels = Object.fromEntries(Object.entries(DEFAULT_FUELS).map(([name, spec]) => [name, {...spec, ...fuelOverrides[name]}]));
-const make = () => createWorld({fuels, rules: ruleOverrides});
-const round = (v, d = 2) => v === null || v === undefined || !Number.isFinite(v) ? null : +v.toFixed(d);
-const run = (world, seconds, each) => { for (let n = Math.round(seconds / DT); n > 0; n--) { world.step(); each?.(); } };
-const firstLit = (world, test) => world.events.find(event => event.type === 'lit' && test(event))?.time ?? null;
-const ALL = {furniture: true, lacquer: 'some', oil: true, coal: true};
-const HOUSE = 'hopkins-4-15';
-const results = {};
+const dir = path.join(import.meta.dirname, 'results'), lines = [], results = {};
+const say = text => { lines.push(text); console.log(text); };
+const run = (world, seconds) => { for (let n = Math.round(seconds / world.dt); n > 0; n--) world.step(); };
+const range = list => list.length ? round(Math.min(...list)) + ' to ' + round(Math.max(...list)) : 'none';
+const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(n).padStart(2) + '  ' + verdict.padEnd(8) + text); };
 
-// 1. Grass front, eight directions.
+// 1. Grass.
 {
-  const world = make(); lawn(world, 0, 0, 81, 81);
-  world.ignite(world.tileAt(40, 40, 0));
-  run(world, 12);
-  const speeds = [];
-  for (let a = 0; a < 8; a++) {
-    const angle = a * Math.PI / 4, di = Math.round(12 * Math.cos(angle)), dj = Math.round(12 * Math.sin(angle));
-    const t = firstLit(world, e => e.at[0] === 40 + di && e.at[1] === 40 + dj);
-    speeds.push(t ? Math.hypot(di, dj) * PITCH / t : null);
+  const g = grass(), all = [g.axis, g.diagonal, g.point.min, g.point.max], ok = all.every(v => Math.abs(v - 1.5) <= .105);
+  report(1, ok ? 'MET' : 'MISSED', 'grass front: straight ' + round(g.axis, 3) + ' m/s along the grid, ' + round(g.diagonal, 3) + ' on its diagonal; from one tile, 32 directions timed from 6 m to 24 m out, '
+    + round(g.point.min, 3) + ' to ' + round(g.point.max, 3) + ' (mean ' + round(g.point.mean, 3) + ')   [target: every one within 7 % of 1.5, that is 1.395 to 1.605]');
+}
+// 2. A lawn fire lights the wall it reaches: three plans, four sides each.
+{
+  const waits = [];
+  for (const planId of ['hopkins-4-15', 'hopkins-4-12', 'ashland-worker']) for (const at of strikesOf(planId).filter(s => s.startsWith('wall') && !s.endsWith(':in'))) {
+    const world = make(), a = house(world, 'A', planId, 8, 8, {}), [, side, ci, cj] = at.split(':');
+    lawn(world, 0, 0, Math.round((16 + a.plan.width) / PITCH), Math.round((16 + a.plan.depth) / PITCH));
+    const wall = outsideWalls(world, a).find(w => w.side === side && w.tile.i === a.origin[0] + +ci && w.tile.j === a.origin[1] + +cj);
+    const n = side[0] === 'x' ? [side[1] === '+' ? 1 : -1, 0] : [0, side[1] === '+' ? 1 : -1];
+    world.ignite(world.tileAt(wall.outside.i + 6 * n[0], wall.outside.j + 6 * n[1], 0));
+    run(world, 15);
+    waits.push(wall.fuel.litAt !== null && wall.outside.fuels[0].litAt !== null ? wall.fuel.litAt - wall.outside.fuels[0].litAt : Infinity);
   }
-  const mean = speeds.reduce((a, b) => a + b, 0) / speeds.length;
-  results[1] = {measure: 'grass front speed, eight directions', value: round(mean) + ' m/s, spread ' + round(100 * (Math.max(...speeds) - Math.min(...speeds)) / mean, 1) + ' %',
-    target: '1.5 m/s, within 7 %', pass: Math.abs(mean - 1.5) <= .15 && (Math.max(...speeds) - Math.min(...speeds)) / mean <= .07};
+  report(2, waits.every(w => w < 2) ? (Math.max(...waits) > 1.9 ? 'EDGE' : 'MET') : 'MISSED', 'a wall lights ' + Math.min(...waits).toFixed(3) + ' to ' + Math.max(...waits).toFixed(3) + ' s after the grass against it, on ' + waits.length + ' walls of three plans   [target: under 2 s]');
 }
-// 10. Half a metre of paving.
+// 3. Up a wall against along it, on a free-standing wall with no floors or partitions.
 {
-  const world = make(); lawn(world, 0, 0, 20, 21); paving(world, 20, 0, 21, 21); lawn(world, 21, 0, 41, 21);
-  world.ignite(world.tileAt(2, 10, 0));
-  run(world, 30);
-  const crossed = firstLit(world, e => e.at[0] >= 21);
-  results[10] = {measure: 'lawn fire across 0.5 m of paving', value: crossed ? 'crosses at ' + round(crossed) + ' s' : 'does not cross', target: 'does not cross', pass: !crossed};
+  const {up, along, ratio} = bareWall();
+  report(3, ratio >= 2.5 && ratio <= 3.5 ? 'MET' : 'MISSED', 'bare wall, match at its foot: ' + round(up) + ' m/s up, ' + round(along) + ' m/s along, ' + round(ratio, 2) + ' to 1   [target: 2.5 to 3.5 to 1]');
 }
-// 2. Lawn fire reaches a clapboard wall.
+// 4 to 8: the survey.
 {
-  const world = make(); house(world, 'A', HOUSE, 6, 6); lawn(world, 4, 12, 12, 32);
-  world.ignite(world.tileAt(5, 22, 0));
-  run(world, 20);
-  const reach = firstLit(world, e => e.cls === 'grass' && e.at[0] === 11), wall = firstLit(world, e => e.cls === 'clapboard');
-  results[2] = {measure: 'lawn fire at the wall lights it', value: wall && reach ? round(wall - reach) + ' s after the grass beside it' : 'never', target: 'under 2 s', pass: wall !== null && wall - reach < 2};
+  const rows = PLANS.flatMap(planId => { const file = path.join(dir, 'survey-' + planId + '.json'); return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : []; });
+  const plansRead = new Set(rows.map(r => r.plan)).size;
+  const count = (list, test) => list.filter(test).length + ' of ' + list.length;
+  const verdict = (list, test) => !list.length ? 'NO DATA' : list.every(test) ? 'MET' : list.filter(test).length >= list.length / 2 ? 'PARTLY' : 'MISSED';
+  const walls = rows.filter(r => r.kind === 'wall'), wallsIn = rows.filter(r => r.kind === 'wall-in'), rooms = rows.filter(r => r.kind === 'room'), up = rows.filter(r => r.floor > 0), num = (list, f) => list.map(f).filter(v => v !== null);
+  say('    survey: ' + rows.length + ' strikes on ' + plansRead + ' plans (' + walls.length + ' outside walls with the match held outside, the same ' + wallsIn.length + ' with it held inside; ' + rooms.length + ' rooms, furniture lit)');
+  const t4 = r => r.room !== null && r.room >= 10 && r.room <= 20;
+  report(4, verdict(walls, t4), 'room behind the match fully alight: ' + count(walls, t4) + ' wall strikes in range; ' + range(num(walls, r => r.room)) + ' s, median ' + round(quantile(num(walls, r => r.room), .5))
+    + '. Match held inside the same walls: ' + count(wallsIn, t4) + ', ' + range(num(wallsIn, r => r.room)) + ' s, median ' + round(quantile(num(wallsIn, r => r.room), .5)) + '. Room strikes, for information: ' + range(num(rooms, r => r.room)) + ' s, median ' + round(quantile(num(rooms, r => r.room), .5)) + '   [target: 10 to 20 s]');
+  const t5 = r => r.half !== null && r.half >= 40 && r.half <= 70;
+  report(5, verdict(rows, t5), 'half the house alight: ' + count(rows, t5) + ' strikes in range (' + count(walls, t5) + ' wall outside, ' + count(wallsIn, t5) + ' wall inside, ' + count(rooms.filter(r => !r.floor), t5) + ' ground rooms, ' + count(up, t5) + ' upstairs rooms); '
+    + range(num(rows, r => r.half)) + ' s, median ' + round(quantile(num(rows, r => r.half), .5)) + '   [target: 40 to 70 s]');
+  const t6 = r => r.flameUntil >= 90;
+  report(6, verdict(rows, t6), 'flame in the house: ' + count(rows, t6) + ' strikes at 90 s or more; ' + range(num(rows, r => r.flameUntil)) + ' s   [target: 90 s or more]');
+  const t7 = r => r.firstFall !== null && r.firstFall >= 60 && r.firstFall <= 150;
+  report(7, verdict(rows, t7), 'first upper floor or roof part falls: ' + count(rows, t7) + ' in range; ' + range(num(rows, r => r.firstFall)) + ' s. This is the burn time of frame and roof timber (68 s) plus the time to light it   [target: 60 to 150 s]');
+  const before = r => r.groundLit !== null && (r.fallToGround === null || r.groundLit < r.fallToGround), within = r => r.groundLit !== null && r.fallToGround !== null && r.groundLit >= r.fallToGround && r.groundLit - r.fallToGround <= 5;
+  const lags = up.filter(r => r.groundLit !== null && r.fallToGround !== null).map(r => r.groundLit - r.fallToGround);
+  report(8, verdict(up, within), 'upstairs fires: ground floor lit before anything fell to it in ' + count(up, before) + '; lit within 5 s of the first fall in ' + count(up, within) + '; lag ' + range(lags) + ' s   [target: only after a fall, then within 5 s]');
+  results.survey = {strikes: rows.length, neverLitMax: Math.max(...rows.map(r => r.neverLit)), ledgerWorst: Math.max(...rows.map(r => Math.abs(r.ledger))), embersShare: range(rows.map(r => 100 * r.embersShare))};
 }
-// 3. Up a wall against along it.
+// 9. Kitchen against dining room, Hopkins 15, all contents.
 {
-  const world = make(); const a = house(world, 'A', HOUSE, 6, 6); const [oi, oj] = a.origin;
-  world.ignite(world.tileAt(oi, oj + 12, 0), 'clapboard');
-  run(world, 60);
-  const wallAt = (cj, k) => firstLit(world, e => e.cls === 'clapboard' && e.at[0] === oi && e.at[1] === oj + cj && e.at[2] === k);
-  const along = wallAt(18, 0), up = wallAt(12, 3);
-  const vAlong = along ? 3 / along : null, vUp = up ? 3 * LAYER / up : null;
-  results[3] = {measure: 'fire up a wall against along it', value: vUp && vAlong ? round(vUp) + ' m/s up, ' + round(vAlong) + ' m/s along: ' + round(vUp / vAlong, 1) + ' to 1' : 'did not reach (up ' + up + ', along ' + along + ')',
-    target: '2.5 to 3.5 to 1', pass: vUp && vAlong ? vUp / vAlong >= 2.5 && vUp / vAlong <= 3.5 : false};
+  const wreck = r => { const classes = {}; for (const tile of r.world.active) for (const fuel of tile.fuels) if (fuel.lit) classes[fuel.cls] = (classes[fuel.cls] ?? 0) + 1; return JSON.stringify(classes); };
+  const k = burn({at: 'room:0:kitchen', seconds: 300}), d = burn({at: 'room:0:dining', seconds: 300});
+  const burstAt = r => r.world.events.filter(e => e.type === 'burst').map(e => round(e.time, 1)).join(', ');
+  report(9, Math.abs(k.half - d.half) >= 5 ? 'MET' : 'WEAK', (k.half > d.half ? 'the kitchen fire takes the house more SLOWLY. ' : '') + 'kitchen fire: room alight ' + round(k.roomAll) + ' s, half the house ' + round(k.half) + ' s, oil bursts at ' + burstAt(k) + ' s; dining-room fire: ' + round(d.roomAll) + ' s, ' + round(d.half) + ' s, oil at ' + burstAt(d)
+    + ' s. Burning at 300 s: ' + wreck(k) + ' against ' + wreck(d) + '   [target: a stated difference; the trial\'s own mark is 5 s on half alight]');
 }
-// 4 to 7, 11, 12, 14, 15: one match on the sitting-room wall of a furnished house, a neighbour 2 m beside it, one 8 m across.
-function street(start, contents, seconds = 300) {
-  const world = make();
-  const a = house(world, 'A', HOUSE, 6, 6, contents); house(world, 'B', HOUSE, 18, 6); house(world, 'C', HOUSE, 6, 24);
-  const [oi, oj] = a.origin;
-  const t0 = world.time;
-  start(world, a, oi, oj);
-  let peakActive = 0, flameUntil = 0;
-  const began = performance.now();
-  run(world, seconds, () => {
-    if (world.active.size > peakActive) peakActive = world.active.size;
-    if (world.stats.ticks % 15 === 0) for (const tile of world.active) if (tile.building === 'A' && tile.fuels.some(f => f.lit && f.cls !== 'coal' && f.cls !== 'embers')) { flameUntil = world.time; break; }
-  });
-  const ms = (performance.now() - began) / world.stats.ticks;
-  const total = [...a.rooms.values()].reduce((n, r) => n + r.fuelCount, 0);
-  // Fuels move when they fall, so count ignitions from the event log by building.
-  const litTimes = world.events.filter(e => e.type === 'lit' && e.building === 'A').map(e => e.time).sort((x, y) => x - y);
-  const half = litTimes.length >= total / 2 ? litTimes[Math.ceil(total / 2) - 1] : null;
-  const room = label => { const times = world.events.filter(e => e.type === 'lit' && e.room === label); const need = a.rooms.get(label).fuelCount + (label.endsWith('living') ? 0 : 0); return {lit: times.length, need, last: times.length ? times.at(-1).time : null, first: times[0]?.time ?? null}; };
-  const fall = world.events.find(e => e.building === 'A' && (e.type === 'fall' && (e.cause === 'roof' || e.cause === 'floor' && e.from[2] > 0)));
-  const stillBurning = [...world.active].filter(tile => tile.building === 'A').flatMap(tile => tile.fuels.filter(f => f.lit));
-  return {world, a, t0, half, room, fall, flameUntil, ms, peakActive, tiles: world.tiles.size, total, litCount: litTimes.length,
-    firstB: firstLit(world, e => e.building === 'B'), firstC: firstLit(world, e => e.building === 'C'),
-    ledger: world.ledger.laid - world.ledger.burnt - world.remaining(),
-    wreck: {fuelsBurning: stillBurning.length, output: round(stillBurning.reduce((s, f) => s + world.fuels[f.cls].out, 0), 1), classes: [...new Set(stillBurning.map(f => f.cls))]},
-    glass: world.events.filter(e => e.type === 'glass' && e.building === 'A').length, bursts: world.events.filter(e => e.type === 'burst').map(e => round(e.time, 1))};
-}
+// 10. Paving.
 {
-  const s = street((world, a, oi, oj) => world.ignite(world.tileAt(oi + 19, oj + 4, 0), 'clapboard'), ALL);
-  const sitting = s.room('A/0:living');
-  results[4] = {measure: 'one match on a wall: the room behind fully alight', value: sitting.lit >= sitting.need ? round(sitting.last) + ' s' : sitting.lit + ' of ' + sitting.need + ' fuels lit; last at ' + round(sitting.last) + ' s', target: '10 to 20 s', pass: sitting.lit >= sitting.need && sitting.last >= 10 && sitting.last <= 20};
-  results[5] = {measure: 'same: half the house alight', value: s.half ? round(s.half) + ' s' : 'not reached (' + s.litCount + ' of ' + s.total + ')', target: '40 to 70 s', pass: s.half >= 40 && s.half <= 70};
-  results[6] = {measure: 'same: flame in the house for', value: round(s.flameUntil) + ' s' + (s.flameUntil >= 299 ? ' or more' : ''), target: '90 s or more', pass: s.flameUntil >= 90};
-  results[7] = {measure: 'same: first floor or roof part falls', value: s.fall ? round(s.fall.time) + ' s (' + s.fall.cause + ')' : 'nothing fell', target: 'between 60 and 150 s, when its support is spent', pass: !!s.fall && s.fall.time >= 60 && s.fall.time <= 150};
-  results[11] = {measure: 'a burning house lights the house 2 m beside it', value: s.firstB ? 'at ' + round(s.firstB) + ' s' : 'never', target: 'yes, within 30 s of the facing wall burning', pass: s.firstB !== null};
-  results[12] = {measure: 'the same across the street, 8 m', value: s.firstC ? 'at ' + round(s.firstC) + ' s' : 'no', target: 'no', pass: s.firstC === null};
-  results[14] = {measure: 'fuel ledger closes (laid - burnt - left)', value: s.ledger.toExponential(1), target: 'zero', pass: Math.abs(s.ledger) < 1e-6};
-  results[15] = {measure: 'cost per step of 1/30 s, three houses', value: round(s.ms, 2) + ' ms mean; ' + s.tiles + ' tiles, ' + s.peakActive + ' active at peak', target: 'no more than today (3 to 5 ms per 1/60 s)', pass: s.ms <= 10};
-  results.detail = {sittingRoom: sitting, glassBroken: s.glass, oilBursts: s.bursts, wreckAt300s: s.wreck, facingWallFirstLit: round(firstLit(s.world, e => e.building === 'A' && e.cls === 'clapboard' && e.at[0] === s.a.origin[0] + 19 && e.cause !== 'match'))};
+  const crossed = (build, far) => { const world = make(); build(world); world.ignite(world.tileAt(2, 10, 0)); run(world, 40); return world.events.find(e => e.type === 'lit' && far(e.at))?.time ?? null; };
+  const straight = crossed(world => { lawn(world, 0, 0, 20, 21); paving(world, 20, 0, 21, 21); lawn(world, 21, 0, 41, 21); }, at => at[0] >= 21);
+  const diagonal = n => crossed(world => { for (let j = 0; j < 41; j++) for (let i = 0; i < 41; i++) { const t = world.addTile(i, j, 0); if (i + j < 40 || i + j >= 40 + n) world.addFuel(t, 'grass', 1); } }, at => at[0] + at[1] >= 40 + n);
+  const d1 = diagonal(1), d2 = diagonal(2);
+  report(10, straight === null ? 'MET' : 'MISSED', 'lawn fire and 0.5 m of paving square to the grid: ' + (straight === null ? 'does not cross' : 'crosses at ' + round(straight) + ' s') + '. A diagonal strip one tile wide (0.35 m across): '
+    + (d1 === null ? 'does not cross' : 'CROSSES at ' + round(d1) + ' s') + '; two tiles wide (0.71 m): ' + (d2 === null ? 'does not cross' : 'CROSSES at ' + round(d2) + ' s') + '   [target: does not cross 0.5 m]');
 }
-// 8. A fire that starts upstairs.
+// 11, 12. The house next door.
 {
-  const s = street((world, a) => world.ignite(a.rooms.get('A/1:bed-a').centre, 'furniture'), {furniture: true}, 200);
-  const ground = firstLit(s.world, e => e.building === 'A' && e.at[2] < 2);
-  const fall = s.world.events.find(e => e.type === 'fall' && e.building === 'A' && e.from[2] >= 2 && e.to[2] < 2);
-  results[8] = {measure: 'a fire started upstairs reaches the ground floor', value: 'ground floor first lit at ' + round(ground) + ' s; first fall to it at ' + round(fall?.time) + ' s',
-    target: 'only after something falls, then within 5 s', pass: ground !== null && fall && ground >= fall.time && ground - fall.time <= 5};
+  const table = [];
+  for (const gap of [1, 2, 2.5, 3, 5, 8]) table.push(pair(gap, 'bare', 'wall:x-:0:10'));
+  table.push(pair(2, 'bare', 'room:0:kitchen'));
+  for (const gap of [3, 8]) table.push(pair(gap, 'lawn', 'wall:x-:0:10'));
+  for (const p of table) say('    gap ' + String(p.gap).padEnd(4) + p.ground.padEnd(5) + ' strike ' + p.at.padEnd(15) + ' neighbour ' + (p.neighbourLit === null ? 'never (200 s)' : 'lit at ' + round(p.neighbourLit) + ' s, ' + round(p.afterFacing) + ' s after A\'s facing wall first burnt')
+    + '; A half alight at ' + round(p.half) + ' s' + (p.grassLit !== null ? '; grass lit at ' + round(p.grassLit) + ' s' : ''));
+  const two = table.filter(p => p.gap === 2 && p.ground === 'bare'), eight = table.find(p => p.gap === 8 && p.ground === 'bare'), lawn8 = table.find(p => p.gap === 8 && p.ground === 'lawn');
+  report(11, two.every(p => p.afterFacing !== null && p.afterFacing <= 30) ? 'MET' : 'MISSED', 'bare ground, 2 m: the neighbour lights ' + two.map(p => round(p.afterFacing)).join(' and ') + ' s after the facing wall of the burning house first burns (match on its far wall, and in its kitchen). At 2.5 m and wider it never does   [target: yes, within 30 s]');
+  report(12, eight.neighbourLit === null ? (lawn8.neighbourLit === null ? 'MET' : 'PARTLY') : 'MISSED', '8 m: on bare ground ' + (eight.neighbourLit === null ? 'never' : 'lit at ' + round(eight.neighbourLit) + ' s') + '; with lawn between, ' + (lawn8.neighbourLit === null ? 'never' : 'lit at ' + round(lawn8.neighbourLit) + ' s, carried by the grass') + '   [target: no]');
+  results.pairs = table;
 }
-// 9. A kitchen fire against a dining-room fire, same furnished house.
+report(13, 'UNTESTED', 'a lantern is never a dud: the scene has no stone plinth and the kernel has no lantern');
+// 14. Ledger and time step.
 {
-  const kitchen = street((world, a) => world.ignite(a.rooms.get('A/0:kitchen').centre, 'furniture'), ALL);
-  const dining = street((world, a) => world.ignite(a.rooms.get('A/0:dining').centre, 'furniture'), ALL);
-  results[9] = {measure: 'a kitchen fire against a dining-room fire',
-    value: 'half alight at ' + round(kitchen.half) + ' s against ' + round(dining.half) + ' s; oil burst at ' + kitchen.bursts.join(', ') + ' s against ' + dining.bursts.join(', ') + ' s; burning in the wreck at 300 s: ' + JSON.stringify(kitchen.wreck.classes) + ' against ' + JSON.stringify(dining.wreck.classes),
-    target: 'a stated, measured difference', pass: kitchen.half !== null && dining.half !== null && Math.abs(kitchen.half - dining.half) >= 5};
+  const at = 'wall:x+:19:4', base = burn({at, seconds: 150}), fine = burn({at, seconds: 150, rules: {step: 1 / 60}}), coarse = burn({at, seconds: 150, rules: {step: 1 / 15}});
+  const s = results.survey;
+  report(14, s.ledgerWorst < 1e-6 ? 'PARTLY' : 'MISSED', 'fuel laid - burnt - left: worst ' + s.ledgerWorst.toExponential(0) + ' over ' + s.strikes + ' burns; no fuel is created (embers are the last ' + s.embersShare + ' % of what was laid, falling). "Same state under five frame schedules" is not tested: the kernel has one fixed step. '
+    + 'The step matters: at 1/60, 1/30 and 1/15 s a match outside the sitting-room wall of Hopkins 15 gives room alight ' + [fine, base, coarse].map(r => round(r.roomAll)).join(', ') + ' s and half the house ' + [fine, base, coarse].map(r => round(r.half)).join(', ') + ' s   [target: same state under five frame schedules; ledger closes]');
 }
-results[13] = {measure: 'a lantern is never a dud', value: 'not tested: the scene has no stone plinth and the kernel has no lantern', target: 'never a dud', pass: null};
-
-const order = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-console.log('rules: ' + JSON.stringify({...DEFAULT_RULES, ...ruleOverrides}));
-for (const n of order) { const r = results[n]; console.log(String(n).padStart(2) + '  ' + (r.pass === null ? '----' : r.pass ? 'PASS' : 'MISS') + '  ' + r.measure + ': ' + r.value + '   [target: ' + r.target + ']'); }
-console.log('detail: ' + JSON.stringify(results.detail));
-fs.mkdirSync(path.join(import.meta.dirname, 'results'), {recursive: true});
-fs.writeFileSync(path.join(import.meta.dirname, 'results', 'trial.json'), JSON.stringify({rules: {...DEFAULT_RULES, ...ruleOverrides}, fuels, results}, null, 1) + '\n');
+// 15. Cost.
+{
+  const one = burn({seconds: 150, timed: true}), width = one.a.plan.width;
+  const three = burn({seconds: 150, timed: true, at: 'room:0:hall', neighbours: [['B', 6 + width + 2, 6], ['C', 6, 6 + one.a.plan.depth + 2]], before: world => lawn(world, 0, 0, 70, 70)});
+  const show = r => round(r.cost.mean, 1) + ' ms mean, ' + round(r.cost.p95, 1) + ' ms 95th centile, ' + round(r.cost.max, 1) + ' ms worst, ' + r.peakActive + ' tiles active at peak';
+  report(15, 'MISSED', 'cost per step of 1/30 s over 150 s (one step covers two of today\'s 1/60 s frames): one house ' + show(one) + '; three houses on a lawn, all burning, ' + show(three) + '. Today\'s game: 3 to 5 ms per 1/60 s frame   [target: no more than today\'s]');
+}
+say('rules: ' + JSON.stringify(DEFAULT_RULES));
+say('fuels: ' + JSON.stringify(DEFAULT_FUELS));
+fs.mkdirSync(dir, {recursive: true});
+fs.writeFileSync(path.join(dir, 'trial.txt'), lines.join('\n') + '\n');
+fs.writeFileSync(path.join(dir, 'trial.json'), JSON.stringify({rules: DEFAULT_RULES, fuels: DEFAULT_FUELS, results}, null, 1) + '\n');

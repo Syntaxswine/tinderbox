@@ -1,0 +1,12 @@
+ms per step of 1/30 s. The game's figure today is 3 to 5 ms per FRAME of 1/60 s; a 1/30 s step lands on every second frame, so a step IS a frame's cost when it runs.
+houses  struck  tiles  mean   p50    p95    p99    max     >8.3ms  >16.7ms  peak active  peak burning  relinks/step  relink %  radiate %  ms/radiate  tiles scanned per radiate
+1       all     1376   2.28   0.4    10.47  15.49  27      424     31       1376         1113          173.4         78.8      6.2        2.3         1376
+3       all     4128   11.29  2.81   51.2   66.74  109.8   1344    1057     4128         3293          694           74.7      6.3        11.4        4128
+3       first   4128   7.25   0.68   37.38  51.58  77.3    2285    1555     3183         2280          486.2         81.1      4.8        5.6         4128
+8       all     11008  33.6   9.98   150.09 198.08 316.8   2387    1644     11008        8743          1836.7        68.6      6.9        37.2        11008
+8       first   11008  17.76  14.55  47.11  61.9   89.6    5394    4225     3183         2280          1058.4        81.2      5.1        14.5        11008
+
+eight houses, all struck: mean active tiles 5341.51, of which burning 3689.74, unlit but warm (heat > 0.05) 1503.41, neither 148.36; link sends per step 65404.64; tiles processed in phase 2 per step 5352.5; face changes over the run 9248
+every face change bumps one global faceVersion, and every active tile rebuilds its 26 links the next time it is touched: relinks per step 1836.7 = 34.4 % of the mean active set, every step.
+radiate() resets tile.rad by walking ALL 11008 tiles (11008 per call), burning or not, every 0.5 s.
+CONTROL three houses all struck with the relink timer off: mean 12.26 ms (timer on: 11.29 ms)
