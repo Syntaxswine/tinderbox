@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-hostile-round-3` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Floor-fire package review and promotion |
-| Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
+| Architect | `codex/furnished-house-proposal`, then `codex/review-furnished-house` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Furnished-house contract, combined replay and owner review |
+| Artist | Assigned `codex/furnished-house-art` from `c855e62` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Hopkins 15 geometry and furniture inventory, tile-driven presentation and replay art |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/house-floor-fire-footprints` from `968e88a` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Native floor fire support and targeted regressions |
+| Coder | Assigned `codex/furnished-house-runtime` from `c855e62` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | One-house tile simulation, replay runner, controls and checks |
 | UI designer | `codex/hostile-round-2-map` from `26931d9` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Ground-plan compatibility with editable records |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -93,6 +93,8 @@ TB-023 is the architect's source/geometry/visual acceptance and later integratio
 The user requested completed buildings as main-menu destinations and explicitly selected playable interiors/stairs, with nearby map sections loaded as needed. The user accepted the delayed Nautilus bear and requires selectable animals; the existing native goat, horse and AFT bear apply to every destination. [Milestone 08](milestones/08-explorable-places.md) assigns TB-024 to coder, TB-025 to UI, TB-026 to additive access art and TB-027 to architect. Frozen intake: New York `b689f55`, Administration `43337a3`, waterfront `c6ddd51` and Horticulture `c428733`. Three landmark visits and retained Catalogue Street share lifecycle. Worker branches preserve completed ignition/UI candidates; architect reconciles exact commits before the combined gate.
 
 ## Promotion gate
+
+The [furnished-house replay contract](milestones/18-furnished-house-replay.md) records the owner's November 11 authorization for one furnished two-storey prototype and a replay before game integration. It resolves the fire-rule conflicts and freezes the second reviewer trial as source evidence. The architect combines the coder and artist candidates for the owner's replay review. The stockyard and Hull-House art candidates retain their own intake records.
 
 The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-heat.md) records the gap, screen and short-burn controls and the packaged collapse and cooling sequence.
 

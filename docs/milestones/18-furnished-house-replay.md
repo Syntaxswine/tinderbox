@@ -1,0 +1,63 @@
+# Furnished two storey house replay
+
+The owner authorizes one furnished two-storey house, resolution of the proposed fire-rule conflicts, implementation by the coder and artist, and a replay for review before game integration. Deliver an actual animated WebGL prototype of native Hopkins 15. The architect owns combined acceptance and presentation of the replay.
+
+The runtime/art base is published `c855e627bdee963e930644839a60c027a03935de`. The source evaluation is frozen at reviewer commit `9b521a20d888a92197c75f03fbb75f762bf4ba67`, including `docs/reviews/2026-11-11-house-contents-evaluation.md`, `docs/reviews/2026-11-11-fire-travel-rules.md` and the second-version kernel and scene in `docs/reviews/evidence/fire-travel-rules-trial/`. The first trial was withdrawn. The second still misses some timing and peak-cost targets. Record selected source files and adaptations when reusing that experiment.
+
+## One house and its shared geometry
+
+Use the native `hopkins-4-15` model with both existing furnished floors, exact roof forms, internal partitions, windows and stair opening. The structural module is 1 by 1 by 2.12 m, comprising a 2 m wall and .12 m slab. Simulation cells may subdivide it at an initial .5 m horizontal pitch and 1.06 m layer height. These are prototype resolution choices. Actual surface polygons, wall thickness, floor elevations and clear openings remain measured in metres.
+
+The floor planes and their .12 m thickness define thermal support even where the art is a single surface with a slab rim. Use the real floor union and stair void. Place furniture fuels from the model's transforms and component bounds. Place a finite oil store and coal bin at documented prototype positions in the kitchen or pantry. Give every item a stable ID and explicit footprint, support and fuel amount. Keep paint or gloss separate from physical fuel.
+
+The existing native character profiles and navigation are the starting point for a short entrance, kitchen and stair route. Use the goat for the first passage check if its measured envelope fits the authored openings. Preserve native animal and building scale. Identify any opening that needs a composed module adaptation before changing it. The normal exterior shell, occupancy-triggered interior view and explicit x-ray view must agree on the house's state.
+
+## Resolved rules for this prototype
+
+1. **Tiles own thermal state and finite fuels.** Rooms and house IDs serve diagnostics and grouping. A thin finish is a separate finite fuel on its actual wooden item. All burn times and thresholds are tunable game values. The replay must sustain visible combustion for at least 60 world seconds after its initial ignition. Aim for 90 seconds or longer while the fire develops locally.
+
+2. **One boundary has one state.** Each wall, door, window, floor or roof patch has one canonical record shared by the tiles on its two sides. It carries physical bounds, conductance, fuel/support state and an opening fraction. Include native window positions, partial cells, sloped roofs and masonry. Cell resolution cannot fill an authored void or expand a wood surface onto stone.
+
+3. **A diagonal cannot bypass a wall.** A heat or tool segment tests every crossed boundary, including edge and corner ties, through a deterministic conservative crossing query. Apply the transmissions in that path. A change to a window, door or support invalidates affected cached paths. The same opening state drives the rendered geometry and relevant collision.
+
+4. **Transfer has a finite budget.** Fuel consumed in a fixed step supplies a declared heat budget. Divide the transported share over eligible local and radiant receivers, accounting for directional weights and transmission. The ceiling cap and ambient loss have explicit diagnostics. Redistribution beneath a ceiling spends the same available heat once. Settle heat for the step before advancing charring, ignition, support loss or spill events. Use a uniform calibrated ambient loss initially, with enclosure expressed by the boundary paths. Any more elaborate loss term needs a measured control.
+
+5. **Upward transfer is stronger and downward transfer is allowed.** Start from the second trial's directional weights and measure the resulting wall-climb ratio. Falling burning material is the main demonstrated route to the lower floor. The sealed-floor control must keep the lower fuel cold until a support failure and then show ignition within five seconds of a hot landing. Open stairs, windows and other paths have their own controls, with causes recorded. The sealed-floor criterion applies to that fixture.
+
+6. **Liquids need a traversable route.** Oil spreads over a supporting surface and through an actual opening or failed support. An intact solid floor holds it. Container failure and lantern impact redistribute the available oil; they cannot duplicate it or place it through an intervening closed wall. A heat pulse spends a declared amount from the event's energy budget. Record which tiles received the spill and why.
+
+7. **Ash, char and embers have distinct bookkeeping.** Fully spent ash is inert fuel residue and may retain stored heat. A glowing ember contains a tracked remainder of combustible material. Detaching it transfers that amount out of its parent. Contents and loose fuel falling through a hole retain their identities and remaining amount, burn while airborne if already lit, and land on the first actual support below. Count initial, added, burned, airborne, escaped and remaining fuel without double-counting transfers.
+
+8. **Structure follows its surviving support.** A support patch fails when its material reaches its declared failure condition. Retire that physical patch, release what it held and update local collision, visibility and heat paths together. Start with the second trial's support profile and remaining-ember fraction, recording both as prototype parameters. A house-wide collapse clock has no role in this fixture. Coal continues from its real location into the wreck and cools there as its fuel and heat decrease.
+
+9. **Radiation uses exposed paths, including windows.** A roof overhead does not by itself prevent a hot source from radiating through a clear aperture. Adapt the existing directional area-and-distance radiation logic where useful. Account for source area, incidence, occlusion and its share of the finite budget. Start with an 8 m query range for the bounded fixture and report dose at receivers 2 m and 8 m away. Cache geometry and process only affected neighborhoods, with a bounded amount of work per step. Do not claim a universal ignition distance from this one trial.
+
+10. **Tools and visible fire use the shared state.** Demonstrate a match heating one reachable tile, a flamethrower ray at its actual height, and a thrown lantern's trajectory, window contact and finite spill. A broken window opens the same boundary for the tool, fire and view. Correctly blocked impacts need clear feedback. Use the accepted wind sampler and world clock, including the powder clock relationship in a focused control.
+
+## Common workbench contract
+
+Keep the candidate under `workbenches/furnished-house/`. The coder owns the simulation, scene compilation, replay runner, HTML/controls, targeted checks and performance tooling. The artist owns `art.js`, `house-data.json`, its repeatable export recipe and source/visual evidence. Record any agreed API change in the handoff before changing a shared name.
+
+The artist's `house-data.json` has `version: 1`, `prefabId`, source hashes, and stable records for levels, physical surfaces, opening bounds/pivots, furniture parts and the two stores. Use X/Z on the ground and Y vertically. Polygons and bounds are in house-local metres. Export the actual geometry needed for support and navigation, with identified inferred closed slab faces. The coder compiles simulation cells from those records.
+
+The renderer exports `createFurnishedHouseArt(THREE, {renderer, data})`, asynchronously if loading the existing art libraries is necessary. It returns `root`, `update(frame, view)`, `diagnostics()` and `dispose()`. It consumes the supplied frame and controls presentation. Record ownership of created and borrowed resources.
+
+The coder's initial frame publishes version, world time and revision, live boundary/support records, current item/fall transforms, events, metrics and `fireSamples`. Fire samples follow the existing structural-fire fields `id`, `buildingId`, `part`, `x`, `y`, `z`, normal, area, flame, smoke and ignition time. Supply the fields needed to bound a floor flame to actual wood. Subsequent updates use stable IDs and changed records. The simulation owns opening, ignition, spill and failure decisions. The artist owns the exterior, cutaway and x-ray treatment, window glow/vent flame, smoke, burning objects and coal/rubble appearance from those decisions.
+
+Reuse approved flame, smoke and shared firelight modules. Batch or prioritize visible samples and keep the existing bounded light budget. Record aggregation so an attractive glow cannot hide a missing active source. Clip retired geometry and its shadows locally by live surface and level. Keep remaining upper floors and roofs visible until their own support fails.
+
+## Replay and proof
+
+The first replay starts with one match at the kitchen-side wall and shows the developing fire outside and in cutaway, the nearby oil store reacting, local floor/support failures, burning contents reaching the lower level and coal glowing in the wreck. Save the actual input script and snapshot/event trace so it can be repeated. A bedroom start with the same initial heat is the contents/location control. Report the local ignition sequence and resulting differences, including any counterintuitive whole-house timing.
+
+Provide Play/Pause, Reset, view selection and clearly labelled replay speed. Use world seconds on screen. Include a short usable route before ignition, and window-tool controls. Capture a portable animated replay plus representative JPGs from the real renderer. A condensed recording can run faster with its speed visible. The user receives these before any production integration assignment.
+
+Required checks include shared-face and diagonal barriers, native support/voids and levels, finite fuel and spill transfer, live support retirement, the kitchen/bedroom comparison, sealed-floor falling-fuel control, tool/window contacts, repeated reset/disposal, and identical state under five frame schedules through the fixed-step accumulator. Report the observer's fit and route. Keep a 1.5 m/s grass control and its directional error visible in the measurements.
+
+Measure the final combined browser replay at normal gameplay zoom. Compare its simulation and presentation CPU cost with a matched published one-house burn on the same hardware. Report mean, 95th centile and worst step, initialization separately, active counts, draw calls and light count. A recurring radiation-update stall must be corrected before presenting the result as a usable replay. Run the relevant existing regression checks and package/dependency checks appropriate to the standalone workbench. Capture errors and verify helper cleanup.
+
+## Worktrees and delivery
+
+Reuse the coder's `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` checkout on `codex/furnished-house-runtime` from the published base, preserving its completed floor-fire branch. Reuse the artist's `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` checkout on `codex/furnished-house-art` from the same base, preserving the stockyard and Hull-House candidates. The architect combines exact candidates on `codex/review-furnished-house` in the primary checkout.
+
+Put implementation notes in `docs/engineering/furnished-house/`, art sources/visual evidence in `art/source/furnished-house/` and `docs/art/furnished-house/`, and focused checks in task-specific test files. Keep imported experiment copies distinct from adaptations and preserve their hashes and notices. Each worker commits and pushes only their scoped candidate, returning exact SHA, paths, checks, trace/capture locations, parameters and remaining limitations. All disposable helpers require ownership, an expiry and verified cleanup. The architect reviews the actual combined replay and records its acceptance and remaining uncertainties for the owner.
