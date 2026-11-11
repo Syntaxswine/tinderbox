@@ -28,7 +28,9 @@ for (let i = 0; i < 12 / STEP; i++) {
   }
   snapshot = sim.advance(STEP);
 }
-const deck = structure.find(event => event.siteId.endsWith('/deck:porch'));
+// The deck is `deck:porch` on trees where it is one site and `deck:porch:<n>` where it is one per metre.
+const deck = structure.find(event => /\/deck:porch(:\d+)?$/.test(event.siteId));
+const deckSections = structure.filter(event => /\/deck:porch:\d+$/.test(event.siteId));
 const byHouse = ground.filter(event => event.cause === 'structure-siding');
 const firstWave = byHouse.length ? byHouse.filter(event => event.tick === byHouse[0].tick) : [];
 const span = events => events.length ? round(Math.max(...events.map(e => e.x)) - Math.min(...events.map(e => e.x)) + 0.5, 1) : 0;
@@ -38,6 +40,8 @@ const far = ground.find(event => event.x > 11 && event.y > 10 && event.y < 12.5)
 console.log('tree: ' + (process.argv[2] ? path.basename(root) + ' (given as an argument)' : 'this checkout'));
 console.log('match: ' + strike.result + ' at (' + strike.x + ', ' + strike.y + ')');
 console.log('porch deck ignites: ' + (deck ? round(deck.at) + ' s after the match, cause ' + deck.cause + ', parent ' + deck.parentSiteId : 'not within 12 s'));
+if (deckSections.length) console.log('deck sections, in order of ignition: '
+  + deckSections.map(event => event.siteId.split(':').at(-1) + ' at ' + round(event.at) + ' s').join(', '));
 console.log('ground cells lit by the house in its first tick of lighting ground: ' + firstWave.length + ', spanning ' + span(firstWave) + ' m east-west'
   + (firstWave.length ? ', at ' + round(firstWave[0].at) + ' s' : ''));
 console.log('ground cells lit by the house within 1 s of that tick: ' + (byHouse.length ? byHouse.filter(e => e.at <= byHouse[0].at + 1).length : 0));

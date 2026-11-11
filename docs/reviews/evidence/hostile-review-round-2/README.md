@@ -24,11 +24,14 @@ output and round 1's folder keeps its own. Three were changed or added:
 | --- | --- | --- | --- |
 | `porch-jump.mjs [tree]` | One real match at the west end of the Hopkins 12 porch: when the deck catches, and when lawn 8.5 m away beyond its east end catches and what lit it | N1 | seconds |
 | `setback-wall.mjs` | Matches, torch and flamethrower against a Hopkins 9 wall that stands 1.09 m inside the collision box, with a flush wall as the control | N2 | seconds |
+| `notch-walk.mjs` | Added for the re-check on `c855e62`: the bear walks at the Hopkins 9 notch wall, at a flush wall, and on open ground | N2 | metres |
 | `mutants-round-1-survivors.mjs` | Round 1's eleven surviving source mutants, plus two controls, against all 274 tests | S4 | about 10 min |
 | `art-cell-loops.mjs` | Rewritten. Every row now calls the game's own function with one shared cell reader, in three states: nothing lit, a lawn fire, and the control street. Round 1's version used hand copies for three rows and would not have seen the fix | The fixes' M5 row | seconds |
 | `browser-frame-cost.md` | The real game in a browser, old tree and new tree alternated in one session, each with the control street in the same page | S10 | manual |
 | `lattice-demo.mjs` | Unchanged apart from two labels that described the old snapshot | Proposal | about 3 min |
 | the other round 1 probes | As in [round 1's README](../hostile-review-round-1/README.md) | Round 1's findings, re-run | |
+
+`results/recheck-c855e62/` holds the outputs of the [re-check](../../2026-11-10-hostile-review-round-2-recheck.md) on `c855e62`, after Codex's corrections.
 
 `results/` holds the JSON each probe wrote on `26931d9`. `results/console/` holds each
 probe's printed output. `results/round-1-reviewer/` holds the output of round 1's reviewer

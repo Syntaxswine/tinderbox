@@ -239,13 +239,14 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed,radiation
       if(drop.landedAt!==null)continue;
       const age=time-drop.releaseTime, y=drop.fromY-.5*9.81*age*age, tile=lot.tiles[drop.tile];
       const layer=drop.layer==='roof'&&tile.upper?'upper':tile.lower?'lower':null;
-      const floor=layer==='upper'?UPPER:0;
+      const receiver=layer&&lot.byId.get(layer+':'+drop.tile);
+      const floor=receiver?.y??0;
       if(y>floor){drop.y=y+drop.half;continue;}
       const hitTime=drop.releaseTime+Math.sqrt(2*(drop.fromY-floor)/9.81);
       drop.y=floor+drop.half;drop.landedAt=hitTime;
       event('cottage-debris-contact',{x:lot.building.x+drop.x,y:lot.building.y+drop.z},
         {buildingId:lot.building.id,tile:drop.tile,layer,worldTime:hitTime,sourceId:drop.id});
-      if(layer)heat(lot,lot.byId.get(layer+':'+drop.tile),1.24,{kind:'falling-fuel',sourceId:drop.id});
+      if(receiver)heat(lot,receiver,1.24,{kind:'falling-fuel',sourceId:drop.id});
     }
     lot.drops=lot.drops.filter(d=>time-d.releaseTime<4);
   }
@@ -317,7 +318,8 @@ export function createCottageFire({buildings,obstacles,sampleWind,seed,radiation
       cells:lot.sites.filter(s=>s.ignitedAt!==null).map(s=>{
         const flame=burning(lot,s)?flameAt(s,time):0,age=time-s.ignitedAt;
         return {id:s.id,face:s.face,layer:s.layer,part:s.layer==='upper'||s.layer==='lower'?'ground':s.layer,tile:s.tile,
-          x:s.x,y:s.y,z:s.z,nx:s.nx,ny:s.ny,nz:s.nz,...s.anchor,ignitionTime:s.ignitedAt,parentId:s.parentId,
+          x:s.x,y:s.y,z:s.z,nx:s.nx,ny:s.ny,nz:s.nz,...s.anchor,
+          ...(s.floorRadius!==undefined?{floorRadius:s.floorRadius}:{}),ignitionTime:s.ignitedAt,parentId:s.parentId,
           cause:s.ignitionKind,...radiantSource(s),flame,smoke:flame*cap((age-.12)/.55)*.56};
       }),
       drops:lot.drops.map(d=>({id:d.id,kind:d.kind,x:d.x,y:d.y,z:d.z,rx:0,ry:.16,rz:d.landedAt===null?.23:0,

@@ -1,0 +1,32 @@
+
+================ this tree ================
+P1. Single 0.5 m grass cells against one receiver (grass cell burns 3.2 s; deck/siding ignite at heat 1.10)
+   porch, ONE cell at its west end        : burning cells lit 1 | highest preheat on any site 0.829 | no structure ignition
+   porch, TWO cells 7 m apart             : burning cells lit 2 | highest preheat on any site 0.829 | no structure ignition
+   porch, THREE cells, 3.5 m apart        : burning cells lit 3 | highest preheat on any site 0.829 | no structure ignition
+   east wall, TWO cells 5 m apart (control): burning cells lit 2 | highest preheat on any site 0.829 | no structure ignition
+   east wall, TWO cells on ONE panel (control): burning cells lit 2 | highest preheat on any site 1 | IGNITED h12/wall:0:8,2|8,3:0 at 1.733 s, parent cell:36,25
+P2. Fire crossing bare paving between two lawn patches (west patch lit at t=0)
+   along the 8 m porch front (bare paving between)   : first structure ignition deck:porch:0 at 0.633 s | far patch ignites at 6.667 s (cause structure-siding), 6.65 s after the west patch
+   CONTROL same patches joined by a 0.5 m lawn strip  : first structure ignition deck:porch:0 at 0.633 s | far patch ignites at 6.667 s (cause structure-siding), 6.65 s after the west patch
+   CONTROL along the east wall, 5 m of bare paving between: first structure ignition wall:0:8,0|8,1:0 at 0.95 s | far patch ignites at 6.083 s (cause structure-siding), 6.07 s after the west patch
+P3. One match on the deck, lawn all round the house
+   match result ignited on h12/deck:porch:2 | lawn cells lit by the house in 4 s: 41 | first wave: 2 cells in ONE tick (1.15 s), spanning 0.5 m east-west | all 41 within 2.83 s, spanning 8.5 m
+P4. The shipped street: lawn lit at the west end of the Hopkins 12 porch (porch x 3..11, y 10..12), full Catalogue Street
+   deck ignites at never | first lawn cell beyond the east end of the porch (8.5 m away) ignites 5.7 s after the west lawn, cause cell:21,24 => 1.5 m/s (a grass front moves 2 m/s)
+
+================ m5 720f7b6 (control) ================
+P1. Single 0.5 m grass cells against one receiver (grass cell burns 3.2 s; deck/siding ignite at heat 1.10)
+   porch, ONE cell at its west end        : burning cells lit 1 | highest preheat on any site 0 | no structure ignition
+   porch, TWO cells 7 m apart             : burning cells lit 2 | highest preheat on any site 0 | no structure ignition
+   porch, THREE cells, 3.5 m apart        : burning cells lit 3 | highest preheat on any site 0 | no structure ignition
+   east wall, TWO cells 5 m apart (control): burning cells lit 2 | highest preheat on any site 0.829 | no structure ignition
+   east wall, TWO cells on ONE panel (control): burning cells lit 2 | highest preheat on any site 0.829 | no structure ignition
+P2. Fire crossing bare paving between two lawn patches (west patch lit at t=0)
+   along the 8 m porch front (bare paving between)   : first structure ignition none | far patch NEVER ignites in 40 s
+   CONTROL same patches joined by a 0.5 m lawn strip  : first structure ignition none | far patch NEVER ignites in 40 s
+   CONTROL along the east wall, 5 m of bare paving between: first structure ignition wall:0:8,0|8,1:0 at 2 s | far patch ignites at 7.133 s (cause structure-siding), 7.12 s after the west patch
+P3. One match on the deck, lawn all round the house
+   match result ignited on h12/deck:porch | lawn cells lit by the house in 4 s: 0
+P4. The shipped street: lawn lit at the west end of the Hopkins 12 porch (porch x 3..11, y 10..12), full Catalogue Street
+   deck ignites at 5.967 s (cause surface-spread) | first lawn cell beyond the east end of the porch (8.5 m away) ignites 5.8 s after the west lawn, cause cell:21,24 => 1.5 m/s (a grass front moves 2 m/s)

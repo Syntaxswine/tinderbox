@@ -64,6 +64,16 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
 
   function onFace(cell, tx, tz, heading, along, rise, offset, sx, sy, sz, leanX, leanZ, color, alpha) {
     const travel = Math.max(0, rise) * .51;
+    if (cell.part === 'ground' && cell.floorRadius > 0) {
+      const dx = tx * along + cell.nx * offset + leanX * travel;
+      const dz = tz * along + cell.nz * offset + leanZ * travel;
+      // Bound the flame footprint, including tilt, at the splat shader's 2.6 sigma cutoff.
+      const spread = 2.6 * Math.hypot(sx, sz, sy * Math.hypot(leanX, leanZ));
+      const fit = Math.min(1, cell.floorRadius / (Math.hypot(dx, dz) + spread));
+      splat(cell.x + dx * fit, cell.y + rise + cell.ny * offset, cell.z + dz * fit,
+        sx * fit, sy, sz * fit, leanX * fit, leanZ * fit, heading, color, alpha);
+      return;
+    }
     splat(cell.x + tx * along + cell.nx * offset + leanX * travel,
       cell.y + rise + cell.ny * offset,
       cell.z + tz * along + cell.nz * offset + leanZ * travel,

@@ -51,10 +51,12 @@ test('real lawn fire heats the native porch and stairs, and a ground contact can
   try {
     let s;
     for(let n=0;n<10;n++)s=lawn.advance(.25);
-    for(const [id,tick] of [['h12/deck:stairs',111],['h12/deck:porch',117]]){
+    for(const [id,tick,height] of [['h12/deck:stairs',111,.32],['h12/deck:porch:4',146,.48]]){
       const event=s.events.find(event=>event.type==='structure-ignition'&&event.siteId===id);
       assert.equal(event?.cause,'ground-heat');
       assert.equal(event.tick,tick);
+      assert.equal(event.height,height);
+      assert.equal(event.part,'ground');
       assert.ok(event.parentSiteId.startsWith('cell:'));
     }
     const warm=post.advance(.25);
@@ -84,7 +86,9 @@ test('the clipped facing cone lights low porch fuel only while it is visible and
       const ignitions=s.events.filter(event=>event.type==='structure-ignition');
       if(target){
         assert.ok(s.discharge.rays.some(ray=>ray.obstacleId==='h12:'+target));
-        assert.deepEqual(ignitions.map(event=>[event.siteId,event.cause]),[['h12/deck:'+target,'flamethrower']]);
+        const local = target === 'stairs' ? ['stairs'] : ['porch:1', 'porch:2', 'porch:3'];
+        assert.deepEqual(ignitions.map(event => [event.siteId, event.cause]),
+          local.map(id => ['h12/deck:' + id, 'flamethrower']));
       }else{
         assert.deepEqual(ignitions,[]);
         assert.deepEqual(s.structureFire,[]);
@@ -92,6 +96,56 @@ test('the clipped facing cone lights low porch fuel only while it is visible and
       }
     } finally {sim.dispose();}
   }
+});
+
+test('isolated grass at either end of the porch warms only its own timber', () => {
+  const sim = fireOnly(porchScene({patches: [patch(10.5, 7.5, 'grass'), patch(17.5, 7.5, 'grass')],
+    ignitions: [10.75, 17.75].map(x => ({x, y: 7.75, heat: 3, radius: .01}))}));
+  try {
+    let snapshot;
+    for (let i = 0; i < 10; i++) snapshot = sim.advance(.25);
+    assert.deepEqual(snapshot.structureFire.map(site => site.id), ['h12/deck:porch:0', 'h12/deck:porch:7']);
+    assert.ok(snapshot.structureFire.every(site => site.heatFraction > 0 && site.heatFraction < 1));
+    for (let i = 0; i < 22; i++) snapshot = sim.advance(.25);
+    assert.ok(!snapshot.events.some(event => event.type === 'structure-ignition'));
+  } finally { sim.dispose(); }
+});
+
+test('crossing the paved porch gap requires spread through adjacent deck pieces', () => {
+  const sim = fireOnly(porchScene({patches: [{x: 8.5, y: 8, width: 1.5, depth: 2, material: 'grass'},
+    {x: 18, y: 8, width: 1.5, depth: 2, material: 'grass'}],
+    ignitions: [{x: 9.25, y: 9, radius: .3, heat: 3}]}));
+  try {
+    let snapshot;
+    for (let i = 0; i < 28; i++) snapshot = sim.advance(.25);
+    const deck = snapshot.events.filter(event => event.type === 'structure-ignition' &&
+      event.siteId.startsWith('h12/deck:porch:'));
+    assert.deepEqual(deck.map(event => event.siteId), Array.from({length: 8}, (_, i) => 'h12/deck:porch:' + i));
+    assert.equal(deck[0].cause, 'ground-heat');
+    for (let i = 1; i < deck.length; i++) {
+      assert.equal(deck[i].parentSiteId, deck[i - 1].siteId);
+      assert.ok(deck[i].tick > deck[i - 1].tick);
+    }
+    const arrival = snapshot.events.find(event => event.type === 'ignition' && event.x > 18);
+    assert.equal(arrival?.cause, 'structure-siding');
+    assert.ok(arrival.tick * step > 6.07);
+  } finally { sim.dispose(); }
+});
+
+test('one porch match lights a single deck piece and its local first ground wave', () => {
+  const sim = fireOnly(porchScene({patches: [{x: 0, y: 0, width: 28, depth: 24, material: 'grass'}],
+    player: {x: 12.5, y: 7.3, heading: Math.PI / 2, tool: 'matches'}}));
+  try {
+    sim.dispatch({type: 'aim', x: 12.5, y: 8.1});
+    const lit = press(sim);
+    assert.deepEqual(action(lit)?.cellIds, ['h12/deck:porch:2']);
+    sim.dispatch({type: 'primary', pressed: false});
+    let snapshot;
+    for (let i = 0; i < 8; i++) snapshot = sim.advance(.25);
+    const ignitions = snapshot.events.filter(event => event.type === 'ignition' && event.cause === 'structure-siding');
+    const first = ignitions.filter(event => event.tick === ignitions[0]?.tick);
+    assert.deepEqual(first.map(event => event.cellId), ['cell:24,15', 'cell:25,15']);
+  } finally { sim.dispose(); }
 });
 
 test('ordinary siding can ignite adjacent lawn while the same fuel across bare ground stays cold', () => {

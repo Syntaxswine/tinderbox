@@ -1,4 +1,11 @@
 const EPS = 1e-10;
+const elevatedByOwner = new WeakMap(), elevatedShapes = new WeakSet();
+export function setElevatedBlockers(box, volumes) {
+  for (const shape of volumes) elevatedShapes.add(shape);
+  elevatedByOwner.set(box, volumes);
+}
+export const elevatedBlockers = box => elevatedByOwner.get(box);
+export const isElevatedBlocker = box => elevatedShapes.has(box);
 export const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 export const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 export function normalized(x, y) {
@@ -42,7 +49,7 @@ export function discOverlapsObstacle(p, radius, o) {
   return o.kind === 'barrel' ? distance(p, o) < radius + (o.radius ?? o.width / 2) - EPS
     : pointBoxDistance(p, o) < radius - EPS;
 }
-function pointSegmentDistance(p, a, b) {
+export function pointSegmentDistance(p, a, b) {
   const dx = b.x - a.x, dy = b.y - a.y, length2 = dx * dx + dy * dy;
   const t = length2 > EPS * EPS ? clamp(((p.x - a.x) * dx + (p.y - a.y) * dy) / length2, 0, 1) : 0;
   return Math.hypot(p.x - a.x - dx * t, p.y - a.y - dy * t);
@@ -84,6 +91,24 @@ export function moveDisc(start, dx, dy, radius, world, obstacles, cellSize) {
   }
   return points;
 }
+export function clipConvexPolygon(polygon, planes) {
+  for (const [nx, ny, k] of planes) {
+    const next = [];
+    for (let i = 0; i < polygon.length; i++) {
+      const p = polygon[i], q = polygon[(i + 1) % polygon.length];
+      const a = nx * p.x + ny * p.y - k, b = nx * q.x + ny * q.y - k;
+      if (a >= 0) next.push(p);
+      if ((a >= 0) !== (b >= 0)) {
+        const t = a / (a - b);
+        next.push({x: p.x + (q.x - p.x) * t, y: p.y + (q.y - p.y) * t});
+      }
+    }
+    polygon = next;
+    if (polygon.length < 3) return [];
+  }
+  return polygon;
+}
+
 export function boxInterval(a, b, o) {
   let lo = 0, hi = 1;
   for (const [key, half] of [['x', o.width / 2], ['y', o.depth / 2]]) {
@@ -92,27 +117,46 @@ export function boxInterval(a, b, o) {
     else { const t0 = (min - a[key]) / delta, t1 = (max - a[key]) / delta;
       lo = Math.max(lo, Math.min(t0, t1)); hi = Math.min(hi, Math.max(t0, t1)); if (lo > hi) return null; }
   }
+  if (isElevatedBlocker(o)) for (const [nx, ny, k] of o.planes) {
+    const start = nx * a.x + ny * a.y - k, end = nx * b.x + ny * b.y - k;
+    if (start < -EPS && end < -EPS) return null;
+    if (start < -EPS) lo = Math.max(lo, start / (start - end));
+    if (end < -EPS) hi = Math.min(hi, start / (start - end));
+    if (lo > hi) return null;
+  }
   return [lo, hi];
 }
-export function firstHeatContact(from,to,obstacles,startHeight=0,endHeight=startHeight){
-  const epsilon=1e-8;
-  let first=null;
-  for(const object of obstacles){
-    if(object.destroyed||object.blocksHeat===false)continue;
-    for(const box of [object,...(object.heatBarriers||[])]){
-      const span=boxInterval(from,to,box);
-      if(!span||span[1]<=epsilon)continue;
-      let [lo,hi]=span;
-      const vertical=endHeight-startHeight,top=box.height+.05;
-      if(Math.abs(vertical)<epsilon){
-        if(startHeight<0||startHeight>top)continue;
-      }else{
-        const a=-startHeight/vertical,b=(top-startHeight)/vertical;
-        lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));
-        if(lo>hi||hi<=epsilon)continue;
-      }
-      if(!first||lo<first.t)first={t:lo,box};
-    }
+
+function heightInterval(span, from, to, bottom, top) {
+  let [lo, hi] = span;
+  const delta = to - from;
+  if (Math.abs(delta) < 1e-8) return from >= bottom && from <= top ? span : null;
+  const a = (bottom - from) / delta, b = (top - from) / delta;
+  lo = Math.max(lo, Math.min(a, b));
+  hi = Math.min(hi, Math.max(a, b));
+  return lo <= hi ? [lo, hi] : null;
+}
+
+function* toolBlockers(a, b, obstacles, elevated) {
+  for (const box of obstacles) {
+    if (box.destroyed || box.blocksHeat === false) continue;
+    const volumes = elevated && elevatedBlockers(box);
+    if (volumes) {
+      if (boxInterval(a, b, box)) yield* volumes;
+    } else yield box;
+    yield* box.heatBarriers ?? [];
+  }
+}
+
+export function firstHeatContact(from, to, obstacles, startHeight = 0, endHeight = startHeight) {
+  let first = null;
+  for (const box of toolBlockers(from, to, obstacles, startHeight > 0 || endHeight > 0)) {
+    const span = boxInterval(from, to, box);
+    if (!span || span[1] <= 1e-8) continue;
+    const elevated = isElevatedBlocker(box);
+    const interval = heightInterval(span, startHeight, endHeight, elevated ? box.bottom : 0, elevated ? box.top : box.height + .05);
+    if (!interval || interval[1] <= 1e-8 || first && interval[0] >= first.t) continue;
+    first = elevated ? {t: interval[0], box: box.owner, volume: box} : {t: interval[0], box};
   }
   return first;
 }
@@ -136,16 +180,32 @@ export function lineClear(a, b, obstacles, {ignoreBarrels = true, allowWoodEndpo
   }
   return true;
 }
-export function impactPoint(a, b, obstacles, {startHeight = 0, endHeight = startHeight} = {}) {
-  let reach = 1;
-  for (const o of obstacles.flatMap(object => object.destroyed || object.blocksHeat === false ? [] : [object, ...(object.heatBarriers || [])])) {
-    if (o.destroyed || o.blocksHeat === false) continue;
-    const span = boxInterval(a, b, o);
-    if (span && span[1] > EPS) {
-      const low = Math.min(startHeight + (endHeight - startHeight) * span[0], startHeight + (endHeight - startHeight) * span[1]);
-      if (low <= o.height + 0.05) reach = Math.min(reach, Math.max(0, span[0] - 0.002));
+export function impactContact(a, b, obstacles, startHeight, endHeight) {
+  let first = null;
+  for (const box of toolBlockers(a, b, obstacles, startHeight > 0 || endHeight > 0)) {
+    if (box.destroyed || box.blocksHeat === false) continue;
+    const span = boxInterval(a, b, box);
+    if (!span || span[1] <= EPS) continue;
+    let t = span[0];
+    const elevated = isElevatedBlocker(box);
+    if (elevated) {
+      const interval = heightInterval(span, startHeight, endHeight, box.bottom, box.top);
+      if (!interval || interval[1] <= EPS) continue;
+      t = interval[0];
+    } else {
+      // Keep the legacy swept hit for other obstacles and the ground field.
+      const delta = endHeight - startHeight;
+      const low = Math.min(startHeight + delta * span[0], startHeight + delta * span[1]);
+      if (low > box.height + .05) continue;
     }
+    if (first && t >= first.t) continue;
+    first = {t, travel: Math.max(0, t - .002), box: elevated ? box.owner : box, volume: elevated ? box : null};
   }
+  return first;
+}
+
+export function impactPoint(a, b, obstacles, {startHeight = 0, endHeight = startHeight} = {}) {
+  const reach = impactContact(a, b, obstacles, startHeight, endHeight)?.travel ?? 1;
   return {x: a.x + (b.x - a.x) * reach, y: a.y + (b.y - a.y) * reach};
 }
 // Exact line/grid intersection lengths. Handles diagonals and negative travel.

@@ -35,6 +35,17 @@ export function mapView(snapshot) {
 }
 
 const boxPath = boxes => boxes.map(b => 'M'+b.x+' '+b.y+'h'+b.width+'v'+b.height+'h'+(-b.width)+'Z').join('');
+const listsWithMutableRecords = new WeakSet();
+const mayBeImmutable = records =>
+  Array.isArray(records) && !listsWithMutableRecords.has(records) && Object.isFrozen(records);
+
+function isImmutableRecordList(records) {
+  if (!mayBeImmutable(records)) return false;
+  if (records.every(Object.isFrozen)) return true;
+  listsWithMutableRecords.add(records);
+  return false;
+}
+
 export function mountMap(element,{label='Ground plan',playerLabel='Bear'}={}) {
   const doc = element.ownerDocument, ns = 'http://www.w3.org/2000/svg';
   const svg = doc.createElementNS(ns,'svg'); svg.setAttribute('aria-hidden','true'); svg.setAttribute('preserveAspectRatio','xMidYMid meet');
@@ -74,6 +85,10 @@ export function mountMap(element,{label='Ground plan',playerLabel='Bear'}={}) {
         const cell = cells[index];
         const previousCell = previous?.[index];
         if (previousCell === cell) continue;
+        if (!Object.isFrozen(cell)) {
+          listsWithMutableRecords.add(cells);
+          return false;
+        }
         if (!isBurning(cell)) {
           if (burningByIndex.delete(index)) changed = true;
           continue;
@@ -88,6 +103,7 @@ export function mountMap(element,{label='Ground plan',playerLabel='Bear'}={}) {
       const indices = [...burningByIndex.keys()].sort((a,b) => a-b);
       drawFire(indices.map(index => burningByIndex.get(index)));
     }
+    return true;
   }
 
   function update(snapshot) {
@@ -98,16 +114,15 @@ export function mountMap(element,{label='Ground plan',playerLabel='Bear'}={}) {
     const tiles = snapshot.world.tiles ?? empty, obstacles = snapshot.world.obstacles ?? empty, cells = snapshot.cells ?? empty;
     if (tiles !== frozenTiles) {
       updateTerrain(tiles);
-      frozenTiles = Object.isFrozen(tiles) ? tiles : undefined;
+      frozenTiles = isImmutableRecordList(tiles) ? tiles : undefined;
     }
     if (obstacles !== frozenObstacles) {
       const outlines = boxPath(projectObstacles(obstacles));
       if (outlines !== buildingSignature) { buildings.setAttribute('d',outlines); buildingSignature=outlines; }
-      frozenObstacles = Object.isFrozen(obstacles) ? obstacles : undefined;
+      frozenObstacles = isImmutableRecordList(obstacles) ? obstacles : undefined;
     }
     if (cells !== frozenCells || map.cellSize !== lastCellSize) {
-      if (Object.isFrozen(cells)) {
-        updateFrozenFire(cells,map.cellSize);
+      if (mayBeImmutable(cells) && updateFrozenFire(cells,map.cellSize)) {
         frozenCells = cells;
       } else {
         drawFire(projectFire(cells,map.cellSize));

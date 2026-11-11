@@ -4,12 +4,12 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-hostile-round-1` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Hostile review corrections, combined checks and promotion |
+| Architect | `codex/review-hostile-round-3` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Floor-fire package review and promotion |
 | Artist | `codex/chicago-1893-uniform-art` from `92e8ec0` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Six-piece Chicago patrol uniform fitted to the native goat |
-| Art review helper | `codex/hostile-review-art` from `4fc97bb` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Fire, ground and geometry snapshot consumers |
-| Coder | `codex/hostile-review-runtime` from `4fc97bb` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Snapshot publication and fire contact |
-| UI designer | `codex/hostile-review-map` from `4fc97bb` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Ground plan snapshot consumer |
-| Reviewer (Claude) | `claude/hostile-review` from `4fc97bb`, on `26931d9` for round 2 | `C:/Users/baals/Local Storage/AI/tinderbox` | Hostile review rounds: records and probes under `docs/reviews/` only, no runtime changes |
+| Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
+| Coder | `codex/house-floor-fire-footprints` from `968e88a` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Native floor fire support and targeted regressions |
+| UI designer | `codex/hostile-round-2-map` from `26931d9` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Ground-plan compatibility with editable records |
+| Reviewer (Claude) | `claude/hostile-review` from `4fc97bb`, on `c855e62` for the round 2 re-check | `C:/Users/baals/Local Storage/AI/tinderbox` | Hostile review rounds: records and probes under `docs/reviews/` only, no runtime changes |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
@@ -99,9 +99,13 @@ The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-
 
 The [segment decay and rubble heat review](reviews/2026-11-10-segment-decay-and-rubble-heat.md) records the independent structural clocks, local support loss, and sustained heat controls on the ground.
 
-The [hostile review, round 1](reviews/2026-11-10-hostile-review-round-1.md) records measured findings on how fire spreads and a proposal for one tile lattice. It is not a promotion record and changes no runtime. On 2026-11-10 the owner handed its first two fixes to the architect: see the [handoff brief](reviews/2026-11-10-hostile-review-round-1-handoff.md). The rest of its proposed order awaits the owner. [Round 2](reviews/2026-11-10-hostile-review-round-2.md) re-ran the bench on `26931d9`: both corrections hold, and it records two new findings on porch decks and set-back walls. On 2026-11-10 the owner handed those two and three missing tests to the architect: see the [round 2 handoff brief](reviews/2026-11-10-hostile-review-round-2-handoff.md).
+The [hostile review, round 1](reviews/2026-11-10-hostile-review-round-1.md) records measured findings on how fire spreads and a proposal for one tile lattice. It is not a promotion record and changes no runtime. On 2026-11-10 the owner handed its first two fixes to the architect: see the [handoff brief](reviews/2026-11-10-hostile-review-round-1-handoff.md). The rest of its proposed order awaits the owner. [Round 2](reviews/2026-11-10-hostile-review-round-2.md) re-ran the bench on `26931d9`: both corrections hold, and it records two new findings on porch decks and set-back walls. On 2026-11-10 the owner handed those two and three missing tests to the architect: see the [round 2 handoff brief](reviews/2026-11-10-hostile-review-round-2-handoff.md). On `c855e62` the [round 2 re-check](reviews/2026-11-10-hostile-review-round-2-recheck.md) re-ran that brief's checks and found all three items closed.
 
 The [hostile review corrections](reviews/2026-11-10-hostile-round-1-fixes.md) record the accepted M5 snapshot and M3 siding and porch fixes, with the exact worker commits and combined checks.
+
+The [round-two corrections](reviews/2026-11-10-hostile-round-2-fixes.md) record the reviewed porch progression, setback wall hits, and publication regressions.
+
+The [round-three floor fire review](reviews/2026-11-10-hostile-round-3-floor-fire.md) records the corrected floor fuel, the independent native mesh and flame bounds checks, and the packaged replay.
 
 The [joined Monroe roof review](reviews/2026-11-09-joined-house-fire.md) records the native seam, weak and separated controls, and the packaged cottage visit.
 

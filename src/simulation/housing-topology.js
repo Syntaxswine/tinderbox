@@ -1,5 +1,6 @@
 import {ASSET_SCALE as scale} from '../content/asset-scale.js';
-import {exteriorPlanEdges, inFloor, roofPanels} from '../content/housing-envelope.js';
+import {exteriorPlanEdges, roofPanels} from '../content/housing-envelope.js';
+import {compileFloorSupport, floorPatchBorders, floorPatchContains} from '../content/housing-floors.js';
 import {housingSectionAt, housingSectionGrid} from '../content/housing-sections.js';
 import {DEFAULT_CONFIG} from './config.js';
 import {surfaceSite, surfaceTravel, worldSurface} from './surface-fire.js';
@@ -8,6 +9,29 @@ const planar = (a, b) => Math.hypot(a.x - b.x, a.z - b.z);
 const vertexKey = point => point.map(v => Math.round(v * 1e5)).join(',');
 const burnSeconds = {floor: 10, wall: 8, joinery: 7, fascia: 7, roof: 10, porch: 8};
 const woodOutput = fire => fire.heatRate * fire.propagation.wood.heatScale;
+const nearest = (point, sites) => sites.reduce((best, site) =>
+  !best || planar(point, site) < planar(point, best) ? site : best, null);
+
+function deckPieces({role, x, y: z, height, width, depth}) {
+  const stairs = role === 'stairs';
+  const alongX = !stairs && width >= depth;
+  const count = Math.ceil(alongX ? width : depth);
+  const steps = Math.max(3, Math.ceil(height / .18));
+  return Array.from({length: count}, (_, index) => {
+    const w = alongX ? width / count : width, d = alongX ? depth : depth / count;
+    const cx = alongX ? x - width / 2 + (index + .5) * w : x;
+    const cz = alongX ? z : z - depth / 2 + (index + .5) * d;
+    const fronts = [];
+    // Cut edges between pieces are covered by the adjacent timber.
+    if (!alongX || index === 0) fronts.push({x: cx - w / 2, z: cz, nx: -1, nz: 0, span: d});
+    if (!alongX || index === count - 1) fronts.push({x: cx + w / 2, z: cz, nx: 1, nz: 0, span: d});
+    if (alongX || index === 0) fronts.push({x: cx, z: cz - d / 2, nx: 0, nz: -1, span: w});
+    if (alongX || index === count - 1) fronts.push({x: cx, z: cz + d / 2, nx: 0, nz: 1, span: w});
+    const y = stairs ? height * (1 + Math.floor((index + .5) * steps / count)) / steps : height;
+    const id = count === 1 ? `deck:${role}` : `deck:${role}:${index}`;
+    return {id, x: cx, y, z: cz, area: w * d, fronts};
+  });
+}
 
 export function createHousingTopology(building, plan, footprints, config, wind) {
   const grid = housingSectionGrid(building.prefabId), sites = [], panels = [], roofSites = [], floors = [], porch = new Map();
@@ -37,19 +61,19 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
 
   for (const [level, floor] of plan.floors.entries()) {
     const deckY = plan.plinth + level * scale.floorSpacing;
+    const support = compileFloorSupport(plan, level, grid);
     const deck = new Map();
-    for (let row = 0; row < grid.rows; row++) for (let col = 0; col < grid.cols; col++) {
-      const x = 2 * col + Math.min(2, plan.width - 2 * col) / 2;
-      const z = 2 * row + Math.min(2, plan.depth - 2 * row) / 2;
-      if (level && !inFloor(floor, x, z)) continue;
-      // At ground level the full native plinth carries the supported deck.
-      const site = add({id: `floor:${level}:${col},${row}`, layer: 'floor', level, x, y: deckY + .02, z,
-        nx: 0, ny: 1, nz: 0, area: Math.min(2, plan.width - 2 * col) * Math.min(2, plan.depth - 2 * row), exposed: false}, 'floor');
-      if (col) link(site, deck.get(`${col - 1},${row}`));
-      if (row) link(site, deck.get(`${col},${row - 1}`));
-      deck.set(`${col},${row}`, site);
+    for (const patch of support.patches) {
+      const {section, x, y, z, area, floorRadius} = patch;
+      const col = section % grid.cols, row = Math.floor(section / grid.cols);
+      const pieces = support.bySection.get(section);
+      const suffix = pieces.length === 1 ? '' : ':' + pieces.indexOf(patch);
+      const site = add({id: `floor:${level}:${col},${row}${suffix}`, layer: 'floor', level, x, y, z,
+        nx: 0, ny: 1, nz: 0, area, floorRadius, exposed: false}, 'floor');
+      deck.set(patch, site);
     }
-    floors.push([...deck.values()]);
+    for (const [patch, site] of deck) for (const neighbor of patch.neighbors) link(site, deck.get(neighbor));
+    floors.push(deck);
     for (const edge of exteriorPlanEdges(floor)) {
       const {nx, nz, x, z, opening} = edge;
       const side = nx === -1 && x === 0 ? 'left' : nx === 1 && x === plan.width ? 'right' : null;
@@ -66,8 +90,8 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
         panel[band ? 'high' : 'low'] = site;
       }
       link(panel.low, panel.high);
-      const nearest = floors[level].reduce((a, b) => !a || planar(panel.low, b) < planar(panel.low, a) ? b : a, null);
-      if (nearest && planar(panel.low, nearest) <= 2.2) link(panel.low, nearest, {gain: 1.65});
+      const touching = support.patches.filter(patch => floorPatchBorders(patch, edge.a, edge.b));
+      link(panel.low, nearest(panel.low, touching.map(patch => deck.get(patch))), {gain: 1.65});
     }
   }
 
@@ -87,12 +111,16 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
     }
   }
   for (const [level, floor] of plan.floors.entries()) {
-    if (!floors[level + 1]?.length) continue;
-    const stairs = floor.stairs;
-    if (!stairs) continue;
-    const x = stairs.x + .5, z = stairs.z + 1.5;
-    const nearest = sites => sites.reduce((a, b) => !a || planar({x, z}, b) < planar({x, z}, a) ? b : a, null);
-    link(nearest(floors[level]), nearest(floors[level + 1]), {gain: 1.4});
+    const stairs = floor.stairs, upper = floors[level + 1];
+    if (!stairs || !upper?.size) continue;
+    const {x, z} = stairs, lower = floors[level];
+    const foot = [x + .5, z + .125], landing = {x: x + .5, z: z + 3};
+    const lowerPatch = [...lower.keys()].find(patch => floorPatchContains(patch, foot));
+    const topEdge = [[x, landing.z], [x + 1, landing.z]];
+    const sideEdges = [[[x, landing.z - .25], topEdge[0]], [[x + 1, landing.z - .25], topEdge[1]]];
+    const candidates = [...upper.keys()].filter(patch =>
+      [topEdge, ...sideEdges].some(([a, b]) => floorPatchBorders(patch, a, b)));
+    link(lower.get(lowerPatch), nearest(landing, candidates.map(patch => upper.get(patch))), {gain: 1.4});
   }
 
   const roofVertices = new Map(), roofSeams = {left: [], right: []};
@@ -128,22 +156,25 @@ export function createHousingTopology(building, plan, footprints, config, wind) 
   }
 
   for (const footprint of footprints.filter(box => box.role !== 'foundation')) {
-    const {role, x, y: z, height, width, depth} = footprint;
-    const site = add({id: `deck:${role}`, layer: 'floor', level: 0, x, y: height * (role === 'stairs' ? .5 : 1), z,
-      nx: 0, ny: 1, nz: 0, area: width * depth, exposed: true}, 'porch');
-    porch.set(role, site);
-    const entry = panels.find(panel => panel.level === 0 && panel.opening === 'entry');
-    link(site, entry?.low);
+    const pieces = deckPieces(footprint).map(piece => add({...piece, layer: 'floor', level: 0,
+      nx: 0, ny: 1, nz: 0, exposed: true}, 'porch'));
+    for (let index = 1; index < pieces.length; index++) link(pieces[index - 1], pieces[index]);
+    porch.set(footprint.role, pieces);
   }
+  const deck = porch.get('porch') ?? [], stairs = porch.get('stairs') ?? [];
+  const entry = panels.find(panel => panel.level === 0 && panel.opening === 'entry');
+  if (entry?.low) link(nearest(entry, deck), entry.low);
+  if (stairs.length) link(stairs.at(-1), nearest(stairs.at(-1), deck));
+
   const porchRoof = roofSites.filter(({site}) => site.id.startsWith('roof:porch:'));
   let porchPost;
   if (porchRoof.length) {
-    const deck = porch.get('porch'), {x, z} = plan.porch;
-    const position = {x: x + .12, z: z + .12};
+    const {x, z} = plan.porch;
+    const position = {x: x + .12, z: z + .12}, postDeck = nearest(position, deck);
     const {site: roof} = porchRoof.reduce((a, b) => planar(b.site, position) < planar(a.site, position) ? b : a);
-    porchPost = add({id: 'porch-post', layer: 'walls', level: 0, ...position, y: deck.y + .95, nx: 0, ny: 0, nz: -1,
+    porchPost = add({id: 'porch-post', layer: 'walls', level: 0, ...position, y: postDeck.y + .95, nx: 0, ny: 0, nz: -1,
       area: .36, exposed: true}, 'joinery');
-    link(deck, porchPost);
+    link(postDeck, porchPost);
     link(porchPost, roof, {eave: true});
   }
   return {sites, panels, porch, porchPost, roofSeams};

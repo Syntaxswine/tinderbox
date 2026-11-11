@@ -4,6 +4,7 @@ import {HOUSING_PLANS} from '../content/housing-plans.js';
 import {ASSET_SCALE} from '../content/asset-scale.js';
 import {STRUCTURE_DECAY_SECONDS} from './config.js';
 import {createHousingTopology} from './housing-topology.js';
+import {attachCatalogueHeatVolumes,catalogueHeatVolumes} from './housing-heat-volumes.js';
 import {exchangeSurfaceGround, surfaceGroundContacts, worldSurface, heatBlastSiding, heatSurfaceSite, stepSurfaceFire, surfaceDuration, surfaceFlame, surfaceSample, retainedStructureHeat, structureSmolder} from './surface-fire.js';
 
 const EPS=1e-9;
@@ -26,6 +27,8 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
   const grid=housingSectionGrid(building.prefabId);
   const localBoxes=localHousingFootprints(building.prefabId,building.partyWalls);
   const plan=HOUSING_PLANS[building.prefabId],odd=building.quarterTurns%2;
+  const heatVolumes=catalogueHeatVolumes(building,plan);
+  for(const box of colliders)attachCatalogueHeatVolumes(box,building,heatVolumes);
   const {sites,panels,porch,porchPost,roofSeams}=createHousingTopology(building,plan,localBoxes,config,wind);
   const sections=Array.from({length:grid.cols*grid.rows},(_,index)=>({
     sites:[],bounds:housingSectionBounds(grid,index),view:{index,present:true,firstIgnition:null,retiredAt:null,fire:null,preheat:null}
@@ -37,13 +40,8 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
   const lowPanels=panels.filter(panel=>panel.level===0);
   for(const panel of lowPanels)panel.section=housingSectionAt(grid,panel.x,panel.z);
   const groundSites=lowPanels.flatMap(panel=>panel.low?[{site:panel.low,fronts:[{...panel.low.world,span:panel.length}]}]:[]);
-  for(const {role,x,y:z,width,depth} of localBoxes){
-    const site=porch.get(role);
-    if(!site)continue;
-    const fronts=[
-      {x:x-width/2,z,nx:-1,nz:0,span:depth}, {x:x+width/2,z,nx:1,nz:0,span:depth},
-      {x,z:z-depth/2,nx:0,nz:-1,span:width}, {x,z:z+depth/2,nx:0,nz:1,span:width}
-    ].map(front=>({...worldSurface(building,{...front,y:0,ny:0}),span:front.span}));
+  for(const pieces of porch.values())for(const site of pieces){
+    const fronts=site.fronts.map(front=>({...worldSurface(building,{...front,y:0,ny:0}),span:front.span}));
     groundSites.push({site,fronts});
   }
   if(porchPost){
@@ -78,6 +76,7 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
       }
       const box={...original,...center,id,width:odd?z1-z0:x1-x0,depth:odd?x1-x0:z1-z0,
         catalogueSection:section.view.index,heatBarriers:barriers};
+      attachCatalogueHeatVolumes(box,building,heatVolumes,section.bounds);
       if(!fragments.has(section.view.index))fragments.set(section.view.index,[]);
       fragments.get(section.view.index).push(box);
     }
@@ -142,7 +141,7 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
     }
   }
 
-  function strike(box,from,to,amount,kind,{touched,onHeat}={}){
+  function strike(box,from,to,amount,kind,{touched,onHeat,contact}={}){
     if(building.destroyed)return null;
     function strikeAt(contact){
       const site=contact?.site;
@@ -153,23 +152,34 @@ export function createHousingFire(group,obstacles,config,wind,retireGround){
       touched?.add(site);
       return contact;
     }
-    if(box.role!=='foundation'){
-      return strikeAt({site:porch.get(box.role)});
-    }
     const a=toPlan(building,from),b=toPlan(building,to);
+    if(box.role!=='foundation'){
+      if(contact.volume&&contact.volume.surface!=='deck')return null;
+      const t=contact.t,x=a.x+(b.x-a.x)*t,z=a.y+(b.y-a.y)*t;
+      const pieces=porch.get(box.role);
+      const distance=site=>Math.hypot(site.x-x,site.z-z);
+      const site=pieces?.reduce((best,piece)=>!best||distance(piece)<distance(best)?piece:best,null);
+      return strikeAt({site,t});
+    }
+    const native=contact?.volume?.surface;
+    if(native&&native!=='wall'&&native!=='rim')return null;
     let first;
     for(const panel of lowPanels){
       const {nx,nz,low}=panel,offset=ASSET_SCALE.wallThickness/2;
       if(!sections[low?.section??panel.section].view.present)continue;
       const x=panel.x+nx*offset,z=panel.z+nz*offset;
       const start=(a.x-x)*nx+(a.y-z)*nz,end=(b.x-x)*nx+(b.y-z)*nz;
-      if(start<=EPS||end>EPS)continue;
-      const t=start/(start-end);
+      if(start<=EPS||end>=start||!native&&end>EPS)continue;
+      const t=native?contact.t:start/(start-end);
       if(first&&t>=first.t)continue;
+      // A side impact on the .18 m rim can heat the adjacent .16 m wall.
+      // Landing on the open plinth or on a slab farther out cannot.
+      const gap=start+(end-start)*t;
+      if(native&&(gap < -EPS || gap > (native==='rim'?.011:EPS)))continue;
       const along=(a.x+(b.x-a.x)*t-x)*-nz+(a.y+(b.y-a.y)*t-z)*nx;
       if(Math.abs(along)>panel.length/2+EPS)continue;
       let site=low;
-      if(to.h!==undefined){
+      if(to.h!==undefined&&native!=='rim'){
         const height=from.h+(to.h-from.h)*t-panel.y;
         if(height<0||height>ASSET_SCALE.wallHeight)site=null;
         else if(height>ASSET_SCALE.wallHeight/2)site=panel.high;
