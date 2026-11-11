@@ -2,7 +2,7 @@
 
 Candidate on `codex/steam-train-controls-ui`, based on published `c855e627bdee963e930644839a60c027a03935de`.
 
-The lever and pull-chain brake occupy the joystick's existing square. The measured phone sizes are 138 × 138 at 390 × 844, 124 × 124 at 320 × 568, and 96 × 96 at 844 × 390. The lever uses four fixed stops, F II, F I, N and R. It holds a notch until the drag crosses 62% of the distance to its neighbour. Each accepted shift produces a short locally synthesized click. Mount, snapshot refresh and boundary jitter keep the cue quiet.
+The lever and pull-chain brake occupy the joystick's existing square. The raised wooden grip is 80 px wide on the standard phone layout, twice its original 40 px width. It fits at 70 px on the narrow phone and 42 px in compact landscape. Rounded highlights, a visible lower face, a brass stem and cast shadows give it depth. The selected gear is marked on the grip. The measured phone sizes are 138 × 138 at 390 × 844, 124 × 124 at 320 × 568, and 96 × 96 at 844 × 390. The lever uses four fixed stops, F II, F I, N and R. It holds a notch until the drag crosses 62% of the distance to its neighbour. Each accepted shift produces a short locally synthesized click. Mount, snapshot refresh and boundary jitter keep the cue quiet.
 
 The selected gear stays engaged when the finger lifts. Pulling the chain applies full brake and selects neutral. Releasing it retires the original input lease, whose Nautilus policy retains neutral/full brake. The chain takes priority over an ongoing lever drag. Pause, pointer cancellation, lost capture, blur, hidden page, context change, revoked lease and disposal also retire the original input. A fresh gear selection supplies a new lease after retirement.
 
@@ -30,11 +30,11 @@ The slider supports arrows, Home for Reverse and End for Forward II. B and the f
 
 ## Checks and evidence
 
-- `node tools/check.mjs` passed 294 tests, 218 script syntax checks and 263 resolved static modules. Imported-source and art checks passed.
+- The initial functional review with `node tools/check.mjs` passed 294 tests, 218 script syntax checks and 263 resolved static modules. Imported-source and art checks passed.
 - `node --test --test-concurrency=1 tests/ui/*.test.mjs` passed all 29 focused tests.
 - The browser suite passed 117 of 117 at 390 × 844, 320 × 568, 844 × 390 and 1280 × 800. It checks the square footprint, 44 px input areas, detent hysteresis, persistent gear, independent chain pointer, refusals, original-lease cleanup and return to walking. [Results](evidence/browser-results.json)
 - The trusted mouse replay at phone size selected half forward, full forward and reverse through the intermediate stops, then pulled the brake chain. The WebAudio context ran and played six clicks across those shifts, with zero active voices after the brake. Two-finger coverage uses synthetic touch events. Physical handset review remains pending. [Input record](evidence/native-input.json)
-- `node tools/build.mjs` and `node tools/check-release.mjs` verified 3,519 packaged files and 166,845,754 bytes. Manifest SHA-256 is `b6a78d63ea13a4e3f7fa8023b73dd3c72bf9be73db204866bbb812a5dcf67182`.
+- `node tools/build.mjs` and `node tools/check-release.mjs` verified 3,519 packaged files and 166,847,051 bytes. Manifest SHA-256 is `78092c513d38fc3300e4da2c1bde18698067baad6e99614ede612e7f968f92a8`.
 
 [Phone Forward I](evidence/phone-forward.jpg) · [Narrow phone](evidence/narrow.jpg) · [Landscape](evidence/landscape.jpg)
 
