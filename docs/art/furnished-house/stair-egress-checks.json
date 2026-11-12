@@ -1,0 +1,96 @@
+{
+  "scope": "Exact source geometry through the upper sideways turn at actual upper floor height. Full conservative standing-body cylinder; no leg-clearance exception for this landing test. Original post and rail controls remain independently blocked.",
+  "dataPath": "workbenches/furnished-house/house-data.json",
+  "dataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+  "controlPath": "art/source/furnished-house/control-stair-egress.json",
+  "controlSha256": "40011cddd0b32edf722e07361c8e1ee6761ebebd32e153ac7a9504fc962ce445",
+  "sourceControlCommit": "595ce4bd5320959a00ef119b161b2054111b2a51",
+  "profile": {
+    "radius": 0.5,
+    "height": 1.66,
+    "floorY": 2.6,
+    "waypoints": [
+      [
+        5.5,
+        2.6,
+        6.875
+      ],
+      [
+        6,
+        2.6,
+        6.8
+      ],
+      [
+        6.5,
+        2.6,
+        6.4
+      ]
+    ]
+  },
+  "baseline": {
+    "passed": false,
+    "steps": 0,
+    "blockedBy": "house/gross-housing-hopkins-4-15/0/level-0/1/group/25/stair-newel",
+    "position": [
+      5.523809523809524,
+      6.871428571428571
+    ]
+  },
+  "onlyRailUnchanged": {
+    "passed": false,
+    "steps": 0,
+    "blockedBy": "house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail",
+    "position": [
+      5.523809523809524,
+      6.871428571428571
+    ]
+  },
+  "onlyPostUnchanged": {
+    "passed": false,
+    "steps": 0,
+    "blockedBy": "house/gross-housing-hopkins-4-15/0/level-0/1/group/25/stair-newel",
+    "position": [
+      5.523809523809524,
+      6.871428571428571
+    ]
+  },
+  "applied": {
+    "passed": true,
+    "steps": 47,
+    "sourceShapes": 18
+  },
+  "postSupport": {
+    "sourceMeshId": "house/gross-housing-hopkins-4-15/0/level-0/1/group/25/stair-newel",
+    "bounds": {
+      "min": [
+        7.507500001192093,
+        2.605,
+        6.917500001192093
+      ],
+      "max": [
+        7.572499998807907,
+        3.355,
+        6.982499998807907
+      ]
+    },
+    "supportSurfaceIds": [
+      "floor/l1/14,13",
+      "floor/l1/15,13"
+    ],
+    "gap": 0.005
+  },
+  "railBounds": {
+    "min": [
+      6.012500000149012,
+      1.2375416526999,
+      3.984129411237327
+    ],
+    "max": [
+      6.067499999850988,
+      2.695791680633433,
+      6.015870588762673
+    ]
+  },
+  "passed": 4,
+  "failed": 0
+}

@@ -1,0 +1,33 @@
+{
+  "scope": "Actual source stair-lane geometry and real closed slab union, using the production swept cylinder and its existing .45m stair leg-clearance convention. Foot support is sampled from unchanged native tread heights. This is a geometric fitting regression, not full navigation/gait acceptance.",
+  "dataPath": "workbenches/furnished-house/house-data.json",
+  "dataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+  "controlPath": "art/source/furnished-house/control-stair-fitting.json",
+  "controlSha256": "b971c64ab4d7cbaf3dfb27cd700e4ef001d1abd0c48e17f12ea0e32337cca5b9",
+  "sourceControlCommit": "d7db6a99990aa855b919abf958dc440b23d93dab",
+  "profile": {
+    "radius": 0.5,
+    "height": 1.66,
+    "legClearance": 0.45,
+    "centreX": 5.5,
+    "startZ": 4.125,
+    "endZ": 6.875
+  },
+  "blocked": {
+    "passed": false,
+    "steps": 60,
+    "blockedBy": "house/gross-housing-hopkins-4-15/0/level-0/0/group/3/wall-6-6-7-6/2/door-casing",
+    "fromZ": 5.625,
+    "toZ": 5.65,
+    "low": 2.1666666666666665,
+    "high": 3.3766656666666663
+  },
+  "applied": {
+    "passed": true,
+    "steps": 110,
+    "sourceShapes": 30,
+    "actualClosedSlabs": 56
+  },
+  "passed": 3,
+  "failed": 0
+}

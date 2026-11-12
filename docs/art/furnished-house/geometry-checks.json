@@ -847,6 +847,266 @@
         "reason": "Smallest composed source openings for the 1m-diameter/1.66m-height entrance, kitchen and full stair route; retain the native tread run and top exit into bedroom A."
       },
       {
+        "type": "kitchen-return-end-cut",
+        "status": "Architect-approved minimum end-cut",
+        "sourceEdge": "3,5|4,5",
+        "cut": 0.1,
+        "nativeBayWidth": 1,
+        "remainingWidth": 0.9,
+        "parts": [
+          {
+            "name": "Native wall unit",
+            "baseline": {
+              "position": [
+                0,
+                1,
+                0
+              ],
+              "dimensions": [
+                1,
+                2,
+                0.16
+              ]
+            },
+            "position": [
+              0.05,
+              1,
+              0
+            ],
+            "dimensions": [
+              0.9,
+              2,
+              0.16
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Interior skirting",
+            "baseline": {
+              "position": [
+                0,
+                0.055,
+                0.105
+              ],
+              "dimensions": [
+                1,
+                0.11,
+                0.045
+              ]
+            },
+            "position": [
+              0.05,
+              0.055,
+              0.105
+            ],
+            "dimensions": [
+              0.9,
+              0.11,
+              0.045
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Picture rail",
+            "baseline": {
+              "position": [
+                0,
+                1.77,
+                0.105
+              ],
+              "dimensions": [
+                1,
+                0.035,
+                0.035
+              ]
+            },
+            "position": [
+              0.05,
+              1.77,
+              0.105
+            ],
+            "dimensions": [
+              0.9,
+              0.035,
+              0.035
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "sourcePolygon": [
+          [
+            3,
+            0.48,
+            5
+          ],
+          [
+            4,
+            0.48,
+            5
+          ],
+          [
+            4,
+            2.48,
+            5
+          ],
+          [
+            3,
+            2.48,
+            5
+          ]
+        ],
+        "adaptedPolygon": [
+          [
+            3,
+            0.48,
+            5
+          ],
+          [
+            3.9,
+            0.48,
+            5
+          ],
+          [
+            3.9,
+            2.48,
+            5
+          ],
+          [
+            3,
+            2.48,
+            5
+          ]
+        ],
+        "removedPolygon": [
+          [
+            3.9,
+            0.48,
+            5
+          ],
+          [
+            4,
+            0.48,
+            5
+          ],
+          [
+            4,
+            2.48,
+            5
+          ],
+          [
+            3.9,
+            2.48,
+            5
+          ]
+        ],
+        "newelInnerX": 4.9275,
+        "clearWidth": 1.0275,
+        "routeCentreX": 4.41375,
+        "heightUnchanged": 2,
+        "wallThicknessUnchanged": 0.16,
+        "textureDensityUnchanged": true,
+        "reason": "A directly interfering wall return leaves only.9275m beside the translated source newel. Architect approved the measured.10m end-cut after398 continuous standing-body sweeps, preserving the other.90m and shared native dimensions."
+      },
+      {
+        "type": "stair-lane-retained-arch-trim",
+        "sourceEdge": "6,6|7,6",
+        "retainedOpening": "living/dining arch",
+        "clearBoundaryX": 6,
+        "parts": [
+          {
+            "name": "Door casing",
+            "baseline": {
+              "position": [
+                0.54,
+                0.87,
+                0
+              ],
+              "dimensions": [
+                0.065,
+                1.74,
+                0.21
+              ],
+              "bounds": {
+                "min": [
+                  5.927500001192093,
+                  0.4799999952316285,
+                  5.8950000032782555
+                ],
+                "max": [
+                  5.992499998807907,
+                  2.2200000047683717,
+                  6.1049999967217445
+                ]
+              }
+            },
+            "removed": true,
+            "reason": "This complete outboard casing is outside its retained bay and inside the stair lane."
+          },
+          {
+            "name": "Door header",
+            "baseline": {
+              "position": [
+                0,
+                1.72,
+                0
+              ],
+              "dimensions": [
+                1.14,
+                0.08,
+                0.21
+              ],
+              "bounds": {
+                "min": [
+                  5.930000007152557,
+                  2.16000000089407,
+                  5.8950000032782555
+                ],
+                "max": [
+                  7.069999992847443,
+                  2.2399999991059305,
+                  6.1049999967217445
+                ]
+              }
+            },
+            "position": [
+              -0.034999996423721313,
+              1.72,
+              0
+            ],
+            "dimensions": [
+              1.0700000071525573,
+              0.08,
+              0.21
+            ],
+            "cut": 0.06999999284744263,
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "minimumX": 6
+          }
+        ],
+        "openingUnchanged": true,
+        "lintelUnchanged": true,
+        "heightUnchanged": true,
+        "physicalMaterial": "timber",
+        "textureDensityAndPhaseUnchanged": true,
+        "reason": "Crop only native fittings protruding across the X6 boundary of the unchanged 1m stair flight. The casing belongs to a retained cross-opening, not a retired stair-side bay."
+      },
+      {
         "type": "relocated-hall-console",
         "sourceRoom": "hall",
         "prototypeRoom": "living",
@@ -1544,6 +1804,220 @@
         "remainingLimit": "Stair-side partitions and one fore-lip floor bay are explicitly removed in the same physical data; final continuous route proof remains required."
       },
       {
+        "type": "upper-stair-side-egress",
+        "status": "Architect approved",
+        "rightRail": {
+          "baseline": {
+            "position": [
+              6.04,
+              2.32,
+              5.5
+            ],
+            "quaternion": [
+              0.45983115019353515,
+              0,
+              0,
+              0.888006370085086
+            ],
+            "dimensions": [
+              0.055,
+              3.6734724716540343,
+              0.055
+            ],
+            "bounds": {
+              "min": [
+                6.012500000149012,
+                1.2375417050256752,
+                3.9841294852832356
+              ],
+              "max": [
+                6.067499999850988,
+                3.4024582949743243,
+                7.015870514716765
+              ]
+            }
+          },
+          "position": [
+            6.04,
+            1.9666666666666666,
+            5
+          ],
+          "dimensions": [
+            0.055,
+            2.4489816477693562,
+            0.055
+          ],
+          "retainedCentrelineZ": [
+            4,
+            6
+          ],
+          "removedCentrelineZ": [
+            6,
+            7
+          ],
+          "crossSectionUnchanged": [
+            0.055,
+            0.055
+          ],
+          "uvDensityAndPhaseUnchanged": true,
+          "sourceMeshBinding": "house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail"
+        },
+        "newel": {
+          "baseline": {
+            "position": [
+              6.04,
+              2.98,
+              7
+            ],
+            "dimensions": [
+              0.065,
+              0.75,
+              0.065
+            ],
+            "bounds": {
+              "min": [
+                6.007500001192093,
+                2.605,
+                6.967500001192093
+              ],
+              "max": [
+                6.072499998807907,
+                3.355,
+                7.032499998807907
+              ]
+            }
+          },
+          "position": [
+            7.54,
+            2.98,
+            6.95
+          ],
+          "translation": [
+            1.5,
+            0,
+            -0.05
+          ],
+          "dimensions": [
+            0.065,
+            0.75,
+            0.065
+          ],
+          "prototypeLevel": 1,
+          "location": "Actual upper bedroom A floor against the retained rear wall, outside the side-turn envelope",
+          "sourceMeshBinding": "house/gross-housing-hopkins-4-15/0/level-0/1/group/25/stair-newel",
+          "supportSurfaceIds": [
+            "floor/l1/14,13",
+            "floor/l1/15,13"
+          ],
+          "supportPolygons": [
+            {
+              "id": "floor/l1/14,13",
+              "triangles": [
+                [
+                  [
+                    7,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    6.5
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    7,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    7
+                  ]
+                ]
+              ]
+            },
+            {
+              "id": "floor/l1/15,13",
+              "triangles": [
+                [
+                  [
+                    7.5,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    8,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    8,
+                    2.5999999,
+                    6.5
+                  ]
+                ],
+                [
+                  [
+                    7.5,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    8,
+                    2.5999999,
+                    7
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        "retainedGapStartNewel": [
+          6.04,
+          2.2733333333333334,
+          6
+        ],
+        "turnWaypoints": [
+          [
+            5.5,
+            2.6,
+            6.875
+          ],
+          [
+            6,
+            2.6,
+            6.8
+          ],
+          [
+            6.5,
+            2.6,
+            6.4
+          ]
+        ],
+        "treadsUnchanged": true,
+        "floorAdded": false,
+        "noForwardLandingBeyondZ7": true,
+        "meshScalesUnchanged": true
+      },
+      {
         "wallEdge": "5,0|6,0",
         "level": 0,
         "type": "full-height-transom-frame",
@@ -1615,13 +2089,14 @@
       },
       {
         "type": "explicit-source-fittings",
-        "count": 434,
+        "count": 433,
         "physicalMaterial": "timber",
         "fuelClass": "frame",
         "fuelPerCubicMetre": 8.3333333,
         "policy": "One finite amount per exact source fitting; actual closed source mesh is shared by render, thermal and support. Lost support can move remaining fuel independently of its 120ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ180s nominal burn age.",
         "inferredStairFlight": {
           "treadSurfaceIds": [
+            "stair/340",
             "stair/341",
             "stair/342",
             "stair/343",
@@ -1632,8 +2107,7 @@
             "stair/348",
             "stair/349",
             "stair/350",
-            "stair/351",
-            "stair/352"
+            "stair/351"
           ],
           "attachmentSurfaceIds": [
             "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
@@ -1858,12 +2332,12 @@
         3.35
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         3.65
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         5.75
       ],
@@ -1873,12 +2347,12 @@
         6.5
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         5.75
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         3.65
       ],
