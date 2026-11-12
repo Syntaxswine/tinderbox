@@ -17,9 +17,12 @@ function quantiles(list){const v=[...list].sort((a,b)=>a-b);return {samples:v.le
 function diagnostics(){return {version:1,metrics:trial.metrics(),clock:clock.diagnostics(),costMs:Object.fromEntries(Object.entries(timings).map(([key,value])=>[key,Array.isArray(value)?quantiles(value):value])),renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures},art:art.diagnostics(),observer:nav.snapshot(),errors:[...errors]};}
 function draw({full=false}={}) {
   if(disposed)return;
-  const start=performance.now(),observer=nav.snapshot();
-  if(full||lastDrawTick!==trial.tick){lastFrame=trial.frame({full});lastDrawTick=trial.tick;}
-  art.update(lastFrame,{mode:viewMode,level,camera,observer:{x:observer.x,y:observer.elevation,z:observer.y,height:observer.height},sampleWind:trial.wind});
+  const start=performance.now(),observer=nav.snapshot(),changed=full||lastDrawTick!==trial.tick;
+  if(changed){lastFrame=trial.frame({full});lastDrawTick=trial.tick;}
+  // Camera-only/paused draws consume the retained state without replaying a
+  // full reset or stale tombstones on every animation frame.
+  const presentationFrame=changed?lastFrame:{...lastFrame,full:false,boundaries:[],supports:[],items:[],parts:[],rubble:[],falls:[],events:[],tombstones:[]};
+  art.update(presentationFrame,{mode:viewMode,level,camera,observer:{x:observer.x,y:observer.elevation,z:observer.y,height:observer.height},sampleWind:trial.wind});
   goat?.update(observer,trial.worldTime,{paused:clock.paused});
   timings.presentation.push(performance.now()-start);if(timings.presentation.length>18000)timings.presentation.shift();
   time('render',()=>renderer.render(world,camera));
