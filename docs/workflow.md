@@ -4,13 +4,15 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-furnished-house` (`master` integration, prototype awaits owner review) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Furnished-house contract, combined replay and owner review |
-| Artist | `codex/furnished-house-art` from `c855e62` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Hopkins 15 geometry and furniture inventory, tile-driven presentation and replay art |
+| Architect | `codex/review-fire-effect-settings` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Independent effect settings, early visibility contract and combined review |
+| Artist | `codex/fire-effect-visibility-art` from `25095656` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Independent flame/smoke/light preparation and conservative early visibility |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/furnished-house-runtime` from `c855e62` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | One-house tile simulation, replay runner, controls and checks |
-| UI designer | `codex/steam-train-controls-ui` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Separate train interface candidate, preserved outside the furnished-house task |
+| Coder | `codex/fire-effect-settings-runtime` from `25095656` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Effect preference store and workbench adapter; preserve physical simulation |
+| UI designer | `codex/fire-effect-settings-ui` from `25095656` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Three independent effect settings; preserve the separate train interface candidate |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+
+The current bounded assignment is [independent fire effect settings and early visibility](milestones/19-fire-effect-settings.md). It preserves the accepted furnished-house reference and keeps simulation running independently of visual settings/culling. Candidate branch names above are assigned; Git worktree metadata records when each worker switches.
 
 The UI designer works from the dedicated UI worktree. Coordinate new asset exports with the artist and gameplay/runtime contracts with the coder. Follow the [reconciled reuse plan](reuse-plan.md) for Farmyard UI reuse; unresolved gameplay and device choices remain proposals. UI candidates follow the same architect promotion gate.
 
