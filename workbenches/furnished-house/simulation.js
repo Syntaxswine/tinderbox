@@ -1,7 +1,7 @@
 // Adapted from the frozen second fire-travel trial; see upstream/ and intake.
 // Deterministic fixed-step experiment. All coefficients are prototype tuning.
 import {compileScene,STEP} from './scene.js';
-import {add,sub,mul,dot,length,unit,centre,bounds,projectedHull,intersectFootprint,triangleArea,EPS} from './geometry.js';
+import {add,sub,mul,dot,cross,length,unit,centre,bounds,projectedHull,intersectFootprint,triangleArea,EPS} from './geometry.js';
 import {createSupportGraph} from './support.js';
 
 export const RULES=Object.freeze({step:STEP,maxHeat:5,loss:.18,up:3,upDiagonal:2,down:.04,downDiagonal:.06,falloff:1.5,glassBreaks:1.6,burstAt:1.4,emberShare:.15,matchEnergy:1.05,localShare:.72,radiantShare:.16,retainShare:.12,radiantRange:8,radiantCells:24,raysPerTick:48,radiantMaxAge:1,maxStepsPerAdvance:240});
@@ -172,14 +172,32 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     }
     throw Error(`Unknown trial command ${command.type}`);
   }
+  function resolveLanding(fall,position,contact,surface,normal) {
+    const offset=sub(position,fall.origin),geometry=fall.geometry?.solidTriangles||fall.geometry?.triangles,points=geometry?geometry.flat().map(p=>add(p,offset)):fall.rubbleFootprint?fall.rubbleFootprint.flat().map(p=>add(p,offset)):fall.itemId?fall.contactOffsets.map(p=>add(position,p)):[[-.1,0,-.1],[.1,0,-.1],[.1,0,.1],[-.1,0,.1]].map(p=>add(p,contact)),y=contact[1]+.006,hull=projectedHull(points,y);
+    if(hull.length<3)return null;
+    // Use the actual contacted solid face, including slab undersides and a
+    // fitting's top, rather than its source plane or support-graph role.
+    const faces=s=>(s.solidTriangles||s.triangles).filter(t=>{const n=unit(cross(sub(t[1],t[0]),sub(t[2],t[0])));return Math.abs(dot(n,normal))>.9999&&Math.abs(dot(sub(t[0],contact),normal))<1e-5;});
+    let selected=surface,triangles=intersectFootprint(hull,faces(surface),y);
+    if(!triangles.length){const box=bounds(hull);box.min[1]-=.02;box.max[1]+=.02;let best=0;
+      for(const candidate of index.candidates(box)){if(!candidate.intact||index.pass(candidate)>=.99)continue;const clipped=intersectFootprint(hull,faces(candidate),y),area=clipped.reduce((v,t)=>v+triangleArea(t),0);if(area>best+EPS){best=area;selected=candidate;triangles=clipped;}}
+    }
+    // A line/corner touch with no supported area is a graze. Keep falling to
+    // the next real bearing face; never manufacture a landed orphan fuel.
+    return triangles.length?{surface:selected,triangles}:null;
+  }
   function moveFalls() {
     for(const fall of [...falls.values()]) {
-      fall.previous=[...fall.position];fall.velocity[1]-=9.81*dt;let start=fall.position,next=add(start,mul(fall.velocity,dt)),landing=false,landingSurface=null,landingContact=null;
+      const grazing=new Set();
+      fall.previous=[...fall.position];fall.velocity[1]-=9.81*dt;let start=fall.position,next=add(start,mul(fall.velocity,dt)),landing=false,landingSurface=null,landingContact=null,landingFootprint=null;
       for(let crossing=0;crossing<32;crossing++) {
-        const movement=sub(next,start),hit=fall.contactOffsets.flatMap(offset=>index.crossings(add(start,offset),add(next,offset),{includeEndpoints:true}).map(h=>({...h,contactOffset:offset}))).filter(h=>h.surface.intact&&index.pass(h.surface)<.99&&Math.abs(dot(h.normal||h.surface.normal,movement))>EPS&&(h.t>EPS||h.surface.supports&&fall.velocity[1]<0&&Math.abs(h.normal?.[1]||0)>.2)).sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id))[0];
+        const movement=sub(next,start),hit=fall.contactOffsets.flatMap(offset=>index.crossings(add(start,offset),add(next,offset),{includeEndpoints:true}).map(h=>({...h,contactOffset:offset}))).filter(h=>!grazing.has(h.surface.id)&&h.surface.intact&&index.pass(h.surface)<.99&&Math.abs(dot(h.normal||h.surface.normal,movement))>EPS&&(h.t>EPS||fall.velocity[1]<0&&Math.abs(h.normal?.[1]||0)>.2)).sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id))[0];
         if(!hit)break;const p=add(start,mul(sub(next,start),hit.t));
         if(hit.surface.kind==='window'||hit.surface.material==='glass'){breakWindow(hit.surface,p,fall.id);continue;} // retrace the complete remainder, including corner ties
-        if(hit.surface.supports&&fall.velocity[1]<0&&Math.abs(hit.normal?.[1]||0)>.2){next=p;landing=true;landingSurface=hit.surface;landingContact=add(p,hit.contactOffset);break;}
+        if(fall.velocity[1]<0&&Math.abs(hit.normal?.[1]||0)>.2){const contact=add(p,hit.contactOffset),footprint=resolveLanding(fall,p,contact,hit.surface,hit.normal);
+          if(!footprint){grazing.add(hit.surface.id);continue;}
+          next=p;landing=true;landingSurface=footprint.surface;landingContact=contact;landingFootprint=footprint.triangles;break;
+        }
         const normal=hit.normal||hit.surface.normal,into=dot(movement,normal),stopped=add(p,mul(normal,-Math.sign(into)*.001)),remaining=sub(next,p),slide=sub(remaining,mul(normal,dot(remaining,normal)));
         const velocityInto=dot(fall.velocity,normal);fall.velocity=sub(fall.velocity,mul(normal,velocityInto));if(fall.lastImpactId!==hit.surface.id)emit('impact',{boundaryId:hit.surface.id,sourceSurfaceId:hit.surface.sourceSurfaceId,position:add(p,hit.contactOffset),cause:fall.id});fall.lastImpactId=hit.surface.id;start=stopped;next=add(stopped,slide);
         if(length(sub(start,next))<EPS){next=start;break;}
@@ -191,18 +209,9 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       if(landing) {
         deposit(cellAt(add(landingContact,[0,.02,0])),fall.heldHeat);fall.heldHeat=0;
         if(!fall.itemId&&fall.fuelIds.length) {
-          const offset=sub(next,fall.origin),points=fall.geometry?fall.geometry.solidTriangles.flat().map(p=>add(p,offset)):fall.rubbleFootprint?fall.rubbleFootprint.flat().map(p=>add(p,offset)):[[-.1,0,-.1],[.1,0,-.1],[.1,0,.1],[-.1,0,.1]].map(p=>add(p,landingContact)),hull=projectedHull(points,landingContact[1]+.006);
-          let rubbleSupport=landingSurface,triangles=intersectFootprint(hull,landingSurface.triangles,landingContact[1]+.006);
-          // A contact on a canonical seam can select the neighbouring patch
-          // with only zero-area overlap. Keep the same first-contact plane,
-          // but bind residue to an actual coplanar patch under its hull.
-          if(!triangles.length&&hull.length>=3){const box=bounds(hull),n=landingSurface.normal||[0,1,0];box.min[1]-=.02;box.max[1]+=.02;let best=0;
-            for(const s of index.candidates(box)){if(!s.intact||!s.supports||index.pass(s)>=.99||dot(s.normal||[0,1,0],n)<.9999||Math.abs(dot(sub(s.triangles[0][0],landingContact),n))>1e-5)continue;
-              const clipped=intersectFootprint(hull,s.triangles,landingContact[1]+.006),area=clipped.reduce((v,t)=>v+triangleArea(t),0);if(area>best+EPS){best=area;rubbleSupport=s;triangles=clipped;}
-            }
-          }
+          const triangles=landingFootprint;
           if(triangles.length) {
-            const id=`rubble:${fall.id}`,position=centre(triangles.flat()),record={id,fallId:fall.id,fuelIds:[...fall.fuelIds],position,triangles,floorFootprint:triangles,supportBoundaryId:rubbleSupport.id,sourceSurfaceIds:fall.geometry?.sourceSurfaceIds||[],thickness:.01,nonBearing:true,kind:fall.rubbleKind||(fall.geometry?'wood':fall.fuelIds.some(id=>fuels.get(id).cls==='oil')?'oil':'ember')};rubble.set(id,record);
+            const id=`rubble:${fall.id}`,position=centre(triangles.flat()),record={id,fallId:fall.id,fuelIds:[...fall.fuelIds],position,triangles,floorFootprint:triangles,supportBoundaryId:landingSurface.id,sourceSurfaceIds:fall.geometry?.sourceSurfaceIds||[],thickness:.01,nonBearing:true,kind:fall.rubbleKind||(fall.geometry?'wood':fall.fuelIds.some(id=>fuels.get(id).cls==='oil')?'oil':'ember')};rubble.set(id,record);
             for(const id of fall.fuelIds){const f=fuels.get(id);f.rubbleId=record.id;f.loose=true;f.position=[...position];f.floorFootprint=triangles;f.normal=[0,1,0];attachFuel(f,cellAt(f.position));}
           }
         }
@@ -266,7 +275,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       if(!supported)beginFall(item.id,list,item.position,{itemId:item.id});
     }
     for(const record of [...rubble.values()])if(!index.surfaces.get(record.supportBoundaryId)?.intact)beginFall(record.id,record.fuelIds.map(id=>fuels.get(id)),record.position,{cause:'rubble-support-loss',footprint:record.triangles,rubbleKind:record.kind});
-    for(const f of fuels.values())if(f.spill&&f.amount>EPS&&!f.falling&&!f.rubbleId&&f.supportBoundaryId&&!index.surfaces.get(f.supportBoundaryId)?.intact)beginFall(f.id,[f],f.position,{cause:'liquid-support-failure'});
+    for(const f of fuels.values())if((f.spill||f.loose)&&f.amount>EPS&&!f.itemId&&!f.falling&&!f.rubbleId&&f.supportBoundaryId&&!index.surfaces.get(f.supportBoundaryId)?.intact)beginFall(f.id,[f],f.position,{cause:f.spill?'liquid-support-failure':'loose-support-failure'});
     stats.peakActive=Math.max(stats.peakActive,active.size);revision++;
   }
   function metrics() {

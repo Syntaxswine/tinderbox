@@ -101,6 +101,19 @@ test('a same-ID item reactivation supersedes its historical fall tombstone in a 
   for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='shelf')trial.scene.index.change(b.id,{intact:false});trial.step();const frame=trial.frame();assert.ok(frame.falls.some(f=>f.id===first.id));assert.ok(!frame.tombstones.some(t=>t.collection==='falls'&&t.id===first.id));trial.dispose();
 });
 
+test('a detached exterior fragment grazes a floor edge and keeps falling to a real supported footprint',()=>{
+  const column={id:'post',kind:'wall',material:'timber',normal:[1,0,0],thickness:.16,fuelClass:'partition',fuelAmount:2,triangles:[[[.5,0,0],[.5,2,0],[.5,2,1]],[[.5,0,0],[.5,2,1],[.5,0,1]]]},roof={id:'outside',kind:'roof',material:'timber',normal:[0,1,0],thickness:.12,fuelClass:'roof',fuelAmount:2,supportSurfaceIds:['post'],triangles:[[[-.16,2.06,0],[0,2.06,0],[0,2.06,1]],[[-.16,2.06,0],[0,2.06,1],[-.16,2.06,1]]]},trial=createTrial({version:1,prefabId:'grazed-support-edge',groundY:-.5,surfaces:[{...floor('stone',0),thickness:.5},column,roof]});
+  assert.equal(trial.supportGraph.diagnostics().unresolvedInitial,0);for(const f of trial.scene.fuels.values())if(f.sourceSurfaceId==='outside'){f.lit=true;f.litAt=0;}trial.frame();
+  for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='post')trial.scene.index.change(b.id,{intact:false});trial.step(90);const frame=trial.frame(),samples=frame.fireSamples.filter(s=>s.originalSourceSurfaceId==='outside');assert.ok(samples.length);
+  assert.ok(samples.every(s=>s.rubbleId&&s.supportBoundaryId==='terrain:ground'&&s.y<0&&s.floorFootprint.length));assert.ok(frame.rubble.every(r=>r.supportBoundaryId==='terrain:ground'));assert.equal(trial.metrics().fuel.escaped,0);assert.ok(Math.abs(trial.metrics().fuel.error)<1e-9);trial.dispose();
+});
+
+test('a physical fitting top can bear landed fuel and releases it again when that actual top retires',()=>{
+  const column={id:'post',kind:'wall',material:'timber',normal:[1,0,0],thickness:.16,fuelClass:'partition',fuelAmount:2,triangles:[[[.5,0,0],[.5,2,0],[.5,2,1]],[[.5,0,0],[.5,2,1],[.5,0,1]]]},roof={...floor('roof',2.06,'timber',4),kind:'roof'},shelf={...floor('fitting-top',.75),kind:'attachment',supports:false},trial=createTrial({version:1,prefabId:'actual-bearing-face',groundY:-.12,surfaces:[floor('stone',0),column,roof,shelf]});
+  for(const f of trial.scene.fuels.values())if(f.sourceSurfaceId==='roof'){f.lit=true;f.litAt=0;}for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='post')trial.scene.index.change(b.id,{intact:false});trial.step(60);const first=trial.frame();assert.ok(first.rubble.length);assert.ok(first.rubble.every(r=>r.supportBoundaryId.startsWith('fitting-top')));
+  for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='fitting-top')trial.scene.index.change(b.id,{intact:false});trial.step(60);const last=trial.frame();assert.ok(last.rubble.every(r=>r.supportBoundaryId.startsWith('stone')));assert.ok(last.fireSamples.filter(s=>s.originalSourceSurfaceId==='roof').every(s=>s.rubbleId&&s.supportBoundaryId.startsWith('stone')));assert.ok(Math.abs(trial.metrics().fuel.error)<1e-9);trial.dispose();
+});
+
 test('a watertight infill prism keeps a real 3.75mm passage margin instead of an internal-diagonal parity obstacle',()=>{
   const panel={id:'infill',kind:'wall',material:'timber',normal:[0,0,-1],thickness:.16,fuelClass:'partition',fuelAmount:1,triangles:[[[.5075,0,0],[1,0,0],[1,2,0]],[[.5075,0,0],[1,2,0],[.5075,2,0]]]},trial=createTrial({version:1,prefabId:'infill',surfaces:[floor('stone',0),panel]}),nav=createNavigation(trial);
   assert.equal(nav.clear([.00375,0,-.8],[.00375,0,1]),true);assert.equal(nav.clear([.02,0,-.8],[.02,0,1]),false);
