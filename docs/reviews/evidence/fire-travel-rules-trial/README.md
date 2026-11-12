@@ -16,8 +16,10 @@ across a gap (Rule 6) is withdrawn (commit `06061b0`), were reviewed and scored 
 `reviewer-round-4/REPORT.md`. Round 4's corrections, the largest being a kernel
 fix (a warm tile wakes the surfaces standing against it; commit `b6cc2a5`), were reviewed and scored 7.5 out
 of 10; see `reviewer-round-5/REPORT.md`. Round 5's corrections (commit `28d3931`) were reviewed and scored 7 out of 10; see
-`reviewer-round-6/REPORT.md`. What is here now has round 6's corrections, the largest being that the survey
-is also run with each house on a lawn, and has not been reviewed.
+`reviewer-round-6/REPORT.md`. Round 6's corrections, the largest being that the survey
+is also run with each house on a lawn (commit `378c542`), were reviewed and scored 7 out of 10; see
+`reviewer-round-7/REPORT.md`. The owner stopped the loop there. Round 7's must-fix items are corrected in the
+record's text; its should-fix items are open and listed in the record.
 
 | File | What it is |
 | --- | --- |
@@ -37,6 +39,7 @@ is also run with each house on a lawn, and has not been reviewed.
 | `results/layer/` | Lawn surveys for the proposals in `../../2026-11-11-another-layer.md`: a stone plinth (`survey.mjs <plan> '{}' '{}' <dir> lawn plinth`), a low grass flame (fuels `'{"grass":{"rises":0.2}}'`), a cool grass flame (`'{"grass":{"hot":1.6}}'`) and their combinations. `summarise.mjs <dir> ...` prints targets 4 and 5 for any survey directory. These three numbers are off by default and are not part of the reviewed rules |
 | `results/roof-delay-3/` | The survey with roof delay 3 s in place of 8 s: `survey.mjs <plan> '{}' '{"roof":{"delay":3}}' results/roof-delay-3`. The trial reads it for target 5 |
 | `results/first-version/` | The first trial's output. Withdrawn |
+| `reviewer-round-7/` | The round 7 reviewer's probes, results and report. They ran against commit `378c542` |
 | `reviewer-round-6/` | The round 6 reviewer's probes, results and report. They ran against commit `28d3931` and its own copies of that scene and measuring code |
 | `reviewer-round-5/` | The round 5 reviewer's probes, results and report. They ran against commit `b6cc2a5` and its own copies of that kernel and measuring code |
 | `reviewer-round-4/` | The round 4 reviewer's probes, results and report. They ran against commit `06061b0` and its own copies of that kernel, scene and measuring code |
