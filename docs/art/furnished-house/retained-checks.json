@@ -1,5 +1,5 @@
 {
-  "passed": 6,
+  "passed": 8,
   "failed": 0,
   "groups": [
     "A skipped land-and-retransfer retires flight unconditionally even when its historical rubble is gone",
@@ -7,7 +7,11 @@
     "New landing ownership beats both old rubble tombstones and a retired roof provenance",
     "Shared duplicated fuel footprints preserve the real outer boundary instead of inflating the flame envelope",
     "A current airborne association takes priority over retained prior landing metadata",
-    "Escape/retirement and full reset leave no retained flight, landing or fuel-owner cache"
+    "Escape/retirement and full reset leave no retained flight, landing or fuel-owner cache",
+    "Exact real88s rubble removal preserves the same-ID current airborne owner in another collection",
+    "Immutable66a49e3 mapper reproduces the real same-ID missing source while the corrected mapper passes it"
   ],
+  "immutableMapperBaseline": "66a49e39a775faee7ba5c6f259109e4a314372da",
+  "actualPublicationFixture": "art/source/furnished-house/fixture-real-refall.json",
   "scope": "Focused coalesced-render lifecycle, associations and support-envelope regression; long exact runtime replay is separate."
 }

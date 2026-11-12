@@ -94,6 +94,27 @@
       "unresolvedInitial": 0,
       "rawManifestUnchanged": true,
       "inertChimneyZeroFuel": true
+    },
+    "retainedState": {
+      "command": "node art/source/furnished-house/check-retained.mjs",
+      "passed": 8,
+      "failed": 0,
+      "actual88sInput": true,
+      "immutableOldMapperFails": true,
+      "pausedCameraIncluded": true
+    },
+    "actualPublication": {
+      "report": "docs/art/furnished-house/actual-publication-checks.json",
+      "runtimePin": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+      "passed": true,
+      "worldSeconds": 330,
+      "publications": 331,
+      "pausedCameraRepeats": 331,
+      "missingSamples": 0,
+      "ownerFailures": 0,
+      "flightMismatchFrames": 0,
+      "residueMismatchFrames": 0,
+      "cameraDeltaMismatchFrames": 0
     }
   },
   "helperRetirement": {

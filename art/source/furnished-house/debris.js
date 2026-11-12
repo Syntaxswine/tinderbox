@@ -75,7 +75,7 @@ export function createDebrisView(T,{surfaces,getBoundary}={}){
   }
   for(const t of frame.tombstones||[]){const id=typeof t==='string'?t:t.id;
    if(t.collection==='rubble'){if(residue.delete(id))topologyDirty=true;}
-   else if(t.collection==='falls'||flights.has(id))deadFlights.add(id);
+   else if(t.collection==='falls'||!t.collection&&flights.has(id))deadFlights.add(id);
   }
   // Upserts are the final current state; rebuild associations after all removals.
   for(const r of records||[])updateResidue(r);

@@ -1,0 +1,177 @@
+{
+  "runtimePin": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+  "dataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+  "command": {
+    "tick": 1,
+    "type": "match",
+    "position": [
+      0.1,
+      1.1,
+      6.25
+    ],
+    "from": [
+      1.4,
+      1.1,
+      6.3
+    ]
+  },
+  "end": 330,
+  "publicationTicks": 30,
+  "firstFailure": null,
+  "failureFrames": 0,
+  "totalMissing": 0,
+  "ownerFailureFrames": 0,
+  "flightMismatchFrames": 0,
+  "residueMismatchFrames": 0,
+  "cameraDeltaMismatchFrames": 0,
+  "pausedCameraRepeats": true,
+  "passed": true,
+  "sourceIntake": [
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "commit": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+      "bytes": 11189,
+      "sha256": "fa7ed18b5400e99e7bd5ed1ddc29fd20b84279f7bff3ae67e7e9d9806bcae368"
+    },
+    {
+      "path": "workbenches/furnished-house/prepare-data.js",
+      "commit": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+      "bytes": 2588,
+      "sha256": "f43d0fbc4472c478f849d44abc4a5dff0cf5e460903cc389e069e1d231dafe94"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "commit": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+      "bytes": 10173,
+      "sha256": "9295a83afc2c2550a5cd1cf9f3cc43acef57dad54e86c59c2ac17b4818783c52"
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "commit": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+      "bytes": 5994,
+      "sha256": "9de23edd6135d8d7ce9af09ed3ad6c683c4379102a9485f390e367664b98c0ac"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "commit": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+      "bytes": 38769,
+      "sha256": "27b4e80d4f07d9c3ed737627e3b3a62e90b01226d473e0e47b0405c6325efe99"
+    }
+  ],
+  "limits": [
+    "Actual prepared runtime and artist under Node; no browser, image or hardware timing claim."
+  ],
+  "publications": 331,
+  "pausedCameraRepeatsCount": 331,
+  "stages": [
+    {
+      "worldTime": 0,
+      "samples": 0,
+      "represented": 0,
+      "missing": 0,
+      "orphanCount": 0,
+      "simulationFalls": 0,
+      "visualFalls": 0,
+      "expectedFlights": 0,
+      "visualFlights": 0,
+      "pendingLanding": 0,
+      "rubble": 0,
+      "visualRubble": 0,
+      "cameraDeltaMismatch": false
+    },
+    {
+      "worldTime": 88,
+      "samples": 3773,
+      "represented": 3773,
+      "missing": 0,
+      "orphanCount": 0,
+      "simulationFalls": 2,
+      "visualFalls": 2,
+      "expectedFlights": 2,
+      "visualFlights": 2,
+      "pendingLanding": 0,
+      "rubble": 18,
+      "visualRubble": 18,
+      "cameraDeltaMismatch": false
+    },
+    {
+      "worldTime": 154,
+      "samples": 4023,
+      "represented": 4023,
+      "missing": 0,
+      "orphanCount": 0,
+      "simulationFalls": 0,
+      "visualFalls": 0,
+      "expectedFlights": 0,
+      "visualFlights": 0,
+      "pendingLanding": 0,
+      "rubble": 30,
+      "visualRubble": 30,
+      "cameraDeltaMismatch": false
+    },
+    {
+      "worldTime": 170,
+      "samples": 3842,
+      "represented": 3842,
+      "missing": 0,
+      "orphanCount": 0,
+      "simulationFalls": 16,
+      "visualFalls": 16,
+      "expectedFlights": 16,
+      "visualFlights": 16,
+      "pendingLanding": 0,
+      "rubble": 526,
+      "visualRubble": 526,
+      "cameraDeltaMismatch": false
+    },
+    {
+      "worldTime": 210,
+      "samples": 2097,
+      "represented": 2097,
+      "missing": 0,
+      "orphanCount": 0,
+      "simulationFalls": 125,
+      "visualFalls": 125,
+      "expectedFlights": 125,
+      "visualFlights": 125,
+      "pendingLanding": 0,
+      "rubble": 2697,
+      "visualRubble": 2697,
+      "cameraDeltaMismatch": false
+    },
+    {
+      "worldTime": 270,
+      "samples": 676,
+      "represented": 676,
+      "missing": 0,
+      "orphanCount": 0,
+      "simulationFalls": 0,
+      "visualFalls": 0,
+      "expectedFlights": 0,
+      "visualFlights": 0,
+      "pendingLanding": 0,
+      "rubble": 2936,
+      "visualRubble": 2936,
+      "cameraDeltaMismatch": false
+    },
+    {
+      "worldTime": 330,
+      "samples": 371,
+      "represented": 371,
+      "missing": 0,
+      "orphanCount": 0,
+      "simulationFalls": 0,
+      "visualFalls": 0,
+      "expectedFlights": 0,
+      "visualFlights": 0,
+      "pendingLanding": 0,
+      "rubble": 2944,
+      "visualRubble": 2944,
+      "cameraDeltaMismatch": false
+    }
+  ],
+  "durableEvidenceRoot": "artifacts/qa/furnished-house-actual-publication/5f1793b-fixed",
+  "fullResultSha256": "61d0e259617f3f623664e25c52e2ead9bb75a5140e61df7e73c808cc68215e37",
+  "realRegressionFixture": "art/source/furnished-house/fixture-real-refall.json",
+  "reproduce": "node art/source/furnished-house/check-actual-publication.mjs --runtime-pin=5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7 --end=330 --out=artifacts/qa/furnished-house-actual-publication/5f1793b-current"
+}
