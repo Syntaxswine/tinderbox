@@ -3,8 +3,10 @@ import path from 'node:path';
 import {withReviewBrowser} from './review-browser.mjs';
 
 const worldSeconds=Number(process.argv[2]||120),samples=Number(process.argv[3]||40);
+const rounds=Number(process.argv[4]||1),stability=process.argv[5]==='stability',warmDraws=rounds>1?12:3;
 assert.ok(worldSeconds>=5&&worldSeconds<=150);
 assert.ok(Number.isInteger(samples)&&samples>=20&&samples<=120);
+assert.ok(Number.isInteger(rounds)&&rounds>=1&&rounds<=3);
 const all={flames:true,smoke:true,lighting:true};
 const masks=[all,{flames:true,smoke:false,lighting:true},{flames:false,smoke:true,lighting:true},
   {flames:true,smoke:true,lighting:false},{flames:true,smoke:false,lighting:false},
@@ -12,6 +14,8 @@ const masks=[all,{flames:true,smoke:false,lighting:true},{flames:false,smoke:tru
   {flames:false,smoke:false,lighting:false}];
 const cases=[...masks.map(effects=>({effects,lightingMode:'local'})),{effects:all,lightingMode:'building'},
   {effects:{flames:false,smoke:false,lighting:true},lightingMode:'building'}];
+const selected=stability?cases.filter((c,i)=>[0,1,3,6,8,9].includes(i)):cases;
+const schedule=Array.from({length:rounds},(_,round)=>(round%2?[...selected].reverse():selected).map(c=>({...c,round:round+1}))).flat();
 const statistics=values=>{const sorted=[...values].sort((a,b)=>a-b);return {count:sorted.length,
   mean:sorted.reduce((a,b)=>a+b,0)/(sorted.length||1),p95:sorted[Math.floor((sorted.length-1)*.95)]??0,max:sorted.at(-1)??0};};
 
@@ -99,12 +103,12 @@ await withReviewBrowser(async({page,context,origin,output,save,errors})=>{
       exposure:api.renderer.toneMappingExposure,toneMapping:api.renderer.toneMapping};
   });
   const before=await page.evaluate(()=>window.__effectReview.digest()),tick=await page.evaluate(()=>window.__furnished.snapshot().tick),runs=[],referenceLights=new Map();
-  for(const {effects,lightingMode}of cases){
-    const label=lightingMode+'_'+Object.entries(effects).map(([key,value])=>key+'-'+(value?'on':'off')).join('_');
-    await page.evaluate(({effects,lightingMode})=>{
-      const api=window.__furnished;api.setLightingMode(lightingMode);api.setEffects(effects);api.draw();api.draw();api.draw();
+  for(const {effects,lightingMode,round}of schedule){
+    const label=(rounds>1?'round'+round+'_':'')+lightingMode+'_'+Object.entries(effects).map(([key,value])=>key+'-'+(value?'on':'off')).join('_');
+    await page.evaluate(({effects,lightingMode,warmDraws})=>{
+      const api=window.__furnished;api.setLightingMode(lightingMode);api.setEffects(effects);for(let i=0;i<warmDraws;i++)api.draw();
       document.querySelector('#effects-review-caption').textContent=lightingMode+' lighting · '+Object.entries(effects).map(([key,on])=>key+': '+(on?'on':'off')).join(' · ')+' · paused visual comparison';
-    },{effects,lightingMode});
+    },{effects,lightingMode,warmDraws});
     for(const [key,label]of [['flames','Flames'],['smoke','Smoke'],['lighting','Fire lighting']])assert.equal(await page.getByLabel(label,{exact:true}).isChecked(),effects[key]);
     const measured=await page.evaluate(n=>window.__effectReview.sample(n),samples);
     assert.equal(measured.diagnostics.metrics.tick,tick);assert.equal(measured.diagnostics.art.missingSamples,0);
@@ -119,10 +123,10 @@ await withReviewBrowser(async({page,context,origin,output,save,errors})=>{
     if(!effects.lighting){assert.equal(work.work.lightClusterCalls,0);assert.equal(art.actualLights.length,0);}
     if(effects.lighting){if(referenceLights.has(lightingMode))assert.deepEqual(art.actualLights,referenceLights.get(lightingMode),'Flame/smoke settings changed enabled lighting');else referenceLights.set(lightingMode,art.actualLights);}
     if(lightingMode==='building'){assert.equal(work.work.lightClusterCalls,0);assert.equal(work.work.buildingAggregateCalls,1);if(!effects.flames&&!effects.smoke)assert.equal(work.work.supportAnchorSources,0);}
-    runs.push({effects,lightingMode,label,cpuDrawMs:statistics(measured.cpu),gpuMs:statistics(measured.gpu),diagnostics:measured.diagnostics});
+    runs.push({effects,lightingMode,round,label,cpuDrawMs:statistics(measured.cpu),gpuMs:statistics(measured.gpu),diagnostics:measured.diagnostics});
     await page.screenshot({path:path.join(output,label+'.jpg'),type:'jpeg',quality:93});
-    save('timings.json',{method:'Paused fixed-state draw isolation; includes publication/presentation, render submission and draw HUD work; excludes simulation, diagnostics and encoding. CPU/GPU are separate, not additive frame-rate estimates.',hardware,worldSeconds,samples,runs});
-    console.log(JSON.stringify({effects,lightingMode,cpu:runs.at(-1).cpuDrawMs,gpu:runs.at(-1).gpuMs}));
+    save('timings.json',{method:'Paused fixed-state draw isolation; includes publication/presentation, render submission and draw HUD work; excludes simulation, diagnostics and encoding. CPU/GPU are separate, not additive frame-rate estimates.',hardware,worldSeconds,samples,rounds,warmDraws,stability,runs});
+    console.log(JSON.stringify({effects,lightingMode,round,cpu:runs.at(-1).cpuDrawMs,gpu:runs.at(-1).gpuMs}));
   }
   assert.equal(await page.evaluate(()=>window.__effectReview.digest()),before,'Effect preferences changed physical simulation state');
   await page.evaluate(value=>{window.__furnished.setEffects(value);window.__furnished.setLightingMode('local');},all);
@@ -154,6 +158,6 @@ await withReviewBrowser(async({page,context,origin,output,save,errors})=>{
   await page.screenshot({path:path.join(output,'settings-on-fire.jpg'),type:'jpeg',quality:93});
   await page.evaluate(()=>{window.__effectReview.dispose();window.__furnished.dispose();});
   assert.deepEqual(errors,[]);
-  save('acceptance.json',{allEightCombinations:true,keyboard:true,touch:true,buildingModeQueryAndReset:true,refreshPersistence:true,resetPreservesPreferences:true,unavailableStorage:true,physicalStateSha256:before,physicalStateUnchanged:true,hardware,worldSeconds,samples,errors});
-  return {hardware,worldSeconds,samples,runs};
+  save('acceptance.json',{allEightCombinations:!stability,stability,rounds,caseCount:schedule.length,keyboard:true,touch:true,buildingModeQueryAndReset:true,refreshPersistence:true,resetPreservesPreferences:true,unavailableStorage:true,physicalStateSha256:before,physicalStateUnchanged:true,hardware,worldSeconds,samples,errors});
+  return {hardware,worldSeconds,samples,rounds,stability,runs};
 },{suffix:'effect-settings',lifetimeMs:900000});
