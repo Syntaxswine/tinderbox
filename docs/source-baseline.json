@@ -29,6 +29,17 @@
       "status": "Observed UI candidate only; not approved for Tinderbox import"
     }
   ],
+  "authoringTools": [
+    {
+      "sourceName": "Nautilus Map Workshop for stockyard blockout",
+      "repository": "https://github.com/Syntaxswine/nautilus-engine.git",
+      "commit": "6a9d93c0a5fceefe5799448da4e69c83b65e3ce9",
+      "scope": "Optional stockyard authoring host only; no production engine pin changed",
+      "reason": "User requested a period-map stockyard sketch in the built-in map builder with existing pens and gate",
+      "runtimeImport": false,
+      "provenance": "docs/maps/stockyard/provenance.json"
+    }
+  ],
   "tinderboxImports": [
     {
       "kind": "shared-renderer",

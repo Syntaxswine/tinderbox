@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "engine": {
+    "repository": "https://github.com/Syntaxswine/nautilus-engine",
+    "commit": "6a9d93c0a5fceefe5799448da4e69c83b65e3ce9",
+    "use": "Read-only, pinned native editor authoring host; no production engine pin changed"
+  },
+  "art": {
+    "repository": "https://github.com/Syntaxswine/tinderbox",
+    "commit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+    "files": [
+      {
+        "path": "assets/art/stockyards/.gitattributes",
+        "bytes": 307,
+        "sha256": "5529cbdf9d76a11e5ccc5101552005b455b75518db0bb134847b5f401f3fbecc"
+      },
+      {
+        "path": "assets/art/stockyards/LETTERING-OFL.txt",
+        "bytes": 4393,
+        "sha256": "e8d81ba3b06080b764626d4385f319344e102ddf2c08bb4209412ac22d695f69"
+      },
+      {
+        "path": "assets/art/stockyards/forms.js",
+        "bytes": 7250,
+        "sha256": "ba117fddaffc5df18f06f0cb1efd31c8c107433babdaa6b22f236427bbdea37f"
+      },
+      {
+        "path": "assets/art/stockyards/index.js",
+        "bytes": 21137,
+        "sha256": "bd72966d76f0abe67c7f222db681c42108dfc4532295e746c8c70d5cd0f7d2ee"
+      },
+      {
+        "path": "assets/art/stockyards/kit.json",
+        "bytes": 3275345,
+        "sha256": "ee98ee787239a1262859b964fd85b05e8d44c26253b1d10b6ae3e2baaee37f27"
+      },
+      {
+        "path": "assets/art/stockyards/letters.js",
+        "bytes": 135356,
+        "sha256": "803e19b371f915c43b4feca8fbd8f316f14a0d6b7e1d2329fbc54d5585fc1315"
+      },
+      {
+        "path": "assets/art/stockyards/manifest.json",
+        "bytes": 2796,
+        "sha256": "2cc4be818e2be79a37a211e67b6801dae48b447d25381f97e11c762381485c72"
+      },
+      {
+        "path": "assets/art/stockyards/parts.js",
+        "bytes": 15862,
+        "sha256": "a7589eef97b421d0c42efe1f4e03bc6323c31584d14aed073332c13d9fb14756"
+      }
+    ]
+  },
+  "authoring": {
+    "map": "maps/stockyard/stockyard-1893.map.json",
+    "recipe": "tools/stockyard/create-map.mjs",
+    "extension": "tinderboxStockyard version 1",
+    "units": "native metres; no scaling"
+  },
+  "research": [
+    {
+      "path": "artist cache / 1890.jpg",
+      "sha256": "fff7d949d5c49cb51b6eca26b765c62195e8c8a568d2d8a121fa5ab6499358e7"
+    },
+    {
+      "path": "artist cache / atlas-sheet28.jpg",
+      "sha256": "5b60245d600227729663872eaadc231cda9163cae8e09dc9e18aab76bde1715e"
+    },
+    {
+      "url": "https://chicagohistoryresources.org/greatchicagostories/pdf/artifacts/artifacts_hotdog.pdf",
+      "researchOnly": true,
+      "page": 10,
+      "sha256": "368da2a1f095b639dea6a224632ca7277e7e4b1bb8a1b3dfce32654d0c3681c7"
+    }
+  ]
+}

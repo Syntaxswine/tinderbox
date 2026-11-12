@@ -1,0 +1,202 @@
+{
+  "format": "tinderbox-stockyard-layout",
+  "version": 1,
+  "engineCommit": "6a9d93c0a5fceefe5799448da4e69c83b65e3ce9",
+  "artCommit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+  "metresPerUnit": 1,
+  "stage": "period-map-informed blockout",
+  "instances": [
+    {
+      "id": "exchange-entrance",
+      "name": "Union Stock Yard gate",
+      "asset": "union-stockyard-gate",
+      "x": 202,
+      "y": 126,
+      "quarterTurns": 3,
+      "bays": 1,
+      "skin": "jubilee"
+    },
+    {
+      "id": "covered-north-1-1",
+      "name": "North covered pens 1.1",
+      "asset": "covered-swine-pen",
+      "x": 126,
+      "y": 94,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-north-1-2",
+      "name": "North covered pens 1.2",
+      "asset": "covered-swine-pen",
+      "x": 126,
+      "y": 102,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-north-1-3",
+      "name": "North covered pens 1.3",
+      "asset": "covered-swine-pen",
+      "x": 126,
+      "y": 110,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "jubilee"
+    },
+    {
+      "id": "covered-north-2-1",
+      "name": "North covered pens 2.1",
+      "asset": "covered-swine-pen",
+      "x": 156,
+      "y": 94,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-north-2-2",
+      "name": "North covered pens 2.2",
+      "asset": "covered-swine-pen",
+      "x": 156,
+      "y": 102,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-north-2-3",
+      "name": "North covered pens 2.3",
+      "asset": "covered-swine-pen",
+      "x": 156,
+      "y": 110,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "jubilee"
+    },
+    {
+      "id": "covered-south-1-1",
+      "name": "South covered pens 1.1",
+      "asset": "covered-swine-pen",
+      "x": 126,
+      "y": 138,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-south-1-2",
+      "name": "South covered pens 1.2",
+      "asset": "covered-swine-pen",
+      "x": 126,
+      "y": 146,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-south-1-3",
+      "name": "South covered pens 1.3",
+      "asset": "covered-swine-pen",
+      "x": 126,
+      "y": 154,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "jubilee"
+    },
+    {
+      "id": "covered-south-2-1",
+      "name": "South covered pens 2.1",
+      "asset": "covered-swine-pen",
+      "x": 156,
+      "y": 138,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-south-2-2",
+      "name": "South covered pens 2.2",
+      "asset": "covered-swine-pen",
+      "x": 156,
+      "y": 146,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "working"
+    },
+    {
+      "id": "covered-south-2-3",
+      "name": "South covered pens 2.3",
+      "asset": "covered-swine-pen",
+      "x": 156,
+      "y": 154,
+      "quarterTurns": 0,
+      "bays": 6,
+      "skin": "jubilee"
+    }
+  ],
+  "view": {
+    "x": 147,
+    "y": 123,
+    "span": 102
+  },
+  "labels": [
+    {
+      "text": "EXCHANGE AVENUE · entrance spine",
+      "x": 164,
+      "y": 126
+    },
+    {
+      "text": "CENTRE AVENUE · rail / service edge",
+      "x": 116,
+      "y": 116
+    },
+    {
+      "text": "COVERED HOG PENS",
+      "x": 151,
+      "y": 108
+    },
+    {
+      "text": "OPEN HOLDING PENS",
+      "x": 151,
+      "y": 78
+    },
+    {
+      "text": "PACKINGHOUSE MASSING · provisional",
+      "x": 95,
+      "y": 99
+    },
+    {
+      "text": "TRANSIT / OFFICE MASSING · provisional",
+      "x": 195,
+      "y": 151
+    }
+  ],
+  "interpretation": "Bounded 140 x 115 m game sector. Native assets retain scale. Street/pen/rail/industrial relationships derive from period maps; bay count, spacings, crop and placeholder buildings are game adaptations, not a measured reconstruction.",
+  "sources": [
+    {
+      "id": "SY-1890",
+      "url": "https://www.loc.gov/item/98687207/",
+      "use": "Pen-row rhythm, industrial edge and rail approaches; perspective is not uniformly scaled."
+    },
+    {
+      "id": "SY-1891",
+      "url": "https://chicagohistoryresources.org/greatchicagostories/pdf/artifacts/artifacts_hotdog.pdf",
+      "page": 10,
+      "use": "May 1 1891 general plan: Exchange approach, rail-connected stockyard grid and district relationships. Low-resolution copy; no inferred survey dimensions."
+    },
+    {
+      "id": "SY-ATLAS",
+      "url": "https://collections.newberry.org/archive/-2KXJ8Z814UYL2.html",
+      "sheet": 15,
+      "use": "Packinghouse service/rail relationship and block massing. This sheet is not an entrance or individual-pen survey."
+    }
+  ],
+  "pending": [
+    "Specialized livestock, wardrobe and working clutter remain the artist's separate assignment.",
+    "This is an editable authoring blockout, without stockyard gameplay, fire, collision or AI acceptance.",
+    "Stockyard assemblies require the supplied Tinderbox editor layer; native map fields remain editable in Nautilus."
+  ]
+}

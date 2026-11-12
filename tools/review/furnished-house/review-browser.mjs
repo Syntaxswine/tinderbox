@@ -25,7 +25,7 @@ const listening = port => new Promise(resolve => {
 
 // Task-owned, short-lived QA browser and read-only allowlisted fixture server.
 // Every invocation closes both helpers, including on assertion/capture failure.
-export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000}={}) {
+export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000,staticDirectories=[]}={}) {
   const root=fs.realpathSync(process.cwd()), dist=path.join(root,'dist');
   const commit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8',windowsHide:true}).trim();
   const tracked=new Set(execFileSync('git',['ls-files','-z','--','src','assets','vendor','workbenches','art/source/furnished-house'],
@@ -59,7 +59,8 @@ export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000
     const baseline=url.startsWith('/baseline/'),prefix=baseline?'/baseline/':'/candidate/';
     const relative=url.slice(prefix.length)||'index.html';
     const directory=baseline?dist:root,location=path.resolve(directory,relative);
-    if(!url.startsWith(prefix)||!(baseline?baselineFiles:tracked).has(relative)
+    const extra=!baseline&&staticDirectories.some(dir=>relative.startsWith(dir.replace(/\/$/,'')+'/'));
+    if(!url.startsWith(prefix)||(!(baseline?baselineFiles:tracked).has(relative)&&!extra)
        ||!location.startsWith(directory+path.sep))return response.writeHead(404).end();
     response.writeHead(200,{'Content-Type':mime[path.extname(relative)]||'application/octet-stream','Cache-Control':'no-store'});
     fs.createReadStream(location).on('error',()=>response.destroy()).pipe(response);
