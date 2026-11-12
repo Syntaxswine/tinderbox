@@ -13,6 +13,9 @@ const mime = {'.html':'text/html','.js':'text/javascript','.mjs':'text/javascrip
 const identity = pid => JSON.parse(execFileSync('powershell.exe', ['-NoProfile','-Command',
   '$p=Get-Process -Id '+pid+'; [pscustomobject]@{pid=$p.Id;creationFiletime=$p.StartTime.ToUniversalTime().ToFileTimeUtc().ToString();executable=$p.Path}|ConvertTo-Json -Compress'],
   {encoding:'utf8',windowsHide:true}));
+const originalProcessAlive = record => JSON.parse(execFileSync('powershell.exe',['-NoProfile','-Command',
+  '$p=Get-Process -Id '+record.pid+' -ErrorAction SilentlyContinue; if($null -eq $p){"false"}else{($p.StartTime.ToUniversalTime().ToFileTimeUtc().ToString() -eq "'+record.creationFiletime+'") | ConvertTo-Json -Compress}'],
+  {encoding:'utf8',windowsHide:true}));
 const listening = port => new Promise(resolve => {
   const socket=net.connect({port,host:'127.0.0.1'});
   const finish = value => {socket.destroy();resolve(value);};
@@ -65,7 +68,7 @@ export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000
   let chromium;
   try{({chromium}=createRequire(import.meta.url)('playwright'));}
   catch(error){if(error.code!=='MODULE_NOT_FOUND')throw error;({chromium}=createRequire(path.join(modules,'playwright/package.json'))('playwright'));}
-  let edge,context,record,deadline,watcher,closing;
+  let edge,browser,context,record,deadline,watcher,closing;
   const stopFile=path.join(output,'STOP');
   const bounded=async(operation,stage)=>{
     let timer;save('cleanup-stage.json',{stage,startedAt:new Date().toISOString()});
@@ -75,7 +78,8 @@ export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000
   const close=()=>closing??=(async()=>{
     clearTimeout(deadline);clearInterval(watcher);
     try {if(context)await bounded(()=>context.close(),'context close');}
-    finally {try {if(edge)await bounded(()=>edge.close(),'browser close');}
+    finally {try {try {if(browser)await bounded(()=>browser.close(),'browser client close');}
+      finally {if(edge)await bounded(()=>edge.close(),'browser close');}}
       finally {if(server.listening){server.closeAllConnections();await bounded(()=>new Promise(resolve=>server.close(resolve)),'server close');}}}
   })();
   const errors=[];
@@ -91,7 +95,7 @@ export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000
       restart:{cwd:root,executable:process.execPath,args:process.argv.slice(1),commit,baselineManifest:manifestHash,output}};
     save('helper.json',record);watcher=setInterval(()=>{if(fs.existsSync(stopFile))void close();},300);
     console.log(JSON.stringify({output,commit,ports:record.ports}));
-    const browser=await chromium.connect(edge.wsEndpoint());
+    browser=await chromium.connect(edge.wsEndpoint());
     context=await browser.newContext({viewport:{width:1280,height:800},deviceScaleFactor:1});
     const origin='http://127.0.0.1:'+record.ports[0];
     await context.route('**/*',route=>route.request().url().startsWith(origin+'/')?route.continue():route.abort());
@@ -106,7 +110,12 @@ export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000
   finally{
     let cleanupError;try{await close();}catch(error){cleanupError=String(error.stack||error);}
     if(record){const portsListening=await Promise.all(record.ports.map(listening));
-      save('cleanup-receipt.json',{closedAt:new Date().toISOString(),helper:record,portsListening,cleanupError});
+      const child=edge?.process(),browserExited=!!child&&(child.exitCode!==null||child.signalCode!==null)||!originalProcessAlive(record.browser);
+      // On Windows the server close promise can outlive its exited child.
+      // Accept only an observed child exit plus both released owned ports.
+      const cleanupWarning=cleanupError&&browserExited&&portsListening.every(value=>!value)?cleanupError:undefined;
+      if(cleanupWarning)cleanupError=undefined;
+      save('cleanup-receipt.json',{closedAt:new Date().toISOString(),helper:record,portsListening,browserExited,cleanupWarning,cleanupError});
       assert.deepEqual(portsListening,[false,false],'Review helper ports must be released.');}
     if(cleanupError)throw Error(cleanupError);
   }

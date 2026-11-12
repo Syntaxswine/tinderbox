@@ -1,0 +1,558 @@
+{
+  "publishedCommit": "c855e627bdee963e930644839a60c027a03935de",
+  "initMs": 3399.2999997138977,
+  "navigationToReadyMs": 3639.321,
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "timerQuery": true,
+    "contextAttributes": {
+      "alpha": true,
+      "antialias": true,
+      "depth": true,
+      "desynchronized": false,
+      "failIfMajorPerformanceCaveat": false,
+      "powerPreference": "default",
+      "premultipliedAlpha": true,
+      "preserveDrawingBuffer": true,
+      "stencil": false,
+      "xrCompatible": false
+    },
+    "exposure": 1,
+    "toneMapping": 0,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+  },
+  "viewport": [
+    1280,
+    800
+  ],
+  "method": "Production createRuntime/createArtScene with dummy HUD, fixed1/30 world-second advance. Art update and render CPU measured independently; GPU brackets renderer.render only.120 samples per window, bounded query drain, disjoint rejection.",
+  "runs": [
+    {
+      "startTime": 5,
+      "before": {
+        "time": 4.999999999999988,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 177,
+        "heatSites": 208,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 150,
+          "candidates": 46,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": [
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.211983772262716,
+                1.9816047352176738,
+                12.581636817738794
+              ],
+              "intensity": 24.87481207918419,
+              "reach": 14.916665040650027
+            },
+            {
+              "kind": "roof",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                6.196732594721935,
+                5.595700131299854,
+                13.366947285893207
+              ],
+              "intensity": 48.04400010421609,
+              "reach": 16
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.1739168947094414,
+                1.8523943661971831,
+                9.33211267605634
+              ],
+              "intensity": 26.738355641230534,
+              "reach": 15.052776691859803
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                6.600431031295976,
+                4.04606634037425,
+                13.996490916178692
+              ],
+              "intensity": 37.07318106624391,
+              "reach": 15.885949282779174
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.1370006385698628,
+                3.996828644501278,
+                9.409974424552429
+              ],
+              "intensity": 29.996616118260068,
+              "reach": 15.228568387762557
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                2.9537768373714064,
+                1.8262277460530738,
+                6.422069197178367
+              ],
+              "intensity": 40.74687540685972,
+              "reach": 16
+            }
+          ]
+        }
+      },
+      "summary": {
+        "time": 9.000000000000027,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 465,
+        "heatSites": 471,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 420,
+          "candidates": 117,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": [
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.6516212943696353,
+                1.9847041332693087,
+                13.398159605511026
+              ],
+              "intensity": 8.745099191900419,
+              "reach": 12.816309993884403
+            },
+            {
+              "kind": "roof",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                6.553381219096769,
+                5.219000764815825,
+                13.367163308092197
+              ],
+              "intensity": 50.602348022897715,
+              "reach": 15.467046100651883
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                6.5768786127167695,
+                4.035664739884394,
+                13.681265505721834
+              ],
+              "intensity": 31.639733891519008,
+              "reach": 14.381666184692449
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.5076292929899147,
+                1.8487136929460584,
+                8.895435684647301
+              ],
+              "intensity": 16.722288225479666,
+              "reach": 13.463670033381353
+            },
+            {
+              "kind": "roof",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                9.596445571560295,
+                5.266494388628316,
+                13.521984219337146
+              ],
+              "intensity": 73.30163810137101,
+              "reach": 16
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.426325775434857,
+                4.032958888245513,
+                9.321656050955411
+              ],
+              "intensity": 21.471677857630283,
+              "reach": 13.850829640786394
+            }
+          ]
+        }
+      },
+      "cpuMs": {
+        "count": 120,
+        "mean": 90.87166666984558,
+        "p95": 103.40000009536743,
+        "max": 106.90000009536743
+      },
+      "simulationMs": {
+        "count": 120,
+        "mean": 3.637500003973643,
+        "p95": 6.5,
+        "max": 9.600000381469727
+      },
+      "presentationCpuMs": {
+        "count": 120,
+        "mean": 2.299166659514109,
+        "p95": 3.5999999046325684,
+        "max": 5.599999904632568
+      },
+      "renderCpuMs": {
+        "count": 120,
+        "mean": 84.75666666030884,
+        "p95": 96,
+        "max": 100.09999990463257
+      },
+      "reportingAndOtherCpuMs": {
+        "count": 120,
+        "mean": 0.1783333460489909,
+        "p95": 0.3000001907348633,
+        "max": 1.799999713897705
+      },
+      "coreFrameCpuMs": {
+        "count": 120,
+        "mean": 90.6933333237966,
+        "p95": 103.09999990463257,
+        "max": 106.90000009536743
+      },
+      "gpuMs": {
+        "count": 120,
+        "mean": 81.23363839999998,
+        "p95": 93.203456,
+        "max": 101.364736
+      },
+      "disjoint": 0
+    },
+    {
+      "startTime": 30,
+      "before": {
+        "time": 29.999999999999577,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 0,
+        "heatSites": 25,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        }
+      },
+      "summary": {
+        "time": 33.99999999999935,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 0,
+        "heatSites": 25,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        }
+      },
+      "cpuMs": {
+        "count": 120,
+        "mean": 82.98166666825612,
+        "p95": 93.09999990463257,
+        "max": 109.2000002861023
+      },
+      "simulationMs": {
+        "count": 120,
+        "mean": 2.1100000023841856,
+        "p95": 3.1000003814697266,
+        "max": 3.700000286102295
+      },
+      "presentationCpuMs": {
+        "count": 120,
+        "mean": 0.8074999650319418,
+        "p95": 1.6999998092651367,
+        "max": 3.9000000953674316
+      },
+      "renderCpuMs": {
+        "count": 120,
+        "mean": 79.80666666428247,
+        "p95": 89.19999980926514,
+        "max": 105
+      },
+      "reportingAndOtherCpuMs": {
+        "count": 120,
+        "mean": 0.25750003655751547,
+        "p95": 0.40000009536743164,
+        "max": 1.6999998092651367
+      },
+      "coreFrameCpuMs": {
+        "count": 120,
+        "mean": 82.72416663169861,
+        "p95": 92.69999980926514,
+        "max": 109.10000038146973
+      },
+      "gpuMs": {
+        "count": 120,
+        "mean": 76.47155146666667,
+        "p95": 85.56544,
+        "max": 101.36576
+      },
+      "disjoint": 0
+    },
+    {
+      "startTime": 75,
+      "before": {
+        "time": 74.99999999999703,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 0,
+        "heatSites": 25,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        }
+      },
+      "summary": {
+        "time": 78.9999999999968,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 0,
+        "heatSites": 25,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        }
+      },
+      "cpuMs": {
+        "count": 120,
+        "mean": 87.71166665951411,
+        "p95": 97.2999997138977,
+        "max": 104.7000002861023
+      },
+      "simulationMs": {
+        "count": 120,
+        "mean": 2.287499980131785,
+        "p95": 3.9000000953674316,
+        "max": 7.200000286102295
+      },
+      "presentationCpuMs": {
+        "count": 120,
+        "mean": 0.6758333404858907,
+        "p95": 1.1999998092651367,
+        "max": 1.799999713897705
+      },
+      "renderCpuMs": {
+        "count": 120,
+        "mean": 84.5183333158493,
+        "p95": 92.90000009536743,
+        "max": 100.5
+      },
+      "reportingAndOtherCpuMs": {
+        "count": 120,
+        "mean": 0.23000002304712933,
+        "p95": 0.40000009536743164,
+        "max": 0.5
+      },
+      "coreFrameCpuMs": {
+        "count": 120,
+        "mean": 87.48166663646698,
+        "p95": 96.99999952316284,
+        "max": 104.5
+      },
+      "gpuMs": {
+        "count": 120,
+        "mean": 81.37225386666663,
+        "p95": 89.93792,
+        "max": 96.886784
+      },
+      "disjoint": 0
+    },
+    {
+      "startTime": 120,
+      "before": {
+        "time": 119.99999999999447,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 0,
+        "heatSites": 25,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        }
+      },
+      "summary": {
+        "time": 123.99999999999424,
+        "camera": {
+          "target": [
+            10,
+            0,
+            10
+          ],
+          "span": 12.600000000000001,
+          "zoom": 1,
+          "mode": "follow",
+          "followPlayer": true
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "drawCalls": 3060,
+        "activeFire": 0,
+        "heatSites": 25,
+        "firelight": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        }
+      },
+      "cpuMs": {
+        "count": 120,
+        "mean": 86.78999999761581,
+        "p95": 94.19999980926514,
+        "max": 100
+      },
+      "simulationMs": {
+        "count": 120,
+        "mean": 2.288333324591319,
+        "p95": 3.5999999046325684,
+        "max": 6.599999904632568
+      },
+      "presentationCpuMs": {
+        "count": 120,
+        "mean": 0.7225000023841858,
+        "p95": 1,
+        "max": 6.400000095367432
+      },
+      "renderCpuMs": {
+        "count": 120,
+        "mean": 83.56333332856497,
+        "p95": 90.5,
+        "max": 97
+      },
+      "reportingAndOtherCpuMs": {
+        "count": 120,
+        "mean": 0.2158333420753479,
+        "p95": 0.39999961853027344,
+        "max": 1.1999998092651367
+      },
+      "coreFrameCpuMs": {
+        "count": 120,
+        "mean": 86.57416665554047,
+        "p95": 93.80000019073486,
+        "max": 99.90000009536743
+      },
+      "gpuMs": {
+        "count": 120,
+        "mean": 80.63121066666668,
+        "p95": 86.95808,
+        "max": 95.336448
+      },
+      "disjoint": 0
+    }
+  ]
+}

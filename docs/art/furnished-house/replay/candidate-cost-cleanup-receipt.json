@@ -1,0 +1,41 @@
+{
+  "closedAt": "2026-11-12T02:59:07.042Z",
+  "helper": {
+    "owner": "Architect Tinderbox",
+    "project": "Tinderbox",
+    "purpose": "Furnished-house prototype candidate-cost",
+    "driver": {
+      "pid": 17204,
+      "creationFiletime": "134389256685392900",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "browser": {
+      "pid": 5496,
+      "creationFiletime": "134389256699774193",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    "ports": [
+      54733,
+      54734
+    ],
+    "startedAt": "2026-11-12T02:54:29.963Z",
+    "expiresAt": "2026-11-12T03:09:29.963Z",
+    "stopFile": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\candidate-cost-1794452069632\\STOP",
+    "stopMethod": "STOP file, deadline or driver finally",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\tools\\review\\furnished-house\\candidate-cost.mjs"
+      ],
+      "commit": "f79ff28ac00337c72c97451e22c1bbb38ff6171f",
+      "baselineManifest": "c592039f35d7f4173c17e4f9443726423e9d77eb8ee5bfdbb7d6430625c33987",
+      "output": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\candidate-cost-1794452069632"
+    }
+  },
+  "portsListening": [
+    false,
+    false
+  ],
+  "browserExited": true
+}

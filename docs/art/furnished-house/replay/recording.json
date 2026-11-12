@@ -1,0 +1,589 @@
+{
+  "configuration": {
+    "alpha": "discard",
+    "avc": {
+      "format": "avc"
+    },
+    "bitrate": 5000000,
+    "bitrateMode": "variable",
+    "codec": "avc1.420028",
+    "contentHint": "",
+    "framerate": 30,
+    "hardwareAcceleration": "prefer-hardware",
+    "height": 800,
+    "latencyMode": "realtime",
+    "width": 1280
+  },
+  "recording": {
+    "frames": 2475,
+    "width": 1280,
+    "height": 800,
+    "fps": 30,
+    "config": {
+      "alpha": "discard",
+      "avc": {
+        "format": "avc"
+      },
+      "bitrate": 5000000,
+      "bitrateMode": "variable",
+      "codec": "avc1.420028",
+      "contentHint": "",
+      "framerate": 30,
+      "hardwareAcceleration": "prefer-hardware",
+      "height": 800,
+      "latencyMode": "realtime",
+      "width": 1280
+    },
+    "bytes": 50273294,
+    "duration": 82.5
+  },
+  "playback": {
+    "worldSeconds": 330,
+    "playbackSpeed": 4,
+    "exportWallSeconds": 568.3804000000954,
+    "exportThroughput": 0.5805970789984043,
+    "simulationPresentations": 2475,
+    "maxMissing": 0,
+    "maxFuelError": 3.0823642305222165e-8,
+    "maxHeatRelativeError": 5.654696579974376e-11,
+    "diagnostics": {
+      "version": 1,
+      "metrics": {
+        "tick": 9900,
+        "worldTime": 330,
+        "fuel": {
+          "initial": 607.1440377358605,
+          "added": 0,
+          "burned": 593.6861811482795,
+          "escaped": 0,
+          "remaining": 13.45785661840462,
+          "airborne": 0,
+          "error": -3.0823642305222165e-8
+        },
+        "heat": {
+          "generated": 1319609.419731191,
+          "input": 1.05,
+          "ambient": 109081.63097207184,
+          "blocked": 222345.4109970595,
+          "cap": 785475.3684929264,
+          "escaped": 202378.84775289538,
+          "stored": 329.21157402886183,
+          "radiationInTransit": 0,
+          "error": -0.00005779086950497003,
+          "relativeError": -4.379388526429487e-11
+        },
+        "burningCount": 371,
+        "burningArea": 49.457637876941156,
+        "combustibleArea": 879.0518539309301,
+        "burningAreaFraction": 0.05626248059858731,
+        "burnedFraction": 0.9778341616632397,
+        "activeCells": 1091,
+        "fallingCount": 0,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 9900,
+          "cellVisits": 33689845,
+          "burnVisits": 29761546,
+          "linkBuilds": 3013,
+          "rayBuilds": 72312,
+          "rayTests": 278100,
+          "invalidations": 187176,
+          "ignitions": 4509,
+          "failures": 2460,
+          "landings": 4161,
+          "peakActive": 4578,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      },
+      "clock": {
+        "accumulator": 0,
+        "lastSteps": 0,
+        "speed": 4,
+        "paused": true,
+        "activeTime": 0,
+        "playerTime": 0,
+        "worldTime": 330,
+        "worldScale": 1,
+        "playerScale": 1,
+        "droppedSeconds": 0
+      },
+      "costMs": {
+        "simulation": {
+          "samples": 2475,
+          "mean": 84.83640404209946,
+          "p95": 268.59999990463257,
+          "max": 662.0999999046326
+        },
+        "presentation": {
+          "samples": 2484,
+          "mean": 133.51441223897797,
+          "p95": 435.7000002861023,
+          "max": 731.3999996185303
+        },
+        "render": {
+          "samples": 2484,
+          "mean": 2.35853462057989,
+          "p95": 7.5,
+          "max": 74
+        },
+        "initialization": 412.7000002861023
+      },
+      "renderer": {
+        "calls": 76,
+        "triangles": 106319,
+        "geometries": 112,
+        "textures": 11
+      },
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 330,
+        "revision": 9900,
+        "view": "exterior",
+        "level": 0,
+        "sourceSurfaces": 2952,
+        "physicalPatches": 5755,
+        "retiredPatches": 4743,
+        "sourceMeshes": 860,
+        "batches": 61,
+        "items": 17,
+        "falls": 0,
+        "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 2944,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 1,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
+        "occupancy": 0,
+        "fireSamples": 371,
+        "representedSamples": 371,
+        "missingSamples": 0,
+        "missingSampleDetails": [],
+        "visibleSamples": 371,
+        "viewCulledSamples": 0,
+        "emitterBatches": 41,
+        "fire": [
+          {
+            "activeCells": 80,
+            "flameSplats": 316,
+            "smokeSplats": 156,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 310,
+            "smokeSplats": 152,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 296,
+            "smokeSplats": 154,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 312,
+            "smokeSplats": 153,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 51,
+            "flameSplats": 201,
+            "smokeSplats": 100,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 371,
+          "candidates": 17,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": [
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                1.1134491061703011,
+                2.0300300877031217,
+                7.387930220342578
+              ],
+              "intensity": 54.54796325022594,
+              "reach": 15.665724742780153
+            },
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                -0.17380964829370701,
+                1.3634537670172944,
+                7.052409914968338
+              ],
+              "intensity": 18.065540348156432,
+              "reach": 13.551405289774443
+            },
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                4.4947481474093385,
+                1.8632176567166043,
+                6.856225184751528
+              ],
+              "intensity": 33.044219025241425,
+              "reach": 14.515294184252445
+            },
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                0.996257791333333,
+                1.6894755751421555,
+                8.498128945666668
+              ],
+              "intensity": 13.997254154971726,
+              "reach": 13.317072932014865
+            },
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                4.117012999980538,
+                1.8295881816354878,
+                9.53781426420418
+              ],
+              "intensity": 31.893166760736786,
+              "reach": 14.445987814544747
+            },
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                7.227260536922651,
+                1.9726874332274411,
+                9.061339761598186
+              ],
+              "intensity": 49.268080188431824,
+              "reach": 15.413495426979143
+            }
+          ]
+        },
+        "actualLights": [
+          {
+            "position": [
+              1.1134491061703011,
+              2.0300300877031217,
+              7.387930220342578
+            ],
+            "intensity": 54.54796325022594,
+            "reach": 15.665724742780153
+          },
+          {
+            "position": [
+              -0.17380964829370701,
+              1.3634537670172944,
+              7.052409914968338
+            ],
+            "intensity": 18.065540348156432,
+            "reach": 13.551405289774443
+          },
+          {
+            "position": [
+              4.4947481474093385,
+              1.8632176567166043,
+              6.856225184751528
+            ],
+            "intensity": 33.044219025241425,
+            "reach": 14.515294184252445
+          },
+          {
+            "position": [
+              0.996257791333333,
+              1.6894755751421555,
+              8.498128945666668
+            ],
+            "intensity": 13.997254154971726,
+            "reach": 13.317072932014865
+          },
+          {
+            "position": [
+              4.117012999980538,
+              1.8295881816354878,
+              9.53781426420418
+            ],
+            "intensity": 31.893166760736786,
+            "reach": 14.445987814544747
+          },
+          {
+            "position": [
+              7.227260536922651,
+              1.9726874332274411,
+              9.061339761598186
+            ],
+            "intensity": 49.268080188431824,
+            "reach": 15.413495426979143
+          }
+        ],
+        "resources": {
+          "geometries": 62,
+          "materials": 83,
+          "textures": 6
+        },
+        "resetCount": 4,
+        "revisionCount": 2490,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 3052
+      },
+      "observer": {
+        "position": [
+          1.4,
+          0.48,
+          6.3
+        ],
+        "x": 1.4,
+        "y": 6.3,
+        "elevation": 0.48,
+        "height": 1.66,
+        "radius": 0.5,
+        "heading": 0,
+        "travelled": 0,
+        "moving": false,
+        "tool": "matches",
+        "lastBlock": null,
+        "level": 0
+      },
+      "errors": []
+    }
+  }
+}

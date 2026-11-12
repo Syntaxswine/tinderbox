@@ -1,5 +1,7 @@
 # Furnished Hopkins 15 runtime candidate
 
+The architect's [combined owner-preview review](../../reviews/2026-11-11-furnished-house-replay.md) records the delivered 330-second WebGL movie before game integration. State checks pass; production integration is held for CPU preparation and visual corrections. [Measured costs and the bounded next pass](performance.md) are recorded separately. The broader AAA goal remains open.
+
 The isolated workbench implements the architect's milestone-18 contract at `3596f41cbeb0a85c648c44b789a838ed5a8dc139`. It is a candidate for combined replay review. Production does not import it, and the normal public build excludes it.
 
 ## Frozen sources

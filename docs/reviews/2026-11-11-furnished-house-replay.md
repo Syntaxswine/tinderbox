@@ -54,4 +54,37 @@ The production build/release check passes: 3,515 files, 166,825,782 bytes, all h
 
 [The architect QA recipe](../engineering/furnished-house/architect-qa.md) records the bounded browser launcher, fixed-tick AVC/MP4 export, native floor oracle and matched CPU/GPU measurement methods. Export throughput is not game frame rate. Every helper has a finite shutdown timer and a recorded owner, process identity, ports and restart recipe; cleanup receipts verify released ports. No preview server is retained for the portable movie.
 
-The normal package excludes the workbench, review tools and evidence. Production runtime, assets, save state and public menus are unchanged. Final replay evidence, exact final source pins, quiet hardware costs and the architect's decision will be appended after the late-source correction passes.
+The normal package excludes the workbench, review tools and evidence. Production runtime, assets, save state and public menus remain outside this candidate's changes. The final evidence and decision follow.
+
+## Actual rendered replay
+
+The [portable MP4](../art/furnished-house/replay/kitchen-night-replay.mp4) is 82.5 seconds at 4× playback, covering 330 world seconds in 2,475 actual WebGL frames at 1280 × 800. The recorded source is `f79ff28ac00337c72c97451e22c1bbb38ff6171f`. [Representative JPGs and input/state evidence](../art/furnished-house/replay/README.md) accompany it; [the manifest](../art/furnished-house/replay/manifest.json) hashes the delivered files.
+
+All recorded presentations retain every active fire source: maximum missing count zero, maximum absolute fuel error 3.0824 × 10⁻⁸, maximum relative heat error 5.6547 × 10⁻¹¹. The kitchen ends with 371 burning fuels, 2,944 supported rubble records and zero airborne fragments. Four decoded samples at 1, 8, 41.25 and 81.5 video seconds are nonblank; the saved file has the expected duration and dimensions. Browser errors are empty. Export took 568.38 seconds and is not a game-frame-rate measurement.
+
+The capture command returned exit 1 solely because the Windows browser-server close promise exceeded its 15-second wait after validation. The original browser and driver PIDs and direct children were subsequently verified absent, and both owned ports were closed. The original warning and independent receipt are preserved; the movie was not silently labelled a clean command exit. The bounded launcher now closes the client connection first and verifies the original process identity and released ports when a server-close promise lags an observed exit.
+
+The independent hostile reviewer inspected actual frames at 30, 120, 180, 210 and 330 seconds and found no blocker to showing an explicitly bounded prototype preview. This does not grant production or AAA acceptance. Recorded visual limits: bloom/haze and repeated vertical flame streaks hide furniture and charring; floor retirement and rubble read as square patchwork; some roof/trim effects remain above cutaway-hidden geometry; surviving trim at 210 seconds reads as a suspended wire outline. These stills alone do not establish unsupported fuel. The exact owner/flight/rubble checks and animated record provide the state evidence.
+
+## Hardware result and architect decision
+
+[The cost review](../engineering/furnished-house/performance.md) supplies all ten windows, 1,200 valid GPU samples, component mean/p95/worst costs, active counts, lights and draw calls. The task's other heavy workers and browsers were stopped before measurement. This live machine was not reserved exclusively; background application and OS activity remain uncontrolled.
+
+At 120 world seconds the furnished candidate costs **186.41 ms core CPU mean / 206.70 ms p95 / 276.70 ms worst**, dominated by **157.93 ms mean presentation**. Simulation averages 26.70 ms and render submission 1.78 ms. GPU costs **7.74 ms mean / 11.69 ms p95**. The lower draw/GPU costs do not establish equal fire quality: the published burn has ended by its 30-second window, while this candidate continues burning thousands of finite fuels. GPU outliers and the full CPU costs remain in the report. No city-scale or milestone-11 cost acceptance is awarded.
+
+**Approved to show the owner as a prototype replay. Production integration is held.** The proposal and rule resolution are implemented in the isolated fixture, state controls and actual recording pass, and the owner can review the result before any game wiring. CPU preparation, cutaway clipping and the listed visual limitations need another bounded pass before promotion. The performance record proposes specific coder/artist profiling and caching work; workers remain idle during this handoff. The broader AAA fire goal stays open.
+
+Exact final worker intake:
+
+| Input | Original worker/source commit | Architect intake |
+| --- | --- | --- |
+| Frozen second experiment | `9b521a20d888a92197c75f03fbb75f762bf4ba67` | Preserved unmodified copies and hashes |
+| Native final house/route geometry | `e3e0caa60af0238c10110dd24ebd7736e823f43c` | `caae021` |
+| Runtime real bearing and re-falls | `5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7` | `cc8a916` |
+| Final typed artist state and actual trace | `ed2e81fd76c171a5b8662709a3191e15ffe2b578` | `da0a3edd` |
+| Runtime paired summary/helper evidence | `2042bdd653d23ab00dfa7792489212b32491db9a` | `cb346277` |
+| Actual WebGL movie source | Combined `f79ff28ac00337c72c97451e22c1bbb38ff6171f` | Same runtime/art tree; later changes are QA/evidence only |
+
+Changed paths stay in the furnished-house workbench, its art sources/checks, focused tests, architect review tools and related documentation. The stockyard, Hull-House, gallery, UI/train and donor candidates are preserved. The preview branch is `codex/review-furnished-house`; `master`/Pages is not promoted by its push.
+
+[The final cleanup audit](../art/furnished-house/replay/task-cleanup-summary.json) verifies all three original driver/browser identities absent, no direct children, and no listeners on any owned port. The worker lifecycle records also report no retained task helpers. No preview service remains running.

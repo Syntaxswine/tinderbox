@@ -96,6 +96,8 @@ The user requested completed buildings as main-menu destinations and explicitly 
 
 The [furnished-house replay contract](milestones/18-furnished-house-replay.md) records the owner's November 11 authorization for one furnished two-storey prototype and a replay before game integration. It resolves the fire-rule conflicts and freezes the second reviewer trial as source evidence. The architect combines the coder and artist candidates for the owner's replay review. The stockyard and Hull-House art candidates retain their own intake records.
 
+The [furnished-house architect review](reviews/2026-11-11-furnished-house-replay.md) delivers the actual 330-second replay and measured one-house costs. State/recording checks pass; production integration is held for CPU and visual corrections. Candidate publication on `codex/review-furnished-house` does not promote `master` or Pages.
+
 The [Ashland radiant heat and rubble review](reviews/2026-11-10-ashland-radiant-heat.md) records the gap, screen and short-burn controls and the packaged collapse and cooling sequence.
 
 The [segment decay and rubble heat review](reviews/2026-11-10-segment-decay-and-rubble-heat.md) records the independent structural clocks, local support loss, and sustained heat controls on the ground.

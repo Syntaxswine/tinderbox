@@ -1,0 +1,42 @@
+{
+  "closedAt": "2026-11-12T02:52:28.659Z",
+  "helper": {
+    "owner": "Architect Tinderbox",
+    "project": "Tinderbox",
+    "purpose": "Furnished-house prototype published-baseline",
+    "driver": {
+      "pid": 43124,
+      "creationFiletime": "134389254424645247",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "browser": {
+      "pid": 32780,
+      "creationFiletime": "134389254450439161",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    "ports": [
+      64803,
+      64804
+    ],
+    "startedAt": "2026-11-12T02:50:45.022Z",
+    "expiresAt": "2026-11-12T02:56:45.022Z",
+    "stopFile": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\published-baseline-1794451844472\\STOP",
+    "stopMethod": "STOP file, deadline or driver finally",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\tools\\review\\furnished-house\\published-baseline.mjs"
+      ],
+      "commit": "f79ff28ac00337c72c97451e22c1bbb38ff6171f",
+      "baselineManifest": "c592039f35d7f4173c17e4f9443726423e9d77eb8ee5bfdbb7d6430625c33987",
+      "output": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\published-baseline-1794451844472"
+    }
+  },
+  "portsListening": [
+    false,
+    false
+  ],
+  "browserExited": false,
+  "cleanupError": "Error: Cleanup deadline: browser close\n    at Timeout.<anonymous> (file:///C:/Users/baals/Documents/ChatGPT/tinderbox/tools/review/furnished-house/review-browser.mjs:72:101)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)"
+}
