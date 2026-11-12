@@ -1,0 +1,71 @@
+{
+  "status": "Architect-approved minimum end-cut",
+  "scope": "Exact exported geometry on a continuous standing-body kitchen-and-return sweep. Does not advance navigation, step supports or claim the full stair route.",
+  "basePath": "art/source/furnished-house/control-kitchen-return.json",
+  "baseSha256": "e370d0e43879c7c19f46f5eee27642545003131f0717c19f97c5d252f44934e8",
+  "proposalPath": "workbenches/furnished-house/house-data.json",
+  "proposalSha256": "cf63bca406d8f29b559e71bf875b5d932046827b182b40c29ca0c3f5a83f4ab6",
+  "profile": {
+    "radius": 0.5,
+    "height": 1.66,
+    "floorY": 0.48
+  },
+  "waypoints": [
+    [
+      5.00375,
+      3.35
+    ],
+    [
+      4.6,
+      3.35
+    ],
+    [
+      4.41375,
+      3.65
+    ],
+    [
+      4.41375,
+      5.75
+    ],
+    [
+      2.5,
+      6.5
+    ],
+    [
+      4.41375,
+      5.75
+    ],
+    [
+      4.41375,
+      3.65
+    ],
+    [
+      4.6,
+      3.35
+    ],
+    [
+      5.00375,
+      3.35
+    ]
+  ],
+  "cut": 0.1,
+  "clearWidth": 1.0275000000000003,
+  "minimumLateralMargin": 0.013750000000000151,
+  "control": {
+    "passed": false,
+    "steps": 69,
+    "blockedBy": "house/gross-housing-hopkins-4-15/0/level-0/0/group/35/wall-3-5-4-5/1/interior-skirting",
+    "position": [
+      4.41375,
+      4.6
+    ],
+    "waypoint": 3
+  },
+  "adapted": {
+    "passed": true,
+    "steps": 398,
+    "candidateShapes": 41
+  },
+  "passed": 3,
+  "failed": 0
+}

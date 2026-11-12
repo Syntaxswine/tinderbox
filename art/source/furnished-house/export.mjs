@@ -1,10 +1,14 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import {createHash} from 'node:crypto';
 import * as T from '../../../src/runtime/three.js';
 import {createHopkinsHouse} from '../../../src/art/hopkins-housing.js';
 import {housePlanEdges} from '../../../src/art/gross-housing.js';
 import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume,clip,cross,dot} from './geometry.js';
-const BASE='c855e627bdee963e930644839a60c027a03935de',OUT='workbenches/furnished-house/house-data.json';
+const BASE='c855e627bdee963e930644839a60c027a03935de',args=new Map(process.argv.slice(2).map(a=>a.replace(/^--/,'').split('='))),isProposal=args.has('proposal-kitchen-return'),proposalCut=Number(args.get('proposal-kitchen-return')??.1),OUT=args.get('output')||'workbenches/furnished-house/house-data.json';
+if(!Number.isFinite(proposalCut)||proposalCut<0||proposalCut>.5)throw Error('Invalid proposed return cut');
+if(isProposal&&!OUT.replaceAll('\\\\','/').startsWith('artifacts/proposals/'))throw Error('Unaccepted return option must export under artifacts/proposals/');
+const SUMMARY=isProposal?path.join(path.dirname(OUT),'export-summary.json'):'art/source/furnished-house/export-summary.json';
 const catalogue=JSON.parse(fs.readFileSync('assets/art/hopkins-housing-v1/houses.json')),house=catalogue.houses.find(h=>h.id==='hopkins-4-15');
 const model=createHopkinsHouse(T,{catalogue,textures:{}},house.id),sourceMeshes=[],surfaces=[],openings=[],items=[],furnitureParts=[],stores=[],levels=[];
 const sourceHashes=['src/art/gross-housing.js','src/art/hopkins-housing.js','src/art/gambrel-roof.js','src/art/nautilus-windows.js','assets/art/hopkins-housing-v1/houses.json','assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json','src/content/housing-floors.js'].map(path=>{const b=fs.readFileSync(path);return {path,commit:BASE,bytes:b.length,sha256:createHash('sha256').update(b).digest('hex')};});
@@ -94,6 +98,21 @@ try{
   removedWallKeys.add(level+'/'+e.id);removedWallRecords.push({level,edgeId:e.id,a:e.a,b:e.b,rooms:e.rooms,kind:e.opening,normal:new T.Vector3(0,0,-1).transformDirection(wall.matrixWorld).toArray(),polygon:[[e.a[0],house.plinth+level*2.12,e.a[1]],[e.b[0],house.plinth+level*2.12,e.b[1]],[e.b[0],house.plinth+level*2.12+2,e.b[1]],[e.a[0],house.plinth+level*2.12+2,e.a[1]]],reason:east?'Clear the actual stair-side/approach wall intrusion':west?'Permit the full-diameter kitchen route around the stair mouth':'Clear the top landing turn and rear lip'});wall.removeFromParent();
  }
  routeAdaptations.push({type:'native-stair-alcove',removedWallBays:removedWallRecords,treadsUnchanged:true,animalUnchanged:true,upperFloorBayRemoved:{polygon:[[5,2.6,3],[6,2.6,3],[6,2.6,4],[5,2.6,4]],area:1,baselineUpperArea:69,prototypeUpperArea:68},reason:'Smallest composed source openings for the 1m-diameter/1.66m-height entrance, kitchen and full stair route; retain the native tread run and top exit into bedroom A.'});
+ // Approved minimum end-cut: preserve the bay and end-cut only the stair-side return.
+ if(proposalCut){
+  const wall=model.root.getObjectByName('Level 0').children[0].children.find(w=>w.userData.edge==='3,5|4,5');if(!wall)throw Error('Missing kitchen return');
+  const direction=new T.Vector3(1,0,0).transformDirection(wall.matrixWorld).x>0?1:-1,parts=[];
+  for(const o of [...wall.children]){
+   if(!['Native wall unit','Interior skirting','Picture rail'].includes(o.name))continue;
+   const [w,h,d]=o.userData.nativeDimensions,baseline={position:o.position.toArray(),dimensions:o.userData.nativeDimensions},position=[o.position.x-direction*proposalCut/2,o.position.y,o.position.z];
+   const q=cutNativeBox(o,o.name==='Native wall unit'?'Nautilus cut-end wall panel':o.name,[w-proposalCut,h,d],position);
+   // Crop at constant physical UV scale, preserving the original piece's phase.
+   const uv=q.geometry.attributes.grossUV,p=q.geometry.attributes.position,n=q.geometry.attributes.normal;
+   for(let i=0;i<p.count;i++)if(Math.abs(n.getY(i))>.55||Math.abs(n.getX(i))<=.55)uv.setX(i,uv.getX(i)-direction*proposalCut/2);
+   parts.push({name:o.name,baseline,position,dimensions:[w-proposalCut,h,d],scale:[1,1,1]});o.removeFromParent();
+  }
+  routeAdaptations.push({type:isProposal?'proposed-kitchen-return-end-cut':'kitchen-return-end-cut',status:isProposal?'Unaccepted diagnostic option':'Architect-approved minimum end-cut',sourceEdge:'3,5|4,5',cut:proposalCut,nativeBayWidth:1,remainingWidth:1-proposalCut,parts,sourcePolygon:[[3,.48,5],[4,.48,5],[4,2.48,5],[3,2.48,5]],adaptedPolygon:[[3,.48,5],[4-proposalCut,.48,5],[4-proposalCut,2.48,5],[3,2.48,5]],removedPolygon:[[4-proposalCut,.48,5],[4,.48,5],[4,2.48,5],[4-proposalCut,2.48,5]],newelInnerX:4.9275,clearWidth:round(4.9275-(4-proposalCut)),routeCentreX:round((4.9275+4-proposalCut)/2),heightUnchanged:2,wallThicknessUnchanged:.16,textureDensityUnchanged:true,reason:'A directly interfering wall return leaves only.9275m beside the translated source newel. Architect approved the measured.10m end-cut after398 continuous standing-body sweeps, preserving the other.90m and shared native dimensions.'});
+ }
  // Approved minimum furniture/rail translations. Every source dimension remains unchanged.
  const hallConsole=model.root.getObjectByName('Level 0').children[1].children.find(g=>g.name==='Furnishing: hall');
  if(!hallConsole)throw Error('Missing source hall console');
@@ -212,6 +231,11 @@ try{
   surface({id,kind:'door',level:e.level,triangles,normal:e.normal,thickness:.16,material:'air',bounds:b,sourceMeshBindings:[],fuelClass:null,fuelAmount:0,initialOpenFraction:1,alwaysOpen:true,prototypeAdaptation:true,sourceRemovedEdge:e.edgeId});
   openings.push({id,surfaceId:id,level:e.level,kind:'arch',roomIds:e.rooms,bounds:b,polygon:e.polygon,pivot:e.polygon[0],closedTransform:new T.Matrix4().toArray(),openTransform:new T.Matrix4().toArray(),axis:[0,1,0],maxOpenAngle:0,initialOpenFraction:1,span:1,openingWidth:1,bottomY:house.plinth+e.level*2.12,topY:house.plinth+e.level*2.12+2,normal:e.normal,sourceMeshBindings:[],prototypeAdapted:true,alwaysOpen:true,clearHeightWhenOpen:2,navigationStatus:'Authorized composed stair alcove; native wall bay removed and represented by one canonical open boundary'});
  }
+ if(proposalCut){
+  const id=(isProposal?'proposal/':'prototype/')+'kitchen-return-end-cut',polygon=[[4-proposalCut,.48,5],[4,.48,5],[4,2.48,5],[4-proposalCut,2.48,5]],triangles=polygonTriangles(polygon),normal=[0,0,-1],b=bounds(polygon);
+  surface({id,kind:'door',level:0,triangles,normal,thickness:.16,material:'air',bounds:b,sourceMeshBindings:[],fuelClass:null,fuelAmount:0,initialOpenFraction:1,alwaysOpen:true,prototypeAdaptation:true,sourceRemovedEdge:'3,5|4,5'});
+  openings.push({id,surfaceId:id,level:0,kind:'arch',roomIds:['parlor','kitchen'],bounds:b,polygon,pivot:polygon[0],closedTransform:new T.Matrix4().toArray(),openTransform:new T.Matrix4().toArray(),axis:[0,1,0],maxOpenAngle:0,initialOpenFraction:1,span:proposalCut,openingWidth:proposalCut,bottomY:.48,topY:2.48,normal,sourceMeshBindings:[],prototypeAdapted:true,alwaysOpen:true,clearHeightWhenOpen:2,navigationStatus:isProposal?'Unaccepted diagnostic return option':'Approved.10m source end-cut; no resized actor or skipped collision'});
+ }
  // Preserve the exposed gambrel union; remove only hip faces buried inside it.
  for(const record of sourceMeshes){
   const o=meshById.get(record.id),roof=!!o.userData.roofTile||o.parent.name==='Removable roofs'&&o.name==='New roof envelope',gable=/gable closure/.test(o.name);
@@ -313,12 +337,13 @@ try{
  navigation:{status:'Source baseline measured; centred entry and composed stair opening await continuous coder sweep',nativeDoorHeight:1.65,nativeDoorWidth:1,routeAdaptations,measuredGoat:{samples:404,height:1.649517536,radius:.440155741,scale:[1,1,1],source:'Coder gait measurement'},conservativeProfile:{height:1.66,radius:.5},routeLimitations:['Hall console was explicitly moved to supported living-room floor; baseline and adapted transforms are recorded.','Rail clear width1.015m. Exact interfering stair-side and rear wall bays and one fore-lip floor bay were removed under architect authority; use the physical exported geometry for full route acceptance.','The route leaves use a recorded .15m stand-off and180-degree opening; the native leaf dimensions remain1x1.65x.12m.'],stair:{x:5,z:4,width:1,run:3,rise:2.12},removedFloorTriangles:[...removedFloorTriangles.values()],prototypeRoute:[[5.00375,0,-3.8],[5.00375,.16,-3.10],[5.00375,.32,-2.66],[5.00375,.48,-2.22],[5.00375,.48,-1],[5.00375,.48,1.8],[5.3,.48,3.35],[4.6,.48,3.35],[4.35,.48,3.65],[4.35,.48,5.75],[2.5,.48,6.5],[4.35,.48,5.75],[4.35,.48,3.65],[4.6,.48,3.35],[5.5,.48,3.35],...[...Array(12)].map((_,i)=>[5.5,.48+(i+1)*2.12/12,4+(i+.5)*.25]),[6.0,2.6,6.8],[6.5,2.6,6.4]],noCharacterRescaling:true},
  adaptations:['Closed .12 m floor slab faces are inferred from the real oak support; source surfaces stay at .48 and2.60m.','Only buried hip-roof faces inside the gambrel union are removed; visible native roof forms are retained.','Oil and coal stores are explicit prototype placements; finite quantities and finishes are game parameters.','Canonical wall patches include actual partial opening panels and never fill the stair notch.','Approved stair alcove removes13 directly interfering whole wall bays and one1m2 upper fore-lip floor bay; native treads and animal geometry remain unchanged.'],
  sourceGaps:['Centred entry/jamb rebate and full route await the continuous full-body passage result.','The original floor meshes have no closed slab/ceiling volume.','Some baseline rugs overhang the oak edge; fuel support references use actual overlap, not their rectangular reservation.']};
+ if(proposalCut)data.navigation.prototypeRoute=data.navigation.prototypeRoute.map(p=>Math.abs(p[0]-4.35)<1e-6?[round((4.9275+4-proposalCut)/2),p[1],p[2]]:p);
  data.replayTargets={};
  for(const [name,level,position]of [['kitchen',0,[0,1.01,6.25]],['bedroom',1,[0,3.13,5.25]]]){
   const s=surfaces.find(s=>s.kind==='wall'&&s.level===level&&s.exterior&&s.fuelClass==='clapboard'&&position.every((v,i)=>v>=s.bounds.min[i]-1e-6&&v<=s.bounds.max[i]+1e-6));
   if(!s)throw Error('No actual timber for '+name+' target');data.replayTargets[name]={kind:'wall',sourceSurfaceId:s.id,position,normal:s.normal,level,fuelClass:s.fuelClass,description:name==='kitchen'?'West kitchen siding below the upper floor, away from the window':'West bedroom B wall, away from the window'};
  }
- fs.mkdirSync('workbenches/furnished-house',{recursive:true});fs.writeFileSync(OUT,JSON.stringify(data)+'\n');
+ fs.mkdirSync(path.dirname(OUT),{recursive:true});fs.writeFileSync(OUT,JSON.stringify(data)+'\n');
  const summary={levels:levels.map(l=>({id:l.id,floorY:l.floorY,area:l.area})),surfaces:surfaces.length,kinds:surfaces.reduce((n,s)=>(n[s.kind]=(n[s.kind]||0)+1,n),{}),openings:openings.length,items:items.length,furnitureParts:furnitureParts.length,stores:stores.map(s=>({id:s.id,position:s.position,amount:s.amount,supports:s.supportSurfaceIds.length})),sourceMeshes:sourceMeshes.length,renderTriangles:geometry.reduce((n,g)=>n+g.triangles.length,0),bytes:fs.statSync(OUT).size};
- fs.writeFileSync('art/source/furnished-house/export-summary.json',JSON.stringify(summary,null,2)+'\n');console.log(JSON.stringify(summary));
+ fs.writeFileSync(SUMMARY,JSON.stringify(summary,null,2)+'\n');console.log(JSON.stringify(summary));
 }finally{model.dispose();for(const g of extraGeometry)g.dispose();}

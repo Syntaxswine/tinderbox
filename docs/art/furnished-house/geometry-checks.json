@@ -14,7 +14,7 @@
     "Buried porch roof faces no longer cross the upper front chamber"
   ],
   "counts": {
-    "surfaces": 2964,
+    "surfaces": 2965,
     "floorPatches": 672,
     "items": 16,
     "parts": 81
@@ -845,6 +845,179 @@
           "prototypeUpperArea": 68
         },
         "reason": "Smallest composed source openings for the 1m-diameter/1.66m-height entrance, kitchen and full stair route; retain the native tread run and top exit into bedroom A."
+      },
+      {
+        "type": "kitchen-return-end-cut",
+        "status": "Architect-approved minimum end-cut",
+        "sourceEdge": "3,5|4,5",
+        "cut": 0.1,
+        "nativeBayWidth": 1,
+        "remainingWidth": 0.9,
+        "parts": [
+          {
+            "name": "Native wall unit",
+            "baseline": {
+              "position": [
+                0,
+                1,
+                0
+              ],
+              "dimensions": [
+                1,
+                2,
+                0.16
+              ]
+            },
+            "position": [
+              0.05,
+              1,
+              0
+            ],
+            "dimensions": [
+              0.9,
+              2,
+              0.16
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Interior skirting",
+            "baseline": {
+              "position": [
+                0,
+                0.055,
+                0.105
+              ],
+              "dimensions": [
+                1,
+                0.11,
+                0.045
+              ]
+            },
+            "position": [
+              0.05,
+              0.055,
+              0.105
+            ],
+            "dimensions": [
+              0.9,
+              0.11,
+              0.045
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Picture rail",
+            "baseline": {
+              "position": [
+                0,
+                1.77,
+                0.105
+              ],
+              "dimensions": [
+                1,
+                0.035,
+                0.035
+              ]
+            },
+            "position": [
+              0.05,
+              1.77,
+              0.105
+            ],
+            "dimensions": [
+              0.9,
+              0.035,
+              0.035
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "sourcePolygon": [
+          [
+            3,
+            0.48,
+            5
+          ],
+          [
+            4,
+            0.48,
+            5
+          ],
+          [
+            4,
+            2.48,
+            5
+          ],
+          [
+            3,
+            2.48,
+            5
+          ]
+        ],
+        "adaptedPolygon": [
+          [
+            3,
+            0.48,
+            5
+          ],
+          [
+            3.9,
+            0.48,
+            5
+          ],
+          [
+            3.9,
+            2.48,
+            5
+          ],
+          [
+            3,
+            2.48,
+            5
+          ]
+        ],
+        "removedPolygon": [
+          [
+            3.9,
+            0.48,
+            5
+          ],
+          [
+            4,
+            0.48,
+            5
+          ],
+          [
+            4,
+            2.48,
+            5
+          ],
+          [
+            3.9,
+            2.48,
+            5
+          ]
+        ],
+        "newelInnerX": 4.9275,
+        "clearWidth": 1.0275,
+        "routeCentreX": 4.41375,
+        "heightUnchanged": 2,
+        "wallThicknessUnchanged": 0.16,
+        "textureDensityUnchanged": true,
+        "reason": "A directly interfering wall return leaves only.9275m beside the translated source newel. Architect approved the measured.10m end-cut after398 continuous standing-body sweeps, preserving the other.90m and shared native dimensions."
       },
       {
         "type": "relocated-hall-console",
@@ -1858,12 +2031,12 @@
         3.35
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         3.65
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         5.75
       ],
@@ -1873,12 +2046,12 @@
         6.5
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         5.75
       ],
       [
-        4.35,
+        4.41375,
         0.48,
         3.65
       ],
