@@ -18,7 +18,7 @@ function sync(){
   for(const m of models.values()){m.model.root.visible=true;m.model.root.traverse(n=>{if(/^roof\//.test(n.name)||/^roof-end/.test(n.name))n.visible=roofVisible;});}
   if(!keep.has(selected))selected=layout.instances[0]?.id;
   $('selection').replaceChildren(...layout.instances.map(p=>new Option(p.name||p.id,p.id)));$('selection').value=selected||'';fill();
-  message(`${layout.instances.length} assemblies · ${layout.instances.filter(p=>p.asset==='covered-swine-pen').reduce((n,p)=>n+p.bays,0)} covered bays · native metres`);lastError='';
+  message(`${layout.instances.length} assemblies · ${layout.instances.filter(p=>p.asset==='covered-swine-pen').reduce((n,p)=>n+p.bays,0)} covered bays · native metres`);lastError='';scene.changed();
  }catch(e){lastError=e.message;for(const m of models.values())m.model.root.visible=false;message('Stockyard layer: '+e.message);}
 }
 function fill(){const p=current().instances.find(p=>p.id===selected);for(const key of ['x','y','bays','skin'])$(key).value=p?.[key]??'';$('bays').disabled=p?.asset!=='covered-swine-pen';}

@@ -4,9 +4,9 @@ import path from 'node:path';
 import {withReviewBrowser} from '../review/furnished-house/review-browser.mjs';
 await withReviewBrowser(async({page,origin,output,save,errors})=>{
  await page.setViewportSize({width:1600,height:1000});
- await page.goto(origin+'/candidate/workbenches/stockyard/');
- const frame=page.frames().find(f=>f.url().includes('engine-source/dist/'))||await new Promise(resolve=>page.once('framenavigated',resolve));
- await frame.waitForFunction(()=>window.__stockyard?.ready,{timeout:120000});
+ await page.goto(origin+'/candidate/workbenches/stockyard/index.html');
+ await page.waitForFunction(()=>document.getElementById('editor')?.contentWindow?.__stockyard?.ready,{timeout:120000});
+ const frame=page.frames().find(f=>f.url().includes('engine-source/dist/'));
  const before=await frame.evaluate(()=>({text:window.__stockyard.export(),info:window.__stockyard.diagnostics()}));
  assert.equal(before.info.instances,13);assert.equal(before.info.bays,72);assert.deepEqual(before.info.errors,[]);assert.deepEqual(before.info.nativeErrors,[]);
  save('initial.json',before.info);fs.writeFileSync(path.join(output,'exported.map.json'),before.text);
