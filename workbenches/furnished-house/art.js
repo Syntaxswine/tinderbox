@@ -1,33 +1,35 @@
 import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,nearestSurface,distanceToBounds,pointInTriangleXZ,unit,sub} from '../../art/source/furnished-house/geometry.js';
 import {createWallShroud} from '../../art/source/furnished-house/shroud.js';
+import {createDebrisView} from '../../art/source/furnished-house/debris.js';
 import {connectSurfaceSamples} from '../../art/source/furnished-house/presentation.js';
 import {createStreetFirelight} from '../../src/art/street-firelight.js';
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0)),EPS=1e-6;
-const KIND={floor:0,wall:1,roof:2,door:3,window:3,plinth:5};
+const KIND={floor:0,wall:1,attachment:1,fitting:4,roof:2,door:3,window:3,plinth:5};
 export async function createFurnishedHouseArt(T,{renderer,data}={}){
  if(!T?.DataTexture||data?.version!==1||data.prefabId!=='hopkins-4-15')throw Error('Expected shared Three and version-1 Hopkins geometry');
  const root=new T.Group();root.name='Authoritative furnished Hopkins15';
  const geometries=new Set(),materials=new Set(),textures=new Set(),effects=[],batches=[],itemGroups=new Map(),doorGroups=new Map(),patches=[],bySource=new Map(),patchByRuntimeId=new Map(),itemStates=new Map(),partStates=new Map(),fallStates=new Map(),boundaryStates=new Map(),openingState=new Map(),mappedMeshes=new Map();
  const surfaces=new Map(data.surfaces.map(s=>[s.id,s])),sourceMeshes=new Map(data.sourceMeshes.map(s=>[s.id,s])),sourceGeometry=new Map(data.render.geometry.map(g=>[g.id,g])),partByMesh=new Map(data.furnitureParts.filter(p=>p.sourceMeshBinding).map(p=>[p.sourceMeshBinding,p])),openingByMesh=new Map(data.openings.flatMap(o=>o.sourceMeshBindings.map(id=>[id,o]))),openingByWall=new Map(data.openings.map(o=>[o.sourceWallBinding,o]));
- let disposed=false,lastRevision=-1,lastTime=-Infinity,mode='exterior',selectedLevel=0,lastFrame=null,missingSamples=0,representedSamples=0,fireSamples=[],retiredPatches=0,resetCount=0,revisionCount=0;
+ let debrisView=null;
+ let disposed=false,lastRevision=-1,lastTime=-Infinity,mode='exterior',selectedLevel=0,lastFrame=null,missingSamples=0,representedSamples=0,fireSamples=[],retiredPatches=0,resetCount=0,revisionCount=0,visibleSampleCount=0;
  const viewMode={value:0},viewLevel={value:0},cutY={value:1.3},stateUniform={value:null},stateWidth={value:1},ownedItemRows=new Map(),ownedPartRows=new Map(),storeGlows=[];
  const ownG=g=>(geometries.add(g),g),ownM=m=>(materials.add(m),m);
  const centre=t=>[0,1,2].map(i=>t.reduce((n,p)=>n+p[i],0)/t.length);
  function patch(spec){
-  const clipBounds=bounds(spec.triangles.flat()),axis=normal(spec.triangles[0]).map(Math.abs).indexOf(Math.max(...normal(spec.triangles[0]).map(Math.abs)));clipBounds.min[axis]-=.12;clipBounds.max[axis]+=.12;
+  const clipBounds=bounds(spec.triangles.flat()),axis=normal(spec.triangles[0]).map(Math.abs).indexOf(Math.max(...normal(spec.triangles[0]).map(Math.abs)));if(spec.kind!=='attachment'){clipBounds.min[axis]-=.12;clipBounds.max[axis]+=.12;}
   const p={...spec,clipBounds,index:patches.length,centre:centre(spec.triangles.flat()),bounds:spec.bounds||bounds(spec.triangles.flat())};patches.push(p);
   if(!bySource.has(p.sourceSurfaceId))bySource.set(p.sourceSurfaceId,[]);bySource.get(p.sourceSurfaceId).push(p);return p;
  }
  // Partition only within each actual physical surface. No column mask spans levels.
  for(const s of data.surfaces){
-  const axis=s.normal.map(Math.abs).indexOf(Math.max(...s.normal.map(Math.abs))),axes=s.kind==='floor'?[0,2]:s.kind==='roof'?[0,1,2]:[0,1,2].filter(i=>i!==axis),groups=new Map();
+  const axis=s.normal.map(Math.abs).indexOf(Math.max(...s.normal.map(Math.abs))),axes=s.kind==='floor'?[0,2]:s.kind==='roof'||s.kind==='attachment'?[0,1,2]:[0,1,2].filter(i=>i!==axis),groups=new Map();
   for(const t of s.triangles)for(const poly of gridPieces(t,axes)){
    const tris=polygonTriangles(poly).filter(t=>triangleArea(t)>1e-9);if(!tris.length)continue;
    const p=centre(poly),key=axes.map(i=>Math.floor((p[i]-(i===1?.48:0))/(i===1?1.06:.5)+EPS)).join(',');
    if(!groups.has(key))groups.set(key,[]);groups.get(key).push(...tris);
   }
-  for(const [key,triangles]of groups){const b=bounds(triangles.flat());if(s.kind==='floor')b.min[1]-=s.thickness;else for(let i=0;i<3;i++){b.min[i]-=Math.abs(s.normal[i])*(s.thickness/2+.012);b.max[i]+=Math.abs(s.normal[i])*(s.thickness/2+.012);}
-   patch({id:s.id+'#'+key,sourceSurfaceId:s.id,kind:s.kind,level:s.level,material:s.material,triangles,bounds:b});
+  for(const [key,triangles]of groups){const b=bounds(triangles.flat());if(s.kind==='floor')b.min[1]-=s.thickness;else if(s.kind!=='attachment')for(let i=0;i<3;i++){b.min[i]-=Math.abs(s.normal[i])*(s.thickness/2+.012);b.max[i]+=Math.abs(s.normal[i])*(s.thickness/2+.012);}
+   patch({id:s.id+'#'+key,sourceSurfaceId:s.id,kind:s.kind,level:s.level,material:s.material,presentationKind:s.presentationKind,triangles,bounds:b});
   }
  }
  for(const item of data.items){const p=patch({id:item.id,sourceSurfaceId:item.id,kind:'item',level:item.level,material:'timber',triangles:[[item.bounds.min,[item.bounds.max[0],item.bounds.min[1],item.bounds.min[2]],item.bounds.max]],bounds:item.bounds});ownedItemRows.set(item.id,p);}
@@ -91,11 +93,8 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    const glass=/glass/i.test(mesh.name);
    if(glass&&opening)candidates=bySource.get(opening.surfaceId);
    for(const t of geo.triangles){
-    if(candidates?.length){for(const p of candidates){const poly=clipBox(t.vertices,p.clipBounds);append(bucket(staticRoot,appearance.get(t.materialId)),polygonTriangles(poly),p.index,KIND[p.kind]??1,p.level,glass?1:0);}}
-    else for(const poly of gridPieces(t.vertices)){
-     const c=centre(poly),roof=/removable-roofs/.test(mesh.id),near=nearestSurface(c,data.surfaces,roof?'roof':null,mesh.level),selected=near&&(bySource.get(near.id)||[]).reduce((a,p)=>!a||distanceToBounds(c,p.bounds)<distanceToBounds(c,a.bounds)?p:a,null);
-     if(selected)append(bucket(staticRoot,appearance.get(t.materialId)),polygonTriangles(poly),selected.index,KIND[selected.kind]??1,selected.level,glass?1:0);
-    }
+    if(candidates?.length){for(const p of candidates){const poly=clipBox(t.vertices,p.clipBounds);append(bucket(staticRoot,appearance.get(t.materialId)),polygonTriangles(poly),p.index,KIND[p.presentationKind||p.kind]??1,p.level,glass?1:0);}}
+    else throw Error('No explicit physical source for '+mesh.id);
    }
    mappedMeshes.set(mesh.id,true);
   }
@@ -132,7 +131,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
   const occGeometry=ownG(new T.BoxGeometry(1,1,1)),occMaterial=ownM(new T.MeshBasicMaterial({color:0x6fbaa8,wireframe:true,transparent:true,opacity:.40,depthWrite:false})),occupancy=new T.InstancedMesh(occGeometry,occMaterial,8192);
   occupancy.count=0;occupancy.frustumCulled=false;occupancy.name='Authoritative thermal occupancy';root.add(occupancy);
   const firelight=createStreetFirelight(T);root.add(firelight.root);
-  const loose=new T.Group();loose.name='Authoritative falling structural pieces';root.add(loose);const looseRecords=new Map(),effectMapping=new Map(),radiusCache=new Map();
+  debrisView=createDebrisView(T,{surfaces,getBoundary:id=>boundaryStates.get(id)});root.add(debrisView.root);const effectMapping=new Map(),radiusCache=new Map();
   function inProjectedTriangle(point,t,axis){
    const axes=[0,1,2].filter(i=>i!==axis),p=[point[axes[0]],point[axes[1]]],q=t.map(v=>[v[axes[0]],0,v[axes[1]]]);return pointInTriangleXZ(p,q);
   }
@@ -140,7 +139,9 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    if(patchByRuntimeId.has(record.id))return patchByRuntimeId.get(record.id);
    const sourceId=record.sourceSurfaceId||record.id,list=bySource.get(sourceId)||[],s=surfaces.get(sourceId);
    if(!record.triangles?.length||!s){patchByRuntimeId.set(record.id,list);return list;}
-   const axis=s.normal.map(Math.abs).indexOf(Math.max(...s.normal.map(Math.abs))),bb=bounds(record.triangles.flat()),axes=[0,1,2].filter(i=>i!==axis);
+   const axis=s.normal.map(Math.abs).indexOf(Math.max(...s.normal.map(Math.abs))),bb=bounds(record.triangles.flat());
+   if(s.kind==='attachment'){const matched=list.filter(p=>p.centre.every((v,i)=>v>=bb.min[i]-EPS&&v<=bb.max[i]+EPS));patchByRuntimeId.set(record.id,matched);return matched;}
+   const axes=[0,1,2].filter(i=>i!==axis);
    const matched=list.filter(p=>axes.every(i=>Math.min(p.bounds.max[i],bb.max[i])-Math.max(p.bounds.min[i],bb.min[i])>EPS)&&p.triangles.some(t=>inProjectedTriangle(centre(t),record.triangles.find(q=>inProjectedTriangle(centre(t),q,axis))||record.triangles[0],axis)));
    patchByRuntimeId.set(record.id,matched);return matched;
   }
@@ -165,7 +166,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
   const pointKey=p=>p.map(v=>Math.round(v*1e6)).join(',');
   function supportRadius(sample,triangles){
    if(!triangles?.length)return null;
-   const key=sample.id+'/'+sample.x.toFixed(5)+'/'+sample.z.toFixed(5)+'/'+triangles.length;
+   const key=sample.id+'/'+sample.x.toFixed(5)+'/'+sample.z.toFixed(5)+'/'+triangles.map(t=>t.map(pointKey).join(';')).join('|');
    if(radiusCache.has(key))return radiusCache.get(key);
    const edges=new Map();for(const t of triangles)for(let i=0;i<3;i++){const a=t[i],b=t[(i+1)%3],k=[pointKey(a),pointKey(b)].sort().join('|');if(edges.has(k))edges.delete(k);else edges.set(k,[a,b]);}
    const candidates=[[sample.x,sample.z],...triangles.map(t=>[t.reduce((n,p)=>n+p[0],0)/3,t.reduce((n,p)=>n+p[2],0)/3])];
@@ -174,7 +175,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
     for(const [a,b]of edges.values()){const dx=b[0]-a[0],dz=b[2]-a[2],den=dx*dx+dz*dz;if(den<1e-12)continue;const t=clamp(((p[0]-a[0])*dx+(p[1]-a[2])*dz)/den);radius=Math.min(radius,Math.hypot(p[0]-a[0]-t*dx,p[1]-a[2]-t*dz));}
     if(radius>0&&(!best||radius>best.radius))best={x:p[0],z:p[1],radius:Math.max(.001,radius-.001)};
    }
-   radiusCache.set(key,best);return best;
+   if(radiusCache.size>=8192)radiusCache.clear();radiusCache.set(key,best);return best;
   }
   function prepareSample(sample){
    if(![sample.x,sample.y,sample.z,sample.flame,sample.smoke,sample.ignitionTime].every(Number.isFinite))return null;
@@ -184,15 +185,18 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
     s=data.surfaces.filter(s=>s.kind==='floor'&&s.bounds.max[1]<=sample.y+.06&&s.bounds.max[1]>=sample.y-.12&&sample.x>=s.bounds.min[0]-EPS&&sample.x<=s.bounds.max[0]+EPS&&sample.z>=s.bounds.min[2]-EPS&&sample.z<=s.bounds.max[2]+EPS&&s.triangles.some(t=>pointInTriangleXZ([sample.x,sample.z],t))).sort((a,b)=>b.bounds.max[1]-a.bounds.max[1])[0];
     if(!s&&sample.floorFootprint)s={id:sample.sourceSurfaceId||'authoritative-loose-support',kind:'floor',level:Math.max(0,Math.floor((sample.y-.40)/2.12)),triangles:sample.floorFootprint};
    }
-   if(!s&&!item&&!activeFall&&!sample.openingId)return null;
+   if(!s&&!item&&!activeFall&&!sample.openingId&&!debrisView.findFuel(sample.id))return null;
    const q={...sample,flame:clamp(sample.flame),smoke:clamp(sample.smoke),preheat:sample.preheat===true||sample.flame===0,exposed:sample.exposed!==false};
+   const landed=debrisView.findFuel(sample.id);
+   if(landed){const footprint=landed.floorFootprint||landed.triangles,r=supportRadius(sample,footprint);if(!r)return null;q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.x=r.x;q.z=r.z;q.floorRadius=q.supportRadius=r.radius;q.supportTriangles=footprint;q.presentationLevel=Math.max(0,Math.floor((q.y-.40)/2.12));q.rubbleId=landed.id;return q;}
    const runtime=boundaryStates.get(sample.boundaryId||sample.id.replace(/^fuel:/,'')),triangles=runtime?.triangles||s?.triangles;
    q.supportTriangles=sample.floorFootprint||sample.footprint||triangles;q.supportBounds=triangles?.length?bounds(triangles.flat()):null;
    q.presentationLevel=s?.level??item?.definition.level??0;q.wallTopY=data.levels.find(l=>l.index===q.presentationLevel)?.wallTop??q.supportBounds?.max[1];
    if(sample.part==='contents'&&sample.id.endsWith(':embers')){q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.floorRadius=q.supportRadius=.10;return q;}
    if(activeFall){q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.floorRadius=q.supportRadius=.12;return q;}
    if(s){const rows=bySource.get(s.id)||[],live=!rows.length||rows.some(p=>stateArray[p.index*4]>.5);if(!live&&s.kind!=='window')return null;
-    if(s.kind==='floor'||s.kind==='roof'){
+    if(s.kind==='attachment'){q.part='ground';q.nx=0;q.ny=1;q.nz=0;const b=q.supportBounds;q.supportRadius=q.floorRadius=Math.max(.015,Math.min(.12,(b.max[0]-b.min[0])/2,(b.max[2]-b.min[2])/2));}
+    else if(s.kind==='floor'||s.kind==='roof'){
      q.sourceSurfaceId=q.sourceSurfaceId||s.id;
      const footprint=sample.floorFootprint||sample.footprint||s.triangles,r=supportRadius(sample,footprint);if(!r)return null;
      const dx=r.x-q.x,dz=r.z-q.z;q.x=r.x;q.z=r.z;
@@ -213,29 +217,23 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    if(changed)for(const m of appearance.values()){m.transparent=next==='xray';m.depthWrite=next!=='xray';m.needsUpdate=true;}
    occupancy.visible=next==='xray';
   }
-  function makeLoose(fall,frame){
-   if(fall.itemId)return;const sample=frame.fireSamples?.find(s=>fall.fuelIds?.includes(s.id)),source=sample&&surfaces.get(sample.sourceSurfaceId);
-   if(!source)return;const b=bounds(source.triangles.flat()),size=b.max.map((v,i)=>Math.max(.045,v-b.min[i])),g=ownG(new T.BoxGeometry(...size)),m=ownM(new T.MeshStandardMaterial({color:0x3d3026,roughness:.98}));
-   const mesh=new T.Mesh(g,m);mesh.castShadow=mesh.receiveShadow=true;mesh.name='Tracked burning fragment '+fall.id;loose.add(mesh);looseRecords.set(fall.id,{mesh,geometry:g,material:m,sourceSurfaceId:source.id});
-  }
-  function removeLoose(id){const record=looseRecords.get(id);if(!record)return;record.mesh.removeFromParent();record.geometry.dispose();record.material.dispose();geometries.delete(record.geometry);materials.delete(record.material);looseRecords.delete(id);}
   function update(frame,view={}){
    if(disposed)throw Error('Furnished-house art disposed');
    if(frame?.version!==1||!Number.isFinite(frame.worldTime)||!Number.isFinite(frame.revision))throw Error('Expected authoritative version-1 frame');
-   const reset=frame.full||frame.revision<lastRevision||frame.worldTime<lastTime;
+   const reset=frame.full&&frame!==lastFrame||frame.revision<lastRevision||frame.worldTime<lastTime;
    if(reset){
-    resetState();for(const id of [...looseRecords.keys()])removeLoose(id);
+    resetState();debrisView.reset();
     for(const [id,entry]of itemGroups){entry.group.position.fromArray(entry.definition.position);entry.group.quaternion.fromArray(entry.definition.quaternion||[0,0,0,1]);entry.group.scale.set(1,1,1);}
    }
    const updatedBoundaryIds=new Set();for(const b of frame.boundaries||[]){applyBoundary(b);updatedBoundaryIds.add(b.id);}for(const b of frame.supports||[])if(!updatedBoundaryIds.has(b.id))applyBoundary(b);
    for(const i of frame.items||[])applyItem(i);for(const p of frame.furnitureParts||frame.parts||[])applyPart(p);
    for(const f of frame.falls||[]){
     fallStates.set(f.id,f);if(f.itemId)applyItem({...f,id:f.itemId,itemId:f.itemId,intact:true});
-    else{if(!looseRecords.has(f.id))makeLoose(f,frame);const r=looseRecords.get(f.id);if(r){r.mesh.position.fromArray(f.position);r.mesh.quaternion.fromArray(f.quaternion||[0,0,0,1]);}}
    }
-   for(const t of frame.tombstones||[]){const id=typeof t==='string'?t:t.id;if(t.collection==='falls'||fallStates.has(id)){fallStates.delete(id);removeLoose(id);}else if(itemGroups.has(id))applyItem({id,intact:false});else if(boundaryStates.has(id))applyBoundary({...boundaryStates.get(id),intact:false,openFraction:1});}
+   for(const t of frame.tombstones||[]){const id=typeof t==='string'?t:t.id;if(t.collection==='falls'||fallStates.has(id)){fallStates.delete(id);}else if(itemGroups.has(id))applyItem({id,intact:false});else if(boundaryStates.has(id))applyBoundary({...boundaryStates.get(id),intact:false,openFraction:1});}
+   debrisView.update(frame);
    for(const [id,entry]of doorGroups){const states=[...boundaryStates.values()].filter(b=>b.sourceSurfaceId===id),fraction=states.length?states.reduce((n,b)=>n+clamp(b.openFraction),0)/states.length:entry.definition.initialOpenFraction;entry.group.quaternion.setFromAxisAngle(new T.Vector3(0,1,0),fraction*entry.definition.maxOpenAngle);}
-   setView(view);root.updateMatrixWorld(true);
+   setView(view);debrisView.setView?.(mode,selectedLevel);root.updateMatrixWorld(true);
    missingSamples=0;representedSamples=0;fireSamples=[];effectMapping.clear();
    for(const sample of frame.fireSamples||[]){if(!(sample.flame>0||sample.smoke>0))continue;const q=prepareSample(sample);if(q){fireSamples.push(q);effectMapping.set(sample.id,{sourceSurfaceId:sample.sourceSurfaceId||null,itemId:sample.itemId||null,anchor:[q.x,q.y,q.z],supportRadius:q.supportRadius||null,tangentRadius:q.tangentRadius||null});representedSamples++;}else missingSamples++;}
    connectSurfaceSamples(fireSamples);
@@ -243,14 +241,14 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    const camera=view.camera;
    if(camera){
     const visibleSamples=fireSamples.filter(q=>{if(mode!=='cutaway')return true;const dynamic=q.part==='ground'&&(q.itemId||q.id.endsWith(':embers')||[...fallStates.values()].some(f=>f.fuelIds?.includes(q.id))),s=surfaces.get(q.sourceSurfaceId),item=itemGroups.get(q.itemId);if(s?.kind==='roof'&&!dynamic)return false;if(q.part==='walls'){q.cutawayTopY=cutY.value;if(q.supportBounds?.min[1]>=cutY.value)return false;}const level=dynamic?Math.max(0,Math.floor((q.y-.40)/2.12)):q.presentationLevel??s?.level??item?.definition.level??0;return level===selectedLevel;});
-    const count=Math.ceil(visibleSamples.length/80);while(effects.length<count){const fx=createWallShroud(T,{maxCells:80,profile:'house'});effects.push(fx);root.add(fx.root);}
+    visibleSampleCount=visibleSamples.length;const count=Math.ceil(visibleSamples.length/80);while(effects.length<count){const fx=createWallShroud(T,{maxCells:80,profile:'house'});effects.push(fx);root.add(fx.root);}
     for(let i=0;i<effects.length;i++){effects[i].root.visible=i<count;effects[i].update({time:frame.worldTime,cells:visibleSamples.slice(i*80,(i+1)*80),camera,sampleWind:view.sampleWind});}
-   }else for(const fx of effects)fx.root.visible=false;
+   }else{visibleSampleCount=0;for(const fx of effects)fx.root.visible=false;}
    const observer=view.observer||{x:5,y:.48,z:-3},lightSamples=fireSamples.filter(s=>s.flame>0).map(s=>({...s,part:s.part==='ground'?'floor':s.part,exposed:s.exposed!==false}));
    firelight.update({cells:[],world:{fireCellSize:.5},player:{x:observer.x,y:observer.z}},new Map([[data.buildingId,lightSamples]]),frame.worldTime,[]);
    // Keep the existing bounded pool, with practicals inside their native vertical storey.
    for(const light of firelight.root.children)if(light.isPointLight&&light.intensity>0){let nearest=null,distance=Infinity;for(const s of lightSamples){const d=(s.x-light.position.x)**2+(s.z-light.position.z)**2;if(d<distance){distance=d;nearest=s;}}
-    const source=nearest&&(surfaces.get(nearest.sourceSurfaceId)||itemGroups.get(nearest.itemId)?.definition),floorY=data.levels.find(l=>l.index===source?.level)?.floorY;if(floorY!==undefined)light.position.y=Math.max(floorY+.25,Math.min(floorY+1.8,light.position.y));
+    const source=nearest&&(surfaces.get(nearest.sourceSurfaceId)||itemGroups.get(nearest.itemId)?.definition),floorY=data.levels.find(l=>l.index===(nearest?.presentationLevel??source?.level))?.floorY;if(floorY!==undefined)light.position.y=Math.max(floorY+.25,Math.min(floorY+1.8,light.position.y));
    }
    for(const entry of storeGlows){const sample=fireSamples.filter(s=>s.itemId===entry.itemId).reduce((n,s)=>Math.max(n,s.glow||0,s.heatFraction||0,s.flame||0),0),state=itemStates.get(entry.itemId);entry.material.emissiveIntensity=Math.max(sample,clamp(state?.heatFraction))*1.75;}
    const occ=mode==='xray'?(frame.occupancy||[]):[],matrix=new T.Matrix4(),color=new T.Color();occupancy.count=Math.min(8192,occ.length);
@@ -258,10 +256,10 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    occupancy.instanceMatrix.needsUpdate=true;if(occupancy.instanceColor)occupancy.instanceColor.needsUpdate=true;
    stateTexture.needsUpdate=true;retiredPatches=patches.reduce((n,p)=>n+Number(stateArray[p.index*4]<.5),0);lastRevision=frame.revision;lastTime=frame.worldTime;lastFrame=frame;revisionCount++;
   }
-  function diagnostics(){return {disposed,version:1,prefabId:data.prefabId,worldTime:lastTime,revision:lastRevision,view:mode,level:selectedLevel,sourceSurfaces:data.surfaces.length,physicalPatches:patches.length,retiredPatches,sourceMeshes:data.sourceMeshes.length,batches:batches.length,items:itemGroups.size,falls:fallStates.size,fallVisuals:looseRecords.size,occupancy:occupancy.count,fireSamples:fireSamples.length,representedSamples,missingSamples,emitterBatches:effects.length,fire:effects.map(f=>f.stats()),lightBudget:firelight.diagnostics(),actualLights:firelight.root.children.filter(l=>l.isPointLight&&l.intensity>0).map(l=>({position:l.position.toArray(),intensity:l.intensity,reach:l.distance})),resources:{geometries:geometries.size,materials:materials.size,textures:textures.size},resetCount,revisionCount,rootScale:root.scale.toArray(),stateBindings:bySource.size};}
+  function diagnostics(){return {disposed,version:1,prefabId:data.prefabId,worldTime:lastTime,revision:lastRevision,view:mode,level:selectedLevel,sourceSurfaces:data.surfaces.length,physicalPatches:patches.length,retiredPatches,sourceMeshes:data.sourceMeshes.length,batches:batches.length,items:itemGroups.size,falls:fallStates.size,fallVisuals:debrisView.diagnostics().flights,debris:debrisView.diagnostics(),occupancy:occupancy.count,fireSamples:fireSamples.length,representedSamples,missingSamples,visibleSamples:visibleSampleCount,viewCulledSamples:fireSamples.length-visibleSampleCount,emitterBatches:effects.length,fire:effects.map(f=>f.stats()),lightBudget:firelight.diagnostics(),actualLights:firelight.root.children.filter(l=>l.isPointLight&&l.intensity>0).map(l=>({position:l.position.toArray(),intensity:l.intensity,reach:l.distance})),resources:{geometries:geometries.size,materials:materials.size,textures:textures.size},resetCount,revisionCount,rootScale:root.scale.toArray(),stateBindings:bySource.size};}
   function dispose(){
-   if(disposed)return;disposed=true;root.removeFromParent();for(const fx of effects)fx.dispose();firelight.dispose();occupancy.dispose();for(const r of looseRecords.values())r.mesh.removeFromParent();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();geometries.clear();materials.clear();textures.clear();root.clear();itemGroups.clear();doorGroups.clear();bySource.clear();itemStates.clear();partStates.clear();ownedPartRows.clear();openingState.clear();mappedMeshes.clear();boundaryStates.clear();fallStates.clear();patchByRuntimeId.clear();effectMapping.clear();radiusCache.clear();patches.length=0;
+   if(disposed)return;disposed=true;root.removeFromParent();for(const fx of effects)fx.dispose();firelight.dispose();occupancy.dispose();debrisView.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();geometries.clear();materials.clear();textures.clear();root.clear();itemGroups.clear();doorGroups.clear();bySource.clear();itemStates.clear();partStates.clear();ownedPartRows.clear();openingState.clear();mappedMeshes.clear();boundaryStates.clear();fallStates.clear();patchByRuntimeId.clear();effectMapping.clear();radiusCache.clear();patches.length=0;
   }
-  return {root,update,diagnostics,dispose,inspect(){return {patches:patches.map(p=>({id:p.id,sourceSurfaceId:p.sourceSurfaceId,kind:p.kind,level:p.level,present:stateArray[p.index*4]>.5,char:stateArray[p.index*4+1],triangles:p.triangles})),emitters:[...effectMapping].map(([id,v])=>({id,...v})),splats:effects.flatMap(f=>f.inspect?.()||[])};}};
- }catch(error){for(const fx of effects)fx.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();root.clear();throw error;}
+  return {root,update,diagnostics,dispose,inspect(){return {patches:patches.map(p=>({id:p.id,sourceSurfaceId:p.sourceSurfaceId,kind:p.kind,level:p.level,present:stateArray[p.index*4]>.5,char:stateArray[p.index*4+1],triangles:p.triangles})),emitters:[...effectMapping].map(([id,v])=>({id,...v})),splats:effects.flatMap(f=>f.inspect?.()||[]),debris:debrisView.inspect()};}};
+ }catch(error){debrisView?.dispose();for(const fx of effects)fx.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();root.clear();throw error;}
 }

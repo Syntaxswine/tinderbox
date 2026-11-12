@@ -116,7 +116,7 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
     const h=Math.hypot(cell.nx,cell.nz),tx=h>1e-5?cell.nz/h:1,tz=h>1e-5?-cell.nx/h:0,heading=Math.atan2(tz,tx),angle=phase*TAU,wave=age*(6.3+phase*2.1)+angle;
     const air=airAt(sampleWind,cell.x+cell.nx*windOffset,cell.y+cell.ny*windOffset,cell.z+cell.nz*windOffset),pressure=air[0]*cell.nx+air[2]*cell.nz;
     const held=.17*Math.max(0,pressure)-pressure,leanX=clamp((air[0]+held*cell.nx)*.22,-.26,.26),leanZ=clamp((air[2]+held*cell.nz)*.22,-.26,.26);
-    const strength=heat*(.74+.10*Math.sin(wave*.83)),size=.75+.25*Math.sqrt(heat);
+    const strength=heat*(.74+.10*Math.sin(wave*.83)),size=.75+.25*Math.sqrt(heat),rolling=.025*Math.sin(cell.x*2.6+cell.z*1.8-age*3.4)+.020*Math.sin(cell.x*1.3-cell.z*2.3+age*2.1);
     const pitch=roof&&h>.05?cell.ny/h:0,upX=roof?-cell.nx/(h||1)*pitch:0,upZ=roof?-cell.nz/(h||1)*pitch:0;
     if(wall){
       const b=cell.supportBounds,span=b?Math.max(.10,b.max[1]-b.min[1]):.55;
@@ -129,12 +129,12 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
       for(let i=0;i<3;i++){
         const a=angle+i*TAU/3,along=.075*Math.cos(a),across=.055*Math.sin(a);
         const x=cell.x+tx*along-(tz)*across,z=cell.z+tz*along+tx*across,y=cell.y+(roof?(-cell.nx/(cell.ny||1))*(x-cell.x)+(-cell.nz/(cell.ny||1))*(z-cell.z):0);
-        splat(x+cell.nx*.045,y+(ceiling?-.06:.055)+cell.ny*.025,z+cell.nz*.045,.235*size,.045*size,roof?.045:.215*size,upX||leanX*.12,upZ||leanZ*.12,heading,amber,strength*.36);
+        splat(x+cell.nx*.045,y+(ceiling?-.10:.15+rolling)+cell.ny*.025,z+cell.nz*.045,.235*size,(.072+.008*Math.sin(wave))*size,roof?.045:.215*size,upX||leanX*.12,upZ||leanZ*.12,heading,amber,strength*.36);
       }
     }
     // Detailed tongues are sparse; all sources still contribute their lower body.
     if(phase<.46||cell.vent){
-      const ripple=Math.sin(wave*1.13),along=.09*Math.cos(angle),rise=wall?.12+.06*ripple:.10+.035*ripple;
+      const ripple=Math.sin(wave*1.13),along=.09*Math.cos(angle),rise=wall?.12+.06*ripple:.22+rolling+.035*ripple;
       onFace(cell,tx,tz,heading+.2*ripple,along,rise,.069,.033*size,.033*size,.022,leanX,leanZ,hot,heat*(.57+.08*ripple));
       onFace(cell,tx,tz,heading-.16*ripple,along+.023*ripple,rise+.075,.072,.021*size,.025*size,.015,leanX+tx*.11*ripple,leanZ+tz*.11*ripple,tip,heat*.47);
     }
@@ -267,7 +267,7 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
     for (const cell of cells) {
       if (activeCells === maxCells) break;
       supportCell=cell;
-      const age = time - cell.ignitionTime;
+      const age = cell.vent ? time : time - cell.ignitionTime;
       if (!Number.isFinite(age) || age < 0) continue;
       const heat = clamp(cell.flame, 0, 1);
       const sootStrength = clamp(cell.smoke, 0, 1);

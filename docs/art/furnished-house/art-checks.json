@@ -1,5 +1,5 @@
 {
-  "passed": 11,
+  "passed": 13,
   "failed": 0,
   "groups": [
     "Native measured geometry batches below100 draws before effects",
@@ -10,6 +10,8 @@
     "Actual underside fire and smoke remain below the intact upper slab",
     "Authoritative unlit preheat produces neutral smoke with no flame or practical light",
     "Accepted flame binds to real half-metre support under wind and keeps the six-light215 budget",
+    "Airborne fragment uses the exact supplied clipped geometry, never its entire source panel",
+    "Flight tombstone preserves one-centimetre batched residue; spent ash remains with zero glow",
     "A full reset restores source poses and physical support without stale emitters",
     "Borrowed source geometry data is unchanged",
     "Generated geometry, color/depth materials and effect resources dispose once"

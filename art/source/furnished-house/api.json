@@ -30,10 +30,10 @@
       0
     ],
     "levels": "Array {id,index,floorY,wallTop,floorTriangles,stairVoid}",
-    "surfaces": "Array {id,kind,level,triangles,normal,thickness,material,bounds,sourceMeshBindings,supportSurfaceIds,fuelClass,fuelAmount,finish}; one canonical record per physical patch",
+    "surfaces": "Array {id,kind,level,triangles,normal,thickness,material,bounds,sourceMeshBindings,supportSurfaceIds,fuelClass,fuelAmount,finish}; one canonical record per physical patch; kind:attachment is an exact nonplanar source solid with solidTriangles, thickness:0, material/fuelAmount, sourceMeshBindings, attachmentHostSurfaceIds, supportSurfaceIds and supportBinding. It is not a plane to extrude by its first normal. presentationKind hides roof trim in cutaway.",
     "openings": "Array {id,surfaceId,level,kind,bounds,polygon,pivot,closedTransform,openTransform,sourceMeshBindings}; source geometry and prototype adaptations distinguished",
     "furnitureParts": "Array {id,itemId,level,sourceMeshBinding,matrix,bounds,material,fuelClass,fuelAmount,finish,supportSurfaceIds}",
-    "items": "Array grouping actual furnitureParts by itemId; independent item transforms and support bindings; supportContacts are independent of render pivots",
+    "items": "Array grouping actual furnitureParts by itemId; independent item transforms and support bindings; supportContacts are independent of render pivots; supportContacts polygon is an actual downward source facet intersected with real floor triangles, with sourcePartId/sourceBottomFace/contactY/gap.",
     "stores": "Array {id,itemId,kind,level,position,bounds,amount,amountUnit,supportSurfaceIds,fuelPartId}; fuel appears once in furnitureParts",
     "render": "Canonical source geometries, physical material appearances and per-fragment source/item bindings; no new donor import",
     "navigation": "Measured baseline bounds and explicit authorized adaptations; freeze after coder passage measurement"
@@ -47,13 +47,14 @@
     "boundaries": "Array {id,sourceSurfaceId,triangles or polygon,intact,openFraction,charFraction,heatFraction}; additional patch coverage retires only its actual geometry",
     "supports": "Same stable sourceSurfaceId/coverage convention as boundaries",
     "items": "Array {id or itemId,position,quaternion,intact,remainingFraction,charFraction}; matrix accepted as an alternative pose",
-    "falls": "Array {id,itemId,position,quaternion,flame,smoke,ignitionTime}; moved fuel remains the same item",
+    "falls": "Array {id,itemId,fuelIds,position,quaternion,geometry:{triangles,solidTriangles?,thickness,normal,sourceSurfaceId,kind},flame,smoke,ignitionTime}; exact structural geometry is localised around its original canonical patch centre, not expanded to the whole source panel. Current falls are snapshots; explicit tombstones retire flight.",
     "events": "Array of authoritative window-break, spill, support-failure and landing records",
     "metrics": "Authoritative accounting and budgets; presentation never derives gameplay",
     "fireSamples": "Published structural-fire fields plus sourceSurfaceId or itemId; floorFootprint triangles or floorRadius bounds the visible horizontal envelope; authoritative zero-flame smoke is accepted (preheat:true). Normal ny:-1 and underside Y remain below the intact slab. Vent samples use vent:true and canonical openingId/sourceSurfaceId.",
     "tombstones": "Array of stable ids, or {collection,id}; records removed from retained state. An intact:false record is also accepted.",
     "occupancy": "Optional debug records {id,bounds,heatFraction,occupied}; x-ray shows these actual simulation records when supplied",
-    "parts": "Array {id,itemId,intact,remainingFraction,charFraction,heatFraction}; delta records retained independently of parent poses. Inert parts remain after combustible contents are spent."
+    "parts": "Array {id,itemId,intact,remainingFraction,charFraction,heatFraction}; delta records retained independently of parent poses. Inert parts remain after combustible contents are spent.",
+    "rubble": "Array {id,fuelIds,position,triangles,floorFootprint,supportBoundaryId,sourceSurfaceIds,thickness:.01,nonBearing:true,kind:'wood'|'ember'|'oil'|'coal',phase:'burning'|'char'|'ash',remainingAmount,remainingFraction,heatFraction,flame,smoke,ignitionTime}. The supplied footprint is on the real support; one-centimetre visible thickness extends upward. full replaces; delta merges; collection:rubble tombstones remove explicitly. Flight tombstones do not remove this persistent state. No art-derived fuel or age."
   },
   "view": {
     "mode": "exterior|auto|cutaway|xray",
@@ -69,6 +70,7 @@
     "Full frames replace state; later frames merge stable-ID changes and tombstones. Reset/backward seek clears prior state.",
     "Fuel amounts are finite prototype units, not a calibrated real-world mass model. Coder owns burn profiles.",
     "Original 1.65 m doors remain identified until the measured passage decision. No actor is resized.",
-    "Adjacent burning support polygons may share an overlap envelope. Every active input remains represented and overlap group/source counts are in inspect; no fuel or spread changes. Cutaway hides the same clipped wall height in flame presentation."
+    "Adjacent burning support polygons may share an overlap envelope. Every active input remains represented and overlap group/source counts are in inspect; no fuel or spread changes. Cutaway hides the same clipped wall height in flame presentation.",
+    "Structural attachment support uses declared native source joinery. Mechanical support loss may move the same remaining fuel before its nominal material burn completes. The runtime owns that decision."
   ]
 }

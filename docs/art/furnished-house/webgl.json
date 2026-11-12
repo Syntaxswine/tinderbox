@@ -38,9 +38,45 @@
     {
       "linked": true,
       "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
     }
   ],
   "shaderResults": [
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
     {
       "compiled": true,
       "log": ""
@@ -142,18 +178,31 @@
         "revision": 0,
         "view": "exterior",
         "level": 0,
-        "sourceSurfaces": 2532,
-        "physicalPatches": 3747,
+        "sourceSurfaces": 2969,
+        "physicalPatches": 5847,
         "retiredPatches": 0,
-        "sourceMeshes": 865,
+        "sourceMeshes": 869,
         "batches": 64,
         "items": 16,
         "falls": 0,
         "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
         "occupancy": 0,
         "fireSamples": 0,
         "representedSamples": 0,
         "missingSamples": 0,
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
         "emitterBatches": 0,
         "fire": [],
         "lightBudget": {
@@ -177,11 +226,11 @@
           1,
           1
         ],
-        "stateBindings": 2629
+        "stateBindings": 3066
       },
       "renderer": {
         "calls": 73,
-        "triangles": 63193
+        "triangles": 60711
       },
       "character": {
         "disposed": false,
@@ -307,18 +356,31 @@
         "revision": 1,
         "view": "cutaway",
         "level": 0,
-        "sourceSurfaces": 2532,
-        "physicalPatches": 3747,
+        "sourceSurfaces": 2969,
+        "physicalPatches": 5847,
         "retiredPatches": 0,
-        "sourceMeshes": 865,
+        "sourceMeshes": 869,
         "batches": 64,
         "items": 16,
         "falls": 0,
         "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
         "occupancy": 0,
         "fireSamples": 1,
         "representedSamples": 1,
         "missingSamples": 0,
+        "visibleSamples": 1,
+        "viewCulledSamples": 0,
         "emitterBatches": 1,
         "fire": [
           {
@@ -371,11 +433,11 @@
           1,
           1
         ],
-        "stateBindings": 2629
+        "stateBindings": 3066
       },
       "renderer": {
         "calls": 74,
-        "triangles": 63201
+        "triangles": 60719
       },
       "character": {
         "disposed": false,
@@ -501,18 +563,31 @@
         "revision": 2,
         "view": "cutaway",
         "level": 0,
-        "sourceSurfaces": 2532,
-        "physicalPatches": 3747,
+        "sourceSurfaces": 2969,
+        "physicalPatches": 5847,
         "retiredPatches": 1,
-        "sourceMeshes": 865,
+        "sourceMeshes": 869,
         "batches": 64,
         "items": 16,
         "falls": 0,
         "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
         "occupancy": 0,
         "fireSamples": 0,
         "representedSamples": 0,
         "missingSamples": 0,
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
         "emitterBatches": 1,
         "fire": [
           {
@@ -543,11 +618,11 @@
           1,
           1
         ],
-        "stateBindings": 2629
+        "stateBindings": 3066
       },
       "renderer": {
         "calls": 73,
-        "triangles": 63193
+        "triangles": 60711
       },
       "character": {
         "disposed": false,
@@ -673,18 +748,31 @@
         "revision": 3,
         "view": "cutaway",
         "level": 0,
-        "sourceSurfaces": 2532,
-        "physicalPatches": 3747,
+        "sourceSurfaces": 2969,
+        "physicalPatches": 5847,
         "retiredPatches": 0,
-        "sourceMeshes": 865,
+        "sourceMeshes": 869,
         "batches": 64,
         "items": 16,
         "falls": 0,
         "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
         "occupancy": 0,
         "fireSamples": 628,
         "representedSamples": 628,
         "missingSamples": 0,
+        "visibleSamples": 504,
+        "viewCulledSamples": 124,
         "emitterBatches": 7,
         "fire": [
           {
@@ -873,11 +961,11 @@
           1,
           1
         ],
-        "stateBindings": 2629
+        "stateBindings": 3066
       },
       "renderer": {
         "calls": 80,
-        "triangles": 68945
+        "triangles": 66463
       },
       "character": {
         "disposed": false,
@@ -1003,18 +1091,31 @@
         "revision": 4,
         "view": "cutaway",
         "level": 0,
-        "sourceSurfaces": 2532,
-        "physicalPatches": 3747,
+        "sourceSurfaces": 2969,
+        "physicalPatches": 5847,
         "retiredPatches": 0,
-        "sourceMeshes": 865,
+        "sourceMeshes": 869,
         "batches": 64,
         "items": 16,
         "falls": 0,
         "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
         "occupancy": 0,
         "fireSamples": 1,
         "representedSamples": 1,
         "missingSamples": 0,
+        "visibleSamples": 1,
+        "viewCulledSamples": 0,
         "emitterBatches": 7,
         "fire": [
           {
@@ -1081,11 +1182,11 @@
           1,
           1
         ],
-        "stateBindings": 2629
+        "stateBindings": 3066
       },
       "renderer": {
         "calls": 72,
-        "triangles": 62301
+        "triangles": 59819
       },
       "character": {
         "disposed": false,
@@ -1175,38 +1276,490 @@
         "characterId": "goat",
         "role": "player"
       }
+    },
+    {
+      "name": "qa-landed-residue",
+      "mode": "exterior",
+      "level": 0,
+      "camera": [
+        20,
+        14,
+        -13
+      ],
+      "target": [
+        5,
+        1,
+        5
+      ],
+      "halfWidth": 10.1,
+      "actor": [
+        5.00375,
+        0,
+        -3.8
+      ],
+      "title": "Persistent landed residue | actual shallow footprint",
+      "caption": "Controlled artist frame. A one-centimetre layer on the real Y0.36 stone bearing; one tracked hot coal area and inert char.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 200,
+        "revision": 5,
+        "view": "exterior",
+        "level": 0,
+        "sourceSurfaces": 2969,
+        "physicalPatches": 5847,
+        "retiredPatches": 4896,
+        "sourceMeshes": 869,
+        "batches": 64,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 12,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 1,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
+        "emitterBatches": 7,
+        "fire": [
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 65,
+          "materials": 86,
+          "textures": 6
+        },
+        "resetCount": 7,
+        "revisionCount": 6,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 3066
+      },
+      "renderer": {
+        "calls": 74,
+        "triangles": 60855
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            5.00375,
+            0,
+            -3.8
+          ],
+          "support": [
+            5.273112895698104,
+            0.732,
+            -4.057366723608807
+          ],
+          "muzzle": [
+            5.179266512378074,
+            0.03,
+            -3.704114892279159
+          ],
+          "spout": [
+            5.00375,
+            0,
+            -3.8
+          ],
+          "backpack": [
+            4.981810435952741,
+            1.08,
+            -3.8119856384651047
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 5.00375,
+          "y": -3.8,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 200,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              5.00375,
+              0,
+              -3.8
+            ],
+            "palm": [
+              4.93272076328912,
+              0.732,
+              -3.434283104666642
+            ],
+            "error": 0.8213513255605059
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
+    },
+    {
+      "name": "qa-spent-ash",
+      "mode": "exterior",
+      "level": 0,
+      "camera": [
+        20,
+        14,
+        -13
+      ],
+      "target": [
+        5,
+        1,
+        5
+      ],
+      "halfWidth": 10.1,
+      "actor": [
+        5.00375,
+        0,
+        -3.8
+      ],
+      "title": "Spent residue | cooling ash without glow",
+      "caption": "Same supplied landed footprints after their authoritative fuel is spent. Residue persists; no art-owned fire or collapse timer.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 330,
+        "revision": 6,
+        "view": "exterior",
+        "level": 0,
+        "sourceSurfaces": 2969,
+        "physicalPatches": 5847,
+        "retiredPatches": 4896,
+        "sourceMeshes": 869,
+        "batches": 64,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 12,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 1,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
+        "emitterBatches": 7,
+        "fire": [
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 65,
+          "materials": 86,
+          "textures": 6
+        },
+        "resetCount": 8,
+        "revisionCount": 7,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 3066
+      },
+      "renderer": {
+        "calls": 74,
+        "triangles": 60855
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            5.00375,
+            0,
+            -3.8
+          ],
+          "support": [
+            5.273112895698104,
+            0.732,
+            -4.057366723608807
+          ],
+          "muzzle": [
+            5.179266512378074,
+            0.03,
+            -3.704114892279159
+          ],
+          "spout": [
+            5.00375,
+            0,
+            -3.8
+          ],
+          "backpack": [
+            4.981810435952741,
+            1.08,
+            -3.8119856384651047
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 5.00375,
+          "y": -3.8,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 330,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              5.00375,
+              0,
+              -3.8
+            ],
+            "palm": [
+              4.93272076328912,
+              0.732,
+              -3.434283104666642
+            ],
+            "error": 0.8213513255605059
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
     }
   ],
   "inputData": {
     "path": "workbenches/furnished-house/house-data.json",
-    "sha256": "6eff26279aedcc339c625441960001835853652d4b5ef78a103abefb10c408b9"
+    "sha256": "b656be30a463291b5b8a30df64088381f19ac6d0b78c92a0306ee0cb78dd6d7c"
   },
-  "reviewScriptSha256": "7de1376352fe6f1a722a38fb811660805d460d19ad40253a3c48f2d71703b7be",
+  "reviewScriptSha256": "4e20ac2f5b837a4e04306d5e502a1bd68c10e022f5bca26e37c59a55fbc89d67",
   "jpgs": [
     {
       "path": "docs/art/furnished-house/previews/qa-exterior.jpg",
-      "bytes": 194337,
-      "sha256": "a36ccf10aed4288b3cd8b5164776350c1f767a120bafba300079e5752e1f5557"
+      "bytes": 197546,
+      "sha256": "256c87dad6de615e61ebbd2a76d653ab88b6b49dea1b91dc2dc521dc98dfdc11"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-kitchen-cutaway.jpg",
-      "bytes": 268241,
-      "sha256": "d68f2601fae07bcb01c3427c062695b7721dfeca01d774b21b5934fc68ae80e0"
+      "bytes": 269891,
+      "sha256": "255e140d552dee43e9c91a3c63122beeed35108e67abc7e183eb4b84ade92a91"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-local-retirement.jpg",
-      "bytes": 258488,
-      "sha256": "5362d3ecc885df6fe538c99227353fb7dbdc411062423d8e67e066e75445064f"
+      "bytes": 260475,
+      "sha256": "3d26f8845938e2b436ef83f7e7cd7fadd7b863921dfe9066279c8883ee0f7373"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-flame-body.jpg",
-      "bytes": 259469,
-      "sha256": "1dbaa87f75d1ed4a2cfd053bffe1552bd9f0f33735252bdc8b5b83c4e0750898"
+      "bytes": 257851,
+      "sha256": "74139c04ad514634c0df20b108f421124be544c755112d11f3b922c094145bf3"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-preheat-smoke.jpg",
-      "bytes": 308574,
-      "sha256": "97e480e81d3426189349c16e35f707a91ac6a5d1f25c5776ec59c0125a9c2762"
+      "bytes": 311348,
+      "sha256": "fec0eef95b111df29a99361dba31ae3441e47d26f0c8cbff45227e51561a1bb7"
+    },
+    {
+      "path": "docs/art/furnished-house/previews/qa-landed-residue.jpg",
+      "bytes": 116241,
+      "sha256": "95de5f617af953ed6c7bbfe49f61defb1695ed5cecd9a010aca71ea3a56c7da2"
+    },
+    {
+      "path": "docs/art/furnished-house/previews/qa-spent-ash.jpg",
+      "bytes": 113691,
+      "sha256": "50416650810b72aa1efa613320848984122deb5feb14c8702c58f62ce169132c"
     }
   ]
 }

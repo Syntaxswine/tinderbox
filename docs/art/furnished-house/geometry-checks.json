@@ -1,5 +1,5 @@
 {
-  "passed": 8,
+  "passed": 10,
   "failed": 0,
   "groups": [
     "Native module, exact level planes and actual floor union areas",
@@ -9,10 +9,12 @@
     "Finite oil/coal stores have actual floor support and one fuel record each",
     "Authorized full-height route openings retain native leaves and separate always-open transom boundaries",
     "Centred native entry retains the exterior return and six unchanged step widths; measured jamb clearance1.015m",
+    "Every visible source has a physical identity; exact finite timber fittings and inert metal hosts replace guessed orphan bindings",
+    "Measured bottom facets preserve the four actual table feet and inert plinth bearing atY.36",
     "Buried porch roof faces no longer cross the upper front chamber"
   ],
   "counts": {
-    "surfaces": 2532,
+    "surfaces": 2969,
     "floorPatches": 672,
     "items": 16,
     "parts": 81
@@ -1161,6 +1163,69 @@
         "reason": "The original doorway was flush to the right return, which blocked the full 1m-diameter body despite its jamb width. Centre the complete native assembly and compose two end-cut piers."
       },
       {
+        "type": "entry-rail-bearing-completion",
+        "posts": [
+          {
+            "position": [
+              4.41,
+              0.535,
+              -2.66
+            ],
+            "dimensions": [
+              0.055,
+              0.43,
+              0.055
+            ],
+            "bottom": 0.32,
+            "top": 0.75
+          },
+          {
+            "position": [
+              4.41,
+              0.855,
+              -2
+            ],
+            "dimensions": [
+              0.055,
+              0.75,
+              0.055
+            ],
+            "bottom": 0.48,
+            "top": 1.23
+          },
+          {
+            "position": [
+              5.59,
+              0.535,
+              -2.66
+            ],
+            "dimensions": [
+              0.055,
+              0.43,
+              0.055
+            ],
+            "bottom": 0.32,
+            "top": 0.75
+          },
+          {
+            "position": [
+              5.59,
+              0.855,
+              -2
+            ],
+            "dimensions": [
+              0.055,
+              0.75,
+              0.055
+            ],
+            "bottom": 0.48,
+            "top": 1.23
+          }
+        ],
+        "noScaling": true,
+        "reason": "The baseline inclined rails had no modeled bearing posts. These native-section vertical pieces touch the real approach/deck and rail."
+      },
+      {
         "type": "composed-entry-approach",
         "parts": [
           {
@@ -1502,6 +1567,43 @@
           ]
         },
         "reason": "Move the hinge outward by native-part translation so a 180-degree leaf clears the wall instead of embedding in it."
+      },
+      {
+        "type": "explicit-source-fittings",
+        "count": 437,
+        "physicalMaterial": "timber",
+        "fuelClass": "frame",
+        "fuelPerCubicMetre": 8.3333333,
+        "policy": "One finite amount per exact source fitting; actual closed source mesh is shared by render, thermal and support. Lost support can move remaining fuel independently of its 120ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“180s nominal burn age.",
+        "inferredStairFlight": {
+          "treadSurfaceIds": [
+            "stair/349",
+            "stair/350",
+            "stair/351",
+            "stair/352",
+            "stair/353",
+            "stair/354",
+            "stair/355",
+            "stair/356",
+            "stair/357",
+            "stair/358",
+            "stair/359",
+            "stair/360"
+          ],
+          "attachmentSurfaceIds": [
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/19/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/21/stair-handrail",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/22/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/23/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/24/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/25/stair-newel",
+            "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail"
+          ],
+          "note": "Source tread boxes do not model load-carrying stringers. Runtime owns the declared flight/landing support graph; no invisible floor is introduced."
+        }
       }
     ],
     "measuredGoat": {

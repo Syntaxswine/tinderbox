@@ -20,6 +20,18 @@ const composition=d.navigation.routeAdaptations.find(a=>a.type==='centred-native
 const entrySteps=d.surfaces.filter(s=>s.supportType==='entry-step');assert.equal(entrySteps.length,6);for(const s of entrySteps){assert.ok(Math.abs((s.bounds.min[0]+s.bounds.max[0])/2-5)<1e-6);assert.ok(Math.abs(s.bounds.max[0]-s.bounds.min[0]-1.16)<1e-6);}
 pass('Centred native entry retains the exterior return and six unchanged step widths; measured jamb clearance1.015m');
 
+const physical=new Set([...d.surfaces.flatMap(s=>s.sourceMeshBindings),...d.furnitureParts.map(p=>p.sourceMeshBinding).filter(Boolean)]);
+for(const g of d.render.geometry)assert.ok(physical.has(g.id),'No declared physical identity for '+g.id);
+const fittings=d.surfaces.filter(s=>s.kind==='attachment');assert.ok(fittings.length>400);
+for(const a of fittings){assert.equal(a.physicalShape,'source-closed-mesh');assert.ok(a.attachmentHostSurfaceIds.length+a.supportSurfaceIds.length>0);if(a.material==='iron')assert.equal(a.fuelAmount,0);else{assert.equal(a.fuelClass,'frame');assert.ok(a.fuelAmount>0&&a.volume>0);}}
+assert.ok(d.render.omittedSourceMeshes.every(m=>d.sourceMeshes.find(s=>s.id===m.id).name==='Floor slab rim'));
+pass('Every visible source has a physical identity; exact finite timber fittings and inert metal hosts replace guessed orphan bindings');
+const workTable=d.items.find(i=>i.id==='item/l0/kitchen/work-table');assert.equal(new Set(workTable.supportContacts.map(c=>c.sourcePartId)).size,4);
+const area=c=>c.polygon.slice(1,-1).reduce((n,_,i)=>n+triangleArea([c.polygon[0],c.polygon[i+1],c.polygon[i+2]]),0);
+assert.ok(Math.abs(workTable.supportContacts.reduce((n,c)=>n+area(c),0)-.01)<1e-6);
+for(const item of d.items)for(const c of item.supportContacts){assert.ok(Math.abs(c.gap)<=.03);assert.ok(c.polygon.every(p=>Math.abs(p[1]-c.contactY)<1e-7));assert.ok(c.supportSurfaceIds.every(id=>d.surfaces.find(s=>s.id===id)?.kind==='floor'));}
+assert.ok(d.surfaces.some(s=>s.kind==='plinth'&&s.supports&&Math.abs(s.bounds.max[1]-.36)<1e-7));
+pass('Measured bottom facets preserve the four actual table feet and inert plinth bearing atY.36');
 const roofGeometry=d.render.geometry.filter(g=>d.sourceMeshes.find(m=>m.id===g.id)?.name==='New roof envelope');
 for(const g of roofGeometry)for(const t of g.triangles){const c=[0,1,2].map(i=>t.vertices.reduce((n,v)=>n+v[i],0)/3);assert.ok(!(c[0]>4&&c[0]<6&&c[2]>-1&&c[2]<.15&&c[1]<2.8));}
 pass('Buried porch roof faces no longer cross the upper front chamber');
