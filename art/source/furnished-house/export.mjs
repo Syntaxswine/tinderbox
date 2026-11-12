@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import * as T from '../../../src/runtime/three.js';
 import {createHopkinsHouse} from '../../../src/art/hopkins-housing.js';
 import {housePlanEdges} from '../../../src/art/gross-housing.js';
-import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume} from './geometry.js';
+import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume,clip,cross,dot} from './geometry.js';
 const BASE='c855e627bdee963e930644839a60c027a03935de',OUT='workbenches/furnished-house/house-data.json';
 const catalogue=JSON.parse(fs.readFileSync('assets/art/hopkins-housing-v1/houses.json')),house=catalogue.houses.find(h=>h.id==='hopkins-4-15');
 const model=createHopkinsHouse(T,{catalogue,textures:{}},house.id),sourceMeshes=[],surfaces=[],openings=[],items=[],furnitureParts=[],stores=[],levels=[];
@@ -54,6 +54,22 @@ function visibleHip(poly){
 }
 function rectangle(a,b,y0,y1){
  const q=[[a[0],y0,a[1]],[b[0],y0,b[1]],[b[0],y1,b[1]],[a[0],y1,a[1]]];return polygonTriangles(q);
+}
+function contactsFor(itemId,partId,polygons,floorY,bottomY,level,start=0){
+ const contacts=[];
+ for(const [faceIndex,polygon]of polygons.entries()){
+  const b=bounds(polygon);
+  for(const sid of supportFor(b,level)){
+   const support=surfaces.find(s=>s.id===sid);
+   for(const triangle of support.triangles){
+    let q=polygon.map(p=>[p[0],floorY,p[2]]);const a=triangle[0],b=triangle[1],c=triangle[2],sign=Math.sign((b[0]-a[0])*(c[2]-a[2])-(b[2]-a[2])*(c[0]-a[0]))||1;
+    for(let i=0;i<3;i++){const a=triangle[i],b=triangle[(i+1)%3];q=clip(q,v=>sign*((b[0]-a[0])*(v[2]-a[2])-(b[2]-a[2])*(v[0]-a[0])));}
+    if(q.length<3||triArea(polygonTriangles(q))<1e-9)continue;
+    contacts.push({id:itemId+'/contact/'+(start+contacts.length),sourcePartId:partId,sourceBottomFace:faceIndex,polygon:q.map(r3),measuredBottomY:bottomY,contactY:floorY,gap:round(bottomY-floorY),supportSurfaceIds:[sid],measurement:'Actual downward source facet clipped to the actual floor polygon'});
+   }
+  }
+ }
+ return contacts;
 }
 function supportFor(b,level){
  return surfaces.filter(s=>s.kind==='floor'&&(!s.supportType||s.supportType==='porch-deck')&&s.level===level&&s.bounds.max[0]>b.min[0]+1e-7&&s.bounds.min[0]<b.max[0]-1e-7&&s.bounds.max[2]>b.min[2]+1e-7&&s.bounds.min[2]<b.max[2]-1e-7).map(s=>s.id);
@@ -120,6 +136,12 @@ try{
   const o=entryTreads[i],baseline=o.position.toArray(),z0=-3.32+(2*i+.5)*.22;o.position.z=z0;o.position.x+=entryTranslation[0];const twin=o.clone();twin.name='Prototype duplicate entry stair';twin.position.z=z0+.22;twin.userData.prototypeDuplicate=true;o.parent.add(twin);
   entryRecord.push({baseline,positions:[o.position.toArray(),twin.position.toArray()],nativeDimensions:o.userData.nativeDimensions});
  }
+ // The raw entry rails had no vertical bearing posts. Compose unchanged sections to the real step/deck.
+ const entryRail=ornament.children.find(o=>o.name==='Entry stair rail'),entryRailPosts=[];
+ for(const x of [4.41,5.59])for(const [z,bottom,top]of [[-2.66,.32,.75],[-2,.48,1.23]]){
+  const g=new T.BoxGeometry(.055,top-bottom,.055),o=new T.Mesh(g,entryRail.material);extraGeometry.push(g);o.name='Prototype entry rail post';o.position.set(x,(bottom+top)/2,z);o.castShadow=o.receiveShadow=true;o.userData={nativeDimensions:[.055,top-bottom,.055],prototypeAdaptation:true};ornament.add(o);entryRailPosts.push({position:o.position.toArray(),dimensions:o.userData.nativeDimensions,bottom,top});
+ }
+ routeAdaptations.push({type:'entry-rail-bearing-completion',posts:entryRailPosts,noScaling:true,reason:'The baseline inclined rails had no modeled bearing posts. These native-section vertical pieces touch the real approach/deck and rail.'});
  routeAdaptations.push({type:'composed-entry-approach',parts:entryRecord,nativeRunPerBlock:.22,blocks:6,runPerRise:.44,totalRun:1.32,totalRise:.48,railGeometry:'Original upper-flight rails retained; no source part stretched',reason:'Keep the conservative torso clear of the third riser before the first centre-supported step.'});
  const railMoves=[];model.root.traverse(o=>{if(levelOf(o)!==0||!['Stair newel','Stair handrail'].includes(o.name))return;const baseline=o.position.toArray(),left=o.position.x<5.5;o.position.x+=left?-.04:.04;railMoves.push({name:o.name,baseline,position:o.position.toArray(),translation:[left?-.04:.04,0,0]});});
  routeAdaptations.push({type:'translated-stair-rails',parts:railMoves,treadsUnchanged:true,baselineNewelClear:.935,adaptedNewelClear:1.015,remainingLimit:'Stair-side partitions and one fore-lip floor bay are explicitly removed in the same physical data; final continuous route proof remains required.'});
@@ -210,7 +232,7 @@ try{
  // Noncombustible source masonry. Texture or paint never decides fuel.
  for(const record of sourceMeshes.filter(m=>/New raised plinth|New Hopkins brick chimney|Chimney cap/.test(m.name))){
   const grouped=new Map();for(const t of raw.get(record.id)){const xyz=t.vertices.map(v=>v.slice(0,3)),n=normal(xyz),key=n.map(v=>Math.round(v)).join(',');if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(xyz);}
-  for(const [key,triangles]of grouped)surface({id:'masonry/'+sourceMeshes.indexOf(record)+'/'+key,kind:'plinth',level:record.name==='New raised plinth'?0:1,triangles,normal:normal(triangles[0]),thickness:.12,material:record.name==='New raised plinth'?'stone':'brick',sourceMeshBindings:[record.id],fuelClass:null,fuelAmount:0});
+  for(const [key,triangles]of grouped)surface({id:'masonry/'+sourceMeshes.indexOf(record)+'/'+key,kind:'plinth',level:record.name==='New raised plinth'?0:1,triangles,normal:normal(triangles[0]),thickness:.12,supports:normal(triangles[0])[1]>.5,inertBearing:true,material:record.name==='New raised plinth'?'stone':'brick',sourceMeshBindings:[record.id],fuelClass:null,fuelAmount:0});
  }
  // Separate real pieces inside the nine procedural furnishing groups.
  const itemMap=new Map();
@@ -230,12 +252,8 @@ try{
   item.supportContacts=[];
   const floorY=levels[item.level].floorY;
   for(const part of parts)if(part.bounds.min[1]<=floorY+.03){
-   const b=part.bounds,polygon=[[b.min[0],floorY,b.min[2]],[b.max[0],floorY,b.min[2]],[b.max[0],floorY,b.max[2]],[b.min[0],floorY,b.max[2]]];
-   for(const sid of supportFor(b,item.level)){
-    const support=surfaces.find(s=>s.id===sid),box={min:[support.bounds.min[0],floorY-.01,support.bounds.min[2]],max:[support.bounds.max[0],floorY+.01,support.bounds.max[2]]},clipped=clipBox(polygon,box);
-    if(clipped.length<3||triArea(polygonTriangles(clipped))<1e-9)continue;
-    item.supportContacts.push({id:item.id+'/contact/'+item.supportContacts.length,sourcePartId:part.id,polygon:clipped.map(r3),measuredBottomY:part.bounds.min[1],contactY:floorY,gap:round(part.bounds.min[1]-floorY),supportSurfaceIds:[sid]});
-   }
+   const facets=(raw.get(part.sourceMeshBinding)||[]).map(t=>t.vertices.map(v=>v.slice(0,3))).filter(t=>normal(t)[1]<-.5&&t.every(p=>p[1]<=floorY+.03));
+   item.supportContacts.push(...contactsFor(item.id,part.id,facets,floorY,part.bounds.min[1],item.level,item.supportContacts.length));
   }
   item.supportSurfaceIds=[...new Set(item.supportContacts.flatMap(c=>c.supportSurfaceIds))];
   item.contactBounds=item.supportContacts.length?bounds(item.supportContacts.flatMap(c=>c.polygon)):null;
@@ -252,17 +270,46 @@ try{
  for(const def of storeDefinitions){
   const [x,y,z]=def.position,[w,h,d]=def.size,b={min:[x-w/2,y,z-d/2],max:[x+w/2,y+h,z+d/2]},supportSurfaceIds=supportFor(b,0),itemId=def.id,partId=def.id+'/contents';
   stores.push({...def,itemId,level:0,bounds:b,amountUnit:parameters.amountUnit,supportSurfaceIds,fuelPartId:partId,prototypePlacement:true});
-  items.push({id:itemId,level:0,roomId:'kitchen',type:def.kind+'-store',position:def.position,quaternion:[0,0,0,1],partIds:[partId,def.id+'/container'],bounds:b,supportSurfaceIds,supportContacts:[{id:itemId+'/contact/0',sourcePartId:def.id+'/container',polygon:[[b.min[0],y,b.min[2]],[b.max[0],y,b.min[2]],[b.max[0],y,b.max[2]],[b.min[0],y,b.max[2]]],contactY:y,measuredBottomY:y,gap:0,supportSurfaceIds}],prototypePlacement:true});
+  items.push({id:itemId,level:0,roomId:'kitchen',type:def.kind+'-store',position:def.position,quaternion:[0,0,0,1],partIds:[partId,def.id+'/container'],bounds:b,supportSurfaceIds,supportContacts:contactsFor(itemId,def.id+'/container',[[[x-(def.kind==='oil'?.20:.35),y,z-(def.kind==='oil'?.16:.30)],[x+(def.kind==='oil'?.20:.35),y,z-(def.kind==='oil'?.16:.30)],[x+(def.kind==='oil'?.20:.35),y,z+(def.kind==='oil'?.16:.30)],[x-(def.kind==='oil'?.20:.35),y,z+(def.kind==='oil'?.16:.30)]]],y,y,0),prototypePlacement:true});
   furnitureParts.push({id:partId,itemId,level:0,sourceMeshBinding:null,matrix:new T.Matrix4().makeTranslation(x,y,z).toArray(),bounds:b,material:def.kind,fuelClass:def.kind,fuelAmount:def.amount,finish:null,supportSurfaceIds,proceduralStoreContents:true},
    {id:def.id+'/container',itemId,level:0,sourceMeshBinding:null,matrix:new T.Matrix4().makeTranslation(x,y,z).toArray(),bounds:b,material:def.material,fuelClass:def.material==='timber'?'furniture':null,fuelAmount:def.material==='timber'?.25:0,finish:null,supportSurfaceIds,proceduralStoreContainer:true});
  }
+ // Give every remaining visible timber fitting one finite physical identity.
+ // These are exact source solids; attachment support relationships are declared separately.
+ const appearanceLayerBindings=[];
+ for(const record of sourceMeshes.filter(m=>m.name==='Removable gambrel gable siding')){
+  const b=record.bounds,size=b.max.map((v,i)=>v-b.min[i]),axis=size.indexOf(Math.min(...size)),others=[0,1,2].filter(i=>i!==axis),fixed=(b.min[axis]+b.max[axis])/2;
+  const hosts=surfaces.filter(s=>s.kind==='wall'&&s.level===1&&Math.abs(s.normal[axis])>.9&&Math.abs(s.triangles[0][0][axis]-fixed)<.10&&others.every(i=>s.bounds.max[i]>b.min[i]+1e-7&&s.bounds.min[i]<b.max[i]-1e-7));
+  if(!hosts.length)throw Error('No canonical gable siding host '+record.id);
+  for(const s of hosts)s.sourceMeshBindings.push(record.id);
+  appearanceLayerBindings.push({sourceMeshId:record.id,sourceSurfaceIds:hosts.map(s=>s.id),normalOffset:round(Math.abs(hosts[0].triangles[0][0][axis]-fixed)),reason:'The source clapboard overlay shares its existing upper wall fuel/support, never a second physical panel.'});
+ }
+ const physicalMeshes=new Set([...surfaces.flatMap(s=>s.sourceMeshBindings),...furnitureParts.map(p=>p.sourceMeshBinding).filter(Boolean)]);
+ const omittedSourceMeshes=sourceMeshes.filter(m=>m.name==='Floor slab rim').map(m=>({id:m.id,reason:'Replaced by the derived closed slab side at the same floor pitch; no duplicate fuel or surface.'}));
+ const omittedIds=new Set(omittedSourceMeshes.map(m=>m.id)),attachments=[];
+ for(const record of sourceMeshes){
+  if(physicalMeshes.has(record.id)||omittedIds.has(record.id)||record.name.startsWith('Room floor:'))continue;
+  const o=meshById.get(record.id),triangles=raw.get(record.id).map(t=>t.vertices.map(v=>v.slice(0,3)));if(!triangles.length)continue;
+  const appearanceNames=record.materialIds.map(id=>materials.find(m=>m.id===id).name),metal=appearanceNames.some(n=>/iron|brass/i.test(n));
+  if(appearanceNames.some(n=>/glass|brick|plinth/i.test(n)))throw Error('Unclassified inert source '+record.id);
+  const volume=Math.abs(triangles.reduce((n,t)=>n+dot(t[0],cross(t[1],t[2]))/6,0)),roofTrim=/removable-roofs/.test(record.id),level=record.level??(roofTrim?1:0);
+  const a=surface({id:'attachment/'+record.id,kind:'attachment',level,triangles,solidTriangles:triangles,bounds:record.bounds,normal:normal(triangles[0]),thickness:0,material:metal?'iron':'timber',sourceMeshBindings:[record.id],fuelClass:metal?null:'frame',fuelAmount:metal?0:round(Math.max(1e-7,volume)/.12),volume:round(volume),physicalShape:'source-closed-mesh',attachmentType:record.name,presentationKind:roofTrim?'roof':/Stair|entry rail post/i.test(record.name)?'fitting':'wall',supportSurfaceIds:[],connectionTolerance:.015,connectionEvidence:'Prototype joinery; raw visible solid retained. Measured hosts and explicit inferred stair flight are separate from fuel decay.'});attachments.push(a);
+ }
+ const nearBounds=(a,b,t=.015)=>a.min.every((v,i)=>Math.max(v,b.min[i])-Math.min(a.max[i],b.max[i])<=t);
+ for(const a of attachments){
+  const wall=wallOf(meshById.get(a.sourceMeshBindings[0])),host=wall?sourceId.get(wall):null;
+  a.attachmentHostSurfaceIds=surfaces.filter(s=>s.id!==a.id&&s.material==='timber'&&nearBounds(a.bounds,s.bounds)&&(!host||s.kind==='floor'||s.sourceMeshBindings.some(id=>wallOf(meshById.get(id))===wall))).map(s=>s.id);
+  a.supportSurfaceIds=surfaces.filter(s=>s.kind==='floor'&&nearBounds(a.bounds,s.bounds)&&a.bounds.min[1]>=s.bounds.max[1]-.03&&a.bounds.min[1]<=s.bounds.max[1]+.03).map(s=>s.id);
+  a.supportBinding={kind:wall?'native-wall-joinery':/Stair/.test(a.attachmentType)?'native-stair-flight':/Porch|porch/.test(a.attachmentType)?'native-porch-joinery':'native-source-contact',hostSurfaceIds:a.attachmentHostSurfaceIds,bearingSurfaceIds:a.supportSurfaceIds,tolerance:.015,inferred:true};
+ }
+ routeAdaptations.push({type:'explicit-source-fittings',count:attachments.length,physicalMaterial:'timber',fuelClass:'frame',fuelPerCubicMetre:round(1/.12),policy:'One finite amount per exact source fitting; actual closed source mesh is shared by render, thermal and support. Lost support can move remaining fuel independently of its 120ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“180s nominal burn age.',inferredStairFlight:{treadSurfaceIds:surfaces.filter(s=>s.supportType==='stair-tread').map(s=>s.id),attachmentSurfaceIds:attachments.filter(s=>/Stair/.test(s.attachmentType)).map(s=>s.id),note:'Source tread boxes do not model load-carrying stringers. Runtime owns the declared flight/landing support graph; no invisible floor is introduced.'}});
  const geometry=[];
  for(const record of sourceMeshes){
-  const o=meshById.get(record.id);if(o.name.startsWith('Room floor:'))continue;
+  const o=meshById.get(record.id);if(o.name.startsWith('Room floor:')||omittedIds.has(record.id))continue;
   let triangles=raw.get(record.id);if(o.parent.name==='Removable roofs'&&o.name==='New roof envelope')triangles=triangles.flatMap(t=>{const polys=visibleHip(t.vertices);return polys.flatMap(poly=>polygonTriangles(poly).map(vertices=>({vertices,materialId:t.materialId})));});
   geometry.push({id:record.id,triangles:triangles.map(t=>({materialId:t.materialId,vertices:t.vertices.map(v=>v.map(round))}))});
  }
- const data={version:1,prefabId:house.id,buildingId:'furnished-hopkins15',units:'metres',sourceCommit:BASE,contractCommit:'3596f41cbeb0a85c648c44b789a838ed5a8dc139',sourceHashes,module:[1,1,2.12],thermalCell:[.5,1.06,.5],gridOrigin:[0,.48,0],levels,surfaces,openings,furnitureParts,items,stores,parameters,sourceMeshes,render:{materials,geometry,vertexLayout:['x','y','z','nx','ny','nz','u','v','physicalU','physicalV']},
+ const data={version:1,prefabId:house.id,buildingId:'furnished-hopkins15',units:'metres',sourceCommit:BASE,contractCommit:'3596f41cbeb0a85c648c44b789a838ed5a8dc139',sourceHashes,module:[1,1,2.12],thermalCell:[.5,1.06,.5],gridOrigin:[0,.48,0],levels,surfaces,openings,furnitureParts,items,stores,parameters,sourceMeshes,render:{materials,geometry,omittedSourceMeshes,appearanceLayerBindings,vertexLayout:['x','y','z','nx','ny','nz','u','v','physicalU','physicalV']},
  navigation:{status:'Source baseline measured; centred entry and composed stair opening await continuous coder sweep',nativeDoorHeight:1.65,nativeDoorWidth:1,routeAdaptations,measuredGoat:{samples:404,height:1.649517536,radius:.440155741,scale:[1,1,1],source:'Coder gait measurement'},conservativeProfile:{height:1.66,radius:.5},routeLimitations:['Hall console was explicitly moved to supported living-room floor; baseline and adapted transforms are recorded.','Rail clear width1.015m. Exact interfering stair-side and rear wall bays and one fore-lip floor bay were removed under architect authority; use the physical exported geometry for full route acceptance.','The route leaves use a recorded .15m stand-off and180-degree opening; the native leaf dimensions remain1x1.65x.12m.'],stair:{x:5,z:4,width:1,run:3,rise:2.12},removedFloorTriangles:[...removedFloorTriangles.values()],prototypeRoute:[[5.00375,0,-3.8],[5.00375,.16,-3.10],[5.00375,.32,-2.66],[5.00375,.48,-2.22],[5.00375,.48,-1],[5.00375,.48,1.8],[5.3,.48,3.35],[4.6,.48,3.35],[4.35,.48,3.65],[4.35,.48,5.75],[2.5,.48,6.5],[4.35,.48,5.75],[4.35,.48,3.65],[4.6,.48,3.35],[5.5,.48,3.35],...[...Array(12)].map((_,i)=>[5.5,.48+(i+1)*2.12/12,4+(i+.5)*.25]),[6.0,2.6,6.8],[6.5,2.6,6.4]],noCharacterRescaling:true},
  adaptations:['Closed .12 m floor slab faces are inferred from the real oak support; source surfaces stay at .48 and2.60m.','Only buried hip-roof faces inside the gambrel union are removed; visible native roof forms are retained.','Oil and coal stores are explicit prototype placements; finite quantities and finishes are game parameters.','Canonical wall patches include actual partial opening panels and never fill the stair notch.','Approved stair alcove removes12 directly interfering whole wall bays and one1m2 upper fore-lip floor bay; native treads and animal geometry remain unchanged.'],
  sourceGaps:['Centred entry/jamb rebate and full route await the continuous full-body passage result.','The original floor meshes have no closed slab/ceiling volume.','Some baseline rugs overhang the oak edge; fuel support references use actual overlap, not their rectangular reservation.']};
