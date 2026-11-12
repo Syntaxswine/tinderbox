@@ -11,16 +11,793 @@
     "Buried porch roof faces no longer cross the upper front chamber"
   ],
   "counts": {
-    "surfaces": 2562,
-    "floorPatches": 676,
+    "surfaces": 2532,
+    "floorPatches": 672,
     "items": 16,
-    "parts": 73
+    "parts": 81
   },
   "navigation": {
     "status": "Source baseline measured; composed opening adaptation awaits actual coder gait result",
     "nativeDoorHeight": 1.65,
     "nativeDoorWidth": 1,
     "routeAdaptations": [
+      {
+        "type": "furniture-contact-completion",
+        "chairLegs": {
+          "count": 8,
+          "dimensions": [
+            0.04,
+            0.36,
+            0.04
+          ],
+          "positions": [
+            [
+              -0.15,
+              0.18,
+              -0.8
+            ],
+            [
+              -0.15,
+              0.18,
+              -0.5
+            ],
+            [
+              0.15,
+              0.18,
+              -0.8
+            ],
+            [
+              0.15,
+              0.18,
+              -0.5
+            ],
+            [
+              -0.15,
+              0.18,
+              0.5
+            ],
+            [
+              -0.15,
+              0.18,
+              0.8
+            ],
+            [
+              0.15,
+              0.18,
+              0.5
+            ],
+            [
+              0.15,
+              0.18,
+              0.8
+            ]
+          ],
+          "reason": "The baseline chair seats/backs had no leg geometry."
+        },
+        "bedFeet": {
+          "parts": [
+            {
+              "baseline": [
+                -0.5,
+                0.35,
+                -0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                -0.5,
+                0.35,
+                0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                0.5,
+                0.35,
+                -0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                0.5,
+                0.35,
+                0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                -0.5,
+                0.35,
+                -0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                -0.5,
+                0.35,
+                0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                0.5,
+                0.35,
+                -0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                0.5,
+                0.35,
+                0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                -0.5,
+                0.35,
+                -0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                -0.5,
+                0.35,
+                0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                0.5,
+                0.35,
+                -0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            },
+            {
+              "baseline": [
+                0.5,
+                0.35,
+                0.86
+              ],
+              "translation": [
+                0,
+                -0.01,
+                0
+              ]
+            }
+          ],
+          "reason": "Seat unchanged native posts on their actual floor instead of leaving the source .01m gap."
+        },
+        "noScaling": true
+      },
+      {
+        "type": "native-stair-alcove",
+        "removedWallBays": [
+          {
+            "level": 0,
+            "edgeId": "6,5|6,6",
+            "a": [
+              6,
+              6
+            ],
+            "b": [
+              6,
+              5
+            ],
+            "rooms": [
+              "living",
+              "hall"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                6,
+                0.48,
+                6
+              ],
+              [
+                6,
+                0.48,
+                5
+              ],
+              [
+                6,
+                2.48,
+                5
+              ],
+              [
+                6,
+                2.48,
+                6
+              ]
+            ],
+            "reason": "Clear the actual stair-side wall intrusion"
+          },
+          {
+            "level": 0,
+            "edgeId": "6,4|6,5",
+            "a": [
+              6,
+              5
+            ],
+            "b": [
+              6,
+              4
+            ],
+            "rooms": [
+              "living",
+              "hall"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                6,
+                0.48,
+                5
+              ],
+              [
+                6,
+                0.48,
+                4
+              ],
+              [
+                6,
+                2.48,
+                4
+              ],
+              [
+                6,
+                2.48,
+                5
+              ]
+            ],
+            "reason": "Clear the actual stair-side wall intrusion"
+          },
+          {
+            "level": 0,
+            "edgeId": "6,6|6,7",
+            "a": [
+              6,
+              7
+            ],
+            "b": [
+              6,
+              6
+            ],
+            "rooms": [
+              "dining",
+              "hall"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                6,
+                0.48,
+                7
+              ],
+              [
+                6,
+                0.48,
+                6
+              ],
+              [
+                6,
+                2.48,
+                6
+              ],
+              [
+                6,
+                2.48,
+                7
+              ]
+            ],
+            "reason": "Clear the actual stair-side wall intrusion"
+          },
+          {
+            "level": 0,
+            "edgeId": "4,6|4,7",
+            "a": [
+              4,
+              7
+            ],
+            "b": [
+              4,
+              6
+            ],
+            "rooms": [
+              "hall",
+              "kitchen"
+            ],
+            "kind": "door",
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                4,
+                0.48,
+                7
+              ],
+              [
+                4,
+                0.48,
+                6
+              ],
+              [
+                4,
+                2.48,
+                6
+              ],
+              [
+                4,
+                2.48,
+                7
+              ]
+            ],
+            "reason": "Permit the full-diameter kitchen route around the stair mouth"
+          },
+          {
+            "level": 0,
+            "edgeId": "4,5|4,6",
+            "a": [
+              4,
+              6
+            ],
+            "b": [
+              4,
+              5
+            ],
+            "rooms": [
+              "hall",
+              "kitchen"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                4,
+                0.48,
+                6
+              ],
+              [
+                4,
+                0.48,
+                5
+              ],
+              [
+                4,
+                2.48,
+                5
+              ],
+              [
+                4,
+                2.48,
+                6
+              ]
+            ],
+            "reason": "Permit the full-diameter kitchen route around the stair mouth"
+          },
+          {
+            "level": 0,
+            "edgeId": "4,4|4,5",
+            "a": [
+              4,
+              5
+            ],
+            "b": [
+              4,
+              4
+            ],
+            "rooms": [
+              "hall",
+              "parlor"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                4,
+                0.48,
+                5
+              ],
+              [
+                4,
+                0.48,
+                4
+              ],
+              [
+                4,
+                2.48,
+                4
+              ],
+              [
+                4,
+                2.48,
+                5
+              ]
+            ],
+            "reason": "Permit the full-diameter kitchen route around the stair mouth"
+          },
+          {
+            "level": 0,
+            "edgeId": "4,3|4,4",
+            "a": [
+              4,
+              4
+            ],
+            "b": [
+              4,
+              3
+            ],
+            "rooms": [
+              "hall",
+              "parlor"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                4,
+                0.48,
+                4
+              ],
+              [
+                4,
+                0.48,
+                3
+              ],
+              [
+                4,
+                2.48,
+                3
+              ],
+              [
+                4,
+                2.48,
+                4
+              ]
+            ],
+            "reason": "Permit the full-diameter kitchen route around the stair mouth"
+          },
+          {
+            "level": 1,
+            "edgeId": "6,7|7,7",
+            "a": [
+              7,
+              7
+            ],
+            "b": [
+              6,
+              7
+            ],
+            "rooms": [
+              "bed-a"
+            ],
+            "kind": null,
+            "normal": [
+              1.2246467991473532e-16,
+              0,
+              1
+            ],
+            "polygon": [
+              [
+                7,
+                2.6,
+                7
+              ],
+              [
+                6,
+                2.6,
+                7
+              ],
+              [
+                6,
+                4.6,
+                7
+              ],
+              [
+                7,
+                4.6,
+                7
+              ]
+            ],
+            "reason": "Clear the top landing turn and rear lip"
+          },
+          {
+            "level": 1,
+            "edgeId": "6,6|6,7",
+            "a": [
+              6,
+              7
+            ],
+            "b": [
+              6,
+              6
+            ],
+            "rooms": [
+              "bed-a",
+              "hall"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                6,
+                2.6,
+                7
+              ],
+              [
+                6,
+                2.6,
+                6
+              ],
+              [
+                6,
+                4.6,
+                6
+              ],
+              [
+                6,
+                4.6,
+                7
+              ]
+            ],
+            "reason": "Clear the actual stair-side wall intrusion"
+          },
+          {
+            "level": 1,
+            "edgeId": "6,5|6,6",
+            "a": [
+              6,
+              6
+            ],
+            "b": [
+              6,
+              5
+            ],
+            "rooms": [
+              "bed-a",
+              "hall"
+            ],
+            "kind": null,
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                6,
+                2.6,
+                6
+              ],
+              [
+                6,
+                2.6,
+                5
+              ],
+              [
+                6,
+                4.6,
+                5
+              ],
+              [
+                6,
+                4.6,
+                6
+              ]
+            ],
+            "reason": "Clear the actual stair-side wall intrusion"
+          },
+          {
+            "level": 1,
+            "edgeId": "6,4|6,5",
+            "a": [
+              6,
+              5
+            ],
+            "b": [
+              6,
+              4
+            ],
+            "rooms": [
+              "bed-a",
+              "hall"
+            ],
+            "kind": "door",
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                6,
+                2.6,
+                5
+              ],
+              [
+                6,
+                2.6,
+                4
+              ],
+              [
+                6,
+                4.6,
+                4
+              ],
+              [
+                6,
+                4.6,
+                5
+              ]
+            ],
+            "reason": "Clear the actual stair-side wall intrusion"
+          },
+          {
+            "level": 1,
+            "edgeId": "5,7|6,7",
+            "a": [
+              6,
+              7
+            ],
+            "b": [
+              5,
+              7
+            ],
+            "rooms": [
+              "hall"
+            ],
+            "kind": null,
+            "normal": [
+              1.2246467991473532e-16,
+              0,
+              1
+            ],
+            "polygon": [
+              [
+                6,
+                2.6,
+                7
+              ],
+              [
+                5,
+                2.6,
+                7
+              ],
+              [
+                5,
+                4.6,
+                7
+              ],
+              [
+                6,
+                4.6,
+                7
+              ]
+            ],
+            "reason": "Clear the top landing turn and rear lip"
+          }
+        ],
+        "treadsUnchanged": true,
+        "animalUnchanged": true,
+        "upperFloorBayRemoved": {
+          "polygon": [
+            [
+              5,
+              2.6,
+              3
+            ],
+            [
+              6,
+              2.6,
+              3
+            ],
+            [
+              6,
+              2.6,
+              4
+            ],
+            [
+              5,
+              2.6,
+              4
+            ]
+          ],
+          "area": 1,
+          "baselineUpperArea": 69,
+          "prototypeUpperArea": 68
+        },
+        "reason": "Smallest composed source openings for the 1m-diameter/1.66m-height entrance, kitchen and full stair route; retain the native tread run and top exit into bedroom A."
+      },
       {
         "type": "relocated-hall-console",
         "sourceRoom": "hall",
@@ -59,6 +836,126 @@
         "reason": "Clear the actual entrance hall using existing supported living-room floor; no furniture scaling."
       },
       {
+        "type": "relocated-upper-console",
+        "baseline": {
+          "position": [
+            5.1499999999999995,
+            2.6,
+            3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "bounds": {
+            "min": [
+              4.549999976158142,
+              2.6000000059604647,
+              2.9250000029802323
+            ],
+            "max": [
+              5.750000023841857,
+              3.355000000149012,
+              3.274999997019768
+            ]
+          }
+        },
+        "position": [
+          6.3,
+          2.6,
+          2.9
+        ],
+        "rotationY": 1.5707963267948966,
+        "prototypeRoom": "bed-a",
+        "reason": "The authorized forward stair notch removes support under one original console leg; preserve the complete source console on actual bedroom floor."
+      },
+      {
+        "type": "composed-entry-approach",
+        "parts": [
+          {
+            "baseline": [
+              5.5,
+              0.08,
+              -2.5500000000000003
+            ],
+            "positions": [
+              [
+                5.5,
+                0.08,
+                -3.21
+              ],
+              [
+                5.5,
+                0.08,
+                -2.9899999999999998
+              ]
+            ],
+            "nativeDimensions": [
+              1.16,
+              0.16,
+              0.22
+            ]
+          },
+          {
+            "baseline": [
+              5.5,
+              0.16,
+              -2.33
+            ],
+            "positions": [
+              [
+                5.5,
+                0.16,
+                -2.7699999999999996
+              ],
+              [
+                5.5,
+                0.16,
+                -2.5499999999999994
+              ]
+            ],
+            "nativeDimensions": [
+              1.16,
+              0.32,
+              0.22
+            ]
+          },
+          {
+            "baseline": [
+              5.5,
+              0.24,
+              -2.1100000000000003
+            ],
+            "positions": [
+              [
+                5.5,
+                0.24,
+                -2.33
+              ],
+              [
+                5.5,
+                0.24,
+                -2.11
+              ]
+            ],
+            "nativeDimensions": [
+              1.16,
+              0.48,
+              0.22
+            ]
+          }
+        ],
+        "nativeRunPerBlock": 0.22,
+        "blocks": 6,
+        "runPerRise": 0.44,
+        "totalRun": 1.32,
+        "totalRise": 0.48,
+        "railGeometry": "Original upper-flight rails retained; no source part stretched",
+        "reason": "Keep the conservative torso clear of the third riser before the first centre-supported step."
+      },
+      {
         "type": "translated-stair-rails",
         "parts": [
           {
@@ -69,12 +966,12 @@
               4
             ],
             "position": [
-              4.88,
+              4.96,
               0.86,
               4
             ],
             "translation": [
-              -0.12,
+              -0.04,
               0,
               0
             ]
@@ -87,12 +984,12 @@
               5
             ],
             "position": [
-              4.88,
+              4.96,
               1.5666666666666664,
               5
             ],
             "translation": [
-              -0.12,
+              -0.04,
               0,
               0
             ]
@@ -105,12 +1002,12 @@
               6
             ],
             "position": [
-              4.88,
+              4.96,
               2.2733333333333334,
               6
             ],
             "translation": [
-              -0.12,
+              -0.04,
               0,
               0
             ]
@@ -123,12 +1020,12 @@
               7
             ],
             "position": [
-              4.88,
+              4.96,
               2.98,
               7
             ],
             "translation": [
-              -0.12,
+              -0.04,
               0,
               0
             ]
@@ -141,12 +1038,12 @@
               5.5
             ],
             "position": [
-              4.88,
+              4.96,
               2.32,
               5.5
             ],
             "translation": [
-              -0.12,
+              -0.04,
               0,
               0
             ]
@@ -244,78 +1141,8 @@
         ],
         "treadsUnchanged": true,
         "baselineNewelClear": 0.935,
-        "adaptedNewelClear": 1.095,
-        "remainingLimit": "The adjacent partition inside face at X5.92 and the upper slab notch X5 still constrain the retained 1m-diameter body. Rail clearance alone is not a full stair-route pass."
-      },
-      {
-        "wallEdge": "4,6|4,7",
-        "level": 0,
-        "type": "full-height-transom-frame",
-        "baselineClearHeight": 1.65,
-        "prototypeClearHeight": 2,
-        "removed": [
-          {
-            "name": "Native door lintel",
-            "bounds": {
-              "min": [
-                3.9200000017881393,
-                2.130000002980232,
-                6
-              ],
-              "max": [
-                4.079999998211861,
-                2.4799999970197675,
-                7
-              ]
-            },
-            "dimensions": [
-              1,
-              0.3500000000000001,
-              0.16
-            ]
-          },
-          {
-            "name": "Door header",
-            "bounds": {
-              "min": [
-                3.8950000032782555,
-                2.16000000089407,
-                5.930000007152557
-              ],
-              "max": [
-                4.1049999967217445,
-                2.2399999991059305,
-                7.069999992847443
-              ]
-            },
-            "dimensions": [
-              1.14,
-              0.08,
-              0.21
-            ]
-          }
-        ],
-        "headerBottomY": 2.48,
-        "headerTopY": 2.56,
-        "nativeLeafRetained": true,
-        "transomAlwaysOpen": true,
-        "nominalWidth": 1,
-        "clearBetweenJambs": 1.015,
-        "standOffHinge": 0.15,
-        "fullyOpenAngle": 3.141592653589793,
-        "baselineLeafBounds": {
-          "min": [
-            3.016495445974997,
-            0.4800000119209289,
-            6.693195124466397
-          ],
-          "max": [
-            4.0149213928963725,
-            2.1299999880790708,
-            7.058114988368747
-          ]
-        },
-        "reason": "Move the hinge outward by native-part translation so a 180-degree leaf clears the wall instead of embedding in it."
+        "adaptedNewelClear": 1.015,
+        "remainingLimit": "Stair-side partitions and one fore-lip floor bay are explicitly removed in the same physical data; final continuous route proof remains required."
       },
       {
         "wallEdge": "5,0|6,0",
@@ -405,7 +1232,7 @@
     },
     "routeLimitations": [
       "Hall console was explicitly moved to supported living-room floor; baseline and adapted transforms are recorded.",
-      "Translated stair rails clear1.095m, but the actual adjacent partition and upper notch constrain a continuous1m-diameter ascent. Further composed opening/support decision is required; do not claim a full stair passage from rail bounds alone.",
+      "Rail clear width1.015m. Exact interfering stair-side and rear wall bays and one fore-lip floor bay were removed under architect authority; use the physical exported geometry for full route acceptance.",
       "The route leaves use a recorded .15m stand-off and180-degree opening; the native leaf dimensions remain1x1.65x.12m."
     ],
     "stair": {
@@ -415,6 +1242,276 @@
       "run": 3,
       "rise": 2.12
     },
+    "removedFloorTriangles": [
+      [
+        [
+          5,
+          2.5999999046325684,
+          3
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          3
+        ]
+      ],
+      [
+        [
+          5,
+          2.5999999046325684,
+          3
+        ],
+        [
+          5,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          3.5
+        ]
+      ],
+      [
+        [
+          5,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          4
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          3.5
+        ]
+      ],
+      [
+        [
+          5,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          5,
+          2.5999999046325684,
+          4
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          4
+        ]
+      ],
+      [
+        [
+          5.5,
+          2.5999999046325684,
+          3
+        ],
+        [
+          6,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          6,
+          2.5999999046325684,
+          3
+        ]
+      ],
+      [
+        [
+          5.5,
+          2.5999999046325684,
+          3
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          6,
+          2.5999999046325684,
+          3.5
+        ]
+      ],
+      [
+        [
+          5.5,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          6,
+          2.5999999046325684,
+          4
+        ],
+        [
+          6,
+          2.5999999046325684,
+          3.5
+        ]
+      ],
+      [
+        [
+          5.5,
+          2.5999999046325684,
+          3.5
+        ],
+        [
+          5.5,
+          2.5999999046325684,
+          4
+        ],
+        [
+          6,
+          2.5999999046325684,
+          4
+        ]
+      ]
+    ],
+    "prototypeRoute": [
+      [
+        5.50375,
+        0,
+        -3
+      ],
+      [
+        5.50375,
+        0.48,
+        -1
+      ],
+      [
+        5.50375,
+        0.48,
+        1.8
+      ],
+      [
+        5.3,
+        0.48,
+        3.35
+      ],
+      [
+        4.6,
+        0.48,
+        3.35
+      ],
+      [
+        4.35,
+        0.48,
+        3.65
+      ],
+      [
+        4.35,
+        0.48,
+        5.75
+      ],
+      [
+        2.5,
+        0.48,
+        6.5
+      ],
+      [
+        4.35,
+        0.48,
+        5.75
+      ],
+      [
+        4.35,
+        0.48,
+        3.65
+      ],
+      [
+        4.6,
+        0.48,
+        3.35
+      ],
+      [
+        5.5,
+        0.48,
+        3.35
+      ],
+      [
+        5.5,
+        0.6566666666666666,
+        4.125
+      ],
+      [
+        5.5,
+        0.8333333333333333,
+        4.375
+      ],
+      [
+        5.5,
+        1.01,
+        4.625
+      ],
+      [
+        5.5,
+        1.1866666666666665,
+        4.875
+      ],
+      [
+        5.5,
+        1.3633333333333333,
+        5.125
+      ],
+      [
+        5.5,
+        1.54,
+        5.375
+      ],
+      [
+        5.5,
+        1.7166666666666666,
+        5.625
+      ],
+      [
+        5.5,
+        1.8933333333333333,
+        5.875
+      ],
+      [
+        5.5,
+        2.0700000000000003,
+        6.125
+      ],
+      [
+        5.5,
+        2.246666666666667,
+        6.375
+      ],
+      [
+        5.5,
+        2.4233333333333333,
+        6.625
+      ],
+      [
+        5.5,
+        2.6,
+        6.875
+      ],
+      [
+        6,
+        2.6,
+        6.8
+      ],
+      [
+        6.5,
+        2.6,
+        6.4
+      ]
+    ],
     "noCharacterRescaling": true
   }
 }
