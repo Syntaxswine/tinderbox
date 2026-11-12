@@ -1,0 +1,67 @@
+{
+  "contractCommit": "3596f41cbeb0a85c648c44b789a838ed5a8dc139",
+  "baseCommit": "c855e627bdee963e930644839a60c027a03935de",
+  "module": [
+    1,
+    1,
+    2.12
+  ],
+  "scope": "Artist candidate only; no promotion or production integration.",
+  "dataSha256": "b656be30a463291b5b8a30df64088381f19ac6d0b78c92a0306ee0cb78dd6d7c",
+  "checks": {
+    "geometry": {
+      "passed": 10,
+      "failed": 0
+    },
+    "art": {
+      "passed": 13,
+      "failed": 0
+    },
+    "repository": {
+      "command": "node tools/check.mjs",
+      "tests": 291,
+      "passed": 291,
+      "failed": 0,
+      "ownScripts": 212,
+      "staticModules": 261
+    },
+    "build": {
+      "command": "node tools/build.mjs",
+      "files": 3515,
+      "bytes": 166825782,
+      "passed": true
+    },
+    "package": {
+      "command": "node tools/check-release.mjs",
+      "passed": true,
+      "workbenchPubliclyPackaged": false
+    },
+    "nativeWebGL": {
+      "gpu": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+      },
+      "programs": 11,
+      "allLinked": true,
+      "allShadersCompiled": true,
+      "errors": [],
+      "controlledJpgs": 7,
+      "artBatches": 64,
+      "physicalStatePatches": 5847
+    }
+  },
+  "helperRetirement": {
+    "serverExited": true,
+    "portReleased": true,
+    "restart": "artifacts/helpers/furnished-house-review/restart.json",
+    "task": "Furnished-house art",
+    "retiredAt": "2026-11-12T00:58:59.8890549Z",
+    "testProfileRemoved": true,
+    "browserExited": true
+  },
+  "limits": [
+    "Controlled JPGs establish geometry/shader state only; real animated replay remains with architect.",
+    "New fitting fuel and support require refreshed combined traces and native full-body route check.",
+    "Matched final hardware cost and broader AAA visual acceptance remain separate."
+  ]
+}
