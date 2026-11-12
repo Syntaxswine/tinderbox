@@ -3,8 +3,9 @@ import {bounds,overlaps,pointOnTriangle,unit,cross,sub,EPS} from './geometry.js'
 
 // A small adapter over the production narrow phase, not a second character or
 // rescaled map. Physical retirement/opening state is borrowed from the trial.
-export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=[5.5,0,-3.8]}={}) {
+export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start}={}) {
   const {scene}=trial,{data,index}=scene,meshInfo=new Map((data.sourceMeshes||[]).map(m=>[m.id,m]));
+  start??=[data.navigation?.prototypeRoute?.[0]?.[0]??5.5,scene.groundY??0,-3.8];
   const extras=[],physicalMeshes=new Set([...data.surfaces.flatMap(s=>s.sourceMeshBindings||[]),...(data.furnitureParts||[]).map(p=>p.sourceMeshBinding).filter(Boolean)]);
   for(const g of data.render?.geometry||[]) {
     const info=meshInfo.get(g.id);if(!info||!/stair|tread|newel|rail|casing|jamb|header|porch|entry step/i.test(info.name))continue;
