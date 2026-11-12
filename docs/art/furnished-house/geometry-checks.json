@@ -14,7 +14,7 @@
     "Buried porch roof faces no longer cross the upper front chamber"
   ],
   "counts": {
-    "surfaces": 2965,
+    "surfaces": 2964,
     "floorPatches": 672,
     "items": 16,
     "parts": 81
@@ -1020,6 +1020,93 @@
         "reason": "A directly interfering wall return leaves only.9275m beside the translated source newel. Architect approved the measured.10m end-cut after398 continuous standing-body sweeps, preserving the other.90m and shared native dimensions."
       },
       {
+        "type": "stair-lane-retained-arch-trim",
+        "sourceEdge": "6,6|7,6",
+        "retainedOpening": "living/dining arch",
+        "clearBoundaryX": 6,
+        "parts": [
+          {
+            "name": "Door casing",
+            "baseline": {
+              "position": [
+                0.54,
+                0.87,
+                0
+              ],
+              "dimensions": [
+                0.065,
+                1.74,
+                0.21
+              ],
+              "bounds": {
+                "min": [
+                  5.927500001192093,
+                  0.4799999952316285,
+                  5.8950000032782555
+                ],
+                "max": [
+                  5.992499998807907,
+                  2.2200000047683717,
+                  6.1049999967217445
+                ]
+              }
+            },
+            "removed": true,
+            "reason": "This complete outboard casing is outside its retained bay and inside the stair lane."
+          },
+          {
+            "name": "Door header",
+            "baseline": {
+              "position": [
+                0,
+                1.72,
+                0
+              ],
+              "dimensions": [
+                1.14,
+                0.08,
+                0.21
+              ],
+              "bounds": {
+                "min": [
+                  5.930000007152557,
+                  2.16000000089407,
+                  5.8950000032782555
+                ],
+                "max": [
+                  7.069999992847443,
+                  2.2399999991059305,
+                  6.1049999967217445
+                ]
+              }
+            },
+            "position": [
+              -0.034999996423721313,
+              1.72,
+              0
+            ],
+            "dimensions": [
+              1.0700000071525573,
+              0.08,
+              0.21
+            ],
+            "cut": 0.06999999284744263,
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "minimumX": 6
+          }
+        ],
+        "openingUnchanged": true,
+        "lintelUnchanged": true,
+        "heightUnchanged": true,
+        "physicalMaterial": "timber",
+        "textureDensityAndPhaseUnchanged": true,
+        "reason": "Crop only native fittings protruding across the X6 boundary of the unchanged 1m stair flight. The casing belongs to a retained cross-opening, not a retired stair-side bay."
+      },
+      {
         "type": "relocated-hall-console",
         "sourceRoom": "hall",
         "prototypeRoom": "living",
@@ -1788,13 +1875,14 @@
       },
       {
         "type": "explicit-source-fittings",
-        "count": 434,
+        "count": 433,
         "physicalMaterial": "timber",
         "fuelClass": "frame",
         "fuelPerCubicMetre": 8.3333333,
         "policy": "One finite amount per exact source fitting; actual closed source mesh is shared by render, thermal and support. Lost support can move remaining fuel independently of its 120ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ180s nominal burn age.",
         "inferredStairFlight": {
           "treadSurfaceIds": [
+            "stair/340",
             "stair/341",
             "stair/342",
             "stair/343",
@@ -1805,8 +1893,7 @@
             "stair/348",
             "stair/349",
             "stair/350",
-            "stair/351",
-            "stair/352"
+            "stair/351"
           ],
           "attachmentSurfaceIds": [
             "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
