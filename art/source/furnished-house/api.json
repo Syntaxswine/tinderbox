@@ -61,7 +61,9 @@
     "level": "0 or 1",
     "camera": "borrowed host camera",
     "observer": "optional {x,y,z,height}; presentation only",
-    "sampleWind": "optional function supplied by the host; no frozen Ashland wind field applied to Hopkins"
+    "sampleWind": "optional function supplied by the host; no frozen Ashland wind field applied to Hopkins",
+    "effects": "Optional known booleans {flames,smoke,lighting}; omitted or invalid keys default true. Presentation only, no simulation time or state changes.",
+    "windMetadata": "Optional {kind:ambient-control|calm-control,speed,direction:[x,y,z]}. Unknown sampleWind functions retain uncertain camera envelopes."
   },
   "rules": [
     "Cutaway never changes physical openings or surviving support.",
@@ -71,6 +73,47 @@
     "Fuel amounts are finite prototype units, not a calibrated real-world mass model. Coder owns burn profiles.",
     "Original 1.65 m doors remain identified until the measured passage decision. No actor is resized.",
     "Adjacent burning support polygons may share an overlap envelope. Every active input remains represented and overlap group/source counts are in inspect; no fuel or spread changes. Cutaway hides the same clipped wall height in flame presentation.",
-    "Structural attachment support uses declared native source joinery. Mechanical support loss may move the same remaining fuel before its nominal material burn completes. The runtime owns that decision."
-  ]
+    "Structural attachment support uses declared native source joinery. Mechanical support loss may move the same remaining fuel before its nominal material burn completes. The runtime owns that decision.",
+    "Early culling happens after cheap ownership/shape validation and before optional anchor/envelope resolution. Invalid or unknown owners are still missing with all channels off.",
+    "Connected groups retain every source needed by a visible envelope. Off-camera context is prepared but generates no splats. Smoke eligibility is independent of cutaway flame visibility.",
+    "Flame-off skips tangent/radius assignment and connected-envelope preparation. Smoke/local light retain the reference support-anchor selection when needed to preserve exact positions; supportAnchorSources and supportAnchorComputations expose this shared work.",
+    "Camera bounds include the entire potential support footprint, current pose, Gaussian extent, roof anchor motion and clamped smoke drift/rise. Missing wind declarations or ambiguous bounds retain sources.",
+    "Disabling all channels preserves physical masks, char, debris and heat state while skipping support resolution, splat generation and light clustering."
+  ],
+  "diagnostics": {
+    "effects": "Detached normalized effects snapshot.",
+    "effectWork": "Detached source/work/channel counters. Supplied includes inactive input; represented means valid ownership mapping, including intentional omission. Missing remains invalid or unmapped.",
+    "effectWork_sources": [
+      "suppliedSources",
+      "activeSources",
+      "inactiveSources",
+      "representedSources",
+      "preparedSources",
+      "disabledSources",
+      "viewCulledSources",
+      "cameraCulledSources",
+      "missingSources",
+      "noCameraSources",
+      "uncertainCameraSources"
+    ],
+    "effectWork_splats": [
+      "generatedFlameSplats",
+      "generatedSmokeSplats",
+      "flameSplats",
+      "smokeSplats",
+      "activeLights"
+    ],
+    "effectWork_work": [
+      "supportAnchorSources",
+      "supportAnchorComputations",
+      "flameEnvelopeSources",
+      "flameContextSources",
+      "flameCalls",
+      "smokeCalls",
+      "lightClusterCalls"
+    ],
+    "effectWork_channels": "flames/smoke/lighting each expose supplied, disabled, viewCulled, cameraCulled and prepared. Source reason counts overlap across independent channels; they are not a partition.",
+    "inspect_emitters": "Per-source flames/smoke/lighting eligibility, flameContext, omissions and conservative bounds. An intentionally skipped source can have an unresolved authoritatively supplied anchor and null flame radius.",
+    "lightBudget": "Lighting off returns zero sites/candidates/lights with disabled:true; actual owned PointLight intensities are zero without calling clustering."
+  }
 }
