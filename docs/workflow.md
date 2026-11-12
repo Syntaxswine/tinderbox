@@ -4,11 +4,11 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/furnished-house-proposal`, then `codex/review-furnished-house` (`master` integration) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Furnished-house contract, combined replay and owner review |
-| Artist | Assigned `codex/furnished-house-art` from `c855e62` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Hopkins 15 geometry and furniture inventory, tile-driven presentation and replay art |
+| Architect | `codex/review-furnished-house` (`master` integration, prototype awaits owner review) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Furnished-house contract, combined replay and owner review |
+| Artist | `codex/furnished-house-art` from `c855e62` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Hopkins 15 geometry and furniture inventory, tile-driven presentation and replay art |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | Assigned `codex/furnished-house-runtime` from `c855e62` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | One-house tile simulation, replay runner, controls and checks |
-| UI designer | `codex/hostile-round-2-map` from `26931d9` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Ground-plan compatibility with editable records |
+| Coder | `codex/furnished-house-runtime` from `c855e62` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | One-house tile simulation, replay runner, controls and checks |
+| UI designer | `codex/steam-train-controls-ui` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Separate train interface candidate, preserved outside the furnished-house task |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
