@@ -33,6 +33,37 @@ try{
   masks.push({mask,effects:settings,counts:d.effectWork,lights:d.actualLights.length});
  }
  pass('All eight building-mode masks keep channels independent, zero disabled power/work and reuse exactly the six original PointLight objects');
+ // Native steep roof, sampled off its maximum-support anchor. A mixed floor/roof
+ // fire keeps both possible weighted heights strictly inside the pool's clamps.
+ const roof=data.surfaces.find(s=>s.kind==='roof'&&s.normal[1]>.05&&s.normal[1]<.95&&s.bounds.max[1]-s.bounds.min[1]>.2);
+ assert.ok(roof);const triangle=roof.triangles.find(t=>Math.max(...t.map(p=>p[1]))-Math.min(...t.map(p=>p[1]))>.1);
+ const sourcePosition=[0,1,2].map(axis=>triangle[0][axis]*.90+triangle[1][axis]*.05+triangle[2][axis]*.05);
+ const roofSample={id:'real-sloped-roof',sourceSurfaceId:roof.id,x:sourcePosition[0],y:sourcePosition[1],z:sourcePosition[2],nx:roof.normal[0],ny:roof.normal[1],nz:roof.normal[2],area:.25,part:'roof',flame:.8,smoke:.6,ignitionTime:0};
+ const slopedFrame={...frame,fireSamples:[samples[0],roofSample]},slopedBefore=JSON.stringify(slopedFrame),slopedMasks=[];
+ const energy=slopedFrame.fireSamples.reduce((sum,q)=>sum+q.area*q.flame,0);
+ const authoritativeHeight=slopedFrame.fireSamples.reduce((sum,q)=>sum+q.y*q.area*q.flame,0)/energy+.36;
+ const clampLow=data.levels[0].floorY+.6,clampHigh=data.levels.at(-1).floorY+1.8;
+ assert.ok(authoritativeHeight>clampLow+.1&&authoritativeHeight<clampHigh-.1);
+ a.update(slopedFrame,{...view,lightingMode:'building'});
+ const resolvedAnchor=a.inspect().emitters.find(e=>e.id===roofSample.id).anchor;
+ assert.ok(Math.abs(resolvedAnchor[1]-roofSample.y)>.01,'Native roof support resolution must actually move the sample vertically');
+ const relocatedHeight=(samples[0].y*samples[0].area*samples[0].flame+resolvedAnchor[1]*roofSample.area*roofSample.flame)/energy+.36;
+ assert.ok(relocatedHeight>clampLow+.1&&relocatedHeight<clampHigh-.1);
+ const slopedLights=a.diagnostics().actualLights;
+ for(const light of slopedLights.slice(0,4))assert.ok(Math.abs(light.position[1]-authoritativeHeight)<1e-12,'Building glow must use original authoritative roof height before support relocation');
+ for(let mask=0;mask<8;mask++){
+  const settings={flames:!!(mask&1),smoke:!!(mask&2),lighting:!!(mask&4)};
+  a.update(slopedFrame,{...view,lightingMode:'building',effects:settings});
+  const current=a.diagnostics();assert.equal(current.missingSamples,0);
+  assert.deepEqual(current.actualLights,settings.lighting?slopedLights:[]);
+  if(settings.lighting)assert.equal(current.lightBudget.activeEnergy,energy);
+  if(settings.lighting&&!settings.flames&&!settings.smoke)assert.equal(current.effectWork.work.supportAnchorSources,0);
+  assert.equal(JSON.stringify(slopedFrame),slopedBefore);
+  slopedMasks.push({mask,effects:settings,lights:current.actualLights});
+ }
+ const slopedRoof={sourceSurfaceId:roof.id,normal:roof.normal,sourcePosition,resolvedAnchor,authoritativeHeight,relocatedHeight,clamps:[clampLow,clampHigh],masks:slopedMasks};
+ pass('Real sloped-roof anchor relocation cannot move or repower building lights across any mask; both weighted heights are unclamped');
+
  a.update(frame,{...view,lightingMode:'building',effects});d=a.diagnostics();
  assert.equal(d.effectWork.work.supportAnchorSources,0);assert.equal(d.effectWork.work.flameEnvelopeSources,0);assert.equal(d.effectWork.work.flameCalls,0);assert.equal(d.effectWork.work.smokeCalls,0);assert.equal(d.effectWork.preparedSources,0);assert.equal(d.effectWork.work.buildingAggregateSources,2);
  pass('Lighting-only building mode skips every support-anchor lookup, connected envelope and splat generation call');
@@ -66,6 +97,6 @@ try{
  let disposed=0;for(const light of pool){const original=light.dispose;light.dispose=function(){disposed++;original.call(this);};}
  a.dispose();a.dispose();assert.equal(disposed,6);assert.equal(a.root.children.length,0);
  pass('Mode switching creates no extra light resources; original owned pool disposes once');
- fs.writeFileSync('docs/art/fire-effect-settings/building-checks.json',JSON.stringify({passed:groups.length,failed:0,groups,masks,limits:['Optional broad visual approximation; no uniform physical irradiance or thermal claim.','Actual outward-facing facade appearance and hardware costs require the architect combined WebGL/JPG review.','No browser, service or GPU helper was launched.']},null,2)+String.fromCharCode(10));
+ fs.writeFileSync('docs/art/fire-effect-settings/building-checks.json',JSON.stringify({passed:groups.length,failed:0,groups,masks,slopedRoof,limits:['Optional broad visual approximation; no uniform physical irradiance or thermal claim.','Actual outward-facing facade appearance and hardware costs require the architect combined WebGL/JPG review.','No browser, service or GPU helper was launched.']},null,2)+String.fromCharCode(10));
  console.log(JSON.stringify({passed:groups.length,failed:0,masks:masks.length}));
 }finally{a.dispose();}

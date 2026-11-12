@@ -107,5 +107,59 @@
     "Conservative connected context, ambiguous samplers and non-native camera types can retain extra work.",
     "Building mode approximates broad visual spill around the original footprint; it is not uniform measured irradiance or local heat.",
     "Actual combined WebGL/JPG comparison, eight-mask CPU/GPU timings and promotion belong to the architect; no deployment performed."
-  ]
+  ],
+  "correctiveLeaf": {
+    "base": "5b4dc9b546ec35005d5d7140e926db14235572a9",
+    "problem": "Visible sloped-roof support relocation changed building-glow weighted height between lighting-only and flame/smoke-enabled masks.",
+    "correction": "Capture authoritativeY from the original frame sample before support resolution; building aggregation uses that value. Local reference rendering is unchanged.",
+    "checks": [
+      {
+        "command": "node art/source/furnished-house/check-building-glow.mjs",
+        "passed": 9,
+        "failed": 0,
+        "masks": 8
+      },
+      {
+        "command": "node art/source/furnished-house/check-effects.mjs",
+        "passed": 13,
+        "failed": 0,
+        "masks": 8,
+        "envelopeCases": 84
+      },
+      {
+        "command": "node --check workbenches/furnished-house/art.js; node --check art/source/furnished-house/building-glow.js",
+        "passed": true
+      },
+      {
+        "command": "git diff --check",
+        "passed": true
+      }
+    ],
+    "regressionControl": {
+      "commit": "5b4dc9b546ec35005d5d7140e926db14235572a9",
+      "result": "Reproduced exact assertion: Building glow must use original authoritative roof height before support relocation",
+      "log": "artifacts/helpers/fire-effect-visibility/sloped-roof-before.log",
+      "sourceSurfaceId": "roof/772/-1,3,-1,0,34,-94",
+      "sourcePosition": [
+        -0.010772725,
+        4.6963,
+        -0.31225448000000006
+      ],
+      "resolvedAnchor": [
+        -0.07181816666666667,
+        4.381999919834707,
+        -0.4265454
+      ],
+      "authoritativeWeightedHeight": 2.824141176470588,
+      "relocatedWeightedHeight": 2.676235256392803,
+      "clamps": [
+        1.08,
+        4.4
+      ],
+      "bothHeightsUnclamped": true
+    },
+    "evidence": "docs/art/fire-effect-settings/building-checks.json",
+    "scope": "Only focused building/effect regressions rerun for this leaf; no broad/long suite, browser, service or GPU helper. Source geometry, simulation, local lighting and UI unchanged.",
+    "retainedTaskHelpers": 0
+  }
 }
