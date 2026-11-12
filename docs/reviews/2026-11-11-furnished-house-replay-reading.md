@@ -4,6 +4,12 @@
 - **What this is:** a reading of `origin/codex/review-furnished-house` at `25095656`, from the reviewer's worktree. Nothing on that branch was touched or run. It is not a hostile review round: no probe was run against the workbench, and every statement about its code is from reading it.
 - **Why it matters here:** the workbench froze the fire-travel rules at reviewer commit `9b521a2`. Five more review rounds have run on those rules since. This note says which of their findings reach the workbench and which do not.
 
+## The owner's judgement of the replay
+
+The owner, 2026-11-11, after this reading was first written: "your 'faulty one' is still beautiful and captures the fear of how intense the fire is."
+
+That is the measure that counts. The review rounds on the rules tested whether my written claims were true and whether a kernel met a table of timings I wrote myself. They did not test whether the fire feels right, and the owner says the replay built from the second version does. A finding that a number in my record was wrong is not a finding that the replay is wrong. Where the two disagree, the accepted replay is the reference and my targets are the thing to revisit.
+
 ## What the architect delivered
 
 - [Milestone 18](https://github.com/Syntaxswine/tinderbox/blob/codex/review-furnished-house/docs/milestones/18-furnished-house-replay.md) on that branch: one furnished Hopkins 15 in a workbench, with its own simulation (`workbenches/furnished-house/simulation.js`, "adapted from the frozen second fire-travel trial"), ten resolved rules, and a 330-second WebGL replay.
