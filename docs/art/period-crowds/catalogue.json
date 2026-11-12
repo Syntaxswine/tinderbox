@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "recordedOn": "2026-11-12",
+  "status": "Artist intake and wardrobe catalogue. New civilian garments, livestock models, crowd placement and behavior are not implemented by this record.",
+  "ownerDecisions": [
+    "Address livestock and crowds alongside the stockyard structures.",
+    "Reuse existing animal characters with period clothing.",
+    "Use the same wardrobe across stockyards, the Worlds Fair and the slums, with different outfit prevalence in each district.",
+    "Retain festive banners and ribbons around the stockyards and broader city, connecting them to the fair.",
+    "Preserve the Volaire mood direction and native character sizes."
+  ],
+  "reviewedWriteups": [
+    {
+      "kind": "Architect brief",
+      "commit": "5fa7857dc8528be84e4c33846c68cfc954ca2518",
+      "path": "docs/milestones/16-stockyard-art.md",
+      "use": "Covered pen and entrance scope, native dimensions, source facts and adaptation boundaries."
+    },
+    {
+      "kind": "Owner festive direction",
+      "commit": "812cffa900290a04524aa3bae32676cada0ba9cb",
+      "path": "docs/milestones/16-stockyard-art.md",
+      "use": "Removable jubilee dressing and the owners citywide celebration direction."
+    },
+    {
+      "kind": "Completed artist handoff",
+      "commit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+      "path": "docs/art/stockyards/README.md",
+      "use": "Existing pen/gate inventory and explicit omission of livestock and crowds."
+    },
+    {
+      "kind": "Owner-linked neighborhood account",
+      "url": "https://drloihjournal.blogspot.com/2021/09/the-stark-truth-about-chicago-in-1890s.html",
+      "use": "Context for Packingtown, everyday street work and the fair/city relationship. Secondary narrative, not a construction or clothing measurement source. Its1915 photograph and1906 literary quotation retain their later dates."
+    },
+    {
+      "kind": "University historical context",
+      "url": "https://florencekelley.northwestern.edu/historical/stockyards",
+      "use": "Stockyard work, livestock and neighborhood/rail connections; links to period archives."
+    }
+  ],
+  "existingBasis": {
+    "stockyardKit": {
+      "commit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+      "path": "assets/art/stockyards/manifest.json",
+      "assets": [
+        "covered-swine-pen",
+        "union-stockyard-gate"
+      ],
+      "alreadyPresent": [
+        "repeatable bays",
+        "gates",
+        "trough",
+        "working and jubilee dressing"
+      ]
+    },
+    "characterPins": {
+      "goat": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "horse": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bear": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa"
+    },
+    "fittedClothingPrecedent": {
+      "path": "src/art/chicago-beat-uniform.js",
+      "evidence": "docs/art/chicago-1893-beat-uniform/README.md",
+      "scope": "Existing fitted native-goat clothing and skeleton ownership. This does not prove fit on horse or bear."
+    }
+  },
+  "wardrobeContract": {
+    "sharedSlots": [
+      "headwear",
+      "shirt-or-bodice",
+      "waistcoat-or-jacket",
+      "trousers-or-skirt",
+      "apron",
+      "footwear",
+      "small-accessories"
+    ],
+    "fit": "Fit garments separately to each native species. Preserve skeleton, bind matrices, body scale, locomotion, original fur/paint, hands, ears and horns.",
+    "resources": "Garment geometry/materials are owned; actor skeleton, source meshes and host renderer are borrowed. Restore replaced native clothing visibility on disposal.",
+    "variation": [
+      "cloth palette",
+      "hat style",
+      "apron or waistcoat",
+      "clean/worn/patched condition",
+      "small accessories"
+    ],
+    "identity": "Keep species variety in each district; outfit prevalence is a separate choice.",
+    "distribution": "District presets describe relative visual prevalence. Numeric weights and actual spawning await a coder contract; no historical population percentages are claimed.",
+    "periodEvidence": "Garment silhouettes require dated item-level photographs or costume records before visual acceptance. Colors and wear remain labelled art choices when a monochrome source cannot establish them."
+  },
+  "outfitFamilies": [
+    {
+      "id": "work-shirt-braces",
+      "pieces": [
+        "collared shirt",
+        "braces",
+        "plain trousers",
+        "work cap"
+      ],
+      "uses": [
+        "yard handler",
+        "laborer",
+        "porter"
+      ]
+    },
+    {
+      "id": "waistcoat-work-coat",
+      "pieces": [
+        "shirt",
+        "waistcoat",
+        "short work coat",
+        "trousers",
+        "cap or felt hat"
+      ],
+      "uses": [
+        "tradesperson",
+        "yard foreman",
+        "vendor"
+      ]
+    },
+    {
+      "id": "packing-apron",
+      "pieces": [
+        "work shirt",
+        "long apron",
+        "plain trousers",
+        "cap"
+      ],
+      "uses": [
+        "packing-house worker"
+      ],
+      "note": "An occupational variant for relevant work areas; the whole yard need not wear it."
+    },
+    {
+      "id": "sack-suit",
+      "pieces": [
+        "sack coat",
+        "waistcoat",
+        "trousers",
+        "collar",
+        "bowler or felt hat"
+      ],
+      "uses": [
+        "clerk",
+        "shopkeeper",
+        "visitor"
+      ]
+    },
+    {
+      "id": "everyday-dress-apron",
+      "pieces": [
+        "bodice",
+        "long skirt",
+        "apron",
+        "optional shawl",
+        "simple hat"
+      ],
+      "uses": [
+        "resident",
+        "vendor",
+        "service worker"
+      ]
+    },
+    {
+      "id": "visitor-day-dress",
+      "pieces": [
+        "day dress or jacket and skirt",
+        "period hat",
+        "optional parasol"
+      ],
+      "uses": [
+        "fair visitor",
+        "best clothes"
+      ]
+    },
+    {
+      "id": "fair-attendant",
+      "pieces": [
+        "fitted service jacket",
+        "trousers or skirt",
+        "occupation-specific headwear"
+      ],
+      "uses": [
+        "fair attendant"
+      ],
+      "note": "Exact uniform details remain pending a dated staff reference."
+    },
+    {
+      "id": "street-workwear",
+      "pieces": [
+        "shared shirt/bodice",
+        "trousers or skirt",
+        "coat or shawl",
+        "visible mending options"
+      ],
+      "uses": [
+        "resident",
+        "street trader",
+        "off-duty worker"
+      ],
+      "note": "Reuse the shared garment families with varied condition and repairs."
+    }
+  ],
+  "districtMixes": {
+    "stockyards": {
+      "dominant": [
+        "work-shirt-braces",
+        "waistcoat-work-coat"
+      ],
+      "regular": [
+        "packing-apron",
+        "sack-suit"
+      ],
+      "occasional": [
+        "everyday-dress-apron",
+        "visitor-day-dress",
+        "street-workwear"
+      ],
+      "visualContext": [
+        "handlers around pens",
+        "packing workers by relevant plant areas",
+        "clerks and foremen",
+        "porters and deliveries",
+        "retained festive dressing"
+      ]
+    },
+    "worlds-fair": {
+      "dominant": [
+        "sack-suit",
+        "visitor-day-dress"
+      ],
+      "regular": [
+        "everyday-dress-apron",
+        "fair-attendant",
+        "work-shirt-braces"
+      ],
+      "occasional": [
+        "waistcoat-work-coat",
+        "street-workwear"
+      ],
+      "visualContext": [
+        "visitors",
+        "attendants",
+        "vendors",
+        "porters and maintenance workers",
+        "mixed everyday and best clothes"
+      ]
+    },
+    "slums-and-working-neighborhoods": {
+      "dominant": [
+        "work-shirt-braces",
+        "everyday-dress-apron",
+        "street-workwear"
+      ],
+      "regular": [
+        "waistcoat-work-coat",
+        "sack-suit"
+      ],
+      "occasional": [
+        "visitor-day-dress",
+        "packing-apron"
+      ],
+      "visualContext": [
+        "residents",
+        "street vendors",
+        "off-duty workers",
+        "shopkeepers",
+        "a mix of cared-for, worn, repaired and best clothes"
+      ]
+    }
+  },
+  "livestockScope": {
+    "status": "Separate asset/animation intake remains required.",
+    "families": [
+      "cattle",
+      "hogs",
+      "sheep"
+    ],
+    "visualVariants": [
+      "coat or wool",
+      "markings",
+      "species-appropriate body and head details"
+    ],
+    "poseTargets": [
+      "idle",
+      "walk",
+      "feed",
+      "drink"
+    ],
+    "limits": "Crowd clothing does not supply livestock bodies or their movement. Inspect reusable donor assets at immutable pins before choosing new model work; herd behavior is a later runtime assignment."
+  },
+  "stockyardActivityProps": [
+    "feed sacks and loose feed dressing",
+    "buckets and water fittings",
+    "hay or straw bundles",
+    "handcart and delivery-load variants",
+    "sorting and loading fittings around the existing pens",
+    "small work records, signs and carried parcels"
+  ],
+  "referenceLeads": [
+    {
+      "url": "https://www.loc.gov/pictures/item/90712275/",
+      "use": "1878 covered livestock-pen context, already in the stockyard source register."
+    },
+    {
+      "url": "https://www.loc.gov/item/98687207/",
+      "use": "1890 stockyard panorama, already in the source register."
+    },
+    {
+      "url": "https://www.lib.uchicago.edu/collex/collections/worlds-columbian-exposition-records/",
+      "use": "Fair photographs, visitor material and ephemera. Item-level clothing/rights inspection still required."
+    },
+    {
+      "url": "https://www.chipublib.org/fa-worlds-columbian-exposition-snapshots-collection/",
+      "use": "Visitor snapshots as a crowd-clothing lead. Catalogue description read; item-level photographs not yet inspected."
+    },
+    {
+      "url": "https://collections.carli.illinois.edu/digital/collection/uic_7sh",
+      "use": "Hull-House photograph collection from the architects earlier district research. Individual dates and rights must be checked before visual intake."
+    }
+  ],
+  "handoffLimits": [
+    "Catalogue and research intake only; no new garment meshes or livestock exports claimed.",
+    "No population AI, spawn rules, collision or fire behavior changed.",
+    "No new donor files or historical scan pixels imported.",
+    "The furnished-house grass A/B remains unchanged: camera, exposure and flame art stay fixed.",
+    "No browser/GPU helper or long test launched."
+  ]
+}
