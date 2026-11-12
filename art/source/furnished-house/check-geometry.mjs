@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {triangleArea} from './geometry.mjs';
+import {triangleArea} from './geometry.js';
 const d=JSON.parse(fs.readFileSync('workbenches/furnished-house/house-data.json'));
 const groups=[];const pass=s=>groups.push(s);
 assert.equal(d.version,1);assert.deepEqual(d.module,[1,1,2.12]);assert.deepEqual(d.levels.map(l=>l.floorY),[.48,2.6]);assert.deepEqual(d.levels.map(l=>l.area),[100,68]);pass('Native module, exact level planes and actual floor union areas');
@@ -13,6 +13,13 @@ pass('Closed derived slabs preserve the real upper stair notch and support plane
 assert.equal(d.stores.length,2);for(const s of d.stores){assert.ok(s.amount>0&&s.supportSurfaceIds.length);const p=d.furnitureParts.filter(p=>p.id===s.fuelPartId);assert.equal(p.length,1);assert.equal(p[0].fuelAmount,s.amount);}pass('Finite oil/coal stores have actual floor support and one fuel record each');
 const adapted=d.openings.filter(o=>o.prototypeAdapted&&o.kind==='door');assert.equal(adapted.length,1);for(const o of adapted){assert.equal(o.clearHeightWhenOpen,2);assert.equal(o.leafHeight,1.65);assert.ok(o.transomSurfaceId);assert.ok(d.surfaces.find(s=>s.id===o.transomSurfaceId).alwaysOpen);assert.ok(Math.abs(o.topY-o.bottomY-2)<1e-6);}
 pass('Authorized full-height route openings retain native leaves and separate always-open transom boundaries');
+const entry=d.openings.find(o=>o.entry),entrySurface=d.surfaces.find(s=>s.id===entry.surfaceId),xs=entrySurface.triangles.flat().map(p=>p[0]);
+assert.ok(Math.abs(Math.min(...xs)-4.5)<1e-7&&Math.abs(Math.max(...xs)-5.5)<1e-7);
+assert.ok(d.surfaces.some(s=>s.kind==='wall'&&s.level===0&&s.bounds.min[0]===5.92&&s.bounds.min[2]===0&&s.bounds.max[2]===.5));
+const composition=d.navigation.routeAdaptations.find(a=>a.type==='centred-native-entry');assert.equal(composition.actualClearWidth,1.015);assert.deepEqual(composition.translation,[-.5,0,0]);
+const entrySteps=d.surfaces.filter(s=>s.supportType==='entry-step');assert.equal(entrySteps.length,6);for(const s of entrySteps){assert.ok(Math.abs((s.bounds.min[0]+s.bounds.max[0])/2-5)<1e-6);assert.ok(Math.abs(s.bounds.max[0]-s.bounds.min[0]-1.16)<1e-6);}
+pass('Centred native entry retains the exterior return and six unchanged step widths; measured jamb clearance1.015m');
+
 const roofGeometry=d.render.geometry.filter(g=>d.sourceMeshes.find(m=>m.id===g.id)?.name==='New roof envelope');
 for(const g of roofGeometry)for(const t of g.triangles){const c=[0,1,2].map(i=>t.vertices.reduce((n,v)=>n+v[i],0)/3);assert.ok(!(c[0]>4&&c[0]<6&&c[2]>-1&&c[2]<.15&&c[1]<2.8));}
 pass('Buried porch roof faces no longer cross the upper front chamber');

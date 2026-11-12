@@ -3,12 +3,18 @@ import {createHash} from 'node:crypto';
 import * as T from '../../../src/runtime/three.js';
 import {createHopkinsHouse} from '../../../src/art/hopkins-housing.js';
 import {housePlanEdges} from '../../../src/art/gross-housing.js';
-import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume} from './geometry.mjs';
+import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume} from './geometry.js';
 const BASE='c855e627bdee963e930644839a60c027a03935de',OUT='workbenches/furnished-house/house-data.json';
 const catalogue=JSON.parse(fs.readFileSync('assets/art/hopkins-housing-v1/houses.json')),house=catalogue.houses.find(h=>h.id==='hopkins-4-15');
 const model=createHopkinsHouse(T,{catalogue,textures:{}},house.id),sourceMeshes=[],surfaces=[],openings=[],items=[],furnitureParts=[],stores=[],levels=[];
 const sourceHashes=['src/art/gross-housing.js','src/art/hopkins-housing.js','src/art/gambrel-roof.js','src/art/nautilus-windows.js','assets/art/hopkins-housing-v1/houses.json','assets/art/hopkins-housing-v1/prefabs/hopkins-4-15.json','src/content/housing-floors.js'].map(path=>{const b=fs.readFileSync(path);return {path,commit:BASE,bytes:b.length,sha256:createHash('sha256').update(b).digest('hex')};});
-const routeAdaptations=[],extraGeometry=[];
+const routeAdaptations=[],extraGeometry=[],entryTranslation=[-.5,0,0];
+function cutNativeBox(source,name,size,position){
+ const g=new T.BoxGeometry(...size),p=g.attributes.position,n=g.attributes.normal,uv=[];
+ for(let i=0;i<p.count;i++)uv.push(Math.abs(n.getY(i))>.55?p.getX(i):Math.abs(n.getX(i))>.55?p.getZ(i):p.getX(i),Math.abs(n.getY(i))>.55?p.getZ(i):p.getY(i));
+ g.setAttribute('grossUV',new T.Float32BufferAttribute(uv,2));extraGeometry.push(g);
+ const o=new T.Mesh(g,source.material);o.name=name;o.position.fromArray(position);o.castShadow=o.receiveShadow=true;o.userData={nativeDimensions:size,prototypeAdaptation:true,sourceNativeDimensions:source.userData.nativeDimensions};source.parent.add(o);return o;
+}
 const routeEdges=new Set(['5,0|6,0']);
 const removedWallKeys=new Set(),removedWallRecords=[],removedFloorTriangles=new Map();
 const sourceId=new Map(),floorGroups=new Map(),wallGroups=new Map(),meshById=new Map(),matIndex=new Map(),materials=[],raw=new Map();
@@ -82,9 +88,36 @@ try{
  const upperBaseline={position:upperConsole.position.toArray(),quaternion:upperConsole.quaternion.toArray(),bounds:new T.Box3().setFromObject(upperConsole)};
  upperConsole.userData.sourceRoomId='hall';upperConsole.userData.sourceFurnitureType='hall';upperConsole.position.set(6.30,2.60,2.90);upperConsole.rotation.y=Math.PI/2;
  routeAdaptations.push({type:'relocated-upper-console',baseline:{position:upperBaseline.position,quaternion:upperBaseline.quaternion,bounds:{min:upperBaseline.bounds.min.toArray(),max:upperBaseline.bounds.max.toArray()}},position:[6.30,2.60,2.90],rotationY:Math.PI/2,prototypeRoom:'bed-a',reason:'The authorized forward stair notch removes support under one original console leg; preserve the complete source console on actual bedroom floor.'});
+ // Centre the native doorway in its two-bay hall, retaining the exterior return wall.
+ const entryWall=model.root.getObjectByName('Level 0').children[0].children.find(w=>routeEdges.has(w.userData.edge)),frontInfill=model.root.getObjectByName('Level 0').children[0].children.find(w=>w.userData.edge==='4,0|5,0');
+ if(!entryWall||!frontInfill)throw Error('Missing two-bay entrance source');
+ const entryBaseline={position:entryWall.position.toArray(),polygon:[[5,.48,0],[6,.48,0],[6,2.48,0],[5,2.48,0]]},infillBaseline=[];
+ entryWall.position.x+=entryTranslation[0];
+ for(const o of [...frontInfill.children]){
+  if(!['Native wall unit','Interior skirting','Picture rail'].includes(o.name))continue;
+  infillBaseline.push({name:o.name,position:o.position.toArray(),dimensions:o.userData.nativeDimensions});
+  const [w,h,d]=o.userData.nativeDimensions,rebate=o.name==='Native wall unit'?.0075:0,width=.5-rebate;
+  cutNativeBox(o,o.name==='Native wall unit'?'Nautilus cut-end wall panel':o.name,[width,h,d],[-.5+width/2,o.position.y,o.position.z]);
+  cutNativeBox(o,o.name==='Native wall unit'?'Nautilus cut-end wall panel':o.name,[width,h,d],[1.5-width/2,o.position.y,o.position.z]);o.removeFromParent();
+ }
+ const ornament=model.root.getObjectByName('Exterior ornament'),porch=house.porch,porchChanges=[];
+ for(const o of [...ornament.children]){
+  if(o.name==='Entry stair rail'){const baseline=o.position.toArray();o.position.x+=entryTranslation[0];porchChanges.push({name:o.name,baseline,position:o.position.toArray(),translation:entryTranslation});}
+  if(o.name==='Porch baluster'&&Math.abs(o.position.x-5)<.65){porchChanges.push({name:o.name,baseline:o.position.toArray(),removed:true});o.removeFromParent();}
+ }
+ const baluster=ornament.children.find(o=>o.name==='Porch baluster');
+ for(let x=porch.x+.2;x<porch.x+porch.width-.1;x+=.22)if(Math.abs(x-5)>=.65&&!ornament.children.some(o=>o.name==='Porch baluster'&&Math.abs(o.position.x-x)<1e-6)){
+  const o=baluster.clone();o.position.x=x;ornament.add(o);porchChanges.push({name:o.name,position:o.position.toArray(),nativeDuplicate:true});
+ }
+ const rails=ornament.children.filter(o=>o.name==='Porch handrail');
+ for(const [i,ends]of [[porch.x,4.35],[5.65,porch.x+porch.width]].entries()){
+  const o=rails[i],[lo,hi]=ends;porchChanges.push({name:o.name,baseline:{position:o.position.toArray(),dimensions:o.userData.nativeDimensions},adapted:{position:[(lo+hi)/2,o.position.y,o.position.z],dimensions:[hi-lo,.06,.075]},method:'Native section, end-cut/extended by composition at constant texture density'});
+  cutNativeBox(o,o.name,[hi-lo,.06,.075],[(lo+hi)/2,o.position.y,o.position.z]);o.removeFromParent();
+ }
+ routeAdaptations.push({type:'centred-native-entry',source:entryBaseline,translation:entryTranslation,adaptedPolygon:[[4.5,.48,0],[5.5,.48,0],[5.5,2.48,0],[4.5,2.48,0]],infillBaseline,infillPolygons:[[[4,.48,0],[4.4925,.48,0],[4.4925,2.48,0],[4,2.48,0]],[[5.5075,.48,0],[6,.48,0],[6,2.48,0],[5.5075,2.48,0]]],jambRebate:.0075,actualClearWidth:1.015,approachCentreX:5,routeCentreX:5.00375,porchChanges,returnWallPreserved:'6,0|6,1',leafDimensions:[1,1.65,.12],noScaling:true,reason:'The original doorway was flush to the right return, which blocked the full 1m-diameter body despite its jamb width. Centre the complete native assembly and compose two end-cut piers.'});
  const entryTreads=model.root.getObjectByName('Exterior ornament').children.filter(o=>o.name==='New entry stair').sort((a,b)=>a.position.y-b.position.y),entryRecord=[];
  for(let i=0;i<entryTreads.length;i++){
-  const o=entryTreads[i],baseline=o.position.toArray(),z0=-3.32+(2*i+.5)*.22;o.position.z=z0;const twin=o.clone();twin.name='Prototype duplicate entry stair';twin.position.z=z0+.22;twin.userData.prototypeDuplicate=true;o.parent.add(twin);
+  const o=entryTreads[i],baseline=o.position.toArray(),z0=-3.32+(2*i+.5)*.22;o.position.z=z0;o.position.x+=entryTranslation[0];const twin=o.clone();twin.name='Prototype duplicate entry stair';twin.position.z=z0+.22;twin.userData.prototypeDuplicate=true;o.parent.add(twin);
   entryRecord.push({baseline,positions:[o.position.toArray(),twin.position.toArray()],nativeDimensions:o.userData.nativeDimensions});
  }
  routeAdaptations.push({type:'composed-entry-approach',parts:entryRecord,nativeRunPerBlock:.22,blocks:6,runPerRise:.44,totalRun:1.32,totalRise:.48,railGeometry:'Original upper-flight rails retained; no source part stretched',reason:'Keep the conservative torso clear of the third riser before the first centre-supported step.'});
@@ -97,7 +130,7 @@ try{
   }
   const oldCasing=wall.children.find(o=>o.name==='Door casing'),g=new T.BoxGeometry(1.14,.08,.21),head=new T.Mesh(g,oldCasing.material);extraGeometry.push(g);head.name='Prototype transposed door header';head.position.set(0,2.04,0);head.castShadow=head.receiveShadow=true;head.userData.prototypeAdaptation=true;wall.add(head);
   const leaf=wall.getObjectByName('Native closed-door leaf'),hinge=leaf.parent,leafBaseline=new T.Box3().setFromObject(leaf);hinge.position.z=-.15;
-  routeAdaptations.push({wallEdge:wall.userData.edge,level:0,type:'full-height-transom-frame',baselineClearHeight:1.65,prototypeClearHeight:2,removed,headerBottomY:2.48,headerTopY:2.56,nativeLeafRetained:true,transomAlwaysOpen:true,nominalWidth:1,clearBetweenJambs:1.015,standOffHinge:.15,fullyOpenAngle:Math.PI,baselineLeafBounds:{min:leafBaseline.min.toArray(),max:leafBaseline.max.toArray()},reason:'Move the hinge outward by native-part translation so a 180-degree leaf clears the wall instead of embedding in it.'});
+  routeAdaptations.push({wallEdge:wall.userData.edge,level:0,type:'full-height-transom-frame',baselineClearHeight:1.65,prototypeClearHeight:2,removed,headerBottomY:2.48,headerTopY:2.56,nativeLeafRetained:true,transomAlwaysOpen:true,nominalWidth:1,clearBetweenJambs:1.015,standOffHinge:.15,fullyOpenAngle:Math.PI,beforeHingeStandOffLeafBounds:{min:leafBaseline.min.toArray(),max:leafBaseline.max.toArray()},reason:'Move the hinge outward by native-part translation so a 180-degree leaf clears the wall instead of embedding in it.'});
  }
  // Capture closed native leaf geometry. Opening animation is owned by the frame.
  const authoredDoorAngles=new Map();model.root.traverse(o=>{if(o.children.some(c=>c.name==='Native closed-door leaf')){authoredDoorAngles.set(o,o.rotation.y);o.rotation.y=0;}});
@@ -140,14 +173,14 @@ try{
   const kind=edge.opening==='entry'?'door':edge.opening,wall=[...wallGroups.keys()].find(w=>levelOf(w)===level&&w.userData.edge===edge.id);
   if(!wall){if(removedWallKeys.has(level+'/'+edge.id))continue;throw Error('Opening wall binding missing '+edge.id);}
   const adapted=level===0&&kind==='door'&&routeEdges.has(edge.id);
-  const y=levels[level].floorY,n=new T.Vector3(0,0,-1).transformDirection(wall.matrixWorld).toArray(),span=Math.hypot(edge.b[0]-edge.a[0],edge.b[1]-edge.a[1]),cx=(edge.a[0]+edge.b[0])/2,cz=(edge.a[1]+edge.b[1])/2;
+  const y=levels[level].floorY,n=new T.Vector3(0,0,-1).transformDirection(wall.matrixWorld).toArray(),span=Math.hypot(edge.b[0]-edge.a[0],edge.b[1]-edge.a[1]),cx=(edge.a[0]+edge.b[0])/2+(adapted?entryTranslation[0]:0),cz=(edge.a[1]+edge.b[1])/2;
   const width=kind==='window'?1:span,bottom=kind==='window'?.35:0,top=kind==='window'?1.55:1.65,tangent=[(edge.b[0]-edge.a[0])/span,(edge.b[1]-edge.a[1])/span];
   const a=[cx-tangent[0]*width/2,cz-tangent[1]*width/2],b=[cx+tangent[0]*width/2,cz+tangent[1]*width/2],triangles=rectangle(a,b,y+bottom,y+top).map(t=>t.map(p=>adapted?add(p,mul(n,.15)):p)),id='opening/l'+level+'/'+slug(edge.id);
   const box=bounds(triangles.flat());for(let i=0;i<3;i++){box.min[i]-=Math.abs(n[i])*.08;box.max[i]+=Math.abs(n[i])*.08;}
   const leaf=wall.getObjectByName('Native closed-door leaf'),hinge=leaf?.parent,pivot=hinge?hinge.getWorldPosition(new T.Vector3()).toArray():[cx,y+bottom,cz],closed=hinge?.matrixWorld.toArray()||new T.Matrix4().makeTranslation(...pivot).toArray(),open=hinge?new T.Matrix4().multiplyMatrices(hinge.matrixWorld,new T.Matrix4().makeRotationY(adapted?Math.PI:Math.PI/2)).toArray():closed;
   const bindings=sourceMeshes.filter(m=>{const o=meshById.get(m.id);return wallOf(o)===wall&&(kind==='window'?/glass/i.test(o.name):leaf&&o.parent===hinge);}).map(m=>m.id);
   surface({id,kind:kind==='arch'?'door':kind,level,triangles,normal:n,thickness:kind==='window'?.035:.12,material:kind==='window'?'glass':kind==='arch'?'air':'timber',bounds:box,sourceMeshBindings:bindings,fuelClass:kind==='door'?'door':null,fuelAmount:kind==='door'?round(width*(top-bottom)*.45):0,openingId:id});
-  const sourceBounds=JSON.parse(JSON.stringify(box));
+  const sourceBounds=JSON.parse(JSON.stringify(box));if(adapted)for(let i=0;i<3;i++){sourceBounds.min[i]-=entryTranslation[i]+n[i]*.15;sourceBounds.max[i]-=entryTranslation[i]+n[i]*.15;}
   let transomSurfaceId=null;
   if(adapted){transomSurfaceId=id+'/transom';const t=rectangle(a,b,y+1.65,y+2).map(t=>t.map(p=>add(p,mul(n,.15))));surface({id:transomSurfaceId,kind:'door',level,triangles:t,normal:n,thickness:.16,material:'air',sourceMeshBindings:[],fuelClass:null,fuelAmount:0,openingId:id,initialOpenFraction:1,alwaysOpen:true});box.max[1]=round(y+2);}
   openings.push({id,surfaceId:id,transomSurfaceId,baselineBounds:sourceBounds,prototypeAdapted:adapted,clearHeightWhenOpen:adapted?2:top-bottom,leafHeight:kind==='door'?1.65:null,level,kind,entry:edge.opening==='entry',roomIds:edge.rooms,bounds:box,polygon:[triangles[0][0],triangles[0][1],triangles[0][2],triangles[1][2]],pivot:r3(pivot),closedTransform:closed.map(round),openTransform:open.map(round),axis:[0,1,0],maxOpenAngle:adapted?Math.PI:Math.PI/2,authoredOpenAngle:hinge?authoredDoorAngles.get(hinge)||0:0,initialOpenFraction:kind==='arch'?1:0,span,openingWidth:width,bottomY:round(y+bottom),topY:round(y+(adapted?2:top)),normal:r3(n),sourceWallBinding:sourceId.get(wall),sourceMeshBindings:bindings,windowProfile:edge.windowProfile||null,navigationStatus:adapted?'Authorized 2m transom frame; actual leaf-open width and route obstacles remain measured separately':'Measured native opening; no silent widening'});
@@ -230,9 +263,9 @@ try{
   geometry.push({id:record.id,triangles:triangles.map(t=>({materialId:t.materialId,vertices:t.vertices.map(v=>v.map(round))}))});
  }
  const data={version:1,prefabId:house.id,buildingId:'furnished-hopkins15',units:'metres',sourceCommit:BASE,contractCommit:'3596f41cbeb0a85c648c44b789a838ed5a8dc139',sourceHashes,module:[1,1,2.12],thermalCell:[.5,1.06,.5],gridOrigin:[0,.48,0],levels,surfaces,openings,furnitureParts,items,stores,parameters,sourceMeshes,render:{materials,geometry,vertexLayout:['x','y','z','nx','ny','nz','u','v','physicalU','physicalV']},
- navigation:{status:'Source baseline measured; composed opening adaptation awaits actual coder gait result',nativeDoorHeight:1.65,nativeDoorWidth:1,routeAdaptations,measuredGoat:{samples:404,height:1.649517536,radius:.440155741,scale:[1,1,1],source:'Coder gait measurement'},conservativeProfile:{height:1.66,radius:.5},routeLimitations:['Hall console was explicitly moved to supported living-room floor; baseline and adapted transforms are recorded.','Rail clear width1.015m. Exact interfering stair-side and rear wall bays and one fore-lip floor bay were removed under architect authority; use the physical exported geometry for full route acceptance.','The route leaves use a recorded .15m stand-off and180-degree opening; the native leaf dimensions remain1x1.65x.12m.'],stair:{x:5,z:4,width:1,run:3,rise:2.12},removedFloorTriangles:[...removedFloorTriangles.values()],prototypeRoute:[[5.50375,0,-3],[5.50375,.48,-1],[5.50375,.48,1.8],[5.3,.48,3.35],[4.6,.48,3.35],[4.35,.48,3.65],[4.35,.48,5.75],[2.5,.48,6.5],[4.35,.48,5.75],[4.35,.48,3.65],[4.6,.48,3.35],[5.5,.48,3.35],...[...Array(12)].map((_,i)=>[5.5,.48+(i+1)*2.12/12,4+(i+.5)*.25]),[6.0,2.6,6.8],[6.5,2.6,6.4]],noCharacterRescaling:true},
+ navigation:{status:'Source baseline measured; centred entry and composed stair opening await continuous coder sweep',nativeDoorHeight:1.65,nativeDoorWidth:1,routeAdaptations,measuredGoat:{samples:404,height:1.649517536,radius:.440155741,scale:[1,1,1],source:'Coder gait measurement'},conservativeProfile:{height:1.66,radius:.5},routeLimitations:['Hall console was explicitly moved to supported living-room floor; baseline and adapted transforms are recorded.','Rail clear width1.015m. Exact interfering stair-side and rear wall bays and one fore-lip floor bay were removed under architect authority; use the physical exported geometry for full route acceptance.','The route leaves use a recorded .15m stand-off and180-degree opening; the native leaf dimensions remain1x1.65x.12m.'],stair:{x:5,z:4,width:1,run:3,rise:2.12},removedFloorTriangles:[...removedFloorTriangles.values()],prototypeRoute:[[5.00375,0,-3.8],[5.00375,.16,-3.10],[5.00375,.32,-2.66],[5.00375,.48,-2.22],[5.00375,.48,-1],[5.00375,.48,1.8],[5.3,.48,3.35],[4.6,.48,3.35],[4.35,.48,3.65],[4.35,.48,5.75],[2.5,.48,6.5],[4.35,.48,5.75],[4.35,.48,3.65],[4.6,.48,3.35],[5.5,.48,3.35],...[...Array(12)].map((_,i)=>[5.5,.48+(i+1)*2.12/12,4+(i+.5)*.25]),[6.0,2.6,6.8],[6.5,2.6,6.4]],noCharacterRescaling:true},
  adaptations:['Closed .12 m floor slab faces are inferred from the real oak support; source surfaces stay at .48 and2.60m.','Only buried hip-roof faces inside the gambrel union are removed; visible native roof forms are retained.','Oil and coal stores are explicit prototype placements; finite quantities and finishes are game parameters.','Canonical wall patches include actual partial opening panels and never fill the stair notch.','Approved stair alcove removes12 directly interfering whole wall bays and one1m2 upper fore-lip floor bay; native treads and animal geometry remain unchanged.'],
- sourceGaps:['Native door clearance pending measured passage result.','The original floor meshes have no closed slab/ceiling volume.','Some baseline rugs overhang the oak edge; fuel support references use actual overlap, not their rectangular reservation.']};
+ sourceGaps:['Centred entry/jamb rebate and full route await the continuous full-body passage result.','The original floor meshes have no closed slab/ceiling volume.','Some baseline rugs overhang the oak edge; fuel support references use actual overlap, not their rectangular reservation.']};
  data.replayTargets={};
  for(const [name,level,position]of [['kitchen',0,[0,1.01,6.25]],['bedroom',1,[0,3.13,5.25]]]){
   const s=surfaces.find(s=>s.kind==='wall'&&s.level===level&&s.exterior&&s.fuelClass==='clapboard'&&position.every((v,i)=>v>=s.bounds.min[i]-1e-6&&v<=s.bounds.max[i]+1e-6));
