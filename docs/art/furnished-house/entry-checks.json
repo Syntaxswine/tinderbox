@@ -1,0 +1,44 @@
+{
+  "scope": "Actual exported entry, including open/closed native leaf, infill, return, casings, approach rails and source furniture. This is portal clearance, not navigation/support or the whole stair route.",
+  "profile": {
+    "radius": 0.5,
+    "height": 1.66,
+    "floorY": 0.48,
+    "centreX": 5.00375
+  },
+  "nativeModule": [
+    1,
+    1,
+    2.12
+  ],
+  "jambClearWidth": 1.0150000023841859,
+  "minimumLateralMargin": 0.003750001192092789,
+  "stepMetres": 0.025,
+  "open": {
+    "passed": true,
+    "checks": 120,
+    "candidateShapes": 0,
+    "endZ": 2.2,
+    "blocks": []
+  },
+  "closed": {
+    "passed": false,
+    "checks": 120,
+    "candidateShapes": 4,
+    "endZ": -0.75,
+    "blocks": [
+      {
+        "id": "house/gross-housing-hopkins-4-15/0/level-0/0/group/34/wall-5-0-6-0/2/group/1/raised-door-panel",
+        "fromZ": -0.75,
+        "toZ": -0.7250000000000001
+      },
+      {
+        "id": "house/gross-housing-hopkins-4-15/0/level-0/0/group/34/wall-5-0-6-0/2/group/2/raised-door-panel",
+        "fromZ": -0.75,
+        "toZ": -0.7250000000000001
+      }
+    ]
+  },
+  "passed": 3,
+  "failed": 0
+}
