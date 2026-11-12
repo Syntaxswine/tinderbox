@@ -4,6 +4,12 @@ The owner authorizes one furnished two-storey house, resolution of the proposed 
 
 The runtime/art base is published `c855e627bdee963e930644839a60c027a03935de`. The source evaluation is frozen at reviewer commit `9b521a20d888a92197c75f03fbb75f762bf4ba67`, including `docs/reviews/2026-11-11-house-contents-evaluation.md`, `docs/reviews/2026-11-11-fire-travel-rules.md` and the second-version kernel and scene in `docs/reviews/evidence/fire-travel-rules-trial/`. The first trial was withdrawn. The second still misses some timing and peak-cost targets. Record selected source files and adaptations when reusing that experiment.
 
+## Accepted reference and optimization direction
+
+After reviewing the movie delivered in `ee1d10b374ebe91ecc0011bedf39dab1e8fd8874`, the owner accepted its frightening sense of a developing fire and clarified that high CPU cost is acceptable at this reference stage. The detailed version establishes the behavior and the measurements needed to make it affordable. Treat this replay as the behavior and visual-direction reference for subsequent optimization; retain its exact inputs, geometry, clocks, camera, exposure and original evidence.
+
+The next bounded pass profiles simulation, publication/presentation and GPU rendering separately, then reduces repeated work while comparing the same kitchen/bedroom burns at normal zoom. Preserve local exposure thresholds, finite fuel/heat, per-segment burn ages, current fall/rubble ownership and the developing danger. Any approximation that changes those outcomes needs explicit equivalence review. The owner's sculpting analogy does not require literal 30,000/10,000-triangle counts. Runtime/device budgets and affordable simultaneous-fire counts must come from measurement. This reference acceptance does not itself promote the workbench or complete the broader AAA or measured rendering-cost goal.
+
 ## One house and its shared geometry
 
 Use the native `hopkins-4-15` model with both existing furnished floors, exact roof forms, internal partitions, windows and stair opening. The structural module is 1 by 1 by 2.12 m, comprising a 2 m wall and .12 m slab. Simulation cells may subdivide it at an initial .5 m horizontal pitch and 1.06 m layer height. These are prototype resolution choices. Actual surface polygons, wall thickness, floor elevations and clear openings remain measured in metres.

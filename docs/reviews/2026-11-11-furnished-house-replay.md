@@ -88,3 +88,7 @@ Exact final worker intake:
 Changed paths stay in the furnished-house workbench, its art sources/checks, focused tests, architect review tools and related documentation. The stockyard, Hull-House, gallery, UI/train and donor candidates are preserved. The preview branch is `codex/review-furnished-house`; `master`/Pages is not promoted by its push.
 
 [The final cleanup audit](../art/furnished-house/replay/task-cleanup-summary.json) verifies all three original driver/browser identities absent, no direct children, and no listeners on any owned port. The worker lifecycle records also report no retained task helpers. No preview service remains running.
+
+## Owner response and reference acceptance
+
+The owner likes the movie's frightening sense of a real fire and accepts its high CPU cost as the detailed starting point for optimization. This accepts the behavior and visual direction of the `ee1d10b3` replay, with its original evidence preserved. The next pass should profile the measured costs and simplify while retaining that experience, comparing identical inputs and views. The updated [milestone contract](../milestones/18-furnished-house-replay.md#accepted-reference-and-optimization-direction) records this instruction for coder and artist. Production integration and the broader AAA/cost acceptance remain separate decisions.
