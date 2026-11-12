@@ -7,7 +7,7 @@
     2.12
   ],
   "scope": "Artist candidate only; no promotion or production integration.",
-  "dataSha256": "26ecf9a88699692d33da7f5d7abef46a4a7394876b0cb571039235d1e93530cc",
+  "dataSha256": "cf63bca406d8f29b559e71bf875b5d932046827b182b40c29ca0c3f5a83f4ab6",
   "checks": {
     "geometry": {
       "passed": 10,
@@ -24,7 +24,7 @@
       "failed": 0,
       "ownScripts": 212,
       "staticModules": 261,
-      "coverageNote": "291 regressions passed before the final source-data stair-mouth/trim refinement; all 26 focused export, renderer and actual-entry checks passed after it."
+      "coverageNote": "291 regressions passed before the final source-data refinements; all29 focused export, renderer, portal and kitchen-return checks passed after the approved.10m cut."
     },
     "build": {
       "command": "node tools/build.mjs",
@@ -56,16 +56,26 @@
       "failed": 0,
       "minimumLateralMargin": 0.003750001192092789,
       "limits": "Actual exported entry, including open/closed native leaf, infill, return, casings, approach rails and source furniture. This is portal clearance, not navigation/support or the whole stair route."
+    },
+    "kitchenReturn": {
+      "command": "node art/source/furnished-house/check-return.mjs",
+      "passed": 3,
+      "failed": 0,
+      "sweeps": 398,
+      "clearWidth": 1.0275000000000003,
+      "minimumLateralMargin": 0.013750000000000151,
+      "unchangedSourceBlocked": true,
+      "status": "Applied architect-approved .10 m end-cut"
     }
   },
   "helperRetirement": {
-    "task": "Furnished-house art",
-    "testProfileRemoved": true,
-    "browserExited": true,
-    "restart": "artifacts/helpers/furnished-house-review/restart.json",
+    "testProfileRemoved": false,
     "portReleased": true,
+    "retiredAt": "2026-11-12T01:26:08.5430274Z",
+    "browserExited": true,
+    "task": "Furnished-house art",
     "serverExited": true,
-    "retiredAt": "2026-11-12T01:07:03.7441686Z"
+    "restart": "artifacts/helpers/furnished-house-review/restart.json"
   },
   "limits": [
     "Controlled JPGs establish geometry/shader state only; real animated replay remains with architect.",
