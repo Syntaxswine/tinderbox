@@ -80,7 +80,8 @@
     "Flame-off skips tangent/radius assignment and connected-envelope preparation. Smoke/local light retain the reference support-anchor selection when needed to preserve exact positions; supportAnchorSources and supportAnchorComputations expose this shared work.",
     "Camera bounds include the entire potential support footprint, current pose, Gaussian extent, roof anchor motion and clamped smoke drift/rise. Missing wind declarations or ambiguous bounds retain sources.",
     "Disabling all channels preserves physical masks, char, debris and heat state while skipping support resolution, splat generation and light clustering.",
-    "Building lighting aggregates active area*flame once, with no local clustering or support-anchor lookup in lighting-only mode. Four exterior positions illuminate outward-facing facades; two interior positions follow native storeys. Point lights retain decay:2 and finite reach. It is approximate visual spill, not a heat or measured irradiance model."
+    "Building lighting aggregates active area*flame once, with no local clustering or support-anchor lookup in lighting-only mode. Four exterior positions illuminate outward-facing facades; two interior positions follow native storeys. Point lights retain decay:2 and finite reach. It is approximate visual spill, not a heat or measured irradiance model.",
+    "Building-glow weighted height uses original authoritative sample Y captured before support-envelope anchor relocation. Flames/smoke settings cannot move or repower its pooled lights at the same physical state/time, including unclamped sloped-roof cases."
   ],
   "diagnostics": {
     "effects": "Detached normalized effects snapshot.",

@@ -10,7 +10,8 @@ export function createBuildingGlow(data) {
  return {
   update(lights,sources,time){
    let energy=0,area=0,weightedHeight=0;
-   for(const q of sources){const e=q.area*q.flame;energy+=e;area+=q.area;weightedHeight+=q.y*e;}
+   // Visible roof support can relocate q.y; aggregation uses the original frame height.
+   for(const q of sources){const e=q.area*q.flame;energy+=e;area+=q.area;weightedHeight+=(q.authoritativeY??q.y)*e;}
    const low=levels[0].floorY+.6,high=levels.at(-1).floorY+1.8,height=Math.max(low,Math.min(high,energy?weightedHeight/energy+.36:low));
    // Four exterior positions face the facades; two spread light over native storeys.
    const positions=[[min[0]-1,height,z],[max[0]+1,height,z],[x,height,min[2]-1],[x,height,max[2]+1],[x,levels[0].floorY+.9,z],[x,levels.at(-1).floorY+.9,z]];

@@ -1,9 +1,10 @@
 {
-  "passed": 8,
+  "passed": 9,
   "failed": 0,
   "groups": [
     "Building mode leaves all flame/smoke splats unchanged and derives bounded pooled power from authoritative intensity times area",
     "All eight building-mode masks keep channels independent, zero disabled power/work and reuse exactly the six original PointLight objects",
+    "Real sloped-roof anchor relocation cannot move or repower building lights across any mask; both weighted heights are unclamped",
     "Lighting-only building mode skips every support-anchor lookup, connected envelope and splat generation call",
     "Distributed lights stand outside all four facade normals, retain inverse-square distance falloff, and cover both native2.12m storeys",
     "Off-screen illumination remains eligible and lighting re-enable uses current world time without a private clock",
@@ -501,6 +502,324 @@
       "lights": 6
     }
   ],
+  "slopedRoof": {
+    "sourceSurfaceId": "roof/772/-1,3,-1,0,34,-94",
+    "normal": [
+      0,
+      0.341743,
+      -0.9397934
+    ],
+    "sourcePosition": [
+      -0.010772725,
+      4.6963,
+      -0.31225448000000006
+    ],
+    "resolvedAnchor": [
+      -0.07181816666666667,
+      4.381999919834707,
+      -0.4265454
+    ],
+    "authoritativeHeight": 2.824141176470588,
+    "relocatedHeight": 2.676235256392803,
+    "clamps": [
+      1.08,
+      4.4
+    ],
+    "masks": [
+      {
+        "mask": 0,
+        "effects": {
+          "flames": false,
+          "smoke": false,
+          "lighting": false
+        },
+        "lights": []
+      },
+      {
+        "mask": 1,
+        "effects": {
+          "flames": true,
+          "smoke": false,
+          "lighting": false
+        },
+        "lights": []
+      },
+      {
+        "mask": 2,
+        "effects": {
+          "flames": false,
+          "smoke": true,
+          "lighting": false
+        },
+        "lights": []
+      },
+      {
+        "mask": 3,
+        "effects": {
+          "flames": true,
+          "smoke": true,
+          "lighting": false
+        },
+        "lights": []
+      },
+      {
+        "mask": 4,
+        "effects": {
+          "flames": false,
+          "smoke": false,
+          "lighting": true
+        },
+        "lights": [
+          {
+            "position": [
+              -1,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              11,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              -4.32
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              11
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              1.38,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              3.5,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          }
+        ]
+      },
+      {
+        "mask": 5,
+        "effects": {
+          "flames": true,
+          "smoke": false,
+          "lighting": true
+        },
+        "lights": [
+          {
+            "position": [
+              -1,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              11,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              -4.32
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              11
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              1.38,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              3.5,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          }
+        ]
+      },
+      {
+        "mask": 6,
+        "effects": {
+          "flames": false,
+          "smoke": true,
+          "lighting": true
+        },
+        "lights": [
+          {
+            "position": [
+              -1,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              11,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              -4.32
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              11
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              1.38,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              3.5,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          }
+        ]
+      },
+      {
+        "mask": 7,
+        "effects": {
+          "flames": true,
+          "smoke": true,
+          "lighting": true
+        },
+        "lights": [
+          {
+            "position": [
+              -1,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              11,
+              2.824141176470588,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              -4.32
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              2.824141176470588,
+              11
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              1.38,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          },
+          {
+            "position": [
+              5,
+              3.5,
+              3.34
+            ],
+            "intensity": 1.566859921827753,
+            "reach": 20.656001921229475
+          }
+        ]
+      }
+    ]
+  },
   "limits": [
     "Optional broad visual approximation; no uniform physical irradiance or thermal claim.",
     "Actual outward-facing facade appearance and hardware costs require the architect combined WebGL/JPG review.",

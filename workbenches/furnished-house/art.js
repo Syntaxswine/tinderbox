@@ -187,7 +187,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
   // The anchor search is shared by smoke/local light to preserve their exact positions.
   function classifySample(sample){
    if(typeof sample?.id!=='string'||![sample.x,sample.y,sample.z,sample.nx,sample.ny,sample.nz,sample.flame,sample.smoke,sample.ignitionTime,sample.area].every(Number.isFinite)||sample.area<=0||Math.hypot(sample.nx,sample.ny,sample.nz)<1e-6)return null;
-   const q={...sample,flame:clamp(sample.flame),smoke:clamp(sample.smoke),preheat:sample.preheat===true||sample.flame===0,exposed:sample.exposed!==false};
+   const q={...sample,authoritativeY:sample.y,flame:clamp(sample.flame),smoke:clamp(sample.smoke),preheat:sample.preheat===true||sample.flame===0,exposed:sample.exposed!==false};
    const item=itemGroups.get(sample.itemId),activeFall=(sample.fallId&&fallStates.get(sample.fallId))||[...fallStates.values()].find(f=>sample.itemId&&f.itemId===sample.itemId||f.fuelIds?.includes(sample.id));
    if(activeFall){q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.baseRadius=.12;q.fallId=activeFall.id;q.supportOrigin='airborne';q.presentationLevel=Math.max(0,Math.floor((q.y-.40)/2.12));return q;}
    const landed=debrisView.findFuel(sample.id,sample.rubbleId),landingFootprint=sample.floorFootprint||sample.footprint||landed?.floorFootprint||landed?.triangles;
