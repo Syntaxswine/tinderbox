@@ -1,5 +1,7 @@
 # Independent furnished-house effects: artist candidate
 
+The [combined architect review](../../reviews/2026-11-12-fire-effect-settings.md) records accepted isolated-workbench behavior, actual desktop/touch JPGs, all eight switch combinations, whole-building comparison and hardware timing limits. Retained browser evidence and file hashes are in [browser/manifest.json](browser/manifest.json). Production integration remains separate.
+
 The artist-owned implementation starts at contract 5bcd95dc / frozen code 25095656. The accepted expensive reference ee1d10b and its movie remain unchanged. Native structural modules remain 1 x 1 x 2.12 m, with 2 m walls and .12 m slabs. No geometry, floor height, UV density, simulation module, production route or donor file changes.
 
 Pass view.effects={flames,smoke,lighting}; missing or nonboolean keys default true. Each channel branches before its own preparation/generation. Flame-off omits tangent/radius assignment and connected flame envelopes. Smoke-off omits all smoke calls, including preheat. Lighting-off omits clustering and zeros the existing six owned lights. Char geometry, heated materials and debris still consume authoritative state. World-time phase always comes from the current frame, including re-enable/return at the same revision.

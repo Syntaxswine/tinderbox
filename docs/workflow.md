@@ -12,7 +12,7 @@
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
-The current bounded assignment is [independent fire effect settings and early visibility](milestones/19-fire-effect-settings.md). It preserves the accepted furnished-house reference and keeps simulation running independently of visual settings/culling. Candidate branch names above are assigned; Git worktree metadata records when each worker switches.
+The current bounded assignment is [independent fire effect settings and early visibility](milestones/19-fire-effect-settings.md). Its [combined review](reviews/2026-11-12-fire-effect-settings.md) accepts the isolated workbench switches, conservative early culling and optional whole-building glow comparison, with actual eight-mask browser evidence and measured limits. The expensive reference and physical simulation are preserved. This candidate is not a production/Pages rollout; the wider realistic-fire milestone remains open. Worker intake pins and remaining work are in the review; Git worktree metadata records actual branch occupancy.
 
 The UI designer works from the dedicated UI worktree. Coordinate new asset exports with the artist and gameplay/runtime contracts with the coder. Follow the [reconciled reuse plan](reuse-plan.md) for Farmyard UI reuse; unresolved gameplay and device choices remain proposals. UI candidates follow the same architect promotion gate.
 

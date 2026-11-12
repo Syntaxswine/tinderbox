@@ -1,0 +1,46 @@
+{
+  "closedAt": "2026-11-12T05:30:20.051Z",
+  "helper": {
+    "owner": "Architect Tinderbox",
+    "project": "Tinderbox",
+    "purpose": "Furnished-house prototype effect-settings",
+    "driver": {
+      "pid": 15560,
+      "creationFiletime": "134389347441560071",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "browser": {
+      "pid": 30872,
+      "creationFiletime": "134389347471583883",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    "ports": [
+      52438,
+      52439
+    ],
+    "startedAt": "2026-11-12T05:25:47.095Z",
+    "expiresAt": "2026-11-12T05:40:47.095Z",
+    "stopFile": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\effect-settings-1794461146389\\STOP",
+    "stopMethod": "STOP file, deadline or driver finally",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\tools\\review\\furnished-house\\settings-review.mjs",
+        "120",
+        "40"
+      ],
+      "commit": "df73c45e119cab00688612b9645669f1a213029e",
+      "baselineManifest": "c592039f35d7f4173c17e4f9443726423e9d77eb8ee5bfdbb7d6430625c33987",
+      "output": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\effect-settings-1794461146389",
+      "environment": {
+        "TINDERBOX_PLAYWRIGHT_ROOT": "C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1110-778-0_26.1110.778.0_x64__3k8sg7r9htsxt/dependencies/node/node_modules"
+      }
+    }
+  },
+  "portsListening": [
+    false,
+    false
+  ],
+  "browserExited": true
+}

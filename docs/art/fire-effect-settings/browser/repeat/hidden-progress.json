@@ -1,0 +1,961 @@
+{
+  "beforeHidden": {
+    "tick": 3600,
+    "worldTime": 120,
+    "fuel": {
+      "initial": 607.1440377358605,
+      "added": 0,
+      "burned": 257.4885471973116,
+      "escaped": 0,
+      "remaining": 349.6554905317297,
+      "airborne": 0,
+      "error": 6.819163900217973e-9
+    },
+    "heat": {
+      "generated": 615669.0700159188,
+      "input": 1.05,
+      "ambient": 40385.87745250829,
+      "blocked": 111875.00835611325,
+      "cap": 365996.510243817,
+      "escaped": 94304.06699598607,
+      "stored": 3108.65696169131,
+      "radiationInTransit": 0,
+      "error": 0.000005802948635391658,
+      "relativeError": 9.42541865640908e-12
+    },
+    "burningCount": 3854,
+    "burningArea": 686.8964682465661,
+    "combustibleArea": 879.0518539309301,
+    "burningAreaFraction": 0.7814060856306866,
+    "burnedFraction": 0.4240979589580235,
+    "activeCells": 3423,
+    "fallingCount": 0,
+    "queuedRadiationSources": 0,
+    "queuedRays": 0,
+    "oldestRadiationQueryDelay": 0,
+    "oldestRadiationEnergyAge": 0,
+    "stats": {
+      "ticks": 3600,
+      "cellVisits": 8623978,
+      "burnVisits": 16067826,
+      "linkBuilds": 1609,
+      "rayBuilds": 38616,
+      "rayTests": 139918,
+      "invalidations": 6112,
+      "ignitions": 4007,
+      "failures": 30,
+      "landings": 31,
+      "peakActive": 3423,
+      "maxBurnsPerFuelPerTick": 1
+    }
+  },
+  "afterHidden": {
+    "tick": 3630,
+    "worldTime": 121,
+    "fuel": {
+      "initial": 607.1440377358605,
+      "added": 0,
+      "burned": 260.4387253424696,
+      "escaped": 0,
+      "remaining": 346.7053123868076,
+      "airborne": 0,
+      "error": 6.58332055536448e-9
+    },
+    "heat": {
+      "generated": 623053.3218221555,
+      "input": 1.05,
+      "ambient": 40948.68231468341,
+      "blocked": 113208.15418407189,
+      "cap": 370335.8861687247,
+      "escaped": 95436.57111140588,
+      "stored": 3125.0780387636605,
+      "radiationInTransit": 0,
+      "error": 0.000004506002369453199,
+      "relativeError": 7.232117409392628e-12
+    },
+    "burningCount": 3863,
+    "burningArea": 687.5327061075016,
+    "combustibleArea": 879.0518539309301,
+    "burningAreaFraction": 0.7821298630257177,
+    "burnedFraction": 0.4289570664544253,
+    "activeCells": 3429,
+    "fallingCount": 0,
+    "queuedRadiationSources": 0,
+    "queuedRays": 0,
+    "oldestRadiationQueryDelay": 0,
+    "oldestRadiationEnergyAge": 0,
+    "stats": {
+      "ticks": 3630,
+      "cellVisits": 8726756,
+      "burnVisits": 16199334,
+      "linkBuilds": 1615,
+      "rayBuilds": 38760,
+      "rayTests": 140436,
+      "invalidations": 6112,
+      "ignitions": 4017,
+      "failures": 30,
+      "landings": 31,
+      "peakActive": 3429,
+      "maxBurnsPerFuelPerTick": 1
+    }
+  },
+  "restored": {
+    "version": 1,
+    "metrics": {
+      "tick": 3630,
+      "worldTime": 121,
+      "fuel": {
+        "initial": 607.1440377358605,
+        "added": 0,
+        "burned": 260.4387253424696,
+        "escaped": 0,
+        "remaining": 346.7053123868076,
+        "airborne": 0,
+        "error": 6.58332055536448e-9
+      },
+      "heat": {
+        "generated": 623053.3218221555,
+        "input": 1.05,
+        "ambient": 40948.68231468341,
+        "blocked": 113208.15418407189,
+        "cap": 370335.8861687247,
+        "escaped": 95436.57111140588,
+        "stored": 3125.0780387636605,
+        "radiationInTransit": 0,
+        "error": 0.000004506002369453199,
+        "relativeError": 7.232117409392628e-12
+      },
+      "burningCount": 3863,
+      "burningArea": 687.5327061075016,
+      "combustibleArea": 879.0518539309301,
+      "burningAreaFraction": 0.7821298630257177,
+      "burnedFraction": 0.4289570664544253,
+      "activeCells": 3429,
+      "fallingCount": 0,
+      "queuedRadiationSources": 0,
+      "queuedRays": 0,
+      "oldestRadiationQueryDelay": 0,
+      "oldestRadiationEnergyAge": 0,
+      "stats": {
+        "ticks": 3630,
+        "cellVisits": 8726756,
+        "burnVisits": 16199334,
+        "linkBuilds": 1615,
+        "rayBuilds": 38760,
+        "rayTests": 140436,
+        "invalidations": 6112,
+        "ignitions": 4017,
+        "failures": 30,
+        "landings": 31,
+        "peakActive": 3429,
+        "maxBurnsPerFuelPerTick": 1
+      }
+    },
+    "clock": {
+      "accumulator": 0,
+      "lastSteps": 0,
+      "speed": 1,
+      "paused": true,
+      "activeTime": 0,
+      "playerTime": 0,
+      "worldTime": 121,
+      "worldScale": 1,
+      "playerScale": 1,
+      "droppedSeconds": 0
+    },
+    "effects": {
+      "flames": true,
+      "smoke": true,
+      "lighting": true
+    },
+    "lightingMode": "local",
+    "costMs": {
+      "simulation": {
+        "samples": 121,
+        "mean": 627.1231404808927,
+        "p95": 1103.7000002861023,
+        "max": 1135.3000001907349
+      },
+      "presentation": {
+        "samples": 529,
+        "mean": 146.58241965324532,
+        "p95": 238.09999990463257,
+        "max": 342
+      },
+      "render": {
+        "samples": 529,
+        "mean": 2.076559543609619,
+        "p95": 2.5999999046325684,
+        "max": 84.59999990463257
+      },
+      "initialization": 413.2000002861023
+    },
+    "renderer": {
+      "calls": 121,
+      "triangles": 82709,
+      "geometries": 121,
+      "textures": 11
+    },
+    "art": {
+      "disposed": false,
+      "version": 1,
+      "prefabId": "hopkins-4-15",
+      "worldTime": 121,
+      "revision": 3630,
+      "view": "cutaway",
+      "level": 1,
+      "sourceSurfaces": 2952,
+      "physicalPatches": 5755,
+      "retiredPatches": 165,
+      "sourceMeshes": 860,
+      "batches": 61,
+      "items": 17,
+      "falls": 0,
+      "fallVisuals": 0,
+      "debris": {
+        "flights": 0,
+        "residue": 30,
+        "pendingLanding": 0,
+        "missingGeometry": 0,
+        "draws": 1,
+        "resources": {
+          "geometries": 1,
+          "materials": 1
+        }
+      },
+      "occupancy": 0,
+      "fireSamples": 3948,
+      "representedSamples": 3948,
+      "missingSamples": 0,
+      "missingSampleDetails": [],
+      "visibleSamples": 3948,
+      "viewCulledSamples": 2936,
+      "cameraCulledSamples": 0,
+      "effects": {
+        "flames": true,
+        "smoke": true,
+        "lighting": true
+      },
+      "lightingMode": "local",
+      "effectWork": {
+        "suppliedSources": 3948,
+        "activeSources": 3948,
+        "representedSources": 3948,
+        "preparedSources": 3948,
+        "disabledSources": 0,
+        "viewCulledSources": 2936,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 3711,
+        "smokeSplats": 7586,
+        "generatedFlameSplats": 3711,
+        "generatedSmokeSplats": 7848,
+        "activeLights": 6,
+        "channels": {
+          "flames": {
+            "supplied": 3923,
+            "disabled": 0,
+            "viewCulled": 2936,
+            "cameraCulled": 0,
+            "prepared": 987
+          },
+          "smoke": {
+            "supplied": 3948,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 3948
+          },
+          "lighting": {
+            "supplied": 3923,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 3923
+          }
+        },
+        "work": {
+          "supportAnchorSources": 1607,
+          "supportAnchorComputations": 8,
+          "flameEnvelopeSources": 987,
+          "flameContextSources": 0,
+          "flameCalls": 987,
+          "smokeCalls": 3948,
+          "lightClusterCalls": 1,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
+        }
+      },
+      "emitterBatches": 50,
+      "fire": [
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 159,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 152,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 153,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 159,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 157,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 156,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 153,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 38,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 38,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 14,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 136,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 136,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 40,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 107,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 107,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 36,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 158,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 156,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 157,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 153,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 142,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 148,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 153,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 158,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 142,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 146,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 8,
+          "smokeSplats": 157,
+          "generatedFlameSplats": 8,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 3,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 40,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 40,
+          "generatedSmokeSplats": 157,
+          "flameCalls": 14,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 157,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 35,
+          "smokeSplats": 160,
+          "generatedFlameSplats": 35,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 12,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 156,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 151,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 157,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 156,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 156,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 156,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 0,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 0,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 3,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 3,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 1,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 301,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 301,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 75,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 312,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 312,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 80,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 316,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 316,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 80,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 314,
+          "smokeSplats": 150,
+          "generatedFlameSplats": 314,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 80,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 298,
+          "smokeSplats": 157,
+          "generatedFlameSplats": 298,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 80,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 328,
+          "smokeSplats": 154,
+          "generatedFlameSplats": 328,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 80,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 322,
+          "smokeSplats": 155,
+          "generatedFlameSplats": 322,
+          "generatedSmokeSplats": 159,
+          "flameCalls": 78,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 163,
+          "smokeSplats": 157,
+          "generatedFlameSplats": 163,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 43,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 193,
+          "smokeSplats": 152,
+          "generatedFlameSplats": 193,
+          "generatedSmokeSplats": 159,
+          "flameCalls": 45,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 312,
+          "smokeSplats": 152,
+          "generatedFlameSplats": 312,
+          "generatedSmokeSplats": 155,
+          "flameCalls": 78,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 290,
+          "smokeSplats": 149,
+          "generatedFlameSplats": 290,
+          "generatedSmokeSplats": 153,
+          "flameCalls": 74,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 80,
+          "flameSplats": 172,
+          "smokeSplats": 144,
+          "generatedFlameSplats": 172,
+          "generatedSmokeSplats": 160,
+          "flameCalls": 46,
+          "smokeCalls": 80,
+          "maxSplats": 640
+        },
+        {
+          "activeCells": 28,
+          "flameSplats": 23,
+          "smokeSplats": 35,
+          "generatedFlameSplats": 23,
+          "generatedSmokeSplats": 56,
+          "flameCalls": 28,
+          "smokeCalls": 28,
+          "maxSplats": 640
+        }
+      ],
+      "lightBudget": {
+        "terrainSites": 0,
+        "surfaceSites": 3923,
+        "candidates": 248,
+        "capacity": 6,
+        "powerCap": 215,
+        "lights": [
+          {
+            "kind": "ceiling",
+            "buildingId": "furnished-hopkins15",
+            "position": [
+              1.256353512278697,
+              1.6729221445570253,
+              6.2491076527698475
+            ],
+            "intensity": 23.129886113166926,
+            "reach": 14.721225899606724
+          },
+          {
+            "kind": "roof",
+            "buildingId": "furnished-hopkins15",
+            "position": [
+              1.3890336871638425,
+              3.8231386646656014,
+              5.953606882759935
+            ],
+            "intensity": 36.97198353808891,
+            "reach": 15.754838433534687
+          },
+          {
+            "kind": "floor",
+            "buildingId": "furnished-hopkins15",
+            "position": [
+              0.9138693174883719,
+              2.8868629703317477,
+              7.053078239898184
+            ],
+            "intensity": 46.60768678232947,
+            "reach": 16
+          },
+          {
+            "kind": "ceiling",
+            "buildingId": "furnished-hopkins15",
+            "position": [
+              1.2299400585791191,
+              1.3839526437363903,
+              3.9377460663442636
+            ],
+            "intensity": 46.68523049793861,
+            "reach": 16
+          },
+          {
+            "kind": "walls",
+            "buildingId": "furnished-hopkins15",
+            "position": [
+              1.0557776844770161,
+              1.875048909790927,
+              6.802006255743944
+            ],
+            "intensity": 26.01626829464737,
+            "reach": 14.938125027352111
+          },
+          {
+            "kind": "walls",
+            "buildingId": "furnished-hopkins15",
+            "position": [
+              1.7588727372147077,
+              1.858317352094895,
+              6.514832675442184
+            ],
+            "intensity": 23.12062527166543,
+            "reach": 14.732727320070037
+          }
+        ],
+        "mode": "local"
+      },
+      "actualLights": [
+        {
+          "position": [
+            1.256353512278697,
+            1.6729221445570253,
+            6.2491076527698475
+          ],
+          "intensity": 23.129886113166926,
+          "reach": 14.721225899606724
+        },
+        {
+          "position": [
+            1.3890336871638425,
+            2.2800000000000002,
+            5.953606882759935
+          ],
+          "intensity": 36.97198353808891,
+          "reach": 15.754838433534687
+        },
+        {
+          "position": [
+            0.9138693174883719,
+            2.8868629703317477,
+            7.053078239898184
+          ],
+          "intensity": 46.60768678232947,
+          "reach": 16
+        },
+        {
+          "position": [
+            1.2299400585791191,
+            1.3839526437363903,
+            3.9377460663442636
+          ],
+          "intensity": 46.68523049793861,
+          "reach": 16
+        },
+        {
+          "position": [
+            1.0557776844770161,
+            1.875048909790927,
+            6.802006255743944
+          ],
+          "intensity": 26.01626829464737,
+          "reach": 14.938125027352111
+        },
+        {
+          "position": [
+            1.7588727372147077,
+            1.858317352094895,
+            6.514832675442184
+          ],
+          "intensity": 23.12062527166543,
+          "reach": 14.732727320070037
+        }
+      ],
+      "resources": {
+        "geometries": 62,
+        "materials": 83,
+        "textures": 6
+      },
+      "resetCount": 5,
+      "revisionCount": 538,
+      "rootScale": [
+        1,
+        1,
+        1
+      ],
+      "stateBindings": 3052
+    },
+    "observer": {
+      "position": [
+        1.4,
+        0.48,
+        6.3
+      ],
+      "x": 1.4,
+      "y": 6.3,
+      "elevation": 0.48,
+      "height": 1.66,
+      "radius": 0.5,
+      "heading": 0,
+      "travelled": 0,
+      "moving": false,
+      "tool": "matches",
+      "lastBlock": null,
+      "level": 0
+    },
+    "errors": []
+  }
+}
