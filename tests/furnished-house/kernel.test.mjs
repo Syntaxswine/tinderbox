@@ -1,10 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTrial,createClock,calmWind} from '../../workbenches/furnished-house/simulation.js';
+import {bearingPiers} from '../../workbenches/furnished-house/fixtures.js';
 const floor=(id,y,{fuelAmount=0,material='masonry',fuelClass='frame'}={})=>({id,kind:'floor',level:y>1?1:0,normal:[0,1,0],thickness:.12,material,fuelClass,fuelAmount,triangles:[[[0,y,0],[2,y,0],[2,y,2]],[[0,y,0],[2,y,2],[0,y,2]]]});
 function fixture({upper=false,oil=false}={}) {
   const data={version:1,prefabId:'control',buildingId:'control',gridOrigin:[0,0,0],surfaces:[floor('lower',0)],furnitureParts:[],items:[],stores:[]};
-  if(upper)data.surfaces.push(floor('upper',2.12,{material:'timber',fuelAmount:4}));
+  if(upper)data.surfaces.push(floor('upper',2.12,{material:'timber',fuelAmount:4}),...bearingPiers());
   const y=upper?2.12:0,part={id:'contents',itemId:'table',level:upper?1:0,matrix:[1,0,0,0,0,1,0,0,0,0,1,0,.75,y,.75,1],bounds:{min:[.6,y,.6],max:[.9,y+.5,.9]},material:'wood',fuelClass:oil?'oil':'furniture',fuelAmount:1};
   data.furnitureParts.push(part);data.items.push({id:'table',position:[.75,y,.75],bounds:part.bounds});
   if(oil)data.stores.push({id:'oil',kind:'oil',fuelPartId:'contents',amount:1,position:[.75,y,.75]});return data;

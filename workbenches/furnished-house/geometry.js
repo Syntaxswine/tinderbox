@@ -25,6 +25,23 @@ export function clipTriangle(triangle,box) {
   for(let axis=0;axis<3&&p.length;axis++)p=clipPolygon(clipPolygon(p,axis,box.min[axis],true),axis,box.max[axis],false);
   return p.slice(1,-1).map((_,i)=>[p[0],p[i+1],p[i+2]]).filter(t=>triangleArea(t)>EPS);
 }
+export function projectedHull(points,y) {
+  const list=[...new Map(points.map(p=>[`${p[0]},${p[2]}`,[p[0],y,p[2]]])).values()].sort((a,b)=>a[0]-b[0]||a[2]-b[2]);
+  const turn=(a,b,c)=>(b[0]-a[0])*(c[2]-a[2])-(b[2]-a[2])*(c[0]-a[0]),lower=[],upper=[];
+  for(const p of list){while(lower.length>=2&&turn(lower.at(-2),lower.at(-1),p)<=EPS)lower.pop();lower.push(p);}for(const p of [...list].reverse()){while(upper.length>=2&&turn(upper.at(-2),upper.at(-1),p)<=EPS)upper.pop();upper.push(p);}return [...lower.slice(0,-1),...upper.slice(0,-1)];
+}
+export function intersectFootprint(polygon,triangles,y) {
+  const result=[];
+  for(const t of triangles) {
+    const sign=Math.sign((t[1][0]-t[0][0])*(t[2][2]-t[0][2])-(t[1][2]-t[0][2])*(t[2][0]-t[0][0]));if(!sign)continue;let poly=polygon;
+    for(let edge=0;edge<3&&poly.length;edge++) {
+      const a=t[edge],b=t[(edge+1)%3],distance=p=>sign*((b[0]-a[0])*(p[2]-a[2])-(b[2]-a[2])*(p[0]-a[0])),next=[];
+      for(let i=0;i<poly.length;i++){const p=poly[i],q=poly[(i+1)%poly.length],dp=distance(p),dq=distance(q),inside=dp>=-EPS;if(inside)next.push([p[0],y,p[2]]);if(inside!==(dq>=-EPS)){const f=dp/(dp-dq);next.push([p[0]+f*(q[0]-p[0]),y,p[2]+f*(q[2]-p[2])]);}}poly=next;
+    }
+    for(let i=1;i<poly.length-1;i++){const triangle=[poly[0],poly[i],poly[i+1]];if(triangleArea(triangle)>EPS)result.push(triangle);}
+  }
+  return result;
+}
 export function pointOnTriangle(p,t,tolerance=EPS) {
   const [a,b,c]=t,u=sub(b,a),v=sub(c,a),w=sub(p,a),uu=dot(u,u),vv=dot(v,v),uv=dot(u,v),wu=dot(w,u),wv=dot(w,v),d=uu*vv-uv*uv;
   if(d<EPS*EPS)return false;
@@ -96,7 +113,9 @@ export function createBoundaryIndex(records,binSize=1) {
     hits.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));
     // Subdivision seams represent one physical sheet. Distinct sheets at a
     // corner still all count, including when they meet at the same parameter.
-    return hits.filter((hit,i)=>!hits.slice(0,i).some(other=>other.surface.sourceSurfaceId&&other.surface.sourceSurfaceId===hit.surface.sourceSurfaceId&&Math.abs(other.t-hit.t)<EPS));
+    const unique=[];
+    for(const hit of hits){const key=hit.surface.sheetKey||hit.surface.sourceSurfaceId||hit.surface.id,old=unique.findIndex(other=>(other.surface.sheetKey||other.surface.sourceSurfaceId||other.surface.id)===key&&Math.abs(other.t-hit.t)<EPS*10);if(old<0)unique.push(hit);else if(pass(hit.surface)<pass(unique[old].surface))unique[old]=hit;}
+    return unique.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));
   }
   const pass=s=>s.intact?(s.actualDoorPose?s.transmission:Math.max(0,Math.min(1,s.openFraction+(1-s.openFraction)*s.transmission))):1;
   function trace(from,to,options={}) {const hits=crossings(from,to,options);return {hits,transmission:hits.reduce((p,h)=>p*pass(h.surface),1)};}

@@ -3,12 +3,12 @@ import {bounds,overlaps,pointOnTriangle,unit,cross,sub,EPS} from './geometry.js'
 
 // A small adapter over the production narrow phase, not a second character or
 // rescaled map. Physical retirement/opening state is borrowed from the trial.
-export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=[5.5,0,-3]}={}) {
+export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=[5.5,0,-3.8]}={}) {
   const {scene}=trial,{data,index}=scene,meshInfo=new Map((data.sourceMeshes||[]).map(m=>[m.id,m]));
-  const extras=[];
+  const extras=[],physicalMeshes=new Set(data.surfaces.flatMap(s=>s.sourceMeshBindings||[]));
   for(const g of data.render?.geometry||[]) {
     const info=meshInfo.get(g.id);if(!info||!/stair|tread|newel|rail|casing|jamb|header|porch|entry step/i.test(info.name))continue;
-    if(/roof|door leaf/i.test(info.name))continue;
+    if(/roof|door leaf/i.test(info.name)||physicalMeshes.has(g.id))continue;
     const triangles=g.triangles.map(t=>t.vertices.map(v=>v.slice(0,3)));
     extras.push({id:g.id,name:info.name,triangles,bounds:bounds(triangles.flat()),closed:true});
   }
@@ -24,7 +24,7 @@ export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=
     return options.sort((a,b)=>b.y-a.y||a.id.localeCompare(b.id))[0]||null;
   }
   function clear(from,to) {
-    const onStairs=extras.some(s=>/stair|tread|step/i.test(s.name)&&to[0]>=s.bounds.min[0]-radius-.05&&to[0]<=s.bounds.max[0]+radius+.05&&to[2]>=s.bounds.min[2]-radius-.05&&to[2]<=s.bounds.max[2]+radius+.05);
+    const near=index.candidates({min:[to[0]-radius,Math.min(from[1],to[1])-.2,to[2]-radius],max:[to[0]+radius,Math.max(from[1],to[1])+.5,to[2]+radius]}),onStairs=near.some(s=>s.intact&&['stair-tread','entry-step'].includes(s.supportType));
     const low=Math.min(from[1],to[1])+(onStairs?.45:.025),high=Math.max(from[1],to[1])+height-EPS,box={min:[Math.min(from[0],to[0])-radius,low,Math.min(from[2],to[2])-radius],max:[Math.max(from[0],to[0])+radius,high,Math.max(from[2],to[2])+radius]};
     const shapes=index.candidates(box).filter(s=>s.intact&&index.pass(s)<.99).map(s=>({id:s.id,triangles:s.solidTriangles||s.triangles,closed:!!s.solidTriangles}));
     shapes.push(...extras.filter(s=>overlaps(box,s.bounds)));
@@ -39,7 +39,7 @@ export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=
     return true;
   }
   function move(dx,dz,seconds=1/30) {
-    moving=false;lastBlock=null;const distance=Math.hypot(dx,dz),scale=distance>1?1/distance:1,speed=9,steps=Math.max(1,Math.ceil(speed*seconds/.025));
+    moving=false;lastBlock=null;const distance=Math.hypot(dx,dz);if(distance<EPS||seconds===0)return snapshot();const scale=distance>1?1/distance:1,speed=9,steps=Math.max(1,Math.ceil(speed*seconds/.025));
     for(let i=0;i<steps;i++) {
       const target=[position[0]+dx*scale*speed*seconds/steps,position[1],position[2]+dz*scale*speed*seconds/steps],s=support(target,position[1]);
       if(!s){lastBlock={reason:'No reachable support',position:target};break;}target[1]=s.y;

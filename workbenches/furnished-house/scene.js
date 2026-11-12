@@ -53,7 +53,11 @@ export function compileScene(data,{profiles={}}={}) {
         for(const triangle of clipped)for(let i=0;i<3;i++){const a=triangle[i],end=triangle[(i+1)%3],key=[a.join(','),end.join(',')].sort().join('|');if(edges.has(key))edges.delete(key);else edges.set(key,[a,end]);}
         const underside=clipped.map(t=>[...t].reverse().map(p=>p.map((v,i)=>v+offset[i]))),sides=[...edges.values()].flatMap(([a,end])=>{const c=end.map((v,i)=>v+offset[i]),d=a.map((v,i)=>v+offset[i]);return [[a,end,c],[a,c,d]];});
         b.solidTriangles=[...clipped,...underside,...sides];b.bounds=bounds(b.solidTriangles.flat());
+      } else if(['wall','roof','window'].includes(s.kind)&&mat!=='air'&&s.thickness>0) {
+        const offset=normal.map(v=>v*s.thickness/2),front=clipped.map(t=>t.map(p=>p.map((v,i)=>v+offset[i]))),back=clipped.map(t=>t.map(p=>p.map((v,i)=>v-offset[i]))),sides=front.flatMap((t,j)=>t.flatMap((a,i)=>[[a,t[(i+1)%3],back[j][(i+1)%3]],[a,back[j][(i+1)%3],back[j][i]]]));
+        b.solidTriangles=[...front,...back,...sides];b.bounds=bounds(b.solidTriangles.flat());
       }
+      const sign=normal.find(v=>Math.abs(v)>1e-6)<0?-1:1,oriented=normal.map(v=>Math.round(v*sign*1e6)/1e6);b.sheetKey=[s.kind,s.level??'',...oriented,Math.round(dotPlane(normal,clipped[0][0])*sign*1e6)/1e6].join(':');
       boundaries.push(b);
       const amount=Number(s.fuelAmount??(combustible(mat)?triangles.reduce((a,t)=>a+triangleArea(t),0):0))*area/triangles.reduce((a,t)=>a+triangleArea(t),0);
       const cls=s.fuelClass||({floor:'frame',wall:'partition',roof:'roof',door:'door'}[s.kind]);
@@ -90,7 +94,8 @@ export function compileScene(data,{profiles={}}={}) {
     const angle=(b.opening.maxOpenAngle||Math.PI/2)*fraction,cos=Math.cos(angle),sin=Math.sin(angle),pivot=b.opening.pivot;
     const rotate=p=>{const x=p[0]-pivot[0],z=p[2]-pivot[2];return [pivot[0]+cos*x+sin*z,p[1],pivot[2]-sin*x+cos*z];},n=b.closedNormal,normal=[n[0]*cos+n[2]*sin,n[1],-n[0]*sin+n[2]*cos],plane=b.closedTriangles.map(t=>t.map(rotate)),offset=normal.map(v=>v*(b.thickness||.12)/2),front=plane.map(t=>t.map(p=>p.map((v,i)=>v+offset[i]))),back=plane.map(t=>t.map(p=>p.map((v,i)=>v-offset[i]))),sides=front.flatMap((t,j)=>t.flatMap((a,i)=>[[a,t[(i+1)%3],back[j][(i+1)%3]],[a,back[j][(i+1)%3],back[j][i]]])),solidTriangles=[...front,...back,...sides];
     index.change(b.id,{openFraction:fraction,solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal});
-    const f=fuels.get(b.fuelId);if(f){for(const c of f.cells)c.fuels=c.fuels.filter(value=>value!==f);f.position=b.position;f.normal=normal;f.cells=[...new Set([-1,1].map(sign=>cellAt(b.position.map((v,i)=>v+normal[i]*sign*.08))))];for(const c of f.cells)c.fuels.push(f);}
+    const f=fuels.get(b.fuelId);if(f){for(const c of f.cells)c.fuels=c.fuels.filter(value=>value!==f);f.position=b.position;f.normal=normal;f.cells=[...new Set([-1,1].map(sign=>cellAt(b.position.map((v,i)=>v+normal[i]*sign*.08))))];if(f.lit)f.burningCell=f.cells.reduce((a,b)=>a.heat>=b.heat?a:b);for(const c of f.cells)c.fuels.push(f);}
   }
   return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor};
 }
+const dotPlane=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
