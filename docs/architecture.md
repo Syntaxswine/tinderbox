@@ -6,6 +6,7 @@
 - An anthropomorphic animal protagonist, originally a bear, with drug use and setting things on fire central to the premise. The user now permits selectable animals while the Nautilus bear is delayed; retain the existing native goat, horse and AFT bear choices.
 - Substantial reuse from Farmyard Commando: UI, art assets, and systems such as the flamethrower and explosive barrels.
 - Warm brown visual palette and 1890s typography. Use Farmyard's existing workproduct as guidance; keep a dedicated title screen before destination selection, with each destination opening as its own map.
+- The owner names Pierre-Jacques Volaire's *A River Landscape With Figures Fleeing A Burning City* as the central mood reference: deep charcoal/umber masses, broad golden firelight reaching buildings and ground, layered smoke and readable animal silhouettes. Building glow is the preferred direction, with local lighting retained for comparison. The artist's application and source locators are [recorded here](art/fire-effect-settings/README.md#owners-visual-direction-volaire); this changes the lighting/composition target while preserving the 1893 Chicago setting and native assets.
 - Separate artist and coder worktrees, coordinated and reviewed by the architect before promotion.
 - A UI specialist owns the joystick, HUD, buttons and menus in a separate worktree.
 - Tools: matches, jerry cans, Molotov cocktails, torches, and the flamethrower. Pouring toggles on/off while moving and follows the bear's speed; escaping fire advancing along that trail is an intended tactic.

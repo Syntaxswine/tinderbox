@@ -4,15 +4,17 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/review-fire-effect-settings` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Independent effect settings, early visibility contract and combined review |
+| Architect | `codex/review-furnished-house-grass` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Furnished kitchen/bedroom controls against exterior grass; preserve accepted replay |
 | Artist | `codex/fire-effect-visibility-art` from `25095656` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Independent flame/smoke/light preparation and conservative early visibility |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/fire-effect-settings-runtime` from `25095656` | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Effect preference store and workbench adapter; preserve physical simulation |
+| Coder | `codex/furnished-house-grass-comparison` from milestone-20 architect brief (assigned) | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Four-case grass comparison, additive fixture, physical evidence and finite runner |
 | UI designer | `codex/fire-effect-settings-ui` from `25095656` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Three independent effect settings; preserve the separate train interface candidate |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
 The current bounded assignment is [independent fire effect settings and early visibility](milestones/19-fire-effect-settings.md). Its [combined review](reviews/2026-11-12-fire-effect-settings.md) accepts the isolated workbench switches, conservative early culling and optional whole-building glow comparison, with actual eight-mask browser evidence and measured limits. The expensive reference and physical simulation are preserved. This candidate is not a production/Pages rollout; the wider realistic-fire milestone remains open. Worker intake pins and remaining work are in the review; Git worktree metadata records actual branch occupancy.
+
+The next owner-requested experiment is [Milestone 20: grass against the furnished house](milestones/20-furnished-house-grass-comparison.md). The existing coder compares original kitchen/bedroom replays with the same house plus exterior grass, without changing fire rules. Preserve the milestone-19 branches. The artist's documentation-only Volaire direction (`cb1c19bf`, intake `12ad1461`) is accepted as a mood target; any grass presentation is coordinated separately. No new UI assignment or production rollout is authorized by this experiment.
 
 The UI designer works from the dedicated UI worktree. Coordinate new asset exports with the artist and gameplay/runtime contracts with the coder. Follow the [reconciled reuse plan](reuse-plan.md) for Farmyard UI reuse; unresolved gameplay and device choices remain proposals. UI candidates follow the same architect promotion gate.
 
