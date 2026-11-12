@@ -3,6 +3,7 @@ import path from 'node:path';
 import {createTrial,calmWind,ambientWind} from './simulation.js';
 import {DEFAULT_CONFIG} from '../../src/simulation/config.js';
 import {createClock} from './simulation.js';
+import {bearingPiers} from './fixtures.js';
 const quad=(id,points,options={})=>({id,kind:'wall',normal:[0,1,0],material:'masonry',thickness:.12,fuelAmount:0,triangles:[[points[0],points[1],points[2]],[points[0],points[2],points[3]]],...options});
 const base=surfaces=>({version:1,prefabId:'physical-control',gridOrigin:[0,0,0],groundY:-.12,surfaces,items:[],furnitureParts:[],stores:[]});
 const output={version:1,parameters:'Current standalone profile and fixed 1/30s step; prototype controls, not physical fire validation.'};
@@ -13,14 +14,14 @@ for(const angle of Array.from({length:32},(_,i)=>i*Math.PI/16)) {
   const ignitions=trial.events.filter(e=>e.type==='ignition').map(e=>({...e,distance:e.position[0]*Math.cos(angle)+e.position[2]*Math.sin(angle),lateral:-e.position[0]*Math.sin(angle)+e.position[2]*Math.cos(angle)})).filter(e=>Math.abs(e.lateral)<.4),a=ignitions.find(e=>e.distance>=1),b=ignitions.find(e=>e.distance>=6),speed=a&&b?(b.distance-a.distance)/(b.time-a.time):null;
   output.grass.push({angleDegrees:angle*180/Math.PI,speed,relativeError:speed===null?null:(speed-1.5)/1.5,first:a,last:b,ignitions:ignitions.length,metrics:trial.metrics()});trial.dispose();
 }
-const wood=quad('wall',[[0,0,0],[4,0,0],[4,4.24,0],[0,4.24,0]],{normal:[0,0,1],material:'timber',fuelClass:'clapboard',fuelAmount:16.96}),rise=createTrial(base([wood]),{wind:calmWind});rise.command({type:'match',position:[.25,.53,.01]});rise.step(1800);
+const wood=quad('wall',[[0,0,0],[4,0,0],[4,4.24,0],[0,4.24,0]],{normal:[0,0,1],material:'timber',fuelClass:'clapboard',fuelAmount:16.96}),rise=createTrial({...base([wood]),groundY:0},{wind:calmWind});rise.command({type:'match',position:[.25,.53,.01]});rise.step(1800);
 const wallEvents=rise.events.filter(e=>e.type==='ignition'),up=wallEvents.filter(e=>e.position[0]<.51).sort((a,b)=>a.position[1]-b.position[1]),side=wallEvents.filter(e=>e.position[1]<1.06).sort((a,b)=>a.position[0]-b.position[0]);
 const velocity=(list,axis)=>list.length>1?(list.at(-1).position[axis]-list[0].position[axis])/(list.at(-1).time-list[0].time):null;
 const upSpeed=velocity(up,1),creepSpeed=velocity(side,0);output.wall={upSpeed,creepSpeed,ratio:upSpeed/creepSpeed,up,side,metrics:rise.metrics()};rise.dispose();
 const floor=(id,y,mat='masonry',fuel=0)=>quad(id,[[0,y,0],[2,y,0],[2,y,2],[0,y,2]],{kind:'floor',normal:[0,1,0],material:mat,fuelClass:'frame',fuelAmount:fuel});
 const fixture=base([floor('bottom',0),floor('support',2.12,'timber',4),floor('lid',4.24),quad('west',[[0,0,0],[0,4.24,0],[0,4.24,2],[0,0,2]],{normal:[1,0,0]}),quad('east',[[2,0,0],[2,4.24,0],[2,4.24,2],[2,0,2]],{normal:[1,0,0]}),quad('front',[[0,0,0],[2,0,0],[2,4.24,0],[0,4.24,0]],{normal:[0,0,1]}),quad('back',[[0,0,2],[2,0,2],[2,4.24,2],[0,4.24,2]],{normal:[0,0,1]})]);
 for(const [id,y]of [['upper',2.12],['lower',0]]){fixture.items.push({id,position:[.75,y,.75],bounds:{min:[.6,y,.6],max:[.9,y+.4,.9]}});fixture.furnitureParts.push({id,itemId:id,material:'timber',fuelClass:'furniture',fuelAmount:1,bounds:fixture.items.at(-1).bounds});}
-const sealed=createTrial(fixture,{wind:calmWind});sealed.command({type:'match',position:[.75,2.25,.75]});let maximumBeforeFailure=0;
+fixture.surfaces.push(...bearingPiers());const sealed=createTrial(fixture,{wind:calmWind});if(sealed.supportGraph.diagnostics().unresolvedInitial)throw Error('Sealed control needs real grounded bearing');sealed.command({type:'match',position:[.75,2.25,.75]});let maximumBeforeFailure=0;
 for(let i=0;i<6000;i++){sealed.step();if(!sealed.events.some(e=>e.type==='support-failure'))maximumBeforeFailure=Math.max(maximumBeforeFailure,...sealed.scene.fuels.get('lower').cells.map(c=>c.heat));}
 const failure=sealed.events.find(e=>e.type==='support-failure'),landing=sealed.events.find(e=>e.type==='landing'),lowerIgnition=sealed.events.find(e=>e.type==='ignition'&&e.fuelId==='lower');output.sealedFloor={maximumBeforeFailure,failure,landing,lowerIgnition,secondsAfterLanding:landing&&lowerIgnition?lowerIgnition.time-landing.time:null,metrics:sealed.metrics()};
 output.radiation=[];
