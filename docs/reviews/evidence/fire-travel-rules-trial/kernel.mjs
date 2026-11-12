@@ -19,7 +19,7 @@ export const DEFAULT_FUELS = {
   oil: {lightAt: .6, delay: 0, burnFor: 14, out: 3},
   clapboard: {lightAt: 1.1, delay: 4.5, burnFor: 20, out: 1},
   partition: {lightAt: 1.1, delay: 5, burnFor: 90, out: 1},
-  door: {lightAt: 1.1, delay: 5, burnFor: 50, out: 1},
+  door: {lightAt: 1.1, delay: 4.5, burnFor: 50, out: 1},
   roof: {lightAt: 1.1, delay: 8, burnFor: 80, out: 1},
   frame: {lightAt: 1.3, delay: 3, burnFor: 80, out: 1.2},
   furniture: {lightAt: 1.1, delay: 3, burnFor: 30, out: 1.5},
@@ -31,7 +31,7 @@ export const DEFAULT_FUELS = {
 export const DEFAULT_RULES = {
   step: DT,           // seconds per step. Part of the rules: results move with it (review round 1, S1)
   rate: 4,            // heat per second a neighbour receives per unit of output, level, one tile away
-  maxHeat: 3,         // also sets the climb ratio: a tile above a fire sits at this ceiling
+  maxHeat: 2.9,         // also sets the climb ratio: a tile above a fire sits at this ceiling
   loss: 2,            // share of its heat every tile loses per second. One number, every tile
   up: 3, upDiagonal: 2, downDiagonal: .06, down: .04,   // Rule 4
   falloff: 1.5,         // a neighbour at distance d receives 1 / d^falloff
@@ -39,7 +39,7 @@ export const DEFAULT_RULES = {
   glassBreaks: 1.6,
   storeyPass: .05,      // Rule 5: what a wall passes up or down its own plane past a floor
   through: 4,         // Rule 5: a surface lit on one side gives the far side (share consumed)^through
-  reach: 3, radiantGain: .5, radiantEvery: .5,          // Rule 6
+  reach: 0, radiantGain: .5, radiantEvery: .5,          // Rule 6 is WITHDRAWN (review round 3): reach 0 means none. 3 m was the value tried
   reachUnderCover: false,   // Rule 6: reach is for fire in the open. false: only tiles with nothing closed above them reach or are reached
   burstRadius: 1.5, burstPulse: 2,                       // Rule 8. A can bursts when its oil would light
   charFades: .5,      // Rule 2: char lost per second below the lighting point
@@ -278,7 +278,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
       for (const {target, weight} of tile.links) { target.incoming += dt * weight * out; active.add(target); }
       tile.incoming += dt * rules.rate * out;
     }
-    if (stats.ticks % radiantTicks === 0) radiate();
+    if (rules.reach > 0 && stats.ticks % radiantTicks === 0) radiate();
     // 2. Heat first, for every warm tile; then charring and burning. No fuel reads a neighbour's heat from
     // a different step than its own (review round 1, S7).
     for (const tile of active) {

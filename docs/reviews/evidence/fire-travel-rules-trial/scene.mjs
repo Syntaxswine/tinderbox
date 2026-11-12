@@ -1,11 +1,16 @@
-// Builds test scenes for the trial kernel: lawns, paving, and houses made from a real catalogue plan
-// (rooms, windows, doors, stairs read from src/content/housing-plans.js; nothing else of the game is used).
+// Builds test scenes for the trial kernel: lawns, paving, and houses made from a real catalogue plan.
+// Read from the game: the plan data (src/content/housing-plans.js) and the game's own list of outside
+// wall edges with their windows and front door (exteriorPlanEdges in src/content/housing-envelope.js),
+// so the two plans that list no windows get the ones the game infers for them. Nothing else of the game
+// is used. NOT built: porch posts and steps, the plinth, basements, bay windows on a diagonal wall,
+// chimneys, roof pitch (every roof is flat at its storey's top), eaves.
 import {pathToFileURL} from 'node:url';
 import path from 'node:path';
 import {PITCH} from './kernel.mjs';
 
 const root = path.resolve(import.meta.dirname, '../../../..');
 const {HOUSING_PLANS} = await import(pathToFileURL(path.join(root, 'src/content/housing-plans.js')).href);
+const {exteriorPlanEdges} = await import(pathToFileURL(path.join(root, 'src/content/housing-envelope.js')).href);
 export const plan = id => HOUSING_PLANS[id];
 
 const inside = (polygon, x, z) => {
@@ -51,6 +56,12 @@ export function house(world, name, planId, ox, oy, contents = {}) {
   const onSegment = (segments, mx, mz) => segments?.some(([x0, z0, x1, z1]) =>
     Math.abs(x0 - x1) < 1e-6 ? Math.abs(mx - x0) < 1e-6 && mz > Math.min(z0, z1) && mz < Math.max(z0, z1)
       : Math.abs(mz - z0) < 1e-6 && mx > Math.min(x0, x1) && mx < Math.max(x0, x1));
+  // Outside openings, one list per floor, from the game's own edge list. A plan with party walls (the Monroe
+  // row) has no windows in its side walls, as in the game.
+  const openings = p.floors.map(floor => {
+    const edges = exteriorPlanEdges(floor).filter(e => e.a[0] === e.b[0] || e.a[1] === e.b[1]), seg = e => [e.a[0], e.a[1], e.b[0], e.b[1]];
+    return {windows: edges.filter(e => e.opening === 'window' && !(p.partyWalls && e.a[0] === e.b[0])).map(seg), entry: edges.filter(e => e.opening === 'entry').map(seg)};
+  });
   // Doors: for each connected pair of rooms, the shared face nearest the middle of their boundary.
   const doorFaces = new Set(), openPairs = new Set();
   for (const [f, floor] of p.floors.entries()) {
@@ -92,9 +103,10 @@ export function house(world, name, planId, ox, oy, contents = {}) {
       if (!other) {
         // Outside wall: clapboard on both layers, glass in the upper layer at a window.
         for (const [tile, k] of [[low, k0], [high, k0 + 1]]) {
-          if (k === k0 + 1 && onSegment(floor.windows, mx, mz)) { world.setFace(i, j, k, axis, step, 'glass'); continue; }
+          if (k === k0 + 1 && onSegment(openings[f].windows, mx, mz)) { world.setFace(i, j, k, axis, step, 'glass'); continue; }
           const object = world.setFace(i, j, k, axis, step, 'timber');
-          world.addFuel(tile, 'clapboard', 1, {face: {axis, step, object}});
+          // The front door is a shut door in the lower layer of the wall.
+          world.addFuel(tile, k === k0 && onSegment(openings[f].entry, mx, mz) ? 'door' : 'clapboard', 1, {face: {axis, step, object}});
         }
       } else if (other !== room && step > 0) {
         // Partition between two rooms, built once from the lower-numbered side.
@@ -113,6 +125,16 @@ export function house(world, name, planId, ox, oy, contents = {}) {
   // warmed from (review round 2, M1: the first builder left the top roof with nothing above it). They hold
   // nothing and carry no label.
   const top = 2 * p.floors.length, houseTiles = [...rooms.values()].flatMap(record => record.tiles);
+  // The porch the plan declares: a timber deck on the ground and a roof over it at the top of the ground
+  // storey, open on its sides. Its tiles carry no label, so its fuel is not counted as the house's.
+  const porch = [];
+  if (p.porch) for (let cj = Math.round(p.porch.z / PITCH); cj < Math.round((p.porch.z + p.porch.depth) / PITCH); cj++) for (let ci = Math.round(p.porch.x / PITCH); ci < Math.round((p.porch.x + p.porch.width) / PITCH); ci++) {
+    if (roomOf(0, ci, cj)) continue;
+    const low = world.addTile(oi + ci, oj + cj, 0), high = world.addTile(oi + ci, oj + cj, 1);
+    world.addFuel(low, 'frame', 1, {supports: true});
+    world.addFuel(high, 'roof', 1, {face: {axis: 2, step: 1, object: world.setFace(oi + ci, oj + cj, 1, 2, 1, 'timber')}});
+    porch.push(low, high); houseTiles.push(low, high);
+  }
   for (const tile of houseTiles) for (let dj = -1; dj <= 1; dj++) for (let di = -1; di <= 1; di++) for (let k = 0; k <= top; k++)
     if (!world.tileAt(tile.i + di, tile.j + dj, k)) world.addTile(tile.i + di, tile.j + dj, k);
   // Contents, by room type, at the room's middle cell.
@@ -129,5 +151,5 @@ export function house(world, name, planId, ox, oy, contents = {}) {
     if (contents.oil && (record.type === 'kitchen' || record.type === 'pantry')) world.addFuel(next, 'oil', 3, {store: 'oil'});
     if (contents.coal && record.type === 'kitchen') world.addFuel(next, 'coal', 1);
   }
-  return {name, plan: p, rooms, origin: [oi, oj]};
+  return {name, plan: p, rooms, origin: [oi, oj], porch, glass: openings.map(o => o.windows.length)};
 }

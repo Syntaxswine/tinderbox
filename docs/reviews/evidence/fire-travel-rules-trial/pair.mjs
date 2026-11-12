@@ -1,4 +1,4 @@
-// Targets 11 and 12: two Hopkins 15 houses side by side with a gap between their walls, on bare ground or
+// Targets 11 and 12: two houses of one plan side by side with a gap between their walls, on bare ground or
 // with lawn between. The match is NOT on the facing wall (review round 1, M6): it is on the far wall of
 // house A, or in a room of it. Any plan can be used for the pair (review round 2, M2).
 //   node docs/reviews/evidence/fire-travel-rules-trial/pair.mjs <gap m> <bare|lawn> [strike] [rules json] [fuels json] [seconds] [plan]

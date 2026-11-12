@@ -9,12 +9,13 @@ export const ALL = {furniture: true, lacquer: 'some', oil: true, coal: true};
 export const round = (v, d = 2) => v === null || v === undefined || !Number.isFinite(v) ? null : +v.toFixed(d);
 export const make = (rules = {}, fuelOverrides = {}) => createWorld({rules, fuels: Object.fromEntries(Object.entries(DEFAULT_FUELS).map(([name, spec]) => [name, {...spec, ...fuelOverrides[name]}]))});
 export const quantile = (list, q) => { const s = [...list].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.floor(q * s.length))] : null; };
+export const median = list => { const s = [...list].sort((a, b) => a - b), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
 
 // Every outside-wall surface of a house on layer k, with the outside tile it faces.
 export function outsideWalls(world, a, k = 0) {
   const list = [];
   for (const record of a.rooms.values()) for (const tile of record.tiles) if (tile.k === k) for (const fuel of tile.fuels) {
-    if (fuel.cls !== 'clapboard' || !fuel.face || fuel.face.axis === 2) continue;
+    if (fuel.cls !== 'clapboard' && fuel.cls !== 'door' || !fuel.face || fuel.face.axis === 2) continue;   // the front door is part of the outside wall
     const outside = world.across(tile, fuel.face);
     if (!outside || outside.building) continue;
     list.push({tile, fuel, outside, room: record.label, side: (fuel.face.axis === 0 ? 'x' : 'y') + (fuel.face.step > 0 ? '+' : '-')});
@@ -56,7 +57,7 @@ export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at
   const initial = [];
   for (const record of a.rooms.values()) for (const tile of record.tiles) for (const fuel of tile.fuels) initial.push({fuel, room: record.label, cls: fuel.cls});
   const struck = strike(world, a, at);
-  let flameUntil = 0, peakActive = 0, shareAtPeak = 0;
+  let flameUntil = 0, burningUntil = 0, peakActive = 0, shareAtPeak = 0;
   const steps = Math.round(seconds / dt), every = Math.round(.5 / dt), costs = timed ? new Float64Array(steps) : null;
   for (let n = 0; n < steps; n++) {
     const began = timed ? performance.now() : 0;
@@ -67,6 +68,7 @@ export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at
       let burning = 0, flame = false;
       for (const item of initial) if (item.fuel.lit) { burning++; if (item.cls !== 'coal') flame = true; }
       if (flame) flameUntil = world.time;
+      if (burning) burningUntil = world.time;
       shareAtPeak = Math.max(shareAtPeak, burning / initial.length);
     }
   }
@@ -82,8 +84,16 @@ export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at
   const groundRoofLit = ev.find(e => mine(e) && e.type === 'lit' && e.at[2] < 2 && e.cls === 'roof');
   const upstairsLit = ev.find(e => mine(e) && e.type === 'lit' && e.at[2] >= 2 && e.cause !== 'match');
   const firstOf = name => ev.find(e => e.type === 'lit' && e.building === name)?.time ?? null;
+  // Target 3 on this wall, for an outside-wall strike: up the struck column to its top against 3 m along it, each way.
+  let climb = null;
+  if (struck.wall) {
+    const {tile, fuel} = struck.wall, same = t => t?.fuels.find(f => (f.cls === 'clapboard' || f.cls === 'door') && f.face && f.face.axis === fuel.face.axis && f.face.step === fuel.face.step);
+    let top = 0; while (same(world.tileAt(tile.i, tile.j, top + 1))) top++;
+    const up = same(world.tileAt(tile.i, tile.j, top))?.litAt, along = [6, -6].map(d => same(fuel.face.axis === 0 ? world.tileAt(tile.i, tile.j + d, 0) : world.tileAt(tile.i + d, tile.j, 0))?.litAt).filter(v => v != null && v > 0);
+    if (top > 0 && up > 0) climb = along.map(v => (top * LAYER / up) / (3 / v));
+  }
   const sorted = timed ? [...costs].sort((p, q) => p - q) : null;
-  return {world, a, others, struck, n: initial.length, half, roomAll, roomLit: items.filter(x => x.fuel.litAt !== null).length, roomN: items.length,
+  return {world, a, others, struck, climb, burningUntil, n: initial.length, half, roomAll, roomLit: items.filter(x => x.fuel.litAt !== null).length, roomN: items.length,
     flameUntil, fall, fallToGround, groundLit, groundRoofLit, upstairsLit, peakActive, shareAtPeak, never: initial.filter(x => x.fuel.litAt === null && x.fuel.amount > 0).length,
     neighbours: Object.fromEntries(neighbours.map(([name]) => [name, firstOf(name)])),
     ledger: world.ledger.laid - world.ledger.burnt - world.remaining(),

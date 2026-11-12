@@ -8,7 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {DEFAULT_FUELS, DEFAULT_RULES} from './kernel.mjs';
-import {make, burn, house, lawn, paving, outsideWalls, strikesOf, round, quantile, PLANS, ALL, PITCH, LAYER} from './measure.mjs';
+import {make, burn, house, lawn, paving, outsideWalls, strikesOf, round, median, PLANS, ALL, PITCH, LAYER} from './measure.mjs';
 import {grass} from './grass.mjs';
 import {pair} from './pair.mjs';
 import {bareWall} from './wall.mjs';
@@ -52,12 +52,15 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   const verdict = (list, test) => !list.length ? 'NO DATA' : list.every(test) ? 'MET' : list.filter(test).length >= list.length / 2 ? 'PARTLY' : 'MISSED';
   const walls = rows.filter(r => r.kind === 'wall'), wallsIn = rows.filter(r => r.kind === 'wall-in'), rooms = rows.filter(r => r.kind === 'room'), up = rows.filter(r => r.floor > 0), num = (list, f) => list.map(f).filter(v => v !== null);
   say('    survey: ' + rows.length + ' strikes on ' + plansRead + ' plans (' + walls.length + ' outside walls with the match held outside, the same ' + wallsIn.length + ' with it held inside; ' + rooms.length + ' rooms, furniture lit)');
+  const climbs = walls.flatMap(r => r.climb ?? []), inBand = climbs.filter(v => v >= 2.5 && v <= 3.5).length;
+  say('    target 3 on the houses: ' + inBand + ' of ' + climbs.length + ' measurable directions on ' + walls.filter(r => r.climb?.length).length + ' outside walls in 2.5 to 3.5; ' + range(climbs) + ', median ' + round(median(climbs)));
+  if (results[3].verdict === 'MET' && inBand < climbs.length) results[3].verdict = 'PARTLY';
   const t4 = r => r.room !== null && r.room >= 10 && r.room <= 20;
-  report(4, verdict(walls, t4), 'room behind the match fully alight: ' + count(walls, t4) + ' wall strikes in range; ' + range(num(walls, r => r.room)) + ' s, median ' + round(quantile(num(walls, r => r.room), .5))
-    + '. Match held inside the same walls: ' + count(wallsIn, t4) + ', ' + range(num(wallsIn, r => r.room)) + ' s, median ' + round(quantile(num(wallsIn, r => r.room), .5)) + '. Room strikes, for information: ' + range(num(rooms, r => r.room)) + ' s, median ' + round(quantile(num(rooms, r => r.room), .5)) + '   [target: 10 to 20 s]');
+  report(4, verdict(walls, t4), 'room behind the match fully alight: ' + count(walls, t4) + ' wall strikes in range; ' + range(num(walls, r => r.room)) + ' s, median ' + round(median(num(walls, r => r.room)))
+    + '. Match held inside the same walls: ' + count(wallsIn, t4) + ', ' + range(num(wallsIn, r => r.room)) + ' s, median ' + round(median(num(wallsIn, r => r.room))) + '. Room strikes, for information: ' + range(num(rooms, r => r.room)) + ' s, median ' + round(median(num(rooms, r => r.room))) + '   [target: 10 to 20 s]');
   const t5 = r => r.half !== null && r.half >= 40 && r.half <= 70;
   report(5, verdict(rows, t5), 'half the house alight: ' + count(rows, t5) + ' strikes in range (' + count(walls, t5) + ' wall outside, ' + count(wallsIn, t5) + ' wall inside, ' + count(rooms.filter(r => !r.floor), t5) + ' ground rooms, ' + count(up, t5) + ' upstairs rooms); '
-    + range(num(rows, r => r.half)) + ' s, median ' + round(quantile(num(rows, r => r.half), .5)) + '   [target: 40 to 70 s]');
+    + range(num(rows, r => r.half)) + ' s, median ' + round(median(num(rows, r => r.half))) + '   [target: 40 to 70 s]');
   const t6 = r => r.flameUntil >= 90;
   report(6, verdict(rows, t6), 'flame in the house: ' + count(rows, t6) + ' strikes at 90 s or more; ' + range(num(rows, r => r.flameUntil)) + ' s   [target: 90 s or more]');
   const t7 = r => r.firstFall !== null && r.firstFall >= 60 && r.firstFall <= 150;
@@ -73,13 +76,14 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
 }
 // 9. Stores. The same kitchen fire with and without the oil and coal, on six plans; and kitchen against
 // dining room on Hopkins 15 with and without them (review round 2, M4: the room's position is a confound).
+// The wreck is compared by when the last thing in it stops burning (review round 3, S1).
 {
   const NO_STORES = {furniture: true, lacquer: 'some'}, gains = [];
   for (const planId of PLANS) { const withStores = burn({planId, at: 'room:0:kitchen', seconds: 150}), without = burn({planId, at: 'room:0:kitchen', seconds: 150, contents: NO_STORES}); gains.push(without.half - withStores.half); }
-  const heat = r => { let sum = 0; for (const tile of r.world.active) sum += tile.heat; return round(sum, 1); };
-  const k = burn({at: 'room:0:kitchen', seconds: 300}), d = burn({at: 'room:0:dining', seconds: 300}), k0 = burn({at: 'room:0:kitchen', seconds: 300, contents: NO_STORES}), d0 = burn({at: 'room:0:dining', seconds: 300, contents: NO_STORES});
+  const k = burn({at: 'room:0:kitchen', seconds: 500}), d = burn({at: 'room:0:dining', seconds: 500}), k0 = burn({at: 'room:0:kitchen', seconds: 500, contents: NO_STORES}), d0 = burn({at: 'room:0:dining', seconds: 500, contents: NO_STORES});
   report(9, 'PARTLY', 'a kitchen fire reaches half the house ' + range(gains) + ' s sooner with the oil and coal than without, on six plans. Hopkins 15, kitchen against dining room: with stores ' + round(k.half) + ' against ' + round(d.half) + ' s; without ' + round(k0.half) + ' against ' + round(d0.half)
-    + ' s, so most of that difference is where the room is. Heat left in the wreck at 300 s: ' + heat(k) + ' against ' + heat(d) + ' (kitchen, dining, with stores); without stores ' + heat(k0) + ' and ' + heat(d0) + '   [target: a stated, measured difference in time to half alight and in heat left in the wreck]');
+    + ' s, so that difference is where the room is. The wreck: the last flame other than coal is out at ' + round(k.flameUntil) + ' and ' + round(d.flameUntil) + ' s (kitchen, dining) with stores, ' + round(k0.flameUntil) + ' and ' + round(d0.flameUntil) + ' s without; with stores the coal then burns on alone until '
+    + round(k.burningUntil) + ' and ' + round(d.burningUntil) + ' s   [target: a stated, measured difference in time to half alight and in heat left in the wreck]');
 }
 // 10. Paving.
 {
@@ -90,23 +94,22 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   report(10, straight === null ? 'MET' : 'MISSED', 'lawn fire and 0.5 m of paving square to the grid: ' + (straight === null ? 'does not cross' : 'crosses at ' + round(straight) + ' s') + '. A diagonal strip one tile wide (0.35 m across): '
     + (d1 === null ? 'does not cross' : 'CROSSES at ' + round(d1) + ' s') + '; two tiles wide (0.71 m): ' + (d2 === null ? 'does not cross' : 'CROSSES at ' + round(d2) + ' s') + '   [target: does not cross 0.5 m]');
 }
-// 11, 12. The house next door.
+// 11, 12. The house next door. Rule 6 (reach) is withdrawn, so on bare ground nothing crosses a gap.
+// reach-options.mjs measures what each form of reach would buy and cost.
 {
   const table = [], farWall = planId => strikesOf(planId).find(s => s.startsWith('wall:x-') && !s.endsWith(':in'));
-  for (const gap of [1, 2, 2.5, 3, 5, 8]) table.push(pair(gap, 'bare', farWall('hopkins-4-15')));
+  for (const gap of [.5, 1, 2, 8]) table.push(pair(gap, 'bare', farWall('hopkins-4-15')));
   for (const gap of [3, 8]) table.push(pair(gap, 'lawn', farWall('hopkins-4-15')));
   const byPlan = PLANS.map(planId => planId === 'hopkins-4-15' ? table.find(p => p.gap === 2) : pair(2, 'bare', farWall(planId), {}, {}, 200, planId));
-  const byStrike = strikesOf('hopkins-4-15').filter(s => s.startsWith('room')).map(at => pair(2, 'bare', at));
   const line = p => '    ' + p.plan.padEnd(15) + 'gap ' + String(p.gap).padEnd(4) + p.ground.padEnd(5) + ' strike ' + p.at.padEnd(15) + ' neighbour ' + (p.neighbourLit === null ? 'never (200 s)' : 'lit at ' + round(p.neighbourLit) + ' s, ' + round(p.afterFacing) + ' s after A\'s facing wall first burnt')
     + '; A half alight at ' + round(p.half) + ' s' + (p.grassLit !== null ? '; grass lit at ' + round(p.grassLit) + ' s' : '');
-  for (const p of [...table, ...byPlan.filter(p => p.plan !== 'hopkins-4-15'), ...byStrike]) say(line(p));
-  const ok = p => p.afterFacing !== null && p.afterFacing <= 30, n = (list) => list.filter(ok).length + ' of ' + list.length;
-  const eight = table.find(p => p.gap === 8 && p.ground === 'bare'), lawn8 = table.find(p => p.gap === 8 && p.ground === 'lawn'), wider = table.filter(p => p.ground === 'bare' && p.gap > 2).every(p => p.neighbourLit === null);
-  report(11, byPlan.every(ok) && byStrike.every(ok) ? 'MET' : byPlan.filter(ok).length >= 3 ? 'PARTLY' : 'MISSED', 'bare ground, 2 m, a pair of the same plan, match on the far wall: the neighbour lights within 30 s of the facing wall first burning on ' + n(byPlan) + ' plans ('
-    + byPlan.map(p => p.plan.replace('hopkins-4-', 'H').replace('-worker', '').replace('-row', '') + ' ' + (p.afterFacing === null ? 'never' : round(p.afterFacing, 0) + ' s')).join(', ') + '). Hopkins 15 with the furniture lit in each room: ' + n(byStrike) + '. '
-    + (wider ? 'At 2.5 m and wider it never does' : 'At 2.5 m or wider it sometimes does') + '   [target: yes, within 30 s]');
+  for (const p of [...table, ...byPlan.filter(p => p.plan !== 'hopkins-4-15')]) say(line(p));
+  const ok = p => p.afterFacing !== null && p.afterFacing <= 30, bare = table.filter(p => p.ground === 'bare');
+  const eight = table.find(p => p.gap === 8 && p.ground === 'bare'), lawn8 = table.find(p => p.gap === 8 && p.ground === 'lawn');
+  report(11, byPlan.every(ok) ? 'MET' : byPlan.filter(ok).length >= 3 ? 'PARTLY' : 'MISSED', 'bare ground, 2 m, a pair of the same plan, match on the far wall: the neighbour lights within 30 s on ' + byPlan.filter(ok).length + ' of ' + byPlan.length + ' plans, and at all in 200 s on ' + byPlan.filter(p => p.neighbourLit !== null).length
+    + '. Hopkins 15 at 0.5, 1, 2 and 8 m: ' + bare.map(p => p.neighbourLit === null ? 'never' : round(p.neighbourLit) + ' s').join(', ') + '. With no reach rule, fire crosses a gap only on grass   [target: yes, within 30 s]');
   report(12, eight.neighbourLit === null ? (lawn8.neighbourLit === null ? 'MET' : 'PARTLY') : 'MISSED', '8 m: on bare ground ' + (eight.neighbourLit === null ? 'never' : 'lit at ' + round(eight.neighbourLit) + ' s') + '; with lawn between, ' + (lawn8.neighbourLit === null ? 'never' : 'lit at ' + round(lawn8.neighbourLit) + ' s, carried by the grass') + '   [target: no]');
-  results.pairs = [...table, ...byPlan, ...byStrike];
+  results.pairs = [...table, ...byPlan];
 }
 report(13, 'UNTESTED', 'a lantern is never a dud: the scene has no stone plinth and the kernel has no lantern');
 // 14. Ledger and time step.
