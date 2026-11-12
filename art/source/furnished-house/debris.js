@@ -46,7 +46,7 @@ export function createDebrisView(T,{surfaces,getBoundary}={}){
   for(const t of g.triangles){if(triangleArea(t)<1e-10)continue;const n=normal(t);for(const p of t){positions.push(...sub(p,g.origin));normals.push(...n);}}
   geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));geometry.setAttribute('normal',new T.Float32BufferAttribute(normals,3));geometry.computeBoundingSphere();
   const m=new T.MeshStandardMaterial({color:0x413733,roughness:1,side:T.DoubleSide}),object=new T.Mesh(geometry,m);object.name='Exact tracked fragment '+f.id;object.castShadow=object.receiveShadow=true;flightRoot.add(object);
-  const r={mesh:object,sourceSurfaceIds:g.sourceSurfaceIds,fuelIds:f.fuelIds||[],pendingLanding:false};flights.set(f.id,r);return r;
+  const r={mesh:object,sourceSurfaceIds:g.sourceSurfaceIds,fuelIds:f.fuelIds||[]};flights.set(f.id,r);return r;
  }
  function updateResidue(record){
   const old=residue.get(record.id),value={...old?.value,...record},footprint=asTriangles(value.floorFootprint||value.footprint||value.triangles,value.position?.[1]||0);
@@ -54,7 +54,6 @@ export function createDebrisView(T,{surfaces,getBoundary}={}){
   const thickness=value.thickness??.01,oldValue=old?.value,shapeChanged=!old||oldValue.floorFootprint!==value.floorFootprint||oldValue.triangles!==value.triangles||oldValue.footprint!==value.footprint||oldValue.thickness!==thickness;
   let triangles=old?.triangles;
   if(shapeChanged){const top=footprint.map(t=>t.map(p=>[p[0],p[1]+thickness,p[2]]));triangles=prism(top,[0,-thickness,0]);topologyDirty=true;}
-  for(const id of value.fuelIds||[])fuelToResidue.set(id,record.id);
   residue.set(record.id,{value:{...value,thickness},triangles,start:old?.start,count:old?.count});
   if(!old||['phase','kind','remainingFraction','remainingAmount','heatFraction','spent'].some(k=>oldValue[k]!==value[k]))shadeDirty=true;
  }
@@ -68,18 +67,29 @@ export function createDebrisView(T,{surfaces,getBoundary}={}){
  function reset(){for(const id of [...flights.keys()])removeFlight(id);residue.clear();fuelToResidue.clear();topologyDirty=true;shadeDirty=false;missingGeometry=0;rebuild();}
  function update(frame){
   if(disposed)return;
-  for(const r of frame.rubble||frame.landedRubble||[]){updateResidue(r);if(r.fallId)removeFlight(r.fallId);for(const [id,f]of flights)if(f.pendingLanding&&f.fuelIds.some(v=>r.fuelIds?.includes(v)))removeFlight(id);}
-  for(const f of frame.falls||[]){if(f.itemId)continue;const r=flights.get(f.id)||makeFlight(f,frame);if(r){r.mesh.position.fromArray(f.position);r.mesh.quaternion.fromArray(f.quaternion||[0,0,0,1]);}}
-  for(const t of frame.tombstones||[]){const id=typeof t==='string'?t:t.id;
-   if(t.collection==='rubble'){const r=residue.get(id);if(r){for(const fuel of r.value.fuelIds||[])fuelToResidue.delete(fuel);residue.delete(id);topologyDirty=true;}continue;}
-   if(t.collection==='falls'||flights.has(id)){const landed=(frame.events||[]).find(e=>e.type==='landing'&&e.fallId===id),r=flights.get(id),published=[...residue.values()].some(v=>v.value.fallId===id||v.value.id===id||(landed?.fuelIds||[]).some(f=>v.value.fuelIds?.includes(f)));
-    if(landed&&!published&&r){r.pendingLanding=true;r.mesh.position.fromArray(landed.position);}else removeFlight(id);
-   }
+  const records=frame.rubble??frame.landedRubble,deadFlights=new Set();
+  // Upserts/tombstones form one atomic delta; empty camera draws preserve live state.
+  if(frame.full||frame.completeCollections?.includes('rubble')){
+   const currentIds=new Set((records||[]).map(r=>r.id));
+   for(const id of residue.keys())if(!currentIds.has(id)){residue.delete(id);topologyDirty=true;}
   }
+  for(const t of frame.tombstones||[]){const id=typeof t==='string'?t:t.id;
+   if(t.collection==='rubble'){if(residue.delete(id))topologyDirty=true;}
+   else if(t.collection==='falls'||flights.has(id))deadFlights.add(id);
+  }
+  // Upserts are the final current state; rebuild associations after all removals.
+  for(const r of records||[])updateResidue(r);
+  fuelToResidue.clear();for(const [id,r]of residue)for(const fuelId of r.value.fuelIds||[])fuelToResidue.set(fuelId,id);
+  if(frame.full||frame.completeCollections?.includes('falls')){
+   const currentIds=new Set((frame.falls||[]).filter(f=>!f.itemId).map(f=>f.id));
+   for(const id of flights.keys())if(!currentIds.has(id))removeFlight(id);
+  }
+  for(const f of frame.falls||[]){if(f.itemId||deadFlights.has(f.id))continue;const r=flights.get(f.id)||makeFlight(f,frame);if(r){r.mesh.position.fromArray(f.position);r.mesh.quaternion.fromArray(f.quaternion||[0,0,0,1]);}}
+  for(const id of deadFlights)removeFlight(id);
   rebuild();
  }
- function diagnostics(){return {flights:flights.size,residue:residue.size,pendingLanding:[...flights.values()].filter(r=>r.pendingLanding).length,missingGeometry,draws:(mesh.visible?1:0)+flights.size,resources:{geometries:1+flights.size,materials:1+flights.size}};}
- function inspect(){return {flights:[...flights].map(([id,r])=>({id,position:r.mesh.position.toArray(),bounds:(r.mesh.geometry.computeBoundingBox(),{min:r.mesh.geometry.boundingBox.min.toArray(),max:r.mesh.geometry.boundingBox.max.toArray()}),pendingLanding:r.pendingLanding,sourceSurfaceIds:r.sourceSurfaceIds})),rubble:[...residue].map(([id,r])=>({id,fuelIds:r.value.fuelIds,phase:r.value.phase,thickness:r.value.thickness,heat:tint(T,r.value).heat,bounds:bounds(r.triangles.flat())}))};}
+ function diagnostics(){return {flights:flights.size,residue:residue.size,pendingLanding:0,missingGeometry,draws:(mesh.visible?1:0)+flights.size,resources:{geometries:1+flights.size,materials:1+flights.size}};}
+ function inspect(){return {flights:[...flights].map(([id,r])=>({id,position:r.mesh.position.toArray(),bounds:(r.mesh.geometry.computeBoundingBox(),{min:r.mesh.geometry.boundingBox.min.toArray(),max:r.mesh.geometry.boundingBox.max.toArray()}),pendingLanding:false,sourceSurfaceIds:r.sourceSurfaceIds})),rubble:[...residue].map(([id,r])=>({id,fuelIds:r.value.fuelIds,phase:r.value.phase,thickness:r.value.thickness,heat:tint(T,r.value).heat,bounds:bounds(r.triangles.flat())}))};}
  function dispose(){if(disposed)return;disposed=true;for(const id of [...flights.keys()])removeFlight(id);residue.clear();fuelToResidue.clear();mesh.geometry.dispose();material.dispose();root.removeFromParent();root.clear();}
- return {root,update,reset,diagnostics,inspect,dispose,findFuel(id){return residue.get(fuelToResidue.get(id))?.value;},setView(mode,level){viewMode.value=mode==='cutaway'?1:0;viewLevel.value=level;for(const r of flights.values())r.mesh.visible=mode!=='cutaway'||Math.max(0,Math.floor((r.mesh.position.y-.40)/2.12))===level;}};
+ return {root,update,reset,diagnostics,inspect,dispose,findFuel(id,rubbleId){return residue.get(rubbleId)?.value||residue.get(fuelToResidue.get(id))?.value;},setView(mode,level){viewMode.value=mode==='cutaway'?1:0;viewLevel.value=level;for(const r of flights.values())r.mesh.visible=mode!=='cutaway'||Math.max(0,Math.floor((r.mesh.position.y-.40)/2.12))===level;}};
 }
