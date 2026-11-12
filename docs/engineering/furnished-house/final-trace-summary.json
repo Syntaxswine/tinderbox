@@ -1,0 +1,643 @@
+{
+  "version": 1,
+  "status": "Runtime and numerical controls passed; combined actual renderer, video and quiet hardware review remain architect-owned",
+  "runtimeCommit": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+  "artistPresentationCommit": "66a49e39a775faee7ba5c6f259109e4a314372da",
+  "artistGeometryCommit": "e3e0caa",
+  "sourceDataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+  "traceFile": "artifacts/qa/furnished-house/paired-bearing-330.json",
+  "traceFileSha256": "01caedf5dc5715e0417c9978eb342767b5272913e13d8f66f1a31dec4f17aa52",
+  "traceTool": "workbenches/furnished-house/check-trial.mjs",
+  "traceToolSha256": "7b23885e35d090d56a0d772885ccdc2f646cc276707384f37d19308d26a9fb1d",
+  "timingScope": "Concurrent Node diagnostics, exclude renderer work; not quiet hardware/GPU usability acceptance",
+  "runtime": "v24.15.0",
+  "worldSeconds": 330,
+  "cases": [
+    {
+      "name": "kitchen",
+      "worldSeconds": 330,
+      "steps": 9900,
+      "initializationMs": 518.7638000000001,
+      "events": 17327,
+      "eventTypes": {
+        "heat-input": 1,
+        "ignition": 4509,
+        "oil-release": 1,
+        "window-break": 15,
+        "part-retirement": 76,
+        "item-retirement": 14,
+        "boundary-retirement": 933,
+        "fall": 4161,
+        "landing": 4161,
+        "support-failure": 1527,
+        "mechanical-support-loss": 1929
+      },
+      "ignitions": {
+        "count": 4509,
+        "classes": {
+          "frame": 2579,
+          "clapboard": 426,
+          "oil": 9,
+          "lacquer": 58,
+          "furniture": 59,
+          "partition": 118,
+          "roof": 1212,
+          "door": 32,
+          "coal": 1,
+          "cloth": 15
+        },
+        "first": {
+          "id": 2,
+          "tick": 31,
+          "time": 1.0333333333333332,
+          "type": "ignition",
+          "fuelId": "fuel:floor/l0/0,12",
+          "sourceSurfaceId": "floor/l0/0,12",
+          "position": [
+            0.25,
+            0.48,
+            6.25
+          ],
+          "cls": "frame"
+        },
+        "last": {
+          "id": 17060,
+          "tick": 6583,
+          "time": 219.43333333333334,
+          "type": "ignition",
+          "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+          "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post",
+          "position": [
+            4.4099999999999975,
+            0.39619052380952385,
+            -2.6599999999999984
+          ],
+          "cls": "frame"
+        }
+      },
+      "materialFailures": {
+        "count": 1527,
+        "first": {
+          "id": 4318,
+          "tick": 4621,
+          "time": 154.03333333333333,
+          "type": "support-failure",
+          "boundaryId": "floor/l0/0,12",
+          "sourceSurfaceId": "floor/l0/0,12",
+          "kind": "floor",
+          "position": [
+            0.25,
+            0.48,
+            6.25
+          ],
+          "ignitionTime": 1.0333333333333332,
+          "materialAge": 153,
+          "nominalBurnSeconds": 180,
+          "remainingShare": 0.15
+        },
+        "minimumOwnAge": 152.96666666666667,
+        "maximumOwnAge": 153
+      },
+      "oilRelease": {
+        "id": 5,
+        "tick": 55,
+        "time": 1.8333333333333333,
+        "type": "oil-release",
+        "fuelId": "store/kitchen/oil/contents",
+        "position": [
+          0.65,
+          0.76,
+          6.65
+        ],
+        "threshold": 1.4,
+        "amount": 3,
+        "spentForPulse": 0.12,
+        "redistributed": 2.88,
+        "targets": [
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:0",
+            "position": [
+              0.65,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/1,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:1",
+            "position": [
+              1.15,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/2,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:2",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/0,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:3",
+            "position": [
+              0.65,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/1,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:4",
+            "position": [
+              0.65,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/1,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:5",
+            "position": [
+              1.15,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/2,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:6",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/0,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:7",
+            "position": [
+              1.15,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/2,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:8",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/0,12",
+            "fall": false
+          }
+        ]
+      },
+      "coalIgnition": {
+        "id": 356,
+        "tick": 346,
+        "time": 11.533333333333333,
+        "type": "ignition",
+        "fuelId": "store/kitchen/coal/contents",
+        "itemId": "store/kitchen/coal",
+        "position": [
+          1.1,
+          0.74,
+          8.65
+        ],
+        "cls": "coal"
+      },
+      "maximumObservedOwnBurnSeconds": 299.99999999999994,
+      "currentOwners": {
+        "stages": 33,
+        "maximumIssues": 0,
+        "finalFalls": 0,
+        "finalRubble": 2944,
+        "finalFireSamples": 371
+      },
+      "fuel": {
+        "initial": 607.1440377358605,
+        "added": 0,
+        "burned": 593.6861811482795,
+        "escaped": 0,
+        "remaining": 13.45785661840462,
+        "airborne": 0,
+        "error": -3.0823642305222165e-8
+      },
+      "heat": {
+        "generated": 1319609.419731191,
+        "input": 1.05,
+        "ambient": 109081.63097207184,
+        "blocked": 222345.4109970595,
+        "cap": 785475.3684929264,
+        "escaped": 202378.84775289538,
+        "stored": 329.21157402886183,
+        "radiationInTransit": 0,
+        "error": -0.00005779086950497003,
+        "relativeError": -4.379388526429487e-11
+      },
+      "replayFile": "artifacts/qa/furnished-house/kitchen-bearing-replay.json",
+      "replayFileSha256": "d0308b8ce321bc1e30e2c05a59d2d4619189d6d05e6fe38e9de31725cc6f5a6e",
+      "snapshot": {
+        "file": null,
+        "sha256": "cfdbdc5bf4ec0cda5b93042da8985fecc94e80bc84ceef1a5e2f7f4133222e6b",
+        "serializedCharacters": 10867365,
+        "serialization": "SHA-256 over UTF-8 JSON.stringify(trial.snapshot()) at final tick. The runner persisted the digest and length, not a full snapshot file."
+      },
+      "concurrentNodeStepCostMs": {
+        "samples": 9900,
+        "mean": 18.793240303030174,
+        "p95": 38.07190000000992,
+        "max": 101.88959999999497
+      }
+    },
+    {
+      "name": "bedroom",
+      "worldSeconds": 330,
+      "steps": 9900,
+      "initializationMs": 651.547499999986,
+      "events": 14419,
+      "eventTypes": {
+        "heat-input": 1,
+        "ignition": 4357,
+        "window-break": 15,
+        "part-retirement": 75,
+        "boundary-retirement": 768,
+        "fall": 3424,
+        "landing": 3396,
+        "item-retirement": 13,
+        "support-failure": 1352,
+        "oil-release": 1,
+        "mechanical-support-loss": 1017
+      },
+      "ignitions": {
+        "count": 4357,
+        "classes": {
+          "frame": 2567,
+          "clapboard": 418,
+          "roof": 1080,
+          "lacquer": 58,
+          "furniture": 59,
+          "cloth": 15,
+          "partition": 118,
+          "door": 32,
+          "oil": 9,
+          "coal": 1
+        },
+        "first": {
+          "id": 2,
+          "tick": 31,
+          "time": 1.0333333333333332,
+          "type": "ignition",
+          "fuelId": "fuel:floor/l1/0,10",
+          "sourceSurfaceId": "floor/l1/0,10",
+          "position": [
+            0.25,
+            2.5999999,
+            5.25
+          ],
+          "cls": "frame"
+        },
+        "last": {
+          "id": 10933,
+          "tick": 8061,
+          "time": 268.7,
+          "type": "ignition",
+          "fuelId": "fuel:gable/823/-1,2,-1,-100,0,0",
+          "sourceSurfaceId": "gable/823/-1,2,-1,-100,0,0",
+          "position": [
+            -0.086,
+            3.1299999999999986,
+            -0.2908133299999999
+          ],
+          "cls": "clapboard"
+        }
+      },
+      "materialFailures": {
+        "count": 1352,
+        "first": {
+          "id": 2256,
+          "tick": 4621,
+          "time": 154.03333333333333,
+          "type": "support-failure",
+          "boundaryId": "floor/l1/0,10",
+          "sourceSurfaceId": "floor/l1/0,10",
+          "kind": "floor",
+          "position": [
+            0.25,
+            2.5999999,
+            5.25
+          ],
+          "ignitionTime": 1.0333333333333332,
+          "materialAge": 153,
+          "nominalBurnSeconds": 180,
+          "remainingShare": 0.15
+        },
+        "minimumOwnAge": 152.96666666666667,
+        "maximumOwnAge": 153.00000000000003
+      },
+      "oilRelease": {
+        "id": 2433,
+        "tick": 4749,
+        "time": 158.3,
+        "type": "oil-release",
+        "fuelId": "store/kitchen/oil/contents",
+        "position": [
+          0.65,
+          0.76,
+          6.65
+        ],
+        "threshold": 1.4,
+        "amount": 3,
+        "spentForPulse": 0.12,
+        "redistributed": 2.88,
+        "targets": [
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:0",
+            "position": [
+              0.65,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/1,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:1",
+            "position": [
+              1.15,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/2,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:2",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/0,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:3",
+            "position": [
+              0.65,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/1,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:4",
+            "position": [
+              0.65,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/1,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:5",
+            "position": [
+              1.15,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/2,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:6",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/0,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:7",
+            "position": [
+              1.15,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/2,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:8",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/0,12",
+            "fall": false
+          }
+        ]
+      },
+      "coalIgnition": {
+        "id": 3483,
+        "tick": 5032,
+        "time": 167.73333333333332,
+        "type": "ignition",
+        "fuelId": "store/kitchen/coal/contents",
+        "itemId": "store/kitchen/coal",
+        "position": [
+          1.1,
+          0.74,
+          8.65
+        ],
+        "cls": "coal"
+      },
+      "maximumObservedOwnBurnSeconds": 180.00000000000003,
+      "currentOwners": {
+        "stages": 33,
+        "maximumIssues": 0,
+        "finalFalls": 28,
+        "finalRubble": 2326,
+        "finalFireSamples": 1695
+      },
+      "fuel": {
+        "initial": 607.1440377358605,
+        "added": 0,
+        "burned": 538.9614245544769,
+        "escaped": 0,
+        "remaining": 67.76548726899178,
+        "airborne": 0.41712592860767284,
+        "error": -1.6215906839534e-8
+      },
+      "heat": {
+        "generated": 1207479.9389483002,
+        "input": 1.05,
+        "ambient": 109408.01233942462,
+        "blocked": 196502.45706458992,
+        "cap": 715210.9573389298,
+        "escaped": 184664.01802531118,
+        "stored": 1695.5442041002575,
+        "radiationInTransit": 0,
+        "error": -0.000024055469566519605,
+        "relativeError": -1.992202758195936e-11
+      },
+      "replayFile": "artifacts/qa/furnished-house/bedroom-bearing-replay.json",
+      "replayFileSha256": "d32b3840fd5dcbfb4760c1e3c428ac6b022a4b66b5f5d09367a736cab5bf79c1",
+      "snapshot": {
+        "file": null,
+        "sha256": "597a583ae5ecbf65f235536171ef0913cd7a3aced4402caac6c52639fab2f5fd",
+        "serializedCharacters": 10518200,
+        "serialization": "SHA-256 over UTF-8 JSON.stringify(trial.snapshot()) at final tick. The runner persisted the digest and length, not a full snapshot file."
+      },
+      "concurrentNodeStepCostMs": {
+        "samples": 9900,
+        "mean": 25.382110434343407,
+        "p95": 44.65079999997397,
+        "max": 306.36960000000545
+      }
+    }
+  ],
+  "frameScheduleControl": {
+    "scope": "Five actual-house 10s schedules; the independent five-schedule 180s fixture matrix is in focused tests",
+    "identical": true,
+    "results": [
+      {
+        "tick": 300,
+        "eventCount": 278,
+        "stateBytes": 6196488,
+        "stateSha256": "193fdeb14e602cf9112f8108bd9ef81eb99437620062e605e9a5aa6a9d81ae88",
+        "droppedSeconds": 0
+      },
+      {
+        "tick": 300,
+        "eventCount": 278,
+        "stateBytes": 6196488,
+        "stateSha256": "193fdeb14e602cf9112f8108bd9ef81eb99437620062e605e9a5aa6a9d81ae88",
+        "droppedSeconds": 0
+      },
+      {
+        "tick": 300,
+        "eventCount": 278,
+        "stateBytes": 6196488,
+        "stateSha256": "193fdeb14e602cf9112f8108bd9ef81eb99437620062e605e9a5aa6a9d81ae88",
+        "droppedSeconds": 0
+      },
+      {
+        "tick": 300,
+        "eventCount": 278,
+        "stateBytes": 6196488,
+        "stateSha256": "193fdeb14e602cf9112f8108bd9ef81eb99437620062e605e9a5aa6a9d81ae88",
+        "droppedSeconds": 0
+      },
+      {
+        "tick": 300,
+        "eventCount": 278,
+        "stateBytes": 6196488,
+        "stateSha256": "193fdeb14e602cf9112f8108bd9ef81eb99437620062e605e9a5aa6a9d81ae88",
+        "droppedSeconds": 0
+      }
+    ]
+  },
+  "numericalControls": {
+    "file": "artifacts/qa/furnished-house/controls-bearing.json",
+    "sha256": "0b1d9235a08bef75df232a88cd9308a6434c8d850cc33e917ebaa9347395b295",
+    "grassMinimum": 1.508982011150135,
+    "grassMaximum": 1.5625,
+    "maximumGrassRelativeError": 0.041666666666666664,
+    "wallRiseToCreepRatio": 2.1087233987690213,
+    "sealedLowerHeatBeforeFailure": 0,
+    "secondsFromHotLandingToLowerIgnition": 1.5666666666666629,
+    "radiation": [
+      {
+        "paneState": "open",
+        "roofIntact": true,
+        "nearMetres": 2,
+        "farMetres": 8,
+        "nearDose": 0.002546479089470328,
+        "farDose": 0.000159154943091895,
+        "distanceRatio": 16.000000000000053
+      },
+      {
+        "paneState": "glass",
+        "roofIntact": true,
+        "nearMetres": 2,
+        "farMetres": 8,
+        "nearDose": 0.0001273239544735164,
+        "farDose": 0.000007957747154594752,
+        "distanceRatio": 16.000000000000046
+      },
+      {
+        "paneState": "masonry",
+        "roofIntact": true,
+        "nearMetres": 2,
+        "farMetres": 8,
+        "nearDose": 0,
+        "farDose": 0,
+        "distanceRatio": null
+      }
+    ],
+    "clocks": [
+      {
+        "powder": false,
+        "activeSeconds": 10,
+        "worldTime": 10,
+        "playerTime": 10.000000000000076,
+        "wind": [
+          1.5,
+          0,
+          0
+        ]
+      },
+      {
+        "powder": true,
+        "activeSeconds": 10,
+        "worldTime": 3.5,
+        "playerTime": 15.000000000000146,
+        "wind": [
+          1.5,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "focusedRuntimeTests": {
+    "passed": 29,
+    "failed": 0
+  },
+  "architectCombinedChecks": {
+    "passedTests": 320,
+    "syntax": true,
+    "dependency": true,
+    "vendor": true,
+    "buildFiles": 3515,
+    "source": "Architect message after final 5f source check"
+  },
+  "previousFailure": {
+    "accepted": false,
+    "runtimeCommit": "eb1cd8c3dbec13b65abb3bdd2eadf952698e88ce",
+    "traceFile": "artifacts/qa/furnished-house/paired-eb1cd8c-owner-failed-330.json",
+    "traceFileSha256": "167539c507b5492155b08d367302763f3ae3a7b62b83f3ab82d154971cc96eec",
+    "summaryFile": "artifacts/qa/furnished-house/failed-owner-summary.json",
+    "reason": "Exterior edge touches completed without a supported footprint; retained owner audit fails from160s kitchen/170s bedroom. Preserved as failed evidence."
+  }
+}
