@@ -26,3 +26,5 @@ Reproduce:
     node art/source/furnished-house/check-art.mjs
 
 Source pins and hashes are in house-data.json, with the effect intake in art/source/furnished-house/effect-intake.json. Existing raw source notices remain unchanged. No new helper was launched for this early checkpoint; preserved stockyard/Hull-House helpers remain retired.
+
+The entrance is now centred at X5 within the original two-metre hall. The complete native leaf/frame/transom/hinge and six-block approach translate -.5m in X. The prior 1m solid front bay becomes two end-cut piers, with .0075m jamb rebates matching the unchanged casing's 1.015m throat. The exterior right return remains solid. Porch rail sections/balusters are composed around the same centred approach. Source and adapted polygons/transforms are in navigation.routeAdaptations (centred-native-entry). The conservative route centre is X5.00375 to clear the outward180-degree leaf. This is geometry evidence; continuous full-body collision acceptance belongs to the coder and remains pending.

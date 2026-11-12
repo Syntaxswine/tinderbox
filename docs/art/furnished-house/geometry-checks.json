@@ -1,5 +1,5 @@
 {
-  "passed": 7,
+  "passed": 8,
   "failed": 0,
   "groups": [
     "Native module, exact level planes and actual floor union areas",
@@ -8,6 +8,7 @@
     "Closed derived slabs preserve the real upper stair notch and support planes",
     "Finite oil/coal stores have actual floor support and one fuel record each",
     "Authorized full-height route openings retain native leaves and separate always-open transom boundaries",
+    "Centred native entry retains the exterior return and six unchanged step widths; measured jamb clearance1.015m",
     "Buried porch roof faces no longer cross the upper front chamber"
   ],
   "counts": {
@@ -17,7 +18,7 @@
     "parts": 81
   },
   "navigation": {
-    "status": "Source baseline measured; composed opening adaptation awaits actual coder gait result",
+    "status": "Source baseline measured; centred entry and composed stair opening await continuous coder sweep",
     "nativeDoorHeight": 1.65,
     "nativeDoorWidth": 1,
     "routeAdaptations": [
@@ -872,6 +873,294 @@
         "reason": "The authorized forward stair notch removes support under one original console leg; preserve the complete source console on actual bedroom floor."
       },
       {
+        "type": "centred-native-entry",
+        "source": {
+          "position": [
+            5.5,
+            0.48,
+            0
+          ],
+          "polygon": [
+            [
+              5,
+              0.48,
+              0
+            ],
+            [
+              6,
+              0.48,
+              0
+            ],
+            [
+              6,
+              2.48,
+              0
+            ],
+            [
+              5,
+              2.48,
+              0
+            ]
+          ]
+        },
+        "translation": [
+          -0.5,
+          0,
+          0
+        ],
+        "adaptedPolygon": [
+          [
+            4.5,
+            0.48,
+            0
+          ],
+          [
+            5.5,
+            0.48,
+            0
+          ],
+          [
+            5.5,
+            2.48,
+            0
+          ],
+          [
+            4.5,
+            2.48,
+            0
+          ]
+        ],
+        "infillBaseline": [
+          {
+            "name": "Native wall unit",
+            "position": [
+              0,
+              1,
+              0
+            ],
+            "dimensions": [
+              1,
+              2,
+              0.16
+            ]
+          },
+          {
+            "name": "Interior skirting",
+            "position": [
+              0,
+              0.055,
+              0.105
+            ],
+            "dimensions": [
+              1,
+              0.11,
+              0.045
+            ]
+          },
+          {
+            "name": "Picture rail",
+            "position": [
+              0,
+              1.77,
+              0.105
+            ],
+            "dimensions": [
+              1,
+              0.035,
+              0.035
+            ]
+          }
+        ],
+        "infillPolygons": [
+          [
+            [
+              4,
+              0.48,
+              0
+            ],
+            [
+              4.4925,
+              0.48,
+              0
+            ],
+            [
+              4.4925,
+              2.48,
+              0
+            ],
+            [
+              4,
+              2.48,
+              0
+            ]
+          ],
+          [
+            [
+              5.5075,
+              0.48,
+              0
+            ],
+            [
+              6,
+              0.48,
+              0
+            ],
+            [
+              6,
+              2.48,
+              0
+            ],
+            [
+              5.5075,
+              2.48,
+              0
+            ]
+          ]
+        ],
+        "jambRebate": 0.0075,
+        "actualClearWidth": 1.015,
+        "approachCentreX": 5,
+        "routeCentreX": 5.00375,
+        "porchChanges": [
+          {
+            "name": "Porch baluster",
+            "baseline": [
+              4.5200000000000005,
+              0.88,
+              -1.88
+            ],
+            "removed": true
+          },
+          {
+            "name": "Porch baluster",
+            "baseline": [
+              4.74,
+              0.88,
+              -1.88
+            ],
+            "removed": true
+          },
+          {
+            "name": "Entry stair rail",
+            "baseline": [
+              4.89,
+              0.99,
+              -2.33
+            ],
+            "position": [
+              4.39,
+              0.99,
+              -2.33
+            ],
+            "translation": [
+              -0.5,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Entry stair rail",
+            "baseline": [
+              6.11,
+              0.99,
+              -2.33
+            ],
+            "position": [
+              5.61,
+              0.99,
+              -2.33
+            ],
+            "translation": [
+              -0.5,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "Porch baluster",
+            "position": [
+              5.839999999999999,
+              0.88,
+              -1.88
+            ],
+            "nativeDuplicate": true
+          },
+          {
+            "name": "Porch baluster",
+            "position": [
+              6.059999999999999,
+              0.88,
+              -1.88
+            ],
+            "nativeDuplicate": true
+          },
+          {
+            "name": "Porch handrail",
+            "baseline": {
+              "position": [
+                3.925,
+                1.23,
+                -1.88
+              ],
+              "dimensions": [
+                1.8499999999999996,
+                0.06,
+                0.075
+              ]
+            },
+            "adapted": {
+              "position": [
+                3.675,
+                1.23,
+                -1.88
+              ],
+              "dimensions": [
+                1.3499999999999996,
+                0.06,
+                0.075
+              ]
+            },
+            "method": "Native section, end-cut/extended by composition at constant texture density"
+          },
+          {
+            "name": "Porch handrail",
+            "baseline": {
+              "position": [
+                6.575,
+                1.23,
+                -1.88
+              ],
+              "dimensions": [
+                0.8499999999999996,
+                0.06,
+                0.075
+              ]
+            },
+            "adapted": {
+              "position": [
+                6.325,
+                1.23,
+                -1.88
+              ],
+              "dimensions": [
+                1.3499999999999996,
+                0.06,
+                0.075
+              ]
+            },
+            "method": "Native section, end-cut/extended by composition at constant texture density"
+          }
+        ],
+        "returnWallPreserved": "6,0|6,1",
+        "leafDimensions": [
+          1,
+          1.65,
+          0.12
+        ],
+        "noScaling": true,
+        "reason": "The original doorway was flush to the right return, which blocked the full 1m-diameter body despite its jamb width. Centre the complete native assembly and compose two end-cut piers."
+      },
+      {
         "type": "composed-entry-approach",
         "parts": [
           {
@@ -882,12 +1171,12 @@
             ],
             "positions": [
               [
-                5.5,
+                5,
                 0.08,
                 -3.21
               ],
               [
-                5.5,
+                5,
                 0.08,
                 -2.9899999999999998
               ]
@@ -906,12 +1195,12 @@
             ],
             "positions": [
               [
-                5.5,
+                5,
                 0.16,
                 -2.7699999999999996
               ],
               [
-                5.5,
+                5,
                 0.16,
                 -2.5499999999999994
               ]
@@ -930,12 +1219,12 @@
             ],
             "positions": [
               [
-                5.5,
+                5,
                 0.24,
                 -2.33
               ],
               [
-                5.5,
+                5,
                 0.24,
                 -2.11
               ]
@@ -1200,7 +1489,7 @@
         "clearBetweenJambs": 1.015,
         "standOffHinge": 0.15,
         "fullyOpenAngle": 3.141592653589793,
-        "baselineLeafBounds": {
+        "beforeHingeStandOffLeafBounds": {
           "min": [
             5,
             0.4800000119209289,
@@ -1382,17 +1671,32 @@
     ],
     "prototypeRoute": [
       [
-        5.50375,
+        5.00375,
         0,
-        -3
+        -3.8
       ],
       [
-        5.50375,
+        5.00375,
+        0.16,
+        -3.1
+      ],
+      [
+        5.00375,
+        0.32,
+        -2.66
+      ],
+      [
+        5.00375,
+        0.48,
+        -2.22
+      ],
+      [
+        5.00375,
         0.48,
         -1
       ],
       [
-        5.50375,
+        5.00375,
         0.48,
         1.8
       ],
