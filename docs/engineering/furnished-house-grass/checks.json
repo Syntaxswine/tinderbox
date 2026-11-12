@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-11-12T08:25:34.642Z",
+  "focused": {
+    "command": "node --test tests/furnished-house/grass-comparison.test.mjs tests/furnished-house/effect-bindings.test.mjs",
+    "exitCode": 0,
+    "tests": 11,
+    "passed": 11
+  },
+  "repository": {
+    "command": "npm run check",
+    "exitCode": 0,
+    "ownScripts": 248,
+    "resolvedModules": 290,
+    "tests": 342,
+    "passed": 342,
+    "logSha256": "f812ccafbf0ae6ac03b839c5b263fa52d759025bc5931aaf7761b916fbb4ddf2",
+    "provenanceAndSharedThreePassed": true
+  },
+  "package": {
+    "commands": [
+      "npm run build",
+      "node tools/check-release.mjs"
+    ],
+    "exitCodes": [
+      0,
+      0
+    ],
+    "files": 3515,
+    "bytes": 166825782,
+    "manifestSha256": "c592039f35d7f4173c17e4f9443726423e9d77eb8ee5bfdbb7d6430625c33987",
+    "unchangedPublicManifest": true
+  },
+  "postprocessing": {
+    "commands": [
+      "node workbenches/furnished-house/audit-grass-paths.mjs artifacts/qa/furnished-house-grass",
+      "node workbenches/furnished-house/summarize-grass.mjs artifacts/qa/furnished-house-grass",
+      "node --check workbenches/furnished-house/summarize-grass.mjs"
+    ],
+    "exitCodes": [
+      0,
+      0,
+      0
+    ],
+    "simulationSteps": 0,
+    "frozenExecutionSourceHashesVerified": true,
+    "allFourSnapshotEventArchiveHashesVerified": true
+  },
+  "primaryPhysical": {
+    "completeCases": 4,
+    "worldSecondsEach": 330,
+    "noGrassSnapshotAndEventReproduction": true,
+    "allBudgetsPassed": true
+  },
+  "deferred": [
+    "Matched-domain trajectory (optional queue intentionally stopped at tick0, raw worker exit1 preserved)",
+    "Actual paired animated WebGL and JPG acceptance",
+    "Physical grass-to-house route validation/correction; causal conclusion or production promotion"
+  ]
+}

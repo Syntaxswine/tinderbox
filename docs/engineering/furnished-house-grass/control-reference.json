@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "referenceTrace": "artifacts/qa/furnished-house/paired-bearing-330.json",
+  "referenceTraceSha256": "01caedf5dc5715e0417c9978eb342767b5272913e13d8f66f1a31dec4f17aa52",
+  "sourceDataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+  "runtimeCommit": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+  "frozenPhysicalControl": "d1bc6472a45c316e02c6ec020289610ef0bcbc4e",
+  "basis": "Original persisted330s trace. All simulation, scene, support, geometry, preparation and house-data Git objects are unchanged in d1bc6472; exact original UI replay commands are tested separately.",
+  "results": [
+    {
+      "name": "kitchen",
+      "stateSha256": "cfdbdc5bf4ec0cda5b93042da8985fecc94e80bc84ceef1a5e2f7f4133222e6b",
+      "eventsSha256": "b19dbd926849fa31722286241ff75457b61ecb6e5865d87e1f65c763da0eab19",
+      "eventCount": 17327,
+      "firstFailure": 154.03333333333333,
+      "oil": 1.8333333333333333,
+      "coal": 11.533333333333333,
+      "metrics": {
+        "tick": 9900,
+        "worldTime": 330,
+        "fuel": {
+          "initial": 607.1440377358605,
+          "added": 0,
+          "burned": 593.6861811482795,
+          "escaped": 0,
+          "remaining": 13.45785661840462,
+          "airborne": 0,
+          "error": -3.0823642305222165e-8
+        },
+        "heat": {
+          "generated": 1319609.419731191,
+          "input": 1.05,
+          "ambient": 109081.63097207184,
+          "blocked": 222345.4109970595,
+          "cap": 785475.3684929264,
+          "escaped": 202378.84775289538,
+          "stored": 329.21157402886183,
+          "radiationInTransit": 0,
+          "error": -0.00005779086950497003,
+          "relativeError": -4.379388526429487e-11
+        },
+        "burningCount": 371,
+        "burningArea": 49.457637876941156,
+        "combustibleArea": 879.0518539309301,
+        "burningAreaFraction": 0.05626248059858731,
+        "burnedFraction": 0.9778341616632397,
+        "activeCells": 1091,
+        "fallingCount": 0,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 9900,
+          "cellVisits": 33689845,
+          "burnVisits": 29761546,
+          "linkBuilds": 3013,
+          "rayBuilds": 72312,
+          "rayTests": 278100,
+          "invalidations": 187176,
+          "ignitions": 4509,
+          "failures": 2460,
+          "landings": 4161,
+          "peakActive": 4578,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      }
+    },
+    {
+      "name": "bedroom",
+      "stateSha256": "597a583ae5ecbf65f235536171ef0913cd7a3aced4402caac6c52639fab2f5fd",
+      "eventsSha256": "db75410df9fe73ed1f874dbd68ce4d67cc6a130054d12652439fd37a355f8dce",
+      "eventCount": 14419,
+      "firstFailure": 154.03333333333333,
+      "oil": 158.3,
+      "coal": 167.73333333333332,
+      "metrics": {
+        "tick": 9900,
+        "worldTime": 330,
+        "fuel": {
+          "initial": 607.1440377358605,
+          "added": 0,
+          "burned": 538.9614245544769,
+          "escaped": 0,
+          "remaining": 67.76548726899178,
+          "airborne": 0.41712592860767284,
+          "error": -1.6215906839534e-8
+        },
+        "heat": {
+          "generated": 1207479.9389483002,
+          "input": 1.05,
+          "ambient": 109408.01233942462,
+          "blocked": 196502.45706458992,
+          "cap": 715210.9573389298,
+          "escaped": 184664.01802531118,
+          "stored": 1695.5442041002575,
+          "radiationInTransit": 0,
+          "error": -0.000024055469566519605,
+          "relativeError": -1.992202758195936e-11
+        },
+        "burningCount": 1679,
+        "burningArea": 281.71740249600117,
+        "combustibleArea": 879.0518539309301,
+        "burningAreaFraction": 0.32047870809466106,
+        "burnedFraction": 0.8876994437174288,
+        "activeCells": 3433,
+        "fallingCount": 28,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 9900,
+          "cellVisits": 27956051,
+          "burnVisits": 36944184,
+          "linkBuilds": 2601,
+          "rayBuilds": 62424,
+          "rayTests": 232627,
+          "invalidations": 144086,
+          "ignitions": 4357,
+          "failures": 2120,
+          "landings": 3396,
+          "peakActive": 3874,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      }
+    }
+  ]
+}

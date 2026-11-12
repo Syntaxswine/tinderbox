@@ -1,0 +1,5666 @@
+{
+  "version": 1,
+  "simulationStepsInPostprocessing": 0,
+  "status": "Four primary cases complete; physical path interpretation limited; matched trajectory and animated visual gate incomplete.",
+  "baseline": "d1bc6472a45c316e02c6ec020289610ef0bcbc4e",
+  "contract": "5fd4311295716d02acc8af7bde21c21fe629deb2",
+  "sourceDataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+  "houseAreaDefinition": "Sum of each original authored finite fuel identity area once, including separately authored finish layers (overlapping physical surfaces), contents and stores; descendants/embers/spills map back to that identity. Grass excluded. This is fuel-surface area, not unique floor/skin area.",
+  "originalHouseArea": 879.0518539309301,
+  "extentDefinition": "Axis-aligned 3m padding of measured occupied extents, clipped to the thermal grid and subtracting exact occupied polygons; not a circular buffer.",
+  "grassArea": 199.58880000000002,
+  "grassPatches": 913,
+  "wind": {
+    "kind": "ambient-control",
+    "speed": 1.5,
+    "direction": [
+      1,
+      0,
+      0
+    ],
+    "obstacleResolved": false
+  },
+  "process": {
+    "pid": 15872,
+    "creationFiletime": "134389407202656762",
+    "startedAt": "2026-11-12T07:05:20.342Z",
+    "finishedAt": "2026-11-12T07:50:14.137Z",
+    "deadline": "2026-11-12T07:50:20.342Z",
+    "elapsedMs": 2693795,
+    "withinOriginalDeadline": true,
+    "finished": true,
+    "rawExitCode": 1,
+    "exitExplanation": "Private graceful stop at the original deadline cancelled the optional matched-domain queue at tick0 after all four primary330s cases completed. Exit1 is preserved; it is not a failed primary physical check."
+  },
+  "matchedDomain": {
+    "status": "Deferred; zero trajectory steps",
+    "partialTick": 0,
+    "partialWorldTime": 0,
+    "intervention": "Identical grass geometry/domain, receiver eligibility, cell capacity and fuel inventory; only grass ignition threshold Number.MAX_VALUE. Fuel was not zeroed."
+  },
+  "comparisons": [
+    {
+      "start": "kitchen",
+      "firstGrass": 156.96666666666667,
+      "firstPreGrassHouseStateDifference": 2,
+      "domainConfoundDetected": true,
+      "thresholds": {
+        "10": {
+          "control": 12.5,
+          "grass": 12.5,
+          "delta": 0,
+          "relative": 0
+        },
+        "50": {
+          "control": 36.7,
+          "grass": 37,
+          "delta": 0.29999999999999716,
+          "relative": 0.008174386920980848
+        },
+        "90": {
+          "control": 119.6,
+          "grass": 118.76666666666667,
+          "delta": -0.8333333333333286,
+          "relative": -0.006967670011148233
+        }
+      },
+      "oil": {
+        "control": 1.8333333333333333,
+        "grass": 1.8333333333333333,
+        "delta": 0,
+        "relative": 0
+      },
+      "coal": {
+        "control": 11.533333333333333,
+        "grass": 11.5,
+        "delta": -0.033333333333333215,
+        "relative": -0.002890173410404614
+      },
+      "floorFailure": {
+        "control": 154.03333333333333,
+        "grass": 154.03333333333333,
+        "delta": 0,
+        "relative": 0
+      },
+      "roofFailure": {
+        "control": 157.63333333333333,
+        "grass": 157.76666666666665,
+        "delta": 0.13333333333332575,
+        "relative": 0.0008458447874814491
+      }
+    },
+    {
+      "start": "bedroom",
+      "firstGrass": 162.7,
+      "firstPreGrassHouseStateDifference": 2,
+      "domainConfoundDetected": true,
+      "thresholds": {
+        "10": {
+          "control": 15.933333333333334,
+          "grass": 15.933333333333334,
+          "delta": 0,
+          "relative": 0
+        },
+        "50": {
+          "control": 156.3,
+          "grass": 117.46666666666667,
+          "delta": -38.83333333333334,
+          "relative": -0.24845382810833871
+        },
+        "90": {
+          "control": 195.9,
+          "grass": 164.53333333333333,
+          "delta": -31.366666666666674,
+          "relative": -0.1601157052918156
+        }
+      },
+      "oil": {
+        "control": 158.3,
+        "grass": 158.2,
+        "delta": -0.10000000000002274,
+        "relative": -0.0006317119393557974
+      },
+      "coal": {
+        "control": 167.73333333333332,
+        "grass": 167.46666666666667,
+        "delta": -0.2666666666666515,
+        "relative": -0.0015898251192367936
+      },
+      "floorFailure": {
+        "control": 154.03333333333333,
+        "grass": 154.03333333333333,
+        "delta": 0,
+        "relative": 0
+      },
+      "roofFailure": {
+        "control": 157.86666666666667,
+        "grass": 157.86666666666667,
+        "delta": 0,
+        "relative": 0
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "kitchen-control",
+      "seconds": 330,
+      "elapsedMs": 655400.8866,
+      "initializationMs": 494.1222,
+      "simulationStepMs": {
+        "samples": 9900,
+        "mean": 46.368005232322666,
+        "p95": 119.78729999999632,
+        "max": 1210.155700000003
+      },
+      "controls": {
+        "referenceFile": "docs/engineering/furnished-house-grass/control-reference.json",
+        "referenceRuntime": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+        "referenceSnapshotSha256": "cfdbdc5bf4ec0cda5b93042da8985fecc94e80bc84ceef1a5e2f7f4133222e6b",
+        "snapshotIdentical": true,
+        "referenceEventsSha256": "b19dbd926849fa31722286241ff75457b61ecb6e5865d87e1f65c763da0eab19",
+        "eventsIdentical": true,
+        "frozenCoreUnchanged": true
+      },
+      "checks": {
+        "budgetPassed": true,
+        "cohortBurnedError": 0,
+        "cohortGeneratedRelativeError": 0,
+        "maxBurnsPerFuelPerTick": 1
+      },
+      "files": {
+        "result.json": {
+          "bytes": 4804605,
+          "sha256": "6bd49e644393cb3416b9ab4340031ded38997bea0c60d84eae04b76fcd8ac65d"
+        },
+        "snapshot.json": {
+          "bytes": 10867365,
+          "sha256": "cfdbdc5bf4ec0cda5b93042da8985fecc94e80bc84ceef1a5e2f7f4133222e6b"
+        },
+        "events.json": {
+          "bytes": 6178911,
+          "sha256": "b19dbd926849fa31722286241ff75457b61ecb6e5865d87e1f65c763da0eab19"
+        },
+        "replay.json": {
+          "bytes": 4994,
+          "sha256": "7eab3c2bcd4283ce95c076ceb34762ac341dbc4f4bb6eab8113126a2aa915d9a"
+        },
+        "frames.ndjson.gz": {
+          "bytes": 229172747,
+          "sha256": "f2ef513389bc09f0c6eafcc4acb6fcb9159a58e4077196675198843b055ba6ba"
+        }
+      },
+      "archiveClosed": true,
+      "commands": [
+        {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            1.1,
+            6.25
+          ],
+          "from": [
+            1.4,
+            1.1,
+            6.3
+          ],
+          "sequence": 1
+        }
+      ],
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "match": {
+        "command": {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            1.1,
+            6.25
+          ],
+          "from": [
+            1.4,
+            1.1,
+            6.3
+          ]
+        },
+        "observer": [
+          1.4,
+          0.48,
+          6.3
+        ],
+        "targetCell": "0,0,12",
+        "segmentHits": [],
+        "extendedInspectionOnlyHits": [
+          {
+            "id": "wall/l0/0-6-0-7/267/6/0.48",
+            "kind": "wall",
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "t": 0.7333333333333333
+          }
+        ],
+        "interpretation": "Target lies on the positive-X interior side of the west wall; the exact source-to-target ray ends before the timber face. Heat is deposited in that interior adjacent tile."
+      },
+      "firstIgnition": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      },
+      "thresholds": {
+        "10": 12.5,
+        "50": 36.7,
+        "90": 119.6
+      },
+      "firstGrass": null,
+      "firstTimberAbovePlinth": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      },
+      "firstExteriorAbovePlinth": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/0-6-0-7/267/6/0.48",
+        "sourceSurfaceId": "wall/l0/0-6-0-7/267/6/0.48",
+        "position": [
+          0,
+          1.0099999999999998,
+          6.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstExteriorAbovePlinthAfterGrass": null,
+      "firstPorchEntry": {
+        "id": 2706,
+        "tick": 1518,
+        "time": 50.6,
+        "type": "ignition",
+        "fuelId": "fuel:porch/724@13,0,-1",
+        "sourceSurfaceId": "porch/724",
+        "position": [
+          6.722222166666666,
+          0.48,
+          -0.25000005
+        ],
+        "cls": "frame"
+      },
+      "upperFloorOverhang": {
+        "definition": "Original level1 floor patches whose fuel centroid lies outside the exact projected lower-storey floor union; not roof eaves.",
+        "originalCount": 8,
+        "originalArea": 2,
+        "ignitedCount": 8,
+        "inPlaceIgnitedCount": 8,
+        "first": 57.43333333333333,
+        "lastAllIgnited": 62.93333333333333,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "no grass in fixture",
+        "secondsAfterFirstGrass": null,
+        "firstIgnition": {
+          "id": 3048,
+          "tick": 1723,
+          "time": 57.43333333333333,
+          "type": "ignition",
+          "fuelId": "fuel:floor/l1/11,-1",
+          "sourceSurfaceId": "floor/l1/11,-1",
+          "position": [
+            5.75,
+            2.5999999,
+            -0.25
+          ],
+          "cls": "frame"
+        }
+      },
+      "canonicalClapboardExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "lastAllIgnited": 47.4,
+        "secondsAfterFirstGrassToAllWalls": null,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "ignitedArea": 15.569999999999999,
+            "inPlaceIgnitedCount": 36,
+            "first": 28.066666666666666,
+            "last": 41.53333333333333,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 29.433333333333334,
+            "last": 42.1,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "ignitedArea": 17.6,
+            "inPlaceIgnitedCount": 40,
+            "first": 9.433333333333334,
+            "last": 47.4,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 1.4666666666666666,
+            "last": 38.93333333333333,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          }
+        }
+      },
+      "geometryDerivedExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "ignitedCount": 156,
+        "inPlaceIgnitedCount": 156,
+        "first": 1.4666666666666666,
+        "lastAllIgnited": 47.4,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "no grass in fixture",
+        "secondsAfterFirstGrass": null,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "inPlaceIgnitedCount": 36,
+            "first": 28.066666666666666,
+            "lastAllIgnited": 41.53333333333333,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 29.433333333333334,
+            "lastAllIgnited": 42.1,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 9.433333333333334,
+            "lastAllIgnited": 47.4,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 1.4666666666666666,
+            "lastAllIgnited": 38.93333333333333,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          }
+        },
+        "additionalIds": []
+      },
+      "oil": {
+        "id": 5,
+        "tick": 55,
+        "time": 1.8333333333333333,
+        "type": "oil-release",
+        "fuelId": "store/kitchen/oil/contents",
+        "position": [
+          0.65,
+          0.76,
+          6.65
+        ],
+        "threshold": 1.4,
+        "amount": 3,
+        "spentForPulse": 0.12,
+        "redistributed": 2.88,
+        "targets": [
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:0",
+            "position": [
+              0.65,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/1,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:1",
+            "position": [
+              1.15,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/2,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:2",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/0,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:3",
+            "position": [
+              0.65,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/1,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:4",
+            "position": [
+              0.65,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/1,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:5",
+            "position": [
+              1.15,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/2,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:6",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/0,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:7",
+            "position": [
+              1.15,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/2,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:8",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/0,12",
+            "fall": false
+          }
+        ]
+      },
+      "coal": {
+        "id": 356,
+        "tick": 346,
+        "time": 11.533333333333333,
+        "type": "ignition",
+        "fuelId": "store/kitchen/coal/contents",
+        "itemId": "store/kitchen/coal",
+        "position": [
+          1.1,
+          0.74,
+          8.65
+        ],
+        "cls": "coal"
+      },
+      "firstSupportFailure": {
+        "id": 4318,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "kind": "floor",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstFloorFailure": {
+        "id": 4318,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "kind": "floor",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstRoofFailure": {
+        "id": 4646,
+        "tick": 4729,
+        "time": 157.63333333333333,
+        "type": "support-failure",
+        "boundaryId": "roof/803/0,1,16,0,34,94",
+        "sourceSurfaceId": "roof/803/0,1,16,0,34,94",
+        "kind": "roof",
+        "position": [
+          0.25,
+          2.5649999999999995,
+          8.08727265
+        ],
+        "ignitionTime": 4.633333333333333,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "failureCounts": {
+        "floor": 702,
+        "wall": 343,
+        "roof": 482
+      },
+      "finalWreck": {
+        "falls": 0,
+        "rubble": 2944,
+        "intactItems": 3,
+        "intactBoundaries": 1003,
+        "houseIntactBoundaries": 1002,
+        "grassIntactBoundaries": 0,
+        "note": "Raw intactBoundaries includes terrain and the additive grass patches. House/grass counts above are separated; falling and rubble records remain physical records, not original fuel identities."
+      },
+      "finalArea": {
+        "tick": 9900,
+        "worldTime": 330,
+        "house": {
+          "originalArea": 879.0518539309301,
+          "everIgnitedArea": 875.3402064229786,
+          "currentBurningArea": 49.457637876941156,
+          "everIgnitedFraction": 0.9957776694385504,
+          "stateSha256": "3c2b1b3f5fae95fa27f2b348683ae79593462e17ee9e0f06154c47d1cb835464",
+          "burned": 593.6861811482795,
+          "remaining": 13.45785661840462,
+          "airborne": 0
+        },
+        "grass": {
+          "originalArea": 0,
+          "everIgnitedArea": 0,
+          "currentBurningArea": 0,
+          "burned": 0,
+          "remaining": 0,
+          "airborne": 0
+        },
+        "groups": {
+          "ground other": {
+            "originalArea": 233.96128457734562,
+            "everIgnitedArea": 233.96128457734562,
+            "currentBurningArea": 3.503542335779117
+          },
+          "upper other": {
+            "originalArea": 192.70736294050965,
+            "everIgnitedArea": 192.70736294050965,
+            "currentBurningArea": 7.319432498041419
+          },
+          "porch/entry": {
+            "originalArea": 16.142208135819235,
+            "everIgnitedArea": 15.924258631678239,
+            "currentBurningArea": 0.07645004399999988
+          },
+          "ground exterior walls": {
+            "originalArea": 68.37,
+            "everIgnitedArea": 68.37,
+            "currentBurningArea": 0
+          },
+          "upper exterior walls": {
+            "originalArea": 85.59500130759108,
+            "everIgnitedArea": 85.59500130759108,
+            "currentBurningArea": 1.8188412622957564
+          },
+          "roof": {
+            "originalArea": 162.3815965987802,
+            "everIgnitedArea": 158.88789859496913,
+            "currentBurningArea": 36.73937173682482
+          },
+          "contents/finish/stores": {
+            "originalArea": 119.89440037089877,
+            "everIgnitedArea": 119.89440037089877,
+            "currentBurningArea": 0
+          }
+        },
+        "metrics": {
+          "tick": 9900,
+          "worldTime": 330,
+          "fuel": {
+            "initial": 607.1440377358605,
+            "added": 0,
+            "burned": 593.6861811482795,
+            "escaped": 0,
+            "remaining": 13.45785661840462,
+            "airborne": 0,
+            "error": -3.0823642305222165e-8
+          },
+          "heat": {
+            "generated": 1319609.419731191,
+            "input": 1.05,
+            "ambient": 109081.63097207184,
+            "blocked": 222345.4109970595,
+            "cap": 785475.3684929264,
+            "escaped": 202378.84775289538,
+            "stored": 329.21157402886183,
+            "radiationInTransit": 0,
+            "error": -0.00005779086950497003,
+            "relativeError": -4.379388526429487e-11
+          },
+          "burningCount": 371,
+          "burningArea": 49.457637876941156,
+          "combustibleArea": 879.0518539309301,
+          "burningAreaFraction": 0.05626248059858731,
+          "burnedFraction": 0.9778341616632397,
+          "activeCells": 1091,
+          "fallingCount": 0,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 9900,
+            "cellVisits": 33689845,
+            "burnVisits": 29761546,
+            "linkBuilds": 3013,
+            "rayBuilds": 72312,
+            "rayTests": 278100,
+            "invalidations": 187176,
+            "ignitions": 4509,
+            "failures": 2460,
+            "landings": 4161,
+            "peakActive": 4578,
+            "maxBurnsPerFuelPerTick": 1
+          }
+        }
+      },
+      "metrics": {
+        "tick": 9900,
+        "worldTime": 330,
+        "fuel": {
+          "initial": 607.1440377358605,
+          "added": 0,
+          "burned": 593.6861811482795,
+          "escaped": 0,
+          "remaining": 13.45785661840462,
+          "airborne": 0,
+          "error": -3.0823642305222165e-8
+        },
+        "heat": {
+          "generated": 1319609.419731191,
+          "input": 1.05,
+          "ambient": 109081.63097207184,
+          "blocked": 222345.4109970595,
+          "cap": 785475.3684929264,
+          "escaped": 202378.84775289538,
+          "stored": 329.21157402886183,
+          "radiationInTransit": 0,
+          "error": -0.00005779086950497003,
+          "relativeError": -4.379388526429487e-11
+        },
+        "burningCount": 371,
+        "burningArea": 49.457637876941156,
+        "combustibleArea": 879.0518539309301,
+        "burningAreaFraction": 0.05626248059858731,
+        "burnedFraction": 0.9778341616632397,
+        "activeCells": 1091,
+        "fallingCount": 0,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 9900,
+          "cellVisits": 33689845,
+          "burnVisits": 29761546,
+          "linkBuilds": 3013,
+          "rayBuilds": 72312,
+          "rayTests": 278100,
+          "invalidations": 187176,
+          "ignitions": 4509,
+          "failures": 2460,
+          "landings": 4161,
+          "peakActive": 4578,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      },
+      "checkpoints": [
+        {
+          "tick": 0,
+          "worldTime": 0,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "everIgnitedFraction": 0,
+            "stateSha256": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+            "burned": 0,
+            "remaining": 607.1440377358605,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            }
+          }
+        },
+        {
+          "tick": 900,
+          "worldTime": 30,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 277.6377785310358,
+            "currentBurningArea": 264.7787784945518,
+            "everIgnitedFraction": 0.3158377714460183,
+            "stateSha256": "65eaf068f303f9515c82136e52c024a8a0b51e70fda225e3d82a24402886800a",
+            "burned": 18.45096610485543,
+            "remaining": 588.6930716310601,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 106.3566573685334,
+              "currentBurningArea": 106.3566573685334
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 73.0782435850032,
+              "currentBurningArea": 73.0782435850032
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 18.875899999999998,
+              "currentBurningArea": 18.875899999999998
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 12.146109116999996,
+              "currentBurningArea": 12.146109116999996
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 30.114068302346876,
+              "currentBurningArea": 30.114068302346876
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 37.066800158151985,
+              "currentBurningArea": 24.20780012166798
+            }
+          }
+        },
+        {
+          "tick": 1800,
+          "worldTime": 60,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 660.1971955246952,
+            "currentBurningArea": 603.4673956338315,
+            "everIgnitedFraction": 0.7510332781535423,
+            "stateSha256": "f789e4021a326f2d7e249e0551becddbc1dbbc84d1958d0e708e017def6ce4e1",
+            "burned": 83.4528869931566,
+            "remaining": 523.6911507421225,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 226.83746213865453,
+              "currentBurningArea": 226.83746213865453
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 139.60918130689078,
+              "currentBurningArea": 139.60918130689078
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 5.929963172915454,
+              "currentBurningArea": 5.929963172915454
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 68.37
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 57.190286744386384,
+              "currentBurningArea": 57.190286744386384
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 70.42790200550932,
+              "currentBurningArea": 70.42790200550932
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 91.83240015633694,
+              "currentBurningArea": 35.102600265473136
+            }
+          }
+        },
+        {
+          "tick": 3600,
+          "worldTime": 120,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 792.5868719818152,
+            "currentBurningArea": 686.8964682465654,
+            "everIgnitedFraction": 0.9016383600552548,
+            "stateSha256": "eead0df90b99d4394152000e4e2122fbd1f21655f21887ec2dd502b58e5c9823",
+            "burned": 257.4885471973116,
+            "remaining": 349.6554905317297,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 229.45774224156634,
+              "currentBurningArea": 220.38273932656634
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 180.98717206204645,
+              "currentBurningArea": 179.3371715320465
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.847808587678237,
+              "currentBurningArea": 15.847808587678237
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 68.37
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 82.6716600592953,
+              "currentBurningArea": 82.6716600592953
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 113.33408864315923,
+              "currentBurningArea": 113.33408864315923
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 101.91840038807983,
+              "currentBurningArea": 6.953000097829106
+            }
+          }
+        },
+        {
+          "tick": 5400,
+          "worldTime": 180,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 823.3670159672455,
+            "currentBurningArea": 597.4762824655216,
+            "everIgnitedFraction": 0.9366535230946001,
+            "stateSha256": "8f83e846c7c0071bb6bf55b0b9d21fd3a9c32176958abad1d518eb1122ad4db2",
+            "burned": 444.29373545377194,
+            "remaining": 162.09158985888976,
+            "airborne": 0.7587124281037374
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 233.4612844773456,
+              "currentBurningArea": 170.63619857234343
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 188.52533175046824,
+              "currentBurningArea": 162.220147652561
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.847808587678237,
+              "currentBurningArea": 15.847808587678237
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 52.77
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 83.77616004529531,
+              "currentBurningArea": 75.37005092829533
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 131.17603071088163,
+              "currentBurningArea": 118.05367671713314
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 102.21040039559001,
+              "currentBurningArea": 2.5784000075101874
+            }
+          }
+        },
+        {
+          "tick": 9900,
+          "worldTime": 330,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 875.3402064229786,
+            "currentBurningArea": 49.457637876941156,
+            "everIgnitedFraction": 0.9957776694385504,
+            "stateSha256": "3c2b1b3f5fae95fa27f2b348683ae79593462e17ee9e0f06154c47d1cb835464",
+            "burned": 593.6861811482795,
+            "remaining": 13.45785661840462,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 233.96128457734562,
+              "currentBurningArea": 3.503542335779117
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 192.70736294050965,
+              "currentBurningArea": 7.319432498041419
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.924258631678239,
+              "currentBurningArea": 0.07645004399999988
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 85.59500130759108,
+              "currentBurningArea": 1.8188412622957564
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 158.88789859496913,
+              "currentBurningArea": 36.73937173682482
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 119.89440037089877,
+              "currentBurningArea": 0
+            }
+          }
+        }
+      ],
+      "firstGroundTimberAbovePlinth": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      },
+      "firstInPlaceLowerExteriorAbovePlinth": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/0-6-0-7/267/6/0.48",
+        "sourceSurfaceId": "wall/l0/0-6-0-7/267/6/0.48",
+        "position": [
+          0,
+          1.0099999999999998,
+          6.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstInPlaceLowerFloor": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      }
+    },
+    {
+      "id": "kitchen-grass",
+      "seconds": 330,
+      "elapsedMs": 613503.7527000001,
+      "initializationMs": 2462.9880999999586,
+      "simulationStepMs": {
+        "samples": 9900,
+        "mean": 44.96153419191933,
+        "p95": 84.36430000001565,
+        "max": 220.53099999995902
+      },
+      "controls": null,
+      "checks": {
+        "budgetPassed": true,
+        "cohortBurnedError": -3.226978151360527e-8,
+        "cohortGeneratedRelativeError": -6.603978307895373e-13,
+        "maxBurnsPerFuelPerTick": 1
+      },
+      "files": {
+        "result.json": {
+          "bytes": 5035061,
+          "sha256": "b2e78a8514d9f524547bd25688df44ef333f0a368153c0c9d661b3d4480ce370"
+        },
+        "snapshot.json": {
+          "bytes": 11509067,
+          "sha256": "f0c543c43d8d5fa6bdc9878691b43a113afe5a7bc877e01cda56ba0a209b0ca3"
+        },
+        "events.json": {
+          "bytes": 6354363,
+          "sha256": "56c6831bfdaa5e4321ca96e14742f579c23cbba497629392b93846b2b529a289"
+        },
+        "replay.json": {
+          "bytes": 4994,
+          "sha256": "7eab3c2bcd4283ce95c076ceb34762ac341dbc4f4bb6eab8113126a2aa915d9a"
+        },
+        "frames.ndjson.gz": {
+          "bytes": 247030069,
+          "sha256": "a3fad5a171f254b4755293d823cf07facc6b4a676ea0ab9830f81f6545f61442"
+        }
+      },
+      "archiveClosed": true,
+      "commands": [
+        {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            1.1,
+            6.25
+          ],
+          "from": [
+            1.4,
+            1.1,
+            6.3
+          ],
+          "sequence": 1
+        }
+      ],
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "match": {
+        "command": {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            1.1,
+            6.25
+          ],
+          "from": [
+            1.4,
+            1.1,
+            6.3
+          ]
+        },
+        "observer": [
+          1.4,
+          0.48,
+          6.3
+        ],
+        "targetCell": "0,0,12",
+        "segmentHits": [],
+        "extendedInspectionOnlyHits": [
+          {
+            "id": "wall/l0/0-6-0-7/267/6/0.48",
+            "kind": "wall",
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "t": 0.7333333333333333
+          }
+        ],
+        "interpretation": "Target lies on the positive-X interior side of the west wall; the exact source-to-target ray ends before the timber face. Heat is deposited in that interior adjacent tile."
+      },
+      "firstIgnition": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      },
+      "thresholds": {
+        "10": 12.5,
+        "50": 37,
+        "90": 118.76666666666667
+      },
+      "firstGrass": {
+        "id": 4594,
+        "tick": 4709,
+        "time": 156.96666666666667,
+        "type": "ignition",
+        "fuelId": "fuel:grass-ground/-1,13/0",
+        "sourceSurfaceId": "grass-ground/-1,13/0",
+        "position": [
+          -0.3333333333333333,
+          0,
+          6.833333333333333
+        ],
+        "cls": "grass"
+      },
+      "firstTimberAbovePlinth": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      },
+      "firstExteriorAbovePlinth": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/0-6-0-7/267/6/0.48",
+        "sourceSurfaceId": "wall/l0/0-6-0-7/267/6/0.48",
+        "position": [
+          0,
+          1.0099999999999998,
+          6.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstExteriorAbovePlinthAfterGrass": {
+        "id": 11893,
+        "tick": 5704,
+        "time": 190.13333333333333,
+        "type": "ignition",
+        "fuelId": "fuel:gable/829/20,3,15,-100,0,0",
+        "sourceSurfaceId": "gable/829/20,3,15,-100,0,0",
+        "position": [
+          10.0860004,
+          3.8333335,
+          7.563030366666666
+        ],
+        "cls": "clapboard"
+      },
+      "firstPorchEntry": {
+        "id": 2692,
+        "tick": 1497,
+        "time": 49.9,
+        "type": "ignition",
+        "fuelId": "fuel:porch/724@13,0,-1",
+        "sourceSurfaceId": "porch/724",
+        "position": [
+          6.722222166666666,
+          0.48,
+          -0.25000005
+        ],
+        "cls": "frame"
+      },
+      "upperFloorOverhang": {
+        "definition": "Original level1 floor patches whose fuel centroid lies outside the exact projected lower-storey floor union; not roof eaves.",
+        "originalCount": 8,
+        "originalArea": 2,
+        "ignitedCount": 8,
+        "inPlaceIgnitedCount": 8,
+        "first": 56.766666666666666,
+        "lastAllIgnited": 62.46666666666667,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "already complete before grass",
+        "secondsAfterFirstGrass": null,
+        "firstIgnition": {
+          "id": 2991,
+          "tick": 1703,
+          "time": 56.766666666666666,
+          "type": "ignition",
+          "fuelId": "fuel:floor/l1/11,-1",
+          "sourceSurfaceId": "floor/l1/11,-1",
+          "position": [
+            5.75,
+            2.5999999,
+            -0.25
+          ],
+          "cls": "frame"
+        }
+      },
+      "canonicalClapboardExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "lastAllIgnited": 47.4,
+        "secondsAfterFirstGrassToAllWalls": -109.56666666666666,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "ignitedArea": 15.569999999999999,
+            "inPlaceIgnitedCount": 36,
+            "first": 28.099999999999998,
+            "last": 41.9,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 29.466666666666665,
+            "last": 42.2,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "ignitedArea": 17.6,
+            "inPlaceIgnitedCount": 40,
+            "first": 9.433333333333334,
+            "last": 47.4,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 1.4666666666666666,
+            "last": 39.56666666666666,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          }
+        }
+      },
+      "geometryDerivedExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "ignitedCount": 156,
+        "inPlaceIgnitedCount": 156,
+        "first": 1.4666666666666666,
+        "lastAllIgnited": 47.4,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "already complete before grass",
+        "secondsAfterFirstGrass": null,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "inPlaceIgnitedCount": 36,
+            "first": 28.099999999999998,
+            "lastAllIgnited": 41.9,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "already complete before grass",
+            "secondsAfterFirstGrass": null
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 29.466666666666665,
+            "lastAllIgnited": 42.2,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "already complete before grass",
+            "secondsAfterFirstGrass": null
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 9.433333333333334,
+            "lastAllIgnited": 47.4,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "already complete before grass",
+            "secondsAfterFirstGrass": null
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 1.4666666666666666,
+            "lastAllIgnited": 39.56666666666666,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "already complete before grass",
+            "secondsAfterFirstGrass": null
+          }
+        },
+        "additionalIds": []
+      },
+      "oil": {
+        "id": 5,
+        "tick": 55,
+        "time": 1.8333333333333333,
+        "type": "oil-release",
+        "fuelId": "store/kitchen/oil/contents",
+        "position": [
+          0.65,
+          0.76,
+          6.65
+        ],
+        "threshold": 1.4,
+        "amount": 3,
+        "spentForPulse": 0.12,
+        "redistributed": 2.88,
+        "targets": [
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:0",
+            "position": [
+              0.65,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/1,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:1",
+            "position": [
+              1.15,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/2,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:2",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/0,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:3",
+            "position": [
+              0.65,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/1,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:4",
+            "position": [
+              0.65,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/1,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:5",
+            "position": [
+              1.15,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/2,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:6",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/0,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:7",
+            "position": [
+              1.15,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/2,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:8",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/0,12",
+            "fall": false
+          }
+        ]
+      },
+      "coal": {
+        "id": 356,
+        "tick": 345,
+        "time": 11.5,
+        "type": "ignition",
+        "fuelId": "store/kitchen/coal/contents",
+        "itemId": "store/kitchen/coal",
+        "position": [
+          1.1,
+          0.74,
+          8.65
+        ],
+        "cls": "coal"
+      },
+      "firstSupportFailure": {
+        "id": 4318,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "kind": "floor",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstFloorFailure": {
+        "id": 4318,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "kind": "floor",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstRoofFailure": {
+        "id": 4687,
+        "tick": 4733,
+        "time": 157.76666666666665,
+        "type": "support-failure",
+        "boundaryId": "roof/803/0,1,16,0,34,94",
+        "sourceSurfaceId": "roof/803/0,1,16,0,34,94",
+        "kind": "roof",
+        "position": [
+          0.25,
+          2.5649999999999995,
+          8.08727265
+        ],
+        "ignitionTime": 4.766666666666667,
+        "materialAge": 152.99999999999997,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "failureCounts": {
+        "floor": 702,
+        "wall": 342,
+        "roof": 487
+      },
+      "finalWreck": {
+        "falls": 0,
+        "rubble": 2949,
+        "intactItems": 3,
+        "intactBoundaries": 1910,
+        "houseIntactBoundaries": 996,
+        "grassIntactBoundaries": 913,
+        "note": "Raw intactBoundaries includes terrain and the additive grass patches. House/grass counts above are separated; falling and rubble records remain physical records, not original fuel identities."
+      },
+      "finalArea": {
+        "tick": 9900,
+        "worldTime": 330,
+        "house": {
+          "originalArea": 879.0518539309301,
+          "everIgnitedArea": 875.3402064229786,
+          "currentBurningArea": 49.38118783294116,
+          "everIgnitedFraction": 0.9957776694385504,
+          "stateSha256": "20f2f0f1792e89d71af102d8a338c5db50eedb03717e04bb3cd95c4269dbb77e",
+          "burned": 593.6760750710092,
+          "remaining": 13.4679626960577,
+          "airborne": 0
+        },
+        "grass": {
+          "originalArea": 199.58880000000002,
+          "everIgnitedArea": 199.58880000000002,
+          "currentBurningArea": 0,
+          "burned": 199.5887999998286,
+          "remaining": 3.0037268245602933e-13,
+          "airborne": 0
+        },
+        "groups": {
+          "ground other": {
+            "originalArea": 233.96128457734562,
+            "everIgnitedArea": 233.96128457734562,
+            "currentBurningArea": 3.503542335779117
+          },
+          "upper other": {
+            "originalArea": 192.70736294050965,
+            "everIgnitedArea": 192.70736294050965,
+            "currentBurningArea": 7.319432498041419
+          },
+          "porch/entry": {
+            "originalArea": 16.142208135819235,
+            "everIgnitedArea": 15.924258631678239,
+            "currentBurningArea": 0
+          },
+          "ground exterior walls": {
+            "originalArea": 68.37,
+            "everIgnitedArea": 68.37,
+            "currentBurningArea": 0
+          },
+          "upper exterior walls": {
+            "originalArea": 85.59500130759108,
+            "everIgnitedArea": 85.59500130759108,
+            "currentBurningArea": 1.8188412622957564
+          },
+          "roof": {
+            "originalArea": 162.3815965987802,
+            "everIgnitedArea": 158.88789859496913,
+            "currentBurningArea": 36.73937173682482
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 199.58880000000002,
+            "currentBurningArea": 0
+          },
+          "contents/finish/stores": {
+            "originalArea": 119.89440037089877,
+            "everIgnitedArea": 119.89440037089877,
+            "currentBurningArea": 0
+          }
+        },
+        "metrics": {
+          "tick": 9900,
+          "worldTime": 330,
+          "fuel": {
+            "initial": 806.7328377358597,
+            "added": 0,
+            "burned": 793.2648751031077,
+            "escaped": 0,
+            "remaining": 13.4679626960577,
+            "airborne": 0,
+            "error": -6.330569490842208e-8
+          },
+          "heat": {
+            "generated": 1341495.3196375787,
+            "input": 1.05,
+            "ambient": 111682.67750310949,
+            "blocked": 222116.32573149746,
+            "cap": 800961.833658198,
+            "escaped": 206400.571726511,
+            "stored": 334.96107026461374,
+            "radiationInTransit": 0,
+            "error": -0.000052001833466874814,
+            "relativeError": -3.876405083446013e-11
+          },
+          "burningCount": 369,
+          "burningArea": 49.38118783294116,
+          "combustibleArea": 1078.6406539309312,
+          "burningAreaFraction": 0.045780944425726416,
+          "burnedFraction": 0.9833055480045283,
+          "activeCells": 1180,
+          "fallingCount": 0,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 9900,
+            "cellVisits": 39353744,
+            "burnVisits": 34312136,
+            "linkBuilds": 3713,
+            "rayBuilds": 89112,
+            "rayTests": 328251,
+            "invalidations": 201513,
+            "ignitions": 5422,
+            "failures": 2462,
+            "landings": 4162,
+            "peakActive": 6126,
+            "maxBurnsPerFuelPerTick": 1
+          }
+        }
+      },
+      "metrics": {
+        "tick": 9900,
+        "worldTime": 330,
+        "fuel": {
+          "initial": 806.7328377358597,
+          "added": 0,
+          "burned": 793.2648751031077,
+          "escaped": 0,
+          "remaining": 13.4679626960577,
+          "airborne": 0,
+          "error": -6.330569490842208e-8
+        },
+        "heat": {
+          "generated": 1341495.3196375787,
+          "input": 1.05,
+          "ambient": 111682.67750310949,
+          "blocked": 222116.32573149746,
+          "cap": 800961.833658198,
+          "escaped": 206400.571726511,
+          "stored": 334.96107026461374,
+          "radiationInTransit": 0,
+          "error": -0.000052001833466874814,
+          "relativeError": -3.876405083446013e-11
+        },
+        "burningCount": 369,
+        "burningArea": 49.38118783294116,
+        "combustibleArea": 1078.6406539309312,
+        "burningAreaFraction": 0.045780944425726416,
+        "burnedFraction": 0.9833055480045283,
+        "activeCells": 1180,
+        "fallingCount": 0,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 9900,
+          "cellVisits": 39353744,
+          "burnVisits": 34312136,
+          "linkBuilds": 3713,
+          "rayBuilds": 89112,
+          "rayTests": 328251,
+          "invalidations": 201513,
+          "ignitions": 5422,
+          "failures": 2462,
+          "landings": 4162,
+          "peakActive": 6126,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      },
+      "checkpoints": [
+        {
+          "tick": 0,
+          "worldTime": 0,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "everIgnitedFraction": 0,
+            "stateSha256": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+            "burned": 0,
+            "remaining": 607.1440377358605,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            }
+          }
+        },
+        {
+          "tick": 900,
+          "worldTime": 30,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 277.4477784550358,
+            "currentBurningArea": 264.5887784185518,
+            "everIgnitedFraction": 0.3156216293889254,
+            "stateSha256": "b3fbb3ee6aaec08531971f5e915ca7254f463c130a8d9a11500ee189c7f02c30",
+            "burned": 18.429630726555022,
+            "remaining": 588.7144070093599,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 106.3566573685334,
+              "currentBurningArea": 106.3566573685334
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 72.88824350900319,
+              "currentBurningArea": 72.88824350900319
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 18.875899999999998,
+              "currentBurningArea": 18.875899999999998
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 12.146109116999996,
+              "currentBurningArea": 12.146109116999996
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 30.114068302346876,
+              "currentBurningArea": 30.114068302346876
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 37.066800158151985,
+              "currentBurningArea": 24.20780012166798
+            }
+          }
+        },
+        {
+          "tick": 1800,
+          "worldTime": 60,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 658.3634245820168,
+            "currentBurningArea": 606.5444244261748,
+            "everIgnitedFraction": 0.7489471999154063,
+            "stateSha256": "00baded42b4ba2398d829bd4926154f504fdd3914149e4f98a7a180cb9bae814",
+            "burned": 83.23405977783776,
+            "remaining": 523.9099779574489,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 226.83746213865453,
+              "currentBurningArea": 226.83746213865453
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 138.6076561091691,
+              "currentBurningArea": 138.6076561091691
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 6.729963642915515,
+              "currentBurningArea": 6.729963642915515
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 68.37
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 55.37528669438639,
+              "currentBurningArea": 55.37528669438639
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 70.61065584055245,
+              "currentBurningArea": 70.61065584055245
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 91.83240015633694,
+              "currentBurningArea": 40.01340000049472
+            }
+          }
+        },
+        {
+          "tick": 3600,
+          "worldTime": 120,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 792.9266305341016,
+            "currentBurningArea": 686.941226689852,
+            "everIgnitedFraction": 0.9020248657554215,
+            "stateSha256": "105a5da35bbe683bf9654a8912b31c2e44df2a3f324770443ee6abcb3cf2175f",
+            "burned": 257.28830646139807,
+            "remaining": 349.85573126764217,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 229.45774224156634,
+              "currentBurningArea": 220.38273932656634
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 181.86544709504642,
+              "currentBurningArea": 179.9204464560464
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.847808587678237,
+              "currentBurningArea": 15.847808587678237
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 68.37
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 82.6716600592953,
+              "currentBurningArea": 82.6716600592953
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 112.79557216244577,
+              "currentBurningArea": 112.79557216244577
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 101.91840038807983,
+              "currentBurningArea": 6.953000097829106
+            }
+          }
+        },
+        {
+          "tick": 5400,
+          "worldTime": 180,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 823.4434660112455,
+            "currentBurningArea": 596.7870566038445,
+            "everIgnitedFraction": 0.9367404918481022,
+            "stateSha256": "fca9080776d8613897dc442c914d9690f94b15a04859f5a400e425d2fec08bbc",
+            "burned": 444.0372088536457,
+            "remaining": 162.4441675370284,
+            "airborne": 0.6626613500995882
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 199.58880000000002,
+            "currentBurningArea": 0,
+            "burned": 199.5887999998286,
+            "remaining": 3.0037268245602933e-13,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 233.4612844773456,
+              "currentBurningArea": 169.87052266666626
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 188.52533175046824,
+              "currentBurningArea": 162.220147652561
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.924258631678239,
+              "currentBurningArea": 15.924258631678239
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 52.77
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 83.77616004529531,
+              "currentBurningArea": 75.37005092829533
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 131.17603071088163,
+              "currentBurningArea": 118.05367671713314
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 199.58880000000002,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 102.21040039559001,
+              "currentBurningArea": 2.5784000075101874
+            }
+          }
+        },
+        {
+          "tick": 9900,
+          "worldTime": 330,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 875.3402064229786,
+            "currentBurningArea": 49.38118783294116,
+            "everIgnitedFraction": 0.9957776694385504,
+            "stateSha256": "20f2f0f1792e89d71af102d8a338c5db50eedb03717e04bb3cd95c4269dbb77e",
+            "burned": 593.6760750710092,
+            "remaining": 13.4679626960577,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 199.58880000000002,
+            "currentBurningArea": 0,
+            "burned": 199.5887999998286,
+            "remaining": 3.0037268245602933e-13,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 233.96128457734562,
+              "currentBurningArea": 3.503542335779117
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 192.70736294050965,
+              "currentBurningArea": 7.319432498041419
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.924258631678239,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 85.59500130759108,
+              "currentBurningArea": 1.8188412622957564
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 158.88789859496913,
+              "currentBurningArea": 36.73937173682482
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 199.58880000000002,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 119.89440037089877,
+              "currentBurningArea": 0
+            }
+          }
+        }
+      ],
+      "firstGroundTimberAbovePlinth": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      },
+      "firstInPlaceLowerExteriorAbovePlinth": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/0-6-0-7/267/6/0.48",
+        "sourceSurfaceId": "wall/l0/0-6-0-7/267/6/0.48",
+        "position": [
+          0,
+          1.0099999999999998,
+          6.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstInPlaceLowerFloor": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l0/0,12",
+        "sourceSurfaceId": "floor/l0/0,12",
+        "position": [
+          0.25,
+          0.48,
+          6.25
+        ],
+        "cls": "frame"
+      },
+      "grassProgress": {
+        "definition": "Each original lawn patch counts once; nearest finite native square-house facade segment assigns perimeter sectors, X sides win distance ties within EPS. Sectors describe spatial progression, not causal attribution.",
+        "thresholds": {
+          "10": 158.76666666666665,
+          "50": 162.76666666666665,
+          "90": 166.06666666666666,
+          "100": 167.06666666666666
+        },
+        "everIgnitedArea": 199.5887999999998,
+        "lastIgnition": 167.06666666666666,
+        "secondsFirstToLast": 10.099999999999994,
+        "unignitedCount": 0,
+        "unignitedArea": 2.2737367544323206e-13,
+        "sectors": {
+          "west (-X)": {
+            "first": 156.96666666666667,
+            "last": 163.7,
+            "ignitedCount": 254,
+            "ignitedArea": 57.95999999999998
+          },
+          "rear (+Z)": {
+            "first": 158.73333333333332,
+            "last": 162.86666666666667,
+            "ignitedCount": 139,
+            "ignitedArea": 30
+          },
+          "front (-Z)": {
+            "first": 160.73333333333332,
+            "last": 165.83333333333334,
+            "ignitedCount": 265,
+            "ignitedArea": 53.66879999999999
+          },
+          "east (+X)": {
+            "first": 162.83333333333334,
+            "last": 167.06666666666666,
+            "ignitedCount": 255,
+            "ignitedArea": 57.95999999999998
+          }
+        }
+      }
+    },
+    {
+      "id": "bedroom-control",
+      "seconds": 330,
+      "elapsedMs": 415990.4209,
+      "initializationMs": 865.3655000000726,
+      "simulationStepMs": {
+        "samples": 9900,
+        "mean": 31.620306737373202,
+        "p95": 57.007400000002235,
+        "max": 172.23319999990053
+      },
+      "controls": {
+        "referenceFile": "docs/engineering/furnished-house-grass/control-reference.json",
+        "referenceRuntime": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+        "referenceSnapshotSha256": "597a583ae5ecbf65f235536171ef0913cd7a3aced4402caac6c52639fab2f5fd",
+        "snapshotIdentical": true,
+        "referenceEventsSha256": "db75410df9fe73ed1f874dbd68ce4d67cc6a130054d12652439fd37a355f8dce",
+        "eventsIdentical": true,
+        "frozenCoreUnchanged": true
+      },
+      "checks": {
+        "budgetPassed": true,
+        "cohortBurnedError": 0,
+        "cohortGeneratedRelativeError": 0,
+        "maxBurnsPerFuelPerTick": 1
+      },
+      "files": {
+        "result.json": {
+          "bytes": 4780596,
+          "sha256": "5da9e7761d70bfa290da286d47b367ac9d2a90051c09a69c8a809d4ca4261c59"
+        },
+        "snapshot.json": {
+          "bytes": 10518200,
+          "sha256": "597a583ae5ecbf65f235536171ef0913cd7a3aced4402caac6c52639fab2f5fd"
+        },
+        "events.json": {
+          "bytes": 5008462,
+          "sha256": "db75410df9fe73ed1f874dbd68ce4d67cc6a130054d12652439fd37a355f8dce"
+        },
+        "replay.json": {
+          "bytes": 4997,
+          "sha256": "f16af07e0242cb396221f98c3a462a3d9e32bc92d856d1cb0467a8ac8e3f4530"
+        },
+        "frames.ndjson.gz": {
+          "bytes": 212852067,
+          "sha256": "5096951371f6c1c440111e4fa3d79607a21b23bc747c42076fc86fc0f3112c62"
+        }
+      },
+      "archiveClosed": true,
+      "commands": [
+        {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            3.13,
+            5.25
+          ],
+          "from": [
+            0.8,
+            3.13,
+            5.25
+          ],
+          "sequence": 1
+        }
+      ],
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "match": {
+        "command": {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            3.13,
+            5.25
+          ],
+          "from": [
+            0.8,
+            3.13,
+            5.25
+          ]
+        },
+        "observer": [
+          0.8,
+          2.6,
+          5.25
+        ],
+        "targetCell": "0,2,10",
+        "segmentHits": [],
+        "extendedInspectionOnlyHits": [
+          {
+            "id": "wall/l1/0-5-0-6/513/5/2.6",
+            "kind": "wall",
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "t": 0.6
+          }
+        ],
+        "interpretation": "Target lies on the positive-X interior side of the west wall; the exact source-to-target ray ends before the timber face. Heat is deposited in that interior adjacent tile."
+      },
+      "firstIgnition": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "cls": "frame"
+      },
+      "thresholds": {
+        "10": 15.933333333333334,
+        "50": 156.3,
+        "90": 195.9
+      },
+      "firstGrass": null,
+      "firstTimberAbovePlinth": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "cls": "frame"
+      },
+      "firstExteriorAbovePlinth": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l1/0-5-0-6/513/5/2.6",
+        "sourceSurfaceId": "wall/l1/0-5-0-6/513/5/2.6",
+        "position": [
+          0,
+          3.13,
+          5.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstExteriorAbovePlinthAfterGrass": null,
+      "firstPorchEntry": {
+        "id": 5446,
+        "tick": 5531,
+        "time": 184.36666666666667,
+        "type": "ignition",
+        "fuelId": "fuel:porch/724@6,0,-2",
+        "sourceSurfaceId": "porch/724",
+        "position": [
+          3.2500000499999997,
+          0.48,
+          -0.75
+        ],
+        "cls": "frame"
+      },
+      "upperFloorOverhang": {
+        "definition": "Original level1 floor patches whose fuel centroid lies outside the exact projected lower-storey floor union; not roof eaves.",
+        "originalCount": 8,
+        "originalArea": 2,
+        "ignitedCount": 8,
+        "inPlaceIgnitedCount": 8,
+        "first": 60,
+        "lastAllIgnited": 63.86666666666667,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "no grass in fixture",
+        "secondsAfterFirstGrass": null,
+        "firstIgnition": {
+          "id": 1334,
+          "tick": 1800,
+          "time": 60,
+          "type": "ignition",
+          "fuelId": "fuel:floor/l1/10,-2",
+          "sourceSurfaceId": "floor/l1/10,-2",
+          "position": [
+            5.25,
+            2.5999999,
+            -0.75
+          ],
+          "cls": "frame"
+        }
+      },
+      "canonicalClapboardExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "lastAllIgnited": 197.6,
+        "secondsAfterFirstGrassToAllWalls": null,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "ignitedArea": 15.569999999999999,
+            "inPlaceIgnitedCount": 36,
+            "first": 169.73333333333332,
+            "last": 197.6,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 189.76666666666665,
+            "last": 197.6,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "ignitedArea": 17.6,
+            "inPlaceIgnitedCount": 40,
+            "first": 165.43333333333334,
+            "last": 195.3,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 156.26666666666665,
+            "last": 170.36666666666667,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          }
+        }
+      },
+      "geometryDerivedExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "ignitedCount": 156,
+        "inPlaceIgnitedCount": 156,
+        "first": 156.26666666666665,
+        "lastAllIgnited": 197.6,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "no grass in fixture",
+        "secondsAfterFirstGrass": null,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "inPlaceIgnitedCount": 36,
+            "first": 169.73333333333332,
+            "lastAllIgnited": 197.6,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 189.76666666666665,
+            "lastAllIgnited": 197.6,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 165.43333333333334,
+            "lastAllIgnited": 195.3,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 156.26666666666665,
+            "lastAllIgnited": 170.36666666666667,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "no grass in fixture",
+            "secondsAfterFirstGrass": null
+          }
+        },
+        "additionalIds": []
+      },
+      "oil": {
+        "id": 2433,
+        "tick": 4749,
+        "time": 158.3,
+        "type": "oil-release",
+        "fuelId": "store/kitchen/oil/contents",
+        "position": [
+          0.65,
+          0.76,
+          6.65
+        ],
+        "threshold": 1.4,
+        "amount": 3,
+        "spentForPulse": 0.12,
+        "redistributed": 2.88,
+        "targets": [
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:0",
+            "position": [
+              0.65,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/1,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:1",
+            "position": [
+              1.15,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/2,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:2",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/0,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:3",
+            "position": [
+              0.65,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/1,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:4",
+            "position": [
+              0.65,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/1,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:5",
+            "position": [
+              1.15,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/2,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:6",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/0,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:7",
+            "position": [
+              1.15,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/2,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:8",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/0,12",
+            "fall": false
+          }
+        ]
+      },
+      "coal": {
+        "id": 3483,
+        "tick": 5032,
+        "time": 167.73333333333332,
+        "type": "ignition",
+        "fuelId": "store/kitchen/coal/contents",
+        "itemId": "store/kitchen/coal",
+        "position": [
+          1.1,
+          0.74,
+          8.65
+        ],
+        "cls": "coal"
+      },
+      "firstSupportFailure": {
+        "id": 2256,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "kind": "floor",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstFloorFailure": {
+        "id": 2256,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "kind": "floor",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstRoofFailure": {
+        "id": 2381,
+        "tick": 4736,
+        "time": 157.86666666666667,
+        "type": "support-failure",
+        "boundaryId": "roof/792/0,4,10,0,93,37",
+        "sourceSurfaceId": "roof/792/0,4,10,0,93,37",
+        "kind": "roof",
+        "position": [
+          0.28473684999999993,
+          5.550000000000001,
+          5.25
+        ],
+        "ignitionTime": 4.866666666666666,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "failureCounts": {
+        "floor": 468,
+        "wall": 370,
+        "roof": 514
+      },
+      "finalWreck": {
+        "falls": 28,
+        "rubble": 2326,
+        "intactItems": 4,
+        "intactBoundaries": 2255,
+        "houseIntactBoundaries": 2254,
+        "grassIntactBoundaries": 0,
+        "note": "Raw intactBoundaries includes terrain and the additive grass patches. House/grass counts above are separated; falling and rubble records remain physical records, not original fuel identities."
+      },
+      "finalArea": {
+        "tick": 9900,
+        "worldTime": 330,
+        "house": {
+          "originalArea": 879.0518539309301,
+          "everIgnitedArea": 851.8758631984178,
+          "currentBurningArea": 281.7174024960009,
+          "everIgnitedFraction": 0.9690848832057096,
+          "stateSha256": "fbe12e6f5cb772778d1fec3396a03ea24f15fbb58e003da16928dab587313c81",
+          "burned": 538.9614245544769,
+          "remaining": 67.76548726899178,
+          "airborne": 0.41712592860767284
+        },
+        "grass": {
+          "originalArea": 0,
+          "everIgnitedArea": 0,
+          "currentBurningArea": 0,
+          "burned": 0,
+          "remaining": 0,
+          "airborne": 0
+        },
+        "groups": {
+          "ground other": {
+            "originalArea": 233.96128457734562,
+            "everIgnitedArea": 233.96128457734562,
+            "currentBurningArea": 165.64536642163452
+          },
+          "upper other": {
+            "originalArea": 192.70736294050965,
+            "everIgnitedArea": 191.33821814435893,
+            "currentBurningArea": 17.509265398673836
+          },
+          "porch/entry": {
+            "originalArea": 16.142208135819235,
+            "everIgnitedArea": 15.847808587678237,
+            "currentBurningArea": 15.847808587678237
+          },
+          "ground exterior walls": {
+            "originalArea": 68.37,
+            "everIgnitedArea": 68.37,
+            "currentBurningArea": 48.12500000000001
+          },
+          "upper exterior walls": {
+            "originalArea": 85.59500130759108,
+            "everIgnitedArea": 85.39764187870429,
+            "currentBurningArea": 4.729486610317993
+          },
+          "roof": {
+            "originalArea": 162.3815965987802,
+            "everIgnitedArea": 137.0665096394453,
+            "currentBurningArea": 27.574075477696656
+          },
+          "contents/finish/stores": {
+            "originalArea": 119.89440037089877,
+            "everIgnitedArea": 119.89440037089877,
+            "currentBurningArea": 2.286400000000002
+          }
+        },
+        "metrics": {
+          "tick": 9900,
+          "worldTime": 330,
+          "fuel": {
+            "initial": 607.1440377358605,
+            "added": 0,
+            "burned": 538.9614245544769,
+            "escaped": 0,
+            "remaining": 67.76548726899178,
+            "airborne": 0.41712592860767284,
+            "error": -1.6215906839534e-8
+          },
+          "heat": {
+            "generated": 1207479.9389483002,
+            "input": 1.05,
+            "ambient": 109408.01233942462,
+            "blocked": 196502.45706458992,
+            "cap": 715210.9573389298,
+            "escaped": 184664.01802531118,
+            "stored": 1695.5442041002575,
+            "radiationInTransit": 0,
+            "error": -0.000024055469566519605,
+            "relativeError": -1.992202758195936e-11
+          },
+          "burningCount": 1679,
+          "burningArea": 281.71740249600117,
+          "combustibleArea": 879.0518539309301,
+          "burningAreaFraction": 0.32047870809466106,
+          "burnedFraction": 0.8876994437174288,
+          "activeCells": 3433,
+          "fallingCount": 28,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 9900,
+            "cellVisits": 27956051,
+            "burnVisits": 36944184,
+            "linkBuilds": 2601,
+            "rayBuilds": 62424,
+            "rayTests": 232627,
+            "invalidations": 144086,
+            "ignitions": 4357,
+            "failures": 2120,
+            "landings": 3396,
+            "peakActive": 3874,
+            "maxBurnsPerFuelPerTick": 1
+          }
+        }
+      },
+      "metrics": {
+        "tick": 9900,
+        "worldTime": 330,
+        "fuel": {
+          "initial": 607.1440377358605,
+          "added": 0,
+          "burned": 538.9614245544769,
+          "escaped": 0,
+          "remaining": 67.76548726899178,
+          "airborne": 0.41712592860767284,
+          "error": -1.6215906839534e-8
+        },
+        "heat": {
+          "generated": 1207479.9389483002,
+          "input": 1.05,
+          "ambient": 109408.01233942462,
+          "blocked": 196502.45706458992,
+          "cap": 715210.9573389298,
+          "escaped": 184664.01802531118,
+          "stored": 1695.5442041002575,
+          "radiationInTransit": 0,
+          "error": -0.000024055469566519605,
+          "relativeError": -1.992202758195936e-11
+        },
+        "burningCount": 1679,
+        "burningArea": 281.71740249600117,
+        "combustibleArea": 879.0518539309301,
+        "burningAreaFraction": 0.32047870809466106,
+        "burnedFraction": 0.8876994437174288,
+        "activeCells": 3433,
+        "fallingCount": 28,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 9900,
+          "cellVisits": 27956051,
+          "burnVisits": 36944184,
+          "linkBuilds": 2601,
+          "rayBuilds": 62424,
+          "rayTests": 232627,
+          "invalidations": 144086,
+          "ignitions": 4357,
+          "failures": 2120,
+          "landings": 3396,
+          "peakActive": 3874,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      },
+      "checkpoints": [
+        {
+          "tick": 0,
+          "worldTime": 0,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "everIgnitedFraction": 0,
+            "stateSha256": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+            "burned": 0,
+            "remaining": 607.1440377358605,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            }
+          }
+        },
+        {
+          "tick": 900,
+          "worldTime": 30,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 164.17772704629505,
+            "currentBurningArea": 156.0137269901475,
+            "everIgnitedFraction": 0.18676682872816627,
+            "stateSha256": "2a07fa372f7b8c524faf7d6c401384c2e28300604de3d06724535a87c8693002",
+            "burned": 9.607318789530197,
+            "remaining": 597.5367189463284,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0.1048409247558432,
+              "currentBurningArea": 0.1048409247558432
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 69.5853453871815,
+              "currentBurningArea": 69.5853453871815
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 33.477750237,
+              "currentBurningArea": 33.477750237
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 37.06099030738921,
+              "currentBurningArea": 37.06099030738921
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 23.948800189968942,
+              "currentBurningArea": 15.784800133821367
+            }
+          }
+        },
+        {
+          "tick": 1800,
+          "worldTime": 60,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 304.9202172612899,
+            "currentBurningArea": 271.0326169156248,
+            "everIgnitedFraction": 0.34687398234558353,
+            "stateSha256": "81615064f0ccc2a6e52242b964c596aface894bf973fa1e8bbfe7a1e3bb708ae",
+            "burned": 38.065065753758134,
+            "remaining": 569.0789719821856,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0.8183827528244302,
+              "currentBurningArea": 0.8183827528244302
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 130.15448728383214,
+              "currentBurningArea": 130.15448728383214
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 64.28558948340905,
+              "currentBurningArea": 64.28558948340905
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 54.02675714934945,
+              "currentBurningArea": 54.02675714934945
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 55.63500059187408,
+              "currentBurningArea": 21.747400246208905
+            }
+          }
+        },
+        {
+          "tick": 3600,
+          "worldTime": 120,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 422.7569007162802,
+            "currentBurningArea": 351.39989905220244,
+            "everIgnitedFraction": 0.48092373484658796,
+            "stateSha256": "f0381c5d6e864640082e868cc74256a195196d44f1854cc86889a1497e2eb0e5",
+            "burned": 126.94159317938977,
+            "remaining": 480.202444553946,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0.8183827528244302,
+              "currentBurningArea": 0.8183827528244302
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 168.67743953188796,
+              "currentBurningArea": 165.37743847188776
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 79.48754616538635,
+              "currentBurningArea": 79.48754616538635
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 97.81393167168426,
+              "currentBurningArea": 97.81393167168426
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 75.95960059449968,
+              "currentBurningArea": 7.9025999904215265
+            }
+          }
+        },
+        {
+          "tick": 5400,
+          "worldTime": 180,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 627.8356867681435,
+            "currentBurningArea": 466.45494358598785,
+            "everIgnitedFraction": 0.7142191714409086,
+            "stateSha256": "86c7d08c85b388e63eb00d58484b52cd81f2be045ede11b06579b1412f4e9242",
+            "burned": 243.18522734829523,
+            "remaining": 363.2510569565374,
+            "airborne": 0.7077534238101083
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 127.29816121012202,
+              "currentBurningArea": 127.29816121012202
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 176.99915402168511,
+              "currentBurningArea": 131.65434435603103
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 31.200000000000006,
+              "currentBurningArea": 31.200000000000006
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 80.66815526838634,
+              "currentBurningArea": 58.82815506838635
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 115.51801591788625,
+              "currentBurningArea": 101.55928320657941
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 96.152200350061,
+              "currentBurningArea": 15.914999744868288
+            }
+          }
+        },
+        {
+          "tick": 9900,
+          "worldTime": 330,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 851.8758631984178,
+            "currentBurningArea": 281.7174024960009,
+            "everIgnitedFraction": 0.9690848832057096,
+            "stateSha256": "fbe12e6f5cb772778d1fec3396a03ea24f15fbb58e003da16928dab587313c81",
+            "burned": 538.9614245544769,
+            "remaining": 67.76548726899178,
+            "airborne": 0.41712592860767284
+          },
+          "grass": {
+            "originalArea": 0,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 0,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 233.96128457734562,
+              "currentBurningArea": 165.64536642163452
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 191.33821814435893,
+              "currentBurningArea": 17.509265398673836
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.847808587678237,
+              "currentBurningArea": 15.847808587678237
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 48.12500000000001
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 85.39764187870429,
+              "currentBurningArea": 4.729486610317993
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 137.0665096394453,
+              "currentBurningArea": 27.574075477696656
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 119.89440037089877,
+              "currentBurningArea": 2.286400000000002
+            }
+          }
+        }
+      ],
+      "firstGroundTimberAbovePlinth": {
+        "id": 546,
+        "tick": 665,
+        "time": 22.166666666666668,
+        "type": "ignition",
+        "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel@9,2,14",
+        "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel",
+        "position": [
+          4.959226188095239,
+          2.9889285989011,
+          7.017023761904767
+        ],
+        "cls": "frame"
+      },
+      "firstInPlaceLowerExteriorAbovePlinth": {
+        "id": 2291,
+        "tick": 4688,
+        "time": 156.26666666666665,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/0-5-0-6/270/5/1.54",
+        "sourceSurfaceId": "wall/l0/0-5-0-6/270/5/1.54",
+        "position": [
+          0,
+          2.01,
+          5.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstInPlaceLowerFloor": {
+        "id": 849,
+        "tick": 1032,
+        "time": 34.4,
+        "type": "ignition",
+        "fuelId": "fuel:stair/351@10,2,13",
+        "sourceSurfaceId": "stair/351",
+        "position": [
+          5.277777833333333,
+          2.5999999,
+          6.861111116666666
+        ],
+        "cls": "frame"
+      }
+    },
+    {
+      "id": "bedroom-grass",
+      "seconds": 330,
+      "elapsedMs": 999739.7240999998,
+      "initializationMs": 1557.6691999998875,
+      "simulationStepMs": {
+        "samples": 9900,
+        "mean": 65.73997426262385,
+        "p95": 157.21689999988303,
+        "max": 625.9464000002481
+      },
+      "controls": null,
+      "checks": {
+        "budgetPassed": true,
+        "cohortBurnedError": -5.271022018860094e-8,
+        "cohortGeneratedRelativeError": -2.3019004169021687e-12,
+        "maxBurnsPerFuelPerTick": 1
+      },
+      "files": {
+        "result.json": {
+          "bytes": 5025393,
+          "sha256": "fa1c5ab4349e5495339e6d38cf34ecb3dd3c46dff62f9eed0499325092e84b51"
+        },
+        "snapshot.json": {
+          "bytes": 12083495,
+          "sha256": "d087c2cfd75b3d340f2ccc40d9673b0a18b2d87ee5033cbf1cd96d1aa88fba0b"
+        },
+        "events.json": {
+          "bytes": 7193582,
+          "sha256": "063deecff4f80672284503dedc2bce1dc4c96497601000b2c99210f2628ae6b4"
+        },
+        "replay.json": {
+          "bytes": 4997,
+          "sha256": "f16af07e0242cb396221f98c3a462a3d9e32bc92d856d1cb0467a8ac8e3f4530"
+        },
+        "frames.ndjson.gz": {
+          "bytes": 243014849,
+          "sha256": "e974fab1d041295281de41ca2f32e86af93723a2b256cecf5e3035a4ded95c59"
+        }
+      },
+      "archiveClosed": true,
+      "commands": [
+        {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            3.13,
+            5.25
+          ],
+          "from": [
+            0.8,
+            3.13,
+            5.25
+          ],
+          "sequence": 1
+        }
+      ],
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "match": {
+        "command": {
+          "tick": 1,
+          "type": "match",
+          "position": [
+            0.1,
+            3.13,
+            5.25
+          ],
+          "from": [
+            0.8,
+            3.13,
+            5.25
+          ]
+        },
+        "observer": [
+          0.8,
+          2.6,
+          5.25
+        ],
+        "targetCell": "0,2,10",
+        "segmentHits": [],
+        "extendedInspectionOnlyHits": [
+          {
+            "id": "wall/l1/0-5-0-6/513/5/2.6",
+            "kind": "wall",
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "t": 0.6
+          }
+        ],
+        "interpretation": "Target lies on the positive-X interior side of the west wall; the exact source-to-target ray ends before the timber face. Heat is deposited in that interior adjacent tile."
+      },
+      "firstIgnition": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "cls": "frame"
+      },
+      "thresholds": {
+        "10": 15.933333333333334,
+        "50": 117.46666666666667,
+        "90": 164.53333333333333
+      },
+      "firstGrass": {
+        "id": 4414,
+        "tick": 4881,
+        "time": 162.7,
+        "type": "ignition",
+        "fuelId": "fuel:grass-ground/-1,7/0",
+        "sourceSurfaceId": "grass-ground/-1,7/0",
+        "position": [
+          -0.3333333333333333,
+          0,
+          3.833333333333333
+        ],
+        "cls": "grass"
+      },
+      "firstTimberAbovePlinth": {
+        "id": 2,
+        "tick": 31,
+        "time": 1.0333333333333332,
+        "type": "ignition",
+        "fuelId": "fuel:floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "cls": "frame"
+      },
+      "firstExteriorAbovePlinth": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l1/0-5-0-6/513/5/2.6",
+        "sourceSurfaceId": "wall/l1/0-5-0-6/513/5/2.6",
+        "position": [
+          0,
+          3.13,
+          5.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstExteriorAbovePlinthAfterGrass": {
+        "id": 4526,
+        "tick": 4910,
+        "time": 163.66666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/0-10-0-9/249/9/1.54",
+        "sourceSurfaceId": "wall/l0/0-10-0-9/249/9/1.54",
+        "position": [
+          0,
+          2.01,
+          9.25
+        ],
+        "cls": "clapboard"
+      },
+      "firstPorchEntry": {
+        "id": 3179,
+        "tick": 4190,
+        "time": 139.66666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:porch/724@13,0,-1",
+        "sourceSurfaceId": "porch/724",
+        "position": [
+          6.722222166666666,
+          0.48,
+          -0.25000005
+        ],
+        "cls": "frame"
+      },
+      "upperFloorOverhang": {
+        "definition": "Original level1 floor patches whose fuel centroid lies outside the exact projected lower-storey floor union; not roof eaves.",
+        "originalCount": 8,
+        "originalArea": 2,
+        "ignitedCount": 8,
+        "inPlaceIgnitedCount": 8,
+        "first": 67.36666666666666,
+        "lastAllIgnited": 71.23333333333333,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "already complete before grass",
+        "secondsAfterFirstGrass": null,
+        "firstIgnition": {
+          "id": 1435,
+          "tick": 2021,
+          "time": 67.36666666666666,
+          "type": "ignition",
+          "fuelId": "fuel:floor/l1/10,-2",
+          "sourceSurfaceId": "floor/l1/10,-2",
+          "position": [
+            5.25,
+            2.5999999,
+            -0.75
+          ],
+          "cls": "frame"
+        }
+      },
+      "canonicalClapboardExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "lastAllIgnited": 182.06666666666666,
+        "secondsAfterFirstGrassToAllWalls": 19.366666666666674,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "ignitedArea": 15.569999999999999,
+            "inPlaceIgnitedCount": 36,
+            "first": 128.2,
+            "last": 159.6,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 119.6,
+            "last": 131.9,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "ignitedArea": 17.6,
+            "inPlaceIgnitedCount": 40,
+            "first": 125.6,
+            "last": 182.06666666666666,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "ignitedArea": 17.599999999999998,
+            "inPlaceIgnitedCount": 40,
+            "first": 152.5,
+            "last": 165.5,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": []
+          }
+        }
+      },
+      "geometryDerivedExterior": {
+        "originalCount": 156,
+        "originalArea": 68.37,
+        "ignitedCount": 156,
+        "inPlaceIgnitedCount": 156,
+        "first": 119.6,
+        "lastAllIgnited": 182.06666666666666,
+        "unignitedCount": 0,
+        "unignitedArea": 0,
+        "unignitedIds": [],
+        "completionRelativeToGrass": "complete after first grass; causation not established",
+        "secondsAfterFirstGrass": 19.366666666666674,
+        "facades": {
+          "front (-Z)": {
+            "originalCount": 36,
+            "originalArea": 15.569999999999999,
+            "ignitedCount": 36,
+            "inPlaceIgnitedCount": 36,
+            "first": 128.2,
+            "lastAllIgnited": 159.6,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "already complete before grass",
+            "secondsAfterFirstGrass": null
+          },
+          "east (+X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 119.6,
+            "lastAllIgnited": 131.9,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "already complete before grass",
+            "secondsAfterFirstGrass": null
+          },
+          "rear (+Z)": {
+            "originalCount": 40,
+            "originalArea": 17.6,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 125.6,
+            "lastAllIgnited": 182.06666666666666,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "complete after first grass; causation not established",
+            "secondsAfterFirstGrass": 19.366666666666674
+          },
+          "west (-X)": {
+            "originalCount": 40,
+            "originalArea": 17.599999999999998,
+            "ignitedCount": 40,
+            "inPlaceIgnitedCount": 40,
+            "first": 152.5,
+            "lastAllIgnited": 165.5,
+            "unignitedCount": 0,
+            "unignitedArea": 0,
+            "unignitedIds": [],
+            "completionRelativeToGrass": "complete after first grass; causation not established",
+            "secondsAfterFirstGrass": 2.8000000000000114
+          }
+        },
+        "additionalIds": []
+      },
+      "oil": {
+        "id": 3843,
+        "tick": 4746,
+        "time": 158.2,
+        "type": "oil-release",
+        "fuelId": "store/kitchen/oil/contents",
+        "position": [
+          0.65,
+          0.76,
+          6.65
+        ],
+        "threshold": 1.4,
+        "amount": 3,
+        "spentForPulse": 0.12,
+        "redistributed": 2.88,
+        "targets": [
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:0",
+            "position": [
+              0.65,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/1,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:1",
+            "position": [
+              1.15,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/2,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:2",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.65
+            ],
+            "supportBoundaryId": "floor/l0/0,13",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:3",
+            "position": [
+              0.65,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/1,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:4",
+            "position": [
+              0.65,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/1,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:5",
+            "position": [
+              1.15,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/2,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:6",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              7.15
+            ],
+            "supportBoundaryId": "floor/l0/0,14",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:7",
+            "position": [
+              1.15,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/2,12",
+            "fall": false
+          },
+          {
+            "fuelId": "store/kitchen/oil/contents:spill:8",
+            "position": [
+              0.15000000000000002,
+              0.5,
+              6.15
+            ],
+            "supportBoundaryId": "floor/l0/0,12",
+            "fall": false
+          }
+        ]
+      },
+      "coal": {
+        "id": 5327,
+        "tick": 5024,
+        "time": 167.46666666666667,
+        "type": "ignition",
+        "fuelId": "store/kitchen/coal/contents",
+        "itemId": "store/kitchen/coal",
+        "position": [
+          1.1,
+          0.74,
+          8.65
+        ],
+        "cls": "coal"
+      },
+      "firstSupportFailure": {
+        "id": 3580,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "kind": "floor",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstFloorFailure": {
+        "id": 3580,
+        "tick": 4621,
+        "time": 154.03333333333333,
+        "type": "support-failure",
+        "boundaryId": "floor/l1/0,10",
+        "sourceSurfaceId": "floor/l1/0,10",
+        "kind": "floor",
+        "position": [
+          0.25,
+          2.5999999,
+          5.25
+        ],
+        "ignitionTime": 1.0333333333333332,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "firstRoofFailure": {
+        "id": 3805,
+        "tick": 4736,
+        "time": 157.86666666666667,
+        "type": "support-failure",
+        "boundaryId": "roof/792/0,4,10,0,93,37",
+        "sourceSurfaceId": "roof/792/0,4,10,0,93,37",
+        "kind": "roof",
+        "position": [
+          0.28473684999999993,
+          5.550000000000001,
+          5.25
+        ],
+        "ignitionTime": 4.866666666666666,
+        "materialAge": 153,
+        "nominalBurnSeconds": 180,
+        "remainingShare": 0.15
+      },
+      "failureCounts": {
+        "floor": 685,
+        "wall": 470,
+        "roof": 565
+      },
+      "finalWreck": {
+        "falls": 5,
+        "rubble": 3184,
+        "intactItems": 4,
+        "intactBoundaries": 2117,
+        "houseIntactBoundaries": 1203,
+        "grassIntactBoundaries": 913,
+        "note": "Raw intactBoundaries includes terrain and the additive grass patches. House/grass counts above are separated; falling and rubble records remain physical records, not original fuel identities."
+      },
+      "finalArea": {
+        "tick": 9900,
+        "worldTime": 330,
+        "house": {
+          "originalArea": 879.0518539309301,
+          "everIgnitedArea": 858.9449339464323,
+          "currentBurningArea": 74.80041625414134,
+          "everIgnitedFraction": 0.9771265825848795,
+          "stateSha256": "0331d24e1e8f12e191362a3d3e13f261e2ef2db42c0ede1a5f6410147caf17e9",
+          "burned": 576.3436921470873,
+          "remaining": 30.66415486324067,
+          "airborne": 0.13619075297464533
+        },
+        "grass": {
+          "originalArea": 199.58880000000002,
+          "everIgnitedArea": 199.58880000000002,
+          "currentBurningArea": 0,
+          "burned": 199.58879999981968,
+          "remaining": 3.0037268245602933e-13,
+          "airborne": 0
+        },
+        "groups": {
+          "ground other": {
+            "originalArea": 233.96128457734562,
+            "everIgnitedArea": 233.96128457734562,
+            "currentBurningArea": 23.819969958042464
+          },
+          "upper other": {
+            "originalArea": 192.70736294050965,
+            "everIgnitedArea": 192.16158134897466,
+            "currentBurningArea": 10.050783374094339
+          },
+          "porch/entry": {
+            "originalArea": 16.142208135819235,
+            "everIgnitedArea": 16.033233383748737,
+            "currentBurningArea": 3.803117397177043
+          },
+          "ground exterior walls": {
+            "originalArea": 68.37,
+            "everIgnitedArea": 68.37,
+            "currentBurningArea": 5.53
+          },
+          "upper exterior walls": {
+            "originalArea": 85.59500130759108,
+            "everIgnitedArea": 85.57971935149985,
+            "currentBurningArea": 5.269261791613541
+          },
+          "roof": {
+            "originalArea": 162.3815965987802,
+            "everIgnitedArea": 142.9447149139768,
+            "currentBurningArea": 24.04088373321376
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 199.58880000000002,
+            "currentBurningArea": 0
+          },
+          "contents/finish/stores": {
+            "originalArea": 119.89440037089877,
+            "everIgnitedArea": 119.89440037089877,
+            "currentBurningArea": 2.286400000000002
+          }
+        },
+        "metrics": {
+          "tick": 9900,
+          "worldTime": 330,
+          "fuel": {
+            "initial": 806.7328377358597,
+            "added": 0,
+            "burned": 775.9324921996172,
+            "escaped": 5.2692225582795515e-17,
+            "remaining": 30.66415486324067,
+            "airborne": 0.13619075297464533,
+            "error": -7.997281414873214e-8
+          },
+          "heat": {
+            "generated": 1284164.0889954972,
+            "input": 1.05,
+            "ambient": 121249.32088456234,
+            "blocked": 201639.09591028557,
+            "cap": 763114.7028727403,
+            "escaped": 197367.2689051354,
+            "stored": 794.7504341461232,
+            "radiationInTransit": 0,
+            "error": -0.000011372531503184291,
+            "relativeError": -8.85597277004431e-12
+          },
+          "burningCount": 548,
+          "burningArea": 74.80041625414148,
+          "combustibleArea": 1078.6406539309312,
+          "burningAreaFraction": 0.0693469284525328,
+          "burnedFraction": 0.9618208853098315,
+          "activeCells": 4538,
+          "fallingCount": 5,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 9900,
+            "cellVisits": 36297829,
+            "burnVisits": 40349481,
+            "linkBuilds": 3651,
+            "rayBuilds": 87624,
+            "rayTests": 321950,
+            "invalidations": 214226,
+            "ignitions": 5321,
+            "failures": 2865,
+            "landings": 5403,
+            "peakActive": 5694,
+            "maxBurnsPerFuelPerTick": 1
+          }
+        }
+      },
+      "metrics": {
+        "tick": 9900,
+        "worldTime": 330,
+        "fuel": {
+          "initial": 806.7328377358597,
+          "added": 0,
+          "burned": 775.9324921996172,
+          "escaped": 5.2692225582795515e-17,
+          "remaining": 30.66415486324067,
+          "airborne": 0.13619075297464533,
+          "error": -7.997281414873214e-8
+        },
+        "heat": {
+          "generated": 1284164.0889954972,
+          "input": 1.05,
+          "ambient": 121249.32088456234,
+          "blocked": 201639.09591028557,
+          "cap": 763114.7028727403,
+          "escaped": 197367.2689051354,
+          "stored": 794.7504341461232,
+          "radiationInTransit": 0,
+          "error": -0.000011372531503184291,
+          "relativeError": -8.85597277004431e-12
+        },
+        "burningCount": 548,
+        "burningArea": 74.80041625414148,
+        "combustibleArea": 1078.6406539309312,
+        "burningAreaFraction": 0.0693469284525328,
+        "burnedFraction": 0.9618208853098315,
+        "activeCells": 4538,
+        "fallingCount": 5,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 9900,
+          "cellVisits": 36297829,
+          "burnVisits": 40349481,
+          "linkBuilds": 3651,
+          "rayBuilds": 87624,
+          "rayTests": 321950,
+          "invalidations": 214226,
+          "ignitions": 5321,
+          "failures": 2865,
+          "landings": 5403,
+          "peakActive": 5694,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      },
+      "checkpoints": [
+        {
+          "tick": 0,
+          "worldTime": 0,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "everIgnitedFraction": 0,
+            "stateSha256": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+            "burned": 0,
+            "remaining": 607.1440377358605,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            }
+          }
+        },
+        {
+          "tick": 900,
+          "worldTime": 30,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 164.17772704629505,
+            "currentBurningArea": 156.0137269901475,
+            "everIgnitedFraction": 0.18676682872816627,
+            "stateSha256": "9585fe6118cb0c15772682fe9e14797b7aff8ccb41081964d34eece25c685d5f",
+            "burned": 9.59841604358432,
+            "remaining": 597.5456216922737,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0.1048409247558432,
+              "currentBurningArea": 0.1048409247558432
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 69.5853453871815,
+              "currentBurningArea": 69.5853453871815
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 33.477750237,
+              "currentBurningArea": 33.477750237
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 37.06099030738921,
+              "currentBurningArea": 37.06099030738921
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 23.948800189968942,
+              "currentBurningArea": 15.784800133821367
+            }
+          }
+        },
+        {
+          "tick": 1800,
+          "worldTime": 60,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 296.8561012223584,
+            "currentBurningArea": 265.2865009547158,
+            "everIgnitedFraction": 0.3377003300714082,
+            "stateSha256": "c6bdb9f8f969e8ab162847da58234e26dd7a7ad7fd703161af9bef0a75824abb",
+            "burned": 37.95682273112417,
+            "remaining": 569.1872150048182,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 0.8183827528244302,
+              "currentBurningArea": 0.8183827528244302
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 128.9361714445403,
+              "currentBurningArea": 128.9361714445403
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 63.120589483409056,
+              "currentBurningArea": 63.120589483409056
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 54.02675714934945,
+              "currentBurningArea": 54.02675714934945
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 49.95420039223429,
+              "currentBurningArea": 18.384600124591582
+            }
+          }
+        },
+        {
+          "tick": 3600,
+          "worldTime": 120,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 469.7281295769186,
+            "currentBurningArea": 398.42672798098687,
+            "everIgnitedFraction": 0.5343577031052217,
+            "stateSha256": "61264a37600666e02f84acb21dba781f80e95cde0f0447bc971eb22198328af6",
+            "burned": 125.67929096372686,
+            "remaining": 481.46474676973895,
+            "airborne": 0
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 0,
+            "currentBurningArea": 0,
+            "burned": 0,
+            "remaining": 199.58880000000002,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 37.51062373403668,
+              "currentBurningArea": 37.51062373403668
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 168.5964632198873,
+              "currentBurningArea": 165.2964621598871
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 2.5300000000000002,
+              "currentBurningArea": 2.5300000000000002
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 79.48754616538635,
+              "currentBurningArea": 79.48754616538635
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 89.47409563474176,
+              "currentBurningArea": 89.47409563474176
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 0,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 92.12940082286889,
+              "currentBurningArea": 24.128000286936768
+            }
+          }
+        },
+        {
+          "tick": 5400,
+          "worldTime": 180,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 823.2469358534892,
+            "currentBurningArea": 630.9425926915661,
+            "everIgnitedFraction": 0.9365169212397502,
+            "stateSha256": "664793e58c65164872ad2e48f265db7b9f5b63bcb6a7251b2acf812b69ad18f0",
+            "burned": 292.676848197768,
+            "remaining": 313.73377098825057,
+            "airborne": 0.7334185444761442
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 199.58880000000002,
+            "currentBurningArea": 0,
+            "burned": 199.58879999981968,
+            "remaining": 3.0037268245602933e-13,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 229.31308363763497,
+              "currentBurningArea": 228.48808337263497
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 187.17404778449625,
+              "currentBurningArea": 141.8292381188428
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 15.924258631678239,
+              "currentBurningArea": 15.924258631678239
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 67.31,
+              "currentBurningArea": 67.31
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 80.91725982688631,
+              "currentBurningArea": 59.077259626886345
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 122.71388560190677,
+              "currentBurningArea": 108.7551528905999
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 199.58880000000002,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 119.89440037089877,
+              "currentBurningArea": 9.558600050926211
+            }
+          }
+        },
+        {
+          "tick": 9900,
+          "worldTime": 330,
+          "house": {
+            "originalArea": 879.0518539309301,
+            "everIgnitedArea": 858.9449339464323,
+            "currentBurningArea": 74.80041625414134,
+            "everIgnitedFraction": 0.9771265825848795,
+            "stateSha256": "0331d24e1e8f12e191362a3d3e13f261e2ef2db42c0ede1a5f6410147caf17e9",
+            "burned": 576.3436921470873,
+            "remaining": 30.66415486324067,
+            "airborne": 0.13619075297464533
+          },
+          "grass": {
+            "originalArea": 199.58880000000002,
+            "everIgnitedArea": 199.58880000000002,
+            "currentBurningArea": 0,
+            "burned": 199.58879999981968,
+            "remaining": 3.0037268245602933e-13,
+            "airborne": 0
+          },
+          "groups": {
+            "ground other": {
+              "originalArea": 233.96128457734562,
+              "everIgnitedArea": 233.96128457734562,
+              "currentBurningArea": 23.819969958042464
+            },
+            "upper other": {
+              "originalArea": 192.70736294050965,
+              "everIgnitedArea": 192.16158134897466,
+              "currentBurningArea": 10.050783374094339
+            },
+            "porch/entry": {
+              "originalArea": 16.142208135819235,
+              "everIgnitedArea": 16.033233383748737,
+              "currentBurningArea": 3.803117397177043
+            },
+            "ground exterior walls": {
+              "originalArea": 68.37,
+              "everIgnitedArea": 68.37,
+              "currentBurningArea": 5.53
+            },
+            "upper exterior walls": {
+              "originalArea": 85.59500130759108,
+              "everIgnitedArea": 85.57971935149985,
+              "currentBurningArea": 5.269261791613541
+            },
+            "roof": {
+              "originalArea": 162.3815965987802,
+              "everIgnitedArea": 142.9447149139768,
+              "currentBurningArea": 24.04088373321376
+            },
+            "grass": {
+              "originalArea": 199.58880000000002,
+              "everIgnitedArea": 199.58880000000002,
+              "currentBurningArea": 0
+            },
+            "contents/finish/stores": {
+              "originalArea": 119.89440037089877,
+              "everIgnitedArea": 119.89440037089877,
+              "currentBurningArea": 2.286400000000002
+            }
+          }
+        }
+      ],
+      "firstGroundTimberAbovePlinth": {
+        "id": 542,
+        "tick": 665,
+        "time": 22.166666666666668,
+        "type": "ignition",
+        "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel@9,2,14",
+        "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel",
+        "position": [
+          4.959226188095239,
+          2.9889285989011,
+          7.017023761904767
+        ],
+        "cls": "frame"
+      },
+      "firstInPlaceLowerExteriorAbovePlinth": {
+        "id": 2265,
+        "tick": 3588,
+        "time": 119.6,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/10-5-10-6/69/5.5/0.48",
+        "sourceSurfaceId": "wall/l0/10-5-10-6/69/5.5/0.48",
+        "position": [
+          10,
+          1.0099999999999998,
+          5.75
+        ],
+        "cls": "clapboard"
+      },
+      "firstInPlaceLowerFloor": {
+        "id": 849,
+        "tick": 1032,
+        "time": 34.4,
+        "type": "ignition",
+        "fuelId": "fuel:stair/351@10,2,13",
+        "sourceSurfaceId": "stair/351",
+        "position": [
+          5.277777833333333,
+          2.5999999,
+          6.861111116666666
+        ],
+        "cls": "frame"
+      },
+      "grassProgress": {
+        "definition": "Each original lawn patch counts once; nearest finite native square-house facade segment assigns perimeter sectors, X sides win distance ties within EPS. Sectors describe spatial progression, not causal attribution.",
+        "thresholds": {
+          "10": 164.63333333333333,
+          "50": 168.1,
+          "90": 171.5,
+          "100": 172.86666666666667
+        },
+        "everIgnitedArea": 199.58879999999985,
+        "lastIgnition": 172.86666666666667,
+        "secondsFirstToLast": 10.166666666666686,
+        "unignitedCount": 0,
+        "unignitedArea": 1.7053025658242404e-13,
+        "sectors": {
+          "west (-X)": {
+            "first": 162.7,
+            "last": 168,
+            "ignitedCount": 254,
+            "ignitedArea": 57.95999999999998
+          },
+          "front (-Z)": {
+            "first": 165.03333333333333,
+            "last": 170.13333333333333,
+            "ignitedCount": 265,
+            "ignitedArea": 53.66879999999999
+          },
+          "rear (+Z)": {
+            "first": 166.2,
+            "last": 170.33333333333334,
+            "ignitedCount": 139,
+            "ignitedArea": 30
+          },
+          "east (+X)": {
+            "first": 169.7,
+            "last": 172.86666666666667,
+            "ignitedCount": 255,
+            "ignitedArea": 57.96
+          }
+        }
+      }
+    }
+  ],
+  "pathAudit": [
+    {
+      "name": "kitchen",
+      "selectedReceiversChanged": true,
+      "upwardRepresentativePath": {
+        "from": [
+          -0.25,
+          -0.050000000000000044,
+          6.75
+        ],
+        "to": [
+          -0.25,
+          1.01,
+          6.75
+        ],
+        "transmission": 0,
+        "hits": [
+          {
+            "id": "grass-ground/-1,13/0",
+            "sourceSurfaceId": "grass-ground/-1,13/0",
+            "kind": "ground",
+            "material": "timber",
+            "normal": [
+              0,
+              -1,
+              0
+            ],
+            "position": [
+              -0.25,
+              0,
+              6.75
+            ],
+            "transmission": 0.02
+          },
+          {
+            "id": "terrain:ground",
+            "sourceSurfaceId": "terrain:ground",
+            "kind": "ground",
+            "normal": [
+              0,
+              -1,
+              0
+            ],
+            "position": [
+              -0.25,
+              0,
+              6.75
+            ],
+            "transmission": 0
+          }
+        ]
+      },
+      "hotDebrisToGrass": {
+        "burningMaterial": {
+          "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/4/sash-casing@-1,0,13",
+          "originalId": "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/4/sash-casing@-1,0,13",
+          "kind": "attachment",
+          "cls": "frame",
+          "position": [
+            -0.08499996666666665,
+            0.005999999999999999,
+            6.95500005
+          ],
+          "falling": false,
+          "rubbleId": "rubble:mechanical:4698:attachment:-1:0:6"
+        },
+        "footprintOverlapSquareMetres": 0.00855001400000502,
+        "sameCell": true,
+        "interpretation": "Observed burning debris landed on overlapping grass. Shared-cell heating is consistent with contact, but the calibrated mechanism/rate is not uniquely identified."
+      },
+      "allCoLocatedDebris": [
+        {
+          "rubbleId": "rubble:mechanical:4698:attachment:-1:0:6",
+          "fuelIds": [
+            "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/4/sash-casing@-1,0,13",
+            "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/4/sash-casing@-1,1,13",
+            "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/5/sash-rail@-1,0,13",
+            "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/6/sash-rail@-1,0,13",
+            "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/7/sash-rail@-1,1,13",
+            "fuel:attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/9/window-apron@-1,0,13"
+          ],
+          "positions": [
+            [
+              -0.08499996666666665,
+              0.005999999999999999,
+              6.95500005
+            ],
+            [
+              -0.08499996666666665,
+              0.005999999999999999,
+              6.95500005
+            ],
+            [
+              -0.08499996666666665,
+              0.005999999999999999,
+              6.95500005
+            ],
+            [
+              -0.08499996666666665,
+              0.005999999999999999,
+              6.95500005
+            ],
+            [
+              -0.08499996666666665,
+              0.005999999999999999,
+              6.95500005
+            ],
+            [
+              -0.08499996666666665,
+              0.005999999999999999,
+              6.95500005
+            ]
+          ],
+          "retainedFootprintOverlapSquareMetres": 0.00855001400000502,
+          "note": "All co-located burning house residue groups are included. A retained final footprint overlap supports spatial contact, but does not uniquely attribute heat or its rate at ignition."
+        }
+      ],
+      "grassToAbovePlinthWall": {
+        "boundaryId": "wall/l0/0-8-0-9/252/8/0.48",
+        "originalFuelId": "fuel:wall/l0/0-8-0-9/252/8/0.48",
+        "physicalFuelPosition": [
+          0,
+          1.0099999999999998,
+          8.25
+        ],
+        "physicalAirSideTarget": [
+          -0.081,
+          1.0099999999999998,
+          8.25
+        ],
+        "physicalPath": {
+          "from": [
+            -0.3333333333333333,
+            0.001,
+            6.833333333333333
+          ],
+          "to": [
+            -0.081,
+            1.0099999999999998,
+            8.25
+          ],
+          "transmission": 1,
+          "hits": [
+            {
+              "id": "attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/3/sash-casing@-1,0,16",
+              "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/54/wall-0-7-0-8/3/sash-casing",
+              "kind": "attachment",
+              "material": "timber",
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "position": [
+                -0.11499999999999999,
+                0.8740449141347424,
+                8.059114927344782
+              ],
+              "transmission": 1
+            }
+          ]
+        },
+        "representativePaths": [
+          {
+            "from": [
+              -0.25,
+              -0.050000000000000044,
+              6.75
+            ],
+            "to": [
+              0.25,
+              1.01,
+              8.25
+            ],
+            "transmission": 0,
+            "hits": [
+              {
+                "id": "grass-ground/-1,13/0",
+                "sourceSurfaceId": "grass-ground/-1,13/0",
+                "kind": "ground",
+                "material": "timber",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.22641509433962262,
+                  0,
+                  6.820754716981132
+                ],
+                "transmission": 0.02
+              },
+              {
+                "id": "terrain:ground",
+                "sourceSurfaceId": "terrain:ground",
+                "kind": "ground",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.22641509433962262,
+                  0,
+                  6.820754716981132
+                ],
+                "transmission": 0
+              },
+              {
+                "id": "floor/l0/0,14",
+                "sourceSurfaceId": "floor/l0/0,14",
+                "kind": "floor",
+                "material": "timber",
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "position": [
+                  0,
+                  0.48,
+                  7.5
+                ],
+                "transmission": 1
+              },
+              {
+                "id": "wall/l0/0-7-0-8/255/7.5/0.48",
+                "sourceSurfaceId": "wall/l0/0-7-0-8/255/7.5/0.48",
+                "kind": "wall",
+                "material": "timber",
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "position": [
+                  0,
+                  0.48,
+                  7.5
+                ],
+                "transmission": 1
+              }
+            ]
+          },
+          {
+            "from": [
+              -0.25,
+              -0.050000000000000044,
+              6.75
+            ],
+            "to": [
+              -0.25,
+              1.01,
+              8.25
+            ],
+            "transmission": 0,
+            "hits": [
+              {
+                "id": "grass-ground/-1,13/0",
+                "sourceSurfaceId": "grass-ground/-1,13/0",
+                "kind": "ground",
+                "material": "timber",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.25,
+                  0,
+                  6.820754716981132
+                ],
+                "transmission": 0.02
+              },
+              {
+                "id": "terrain:ground",
+                "sourceSurfaceId": "terrain:ground",
+                "kind": "ground",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.25,
+                  0,
+                  6.820754716981132
+                ],
+                "transmission": 0
+              }
+            ]
+          }
+        ],
+        "firstIgnition": {
+          "id": 127,
+          "tick": 142,
+          "time": 4.733333333333333,
+          "type": "ignition",
+          "fuelId": "fuel:wall/l0/0-8-0-9/252/8/0.48",
+          "sourceSurfaceId": "wall/l0/0-8-0-9/252/8/0.48",
+          "position": [
+            0,
+            1.0099999999999998,
+            8.25
+          ],
+          "cls": "clapboard"
+        },
+        "interpretation": "Potential return geometry at first grass ignition; check whether this wall had already ignited. Not a demonstrated grass-caused first ignition."
+      },
+      "grassToPorchInspection": {
+        "porchIgnition": {
+          "id": 5795,
+          "tick": 4907,
+          "time": 163.56666666666666,
+          "type": "ignition",
+          "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+          "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post",
+          "position": [
+            4.4099999999999975,
+            0.39619052380952385,
+            -2.6599999999999984
+          ],
+          "cls": "frame"
+        },
+        "grassIgnition": {
+          "id": 5623,
+          "tick": 4883,
+          "time": 162.76666666666665,
+          "type": "ignition",
+          "fuelId": "fuel:grass-ground/8,-5/4",
+          "sourceSurfaceId": "grass-ground/8,-5/4",
+          "position": [
+            4.3145454545454545,
+            0,
+            -2.4799999999999995
+          ],
+          "cls": "grass"
+        },
+        "physicalPath": {
+          "from": [
+            4.3145454545454545,
+            0.001,
+            -2.4799999999999995
+          ],
+          "to": [
+            4.4099999999999975,
+            0.39619052380952385,
+            -2.6599999999999984
+          ],
+          "transmission": 0.02,
+          "hits": [
+            {
+              "id": "attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+              "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post",
+              "kind": "attachment",
+              "material": "timber",
+              "normal": [
+                0,
+                0,
+                1
+              ],
+              "position": [
+                4.395416666666665,
+                0.33581419378307165,
+                -2.6325
+              ],
+              "transmission": 0.02
+            }
+          ]
+        },
+        "representativePath": {
+          "from": [
+            4.25,
+            -0.050000000000000044,
+            -2.25
+          ],
+          "to": [
+            4.25,
+            -0.050000000000000044,
+            -2.75
+          ],
+          "transmission": 1,
+          "hits": []
+        },
+        "sameCell": false,
+        "interpretation": "Nearest previously ignited grass is a spatial candidate only; this unchanged kernel does not attribute porch heat to one source."
+      }
+    },
+    {
+      "name": "bedroom",
+      "selectedReceiversChanged": true,
+      "upwardRepresentativePath": {
+        "from": [
+          -0.25,
+          -0.050000000000000044,
+          3.75
+        ],
+        "to": [
+          -0.25,
+          1.01,
+          3.75
+        ],
+        "transmission": 0,
+        "hits": [
+          {
+            "id": "grass-ground/-1,7/0",
+            "sourceSurfaceId": "grass-ground/-1,7/0",
+            "kind": "ground",
+            "material": "timber",
+            "normal": [
+              0,
+              -1,
+              0
+            ],
+            "position": [
+              -0.25,
+              0,
+              3.75
+            ],
+            "transmission": 0.02
+          },
+          {
+            "id": "terrain:ground",
+            "sourceSurfaceId": "terrain:ground",
+            "kind": "ground",
+            "normal": [
+              0,
+              -1,
+              0
+            ],
+            "position": [
+              -0.25,
+              0,
+              3.75
+            ],
+            "transmission": 0
+          }
+        ]
+      },
+      "hotDebrisToGrass": {
+        "burningMaterial": {
+          "fuelId": "fuel:wall/l1/0-3-0-4/520/3.5/4.15:embers",
+          "originalId": "fuel:wall/l1/0-3-0-4/520/3.5/4.15",
+          "kind": "wall",
+          "cls": "embers",
+          "position": [
+            -0.049999976076697775,
+            0.005999999999999999,
+            3.7500000000000004
+          ],
+          "falling": false,
+          "rubbleId": "rubble:rubble:fuel:wall/l1/0-3-0-4/520/3.5/4.15:embers"
+        },
+        "footprintOverlapSquareMetres": 0,
+        "sameCell": true,
+        "interpretation": "Observed co-located hot debris; no positive retained overlap was established for this exact first grass piece. Treat heat attribution as limited."
+      },
+      "allCoLocatedDebris": [
+        {
+          "rubbleId": "rubble:rubble:fuel:wall/l1/0-3-0-4/520/3.5/4.15:embers",
+          "fuelIds": [
+            "fuel:wall/l1/0-3-0-4/520/3.5/4.15:embers"
+          ],
+          "positions": [
+            [
+              -0.049999976076697775,
+              0.005999999999999999,
+              3.7500000000000004
+            ]
+          ],
+          "retainedFootprintOverlapSquareMetres": 0,
+          "note": "All co-located burning house residue groups are included. A retained final footprint overlap supports spatial contact, but does not uniquely attribute heat or its rate at ignition."
+        }
+      ],
+      "grassToAbovePlinthWall": {
+        "boundaryId": "wall/l0/0-3-0-4/186/3.5/0.48",
+        "originalFuelId": "fuel:wall/l0/0-3-0-4/186/3.5/0.48",
+        "physicalFuelPosition": [
+          0,
+          1.0099999999999998,
+          3.75
+        ],
+        "physicalAirSideTarget": [
+          -0.081,
+          1.0099999999999998,
+          3.75
+        ],
+        "physicalPath": {
+          "from": [
+            -0.3333333333333333,
+            0.001,
+            3.833333333333333
+          ],
+          "to": [
+            -0.081,
+            1.0099999999999998,
+            3.75
+          ],
+          "transmission": 1,
+          "hits": []
+        },
+        "representativePaths": [
+          {
+            "from": [
+              -0.25,
+              -0.050000000000000044,
+              3.75
+            ],
+            "to": [
+              0.25,
+              1.01,
+              3.75
+            ],
+            "transmission": 0,
+            "hits": [
+              {
+                "id": "grass-ground/-1,7/1",
+                "sourceSurfaceId": "grass-ground/-1,7/1",
+                "kind": "ground",
+                "material": "timber",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.22641509433962262,
+                  0,
+                  3.75
+                ],
+                "transmission": 0.02
+              },
+              {
+                "id": "terrain:ground",
+                "sourceSurfaceId": "terrain:ground",
+                "kind": "ground",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.22641509433962262,
+                  0,
+                  3.75
+                ],
+                "transmission": 0
+              },
+              {
+                "id": "floor/l0/0,7",
+                "sourceSurfaceId": "floor/l0/0,7",
+                "kind": "floor",
+                "material": "timber",
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "position": [
+                  0,
+                  0.48,
+                  3.75
+                ],
+                "transmission": 0.02
+              },
+              {
+                "id": "wall/l0/0-3-0-4/186/3.5/0.48",
+                "sourceSurfaceId": "wall/l0/0-3-0-4/186/3.5/0.48",
+                "kind": "wall",
+                "material": "timber",
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "position": [
+                  0,
+                  0.48,
+                  3.75
+                ],
+                "transmission": 0.02
+              }
+            ]
+          },
+          {
+            "from": [
+              -0.25,
+              -0.050000000000000044,
+              3.75
+            ],
+            "to": [
+              -0.25,
+              1.01,
+              3.75
+            ],
+            "transmission": 0,
+            "hits": [
+              {
+                "id": "grass-ground/-1,7/0",
+                "sourceSurfaceId": "grass-ground/-1,7/0",
+                "kind": "ground",
+                "material": "timber",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.25,
+                  0,
+                  3.75
+                ],
+                "transmission": 0.02
+              },
+              {
+                "id": "terrain:ground",
+                "sourceSurfaceId": "terrain:ground",
+                "kind": "ground",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "position": [
+                  -0.25,
+                  0,
+                  3.75
+                ],
+                "transmission": 0
+              }
+            ]
+          }
+        ],
+        "firstIgnition": {
+          "id": 3639,
+          "tick": 4667,
+          "time": 155.56666666666666,
+          "type": "ignition",
+          "fuelId": "fuel:wall/l0/0-3-0-4/186/3.5/0.48",
+          "sourceSurfaceId": "wall/l0/0-3-0-4/186/3.5/0.48",
+          "position": [
+            0,
+            1.0099999999999998,
+            3.75
+          ],
+          "cls": "clapboard"
+        },
+        "interpretation": "Potential return geometry at first grass ignition; check whether this wall had already ignited. Not a demonstrated grass-caused first ignition."
+      },
+      "grassToPorchInspection": {
+        "porchIgnition": {
+          "id": 4420,
+          "tick": 4883,
+          "time": 162.76666666666665,
+          "type": "ignition",
+          "fuelId": "fuel:porch/724@6,0,-2",
+          "sourceSurfaceId": "porch/724",
+          "position": [
+            3.2500000499999997,
+            0.48,
+            -0.75
+          ],
+          "cls": "frame"
+        },
+        "grassIgnition": {
+          "id": 4415,
+          "tick": 4881,
+          "time": 162.7,
+          "type": "ignition",
+          "fuelId": "fuel:grass-ground/-1,7/1",
+          "sourceSurfaceId": "grass-ground/-1,7/1",
+          "position": [
+            -0.16666666666666666,
+            0,
+            3.6666666666666665
+          ],
+          "cls": "grass"
+        },
+        "physicalPath": {
+          "from": [
+            -0.16666666666666666,
+            0.001,
+            3.6666666666666665
+          ],
+          "to": [
+            3.2500000499999997,
+            0.48,
+            -0.75
+          ],
+          "transmission": 0,
+          "hits": [
+            {
+              "id": "masonry/723/-1,0,0@0,-1,6",
+              "sourceSurfaceId": "masonry/723/-1,0,0",
+              "kind": "plinth",
+              "material": "stone",
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "position": [
+                0,
+                0.024365853316597273,
+                3.451219515348007
+              ],
+              "transmission": 0
+            },
+            {
+              "id": "floor/l0/4,0",
+              "sourceSurfaceId": "floor/l0/4,0",
+              "kind": "floor",
+              "material": "timber",
+              "normal": [
+                0,
+                -1,
+                0
+              ],
+              "position": [
+                2.3940501418580373,
+                0.36,
+                0.3564718162839253
+              ],
+              "transmission": 0.02
+            },
+            {
+              "id": "masonry/723/0,1,0@4,-1,0",
+              "sourceSurfaceId": "masonry/723/0,1,0",
+              "kind": "plinth",
+              "material": "stone",
+              "normal": [
+                0,
+                1,
+                0
+              ],
+              "position": [
+                2.3940501418580373,
+                0.36,
+                0.3564718162839253
+              ],
+              "transmission": 0
+            },
+            {
+              "id": "floor/l0/5,0",
+              "sourceSurfaceId": "floor/l0/5,0",
+              "kind": "floor",
+              "material": "timber",
+              "normal": [
+                1,
+                0,
+                0
+              ],
+              "position": [
+                2.5,
+                0.37485365306555635,
+                0.21951224556811333
+              ],
+              "transmission": 0.02
+            },
+            {
+              "id": "porch/724@6,0,-1",
+              "sourceSurfaceId": "porch/724",
+              "kind": "floor",
+              "material": "timber",
+              "normal": [
+                1,
+                0,
+                0
+              ],
+              "position": [
+                3,
+                0.4449512130153481,
+                -0.4268292083878653
+              ],
+              "transmission": 0.02
+            },
+            {
+              "id": "porch/724@6,0,-2",
+              "sourceSurfaceId": "porch/724",
+              "kind": "floor",
+              "material": "timber",
+              "normal": [
+                -1.1102228025805964e-16,
+                0,
+                -1
+              ],
+              "position": [
+                3.0566037433962254,
+                0.4528867816075472,
+                -0.49999990000000016
+              ],
+              "transmission": 0.02
+            }
+          ]
+        },
+        "representativePath": {
+          "from": [
+            -0.25,
+            -0.050000000000000044,
+            3.75
+          ],
+          "to": [
+            3.25,
+            1.01,
+            -0.75
+          ],
+          "transmission": 0,
+          "hits": [
+            {
+              "id": "grass-ground/-1,7/1",
+              "sourceSurfaceId": "grass-ground/-1,7/1",
+              "kind": "ground",
+              "material": "timber",
+              "normal": [
+                0,
+                -1,
+                0
+              ],
+              "position": [
+                -0.08490566037735836,
+                0,
+                3.5377358490566038
+              ],
+              "transmission": 0.02
+            },
+            {
+              "id": "terrain:ground",
+              "sourceSurfaceId": "terrain:ground",
+              "kind": "ground",
+              "normal": [
+                0,
+                -1,
+                0
+              ],
+              "position": [
+                -0.08490566037735836,
+                0,
+                3.5377358490566038
+              ],
+              "transmission": 0
+            },
+            {
+              "id": "masonry/723/-1,0,0@0,-1,6",
+              "sourceSurfaceId": "masonry/723/-1,0,0",
+              "kind": "plinth",
+              "material": "stone",
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "position": [
+                0,
+                0.025714285714285676,
+                3.428571428571429
+              ],
+              "transmission": 0
+            },
+            {
+              "id": "floor/l0/2,4",
+              "sourceSurfaceId": "floor/l0/2,4",
+              "kind": "floor",
+              "material": "timber",
+              "normal": [
+                0,
+                -1,
+                0
+              ],
+              "position": [
+                1.1037735849056605,
+                0.36,
+                2.0094339622641506
+              ],
+              "transmission": 0.02
+            },
+            {
+              "id": "masonry/723/0,1,0@2,-1,4",
+              "sourceSurfaceId": "masonry/723/0,1,0",
+              "kind": "plinth",
+              "material": "stone",
+              "normal": [
+                0,
+                1,
+                0
+              ],
+              "position": [
+                1.1037735849056605,
+                0.36,
+                2.0094339622641506
+              ],
+              "transmission": 0
+            },
+            {
+              "id": "floor/l0/2,3",
+              "sourceSurfaceId": "floor/l0/2,3",
+              "kind": "floor",
+              "material": "timber",
+              "normal": [
+                0,
+                0,
+                -1
+              ],
+              "position": [
+                1.1111111111111112,
+                0.3622222222222222,
+                2
+              ],
+              "transmission": 0.02
+            },
+            {
+              "id": "floor/l0/2,2",
+              "sourceSurfaceId": "floor/l0/2,2",
+              "kind": "floor",
+              "material": "timber",
+              "normal": [
+                0,
+                1,
+                0
+              ],
+              "position": [
+                1.5,
+                0.48,
+                1.5
+              ],
+              "transmission": 0.02
+            },
+            {
+              "id": "wall/l0/2-0-3-0/222/2.5/0.48",
+              "sourceSurfaceId": "wall/l0/2-0-3-0/222/2.5/0.48",
+              "kind": "wall",
+              "material": "timber",
+              "normal": [
+                0,
+                0,
+                -1
+              ],
+              "position": [
+                2.604444444444445,
+                0.8144888888888889,
+                0.08000000000000007
+              ],
+              "transmission": 0.02
+            }
+          ]
+        },
+        "sameCell": false,
+        "interpretation": "Nearest previously ignited grass is a spatial candidate only; this unchanged kernel does not attribute porch heat to one source."
+      }
+    }
+  ],
+  "limitations": [
+    "Original-house digests differ by2s before grass combustion. Cold receivers can absorb/redirect heat; this is a pre-combustion fixture effect, not automatically a numerical defect.",
+    "Ground Y0 maps to thermal centre Y=-.05 below opaque soil. Upward representative paths are blocked while potential physical air-side wall paths can be clear. This can suppress return and change lateral redistribution.",
+    "No matched-domain trajectory ran, so later differences are not uniquely attributed to burning grass.",
+    "Exterior completion after first grass does not prove a grass-driven ring. Kitchen exterior was complete before grass; many bedroom facade patches also lit earlier.",
+    "Actual same-camera animated WebGL and JPG handoff remains with architect/art coordination. Retained authoritative frames require no new burns."
+  ],
+  "executionSources": [
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "sha256": "3d58828451418127b3eefe613ee077792b54e86e0d85e14f932a51430a3df060"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "sha256": "9295a83afc2c2550a5cd1cf9f3cc43acef57dad54e86c59c2ac17b4818783c52"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "sha256": "fa7ed18b5400e99e7bd5ed1ddc29fd20b84279f7bff3ae67e7e9d9806bcae368"
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "sha256": "9de23edd6135d8d7ce9af09ed3ad6c683c4379102a9485f390e367664b98c0ac"
+    },
+    {
+      "path": "workbenches/furnished-house/prepare-data.js",
+      "sha256": "f43d0fbc4472c478f849d44abc4a5dff0cf5e460903cc389e069e1d231dafe94"
+    },
+    {
+      "path": "workbenches/furnished-house/grass-fixture.js",
+      "sha256": "d92abba216e339ff28ea9573254afc83c763fb121670cb8cd879bd9bb2eada79"
+    },
+    {
+      "path": "workbenches/furnished-house/grass-measurements.js",
+      "sha256": "0f3f49008a01ec72cb36b42cad7e0b923cf013b64c450f1dc97f7e5bd12a2992"
+    },
+    {
+      "path": "workbenches/furnished-house/replay-data.js",
+      "sha256": "962f81d7e0836673ca44c6369d650f2712f6a2cd51cea5706b421cbc10e087ba"
+    },
+    {
+      "path": "workbenches/furnished-house/compare-grass.mjs",
+      "sha256": "2d22d4065178b190100a669709f238ec99b342f3376b41608790f93c3e8a474f"
+    }
+  ],
+  "commands": {
+    "kitchen": {
+      "tick": 1,
+      "type": "match",
+      "position": [
+        0.1,
+        1.1,
+        6.25
+      ],
+      "from": [
+        1.4,
+        1.1,
+        6.3
+      ]
+    },
+    "bedroom": {
+      "tick": 1,
+      "type": "match",
+      "position": [
+        0.1,
+        3.13,
+        5.25
+      ],
+      "from": [
+        0.8,
+        3.13,
+        5.25
+      ]
+    }
+  },
+  "frozenSourceHashesVerified": true
+}

@@ -7,9 +7,11 @@ import {createNavigation} from '../../workbenches/furnished-house/navigation.js'
 import {prepareFurnishedData} from '../../workbenches/furnished-house/prepare-data.js';
 import {createEffectPreferences} from '../../workbenches/furnished-house/effect-preferences.js';
 import {mountEffectControls} from '../../workbenches/furnished-house/effect-controls.js';
+import {REPLAYS,replayCommand} from '../../workbenches/furnished-house/replay-data.js';
+import {buildGrassFixture,grassFrame} from '../../workbenches/furnished-house/grass-fixture.js';
 
 const on={flames:true,smoke:true,lighting:true},key='tinderbox.furnished-house.effects.v1';
-const fixture={version:1,prefabId:'effect-binding-control',gridOrigin:[0,0,0],surfaces:[{id:'wood',kind:'floor',normal:[0,1,0],thickness:.12,material:'timber',fuelClass:'frame',fuelAmount:4,triangles:[[[0,0,0],[2,0,0],[2,0,2]],[[0,0,0],[2,0,2],[0,0,2]]]}]};
+const fixture={version:1,prefabId:'effect-binding-control',gridOrigin:[0,0,0],surfaces:[{id:'wood',kind:'floor',level:0,normal:[0,1,0],thickness:.12,material:'timber',fuelClass:'frame',fuelAmount:4,triangles:[[[0,0,0],[2,0,0],[2,0,2]],[[0,0,0],[2,0,2],[0,0,2]]]}]};
 const memory=()=>{const data=new Map(),writes=[];return {data,writes,getItem:k=>data.get(k)??null,setItem(k,v){data.set(k,v);writes.push([k,v]);}};};
 
 // Execute the real entrypoint body with real store/thermal/navigation modules.
@@ -36,7 +38,7 @@ async function boot(storage=memory(),search=''){
   document={getElementById:element,querySelectorAll:()=>[],createElement:tag=>new Element(tag)};
   const art={root:new Group(),update(frame,view){artCalls.push({frame,view});},diagnostics:()=>({}),dispose(){}},events=new Map();let nextFrame=0;
   const context=vm.createContext({T:{Scene:Group,OrthographicCamera:Camera,Vector3:Vector,Color:Resource,WebGLRenderer:Renderer,PlaneGeometry:Resource,MeshStandardMaterial:Resource,Mesh,SRGBColorSpace:'srgb'},
-    createTrial,createClock,ambientWind,calmWind,createNavigation,prepareFurnishedData,
+    createTrial,createClock,ambientWind,calmWind,createNavigation,prepareFurnishedData,REPLAYS,replayCommand,buildGrassFixture,grassFrame,structuredClone,
     createEffectPreferences(options){const store=createEffectPreferences({storage,...options});stores.push(store);return store;},
     mountEffectControls(options){assert.equal(options.root.id,'fire-effect-settings');lifecycle.mounts++;lifecycle.root=options.root;const stop=mountEffectControls(options);return ()=>{lifecycle.unmounts++;stop();};},
     __artModule:{createFurnishedHouseArt:async()=>art},loadCharacterKit:async()=>({create:()=>({root:new Group(),update(){}}),dispose(){}}),createStreetNight:()=>({root:new Group(),dispose(){}}),
@@ -108,4 +110,14 @@ test('building-light comparison mode is reset-stable, immediate and separate fro
   }finally{h.api.dispose();}
   assert.equal(h.api.setLightingMode('local'),'building');
   const invalid=await boot(storage,'?lighting=unknown');try{assert.equal(invalid.api.lightingMode(),'local');}finally{invalid.api.dispose();}
+});
+
+test('grass selection precedes art creation, survives replay reset and exposes detached metadata with retained paused deltas',async()=>{
+  const plain=await boot();try{assert.equal(plain.api.grassFixture().enabled,false);assert.equal(plain.api.data.surfaces.length,1);}finally{plain.api.dispose();}
+  const h=await boot(memory(),'?grass=on&lighting=building');try{
+    h.api.setAutoRender(false);const metadata=h.api.grassFixture();assert.equal(metadata.enabled,true);assert.ok(h.api.data.surfaces.some(s=>s.id.startsWith('grass-ground/')));assert.ok(h.artCalls[0].frame.grassGround.length);
+    metadata.occupiedTriangles.length=0;assert.ok(h.api.grassFixture().occupiedTriangles.length);
+    h.api.setEffects({smoke:false});const before=h.api.snapshot();h.api.setCamera({verticalSpan:10});assert.equal(h.artCalls.at(-1).frame.grassGround.length,0);assert.deepEqual(h.api.snapshot(),before);
+    h.api.reset();h.api.runReplay('kitchen',{play:false});assert.equal(h.api.grassFixture().enabled,true);assert.ok(h.artCalls.at(-1).frame.grassGround.length);assert.equal(h.api.effects().smoke,false);assert.equal(h.api.lightingMode(),'building');
+  }finally{h.api.dispose();}
 });
