@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {triangleArea} from './geometry.mjs';
+import {triangleArea} from './geometry.js';
 const d=JSON.parse(fs.readFileSync('workbenches/furnished-house/house-data.json'));
 const groups=[];const pass=s=>groups.push(s);
 assert.equal(d.version,1);assert.deepEqual(d.module,[1,1,2.12]);assert.deepEqual(d.levels.map(l=>l.floorY),[.48,2.6]);assert.deepEqual(d.levels.map(l=>l.area),[100,68]);pass('Native module, exact level planes and actual floor union areas');

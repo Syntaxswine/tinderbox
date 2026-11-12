@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import * as T from '../../../src/runtime/three.js';
 import {createHopkinsHouse} from '../../../src/art/hopkins-housing.js';
 import {housePlanEdges} from '../../../src/art/gross-housing.js';
-import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume} from './geometry.mjs';
+import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,intervalParts,subtractGambrel,subtractBox,nearestSurface,round,add,mul,sub,unit,pointInTriangleXZ,boundsVolume} from './geometry.js';
 const BASE='c855e627bdee963e930644839a60c027a03935de',OUT='workbenches/furnished-house/house-data.json';
 const catalogue=JSON.parse(fs.readFileSync('assets/art/hopkins-housing-v1/houses.json')),house=catalogue.houses.find(h=>h.id==='hopkins-4-15');
 const model=createHopkinsHouse(T,{catalogue,textures:{}},house.id),sourceMeshes=[],surfaces=[],openings=[],items=[],furnitureParts=[],stores=[],levels=[];

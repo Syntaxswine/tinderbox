@@ -1,4 +1,4 @@
-import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,nearestSurface,distanceToBounds,pointInTriangleXZ,unit,sub} from '../../art/source/furnished-house/geometry.mjs';
+import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,nearestSurface,distanceToBounds,pointInTriangleXZ,unit,sub} from '../../art/source/furnished-house/geometry.js';
 import {createWallShroud} from '../../art/source/furnished-house/shroud.js';
 import {createStreetFirelight} from '../../src/art/street-firelight.js';
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0)),EPS=1e-6;
