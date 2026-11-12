@@ -11,13 +11,13 @@ function inPrism(p,s) {
 function touching(a,b) {
   if(!overlaps(a.bounds,b.bounds,1e-5))return false;
   const ta=a.solidTriangles||a.triangles,tb=b.solidTriangles||b.triangles;
-  for(const t of ta)for(const p of t)if(inPrism(p,b))return true;
-  for(const t of tb)for(const p of t)if(inPrism(p,a))return true;
+  if(b.kind!=='attachment')for(const t of ta)for(const p of t)if(inPrism(p,b))return true;
+  if(a.kind!=='attachment')for(const t of tb)for(const p of t)if(inPrism(p,a))return true;
   for(const t of ta)for(let i=0;i<3;i++)for(const other of tb)if(segmentTriangle(t[i],t[(i+1)%3],other)!==null)return true;
   return false;
 }
 export function createSupportGraph(scene) {
-  const {index,fuels}=scene,nodes=new Map([...index.surfaces.values()].filter(s=>s.fuelId&&fuels.get(s.fuelId).cls!=='grass'&&['floor','wall','roof'].includes(s.kind)).map(s=>[s.id,s])),links=new Map([...nodes.keys()].map(id=>[id,new Set()])),anchors=new Set(),bySource=new Map();
+  const {index,fuels}=scene,nodes=new Map([...index.surfaces.values()].filter(s=>s.fuelId&&fuels.get(s.fuelId).cls!=='grass'&&['floor','wall','roof','attachment'].includes(s.kind)).map(s=>[s.id,s])),links=new Map([...nodes.keys()].map(id=>[id,new Set()])),anchors=new Set(),bySource=new Map();
   for(const s of nodes.values()){if(!bySource.has(s.sourceSurfaceId))bySource.set(s.sourceSurfaceId,[]);bySource.get(s.sourceSurfaceId).push(s);}
   const connect=(a,b)=>{if(a.id===b.id)return;links.get(a.id).add(b.id);links.get(b.id).add(a.id);};
   const inert=new Map([...index.surfaces.values()].filter(s=>!s.fuelId&&s.transmission===0&&['ground','floor','wall','roof','plinth'].includes(s.kind)).map(s=>[s.id,s])),inertLinks=new Map([...inert.keys()].map(id=>[id,new Set()]));
@@ -26,13 +26,14 @@ export function createSupportGraph(scene) {
   for(let i=0;i<inertQueue.length;i++)for(const id of inertLinks.get(inertQueue[i]))if(!groundedInert.has(id)){groundedInert.add(id);inertQueue.push(id);}
   let contactPairs=0;
   for(const a of nodes.values())for(const b of index.candidates(a.bounds)) {
-    if(nodes.has(b.id)){if(a.id<b.id&&touching(a,b)){connect(a,b);contactPairs++;}}
+    if(nodes.has(b.id)){if(a.id<b.id&&a.kind!=='attachment'&&b.kind!=='attachment'&&touching(a,b)){connect(a,b);contactPairs++;}}
     else if(groundedInert.has(b.id)&&b.supports&&(b.normal?.[1]??0)>.2&&a.bounds.min[1]>=b.bounds.max[1]-1e-4&&touching(a,b))anchors.add(a.id);
   }
   // Source-defined support references represent native framing omitted from
   // the visible single-surface kit. Keep these explicit in diagnostics.
   let declaredPairs=0;
-  for(const a of nodes.values())for(const source of a.supportSurfaceIds||[])for(const b of bySource.get(source)||[]){connect(a,b);declaredPairs++;}
+  for(const a of nodes.values())for(const source of new Set([...(a.supportSurfaceIds||[]),...(a.attachmentHostSurfaceIds||[]),...(a.supportBinding?.hostSurfaceIds||[])]))for(const b of bySource.get(source)||[]){if(a.kind==='attachment'){if(!overlaps(a.bounds,b.bounds,a.connectionTolerance||.015))continue;links.get(b.id).add(a.id);}else if(b.kind!=='attachment')connect(a,b);declaredPairs++;}
+  for(const list of bySource.values())if(list[0].kind==='attachment')for(let i=0;i<list.length;i++)for(let j=i+1;j<list.length;j++)if(touching(list[i],list[j]))connect(list[i],list[j]);
   const flight=[...nodes.values()].filter(s=>s.supportType==='stair-tread'),lower=[],upper=[];
   if(flight.length) {
     const lowest=Math.min(...flight.map(s=>s.position[1])),highest=Math.max(...flight.map(s=>s.position[1])),first=flight.filter(s=>Math.abs(s.position[1]-lowest)<.01),last=flight.filter(s=>Math.abs(s.position[1]-highest)<.01);

@@ -42,6 +42,11 @@ export function intersectFootprint(polygon,triangles,y) {
   }
   return result;
 }
+export function extrudePlane(triangles,normal,low,high) {
+  const at=(p,d)=>p.map((v,i)=>v+normal[i]*d),front=triangles.map(t=>t.map(p=>at(p,high))),back=triangles.map(t=>[...t].reverse().map(p=>at(p,low))),edges=new Map(),key=p=>p.map(v=>Math.round(v*1e7)).join(',');
+  for(const t of triangles)for(let i=0;i<3;i++){const a=t[i],b=t[(i+1)%3],id=[key(a),key(b)].sort().join('|');if(edges.has(id))edges.delete(id);else edges.set(id,[a,b]);}
+  const sides=[...edges.values()].flatMap(([a,b])=>{const ah=at(a,high),bh=at(b,high),al=at(a,low),bl=at(b,low);return [[ah,bh,bl],[ah,bl,al]];});return [...front,...back,...sides];
+}
 export function pointOnTriangle(p,t,tolerance=EPS) {
   const [a,b,c]=t,u=sub(b,a),v=sub(c,a),w=sub(p,a),uu=dot(u,u),vv=dot(v,v),uv=dot(u,v),wu=dot(w,u),wv=dot(w,v),d=uu*vv-uv*uv;
   if(d<EPS*EPS)return false;
