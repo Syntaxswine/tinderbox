@@ -63,7 +63,8 @@
     "observer": "optional {x,y,z,height}; presentation only",
     "sampleWind": "optional function supplied by the host; no frozen Ashland wind field applied to Hopkins",
     "effects": "Optional known booleans {flames,smoke,lighting}; omitted or invalid keys default true. Presentation only, no simulation time or state changes.",
-    "windMetadata": "Optional {kind:ambient-control|calm-control,speed,direction:[x,y,z]}. Unknown sampleWind functions retain uncertain camera envelopes."
+    "windMetadata": "Optional {kind:ambient-control|calm-control,speed,direction:[x,y,z]}. Unknown sampleWind functions retain uncertain camera envelopes.",
+    "lightingMode": "Optional local|building, default local. Building is a broad visual approximation using the same six-light/215 cap; no thermal rule changes."
   },
   "rules": [
     "Cutaway never changes physical openings or surviving support.",
@@ -78,7 +79,8 @@
     "Connected groups retain every source needed by a visible envelope. Off-camera context is prepared but generates no splats. Smoke eligibility is independent of cutaway flame visibility.",
     "Flame-off skips tangent/radius assignment and connected-envelope preparation. Smoke/local light retain the reference support-anchor selection when needed to preserve exact positions; supportAnchorSources and supportAnchorComputations expose this shared work.",
     "Camera bounds include the entire potential support footprint, current pose, Gaussian extent, roof anchor motion and clamped smoke drift/rise. Missing wind declarations or ambiguous bounds retain sources.",
-    "Disabling all channels preserves physical masks, char, debris and heat state while skipping support resolution, splat generation and light clustering."
+    "Disabling all channels preserves physical masks, char, debris and heat state while skipping support resolution, splat generation and light clustering.",
+    "Building lighting aggregates active area*flame once, with no local clustering or support-anchor lookup in lighting-only mode. Four exterior positions illuminate outward-facing facades; two interior positions follow native storeys. Point lights retain decay:2 and finite reach. It is approximate visual spill, not a heat or measured irradiance model."
   ],
   "diagnostics": {
     "effects": "Detached normalized effects snapshot.",
@@ -110,10 +112,13 @@
       "flameContextSources",
       "flameCalls",
       "smokeCalls",
-      "lightClusterCalls"
+      "lightClusterCalls",
+      "buildingAggregateCalls",
+      "buildingAggregateSources"
     ],
     "effectWork_channels": "flames/smoke/lighting each expose supplied, disabled, viewCulled, cameraCulled and prepared. Source reason counts overlap across independent channels; they are not a partition.",
     "inspect_emitters": "Per-source flames/smoke/lighting eligibility, flameContext, omissions and conservative bounds. An intentionally skipped source can have an unresolved authoritatively supplied anchor and null flame radius.",
-    "lightBudget": "Lighting off returns zero sites/candidates/lights with disabled:true; actual owned PointLight intensities are zero without calling clustering."
+    "lightBudget": "Lighting off returns zero sites/candidates/lights with disabled:true; actual owned PointLight intensities are zero without calling clustering.",
+    "lightingMode": "Normalized local|building. Local default retains the frozen reference; building lightBudget exposes activeArea/activeEnergy and distributed positions."
   }
 }

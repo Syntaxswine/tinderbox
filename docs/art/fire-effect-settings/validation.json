@@ -1,0 +1,111 @@
+{
+  "task": "Milestone19 artist-owned independent effects and optional building glow",
+  "contract": "5bcd95dc5bd5b2f8f1e65fa2de19e3d84d87ecb3",
+  "frozenCode": "250956566a87123a521853b447991db831f4dae6",
+  "acceptedReference": "ee1d10b374ebe91ecc0011bedf39dab1e8fd8874",
+  "coreCandidate": "d36ee844fcedf219960ec1348d2bf0fe0a8e34d1",
+  "nativeModuleMetres": [
+    1,
+    1,
+    2.12
+  ],
+  "unchangedFiles": [
+    {
+      "path": "workbenches/furnished-house/house-data.json",
+      "sha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "sha256": "27b4e80d4f07d9c3ed737627e3b3a62e90b01226d473e0e47b0405c6325efe99"
+    },
+    {
+      "path": "workbenches/furnished-house/main.js",
+      "sha256": "0f70d115574c7554b4dea599653f4e2310d3b8375ffcb7539164129792b61ffd"
+    },
+    {
+      "path": "workbenches/furnished-house/index.html",
+      "sha256": "33fa0396265c3b2d535c1166d8d907e87d391bcb6c642fd144960c5fa9c2f7d9"
+    },
+    {
+      "path": "src/art/street-firelight.js",
+      "sha256": "c25ad9e91b6df0b9171bab3d9020b57a7bfde43c8c3cc28873ac782274f7ac04"
+    },
+    {
+      "path": "docs/source-baseline.json",
+      "sha256": "143c89075f8826c2244124704108a44e097e1c0816db2dd558c2fb45cdce6625"
+    }
+  ],
+  "focusedChecks": [
+    {
+      "command": "node art/source/furnished-house/check-effects.mjs",
+      "passed": 13,
+      "failed": 0,
+      "masks": 8,
+      "envelopeCases": 84
+    },
+    {
+      "command": "node art/source/furnished-house/check-building-glow.mjs",
+      "passed": 8,
+      "failed": 0,
+      "masks": 8
+    },
+    {
+      "command": "node art/source/furnished-house/check-art.mjs",
+      "passed": 13,
+      "failed": 0
+    },
+    {
+      "command": "node art/source/furnished-house/check-retained.mjs",
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "command": "node art/source/furnished-house/check-geometry.mjs",
+      "passed": 10,
+      "failed": 0
+    }
+  ],
+  "repositoryChecks": [
+    {
+      "command": "npm test",
+      "passed": 281,
+      "failed": 0,
+      "log": "artifacts/helpers/fire-effect-visibility/repository-tests.log"
+    },
+    {
+      "command": "npm run check",
+      "testsPassed": 320,
+      "failed": 0,
+      "ownScriptsSyntax": 235,
+      "staticModulesResolved": 278,
+      "sharedThreeAndProvenance": "pass",
+      "bytePreservedImports": 5,
+      "artSyntaxDependencyChecks": 52
+    },
+    {
+      "command": "npm run build",
+      "passed": true,
+      "files": 3515,
+      "bytes": 166825782
+    },
+    {
+      "command": "git diff --check",
+      "passed": true
+    }
+  ],
+  "checkScope": "Repository checks/build passed before final conservative private-art guards. All five focused artist suites and touched art syntax passed after the final code edits. Public production/runtime/UI/source data remain unchanged.",
+  "helperLifecycle": {
+    "browserOrGpuHelpersCreated": 0,
+    "backgroundServicesCreated": 0,
+    "retainedTaskHelpers": 0,
+    "finiteCommandsExited": true,
+    "baselineControls": "artifacts/helpers/fire-effect-visibility/controls"
+  },
+  "limits": [
+    "No new donor import or source revision.",
+    "Shared support-anchor selection remains for smoke/local lights when needed for exact independent output; its work is exposed.",
+    "Conservative connected context, ambiguous samplers and non-native camera types can retain extra work.",
+    "Building mode approximates broad visual spill around the original footprint; it is not uniform measured irradiance or local heat.",
+    "Actual combined WebGL/JPG comparison, eight-mask CPU/GPU timings and promotion belong to the architect; no deployment performed."
+  ]
+}

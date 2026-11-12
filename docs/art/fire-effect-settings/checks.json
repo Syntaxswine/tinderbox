@@ -1,5 +1,5 @@
 {
-  "passed": 12,
+  "passed": 13,
   "failed": 0,
   "baseline": "25095656",
   "sourceHashes": {
@@ -16,6 +16,7 @@
     "Cutaway rejects known hidden levels before support work and retains actual underside fire/smoke below the intact slab",
     "A smoke plume stays submitted when its base is outside a narrow camera view",
     "Arbitrary samplers, ambiguous normals and unknown bounds retain effects rather than becoming successful culls",
+    "Perspective or unknown cameras retain sources because the early-cull proof is restricted to the native orthographic camera",
     "Malformed/unknown ownership and invalid footprints remain missing even with all channels off and camera away",
     "Exact real88s refall ownership survives an all-off paused draw and re-enable with empty retained collection deltas",
     "Borrowed native1x1x2.12 source and every supplied simulation field remain byte-equivalent",
@@ -76,7 +77,9 @@
           "flameContextSources": 0,
           "flameCalls": 0,
           "smokeCalls": 0,
-          "lightClusterCalls": 0
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     },
@@ -134,7 +137,9 @@
           "flameContextSources": 0,
           "flameCalls": 6,
           "smokeCalls": 0,
-          "lightClusterCalls": 0
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     },
@@ -192,7 +197,9 @@
           "flameContextSources": 0,
           "flameCalls": 0,
           "smokeCalls": 7,
-          "lightClusterCalls": 0
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     },
@@ -250,7 +257,9 @@
           "flameContextSources": 0,
           "flameCalls": 6,
           "smokeCalls": 7,
-          "lightClusterCalls": 0
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     },
@@ -308,7 +317,9 @@
           "flameContextSources": 0,
           "flameCalls": 0,
           "smokeCalls": 0,
-          "lightClusterCalls": 1
+          "lightClusterCalls": 1,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     },
@@ -366,7 +377,9 @@
           "flameContextSources": 0,
           "flameCalls": 6,
           "smokeCalls": 0,
-          "lightClusterCalls": 1
+          "lightClusterCalls": 1,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     },
@@ -424,7 +437,9 @@
           "flameContextSources": 0,
           "flameCalls": 0,
           "smokeCalls": 7,
-          "lightClusterCalls": 1
+          "lightClusterCalls": 1,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     },
@@ -482,7 +497,9 @@
           "flameContextSources": 0,
           "flameCalls": 6,
           "smokeCalls": 7,
-          "lightClusterCalls": 1
+          "lightClusterCalls": 1,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
         }
       }
     }

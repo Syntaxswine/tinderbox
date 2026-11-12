@@ -7,6 +7,12 @@ export function surfaceSampleGroupKey(q){
  const n=[q.nx,q.ny,q.nz],plane=n[0]*q.x+n[1]*q.y+n[2]*q.z,range=q.part==='walls'?[q.supportBounds.min[1],q.supportBounds.max[1]]:[];
  return [q.part,q.presentationLevel,...n.map(v=>Math.round(v*1000)),Math.round(plane*1000),...range.map(v=>Math.round(v*1000))].join('/');
 }
+export function surfaceSampleContextKey(q){
+ const key=surfaceSampleGroupKey(q);if(key===null||!q.anchorFootprint)return key;
+ // Anchor relocation can cross a rounded-plane boundary by floating-point error.
+ // Retain a conservative superset; final union grouping still uses the exact plane.
+ return [q.part,q.presentationLevel,...[q.nx,q.ny,q.nz].map(v=>Math.round(v*1000))].join('/');
+}
 export function connectSurfaceSamples(samples){
  const groups=new Map();
  for(const q of samples){
