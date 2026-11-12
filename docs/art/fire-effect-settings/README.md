@@ -21,3 +21,21 @@ Lighting-only building mode needs cheap mapping/validation and one aggregate pas
 Run node art/source/furnished-house/check-building-glow.mjs for all eight masks, the power cap, facade-side placement, native storey spacing, exact unchanged splats, pooled resource ownership and default-local restoration. The architect will use the coder's separate ?lighting=building comparison link, capture real all-on/lighting-only JPGs in both modes and measure costs on the same paused state. No new control or persisted fourth preference is introduced.
 
 Building-glow height uses each source's original authoritative Y, captured before support-anchor relocation. A native sloped roof can move its flame anchor vertically; enabling flames or smoke therefore must not move the facade lights. The regression combines a measured native roof patch with ground-floor fire so both weighted heights remain strictly inside the clamps. All eight masks are checked for identical lighting-on positions and power; the original source frame stays unchanged. The 5b4dc9b5 control fails the exact height assertion before this correction. Only the focused building/effect suites are rerun for this leaf; combined browser and hardware checks remain with the architect.
+
+## Owner's visual direction: Volaire
+
+On November 12, 2026, the owner selected building glow as the preferred visual direction and named Pierre-Jacques Volaire's *A River Landscape With Figures Fleeing A Burning City* as the desired feeling for Tinderbox. This is an art-direction decision; the existing local-light comparison remains available.
+
+Reference locators: [the exact named work at 1st Art Gallery](https://www.1st-art-gallery.com/Pierre-Jacques-Volaire/A-River-Landscape-With-Figures-Fleeing-A-Burning-City.html) and [the matching title at OilPaintings.com](https://www.oilpaintings.com/pierre-jacques-volaire-paintings-a-river-landscape-with-figures-fleeing-a-burning-city). These commercial reproduction listings identify the reference. No image is imported into the repository, and no date, ownership history or reproduction rights are inferred from them.
+
+The following is the artist's application of that reference to Tinderbox, rather than a claim that its palette or lighting has been measured from an original:
+
+- Aim for beauty, danger and a sense of scale. A city fire should affect the mood of the surrounding landscape; animal figures remain legible within that larger disaster.
+- Compose broad dark masses with concentrated luminous regions. Keep charcoal, umber and muted night colors in the quieter areas; use amber and ochre spill with restrained pale cream at the brightest fire. Preserve shadow shapes and material detail within the warm light.
+- Build on the preferred building glow so fire illuminates siding, steps, nearby terrain and the lower smoke. Let brightness and color vary with distance and exposure. Retain the local-light reference for actual comparisons.
+- Give smoke depth: warm illuminated folds near active fire, darker overlapping volumes and silhouettes beyond, with distant architecture losing contrast. Preserve enough clear foreground space to read paths and characters.
+- Where water is already present, use broken warm reflections and dark intervals to carry the firelight across the scene. Treat wet masonry selectively; ordinary ground should retain its material character.
+- Group flame shapes and brightness into larger coherent regions while retaining every authoritative source, burn age, current support and finite-fuel state. Keep the scene readable at the normal isometric view.
+- Use selective warm edges and small lit surfaces to read native-size animal figures against dark or smoky backgrounds. The reference informs their visual framing; it introduces no new NPC behavior.
+
+The next bounded visual pass should compare this direction against the same paused 120-second fire state, camera and exposure used in the local/building-glow comparison. Judge the whole scene's light, smoke depth, silhouettes and ground/reflections together. This document records the target; it does not claim that a Volaire pass has already been rendered. Preserve the reusable 1 x 1 x 2.12 m structural module, existing simulation, source assets and original accepted replay.
