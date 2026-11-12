@@ -7,7 +7,7 @@
     2.12
   ],
   "scope": "Artist candidate only; no promotion or production integration.",
-  "dataSha256": "b656be30a463291b5b8a30df64088381f19ac6d0b78c92a0306ee0cb78dd6d7c",
+  "dataSha256": "26ecf9a88699692d33da7f5d7abef46a4a7394876b0cb571039235d1e93530cc",
   "checks": {
     "geometry": {
       "passed": 10,
@@ -23,7 +23,8 @@
       "passed": 291,
       "failed": 0,
       "ownScripts": 212,
-      "staticModules": 261
+      "staticModules": 261,
+      "coverageNote": "291 regressions passed before the final source-data stair-mouth/trim refinement; all 26 focused export, renderer and actual-entry checks passed after it."
     },
     "build": {
       "command": "node tools/build.mjs",
@@ -47,21 +48,29 @@
       "errors": [],
       "controlledJpgs": 7,
       "artBatches": 64,
-      "physicalStatePatches": 5847
+      "physicalStatePatches": 5827
+    },
+    "portal": {
+      "command": "node art/source/furnished-house/check-entry.mjs",
+      "passed": 3,
+      "failed": 0,
+      "minimumLateralMargin": 0.003750001192092789,
+      "limits": "Actual exported entry, including open/closed native leaf, infill, return, casings, approach rails and source furniture. This is portal clearance, not navigation/support or the whole stair route."
     }
   },
   "helperRetirement": {
-    "serverExited": true,
-    "portReleased": true,
-    "restart": "artifacts/helpers/furnished-house-review/restart.json",
     "task": "Furnished-house art",
-    "retiredAt": "2026-11-12T00:58:59.8890549Z",
     "testProfileRemoved": true,
-    "browserExited": true
+    "browserExited": true,
+    "restart": "artifacts/helpers/furnished-house-review/restart.json",
+    "portReleased": true,
+    "serverExited": true,
+    "retiredAt": "2026-11-12T01:07:03.7441686Z"
   },
   "limits": [
     "Controlled JPGs establish geometry/shader state only; real animated replay remains with architect.",
     "New fitting fuel and support require refreshed combined traces and native full-body route check.",
-    "Matched final hardware cost and broader AAA visual acceptance remain separate."
+    "Matched final hardware cost and broader AAA visual acceptance remain separate.",
+    "The inherited visible masonry chimney has no lower stack; complete inert mechanical support/fall handling remains in combined review."
   ]
 }

@@ -14,7 +14,7 @@
     "Buried porch roof faces no longer cross the upper front chamber"
   ],
   "counts": {
-    "surfaces": 2969,
+    "surfaces": 2964,
     "floorPatches": 672,
     "items": 16,
     "parts": 81
@@ -274,7 +274,7 @@
                 6
               ]
             ],
-            "reason": "Clear the actual stair-side wall intrusion"
+            "reason": "Clear the actual stair-side/approach wall intrusion"
           },
           {
             "level": 0,
@@ -319,7 +319,52 @@
                 5
               ]
             ],
-            "reason": "Clear the actual stair-side wall intrusion"
+            "reason": "Clear the actual stair-side/approach wall intrusion"
+          },
+          {
+            "level": 0,
+            "edgeId": "6,3|6,4",
+            "a": [
+              6,
+              4
+            ],
+            "b": [
+              6,
+              3
+            ],
+            "rooms": [
+              "living",
+              "hall"
+            ],
+            "kind": "door",
+            "normal": [
+              -1,
+              0,
+              -2.220446049250313e-16
+            ],
+            "polygon": [
+              [
+                6,
+                0.48,
+                4
+              ],
+              [
+                6,
+                0.48,
+                3
+              ],
+              [
+                6,
+                2.48,
+                3
+              ],
+              [
+                6,
+                2.48,
+                4
+              ]
+            ],
+            "reason": "Clear the actual stair-side/approach wall intrusion"
           },
           {
             "level": 0,
@@ -364,7 +409,7 @@
                 7
               ]
             ],
-            "reason": "Clear the actual stair-side wall intrusion"
+            "reason": "Clear the actual stair-side/approach wall intrusion"
           },
           {
             "level": 0,
@@ -633,7 +678,7 @@
                 7
               ]
             ],
-            "reason": "Clear the actual stair-side wall intrusion"
+            "reason": "Clear the actual stair-side/approach wall intrusion"
           },
           {
             "level": 1,
@@ -678,7 +723,7 @@
                 6
               ]
             ],
-            "reason": "Clear the actual stair-side wall intrusion"
+            "reason": "Clear the actual stair-side/approach wall intrusion"
           },
           {
             "level": 1,
@@ -723,7 +768,7 @@
                 5
               ]
             ],
-            "reason": "Clear the actual stair-side wall intrusion"
+            "reason": "Clear the actual stair-side/approach wall intrusion"
           },
           {
             "level": 1,
@@ -1570,25 +1615,25 @@
       },
       {
         "type": "explicit-source-fittings",
-        "count": 437,
+        "count": 434,
         "physicalMaterial": "timber",
         "fuelClass": "frame",
         "fuelPerCubicMetre": 8.3333333,
-        "policy": "One finite amount per exact source fitting; actual closed source mesh is shared by render, thermal and support. Lost support can move remaining fuel independently of its 120ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“180s nominal burn age.",
+        "policy": "One finite amount per exact source fitting; actual closed source mesh is shared by render, thermal and support. Lost support can move remaining fuel independently of its 120ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ180s nominal burn age.",
         "inferredStairFlight": {
           "treadSurfaceIds": [
+            "stair/341",
+            "stair/342",
+            "stair/343",
+            "stair/344",
+            "stair/345",
+            "stair/346",
+            "stair/347",
+            "stair/348",
             "stair/349",
             "stair/350",
             "stair/351",
-            "stair/352",
-            "stair/353",
-            "stair/354",
-            "stair/355",
-            "stair/356",
-            "stair/357",
-            "stair/358",
-            "stair/359",
-            "stair/360"
+            "stair/352"
           ],
           "attachmentSurfaceIds": [
             "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
