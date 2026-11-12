@@ -1,6 +1,6 @@
 // Presentation-only overlap across adjacent burning polygons. Every input stays represented.
 const key=p=>p.map(v=>Math.round(v*1e5)).join(',');
-function edgeList(triangles){const edges=new Map();for(const t of triangles)for(let i=0;i<3;i++){const a=t[i],b=t[(i+1)%3],k=[key(a),key(b)].sort().join('|');if(edges.has(k))edges.delete(k);else edges.set(k,[a,b]);}return [...edges.values()];}
+function edgeList(triangles){const edges=new Map(),seen=new Set();for(const t of triangles){const triangleKey=t.map(key).sort().join('|');if(seen.has(triangleKey))continue;seen.add(triangleKey);for(let i=0;i<3;i++){const a=t[i],b=t[(i+1)%3],k=[key(a),key(b)].sort().join('|');if(edges.has(k))edges.delete(k);else edges.set(k,[a,b]);}}return [...edges.values()];}
 function distance(x,z,a,b){const dx=b[0]-a[0],dz=b[2]-a[2],den=dx*dx+dz*dz;if(den<1e-12)return Infinity;const t=Math.max(0,Math.min(1,((x-a[0])*dx+(z-a[2])*dz)/den));return Math.hypot(x-a[0]-t*dx,z-a[2]-t*dz);}
 export function connectSurfaceSamples(samples){
  const groups=new Map();
