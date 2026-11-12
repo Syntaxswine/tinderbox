@@ -34,6 +34,7 @@ is also run with each house on a lawn, and has not been reviewed.
 | `results/survey-<plan>.json` | Every strike of the survey |
 | `results/reach-options/` | The two reach surveys and `summary.txt` |
 | `results/lawn/` | The survey with each house on a lawn: `survey.mjs <plan> '{}' '{}' results/lawn lawn`. The trial reads it |
+| `results/layer/` | Lawn surveys for the proposals in `../../2026-11-11-another-layer.md`: a stone plinth (`survey.mjs <plan> '{}' '{}' <dir> lawn plinth`), a low grass flame (fuels `'{"grass":{"rises":0.2}}'`), a cool grass flame (`'{"grass":{"hot":1.6}}'`) and their combinations. `summarise.mjs <dir> ...` prints targets 4 and 5 for any survey directory. These three numbers are off by default and are not part of the reviewed rules |
 | `results/roof-delay-3/` | The survey with roof delay 3 s in place of 8 s: `survey.mjs <plan> '{}' '{"roof":{"delay":3}}' results/roof-delay-3`. The trial reads it for target 5 |
 | `results/first-version/` | The first trial's output. Withdrawn |
 | `reviewer-round-6/` | The round 6 reviewer's probes, results and report. They ran against commit `28d3931` and its own copies of that scene and measuring code |

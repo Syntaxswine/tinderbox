@@ -6,7 +6,7 @@
 // chimneys, roof pitch (every roof is flat at its storey's top), eaves.
 import {pathToFileURL} from 'node:url';
 import path from 'node:path';
-import {PITCH} from './kernel.mjs';
+import {PITCH, LAYER} from './kernel.mjs';
 
 const root = path.resolve(import.meta.dirname, '../../../..');
 const {HOUSING_PLANS} = await import(pathToFileURL(path.join(root, 'src/content/housing-plans.js')).href);
@@ -35,7 +35,9 @@ export function paving(world, i0, j0, i1, j1) {
 }
 
 // contents: {furniture, lacquer, oil, coal}. Returns the rooms and their tiles.
-export function house(world, name, planId, ox, oy, contents = {}) {
+// options.plinth (proposal, off by default): the plan's stone plinth covers the foot of the outside wall,
+// so that share of each ground-storey wall surface is shielded from the tile outside it.
+export function house(world, name, planId, ox, oy, contents = {}, options = {}) {
   const p = plan(planId), oi = Math.round(ox / PITCH), oj = Math.round(oy / PITCH);
   const rooms = new Map(), cellRoom = new Map();
   const cellKey = (f, ci, cj) => f + ':' + ci + ':' + cj;
@@ -107,7 +109,8 @@ export function house(world, name, planId, ox, oy, contents = {}) {
           if (k === k0 + 1 && onSegment(openings[f].windows, mx, mz)) { world.setFace(i, j, k, axis, step, 'glass'); continue; }
           const object = world.setFace(i, j, k, axis, step, 'timber');
           // The front door is a shut door in the lower layer of the wall.
-          world.addFuel(tile, k === k0 && onSegment(openings[f].entry, mx, mz) ? 'door' : 'clapboard', 1, {face: {axis, step, object}});
+          const wall = world.addFuel(tile, k === k0 && onSegment(openings[f].entry, mx, mz) ? 'door' : 'clapboard', 1, {face: {axis, step, object}});
+          if (options.plinth && p.plinth) wall.shield = Math.max(0, Math.min(1, (p.plinth - k * LAYER) / LAYER));
         }
       } else if (other !== room && step > 0) {
         // Partition between two rooms, built once from the lower-numbered side.

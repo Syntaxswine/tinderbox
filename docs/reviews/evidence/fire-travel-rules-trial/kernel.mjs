@@ -66,7 +66,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     const id = key(i, j, k);
     let tile = tiles.get(id);
     if (!tile) {
-      tile = {id, i, j, k, heat: 0, incoming: 0, rad: 0, fuels: [], room, building, out: 0, radOut: 0, links: null, listens: false, facing: null};
+      tile = {id, i, j, k, heat: 0, incoming: 0, rad: 0, fuels: [], room, building, out: 0, outUp: 0, radOut: 0, links: null, listens: false, facing: null};
       tiles.set(id, tile);
       if (k > topLayer) topLayer = k;
       around(i, j, k, stale);
@@ -142,7 +142,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
       const level = dx || dy;
       const direction = dz > 0 ? (level ? rules.upDiagonal : rules.up) : dz < 0 ? (level ? rules.downDiagonal : rules.down) : 1;
       const weight = rules.rate * direction * pass / Math.hypot(dx, dy, dz) ** rules.falloff;
-      if (weight > 1e-4) links.push({target, weight});
+      if (weight > 1e-4) links.push({target, weight, above: dz > 0});
     }
     tile.links = links;
   }
@@ -260,8 +260,10 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
   }
 
   function give(tile, spec, share) {
-    if (!active.has(tile)) { tile.out = 0; tile.radOut = 0; active.add(tile); }
-    tile.out += spec.out * share; tile.radOut += spec.out * (spec.radiates ?? 1) * share;
+    if (!active.has(tile)) { tile.out = 0; tile.outUp = 0; tile.radOut = 0; tile.flameHot = 0; tile.fedHot = 0; active.add(tile); }
+    // `rises` (proposal, off unless a fuel sets it): the share of a fuel's heat that goes to the tiles above. A low flame sends little up.
+    if ((spec.hot ?? Infinity) > tile.flameHot) tile.flameHot = spec.hot ?? Infinity;
+    tile.out += spec.out * share; tile.outUp += spec.out * (spec.rises ?? 1) * share; tile.radOut += spec.out * (spec.radiates ?? 1) * share;
   }
   function step() {
     time += dt; stats.ticks++;
@@ -269,7 +271,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     // 1. What each burning fuel gives. A surface lit on one side gives that side its heat; the far side's
     // share grows as the surface is consumed (Rule 5), and through a floor to the tile below it is
     // multiplied by Rule 4's "down".
-    for (const tile of active) { tile.out = 0; tile.radOut = 0; }
+    for (const tile of active) { tile.out = 0; tile.outUp = 0; tile.radOut = 0; tile.flameHot = 0; tile.fedHot = 0; }
     for (const tile of [...active]) for (const fuel of tile.fuels) if (fuel.lit) {
       const spec = fuels[fuel.cls];
       if (!fuel.face) { give(tile, spec, 1); continue; }
@@ -284,14 +286,15 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
       if (!out) continue;
       stats.visits++;
       if (!tile.links) relink(tile);
-      for (const {target, weight} of tile.links) { target.incoming += dt * weight * out; active.add(target); }
-      tile.incoming += dt * rules.rate * out;
+      for (const {target, weight, above} of tile.links) { target.incoming += dt * weight * (above ? tile.outUp : out); if (!(target.fedHot >= tile.flameHot)) target.fedHot = tile.flameHot; active.add(target); }
+      tile.incoming += dt * rules.rate * out; if (!(tile.fedHot >= tile.flameHot)) tile.fedHot = tile.flameHot;
     }
     if (rules.reach > 0 && stats.ticks % radiantTicks === 0) radiate();
     // 2. Heat first, for every warm tile; then charring and burning. No fuel reads a neighbour's heat from
     // a different step than its own (review round 1, S7).
     for (const tile of active) {
-      tile.heat = Math.min(rules.maxHeat, tile.heat + tile.incoming);
+      // the hottest flame feeding this tile this step sets how far that heat can raise it; heat already there stays
+      tile.heat = Math.max(tile.heat, Math.min(rules.maxHeat, tile.fedHot || 0, tile.heat + tile.incoming));
       tile.incoming = 0;
       tile.heat -= tile.heat * Math.min(1, rules.loss * dt);
       // Rule 2: a surface is exposed to the hotter of its two tiles. So a warm tile wakes the tiles that hold
@@ -316,7 +319,8 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
         if (fuel.char > 0 && fuel.seen !== null && time - fuel.seen > dt * 1.5) fuel.char = Math.max(0, fuel.char - (time - fuel.seen - dt) * rules.charFades);
         fuel.seen = time;
         let exposure = Math.max(tile.heat, tile.rad), from = null;
-        if (fuel.face) { const other = across(tile, fuel.face); if (other) { const there = Math.max(other.heat, other.rad); if (there > exposure) { exposure = there; from = other; } } }
+        if (fuel.face) { const other = across(tile, fuel.face); if (other) { const there = Math.max(other.heat, other.rad) * (1 - (fuel.shield ?? 0));   // `shield` (proposal): the share of the far side covered by stone
+          if (there > exposure) { exposure = there; from = other; } } }
         if (exposure > 1e-3) alive = true;
         if (exposure >= spec.lightAt) {
           fuel.char += dt * exposure / spec.lightAt;
@@ -332,7 +336,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
         const face = faceBetween(tile.i, tile.j, tile.k, axis, stepDir);
         if (face?.kind === 'glass') { face.kind = 'open'; face.pass = 1; faceChanged(tile.i, tile.j, tile.k, axis, stepDir); events.push({type: 'glass', time, at: [tile.i, tile.j, tile.k], building: tile.building}); }
       }
-      if (!alive) { active.delete(tile); tile.out = 0; tile.radOut = 0; tile.heat = 0; }
+      if (!alive) { active.delete(tile); tile.out = 0; tile.outUp = 0; tile.radOut = 0; tile.heat = 0; }
     }
   }
   // A match. `from` is the tile the match is held in, for a surface: the side it then burns on.
