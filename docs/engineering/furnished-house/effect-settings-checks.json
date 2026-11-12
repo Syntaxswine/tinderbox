@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "status": "Scoped runtime candidate passed finite checks; artist generation/culling and architect browser/timing acceptance remain separate",
+  "baseCommit": "250956566a87123a521853b447991db831f4dae6",
+  "contractCommit": "5bcd95dc5bd5b2f8f1e65fa2de19e3d84d87ecb3",
+  "lightingModeContractCommit": "95dceb1a49024ccac57fa7ba38d6d3c485f85034",
+  "acceptedReference": "ee1d10b374ebe91ecc0011bedf39dab1e8fd8874",
+  "preservedPreviousBranch": {
+    "name": "codex/furnished-house-runtime",
+    "commit": "2042bdd653d23ab00dfa7792489212b32491db9a"
+  },
+  "uiDependency": "459daf204c5a547cb898308d77c5e213ea7df976",
+  "sourceFiles": [
+    {
+      "path": "workbenches/furnished-house/effect-preferences.js",
+      "sha256": "285b4b693c090071bba1c7fe68938d2a583540bb2586c86ba7aa120504fd7ac0"
+    },
+    {
+      "path": "workbenches/furnished-house/main.js",
+      "sha256": "c4bea72873ecfec570264c798dcaa052d7e76d3d1732e25566b4cf8429ad18cb"
+    },
+    {
+      "path": "tests/furnished-house/effect-preferences.test.mjs",
+      "sha256": "842d63b1803e64c314dd9007dcf795bdc3ba473623cb70f1ae7523e8e1beba87"
+    },
+    {
+      "path": "tests/furnished-house/effect-bindings.test.mjs",
+      "sha256": "02848798435d49ee0dee8adba91b26f5ec6d07de56b19a6c658b2eadb7fc2395"
+    }
+  ],
+  "preferences": {
+    "key": "tinderbox.furnished-house.effects.v1",
+    "defaults": {
+      "flames": true,
+      "smoke": true,
+      "lighting": true
+    },
+    "scope": "Presentation only; mode remains separate from stored booleans"
+  },
+  "lightingComparison": {
+    "default": "local",
+    "trial": "building",
+    "query": "?lighting=building",
+    "invalid": "local",
+    "resetRetains": true
+  },
+  "checks": {
+    "settings": {
+      "passed": 15,
+      "failed": 0,
+      "coderGroups": 9,
+      "uiGroups": 6,
+      "scope": "Real entrypoint with real preference/UI/clock/thermal/navigation modules; DOM primitives, art sink and GPU resources substituted. All8masks, UI-to-store/API, paused state/clock/command isolation, reload/storage failures, reset/disposal, input isolation, lightingMode query/invalid/reset/physics isolation and wind metadata forwarding."
+    },
+    "repository": {
+      "command": "npm run check",
+      "passed": 335,
+      "failed": 0,
+      "ownedSyntaxScripts": 240,
+      "staticModules": 281,
+      "oneSharedThreePair": true,
+      "provenance": true,
+      "receipt": "artifacts/qa/fire-effect-settings/repository-check.stdout",
+      "receiptSha256": "6ee517d5090836e75a009a40326a9997960f90610d5350fbbbdebbe6785380d5"
+    },
+    "build": {
+      "command": "npm run build",
+      "files": 3515,
+      "bytes": 166825782,
+      "receipt": "artifacts/qa/fire-effect-settings/build.stdout",
+      "receiptSha256": "afb63d119be6549382eb962750cee4ad07a58a379039998c1d04d401a7737ff6",
+      "manifestSha256": "c592039f35d7f4173c17e4f9443726423e9d77eb8ee5bfdbb7d6430625c33987",
+      "sameAsPreviousPublicArtifact": true
+    },
+    "release": {
+      "command": "node tools/check-release.mjs",
+      "passed": true,
+      "receipt": "artifacts/qa/fire-effect-settings/release-check.stdout",
+      "receiptSha256": "39c629e1e00b30cac4b91587897d4b7fbba5b034162355ce6ac23793154ab781"
+    },
+    "protectedPathsUnchangedFromBase": [
+      "workbenches/furnished-house/simulation.js",
+      "workbenches/furnished-house/scene.js",
+      "workbenches/furnished-house/geometry.js",
+      "workbenches/furnished-house/support.js",
+      "workbenches/furnished-house/navigation.js",
+      "workbenches/furnished-house/house-data.json",
+      "workbenches/furnished-house/art.js",
+      "art/source/furnished-house",
+      "src",
+      "assets",
+      "vendor",
+      ".github",
+      "docs/reviews/evidence"
+    ]
+  },
+  "helpers": {
+    "browserSessionsCreated": 0,
+    "serversCreated": 0,
+    "watchersCreated": 0,
+    "retained": 0,
+    "finiteCommands": "Completed normally; no new background service or process-local pending work retained"
+  },
+  "limits": [
+    "This candidate binds preferences and comparison mode; frozen base art remains until architect intakes the separate artist candidate.",
+    "No GPU/browser acceptance or channel-performance savings claimed by these Node checks.",
+    "No330-second per-mask burn was run. Architect compares8masks atone saved full-burn state.",
+    "Production/Pages and the accepted original movie are unchanged."
+  ]
+}
