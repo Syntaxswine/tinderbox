@@ -7,7 +7,7 @@
     2.12
   ],
   "scope": "Artist candidate only; no promotion or production integration.",
-  "dataSha256": "cf63bca406d8f29b559e71bf875b5d932046827b182b40c29ca0c3f5a83f4ab6",
+  "dataSha256": "5722e591380d09be165e451ff278d3a6f61dedf37ff0457c93d900b678650092",
   "checks": {
     "geometry": {
       "passed": 10,
@@ -24,7 +24,7 @@
       "failed": 0,
       "ownScripts": 212,
       "staticModules": 261,
-      "coverageNote": "291 regressions passed before the final source-data refinements; all29 focused export, renderer, portal and kitchen-return checks passed after the approved.10m cut."
+      "coverageNote": "291 regressions passed before the final source-data refinements; all32 focused export, renderer, portal, kitchen-return and forward stair-fitting checks passed after this crop."
     },
     "build": {
       "command": "node tools/build.mjs",
@@ -48,7 +48,7 @@
       "errors": [],
       "controlledJpgs": 7,
       "artBatches": 64,
-      "physicalStatePatches": 5827
+      "physicalStatePatches": 5821
     },
     "portal": {
       "command": "node art/source/furnished-house/check-entry.mjs",
@@ -66,22 +66,30 @@
       "minimumLateralMargin": 0.013750000000000151,
       "unchangedSourceBlocked": true,
       "status": "Applied architect-approved .10 m end-cut"
+    },
+    "stairFitting": {
+      "command": "node art/source/furnished-house/check-stair-fitting.mjs",
+      "passed": 3,
+      "failed": 0,
+      "sweeps": 110,
+      "originalCasingBlocked": true,
+      "limit": "Actual source stair-lane geometry and real closed slab union, using the production swept cylinder and its existing .45m stair leg-clearance convention. Foot support is sampled from unchanged native tread heights. This is a geometric fitting regression, not full navigation/gait acceptance."
     }
   },
   "helperRetirement": {
-    "testProfileRemoved": true,
-    "portReleased": true,
-    "retiredAt": "2026-11-12T01:26:08.5430274Z",
+    "restart": "artifacts/helpers/furnished-house-review/restart.json",
+    "serverExited": true,
     "browserExited": true,
     "task": "Furnished-house art",
-    "serverExited": true,
-    "restart": "artifacts/helpers/furnished-house-review/restart.json",
-    "followupVerifiedAt": "2026-11-12T01:28:50.2786185Z"
+    "testProfileRemoved": true,
+    "retiredAt": "2026-11-12T01:40:00.7296993Z",
+    "portReleased": true
   },
   "limits": [
     "Controlled JPGs establish geometry/shader state only; real animated replay remains with architect.",
     "New fitting fuel and support require refreshed combined traces and native full-body route check.",
     "Matched final hardware cost and broader AAA visual acceptance remain separate.",
-    "The inherited visible masonry chimney has no lower stack; complete inert mechanical support/fall handling remains in combined review."
+    "The inherited visible masonry chimney has no lower stack; complete inert mechanical support/fall handling remains in combined review.",
+    "The upper sideways exit still needs the measured top-right rail/newel composition before complete route acceptance."
   ]
 }

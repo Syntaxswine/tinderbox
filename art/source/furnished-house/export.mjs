@@ -113,6 +113,19 @@ try{
   }
   routeAdaptations.push({type:isProposal?'proposed-kitchen-return-end-cut':'kitchen-return-end-cut',status:isProposal?'Unaccepted diagnostic option':'Architect-approved minimum end-cut',sourceEdge:'3,5|4,5',cut:proposalCut,nativeBayWidth:1,remainingWidth:1-proposalCut,parts,sourcePolygon:[[3,.48,5],[4,.48,5],[4,2.48,5],[3,2.48,5]],adaptedPolygon:[[3,.48,5],[4-proposalCut,.48,5],[4-proposalCut,2.48,5],[3,2.48,5]],removedPolygon:[[4-proposalCut,.48,5],[4,.48,5],[4,2.48,5],[4-proposalCut,2.48,5]],newelInnerX:4.9275,clearWidth:round(4.9275-(4-proposalCut)),routeCentreX:round((4.9275+4-proposalCut)/2),heightUnchanged:2,wallThicknessUnchanged:.16,textureDensityUnchanged:true,reason:'A directly interfering wall return leaves only.9275m beside the translated source newel. Architect approved the measured.10m end-cut after398 continuous standing-body sweeps, preserving the other.90m and shared native dimensions.'});
  }
+ // Retain the living/dining arch, crop only its outboard trim at the actual stair lane.
+ const arch=model.root.getObjectByName('Level 0').children[0].children.find(w=>w.userData.edge==='6,6|7,6');if(!arch)throw Error('Missing retained living/dining arch');
+ const archParts=[],archDirection=new T.Vector3(1,0,0).transformDirection(arch.matrixWorld).x>0?1:-1;
+ for(const o of [...arch.children]){
+  if(!['Door casing','Door header'].includes(o.name))continue;
+  const box=new T.Box3().setFromObject(o);if(box.min.x>=6-1e-7)continue;
+  const baseline={position:o.position.toArray(),dimensions:o.userData.nativeDimensions,bounds:{min:box.min.toArray(),max:box.max.toArray()}};
+  if(box.max.x<=6+1e-7){archParts.push({name:o.name,baseline,removed:true,reason:'This complete outboard casing is outside its retained bay and inside the stair lane.'});o.removeFromParent();continue;}
+  const cut=6-box.min.x,[w,h,d]=o.userData.nativeDimensions,position=[o.position.x+archDirection*cut/2,o.position.y,o.position.z],q=cutNativeBox(o,o.name,[w-cut,h,d],position),uv=q.geometry.attributes.grossUV,n=q.geometry.attributes.normal;
+  for(let i=0;i<n.count;i++)if(Math.abs(n.getY(i))>.55||Math.abs(n.getX(i))<=.55)uv.setX(i,uv.getX(i)+archDirection*cut/2);
+  archParts.push({name:o.name,baseline,position,dimensions:[w-cut,h,d],cut,scale:[1,1,1],minimumX:6});o.removeFromParent();
+ }
+ routeAdaptations.push({type:'stair-lane-retained-arch-trim',sourceEdge:'6,6|7,6',retainedOpening:'living/dining arch',clearBoundaryX:6,parts:archParts,openingUnchanged:true,lintelUnchanged:true,heightUnchanged:true,physicalMaterial:'timber',textureDensityAndPhaseUnchanged:true,reason:'Crop only native fittings protruding across the X6 boundary of the unchanged 1m stair flight. The casing belongs to a retained cross-opening, not a retired stair-side bay.'});
  // Approved minimum furniture/rail translations. Every source dimension remains unchanged.
  const hallConsole=model.root.getObjectByName('Level 0').children[1].children.find(g=>g.name==='Furnishing: hall');
  if(!hallConsole)throw Error('Missing source hall console');
