@@ -89,9 +89,9 @@ export function createBoundaryIndex(records,binSize=1) {
     const skip=new Set(ignore),hits=[];
     for(const s of segmentCandidates(from,to)) {
       if(skip.has(s.id)||!segmentBox(from,to,s.bounds))continue;
-      let first=Infinity;
-      for(const t of s.solidTriangles||s.triangles) {const hit=segmentTriangle(from,to,t,s.thickness||0);if(hit!==null&&((includeEndpoints)||hit>EPS&&hit<1-EPS))first=Math.min(first,hit);}
-      if(first<Infinity)hits.push({surface:s,t:first});
+      let first=Infinity,normal=null;
+      for(const t of s.solidTriangles||s.triangles) {const hit=segmentTriangle(from,to,t,s.thickness||0);if(hit!==null&&((includeEndpoints)||hit>EPS&&hit<1-EPS)&&hit<first){first=hit;const p=prepareTriangle(t);normal=[p.nx,p.ny,p.nz];}}
+      if(first<Infinity)hits.push({surface:s,t:first,normal});
     }
     hits.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));
     // Subdivision seams represent one physical sheet. Distinct sheets at a
