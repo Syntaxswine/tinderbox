@@ -234,7 +234,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    for(const f of frame.falls||[]){
     fallStates.set(f.id,f);if(f.itemId)applyItem({...f,id:f.itemId,itemId:f.itemId,intact:true});
    }
-   for(const t of frame.tombstones||[]){const id=typeof t==='string'?t:t.id;if(t.collection==='falls'||fallStates.has(id)){fallStates.delete(id);}else if(itemGroups.has(id))applyItem({id,intact:false});else if(boundaryStates.has(id))applyBoundary({...boundaryStates.get(id),intact:false,openFraction:1});}
+   for(const t of frame.tombstones||[]){const id=typeof t==='string'?t:t.id;if(t.collection==='falls'||!t.collection&&fallStates.has(id)){fallStates.delete(id);}else if((!t.collection||t.collection==='items')&&itemGroups.has(id))applyItem({id,intact:false});else if((!t.collection||t.collection==='boundaries'||t.collection==='supports')&&boundaryStates.has(id))applyBoundary({...boundaryStates.get(id),intact:false,openFraction:1});}
    debrisView.update(frame);
    for(const [id,entry]of doorGroups){const states=[...boundaryStates.values()].filter(b=>b.sourceSurfaceId===id),fraction=states.length?states.reduce((n,b)=>n+clamp(b.openFraction),0)/states.length:entry.definition.initialOpenFraction;entry.group.quaternion.setFromAxisAngle(new T.Vector3(0,1,0),fraction*entry.definition.maxOpenAngle);}
    setView(view);debrisView.setView?.(mode,selectedLevel);root.updateMatrixWorld(true);

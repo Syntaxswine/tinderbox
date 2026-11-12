@@ -1,0 +1,170 @@
+{
+  "sourceRuntimePin": "5f1793b4a22f3bd76ee5e0214e9d8633b78fbdf7",
+  "sourceArtistPin": "66a49e39a775faee7ba5c6f259109e4a314372da",
+  "sourceDataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+  "worldTime": 88,
+  "input": {
+    "tick": 1,
+    "type": "match",
+    "position": [
+      0.1,
+      1.1,
+      6.25
+    ],
+    "from": [
+      1.4,
+      1.1,
+      6.3
+    ]
+  },
+  "fall": {
+    "id": "rubble:fuel:opening/l0/6-8-6-9@12,1,17:embers",
+    "itemId": null,
+    "fuelIds": [
+      "fuel:opening/l0/6-8-6-9@12,1,17:embers"
+    ],
+    "position": [
+      6,
+      1.3171001000000002,
+      8.749999949999998
+    ],
+    "origin": [
+      6,
+      1.5460001,
+      8.749999949999998
+    ],
+    "previous": [
+      6,
+      1.3825001000000001,
+      8.749999949999998
+    ],
+    "velocity": [
+      0,
+      -1.962,
+      0
+    ],
+    "offsets": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "contactOffsets": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "geometry": null,
+    "rubbleFootprint": [
+      [
+        [
+          5.94,
+          1.5460001,
+          8.64999995
+        ],
+        [
+          5.976000004799999,
+          1.5460001,
+          8.64999995
+        ],
+        [
+          6.0239999952000005,
+          1.5460001,
+          8.849999949999999
+        ]
+      ],
+      [
+        [
+          5.94,
+          1.5460001,
+          8.64999995
+        ],
+        [
+          6.0239999952000005,
+          1.5460001,
+          8.849999949999999
+        ],
+        [
+          5.94,
+          1.5460001,
+          8.849999949999999
+        ]
+      ],
+      [
+        [
+          5.9760000047999995,
+          1.5460001,
+          8.64999995
+        ],
+        [
+          6.06,
+          1.5460001,
+          8.64999995
+        ],
+        [
+          6.06,
+          1.5460001,
+          8.849999949999999
+        ]
+      ],
+      [
+        [
+          5.9760000047999995,
+          1.5460001,
+          8.64999995
+        ],
+        [
+          6.06,
+          1.5460001,
+          8.849999949999999
+        ],
+        [
+          6.0239999952000005,
+          1.5460001,
+          8.849999949999999
+        ]
+      ]
+    ],
+    "rubbleKind": "ember",
+    "quaternion": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "heldHeat": 0.2,
+    "flame": 1,
+    "smoke": 0.4,
+    "ignitionTime": 82.1
+  },
+  "fireSample": {
+    "id": "fuel:opening/l0/6-8-6-9@12,1,17:embers",
+    "buildingId": "furnished-hopkins15",
+    "part": "contents",
+    "x": 6,
+    "y": 1.3171001000000002,
+    "z": 8.749999949999998,
+    "nx": 0,
+    "ny": 1,
+    "nz": 0,
+    "area": 0.2950001090000096,
+    "flame": 0.5249999999999899,
+    "smoke": 0.5,
+    "ignitionTime": 82.1,
+    "ignited": true,
+    "heatFraction": 0.9940179640539352,
+    "originalSourceSurfaceId": "opening/l0/6-8-6-9",
+    "fallId": "rubble:fuel:opening/l0/6-8-6-9@12,1,17:embers"
+  },
+  "tombstones": [
+    {
+      "collection": "rubble",
+      "id": "rubble:fuel:opening/l0/6-8-6-9@12,1,17:embers"
+    }
+  ],
+  "sourceFullPublicationSha256": "0f4c731f0e9b2e52be1f3547a227fc3eeabda2c1911ce0566a29626af1333460",
+  "note": "Exact real88s publication: rubble is removed while the same text ID names a current fall in a different collection."
+}
