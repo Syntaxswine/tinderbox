@@ -24,6 +24,12 @@ Support review addition: `falls[].geometry` supplies exact clipped `triangles`, 
 
 Preheat samples have flame 0, a finite presentation start in `ignitionTime`, and `ignited:false`; only ignition events establish actual ignition. Sound sheets emit on their exposed side. An underside floor sample uses negative Y normal and the actual underside elevation. Window `vent:true` samples reference `openingId` and actual outward local heat flux through the canonical open pane; this visualizes already-budgeted transport and creates no fuel or additional heat.
 
+Manifest preparation is shared: call `prepareFurnishedData(raw)` from `prepare-data.js`, or use `trial.scene.data`, for the artist factory. The browser runner already does so. Runtime adapter version 1 binds the real native chimney shaft and cap as one inert item on six measured local roof hosts; it removes their static duplicate surfaces. It preserves their original shape/size and adds no lower stack or fuel. Losing the roof hosts starts a cold, rigid translation to the first actual support. Both art and physics must consume the prepared manifest. Replay metadata records this adapter and its source bindings.
+
+Fitting fragments use their actual clipped source exterior, rather than retaining a complete source collider in each thermal fragment. Cut fragments disable watertight parity; intact whole native solids retain it. Declared host connections are directed from bearing to fitting, locally filtered by the exported 15 mm joinery tolerance; ornamental fittings cannot become structural bridges. Actual adjacent fragments of the same component stay connected.
+
+For isolated measurement, `window.__furnished.sampleStep(count=1,{present:true})` returns simulation, presentation and render CPU milliseconds directly, plus draw/active counts. `data` exposes the prepared shared manifest. Stop automatic rendering first with `setAutoRender(false)`; the normal UI still uses its animation loop.
+
 View: `{mode:'exterior'|'auto'|'cutaway'|'xray',level:0|1,camera,observer?,sampleWind?}`. Observer is `{x,y,z,height}`. Cutaway changes presentation only. X-ray consumes actual `occupancy` records. The Ashland-specific frozen wind field must not be applied to Hopkins geometry. Wind is an injected metre-coordinate sampler with declared source metadata.
 
 Prototype tuning, source defects, physical passage measurements, controls, budgets and acceptance results are recorded separately from this interface. A pushed API checkpoint is not completed gameplay or production promotion.

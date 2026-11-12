@@ -5,7 +5,7 @@ import {bounds,overlaps,pointOnTriangle,unit,cross,sub,EPS} from './geometry.js'
 // rescaled map. Physical retirement/opening state is borrowed from the trial.
 export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=[5.5,0,-3.8]}={}) {
   const {scene}=trial,{data,index}=scene,meshInfo=new Map((data.sourceMeshes||[]).map(m=>[m.id,m]));
-  const extras=[],physicalMeshes=new Set(data.surfaces.flatMap(s=>s.sourceMeshBindings||[]));
+  const extras=[],physicalMeshes=new Set([...data.surfaces.flatMap(s=>s.sourceMeshBindings||[]),...(data.furnitureParts||[]).map(p=>p.sourceMeshBinding).filter(Boolean)]);
   for(const g of data.render?.geometry||[]) {
     const info=meshInfo.get(g.id);if(!info||!/stair|tread|newel|rail|casing|jamb|header|porch|entry step/i.test(info.name))continue;
     if(/roof|door leaf/i.test(info.name)||physicalMeshes.has(g.id))continue;
@@ -25,8 +25,11 @@ export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=
   }
   function clear(from,to) {
     const near=index.candidates({min:[to[0]-radius,Math.min(from[1],to[1])-.2,to[2]-radius],max:[to[0]+radius,Math.max(from[1],to[1])+.5,to[2]+radius]}),onStairs=near.some(s=>s.intact&&['stair-tread','entry-step'].includes(s.supportType));
-    const low=Math.min(from[1],to[1])+(onStairs?.45:.025),high=Math.max(from[1],to[1])+height-EPS,box={min:[Math.min(from[0],to[0])-radius,low,Math.min(from[2],to[2])-radius],max:[Math.max(from[0],to[0])+radius,high,Math.max(from[2],to[2])+radius]};
-    const shapes=index.candidates(box).filter(s=>s.intact&&index.pass(s)<.99).map(s=>({id:s.id,triangles:s.solidTriangles||s.triangles,closed:!!s.solidTriangles}));
+    // The borrowed .45m gait clearance follows the stepped foot position on
+    // ascent. Using the old lower foot plane catches the third riser before
+    // the accepted first step; the native head/radius envelope stays intact.
+    const low=(onStairs?Math.max(from[1],to[1]):Math.min(from[1],to[1]))+(onStairs?.45:.025),high=Math.max(from[1],to[1])+height-EPS,box={min:[Math.min(from[0],to[0])-radius,low,Math.min(from[2],to[2])-radius],max:[Math.max(from[0],to[0])+radius,high,Math.max(from[2],to[2])+radius]};
+    const shapes=index.candidates(box).filter(s=>s.intact&&index.pass(s)<.99).map(s=>({id:s.id,triangles:s.solidTriangles||s.triangles,closed:s.closedShape!==false&&!!s.solidTriangles}));
     shapes.push(...extras.filter(s=>overlaps(box,s.bounds)));
     for(const shape of shapes)if(!sweptCylinderClear({x:from[0],y:from[2]},{x:to[0],y:to[2]},radius,low,high,shape)){lastBlock={id:shape.id,reason:'Native geometry clearance',position:[...to]};return false;}
     for(const part of scene.parts.values())if(part.intact&&part.solid&&part.bounds) {

@@ -31,6 +31,10 @@ test('five frame schedules produce the identical fixed-step replay without dropp
   const schedules=[Array(90).fill(1/30),Array(180).fill(1/60),Array(36).fill(1/12),[.7,.01,.29,1.1,.2,.7],[3]];let expected;
   for(const schedule of schedules){const trial=createTrial(fixture(),{wind:calmWind});trial.command({tick:1,type:'match',position:[.75,.25,.75]});const clock=createClock(trial,{maxSteps:15});clock.setPaused(false);for(const seconds of schedule)clock.advance(seconds);clock.drain();assert.equal(trial.tick,90);assert.equal(clock.diagnostics().droppedSeconds,0);const actual=JSON.stringify(trial.snapshot());if(expected)assert.equal(actual,expected);else expected=actual;}
 });
+test('five long frame schedules remain identical through structural burnout, physical landing and retained ash',()=>{
+  const schedules=[Array(5400).fill(1/30),Array(10800).fill(1/60),Array(2160).fill(1/12),[7,.01,30,80.2,62.79],[180]];let expected;
+  for(const schedule of schedules){const trial=createTrial(fixture({upper:true}),{wind:calmWind}),clock=createClock(trial,{maxSteps:15});trial.command({tick:1,type:'match',position:[.75,2.3,.75]});clock.setPaused(false);for(const elapsed of schedule)clock.advance(elapsed);clock.drain();assert.equal(trial.tick,5400);assert.ok(trial.events.some(e=>e.type==='support-failure'));assert.ok(trial.events.some(e=>e.type==='landing'));assert.ok(trial.frame().rubble.length);const actual=JSON.stringify(trial.snapshot());if(expected)assert.equal(actual,expected);else expected=actual;}
+});
 test('heat and fuel budgets close through an entire burn; adjacent fuel grows from one heat input',()=>{
   const data=fixture();const first=data.furnitureParts[0];data.furnitureParts.push({...first,id:'next',itemId:'next-table',bounds:{min:[1.1,0,.6],max:[1.4,.5,.9]}});data.items.push({id:'next-table',position:[1.25,0,.75],bounds:data.furnitureParts[1].bounds});
   const trial=createTrial(data,{wind:calmWind});trial.command({type:'match',position:[.75,.25,.75]});trial.step(3000);

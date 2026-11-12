@@ -5,6 +5,7 @@ import {createBoundaryIndex} from '../../workbenches/furnished-house/geometry.js
 import {createNavigation} from '../../workbenches/furnished-house/navigation.js';
 import fs from 'node:fs';
 import {bearingPiers} from '../../workbenches/furnished-house/fixtures.js';
+import {prepareFurnishedData} from '../../workbenches/furnished-house/prepare-data.js';
 const floor=(id,y,material='masonry',fuelAmount=0)=>({id,kind:'floor',normal:[0,1,0],thickness:.12,material,fuelClass:'frame',fuelAmount,triangles:[[[0,y,0],[2,y,0],[2,y,2]],[[0,y,0],[2,y,2],[0,y,2]]]});
 function oilFixture(upper=true){const y=upper?2.12:0,bounds={min:[.6,y,.6],max:[.9,y+.5,.9]};return {version:1,prefabId:'oil-review',gridOrigin:[0,0,0],surfaces:[floor('lower',0),...(upper?[floor('upper',y,'timber',4),...bearingPiers()]:[])],items:[{id:'store',position:[.75,y,.75],bounds}],furnitureParts:[{id:'oil',itemId:'store',material:'oil',fuelClass:'oil',fuelAmount:3,bounds}],stores:[{id:'oil-store',kind:'oil',fuelPartId:'oil',amount:3}]};}
 test('retained frames publish unlit heating, charring and subsequent cooling',()=>{
@@ -77,4 +78,23 @@ test('landed structural rubble survives its flight tombstone and becomes inert a
   const column={id:'post',kind:'wall',material:'timber',normal:[1,0,0],thickness:.16,fuelClass:'partition',fuelAmount:2,triangles:[[[.5,0,0],[.5,2,0],[.5,2,1]],[[.5,0,0],[.5,2,1],[.5,0,1]]]},roof={...floor('roof',2.06,'timber',4),kind:'roof'},trial=createTrial({version:1,prefabId:'rubble-control',groundY:-.12,surfaces:[floor('stone',0),column,roof]},{profiles:{frame:{threshold:1.3,delay:3,seconds:.2,energy:10}}});
   const initial=trial.metrics().fuel.initial;trial.frame();for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='post')trial.scene.index.change(b.id,{intact:false});trial.step(60);const landed=trial.frame();assert.ok(landed.rubble.length);assert.ok(landed.tombstones.some(t=>t.collection==='falls'));assert.ok(landed.rubble.every(r=>r.thickness===.01&&r.nonBearing&&r.flame===0&&r.floorFootprint.flat().every(p=>p[1]>.0&&p[1]<.02)));
   for(const f of trial.scene.fuels.values())if(f.loose){f.lit=true;f.litAt=trial.worldTime;}trial.step(10);const spent=trial.frame();assert.ok(spent.rubble.every(r=>r.phase==='ash'&&r.flame===0&&r.smoke===0));assert.equal(trial.metrics().fuel.initial,initial);assert.ok(Math.abs(trial.metrics().fuel.error)<1e-9);
+});
+test('a watertight infill prism keeps a real 3.75mm passage margin instead of an internal-diagonal parity obstacle',()=>{
+  const panel={id:'infill',kind:'wall',material:'timber',normal:[0,0,-1],thickness:.16,fuelClass:'partition',fuelAmount:1,triangles:[[[.5075,0,0],[1,0,0],[1,2,0]],[[.5075,0,0],[1,2,0],[.5075,2,0]]]},trial=createTrial({version:1,prefabId:'infill',surfaces:[floor('stone',0),panel]}),nav=createNavigation(trial);
+  assert.equal(nav.clear([.00375,0,-.8],[.00375,0,1]),true);assert.equal(nav.clear([.02,0,-.8],[.02,0,1]),false);
+});
+test('native inert chimney uses the same prepared art/physics binding and falls on lost roof bearing without new fuel',()=>{
+  const raw=JSON.parse(fs.readFileSync(new URL('../../workbenches/furnished-house/house-data.json',import.meta.url))),before=raw.items.length,prepared=prepareFurnishedData(raw),trial=createTrial(prepared),item=trial.scene.items.get('inert-ornament/native-chimney'),initial=trial.metrics().fuel.initial;
+  assert.equal(raw.items.length,before);assert.equal(prepareFurnishedData(prepared),prepared);assert.ok(item.supportSurfaceIds.length);assert.equal(trial.supportGraph.diagnostics().unrootedInert,0);
+  for(const b of trial.scene.index.surfaces.values())if(item.supportSurfaceIds.includes(b.sourceSurfaceId))trial.scene.index.change(b.id,{intact:false});trial.step();const fall=trial.frame().falls.find(f=>f.itemId===item.id);assert.ok(fall);assert.deepEqual(fall.fuelIds,[]);assert.equal(fall.ignitionTime,null);trial.step(90);assert.ok(item.position[1]<item.initialPosition[1]);assert.ok(trial.events.some(e=>e.type==='landing'&&e.itemId===item.id));assert.equal(trial.metrics().fuel.initial,initial);
+});
+test('attachment fragments contain only their local source geometry and lose support when their lower fragment retires',()=>{
+  const mesh=bearingPiers(2,.2,.2).slice(0,6).flatMap(s=>s.triangles),attachment={id:'post',kind:'attachment',material:'timber',normal:[1,0,0],thickness:0,fuelClass:'frame',fuelAmount:2,physicalShape:'source-closed-mesh',triangles:mesh,solidTriangles:mesh,supportSurfaceIds:['stone'],attachmentHostSurfaceIds:['stone']},trial=createTrial({version:1,prefabId:'fitting',gridOrigin:[0,0,0],surfaces:[floor('stone',0),attachment]});
+  const pieces=[...trial.scene.index.surfaces.values()].filter(b=>b.sourceSurfaceId==='post');assert.ok(pieces.length>1);assert.equal(trial.supportGraph.diagnostics().unresolvedInitial,0);
+  for(const b of pieces)for(const p of b.solidTriangles.flat())assert.ok(p.every((v,i)=>v>=b.bounds.min[i]-1e-6&&v<=b.bounds.max[i]+1e-6));
+  for(const b of pieces)if(b.bounds.min[1]<.1)trial.scene.index.change(b.id,{intact:false});trial.step();assert.ok(trial.events.some(e=>e.type==='mechanical-support-loss'&&e.sourceSurfaceId==='post'));
+});
+test('native stair gait raises the accepted foot plane while retaining body, headroom and step limits',()=>{
+  const raw=JSON.parse(fs.readFileSync(new URL('../../workbenches/furnished-house/house-data.json',import.meta.url))),trial=createTrial(raw),nav=createNavigation(trial,{start:[5.5,.48,3.35]});for(const o of raw.openings.filter(o=>o.prototypeAdapted))trial.command({type:'opening',id:o.id,open:true});trial.step();
+  for(let i=0;i<100;i++){const p=nav.snapshot(),remaining=4.375-p.y;if(remaining<1e-7)break;assert.equal(nav.move(0,1,Math.min(.02,remaining)/9).lastBlock,null);}assert.ok(Math.abs(nav.snapshot().elevation-.8333333)<1e-6);assert.equal(nav.snapshot().radius,.5);assert.equal(nav.snapshot().height,1.66);
 });

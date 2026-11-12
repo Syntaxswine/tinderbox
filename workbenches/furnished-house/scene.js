@@ -1,4 +1,5 @@
-import {bounds,centre,triangleArea,clipTriangle,unit,cross,sub,createBoundaryIndex,EPS} from './geometry.js';
+import {bounds,centre,triangleArea,clipTriangle,unit,cross,sub,createBoundaryIndex,extrudePlane,EPS} from './geometry.js';
+import {prepareFurnishedData} from './prepare-data.js';
 
 export const CELL=[.5,1.06,.5], STEP=1/30;
 export const DEFAULT_PROFILES=Object.freeze({
@@ -18,6 +19,7 @@ export const DEFAULT_PROFILES=Object.freeze({
 const PASS={air:1,glass:.05,timber:.02,wood:.02,masonry:0,stone:0,brick:0,iron:0,metal:0};
 const combustible=m=>/wood|oak|timber|cloth|linen|wool|oil|coal|lacquer|shingle|clapboard/i.test(typeof m==='string'?m:JSON.stringify(m));
 export function compileScene(data,{profiles={}}={}) {
+  data=prepareFurnishedData(data);
   if(data.version!==1||!Array.isArray(data.surfaces))throw Error('Expected version-1 artist house data');
   const origin=data.gridOrigin||[0,.48,0],pitch=data.thermalCell||CELL,cells=new Map(),fuels=new Map(),items=new Map(),parts=new Map(),boundaries=[];
   const profile={...DEFAULT_PROFILES,...profiles};let fuelTotal=0;
@@ -54,8 +56,11 @@ export function compileScene(data,{profiles={}}={}) {
         const underside=clipped.map(t=>[...t].reverse().map(p=>p.map((v,i)=>v+offset[i]))),sides=[...edges.values()].flatMap(([a,end])=>{const c=end.map((v,i)=>v+offset[i]),d=a.map((v,i)=>v+offset[i]);return [[a,end,c],[a,c,d]];});
         b.solidTriangles=[...clipped,...underside,...sides];b.bounds=bounds(b.solidTriangles.flat());
       } else if(['wall','roof','window'].includes(s.kind)&&mat!=='air'&&s.thickness>0) {
-        const offset=normal.map(v=>v*s.thickness/2),front=clipped.map(t=>t.map(p=>p.map((v,i)=>v+offset[i]))),back=clipped.map(t=>t.map(p=>p.map((v,i)=>v-offset[i]))),sides=front.flatMap((t,j)=>t.flatMap((a,i)=>[[a,t[(i+1)%3],back[j][(i+1)%3]],[a,back[j][(i+1)%3],back[j][i]]]));
-        b.solidTriangles=[...front,...back,...sides];b.bounds=bounds(b.solidTriangles.flat());
+        b.solidTriangles=extrudePlane(clipped,normal,-s.thickness/2,s.thickness/2);b.bounds=bounds(b.solidTriangles.flat());
+      } else if(s.physicalShape==='source-closed-mesh') {
+        // Thermal fragments share the actual source exterior. Do not leave a
+        // complete uncut collider in every fragment after local retirement.
+        b.solidTriangles=clipped;b.closedShape=single;b.bounds=bounds(clipped.flat());
       }
       const sign=normal.find(v=>Math.abs(v)>1e-6)<0?-1:1,oriented=normal.map(v=>Math.round(v*sign*1e6)/1e6);b.sheetKey=[s.kind,s.level??'',...oriented,Math.round(dotPlane(normal,clipped[0][0])*sign*1e6)/1e6].join(':');
       boundaries.push(b);
@@ -92,7 +97,7 @@ export function compileScene(data,{profiles={}}={}) {
   }
   function poseDoor(b,fraction) {
     const angle=(b.opening.maxOpenAngle||Math.PI/2)*fraction,cos=Math.cos(angle),sin=Math.sin(angle),pivot=b.opening.pivot;
-    const rotate=p=>{const x=p[0]-pivot[0],z=p[2]-pivot[2];return [pivot[0]+cos*x+sin*z,p[1],pivot[2]-sin*x+cos*z];},n=b.closedNormal,normal=[n[0]*cos+n[2]*sin,n[1],-n[0]*sin+n[2]*cos],plane=b.closedTriangles.map(t=>t.map(rotate)),offset=normal.map(v=>v*(b.thickness||.12)/2),front=plane.map(t=>t.map(p=>p.map((v,i)=>v+offset[i]))),back=plane.map(t=>t.map(p=>p.map((v,i)=>v-offset[i]))),sides=front.flatMap((t,j)=>t.flatMap((a,i)=>[[a,t[(i+1)%3],back[j][(i+1)%3]],[a,back[j][(i+1)%3],back[j][i]]])),solidTriangles=[...front,...back,...sides];
+    const rotate=p=>{const x=p[0]-pivot[0],z=p[2]-pivot[2];return [pivot[0]+cos*x+sin*z,p[1],pivot[2]-sin*x+cos*z];},n=b.closedNormal,normal=[n[0]*cos+n[2]*sin,n[1],-n[0]*sin+n[2]*cos],plane=b.closedTriangles.map(t=>t.map(rotate)),solidTriangles=extrudePlane(plane,normal,-(b.thickness||.12)/2,(b.thickness||.12)/2);
     index.change(b.id,{openFraction:fraction,solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal});
     const f=fuels.get(b.fuelId);if(f){for(const c of f.cells)c.fuels=c.fuels.filter(value=>value!==f);f.position=b.position;f.normal=normal;f.cells=[...new Set([-1,1].map(sign=>cellAt(b.position.map((v,i)=>v+normal[i]*sign*.08))))];if(f.lit)f.burningCell=f.cells.reduce((a,b)=>a.heat>=b.heat?a:b);for(const c of f.cells)c.fuels.push(f);}
   }
