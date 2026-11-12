@@ -70,7 +70,12 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
       tiles.set(id, tile);
       if (k > topLayer) topLayer = k;
       around(i, j, k, stale);
-      listenersStale = true;   // a tile laid later may stand against a surface (review round 5, S2)
+      // A tile laid later may stand against a surface: tell it now (review round 5, S2), by looking at its six
+      // neighbours only, not by rebuilding every list (review round 6, S6).
+      if (!listenersStale) for (let axis = 0; axis < 3; axis++) for (const dir of [-1, 1]) {
+        const holder = tileAt(i + AX[axis][0] * dir, j + AX[axis][1] * dir, k + AX[axis][2] * dir);
+        if (holder) for (const fuel of holder.fuels) if (fuel.face && across(holder, fuel.face) === tile) { tile.listens = true; (tile.facing ??= []).push(holder); }
+      }
     }
     return tile;
   }

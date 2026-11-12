@@ -49,10 +49,12 @@ export function strike(world, a, spec) {
   return {room: tile.room, floor: 0, wall, what: wall.fuel.cls, behindPorch: wall.outside.fuels.length > 0};
 }
 
-export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at = 'room:0:kitchen', neighbours = [], rules = {}, fuels = {}, origin = [6, 6], before, timed = false}) {
+export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at = 'room:0:kitchen', neighbours = [], rules = {}, fuels = {}, origin = [6, 6], ground = 'bare', before, timed = false}) {
   const world = make(rules, fuels), dt = world.dt;
   const a = house(world, 'A', planId, origin[0], origin[1], contents);
   const others = neighbours.map(([name, x, y, id]) => house(world, name, id ?? planId, x, y));
+  // 'lawn': grass on every free ground tile for 6 m round the house, up to its walls and porch.
+  if (ground === 'lawn') lawn(world, 0, 0, Math.round((origin[0] + a.plan.width + 6) / PITCH), Math.round((origin[1] + a.plan.depth + 6) / PITCH));
   before?.(world, a);
   const initial = [];
   for (const record of a.rooms.values()) for (const tile of record.tiles) for (const fuel of tile.fuels) initial.push({fuel, room: record.label, cls: fuel.cls});
@@ -87,7 +89,7 @@ export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at
   // Target 3 on this wall, for an outside-wall strike: up the struck column to its top against 3 m along it, each way.
   let climb = null;
   if (struck.wall) {
-    const {tile, fuel} = struck.wall, same = t => t?.fuels.find(f => (f.cls === 'clapboard' || f.cls === 'door') && f.face && f.face.axis === fuel.face.axis && f.face.step === fuel.face.step);
+    const {tile, fuel} = struck.wall, same = t => t?.fuels.find(f => (f.cls === 'clapboard' || f.cls === 'door') && f.face && f.face.axis === fuel.face.axis && f.face.step === fuel.face.step && !world.across(t, f.face)?.building);   // an outside wall only: an inside door in the same plane is not "the wall 3 m along" (review round 6, S2)
     let top = 0; while (same(world.tileAt(tile.i, tile.j, top + 1))) top++;
     const up = same(world.tileAt(tile.i, tile.j, top))?.litAt, along = [6, -6].map(d => same(fuel.face.axis === 0 ? world.tileAt(tile.i, tile.j + d, 0) : world.tileAt(tile.i + d, tile.j, 0))?.litAt).filter(v => v != null && v > 0);
     if (top > 0 && up > 0) climb = along.map(v => (top * LAYER / up) / (3 / v));

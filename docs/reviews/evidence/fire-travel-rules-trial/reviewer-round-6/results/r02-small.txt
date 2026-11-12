@@ -1,0 +1,45 @@
+A. held at the ceiling (heat reads 2.707 after the loss)
+  frame     1.467 s   (delay x lightAt / 2.707 = 1.441)
+  clapboard 1.833 s   (delay x lightAt / 2.707 = 1.829)
+  door      1.833 s   (delay x lightAt / 2.707 = 1.829)
+  partition 2.033 s   (delay x lightAt / 2.707 = 2.032)
+  roof      3.267 s   (delay x lightAt / 2.707 = 3.251)
+  furniture 1.233 s   (delay x lightAt / 2.707 = 1.219)
+  coal      8.9 s   (delay x lightAt / 2.707 = 8.867)
+B. one steady burning tile of each source (a loose fuel that does not run out); heat settled in: its own tile, the level neighbour, the level diagonal, the tile above
+  source clapboard out 1: own 1.867, level 1.867, diagonal 1.11, above 2.707
+  source frame     out 1.2: own 2.24, level 2.24, diagonal 1.332, above 2.707
+  source furniture out 1.5: own 2.707, level 2.707, diagonal 1.665, above 2.707
+  source grass     out 0.7: own 1.307, level 1.307, diagonal 0.777, above 2.707
+  source coal      out 0.8: own 1.493, level 1.493, diagonal 0.888, above 2.707
+  source oil       out 3: own 2.707, level 2.707, diagonal 2.707, above 2.707
+   time for a loose fuel in the level neighbour / the diagonal / above to light, from the moment the source is lit
+  clapboard -> frame     2.8 / never / 1.6
+  clapboard -> clapboard 3.27 / 6.73 / 2
+  clapboard -> door      3.27 / 6.73 / 2
+  clapboard -> partition 3.57 / 7.23 / 2.2
+  clapboard -> roof      5.33 / 10.2 / 3.43
+  clapboard -> furniture 2.4 / 5.27 / 1.4
+  clapboard -> coal      13.87 / never / 9.07
+  frame     -> frame     2.37 / 4.77 / 1.6
+  frame     -> clapboard 2.77 / 4.63 / 1.97
+  frame     -> door      2.77 / 4.63 / 1.97
+  frame     -> partition 3.03 / 5.07 / 2.17
+  frame     -> roof      4.5 / 7.53 / 3.37
+  frame     -> furniture 2.03 / 3.4 / 1.33
+  frame     -> coal      11.47 / never / 9
+  furniture -> frame     1.97 / 3.2 / 1.53
+  furniture -> clapboard 2.3 / 3.67 / 1.93
+  furniture -> door      2.3 / 3.67 / 1.93
+  furniture -> partition 2.5 / 4 / 2.13
+  furniture -> roof      3.73 / 5.97 / 3.37
+  furniture -> furniture 1.7 / 2.67 / 1.33
+  furniture -> coal      9.43 / 16.03 / 9
+C. a surface beside one burning surface of its own kind (lit by a match, nothing else burning): heat in the air tile the next one stands against, and when the next one lights
+  clapboard lit outside  air beside settles at 1.863; next lights at 3.27 s, then 6.53, 9.8 (0.5 m each 3.27 s = 0.153 m/s)
+  clapboard lit inside   air beside settles at 1.863; next lights at 3.27 s, then 6.53, 9.8 (0.5 m each 3.27 s = 0.153 m/s)
+  partition lit outside  air beside settles at 1.865; next lights at 3.57 s, then 7.13, 10.7 (0.5 m each 3.57 s = 0.14 m/s)
+  roof      lit above    air beside settles at 1.867; next lights at 5.33 s, then 10.67, 16 (0.5 m each 5.33 s = 0.094 m/s)
+  roof      lit below    air beside settles at 1.867; next lights at 5.33 s, then 10.67, 16 (0.5 m each 5.33 s = 0.094 m/s)
+  frame     lit below    air beside settles at 2.222; next lights at 2.37 s, then 4.73, 7.1 (0.5 m each 2.37 s = 0.211 m/s)
+  frame     lit above    air beside settles at 2.222; next lights at 2.37 s, then 4.73, 7.1 (0.5 m each 2.37 s = 0.211 m/s)

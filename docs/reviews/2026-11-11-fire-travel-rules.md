@@ -2,7 +2,7 @@
 
 - **Asked by the owner, 2026-11-11:** "i would like you to use your reasoning to come up with the rules for fire travel to implement."
 - **What this is:** a rule set, reasoned from the owner's decisions and from what three review rounds measured. It is a proposal for the architect's contract. The reviewer builds none of it.
-- **Trialled five times, outside the game, and reviewed five times** (3, 5, 6, 6.5 and 7.5 out of 10). Each review reproduced every number it was given and still found something. The third found that Rule 6, reach across a gap, was the cause of the worst miss, and **Rule 6 is withdrawn.** The fourth found a fault in the kernel itself. The fifth found one sentence that misled and no fault in a result. The rules below are what is left, with the results as they now stand, what each review found, and what is still missed. The targets were written before the first trial and have not been changed.
+- **Trialled five times, outside the game, and reviewed six times** (3, 5, 6, 6.5, 7.5 and 7 out of 10). Each review reproduced every number it was given and still found something. The third found that Rule 6, reach across a gap, was the cause of the worst miss, and **Rule 6 is withdrawn.** The fourth found a fault in the kernel itself. The sixth found that the whole-house timing had been measured on bare ground, and the street's houses stand on grass: **on a lawn that target is missed.** The rules below are what is left, with the results as they now stand, what each review found, and what is still missed. The targets were written before the first trial and have not been changed.
 - **Tree:** `c855e62`.
 
 ## What the rules must satisfy
@@ -45,7 +45,7 @@ Nothing else is stored. There is no house state, no room state and no section cl
 
 Each fuel class has four numbers: the heat at which it starts to char, how long it chars before it lights, how long a full tile of it burns, and how much heat it gives while burning.
 
-- **A fuel chars before it lights.** While the heat it is exposed to is above its lighting point, it chars at a rate in proportion to that heat, and lights when the char reaches its delay number: almost none for grass, oil and lacquer, 3 for frame timber, 4.5 for clapboard, 8 for a roof, 15 for coal. **The delay number is the time to light at exactly the lighting heat. A hotter tile lights it sooner.** Beside a steady fire a tile settles at 2.71, so a floor catches in about 1.5 s, a clapboard wall in 1.8 s, a partition in 2.0 s and a roof in 3.3 s. Below its lighting point the char fades, by half a second's worth each second, whether or not the tile is being looked at.
+- **A fuel chars before it lights.** While the heat it is exposed to is above its lighting point, it chars at a rate in proportion to that heat, and lights when the char reaches its delay number: almost none for grass, oil and lacquer, 3 for frame timber, 4.5 for clapboard, 8 for a roof, 15 for coal. **The delay number is the time to light at exactly the lighting heat. A hotter tile lights it sooner.** A tile held at the heat ceiling settles at 2.71, and there a floor catches in about 1.5 s, a clapboard wall in 1.8 s, a partition in 2.0 s and a roof in 3.3 s. Those are the shortest times. In a house fire they are also the usual ones: round 6 found 79 to 100 % of surfaces lit at that heat. Beside a single burning wall tile the next tile settles at 1.87, and the next wall tile takes 3.3 s, a partition 3.6 s, a roof 5.3 s. Below its lighting point the char fades, by half a second's worth each second, whether or not the tile is being looked at.
 - A surface is exposed to the hotter of the two tiles it stands between. Until review round 4 the kernel did not do this for a surface whose own tile was cold and asleep: a wall facing hot air never charred. It does now.
 - While burning it loses amount at its own rate and adds its heat to the tile.
 - When its amount reaches zero it is spent. Spent fuel leaves ash, which is not fuel.
@@ -102,9 +102,9 @@ Three more face rules, each added because a trial failed without it:
 How far that carries, by Rules 2, 3 and 5 alone:
 
 - **Fuel that lies in a tile, such as grass, is stopped by one empty tile.** The empty tile gets warm; the grass beyond it gets nothing. Any gap of 0.5 m square to the grid stops a ground fire, whatever its size.
-- **A surface can be lit across one empty tile,** because it is exposed to the tile it stands against. A lawn fire lights a wall across a bare path 0.5 m wide, 2.2 to 2.9 s after the grass at the path's edge (round 5, all six plans); across a 1 m path it does not. It works the other way too: a burning wall lights grass across one empty tile, and not across two.
+- **A surface can be lit across one empty tile,** because it is exposed to the tile it stands against. A lawn fire lights a wall across a bare path 0.5 m wide, 2.2 to 2.9 s after the grass at the path's edge (round 5, all six plans); across a 1 m path the wall itself does not light, but round 6 found the house still catches on every plan if the path goes round the walls only, because the porch deck carries the fire in; with the path round the porch too, four plans are untouched and two catch where an upper floor overhangs the grass. It works the other way too: a burning wall lights grass across one empty tile, and not across two.
 - **A burning surface can light a surface 1 m away on the level.** Its heat is in the air tile against it, which warms the next air tile, which the far wall stands against. A wall burning on its outside does it at once; a wall lit from inside does it 11 to 13 s later, when enough of it is consumed, or sooner through a window that has broken (round 5). Six plan pairs light their twins at 0.5 m and at 1 m, after 34 to 70 s, and never at 1.5 m or 2 m.
-- **Upward it is two tiles, which is 2.12 m:** a deck that far above a burning roof lights. Downward nothing lights.
+- **Upward it is two tiles, which is 2.12 m:** a deck that far above a burning roof lights. Downward nothing lights except the three things that light most easily: under a ceiling burning over nine tiles or more the tile below settles at 0.54 to 0.65, enough for lacquer, poured gas and lamp oil, and not for cloth, grass or furniture (round 6). With the downward multipliers set to nothing the house results hardly move.
 - **A store breaks these limits.** Oil spreads 1.5 m when its can fails, so a can on bare ground carried a lawn fire across 2 m of it in round 5's test.
 
 Beyond that, a burning house lights the house beside it only if grass, a fence or anything else that burns joins them.
@@ -115,7 +115,7 @@ Rule 6 was reach: a burning tile warming tiles up to 3 m away along a clear line
 2. **Everywhere** (tried during the second trial). Rooms flashed over in a few seconds, houses burnt too fast, and it took most of the kernel's time.
 3. **Only for tiles open to the sky** (second and third trials). Review round 2 showed it was "not in a house" in effect and switched off under one tile of cover. Review round 3 showed the worse fault: the air above a roof is open to the sky, so reach carried fire across a house's own roof at 0.66 m/s against 0.14 m/s without it, faster than fire climbs a wall. The warmth it delivered also had no ceiling: 14 to 17 where heat stops at 3.
 
-What the last two forms buy and cost against no reach, every other number the same (`evidence/fire-travel-rules-trial/reach-options.mjs`; the first form is not in the kernel any more):
+What the last two forms buy and cost against no reach, every other number the same and every house on bare ground (`evidence/fire-travel-rules-trial/reach-options.mjs`; the first form is not in the kernel any more; none was run on a lawn):
 
 ```text
 no reach (the rules as proposed)
@@ -178,7 +178,7 @@ The dud lantern of round 3 (N3) cannot happen under this rule: oil always ends i
 
 - Only burning and warm tiles, and tiles holding a surface against a warm tile, are visited each tick. At the peak of a house fire that is every tile of the house, so this saves nothing when it matters most.
 - Each tick lists the tiles that changed; nothing is copied whole. Not in any trial.
-- The same inputs give the same state under any frame schedule, which needs one fixed step (1/30 s). No choice is a random draw. In a step, every tile's heat is settled before any fuel chars or burns. The order tiles are visited in still matters a little, because the pulse from a fall or a burst lands in the middle of a step: review round 5 scrambled the order in 24 burns and moved 6 to 508 lighting times in each, the worst by 0.13 s; in 4 of the 24 a measure moved, by 0.03 to 0.04 s.
+- The same inputs give the same state under any frame schedule, which needs one fixed step (1/30 s). No choice is a random draw. In a step, every tile's heat is settled before any fuel chars or burns. The order tiles are visited in still matters a little, because the pulse from a fall or a burst lands in the middle of a step, and because a fuel that falls into a tile later in the walk is burnt twice in that one step (round 6): review round 5 scrambled the order in 24 burns and moved 6 to 508 lighting times in each, the worst by 0.13 s; in 4 of the 24 a measure moved, by 0.03 to 0.04 s.
 - Fuel is conserved: laid, burnt and left must sum, and nothing is created.
 
 ## Fuel classes, as first written
@@ -223,19 +223,19 @@ To be measured on the shipped street with the review's probes, before any of thi
 | 14 | Same state under five frame schedules; ledger closes | Yes | Yes |
 | 15 | Simulation cost per frame, burning street | No more than today's | About 3 to 5 ms |
 
-## Results as they stand, 2026-11-11 (fifth trial, after review round 4)
+## Results as they stand, 2026-11-11 (after review round 6)
 
 Evidence: [`evidence/fire-travel-rules-trial/`](evidence/fire-travel-rules-trial/README.md). It is a stand-alone kernel, not the game, and nothing in the game changed. The scene is built from the catalogue plans: rooms, partitions, doors between rooms, the stair opening, the windows and front door the game itself gives each plan, and the porch each plan declares. What it leaves out is in Limits.
 
-**Of the 14 targets that could be tested, 4 are met, 1 is met on the edge, 6 are partly met and 3 are missed.** Targets 4 to 8 are counted over 101 strikes: on each of the six plans, a match held outside the middle of each outside wall, the same held inside, and the furniture lit in every room. One of the 24 "walls" is a front door under a porch (Hopkins 15).
+**Of the 14 targets that could be tested, 4 are met, 1 is met on the edge, 5 are partly met and 4 are missed.** Targets 4 to 8 are counted over 101 strikes: on each of the six plans, a match held outside the middle of each outside wall, the same held inside, and the furniture lit in every room. One of the 24 "walls" is a front door under a porch (Hopkins 15). **Each strike is run twice: with the house on bare ground, and with lawn up to its walls.** The street's houses stand on grass, and the targets were written to be measured on the street, so where the two differ the lawn figure is the one that counts. The game's stone plinth, which might keep grass off the clapboard, is not built here.
 
 | # | Target | Result | |
 | --- | --- | --- | --- |
 | 1 | Grass front 1.5 m/s, within 7 % | Straight fronts 1.58 m/s along the grid and 1.52 across it. From one tile, timed between 6 m and 24 m out in 32 directions, 1.50 to 1.58 | Met, at this time step |
 | 2 | Lawn fire lights a wall in under 2 s | 1.83 to 1.93 s on all 361 ground wall faces that grass touches, six plans, lawn lit from four sides. 43 more faces are behind a porch deck; no grass touches them | **On the edge** |
 | 3 | Up a wall against along it, 2.5 to 3.5 to 1 | 3.32 to 1 on a bare wall (0.53 m/s up, 0.16 m/s along). On the houses: walls with nothing against them, 23 of 23 directions in range (2.77 to 3.45); walls behind a porch, 1 of 6 (1.53 to 2.63) | Partly |
-| 4 | Room behind a match on a wall fully alight, 10 to 20 s | Match held outside: 2 of 24 in range, 16 to 39 s, median 27.5 s. Held inside: 12 of 24, 4 to 29 s, median 17.5 s. Furniture lit in a room: 3 to 31 s, median 12.5 s | **Missed** |
-| 5 | Half the house alight, 40 to 70 s | 66 of 101 in range; 27 to 77 s, median 45.0 s. **With roof delay 3 s, as other timber has, instead of 8 s: 34 of 101, median 38.5 s** | Partly, and only on a tuned roof number |
+| 4 | Room behind a match on a wall fully alight, 10 to 20 s | Bare ground, match held outside: 2 of 24 in range, 16 to 39 s, median 27.5 s. On a lawn: 7 of 24, median 21.5 s. Held inside, either ground: 12 of 24, median 17.5 s. Furniture lit in a room: 3 to 31 s, median 12.5 s | **Missed** |
+| 5 | Half the house alight, 40 to 70 s | **On a lawn: 14 of 101 in range, median 28.1 s; 79 are under 40 s.** On bare ground: 66 of 101, median 45.0 s (34 of 101 with roof delay 3 in place of 8) | **Missed on a lawn.** Partly on bare ground, on a tuned roof number |
 | 6 | Flame in the house for 90 s or more | 101 of 101; 131 to 236 s | Met |
 | 7 | First upper floor or roof part falls, 60 to 150 s | 101 of 101; 69.5 to 78 s | Met, see below |
 | 8 | An upstairs fire reaches the ground floor only after something falls, then within 5 s | Nothing inside the ground storey lit before a fall, 0 of 21. In 10 of 21 a low roof over a ground-storey room was burning before anything fell, lit from the air above it. Within 5 s of the first fall: 20 of 21 | Partly |
@@ -249,21 +249,21 @@ Evidence: [`evidence/fire-travel-rules-trial/`](evidence/fire-travel-rules-trial
 
 What the results mean:
 
-- **Withdrawing reach, on the same scene and numbers** (the block under Rule 6): target 5 is in range on 66 of 101 strikes against 41 with reach in the open; one house costs 0.9 ms a step against 2.9 ms; and the 2 m neighbour is lit within 30 s on none of six plans against 1. Reach everywhere would light the neighbour on 6 of six and bring the room behind an outside match into range on 15 of 24 walls, and would put half the house in range on only 20 of 101.
+- **Withdrawing reach, on the same scene and numbers, on bare ground** (the block under Rule 6): target 5 is in range on 66 of 101 strikes against 41 with reach in the open; one house costs 0.9 ms a step against 2.9 ms; and the 2 m neighbour is lit within 30 s on none of six plans against 1. Reach everywhere would light the neighbour on 6 of six and bring the room behind an outside match into range on 15 of 24 walls, and would put half the house in range on only 20 of 101.
 - **1, 2 and 3 are pinned against each other.** Review round 4 measured the margins and round 5 confirmed them on the current kernel. Target 1 fails if the heat sent per second rises 5 % or falls 10 %, or the loss falls 10 %. Target 2 fails if the heat ceiling falls 5 %. Target 3 on a bare wall holds at 5 % either way and fails at 10 % (heat sent down, loss up, or ceiling up).
 - **1 depends on the step.** By the trial's own test, rounds 4 and 5 found it holds at steps of 1/40, 1/30 and 1/24 s (the last by 0.001 m/s) and fails at 1/60, 1/45, 1/20 and 1/15 s. Grass on a strip narrower than 2 m is slower: round 3 measured 0.75 m/s on 0.5 m and 1.36 on 1.5 m.
 - **2 is on the edge and is one constant.** A wall held at the heat ceiling lights after delay times lighting point over what the ceiling settles to: 4.5 x 1.1 / (2.9 x 0.933) = 1.83 s. Where the wall sees a little less, it takes up to 1.93 s; 117 of the 361 faces are at 1.90 s or more. Round 5 started the lawn fire from four more places and the longest wait was 1.97 s, one step short of 2 s. The lawn fire's size does not enter into it.
-- **3 is partly met, and the porch is most of why.** A burning porch deck carries fire along the foot of the wall behind it faster than the wall does, and round 4 found a porch roof also holds back the climb. But round 5 struck every ground wall face of the six plans: 283 of 335 directions in range; behind a porch 10 of 46; other walls 273 of 289, and ten of those sixteen misses are nowhere near a porch (from 1.96 to 5.73, on Hopkins 9, Hopkins 13 and the Monroe house). Their cause was not found. The climb itself is one constant, 0.53 m/s on every wall. Rule 4's multipliers hardly set the ratio: round 2 set both upward ones to 1 and still got 2.56.
+- **3 is partly met; the porch and the kitchen's oil are why.** A burning porch deck carries fire along the foot of the wall behind it faster than the wall does, and round 4 found a porch roof also holds back the climb. Round 5 struck every ground wall face of the six plans: 283 of 335 directions in range; behind a porch 10 of 46; other walls 273 of 289. Round 6 found the cause of the ten misses away from a porch that round 5 could not explain. Nine are the oil can: the scene puts it one tile from an outside wall, it bursts 8 to 12 s after the match and lights that wall from inside, ahead of the fire outside; with no oil in the house all nine are in range. The tenth was a fault in the measure, which took an inside door for the wall 3 m along; that is fixed and changes none of the survey's 24 walls. The climb itself is one constant, 0.53 m/s on every wall. Rule 4's multipliers hardly set the ratio: round 2 set both upward ones to 1 and still got 2.56.
 - **4 is missed, and where the match is held decides it.** A match held outside burns the outside of the wall; the room behind takes about 27 s. Held inside, the median is 17.5 s and half are in range. Round 5 struck every ground wall face of the six plans: outside, 49 of 404 in range; inside, 231 of 404.
-- **5 rests on the roof.** Roof delay is 8 where frame timber is 3 and clapboard 4.5, which in a burning house means a roof catches in about 3.5 s where a wall takes 2.1 s and a floor 1.5 s (round 5's medians over four burns). With roof delay 3 a roof catches in 1.4 s. It was raised when reach was running fire across the roofs, and withdrawing reach did not make it unnecessary: with it at 3 s the house is half alight too soon on two thirds of the strikes. Nothing but the target justifies 8 s. By plan, at 8 s, the median runs from 39 s (Ashland, 6 of 14 in range) to 52 s (Hopkins 15, 15 of 18). Round 5 struck all 404 ground wall faces: outside 258 in range, inside 322, every miss under 40 s.
+- **5 is missed where it matters, and the ground decides it.** On a lawn the grass lights 0.4 s after a match held outside a wall, 7 to 23 s after one held inside and 11 to 31 s after a fire lit in a ground-floor room (round 6), and then rings the house: every outside wall is lit within a few seconds of each other. Only fires that start upstairs stay in range, 13 of 21. On a lawn the roof number does not matter: round 6 got 16 of 101 with roof delay 3. On bare ground the count is 66 of 101, and there it rests on the roof: roof delay is 8 where frame timber is 3 and clapboard 4.5, which in a burning house means a roof catches in about 3.5 s where a wall takes 2.1 s and a floor 1.5 s (round 5's medians over four burns); with roof delay 3 a roof catches in 1.4 s and the count is 34. By plan, on bare ground, the median runs from 39 s (Ashland, 6 of 14 in range) to 52 s (Hopkins 15, 15 of 18). Round 5 struck all 404 ground wall faces on bare ground: outside 258 in range, inside 322, every miss under 40 s.
 - **7 is a table number.** Frame and roof timber burn for 68 s once lit, and every first fall is that plus the time to light. Round 3 found the first fall carries nothing in any strike: it is the embers of a spent roof or floor. Falls of a porch roof are not counted; round 4 saw one at 71 s, before the counted fall at 78 s.
-- **8 rests on embers.** Rounds 4 and 5 cut their share from 15 % to 1 % and only 4 of 21 upstairs fires then reached the ground floor within 5 s of a fall. Whether a low roof catching from the wall above it counts as "reaching the ground floor" is the owner's call.
+- **8 rests on embers.** Rounds 4 and 5 cut their share from 15 % to 1 % and only 4 of 21 upstairs fires then reached the ground floor within 5 s of a fall. Whether a low roof catching from the wall above it counts as "reaching the ground floor" is the owner's call. "Partly" is by one strike: 11 of the 21 are within 5 s and have no low roof burning first, and round 6 found that with the furniture moved to the true middle of each room it is 8.
 - **9: stores matter a little, and the floor matters more.** The target says kitchen against bedroom. On Hopkins 15 round 5 measured the kitchen at 49.1 s and the bedrooms, which are upstairs, at 60.8 to 71.5 s; stores change a bedroom fire by under 0.2 s. So that gap is the floor, not the contents. On the same floor, kitchen against dining room is 49.1 s against 48.2 s with stores and 56.2 s against 47.4 s without. Round 4 found why the kitchen is slow: it is shut in by partitions and three doors, and the dining room is open to the living room. The oil makes up for that. The coal lights early from the kitchen and late from the dining room, so the kitchen's wreck goes cold at 309 s and the dining room's at 371 s.
 - **10 cannot fail, and that cuts both ways.** Without reach, any single empty tile square to the grid stops a ground fire of any size, unless a surface or a store stands beside it. The list of faults to fix at the top of this record includes "fire that cannot cross 0.5 m of bare ground"; target 10 asks for the opposite on paving, and these rules give the target and not the fix. A strip one tile wide on the diagonal (0.35 m across) holds as tuned and was crossed in round 4's sweep with the heat sent up 10 % or the loss down 10 %.
 - **12 and the street:** with grass between houses, a match on a wall lights the grass in 0.4 s and the grass lights every wall it touches. The struck house is half alight at 22 s on a lawn against 54 s on bare ground.
 - **15:** one house is well inside today's cost and eight are not: 16 to 18 ms a step in the trial's runs (13 to 16 in the reviewers', alone on the machine), against today's 6 to 10 for the same span of time. Worst-step times are not quoted: they ran from 3 to 18 ms for one house across runs. The kernel is unoptimised and today's figure is the whole game in a browser, so the comparison is rough in both directions.
 - **The time step:** at 1/60, 1/30 and 1/15 s one wall strike gives room alight at 27.4, 28.0 and 29.4 s and half the house at 51.6, 53.6 and 57.1 s.
-- **Where the furniture stands matters to the room, not the house.** Round 4 moved it to a corner on the fourth trial's kernel: the median room went from 12.5 s to 17.4 s, and target 5 from 68 of 101 to 69.
+- **Where the furniture stands matters to the room, not the house, and it does not stand where this record said.** The scene puts it in the first tile of the room's middle row, which is against a wall in 47 of 53 rooms (round 6). With it in the tile nearest the middle, round 6 got the same 66 of 101 for target 5; rooms alight in 2 to 19 s, median 10.5 s; and 14 of 24 for a match held inside a wall. Round 4 moved it to a corner: the median room went from 12.5 s to 17.4 s. The scene was not changed.
 
 ### The numbers, second version
 
@@ -293,16 +293,17 @@ The delay column is the time to light at exactly the lighting heat; at the heat 
 | 3 | Heat ceiling | 2.9 |
 | 4 | Up, diagonally up, diagonally down, down | 3, 2, 0.06, 0.04 |
 | 5 | Glass, timber, masonry | 0.05, 0.02, 0.005 |
-| 5 | Glass breaks at | 1.6 |
+| 5 | Glass breaks at | 1.6 (0.2 to 0.6 s after a match is held under a window, by round 6's runs) |
 | 5 | Far side's share of a burning surface | consumed share to the power 4 |
 | 5 | A wall past a floor | 0.05 |
 | 7 | Share that falls as embers; pulse on landing | 15 %, 2.5 |
 | 2 | Char fades, below the lighting point | 0.5 s of char per second |
 | 8 | Spilt oil is stopped by a face that passes less than | 0.5 |
 | 8 | Oil spreads over; pulse on each tile | 1.5 m, 2 |
+| 6, withdrawn | Reach as it was tried: range, gain, worked out every; grass and embers reach with | 3 m, 0.5, 0.5 s; a tenth of their output |
 | | A link weaker than this is dropped; a tile cooler than this goes to sleep, and does not wake the surfaces against it | 0.0001; 0.001 |
 
-What the scene puts in a house, in tile-fulls: a floor, wall, partition, door or roof surface 1 each; furniture 1 in the middle of every room; bedding 0.6 in a bedroom; lacquer 0.3 on one piece in four; oil 3 in a kitchen or pantry; coal 1 in a kitchen.
+What the scene puts in a house, in tile-fulls: a floor, wall, partition, door or roof surface 1 each; furniture 1 in every room, in the first tile of its middle row, which is against a wall in most rooms, with the oil and coal in the next tile; bedding 0.6 in a bedroom; lacquer 0.3 on one piece in four; oil 3 in a kitchen or pantry; coal 1 in a kitchen.
 
 ## Review round 1, 2026-11-11, and what changed
 
@@ -409,6 +410,24 @@ One fresh reviewer, on commit `b6cc2a5`: [`evidence/fire-travel-rules-trial/revi
 
 The reviewer's probes ran against commit `b6cc2a5`.
 
+## Review round 6, 2026-11-11, and what changed
+
+One fresh reviewer, on commit `28d3931`: [`evidence/fire-travel-rules-trial/reviewer-round-6/REPORT.md`](evidence/fire-travel-rules-trial/reviewer-round-6/REPORT.md). **Score: 7 out of 10,** down from 7.5. It reproduced the surveys byte for byte and found both of round 5's kernel changes correct. One must-fix, and it was right. I confirmed it by adding the lawn to the survey and getting its numbers exactly.
+
+| | The reviewer found | What was done |
+| --- | --- | --- |
+| M1 | Targets 4 to 8 were measured with every house on bare ground, which the record never said. The street's houses stand on grass. On a lawn target 5 is 14 of 101, not 66, and the roof question put to the owner stops mattering | The survey is run on both grounds and the trial prints both. Target 5 is marked missed on a lawn. The questions to the owner are rewritten |
+| S1 | "Furniture in the middle of every room" was false in 47 of 53 rooms | The record says where the scene puts it, and what round 6 measured with it in the middle. The scene was not changed |
+| S2 | The cause of ten unexplained target 3 walls: nine are the kitchen's oil can, one a fault in the measure | Said. The measure is fixed |
+| S3 | "Across a 1 m path it does not" was false: the porch deck carries fire across | Corrected from its figures |
+| S4 | "Downward nothing lights" was false for oil, poured gas and lacquer under a burning ceiling | Corrected |
+| S5 | "Beside a steady fire a tile settles at 2.71" is true only at the heat ceiling | Rule 2 gives both cases |
+| S6 | Round 5's fix for late tiles rebuilt every list on every new tile: 1.6 ms a step with eight houses standing | The new tile now looks at its six neighbours only. Checked by `late-tile.mjs`; the surveys are unchanged |
+| S7 | A fuel that falls is burnt twice in the step it falls | Not fixed. Said under Rule 12 |
+| S8 | Small errors: a stale count in the trial's text, a heading, the README, missing numbers | Corrected |
+
+The reviewer's probes ran against commit `28d3931`.
+
 ## The first trial, withdrawn
 
 The first trial (same day, commit `d78005b`) reported 12 of 14 testable targets met after nine corrections. Review round 1 showed that five of those passes depended on where the match was, which plan was used, or how the measurement was taken. Its results table is withdrawn. Its printed output is kept in `evidence/fire-travel-rules-trial/results/first-version/`. What survives from it is in the rules above: charring, the lower values for down, the face numbers, doors that start shut, surfaces that burn from one side, and walls that run from storey to storey.
@@ -427,17 +446,18 @@ They follow the owner's five answers of 2026-11-11 without change. They also pro
 
 More questions the trials raise for the owner:
 
-- **Targets 4 and 5.** A room in 10 to 20 s and half the house in 40 to 70 s were my numbers, written before any trial. The rules meet the second on two thirds of the strikes, and the first on half of them only when the match is held inside. Either the numbers move or the rules need something they do not have.
-- **The roof.** Target 5 is met on two thirds of strikes only because a roof is slow to catch: about 3.5 s in a burning house, where a wall takes 2.1 s and a floor 1.5 s. Set like other timber it catches in 1.4 s and the target is missed. If the slow roof is not believable, the target is missed.
+- **Grass against the walls.** On a lawn a house is half alight in a median of 28 s, because the grass takes the fire round it. If houses on the street should burn room by room, something has to keep a lawn fire off the clapboard: the stone plinth the game already draws, a strip of bare ground wider than 0.5 m, or grass that burns too coolly to light a wall. None of those is in these rules or this trial.
+- **Targets 4 and 5.** A room in 10 to 20 s and half the house in 40 to 70 s were my numbers, written before any trial. On bare ground the rules meet the second on two thirds of the strikes, and the first on half of them only when the match is held inside. On a lawn they meet the second on 14 of 101. Either the numbers move or the rules need something they do not have.
+- **The roof,** which matters only on bare ground. There target 5 is met on two thirds of strikes only because a roof is slow to catch: about 3.5 s in a burning house, where a wall takes 2.1 s and a floor 1.5 s. Set like other timber it catches in 1.4 s and the target is missed there too.
 - **Where the bear holds the match.** Outside a wall, the fire climbs the outside first. Inside, it takes the room first. Both are in the trial; the game has to say which a match on a wall means.
 
 ## Limits
 
-- **A kernel only, written and tuned by the author of the rules.** Five independent reviews. The first four each found a fault in a result; the fifth found none. The corrections made after the fifth have not been reviewed.
-- **Ten walls climb outside the band for a reason not found** (target 3).
+- **A kernel only, written and tuned by the author of the rules.** Six independent reviews. Every one found something the one before had not, and the sixth found the largest thing since the third. The corrections made after the sixth have not been reviewed.
+- **The plinth is not built.** Whether grass reaches the clapboard on the real street decides target 5, and this trial cannot say.
 - **The numbers are tuned, not sourced.** No fire-science figure was looked up. About fifteen numbers were changed or added between the first version and the second, against the same six plans the results are counted on, using a panel of ten of the 101 strikes. They may not hold on a seventh plan.
 - **The tuning runs were not saved.** Only the final numbers and their results are in the evidence.
-- **One run per case; no wind; no randomness.** The scene builder finds windows only on the 1 m grid and puts one piece of furniture in the middle of each room.
+- **One run per case; no wind; no randomness.** The scene builder finds windows only on the 1 m grid and puts one piece of furniture in each room, against a wall in most.
 - **Not tested:** lanterns and every tool but the match, the plinth, wind, a joined row, the landmark maps, the shipped street's layout, a browser, and anything a player would see.
 - **Cost is not solved.** See target 15.
 - **Without a store in the way, no fire crosses more than 1 m of bare ground on the level,** and no ground fire crosses one empty tile. Whether that is wanted is the owner's.

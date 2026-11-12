@@ -135,7 +135,7 @@
   },
   "8": {
    "verdict": "PARTLY",
-   "text": "upstairs fires: something inside the ground storey lit before anything fell to it in 0 of 21. A ROOF OVER A GROUND-STOREY ROOM (a low roof beside the upper storey) lit before anything fell in 10 of 21, from the air above it. Ground storey lit within 5 s of the first fall in 20 of 21; lag 0 to 14.27 s. What falls first is embers; review round 2 found that with almost no embers only 3 of 21 are within 5 s   [target: only after a fall, then within 5 s]"
+   "text": "upstairs fires: something inside the ground storey lit before anything fell to it in 0 of 21. A ROOF OVER A GROUND-STOREY ROOM (a low roof beside the upper storey) lit before anything fell in 10 of 21, from the air above it. Ground storey lit within 5 s of the first fall in 20 of 21; lag 0 to 14.27 s. What falls first is embers; reviews 4 to 6 found that with embers cut to 1 % only 4 of 21 are within 5 s   [target: only after a fall, then within 5 s]"
   },
   "9": {
    "verdict": "PARTLY",
@@ -163,7 +163,10 @@
   },
   "15": {
    "verdict": "MISSED",
-   "text": "cost per step of 1/30 s over 150 s (one step covers two of today's 1/60 s frames): one house 0.8 ms mean, 1.5 ms 95th centile, 2.6 ms worst, 2248 tiles active at peak; three houses on a lawn, all burning, 4.7 ms mean, 11 ms 95th centile, 38.2 ms worst, 7436 tiles active at peak; eight houses on a lawn, one struck, 15.8 ms mean, 34.5 ms 95th centile, 110.5 ms worst, 19647 tiles active at peak. Today's game: 3 to 5 ms per 1/60 s frame   [target: no more than today's]"
+   "text": "cost per step of 1/30 s over 150 s (one step covers two of today's 1/60 s frames): one house 0.9 ms mean, 1.9 ms 95th centile, 4.5 ms worst, 2248 tiles active at peak; three houses on a lawn, all burning, 4.4 ms mean, 10.1 ms 95th centile, 30.1 ms worst, 7436 tiles active at peak; eight houses on a lawn, one struck, 17.1 ms mean, 35.8 ms 95th centile, 138.8 ms worst, 19647 tiles active at peak. Today's game: 3 to 5 ms per 1/60 s frame   [target: no more than today's]"
+  },
+  "lawn": {
+   "target5": "14 of 101"
   },
   "survey": {
    "strikes": 101,

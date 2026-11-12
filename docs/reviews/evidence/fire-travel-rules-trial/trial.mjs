@@ -88,6 +88,17 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   const roof3 = PLANS.flatMap(planId => { const file = path.join(dir, 'roof-delay-3', 'survey-' + planId + '.json'); return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : []; });
   if (roof3.length) say('    target 5 with roof delay 3 s in place of 8 s: ' + count(roof3, t5) + ' in range, median ' + round(median(num(roof3, r => r.half))) + ' s (' + count(roof3.filter(r => r.kind === 'wall'), t5) + ' wall outside, ' + count(roof3.filter(r => r.kind === 'wall-in'), t5) + ' wall inside)');
   for (const planId of PLANS) { const list = rows.filter(r => r.plan === planId); say('    target 5, ' + planId + ': ' + count(list, t5) + ', median ' + round(median(num(list, r => r.half))) + ' s'); }
+  // The same 101 strikes with the house standing on a lawn, as the street's houses do (review round 6, M1).
+  const lawnRows = PLANS.flatMap(planId => { const file = path.join(dir, 'lawn', 'survey-' + planId + '.json'); return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : []; });
+  if (lawnRows.length) {
+    const lw = lawnRows.filter(r => r.kind === 'wall'), li = lawnRows.filter(r => r.kind === 'wall-in'), lr = lawnRows.filter(r => r.kind === 'room'), lu = lawnRows.filter(r => r.floor > 0);
+    say('    ON A LAWN, target 4: ' + count(lw, t4) + ' outside-wall strikes in range, median ' + round(median(num(lw, r => r.room))) + ' s; inside ' + count(li, t4) + ', median ' + round(median(num(li, r => r.room))) + ' s');
+    say('    ON A LAWN, target 5: ' + count(lawnRows, t5) + ' in range (' + count(lw, t5) + ' wall outside, ' + count(li, t5) + ' wall inside, ' + count(lr.filter(r => !r.floor), t5) + ' ground rooms, ' + count(lu, t5) + ' upstairs rooms); ' + range(num(lawnRows, r => r.half)) + ' s, median ' + round(median(num(lawnRows, r => r.half)))
+      + '; under 40 s: ' + lawnRows.filter(r => r.half !== null && r.half < 40).length);
+    say('    ON A LAWN, target 6: ' + count(lawnRows, r => r.flameUntil >= 90) + ' at 90 s or more, ' + range(num(lawnRows, r => r.flameUntil)) + ' s; target 7: ' + range(num(lawnRows, r => r.firstFall)) + ' s; target 8: ground storey lit before a fall in '
+      + count(lu, r => r.groundLit !== null && (r.fallToGround === null || r.groundLit < r.fallToGround)) + ', within 5 s of the first fall in ' + count(lu, r => r.groundLit !== null && r.fallToGround !== null && r.groundLit >= r.fallToGround && r.groundLit - r.fallToGround <= 5));
+    results.lawn = {target5: count(lawnRows, t5)};
+  }
   const t6 = r => r.flameUntil >= 90;
   report(6, verdict(rows, t6), 'flame in the house: ' + count(rows, t6) + ' strikes at 90 s or more; ' + range(num(rows, r => r.flameUntil)) + ' s   [target: 90 s or more]');
   const t7 = r => r.firstFall !== null && r.firstFall >= 60 && r.firstFall <= 150;
@@ -96,7 +107,7 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   const roofFirst = r => r.groundRoofLit !== null && (r.fallToGround === null || r.groundRoofLit < r.fallToGround);
   const lags = up.filter(r => r.groundLit !== null && r.fallToGround !== null).map(r => r.groundLit - r.fallToGround);
   report(8, verdict(up, r => within(r) && !roofFirst(r)), 'upstairs fires: something inside the ground storey lit before anything fell to it in ' + count(up, before) + '. A ROOF OVER A GROUND-STOREY ROOM (a low roof beside the upper storey) lit before anything fell in ' + count(up, roofFirst)
-    + ', from the air above it. Ground storey lit within 5 s of the first fall in ' + count(up, within) + '; lag ' + range(lags) + ' s. What falls first is embers; review round 2 found that with almost no embers only 3 of 21 are within 5 s   [target: only after a fall, then within 5 s]');
+    + ', from the air above it. Ground storey lit within 5 s of the first fall in ' + count(up, within) + '; lag ' + range(lags) + ' s. What falls first is embers; reviews 4 to 6 found that with embers cut to 1 % only 4 of 21 are within 5 s   [target: only after a fall, then within 5 s]');
   const small = rows.filter(r => r.firstFallDrop === 1 && r.firstFallCarried === 0).length;
   say('    target 7: in ' + small + ' of ' + rows.length + ' strikes the first fall is embers of a spent roof or wall dropping one half-storey, carrying nothing');
   results.survey = {strikes: rows.length, neverLitMax: Math.max(...rows.map(r => r.neverLit)), ledgerWorst: Math.max(...rows.map(r => Math.abs(r.ledger))), embersShare: range(rows.map(r => 100 * r.embersShare))};
