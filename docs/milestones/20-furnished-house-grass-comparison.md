@@ -34,6 +34,17 @@ For each paired start report:
 - Oil/coal events, first floor/roof/support failures, collapse progression and final wreck state. Keep segment burn age and finite fuel/heat ledgers valid.
 - Absolute world-time differences and relative changes between each baseline and its grass case. Label observations versus demonstrated causal paths. Do not invent an automatic pass based on a reviewer-selected 40–70-second target; the accepted replay and owner judgement are the reference.
 
+### Reviewer observations forwarded by the owner, November 12
+
+Claude supplied observations from its separate kernel. Treat its timings as hypotheses to investigate here, not measurements of this runtime or acceptance thresholds. Add these reporting details to the existing four cases, preferably by postprocessing retained events/traces rather than rerunning completed burns:
+
+- Establish the replay match's actual side of the kitchen wall from its fixed source/observer, target, hit boundary/normal and ignition cell/fuel. Label inside, outside or genuinely ambiguous, with evidence; do not move the match to force a preferred interpretation. Retain the bedroom control even if its grass interaction begins much later.
+- Identify the first timber ignition immediately above the stone/plinth, plus any porch-deck or upper-floor-overhang route. Distinguish measured heat/support paths from spatial coincidence. Real geometry may legitimately differ from the reviewer's approximation.
+- Report **time from first grass ignition to the last eligible ground-storey exterior wall patch first igniting**. Define the eligible original combustible exterior-wall set and count original fuel identities once. If the full set never lights, report not reached by 330 s, the unignited count/area, and partial coverage rather than an artificial completion time. Include absolute first/last timestamps and coverage by cardinal facade/side; classify corners explicitly so wind-driven uneven spread remains visible.
+- Keep the existing east-wind primary cases. Claude's cited 12–21 s perimeter completion and other ignition intervals came from calm trials; direct numeric agreement is not expected. Keep the 3 m lawn rather than adding width/wind sweeps.
+
+This experiment tests a house fire reaching its own lawn and any subsequent return into the house. A lawn fire arriving from elsewhere is explicitly a separate possible next case if these results show grass matters; do not add it or tune the material rules in this pass.
+
 Save exact commands/options, source/data hashes, a reproducible finite runner, event/summary traces and machine-readable results. Run cases sequentially in one process; preserve results so rendering can reuse them where practical. Do not rerun long burns per view, toggle or formatting correction. Measure elapsed test cost separately from world time and any paused draw cost.
 
 Provide a paired visual handoff at the same camera, native zoom, exposure and world times for each start, with source/time/fixture captions. Use broad building glow consistently for the owner's preferred presentation; retain the local-light reference. Show both exterior perimeter and the relevant cutaway. Initial comparison times are 30, 60, 120 and 180 seconds, plus any decisive observed event; select a concise subset from the trace rather than encoding four new full-length movies by default. Actual animated WebGL evidence is required to judge the spread; JPGs are quick comparison aids. Do not substitute synthetic offline drawings for runtime evidence or alter the accepted movie.
