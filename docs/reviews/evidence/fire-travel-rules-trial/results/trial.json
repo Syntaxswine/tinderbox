@@ -110,8 +110,8 @@
    "text": "grass front: straight 1.579 m/s along the grid, 1.515 on its diagonal; from one tile, 32 directions timed from 6 m to 24 m out, 1.502 to 1.579 (mean 1.533)   [target: every one within 7 % of 1.5, that is 1.395 to 1.605]"
   },
   "2": {
-   "verdict": "MET",
-   "text": "a wall lights 1.267 to 1.900 s after the grass against it, on 24 walls of six plans; 0 of them at 2 s or more. The wait is a constant of the numbers, clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = 1.83 s, rounded up to a step   [target: under 2 s]"
+   "verdict": "EDGE",
+   "text": "a wall lights 1.833 to 1.933 s after the grass against it, on the 361 ground wall faces of six plans that grass touches; 0 at 2 s or more, 22 over 1.9 s. 43 more faces are behind a porch deck and no grass touches them. The wait is a constant of the numbers: clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = 1.83 s at the heat ceiling, longer where the wall sees less than the ceiling   [target: under 2 s]"
   },
   "3": {
    "verdict": "PARTLY",
@@ -119,27 +119,27 @@
   },
   "4": {
    "verdict": "MISSED",
-   "text": "room behind the match fully alight: 2 of 24 wall strikes in range; 15.87 to 41.47 s, median 27.6. Match held inside the same walls: 12 of 24, 3.83 to 28.93 s, median 17.58. Room strikes, for information: 3.4 to 31.53 s, median 12.47   [target: 10 to 20 s]"
+   "text": "room behind the match fully alight: 2 of 24 wall strikes in range; 15.87 to 39.33 s, median 27.45. Match held inside the same walls: 12 of 24, 3.83 to 28.73 s, median 17.48. Room strikes, for information: 3.4 to 31.1 s, median 12.47   [target: 10 to 20 s]"
   },
   "5": {
    "verdict": "PARTLY",
-   "text": "half the house alight: 68 of 101 strikes in range (12 of 24 wall outside, 19 of 24 wall inside, 24 of 32 ground rooms, 13 of 21 upstairs rooms); 26.63 to 77 s, median 45.67   [target: 40 to 70 s]"
+   "text": "half the house alight: 66 of 101 strikes in range (11 of 24 wall outside, 18 of 24 wall inside, 24 of 32 ground rooms, 13 of 21 upstairs rooms); 26.63 to 77 s, median 45.03   [target: 40 to 70 s]"
   },
   "6": {
    "verdict": "MET",
-   "text": "flame in the house: 101 of 101 strikes at 90 s or more; 131.5 to 235.5 s   [target: 90 s or more]"
+   "text": "flame in the house: 101 of 101 strikes at 90 s or more; 131 to 235.5 s   [target: 90 s or more]"
   },
   "7": {
    "verdict": "MET",
-   "text": "first upper floor or roof part falls: 101 of 101 in range; 69.57 to 78.3 s. This is the burn time of frame and roof timber (68 s) plus the time to light it   [target: 60 to 150 s]"
+   "text": "first upper floor or roof part falls: 101 of 101 in range; 69.53 to 78.3 s. This is the burn time of frame and roof timber (68 s) plus the time to light it   [target: 60 to 150 s]"
   },
   "8": {
    "verdict": "PARTLY",
-   "text": "upstairs fires: something inside the ground storey lit before anything fell to it in 0 of 21. A ROOF OVER A GROUND-STOREY ROOM (a low roof beside the upper storey) lit before anything fell in 10 of 21, from the air above it. Ground storey lit within 5 s of the first fall in 20 of 21; lag 0 to 13.97 s. What falls first is embers; review round 2 found that with almost no embers only 3 of 21 are within 5 s   [target: only after a fall, then within 5 s]"
+   "text": "upstairs fires: something inside the ground storey lit before anything fell to it in 0 of 21. A ROOF OVER A GROUND-STOREY ROOM (a low roof beside the upper storey) lit before anything fell in 10 of 21, from the air above it. Ground storey lit within 5 s of the first fall in 20 of 21; lag 0 to 14.27 s. What falls first is embers; review round 2 found that with almost no embers only 3 of 21 are within 5 s   [target: only after a fall, then within 5 s]"
   },
   "9": {
    "verdict": "PARTLY",
-   "text": "a kitchen fire reaches half the house 4.03 to 8.77 s sooner with the oil and coal than without, on six plans. Hopkins 15, kitchen against dining room: with stores 49.27 against 48.27 s; without 56.3 against 47.63 s, so that difference is where the room is. The wreck: the last flame other than coal is out at 159.5 and 154 s (kitchen, dining) with stores, 167 and 153 s without; with stores the coal then burns on alone until 308.5 and 370.5 s   [target: a stated, measured difference in time to half alight and in heat left in the wreck]"
+   "text": "a kitchen fire reaches half the house 4 to 9.4 s sooner with the oil and coal than without, on six plans. Hopkins 15, kitchen against dining room: with stores 49.07 against 48.23 s; without 56.23 against 47.4 s, so that difference is where the room is. The wreck: the last flame other than coal is out at 159 and 154 s (kitchen, dining) with stores, 166.5 and 153 s without; with stores the coal then burns on alone until 308.5 and 370.5 s   [target: a stated, measured difference in time to half alight and in heat left in the wreck]"
   },
   "10": {
    "verdict": "MET",
@@ -147,11 +147,11 @@
   },
   "11": {
    "verdict": "MISSED",
-   "text": "bare ground, 2 m, a pair of the same plan, match on the far wall: the neighbour lights within 30 s on 0 of 6 plans, and at all in 200 s on 0. Hopkins 15 at 0.5, 1, 2 and 8 m: 65.77 s, never, never, never. With no reach rule, fire crosses a gap only on grass   [target: yes, within 30 s]"
+   "text": "bare ground, 2 m, a pair of the same plan, match on the far wall: the neighbour lights within 30 s on 0 of 6 plans, and at all in 200 s on 0. Hopkins 15 at 0.5, 1, 2 and 8 m: 65.77 s, 69.63 s, never, never. With no reach rule, fire crosses a gap only on grass   [target: yes, within 30 s]"
   },
   "12": {
    "verdict": "PARTLY",
-   "text": "8 m: on bare ground never; with lawn between, lit at 18.03 s, carried by the grass   [target: no]"
+   "text": "8 m: on bare ground never; with lawn between, lit at 18 s, carried by the grass   [target: no]"
   },
   "13": {
    "verdict": "UNTESTED",
@@ -159,17 +159,17 @@
   },
   "14": {
    "verdict": "PARTLY",
-   "text": "fuel laid - burnt - left: worst 6e-8 over 101 burns; no fuel is created (embers are the last 14.58 to 14.85 % of what was laid, falling). \"Same state under five frame schedules\" is not tested: the kernel has one fixed step. The step matters: at 1/60, 1/30 and 1/15 s a match outside the sitting-room wall of Hopkins 15 gives room alight 27.67, 28.43, 30.07 s and half the house 53.2, 55, 59 s   [target: same state under five frame schedules; ledger closes]"
+   "text": "fuel laid - burnt - left: worst 5e-8 over 101 burns; no fuel is created (embers are the last 14.58 to 14.84 % of what was laid, falling). \"Same state under five frame schedules\" is not tested: the kernel has one fixed step. The step matters: at 1/60, 1/30 and 1/15 s a match outside the sitting-room wall of Hopkins 15 gives room alight 27.4, 28.03, 29.4 s and half the house 51.63, 53.63, 57.13 s   [target: same state under five frame schedules; ledger closes]"
   },
   "15": {
    "verdict": "MISSED",
-   "text": "cost per step of 1/30 s over 150 s (one step covers two of today's 1/60 s frames): one house 0.8 ms mean, 1.6 ms 95th centile, 3.8 ms worst, 2245 tiles active at peak; three houses on a lawn, all burning, 4.2 ms mean, 9.2 ms 95th centile, 42.7 ms worst, 7363 tiles active at peak; eight houses on a lawn, one struck, 15.7 ms mean, 33.5 ms 95th centile, 65.8 ms worst, 19647 tiles active at peak. Today's game: 3 to 5 ms per 1/60 s frame   [target: no more than today's]"
+   "text": "cost per step of 1/30 s over 150 s (one step covers two of today's 1/60 s frames): one house 0.9 ms mean, 1.6 ms 95th centile, 18.3 ms worst, 2248 tiles active at peak; three houses on a lawn, all burning, 4.3 ms mean, 9.2 ms 95th centile, 15.8 ms worst, 7436 tiles active at peak; eight houses on a lawn, one struck, 18 ms mean, 40.2 ms 95th centile, 98.8 ms worst, 19647 tiles active at peak. Today's game: 3 to 5 ms per 1/60 s frame   [target: no more than today's]"
   },
   "survey": {
    "strikes": 101,
    "neverLitMax": 0,
-   "ledgerWorst": 5.7432004263446856e-8,
-   "embersShare": "14.58 to 14.85"
+   "ledgerWorst": 5.4905920990333534e-8,
+   "embersShare": "14.58 to 14.84"
   },
   "pairs": [
    {
@@ -188,9 +188,9 @@
     "gap": 1,
     "ground": "bare",
     "at": "wall:x-:0:10",
-    "neighbourLit": null,
+    "neighbourLit": 69.63333333333195,
     "facingWallLit": 49.99999999999972,
-    "afterFacing": null,
+    "afterFacing": 19.633333333332224,
     "half": 53.499999999999524,
     "grassLit": null
    },
@@ -224,7 +224,7 @@
     "neighbourLit": 14.933333333333291,
     "facingWallLit": 13.499999999999963,
     "afterFacing": 1.4333333333333282,
-    "half": 22.133333333333592,
+    "half": 21.666666666666902,
     "grassLit": 0.4333333333333333
    },
    {
@@ -232,10 +232,10 @@
     "gap": 8,
     "ground": "lawn",
     "at": "wall:x-:0:10",
-    "neighbourLit": 18.03333333333339,
+    "neighbourLit": 18.000000000000053,
     "facingWallLit": 13.499999999999963,
-    "afterFacing": 4.533333333333426,
-    "half": 22.133333333333592,
+    "afterFacing": 4.500000000000091,
+    "half": 21.666666666666902,
     "grassLit": 0.4333333333333333
    },
    {
@@ -257,7 +257,7 @@
     "neighbourLit": null,
     "facingWallLit": 34.46666666666727,
     "afterFacing": null,
-    "half": 35.73333333333387,
+    "half": 35.33333333333389,
     "grassLit": null
    },
    {
@@ -266,9 +266,9 @@
     "ground": "bare",
     "at": "wall:x-:0:11",
     "neighbourLit": null,
-    "facingWallLit": 44.5666666666667,
+    "facingWallLit": 44.13333333333339,
     "afterFacing": null,
-    "half": 39.400000000000325,
+    "half": 38.76666666666703,
     "grassLit": null
    },
    {
@@ -277,9 +277,9 @@
     "ground": "bare",
     "at": "wall:x-:0:4",
     "neighbourLit": null,
-    "facingWallLit": 31.900000000000745,
+    "facingWallLit": 29.433333333333955,
     "afterFacing": null,
-    "half": 36.166666666667176,
+    "half": 35.06666666666724,
     "grassLit": null
    },
    {
@@ -288,7 +288,7 @@
     "ground": "bare",
     "at": "wall:x-:0:7",
     "neighbourLit": null,
-    "facingWallLit": 56.39999999999936,
+    "facingWallLit": 56.299999999999365,
     "afterFacing": null,
     "half": 26.633333333333816,
     "grassLit": null
@@ -299,9 +299,9 @@
     "ground": "bare",
     "at": "wall:x-:0:13",
     "neighbourLit": null,
-    "facingWallLit": 41.86666666666685,
+    "facingWallLit": 32.000000000000746,
     "afterFacing": null,
-    "half": 51.033333333333,
+    "half": 45.00000000000001,
     "grassLit": null
    }
   ]

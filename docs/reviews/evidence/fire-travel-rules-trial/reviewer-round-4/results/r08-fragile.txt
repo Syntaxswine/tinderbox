@@ -1,0 +1,21 @@
+as proposed                T2 wait 1.800 to 1.967 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.53 up 0.16 along 3.32 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+rate x0.9                  T2 wait 1.833 to 2.000 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.53 up 0.15 along 3.65 FAIL | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+rate x0.95                 T2 wait 1.833 to 2.000 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.53 up 0.15 along 3.48 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+rate x1.05                 T2 wait 1.800 to 1.967 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.53 up 0.17 along 3.19 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+rate x1.1                  T2 wait 1.800 to 1.933 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.54 up 0.17 along 3.11 ok   | T10 square holds, diagonal 1 tile CROSSES 9.03, 2 tiles holds
+loss x0.9                  T2 wait 1.800 to 1.933 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.54 up 0.17 along 3.12 ok   | T10 square holds, diagonal 1 tile CROSSES 8.93, 2 tiles holds
+loss x0.95                 T2 wait 1.833 to 1.933 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.53 up 0.17 along 3.21 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+loss x1.05                 T2 wait 1.800 to 1.967 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.53 up 0.15 along 3.46 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+loss x1.1                  T2 wait 1.800 to 2.000 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.53 up 0.15 along 3.57 FAIL | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+maxHeat x0.9               T2 wait 2.000 to 2.133 s, 55 of 63 at 2 s or more FAIL | T3 bare wall 0.49 up 0.16 along 3.05 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+maxHeat x0.95              T2 wait 1.900 to 2.033 s, 3 of 63 at 2 s or more FAIL | T3 bare wall 0.51 up 0.16 along 3.17 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+maxHeat x1.05              T2 wait 1.733 to 1.900 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.55 up 0.16 along 3.45 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+maxHeat x1.1               T2 wait 1.667 to 1.867 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.58 up 0.16 along 3.62 FAIL | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+maxHeat 3 (round 3 value)  T2 wait 1.767 to 1.933 s, 0 of 63 at 2 s or more ok   | T3 bare wall 0.55 up 0.16 along 3.43 ok   | T10 square holds, diagonal 1 tile holds, 2 tiles holds
+grass output 0.7 (0 %): 0.5 m square strip holds
+grass output 0.72 (3 %): 0.5 m square strip holds
+grass output 0.74 (6 %): 0.5 m square strip holds
+grass output 0.76 (9 %): 0.5 m square strip holds
+grass output 0.78 (11 %): 0.5 m square strip holds
+grass output 0.8 (14 %): 0.5 m square strip holds
+grass output 0.85 (21 %): 0.5 m square strip holds

@@ -1,0 +1,18 @@
+floor 0 connections [["hall","living"],["living","dining"],["hall","parlor"],["hall","kitchen"],["hall","pantry"],["dining","pantry"],["pantry","kitchen"],["parlor","kitchen"]] open [["living","dining"]] stairs {"x":5,"z":4,"width":1,"run":3,"rise":2.12}
+  living    sitting    x 6..10 z 0..6
+  dining    dining     x 6..10 z 6..10
+  hall      hall       x 4..6 z 0..7
+  parlor    parlor     x 0..4 z 0..5
+  kitchen   kitchen    x 0..4 z 5..10
+  pantry    pantry     x 4..6 z 7..10
+floor 1 connections [["hall","bed-a"],["hall","bed-b"],["hall","bed-c"]] open [] stairs {"x":5,"z":4,"width":1,"run":3,"rise":2.12}
+  bed-a     bedroom    x 6..10 z 0..7
+  bed-b     bedroom    x 0..4 z 0..7
+  bed-c     bedroom    x 4..6 z -1..2
+  hall      hall       x 4..6 z 2..7
+room:0:kitchen   cells 80   roof faces in room 48  clapboard 32  partition/door owned 20  | room alight 17.17 s, half 56.3 s, first lit upstairs 5.07 s; fuels lit by 10/20/30/40 s: 121/258/329/464 of 1538; rooms reached in order: 1:bed-b 5.1, 0:parlor 10.9, 0:pantry 31.2, 1:hall 43.5, 0:dining 43.7, 0:hall 45.7
+room:0:dining    cells 64   roof faces in room 48  clapboard 28  partition/door owned 0   | room alight 16 s, half 47.63 s, first lit upstairs 5.83 s; fuels lit by 10/20/30/40 s: 109/293/511/667 of 1538; rooms reached in order: 0:pantry 2.1, 1:bed-a 5.8, 0:hall 6.3, 0:living 9.3, 1:hall 20.3, 1:bed-c 27.8
+room:0:living    cells 96   roof faces in room 0   clapboard 36  partition/door owned 0   | room alight 17.67 s, half 39.9 s, first lit upstairs 3.6 s; fuels lit by 10/20/30/40 s: 152/450/649/772 of 1538; rooms reached in order: 0:hall 2.1, 1:bed-a 3.6, 1:hall 6.8, 0:dining 11, 1:bed-c 14.2, 0:pantry 14.6
+room:0:parlor    cells 80   roof faces in room 0   clapboard 32  partition/door owned 36  | room alight 16.87 s, half 50.67 s, first lit upstairs 3.63 s; fuels lit by 10/20/30/40 s: 147/344/469/538 of 1538; rooms reached in order: 1:bed-b 3.6, 1:bed-c 20.3, 0:kitchen 22.7, 0:hall 31.2, 0:living 38.5, 1:bed-a 39.2
+room:0:hall      cells 56   roof faces in room 0   clapboard 6   partition/door owned 38  | room alight 14.47 s, half 45.53 s, first lit upstairs 3.6 s; fuels lit by 10/20/30/40 s: 117/256/326/487 of 1538; rooms reached in order: 0:parlor 2.1, 1:hall 3.6, 0:kitchen 6.1, 1:bed-c 7.2, 1:bed-b 15.4, 0:pantry 28.1
+room:0:pantry    cells 24   roof faces in room 24  clapboard 8   partition/door owned 12  | room alight 9.73 s, half 59.03 s, first lit upstairs 40.23 s; fuels lit by 10/20/30/40 s: 89/90/108/159 of 1538; rooms reached in order: 0:kitchen 2.1, 0:hall 7.7, 0:dining 22.3, 1:bed-b 40.2, 1:hall 40.6, 1:bed-a 43.3

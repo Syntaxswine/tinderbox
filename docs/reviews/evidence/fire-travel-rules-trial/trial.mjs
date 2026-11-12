@@ -25,19 +25,40 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   report(1, ok ? 'MET' : 'MISSED', 'grass front: straight ' + round(g.axis, 3) + ' m/s along the grid, ' + round(g.diagonal, 3) + ' on its diagonal; from one tile, 32 directions timed from 6 m to 24 m out, '
     + round(g.point.min, 3) + ' to ' + round(g.point.max, 3) + ' (mean ' + round(g.point.mean, 3) + ')   [target: every one within 7 % of 1.5, that is 1.395 to 1.605]');
 }
-// 2. A lawn fire lights the wall it reaches: six plans, four sides each.
+// 2. A lawn fire lights the wall it reaches. Every ground-layer outside wall face of the six plans that grass
+// touches, with the lawn lit from each of four sides in turn; a face's wait is the longest of the four. Faces
+// behind a porch deck have no grass against them and are counted apart (review round 4, M3).
 {
-  const waits = [];
-  for (const planId of PLANS) for (const at of strikesOf(planId).filter(s => s.startsWith('wall') && !s.endsWith(':in'))) {
-    const world = make(), a = house(world, 'A', planId, 8, 8, {}), [, side, ci, cj] = at.split(':');
-    lawn(world, 0, 0, Math.round((16 + a.plan.width) / PITCH), Math.round((16 + a.plan.depth) / PITCH));
-    const wall = outsideWalls(world, a).find(w => w.side === side && w.tile.i === a.origin[0] + +ci && w.tile.j === a.origin[1] + +cj);
-    const n = side[0] === 'x' ? [side[1] === '+' ? 1 : -1, 0] : [0, side[1] === '+' ? 1 : -1];
-    world.ignite(world.tileAt(wall.outside.i + 6 * n[0], wall.outside.j + 6 * n[1], 0));
-    run(world, 15);
-    waits.push(wall.fuel.litAt !== null && wall.outside.fuels[0].litAt !== null ? wall.fuel.litAt - wall.outside.fuels[0].litAt : Infinity);
+  const waits = [], behind = [];
+  for (const planId of PLANS) {
+    const perFace = new Map();
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const world = make(), a = house(world, 'A', planId, 8, 8, {}), W = Math.round((16 + a.plan.width) / PITCH), D = Math.round((16 + a.plan.depth) / PITCH);
+      lawn(world, 0, 0, W, D);
+      world.ignite(world.tileAt(dx > 0 ? W - 2 : dx < 0 ? 1 : W >> 1, dy > 0 ? D - 2 : dy < 0 ? 1 : D >> 1, 0));
+      run(world, 40);
+      for (const w of outsideWalls(world, a)) {
+        const grass = w.outside.fuels.find(f => f.cls === 'grass'), id = w.tile.id + w.side;
+        if (!grass) { perFace.set(id, null); continue; }
+        if (w.fuel.litAt === null || grass.litAt === null || grass.litAt > w.fuel.litAt) continue;
+        perFace.set(id, Math.max(perFace.get(id) ?? 0, w.fuel.litAt - grass.litAt));
+      }
+    }
+    for (const v of perFace.values()) (v === null ? behind : waits).push(v);
   }
-  report(2, waits.every(w => w < 2) ? (Math.max(...waits) > 1.9 ? 'EDGE' : 'MET') : 'MISSED', 'a wall lights ' + Math.min(...waits).toFixed(3) + ' to ' + Math.max(...waits).toFixed(3) + ' s after the grass against it, on ' + waits.length + ' walls of six plans; ' + waits.filter(w => w >= 2).length + ' of them at 2 s or more. The wait is a constant of the numbers, clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = ' + (DEFAULT_FUELS.clapboard.delay * DEFAULT_FUELS.clapboard.lightAt / (DEFAULT_RULES.maxHeat * (1 - DEFAULT_RULES.loss * DEFAULT_RULES.step))).toFixed(2) + ' s, rounded up to a step   [target: under 2 s]');
+  report(2, waits.every(w => w < 2) ? (Math.max(...waits) > 1.9 ? 'EDGE' : 'MET') : 'MISSED', 'a wall lights ' + Math.min(...waits).toFixed(3) + ' to ' + Math.max(...waits).toFixed(3) + ' s after the grass against it, on the ' + waits.length + ' ground wall faces of six plans that grass touches; '
+    + waits.filter(w => w >= 2).length + ' at 2 s or more, ' + waits.filter(w => w > 1.9).length + ' over 1.9 s. ' + behind.length + ' more faces are behind a porch deck and no grass touches them. The wait is a constant of the numbers: clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = '
+    + (DEFAULT_FUELS.clapboard.delay * DEFAULT_FUELS.clapboard.lightAt / (DEFAULT_RULES.maxHeat * (1 - DEFAULT_RULES.loss * DEFAULT_RULES.step))).toFixed(2) + ' s at the heat ceiling, longer where the wall sees less than the ceiling   [target: under 2 s]');
+  // A bare path between lawn and wall, one tile wide.
+  const world = make(), a = house(world, 'A', 'hopkins-4-12', 8, 8, {}), W = Math.round((16 + a.plan.width) / PITCH), D = Math.round((16 + a.plan.depth) / PITCH), ring = new Set();
+  for (const w of outsideWalls(world, a)) ring.add(w.outside);
+  for (const record of a.rooms.values()) for (const tile of record.tiles) if (tile.k === 0) for (let dj = -1; dj <= 1; dj++) for (let di = -1; di <= 1; di++) { const o = world.tileAt(tile.i + di, tile.j + dj, 0); if (o && !o.building) ring.add(o); }
+  for (const tile of ring) if (!tile.fuels.length) tile.keepBare = true;
+  for (let j = 0; j < D; j++) for (let i = 0; i < W; i++) { const tile = world.tileAt(i, j, 0) ?? world.addTile(i, j, 0); if (!tile.building && !tile.fuels.length && !tile.keepBare) world.addFuel(tile, 'grass', 1); }
+  world.ignite(world.tileAt(1, D >> 1, 0));
+  run(world, 60);
+  const walls = outsideWalls(world, a).filter(w => !w.outside.fuels.length), lit = walls.filter(w => w.fuel.litAt !== null);
+  say('    a bare path 0.5 m wide round Hopkins 12, lawn beyond it: ' + lit.length + ' of ' + walls.length + ' ground wall faces behind the path light within 60 s' + (lit.length ? ', the first at ' + round(Math.min(...lit.map(w => w.fuel.litAt))) + ' s' : ''));
 }
 // 3. Up a wall against along it, on a free-standing wall with no floors or partitions.
 {
@@ -52,8 +73,11 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   const verdict = (list, test) => !list.length ? 'NO DATA' : list.every(test) ? 'MET' : list.filter(test).length >= list.length / 2 ? 'PARTLY' : 'MISSED';
   const walls = rows.filter(r => r.kind === 'wall'), wallsIn = rows.filter(r => r.kind === 'wall-in'), rooms = rows.filter(r => r.kind === 'room'), up = rows.filter(r => r.floor > 0), num = (list, f) => list.map(f).filter(v => v !== null);
   say('    survey: ' + rows.length + ' strikes on ' + plansRead + ' plans (' + walls.length + ' outside walls with the match held outside, the same ' + wallsIn.length + ' with it held inside; ' + rooms.length + ' rooms, furniture lit)');
-  const climbs = walls.flatMap(r => r.climb ?? []), inBand = climbs.filter(v => v >= 2.5 && v <= 3.5).length;
-  say('    target 3 on the houses: ' + inBand + ' of ' + climbs.length + ' measurable directions on ' + walls.filter(r => r.climb?.length).length + ' outside walls in 2.5 to 3.5; ' + range(climbs) + ', median ' + round(median(climbs)));
+  const climbs = walls.flatMap(r => r.climb ?? []), inBand = climbs.filter(v => v >= 2.5 && v <= 3.5).length, band = list => list.filter(v => v >= 2.5 && v <= 3.5).length + ' of ' + list.length;
+  const porchClimbs = walls.filter(r => r.behindPorch).flatMap(r => r.climb ?? []), openClimbs = walls.filter(r => !r.behindPorch).flatMap(r => r.climb ?? []);
+  say('    target 3 on the houses: ' + inBand + ' of ' + climbs.length + ' measurable directions on ' + walls.filter(r => r.climb?.length).length + ' outside walls in 2.5 to 3.5; ' + range(climbs) + ', median ' + round(median(climbs))
+    + '. Walls behind a porch: ' + band(porchClimbs) + (porchClimbs.length ? ' (' + range(porchClimbs) + ')' : '') + '. Other walls: ' + band(openClimbs) + ' (' + range(openClimbs) + ')');
+  say('    struck fuels: ' + walls.filter(r => r.struck === 'door').map(r => r.plan + ' ' + r.at + ' is the front door').join('; '));
   if (results[3].verdict === 'MET' && inBand < climbs.length) results[3].verdict = 'PARTLY';
   const t4 = r => r.room !== null && r.room >= 10 && r.room <= 20;
   report(4, verdict(walls, t4), 'room behind the match fully alight: ' + count(walls, t4) + ' wall strikes in range; ' + range(num(walls, r => r.room)) + ' s, median ' + round(median(num(walls, r => r.room)))
@@ -61,6 +85,9 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
   const t5 = r => r.half !== null && r.half >= 40 && r.half <= 70;
   report(5, verdict(rows, t5), 'half the house alight: ' + count(rows, t5) + ' strikes in range (' + count(walls, t5) + ' wall outside, ' + count(wallsIn, t5) + ' wall inside, ' + count(rooms.filter(r => !r.floor), t5) + ' ground rooms, ' + count(up, t5) + ' upstairs rooms); '
     + range(num(rows, r => r.half)) + ' s, median ' + round(median(num(rows, r => r.half))) + '   [target: 40 to 70 s]');
+  const roof3 = PLANS.flatMap(planId => { const file = path.join(dir, 'roof-delay-3', 'survey-' + planId + '.json'); return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : []; });
+  if (roof3.length) say('    target 5 with roof delay 3 s in place of 8 s: ' + count(roof3, t5) + ' in range, median ' + round(median(num(roof3, r => r.half))) + ' s (' + count(roof3.filter(r => r.kind === 'wall'), t5) + ' wall outside, ' + count(roof3.filter(r => r.kind === 'wall-in'), t5) + ' wall inside)');
+  for (const planId of PLANS) { const list = rows.filter(r => r.plan === planId); say('    target 5, ' + planId + ': ' + count(list, t5) + ', median ' + round(median(num(list, r => r.half))) + ' s'); }
   const t6 = r => r.flameUntil >= 90;
   report(6, verdict(rows, t6), 'flame in the house: ' + count(rows, t6) + ' strikes at 90 s or more; ' + range(num(rows, r => r.flameUntil)) + ' s   [target: 90 s or more]');
   const t7 = r => r.firstFall !== null && r.firstFall >= 60 && r.firstFall <= 150;

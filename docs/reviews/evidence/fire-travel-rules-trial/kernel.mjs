@@ -66,7 +66,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     const id = key(i, j, k);
     let tile = tiles.get(id);
     if (!tile) {
-      tile = {id, i, j, k, heat: 0, incoming: 0, rad: 0, fuels: [], room, building, out: 0, radOut: 0, links: null, listens: false};
+      tile = {id, i, j, k, heat: 0, incoming: 0, rad: 0, fuels: [], room, building, out: 0, radOut: 0, links: null, listens: false, facing: null};
       tiles.set(id, tile);
       if (k > topLayer) topLayer = k;
       around(i, j, k, stale);
@@ -206,13 +206,15 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
     }
     return true;
   }
+  // `facing` lists, for a tile, the tiles that hold a surface standing against it (see step 2).
   // Bookkeeping only: a tile "listens" if some unlit fuel could read the warmth that reaches it (its own,
   // or a surface in the next tile that faces it). Warmth on a tile nothing reads lights nothing, so
   // skipping those tiles changes no measure; review round 2 (S6) found it does change which tiles are
   // awake, and so the order of some events in the log.
   function markListeners() {
     listenersStale = false;
-    for (const tile of tiles.values()) for (const fuel of tile.fuels) if (fuel.face) { const other = across(tile, fuel.face); if (other) other.listens = true; }
+    for (const tile of tiles.values()) tile.facing = null;
+    for (const tile of tiles.values()) for (const fuel of tile.fuels) if (fuel.face) { const other = across(tile, fuel.face); if (other) { other.listens = true; (other.facing ??= []).push(tile); } }
   }
   // Nothing closed stands between this tile and the sky: no glass, timber or masonry face above it in its column.
   function openToSky(tile, memo) {
@@ -257,6 +259,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
   }
   function step() {
     time += dt; stats.ticks++;
+    if (listenersStale) markListeners();
     // 1. What each burning fuel gives. A surface lit on one side gives that side its heat; the far side's
     // share grows as the surface is consumed (Rule 5), and through a floor to the tile below it is
     // multiplied by Rule 4's "down".
@@ -285,6 +288,10 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
       tile.heat = Math.min(rules.maxHeat, tile.heat + tile.incoming);
       tile.incoming = 0;
       tile.heat -= tile.heat * Math.min(1, rules.loss * dt);
+      // Rule 2: a surface is exposed to the hotter of its two tiles. So a warm tile wakes the tiles that hold
+      // a surface against it, or those surfaces would never be looked at (review round 4, M1: without this
+      // a wall facing hot air never charred unless its own tile was next to a burning one).
+      if (tile.facing && tile.heat > 1e-3) for (const holder of tile.facing) active.add(holder);
     }
     for (const tile of [...active]) {
       let alive = tile.heat > 1e-3 || tile.rad > 0 || tile.out > 0;

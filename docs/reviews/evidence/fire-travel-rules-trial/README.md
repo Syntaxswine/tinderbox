@@ -2,16 +2,19 @@
 
 The rules and the trial's results are in [`../../2026-11-11-fire-travel-rules.md`](../../2026-11-11-fire-travel-rules.md).
 
-Nothing here is game code, and nothing here is imported by the game, its tests or its build. The
-only thing read from the game is the house plan data in `src/content/housing-plans.js`.
+Nothing here is game code, and nothing here is imported by the game, its tests or its build. Two
+things are read from the game: the house plan data in `src/content/housing-plans.js` and the outside
+wall edges, windows and front door from `exteriorPlanEdges` in `src/content/housing-envelope.js`.
 Run from the repository root with Node 22 or newer.
 
 **This is the second version, corrected after a second and a third review.** The first (commit `d78005b`) was
 reviewed and scored 3 out of 10; see `reviewer-round-1/REPORT.md`. The kernel, the scene builder and the
 trial were rewritten after it (commit `9b521a2`). That was reviewed and scored 5 out of 10; see
 `reviewer-round-2/REPORT.md`. Its corrections (commit `d953ce0`) were reviewed and scored 6 out of 10; see
-`reviewer-round-3/REPORT.md`. What is here now has round 3's corrections, the largest being that reach
-across a gap (Rule 6) is withdrawn, and has not been reviewed.
+`reviewer-round-3/REPORT.md`. Round 3's corrections, the largest being that reach
+across a gap (Rule 6) is withdrawn (commit `06061b0`), were reviewed and scored 6.5 out of 10; see
+`reviewer-round-4/REPORT.md`. What is here now has round 4's corrections, the largest being a kernel
+fix (a warm tile wakes the surfaces standing against it), and has not been reviewed.
 
 | File | What it is |
 | --- | --- |
@@ -26,7 +29,9 @@ across a gap (Rule 6) is withdrawn, and has not been reviewed.
 | `results/trial.txt`, `results/trial.json` | The printed result of the final run, and the rule and fuel values used |
 | `results/survey-<plan>.json` | Every strike of the survey |
 | `results/reach-options/` | The two reach surveys and `summary.txt` |
+| `results/roof-delay-3/` | The survey with roof delay 3 s in place of 8 s: `survey.mjs <plan> '{}' '{"roof":{"delay":3}}' results/roof-delay-3`. The trial reads it for target 5 |
 | `results/first-version/` | The first trial's output. Withdrawn |
+| `reviewer-round-4/` | The round 4 reviewer's probes, results and report. They ran against commit `06061b0` and its own copies of that kernel, scene and measuring code |
 | `reviewer-round-3/` | The round 3 reviewer's probes, results and report. They ran against commit `d953ce0`, using that commit's kernel and scene directly |
 | `reviewer-round-2/` | The round 2 reviewer's probes, results and report. They ran against commit `9b521a2` and its own copies of that kernel, scene and measuring code |
 | `reviewer-round-1/` | The round 1 reviewer's probes, results and report. They ran against the first kernel and its own copies of it (`kernel-var.mjs`, `scene-var.mjs`); `r02` compares against the first `kernel.mjs`, which is now only in git |

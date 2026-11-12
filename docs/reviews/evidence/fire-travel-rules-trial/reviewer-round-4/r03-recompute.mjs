@@ -1,0 +1,27 @@
+// Round 4. Recompute every survey figure in the record from a directory of survey-*.json (written independently
+// of trial.mjs).   node r03-recompute.mjs [dir relative to the evidence folder, default results]
+import fs from 'node:fs';
+import path from 'node:path';
+const dir = path.join(import.meta.dirname, '..', process.argv[2] ?? 'results');
+const PLANS = ['hopkins-4-15', 'hopkins-4-12', 'hopkins-4-09', 'hopkins-4-13', 'ashland-worker', 'monroe-row'];
+const rows = PLANS.flatMap(p => { const f = path.join(dir, 'survey-' + p + '.json'); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : []; });
+const med = l => { const s = l.filter(v => v !== null).sort((a, b) => a - b), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
+const rng = l => { const s = l.filter(v => v !== null); return s.length ? Math.min(...s) + ' to ' + Math.max(...s) : 'none'; };
+const in4 = r => r.room !== null && r.room >= 10 && r.room <= 20, in5 = r => r.half !== null && r.half >= 40 && r.half <= 70;
+const cnt = (l, t) => l.filter(t).length + ' of ' + l.length;
+const walls = rows.filter(r => r.kind === 'wall'), wallsIn = rows.filter(r => r.kind === 'wall-in'), rooms = rows.filter(r => r.kind === 'room'), up = rows.filter(r => r.floor > 0);
+console.log('strikes ' + rows.length + ': walls ' + walls.length + ', walls-in ' + wallsIn.length + ', rooms ' + rooms.length + ' (ground ' + rooms.filter(r => !r.floor).length + ', up ' + up.length + ')');
+const climbs = walls.flatMap(r => r.climb ?? []);
+console.log('T3 houses: ' + climbs.filter(v => v >= 2.5 && v <= 3.5).length + ' of ' + climbs.length + ' on ' + walls.filter(r => r.climb?.length).length + ' walls; ' + rng(climbs) + ' median ' + med(climbs) + '; below band: ' + walls.filter(r => r.climb?.some(v => v < 2.5)).map(r => r.plan + ' ' + r.at + ' ' + JSON.stringify(r.climb)).join(' | ') + '; above: ' + walls.filter(r => r.climb?.some(v => v > 3.5)).map(r => r.plan + ' ' + r.at + ' ' + JSON.stringify(r.climb)).join(' | '));
+console.log('   walls with null or empty climb: ' + walls.filter(r => !r.climb?.length).map(r => r.plan + ' ' + r.at + ' ' + JSON.stringify(r.climb)).join(' | '));
+console.log('T4 outside: ' + cnt(walls, in4) + '; ' + rng(walls.map(r => r.room)) + ' median ' + med(walls.map(r => r.room)) + ' | inside: ' + cnt(wallsIn, in4) + '; ' + rng(wallsIn.map(r => r.room)) + ' median ' + med(wallsIn.map(r => r.room)) + ' | rooms: ' + cnt(rooms, in4) + '; ' + rng(rooms.map(r => r.room)) + ' median ' + med(rooms.map(r => r.room)) + '; room never fully lit: ' + rows.filter(r => r.room === null).length);
+console.log('T5 all: ' + cnt(rows, in5) + '; ' + rng(rows.map(r => r.half)) + ' median ' + med(rows.map(r => r.half)) + ' | outside ' + cnt(walls, in5) + ' | inside ' + cnt(wallsIn, in5) + ' | ground rooms ' + cnt(rooms.filter(r => !r.floor), in5) + ' | up rooms ' + cnt(up, in5) + '; below 40: ' + rows.filter(r => r.half !== null && r.half < 40).length + ', above 70: ' + rows.filter(r => r.half > 70).length + ', null: ' + rows.filter(r => r.half === null).length);
+for (const p of PLANS) { const l = rows.filter(r => r.plan === p); console.log('   ' + p.padEnd(15) + cnt(l, in5) + ' median half ' + med(l.map(r => r.half)) + '  range ' + rng(l.map(r => r.half)) + ' | T4 out ' + cnt(l.filter(r => r.kind === 'wall'), in4) + ' in ' + cnt(l.filter(r => r.kind === 'wall-in'), in4)); }
+console.log('T6: ' + cnt(rows, r => r.flameUntil >= 90) + '; ' + rng(rows.map(r => r.flameUntil)));
+console.log('T7: ' + cnt(rows, r => r.firstFall !== null && r.firstFall >= 60 && r.firstFall <= 150) + '; ' + rng(rows.map(r => r.firstFall)) + '; first fall carried something: ' + rows.filter(r => r.firstFallCarried > 0).length + '; drop 1 carrying nothing: ' + rows.filter(r => r.firstFallDrop === 1 && r.firstFallCarried === 0).length + '; causes ' + JSON.stringify(rows.reduce((o, r) => (o[r.firstFallCause + '/' + r.firstFallDrop] = (o[r.firstFallCause + '/' + r.firstFallDrop] ?? 0) + 1, o), {})));
+const before = r => r.groundLit !== null && (r.fallToGround === null || r.groundLit < r.fallToGround), within = r => r.groundLit !== null && r.fallToGround !== null && r.groundLit >= r.fallToGround && r.groundLit - r.fallToGround <= 5;
+const roofFirst = r => r.groundRoofLit !== null && (r.fallToGround === null || r.groundRoofLit < r.fallToGround);
+console.log('T8: before a fall ' + cnt(up, before) + '; low roof first ' + cnt(up, roofFirst) + '; within 5 s ' + cnt(up, within) + '; both within and not roof-first ' + cnt(up, r => within(r) && !roofFirst(r)) + '; lags ' + rng(up.filter(r => r.groundLit !== null && r.fallToGround !== null).map(r => +(r.groundLit - r.fallToGround).toFixed(2))) + '; groundLit null ' + up.filter(r => r.groundLit === null).length + '; fallToGround null ' + up.filter(r => r.fallToGround === null).length);
+console.log('   what lit first on the ground: ' + JSON.stringify(up.reduce((o, r) => (o[r.groundLitWhat] = (o[r.groundLitWhat] ?? 0) + 1, o), {})));
+console.log('never lit max ' + Math.max(...rows.map(r => r.neverLit)) + '; ledger worst ' + Math.max(...rows.map(r => Math.abs(r.ledger))).toExponential(1) + '; embers share ' + rng(rows.map(r => r.embersShare)));
+console.log('upstairsLit from ground strikes: ' + rng(rows.filter(r => !r.floor).map(r => r.upstairsLit)) + ' median ' + med(rows.filter(r => !r.floor).map(r => r.upstairsLit)));

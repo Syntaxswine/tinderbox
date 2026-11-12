@@ -1,0 +1,34 @@
+(a) the trial's 24 walls, same code as trial.mjs section 2
+  hopkins-4-15   wall:x+:19:10    struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-15   wall:x-:0:10     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-15   wall:y+:10:19    struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-15   wall:y-:10:0     struck fuel door      outside tile fuels[0] = frame  lit at 8.100; wall lit at 9.933; wait 1.833 s
+  hopkins-4-12   wall:x+:15:7     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-12   wall:x-:0:7      struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-12   wall:y+:8:13     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-12   wall:y-:8:0      struck fuel clapboard outside tile fuels[0] = frame  lit at 8.100; wall lit at 9.933; wait 1.833 s
+  hopkins-4-09   wall:x+:11:7     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.533; wall lit at 4.433; wait 1.900 s
+  hopkins-4-09   wall:x-:0:11     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-09   wall:y+:6:19     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-09   wall:y-:7:0      struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-13   wall:x+:13:12    struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-13   wall:x-:0:4      struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-13   wall:y+:8:15     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  hopkins-4-13   wall:y-:8:0      struck fuel clapboard outside tile fuels[0] = frame  lit at 5.367; wall lit at 6.633; wait 1.267 s
+  ashland-worker wall:x+:11:7     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  ashland-worker wall:x-:0:7      struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  ashland-worker wall:y+:6:13     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  ashland-worker wall:y-:6:0      struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  monroe-row     wall:x+:13:13    struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  monroe-row     wall:x-:0:13     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  monroe-row     wall:y+:7:25     struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+  monroe-row     wall:y-:7:0      struck fuel clapboard outside tile fuels[0] = grass  lit at 2.467; wall lit at 4.333; wait 1.867 s
+(b) every ground outside-wall face, lawn all round, four ignitions (one per side, separate runs); wait = wall lit - grass in the outside tile lit
+  hopkins-4-15   80 ground wall faces, 8 face the porch deck (no grass touches them); of the other 72: shortest wait 1.800, longest 1.900 s; faces with any wait >= 2 s: 0; never lit in 25 s on some run: 0; negative (wall lit before its grass): 0
+  hopkins-4-12   60 ground wall faces, 16 face the porch deck (no grass touches them); of the other 44: shortest wait 1.800, longest 1.900 s; faces with any wait >= 2 s: 0; never lit in 25 s on some run: 0; negative (wall lit before its grass): 0
+  hopkins-4-09   68 ground wall faces, 5 face the porch deck (no grass touches them); of the other 63: shortest wait 1.800, longest 1.967 s; faces with any wait >= 2 s: 0; never lit in 25 s on some run: 0; negative (wall lit before its grass): 0
+  hopkins-4-13   64 ground wall faces, 6 face the porch deck (no grass touches them); of the other 58: shortest wait 1.800, longest 1.933 s; faces with any wait >= 2 s: 0; never lit in 25 s on some run: 0; negative (wall lit before its grass): 0
+  ashland-worker 52 ground wall faces, 4 face the porch deck (no grass touches them); of the other 48: shortest wait 1.800, longest 1.933 s; faces with any wait >= 2 s: 0; never lit in 25 s on some run: 0; negative (wall lit before its grass): 0
+  monroe-row     80 ground wall faces, 4 face the porch deck (no grass touches them); of the other 76: shortest wait 1.800, longest 1.900 s; faces with any wait >= 2 s: 0; never lit in 25 s on some run: 0; negative (wall lit before its grass): 0
+  ALL: 404 faces, 43 behind a porch; 361 touched by grass: wait 1.800 to 1.967 s; >= 2 s on 0; > 1.9 s on 32; never lit 0
+  histogram of the longest wait per face (0.1 s bins): {"1.8":75,"1.9":284,"2.0":2}

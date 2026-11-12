@@ -46,7 +46,7 @@ export function strike(world, a, spec) {
   if (!wall) throw new Error('no outside wall at ' + spec);
   // 'in' holds the match inside the room; the default is outside, where the bear stands.
   world.ignite(tile, null, {fuel: wall.fuel, from: parts[4] === 'in' ? null : wall.outside});
-  return {room: tile.room, floor: 0, wall};
+  return {room: tile.room, floor: 0, wall, what: wall.fuel.cls, behindPorch: wall.outside.fuels.length > 0};
 }
 
 export function burn({planId = 'hopkins-4-15', contents = ALL, seconds = 300, at = 'room:0:kitchen', neighbours = [], rules = {}, fuels = {}, origin = [6, 6], before, timed = false}) {

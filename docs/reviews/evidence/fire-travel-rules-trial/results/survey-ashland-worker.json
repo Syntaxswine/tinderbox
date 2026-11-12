@@ -4,12 +4,14 @@
   "at": "wall:x+:11:7",
   "kind": "wall",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
-  "room": 22.13,
+  "room": 22.1,
   "roomLit": "69/69",
-  "half": 38.7,
+  "half": 38.53,
   "climb": null,
-  "flameUntil": 143,
+  "flameUntil": 142.5,
   "firstFall": 72.37,
   "firstFallCause": "roof",
   "firstFallDrop": 1,
@@ -21,13 +23,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0674139350186351e-8
+  "ledger": -1.0699603592012608e-8
  },
  {
   "plan": "ashland-worker",
   "at": "wall:x+:11:7:in",
   "kind": "wall-in",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
   "room": 12.3,
   "roomLit": "69/69",
@@ -45,13 +49,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0539017214483692e-8
+  "ledger": -1.0545269990558381e-8
  },
  {
   "plan": "ashland-worker",
   "at": "wall:x-:0:7",
   "kind": "wall",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
   "room": 32.93,
   "roomLit": "185/185",
@@ -69,13 +75,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0521674198571418e-8
+  "ledger": -1.0520992077545088e-8
  },
  {
   "plan": "ashland-worker",
   "at": "wall:x-:0:7:in",
   "kind": "wall-in",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
   "room": 22.47,
   "roomLit": "185/185",
@@ -93,13 +101,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0481114143257031e-8
+  "ledger": -1.0481227830094753e-8
  },
  {
   "plan": "ashland-worker",
   "at": "wall:y+:6:13",
   "kind": "wall",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
   "room": 23.83,
   "roomLit": "133/133",
@@ -119,13 +129,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0623792290331835e-8
+  "ledger": -1.0630840874270575e-8
  },
  {
   "plan": "ashland-worker",
   "at": "wall:y+:6:13:in",
   "kind": "wall-in",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
   "room": 12.47,
   "roomLit": "133/133",
@@ -133,7 +145,7 @@
   "climb": [
    1.85
   ],
-  "flameUntil": 164.5,
+  "flameUntil": 163.5,
   "firstFall": 71.43,
   "firstFallCause": "roof",
   "firstFallDrop": 1,
@@ -145,13 +157,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.056687314038296e-8
+  "ledger": -1.0557437132852066e-8
  },
  {
   "plan": "ashland-worker",
   "at": "wall:y-:6:0",
   "kind": "wall",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
   "room": 32.1,
   "roomLit": "185/185",
@@ -171,13 +185,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0614692735888553e-8
+  "ledger": -1.062219606717818e-8
  },
  {
   "plan": "ashland-worker",
   "at": "wall:y-:6:0:in",
   "kind": "wall-in",
   "floor": 0,
+  "struck": "clapboard",
+  "behindPorch": false,
   "fuels": 498,
   "room": 21.07,
   "roomLit": "185/185",
@@ -204,6 +220,8 @@
   "at": "room:0:parlor",
   "kind": "room",
   "floor": 0,
+  "struck": "furniture",
+  "behindPorch": false,
   "fuels": 498,
   "room": 17.17,
   "roomLit": "185/185",
@@ -228,6 +246,8 @@
   "at": "room:0:hall",
   "kind": "room",
   "floor": 0,
+  "struck": "furniture",
+  "behindPorch": false,
   "fuels": 498,
   "room": 7.53,
   "roomLit": "33/33",
@@ -252,10 +272,12 @@
   "at": "room:0:bed-a",
   "kind": "room",
   "floor": 0,
+  "struck": "furniture",
+  "behindPorch": false,
   "fuels": 498,
   "room": 8.97,
   "roomLit": "69/69",
-  "half": 42.97,
+  "half": 42.93,
   "climb": null,
   "flameUntil": 149.5,
   "firstFall": 71.33,
@@ -269,19 +291,21 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0826387786266878e-8
+  "ledger": -1.0829457330885361e-8
  },
  {
   "plan": "ashland-worker",
   "at": "room:0:kitchen",
   "kind": "room",
   "floor": 0,
+  "struck": "furniture",
+  "behindPorch": false,
   "fuels": 498,
   "room": 8.63,
   "roomLit": "133/133",
-  "half": 39.23,
+  "half": 39.2,
   "climb": null,
-  "flameUntil": 156,
+  "flameUntil": 155.5,
   "firstFall": 71.37,
   "firstFallCause": "roof",
   "firstFallDrop": 1,
@@ -293,15 +317,17 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0705431797985998e-8
+  "ledger": -1.0696677911481434e-8
  },
  {
   "plan": "ashland-worker",
   "at": "room:0:bed-b",
   "kind": "room",
   "floor": 0,
+  "struck": "furniture",
+  "behindPorch": false,
   "fuels": 498,
-  "room": 7.97,
+  "room": 7.9,
   "roomLit": "50/50",
   "half": 46.93,
   "climb": null,
@@ -317,13 +343,15 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.1923591336504558e-8
+  "ledger": -1.1926774567960763e-8
  },
  {
   "plan": "ashland-worker",
   "at": "room:0:pantry",
   "kind": "room",
   "floor": 0,
+  "struck": "furniture",
+  "behindPorch": false,
   "fuels": 498,
   "room": 3.4,
   "roomLit": "25/25",
@@ -341,6 +369,6 @@
   "fallToGround": null,
   "neverLit": 0,
   "embersShare": 0.1458,
-  "ledger": -1.0868649757966864e-8
+  "ledger": -1.0868536071129142e-8
  }
 ]

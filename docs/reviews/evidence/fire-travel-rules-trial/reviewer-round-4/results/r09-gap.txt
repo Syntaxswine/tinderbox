@@ -1,0 +1,29 @@
+(a) control: the author's kernel (no switch), Hopkins 15 pair, bare ground. trial.txt says 65.77 s, never, never
+  gap 0.5 m: neighbour 65.77 s
+  gap 1 m: neighbour never
+  gap 2 m: neighbour never
+(b) the author's kernel, gap 1 m, bare: how hot do the air tiles against B's facing wall get, and is the tile holding that wall ever awake?
+  hopkins-4-15    hottest air tile against B's wall 2.71 (clapboard chars above 1.1; ceiling 2.9); some such tile above 1.1 for 43.5 s in all, one tile continuously for 20.4 s (clapboard needs 1.83 s at the ceiling); the tiles holding B's facing wall awake for 0 s; B lit: never
+  hopkins-4-12    hottest air tile against B's wall 2.71 (clapboard chars above 1.1; ceiling 2.9); some such tile above 1.1 for 33.9 s in all, one tile continuously for 22.8 s (clapboard needs 1.83 s at the ceiling); the tiles holding B's facing wall awake for 0 s; B lit: never
+  hopkins-4-09    hottest air tile against B's wall 2.71 (clapboard chars above 1.1; ceiling 2.9); some such tile above 1.1 for 26.5 s in all, one tile continuously for 20.8 s (clapboard needs 1.83 s at the ceiling); the tiles holding B's facing wall awake for 0 s; B lit: never
+  hopkins-4-13    hottest air tile against B's wall 2.71 (clapboard chars above 1.1; ceiling 2.9); some such tile above 1.1 for 26 s in all, one tile continuously for 19.8 s (clapboard needs 1.83 s at the ceiling); the tiles holding B's facing wall awake for 0 s; B lit: never
+  ashland-worker  hottest air tile against B's wall 2.71 (clapboard chars above 1.1; ceiling 2.9); some such tile above 1.1 for 26.2 s in all, one tile continuously for 23.6 s (clapboard needs 1.83 s at the ceiling); the tiles holding B's facing wall awake for 0 s; B lit: never
+  monroe-row      hottest air tile against B's wall 2.71 (clapboard chars above 1.1; ceiling 2.9); some such tile above 1.1 for 48.5 s in all, one tile continuously for 27.9 s (clapboard needs 1.83 s at the ceiling); the tiles holding B's facing wall awake for 0 s; B lit: never
+(c) the same with wakeFacing (Rule 2 applied to a surface whose own tile is asleep)
+  hopkins-4-15    gap 1 m bare: B lit 69.63 s; tiles woken 124
+  hopkins-4-12    gap 1 m bare: B lit 62.9 s; tiles woken 115
+  hopkins-4-09    gap 1 m bare: B lit 57.6 s; tiles woken 106
+  hopkins-4-13    gap 1 m bare: B lit 54.3 s; tiles woken 67
+  ashland-worker  gap 1 m bare: B lit 59.77 s; tiles woken 31
+  monroe-row      gap 1 m bare: B lit 55.87 s; tiles woken 126
+  hopkins-4-15    gap 0.5 m bare: B lit 65.77 s
+  hopkins-4-15    gap 1 m bare: B lit 69.63 s
+  hopkins-4-15    gap 1.5 m bare: B lit never
+  hopkins-4-15    gap 2 m bare: B lit never
+(d) paved ground between (tiles exist all the way across), author's kernel then wakeFacing
+  hopkins-4-15    gap 1 m paved: author's kernel never (hottest air tile at B's wall 2.71); wakeFacing 69.63 s
+  hopkins-4-15    gap 1.5 m paved: author's kernel never (hottest air tile at B's wall 0); wakeFacing never
+  hopkins-4-15    gap 2 m paved: author's kernel never (hottest air tile at B's wall 0); wakeFacing never
+(e) author's kernel, bare ground: mixed plan pairs, a neighbour shifted 3 m along the wall, gaps 1 to 8 m
+  36 plan pairs x gaps 1 and 2 m: neighbour lit in 0 of 72
+  Hopkins 15 -> Hopkins 12, gaps 1, 1.5, 2, 3, 5, 8 m, shifts 0, +3, -3 m: done (any LIT lines are above)

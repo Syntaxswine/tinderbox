@@ -56,11 +56,12 @@ export function house(world, name, planId, ox, oy, contents = {}) {
   const onSegment = (segments, mx, mz) => segments?.some(([x0, z0, x1, z1]) =>
     Math.abs(x0 - x1) < 1e-6 ? Math.abs(mx - x0) < 1e-6 && mz > Math.min(z0, z1) && mz < Math.max(z0, z1)
       : Math.abs(mz - z0) < 1e-6 && mx > Math.min(x0, x1) && mx < Math.max(x0, x1));
-  // Outside openings, one list per floor, from the game's own edge list. A plan with party walls (the Monroe
-  // row) has no windows in its side walls, as in the game.
+  // Outside openings, one list per floor, from the game's own edge list. Every house here stands alone, so
+  // the Monroe row house keeps its side windows; the game drops them only where a neighbour is joined on.
+  // Windows on a diagonal wall are not built.
   const openings = p.floors.map(floor => {
     const edges = exteriorPlanEdges(floor).filter(e => e.a[0] === e.b[0] || e.a[1] === e.b[1]), seg = e => [e.a[0], e.a[1], e.b[0], e.b[1]];
-    return {windows: edges.filter(e => e.opening === 'window' && !(p.partyWalls && e.a[0] === e.b[0])).map(seg), entry: edges.filter(e => e.opening === 'entry').map(seg)};
+    return {windows: edges.filter(e => e.opening === 'window').map(seg), entry: edges.filter(e => e.opening === 'entry').map(seg)};
   });
   // Doors: for each connected pair of rooms, the shared face nearest the middle of their boundary.
   const doorFaces = new Set(), openPairs = new Set();

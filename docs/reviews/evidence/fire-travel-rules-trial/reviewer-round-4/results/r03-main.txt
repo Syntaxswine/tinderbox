@@ -1,0 +1,17 @@
+strikes 101: walls 24, walls-in 24, rooms 53 (ground 32, up 21)
+T3 houses: 26 of 31 on 17 walls; 1.53 to 3.45 median 3.32; below band: hopkins-4-15 wall:y-:10:0 [2.64,2.39] | hopkins-4-12 wall:y-:8:0 [2.14,2.14] | hopkins-4-13 wall:y-:8:0 [1.99,1.53]; above: 
+   walls with null or empty climb: hopkins-4-09 wall:x+:11:7 [] | hopkins-4-09 wall:y-:7:0 null | hopkins-4-13 wall:x+:13:12 [] | hopkins-4-13 wall:x-:0:4 null | hopkins-4-13 wall:y+:8:15 null | ashland-worker wall:x+:11:7 null | ashland-worker wall:x-:0:7 null
+T4 outside: 2 of 24; 15.87 to 41.47 median 27.6 | inside: 12 of 24; 3.83 to 28.93 median 17.58 | rooms: 28 of 53; 3.4 to 31.53 median 12.47; room never fully lit: 0
+T5 all: 68 of 101; 26.63 to 77 median 45.67 | outside 12 of 24 | inside 19 of 24 | ground rooms 24 of 32 | up rooms 13 of 21; below 40: 25, above 70: 8, null: 0
+   hopkins-4-15   15 of 18 median half 51.864999999999995  range 33.3 to 71.53 | T4 out 0 of 4 in 1 of 4
+   hopkins-4-12   12 of 16 median half 42.25  range 31.1 to 54 | T4 out 0 of 4 in 4 of 4
+   hopkins-4-09   12 of 18 median half 43.235  range 32.03 to 74.8 | T4 out 1 of 4 in 3 of 4
+   hopkins-4-13   11 of 17 median half 44.23  range 28.3 to 57.43 | T4 out 1 of 4 in 2 of 4
+   ashland-worker 6 of 14 median half 39.18  range 26.63 to 46.93 | T4 out 0 of 4 in 2 of 4
+   monroe-row     12 of 18 median half 51.3  range 37.17 to 77 | T4 out 0 of 4 in 0 of 4
+T6: 101 of 101; 131.5 to 235.5
+T7: 101 of 101; 69.57 to 78.3; first fall carried something: 0; drop 1 carrying nothing: 38; causes {"roof/1":38,"floor/2":61,"roof/3":2}
+T8: before a fall 0 of 21; low roof first 10 of 21; within 5 s 20 of 21; both within and not roof-first 11 of 21; lags 0 to 13.97; groundLit null 0; fallToGround null 0
+   what lit first on the ground: {"frame":15,"partition":1,"lacquer":4,"clapboard":1}
+never lit max 0; ledger worst 5.7e-8; embers share 0.1458 to 0.1485
+upstairsLit from ground strikes: 2.13 to 38.07 median 3.63
