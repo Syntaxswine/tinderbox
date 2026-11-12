@@ -92,7 +92,8 @@ export async function withReviewBrowser(run, {suffix='review',lifetimeMs=600_000
       ports:[server.address().port,Number(new URL(edge.wsEndpoint()).port)],
       startedAt:new Date(started).toISOString(),expiresAt:new Date(started+lifetimeMs).toISOString(),
       stopFile,stopMethod:'STOP file, deadline or driver finally',
-      restart:{cwd:root,executable:process.execPath,args:process.argv.slice(1),commit,baselineManifest:manifestHash,output}};
+      restart:{cwd:root,executable:process.execPath,args:process.argv.slice(1),commit,baselineManifest:manifestHash,output,
+        ...(process.env.TINDERBOX_PLAYWRIGHT_ROOT?{environment:{TINDERBOX_PLAYWRIGHT_ROOT:process.env.TINDERBOX_PLAYWRIGHT_ROOT}}:{})}};
     save('helper.json',record);watcher=setInterval(()=>{if(fs.existsSync(stopFile))void close();},300);
     console.log(JSON.stringify({output,commit,ports:record.ports}));
     browser=await chromium.connect(edge.wsEndpoint());
