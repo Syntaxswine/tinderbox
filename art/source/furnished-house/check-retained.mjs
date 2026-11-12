@@ -13,7 +13,7 @@ try{
  const samples=['fuel-a','fuel-b'].map((id,i)=>({id,sourceSurfaceId:source.id,originalSourceSurfaceId:source.id,...(i===0?{rubbleId:next.id}:{}),part:'contents',x:3.12,y:.366,z:4.12,nx:0,ny:1,nz:0,area:.0576,flame:.8,smoke:.3,ignitionTime:0,floorFootprint:footB}));
  a.update(frame(4,{boundaries:[{id:source.id,sourceSurfaceId:source.id,triangles:source.triangles,intact:false}],rubble:[next],tombstones:[{collection:'rubble',id:old.id},{collection:'falls',id:fly.id}],fireSamples:samples}),view);
  assert.equal(a.diagnostics().representedSamples,2);assert.equal(a.diagnostics().missingSamples,0);assert.equal(a.diagnostics().debris.residue,1);
- for(const e of a.inspect().emitters){assert.equal(e.rubbleId,next.id);assert.equal(e.supportOrigin,'landed');assert.ok(e.anchor[0]>=3&&e.anchor[0]<=3.24);assert.ok(e.supportRadius<=.121);}
+ for(const e of a.inspect().emitters){assert.equal(e.rubbleId,next.id);assert.equal(e.supportOrigin,'landed');assert.equal(e.sourceSurfaceId,null);assert.equal(e.originalSourceSurfaceId,source.id);assert.ok(e.anchor[0]>=3&&e.anchor[0]<=3.24);assert.ok(e.supportRadius<=.121);}
  pass('New landing ownership beats both old rubble tombstones and a retired roof provenance');
  assert.ok(a.inspect().emitters.every(e=>Number.isFinite(e.supportRadius)&&e.supportRadius<=.121));pass('Shared duplicated fuel footprints preserve the real outer boundary instead of inflating the flame envelope');
  const airborne={...fly,id:'active-again',position:[3.12,1.1,4.12]};a.update(frame(5,{falls:[airborne],fireSamples:[{...samples[0],fallId:airborne.id,y:1.1}]}),view);
