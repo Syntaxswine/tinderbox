@@ -2,11 +2,15 @@
 const key=p=>p.map(v=>Math.round(v*1e5)).join(',');
 function edgeList(triangles){const edges=new Map(),seen=new Set();for(const t of triangles){const triangleKey=t.map(key).sort().join('|');if(seen.has(triangleKey))continue;seen.add(triangleKey);for(let i=0;i<3;i++){const a=t[i],b=t[(i+1)%3],k=[key(a),key(b)].sort().join('|');if(edges.has(k))edges.delete(k);else edges.set(k,[a,b]);}}return [...edges.values()];}
 function distance(x,z,a,b){const dx=b[0]-a[0],dz=b[2]-a[2],den=dx*dx+dz*dz;if(den<1e-12)return Infinity;const t=Math.max(0,Math.min(1,((x-a[0])*dx+(z-a[2])*dz)/den));return Math.hypot(x-a[0]-t*dx,z-a[2]-t*dz);}
+export function surfaceSampleGroupKey(q){
+ if(!(q.flame>0)||!q.supportTriangles?.length||q.itemId||q.vent)return null;
+ const n=[q.nx,q.ny,q.nz],plane=n[0]*q.x+n[1]*q.y+n[2]*q.z,range=q.part==='walls'?[q.supportBounds.min[1],q.supportBounds.max[1]]:[];
+ return [q.part,q.presentationLevel,...n.map(v=>Math.round(v*1000)),Math.round(plane*1000),...range.map(v=>Math.round(v*1000))].join('/');
+}
 export function connectSurfaceSamples(samples){
  const groups=new Map();
  for(const q of samples){
-  if(!(q.flame>0)||!q.supportTriangles?.length||q.itemId||q.vent)continue;
-  const n=[q.nx,q.ny,q.nz],plane=n[0]*q.x+n[1]*q.y+n[2]*q.z,wall=q.part==='walls',range=wall?[q.supportBounds.min[1],q.supportBounds.max[1]]:[],id=[q.part,q.presentationLevel,...n.map(v=>Math.round(v*1000)),Math.round(plane*1000),...range.map(v=>Math.round(v*1000))].join('/');
+  const id=surfaceSampleGroupKey(q);if(id===null)continue;
   if(!groups.has(id))groups.set(id,[]);groups.get(id).push(q);
  }
  for(const [id,list]of groups){
