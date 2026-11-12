@@ -1,0 +1,1212 @@
+{
+  "task": "Furnished artist native WebGL QA",
+  "scope": "Controlled authored frames for geometry, shading and local retirement. Not a simulation replay.",
+  "gpu": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "errors": [],
+  "programResults": [
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    }
+  ],
+  "shaderResults": [
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    }
+  ],
+  "views": [
+    {
+      "name": "qa-exterior",
+      "mode": "exterior",
+      "level": 0,
+      "camera": [
+        20,
+        14,
+        -22
+      ],
+      "target": [
+        5,
+        2,
+        4
+      ],
+      "halfWidth": 11,
+      "actor": [
+        5.00375,
+        0.48,
+        -1.3
+      ],
+      "title": "Furnished Hopkins 15 | native structural composition",
+      "caption": "Artist WebGL fixture. Actual exported geometry and native goat. Six unchanged entry blocks; source roof union and composed route.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 0,
+        "revision": 0,
+        "view": "exterior",
+        "level": 0,
+        "sourceSurfaces": 2532,
+        "physicalPatches": 3747,
+        "retiredPatches": 0,
+        "sourceMeshes": 865,
+        "batches": 64,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "emitterBatches": 0,
+        "fire": [],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 65,
+          "materials": 86,
+          "textures": 6
+        },
+        "resetCount": 2,
+        "revisionCount": 1,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 2629
+      },
+      "renderer": {
+        "calls": 73,
+        "triangles": 63193
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            5.00375,
+            0.48,
+            -1.3
+          ],
+          "support": [
+            5.273112895698104,
+            1.212,
+            -1.5573667236088076
+          ],
+          "muzzle": [
+            5.179266512378074,
+            0.51,
+            -1.2041148922791594
+          ],
+          "spout": [
+            5.00375,
+            0.48,
+            -1.3
+          ],
+          "backpack": [
+            4.981810435952741,
+            1.56,
+            -1.3119856384651052
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 5.00375,
+          "y": -1.3,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 0,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              5.00375,
+              0.48,
+              -1.3
+            ],
+            "palm": [
+              4.93272076328912,
+              1.212,
+              -0.9342831046666427
+            ],
+            "error": 0.8213513255605059
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
+    },
+    {
+      "name": "qa-kitchen-cutaway",
+      "mode": "cutaway",
+      "level": 0,
+      "camera": [
+        -12,
+        17,
+        22
+      ],
+      "target": [
+        4.5,
+        0.9,
+        4.5
+      ],
+      "halfWidth": 8.7,
+      "actor": [
+        4.35,
+        0.48,
+        5.75
+      ],
+      "title": "Kitchen and stair alcove | physical source QA",
+      "caption": "Controlled artist frame tests the accepted flame at its actual siding support. This image does not establish simulation timing.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 10,
+        "revision": 1,
+        "view": "cutaway",
+        "level": 0,
+        "sourceSurfaces": 2532,
+        "physicalPatches": 3747,
+        "retiredPatches": 0,
+        "sourceMeshes": 865,
+        "batches": 64,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "occupancy": 0,
+        "fireSamples": 1,
+        "representedSamples": 1,
+        "missingSamples": 0,
+        "emitterBatches": 1,
+        "fire": [
+          {
+            "activeCells": 1,
+            "flameSplats": 2,
+            "smokeSplats": 2,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 1,
+          "candidates": 1,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": [
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                -1.2734841860144752,
+                1.37,
+                6.25
+              ],
+              "intensity": 8.881279318242871,
+              "reach": 7.629269733969842
+            }
+          ]
+        },
+        "actualLights": [
+          {
+            "position": [
+              -1.2734841860144752,
+              1.37,
+              6.25
+            ],
+            "intensity": 8.881279318242871,
+            "reach": 7.629269733969842
+          }
+        ],
+        "resources": {
+          "geometries": 65,
+          "materials": 86,
+          "textures": 6
+        },
+        "resetCount": 3,
+        "revisionCount": 2,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 2629
+      },
+      "renderer": {
+        "calls": 74,
+        "triangles": 63201
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            4.35,
+            0.48,
+            5.75
+          ],
+          "support": [
+            4.619362895698104,
+            1.212,
+            5.492633276391193
+          ],
+          "muzzle": [
+            4.525516512378074,
+            0.51,
+            5.84588510772084
+          ],
+          "spout": [
+            4.35,
+            0.48,
+            5.75
+          ],
+          "backpack": [
+            4.32806043595274,
+            1.56,
+            5.738014361534895
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 4.35,
+          "y": 5.75,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 10,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              4.35,
+              0.48,
+              5.75
+            ],
+            "palm": [
+              4.278970763289119,
+              1.212,
+              6.115716895333357
+            ],
+            "error": 0.8213513255605056
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
+    },
+    {
+      "name": "qa-local-retirement",
+      "mode": "cutaway",
+      "level": 0,
+      "camera": [
+        -12,
+        17,
+        22
+      ],
+      "target": [
+        4.5,
+        0.9,
+        4.5
+      ],
+      "halfWidth": 8.7,
+      "actor": [
+        4.35,
+        0.48,
+        5.75
+      ],
+      "title": "Local floor retirement | one support and its shadow",
+      "caption": "Controlled mask proof: one lower wood patch removed. Upper floor and roof retain their own physical state; no vertical-column clearing.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 20,
+        "revision": 2,
+        "view": "cutaway",
+        "level": 0,
+        "sourceSurfaces": 2532,
+        "physicalPatches": 3747,
+        "retiredPatches": 1,
+        "sourceMeshes": 865,
+        "batches": 64,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "emitterBatches": 1,
+        "fire": [
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 65,
+          "materials": 86,
+          "textures": 6
+        },
+        "resetCount": 4,
+        "revisionCount": 3,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 2629
+      },
+      "renderer": {
+        "calls": 73,
+        "triangles": 63193
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            4.35,
+            0.48,
+            5.75
+          ],
+          "support": [
+            4.619362895698104,
+            1.212,
+            5.492633276391193
+          ],
+          "muzzle": [
+            4.525516512378074,
+            0.51,
+            5.84588510772084
+          ],
+          "spout": [
+            4.35,
+            0.48,
+            5.75
+          ],
+          "backpack": [
+            4.32806043595274,
+            1.56,
+            5.738014361534895
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 4.35,
+          "y": 5.75,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 20,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              4.35,
+              0.48,
+              5.75
+            ],
+            "palm": [
+              4.278970763289119,
+              1.212,
+              6.115716895333357
+            ],
+            "error": 0.8213513255605056
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
+    },
+    {
+      "name": "qa-flame-body",
+      "mode": "cutaway",
+      "level": 0,
+      "camera": [
+        20,
+        14,
+        -13
+      ],
+      "target": [
+        5,
+        1,
+        5
+      ],
+      "halfWidth": 10.1,
+      "actor": [
+        5.00375,
+        0.48,
+        -1.3
+      ],
+      "title": "Low connected flame body | controlled dense support",
+      "caption": "All supplied samples remain accounted. Adjacent lit support overlaps; small folds replace repeated tall needles. Not a simulation trace.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 120,
+        "revision": 3,
+        "view": "cutaway",
+        "level": 0,
+        "sourceSurfaces": 2532,
+        "physicalPatches": 3747,
+        "retiredPatches": 0,
+        "sourceMeshes": 865,
+        "batches": 64,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "occupancy": 0,
+        "fireSamples": 628,
+        "representedSamples": 628,
+        "missingSamples": 0,
+        "emitterBatches": 7,
+        "fire": [
+          {
+            "activeCells": 80,
+            "flameSplats": 310,
+            "smokeSplats": 156,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 324,
+            "smokeSplats": 155,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 316,
+            "smokeSplats": 155,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 326,
+            "smokeSplats": 159,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 310,
+            "smokeSplats": 155,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 80,
+            "flameSplats": 232,
+            "smokeSplats": 157,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 24,
+            "flameSplats": 76,
+            "smokeSplats": 45,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 628,
+          "candidates": 45,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": [
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.4962500000000003,
+                1.8400000000000003,
+                -1.772988292278738
+              ],
+              "intensity": 29.447432629953067,
+              "reach": 15.180896629898754
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                6.51715819022457,
+                1.855852047556143,
+                -1.7533411577764753
+              ],
+              "intensity": 26.932795055316504,
+              "reach": 15.087338846554644
+            },
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                3.9999999999999996,
+                2.2722141080312506,
+                1.2499999999999996
+              ],
+              "intensity": 48.03756065461265,
+              "reach": 16
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                4.134147818620292,
+                1.8400000000000003,
+                1.2500000000000004
+              ],
+              "intensity": 35.5982051856671,
+              "reach": 15.62310562561766
+            },
+            {
+              "kind": "floor",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                6.749999999999997,
+                2.208416973153734,
+                1.2499999999999998
+              ],
+              "intensity": 41.110200370150245,
+              "reach": 16
+            },
+            {
+              "kind": "walls",
+              "buildingId": "furnished-hopkins15",
+              "position": [
+                2.2087986981810506,
+                1.8745808383233533,
+                1.052395209580838
+              ],
+              "intensity": 29.80820499598996,
+              "reach": 15.267625246756902
+            }
+          ]
+        },
+        "actualLights": [
+          {
+            "position": [
+              3.4962500000000003,
+              1.8400000000000003,
+              -1.772988292278738
+            ],
+            "intensity": 29.447432629953067,
+            "reach": 15.180896629898754
+          },
+          {
+            "position": [
+              6.51715819022457,
+              1.855852047556143,
+              -1.7533411577764753
+            ],
+            "intensity": 26.932795055316504,
+            "reach": 15.087338846554644
+          },
+          {
+            "position": [
+              3.9999999999999996,
+              2.2722141080312506,
+              1.2499999999999996
+            ],
+            "intensity": 48.03756065461265,
+            "reach": 16
+          },
+          {
+            "position": [
+              4.134147818620292,
+              1.8400000000000003,
+              1.2500000000000004
+            ],
+            "intensity": 35.5982051856671,
+            "reach": 15.62310562561766
+          },
+          {
+            "position": [
+              6.749999999999997,
+              2.208416973153734,
+              1.2499999999999998
+            ],
+            "intensity": 41.110200370150245,
+            "reach": 16
+          },
+          {
+            "position": [
+              2.2087986981810506,
+              1.8745808383233533,
+              1.052395209580838
+            ],
+            "intensity": 29.80820499598996,
+            "reach": 15.267625246756902
+          }
+        ],
+        "resources": {
+          "geometries": 65,
+          "materials": 86,
+          "textures": 6
+        },
+        "resetCount": 5,
+        "revisionCount": 4,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 2629
+      },
+      "renderer": {
+        "calls": 80,
+        "triangles": 68945
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            5.00375,
+            0.48,
+            -1.3
+          ],
+          "support": [
+            5.273112895698104,
+            1.212,
+            -1.5573667236088076
+          ],
+          "muzzle": [
+            5.179266512378074,
+            0.51,
+            -1.2041148922791594
+          ],
+          "spout": [
+            5.00375,
+            0.48,
+            -1.3
+          ],
+          "backpack": [
+            4.981810435952741,
+            1.56,
+            -1.3119856384651052
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 5.00375,
+          "y": -1.3,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 120,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              5.00375,
+              0.48,
+              -1.3
+            ],
+            "palm": [
+              4.93272076328912,
+              1.212,
+              -0.9342831046666427
+            ],
+            "error": 0.8213513255605059
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
+    },
+    {
+      "name": "qa-preheat-smoke",
+      "mode": "cutaway",
+      "level": 0,
+      "camera": [
+        -12,
+        12,
+        17
+      ],
+      "target": [
+        3,
+        1,
+        6
+      ],
+      "halfWidth": 7,
+      "actor": [
+        4.35,
+        0.48,
+        5.75
+      ],
+      "title": "Unlit siding | authoritative preheat smoke",
+      "caption": "Zero flame and zero firelight. Neutral smoke consumes supplied heating/cooling state; no renderer-derived ignition.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 2,
+        "revision": 4,
+        "view": "cutaway",
+        "level": 0,
+        "sourceSurfaces": 2532,
+        "physicalPatches": 3747,
+        "retiredPatches": 0,
+        "sourceMeshes": 865,
+        "batches": 64,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "occupancy": 0,
+        "fireSamples": 1,
+        "representedSamples": 1,
+        "missingSamples": 0,
+        "emitterBatches": 7,
+        "fire": [
+          {
+            "activeCells": 1,
+            "flameSplats": 0,
+            "smokeSplats": 2,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 65,
+          "materials": 86,
+          "textures": 6
+        },
+        "resetCount": 6,
+        "revisionCount": 5,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 2629
+      },
+      "renderer": {
+        "calls": 72,
+        "triangles": 62301
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            4.35,
+            0.48,
+            5.75
+          ],
+          "support": [
+            4.619362895698104,
+            1.212,
+            5.492633276391193
+          ],
+          "muzzle": [
+            4.525516512378074,
+            0.51,
+            5.84588510772084
+          ],
+          "spout": [
+            4.35,
+            0.48,
+            5.75
+          ],
+          "backpack": [
+            4.32806043595274,
+            1.56,
+            5.738014361534895
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 4.35,
+          "y": 5.75,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 2,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              4.35,
+              0.48,
+              5.75
+            ],
+            "palm": [
+              4.278970763289119,
+              1.212,
+              6.115716895333357
+            ],
+            "error": 0.8213513255605056
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
+    }
+  ],
+  "inputData": {
+    "path": "workbenches/furnished-house/house-data.json",
+    "sha256": "6eff26279aedcc339c625441960001835853652d4b5ef78a103abefb10c408b9"
+  },
+  "reviewScriptSha256": "7de1376352fe6f1a722a38fb811660805d460d19ad40253a3c48f2d71703b7be",
+  "jpgs": [
+    {
+      "path": "docs/art/furnished-house/previews/qa-exterior.jpg",
+      "bytes": 194337,
+      "sha256": "a36ccf10aed4288b3cd8b5164776350c1f767a120bafba300079e5752e1f5557"
+    },
+    {
+      "path": "docs/art/furnished-house/previews/qa-kitchen-cutaway.jpg",
+      "bytes": 268241,
+      "sha256": "d68f2601fae07bcb01c3427c062695b7721dfeca01d774b21b5934fc68ae80e0"
+    },
+    {
+      "path": "docs/art/furnished-house/previews/qa-local-retirement.jpg",
+      "bytes": 258488,
+      "sha256": "5362d3ecc885df6fe538c99227353fb7dbdc411062423d8e67e066e75445064f"
+    },
+    {
+      "path": "docs/art/furnished-house/previews/qa-flame-body.jpg",
+      "bytes": 259469,
+      "sha256": "1dbaa87f75d1ed4a2cfd053bffe1552bd9f0f33735252bdc8b5b83c4e0750898"
+    },
+    {
+      "path": "docs/art/furnished-house/previews/qa-preheat-smoke.jpg",
+      "bytes": 308574,
+      "sha256": "97e480e81d3426189349c16e35f707a91ac6a5d1f25c5776ec59c0125a9c2762"
+    }
+  ]
+}

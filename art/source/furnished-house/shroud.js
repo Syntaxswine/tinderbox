@@ -35,8 +35,9 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
   const hot = new T.Color(0xffc65a).multiplyScalar(2.55);
   const faceHeat = new T.Color(0xffb044).multiplyScalar(2.25);
   const tip = new T.Color(0xff691b).multiplyScalar(1.95);
-  const soot = new T.Color(0x231c19);
-  const roofSoot = new T.Color(0x191614);
+  const soot = new T.Color(0x625c50);
+  const preheatSoot = new T.Color(0x8c887a);
+  const roofSoot = new T.Color(0x514d44);
   let activeCells = 0;
   let disposed = false;
   let supportCell = null;
@@ -61,6 +62,16 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
         x+=tx*along*(fit-1);z+=tz*along*(fit-1);sx*=fit;sz*=fit;leanX*=fit;leanZ*=fit;
       }
     }
+    if(!smoke&&supportCell?.part==='walls'&&supportCell.supportBounds){
+      const lo=supportCell.supportBounds.min[1]+.012,hi=Math.min(supportCell.supportBounds.max[1]+.16,supportCell.cutawayTopY??Infinity);
+      if(y<=lo||y>=hi)return;
+      const fit=Math.min(1,Math.min(y-lo,hi-y)/(2.6*Math.hypot(sy,sx*Math.hypot(leanX,leanZ))));sy*=fit;
+    }
+    // Ceiling-side combustion cannot manufacture flame/smoke above an intact slab.
+    if (supportCell?.part === 'ceiling') {
+      const ceiling=supportCell.y-.012,extent=2.6*Math.hypot(sx,sy,sz);
+      y=Math.min(y,ceiling-extent);
+    }
     const item = pool[splats.length];
     item.x = x;
     item.y = y;
@@ -74,6 +85,9 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
     item.color = color;
     item.alpha = alpha;
     item.smoke = smoke;
+    item.sourceId=supportCell?.id;
+    item.supportY=supportCell?.y;
+    item.part=supportCell?.part;
     splats.push(item);
   }
 
@@ -95,7 +109,39 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
       sx, sy, sz, leanX, leanZ, heading, color, alpha);
   }
 
+  // Same accepted soft Gaussian body, composed as a low connected flame with
+  // sparse head-sized folds. The thermal subdivision is never drawn as a tall icon.
+  function houseFlames(cell,age,phase,heat,sampleWind){
+    const wall=cell.part==='walls',roof=cell.part==='roof',ceiling=cell.part==='ceiling';
+    const h=Math.hypot(cell.nx,cell.nz),tx=h>1e-5?cell.nz/h:1,tz=h>1e-5?-cell.nx/h:0,heading=Math.atan2(tz,tx),angle=phase*TAU,wave=age*(6.3+phase*2.1)+angle;
+    const air=airAt(sampleWind,cell.x+cell.nx*windOffset,cell.y+cell.ny*windOffset,cell.z+cell.nz*windOffset),pressure=air[0]*cell.nx+air[2]*cell.nz;
+    const held=.17*Math.max(0,pressure)-pressure,leanX=clamp((air[0]+held*cell.nx)*.22,-.26,.26),leanZ=clamp((air[2]+held*cell.nz)*.22,-.26,.26);
+    const strength=heat*(.74+.10*Math.sin(wave*.83)),size=.75+.25*Math.sqrt(heat);
+    const pitch=roof&&h>.05?cell.ny/h:0,upX=roof?-cell.nx/(h||1)*pitch:0,upZ=roof?-cell.nz/(h||1)*pitch:0;
+    if(wall){
+      const b=cell.supportBounds,span=b?Math.max(.10,b.max[1]-b.min[1]):.55;
+      for(let i=0;i<3;i++){
+        const rise=(i-1)*span*.31+.025*Math.sin(wave+i*2.1),along=.055*Math.sin(angle+i*2.8);
+        onFace(cell,tx,tz,heading,along,rise,.061,.245*size,.15*size,.028,leanX*.12,leanZ*.12,i===1?amber:faceHeat,strength*.67);
+      }
+    }else{
+      // Overlap adjacent live support polygons; no lobe can cross the active union.
+      for(let i=0;i<3;i++){
+        const a=angle+i*TAU/3,along=.075*Math.cos(a),across=.055*Math.sin(a);
+        const x=cell.x+tx*along-(tz)*across,z=cell.z+tz*along+tx*across,y=cell.y+(roof?(-cell.nx/(cell.ny||1))*(x-cell.x)+(-cell.nz/(cell.ny||1))*(z-cell.z):0);
+        splat(x+cell.nx*.045,y+(ceiling?-.06:.055)+cell.ny*.025,z+cell.nz*.045,.235*size,.045*size,roof?.045:.215*size,upX||leanX*.12,upZ||leanZ*.12,heading,amber,strength*.36);
+      }
+    }
+    // Detailed tongues are sparse; all sources still contribute their lower body.
+    if(phase<.46||cell.vent){
+      const ripple=Math.sin(wave*1.13),along=.09*Math.cos(angle),rise=wall?.12+.06*ripple:.10+.035*ripple;
+      onFace(cell,tx,tz,heading+.2*ripple,along,rise,.069,.033*size,.033*size,.022,leanX,leanZ,hot,heat*(.57+.08*ripple));
+      onFace(cell,tx,tz,heading-.16*ripple,along+.023*ripple,rise+.075,.072,.021*size,.025*size,.015,leanX+tx*.11*ripple,leanZ+tz*.11*ripple,tip,heat*.47);
+    }
+  }
+
   function flames(cell, age, phase, heat, sampleWind) {
+    if(house){houseFlames(cell,age,phase,heat,sampleWind);return;}
     const {x, y, z, nx, ny, nz} = cell;
     const roof = house && cell.part === 'roof';
     const top = house ? cell.part !== 'walls' : ny > .5;
@@ -185,8 +231,8 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
     const {x, y, z, nx, ny, nz} = cell;
     const large = house && cell.part !== 'ground';
     const roof = house && cell.part === 'roof';
-    const plumeScale = roof ? 1.76 : (large ? 1.62 : 1);
-    const wallTop = house ? (cell.part === 'walls' ? 4.12 : 0) : 2;
+    const plumeScale = cell.preheat ? .84 : roof ? 1.45 : (large ? 1.28 : 1);
+    const wallTop = house ? (cell.part === 'walls' ? (cell.wallTopY??cell.supportBounds?.max[1]??y) : 0) : 2;
     for (let puff = 0; puff < 2; puff += 1) {
       const cycle = age / SOOT_LIFETIME + phase + puff * .5;
       const life = cycle - Math.floor(cycle);
@@ -198,8 +244,8 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
         y + (house ? ny * windOffset : 0) + .32 + seconds * .43, z + nz * windOffset);
       // Restrict inward motion while the plume is still climbing the face.
       const pressure = air[0] * nx + air[2] * nz;
-      const lift = (roof ? 1.28 : (large ? 1.05 : .82)) + clamp(air[1] * .43, -.19, .37);
-      const altitude = y + .23 + ny * .085 + lift * seconds;
+      const lift = (cell.preheat ? .38 : roof ? 1.08 : (large ? .87 : .70)) + clamp(air[1] * .43, -.19, .37);
+      const altitude = y + (cell.preheat?.06:.16) + ny * .085 + lift * seconds;
       const hold = altitude < wallTop ? Math.min(0, pressure) : 0;
       const dx = clamp(air[0] - nx * hold, -1.25, 1.25);
       const dz = clamp(air[2] - nz * hold, -1.25, 1.25);
@@ -210,7 +256,7 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
         altitude,
         z + nz * offset + dz * seconds + Math.sin(eddy) * spread,
         (.086 + .174 * life) * plumeScale, (.122 + .174 * life) * plumeScale, (.080 + .163 * life) * plumeScale,
-        dx * .42, dz * .42, eddy, roof ? roofSoot : soot, strength * (roof ? .65 : .49) * fade, true);
+        dx * .42, dz * .42, eddy, cell.preheat ? preheatSoot : roof ? roofSoot : soot, strength * (cell.preheat ? .72 : roof ? .63 : .59) * fade, true);
     }
   }
 
@@ -248,5 +294,5 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
     batch.dispose();
   }
 
-  return {root, update, stats, dispose};
+  return {root, update, stats, dispose,inspect(){return splats.map(s=>({sourceId:s.sourceId,part:s.part,smoke:s.smoke,position:[s.x,s.y,s.z],sigma:[s.sx,s.sy,s.sz],lean:[s.leanX,s.leanZ],alpha:s.alpha,supportY:s.supportY}));}};
 }
