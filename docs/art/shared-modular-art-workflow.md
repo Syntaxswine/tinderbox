@@ -1,6 +1,6 @@
 # Shared modular art workflow
 
-Version 1 · 12 November 2026
+Version 2 · 12 November 2026
 
 This is the shared production guide for artists creating characters, props,
 architecture, environments and visual effects for games using Nautilus Engine.
@@ -38,6 +38,12 @@ Reuse the engine's established origin, axis and attachment conventions. On reuse
 characters, preserve native proportions, skeletons, bind poses, UVs and equipment
 attachments.
 Characters and small props retain their authored size within the shared world.
+Record whether a level label is one-based or zero-based, its base elevation, and
+its top walking-surface elevation. A layer number, a cell height and underside
+clearance describe different measurements. Check openings and headroom with the
+actual posed characters and carried equipment, including the largest intended
+variant. Use a native character and an established prop or vehicle as scale
+references; do not infer scale from an isolated render.
 
 Compose modules to make larger structures. When a project needs a different form,
 create a clearly versioned variant and preserve the reusable source. Retain valuable
@@ -64,6 +70,13 @@ Review a family in representative assembled arrangements, including repetition,
 turns, transitions and exposed ends. Where procedural generation is intended, check
 varied generated arrangements with the engine builder. Artist metadata describes
 valid combinations; the engine implements placement and behavior.
+
+Declare visual bounds, occupied cells and physical obstruction separately. A broad
+foundation does not make every tile above it impassable. Keep movement, sight,
+projectile cover and any fuel/damage surfaces distinct in the handoff; foliage may
+hide a character while substantial wood provides bullet cover. Show the intended
+boundaries with and without debug overlays at gameplay size. Clear routes should
+look usable, and blocked spaces should visibly explain their obstruction.
 
 ## Main character and resource priorities
 
@@ -106,7 +119,10 @@ triangles so comparisons remain clear.
 
 Plan relevant alternate states early, such as wear, damage, seasonal changes,
 breakage or destruction. Coordinate their dimensions and behavior with the engine
-builder.
+builder. Separate confirmed requirements, provisional choices and unresolved
+questions. Record a measurable target for consequential details: a clear opening,
+shared seat height, movement distance, contact point or duration is more useful
+than an adjective alone.
 
 ### Establish a traditional 2D design
 
@@ -117,14 +133,19 @@ modular pieces.
 
 Choose a finished painting reference as well as a shape reference. Show the intended
 brushwork, folds, seams, material transitions and wear. Review the design at the size
-it will occupy in the game.
+it will occupy in the game. For complex motion or destruction, sketch the key
+poses or states first. Show where weight rests, what moves, and which components
+remain. Settle that sequence with a cheap study before adding detailed effects.
 
 ### Build the working model
 
 Sculpt or model the forms needed to realize the approved design. The AFT3D character
 workflow provides a useful reference: a traditional 2D design, a working model around
-30,000 polygons, then a simplified model around 5,000–10,000 polygons with much of the detail
-carried by painting.
+30,000 **triangles**, then a simplified model around 5,000–10,000 **triangles**
+with much of the detail carried by painting. These are triangle counts, not an
+interchangeable count of quads or modeling faces. For example, the [AFT bear](../milestones/03-shared-bear-protagonist.md) used
+27,298 author triangles and 10,050 runtime body triangles; its separate cap added
+700. Count the complete visible assembly as well as its individual parts.
 
 Those approximate counts guide comparable character work. A crate may use a painted
 cube, and an asset serving as the main character may justify greater complexity.
@@ -143,13 +164,37 @@ dimensions fixed through the reduction.
 For animated assets, fit the shared rig and test the poses and actions the game uses
 before final painting. Check deformation, foot contact, hand grips, attachments and
 the movement envelope. For modular assets, test connections, rotations and repeat
-boundaries.
+boundaries. Verify normals, intentional open versus closed surfaces, normalized
+skin weights and the reduced mesh's correspondence to its source where relevant.
+
+For character motion, inspect the support and weight transfer in side views and
+at key pauses: which hand, foot, knee, belly or hip carries the load, and when that
+support releases. In supported transfers, move the body's weight onto the next
+support before removing the previous one. Intentional airborne phases need a
+believable takeoff, trajectory and landing. Include carried mass and native limb
+lengths. Check the visible
+body and equipment surfaces, not only joint centers; collision proxies need
+species-appropriate thickness. Diagnostic warnings expose problems but do not
+prove a pose looks balanced. Hand-keyed motion and simple contact diagnostics may
+be sufficient; a full physics engine is optional.
+
+Test the largest and smallest body types and the most awkward equipment early.
+Fit one representative action, then exercise the required species, outfits,
+equipment and states. Shared rigs do not guarantee identical reach, stock/arm
+placement, ear or horn clearance, cloth deformation, or foot orientation. Repeated
+seeking, replay and cancellation should restore the same native pose and equipment
+without accumulating offsets or mutating another instance's shared resources.
 
 ### Prepare mapping and paint the skins
 
 For new assets, establish suitable UVs or a stable paint projection setup, consistent
 texture density, seam placement and sufficient padding between texture regions.
-For reused assets, preserve the native mapping contract.
+For reused assets, preserve the native mapping contract. With projection painting,
+render exact neutral registration views from the actual model. Preserve camera
+framing, view order, image proportions and bind-space coordinates when generating
+or editing the painting. A concept turnaround establishes the design; an exact
+model turnaround registers the skin. An image-generation edit should change the
+requested surface treatment while retaining that registration and identity.
 
 Transfer useful form information from the working model where it helps. Baking,
 projection painting and direct texture painting are available techniques; choose a
@@ -165,6 +210,14 @@ benefit and scene cost. Share compatible textures and materials across variants.
 Check the painting under the game's relevant lighting conditions while preserving
 the approved painterly finish.
 
+Review the back, underside and interior-facing surfaces, along with underarms,
+cuffs, seams, joints and attachment rims exposed by movement. Avoid duplicated
+features such as competing eye projections or a painted copy of a moved tail.
+Where useful, provide a coverage view that distinguishes direct mapping, reused
+paint and fallback material. A covered surface is not necessarily a well-painted
+one. Keep registration coordinates separate from later fitted geometry when the
+existing projection contract requires it.
+
 ### Review one finished example in the engine
 
 Complete one representative asset before expanding its family. Show its texture
@@ -178,16 +231,59 @@ interaction with the surroundings. Check modular pieces in assembled arrangement
 Use the project's existing review process to settle the representative example,
 then expand the family with the same quality and interface rules.
 
+Keep comparison captures reproducible: record the source revision, camera,
+lighting, scale, pose/time, equipment, relevant toggles and procedural seed.
+Compare revisions under matching conditions and retain useful earlier controls.
+Change the form or timing when the problem is structural; an extra texture or
+larger effect will not repair the wrong silhouette or an unsupported movement.
+Passing numeric tests and visual acceptance answer different questions.
+
+### Review landscapes and procedural fills
+
+For repeated scenery, review a representative large fill as well as an isolated
+module. Check close, gameplay and overview scales, tile grid on and off, multiple
+seeds, edge conditions and the expected density extremes. Define what each control
+means: occupied-area density and the ratio of trees to brush are separate choices.
+
+Compose broad clusters, quieter areas, varied heights and small breathing spaces.
+Variation should form a coherent landscape across tile and chunk boundaries;
+randomly choosing among obvious repeating stamps is not sufficient by itself.
+Paint can carry litter, branches and other low relief details across several tiles.
+Soften surface transitions with color and sparse dressing while keeping walkable
+boundaries exact. Keep substantial obstacles out of routes, and give pockets within
+blocked growth visible surrounding structure that explains the intended blockage.
+
+### Review damage and destruction
+
+For assets with damage or destruction, keep unchanged foundations, pivots and
+connections aligned between states. Design the structural transition before
+obscuring it with smoke or flashes. Where fragments or dropped equipment must
+remain visible, show their travel and ground contact before fading them. Specify
+which debris, scorch or stain persists, its lifetime and supporting surface, and
+which state changes belong to the engine. Keep ground dressing separately placeable
+where it needs to blend with different local terrain.
+
 ### Measure cost and prepare runtime variants
 
 Measure the asset in representative scenes on the target hardware and resolution.
 Record rendered triangles, meshes and material use, texture memory, animation cost
 and relevant rendering time. Include the expected number of simultaneous instances.
+Distinguish per-asset mesh counts from triangles actually submitted by the scene,
+including shadows, caps, equipment, transparent effects and other relevant passes.
+Measure texture storage and transient loading memory as well as draw calls.
 
 Where distance or scene density justifies it, provide lower detail variants,
 appropriate texture filtering and other optimizations. Compare optimized output
 with the accepted visual reference at matching camera settings. Preserve the source
 quality and the features that make the asset important.
+
+Large procedural fills need spatial chunks that can be culled independently;
+one sector-wide batch can still submit the whole landscape when the camera sees
+one corridor. Test nearby versus distant detail and shadow coverage in motion.
+Fewer draw calls or triangles do not alone establish a frame-rate improvement,
+and a viewer that redraws only on interaction is not a live-game performance test.
+Keep resource ownership explicit and check repeated load, replace and unload cycles
+for bounded geometry, texture and helper use.
 
 ### Package the shared asset
 
@@ -199,12 +295,26 @@ stable source records.
 Deliver stable identifiers, a version, dependencies, dimensions, origins, modular
 connections, rotation rules, material assignments and relevant states. Record source
 revisions, original paths, hashes, existing licenses and adaptations for reused
-material.
+material. Keep unresolved rights or unavailable source records explicit.
 
 Keep shared sources distinct from game-specific skins, placements and adapters.
 Deliver assets that resolve entirely within their destination project or package.
 A successful game's additions should be available for deliberate reuse by later
 games through the shared library.
+
+Open the exported asset from the destination package with donor checkouts and
+authoring-only paths unavailable. Verify the dependency closure and intended engine
+behavior; a correct source viewer does not establish that the packaged game loads
+the same asset. Where deterministic capture is feasible, compare source and package
+renders at the same settings. Include concise reproduction commands and tool
+versions rather than relying on an expiring preview link.
+
+Label delivery status precisely: source asset, motion study, runtime export,
+gameplay integration and approved promotion may be different milestones. Record
+which actions, variants, collision checks and performance conditions were actually
+verified, and carry unresolved failures or untested cases beside the affected
+feature. Visual documentation should not imply that the engine builder has wired
+unimplemented behavior.
 
 ## Asset brief template
 
@@ -217,11 +327,13 @@ Complete these fields to the level the asset requires:
 | Shared basis | Existing asset, rig, component or material to reuse |
 | Dimensions | Meters, occupied cells, level span, pivot and orientation |
 | Assembly | Connections, neighbors, transitions, rotations and variations |
-| Motion and states | Required actions, attachments, clearances and alternate states |
+| Motion and states | Required actions, support/contact sequence, attachments, clearances and alternate states |
+| Physical meaning | Movement, sight, projectile cover and relevant fuel/damage surfaces, each distinguished from visual bounds |
 | Expected use | Camera, screen size, instance count and target scene |
 | Resources | Geometry count and unit, textures, materials and runtime allowance |
 | Main character role | Whether it is central to the game or story and the attention or resources that role warrants |
-| Review evidence | Texture sheet, model views, game captures and motion evidence |
+| Review evidence | Texture sheet, model views, game captures, motion evidence and reproducible capture settings |
+| Verification scope | Tested variants/actions, destination package, performance conditions, status and known limitations |
 | Delivery | Editable sources, exports, metadata, provenance and dependencies |
 
 ## Completion criteria
@@ -234,4 +346,7 @@ demonstrate their required movement and attachments.
 The handoff includes editable sources, self-contained exports, provenance, actual
 runtime evidence and appropriate cost measurements. Record remaining limitations
 beside the affected feature and follow the receiving project's review and promotion
-process.
+process. Match the evidence to the brief: simple assets need proportionate checks,
+while a reusable animated or procedural family needs representative coverage. The
+workflow supports craft judgment without turning one character's production steps
+into mandatory overhead for every prop.
