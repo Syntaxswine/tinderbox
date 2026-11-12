@@ -2,7 +2,7 @@ import {bounds,centre,triangleArea,clipTriangle,unit,cross,sub,createBoundaryInd
 
 export const CELL=[.5,1.06,.5], STEP=1/30;
 export const DEFAULT_PROFILES=Object.freeze({
-  grass:{threshold:.85,delay:.18,seconds:3,energy:160},
+  grass:{threshold:.85,delay:.18,seconds:3,energy:110},
   oil:{threshold:.6,delay:0,seconds:14,energy:800},
   clapboard:{threshold:1.1,delay:5,seconds:180,energy:3420},
   partition:{threshold:1.1,delay:5,seconds:180,energy:2200},
@@ -19,7 +19,7 @@ const PASS={air:1,glass:.05,timber:.02,wood:.02,masonry:0,stone:0,brick:0,iron:0
 const combustible=m=>/wood|oak|timber|cloth|linen|wool|oil|coal|lacquer|shingle|clapboard/i.test(typeof m==='string'?m:JSON.stringify(m));
 export function compileScene(data,{profiles={}}={}) {
   if(data.version!==1||!Array.isArray(data.surfaces))throw Error('Expected version-1 artist house data');
-  const origin=data.gridOrigin||[0,.48,0],pitch=data.thermalCell||CELL,cells=new Map(),fuels=new Map(),items=new Map(),boundaries=[];
+  const origin=data.gridOrigin||[0,.48,0],pitch=data.thermalCell||CELL,cells=new Map(),fuels=new Map(),items=new Map(),parts=new Map(),boundaries=[];
   const profile={...DEFAULT_PROFILES,...profiles};let fuelTotal=0;
   const key=c=>c.join(',');
   const coords=p=>p.map((v,i)=>Math.floor((v-origin[i])/pitch[i]+EPS));
@@ -47,7 +47,7 @@ export function compileScene(data,{profiles={}}={}) {
       const c=[x,y,z],clipBox={min:c.map((v,i)=>origin[i]+v*pitch[i]-EPS),max:c.map((v,i)=>origin[i]+(v+1)*pitch[i]+EPS)},clipped=triangles.flatMap(t=>clipTriangle(t,clipBox)),area=clipped.reduce((a,t)=>a+triangleArea(t),0);
       if(area<EPS)continue;
       const p=centre(clipped.flat()),single=[0,1,2].every(i=>lo[i]===hi[i]),id=single?s.id:`${s.id}@${key(c)}`,mat=typeof s.material==='string'?s.material:s.material?.physical||s.material?.id||'timber';
-      const b={...s,id,sourceSurfaceId:s.id,triangles:clipped,normal,area,position:p,bounds:bounds(clipped.flat()),intact:true,openFraction:0,transmission:PASS[mat]??(combustible(mat)?.02:0),supports:s.kind==='floor'||s.kind==='roof'||s.kind==='ground'||s.supports===true};
+      const b={...s,id,sourceSurfaceId:s.id,triangles:clipped,normal,area,position:p,bounds:bounds(clipped.flat()),intact:true,openFraction:0,transmission:PASS[mat]??(combustible(mat)?.02:0),supports:s.kind==='floor'||s.kind==='roof'||s.kind==='ground'||s.kind==='plinth'&&normal[1]>.2||s.supports===true};
       if(s.kind==='floor') {
         const offset=[0,-(s.thickness||.12),0],edges=new Map();
         for(const triangle of clipped)for(let i=0;i<3;i++){const a=triangle[i],end=triangle[(i+1)%3],key=[a.join(','),end.join(',')].sort().join('|');if(edges.has(key))edges.delete(key);else edges.set(key,[a,end]);}
@@ -73,6 +73,7 @@ export function compileScene(data,{profiles={}}={}) {
   const storeByPart=new Map((data.stores||[]).map(s=>[s.fuelPartId,s]));
   for(const part of data.furnitureParts||[]) {
     const store=storeByPart.get(part.id),amount=Number(store?.amount??part.fuelAmount??0),box=part.bounds,p=centre([box.min,box.max]);
+    parts.set(part.id,{...part,intact:true,fuelId:amount>0&&part.fuelClass?part.id:null,solid:!part.proceduralStoreContents});
     if(!items.has(part.itemId))items.set(part.itemId,{id:part.itemId,position:[...p],initialPosition:[...p],intact:true,falling:false,level:part.level,bounds:part.bounds});
     if(amount<=0||!part.fuelClass)continue;
     const size=box.max.map((v,i)=>v-box.min[i]);
@@ -91,5 +92,5 @@ export function compileScene(data,{profiles={}}={}) {
     index.change(b.id,{openFraction:fraction,solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal});
     const f=fuels.get(b.fuelId);if(f){for(const c of f.cells)c.fuels=c.fuels.filter(value=>value!==f);f.position=b.position;f.normal=normal;f.cells=[...new Set([-1,1].map(sign=>cellAt(b.position.map((v,i)=>v+normal[i]*sign*.08))))];for(const c of f.cells)c.fuels.push(f);}
   }
-  return {data,origin,pitch,profile,cells,fuels,items,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor};
+  return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor};
 }

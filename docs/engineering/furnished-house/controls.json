@@ -1,0 +1,333 @@
+{
+  "version": 1,
+  "method": "32 rotated 4m-wide grass strips; centreline front from1m to6m; physical-metre wall; sealed two-storey control; covered aperture radiation; published powder clock scales.",
+  "prototype": true,
+  "grass": {
+    "targetMetresPerSecond": 1.5,
+    "min": 1.508982011150135,
+    "max": 1.5625,
+    "directions": [
+      {
+        "angleDegrees": 0,
+        "speed": 1.5625,
+        "relativeError": 0.041666666666666664
+      },
+      {
+        "angleDegrees": 11.25,
+        "speed": 1.5297050172096842,
+        "relativeError": 0.019803344806456142
+      },
+      {
+        "angleDegrees": 22.5,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 33.75,
+        "speed": 1.508982011150135,
+        "relativeError": 0.005988007433423388
+      },
+      {
+        "angleDegrees": 45,
+        "speed": 1.5467960838455732,
+        "relativeError": 0.03119738923038214
+      },
+      {
+        "angleDegrees": 56.25,
+        "speed": 1.508982011150135,
+        "relativeError": 0.005988007433423388
+      },
+      {
+        "angleDegrees": 67.5,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 78.75,
+        "speed": 1.5297050172096842,
+        "relativeError": 0.019803344806456142
+      },
+      {
+        "angleDegrees": 90,
+        "speed": 1.5625,
+        "relativeError": 0.041666666666666664
+      },
+      {
+        "angleDegrees": 101.24999999999999,
+        "speed": 1.5297050172096842,
+        "relativeError": 0.019803344806456142
+      },
+      {
+        "angleDegrees": 112.5,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 123.74999999999999,
+        "speed": 1.508982011150135,
+        "relativeError": 0.005988007433423388
+      },
+      {
+        "angleDegrees": 135,
+        "speed": 1.5467960838455732,
+        "relativeError": 0.03119738923038214
+      },
+      {
+        "angleDegrees": 146.25000000000003,
+        "speed": 1.5089820111501355,
+        "relativeError": 0.005988007433423685
+      },
+      {
+        "angleDegrees": 157.5,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 168.74999999999997,
+        "speed": 1.5297050172096844,
+        "relativeError": 0.01980334480645629
+      },
+      {
+        "angleDegrees": 180,
+        "speed": 1.5463917525773196,
+        "relativeError": 0.03092783505154643
+      },
+      {
+        "angleDegrees": 191.25000000000003,
+        "speed": 1.5297050172096842,
+        "relativeError": 0.019803344806456142
+      },
+      {
+        "angleDegrees": 202.49999999999997,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 213.74999999999997,
+        "speed": 1.508982011150135,
+        "relativeError": 0.005988007433423388
+      },
+      {
+        "angleDegrees": 225,
+        "speed": 1.5467960838455732,
+        "relativeError": 0.03119738923038214
+      },
+      {
+        "angleDegrees": 236.25000000000003,
+        "speed": 1.508982011150135,
+        "relativeError": 0.005988007433423388
+      },
+      {
+        "angleDegrees": 247.49999999999997,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 258.75,
+        "speed": 1.5297050172096842,
+        "relativeError": 0.019803344806456142
+      },
+      {
+        "angleDegrees": 270,
+        "speed": 1.5463917525773196,
+        "relativeError": 0.03092783505154643
+      },
+      {
+        "angleDegrees": 281.25,
+        "speed": 1.5297050172096847,
+        "relativeError": 0.01980334480645644
+      },
+      {
+        "angleDegrees": 292.50000000000006,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 303.75,
+        "speed": 1.508982011150135,
+        "relativeError": 0.005988007433423388
+      },
+      {
+        "angleDegrees": 315,
+        "speed": 1.5467960838455732,
+        "relativeError": 0.03119738923038214
+      },
+      {
+        "angleDegrees": 326.25,
+        "speed": 1.508982011150135,
+        "relativeError": 0.005988007433423388
+      },
+      {
+        "angleDegrees": 337.49999999999994,
+        "speed": 1.5383827378221782,
+        "relativeError": 0.025588491881452107
+      },
+      {
+        "angleDegrees": 348.75,
+        "speed": 1.5297050172096842,
+        "relativeError": 0.019803344806456142
+      }
+    ]
+  },
+  "wall": {
+    "upMetresPerSecond": 0.5168439545744681,
+    "creepMetresPerSecond": 0.24509803176470588,
+    "ratio": 2.1087233987690213
+  },
+  "sealedFloor": {
+    "maximumLowerHeatBeforeFailure": 0,
+    "failure": {
+      "id": 21,
+      "tick": 4620,
+      "time": 154,
+      "type": "support-failure",
+      "boundaryId": "support@1,2,1",
+      "sourceSurfaceId": "support",
+      "kind": "floor",
+      "position": [
+        0.75,
+        2.12,
+        0.75
+      ],
+      "ignitionTime": 1,
+      "materialAge": 153,
+      "nominalBurnSeconds": 180,
+      "remainingShare": 0.15
+    },
+    "landing": {
+      "id": 23,
+      "tick": 4640,
+      "time": 154.66666666666666,
+      "type": "landing",
+      "fallId": "fuel:support@1,2,1:embers",
+      "itemId": null,
+      "position": [
+        0.75,
+        0,
+        0.75
+      ],
+      "contactPosition": [
+        0.75,
+        0,
+        0.75
+      ],
+      "supportBoundaryId": "bottom@1,0,1",
+      "fuelIds": [
+        "fuel:support@1,2,1:embers"
+      ]
+    },
+    "lowerIgnition": {
+      "id": 48,
+      "tick": 4687,
+      "time": 156.23333333333332,
+      "type": "ignition",
+      "fuelId": "lower",
+      "itemId": "lower",
+      "position": [
+        0.75,
+        0.2,
+        0.75
+      ],
+      "cls": "furniture"
+    },
+    "secondsAfterLanding": 1.5666666666666629,
+    "ledger": {
+      "initial": 6.00000220000026,
+      "added": 0,
+      "burned": 5.729446644438741,
+      "escaped": 0,
+      "remaining": 0.27055555555561955,
+      "airborne": 0,
+      "error": 5.899780664009313e-12
+    },
+    "heat": {
+      "generated": 10025.337705838394,
+      "input": 1.05,
+      "ambient": 1374.0821304298659,
+      "blocked": 1406.668362194498,
+      "cap": 5625.822665243552,
+      "escaped": 1597.351279389918,
+      "stored": 22.463268573712092,
+      "radiationInTransit": 0,
+      "error": 6.846995859177696e-9,
+      "relativeError": 6.82897575882755e-13
+    }
+  },
+  "radiation": [
+    {
+      "paneState": "open",
+      "roofIntact": true,
+      "nearMetres": 2,
+      "farMetres": 8,
+      "nearDose": 0.002546479089470328,
+      "farDose": 0.000159154943091895,
+      "distanceRatio": 16.000000000000053
+    },
+    {
+      "paneState": "glass",
+      "roofIntact": true,
+      "nearMetres": 2,
+      "farMetres": 8,
+      "nearDose": 0.0001273239544735164,
+      "farDose": 0.000007957747154594752,
+      "distanceRatio": 16.000000000000046
+    },
+    {
+      "paneState": "masonry",
+      "roofIntact": true,
+      "nearMetres": 2,
+      "farMetres": 8,
+      "nearDose": 0,
+      "farDose": 0,
+      "distanceRatio": null
+    }
+  ],
+  "clocks": [
+    {
+      "powder": false,
+      "activeSeconds": 10,
+      "worldTime": 10,
+      "playerTime": 10.000000000000076,
+      "wind": [
+        1.5,
+        0,
+        0
+      ],
+      "diagnostics": {
+        "accumulator": 0,
+        "lastSteps": 1,
+        "speed": 1,
+        "paused": false,
+        "activeTime": 10.000000000000076,
+        "playerTime": 10.000000000000076,
+        "worldTime": 10,
+        "worldScale": 1,
+        "playerScale": 1,
+        "droppedSeconds": 0
+      }
+    },
+    {
+      "powder": true,
+      "activeSeconds": 10,
+      "worldTime": 3.5,
+      "playerTime": 15.000000000000146,
+      "wind": [
+        1.5,
+        0,
+        0
+      ],
+      "diagnostics": {
+        "accumulator": -2.1510571102112408e-16,
+        "lastSteps": 1,
+        "speed": 1,
+        "paused": false,
+        "activeTime": 10.000000000000076,
+        "playerTime": 15.000000000000146,
+        "worldTime": 3.5,
+        "worldScale": 0.35,
+        "playerScale": 1.5,
+        "droppedSeconds": 0
+      }
+    }
+  ]
+}

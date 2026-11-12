@@ -29,11 +29,12 @@ export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start=
     const shapes=index.candidates(box).filter(s=>s.intact&&index.pass(s)<.99).map(s=>({id:s.id,triangles:s.solidTriangles||s.triangles,closed:!!s.solidTriangles}));
     shapes.push(...extras.filter(s=>overlaps(box,s.bounds)));
     for(const shape of shapes)if(!sweptCylinderClear({x:from[0],y:from[2]},{x:to[0],y:to[2]},radius,low,high,shape)){lastBlock={id:shape.id,reason:'Native geometry clearance',position:[...to]};return false;}
-    for(const item of scene.items.values())if(item.intact&&!item.falling&&item.bounds) {
-      const b=item.bounds,offset=item.position.map((v,i)=>v-item.initialPosition[i]),lo=b.min.map((v,i)=>v+offset[i]),hi=b.max.map((v,i)=>v+offset[i]);
+    for(const part of scene.parts.values())if(part.intact&&part.solid&&part.bounds) {
+      const item=scene.items.get(part.itemId);if(!item?.intact||item.falling)continue;
+      const b=part.bounds,offset=item.position.map((v,i)=>v-item.initialPosition[i]),lo=b.min.map((v,i)=>v+offset[i]),hi=b.max.map((v,i)=>v+offset[i]);
       if(hi[1]<=low||lo[1]>=high)continue;
       const x=Math.max(lo[0],Math.min(hi[0],to[0])),z=Math.max(lo[2],Math.min(hi[2],to[2]));
-      if(Math.hypot(x-to[0],z-to[2])<radius-EPS){lastBlock={id:item.id,reason:'Furniture',position:[...to]};return false;}
+      if(Math.hypot(x-to[0],z-to[2])<radius-EPS){lastBlock={id:part.id,reason:'Furniture',position:[...to]};return false;}
     }
     return true;
   }

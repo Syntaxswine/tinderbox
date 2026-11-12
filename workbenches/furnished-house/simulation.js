@@ -8,16 +8,24 @@ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 export const ambientWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
 export const calmWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=out[1]=out[2]=0,out);
 export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false}}={}) {
-  const scene=compileScene(data,{profiles}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,index,cellAt}=scene;
+  const scene=compileScene(data,{profiles}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,parts,index,cellAt}=scene;
   let tick=0,revision=0,fullNext=true,eventSequence=0,commandSequence=0,closed=false;const coolingFactor=1-Math.exp(-r.loss*dt);
-  const commands=[],commandLog=[],events=[],dirty=new Set(index.surfaces.keys()),itemDirty=new Set(items.keys()),falls=new Map(),active=new Set(),radCache=new Map(),rayQueue=[],pendingHeat=new Map();
+  const commands=[],commandLog=[],events=[],dirty=new Set(index.surfaces.keys()),itemDirty=new Set(items.keys()),partDirty=new Set(parts.keys()),falls=new Map(),tombstones=[],active=new Set(),radCache=new Map(),rayQueue=[],pendingHeat=new Map();
   const ledger={initial:scene.initialFuel,added:0,burned:0,escaped:0},heat={generated:0,input:0,ambient:0,blocked:0,cap:0,escaped:0};
   const stats={ticks:0,cellVisits:0,burnVisits:0,linkBuilds:0,rayBuilds:0,rayTests:0,invalidations:0,ignitions:0,failures:0,landings:0,peakActive:0,maxBurnsPerFuelPerTick:0};
   const itemFuels=new Map([...items.keys()].map(id=>[id,[...fuels.values()].filter(f=>f.itemId===id)]));
+  const supportBySource=new Map(),itemParts=new Map([...items.keys()].map(id=>[id,[...parts.values()].filter(p=>p.itemId===id)]));
+  for(const b of index.surfaces.values()){if(!supportBySource.has(b.sourceSurfaceId))supportBySource.set(b.sourceSurfaceId,[]);supportBySource.get(b.sourceSurfaceId).push(b);}
+  for(const item of items.values()) {
+    const b=item.bounds||bounds((itemParts.get(item.id)||[]).flatMap(p=>[p.bounds.min,p.bounds.max])),declared=(item.supportSurfaceIds||[]).flatMap(id=>supportBySource.get(id)||[]),floorY=declared.length?Math.max(...declared.map(s=>s.position?.[1]??s.floorY)):data.levels?.find(l=>l.index===item.level)?.floorY??b.min[1];
+    item.contactOffset=[(b.min[0]+b.max[0])/2-item.position[0],floorY-item.position[1],(b.min[2]+b.max[2])/2-item.position[2]];
+    item.supportContactOffsets=[[item.contactOffset[0],item.contactOffset[1],item.contactOffset[2]],...[b.min[0]+.01,b.max[0]-.01].flatMap(x=>[b.min[2]+.01,b.max[2]-.01].map(z=>[x-item.position[0],floorY-item.position[1],z-item.position[2]]))];
+  }
   const emit=(type,fields={})=>{const event={id:++eventSequence,tick,time:tick*dt,type,...fields};events.push(event);return event;};
   function deposit(c,energy) {if(energy<=0)return;pendingHeat.set(c,(pendingHeat.get(c)||0)+energy);active.add(c);}
   function takeStored(c,energy) {const take=Math.min(c.heat*c.capacity,energy);c.heat-=take/c.capacity;return take;}
-  function settle() {for(const [c,e]of pendingHeat){const old=c.heat*c.capacity,next=Math.min(r.maxHeat*c.capacity,old+e);heat.cap+=old+e-next;c.heat=next/c.capacity;active.add(c);}pendingHeat.clear();}
+  function markThermal(c) {for(const f of c.fuels){if(f.boundaryId)dirty.add(f.boundaryId);if(f.itemId)itemDirty.add(f.itemId);}}
+  function settle() {for(const [c,e]of pendingHeat){const old=c.heat*c.capacity,next=Math.min(r.maxHeat*c.capacity,old+e);heat.cap+=old+e-next;c.heat=next/c.capacity;active.add(c);if(Math.abs(next-old)>1e-8)markThermal(c);}pendingHeat.clear();}
   const centreCell=p=>scene.cells.get(scene.key(scene.coords(p)))||cellAt(p);
   function localLinks(c) {
     if(c.links)return c.links;
@@ -78,6 +86,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   }
   function consume(f,amount) {const value=Math.min(f.amount,amount);f.amount-=value;ledger.burned+=value;const energy=value*scene.profile[f.cls].energy;heat.generated+=energy;return energy;}
   function changeBoundary(b,patch) {index.change(b.id,patch);dirty.add(b.id);}
+  function breakWindow(b,position,cause) {for(const pane of index.surfaces.values())if(pane.sourceSurfaceId===b.sourceSurfaceId)changeBoundary(pane,{intact:false,openFraction:1});emit('window-break',{boundaryId:b.id,sourceSurfaceId:b.sourceSurfaceId,position,cause});}
   function supportedPoint(position) {
     const hit=index.supportAt(position[0],position[2],position[1]+.05,scene.groundY-.1);
     if(!hit)return null;return {surface:hit.surface,position:add([position[0],position[1]+.05,position[2]],mul([0,scene.groundY-.1-position[1]-.05,0],hit.t))};
@@ -85,7 +94,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   function attachFuel(f,c) {for(const old of f.cells||[])old.fuels=old.fuels.filter(value=>value!==f);f.cells=[c];if(!c.fuels.includes(f))c.fuels.push(f);}
   function beginFall(id,list,position,{itemId=null,cause='support-failure',velocity=[0,0,0]}={}) {
     if(falls.has(id))return;
-    const fall={id,itemId,fuelIds:list.map(f=>f.id),position:[...position],previous:[...position],velocity:[...velocity],offsets:list.map(f=>sub(f.position,position)),quaternion:[0,0,0,1],heldHeat:0};
+    const fall={id,itemId,fuelIds:list.map(f=>f.id),position:[...position],previous:[...position],velocity:[...velocity],offsets:list.map(f=>sub(f.position,position)),contactOffsets:itemId?items.get(itemId).supportContactOffsets:[[0,0,0]],quaternion:[0,0,0,1],heldHeat:0};
     for(const f of list){f.falling=true;fall.heldHeat+=takeStored(f.cells[0],Math.min(.2,f.cells[0].heat*f.cells[0].capacity));}
     falls.set(id,fall);if(itemId){const item=items.get(itemId);item.falling=true;itemDirty.add(itemId);}emit('fall',{fallId:id,itemId,position:[...position],fuelIds:fall.fuelIds,cause});
   }
@@ -101,22 +110,23 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     changeBoundary(b,{intact:false,openFraction:1});stats.failures++;emit(['floor','roof','wall'].includes(b.kind)?'support-failure':'boundary-retirement',{boundaryId:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,position:b.position,ignitionTime:f.litAt,materialAge:tick*dt-f.litAt,nominalBurnSeconds:scene.profile[f.cls].seconds,remainingShare:r.emberShare});detachRemainder(f,b);
   }
   function burst(f) {
-    f.store.reacted=true;const amount=f.amount,from=f.position,candidates=[];
+    const amount=f.amount,from=f.position,releaseY=f.itemId?(items.get(f.itemId)?.position[1]??from[1]):from[1],candidates=[];
     for(const [dx,dz]of [[0,0],[.5,0],[-.5,0],[0,.5],[0,-.5],[.5,.5],[-.5,.5],[.5,-.5],[-.5,-.5]]) {
-      const p=[from[0]+dx,from[1],from[2]+dz],support=supportedPoint(p);
-      if(!support||Math.abs(support.position[1]-from[1])>.8)continue;
-      const start=[from[0],support.position[1]+.08,from[2]],end=[p[0],support.position[1]+.08,p[2]];
-      if(index.trace(start,end,{ignore:[support.surface.id]}).transmission<.99)continue;candidates.push({...support,position:end});
+      const p=[from[0]+dx,releaseY+.08,from[2]+dz],support=supportedPoint(p);
+      if(!support)continue;
+      const start=[from[0],releaseY+.08,from[2]],end=[p[0],releaseY+.08,p[2]];
+      if(index.trace(start,end,{ignore:[support.surface.id]}).transmission<.99)continue;candidates.push({...support,position:Math.abs(support.position[1]-releaseY)<.12?[p[0],support.position[1]+.02,p[2]]:end,fall:releaseY-support.position[1]>.12});
     }
-    if(!candidates.length){f.store.blocked=true;emit('spill-blocked',{fuelId:f.id,position:from});return;}
+    if(!candidates.length){if(!f.store.blocked)emit('spill-blocked',{fuelId:f.id,position:from});f.store.blocked=true;f.store.nextAttemptTick=tick+30;return;}
+    f.store.reacted=true;f.store.blocked=false;
     // The pulse burns a declared fraction of the same finite oil. No extra
     // energy and no rewrite of the immutable introduction ledger.
     const pulse=consume(f,amount*.04),rest=f.amount;f.amount=0;f.spentAt=tick*dt;
     for(let i=0;i<candidates.length;i++) {
-      const p=candidates[i].position,c=cellAt(p),id=`${f.id}:spill:${i}`,split={...f,id,store:null,itemId:null,cls:'oil',initial:rest/candidates.length,amount:rest/candidates.length,position:p,area:.25,normal:[0,1,0],cells:[],lit:false,char:0,spentAt:null,falling:false,lastBurnTick:-1};
-      fuels.set(id,split);attachFuel(split,c);deposit(c,pulse/candidates.length);
+      const p=candidates[i].position,c=cellAt(p),id=`${f.id}:spill:${i}`,split={...f,id,store:null,itemId:null,cls:'oil',initial:rest/candidates.length,amount:rest/candidates.length,position:p,area:.25,normal:[0,1,0],cells:[],lit:false,char:0,spentAt:null,falling:false,spill:true,supportBoundaryId:candidates[i].fall?null:candidates[i].surface.id,lastBurnTick:-1};
+      fuels.set(id,split);attachFuel(split,c);deposit(c,pulse/candidates.length);if(candidates[i].fall)beginFall(id,[split],p,{cause:'oil-through-opening'});
     }
-    emit('oil-release',{fuelId:f.id,position:from,threshold:r.burstAt,amount,spentForPulse:amount*.04,redistributed:rest,targets:candidates.length});
+    emit('oil-release',{fuelId:f.id,position:from,threshold:r.burstAt,amount,spentForPulse:amount*.04,redistributed:rest,targets:candidates.map((p,i)=>({fuelId:`${f.id}:spill:${i}`,position:p.position,supportBoundaryId:p.surface.id,fall:p.fall}))});
   }
   function applyCommand(command) {
     if(command.type==='opening') {
@@ -142,24 +152,25 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   }
   function moveFalls() {
     for(const fall of [...falls.values()]) {
-      fall.previous=[...fall.position];fall.velocity[1]-=9.81*dt;const next=add(fall.position,mul(fall.velocity,dt));
-      const hit=index.crossings(fall.position,next,{includeEndpoints:true}).find(h=>h.surface.intact&&index.pass(h.surface)<.99&&h.t>EPS);
-      let landing=false;
-      if(hit) {
-        const p=add(fall.position,mul(sub(next,fall.position),hit.t));
-        if(hit.surface.kind==='window'||hit.surface.material==='glass') {changeBoundary(hit.surface,{intact:false,openFraction:1});emit('window-break',{boundaryId:hit.surface.id,position:p,cause:fall.id});}
-        else if(hit.surface.supports&&fall.velocity[1]<0){next.splice(0,3,...p);landing=true;}
-        else {next.splice(0,3,...add(p,mul(unit(sub(fall.position,next)),.005)));fall.velocity[0]=fall.velocity[2]=0;emit('impact',{boundaryId:hit.surface.id,position:p,cause:fall.id});}
+      fall.previous=[...fall.position];fall.velocity[1]-=9.81*dt;let start=fall.position,next=add(start,mul(fall.velocity,dt)),landing=false,landingSurface=null,landingContact=null;
+      for(let crossing=0;crossing<32;crossing++) {
+        const hit=fall.contactOffsets.flatMap(offset=>index.crossings(add(start,offset),add(next,offset),{includeEndpoints:true}).map(h=>({...h,contactOffset:offset}))).filter(h=>h.surface.intact&&index.pass(h.surface)<.99&&(h.t>EPS||h.surface.supports&&fall.velocity[1]<0&&Math.abs(h.normal?.[1]||0)>.2)).sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id))[0];
+        if(!hit)break;const p=add(start,mul(sub(next,start),hit.t));
+        if(hit.surface.kind==='window'||hit.surface.material==='glass'){breakWindow(hit.surface,p,fall.id);continue;} // retrace the complete remainder, including corner ties
+        if(hit.surface.supports&&fall.velocity[1]<0&&Math.abs(hit.normal?.[1]||0)>.2){next=p;landing=true;landingSurface=hit.surface;landingContact=add(p,hit.contactOffset);break;}
+        const stopped=add(p,mul(unit(sub(start,next)),.005));fall.velocity[0]=fall.velocity[2]=0;emit('impact',{boundaryId:hit.surface.id,sourceSurfaceId:hit.surface.sourceSurfaceId,position:add(p,hit.contactOffset),cause:fall.id});const endY=next[1];start=stopped;next=[stopped[0],endY,stopped[2]];
+        if(length(sub(start,next))<EPS){next=start;break;}
+        if(crossing===31){next=start;emit('blocked',{reason:'Conservative crossing limit',fallId:fall.id});}
       }
       fall.position=next;
       for(let i=0;i<fall.fuelIds.length;i++){const f=fuels.get(fall.fuelIds[i]);f.position=add(next,fall.offsets[i]);attachFuel(f,cellAt(f.position));}
       if(fall.itemId){const item=items.get(fall.itemId);item.position=[...next];itemDirty.add(item.id);}
       if(landing) {
-        deposit(cellAt(add(next,[0,.02,0])),fall.heldHeat);fall.heldHeat=0;
-        for(const id of fall.fuelIds){const f=fuels.get(id);f.falling=false;if(f.store?.kind==='lantern')burst(f);}
-        if(fall.itemId)items.get(fall.itemId).falling=false;falls.delete(fall.id);stats.landings++;emit('landing',{fallId:fall.id,itemId:fall.itemId,position:next,fuelIds:fall.fuelIds});
+        deposit(cellAt(add(landingContact,[0,.02,0])),fall.heldHeat);fall.heldHeat=0;
+        for(const id of fall.fuelIds){const f=fuels.get(id);f.falling=false;if(f.spill)f.supportBoundaryId=landingSurface.id;if(f.store?.kind==='lantern')burst(f);}
+        if(fall.itemId){items.get(fall.itemId).falling=false;items.get(fall.itemId).currentSupportIds=[landingSurface.id];}falls.delete(fall.id);tombstones.push({collection:'falls',id:fall.id});stats.landings++;emit('landing',{fallId:fall.id,itemId:fall.itemId,position:next,contactPosition:landingContact,supportBoundaryId:landingSurface.id,fuelIds:fall.fuelIds});
       } else if(next[1]<scene.groundY-2) {
-        for(const id of fall.fuelIds){const f=fuels.get(id);ledger.escaped+=f.amount;f.amount=0;f.falling=false;}heat.escaped+=fall.heldHeat;falls.delete(fall.id);emit('escaped',{fallId:fall.id});
+        for(const id of fall.fuelIds){const f=fuels.get(id);ledger.escaped+=f.amount;f.amount=0;f.falling=false;}heat.escaped+=fall.heldHeat;falls.delete(fall.id);tombstones.push({collection:'falls',id:fall.id});emit('escaped',{fallId:fall.id});
       }
     }
   }
@@ -176,35 +187,45 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     }
     const outputs=new Map();
     for(const f of burning) {
-      const energy=consume(f,f.initial*dt/scene.profile[f.cls].seconds),share=energy/f.cells.length;
-      for(const c of f.cells)outputs.set(c,(outputs.get(c)||0)+share);
+      // A sound sheet burns on its exposed side. It does not manufacture an
+      // equal flame on the far side of an intact floor or wall. Conductance
+      // still comes through the canonical boundary; detached fuel is free.
+      const emitCells=f.boundaryId?[f.burningCell||f.cells.reduce((a,b)=>a.heat>=b.heat?a:b)]:f.cells,energy=consume(f,f.initial*dt/scene.profile[f.cls].seconds),share=energy/emitCells.length;
+      for(const c of emitCells)outputs.set(c,(outputs.get(c)||0)+share);
       if(f.boundaryId)dirty.add(f.boundaryId);if(f.itemId)itemDirty.add(f.itemId);
     }
     for(const [c,e]of outputs)transport(c,e);buildRays();
     settle();
     for(const f of [...fuels.values()])if(f.amount>EPS&&!f.lit) {
       const p=scene.profile[f.cls],exposure=Math.max(...f.cells.map(c=>c.heat));
-      if(f.store?.kind==='oil'||f.store?.kind==='oil-store') {if(!f.store.reacted&&exposure>=r.burstAt)burst(f);continue;}
-      if(exposure>=p.threshold){f.char+=dt*exposure/p.threshold;if(f.char+EPS>=p.delay){f.lit=true;f.litAt=tick*dt;stats.ignitions++;emit('ignition',{fuelId:f.id,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,position:f.position,cls:f.cls});}}else f.char=Math.max(0,f.char-dt*.2);
+      if(f.store?.kind==='oil'||f.store?.kind==='oil-store') {if(!f.store.reacted&&tick>=(f.store.nextAttemptTick||0)&&exposure>=r.burstAt)burst(f);continue;}
+      const before=f.char;
+      if(exposure>=p.threshold){f.char+=dt*exposure/p.threshold;if(f.char+EPS>=p.delay){f.lit=true;f.litAt=tick*dt;f.burningCell=f.cells.reduce((a,b)=>a.heat>=b.heat?a:b);stats.ignitions++;emit('ignition',{fuelId:f.id,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,position:f.position,cls:f.cls});}}else f.char=Math.max(0,f.char-dt*.2);
+      if(f.char!==before){if(f.boundaryId)dirty.add(f.boundaryId);if(f.itemId)itemDirty.add(f.itemId);}
     }
     settle();
     for(const c of active) {
-      stats.cellVisits++;const lost=c.heat*c.capacity*coolingFactor;c.heat-=lost/c.capacity;heat.ambient+=lost;
+      stats.cellVisits++;const lost=c.heat*c.capacity*coolingFactor;c.heat-=lost/c.capacity;heat.ambient+=lost;if(lost>1e-8)markThermal(c);
       if(c.heat<1e-8&&!c.fuels.some(f=>f.lit&&f.amount>EPS)){heat.ambient+=c.heat*c.capacity;c.heat=0;active.delete(c);}
     }
     // Heat settles before opening, support, spill and ignition changes are
     // exposed to the next step. No house/floor timers choose failure.
     for(const b of index.surfaces.values())if(b.intact) {
       const f=fuels.get(b.fuelId);
-      if(b.kind==='window'&&Math.max(0,...(b.heatCells||[]).map(c=>c.heat))>=r.glassBreaks){changeBoundary(b,{intact:false,openFraction:1});emit('window-break',{boundaryId:b.id,position:b.position,cause:'heat'});}
-      if(f&&f.amount<=f.initial*r.emberShare+EPS&&f.lit)fail(b,f);
+      if(b.kind==='window'&&Math.max(0,...(b.heatCells||[]).map(c=>c.heat))>=r.glassBreaks)breakWindow(b,b.position,'heat');
+      if(f&&f.cls!=='grass'&&f.amount<=f.initial*r.emberShare+EPS&&f.lit)fail(b,f);
     }
+    for(const part of parts.values())if(part.intact&&part.fuelId&&fuels.get(part.fuelId).amount<=EPS){part.intact=false;partDirty.add(part.id);itemDirty.add(part.itemId);emit('part-retirement',{partId:part.id,itemId:part.itemId,material:part.material});}
+    for(const item of items.values())if(item.intact){const live=(itemParts.get(item.id)||[]).some(p=>p.intact);if(!live){item.intact=false;itemDirty.add(item.id);emit('item-retirement',{itemId:item.id});}}
     for(const item of items.values())if(!item.falling&&item.intact) {
-      const list=(itemFuels.get(item.id)||[]).filter(f=>f.amount>EPS&&!f.falling);if(!list.length)continue;
-      const baseY=item.position[1]; // exported item origin is its support anchor
-      const p=[item.position[0],baseY+.03,item.position[2]],support=index.supportAt(p[0],p[2],p[1],p[1]-.15);
-      if(!support)beginFall(item.id,list,item.position,{itemId:item.id});
+      const list=(itemFuels.get(item.id)||[]).filter(f=>f.amount>EPS&&!f.falling);
+      let supported=false;
+      if(item.currentSupportIds)supported=item.currentSupportIds.some(id=>index.surfaces.get(id)?.intact);
+      else if(item.supportSurfaceIds?.length)supported=item.supportSurfaceIds.some(id=>(supportBySource.get(id)||[]).some(b=>b.intact&&b.supports));
+      else {for(const offset of item.supportContactOffsets){const p=add(item.position,offset);if(index.supportAt(p[0],p[2],p[1]+.03,p[1]-.15)){supported=true;break;}}}
+      if(!supported)beginFall(item.id,list,item.position,{itemId:item.id});
     }
+    for(const f of fuels.values())if(f.spill&&f.amount>EPS&&!f.falling&&f.supportBoundaryId&&!index.surfaces.get(f.supportBoundaryId)?.intact)beginFall(f.id,[f],f.position,{cause:'liquid-support-failure'});
     stats.peakActive=Math.max(stats.peakActive,active.size);revision++;
   }
   function metrics() {
@@ -213,25 +234,26 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     const radiationInTransit=[...radCache.values()].reduce((v,c)=>v+c.energy,0),stored=[...cells.values()].reduce((v,c)=>v+c.heat*c.capacity,0)+[...falls.values()].reduce((v,f)=>v+f.heldHeat,0)+radiationInTransit,fuelError=ledger.initial+ledger.added-ledger.burned-ledger.escaped-airborne-remaining,heatError=heat.generated+heat.input-heat.ambient-heat.blocked-heat.cap-heat.escaped-stored;
     return {tick,worldTime:tick*dt,fuel:{...ledger,remaining,airborne,error:fuelError},heat:{...heat,stored,radiationInTransit,error:heatError,relativeError:heatError/(heat.generated+heat.input||1)},burningCount,burningArea,combustibleArea:initialCombustibleArea,burningAreaFraction:initialCombustibleArea?burningArea/initialCombustibleArea:0,burnedFraction:ledger.burned/(ledger.initial+ledger.added||1),activeCells:active.size,fallingCount:falls.size,queuedRadiationSources:rayQueue.length,queuedRays:rayQueue.reduce((v,q)=>v+q.entries.length-q.cursor,0),oldestRadiationQueryDelay:rayQueue.length?(tick-rayQueue[0].enqueuedTick)*dt:0,oldestRadiationEnergyAge:Math.max(0,...rayQueue.filter(q=>q.energy>0).map(q=>(tick-q.firstEnergyTick)*dt)),stats:{...stats}};
   }
-  function boundaryFrame(b) {const f=fuels.get(b.fuelId);return {id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:f?clamp(f.char/scene.profile[f.cls].delay):0,heatFraction:f?clamp(Math.max(...f.cells.map(c=>c.heat))/r.maxHeat):0,fuelFraction:f?f.amount/f.initial:1};}
+  function boundaryFrame(b) {const f=fuels.get(b.fuelId);return {id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:f?clamp(f.char/(scene.profile[f.cls].delay||1)):0,heatFraction:f?clamp(Math.max(...f.cells.map(c=>c.heat))/r.maxHeat):0,fuelFraction:f?f.amount/f.initial:1};}
   function fireSamples() {return [...fuels.values()].filter(f=>f.lit&&f.amount>EPS).map(f=>({id:f.id,buildingId:data.buildingId||data.prefabId,part:f.boundaryId?index.surfaces.get(f.boundaryId).kind:'contents',x:f.position[0],y:f.position[1],z:f.position[2],nx:f.normal?.[0]||0,ny:f.normal?.[1]||0,nz:f.normal?.[2]||0,area:f.area,flame:clamp(f.amount/f.initial*2),smoke:.5,ignitionTime:f.litAt,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,...(f.boundaryId&&index.surfaces.get(f.boundaryId).kind==='floor'?{floorFootprint:index.surfaces.get(f.boundaryId).triangles,floorRadius:.36}:{})}));}
   let eventCursor=0;
   function frame({full=false}={}) {
     full||=fullNext;fullNext=false;
     const records=full?[...index.surfaces.values()]:[...dirty].map(id=>index.surfaces.get(id)),b=records.map(boundaryFrame),itemRecords=(full?[...items.values()]:[...itemDirty].map(id=>items.get(id))).map(item=>{const list=[...fuels.values()].filter(f=>f.itemId===item.id);return {...item,remainingFraction:list.reduce((v,f)=>v+f.amount,0)/(list.reduce((v,f)=>v+f.initial,0)||1),charFraction:Math.max(0,...list.map(f=>clamp(f.char/(scene.profile[f.cls].delay||1))))};});
-    const result={version:1,revision,tick,worldTime:tick*dt,full,boundaries:b,supports:b.filter(v=>index.surfaces.get(v.id).supports),items:itemRecords,falls:[...falls.values()].map(f=>({...f,flame:f.fuelIds.some(id=>fuels.get(id).lit)?1:0,smoke:.4,ignitionTime:Math.min(...f.fuelIds.map(id=>fuels.get(id).litAt??tick*dt))})),events:events.slice(full?0:eventCursor),metrics:metrics(),fireSamples:fireSamples(),tombstones:[],occupancy:[...active].map(c=>({id:c.id,bounds:{min:c.c.map((v,i)=>scene.origin[i]+v*scene.pitch[i]),max:c.c.map((v,i)=>scene.origin[i]+(v+1)*scene.pitch[i])},heatFraction:c.heat/r.maxHeat,occupied:c.fuels.length>0}))};
-    dirty.clear();itemDirty.clear();eventCursor=events.length;return result;
+    const result={version:1,revision,tick,worldTime:tick*dt,full,boundaries:b,supports:b.filter(v=>index.surfaces.get(v.id).supports),items:itemRecords,falls:[...falls.values()].map(f=>({...f,flame:f.fuelIds.some(id=>fuels.get(id).lit)?1:0,smoke:.4,ignitionTime:Math.min(...f.fuelIds.map(id=>fuels.get(id).litAt??tick*dt))})),events:events.slice(full?0:eventCursor),metrics:metrics(),fireSamples:fireSamples(),tombstones:tombstones.splice(0),occupancy:[...active].map(c=>({id:c.id,bounds:{min:c.c.map((v,i)=>scene.origin[i]+v*scene.pitch[i]),max:c.c.map((v,i)=>scene.origin[i]+(v+1)*scene.pitch[i])},heatFraction:c.heat/r.maxHeat,occupied:c.fuels.length>0}))};
+    result.parts=(full?[...parts.values()]:[...partDirty].map(id=>parts.get(id))).map(p=>({id:p.id,itemId:p.itemId,intact:p.intact,material:p.material,remainingFraction:p.fuelId?fuels.get(p.fuelId).amount/fuels.get(p.fuelId).initial:1}));
+    dirty.clear();itemDirty.clear();partDirty.clear();eventCursor=events.length;return result;
   }
   function command(input) {if(closed)throw Error('Trial disposed');const value={...structuredClone(input),sequence:++commandSequence,tick:input.tick??tick+1};if(!Number.isInteger(value.tick)||value.tick<=tick)throw Error('Commands must target a future integer tick');commands.push(value);commands.sort((a,b)=>a.tick-b.tick||a.sequence-b.sequence);commandLog.push(value);return value;}
   return {scene,rules:r,events,stats,wind,windMetadata,command,step(count=1){if(closed)throw Error('Trial disposed');if(!Number.isInteger(count)||count<0)throw Error('Whole nonnegative steps required');for(let i=0;i<count;i++)stepOnce();return tick;},frame,metrics,
-    snapshot(){return {version:1,tick,worldTime:tick*dt,cells:[...cells.values()].filter(c=>c.heat).map(c=>({id:c.id,heat:c.heat})),fuels:[...fuels.values()].map(({cells,...f})=>({...f,cellIds:cells.map(c=>c.id)})),boundaries:[...index.surfaces.values()].map(boundaryFrame),falls:[...falls.values()],events:[...events],metrics:metrics()};},
+    snapshot(){return {version:1,tick,worldTime:tick*dt,cells:[...cells.values()].filter(c=>c.heat).map(c=>({id:c.id,heat:c.heat})),fuels:[...fuels.values()].map(({cells,burningCell,...f})=>({...f,cellIds:cells.map(c=>c.id),burningCellId:burningCell?.id})),boundaries:[...index.surfaces.values()].map(boundaryFrame),falls:[...falls.values()],events:[...events],metrics:metrics()};},
     replay(){return {version:1,prefabId:data.prefabId,sourceHashes:data.sourceHashes,rules:r,profiles:scene.profile,wind:windMetadata,commands:structuredClone(commandLog),endTick:tick};},
     dispose(){closed=true;commands.length=0;radCache.clear();pendingHeat.clear();},get tick(){return tick;},get worldTime(){return tick*dt;}};
 }
 
-export function createClock(trial,{speed=1,maxSteps=RULES.maxStepsPerAdvance}={}) {
-  let accumulator=0,paused=true,lastSteps=0;
-  return {advance(realSeconds){if(!Number.isFinite(realSeconds)||realSeconds<0)throw Error('Invalid elapsed seconds');if(paused)return 0;accumulator+=realSeconds*speed;const steps=Math.min(maxSteps,Math.floor((accumulator+1e-10)/trial.rules.step));trial.step(steps);accumulator-=steps*trial.rules.step;lastSteps=steps;return steps;},
+export function createClock(trial,{speed=1,maxSteps=RULES.maxStepsPerAdvance,worldScale=1,playerScale=1}={}) {
+  let accumulator=0,paused=true,lastSteps=0,playerTime=0,activeTime=0;
+  return {advance(realSeconds){if(!Number.isFinite(realSeconds)||realSeconds<0)throw Error('Invalid elapsed seconds');if(paused)return 0;activeTime+=realSeconds*speed;playerTime+=realSeconds*speed*playerScale;accumulator+=realSeconds*speed*worldScale;const steps=Math.min(maxSteps,Math.floor((accumulator+1e-10)/trial.rules.step));trial.step(steps);accumulator-=steps*trial.rules.step;lastSteps=steps;return steps;},
     drain(){let count=0;while(accumulator+1e-10>=trial.rules.step){const n=Math.min(maxSteps,Math.floor((accumulator+1e-10)/trial.rules.step));trial.step(n);accumulator-=n*trial.rules.step;count+=n;}return count;},
-    setSpeed(value){if(!Number.isFinite(value)||value<=0||value>32)throw Error('Speed must be 0–32');speed=value;},setPaused(value){paused=!!value;},get paused(){return paused;},get accumulator(){return accumulator;},get speed(){return speed;},diagnostics:()=>({accumulator,lastSteps,speed,paused,droppedSeconds:0})};
+    setSpeed(value){if(!Number.isFinite(value)||value<=0||value>32)throw Error('Speed must be 0–32');speed=value;},setPaused(value){paused=!!value;},get paused(){return paused;},get accumulator(){return accumulator;},get speed(){return speed;},get playerScale(){return playerScale;},get playerTime(){return playerTime;},diagnostics:()=>({accumulator,lastSteps,speed,paused,activeTime,playerTime,worldTime:trial.worldTime,worldScale,playerScale,droppedSeconds:0})};
 }
