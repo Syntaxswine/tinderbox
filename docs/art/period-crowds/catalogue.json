@@ -7,7 +7,8 @@
     "Reuse existing animal characters with period clothing.",
     "Use the same wardrobe across stockyards, the Worlds Fair and the slums, with different outfit prevalence in each district.",
     "Retain festive banners and ribbons around the stockyards and broader city, connecting them to the fair.",
-    "Preserve the Volaire mood direction and native character sizes."
+    "Preserve the Volaire mood direction and native character sizes.",
+    "Prefer simple models with complex painterly skins, using AFT3D painting as the character surface reference; let the painting carry garment detail."
   ],
   "reviewedWriteups": [
     {
@@ -92,7 +93,8 @@
     ],
     "identity": "Keep species variety in each district; outfit prevalence is a separate choice.",
     "distribution": "District presets describe relative visual prevalence. Numeric weights and actual spawning await a coder contract; no historical population percentages are claimed.",
-    "periodEvidence": "Garment silhouettes require dated item-level photographs or costume records before visual acceptance. Colors and wear remain labelled art choices when a monochrome source cannot establish them."
+    "periodEvidence": "Garment silhouettes require dated item-level photographs or costume records before visual acceptance. Colors and wear remain labelled art choices when a monochrome source cannot establish them.",
+    "painting": "Use AFT3D-like brushwork, painted folds, stitching, pockets, fastenings and wear on simple native silhouettes. Add geometry for silhouette or movement needs rather than every garment detail."
   },
   "outfitFamilies": [
     {
@@ -365,7 +367,25 @@
         "docs/art/stockyard-workers/fit-checks.json",
         "docs/art/stockyard-workers/webgl.json"
       ],
-      "limits": "Actual game captures use staged existing Catalogue Street positions; the pen study is separate from production map placement."
+      "limits": "Actual game captures use staged existing Catalogue Street positions; the pen study is separate from production map placement.",
+      "revision": 2,
+      "paintLoader": "src/art/stockyard-worker-paint.js",
+      "paintedDetails": [
+        "braces",
+        "waistcoat",
+        "collar",
+        "buttons",
+        "pockets",
+        "folds",
+        "stitching",
+        "wear"
+      ],
+      "textures": [
+        "assets/art/stockyard-workers/yard-hand-paint-v2.png",
+        "assets/art/stockyard-workers/packing-worker-paint-v2.png",
+        "assets/art/stockyard-workers/yard-foreman-paint-v2.png"
+      ],
+      "geometry": "Copied native shirt/trouser surfaces, one 96-triangle cap and an optional 48-triangle apron; 3 or 4 garment meshes."
     }
   ]
 }

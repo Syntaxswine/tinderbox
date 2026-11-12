@@ -20,6 +20,7 @@ import {BELL_AND_ALDER} from '../content/bell-and-alder-layout.js';
 import {CHICAGO_PATROL} from '../content/exterior-kit.js';
 import {createWitnessReaction} from './witness-reaction.js';
 import {dressStockyardWorker,stockyardWorkerReviewEnabled,stockyardWorkerSkinFor} from './stockyard-worker-skins.js';
+import {loadStockyardWorkerPaint} from './stockyard-worker-paint.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
 const medicineUrl=new URL('../../assets/art/medicine-pickups/index.js',import.meta.url);
@@ -36,7 +37,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   if(failure!==-1){pool.dispose();throw new Error('Tinderbox art asset failed: '+entries[failure][1],{cause:loaded[failure].reason});}
   if(signal?.aborted){pool.dispose();throw new DOMException('Visit cancelled','AbortError');}
   const assets=Object.fromEntries(entries.map(([name],i)=>{const texture=loaded[i].value;texture.colorSpace=T.SRGBColorSpace;return [name,texture];}));
-  let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,rubble,sidingPreheat,firelight,streetNight,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
+  let workerPaint,root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,rubble,sidingPreheat,firelight,streetNight,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
   const cottageIds=new Set(cottageFire?.buildings.map(b=>b.id)??[]);
   const actors=new Map(),muzzlePoint=new T.Vector3();
   const readCells=createCellReader(),nearbyTrail=createTrailReader(readCells);
@@ -56,9 +57,10 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
     root=new T.Group();root.name='Tinderbox art module';
     const materials=createMaterials(T,pool,assets);
+    if(stockyardWorkers)workerPaint=pool.object(await loadStockyardWorkerPaint(T,{signal}));
     bearKit=await loadCharacterKit({characterId,THREE:T,renderer,assetBaseUrl:bearAssetBaseUrl,materials,signal});
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-    world=createWorld(T,materials);bear=bearKit.create();if(stockyardWorkers)dressStockyardWorker(T,bear,{skin:'yard-foreman'});field=createGroundField(T,readCells);fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
+    world=createWorld(T,materials);bear=bearKit.create();if(stockyardWorkers)dressStockyardWorker(T,bear,{skin:'yard-foreman',texture:workerPaint.get('yard-foreman')});field=createGroundField(T,readCells);fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
     exterior=createExteriorKit(T,materials,assets,renderer);
     toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,readCells);
     root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root,sidingPreheat.root,firelight.root);
@@ -126,7 +128,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
         if(!record){
           if((tagged||patrol)&&!civilianKit)throw new Error('Native street actors require the borrowed shared renderer');
           const model=patrol?civilianKit.createPatrol(actor):tagged?civilianKit.create(actor):createActor(T,materials);
-          if(stockyardWorkers&&tagged&&!patrol)dressStockyardWorker(T,model,{skin:stockyardWorkerSkinFor(actor.id)});
+          if(stockyardWorkers&&tagged&&!patrol)dressStockyardWorker(T,model,{skin:stockyardWorkerSkinFor(actor.id),texture:workerPaint.get(stockyardWorkerSkinFor(actor.id))});
           record={key,model};actors.set(actor.id,record);root.add(model.root);
         }
         record.model.update(actor,worldTime,actor.id===witness?.actorId?witness.aim:undefined);
@@ -143,7 +145,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       sidingPreheat.dispose();fire.dispose();firelight.dispose();streetNight?.dispose();toolProps.dispose();field.dispose();bearKit.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
     }
     return {update,dispose,pickAimSurface:cottages?.pickAimSurface,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
-      diagnostics:()=>({disposed,updates,lastSnapshot,stockyardWorkers,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
+      diagnostics:()=>({disposed,updates,lastSnapshot,stockyardWorkers,workerPaint:workerPaint?.diagnostics()||null,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
         patrolActors:[...actors.entries()].filter(([,r])=>r.key==='patrol').map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
         witness:witnessReaction?.diagnostics()??null,
         exterior:exterior.diagnostics(),housing:housing?.diagnostics()||null,rubble:rubble?.diagnostics()??[],bellAndAlder:shop?.diagnostics()||null,medicine:medicine?.diagnostics?.()||null,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics(),firelight:firelight.diagnostics(),preheat:sidingPreheat.stats(),...(cottages?{cottages:cottages.diagnostics()}:{})})};

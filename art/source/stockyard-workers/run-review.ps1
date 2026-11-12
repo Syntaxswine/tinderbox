@@ -3,7 +3,7 @@ $taskRoot = (Resolve-Path '.').Path
 $recordRoot = Join-Path $taskRoot 'artifacts/helpers/stockyard-workers-review'
 New-Item -ItemType Directory -Force -Path $recordRoot | Out-Null
 $runRoot = Join-Path $recordRoot ('runs/' + [guid]::NewGuid().ToString('N'))
-$sourceFiles = @('art/source/stockyard-workers/run-review.ps1','art/source/stockyard-workers/review.html','art/source/stockyard-workers/review.js','art/source/stockyard-workers/extract-review.mjs','src/art/stockyard-worker-skins.js','src/art/index.js')
+$sourceFiles = @('art/source/stockyard-workers/run-review.ps1','art/source/stockyard-workers/review.html','art/source/stockyard-workers/review.js','art/source/stockyard-workers/extract-review.mjs','src/art/stockyard-worker-skins.js','src/art/stockyard-worker-paint.js','src/art/index.js','assets/art/stockyard-workers/yard-hand-paint-v2.png','assets/art/stockyard-workers/packing-worker-paint-v2.png','assets/art/stockyard-workers/yard-foreman-paint-v2.png')
 $sourceRecords = @()
 foreach ($relative in $sourceFiles) {
  $inputPath = Join-Path $taskRoot $relative
@@ -12,7 +12,7 @@ foreach ($relative in $sourceFiles) {
  Copy-Item -LiteralPath $inputPath -Destination $copyPath
  $sourceRecords += @{path=$relative;sha256=(Get-FileHash -LiteralPath $inputPath -Algorithm SHA256).Hash.ToLowerInvariant()}
 }
-@{task='Stockyard worker skins';sources=$sourceRecords;requirements='Node >=22, installed Chrome, pinned vendor closure';outputs='Four JPGs plus WebGL receipt';pending='Finite capture';secrets='None'} | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8 (Join-Path $runRoot 'inputs.json')
+@{task='Stockyard worker skins';sources=$sourceRecords;requirements='Node >=22, installed Chrome, pinned vendor closure';outputs='Six JPGs plus WebGL receipt';pending='Finite capture';secrets='None'} | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8 (Join-Path $runRoot 'inputs.json')
 $profile = Join-Path $recordRoot ('profile-' + [guid]::NewGuid().ToString('N'))
 $stop = Join-Path $recordRoot ('STOP-' + [guid]::NewGuid().ToString('N'))
 $port = 4551
@@ -62,7 +62,7 @@ try {
  foreach($name in @('restart.json','server-owner.json','browser-owner.json','retirement.json','browser-output.html','browser-err.log','server-out.log','server-err.log')){
   $saved=Join-Path $recordRoot $name;if(Test-Path -LiteralPath $saved){Copy-Item -LiteralPath $saved -Destination (Join-Path $runRoot $name)}
  }
- foreach($relative in @('docs/art/stockyard-workers/webgl.json','docs/art/stockyard-workers/previews/game-normal.jpg','docs/art/stockyard-workers/previews/game-close-walking.jpg','docs/art/stockyard-workers/previews/stockyard-crew.jpg','docs/art/stockyard-workers/previews/nine-native-fits.jpg')){
+ foreach($relative in @('docs/art/stockyard-workers/webgl.json','docs/art/stockyard-workers/previews/game-normal.jpg','docs/art/stockyard-workers/previews/game-close-walking.jpg','docs/art/stockyard-workers/previews/stockyard-crew.jpg','docs/art/stockyard-workers/previews/nine-native-fits.jpg','docs/art/stockyard-workers/previews/rear-native-fits.jpg','docs/art/stockyard-workers/previews/reference-and-workers.jpg')){
   $saved=Join-Path $taskRoot $relative;if(Test-Path -LiteralPath $saved){Copy-Item -LiteralPath $saved -Destination (Join-Path $runRoot (Split-Path -Leaf $relative))}
  }
  if(-not $portFree -or -not $profileRemoved){throw 'Worker review helper or isolated profile did not retire completely.'}

@@ -1,8 +1,9 @@
-# Native stockyard workwear
+# Painted native stockyard workwear
 
-Owner-authorized first stockyard crowd batch, 12 November 2026. Artist candidate on
-codex/modular-stockyard-art, extending the existing e98e46f11f818857a2f08054e9d1071e023cc2d3
-pen/gate delivery. The independent fire, furnished-house and architect map work remain
+Owner-requested painterly revision, 12 November 2026. Artist candidate on
+codex/modular-stockyard-art, revising c39b658452638439f48aecc9b95aefe1b44466a3.
+The original e98e46f11f818857a2f08054e9d1071e023cc2d3 pen/gate delivery remains intact.
+The independent fire, furnished-house and architect map work remain
 on their existing branches.
 
 ## Delivered
@@ -14,6 +15,12 @@ Three interchangeable looks fit each original goat, horse and AFT bear:
 | yard-hand | Cream work shirt, brown braces, olive trousers and soft work cap |
 | packing-worker | Faded blue shirt, cloth apron with split walking skirts, trousers and cap |
 | yard-foreman | Cream shirt, brown sleeveless waistcoat with pockets/buttons, dark trousers and cap |
+
+The three new 1024 by 1536 PNG atlases follow the painted native AFT3D bear, goat and
+horse references: broad brushwork, warm fold highlights, colored shadows, painted
+stitching, fastenings and wear. Braces, waistcoat, collar, buttons and pockets are now
+painted surface detail. Geometry supplies the native silhouettes, a simple cap and a
+moving apron. The original flat-colored batch remains in Git history.
 
 The module also accepts four modest cloth tone variants (variant 0 through 3). The
 JPGs and fit report use variant 0. Colors, wear, cap proportions and the occupational
@@ -34,23 +41,41 @@ stockyard or promote the candidate to master.
 ## Native fit and ownership
 
 [src/art/stockyard-worker-skins.js](../../../src/art/stockyard-worker-skins.js) exports
-createStockyardWorkerSkin(THREE, character, {skin, variant}) and the game-facing
-dressStockyardWorker wrapper. The former returns root, pieces, diagnostics and an
-idempotent dispose. Dispose the previous garment before changing looks. The wrapper
-chains the owning character's diagnostics and disposal.
+createStockyardWorkerSkin(THREE, character, {skin, variant, texture}) and the game-facing
+dressStockyardWorker wrapper. The texture is required: missing paintings fail explicitly.
+The former returns root, pieces, diagnostics and an idempotent dispose. Dispose the
+previous garment before changing looks. The wrapper chains the character owner's
+diagnostics and disposal.
 
-Shirts and trousers are copies of the original connected garment surfaces. Trouser
-waists and waistcoat seams clip those copies while interpolating their native bone
-influences. New braces, collars, apron, cap and details borrow the same skeleton and
-bind matrix. No character root is resized. Original head, horns, ears, fur/paint,
-hands, hooves/paws, body vertices, gait, bones, bind matrices and attachments are
-preserved. Source garment visibility is restored on disposal. The protected Chicago
-beat uniform is rejected by the worker factory.
+[stockyard-worker-paint.js](../../../src/art/stockyard-worker-paint.js) loads the three
+shared atlases once per enabled game art scene:
 
-Each outfit owns its copied/new geometries and materials; it borrows the skeleton,
-source geometry/materials and renderer. No clothing texture or new donor import is
-required. The three looks use 4,039–5,333 garment triangles across species, including
-replacement shirt/trousers. These counts are inventory, not performance measurements.
+    const paint = await loadStockyardWorkerPaint(THREE, {signal});
+    const clothing = createStockyardWorkerSkin(THREE, character, {
+      skin: 'yard-hand', texture: paint.get('yard-hand')
+    });
+    // Retire clothing/characters first, then paint.dispose().
+
+Shirts and trousers copy the original connected garment surfaces and weights.
+The trouser waist clips the copied surface, interpolating the native bone influences.
+Cloth sampling uses bind-space positions/normals, so the painting follows the existing
+skin animation. Original mesh UVs and all source bytes remain untouched.
+
+The caps use 96 triangles, and the optional split apron uses 48. There are no separate
+braces, collar, button, pocket or waistcoat meshes. Each look uses 3 garment meshes,
+or 4 with the apron, compared with 13–16 previously. Garment triangles fall from
+4,039–5,333 to 3,701–3,884 across the nine pairs (7–30% fewer). This is geometry
+inventory, not a measured GPU speed claim.
+
+No character root is resized. Original heads, horns, ears, fur/paint, hands, hooves/paws,
+body vertices, gait, bones, bind matrices and attachments are preserved. The protected
+Chicago beat uniform is rejected by the worker factory. Original clothing visibility
+is restored on disposal.
+
+Each outfit owns its copied/new geometry and 3 or 4 materials. It borrows its atlas,
+the source meshes/materials, skeleton and renderer. The paint kit owns the three
+shared atlas textures and releases successful loads if any intake fails or is
+cancelled. Four tone variants share those same images.
 
 | Native species | Existing player height/radius envelope | Maximum sampled visible height/radius |
 | --- | --- | --- |
@@ -70,6 +95,12 @@ SHA-256 values, inherited rights and dependencies are in
 [manifest.json](../../../art/source/stockyard-workers/manifest.json). Existing source
 provenance and licenses remain authoritative; unresolved donor rights are not changed
 by this delivery.
+
+New garment maps were generated with the built-in image_gen tool, using the existing
+AFT3D bear painting as the style reference; the yard-hand atlas also supplied the layout
+reference for the other two. [Exact prompts and generated-file provenance](../../../art/source/stockyard-workers/paint-prompts-v2.json)
+are saved alongside [the runtime PNGs](../../../assets/art/stockyard-workers/manifest.json).
+These are new garment paintings; the original species paint maps and rigs are unchanged.
 
 The dated photographs below were visually inspected at their institutional image
 URLs. They are research references only; their scan pixels are absent from shipped
@@ -106,21 +137,25 @@ costume templates. See the shared [wardrobe catalogue](../period-crowds/catalogu
   the existing actors, with the normal camera zoom control at 2.15 times.
 - [stockyard-crew.jpg](previews/stockyard-crew.jpg): separate fitted asset study against
   the existing two-bay jubilee pen, with the native ground alignment.
-- [nine-native-fits.jpg](previews/nine-native-fits.jpg): all nine species/look pairs,
-  using the same renderer and unchanged native body scale.
+- [nine-native-fits.jpg](previews/nine-native-fits.jpg): all nine painted species/look pairs.
+- [rear-native-fits.jpg](previews/rear-native-fits.jpg): the same nine pairs from behind,
+  checking back painting, side transitions and moving native limbs.
+- [reference-and-workers.jpg](previews/reference-and-workers.jpg): original native AFT
+  paint above and revised worker paint below, with identical rigs, pose, camera and lighting.
 
 For visibility, only the existing player/civilian starting positions and two short
 routes were staged in the capture fixture. Houses, police, terrain, simulation,
 paint, rig, collisions and gameplay lighting use the actual game modules. The first
-two pictures are game canvas captures; HUD is outside those pictures. The other two
+two pictures are game canvas captures; HUD is outside those pictures. The other four
 are explicitly labelled asset studies. There is no livestock or stockyard crowd AI
 in this batch.
 
 [webgl.json](webgl.json) records the exact source/image hashes, GPU, camera and actor
 diagnostics, compiled shaders, linked programs and isolation assertion. Final capture:
-23 active programs linked, 46 shaders compiled, zero recorded errors, unchanged game
+27 active programs linked, 54 shaders compiled, zero recorded errors, unchanged game
 snapshots. Text evidence includes raw-checkout and LF-canonical hashes for Windows/Git
-line-ending comparisons. JPGs were visually reviewed after refining the waistcoat seams.
+line-ending comparisons. JPGs were visually reviewed after refining the apron waist join. The JPEGs are actual
+WebGL captures; image generation supplied only the three garment texture PNGs.
 
 The finite capture runner starts one hidden isolated Chrome profile and a localhost
 server on 4551 with a 300-second server expiry and 60-second browser deadline. It
@@ -140,13 +175,14 @@ From this artist checkout with Node >=22 and installed Chrome:
     npm.cmd run build
     node tools/check-release.mjs
 
-The focused suite passes five tests, including the actual civilian kit's public
+The focused suite passes eight tests, including the actual civilian kit's public
 wrapper shape, borrowed resource safety, native police protection, query selection
-and disposal chaining. [fit-checks.json](fit-checks.json) records four passing groups,
+disposal chaining, shared atlas ownership, failed/cancelled intake cleanup and the
+removal of trim meshes. [fit-checks.json](fit-checks.json) records four passing groups,
 nine pairs and 288 poses. Repository/package results are recorded in checks.json.
 
-The architect can intake just the new wardrobe module and the small src/art/index.js
-hook into its current game renderer, then select its district activation. This older
+The architect can intake the wardrobe/paint modules, three atlases and the small
+src/art/index.js hook into its current game renderer, then select its district activation. This older
 stockyard branch is not a replacement for newer renderer/fire or editor map work.
 Livestock, more wardrobe families, district frequency, NPC behavior and production
 map placement remain separate work.

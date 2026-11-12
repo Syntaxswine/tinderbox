@@ -27,7 +27,15 @@
     },
     {
       "linked": true,
-      "log": ""
+      "log": "(440,1): warning X4000: use of potentially uninitialized variable (f_workerPaint)\n\n\n"
+    },
+    {
+      "linked": true,
+      "log": "(440,1): warning X4000: use of potentially uninitialized variable (f_workerPaint)\n\n\n"
+    },
+    {
+      "linked": true,
+      "log": "(440,1): warning X4000: use of potentially uninitialized variable (f_workerPaint)\n\n\n"
     },
     {
       "linked": true,
@@ -36,6 +44,14 @@
     {
       "linked": true,
       "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": "(440,1): warning X4000: use of potentially uninitialized variable (f_workerPaint)\n\n\n"
     },
     {
       "linked": true,
@@ -282,12 +298,44 @@
     {
       "compiled": true,
       "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
     }
   ],
   "views": [
     {
       "name": "game-normal",
-      "title": "Stockyard workwear / actual Catalogue Street runtime",
+      "title": "Painted stockyard workwear / actual Catalogue Street runtime",
       "subtitle": "Native game zoom. Staged existing civilian positions; original bodies, collision, gait and police are preserved.",
       "dimensions": [
         1600,
@@ -303,6 +351,16 @@
           "playerTime": 0
         },
         "stockyardWorkers": true,
+        "workerPaint": {
+          "version": 2,
+          "disposed": false,
+          "textures": 3,
+          "ids": [
+            "yard-hand",
+            "packing-worker",
+            "yard-foreman"
+          ]
+        },
         "footprintRadius": 0.56,
         "provisionalBear": false,
         "actors": 3,
@@ -363,10 +421,22 @@
                 1
               ],
               "skeletonBorrowed": true,
-              "triangles": 4039,
+              "paintVersion": 2,
+              "painted": true,
+              "paintedDetails": [
+                "braces",
+                "waistcoat",
+                "collar",
+                "buttons",
+                "pockets",
+                "folds",
+                "stitching",
+                "wear"
+              ],
+              "triangles": 3749,
               "resources": {
-                "geometries": 13,
-                "materials": 7,
+                "geometries": 4,
+                "materials": 4,
                 "textures": 0,
                 "objects": 0
               }
@@ -411,10 +481,22 @@
                 1
               ],
               "skeletonBorrowed": true,
-              "triangles": 4216,
+              "paintVersion": 2,
+              "painted": true,
+              "paintedDetails": [
+                "braces",
+                "waistcoat",
+                "collar",
+                "buttons",
+                "pockets",
+                "folds",
+                "stitching",
+                "wear"
+              ],
+              "triangles": 3814,
               "resources": {
-                "geometries": 16,
-                "materials": 6,
+                "geometries": 3,
+                "materials": 3,
                 "textures": 0,
                 "objects": 0
               }
@@ -1691,7 +1773,7 @@
           "geometries": 2,
           "materials": 28,
           "textures": 30,
-          "objects": 0
+          "objects": 1
         },
         "world": {
           "geometries": 5,
@@ -1701,9 +1783,9 @@
           "builds": 1
         },
         "bear": {
-          "geometries": 83,
-          "materials": 27,
-          "textures": 12,
+          "geometries": 73,
+          "materials": 24,
+          "textures": 13,
           "objects": 1
         },
         "bearProtagonist": {
@@ -1789,9 +1871,9 @@
               "error": 7.944885044437398e-15
             }
           ],
-          "geometries": 83,
-          "materials": 27,
-          "textures": 12,
+          "geometries": 73,
+          "materials": 24,
+          "textures": 13,
           "objects": 1,
           "stockyardWorker": {
             "id": "stockyard-worker/bear/yard-foreman",
@@ -1805,10 +1887,22 @@
               1
             ],
             "skeletonBorrowed": true,
-            "triangles": 5333,
+            "paintVersion": 2,
+            "painted": true,
+            "paintedDetails": [
+              "braces",
+              "waistcoat",
+              "collar",
+              "buttons",
+              "pockets",
+              "folds",
+              "stitching",
+              "wear"
+            ],
+            "triangles": 3836,
             "resources": {
-              "geometries": 13,
-              "materials": 7,
+              "geometries": 3,
+              "materials": 3,
               "textures": 0,
               "objects": 0
             }
@@ -1918,7 +2012,7 @@
     },
     {
       "name": "game-close-walking",
-      "title": "Stockyard workwear / live game detail",
+      "title": "Painted stockyard workwear / live game detail",
       "subtitle": "Goat yard hand, bear foreman and horse packing worker. Existing runtime actors and evaluated native walking poses.",
       "dimensions": [
         1600,
@@ -1934,6 +2028,16 @@
           "playerTime": 0.24999999999999997
         },
         "stockyardWorkers": true,
+        "workerPaint": {
+          "version": 2,
+          "disposed": false,
+          "textures": 3,
+          "ids": [
+            "yard-hand",
+            "packing-worker",
+            "yard-foreman"
+          ]
+        },
         "footprintRadius": 0.56,
         "provisionalBear": false,
         "actors": 3,
@@ -1994,10 +2098,22 @@
                 1
               ],
               "skeletonBorrowed": true,
-              "triangles": 4039,
+              "paintVersion": 2,
+              "painted": true,
+              "paintedDetails": [
+                "braces",
+                "waistcoat",
+                "collar",
+                "buttons",
+                "pockets",
+                "folds",
+                "stitching",
+                "wear"
+              ],
+              "triangles": 3749,
               "resources": {
-                "geometries": 13,
-                "materials": 7,
+                "geometries": 4,
+                "materials": 4,
                 "textures": 0,
                 "objects": 0
               }
@@ -2042,10 +2158,22 @@
                 1
               ],
               "skeletonBorrowed": true,
-              "triangles": 4216,
+              "paintVersion": 2,
+              "painted": true,
+              "paintedDetails": [
+                "braces",
+                "waistcoat",
+                "collar",
+                "buttons",
+                "pockets",
+                "folds",
+                "stitching",
+                "wear"
+              ],
+              "triangles": 3814,
               "resources": {
-                "geometries": 16,
-                "materials": 6,
+                "geometries": 3,
+                "materials": 3,
                 "textures": 0,
                 "objects": 0
               }
@@ -3322,7 +3450,7 @@
           "geometries": 2,
           "materials": 28,
           "textures": 30,
-          "objects": 0
+          "objects": 1
         },
         "world": {
           "geometries": 5,
@@ -3332,9 +3460,9 @@
           "builds": 1
         },
         "bear": {
-          "geometries": 83,
-          "materials": 27,
-          "textures": 12,
+          "geometries": 73,
+          "materials": 24,
+          "textures": 13,
           "objects": 1
         },
         "bearProtagonist": {
@@ -3420,9 +3548,9 @@
               "error": 7.944885044437398e-15
             }
           ],
-          "geometries": 83,
-          "materials": 27,
-          "textures": 12,
+          "geometries": 73,
+          "materials": 24,
+          "textures": 13,
           "objects": 1,
           "stockyardWorker": {
             "id": "stockyard-worker/bear/yard-foreman",
@@ -3436,10 +3564,22 @@
               1
             ],
             "skeletonBorrowed": true,
-            "triangles": 5333,
+            "paintVersion": 2,
+            "painted": true,
+            "paintedDetails": [
+              "braces",
+              "waistcoat",
+              "collar",
+              "buttons",
+              "pockets",
+              "folds",
+              "stitching",
+              "wear"
+            ],
+            "triangles": 3836,
             "resources": {
-              "geometries": 13,
-              "materials": 7,
+              "geometries": 3,
+              "materials": 3,
               "textures": 0,
               "objects": 0
             }
@@ -3549,7 +3689,7 @@
     },
     {
       "name": "stockyard-crew",
-      "title": "Native stockyard workers / approved pen kit",
+      "title": "Painted stockyard workers / approved pen kit",
       "subtitle": "Three workwear roles at original authored scale. Fitted art study; livestock and stockyard map integration are separate.",
       "dimensions": [
         1600,
@@ -3586,10 +3726,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4216,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3814,
           "resources": {
-            "geometries": 16,
-            "materials": 6,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
@@ -3606,10 +3758,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 5333,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3836,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
@@ -3626,10 +3790,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4039,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3749,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 4,
+            "materials": 4,
             "textures": 0,
             "objects": 0
           }
@@ -3679,10 +3855,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4216,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3814,
           "resources": {
-            "geometries": 16,
-            "materials": 6,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
@@ -3699,10 +3887,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4238,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3836,
           "resources": {
-            "geometries": 16,
-            "materials": 6,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
@@ -3719,10 +3919,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4103,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3701,
           "resources": {
-            "geometries": 16,
-            "materials": 6,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
@@ -3739,10 +3951,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4152,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3862,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 4,
+            "materials": 4,
             "textures": 0,
             "objects": 0
           }
@@ -3759,10 +3983,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4174,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3884,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 4,
+            "materials": 4,
             "textures": 0,
             "objects": 0
           }
@@ -3779,10 +4015,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 4039,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3749,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 4,
+            "materials": 4,
             "textures": 0,
             "objects": 0
           }
@@ -3799,10 +4047,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 5273,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3814,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
@@ -3819,10 +4079,22 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 5333,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3836,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
@@ -3839,16 +4111,392 @@
             1
           ],
           "skeletonBorrowed": true,
-          "triangles": 5303,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3701,
           "resources": {
-            "geometries": 13,
-            "materials": 7,
+            "geometries": 3,
+            "materials": 3,
             "textures": 0,
             "objects": 0
           }
         }
       ],
       "caption": "Three original native species, each in three independent stockyard worker looks. No body rescaling."
+    },
+    {
+      "name": "rear-native-fits",
+      "kind": "asset-study",
+      "dimensions": [
+        1500,
+        1900
+      ],
+      "fits": [
+        {
+          "id": "stockyard-worker/goat/yard-hand",
+          "skin": "yard-hand",
+          "species": "goat",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3814,
+          "resources": {
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/bear/yard-hand",
+          "skin": "yard-hand",
+          "species": "bear",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3836,
+          "resources": {
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/horse/yard-hand",
+          "skin": "yard-hand",
+          "species": "horse",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3701,
+          "resources": {
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/goat/packing-worker",
+          "skin": "packing-worker",
+          "species": "goat",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3862,
+          "resources": {
+            "geometries": 4,
+            "materials": 4,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/bear/packing-worker",
+          "skin": "packing-worker",
+          "species": "bear",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3884,
+          "resources": {
+            "geometries": 4,
+            "materials": 4,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/horse/packing-worker",
+          "skin": "packing-worker",
+          "species": "horse",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3749,
+          "resources": {
+            "geometries": 4,
+            "materials": 4,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/goat/yard-foreman",
+          "skin": "yard-foreman",
+          "species": "goat",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3814,
+          "resources": {
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/bear/yard-foreman",
+          "skin": "yard-foreman",
+          "species": "bear",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3836,
+          "resources": {
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        },
+        {
+          "id": "stockyard-worker/horse/yard-foreman",
+          "skin": "yard-foreman",
+          "species": "horse",
+          "variant": 0,
+          "disposed": false,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "skeletonBorrowed": true,
+          "paintVersion": 2,
+          "painted": true,
+          "paintedDetails": [
+            "braces",
+            "waistcoat",
+            "collar",
+            "buttons",
+            "pockets",
+            "folds",
+            "stitching",
+            "wear"
+          ],
+          "triangles": 3701,
+          "resources": {
+            "geometries": 3,
+            "materials": 3,
+            "textures": 0,
+            "objects": 0
+          }
+        }
+      ],
+      "caption": "Three original native species, each in three independent stockyard worker looks. No body rescaling."
+    },
+    {
+      "name": "reference-and-workers",
+      "kind": "asset-study",
+      "dimensions": [
+        1500,
+        1280
+      ],
+      "fits": [
+        {
+          "species": "goat",
+          "look": "original-native-paint",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "bear",
+          "look": "original-native-paint",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "horse",
+          "look": "original-native-paint",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "goat",
+          "look": "yard-hand",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "bear",
+          "look": "yard-foreman",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "horse",
+          "look": "packing-worker",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "caption": "Original native painting above; revised worker painting below. Same rigs, camera, pose and study lighting."
     }
   ],
   "limits": [
@@ -3858,43 +4506,85 @@
   "files": [
     {
       "path": "docs/art/stockyard-workers/previews/game-normal.jpg",
-      "bytes": 378289,
-      "sha256": "077f55196a6e3fc6b6bc53bd1c5017ed835c5e7c1ff0e84429ed2365d078d6be"
+      "bytes": 381065,
+      "sha256": "f8e92b2226042434e44c01681129aa4b319eb6c70f9ad3c76d6e9b22114fb6b3"
     },
     {
       "path": "docs/art/stockyard-workers/previews/game-close-walking.jpg",
-      "bytes": 287133,
-      "sha256": "6bac015306fed41b421d69cd39c8966509bee8eb7d48c2fa582a945a8dee2f5c"
+      "bytes": 292999,
+      "sha256": "96614014d368d8b4a0f2e435f0cc32fdd652f232ba5374eb115c5ba8c1e085b6"
     },
     {
       "path": "docs/art/stockyard-workers/previews/stockyard-crew.jpg",
-      "bytes": 303865,
-      "sha256": "ae60c11ae8d7cb59fb2e500b7786697c7e8cb131b215fee04667ef92a43a3f16"
+      "bytes": 305956,
+      "sha256": "1bf504ce9f6b65c7079f9a4e7aaba7afcac1ca283c531f05f05a8bcad116f969"
     },
     {
       "path": "docs/art/stockyard-workers/previews/nine-native-fits.jpg",
-      "bytes": 271035,
-      "sha256": "53950d61bfa630ad69febe211a6ea06067f03d44ff8acc4bc416a12105163a74"
+      "bytes": 342701,
+      "sha256": "e01a453eae7eddfc7107e607f301184411154a90bea95bb3dc51b27d3ec1a2aa"
+    },
+    {
+      "path": "docs/art/stockyard-workers/previews/rear-native-fits.jpg",
+      "bytes": 282356,
+      "sha256": "b1c7e236df0546296930e554f7273fb78612a08851db34f5628bf93d86da5a3f"
+    },
+    {
+      "path": "docs/art/stockyard-workers/previews/reference-and-workers.jpg",
+      "bytes": 236360,
+      "sha256": "c2ab91d4eb61242991a8937bea5102e673a7c1274070c5f61b315233ae1ab9f3"
     }
   ],
   "sources": [
     {
       "path": "src/art/stockyard-worker-skins.js",
-      "sha256": "a0d74e19d71b6f8bd06a97d6004a28b5b38d5a23c2aa19cb373317d3ece2916e",
-      "canonicalSha256": "a0d74e19d71b6f8bd06a97d6004a28b5b38d5a23c2aa19cb373317d3ece2916e",
+      "sha256": "b6b30e043bebe33cb8b176705a6b399e1468a8ac5bda6cb4f62e7518e98ed054",
+      "canonicalSha256": "b6b30e043bebe33cb8b176705a6b399e1468a8ac5bda6cb4f62e7518e98ed054",
       "hashEncoding": "sha256: captured checkout bytes; canonicalSha256: UTF-8 LF matching Git"
     },
     {
       "path": "src/art/index.js",
-      "sha256": "382b48d5041333c7808dbe53510fdc28070da20dcf59ca61df9797f05c9cdc5c",
-      "canonicalSha256": "382b48d5041333c7808dbe53510fdc28070da20dcf59ca61df9797f05c9cdc5c",
+      "sha256": "34648f0a897a32732adf096d1228225043730fe21db89a65afe7be8335c8d007",
+      "canonicalSha256": "34648f0a897a32732adf096d1228225043730fe21db89a65afe7be8335c8d007",
+      "hashEncoding": "sha256: captured checkout bytes; canonicalSha256: UTF-8 LF matching Git"
+    },
+    {
+      "path": "src/art/stockyard-worker-paint.js",
+      "sha256": "33c211294724468f8cae66083cc9c91d75726a4bef6b3069d5be1855b7d74956",
+      "canonicalSha256": "33c211294724468f8cae66083cc9c91d75726a4bef6b3069d5be1855b7d74956",
       "hashEncoding": "sha256: captured checkout bytes; canonicalSha256: UTF-8 LF matching Git"
     },
     {
       "path": "art/source/stockyard-workers/review.js",
-      "sha256": "fde19d4fcd90dbb0ed550d112e7a32512c9dbc43b9e84ff2f499ecdbb7f70e62",
-      "canonicalSha256": "632a9273c97d9054eedd94f129d6eabb3404f5706075ab44d624da4a3cb8bfc8",
+      "sha256": "08c95639fcd687c73200d58722a7a7159a18fdca88486c01a7b47cf55784d430",
+      "canonicalSha256": "08c95639fcd687c73200d58722a7a7159a18fdca88486c01a7b47cf55784d430",
       "hashEncoding": "sha256: captured checkout bytes; canonicalSha256: UTF-8 LF matching Git"
+    }
+  ],
+  "textures": [
+    {
+      "path": "assets/art/stockyard-workers/yard-hand-paint-v2.png",
+      "sha256": "4293e037dddcacb19edec52ed2a64e0c1733ffded83fe1848f3f388619f3a99c",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/art/stockyard-workers/packing-worker-paint-v2.png",
+      "sha256": "3cf6564a9db1a4febba9aef1bc3db6f7a2c15778211aedaf20f2a662bf271b9d",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/art/stockyard-workers/yard-foreman-paint-v2.png",
+      "sha256": "cc90f94609269d07031b5a1977fc6de3507413ad03b4b7e6a9afe037033f17d4",
+      "dimensions": [
+        1024,
+        1536
+      ]
     }
   ]
 }

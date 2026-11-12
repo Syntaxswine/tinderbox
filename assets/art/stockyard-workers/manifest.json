@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "textures": [
+    {
+      "id": "yard-hand",
+      "path": "assets/art/stockyard-workers/yard-hand-paint-v2.png",
+      "bytes": 2635958,
+      "sha256": "4293e037dddcacb19edec52ed2a64e0c1733ffded83fe1848f3f388619f3a99c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "layout": "2 columns by 3 rows: shirt front/back, trousers front/back, plain sleeve/accessory cloth."
+    },
+    {
+      "id": "packing-worker",
+      "path": "assets/art/stockyard-workers/packing-worker-paint-v2.png",
+      "bytes": 2845905,
+      "sha256": "3cf6564a9db1a4febba9aef1bc3db6f7a2c15778211aedaf20f2a662bf271b9d",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "layout": "2 columns by 3 rows: shirt front/back, trousers front/back, plain sleeve/accessory cloth."
+    },
+    {
+      "id": "yard-foreman",
+      "path": "assets/art/stockyard-workers/yard-foreman-paint-v2.png",
+      "bytes": 2420400,
+      "sha256": "cc90f94609269d07031b5a1977fc6de3507413ad03b4b7e6a9afe037033f17d4",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "layout": "2 columns by 3 rows: shirt front/back, trousers front/back, plain sleeve/accessory cloth."
+    }
+  ],
+  "source": "Built-in image_gen; exact prompts in art/source/stockyard-workers/paint-prompts-v2.json",
+  "styleReferenceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+  "dependencies": [
+    "src/art/stockyard-worker-skins.js",
+    "src/art/stockyard-worker-paint.js"
+  ],
+  "rights": "New generated garment art follows user-directed AFT3D reuse; inherited native-source rights remain as recorded, with no new license grant.",
+  "adaptation": "Paint carries garment detail; native bodies, original paint and rigs are unchanged."
+}
