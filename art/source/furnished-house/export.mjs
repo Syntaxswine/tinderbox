@@ -24,7 +24,7 @@ const removedWallKeys=new Set(),removedWallRecords=[],removedFloorTriangles=new 
 const sourceId=new Map(),floorGroups=new Map(),wallGroups=new Map(),meshById=new Map(),matIndex=new Map(),materials=[],raw=new Map();
 const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const r3=v=>v.map(round),triArea=triangles=>triangles.reduce((n,t)=>n+triangleArea(t),0);
-function levelOf(o){for(let p=o;p;p=p.parent)if(/^Level /.test(p.name))return Number(p.name.slice(6));return null;}
+function levelOf(o){if(Number.isInteger(o.userData.prototypeLevel))return o.userData.prototypeLevel;for(let p=o;p;p=p.parent)if(/^Level /.test(p.name))return Number(p.name.slice(6));return null;}
 function wallOf(o){for(let p=o;p;p=p.parent)if(p.name.startsWith('wall:'))return p;return null;}
 function materialId(m){
  if(matIndex.has(m))return matIndex.get(m);const id='appearance-'+materials.length;
@@ -177,6 +177,16 @@ try{
  routeAdaptations.push({type:'composed-entry-approach',parts:entryRecord,nativeRunPerBlock:.22,blocks:6,runPerRise:.44,totalRun:1.32,totalRise:.48,railGeometry:'Original upper-flight rails retained; no source part stretched',reason:'Keep the conservative torso clear of the third riser before the first centre-supported step.'});
  const railMoves=[];model.root.traverse(o=>{if(levelOf(o)!==0||!['Stair newel','Stair handrail'].includes(o.name))return;const baseline=o.position.toArray(),left=o.position.x<5.5;o.position.x+=left?-.04:.04;railMoves.push({name:o.name,baseline,position:o.position.toArray(),translation:[left?-.04:.04,0,0]});});
  routeAdaptations.push({type:'translated-stair-rails',parts:railMoves,treadsUnchanged:true,baselineNewelClear:.935,adaptedNewelClear:1.015,remainingLimit:'Stair-side partitions and one fore-lip floor bay are explicitly removed in the same physical data; final continuous route proof remains required.'});
+ // Approved upper side exit: retain two metres of right rail and relocate its terminal post.
+ const stairParts=model.root.getObjectByName('Level 0').children[1].children,egressNewel=stairParts.find(o=>o.name==='Stair newel'&&o.position.x>6&&Math.abs(o.position.z-7)<1e-7),egressRail=stairParts.find(o=>o.name==='Stair handrail'&&o.position.x>6);
+ if(!egressNewel||!egressRail)throw Error('Missing native upper right guard');
+ const newelBaseline={position:egressNewel.position.toArray(),dimensions:egressNewel.userData.nativeDimensions,bounds:new T.Box3().setFromObject(egressNewel)},railBaseline={position:egressRail.position.toArray(),quaternion:egressRail.quaternion.toArray(),dimensions:egressRail.userData.nativeDimensions,bounds:new T.Box3().setFromObject(egressRail)};
+ egressNewel.position.set(7.54,2.98,6.95);egressNewel.userData.prototypeLevel=1;egressNewel.userData.upperLandingRelocation=true;
+ const [railWidth,railLength,railDepth]=egressRail.userData.nativeDimensions,newRailLength=railLength*2/3,railGeometry=new T.BoxGeometry(railWidth,newRailLength,railDepth),rp=railGeometry.attributes.position,rn=railGeometry.attributes.normal,railUV=[];
+ for(let i=0;i<rp.count;i++)railUV.push(Math.abs(rn.getY(i))>.55?rp.getX(i):Math.abs(rn.getX(i))>.55?rp.getZ(i):rp.getX(i),Math.abs(rn.getY(i))>.55?rp.getZ(i):rp.getY(i)-railLength/6);
+ railGeometry.setAttribute('grossUV',new T.Float32BufferAttribute(railUV,2));extraGeometry.push(railGeometry);egressRail.geometry=railGeometry;egressRail.position.add(new T.Vector3(0,-railLength/6,0).applyQuaternion(egressRail.quaternion));egressRail.userData.nativeDimensions=[railWidth,newRailLength,railDepth];egressRail.userData.sourceNativeDimensions=railBaseline.dimensions;
+ const upperEgress={type:'upper-stair-side-egress',status:'Architect approved',rightRail:{baseline:{...railBaseline,bounds:{min:railBaseline.bounds.min.toArray(),max:railBaseline.bounds.max.toArray()}},position:egressRail.position.toArray(),dimensions:egressRail.userData.nativeDimensions,retainedCentrelineZ:[4,6],removedCentrelineZ:[6,7],crossSectionUnchanged:[railWidth,railDepth],uvDensityAndPhaseUnchanged:true},newel:{baseline:{...newelBaseline,bounds:{min:newelBaseline.bounds.min.toArray(),max:newelBaseline.bounds.max.toArray()}},position:egressNewel.position.toArray(),translation:[1.5,0,-.05],dimensions:egressNewel.userData.nativeDimensions,prototypeLevel:1,location:'Actual upper bedroom A floor against the retained rear wall, outside the side-turn envelope'},retainedGapStartNewel:[6.04,2.2733333333333334,6],turnWaypoints:[[5.5,2.6,6.875],[6,2.6,6.8],[6.5,2.6,6.4]],treadsUnchanged:true,floorAdded:false,noForwardLandingBeyondZ7:true,meshScalesUnchanged:true};
+ routeAdaptations.push(upperEgress);
  const routeWalls=[];model.root.traverse(o=>{if(o.name.startsWith('wall:')&&levelOf(o)===0&&routeEdges.has(o.userData.edge))routeWalls.push(o);});
  for(const wall of routeWalls){
   const removed=[];for(const o of [...wall.children])if(['Native door lintel','Door header'].includes(o.name)){
@@ -330,7 +340,7 @@ try{
   const appearanceNames=record.materialIds.map(id=>materials.find(m=>m.id===id).name),metal=appearanceNames.some(n=>/iron|brass/i.test(n));
   if(appearanceNames.some(n=>/glass|brick|plinth/i.test(n)))throw Error('Unclassified inert source '+record.id);
   const volume=Math.abs(triangles.reduce((n,t)=>n+dot(t[0],cross(t[1],t[2]))/6,0)),roofTrim=/removable-roofs/.test(record.id),level=record.level??(roofTrim?1:0);
-  const a=surface({id:'attachment/'+record.id,kind:'attachment',level,triangles,solidTriangles:triangles,bounds:record.bounds,normal:normal(triangles[0]),thickness:0,material:metal?'iron':'timber',sourceMeshBindings:[record.id],fuelClass:metal?null:'frame',fuelAmount:metal?0:round(Math.max(1e-7,volume)/.12),volume:round(volume),physicalShape:'source-closed-mesh',attachmentType:record.name,presentationKind:roofTrim?'roof':/Stair|entry rail post/i.test(record.name)?'fitting':'wall',supportSurfaceIds:[],connectionTolerance:.015,connectionEvidence:'Prototype joinery; raw visible solid retained. Measured hosts and explicit inferred stair flight are separate from fuel decay.'});attachments.push(a);
+  const a=surface({id:'attachment/'+record.id,kind:'attachment',level,triangles,solidTriangles:triangles,bounds:record.bounds,normal:normal(triangles[0]),thickness:0,material:metal?'iron':'timber',sourceMeshBindings:[record.id],fuelClass:metal?null:'frame',fuelAmount:metal?0:round(Math.max(1e-7,volume)/.12),volume:round(volume),physicalShape:'source-closed-mesh',attachmentType:record.name,presentationKind:o.userData.upperLandingRelocation?'landing-fitting':roofTrim?'roof':/Stair|entry rail post/i.test(record.name)?'fitting':'wall',supportSurfaceIds:[],connectionTolerance:.015,connectionEvidence:'Prototype joinery; raw visible solid retained. Measured hosts and explicit inferred stair flight are separate from fuel decay.'});attachments.push(a);
  }
  const nearBounds=(a,b,t=.015)=>a.min.every((v,i)=>Math.max(v,b.min[i])-Math.min(a.max[i],b.max[i])<=t);
  for(const a of attachments){
@@ -339,6 +349,9 @@ try{
   a.supportSurfaceIds=surfaces.filter(s=>s.kind==='floor'&&nearBounds(a.bounds,s.bounds)&&a.bounds.min[1]>=s.bounds.max[1]-.03&&a.bounds.min[1]<=s.bounds.max[1]+.03).map(s=>s.id);
   a.supportBinding={kind:wall?'native-wall-joinery':/Stair/.test(a.attachmentType)?'native-stair-flight':/Porch|porch/.test(a.attachmentType)?'native-porch-joinery':'native-source-contact',hostSurfaceIds:a.attachmentHostSurfaceIds,bearingSurfaceIds:a.supportSurfaceIds,tolerance:.015,inferred:true};
  }
+ const landingPost=attachments.find(a=>a.sourceMeshBindings.includes(sourceId.get(egressNewel)));
+ upperEgress.newel.sourceMeshBinding=sourceId.get(egressNewel);upperEgress.newel.supportSurfaceIds=landingPost.supportSurfaceIds;upperEgress.newel.supportPolygons=landingPost.supportSurfaceIds.map(id=>({id,triangles:surfaces.find(s=>s.id===id).triangles}));upperEgress.rightRail.sourceMeshBinding=sourceId.get(egressRail);
+ if(!upperEgress.newel.supportSurfaceIds.length)throw Error('Relocated landing post has no actual floor support');
  routeAdaptations.push({type:'explicit-source-fittings',count:attachments.length,physicalMaterial:'timber',fuelClass:'frame',fuelPerCubicMetre:round(1/.12),policy:'One finite amount per exact source fitting; actual closed source mesh is shared by render, thermal and support. Lost support can move remaining fuel independently of its 120ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ180s nominal burn age.',inferredStairFlight:{treadSurfaceIds:surfaces.filter(s=>s.supportType==='stair-tread').map(s=>s.id),attachmentSurfaceIds:attachments.filter(s=>/Stair/.test(s.attachmentType)).map(s=>s.id),note:'Source tread boxes do not model load-carrying stringers. Runtime owns the declared flight/landing support graph; no invisible floor is introduced.'}});
  const geometry=[];
  for(const record of sourceMeshes){

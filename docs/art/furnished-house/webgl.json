@@ -179,7 +179,7 @@
         "view": "exterior",
         "level": 0,
         "sourceSurfaces": 2964,
-        "physicalPatches": 5821,
+        "physicalPatches": 5818,
         "retiredPatches": 0,
         "sourceMeshes": 860,
         "batches": 61,
@@ -230,7 +230,7 @@
       },
       "renderer": {
         "calls": 70,
-        "triangles": 60283
+        "triangles": 60235
       },
       "character": {
         "disposed": false,
@@ -357,7 +357,7 @@
         "view": "cutaway",
         "level": 0,
         "sourceSurfaces": 2964,
-        "physicalPatches": 5821,
+        "physicalPatches": 5818,
         "retiredPatches": 0,
         "sourceMeshes": 860,
         "batches": 61,
@@ -437,7 +437,7 @@
       },
       "renderer": {
         "calls": 71,
-        "triangles": 60291
+        "triangles": 60243
       },
       "character": {
         "disposed": false,
@@ -564,7 +564,7 @@
         "view": "cutaway",
         "level": 0,
         "sourceSurfaces": 2964,
-        "physicalPatches": 5821,
+        "physicalPatches": 5818,
         "retiredPatches": 1,
         "sourceMeshes": 860,
         "batches": 61,
@@ -622,7 +622,7 @@
       },
       "renderer": {
         "calls": 70,
-        "triangles": 60283
+        "triangles": 60235
       },
       "character": {
         "disposed": false,
@@ -749,7 +749,7 @@
         "view": "cutaway",
         "level": 0,
         "sourceSurfaces": 2964,
-        "physicalPatches": 5821,
+        "physicalPatches": 5818,
         "retiredPatches": 0,
         "sourceMeshes": 860,
         "batches": 61,
@@ -965,7 +965,7 @@
       },
       "renderer": {
         "calls": 77,
-        "triangles": 66049
+        "triangles": 66001
       },
       "character": {
         "disposed": false,
@@ -1092,7 +1092,7 @@
         "view": "cutaway",
         "level": 0,
         "sourceSurfaces": 2964,
-        "physicalPatches": 5821,
+        "physicalPatches": 5818,
         "retiredPatches": 0,
         "sourceMeshes": 860,
         "batches": 61,
@@ -1186,7 +1186,7 @@
       },
       "renderer": {
         "calls": 69,
-        "triangles": 59391
+        "triangles": 59343
       },
       "character": {
         "disposed": false,
@@ -1313,8 +1313,8 @@
         "view": "exterior",
         "level": 0,
         "sourceSurfaces": 2964,
-        "physicalPatches": 5821,
-        "retiredPatches": 4870,
+        "physicalPatches": 5818,
+        "retiredPatches": 4867,
         "sourceMeshes": 860,
         "batches": 61,
         "items": 16,
@@ -1407,7 +1407,7 @@
       },
       "renderer": {
         "calls": 71,
-        "triangles": 60427
+        "triangles": 60379
       },
       "character": {
         "disposed": false,
@@ -1534,8 +1534,8 @@
         "view": "exterior",
         "level": 0,
         "sourceSurfaces": 2964,
-        "physicalPatches": 5821,
-        "retiredPatches": 4870,
+        "physicalPatches": 5818,
+        "retiredPatches": 4867,
         "sourceMeshes": 860,
         "batches": 61,
         "items": 16,
@@ -1628,7 +1628,7 @@
       },
       "renderer": {
         "calls": 71,
-        "triangles": 60427
+        "triangles": 60379
       },
       "character": {
         "disposed": false,
@@ -1718,13 +1718,234 @@
         "characterId": "goat",
         "role": "player"
       }
+    },
+    {
+      "name": "qa-upper-egress",
+      "mode": "cutaway",
+      "level": 1,
+      "camera": [
+        20,
+        16,
+        -13
+      ],
+      "target": [
+        6,
+        2.7,
+        4.4
+      ],
+      "halfWidth": 8.4,
+      "actor": [
+        6.5,
+        2.6,
+        6.4
+      ],
+      "title": "Upper side exit | unchanged native stair flight",
+      "caption": "Right rail retains Z4..6. The terminal post moves to real upper floor outside the turn. No new forward landing or enlarged treads.",
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "exposure": 1,
+      "art": {
+        "disposed": false,
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "worldTime": 0,
+        "revision": 0,
+        "view": "cutaway",
+        "level": 1,
+        "sourceSurfaces": 2964,
+        "physicalPatches": 5818,
+        "retiredPatches": 0,
+        "sourceMeshes": 860,
+        "batches": 61,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
+        "emitterBatches": 7,
+        "fire": [
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          },
+          {
+            "activeCells": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "maxSplats": 640
+          }
+        ],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 6,
+          "powerCap": 215,
+          "lights": []
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 62,
+          "materials": 83,
+          "textures": 6
+        },
+        "resetCount": 9,
+        "revisionCount": 8,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 3061
+      },
+      "renderer": {
+        "calls": 70,
+        "triangles": 60235
+      },
+      "character": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "matches",
+        "visibleTool": null,
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            6.5,
+            2.6,
+            6.4
+          ],
+          "support": [
+            6.769362895698104,
+            3.332,
+            6.1426332763911935
+          ],
+          "muzzle": [
+            6.675516512378074,
+            2.63,
+            6.495885107720841
+          ],
+          "spout": [
+            6.5,
+            2.6,
+            6.4
+          ],
+          "backpack": [
+            6.478060435952741,
+            3.68,
+            6.388014361534895
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 6.5,
+          "y": 6.4,
+          "heading": 0.5,
+          "travelled": 0
+        },
+        "playerTime": 0,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              6.5,
+              2.6,
+              6.4
+            ],
+            "palm": [
+              6.4289707632891195,
+              3.3320000000000003,
+              6.765716895333357
+            ],
+            "error": 0.8213513255605057
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 4,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      }
     }
   ],
   "inputData": {
     "path": "workbenches/furnished-house/house-data.json",
-    "sha256": "5722e591380d09be165e451ff278d3a6f61dedf37ff0457c93d900b678650092"
+    "sha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1"
   },
-  "reviewScriptSha256": "4e20ac2f5b837a4e04306d5e502a1bd68c10e022f5bca26e37c59a55fbc89d67",
+  "reviewScriptSha256": "e52f9ca0b947c2098b332a664a9b043326f9b6696a70fcda616c3e4767ccd5e3",
   "jpgs": [
     {
       "path": "docs/art/furnished-house/previews/qa-exterior.jpg",
@@ -1733,23 +1954,23 @@
     },
     {
       "path": "docs/art/furnished-house/previews/qa-kitchen-cutaway.jpg",
-      "bytes": 269203,
-      "sha256": "fbf0064836018fbbc745a08c3b8143863a6cfe0828b6db535230fe9bf099012d"
+      "bytes": 269027,
+      "sha256": "de9a337167bc723382d4dbe56a70b9c00ef4a1b3b61263f12e1dedc7946f59dc"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-local-retirement.jpg",
-      "bytes": 259742,
-      "sha256": "07591d06236aa35e65ea330e5d3df60cdf1c9b6d725479150dcd969e45f11c7a"
+      "bytes": 259569,
+      "sha256": "2927df3e4ad2bc7ac898b2183355a09d2a666049a9c7fb19040e6eb6b0479036"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-flame-body.jpg",
-      "bytes": 257697,
-      "sha256": "aa9e8bc0f0fc86efd15c599d149e3bd61b3308a9ccacedb2defd206bf3b286eb"
+      "bytes": 257476,
+      "sha256": "33d16acf5e9889fa0a5635014918cb6624b066521bb6fbe1e9de89d5c825d37f"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-preheat-smoke.jpg",
-      "bytes": 310851,
-      "sha256": "bf91f892f255db2d52a16fb02515cbf1f1a5c5320b756dcb930c212154350ecf"
+      "bytes": 310622,
+      "sha256": "f2484a0833f906d33abcb8f7edb9a605124ae7d0bbe52192c16c6a82c9725685"
     },
     {
       "path": "docs/art/furnished-house/previews/qa-landed-residue.jpg",
@@ -1760,6 +1981,11 @@
       "path": "docs/art/furnished-house/previews/qa-spent-ash.jpg",
       "bytes": 113691,
       "sha256": "50416650810b72aa1efa613320848984122deb5feb14c8702c58f62ce169132c"
+    },
+    {
+      "path": "docs/art/furnished-house/previews/qa-upper-egress.jpg",
+      "bytes": 203598,
+      "sha256": "aa7ca3f19879b2d3d81dca2a8c3cc4e519621434661d872673d485453f590e3d"
     }
   ]
 }

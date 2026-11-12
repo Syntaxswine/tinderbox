@@ -4,7 +4,7 @@ import {createDebrisView} from '../../art/source/furnished-house/debris.js';
 import {connectSurfaceSamples} from '../../art/source/furnished-house/presentation.js';
 import {createStreetFirelight} from '../../src/art/street-firelight.js';
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0)),EPS=1e-6;
-const KIND={floor:0,wall:1,attachment:1,fitting:4,roof:2,door:3,window:3,plinth:5};
+const KIND={floor:0,wall:1,attachment:1,fitting:4,'landing-fitting':0,roof:2,door:3,window:3,plinth:5};
 export async function createFurnishedHouseArt(T,{renderer,data}={}){
  if(!T?.DataTexture||data?.version!==1||data.prefabId!=='hopkins-4-15')throw Error('Expected shared Three and version-1 Hopkins geometry');
  const root=new T.Group();root.name='Authoritative furnished Hopkins15';
