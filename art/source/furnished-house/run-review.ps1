@@ -35,7 +35,8 @@ try {
  if($server){Set-Content -Encoding ascii -Path $stop -Value 'review complete';if(-not $server.WaitForExit(6000)){throw 'Preview server did not retire through its stop file.'}}
  $portFree=-not [bool](Get-NetTCPConnection -State Listen -LocalPort $port -ErrorAction SilentlyContinue)
  $usingProfile=Get-CimInstance Win32_Process -Filter "name='chrome.exe'" | Where-Object {$_.CommandLine -and $_.CommandLine.Contains($profile)}
- $profileRemoved=$false
+ for($profileWait=0;$usingProfile -and $profileWait -lt 15;$profileWait++){Start-Sleep -Milliseconds 200;$usingProfile=Get-CimInstance Win32_Process -Filter "name='chrome.exe'" | Where-Object {$_.CommandLine -and $_.CommandLine.Contains($profile)}}
+ $profileRemoved=-not (Test-Path -LiteralPath $profile)
  if(-not $usingProfile -and (Test-Path -LiteralPath $profile)){
   $resolved=(Resolve-Path -LiteralPath $profile).Path
   if(-not $resolved.StartsWith($recordRoot + [IO.Path]::DirectorySeparatorChar)){throw 'Unsafe task profile path.'}
@@ -45,4 +46,5 @@ try {
  @{task='Furnished-house art';retiredAt=[DateTime]::UtcNow.ToString('o');serverExited=($null -eq $server -or $server.HasExited);browserExited=($null -eq $browser -or $browser.HasExited);portReleased=$portFree;testProfileRemoved=$profileRemoved;restart='artifacts/helpers/furnished-house-review/restart.json'} | ConvertTo-Json | Set-Content -Encoding utf8 (Join-Path $recordRoot 'retirement.json')
  foreach($name in @('server-owner.json','browser-owner.json')){ $p=Join-Path $recordRoot $name;if(Test-Path -LiteralPath $p){$r=Get-Content -Raw $p|ConvertFrom-Json;$r.status='retired';$r|ConvertTo-Json|Set-Content -Encoding utf8 $p}}
  if(-not $portFree){throw 'Furnished-house preview port is still listening.'}
+ if(-not $profileRemoved){throw 'Capture browser exited but its exact task profile is still in use; cleanup remains explicit in retirement.json.'}
 }
