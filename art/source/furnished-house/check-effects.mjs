@@ -91,9 +91,13 @@ try{
  assert.equal(a.diagnostics().effectWork.cameraCulledSources,0);assert.equal(a.diagnostics().effectWork.uncertainCameraSources,samples.length);assert.ok(a.diagnostics().effectWork.work.smokeCalls>0);
  assert.equal(createCameraCuller(T,away)(null),false);assert.equal(hasBoundedHouseWind({sampleWind:wind}),false);assert.equal(houseEffectBounds({...samples[0],nx:2},'smoke'),null);
  pass('Arbitrary samplers, ambiguous normals and unknown bounds retain effects rather than becoming successful culls');
- const invalid=[{...samples[0],id:'nan-source',flame:NaN},{...samples[0],id:'unknown-source',sourceSurfaceId:'unknown',x:10000,z:10000,floorFootprint:undefined},{...samples[0],id:'invalid-footprint',floorFootprint:[]}];
+ const perspective=new T.PerspectiveCamera(45,1,.1,100);perspective.position.copy(away.position);perspective.lookAt(1000,2,4);perspective.updateMatrixWorld(true);
+ assert.equal(createCameraCuller(T,perspective).known,false);assert.equal(createCameraCuller(T,perspective)(houseEffectBounds({...samples[0],part:'ground'},'smoke')),false);
+ pass('Perspective or unknown cameras retain sources because the early-cull proof is restricted to the native orthographic camera');
+
+ const invalid=[{...samples[0],id:'nan-source',flame:NaN},{...samples[0],id:'unknown-source',sourceSurfaceId:'unknown',x:10000,z:10000,floorFootprint:undefined},{...samples[0],id:'invalid-footprint',floorFootprint:[]},{...samples[2],id:'invalid-optional-triangles',floorFootprint:[[[NaN,0,0],[1,0,0],[0,0,1]]]}];
  a.update(frame({fireSamples:invalid}),{...view,camera:away,effects:{flames:false,smoke:false,lighting:false}});
- assert.equal(a.diagnostics().missingSamples,3);assert.equal(a.diagnostics().representedSamples,0);assert.equal(a.diagnostics().effectWork.cameraCulledSources,0);
+ assert.equal(a.diagnostics().missingSamples,4);assert.equal(a.diagnostics().representedSamples,0);assert.equal(a.diagnostics().effectWork.cameraCulledSources,0);
  pass('Malformed/unknown ownership and invalid footprints remain missing even with all channels off and camera away');
  const real=JSON.parse(fs.readFileSync('art/source/furnished-house/fixture-real-refall.json'));
  const dynamic=frame({falls:[real.fall],tombstones:real.tombstones,fireSamples:[real.fireSample]});

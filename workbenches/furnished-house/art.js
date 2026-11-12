@@ -1,9 +1,10 @@
 import {bounds,normal,triangleArea,polygonTriangles,gridPieces,clipBox,nearestSurface,distanceToBounds,pointInTriangleXZ,unit,sub} from '../../art/source/furnished-house/geometry.js';
 import {createWallShroud} from '../../art/source/furnished-house/shroud.js';
 import {createDebrisView} from '../../art/source/furnished-house/debris.js';
-import {connectSurfaceSamples,surfaceSampleGroupKey} from '../../art/source/furnished-house/presentation.js';
-import {normalizeArtEffects,hasBoundedHouseWind,validFootprint,houseEffectBounds,createCameraCuller} from '../../art/source/furnished-house/visibility.js';
+import {connectSurfaceSamples,surfaceSampleContextKey} from '../../art/source/furnished-house/presentation.js';
+import {normalizeArtEffects,hasBoundedHouseWind,validTriangles,validFootprint,houseEffectBounds,createCameraCuller} from '../../art/source/furnished-house/visibility.js';
 import {createStreetFirelight} from '../../src/art/street-firelight.js';
+import {createBuildingGlow} from '../../art/source/furnished-house/building-glow.js';
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0)),EPS=1e-6;
 const KIND={floor:0,wall:1,attachment:1,fitting:4,'landing-fitting':0,roof:2,door:3,window:3,plinth:5};
 export async function createFurnishedHouseArt(T,{renderer,data}={}){
@@ -13,8 +14,8 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
  const surfaces=new Map(data.surfaces.map(s=>[s.id,s])),sourceMeshes=new Map(data.sourceMeshes.map(s=>[s.id,s])),sourceGeometry=new Map(data.render.geometry.map(g=>[g.id,g])),partByMesh=new Map(data.furnitureParts.filter(p=>p.sourceMeshBinding).map(p=>[p.sourceMeshBinding,p])),openingByMesh=new Map(data.openings.flatMap(o=>o.sourceMeshBindings.map(id=>[id,o]))),openingByWall=new Map(data.openings.map(o=>[o.sourceWallBinding,o]));
  let debrisView=null;
  let disposed=false,lastRevision=-1,lastTime=-Infinity,mode='exterior',selectedLevel=0,lastFrame=null,missingSamples=0,representedSamples=0,fireSamples=[],retiredPatches=0,resetCount=0,revisionCount=0,visibleSampleCount=0,missingSampleDetails=[];
- let effectSettings=normalizeArtEffects(),effectWork=emptyEffectWork();
- function emptyEffectWork(){return {suppliedSources:0,activeSources:0,representedSources:0,preparedSources:0,disabledSources:0,viewCulledSources:0,cameraCulledSources:0,missingSources:0,inactiveSources:0,noCameraSources:0,uncertainCameraSources:0,flameSplats:0,smokeSplats:0,generatedFlameSplats:0,generatedSmokeSplats:0,activeLights:0,channels:Object.fromEntries(['flames','smoke','lighting'].map(k=>[k,{supplied:0,disabled:0,viewCulled:0,cameraCulled:0,prepared:0}])),work:{supportAnchorSources:0,supportAnchorComputations:0,flameEnvelopeSources:0,flameContextSources:0,flameCalls:0,smokeCalls:0,lightClusterCalls:0}};}
+ let effectSettings=normalizeArtEffects(),effectWork=emptyEffectWork(),lightingMode='local';
+ function emptyEffectWork(){return {suppliedSources:0,activeSources:0,representedSources:0,preparedSources:0,disabledSources:0,viewCulledSources:0,cameraCulledSources:0,missingSources:0,inactiveSources:0,noCameraSources:0,uncertainCameraSources:0,flameSplats:0,smokeSplats:0,generatedFlameSplats:0,generatedSmokeSplats:0,activeLights:0,channels:Object.fromEntries(['flames','smoke','lighting'].map(k=>[k,{supplied:0,disabled:0,viewCulled:0,cameraCulled:0,prepared:0}])),work:{supportAnchorSources:0,supportAnchorComputations:0,flameEnvelopeSources:0,flameContextSources:0,flameCalls:0,smokeCalls:0,lightClusterCalls:0,buildingAggregateCalls:0,buildingAggregateSources:0}};}
  const viewMode={value:0},viewLevel={value:0},cutY={value:1.3},stateUniform={value:null},stateWidth={value:1},ownedItemRows=new Map(),ownedPartRows=new Map(),storeGlows=[];
  const ownG=g=>(geometries.add(g),g),ownM=m=>(materials.add(m),m);
  const centre=t=>[0,1,2].map(i=>t.reduce((n,p)=>n+p[i],0)/t.length);
@@ -133,7 +134,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
   // Actual live occupancy uses one instanced debug draw, never an inferred fire state.
   const occGeometry=ownG(new T.BoxGeometry(1,1,1)),occMaterial=ownM(new T.MeshBasicMaterial({color:0x6fbaa8,wireframe:true,transparent:true,opacity:.40,depthWrite:false})),occupancy=new T.InstancedMesh(occGeometry,occMaterial,8192);
   occupancy.count=0;occupancy.frustumCulled=false;occupancy.name='Authoritative thermal occupancy';root.add(occupancy);
-  const firelight=createStreetFirelight(T);root.add(firelight.root);
+  const buildingGlow=createBuildingGlow(data),firelight=createStreetFirelight(T);root.add(firelight.root);
   debrisView=createDebrisView(T,{surfaces,getBoundary:id=>boundaryStates.get(id)});root.add(debrisView.root);const effectMapping=new Map(),radiusCache=new Map();
   function inProjectedTriangle(point,t,axis){
    const axes=[0,1,2].filter(i=>i!==axis),p=[point[axes[0]],point[axes[1]]],q=t.map(v=>[v[axes[0]],0,v[axes[1]]]);return pointInTriangleXZ(p,q);
@@ -204,6 +205,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    const runtime=boundaryStates.get(sample.boundaryId||sample.id.replace(/^fuel:/,'')),triangles=runtime?.triangles||source?.triangles;
    if(triangles&&(!Array.isArray(triangles)||!triangles.every(t=>Array.isArray(t)&&t.length===3&&t.every(p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite)))))return null;
    q.supportTriangles=sample.floorFootprint||sample.footprint||triangles;q.supportBounds=triangles?.length?bounds(triangles.flat()):null;
+   if(q.supportTriangles!==undefined&&!validTriangles(q.supportTriangles))return null;
    q.presentationLevel=source?.level??item?.definition.level??0;q.wallTopY=data.levels.find(l=>l.index===q.presentationLevel)?.wallTop??q.supportBounds?.max[1];q.surfaceKind=source?.kind;
    if(sample.part==='contents'&&sample.id.endsWith(':embers')){q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.baseRadius=.10;return q;}
    if(source){
@@ -265,7 +267,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    for(const [id,entry]of doorGroups){const states=[...boundaryStates.values()].filter(b=>b.sourceSurfaceId===id),fraction=states.length?states.reduce((n,b)=>n+clamp(b.openFraction),0)/states.length:entry.definition.initialOpenFraction;entry.group.quaternion.setFromAxisAngle(new T.Vector3(0,1,0),fraction*entry.definition.maxOpenAngle);}
    setView(view);debrisView.setView?.(mode,selectedLevel);root.updateMatrixWorld(true);
    missingSamples=0;representedSamples=0;missingSampleDetails=[];fireSamples=[];effectMapping.clear();
-   effectSettings=normalizeArtEffects(view.effects);effectWork=emptyEffectWork();
+   effectSettings=normalizeArtEffects(view.effects);effectWork=emptyEffectWork();lightingMode=view.lightingMode==='building'?'building':'local';
    const camera=view.camera,boundedWind=hasBoundedHouseWind(view),cameraCull=createCameraCuller(T,camera),classified=[],groups=new Map();
    const missing=sample=>{missingSamples++;if(missingSampleDetails.length<24)missingSampleDetails.push({id:sample?.id,sourceSurfaceId:sample?.sourceSurfaceId,originalSourceSurfaceId:sample?.originalSourceSurfaceId,rubbleId:sample?.rubbleId,fallId:sample?.fallId,part:sample?.part,position:[sample?.x,sample?.y,sample?.z],hasFootprint:!!sample?.floorFootprint?.length,reason:'invalid-or-unmapped'});};
    for(const sample of frame.fireSamples||[]){
@@ -287,35 +289,40 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
     if(camera&&active.smoke&&effectSettings.smoke){
      q.smokeBounds=boundedWind?houseEffectBounds(q,'smoke'):null;if(cameraCull(q.smokeBounds)){effectWork.channels.smoke.cameraCulled++;cameraCulled=true;}else q.renderSmoke=true;
     }
-    if(camera&&(q.flameBounds===null||q.smokeBounds===null))effectWork.uncertainCameraSources++;
+    if(camera&&((q.renderFlames||q.renderSmoke)&&!cameraCull.known||q.flameBounds===null||q.smokeBounds===null))effectWork.uncertainCameraSources++;
     if(viewCulled)effectWork.viewCulledSources++;if(cameraCulled)effectWork.cameraCulledSources++;
     q.omissions={disabled,viewCulled,cameraCulled,noCamera:!camera};classified.push(q);
-    if(effectSettings.flames){const key=surfaceSampleGroupKey(q);if(key!==null){if(!groups.has(key))groups.set(key,[]);groups.get(key).push(q);}}
+    if(effectSettings.flames){const key=surfaceSampleContextKey(q);if(key!==null){if(!groups.has(key))groups.set(key,[]);groups.get(key).push(q);}}
    }
    // Retain the complete connected group as preparation context if any member
    // can be seen. Off-screen context supplies the same union, without splats.
    for(const list of groups.values())if(list.some(q=>q.renderFlames))for(const q of list)q.flameContext=true;
    for(const q of classified){
-    const envelope=q.renderFlames||q.flameContext,prepare=envelope||q.renderSmoke||q.lightEligible;
+    const envelope=q.renderFlames||q.flameContext,prepare=envelope||q.renderSmoke||q.lightEligible&&lightingMode==='local';
     if(prepare&&!resolveSample(q,envelope)){missing(q);continue;}
     if(prepare)effectWork.preparedSources++;
     if(envelope){effectWork.work.flameEnvelopeSources++;effectWork.channels.flames.prepared++;if(!q.renderFlames)effectWork.work.flameContextSources++;}
     if(q.renderSmoke)effectWork.channels.smoke.prepared++;if(q.lightEligible)effectWork.channels.lighting.prepared++;
     fireSamples.push(q);representedSamples++;
    }
-   connectSurfaceSamples(fireSamples.filter(q=>q.renderFlames||q.flameContext));
+   if(effectSettings.flames)connectSurfaceSamples(fireSamples.filter(q=>q.renderFlames||q.flameContext));
    for(const q of fireSamples)effectMapping.set(q.id,{sourceSurfaceId:q.sourceSurfaceId||null,itemId:q.itemId||null,anchor:[q.x,q.y,q.z],supportOrigin:q.supportOrigin,rubbleId:q.rubbleId,fallId:q.fallId,supportSurfaceId:q.supportSurfaceId,originalSourceSurfaceId:q.originalSourceSurfaceId,presentationLevel:q.presentationLevel,part:q.part,preheat:q.preheat,overlapGroup:q.overlapGroup,overlapSources:q.overlapSources,supportRadius:q.supportRadius||null,tangentRadius:q.tangentRadius||null,flames:q.renderFlames,smoke:q.renderSmoke,lighting:q.lightEligible,flameContext:q.flameContext===true,omissions:q.omissions,flameBounds:q.flameBounds,smokeBounds:q.smokeBounds});
    const visibleSamples=fireSamples.filter(q=>q.renderFlames||q.renderSmoke);
    visibleSampleCount=visibleSamples.length;const count=camera?Math.ceil(visibleSamples.length/80):0;
    while(effects.length<count){const fx=createWallShroud(T,{maxCells:80,profile:'house'});effects.push(fx);root.add(fx.root);}
    for(let i=0;i<effects.length;i++){const fx=effects[i];if(i<count){fx.root.visible=true;fx.update({time:frame.worldTime,cells:visibleSamples.slice(i*80,(i+1)*80),camera,sampleWind:view.sampleWind,effects:effectSettings});}else fx.clear();}
-   const observer=view.observer||{x:5,y:.48,z:-3},lightSamples=fireSamples.filter(q=>q.lightEligible).map(q=>({...q,part:q.part==='ground'?'floor':q.part,exposed:q.exposed!==false}));
+   const observer=view.observer||{x:5,y:.48,z:-3},lightSamples=effectSettings.lighting?fireSamples.filter(q=>q.lightEligible).map(q=>({...q,part:q.part==='ground'?'floor':q.part,exposed:q.exposed!==false})):[];
    if(effectSettings.lighting){
+    if(lightingMode==='building'){
+     effectWork.work.buildingAggregateCalls++;effectWork.work.buildingAggregateSources=lightSamples.length;
+     buildingGlow.update(firelight.root.children,lightSamples,frame.worldTime);
+    }else{
     effectWork.work.lightClusterCalls++;
     firelight.update({cells:[],world:{fireCellSize:.5},player:{x:observer.x,y:observer.z}},new Map([[data.buildingId,lightSamples]]),frame.worldTime,[]);
     // Keep the reference bounded pool inside its native vertical storey.
     for(const light of firelight.root.children)if(light.isPointLight&&light.intensity>0){let nearest=null,distance=Infinity;for(const q of lightSamples){const d=(q.x-light.position.x)**2+(q.z-light.position.z)**2;if(d<distance){distance=d;nearest=q;}}
      const source=nearest&&(surfaces.get(nearest.sourceSurfaceId)||itemGroups.get(nearest.itemId)?.definition),floorY=data.levels.find(l=>l.index===(nearest?.presentationLevel??source?.level))?.floorY;if(floorY!==undefined)light.position.y=Math.max(floorY+.25,Math.min(floorY+1.8,light.position.y));
+    }
     }
    }else for(const light of firelight.root.children)if(light.isPointLight)light.intensity=0;
    for(const fx of effects){const stats=fx.stats();for(const key of ['flameSplats','smokeSplats','generatedFlameSplats','generatedSmokeSplats'])effectWork[key]+=stats[key];effectWork.work.flameCalls+=stats.flameCalls;effectWork.work.smokeCalls+=stats.smokeCalls;}
@@ -326,7 +333,7 @@ export async function createFurnishedHouseArt(T,{renderer,data}={}){
    occupancy.instanceMatrix.needsUpdate=true;if(occupancy.instanceColor)occupancy.instanceColor.needsUpdate=true;
    stateTexture.needsUpdate=true;retiredPatches=patches.reduce((n,p)=>n+Number(stateArray[p.index*4]<.5),0);lastRevision=frame.revision;lastTime=frame.worldTime;lastFrame=frame;revisionCount++;
   }
-  function diagnostics(){return {disposed,version:1,prefabId:data.prefabId,worldTime:lastTime,revision:lastRevision,view:mode,level:selectedLevel,sourceSurfaces:data.surfaces.length,physicalPatches:patches.length,retiredPatches,sourceMeshes:data.sourceMeshes.length,batches:batches.length,items:itemGroups.size,falls:fallStates.size,fallVisuals:debrisView.diagnostics().flights,debris:debrisView.diagnostics(),occupancy:occupancy.count,fireSamples:fireSamples.length,representedSamples,missingSamples,missingSampleDetails,visibleSamples:visibleSampleCount,viewCulledSamples:effectWork.viewCulledSources,cameraCulledSamples:effectWork.cameraCulledSources,effects:{...effectSettings},effectWork:structuredClone(effectWork),emitterBatches:effects.length,fire:effects.map(f=>f.stats()),lightBudget:effectSettings.lighting?firelight.diagnostics():{terrainSites:0,surfaceSites:0,candidates:0,capacity:6,powerCap:215,lights:[],disabled:true},actualLights:firelight.root.children.filter(l=>l.isPointLight&&l.intensity>0).map(l=>({position:l.position.toArray(),intensity:l.intensity,reach:l.distance})),resources:{geometries:geometries.size,materials:materials.size,textures:textures.size},resetCount,revisionCount,rootScale:root.scale.toArray(),stateBindings:bySource.size};}
+  function diagnostics(){return {disposed,version:1,prefabId:data.prefabId,worldTime:lastTime,revision:lastRevision,view:mode,level:selectedLevel,sourceSurfaces:data.surfaces.length,physicalPatches:patches.length,retiredPatches,sourceMeshes:data.sourceMeshes.length,batches:batches.length,items:itemGroups.size,falls:fallStates.size,fallVisuals:debrisView.diagnostics().flights,debris:debrisView.diagnostics(),occupancy:occupancy.count,fireSamples:fireSamples.length,representedSamples,missingSamples,missingSampleDetails,visibleSamples:visibleSampleCount,viewCulledSamples:effectWork.viewCulledSources,cameraCulledSamples:effectWork.cameraCulledSources,effects:{...effectSettings},lightingMode,effectWork:structuredClone(effectWork),emitterBatches:effects.length,fire:effects.map(f=>f.stats()),lightBudget:effectSettings.lighting?(lightingMode==='building'?buildingGlow.diagnostics():{...firelight.diagnostics(),mode:'local'}):{terrainSites:0,surfaceSites:0,candidates:0,capacity:6,powerCap:215,lights:[],disabled:true},actualLights:firelight.root.children.filter(l=>l.isPointLight&&l.intensity>0).map(l=>({position:l.position.toArray(),intensity:l.intensity,reach:l.distance})),resources:{geometries:geometries.size,materials:materials.size,textures:textures.size},resetCount,revisionCount,rootScale:root.scale.toArray(),stateBindings:bySource.size};}
   function dispose(){
    if(disposed)return;disposed=true;root.removeFromParent();for(const fx of effects)fx.dispose();firelight.dispose();occupancy.dispose();debrisView.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();geometries.clear();materials.clear();textures.clear();root.clear();itemGroups.clear();doorGroups.clear();bySource.clear();itemStates.clear();partStates.clear();ownedPartRows.clear();openingState.clear();mappedMeshes.clear();boundaryStates.clear();fallStates.clear();patchByRuntimeId.clear();effectMapping.clear();radiusCache.clear();patches.length=0;
   }

@@ -1,0 +1,509 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "groups": [
+    "Building mode leaves all flame/smoke splats unchanged and derives bounded pooled power from authoritative intensity times area",
+    "All eight building-mode masks keep channels independent, zero disabled power/work and reuse exactly the six original PointLight objects",
+    "Lighting-only building mode skips every support-anchor lookup, connected envelope and splat generation call",
+    "Distributed lights stand outside all four facade normals, retain inverse-square distance falloff, and cover both native2.12m storeys",
+    "Off-screen illumination remains eligible and lighting re-enable uses current world time without a private clock",
+    "Sub-cap building power grows with active intensity; zero-flame preheat adds no firelight",
+    "Invalid or omitted mode restores exact local reference lighting, with native geometry and all authoritative fields unchanged",
+    "Mode switching creates no extra light resources; original owned pool disposes once"
+  ],
+  "masks": [
+    {
+      "mask": 0,
+      "effects": {
+        "flames": false,
+        "smoke": false,
+        "lighting": false
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 0,
+        "disabledSources": 2,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 0,
+        "smokeSplats": 0,
+        "generatedFlameSplats": 0,
+        "generatedSmokeSplats": 0,
+        "activeLights": 0,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          }
+        },
+        "work": {
+          "supportAnchorSources": 0,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 0,
+          "flameContextSources": 0,
+          "flameCalls": 0,
+          "smokeCalls": 0,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
+        }
+      },
+      "lights": 0
+    },
+    {
+      "mask": 1,
+      "effects": {
+        "flames": true,
+        "smoke": false,
+        "lighting": false
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 2,
+        "disabledSources": 2,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 8,
+        "smokeSplats": 0,
+        "generatedFlameSplats": 8,
+        "generatedSmokeSplats": 0,
+        "activeLights": 0,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          }
+        },
+        "work": {
+          "supportAnchorSources": 2,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 2,
+          "flameContextSources": 0,
+          "flameCalls": 2,
+          "smokeCalls": 0,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
+        }
+      },
+      "lights": 0
+    },
+    {
+      "mask": 2,
+      "effects": {
+        "flames": false,
+        "smoke": true,
+        "lighting": false
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 2,
+        "disabledSources": 2,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 0,
+        "smokeSplats": 4,
+        "generatedFlameSplats": 0,
+        "generatedSmokeSplats": 4,
+        "activeLights": 0,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          }
+        },
+        "work": {
+          "supportAnchorSources": 2,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 0,
+          "flameContextSources": 0,
+          "flameCalls": 0,
+          "smokeCalls": 2,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
+        }
+      },
+      "lights": 0
+    },
+    {
+      "mask": 3,
+      "effects": {
+        "flames": true,
+        "smoke": true,
+        "lighting": false
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 2,
+        "disabledSources": 2,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 8,
+        "smokeSplats": 4,
+        "generatedFlameSplats": 8,
+        "generatedSmokeSplats": 4,
+        "activeLights": 0,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          }
+        },
+        "work": {
+          "supportAnchorSources": 2,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 2,
+          "flameContextSources": 0,
+          "flameCalls": 2,
+          "smokeCalls": 2,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 0,
+          "buildingAggregateSources": 0
+        }
+      },
+      "lights": 0
+    },
+    {
+      "mask": 4,
+      "effects": {
+        "flames": false,
+        "smoke": false,
+        "lighting": true
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 0,
+        "disabledSources": 2,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 0,
+        "smokeSplats": 0,
+        "generatedFlameSplats": 0,
+        "generatedSmokeSplats": 0,
+        "activeLights": 6,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          }
+        },
+        "work": {
+          "supportAnchorSources": 0,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 0,
+          "flameContextSources": 0,
+          "flameCalls": 0,
+          "smokeCalls": 0,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 1,
+          "buildingAggregateSources": 2
+        }
+      },
+      "lights": 6
+    },
+    {
+      "mask": 5,
+      "effects": {
+        "flames": true,
+        "smoke": false,
+        "lighting": true
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 2,
+        "disabledSources": 2,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 8,
+        "smokeSplats": 0,
+        "generatedFlameSplats": 8,
+        "generatedSmokeSplats": 0,
+        "activeLights": 6,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          }
+        },
+        "work": {
+          "supportAnchorSources": 2,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 2,
+          "flameContextSources": 0,
+          "flameCalls": 2,
+          "smokeCalls": 0,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 1,
+          "buildingAggregateSources": 2
+        }
+      },
+      "lights": 6
+    },
+    {
+      "mask": 6,
+      "effects": {
+        "flames": false,
+        "smoke": true,
+        "lighting": true
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 2,
+        "disabledSources": 2,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 0,
+        "smokeSplats": 4,
+        "generatedFlameSplats": 0,
+        "generatedSmokeSplats": 4,
+        "activeLights": 6,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 2,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 0
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          }
+        },
+        "work": {
+          "supportAnchorSources": 2,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 0,
+          "flameContextSources": 0,
+          "flameCalls": 0,
+          "smokeCalls": 2,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 1,
+          "buildingAggregateSources": 2
+        }
+      },
+      "lights": 6
+    },
+    {
+      "mask": 7,
+      "effects": {
+        "flames": true,
+        "smoke": true,
+        "lighting": true
+      },
+      "counts": {
+        "suppliedSources": 2,
+        "activeSources": 2,
+        "representedSources": 2,
+        "preparedSources": 2,
+        "disabledSources": 0,
+        "viewCulledSources": 0,
+        "cameraCulledSources": 0,
+        "missingSources": 0,
+        "inactiveSources": 0,
+        "noCameraSources": 0,
+        "uncertainCameraSources": 0,
+        "flameSplats": 8,
+        "smokeSplats": 4,
+        "generatedFlameSplats": 8,
+        "generatedSmokeSplats": 4,
+        "activeLights": 6,
+        "channels": {
+          "flames": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "smoke": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          },
+          "lighting": {
+            "supplied": 2,
+            "disabled": 0,
+            "viewCulled": 0,
+            "cameraCulled": 0,
+            "prepared": 2
+          }
+        },
+        "work": {
+          "supportAnchorSources": 2,
+          "supportAnchorComputations": 0,
+          "flameEnvelopeSources": 2,
+          "flameContextSources": 0,
+          "flameCalls": 2,
+          "smokeCalls": 2,
+          "lightClusterCalls": 0,
+          "buildingAggregateCalls": 1,
+          "buildingAggregateSources": 2
+        }
+      },
+      "lights": 6
+    }
+  ],
+  "limits": [
+    "Optional broad visual approximation; no uniform physical irradiance or thermal claim.",
+    "Actual outward-facing facade appearance and hardware costs require the architect combined WebGL/JPG review.",
+    "No browser, service or GPU helper was launched."
+  ]
+}

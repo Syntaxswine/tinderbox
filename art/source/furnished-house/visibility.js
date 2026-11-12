@@ -8,8 +8,11 @@ export function hasBoundedHouseWind(view) {
  const m=view.windMetadata;
  return ['ambient-control','calm-control'].includes(m?.kind)&&Number.isFinite(m.speed)&&m.speed>=0&&Array.isArray(m.direction)&&m.direction.length===3&&m.direction.every(Number.isFinite);
 }
+export function validTriangles(triangles) {
+ return Array.isArray(triangles)&&triangles.length>0&&triangles.every(t=>Array.isArray(t)&&t.length===3&&t.every(p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite)));
+}
 export function validFootprint(triangles) {
- return Array.isArray(triangles)&&triangles.length>0&&triangles.every(t=>Array.isArray(t)&&t.length===3&&t.every(p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite)))&&triangles.some(t=>Math.abs((t[1][0]-t[0][0])*(t[2][2]-t[0][2])-(t[2][0]-t[0][0])*(t[1][2]-t[0][2]))>1e-12);
+ return validTriangles(triangles)&&triangles.some(t=>Math.abs((t[1][0]-t[0][0])*(t[2][2]-t[0][2])-(t[2][0]-t[0][0])*(t[1][2]-t[0][2]))>1e-12);
 }
 export function houseEffectBounds(q,channel) {
  const length=Math.hypot(q.nx,q.ny,q.nz);
@@ -37,16 +40,19 @@ export function houseEffectBounds(q,channel) {
  return {min:min.map((v,i)=>v-pad[i]),max:max.map((v,i)=>v+pad[i])};
 }
 export function createCameraCuller(T,camera) {
- if(!camera?.projectionMatrix||!camera?.matrixWorldInverse)return ()=>false;
+ const retain=()=>false;retain.known=false;
+ // Perspective Jacobian billboards need a separate proof; this game uses orthographic views.
+ if(!camera?.isOrthographicCamera||!camera?.projectionMatrix||!camera?.matrixWorldInverse)return retain;
  camera.updateWorldMatrix?.(true,false);
- if(![...camera.projectionMatrix.elements,...camera.matrixWorldInverse.elements].every(Number.isFinite))return ()=>false;
+ if(![...camera.projectionMatrix.elements,...camera.matrixWorldInverse.elements].every(Number.isFinite))return retain;
  const matrix=new T.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);
  const frustum=new T.Frustum().setFromProjectionMatrix(matrix,camera.coordinateSystem);
- if(!frustum.planes.every(p=>[...p.normal.toArray(),p.constant].every(Number.isFinite)))return ()=>false;
+ if(!frustum.planes.every(p=>[...p.normal.toArray(),p.constant].every(Number.isFinite)))return retain;
  const box=new T.Box3();
- return bounds=>{
+ const cull=bounds=>{
   if(!bounds)return false;
   box.min.fromArray(bounds.min);box.max.fromArray(bounds.max);
   return !frustum.intersectsBox(box);
  };
+ cull.known=true;return cull;
 }
