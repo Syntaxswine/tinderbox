@@ -19,6 +19,10 @@ Filter definitely hidden levels/cutaway sources before costly support-envelope a
 
 Keep illumination eligibility separate from visible flame eligibility: an off-screen fire may illuminate visible ground or walls. A hidden base may still produce a visible plume. Channel toggles and culling cannot become new gameplay rules. The first pass can retain conservative false positives; it must not lose visible effects.
 
+The owner additionally proposes aggregating illumination over a whole building from its intensity, spreading that light broadly instead of individually checking every flame. Add a bounded **building glow trial** alongside the local-light reference: `view.lightingMode` is `local` by default or `building` for the trial. Derive its shared power from authoritative active intensity/area, reuse a small fixed pool under the existing six-light/215 scene-unit cap, distribute it around the building, and retain distance falloff. It is a visual approximation; do not replace local heat or claim uniform physically measured irradiance. Preserve local mode for comparison, with all-on reference output intact.
+
+The coder exposes `lightingMode()` and `setLightingMode(mode)` in the workbench API, and accepts `?lighting=building` for a separate comparison link. Mode changes are presentation only, persist through replay reset, and are not additional stored booleans. The UI remains the three requested channel checkboxes. Profile at least all-on and lighting-only in both modes at the same physical state; capture their actual JPGs. Coordinate this additive mode before changing the shared interface.
+
 Expose counts for supplied, prepared, disabled, view-culled and camera-culled sources, generated flame/smoke splats and active fire lights. Document any changes to existing represented/missing diagnostics: intentional omissions must be distinguished from invalid/unmapped sources, and malformed or unknown data cannot be hidden as a convenient cull. All-on output at the reference camera should retain the accepted visual behavior.
 
 ## Ownership and branches
