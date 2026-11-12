@@ -1,7 +1,7 @@
 // Adapted from the frozen second fire-travel trial; see upstream/ and intake.
 // Deterministic fixed-step experiment. All coefficients are prototype tuning.
 import {compileScene,STEP} from './scene.js';
-import {add,sub,mul,dot,length,unit,centre,bounds,projectedHull,intersectFootprint,EPS} from './geometry.js';
+import {add,sub,mul,dot,length,unit,centre,bounds,projectedHull,intersectFootprint,triangleArea,EPS} from './geometry.js';
 import {createSupportGraph} from './support.js';
 
 export const RULES=Object.freeze({step:STEP,maxHeat:5,loss:.18,up:3,upDiagonal:2,down:.04,downDiagonal:.06,falloff:1.5,glassBreaks:1.6,burstAt:1.4,emberShare:.15,matchEnergy:1.05,localShare:.72,radiantShare:.16,retainShare:.12,radiantRange:8,radiantCells:24,raysPerTick:48,radiantMaxAge:1,maxStepsPerAdvance:240});
@@ -100,7 +100,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     let contacts=itemId?items.get(itemId).supportContactOffsets:[[0,0,0]];
     if(geometry){const points=geometry.solidTriangles.flat(),bottom=Math.min(...points.map(p=>p[1]));contacts=[...new Map(points.filter(p=>p[1]<bottom+1e-5).map(p=>[p.join(','),sub(p,position)])).values()];}
     const fall={id,itemId,fuelIds:list.map(f=>f.id),position:[...position],origin:[...position],previous:[...position],velocity:[...velocity],offsets:list.map(f=>sub(f.position,position)),contactOffsets:contacts,geometry,rubbleFootprint:footprint,rubbleKind,quaternion:[0,0,0,1],heldHeat:0};
-    for(const f of list){if(f.rubbleId){const old=rubble.get(f.rubbleId);if(old){old.fuelIds=old.fuelIds.filter(value=>value!==f.id);if(!old.fuelIds.length){rubble.delete(old.id);tombstones.push({collection:'rubble',id:old.id});}}f.rubbleId=null;f.floorFootprint=null;}f.falling=true;fall.heldHeat+=takeStored(f.cells[0],Math.min(.2,f.cells[0].heat*f.cells[0].capacity));}
+    for(const f of list){if(f.rubbleId){const old=rubble.get(f.rubbleId);if(old){old.fuelIds=old.fuelIds.filter(value=>value!==f.id);if(!old.fuelIds.length){rubble.delete(old.id);tombstones.push({collection:'rubble',id:old.id});}}f.rubbleId=null;f.floorFootprint=null;}f.falling=true;f.loose=true;f.fallId=id;f.supportBoundaryId=null;fall.heldHeat+=takeStored(f.cells[0],Math.min(.2,f.cells[0].heat*f.cells[0].capacity));}
     falls.set(id,fall);if(itemId){const item=items.get(itemId);item.falling=true;itemDirty.add(itemId);}emit('fall',{fallId:id,itemId,position:[...position],fuelIds:fall.fuelIds,cause});
   }
   function detachRemainder(f,b) {
@@ -191,16 +191,25 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       if(landing) {
         deposit(cellAt(add(landingContact,[0,.02,0])),fall.heldHeat);fall.heldHeat=0;
         if(!fall.itemId&&fall.fuelIds.length) {
-          const offset=sub(next,fall.origin),points=fall.geometry?fall.geometry.solidTriangles.flat().map(p=>add(p,offset)):fall.rubbleFootprint?fall.rubbleFootprint.flat().map(p=>add(p,offset)):[[-.1,0,-.1],[.1,0,-.1],[.1,0,.1],[-.1,0,.1]].map(p=>add(p,landingContact)),hull=projectedHull(points,landingContact[1]+.006),triangles=intersectFootprint(hull,landingSurface.triangles,landingContact[1]+.006);
+          const offset=sub(next,fall.origin),points=fall.geometry?fall.geometry.solidTriangles.flat().map(p=>add(p,offset)):fall.rubbleFootprint?fall.rubbleFootprint.flat().map(p=>add(p,offset)):[[-.1,0,-.1],[.1,0,-.1],[.1,0,.1],[-.1,0,.1]].map(p=>add(p,landingContact)),hull=projectedHull(points,landingContact[1]+.006);
+          let rubbleSupport=landingSurface,triangles=intersectFootprint(hull,landingSurface.triangles,landingContact[1]+.006);
+          // A contact on a canonical seam can select the neighbouring patch
+          // with only zero-area overlap. Keep the same first-contact plane,
+          // but bind residue to an actual coplanar patch under its hull.
+          if(!triangles.length&&hull.length>=3){const box=bounds(hull),n=landingSurface.normal||[0,1,0];box.min[1]-=.02;box.max[1]+=.02;let best=0;
+            for(const s of index.candidates(box)){if(!s.intact||!s.supports||index.pass(s)>=.99||dot(s.normal||[0,1,0],n)<.9999||Math.abs(dot(sub(s.triangles[0][0],landingContact),n))>1e-5)continue;
+              const clipped=intersectFootprint(hull,s.triangles,landingContact[1]+.006),area=clipped.reduce((v,t)=>v+triangleArea(t),0);if(area>best+EPS){best=area;rubbleSupport=s;triangles=clipped;}
+            }
+          }
           if(triangles.length) {
-            const id=`rubble:${fall.id}`,position=centre(triangles.flat()),record={id,fuelIds:[...fall.fuelIds],position,triangles,floorFootprint:triangles,supportBoundaryId:landingSurface.id,sourceSurfaceIds:fall.geometry?.sourceSurfaceIds||[],thickness:.01,nonBearing:true,kind:fall.rubbleKind||(fall.geometry?'wood':fall.fuelIds.some(id=>fuels.get(id).cls==='oil')?'oil':'ember')};rubble.set(id,record);
+            const id=`rubble:${fall.id}`,position=centre(triangles.flat()),record={id,fallId:fall.id,fuelIds:[...fall.fuelIds],position,triangles,floorFootprint:triangles,supportBoundaryId:rubbleSupport.id,sourceSurfaceIds:fall.geometry?.sourceSurfaceIds||[],thickness:.01,nonBearing:true,kind:fall.rubbleKind||(fall.geometry?'wood':fall.fuelIds.some(id=>fuels.get(id).cls==='oil')?'oil':'ember')};rubble.set(id,record);
             for(const id of fall.fuelIds){const f=fuels.get(id);f.rubbleId=record.id;f.loose=true;f.position=[...position];f.floorFootprint=triangles;f.normal=[0,1,0];attachFuel(f,cellAt(f.position));}
           }
         }
-        for(const id of fall.fuelIds){const f=fuels.get(id);f.falling=false;if(f.spill)f.supportBoundaryId=landingSurface.id;if(f.store?.kind==='lantern')burst(f);}
+        for(const id of fall.fuelIds){const f=fuels.get(id);f.falling=false;f.fallId=null;f.supportBoundaryId=f.rubbleId?rubble.get(f.rubbleId).supportBoundaryId:landingSurface.id;if(f.store?.kind==='lantern')burst(f);}
         if(fall.itemId){items.get(fall.itemId).falling=false;items.get(fall.itemId).currentSupportIds=[landingSurface.id];}falls.delete(fall.id);tombstones.push({collection:'falls',id:fall.id});stats.landings++;emit('landing',{fallId:fall.id,itemId:fall.itemId,position:next,contactPosition:landingContact,supportBoundaryId:landingSurface.id,fuelIds:fall.fuelIds});
       } else if(next[1]<scene.groundY-2) {
-        for(const id of fall.fuelIds){const f=fuels.get(id);ledger.escaped+=f.amount;f.amount=0;f.falling=false;}heat.escaped+=fall.heldHeat;falls.delete(fall.id);tombstones.push({collection:'falls',id:fall.id});emit('escaped',{fallId:fall.id});
+        for(const id of fall.fuelIds){const f=fuels.get(id);ledger.escaped+=f.amount;f.amount=0;f.falling=false;f.fallId=null;}heat.escaped+=fall.heldHeat;falls.delete(fall.id);tombstones.push({collection:'falls',id:fall.id});emit('escaped',{fallId:fall.id});
       }
     }
   }
@@ -273,7 +282,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       const exposure=Math.max(...f.cells.map(c=>c.heat)),profile=scene.profile[f.cls];if(!f.lit&&(!(f.char>0)||exposure<profile.threshold*.6)||(f.store?.kind==='oil'||f.store?.kind==='oil-store')&&!f.store.reacted)continue;
       const b=f.boundaryId?index.surfaces.get(f.boundaryId):null,c=f.burningCell||f.cells.reduce((a,b)=>a.heat>=b.heat?a:b),side=b&&dot(sub(c.position,f.position),f.normal)<0?-1:1,normal=b?mul(f.normal,side):f.normal||[0,1,0];let p=[...f.position];
       if(b){const offset=b.kind==='floor'?(side<0?-(b.thickness||.12):0):side*(b.thickness||0)/2;p=add(p,mul(b.normal,offset));}
-      samples.push({id:f.id,buildingId:data.buildingId||data.prefabId,part:b?.kind==='wall'?'walls':b?.kind||'contents',x:p[0],y:p[1],z:p[2],nx:normal[0],ny:normal[1],nz:normal[2],area:f.area,flame:f.lit?clamp(f.amount/f.initial*2):0,smoke:f.lit?.5:clamp((exposure/profile.threshold-.6)*.35),ignitionTime:f.litAt??f.preheatAt??tick*dt,ignited:f.lit,heatFraction:clamp(exposure/r.maxHeat),sourceSurfaceId:f.loose?undefined:f.sourceSurfaceId,originalSourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,...(f.floorFootprint?{floorFootprint:f.floorFootprint,floorRadius:.36}:b?.kind==='floor'?{floorFootprint:b.triangles,floorRadius:.36}:{})});
+      samples.push({id:f.id,buildingId:data.buildingId||data.prefabId,part:f.rubbleId?'ground':b?.kind==='wall'?'walls':b?.kind||'contents',x:p[0],y:p[1],z:p[2],nx:normal[0],ny:normal[1],nz:normal[2],area:f.area,flame:f.lit?clamp(f.amount/f.initial*2):0,smoke:f.lit?.5:clamp((exposure/profile.threshold-.6)*.35),ignitionTime:f.litAt??f.preheatAt??tick*dt,ignited:f.lit,heatFraction:clamp(exposure/r.maxHeat),sourceSurfaceId:f.loose||f.falling?undefined:f.sourceSurfaceId,originalSourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,boundaryId:b?.id,fallId:f.fallId||undefined,rubbleId:f.rubbleId||undefined,supportBoundaryId:f.supportBoundaryId||undefined,...(f.floorFootprint?{floorFootprint:f.floorFootprint,floorRadius:.36}:b?.kind==='floor'?{floorFootprint:b.triangles,floorRadius:.36}:{})});
     }
     for(const [id,energy]of ventFlux){const b=index.surfaces.get(id),flow=energy/dt;samples.push({id:`vent:${id}`,buildingId:data.buildingId||data.prefabId,part:'walls',...Object.fromEntries(['x','y','z'].map((axis,i)=>[axis,b.position[i]])),nx:b.normal[0],ny:b.normal[1],nz:b.normal[2],area:b.area,flame:clamp(flow/(4*b.area)),smoke:clamp(flow/(2*b.area)),ignitionTime:tick*dt,sourceSurfaceId:b.sourceSurfaceId,openingId:b.openingId,vent:true,heatFlux:flow});}
     return samples;
@@ -285,6 +294,9 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     const result={version:1,revision,tick,worldTime:tick*dt,full,boundaries:b,supports:b.filter(v=>index.surfaces.get(v.id).supports),items:itemRecords,falls:[...falls.values()].map(f=>({...f,flame:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?1:0,smoke:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?.4:0,ignitionTime:f.fuelIds.some(id=>Number.isFinite(fuels.get(id).litAt))?Math.min(...f.fuelIds.map(id=>fuels.get(id).litAt).filter(Number.isFinite)):null})),events:events.slice(full?0:eventCursor),metrics:metrics(),fireSamples:fireSamples(),tombstones:tombstones.splice(0),occupancy:[...active].map(c=>({id:c.id,bounds:{min:c.c.map((v,i)=>scene.origin[i]+v*scene.pitch[i]),max:c.c.map((v,i)=>scene.origin[i]+(v+1)*scene.pitch[i])},heatFraction:c.heat/r.maxHeat,occupied:c.fuels.length>0}))};
     result.parts=(full?[...parts.values()]:[...partDirty].map(id=>parts.get(id))).map(p=>({id:p.id,itemId:p.itemId,intact:p.intact,material:p.material,remainingFraction:p.fuelId?fuels.get(p.fuelId).amount/fuels.get(p.fuelId).initial:1}));
     result.rubble=[...rubble.values()].map(record=>{const list=record.fuelIds.map(id=>fuels.get(id)),remainingAmount=list.reduce((v,f)=>v+f.amount,0),initial=list.reduce((v,f)=>v+f.initial,0),lit=list.some(f=>f.lit&&f.amount>EPS);return {...record,phase:lit?'burning':remainingAmount>EPS?'char':'ash',remainingAmount,remainingFraction:remainingAmount/(initial||1),heatFraction:Math.max(0,...list.flatMap(f=>f.cells.map(c=>clamp(c.heat/r.maxHeat)))),flame:lit?clamp(remainingAmount/(initial||1)*2):0,smoke:lit?.4:0,ignitionTime:list.some(f=>Number.isFinite(f.litAt))?Math.min(...list.map(f=>f.litAt).filter(Number.isFinite)):null};});
+    // An item may land and start another fall with its stable ID before the
+    // next presentation call. Its current upsert supersedes the old removal.
+    result.tombstones=result.tombstones.filter(t=>!(t.collection==='falls'&&falls.has(t.id)||t.collection==='rubble'&&rubble.has(t.id)));
     dirty.clear();itemDirty.clear();partDirty.clear();eventCursor=events.length;return result;
   }
   function command(input) {if(closed)throw Error('Trial disposed');const value={...structuredClone(input),sequence:++commandSequence,tick:input.tick??tick+1};if(!Number.isInteger(value.tick)||value.tick<=tick)throw Error('Commands must target a future integer tick');commands.push(value);commands.sort((a,b)=>a.tick-b.tick||a.sequence-b.sequence);commandLog.push(value);return value;}

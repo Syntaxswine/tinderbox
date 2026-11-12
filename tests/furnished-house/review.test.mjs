@@ -79,6 +79,28 @@ test('landed structural rubble survives its flight tombstone and becomes inert a
   const initial=trial.metrics().fuel.initial;trial.frame();for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='post')trial.scene.index.change(b.id,{intact:false});trial.step(60);const landed=trial.frame();assert.ok(landed.rubble.length);assert.ok(landed.tombstones.some(t=>t.collection==='falls'));assert.ok(landed.rubble.every(r=>r.thickness===.01&&r.nonBearing&&r.flame===0&&r.floorFootprint.flat().every(p=>p[1]>.0&&p[1]<.02)));
   for(const f of trial.scene.fuels.values())if(f.loose){f.lit=true;f.litAt=trial.worldTime;}trial.step(10);const spent=trial.frame();assert.ok(spent.rubble.every(r=>r.phase==='ash'&&r.flame===0&&r.smoke===0));assert.equal(trial.metrics().fuel.initial,initial);assert.ok(Math.abs(trial.metrics().fuel.error)<1e-9);
 });
+test('a skipped landing and retransfer publishes only current fall/rubble associations and retires both historical poses',()=>{
+  const column={id:'post',kind:'wall',material:'timber',normal:[1,0,0],thickness:.16,fuelClass:'partition',fuelAmount:2,triangles:[[[.5,0,0],[.5,2,0],[.5,2,1]],[[.5,0,0],[.5,2,1],[.5,0,1]]]},roof={...floor('roof',2.06,'timber',4),kind:'roof'},trial=createTrial({version:1,prefabId:'coalesced-rubble',groundY:-2.12,surfaces:[{...floor('stone',0),thickness:2.12},column,roof]});
+  for(const f of trial.scene.fuels.values())if(f.sourceSurfaceId==='roof'){f.lit=true;f.litAt=0;}trial.frame();
+  for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='post')trial.scene.index.change(b.id,{intact:false});trial.step();
+  const airborne=trial.frame(),flightIds=new Set(airborne.falls.map(f=>f.id));assert.ok(flightIds.size);
+  for(const sample of airborne.fireSamples.filter(s=>s.originalSourceSurfaceId==='roof')){assert.ok(flightIds.has(sample.fallId));assert.equal(sample.sourceSurfaceId,undefined);assert.equal(sample.rubbleId,undefined);}
+  trial.step(60);const historicalRubble=trial.snapshot().rubble.map(r=>r.id);assert.ok(historicalRubble.length);
+  // No frame consumes the first landing: it disappears again before rendering.
+  for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='stone')trial.scene.index.change(b.id,{intact:false});trial.step(60);
+  const frame=trial.frame(),current=new Map(frame.rubble.map(r=>[r.id,r]));assert.ok(current.size);
+  assert.ok(frame.tombstones.some(t=>t.collection==='falls'&&flightIds.has(t.id)));assert.ok(historicalRubble.every(id=>frame.tombstones.some(t=>t.collection==='rubble'&&t.id===id)));
+  for(const sample of frame.fireSamples.filter(s=>s.originalSourceSurfaceId==='roof')){const r=current.get(sample.rubbleId);assert.ok(r,JSON.stringify(sample));assert.equal(sample.fallId,undefined);assert.equal(sample.sourceSurfaceId,undefined);assert.equal(sample.part,'ground');assert.equal(sample.supportBoundaryId,r.supportBoundaryId);assert.deepEqual(sample.floorFootprint,r.floorFootprint);}
+  assert.ok(frame.rubble.every(r=>r.fallId&&!frame.falls.some(f=>f.id===r.fallId)));assert.ok(Math.abs(trial.metrics().fuel.error)<1e-9);trial.dispose();
+});
+
+test('a same-ID item reactivation supersedes its historical fall tombstone in a coalesced frame',()=>{
+  const box={min:[.6,2.12,.6],max:[.9,2.62,.9]},trial=createTrial({version:1,prefabId:'reactivated-fall',surfaces:[floor('ground-floor',0),floor('shelf',1.06),floor('upper',2.12),...bearingPiers(2.12)],items:[{id:'iron',position:[.75,2.12,.75],bounds:box}],furnitureParts:[{id:'iron-part',itemId:'iron',material:'iron',bounds:box}]});trial.frame();
+  for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='upper')trial.scene.index.change(b.id,{intact:false});trial.step();const first=trial.frame().falls.find(f=>f.itemId==='iron');assert.ok(first);
+  trial.step(60);assert.equal(trial.scene.items.get('iron').falling,false);assert.ok(trial.scene.items.get('iron').position[1]>.9);
+  for(const b of trial.scene.index.surfaces.values())if(b.sourceSurfaceId==='shelf')trial.scene.index.change(b.id,{intact:false});trial.step();const frame=trial.frame();assert.ok(frame.falls.some(f=>f.id===first.id));assert.ok(!frame.tombstones.some(t=>t.collection==='falls'&&t.id===first.id));trial.dispose();
+});
+
 test('a watertight infill prism keeps a real 3.75mm passage margin instead of an internal-diagonal parity obstacle',()=>{
   const panel={id:'infill',kind:'wall',material:'timber',normal:[0,0,-1],thickness:.16,fuelClass:'partition',fuelAmount:1,triangles:[[[.5075,0,0],[1,0,0],[1,2,0]],[[.5075,0,0],[1,2,0],[.5075,2,0]]]},trial=createTrial({version:1,prefabId:'infill',surfaces:[floor('stone',0),panel]}),nav=createNavigation(trial);
   assert.equal(nav.clear([.00375,0,-.8],[.00375,0,1]),true);assert.equal(nav.clear([.02,0,-.8],[.02,0,1]),false);
