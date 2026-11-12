@@ -1,0 +1,23 @@
+control: author 0.4984 0.1508 3.306 | mine 0.4984 0.1508 3.306 AGREE
+as tuned: layer light times 0, 2.13, 4.27, 6.4, 8.53, 10.63 s | along at 0.5, 1, 2, 3, 4 m: 3.53, 6.93, 13.5, 19.9, 26.3 s | steady (past the first tile): up 0.499 along 0.156 ratio 3.19 in
+wall 4 layers tall (a two-storey house)                    up 0.497 along 0.151 ratio 3.3 in | steady ratio 3.18
+wall 2 layers tall (one storey)                            up 0.497 along 0.151 ratio 3.3 in | steady ratio null
+wall 8 layers                                              up 0.502 along 0.151 ratio 3.33 in | steady ratio 3.22
+match held on the other side (near = the wall's own tile)  up 0.498 along 0.151 ratio 3.31 in | steady ratio 3.19
+maxHeat 2.7                                                up 0.456 along 0.15 ratio 3.03 in | steady ratio 2.93
+maxHeat 3.15                                               up 0.518 along 0.151 ratio 3.44 in | steady ratio 3.32
+maxHeat 3.3                                                up 0.541 along 0.151 ratio 3.58 OUT | steady ratio 3.46
+maxHeat 3.6                                                up 0.58 along 0.151 ratio 3.84 OUT | steady ratio 3.72
+up 2.4, upDiagonal 1.6                                     up 0.483 along 0.15 ratio 3.22 in | steady ratio 3.1
+up 3.6, upDiagonal 2.4                                     up 0.506 along 0.151 ratio 3.35 in | steady ratio 3.24
+up 1, upDiagonal 1 (no upward rule at all)                 up 0.379 along 0.148 ratio 2.56 in | steady ratio 2.62
+rate 3.6                                                   up 0.492 along 0.137 ratio 3.6 OUT | steady ratio 3.49
+rate 4.4                                                   up 0.505 along 0.164 ratio 3.08 in | steady ratio 2.96
+loss 1.8                                                   up 0.502 along 0.163 ratio 3.08 in | steady ratio 2.96
+loss 2.2                                                   up 0.492 along 0.14 ratio 3.53 OUT | steady ratio 3.43
+clapboard delay 4.5                                        up 0.55 along 0.164 ratio 3.35 in | steady ratio 3.23
+clapboard delay 5.5                                        up 0.456 along 0.14 ratio 3.27 in | steady ratio 3.16
+falloff 1.35                                               up 0.498 along 0.151 ratio 3.31 in | steady ratio 3.19
+falloff 1.65                                               up 0.497 along 0.15 ratio 3.31 in | steady ratio 3.19
+step 1/60                                                  up 0.515 along 0.155 ratio 3.32 in | steady ratio 3.21
+step 1/15                                                  up 0.468 along 0.142 ratio 3.3 in | steady ratio 3.18

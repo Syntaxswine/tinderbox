@@ -1,0 +1,8 @@
+open ground, wall 1.5 m from the fire                                                  wall lights at 3.27 s (13 of 13 tiles) | peak reach warmth at the wall 3.927
+a roof one tile deep over the fire only (a porch, a shed with open sides)              wall never lights | peak reach warmth at the wall 0
+a roof over the air tile against the wall only (an eave on the house that is reached)  wall never lights | peak reach warmth at the wall 0
+a roof over the gap only, over neither the fire nor the wall (an awning, a tree)       wall lights at 3.27 s (13 of 13 tiles) | peak reach warmth at the wall 3.927
+a roof over the fire, 8 layers up (8.5 m above it)                                     wall never lights | peak reach warmth at the wall 0
+a roof over the fire, 9 layers up (9.5 m above it): past the 8-layer look-up in openToSky wall lights at 3.27 s (13 of 13 tiles) | peak reach warmth at the wall 3.927
+a pane of GLASS over the fire (a skylight, a conservatory): glass passes 0.05, so "closed" wall never lights | peak reach warmth at the wall 0
+roof over the fire, reachUnderCover on (what the rule replaced)                        wall lights at 3.27 s (13 of 13 tiles) | peak reach warmth at the wall 3.927

@@ -1,0 +1,21 @@
+rules: {"rate":4,"maxHeat":4,"lossInside":2.5,"lossPerOpenFace":1,"lossOutside":2,"up":3,"upDiagonal":2,"downDiagonal":0.06,"down":0.04,"pass":{"glass":0.05,"timber":0.02,"masonry":0.005},"glassBreaks":1.6,"reach":3,"radiantGain":0.5,"radiantEvery":0.5,"burstAt":1.4,"burstRadius":1.5,"fallPulse":2.5}
+ 1  PASS  grass front speed, eight directions: 1.46 m/s, spread 3.4 %   [target: 1.5 m/s, within 7 %]
+ 2  PASS  lawn fire at the wall lights it: 1.53 s after the grass beside it   [target: under 2 s]
+ 3  PASS  fire up a wall against along it: 0.7 m/s up, 0.26 m/s along: 2.7 to 1   [target: 2.5 to 3.5 to 1]
+ 4  PASS  one match on a wall: the room behind fully alight: 17.97 s   [target: 10 to 20 s]
+ 5  MISS  same: half the house alight: 36.23 s   [target: 40 to 70 s]
+ 6  PASS  same: flame in the house for: 122.5 s   [target: 90 s or more]
+ 7  PASS  same: first floor or roof part falls: 64.27 s (floor)   [target: between 60 and 150 s, when its support is spent]
+ 8  PASS  a fire started upstairs reaches the ground floor: ground floor first lit at 18 s; first fall to it at 16.2 s   [target: only after something falls, then within 5 s]
+ 9  MISS  a kitchen fire against a dining-room fire: half alight at 28.73 s against 33.27 s; oil burst at 0.1, 19.3 s against 17.6, 40 s; burning in the wreck at 300 s: ["coal"] against ["coal"]   [target: a stated, measured difference]
+10  PASS  lawn fire across 0.5 m of paving: does not cross   [target: does not cross]
+11  PASS  a burning house lights the house 2 m beside it: at 9.3 s   [target: yes, within 30 s of the facing wall burning]
+12  PASS  the same across the street, 8 m: no   [target: no]
+13  ----  a lantern is never a dud: not tested: the scene has no stone plinth and the kernel has no lantern   [target: never a dud]
+14  PASS  fuel ledger closes (laid - burnt - left): 3.0e-7   [target: zero]
+15  PASS  cost per step of 1/30 s, three houses: 4.29 ms mean; 4128 tiles, 2744 active at peak   [target: no more than today (3 to 5 ms per 1/60 s)]
+detail: {"sittingRoom":{"lit":133,"need":132,"last":17.96666666666672,"first":0},"glassBroken":28,"oilBursts":[40,59.5],"wreckAt300s":{"fuelsBurning":1,"output":0.8,"classes":["coal"]},"facingWallFirstLit":3.13}
+
+real	2m45.264s
+user	0m0.046s
+sys	0m0.000s

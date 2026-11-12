@@ -1,0 +1,68 @@
+(a) DOWN: furniture lit in an upstairs room, furnished house, 120 s.
+    "embers" = the kernel as written. "no face embers" = a spent wall/door/roof face drops nothing (floors still fall with their load).
+    "no wall rule" = also without "a wall is one surface from storey to storey". ground = first fuel on the ground storey (k < 2) to light by heat.
+plan          room      first fall to ground (cause, at)    ground lit  lag s   | no face embers: ground lit  first floor falls  | +no wall rule: ground lit max ground heat before any fall
+hopkins-4-12  bed-b     23.5 s wall 19,19,0                 35.97 frame 12.47   | 62.8 s frame at 27,18,0     61.7 s             | 62.8 s frame              0.28
+hopkins-4-12  hall      15.8 s wall 19,19,0                 28.17 frame 12.37   | 68.3 s frame at 18,17,0     66.9 s             | 68.3 s frame              0.48
+hopkins-4-12  servant   38.03 s wall 19,19,0                49.6 frame  11.57   | 62.8 s frame at 12,21,0     61.7 s             | 62.8 s frame              0.74
+hopkins-4-15  bed-a     16.2 s wall 23,21,0                 18 clapboard1.8     | 62.67 s furniture at 24,18,061.7 s             | 62.67 s furniture         0.19
+hopkins-4-15  bed-b     47.6 s wall 23,21,0                 49.37 clapboard1.77    | 62.8 s frame at 12,19,0     61.7 s             | 62.8 s frame              0.52
+hopkins-4-15  bed-c     40.73 s wall 23,21,0                42.5 clapboard1.77    | 62.8 s frame at 20,13,0     61.7 s             | 62.8 s frame              0.52
+hopkins-4-15  hall      23.63 s wall 23,21,0                25.4 clapboard1.77    | 63.3 s frame at 20,21,0     62.2 s             | 63.3 s frame              0.52
+hopkins-4-09  bed-a     40.27 s wall 15,25,0                47.73 clapboard7.47    | 62.6 s furniture at 18,16,0 61.7 s             | 62.6 s furniture          0.44
+hopkins-4-09  bed-b     32.53 s wall 15,25,0                45.53 frame 13      | 62.63 s furniture at 18,24,061.7 s             | 62.63 s furniture         0.36
+hopkins-4-09  hall      21.1 s wall 15,25,0                 30.9 frame  9.8     | 63.3 s frame at 12,23,0     62.2 s             | 63.3 s frame              0.36
+hopkins-4-09  bed-c     19.53 s wall 15,25,0                31.7 frame  12.17   | 62.8 s frame at 12,29,0     61.7 s             | 62.8 s frame              0.28
+hopkins-4-09  closet    45.43 s wall 15,25,0                58.63 frame 13.2    | 63.13 s furniture at 18,30,062.2 s             | 63.13 s furniture         0.28
+hopkins-4-13  bed-b     52.53 s wall 14,20,0                53.83 frame 1.3     | 61.83 s cloth at 22,16,0    61.7 s             | 61.83 s cloth             0.6
+hopkins-4-13  bed-c     56.47 s wall 14,20,0                58.1 frame  1.63    | 62.63 s furniture at 12,16,061.7 s             | 62.63 s furniture         0.54
+hopkins-4-13  hall      26.67 s wall 14,22,0                28 frame    1.33    | 70.57 s frame at 16,20,0    69.03 s            | 70.57 s frame             0.6
+monroe-row    bed-a     57.13 s wall 14,21,0                59.3 frame  2.17    | 62.77 s frame at 20,16,0    61.7 s             | 62.77 s frame             0.66
+monroe-row    bed-b     30.67 s wall 13,21,0                32.43 frame 1.77    | 62.8 s frame at 12,17,0     61.7 s             | 62.8 s frame              0.7
+monroe-row    hall      31.53 s wall 14,21,0                33.3 frame  1.77    | 63.27 s frame at 18,24,0    62.17 s            | 63.27 s frame             0.66
+monroe-row    bath      51.67 s wall 14,21,0                53.53 frame 1.87    | 63.3 s frame at 22,26,0     62.2 s             | 63.3 s frame              0.66
+monroe-row    bed-c     57.57 s wall 14,21,0                59.3 frame  1.73    | 62.8 s frame at 18,33,0     61.7 s             | 62.8 s frame              0.66
+monroe-row    bed-d     54.93 s wall 14,21,0                56.4 frame  1.47    | 62.63 s furniture at 12,33,061.7 s             | 62.63 s furniture         0.75
+TOTAL: with NO embers from faces, the ground storey still lights by heat BEFORE any floor falls in 0 of 21 upstairs strikes; as written, ground lights more than 5 s after the first fall in 8 of 21
+
+(b) UP: furniture lit in a ground-floor room; first upstairs fuel (k >= 2) to light. "no wall rule" removes the wall-continuity correction; then the only ways up are the stair opening and a floor burning through.
+plan          room      as written: first upstairs        first upstairs FLOOR or contents  | no wall rule: first upstairs      first upper floor spent
+hopkins-4-12  sitting   2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-12  dining    7.9 s frame k=2                   7.9 s frame                       | 7.9 s frame k=2                   67.9 s
+hopkins-4-12  bed-a     2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-12  hall      3.03 s furniture k=2              3.03 s furniture                  | 3.03 s furniture k=2              64.73 s
+hopkins-4-12  kitchen   3.27 s frame k=2                  3.27 s frame                      | 3.27 s frame k=2                  63.27 s
+hopkins-4-15  living    2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-15  dining    4.17 s frame k=2                  4.17 s frame                      | 4.17 s frame k=2                  64.17 s
+hopkins-4-15  hall      2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-15  parlor    3.3 s frame k=2                   3.3 s frame                       | 3.3 s frame k=2                   63.3 s
+hopkins-4-15  kitchen   3.03 s frame k=2                  3.03 s frame                      | 3.03 s frame k=2                  63.03 s
+hopkins-4-15  pantry    20.07 s frame k=2                 20.07 s frame                     | 20.07 s frame k=2                 80.07 s
+hopkins-4-09  parlor    6.57 s frame k=2                  6.57 s frame                      | 6.57 s frame k=2                  66.57 s
+hopkins-4-09  hall      19.13 s frame k=2                 19.13 s frame                     | 19.13 s frame k=2                 79.13 s
+hopkins-4-09  dining    2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-09  kitchen   3.3 s frame k=2                   3.3 s frame                       | 3.3 s frame k=2                   63.3 s
+hopkins-4-09  pantry    2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-13  bed-a     2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-13  living    3.3 s frame k=2                   3.3 s frame                       | 3.3 s frame k=2                   63.3 s
+hopkins-4-13  closet    18.07 s frame k=2                 18.07 s frame                     | 18.07 s frame k=2                 78.07 s
+hopkins-4-13  pantry    18.2 s frame k=2                  18.2 s frame                      | 18.2 s frame k=2                  78.2 s
+hopkins-4-13  kitchen   2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+hopkins-4-13  hall      3.43 s clapboard k=2              3.53 s furniture                  | 3.43 s clapboard k=2              63.57 s
+monroe-row    parlor    2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+monroe-row    hall      2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+monroe-row    dining    2.73 s frame k=2                  2.73 s frame                      | 2.73 s frame k=2                  62.73 s
+monroe-row    kitchen   1.97 s cloth k=2                  1.97 s cloth                      | 2.73 s frame k=2                  62.73 s
+
+(c) SHUT ROOM, Hopkins 15: furniture lit at the room centre. t4 = all of the room lit. "next" = first fuel in a tile of ANOTHER room to light (any), and first FLOOR timber of another room on the same storey.
+room          room fuels  t4 s    next room, any                next room, floor  door spent  | doors open: t4  next any  next floor
+0:living      133         15.47   1.67 s clapboard k=1          9.7 s             15.2 s      | 15.67 s         2.23 s    2.27 s
+0:dining      141         13.37   1.7 s clapboard k=1           8.13 s            15.17 s     | 13.37 s         1.6 s     2.7 s
+0:hall        101         12.6    1.67 s clapboard k=1          17.93 s           16.83 s     | 12.67 s         1.67 s    4.47 s
+0:parlor      149         14.7    3.3 s frame k=2               23.7 s            22.53 s     | 14.7 s          3.3 s     10.5 s
+0:kitchen     181         14.27   3.03 s frame k=2              24.5 s            23.4 s      | 14.33 s         3.03 s    11.47 s
+0:pantry      69          7.53    1.7 s clapboard k=1           16.17 s           15.1 s      | 7.63 s          1.4 s     2.2 s
+1:bed-a       280         15.53   1.7 s clapboard k=3           21.83 s           16.2 s      | 15.53 s         1.7 s     27.87 s
+1:bed-b       308         15.53   24.87 s roof k=3              25.07 s           23.9 s      | 15.53 s         10.2 s    12.23 s
+1:bed-c       82          7.03    1.7 s clapboard k=3           18.43 s           17.27 s     | 7.03 s          1.7 s     5.3 s
+1:hall        97          14.57   1.7 s clapboard k=3           16.17 s           15.1 s      | 14.5 s          1.4 s     2.2 s

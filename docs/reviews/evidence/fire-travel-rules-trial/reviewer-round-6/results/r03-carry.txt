@@ -1,0 +1,50 @@
+1. grass, n empty tiles, grass (square to the grid; lawn lit 4.5 m back)
+   1 empty: far lawn first lit never
+   2 empty: far lawn first lit never
+2. a burning wall (4 layers, 10.5 m) and grass n empty tiles from it; wall lit by a match at its foot
+   wall lit outside, 0 empty tiles: grass first lit 0.43
+   wall lit outside, 1 empty tiles: grass first lit 0.43
+   wall lit outside, 2 empty tiles: grass first lit never
+   wall lit inside, 0 empty tiles: grass first lit 12.77
+   wall lit inside, 1 empty tiles: grass first lit 13.47
+   wall lit inside, 2 empty tiles: grass first lit never
+4. wall to wall: two parallel walls, B stands g tiles from A; A lit by a match at its foot
+   A lit outside, gap 0.5 m: B first lit 2 s
+   A lit outside, gap 1 m: B first lit 2.67 s
+   A lit outside, gap 1.5 m: B first lit never s
+   A lit outside, gap 2 m: B first lit never s
+   A lit inside, gap 0.5 m: B first lit 12.93 s
+   A lit inside, gap 1 m: B first lit 14.9 s
+   A lit inside, gap 1.5 m: B first lit never s
+   A lit inside, gap 2 m: B first lit never s
+   the same with B set off along the wall so that no part of it is opposite A (corner to corner), gap 1 m and 0.5 m
+   gap 0.5 m, no overlap: B first lit 27.17 s
+   gap 1 m, no overlap: B first lit 28.03 s
+5. upward: a 5 x 5 roof burning on top, and a deck (frame, face down) over it
+   deck 1.06 m above the roof: first lit 2.8 s
+   deck 2.12 m above the roof: first lit 1.6 s
+   deck 3.18 m above the roof: first lit never s
+   a wall beside that roof, its foot level with the roof top, g tiles from the roof edge
+   wall 0.5 m from the roof edge, foot 0 m above the roof: first lit 12.17 s
+   wall 0.5 m from the roof edge, foot 1.06 m above the roof: first lit 12.17 s
+   wall 0.5 m from the roof edge, foot 2.12 m above the roof: first lit never s
+   wall 1 m from the roof edge, foot 0 m above the roof: first lit never s
+   wall 1 m from the roof edge, foot 1.06 m above the roof: first lit never s
+   wall 1 m from the roof edge, foot 2.12 m above the roof: first lit never s
+6. downward: an n x n ceiling burning on its underside at layer 1 (heat goes to the layer 1 tiles), one loose fuel on the ground under its middle, nothing else in the ground layer
+   roof 1 x 1 (output 1 a tile): ground tile settles at 0.075; lacquer not lit, oil not lit, oil can not lit, cloth not lit, grass not lit, furniture not lit
+   roof 3 x 3 (output 1 a tile): ground tile settles at 0.538; lacquer LIT at 1.3, oil not lit, oil can not lit, cloth not lit, grass not lit, furniture not lit
+   roof 5 x 5 (output 1 a tile): ground tile settles at 0.538; lacquer LIT at 1.3, oil not lit, oil can not lit, cloth not lit, grass not lit, furniture not lit
+   upstairs floor 1 x 1 (output 1.2 a tile): ground tile settles at 0.09; lacquer not lit, oil not lit, oil can not lit, cloth not lit, grass not lit, furniture not lit
+   upstairs floor 3 x 3 (output 1.2 a tile): ground tile settles at 0.645; lacquer LIT at 0.73, oil LIT at 1.3, oil can BURST at 1.3, cloth not lit, grass not lit, furniture not lit
+   upstairs floor 5 x 5 (output 1.2 a tile): ground tile settles at 0.645; lacquer LIT at 0.73, oil LIT at 1.3, oil can BURST at 1.3, cloth not lit, grass not lit, furniture not lit
+   one burning wall (4 layers, lit inside at layer 1 by matches along its length, so the ground layer of it is not burning at first) and poured oil on the floor against it: see 6b
+   6b. wall layers 1 to 3 burning on the outside, poured oil on the ground under that air: oil not lit; ground tile peak 0.208
+7. an oil can in the first bare tile beside a lawn, lawn beyond n bare tiles
+   0.5 m bare, no can: far lawn first lit never s
+   1.5 m bare, can: far lawn first lit 3.33 s
+   2 m bare, can: far lawn first lit 3.47 s
+   2.5 m bare, can: far lawn first lit never s
+8. two porches (deck of loose frame on the ground, roof at layer 1), side by side, A lit at its deck
+   gap 0 m: B first lit 6.53 s; A all lit by 7.53 s
+   gap 0.5 m: B first lit never s; A all lit by 7.53 s

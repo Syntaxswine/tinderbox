@@ -1,0 +1,30 @@
+== saved: 101 strikes (24 wall, 24 wall-in, 53 room; 32 ground rooms, 21 upstairs)
+ 4 outside: 3/24 in range, 15.77 to 40.87 (n 24, null 0), true median 27.29 | inside: 12/24, 3.73 to 28.3 (n 24, null 0), true median 17.2 | rooms: 28/53, 3.3 to 30.87 (n 53, null 0), median 12.23
+ 5 all: 45/101, 22.83 to 71.47 (n 101, null 0), median 39.6 | outside 0/24, inside 9/24, ground rooms 19/32, upstairs 17/21 | below 40: 52, above 70: 4
+     hopkins-4-15    half in range 11/18, 28.6 to 71.2 (n 18, null 0); room (wall out) 34.07, 29.2, 18.93, 36.57
+     hopkins-4-12    half in range 6/16, 27.17 to 48.93 (n 16, null 0); room (wall out) 25, 27.5, 27.07, 30.73
+     hopkins-4-09    half in range 6/18, 25.33 to 71.47 (n 18, null 0); room (wall out) 24.33, 21.77, 15.77, 21.2
+     hopkins-4-13    half in range 8/17, 25.83 to 53.67 (n 17, null 0); room (wall out) 16.87, 22.07, 24.6, 31.33
+     ashland-worker  half in range 3/14, 22.83 to 42.43 (n 14, null 0); room (wall out) 24.13, 34.73, 24.43, 33.2
+     monroe-row      half in range 11/18, 30.23 to 71.17 (n 18, null 0); room (wall out) 40.87, 37.57, 39.23, 36.4
+ 6 flame: 101/101, 131 to 227 (n 101, null 0)
+ 7 first fall: 101/101, 69.5 to 77.27 (n 101, null 0); by cause {"roof drop 1 carried 0":40,"floor drop 2 carried 0":59,"roof drop 3 carried 0":2}
+   first fall carrying anything at all: 0/101
+ 8 upstairs: before 0/21, low roof first 10/21, within 5 s 20/21, both conditions (within and no roof first) 11/21; lags 0 to 13.6 (n 21, null 0); fallToGround 18.87 to 69.97 (n 21, null 0); plans with a low roof among the 21: {"hopkins-4-15":"nRRR","hopkins-4-12":"RRR","hopkins-4-09":"RRnRn","hopkins-4-13":"nnR","monroe-row":"------"}
+ upstairs first lit from a ground strike: 1.87 to 32.43 (n 66, null 14), median 3.47
+ ledger worst 5.2e-8, never lit max 0, embers share 14.58 to 14.84 (n 101, null 0)
+== my run: 101 strikes (24 wall, 24 wall-in, 53 room; 32 ground rooms, 21 upstairs)
+ 4 outside: 3/24 in range, 15.77 to 40.87 (n 24, null 0), true median 27.29 | inside: 12/24, 3.73 to 28.3 (n 24, null 0), true median 17.2 | rooms: 28/53, 3.3 to 30.87 (n 53, null 0), median 12.23
+ 5 all: 45/101, 22.83 to 71.47 (n 101, null 0), median 39.6 | outside 0/24, inside 9/24, ground rooms 19/32, upstairs 17/21 | below 40: 52, above 70: 4
+     hopkins-4-15    half in range 11/18, 28.6 to 71.2 (n 18, null 0); room (wall out) 34.07, 29.2, 18.93, 36.57
+     hopkins-4-12    half in range 6/16, 27.17 to 48.93 (n 16, null 0); room (wall out) 25, 27.5, 27.07, 30.73
+     hopkins-4-09    half in range 6/18, 25.33 to 71.47 (n 18, null 0); room (wall out) 24.33, 21.77, 15.77, 21.2
+     hopkins-4-13    half in range 8/17, 25.83 to 53.67 (n 17, null 0); room (wall out) 16.87, 22.07, 24.6, 31.33
+     ashland-worker  half in range 3/14, 22.83 to 42.43 (n 14, null 0); room (wall out) 24.13, 34.73, 24.43, 33.2
+     monroe-row      half in range 11/18, 30.23 to 71.17 (n 18, null 0); room (wall out) 40.87, 37.57, 39.23, 36.4
+ 6 flame: 101/101, 131 to 227 (n 101, null 0)
+ 7 first fall: 101/101, 69.5 to 77.27 (n 101, null 0); by cause {"roof drop 1 carried 0":40,"floor drop 2 carried 0":59,"roof drop 3 carried 0":2}
+   first fall carrying anything at all: 0/101
+ 8 upstairs: before 0/21, low roof first 10/21, within 5 s 20/21, both conditions (within and no roof first) 11/21; lags 0 to 13.6 (n 21, null 0); fallToGround 18.87 to 69.97 (n 21, null 0); plans with a low roof among the 21: {"hopkins-4-15":"nRRR","hopkins-4-12":"RRR","hopkins-4-09":"RRnRn","hopkins-4-13":"nnR","monroe-row":"------"}
+ upstairs first lit from a ground strike: 1.87 to 32.43 (n 66, null 14), median 3.47
+ ledger worst 5.2e-8, never lit max 0, embers share 14.58 to 14.84 (n 101, null 0)

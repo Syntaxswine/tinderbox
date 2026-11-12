@@ -1,0 +1,24 @@
+gap 1 m wall:x-:0:10                                 B lit 22 s (roof at layer 1) | A facing wall first lit 23.1 | B after facing -1.1 | A half 31.63 | peak reach warmth on B ring 0 at null s (1.1 lights clapboard) | peak heat on B ring 0 | seconds with warmth >= 1.1: 0
+    B first lit: roof in tile [ 34, 28, 1 ] face {"axis":2,"step":1} lit from air tile 34,28,2
+    A then: 420 of 1545 fuels lit {"clapboard":87,"frame":82,"partition":19,"roof":230,"furniture":1,"cloth":1}; burning on their OUTSIDE (air side): {"clapboard x-":41,"roof top":120,"clapboard y+":36}
+    A facing-wall (x+) surfaces lit by then: 0 of 66; of them lit from outside: 0; first at 23.1 s in layer 3, lit from outside
+gap 1 m room:0:kitchen                               B lit 33.93 s (roof at layer 1) | A facing wall first lit 35.1 | B after facing -1.17 | A half 42.5 | peak reach warmth on B ring 0 at null s (1.1 lights clapboard) | peak heat on B ring 0 | seconds with warmth >= 1.1: 0
+    B first lit: roof in tile [ 34, 28, 1 ] face {"axis":2,"step":1} lit from air tile 34,28,2
+    A then: 619 of 1545 fuels lit {"clapboard":123,"partition":60,"door":4,"frame":192,"roof":236,"furniture":2,"coal":1,"cloth":1}; burning on their OUTSIDE (air side): {"clapboard x-":14,"roof top":72,"clapboard y+":39}
+    A facing-wall (x+) surfaces lit by then: 0 of 66; of them lit from outside: 0; first at 35.1 s in layer 2, lit from outside
+gap 1.5 m wall:x-:0:10                               B lit 23.53 s (roof at layer 1) | A facing wall first lit 23.1 | B after facing 0.43 | A half 31.7 | peak reach warmth on B ring 0 at null s (1.1 lights clapboard) | peak heat on B ring 0 | seconds with warmth >= 1.1: 0
+    B first lit: roof in tile [ 35, 28, 1 ] face {"axis":2,"step":1} lit from air tile 35,28,2
+    A then: 500 of 1545 fuels lit {"clapboard":103,"frame":133,"partition":21,"door":1,"roof":239,"furniture":2,"cloth":1}; burning on their OUTSIDE (air side): {"clapboard x-":42,"roof top":120,"clapboard y+":36,"clapboard x+":2}
+    A facing-wall (x+) surfaces lit by then: 2 of 66; of them lit from outside: 2; first at 23.1 s in layer 3, lit from outside
+gap 1.5 m room:0:kitchen                             B lit 35.53 s (roof at layer 1) | A facing wall first lit 35.1 | B after facing 0.43 | A half 42.63 | peak reach warmth on B ring 0 at null s (1.1 lights clapboard) | peak heat on B ring 0 | seconds with warmth >= 1.1: 0
+    B first lit: roof in tile [ 35, 28, 1 ] face {"axis":2,"step":1} lit from air tile 35,28,2
+    A then: 628 of 1545 fuels lit {"clapboard":126,"partition":60,"door":4,"frame":192,"roof":242,"furniture":2,"coal":1,"cloth":1}; burning on their OUTSIDE (air side): {"clapboard x-":15,"roof top":72,"clapboard y+":39,"clapboard x+":2}
+    A facing-wall (x+) surfaces lit by then: 2 of 66; of them lit from outside: 2; first at 35.1 s in layer 3, lit from outside
+gap 2 m wall:x-:0:10                                 B lit 31.47 s (clapboard at layer 3) | A facing wall first lit 23.1 | B after facing 8.37 | A half 31.77 | peak reach warmth on B ring 0 at null s (1.1 lights clapboard) | peak heat on B ring 0 | seconds with warmth >= 1.1: 0
+    B first lit: clapboard in tile [ 36, 25, 3 ] face {"axis":0,"step":-1} lit from air tile 35,25,3
+    A then: 763 of 1545 fuels lit {"clapboard":136,"frame":251,"furniture":3,"partition":69,"door":4,"roof":298,"coal":1,"cloth":1}; burning on their OUTSIDE (air side): {"clapboard x-":44,"roof top":120,"clapboard y-":2,"clapboard y+":36,"clapboard x+":4}
+    A facing-wall (x+) surfaces lit by then: 9 of 66; of them lit from outside: 4; first at 23.1 s in layer 3, lit from outside
+gap 2 m room:0:kitchen                               B lit 43.47 s (clapboard at layer 3) | A facing wall first lit 35.1 | B after facing 8.37 | A half 42.63 | peak reach warmth on B ring 0 at null s (1.1 lights clapboard) | peak heat on B ring 0 | seconds with warmth >= 1.1: 0
+    B first lit: clapboard in tile [ 36, 25, 3 ] face {"axis":0,"step":-1} lit from air tile 35,25,3
+    A then: 793 of 1545 fuels lit {"clapboard":143,"frame":254,"furniture":4,"partition":87,"door":6,"roof":297,"coal":1,"cloth":1}; burning on their OUTSIDE (air side): {"clapboard x-":18,"roof top":72,"clapboard y+":46,"clapboard x+":4}
+    A facing-wall (x+) surfaces lit by then: 9 of 66; of them lit from outside: 4; first at 35.1 s in layer 3, lit from outside

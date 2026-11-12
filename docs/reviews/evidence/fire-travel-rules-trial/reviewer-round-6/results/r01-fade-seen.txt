@@ -1,0 +1,28 @@
+A. loose fuel, awake against asleep
+  {"cls":"clapboard","hot":1,"cold":2,"mode":"awake","charHot":2.461,"sleptSteps":0,"charAfter":1.444,"expected":1.444,"relight":1.267}
+  {"cls":"clapboard","hot":1,"cold":2,"mode":"sleep","charHot":2.461,"sleptSteps":0,"charAfter":1.444,"expected":1.444,"relight":1.267}
+  {"cls":"clapboard","hot":1,"cold":4,"mode":"awake","charHot":2.461,"sleptSteps":0,"charAfter":0.444,"expected":0.444,"relight":1.667}
+  {"cls":"clapboard","hot":1,"cold":4,"mode":"sleep","charHot":2.461,"sleptSteps":30,"charAfter":0.444,"expected":0.444,"relight":1.667}
+  {"cls":"clapboard","hot":1,"cold":120,"mode":"awake","charHot":2.461,"sleptSteps":0,"charAfter":0,"expected":0,"relight":1.833}
+  {"cls":"clapboard","hot":1,"cold":120,"mode":"sleep","charHot":2.461,"sleptSteps":3510,"charAfter":0,"expected":0,"relight":1.833}
+  {"cls":"coal","hot":8,"cold":10,"mode":"awake","charHot":13.533,"sleptSteps":0,"charAfter":8.517,"expected":8.517,"relight":3.833}
+  {"cls":"coal","hot":8,"cold":10,"mode":"sleep","charHot":13.533,"sleptSteps":210,"charAfter":8.517,"expected":8.517,"relight":3.833}
+  {"cls":"coal","hot":8,"cold":600,"mode":"awake","charHot":13.533,"sleptSteps":0,"charAfter":0,"expected":0,"relight":8.9}
+  {"cls":"coal","hot":8,"cold":600,"mode":"sleep","charHot":13.533,"sleptSteps":17910,"charAfter":0,"expected":0,"relight":8.9}
+  {"cls":"roof","hot":2,"cold":5,"mode":"awake","charHot":4.921,"sleptSteps":0,"charAfter":2.405,"expected":2.405,"relight":2.3}
+  {"cls":"roof","hot":2,"cold":5,"mode":"sleep","charHot":4.921,"sleptSteps":60,"charAfter":2.405,"expected":2.405,"relight":2.3}
+  {"cls":"furniture","hot":1,"cold":3.5,"mode":"awake","charHot":2.461,"sleptSteps":0,"charAfter":0.694,"expected":0.694,"relight":0.967}
+  {"cls":"furniture","hot":1,"cold":3.5,"mode":"sleep","charHot":2.461,"sleptSteps":15,"charAfter":0.694,"expected":0.694,"relight":0.967}
+B. surface, the tile against it heated then cold
+  {"hot":1,"cold":2,"mode":"awake","charHot":2.461,"holderSleptSteps":0,"charAfter":1.427,"relight":1.267}
+  {"hot":1,"cold":2,"mode":"sleep","charHot":2.461,"holderSleptSteps":0,"charAfter":1.427,"relight":1.267}
+  {"hot":1,"cold":4,"mode":"awake","charHot":2.461,"holderSleptSteps":0,"charAfter":0.427,"relight":1.667}
+  {"hot":1,"cold":4,"mode":"sleep","charHot":2.461,"holderSleptSteps":30,"charAfter":0.427,"relight":1.667}
+  {"hot":1.5,"cold":30,"mode":"awake","charHot":3.691,"holderSleptSteps":0,"charAfter":0,"relight":1.833}
+  {"hot":1.5,"cold":30,"mode":"sleep","charHot":3.691,"holderSleptSteps":810,"charAfter":0,"relight":1.833}
+C. air tile laid after 1 s, then held at the ceiling: wall lit after 1.833 s; facing set: true
+   wall laid after 1 s against a tile held at the ceiling: lit after 1.833 s
+D. eight houses idle, 26368 tiles, no tile laid: 0 ms a step
+D. eight houses idle, 26668 tiles, one tile laid per step: 1.613 ms a step
+D. eight houses idle, 26368 tiles, no tile laid: 0 ms a step
+D. eight houses idle, 26668 tiles, one tile laid per step: 1.622 ms a step

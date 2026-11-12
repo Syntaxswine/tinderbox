@@ -1,0 +1,11 @@
+== Hopkins 9 east wall (plan x=7, world x=10.08). Panel 7,4|7,5 spans world y 34..35; panel 7,3|7,4 spans 33..34 ==
+{"cell":"cell:20,69","cellSpanY":[34.5,35],"sourceBurn":1.27,"peakPreheatFraction":0.992,"peakSite":"wall:0:7,4|7,5:0","ignition":"wall:0:7,4|7,5:0 @1.27 parent cell:20,69"}
+{"cell":"cell:20,68","cellSpanY":[34,34.5],"sourceBurn":1.27,"peakPreheatFraction":0.992,"peakSite":"wall:0:7,4|7,5:0","ignition":"wall:0:7,4|7,5:0 @1.27 parent cell:20,68"}
+{"cell":"cell:20,67","cellSpanY":[33.5,34],"sourceBurn":8.53,"peakPreheatFraction":0,"peakSite":null,"ignition":"NONE"}
+{"cell":"cell:20,66","cellSpanY":[33,33.5],"sourceBurn":8.53,"peakPreheatFraction":0,"peakSite":null,"ignition":"NONE"}
+{"cell":"cell:21,69","cellSpanY":[34.5,35],"sourceBurn":1.73,"peakPreheatFraction":0.997,"peakSite":"wall:0:7,4|7,5:0","ignition":"wall:0:7,4|7,5:0 @1.73 parent cell:21,69"}
+{"cell":"cell:21,68","cellSpanY":[34,34.5],"sourceBurn":1.73,"peakPreheatFraction":0.997,"peakSite":"wall:0:7,4|7,5:0","ignition":"wall:0:7,4|7,5:0 @1.73 parent cell:21,68"}
+
+== Whole east wall of Hopkins 9: which first-contact cells (col 20) can light the siding at all? ==
+rows that ignite siding: 68 69 70 71 72 73 74 75
+rows that never ignite : 60(0 heat) 61(0 heat) 62(0 heat) 63(0 heat) 64(0 heat) 65(0 heat) 66(0 heat) 67(0 heat) 76(0 heat) 77(0 heat) 78(0 heat) 79(0 heat)

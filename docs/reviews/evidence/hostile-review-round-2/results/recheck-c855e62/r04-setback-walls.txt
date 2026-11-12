@@ -1,0 +1,35 @@
+hopkins-twelve: no ground-storey wall panel stands back from its collision box (30 panels)
+hopkins-fifteen: no ground-storey wall panel stands back from its collision box (40 panels)
+ashland-cottage: no ground-storey wall panel stands back from its collision box (26 panels)
+
+== hopkins-nine: 11 of 32 ground-storey wood panels (11.83 m of 32.83 m) stand 1 m or more inside the plinth collider ==
+   CONTROL flush panel 0,3|0,4 normal (-1,0) setback 0.09 m plain | ground LIT | matches LIT(ignited) | torch warm 0.94(ignited) | flamethrower LIT | lantern LIT
+   set-back panel      6,1|6,2 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      6,2|6,3 normal (1,0) setback 1.09 m window | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      6,3|6,4 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      2,1|3,0 normal (-0.71,-0.71) setback 0.59 m plain | ground cold[indirect: surface-spread] | matches cold(ignited) | torch cold(ignited) | flamethrower LIT | lantern LIT
+   set-back panel      5,0|6,1 normal (0.71,-0.71) setback 0.59 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      0,1|1,1 normal (0,-1) setback 1.09 m plain | ground cold[indirect: surface-spread] | matches cold(ignited) | torch cold(ignited) | flamethrower LIT | lantern LIT
+   set-back panel      1,1|2,1 normal (0,-1) setback 1.09 m entry | ground cold | matches cold(ignited)[indirect: surface-spread] | torch cold(ignited)[indirect: surface-spread] | flamethrower LIT | lantern LIT
+   set-back panel      6,8|7,8 normal (0,1) setback 2.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      6,4|7,4 normal (0,-1) setback 4.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower cold[indirect: surface-spread] | lantern LIT
+   set-back panel      6,8|6,9 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      6,10|6,9 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+
+== hopkins-thirteen: 10 of 32 ground-storey wood panels (10 m of 32 m) stand 1 m or more inside the plinth collider ==
+   CONTROL flush panel 8,0|8,1 normal (1,0) setback 0.09 m plain | ground LIT | matches LIT(ignited) | torch warm 0.94(ignited) | flamethrower LIT | lantern LIT
+   set-back panel      7,4|8,4 normal (0,1) setback 4.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower cold[indirect: surface-spread] | lantern LIT
+   set-back panel      0,4|1,4 normal (0,1) setback 4.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower cold[indirect: surface-spread] | lantern LIT
+   set-back panel      7,4|7,5 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      7,5|7,6 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      7,6|7,7 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      7,7|7,8 normal (1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      1,7|1,8 normal (-1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      1,6|1,7 normal (-1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      1,5|1,6 normal (-1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+   set-back panel      1,4|1,5 normal (-1,0) setback 1.09 m plain | ground cold | matches cold(blocked) | torch cold(blocked) | flamethrower LIT | lantern LIT
+monroe-row-house: no ground-storey wall panel stands back from its collision box (12 panels)
+monroe-row-middle: no ground-storey wall panel stands back from its collision box (7 panels)
+monroe-row-east: no ground-storey wall panel stands back from its collision box (11 panels)
+
+RESULT: 0 of 21 set-back ground-storey wood panels cannot be heated by ground fire or by any of the four tools aimed straight at them.

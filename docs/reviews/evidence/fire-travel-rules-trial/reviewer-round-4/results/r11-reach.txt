@@ -1,0 +1,10 @@
+(a) reach 0, every other reach number changed (radiantGain 50, radiantEvery 0.1, reachUnderCover true, radiates 1 and 5): event log identical: true (2360 events); sight lines tested 72 (oil burst only)
+    sight 0.5 -> 0.01 (the one "Rule 6" number the default path does read, for the oil burst): half 44.23 -> 33.53 s; burst tiles 23 -> 29
+(b) reach open      ashland-worker wall:x+:11:7       saved half 25 room 22.1 flame 147 fall 72.37 | re-run half 25 room 22.1 flame 147 fall 72.37 | SAME
+(b) reach open      ashland-worker room:0:hall        saved half 32.83 room 7.53 flame 153 fall 71.37 | re-run half 32.83 room 7.53 flame 153 fall 71.37 | SAME
+(b) reach open      hopkins-4-12   wall:x-:0:7        saved half 27.8 room 27.97 flame 152 fall 75.13 | re-run half 27.8 room 27.97 flame 152 fall 75.13 | SAME
+(b) reach open      hopkins-4-13   room:0:closet      saved half 40.8 room 3.4 flame 158.5 fall 71.37 | re-run half 40.8 room 3.4 flame 158.5 fall 71.37 | SAME
+(b) reach everywhereashland-worker wall:x+:11:7       saved half 25.23 room 15.1 flame 134 fall 72.37 | re-run half 25.23 room 15.1 flame 134 fall 72.37 | SAME
+(b) reach everywhereashland-worker room:0:hall        saved half 29.2 room 5 flame 147.5 fall 71.37 | re-run half 29.2 room 5 flame 147.5 fall 71.37 | SAME
+(b) reach everywherehopkins-4-12   wall:x-:0:7        saved half 27.13 room 17.6 flame 132.5 fall 75.13 | re-run half 27.13 room 17.6 flame 132.5 fall 75.13 | SAME
+(b) reach everywherehopkins-4-13   room:0:closet      saved half 38.7 room 2.97 flame 141.5 fall 70.67 | re-run half 38.7 room 2.97 flame 141.5 fall 70.67 | SAME

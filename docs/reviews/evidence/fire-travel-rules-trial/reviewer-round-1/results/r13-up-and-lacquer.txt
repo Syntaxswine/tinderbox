@@ -1,0 +1,53 @@
+(a) UP: furniture lit in a ground-floor room, furniture-only house, 90 s.
+plan          room     stair in room  as written: upstairs hot  first real upstairs fuel          | no wall rule: hot  first real fuel               | no wall rule, stair opening floored over: hot / fuel
+hopkins-4-12  sitting  no             10.4 s                    11.97 s clapboard wall            | 18.5 s             20.37 s clapboard wall        | 62.8 s / 64.3 s clapboard wall
+hopkins-4-12  dining   no             9.3 s                     10.87 s clapboard wall            | 25.6 s             27.6 s clapboard wall         | 68 s / 69.57 s clapboard wall
+hopkins-4-12  bed-a    no             8.4 s                     9.5 s cloth                       | 17 s               18.5 s clapboard wall         | 62.8 s / 64.3 s clapboard wall
+hopkins-4-12  hall     yes            1.8 s                     3.03 s furniture                  | 1.8 s              3.03 s furniture              | 62.8 s / 62.77 s furniture
+hopkins-4-12  kitchen  yes            2.4 s                     3.3 s frame roof                  | 20.1 s             22.1 s clapboard wall         | 63.3 s / 64.87 s clapboard wall
+hopkins-4-15  living   no             9 s                       10.5 s clapboard wall             | 16.6 s             18.43 s clapboard wall        | 62.8 s / 62.77 s furniture
+hopkins-4-15  dining   no             10.8 s                    12.33 s clapboard wall            | 29.4 s             31.2 s clapboard wall         | 64.2 s / 65.73 s clapboard wall
+hopkins-4-15  hall     yes            3 s                       6.23 s clapboard wall             | 3 s                6.23 s clapboard wall         | 62.8 s / 63.5 s furniture
+hopkins-4-15  parlor   no             2.4 s                     3.3 s frame roof                  | 27.8 s             30.97 s clapboard wall        | 63.4 s / 63.53 s furniture
+hopkins-4-15  kitchen  no             3.2 s                     4.73 s clapboard wall             | 27.7 s             29.3 s clapboard wall         | 63.1 s / 64.67 s clapboard wall
+hopkins-4-15  pantry   no             20.2 s                    21.77 s clapboard wall            | 20.4 s             22.13 s clapboard wall        | 80.1 s / 81.63 s clapboard wall
+hopkins-4-09  parlor   no             6 s                       6.87 s frame roof                 | 31.8 s             33.43 s clapboard wall        | 66.6 s / 67.63 s furniture
+hopkins-4-09  hall     no             19.3 s                    21.27 s clapboard wall            | 19.3 s             21.27 s clapboard wall        | 79 s / 80.6 s clapboard wall
+hopkins-4-09  dining   no             5 s                       6.53 s clapboard wall             | 17.5 s             19.17 s clapboard wall        | 62.8 s / 62.73 s furniture
+hopkins-4-09  kitchen  yes            2.4 s                     3.3 s frame roof                  | 3.5 s              5.03 s clapboard wall         | 63.4 s / 64.9 s furniture
+hopkins-4-09  pantry   no             2.3 s                     2.77 s frame roof                 | 20.8 s             22.73 s clapboard wall        | 62.8 s / 62.73 s furniture
+hopkins-4-13  bed-a    no             4.5 s                     6.07 s clapboard wall             | 40.2 s             41.8 s clapboard wall         | 62.8 s / 62.73 s furniture
+hopkins-4-13  living   no             2.4 s                     3.3 s frame roof                  | 22.2 s             23.77 s clapboard wall        | 63.4 s / 63.33 s furniture
+hopkins-4-13  closet   no             30.5 s                    32.07 s clapboard wall            | 42 s               43.47 s clapboard wall        | 78.1 s / 79.67 s clapboard wall
+hopkins-4-13  pantry   no             40.8 s                    42.37 s clapboard wall            | 41.9 s             43.43 s clapboard wall        | 78.3 s / 79.87 s clapboard wall
+hopkins-4-13  kitchen  no             17.7 s                    19.17 s clapboard wall            | 17.7 s             19.17 s clapboard wall        | 62.8 s / 64.3 s clapboard wall
+hopkins-4-13  hall     yes            1.8 s                     3.43 s clapboard wall             | 1.8 s              3.43 s clapboard wall         | 62.8 s / 63.47 s furniture
+monroe-row    parlor   no             9 s                       10.5 s clapboard wall             | 16.5 s             20.1 s clapboard wall         | 62.8 s / 64.37 s clapboard wall
+monroe-row    hall     yes            1.8 s                     2.73 s frame roof                 | 2 s                3.83 s clapboard wall         | 62.8 s / 64.37 s clapboard wall
+monroe-row    dining   no             9 s                       10.5 s clapboard wall             | 24.1 s             28.17 s clapboard wall        | 62.8 s / 64.3 s furniture
+monroe-row    kitchen  no             1.8 s                     1.97 s cloth                      | 26.7 s             29.67 s clapboard wall        | 62.8 s / 62.73 s furniture
+TOTAL over 26 ground-floor rooms: as written first real upstairs fuel 1.97 to 42.37 s; no wall rule first real upstairs fuel 3.03 to 43.47 s; no wall rule and no stair opening first real upstairs fuel 62.73 to 81.63 s
+
+(b) DOWN with every piece of furniture lacquered: upstairs strike; first ground-storey fuel lit against the first fall to the ground storey.
+    hopkins-4-12  bed-b    first fall to ground 23.03 s   ground lit 35.1 s lacquer
+    hopkins-4-12  hall     first fall to ground 14.8 s    ground lit 26.83 s lacquer
+    hopkins-4-12  servant  first fall to ground 35.9 s    ground lit 47.3 s lacquer
+    hopkins-4-15  bed-a    first fall to ground 15.77 s   ground lit 17.57 s clapboard
+    hopkins-4-15  bed-b    first fall to ground 46.67 s   ground lit 48.43 s clapboard
+    hopkins-4-15  bed-c    first fall to ground 40.27 s   ground lit 42.03 s clapboard
+    hopkins-4-15  hall     first fall to ground 22.73 s   ground lit 24.5 s clapboard
+    hopkins-4-09  bed-a    first fall to ground 39.8 s    ground lit 47.27 s clapboard
+    hopkins-4-09  bed-b    first fall to ground 32.2 s    ground lit 45.2 s frame
+    hopkins-4-09  hall     first fall to ground 20.23 s   ground lit 30.03 s frame
+    hopkins-4-09  bed-c    first fall to ground 19.1 s    ground lit 31.33 s frame
+    hopkins-4-09  closet   first fall to ground 44.83 s   ground lit 58.1 s frame
+    hopkins-4-13  bed-b    first fall to ground 52.2 s    ground lit 53.5 s frame
+    hopkins-4-13  bed-c    first fall to ground 56 s      ground lit 57.63 s frame
+    hopkins-4-13  hall     first fall to ground 26.63 s   ground lit 26.87 s lacquer
+    monroe-row    bed-a    first fall to ground 56.63 s   ground lit 58.13 s lacquer
+    monroe-row    bed-b    first fall to ground 30.4 s    ground lit 30.67 s lacquer
+    monroe-row    hall     first fall to ground 30.73 s   ground lit 32.17 s lacquer
+    monroe-row    bath     first fall to ground 50.63 s   ground lit 52.07 s lacquer
+    monroe-row    bed-c    first fall to ground 56.2 s    ground lit 57.63 s lacquer
+    monroe-row    bed-d    first fall to ground 54.5 s    ground lit 54.9 s lacquer
+    ground storey lit before anything fell: 0 of 21

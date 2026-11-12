@@ -1,0 +1,13 @@
+kitchen strike, burstAt 1.4                  events  3625 608b0aa5286f | room 9.47 | half 42.63 | first fall 69.3 | flame until 149.99999999999406 | B lit {}
+    bursts at 0.13 s (23 tiles), 38.1 s (21 tiles)
+kitchen strike, burstAt 0.7                  events  3625 608b0aa5286f | room 9.47 | half 42.63 | first fall 69.3 | flame until 149.99999999999406 | B lit {}
+    bursts at 0.13 s (23 tiles), 38.1 s (21 tiles)
+kitchen strike, burstAt 2                    events  3625 608b0aa5286f | room 9.47 | half 42.63 | first fall 69.3 | flame until 149.99999999999406 | B lit {}
+    bursts at 0.13 s (23 tiles), 38.1 s (21 tiles)
+kitchen strike, burstAt 2.9                  events  3625 608b0aa5286f | room 9.47 | half 42.63 | first fall 69.3 | flame until 149.99999999999406 | B lit {}
+    bursts at 0.13 s (23 tiles), 38.1 s (21 tiles)
+kitchen strike, burstAt 99                   events  3625 608b0aa5286f | room 9.47 | half 42.63 | first fall 69.3 | flame until 149.99999999999406 | B lit {}
+    bursts at 0.13 s (23 tiles), 38.1 s (21 tiles)
+dining strike, burstAt 1.4                   events  3617 8ce1ddb674dc | room 15.1 | half 37.3 | first fall 69.3 | flame until 149.99999999999406 | B lit {}
+dining strike, burstAt 99                    events  3617 8ce1ddb674dc | room 15.1 | half 37.3 | first fall 69.3 | flame until 149.99999999999406 | B lit {}
+oil lightAt 0.6 delay 0: the can bursts on the first step its exposure is at or above lightAt (kernel.mjs:301-304), so burstAt (kernel.mjs:300) is never the first test to pass.

@@ -1,0 +1,14 @@
+== 8a. Flamethrower versus a wooden porch (Hopkins 12, plinth 0.48 m; flame rays at h = 1.05 m) ==
+flamethrower  | fuel used 0.9 | structure ignitions in 3 s: 23 h12/deck:porch cause=flamethrower ; h12/wall:0:5,0|6,0:0 cause=surface-spread | warm/burning samples 41 | ray hit boxes: h12:porch
+matches       | fuel used 1 | structure ignitions in 3 s: 28 h12/deck:porch cause=matches ; h12/wall:0:5,0|6,0:0 cause=surface-spread | warm/burning samples 44
+
+== 8b. config.fire.ignition.wood = 3 (control: default 1.1). Match heat is 1.8. ==
+ignition.wood = 1.1 | ordinary Hopkins siding: ignited | Ashland siding (same shared rule?): ignited | snapshot sidingIgnitionHeat 1
+ignition.wood = 3 | ordinary Hopkins siding: heated | Ashland siding (same shared rule?): ignited | snapshot sidingIgnitionHeat 1
+
+== 8c. After burnout: does the footprint the art draws as burning rubble carry any heat? ==
+burnout at world 155.15 | player walked into the footprint to x = 6.32 (house spanned x 2.91..10.09) | world now 161.77 (6.6 s after burnout; art flame pockets last 13..19 s, glow 24 s) | hp 0 | gas cells poured over the rubble 0 still unburnt 0 | max ground heat anywhere 4 | structureFire samples 0
+
+== 8d. A drum beside a burning house wall on paving (structure fire -> barrel) ==
+paving                       | house destroyed false | nearest flaming site to the drum centre 0.52 m | exploded false
+CONTROL lawn under the drum  | house destroyed false | nearest flaming site to the drum centre 0.52 m | exploded true at world 2.13

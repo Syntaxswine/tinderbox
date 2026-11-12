@@ -1,0 +1,8 @@
+ground-source-output-ignores-fuel | tests 291 pass 289 fail 2 | KILLED by: real lawn fire heats the native porch and stairs, and a ground contact can warm the exposed post ;; gas, grass and timber keep their distinct ground front arrivals
+ground-burning-cell-holds-no-heat | tests 291 pass 291 fail 0 | SURVIVED
+ground-speed-scale-ignored | tests 291 pass 289 fail 2 | KILLED by: real lawn fire heats the native porch and stairs, and a ground contact can warm the exposed post ;; gas, grass and timber keep their distinct ground front arrivals
+house-never-lights-the-ground | tests 291 pass 288 fail 3 | KILLED by: crossing the paved porch gap requires spread through adjacent deck pieces ;; one porch match lights a single deck piece and its local first ground wave ;; ordinary siding can ignite adjacent lawn while the same fuel across bare ground stays cold
+structure-no-stair-link | NOT RUN: search string occurs 0 times in /src/simulation/housing-topology.js
+molotov-always-low-band | tests 291 pass 291 fail 0 | SURVIVED
+structure-fire-ignores-powder-dt | tests 291 pass 291 fail 0 | SURVIVED
+ashland-interior-floor-links-removed | tests 291 pass 290 fail 1 | KILLED by: Ashland vents actual floor fuel, then retires individual native supports in world time

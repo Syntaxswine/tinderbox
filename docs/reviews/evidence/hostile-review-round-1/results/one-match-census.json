@@ -1,0 +1,963 @@
+[
+ {
+  "id": "north-lawn",
+  "note": "open grass in front of the Ashland cottage",
+  "strike": {
+   "type": "tool-use",
+   "result": "ignited",
+   "heatedCells": 4
+  },
+  "flamesOutAt": 35.93,
+  "lastCollapseAt": 168.48,
+  "quietAt": 203.93,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 1,
+   "southLawn": 0,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": 13.5,
+    "firstCause": "ground-heat",
+    "burnout": 168.48,
+    "sectionsLost": 16,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": 2.88,
+    "firstCause": "barrel:street-drum-east",
+    "burnout": 160.1,
+    "sectionsLost": 25,
+    "burned": 1
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": 4.43,
+    "firstCause": "ground-heat",
+    "burnout": 158.7,
+    "sectionsLost": 12,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   }
+  ],
+  "housesIgnited": 3,
+  "housesDestroyed": 3,
+  "drums": [
+   {
+    "id": "street-drum-east",
+    "at": 2.93
+   },
+   {
+    "id": "street-drum-west",
+    "at": 9.68
+   }
+  ],
+  "deaths": [],
+  "playerHp": 20.2,
+  "peakBurningCells": 680,
+  "peakBurningSites": 619
+ },
+ {
+  "id": "north-corner",
+  "note": "far NW corner of the north lawn",
+  "strike": {
+   "type": "tool-use",
+   "result": "ignited",
+   "heatedCells": 4
+  },
+  "flamesOutAt": 37.6,
+  "lastCollapseAt": 171.82,
+  "quietAt": 207.18,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 1,
+   "southLawn": 0,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": 3.42,
+    "firstCause": "ground-heat",
+    "burnout": 157.97,
+    "sectionsLost": 16,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": 9.75,
+    "firstCause": "ground-heat",
+    "burnout": 166.17,
+    "sectionsLost": 25,
+    "burned": 1
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": 17.98,
+    "firstCause": "ground-heat",
+    "burnout": 171.82,
+    "sectionsLost": 12,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   }
+  ],
+  "housesIgnited": 3,
+  "housesDestroyed": 3,
+  "drums": [
+   {
+    "id": "street-drum-west",
+    "at": 13.02
+   },
+   {
+    "id": "street-drum-east",
+    "at": 19.35
+   }
+  ],
+  "deaths": [],
+  "playerHp": 20.2,
+  "peakBurningCells": 334,
+  "peakBurningSites": 532
+ },
+ {
+  "id": "south-lawn",
+  "note": "open grass behind Hopkins 13",
+  "strike": {
+   "type": "tool-use",
+   "result": "ignited",
+   "heatedCells": 4
+  },
+  "flamesOutAt": 40.85,
+  "lastCollapseAt": 179.37,
+  "quietAt": 214.43,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 0,
+   "southLawn": 1,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": 5.1,
+    "firstCause": "ground-heat",
+    "burnout": 160.25,
+    "sectionsLost": 20,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": 5.22,
+    "firstCause": "ground-heat",
+    "burnout": 160.28,
+    "sectionsLost": 16,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": 10.23,
+    "firstCause": "ground-heat",
+    "burnout": 166.15,
+    "sectionsLost": 28,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": 16.75,
+    "firstCause": "ground-heat",
+    "burnout": 173.65,
+    "sectionsLost": 28,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": 21.18,
+    "firstCause": "ground-heat",
+    "burnout": 179.37,
+    "sectionsLost": 28,
+    "burned": 1
+   }
+  ],
+  "housesIgnited": 5,
+  "housesDestroyed": 5,
+  "drums": [],
+  "deaths": [],
+  "playerHp": 20.2,
+  "peakBurningCells": 501,
+  "peakBurningSites": 610
+ },
+ {
+  "id": "hopkins-9-siding",
+  "note": "documented east clapboard strike",
+  "strike": {
+   "type": "tool-use",
+   "result": "ignited",
+   "heatedCells": 1
+  },
+  "flamesOutAt": 43.93,
+  "lastCollapseAt": 181.77,
+  "quietAt": 217.18,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 0,
+   "southLawn": 1,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": 0.48,
+    "firstCause": "surface-spread",
+    "burnout": 155.15,
+    "sectionsLost": 20,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": 5.92,
+    "firstCause": "ground-heat",
+    "burnout": 160.7,
+    "sectionsLost": 16,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": 14.45,
+    "firstCause": "ground-heat",
+    "burnout": 169.95,
+    "sectionsLost": 28,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": 21.87,
+    "firstCause": "ground-heat",
+    "burnout": 177.32,
+    "sectionsLost": 28,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": 26.3,
+    "firstCause": "ground-heat",
+    "burnout": 181.77,
+    "sectionsLost": 28,
+    "burned": 1
+   }
+  ],
+  "housesIgnited": 5,
+  "housesDestroyed": 5,
+  "drums": [],
+  "deaths": [
+   {
+    "id": "bear",
+    "cause": "heat",
+    "at": 153.1
+   }
+  ],
+  "playerHp": 0,
+  "peakBurningCells": 804,
+  "peakBurningSites": 475
+ },
+ {
+  "id": "hopkins-15-siding",
+  "note": "documented east clapboard strike",
+  "strike": {
+   "type": "tool-use",
+   "result": "ignited",
+   "heatedCells": 1
+  },
+  "flamesOutAt": 33.85,
+  "lastCollapseAt": 165.85,
+  "quietAt": 201.35,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 1,
+   "southLawn": 0,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": 11.4,
+    "firstCause": "ground-heat",
+    "burnout": 165.85,
+    "sectionsLost": 16,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": 0.48,
+    "firstCause": "surface-spread",
+    "burnout": 156.63,
+    "sectionsLost": 25,
+    "burned": 1
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": 4.55,
+    "firstCause": "ground-heat",
+    "burnout": 158.5,
+    "sectionsLost": 12,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   }
+  ],
+  "housesIgnited": 3,
+  "housesDestroyed": 3,
+  "drums": [
+   {
+    "id": "street-drum-east",
+    "at": 4.85
+   },
+   {
+    "id": "street-drum-west",
+    "at": 9.77
+   }
+  ],
+  "deaths": [
+   {
+    "id": "bear",
+    "cause": "heat",
+    "at": 154.18
+   }
+  ],
+  "playerHp": 0,
+  "peakBurningCells": 533,
+  "peakBurningSites": 609
+ },
+ {
+  "id": "monroe-middle-sash",
+  "note": "documented north window sash strike",
+  "strike": {
+   "type": "tool-use",
+   "result": "ignited",
+   "heatedCells": 1
+  },
+  "flamesOutAt": 40.85,
+  "lastCollapseAt": 178.73,
+  "quietAt": 214.1,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 0,
+   "southLawn": 1,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": 24.15,
+    "firstCause": "ground-heat",
+    "burnout": 178.73,
+    "sectionsLost": 20,
+    "burned": 1
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": 14.73,
+    "firstCause": "ground-heat",
+    "burnout": 169.83,
+    "sectionsLost": 16,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": 9.07,
+    "firstCause": "ground-heat",
+    "burnout": 164.23,
+    "sectionsLost": 28,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": 0.55,
+    "firstCause": "surface-spread",
+    "burnout": 158.83,
+    "sectionsLost": 28,
+    "burned": 1
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": 8.95,
+    "firstCause": "joined-roof",
+    "burnout": 164.15,
+    "sectionsLost": 28,
+    "burned": 1
+   }
+  ],
+  "housesIgnited": 5,
+  "housesDestroyed": 5,
+  "drums": [],
+  "deaths": [
+   {
+    "id": "bear",
+    "cause": "heat",
+    "at": 154.52
+   }
+  ],
+  "playerHp": 0,
+  "peakBurningCells": 429,
+  "peakBurningSites": 665
+ },
+ {
+  "id": "monroe-brick",
+  "note": "bare Monroe brick beside that sash",
+  "strike": {
+   "type": "tool-rejected",
+   "result": "blocked",
+   "heatedCells": 0
+  },
+  "flamesOutAt": 0,
+  "lastCollapseAt": null,
+  "quietAt": 0,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 0,
+   "southLawn": 0,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   }
+  ],
+  "housesIgnited": 0,
+  "housesDestroyed": 0,
+  "drums": [],
+  "deaths": [],
+  "playerHp": 100,
+  "peakBurningCells": 0,
+  "peakBurningSites": 0
+ },
+ {
+  "id": "shop-floor",
+  "note": "timber floor inside Bell & Alder",
+  "strike": {
+   "type": "tool-use",
+   "result": "ignited",
+   "heatedCells": 4
+  },
+  "flamesOutAt": 24.35,
+  "lastCollapseAt": null,
+  "quietAt": 24.35,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 0,
+   "southLawn": 0,
+   "shopFloor": 1
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   }
+  ],
+  "housesIgnited": 0,
+  "housesDestroyed": 0,
+  "drums": [],
+  "deaths": [
+   {
+    "id": "bear",
+    "cause": "heat",
+    "at": 5.6
+   }
+  ],
+  "playerHp": 0,
+  "peakBurningCells": 237,
+  "peakBurningSites": 0
+ },
+ {
+  "id": "road",
+  "note": "the road itself",
+  "strike": {
+   "type": "tool-rejected",
+   "result": "no-fuel",
+   "heatedCells": 0
+  },
+  "flamesOutAt": 0,
+  "lastCollapseAt": null,
+  "quietAt": 0,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 0,
+   "southLawn": 0,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   }
+  ],
+  "housesIgnited": 0,
+  "housesDestroyed": 0,
+  "drums": [],
+  "deaths": [],
+  "playerHp": 100,
+  "peakBurningCells": 0,
+  "peakBurningSites": 0
+ },
+ {
+  "id": "paving",
+  "note": "the paved strip between lawn and road",
+  "strike": {
+   "type": "tool-rejected",
+   "result": "no-fuel",
+   "heatedCells": 0
+  },
+  "flamesOutAt": 0,
+  "lastCollapseAt": null,
+  "quietAt": 0,
+  "capped": false,
+  "burnedShare": {
+   "northLawn": 0,
+   "southLawn": 0,
+   "shopFloor": 0
+  },
+  "houses": [
+   {
+    "id": "hopkins-twelve",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-fifteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "ashland-cottage",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-nine",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "hopkins-thirteen",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-house",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-middle",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   },
+   {
+    "id": "monroe-row-east",
+    "firstIgnition": null,
+    "firstCause": null,
+    "burnout": null,
+    "sectionsLost": 0,
+    "burned": 0
+   }
+  ],
+  "housesIgnited": 0,
+  "housesDestroyed": 0,
+  "drums": [],
+  "deaths": [],
+  "playerHp": 100,
+  "peakBurningCells": 0,
+  "peakBurningSites": 0
+ }
+]

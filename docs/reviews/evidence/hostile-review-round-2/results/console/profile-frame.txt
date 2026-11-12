@@ -1,0 +1,36 @@
+
+IDLE street: 1500 frames of advance(1/60) with nothing lit  (3155 samples)
+self %  where
+------  ---------------------------------------------------------
+24      (anonymous)  src/simulation/index.js:354
+19.5    step  src/simulation/field.js:136
+10.7    structuredClone  node:internal/worker/js_transferable:112
+7.4     sweptDiscClear  src/simulation/geometry.js:54
+5.1     (anonymous)  src/simulation/index.js:341
+3.2     boxInterval  src/simulation/geometry.js:87
+3.1     stepSurfaceFire  src/simulation/surface-fire.js:52
+2.9     step  src/simulation/housing-fire.js:97
+2.8     moveDisc  src/simulation/geometry.js:72
+2.7     snapshot  src/simulation/index.js:337
+2.2     freePoint  src/simulation/geometry.js:34
+2.1     step  src/simulation/index.js:262
+2.1     pointBoxDistance  src/simulation/geometry.js:50
+1.8     structuredClone  [native]
+
+LAWN FIRE: the first 24 world seconds after one match (1440 frames)  (12946 samples)
+self %  where
+------  ---------------------------------------------------------
+15.9    structuredClone  node:internal/worker/js_transferable:112
+15.5    step  src/simulation/field.js:136
+11.5    snapshot  src/simulation/field.js:203
+7.8     stepSurfaceFire  src/simulation/surface-fire.js:52
+6       surfaceSample  src/simulation/surface-fire.js:102
+6       step  src/simulation/index.js:262
+5.5     snapshot  src/simulation/index.js:337
+4       step  src/simulation/housing-fire.js:97
+3.9     boxInterval  src/simulation/geometry.js:87
+2.5     samples  src/simulation/housing-fire.js:197
+2.2     lineClear  src/simulation/geometry.js:124
+2.2     worldSurface  src/simulation/surface-fire.js:83
+2.1     exchangeSurfaceGround  src/simulation/surface-fire.js:153
+2       (garbage collector)  [native]

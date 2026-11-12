@@ -1,0 +1,13 @@
+control-identity | tests 274 pass 274 fail 0 | SURVIVED
+control-never-ignite | tests 274 pass 201 fail 73 | KILLED by: wood burnout marks individual parts dead and hides unsupported lintel/roof presentation ;; architect separated gasoline pools cannot propagate over an unfuelled paving gap ;; the authored gap admits sustained radiation, while a tall screen and a cold-control run do not
+ground-no-cooling | tests 274 pass 271 fail 3 | KILLED by: a retiring native Hopkins section warms paving and ignites a previously green grass strip ;; an Ashland-sized source respects changing cover, cools after a short exposure and ignites only with sustained heat ;; gas, grass and timber keep their distinct ground front arrivals
+ground-all-fuels-ignite-at-gas-threshold | tests 274 pass 272 fail 2 | KILLED by: real lawn fire heats the native porch and stairs, and a ground contact can warm the exposed post ;; gas, grass and timber keep their distinct ground front arrivals
+ground-receiver-scale-ignored | tests 274 pass 273 fail 1 | KILLED by: gas, grass and timber keep their distinct ground front arrivals
+ground-source-output-ignores-fuel | tests 274 pass 272 fail 2 | KILLED by: real lawn fire heats the native porch and stairs, and a ground contact can warm the exposed post ;; gas, grass and timber keep their distinct ground front arrivals
+ground-burning-cell-holds-no-heat | tests 274 pass 274 fail 0 | SURVIVED
+ground-speed-scale-ignored | tests 274 pass 272 fail 2 | KILLED by: real lawn fire heats the native porch and stairs, and a ground contact can warm the exposed post ;; gas, grass and timber keep their distinct ground front arrivals
+house-never-lights-the-ground | tests 274 pass 273 fail 1 | KILLED by: ordinary siding can ignite adjacent lawn while the same fuel across bare ground stays cold
+structure-no-stair-link | tests 274 pass 274 fail 0 | SURVIVED
+molotov-always-low-band | tests 274 pass 274 fail 0 | SURVIVED
+structure-fire-ignores-powder-dt | tests 274 pass 274 fail 0 | SURVIVED
+ashland-interior-floor-links-removed | tests 274 pass 273 fail 1 | KILLED by: Ashland vents actual floor fuel, then retires individual native supports in world time

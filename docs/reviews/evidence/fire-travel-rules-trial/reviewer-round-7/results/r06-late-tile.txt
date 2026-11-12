@@ -1,0 +1,12 @@
+ok   a. air tiles laid after the holders have been stepped
+ok   b. air tile laid while lists are stale (a surface added just before it)
+ok   c. a late tile that itself holds a surface against an old tile
+ok   d. a surface added to an old tile after the tile it faces was laid late
+ok   e. every tile first, stepped, then every surface
+ok   f. a late tile laid twice
+ok   wall +x: lit after 1.833 s, expected 1.829
+ok   roof: lit after 3.267 s, expected 3.251
+ok   floor above, from below: lit after 1.467 s, expected 1.441
+ok   door -y of (0,1,0), from (0,0,0): lit after 1.833 s, expected 1.829
+ok   tile laid late against a spent surface
+all agree

@@ -1,0 +1,8 @@
+eightFirst {}: per step of 1/30 s over 150 s: mean 15.24 ms, median 12.17, 95th 38.1, 99th 129.9, worst 215.5 | busiest 30 s (from 56 s): mean 25.62 ms | steps over 5 ms: 2801, over 10 ms: 2425, over 16.7 ms (a whole 60 Hz frame): 1860, over 33.3 ms (the step itself): 227 of 4500
+   reach steps (1 in 15): mean 79.94 ms, worst 215.5 | other steps: mean 10.62 ms, worst 32.6 | of the 20 worst steps, reach steps: 20 | share of all time spent in reach: 30 %
+   worst 8 steps at (s): 126 (216 ms), 130.5 (176 ms), 127.5 (170 ms), 127 (169 ms), 135.5 (166 ms), 57 (165 ms), 128.5 (165 ms), 125.5 (160 ms) | peak active 16264 | sight lines 16820418 | relinks 155990
+   results: room 14.17, half 34.97, first fall 71.47, flame until 131.5, neighbours first lit {"B1":31.1,"B2":39.6,"B3":47.8,"C0":34,"C1":38.7,"C2":46.3,"C3":54.6}, houses alight at the end of the run: 8
+eightFirst {"xSpread":true}: per step of 1/30 s over 150 s: mean 17.82 ms, median 23.99, 95th 31.8, 99th 38.4, worst 71.9 | busiest 30 s (from 96 s): mean 28.56 ms | steps over 5 ms: 3370, over 10 ms: 3007, over 16.7 ms (a whole 60 Hz frame): 2698, over 33.3 ms (the step itself): 163 of 4500
+   share of all time spent in reach: 38 %
+   worst 8 steps at (s): 81.3 (72 ms), 104.9 (71 ms), 60.5 (66 ms), 122.3 (52 ms), 129.5 (51 ms), 81.4 (50 ms), 81.3 (48 ms), 64.8 (47 ms) | peak active 16266 | sight lines 16810431 | relinks 156046
+   results: room 14.17, half 34.93, first fall 71.47, flame until 131.5, neighbours first lit {"B1":31.1,"B2":39.6,"B3":47.8,"C0":34,"C1":38.7,"C2":46.3,"C3":54.6}, houses alight at the end of the run: 8

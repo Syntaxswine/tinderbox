@@ -1,0 +1,192 @@
+
+== HEAD c855e62: one match on a wall, 40 s, per-link speeds in m/s as min / median / max (count)
+hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 299/299; floor patches lit 27/27, first 0.98 s last 6.28 s
+    deck>deck                  1.43 / 1.43 / 1.44 m/s (8)   delay 0.7 / 0.7 / 0.93 s
+    deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.63 / 0.63 / 0.63 s
+    eave>roof                  0.55 / 0.73 / 1.86 m/s (15)   delay 0.2 / 0.38 / 1.02 s
+    floor>floor same storey    1.53 / 1.67 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+    floor>floor stairs         1.91 / 1.91 / 1.91 m/s (1)   delay 1.55 / 1.55 / 1.55 s
+    floor>wall                 1.7 / 2.03 / 5.49 m/s (24)   delay 0.17 / 0.5 / 0.75 s
+    post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+    roof>eave                  0.61 / 1.32 / 2.75 m/s (12)   delay 0.18 / 0.35 / 0.53 s
+    roof>roof                  1.09 / 2.22 / 5.47 m/s (83)   delay 0.17 / 0.45 / 0.8 s
+    wall>deck                  1.23 / 1.23 / 1.23 m/s (1)   delay 0.85 / 0.85 / 0.85 s
+    wall>eave                  0.8 / 0.8 / 1.75 m/s (41)   delay 0.62 / 0.75 / 1.3 s
+    wall>floor                 1.34 / 2.15 / 6.29 m/s (8)   delay 0.17 / 0.47 / 0.97 s
+    wall>wall along            0.74 / 1.43 / 3.75 m/s (21)   delay 0.27 / 0.7 / 0.73 s
+    wall>wall up/down          2.14 / 3.33 / 6.72 m/s (64)   delay 0.17 / 0.32 / 0.5 s
+    oak path vs straight chord over 36 same-storey floor links: median ratio 1, links over 1.10: 0, over 1.5: 0, no on-oak path found: 0
+      worst: L1 (6.78,1.56) -> (7,3) chord 1.46 m, on-oak path 1.5 m, ratio 1.02; chord time 1.25 s vs path time 1.28 s
+      worst: L1 (3.5,2.5) -> (5,3) chord 1.58 m, on-oak path 1.62 m, ratio 1.02; chord time 1.35 s vs path time 1.38 s
+      worst: L1 (5,1.5) -> (6.78,1.56) chord 1.78 m, on-oak path 1.81 m, ratio 1.02; chord time 1.52 s vs path time 1.55 s
+    floor link chord lengths: min 1.46 m, median 2 m, max 2 m
+hopkins-4-15: strike tool-use:ignited house/wall:0:10,5|10,6:0; sites lit 481/481; floor patches lit 45/45, first 0.98 s last 7.32 s
+    deck>deck                  1.43 / 1.43 / 1.44 m/s (4)   delay 0.7 / 0.7 / 0.93 s
+    deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.63 / 0.63 / 0.63 s
+    eave>roof                  0.6 / 1.09 / 2.16 m/s (8)   delay 0.27 / 0.9 / 1.23 s
+    floor>floor same storey    1.56 / 1.82 / 6.67 m/s (33)   delay 0.23 / 1.1 / 1.28 s
+    floor>floor stairs         1.98 / 1.98 / 1.98 m/s (1)   delay 1.33 / 1.33 / 1.33 s
+    floor>wall                 1.72 / 1.8 / 3.05 m/s (21)   delay 0.3 / 0.72 / 0.88 s
+    roof>eave                  0.26 / 0.75 / 2.54 m/s (11)   delay 0.25 / 0.6 / 0.83 s
+    roof>roof                  1.11 / 2.31 / 6 m/s (208)   delay 0.17 / 0.4 / 0.93 s
+    wall>deck                  1.23 / 1.23 / 1.23 m/s (1)   delay 0.85 / 0.85 / 0.85 s
+    wall>eave                  0.77 / 1.02 / 2.87 m/s (51)   delay 0.27 / 0.82 / 1.25 s
+    wall>floor                 1.34 / 2.77 / 4.99 m/s (11)   delay 0.18 / 0.47 / 0.97 s
+    wall>wall along            0.85 / 1.71 / 4.62 m/s (42)   delay 0.22 / 0.6 / 0.92 s
+    wall>wall up/down          2.14 / 3.33 / 6.72 m/s (88)   delay 0.17 / 0.35 / 0.63 s
+    oak path vs straight chord over 69 same-storey floor links: median ratio 1, links over 1.10: 0, over 1.5: 0, no on-oak path found: 0
+      worst: L1 (3,1) -> (5,0.5) chord 2.06 m, on-oak path 2.12 m, ratio 1.03; chord time 1.76 s vs path time 1.81 s
+      worst: L1 (5,0.5) -> (7,1) chord 2.06 m, on-oak path 2.12 m, ratio 1.03; chord time 1.76 s vs path time 1.81 s
+      worst: L1 (5,3) -> (4.5,5) chord 2.06 m, on-oak path 2.12 m, ratio 1.03; chord time 1.76 s vs path time 1.81 s
+    floor link chord lengths: min 1.5 m, median 2 m, max 2.5 m
+hopkins-4-09: strike tool-use:ignited house/wall:0:7,5|7,6:0; sites lit 284/284; floor patches lit 33/33, first 0.87 s last 6.23 s
+    deck>deck                  1.43 / 1.44 / 1.44 m/s (2)   delay 0.7 / 0.93 / 0.93 s
+    deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.63 / 0.63 / 0.63 s
+    eave>roof                  0.34 / 0.85 / 2.48 m/s (8)   delay 0.35 / 0.7 / 0.93 s
+    floor>floor same storey    1.5 / 1.88 / 6.67 m/s (22)   delay 0.3 / 1 / 1.28 s
+    floor>wall                 1.68 / 1.85 / 5.49 m/s (26)   delay 0.17 / 0.62 / 0.75 s
+    roof>eave                  0.65 / 0.8 / 1.05 m/s (5)   delay 0.27 / 0.6 / 0.65 s
+    roof>roof                  1.01 / 2.38 / 6.84 m/s (72)   delay 0.18 / 0.42 / 0.65 s
+    wall>deck                  1.23 / 1.23 / 1.23 m/s (1)   delay 0.85 / 0.85 / 0.85 s
+    wall>eave                  0.8 / 0.85 / 1.59 m/s (34)   delay 0.43 / 0.75 / 1.13 s
+    wall>floor                 1.08 / 2.21 / 4.73 m/s (11)   delay 0.25 / 0.58 / 0.85 s
+    wall>wall along            0.81 / 1.71 / 4.29 m/s (28)   delay 0.23 / 0.55 / 0.73 s
+    wall>wall up/down          2.14 / 3 / 6.72 m/s (73)   delay 0.17 / 0.33 / 0.53 s
+    oak path vs straight chord over 47 same-storey floor links: median ratio 1, links over 1.10: 0, over 1.5: 0, no on-oak path found: 0
+      worst: L0 (1,1.5) -> (3.1,1.1) chord 2.13 m, on-oak path 2.19 m, ratio 1.03; chord time 1.82 s vs path time 1.88 s
+      worst: L1 (0.58,7.25) -> (1,9) chord 1.8 m, on-oak path 1.84 m, ratio 1.03; chord time 1.54 s vs path time 1.58 s
+      worst: L1 (0.58,7.25) -> (3,7) chord 2.43 m, on-oak path 2.46 m, ratio 1.01; chord time 2.08 s vs path time 2.1 s
+    floor link chord lengths: min 1.5 m, median 2 m, max 2.43 m
+hopkins-4-13: strike tool-use:ignited house/wall:0:0,2|0,3:0; sites lit 277/277; floor patches lit 28/28, first 0.98 s last 5.43 s
+    deck>deck                  1.3 / 1.43 / 1.43 m/s (3)   delay 0.65 / 0.7 / 0.7 s
+    deck>post                  2.43 / 2.43 / 2.43 m/s (1)   delay 0.45 / 0.45 / 0.45 s
+    eave>roof                  0.55 / 0.63 / 1.42 m/s (9)   delay 0.43 / 0.68 / 0.87 s
+    floor>floor same storey    1.5 / 1.69 / 6 m/s (18)   delay 0.27 / 1.05 / 1.28 s
+    floor>floor stairs         1.91 / 1.91 / 1.91 m/s (1)   delay 1.57 / 1.57 / 1.57 s
+    floor>wall                 1.71 / 1.8 / 4.18 m/s (27)   delay 0.18 / 0.53 / 0.75 s
+    roof>eave                  1.22 / 1.9 / 1.9 m/s (4)   delay 0.45 / 0.52 / 0.65 s
+    roof>roof                  1.2 / 2.43 / 7.52 m/s (62)   delay 0.17 / 0.4 / 0.78 s
+    wall>deck                  1 / 1 / 1 m/s (1)   delay 0.65 / 0.65 / 0.65 s
+    wall>eave                  0.8 / 0.85 / 3 m/s (45)   delay 0.42 / 0.78 / 1.13 s
+    wall>floor                 1.34 / 3.37 / 5.96 m/s (9)   delay 0.18 / 0.38 / 0.97 s
+    wall>wall along            0.81 / 2 / 4.29 m/s (26)   delay 0.23 / 0.52 / 0.92 s
+    wall>wall up/down          2.14 / 3.16 / 6.72 m/s (70)   delay 0.17 / 0.33 / 0.53 s
+    oak path vs straight chord over 40 same-storey floor links: median ratio 1, links over 1.10: 0, over 1.5: 0, no on-oak path found: 0
+      worst: L0 (1,3) -> (1.5,5) chord 2.06 m, on-oak path 2.12 m, ratio 1.03; chord time 1.76 s vs path time 1.81 s
+      worst: L0 (7,3) -> (6.5,5) chord 2.06 m, on-oak path 2.12 m, ratio 1.03; chord time 1.76 s vs path time 1.81 s
+      worst: L1 (5,3) -> (4.5,5) chord 2.06 m, on-oak path 2.12 m, ratio 1.03; chord time 1.76 s vs path time 1.81 s
+    floor link chord lengths: min 1.5 m, median 2 m, max 2.06 m
+monroe-row: strike tool-use:ignited house/wall:0:2,0|3,0:0; sites lit 297/297; floor patches lit 57/57, first 1.02 s last 9.42 s
+    deck>deck                  1.13 / 1.42 / 1.43 m/s (3)   delay 0.7 / 0.77 / 0.93 s
+    deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.63 / 0.63 / 0.63 s
+    eave>roof                  0.24 / 0.59 / 0.6 m/s (4)   delay 0.68 / 0.85 / 0.9 s
+    floor>floor same storey    1.49 / 1.64 / 7.12 m/s (53)   delay 0.23 / 0.97 / 1.68 s
+    floor>wall                 1.58 / 1.62 / 2.66 m/s (19)   delay 0.47 / 0.53 / 0.77 s
+    roof>eave                  0.59 / 0.81 / 0.81 m/s (2)   delay 0.87 / 0.88 / 0.88 s
+    roof>roof                  1.13 / 2.31 / 4.78 m/s (147)   delay 0.17 / 0.42 / 0.7 s
+    wall>deck                  1.19 / 1.19 / 1.19 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+    wall>eave                  0.7 / 1.19 / 2.47 m/s (18)   delay 0.32 / 0.75 / 1.08 s
+    wall>floor                 1.23 / 1.58 / 1.62 m/s (4)   delay 0.77 / 0.93 / 1 s
+    wall>wall along            0.99 / 1.3 / 1.64 m/s (4)   delay 0.63 / 1.07 / 1.17 s
+    wall>wall up/down          2.1 / 2.33 / 6.76 m/s (40)   delay 0.18 / 0.53 / 0.63 s
+    oak path vs straight chord over 92 same-storey floor links: median ratio 1, links over 1.10: 0, over 1.5: 0, no on-oak path found: 0
+      worst: L1 (0.75,2.42) -> (1.75,5) chord 2.77 m, on-oak path 3.02 m, ratio 1.09; chord time 2.37 s vs path time 2.58 s
+      worst: L1 (3.07,0.85) -> (5,0.5) chord 1.96 m, on-oak path 2.03 m, ratio 1.04; chord time 1.67 s vs path time 1.74 s
+      worst: L1 (0.75,2.42) -> (0.25,5) chord 2.63 m, on-oak path 2.72 m, ratio 1.03; chord time 2.25 s vs path time 2.32 s
+    floor link chord lengths: min 1.25 m, median 2 m, max 2.77 m
+ashland-worker: strike tool-use:ignited house/wall:0:6,3|6,4:0; sites lit 167/167; floor patches lit 12/12, first 0.98 s last 4.15 s
+    deck>deck                  1.16 / 1.31 / 1.43 m/s (4)   delay 0.7 / 0.98 / 0.98 s
+    eave>roof                  0.81 / 0.84 / 0.84 m/s (2)   delay 0.72 / 0.92 / 0.92 s
+    floor>floor same storey    1.56 / 1.82 / 6 m/s (9)   delay 0.33 / 0.88 / 1.28 s
+    floor>wall                 1.72 / 1.84 / 5.49 m/s (14)   delay 0.17 / 0.62 / 0.75 s
+    roof>eave                  0.64 / 1.88 / 3.01 m/s (6)   delay 0.18 / 0.33 / 0.55 s
+    roof>roof                  1.24 / 2.28 / 5.45 m/s (70)   delay 0.17 / 0.37 / 0.57 s
+    wall>deck                  1 / 1 / 1 m/s (1)   delay 0.65 / 0.65 / 0.65 s
+    wall>eave                  0.88 / 1.19 / 1.52 m/s (20)   delay 0.55 / 0.87 / 0.97 s
+    wall>floor                 1.34 / 1.65 / 2.77 m/s (3)   delay 0.47 / 0.78 / 0.97 s
+    wall>wall along            1.43 / 1.5 / 4 m/s (11)   delay 0.25 / 0.67 / 0.7 s
+    wall>wall up/down          2.14 / 3.16 / 5.45 m/s (26)   delay 0.18 / 0.35 / 0.47 s
+    oak path vs straight chord over 17 same-storey floor links: median ratio 1, links over 1.10: 0, over 1.5: 0, no on-oak path found: 0
+      worst: L0 (1,5) -> (1,6.5) chord 1.5 m, on-oak path 1.5 m, ratio 1; chord time 1.28 s vs path time 1.28 s
+      worst: L0 (3,5) -> (3,6.5) chord 1.5 m, on-oak path 1.5 m, ratio 1; chord time 1.28 s vs path time 1.28 s
+      worst: L0 (5,5) -> (5,6.5) chord 1.5 m, on-oak path 1.5 m, ratio 1; chord time 1.28 s vs path time 1.28 s
+    floor link chord lengths: min 1.5 m, median 2 m, max 2 m
+
+== tip2 26931d9 (control): one match on a wall, 40 s, per-link speeds in m/s as min / median / max (count)
+hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 291/291; floor patches lit 26/26, first 0.98 s last 5.52 s
+    deck>post                  1.82 / 1.82 / 1.82 m/s (1)   delay 2.25 / 2.25 / 2.25 s
+    eave>roof                  0.55 / 0.73 / 1.86 m/s (15)   delay 0.2 / 0.38 / 1.02 s
+    floor>floor same storey    1.56 / 1.67 / 6 m/s (19)   delay 0.27 / 1.2 / 1.28 s
+    floor>floor stairs         5.53 / 5.53 / 5.53 m/s (1)   delay 0.38 / 0.38 / 0.38 s
+    floor>wall                 1.61 / 2.01 / 5.42 m/s (27)   delay 0.17 / 0.5 / 0.75 s
+    post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+    roof>eave                  0.97 / 1.21 / 2.58 m/s (9)   delay 0.18 / 0.25 / 0.45 s
+    roof>roof                  1.09 / 2.22 / 5.47 m/s (83)   delay 0.17 / 0.45 / 0.8 s
+    wall>deck                  1.38 / 1.39 / 1.39 m/s (2)   delay 1.32 / 1.72 / 1.72 s
+    wall>eave                  0.8 / 0.8 / 1.75 m/s (44)   delay 0.62 / 0.75 / 1.3 s
+    wall>floor                 1.33 / 1.78 / 2.75 m/s (6)   delay 0.47 / 0.77 / 0.97 s
+    wall>wall along            1.08 / 1.43 / 3.75 m/s (24)   delay 0.2 / 0.7 / 0.7 s
+    wall>wall up/down          2.14 / 3.16 / 9.01 m/s (58)   delay 0.17 / 0.32 / 0.5 s
+hopkins-4-15: strike tool-use:ignited house/wall:0:10,5|10,6:0; sites lit 478/478; floor patches lit 45/45, first 0.98 s last 6.98 s
+    deck>post                  2.04 / 2.04 / 2.04 m/s (1)   delay 1.12 / 1.12 / 1.12 s
+    eave>roof                  0.6 / 1.09 / 2.45 m/s (9)   delay 0.23 / 0.85 / 1.23 s
+    floor>floor same storey    1.56 / 1.79 / 7.06 m/s (32)   delay 0.28 / 1.12 / 1.28 s
+    floor>floor stairs         5.53 / 5.53 / 5.53 m/s (1)   delay 0.38 / 0.38 / 0.38 s
+    floor>wall                 1.71 / 1.79 / 2.75 m/s (27)   delay 0.28 / 0.72 / 0.75 s
+    roof>eave                  0.27 / 0.99 / 2.73 m/s (11)   delay 0.23 / 0.55 / 0.83 s
+    roof>roof                  1.11 / 2.31 / 6 m/s (207)   delay 0.17 / 0.4 / 0.93 s
+    wall>deck                  1.27 / 1.38 / 1.38 m/s (2)   delay 0.92 / 1.72 / 1.72 s
+    wall>eave                  0.77 / 1.02 / 2.87 m/s (51)   delay 0.27 / 0.83 / 1.25 s
+    wall>floor                 1.33 / 2.75 / 5.92 m/s (12)   delay 0.17 / 0.53 / 0.97 s
+    wall>wall along            0.89 / 1.88 / 4.62 m/s (43)   delay 0.22 / 0.53 / 0.92 s
+    wall>wall up/down          2.14 / 3 / 6.72 m/s (81)   delay 0.17 / 0.33 / 0.63 s
+hopkins-4-09: strike tool-use:ignited house/wall:0:7,5|7,6:0; sites lit 286/286; floor patches lit 36/36, first 0.85 s last 5.43 s
+    deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.73 / 0.73 / 0.73 s
+    eave>roof                  0.34 / 0.85 / 2.74 m/s (9)   delay 0.18 / 0.52 / 0.93 s
+    floor>floor same storey    1.5 / 1.79 / 7.06 m/s (25)   delay 0.28 / 0.97 / 1.28 s
+    floor>floor stairs         5.3 / 5.3 / 5.3 m/s (1)   delay 0.4 / 0.4 / 0.4 s
+    floor>wall                 1.61 / 1.79 / 5.42 m/s (29)   delay 0.17 / 0.58 / 0.75 s
+    post>roof                  1.23 / 1.23 / 1.23 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+    roof>eave                  0.81 / 1.05 / 1.05 m/s (5)   delay 0.27 / 0.38 / 0.6 s
+    roof>roof                  1.01 / 2.4 / 6.84 m/s (70)   delay 0.18 / 0.42 / 0.65 s
+    wall>deck                  1.27 / 1.38 / 1.38 m/s (2)   delay 0.92 / 1.72 / 1.72 s
+    wall>eave                  0.8 / 0.85 / 1.84 m/s (34)   delay 0.55 / 0.75 / 1.13 s
+    wall>floor                 1.08 / 2.2 / 5.5 m/s (10)   delay 0.22 / 0.58 / 0.83 s
+    wall>wall along            0.89 / 1.88 / 4.62 m/s (24)   delay 0.22 / 0.5 / 0.92 s
+    wall>wall up/down          2.14 / 3 / 6.72 m/s (74)   delay 0.17 / 0.35 / 0.5 s
+hopkins-4-13: strike tool-use:ignited house/wall:0:0,2|0,3:0; sites lit 277/277; floor patches lit 30/30, first 0.98 s last 5.55 s
+    deck>post                  2.1 / 2.1 / 2.1 m/s (1)   delay 0.82 / 0.82 / 0.82 s
+    eave>roof                  0.56 / 0.68 / 1.65 m/s (10)   delay 0.42 / 0.72 / 0.87 s
+    floor>floor same storey    1.56 / 1.74 / 6 m/s (19)   delay 0.33 / 1.15 / 1.28 s
+    floor>wall                 1.61 / 1.83 / 4.05 m/s (29)   delay 0.18 / 0.43 / 0.75 s
+    roof>eave                  1.26 / 1.9 / 2.23 m/s (4)   delay 0.38 / 0.5 / 0.63 s
+    roof>roof                  1.2 / 2.4 / 5.43 m/s (61)   delay 0.2 / 0.4 / 0.75 s
+    wall>deck                  1 / 1.26 / 1.26 m/s (2)   delay 0.65 / 1.15 / 1.15 s
+    wall>eave                  0.8 / 0.85 / 2.27 m/s (45)   delay 0.55 / 0.78 / 1.13 s
+    wall>floor                 1.33 / 3.14 / 6.42 m/s (11)   delay 0.17 / 0.37 / 0.97 s
+    wall>wall along            0.89 / 2.07 / 4.62 m/s (24)   delay 0.22 / 0.52 / 0.92 s
+    wall>wall up/down          2.14 / 3.16 / 6.72 m/s (70)   delay 0.17 / 0.35 / 0.5 s
+monroe-row: strike tool-use:ignited house/wall:0:2,0|3,0:0; sites lit 294/294; floor patches lit 56/56, first 1 s last 9.75 s
+    deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.73 / 0.73 / 0.73 s
+    eave>roof                  0.24 / 0.59 / 0.6 m/s (4)   delay 0.68 / 0.85 / 0.9 s
+    floor>floor same storey    1.5 / 1.58 / 6.67 m/s (51)   delay 0.23 / 1 / 1.28 s
+    floor>floor stairs         4.1 / 4.1 / 4.1 m/s (1)   delay 0.52 / 0.52 / 0.52 s
+    floor>wall                 1.56 / 1.61 / 2.56 m/s (16)   delay 0.48 / 0.7 / 0.77 s
+    roof>eave                  0.59 / 0.64 / 0.75 m/s (3)   delay 0.8 / 0.87 / 0.95 s
+    roof>roof                  1.13 / 2.31 / 4.92 m/s (147)   delay 0.17 / 0.42 / 0.7 s
+    wall>deck                  1.22 / 1.31 / 1.31 m/s (2)   delay 1 / 2.17 / 2.17 s
+    wall>eave                  0.7 / 1.07 / 3.34 m/s (17)   delay 0.27 / 0.75 / 1.08 s
+    wall>floor                 1.26 / 1.58 / 1.6 m/s (4)   delay 0.78 / 0.98 / 0.98 s
+    wall>wall along            0.99 / 1.3 / 1.64 m/s (4)   delay 0.63 / 1.07 / 1.17 s
+    wall>wall up/down          2.1 / 2.33 / 6.76 m/s (43)   delay 0.18 / 0.53 / 0.63 s
+ashland-worker: strike tool-use:ignited house/wall:0:6,3|6,4:0; sites lit 164/164; floor patches lit 12/12, first 0.98 s last 4.15 s
+    eave>roof                  0.81 / 0.84 / 0.84 m/s (2)   delay 0.72 / 0.92 / 0.92 s
+    floor>floor same storey    1.56 / 1.79 / 6 m/s (9)   delay 0.33 / 0.9 / 1.28 s
+    floor>wall                 1.71 / 1.83 / 5.42 m/s (14)   delay 0.17 / 0.62 / 0.75 s
+    roof>eave                  0.64 / 1.88 / 3.01 m/s (6)   delay 0.18 / 0.33 / 0.55 s
+    roof>roof                  1.24 / 2.28 / 5.45 m/s (70)   delay 0.17 / 0.37 / 0.57 s
+    wall>deck                  1.12 / 1.21 / 1.21 m/s (2)   delay 0.73 / 2.25 / 2.25 s
+    wall>eave                  0.88 / 1.19 / 1.52 m/s (20)   delay 0.55 / 0.87 / 0.97 s
+    wall>floor                 1.33 / 1.67 / 2.75 m/s (3)   delay 0.47 / 0.77 / 0.97 s
+    wall>wall along            1.43 / 1.5 / 4 m/s (11)   delay 0.25 / 0.67 / 0.7 s
+    wall>wall up/down          2.14 / 3.16 / 5.45 m/s (26)   delay 0.18 / 0.35 / 0.47 s

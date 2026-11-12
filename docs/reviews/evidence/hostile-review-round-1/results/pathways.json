@@ -1,0 +1,214 @@
+{
+ "gap": [
+  {
+   "fuel": "grass",
+   "gap m": 0,
+   "near side burned": "144/144",
+   "far side burned": "144/144",
+   "hottest far cell before any far ignition": 0.78,
+   "crossed": "YES"
+  },
+  {
+   "fuel": "grass",
+   "gap m": 0.5,
+   "near side burned": "144/144",
+   "far side burned": "0/132",
+   "hottest far cell before any far ignition": 0,
+   "crossed": "no"
+  },
+  {
+   "fuel": "grass",
+   "gap m": 1,
+   "near side burned": "144/144",
+   "far side burned": "0/120",
+   "hottest far cell before any far ignition": 0,
+   "crossed": "no"
+  },
+  {
+   "fuel": "wood",
+   "gap m": 0,
+   "near side burned": "144/144",
+   "far side burned": "144/144",
+   "hottest far cell before any far ignition": 1.098,
+   "crossed": "YES"
+  },
+  {
+   "fuel": "wood",
+   "gap m": 0.5,
+   "near side burned": "144/144",
+   "far side burned": "0/132",
+   "hottest far cell before any far ignition": 0,
+   "crossed": "no"
+  },
+  {
+   "fuel": "wood",
+   "gap m": 1,
+   "near side burned": "144/144",
+   "far side burned": "0/120",
+   "hottest far cell before any far ignition": 0,
+   "crossed": "no"
+  },
+  {
+   "fuel": "gas",
+   "gap m": 0,
+   "near side burned": "144/144",
+   "far side burned": "144/144",
+   "hottest far cell before any far ignition": 0,
+   "crossed": "YES"
+  },
+  {
+   "fuel": "gas",
+   "gap m": 0.5,
+   "near side burned": "144/144",
+   "far side burned": "0/132",
+   "hottest far cell before any far ignition": 0,
+   "crossed": "no"
+  },
+  {
+   "fuel": "gas",
+   "gap m": 1,
+   "near side burned": "144/144",
+   "far side burned": "0/120",
+   "hottest far cell before any far ignition": 0,
+   "crossed": "no"
+  }
+ ],
+ "bystander": [
+  {
+   "scene": "house on bare paving",
+   "nearest flame to the bear m": 0.75,
+   "flames out at s": 18.4,
+   "bear hp when the flames end": 100,
+   "first section falls at s": 150,
+   "house gone at s": 155.2,
+   "bear hp at the end": 42.3,
+   "drum 0.2 m from the wall": "exploded at 152.3 s"
+  },
+  {
+   "scene": "house on its lawn (control)",
+   "nearest flame to the bear m": 0.75,
+   "flames out at s": 18.4,
+   "bear hp when the flames end": 19.7,
+   "first section falls at s": 150,
+   "house gone at s": 155.2,
+   "bear hp at the end": 0,
+   "drum 0.2 m from the wall": "exploded at 2.7 s"
+  }
+ ],
+ "runner": {
+  "actorIgnitedAt": 0.1,
+  "burnEndedAt": 4.1,
+  "furthestXWhileBurning": 12.67,
+  "ticksBurningOnGrass": 140,
+  "grassStartsAtX": 8,
+  "groundIgnitions": 0,
+  "actorHp": 21.2
+ },
+ "powder": [
+  {
+   "powder": "no",
+   "world dt ms": 16.67,
+   "front speed m per world s": 3.75,
+   "cell-to-cell delay world s": 0.1333
+  },
+  {
+   "powder": "yes (world x0.35)",
+   "world dt ms": 5.83,
+   "front speed m per world s": 3.727,
+   "cell-to-cell delay world s": 0.1342
+  }
+ ],
+ "cottageClock": [
+  {
+   "s after first ignition": 5,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 37,
+   "sites in flame": 37,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 10,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 86,
+   "sites in flame": 84,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 20,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 116,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 30,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 2,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 40,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 60,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 100,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 149,
+   "supports standing (of 126)": 126,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 151,
+   "supports standing (of 126)": 120,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 155,
+   "supports standing (of 126)": 100,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 160,
+   "supports standing (of 126)": 62,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "no"
+  },
+  {
+   "s after first ignition": 170,
+   "supports standing (of 126)": 0,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "yes"
+  },
+  {
+   "s after first ignition": 180,
+   "supports standing (of 126)": 0,
+   "sites ever ignited (of 178)": 178,
+   "sites in flame": 0,
+   "gone": "yes"
+  }
+ ]
+}

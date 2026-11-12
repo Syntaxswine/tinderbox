@@ -1,0 +1,45 @@
+A. Flat ground, shipped constants. Front speed in m/s: lattice kernel against the shipped ground field (results/ground-front.json).
+
+fuel   lattice 0°  shipped 0°  lattice 22.5°  shipped 22.5°  lattice 45°  shipped 45°  worst difference over 9 directions  reached
+-----  ----------  ----------  -------------  -------------  -----------  -----------  ----------------------------------  ---------
+gas    3.75        3.75        3.516          3.516          3.769        3.769        0%                                  1024/1024
+grass  1.579       1.579       1.595          1.595          1.512        1.512        0%                                  1024/1024
+wood   0.526       0.526       0.547          0.547          0.525        0.525        0%                                  1024/1024
+
+B. A solid 13.5 m cube of timber tiles (0.5 m cubes) lit at its centre. Front speed in m/s along each direction.
+
+up setting  down setting  +x     -x     +y     -y     up     down   level diagonal  diagonal up  diagonal down  corner up  corner down  up : level : down
+----------  ------------  -----  -----  -----  -----  -----  -----  --------------  -----------  -------------  ---------  -----------  -----------------
+1           1             0.533  0.533  0.533  0.533  0.533  0.533  0.571           0.571        0.571          0.58       0.58         1 : 1 : 1
+2           0.5           0.525  0.525  0.525  0.525  1      0.327  0.557           0.926        0.388          0.837      0.418        1.9 : 1 : 0.62
+3           0.35          0.525  0.525  0.525  0.525  1.5    0.27   0.555           1.307        0.336          1.06       0.365        2.86 : 1 : 0.51
+
+C1. The real street, one match on the north lawn at (30.8, 14).
+
+model                         flames out s  north lawn  south lawn  north houses caught  south houses caught  drums
+----------------------------  ------------  ----------  ----------  -------------------  -------------------  -----
+shipped game                  27.18         100%        0%          3/3                  0/5                  2
+lattice kernel, contact only  39.8          100%        0%          3/3                  0/5                  2
+
+C2. One match on a low wall, lawn removed. Lattice time, with the shipped game's time in brackets.
+
+house              tiles  upper storey s  roof s       last ignition s  flames out s   other houses lit
+-----------------  -----  --------------  -----------  ---------------  -------------  -------------------------------------------
+hopkins-nine       1300   1.3 (0.97)      1.47 (3.02)  7.17 (8.38)      16.17 (18.33)  none
+hopkins-fifteen    1760   1.3 (0.97)      2.58 (2.65)  8.87 (9.32)      17.87 (19.25)  none
+monroe-row-middle  1820   1.3 (1.17)      2.58 (3.62)  10.97 (10.88)    19.97 (20.58)  monroe-row-house @4.6, monroe-row-east @3.6
+
+C3. Hopkins 9 lit on bare paving (no lawn anywhere). The shipped game's result for this scene is experiment 2-3 of pathways.mjs.
+
+rule                                          Hopkins 13, 5 m east  Monroe row, 4 m beyond that  Hopkins 12, across the street  bystander touching the wall: damage  bystander 0.8 m out: damage  drum 0.75 m from the wall
+--------------------------------------------  --------------------  ---------------------------  -----------------------------  -----------------------------------  ---------------------------  -------------------------
+contact only                                  no                    no                           no                             318 hp                               0 hp                         never
+contact + weak radiation (gain 0.012, 10 m)   at 6.4 s              at 15.3 s                    no                             341 hp                               0 hp                         never
+contact + strong radiation (gain 0.06, 20 m)  at 2.3 s              at 7.3 s                     at 13.9 s                      359 hp                               336 hp                       at 4.1 s
+
+D. Cost of the same north-lawn fire (CPU ms per tick, user + system).
+
+model           tracked units                  step cpu ms  publish cpu ms                    units published per tick
+--------------  -----------------------------  -----------  --------------------------------  ------------------------
+shipped game    9588 cells + 2218 sites        3.08         1.42 (changed cells republished)  changed cells only
+lattice kernel  18242 tiles (16230 with fuel)  0.25         not built (change list only)      1530.8 mean, 4290 peak

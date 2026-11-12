@@ -1,0 +1,265 @@
+{
+ "rules": {
+  "step": 0.03333333333333333,
+  "rate": 4,
+  "maxHeat": 3,
+  "loss": 2,
+  "up": 3,
+  "upDiagonal": 2,
+  "downDiagonal": 0.06,
+  "down": 0.04,
+  "falloff": 1.5,
+  "pass": {
+   "glass": 0.05,
+   "timber": 0.02,
+   "masonry": 0.005
+  },
+  "glassBreaks": 1.6,
+  "storeyPass": 0.05,
+  "through": 4,
+  "reach": 3,
+  "radiantGain": 0.5,
+  "radiantEvery": 0.5,
+  "reachUnderCover": false,
+  "burstAt": 1.4,
+  "burstRadius": 1.5,
+  "emberShare": 0.15,
+  "fallPulse": 2.5
+ },
+ "fuels": {
+  "grass": {
+   "lightAt": 0.85,
+   "delay": 0.18,
+   "burnFor": 3,
+   "out": 0.7,
+   "radiates": 0.1
+  },
+  "oil": {
+   "lightAt": 0.6,
+   "delay": 0,
+   "burnFor": 14,
+   "out": 3
+  },
+  "clapboard": {
+   "lightAt": 1.1,
+   "delay": 5,
+   "burnFor": 20,
+   "out": 1
+  },
+  "partition": {
+   "lightAt": 1.1,
+   "delay": 5,
+   "burnFor": 90,
+   "out": 1
+  },
+  "door": {
+   "lightAt": 1.1,
+   "delay": 5,
+   "burnFor": 50,
+   "out": 1
+  },
+  "roof": {
+   "lightAt": 1.1,
+   "delay": 3,
+   "burnFor": 80,
+   "out": 1
+  },
+  "frame": {
+   "lightAt": 1.3,
+   "delay": 3,
+   "burnFor": 80,
+   "out": 1.2
+  },
+  "furniture": {
+   "lightAt": 1.1,
+   "delay": 3,
+   "burnFor": 30,
+   "out": 1.5
+  },
+  "cloth": {
+   "lightAt": 0.8,
+   "delay": 0.5,
+   "burnFor": 10,
+   "out": 1
+  },
+  "lacquer": {
+   "lightAt": 0.5,
+   "delay": 0,
+   "burnFor": 4,
+   "out": 1.6
+  },
+  "coal": {
+   "lightAt": 1.6,
+   "delay": 15,
+   "burnFor": 300,
+   "out": 0.8
+  },
+  "embers": {
+   "lightAt": 0.7,
+   "delay": 0,
+   "burnFor": 8,
+   "out": 1,
+   "radiates": 0.1
+  }
+ },
+ "results": {
+  "1": {
+   "verdict": "MET",
+   "text": "grass front: straight 1.579 m/s along the grid, 1.515 on its diagonal; from one tile, 32 directions timed from 6 m to 24 m out, 1.502 to 1.579 (mean 1.533)   [target: every one within 7 % of 1.5, that is 1.395 to 1.605]"
+  },
+  "2": {
+   "verdict": "EDGE",
+   "text": "a wall lights 1.967 to 2.000 s after the grass against it, on 12 walls of three plans   [target: under 2 s]"
+  },
+  "3": {
+   "verdict": "MET",
+   "text": "bare wall, match at its foot: 0.5 m/s up, 0.15 m/s along, 3.31 to 1   [target: 2.5 to 3.5 to 1]"
+  },
+  "4": {
+   "verdict": "MISSED",
+   "text": "room behind the match fully alight: 4 of 24 wall strikes in range; 16 to 41.27 s, median 27.43. Match held inside the same walls: 14 of 24, 3.93 to 28.63 s, median 17. Room strikes, for information: 2.13 to 26.97 s, median 12.2   [target: 10 to 20 s]"
+  },
+  "5": {
+   "verdict": "PARTLY",
+   "text": "half the house alight: 58 of 101 strikes in range (9 of 24 wall outside, 14 of 24 wall inside, 21 of 32 ground rooms, 14 of 21 upstairs rooms); 25.57 to 76.67 s, median 42.57   [target: 40 to 70 s]"
+  },
+  "6": {
+   "verdict": "MET",
+   "text": "flame in the house: 101 of 101 strikes at 90 s or more; 131 to 236 s   [target: 90 s or more]"
+  },
+  "7": {
+   "verdict": "MET",
+   "text": "first upper floor or roof part falls: 101 of 101 in range; 69.27 to 80.83 s. This is the burn time of frame and roof timber (68 s) plus the time to light it   [target: 60 to 150 s]"
+  },
+  "8": {
+   "verdict": "PARTLY",
+   "text": "upstairs fires: ground floor lit before anything fell to it in 0 of 21; lit within 5 s of the first fall in 20 of 21; lag 0 to 11.03 s   [target: only after a fall, then within 5 s]"
+  },
+  "9": {
+   "verdict": "MET",
+   "text": "the kitchen fire takes the house more SLOWLY. kitchen fire: room alight 9.47 s, half the house 42.63 s, oil bursts at 0.1, 38.1 s; dining-room fire: 15.1 s, 37.3 s, oil at 39.6, 62 s. Burning at 300 s: {\"coal\":1} against {\"coal\":1}   [target: a stated difference; the trial's own mark is 5 s on half alight]"
+  },
+  "10": {
+   "verdict": "MET",
+   "text": "lawn fire and 0.5 m of paving square to the grid: does not cross. A diagonal strip one tile wide (0.35 m across): does not cross; two tiles wide (0.71 m): does not cross   [target: does not cross 0.5 m]"
+  },
+  "11": {
+   "verdict": "MET",
+   "text": "bare ground, 2 m: the neighbour lights 8.37 and 8.37 s after the facing wall of the burning house first burns (match on its far wall, and in its kitchen). At 2.5 m and wider it never does   [target: yes, within 30 s]"
+  },
+  "12": {
+   "verdict": "PARTLY",
+   "text": "8 m: on bare ground never; with lawn between, lit at 18.13 s, carried by the grass   [target: no]"
+  },
+  "13": {
+   "verdict": "UNTESTED",
+   "text": "a lantern is never a dud: the scene has no stone plinth and the kernel has no lantern"
+  },
+  "14": {
+   "verdict": "PARTLY",
+   "text": "fuel laid - burnt - left: worst 6e-8 over 101 burns; no fuel is created (embers are the last 14.58 to 14.84 % of what was laid, falling). \"Same state under five frame schedules\" is not tested: the kernel has one fixed step. The step matters: at 1/60, 1/30 and 1/15 s a match outside the sitting-room wall of Hopkins 15 gives room alight 27.25, 27.87, 29.4 s and half the house 50.2, 52.07, 54.73 s   [target: same state under five frame schedules; ledger closes]"
+  },
+  "15": {
+   "verdict": "MISSED",
+   "text": "cost per step of 1/30 s over 150 s (one step covers two of today's 1/60 s frames): one house 1.3 ms mean, 6.7 ms 95th centile, 26 ms worst, 1911 tiles active at peak; three houses on a lawn, all burning, 4.7 ms mean, 10.6 ms 95th centile, 107.8 ms worst, 6971 tiles active at peak. Today's game: 3 to 5 ms per 1/60 s frame   [target: no more than today's]"
+  },
+  "survey": {
+   "strikes": 101,
+   "neverLitMax": 0,
+   "ledgerWorst": 5.7231718586514546e-8,
+   "embersShare": "14.58 to 14.84"
+  },
+  "pairs": [
+   {
+    "gap": 1,
+    "ground": "bare",
+    "at": "wall:x-:0:10",
+    "neighbourLit": 22.000000000000252,
+    "facingWallLit": 23.100000000000307,
+    "afterFacing": -1.1000000000000547,
+    "half": 31.633333333334065,
+    "grassLit": null
+   },
+   {
+    "gap": 2,
+    "ground": "bare",
+    "at": "wall:x-:0:10",
+    "neighbourLit": 31.46666666666739,
+    "facingWallLit": 23.100000000000307,
+    "afterFacing": 8.366666666667083,
+    "half": 31.766666666667405,
+    "grassLit": null
+   },
+   {
+    "gap": 2.5,
+    "ground": "bare",
+    "at": "wall:x-:0:10",
+    "neighbourLit": null,
+    "facingWallLit": 23.100000000000307,
+    "afterFacing": null,
+    "half": 31.766666666667405,
+    "grassLit": null
+   },
+   {
+    "gap": 3,
+    "ground": "bare",
+    "at": "wall:x-:0:10",
+    "neighbourLit": null,
+    "facingWallLit": 23.100000000000307,
+    "afterFacing": null,
+    "half": 31.766666666667405,
+    "grassLit": null
+   },
+   {
+    "gap": 5,
+    "ground": "bare",
+    "at": "wall:x-:0:10",
+    "neighbourLit": null,
+    "facingWallLit": 23.100000000000307,
+    "afterFacing": null,
+    "half": 31.766666666667405,
+    "grassLit": null
+   },
+   {
+    "gap": 8,
+    "ground": "bare",
+    "at": "wall:x-:0:10",
+    "neighbourLit": null,
+    "facingWallLit": 23.100000000000307,
+    "afterFacing": null,
+    "half": 31.766666666667405,
+    "grassLit": null
+   },
+   {
+    "gap": 2,
+    "ground": "bare",
+    "at": "room:0:kitchen",
+    "neighbourLit": 43.46666666666676,
+    "facingWallLit": 35.10000000000057,
+    "afterFacing": 8.366666666666191,
+    "half": 42.633333333333475,
+    "grassLit": null
+   },
+   {
+    "gap": 3,
+    "ground": "lawn",
+    "at": "wall:x-:0:10",
+    "neighbourLit": 15.066666666666624,
+    "facingWallLit": 12.266666666666634,
+    "afterFacing": 2.79999999999999,
+    "half": 17.70000000000004,
+    "grassLit": 0.4333333333333333
+   },
+   {
+    "gap": 8,
+    "ground": "lawn",
+    "at": "wall:x-:0:10",
+    "neighbourLit": 18.133333333333393,
+    "facingWallLit": 12.266666666666634,
+    "afterFacing": 5.8666666666667595,
+    "half": 17.70000000000004,
+    "grassLit": 0.4333333333333333
+   }
+  ]
+ }
+}

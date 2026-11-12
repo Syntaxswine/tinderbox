@@ -1,0 +1,32 @@
+[
+ {
+  "scene": "Catalogue Street, idle",
+  "cells": 9588,
+  "tiles": 2397,
+  "parts": {
+   "simulation: snapshot() (field.js:178, index.js:336-368)": 3.5925,
+   "art/fire.js: every cell, id hash and history map (fire.js:90-108)": 1.525,
+   "art/ground-field.js: every cell into a texture (ground-field.js:59-69)": 0.1175,
+   "art/street-firelight.js: every cell (street-firelight.js:59)": 0.1175,
+   "art/index.js: trail filter over every cell (index.js:99)": 0.0775,
+   "art/world.js: JSON of every tile to detect change (world.js:74)": 0.43,
+   "ui/map.js: every tile and cell, JSON of every tile (map.js:12-39)": 0.665
+  },
+  "total": 6.524999999999999
+ },
+ {
+  "scene": "opening test street, idle (control)",
+  "cells": 1280,
+  "tiles": 320,
+  "parts": {
+   "simulation: snapshot() (field.js:178, index.js:336-368)": 0.5475,
+   "art/fire.js: every cell, id hash and history map (fire.js:90-108)": 0.235,
+   "art/ground-field.js: every cell into a texture (ground-field.js:59-69)": 0.04,
+   "art/street-firelight.js: every cell (street-firelight.js:59)": 0,
+   "art/index.js: trail filter over every cell (index.js:99)": 0.075,
+   "art/world.js: JSON of every tile to detect change (world.js:74)": 0.08,
+   "ui/map.js: every tile and cell, JSON of every tile (map.js:12-39)": 0.1175
+  },
+  "total": 1.095
+ }
+]

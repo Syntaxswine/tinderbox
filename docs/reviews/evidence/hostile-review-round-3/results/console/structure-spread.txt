@@ -1,0 +1,15 @@
+One match on low siding, lawn removed. Times are world seconds after the strike.
+
+house              sites lit  upper wall  eave  roof  ground floor  upper floor  last ignition  flames out  first section gone  house gone  other houses lit
+-----------------  ---------  ----------  ----  ----  ------------  -----------  -------------  ----------  ------------------  ----------  --------------------------------
+hopkins-nine       284        0.97        2.33  3.02  0.85          1.55         8.55           18.5        150                 155.15      none
+hopkins-fifteen    481        0.97        2.13  2.65  0.97          1.67         9.33           19.25       150                 156.62      none
+monroe-row-middle  217        1.17        2.78  3.62  1             2.45         10.9           20.58       150                 158.83      monroe-row-east,monroe-row-house
+
+Speed of each parent -> child hop in m per world second (median, 10th-90th percentile), by direction:
+
+house              up                       level                    down                    up : level : down
+-----------------  -----------------------  -----------------------  ----------------------  -----------------
+hopkins-nine       2.5 (0.8-4.48), n=121    2.06 (1.15-3.7), n=149   1.71 (0.99-2.39), n=13  1.21 : 1 : 0.83
+hopkins-fifteen    2.31 (1.02-4.62), n=147  2.14 (1.43-3.33), n=322  2.27 (1.28-2.41), n=11  1.08 : 1 : 1.06
+monroe-row-middle  2.32 (0.84-4.43), n=29   2.22 (1.51-4.28), n=185  1.19 (1.13-1.19), n=2   1.05 : 1 : 0.54

@@ -1,0 +1,47 @@
+[
+ {
+  "scene": "Catalogue Street, nothing lit",
+  "stepAndSnapshot": 1.2440216666666652,
+  "peakBurningCells": 0,
+  "parts": {
+   "simulation: snapshot()": 0.5535323333333307,
+   "art/fire.js update": 0.012435499999996106,
+   "art/ground-field.js update": 0.0019246666666672733,
+   "art/street-firelight.js update": 0.004922000000003095,
+   "art/index.js nearby trail": 0.0008191666666616963,
+   "art/world.js update": 0.0025901666666703705,
+   "ui/map.js update": 0.008445333333336294
+  },
+  "artAndUi": 0.031136833333334835
+ },
+ {
+  "scene": "Catalogue Street, lawn fire",
+  "stepAndSnapshot": 5.586379833333331,
+  "peakBurningCells": 706,
+  "parts": {
+   "simulation: snapshot()": 1.7799128333333352,
+   "art/fire.js update": 1.3814424999999748,
+   "art/ground-field.js update": 0.07166550000000446,
+   "art/street-firelight.js update": 0.1021019999999938,
+   "art/index.js nearby trail": 0.0040884999999912,
+   "art/world.js update": 0.012575500000012502,
+   "ui/map.js update": 0.6349844999999982
+  },
+  "artAndUi": 2.2068584999999747
+ },
+ {
+  "scene": "opening test street, nothing lit (control)",
+  "stepAndSnapshot": 0.0826026666666985,
+  "peakBurningCells": 0,
+  "parts": {
+   "simulation: snapshot()": 0.01792566666666365,
+   "art/fire.js update": 0.003655666666675946,
+   "art/ground-field.js update": 0.0007131666666585564,
+   "art/street-firelight.js update": 0.002982999999976528,
+   "art/index.js nearby trail": 0.0003090000000429427,
+   "art/world.js update": 0.0010346666666797926,
+   "ui/map.js update": 0.00430016666667143
+  },
+  "artAndUi": 0.012995666666705194
+ }
+]

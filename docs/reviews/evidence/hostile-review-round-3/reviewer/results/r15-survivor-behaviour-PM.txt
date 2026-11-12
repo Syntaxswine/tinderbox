@@ -1,0 +1,151 @@
+
+### P02-floor-patches-not-linked
+  probe r01-topology-census.mjs: 125 of 54 output lines differ
+      was: hopkins-4-12 q0 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q0 party=--           sites=299 comps=5 L0[n=16 A=56 minA=2 minR=0.5 comps=16] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=11] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-12 q1 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q1 party=--           sites=299 comps=5 L0[n=16 A=56 minA=2 minR=0.5 comps=16] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=11] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-12 q2 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q2 party=--           sites=299 comps=5 L0[n=16 A=56 minA=2 minR=0.5 comps=16] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=11] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-12 q3 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q3 party=--           sites=299 comps=5 L0[n=16 A=56 minA=2 minR=0.5 comps=16] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=11] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-15 q0 party=--           sites=481 comps=1 L0[n=25 A=100 minA=4 minR=1 comps=1] L1[n=20 A=69 minA=1 minR=0.5 comps=1] woodPanels=76 noFloorLink=1 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+      now: hopkins-4-15 q0 party=--           sites=481 comps=15 L0[n=25 A=100 minA=4 minR=1 comps=25] L1[n=20 A=69 minA=1 minR=0.5 comps=20] woodPanels=76 noFloorLink=1 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+      was: hopkins-4-15 q1 party=--           sites=481 comps=1 L0[n=25 A=100 minA=4 minR=1 comps=1] L1[n=20 A=69 minA=1 minR=0.5 comps=1] woodPanels=76 noFloorLink=1 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+      now: hopkins-4-15 q1 party=--           sites=481 comps=15 L0[n=25 A=100 minA=4 minR=1 comps=25] L1[n=20 A=69 minA=1 minR=0.5 comps=20] woodPanels=76 noFloorLink=1 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+  probe r08-spread-speeds.mjs: 109 of 112 output lines differ
+      was: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 299/299; floor patches lit 27/27, first 0.98 s last 6.28 s
+      now: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 295/299; floor patches lit 23/27, first 0.98 s last 11.02 s
+      was: eave>roof                  0.55 / 0.73 / 1.86 m/s (15)   delay 0.2 / 0.38 / 1.02 s
+      now: eave>roof                  0.56 / 0.78 / 1.86 m/s (6)   delay 0.3 / 0.97 / 1.02 s
+      was: floor>floor same storey    1.53 / 1.67 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+      now: floor>floor stairs         0.8 / 0.8 / 0.8 m/s (1)   delay 3.7 / 3.7 / 3.7 s
+      was: floor>floor stairs         1.91 / 1.91 / 1.91 m/s (1)   delay 1.55 / 1.55 / 1.55 s
+      now: floor>wall                 2.61 / 3.52 / 4.28 m/s (8)   delay 0.2 / 0.37 / 0.45 s
+      was: floor>wall                 1.7 / 2.03 / 5.49 m/s (24)   delay 0.17 / 0.5 / 0.75 s
+      now: post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+      was: post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+      now: roof>eave                  0.33 / 0.79 / 2.5 m/s (23)   delay 0.18 / 0.73 / 1.1 s
+
+### P05-every-patch-area-four
+  probe r21-burned-fraction.mjs: 2 of 2 output lines differ
+      was: area claimed by kind of site, m2: floor 84.5, wall 112.49, roof 76.08, eave 7.59, deck 16.91, porch-post 0.36; total 297.93
+      now: area claimed by kind of site, m2: floor 108, wall 112.49, roof 76.08, eave 7.59, deck 16.91, porch-post 0.36; total 321.43
+      was: burnedFraction 1 s: 0.0012, 2 s: 0.0035, 4 s: 0.0152, 6 s: 0.0464, 8 s: 0.126, 12 s: 0.4945, 20 s: 0.9962
+      now: burnedFraction 1 s: 0.0011, 2 s: 0.0033, 4 s: 0.0141, 6 s: 0.0431, 8 s: 0.12, 12 s: 0.4867, 20 s: 0.9965
+  probe r08-spread-speeds.mjs: no difference
+
+### P10-ashland-debris-lands-at-zero
+  probe r13-ashland-pair-differential.mjs: 4 of 8 output lines differ
+      was: HEAD ashland-cottage   first 0.02 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 20.02 s, tile burnouts 126 (150.02..168.85 s), cleared 168.85 s
+      now: HEAD ashland-cottage   first 0.02 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 20.27 s, tile burnouts 126 (150.02..169.1 s), cleared 169.1 s
+      was: HEAD ashland-downwind  first 7.02 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 28.77 s, tile burnouts 126 (156.97..178.63 s), cleared 178.63 s
+      now: HEAD ashland-downwind  first 7.02 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 29.02 s, tile burnouts 126 (156.97..178.88 s), cleared 178.88 s
+      was: HEAD ashland-cottage   first 0.02 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 19.77 s, tile burnouts 126 (150.02..168.7 s), cleared 168.7 s
+      now: HEAD ashland-cottage   first 0.02 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 20.02 s, tile burnouts 126 (150.02..168.95 s), cleared 168.95 s
+      was: HEAD ashland-downwind  first 7.52 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 26.02 s, tile burnouts 126 (157.42..175.78 s), cleared 175.78 s
+      now: HEAD ashland-downwind  first 7.52 s, ignitions {"walls":52,"roof":42,"upper":42,"lower":42}, last ignition 26.02 s, tile burnouts 126 (157.42..176.02 s), cleared 176.02 s
+
+### P11-any-collinear-edge-borders
+  probe r01-topology-census.mjs: 33 of 54 output lines differ
+      was: hopkins-4-12 q0 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q0 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=0 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-12 q1 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q1 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=0 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-12 q2 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q2 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=0 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-12 q3 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=2 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      now: hopkins-4-12 q3 party=--           sites=299 comps=1 L0[n=16 A=56 minA=2 minR=0.5 comps=1] L1[n=11 A=28.5 minA=1 minR=0.4444 comps=2] woodPanels=55 noFloorLink=0 stair=1/1 deck{porch:8x2 stairs:1x0.912}
+      was: hopkins-4-15 q0 party=--           sites=481 comps=1 L0[n=25 A=100 minA=4 minR=1 comps=1] L1[n=20 A=69 minA=1 minR=0.5 comps=1] woodPanels=76 noFloorLink=1 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+      now: hopkins-4-15 q0 party=--           sites=481 comps=1 L0[n=25 A=100 minA=4 minR=1 comps=1] L1[n=20 A=69 minA=1 minR=0.5 comps=1] woodPanels=76 noFloorLink=0 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+      was: hopkins-4-15 q1 party=--           sites=481 comps=1 L0[n=25 A=100 minA=4 minR=1 comps=1] L1[n=20 A=69 minA=1 minR=0.5 comps=1] woodPanels=76 noFloorLink=1 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+      now: hopkins-4-15 q1 party=--           sites=481 comps=1 L0[n=25 A=100 minA=4 minR=1 comps=1] L1[n=20 A=69 minA=1 minR=0.5 comps=1] woodPanels=76 noFloorLink=0 stair=1/1 deck{porch:4x2 stairs:1x0.912}
+  probe r14-wall-floor-links.mjs: 9 of 9 output lines differ
+      was: hopkins-4-12 wall:1:3,6|4,6:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:0 wall:1 wall:1
+      now: hopkins-4-13 wall:1:1,6|1,7:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:0 wall:0 wall:0 wall:1 wall:1
+      was: hopkins-4-12 wall:1:4,5|4,6:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:1 wall:1
+      now: hopkins-4-13 wall:1:1,5|1,6:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:0 wall:0 wall:0 wall:1 wall:1
+      was: hopkins-4-15 wall:1:5,7|6,7:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:1 wall:1
+      now: hopkins-4-13 wall:1:1,4|1,5:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:0 wall:0 wall:1 wall:1
+      was: hopkins-4-09 wall:1:1,4|2,4:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:1 wall:1
+      now: 315 wood wall panels (6 plans, both storeys): 3 without a floor link, of which 0 have oak directly behind them; 5 linked panels have oak behind only part of their length
+      was: hopkins-4-13 wall:1:1,7|2,7:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:0 wall:1 wall:1
+      now: (none)
+      was: hopkins-4-13 wall:1:1,6|1,7:0: oak behind the wall at 0/5 points -> void behind, no link is right; other links: wall:1 wall:0 wall:0 wall:0 wall:1 wall:1
+      now: (none)
+  probe r08-spread-speeds.mjs: 108 of 112 output lines differ
+      was: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 299/299; floor patches lit 27/27, first 0.98 s last 6.28 s
+      now: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 299/299; floor patches lit 27/27, first 0.98 s last 6.25 s
+      was: floor>floor same storey    1.53 / 1.67 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+      now: floor>floor same storey    1.5 / 1.67 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+      was: floor>floor stairs         1.91 / 1.91 / 1.91 m/s (1)   delay 1.55 / 1.55 / 1.55 s
+      now: floor>wall                 1.7 / 2.03 / 5.49 m/s (24)   delay 0.17 / 0.5 / 0.75 s
+      was: floor>wall                 1.7 / 2.03 / 5.49 m/s (24)   delay 0.17 / 0.5 / 0.75 s
+      now: post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+      was: post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+      now: roof>eave                  0.61 / 1.07 / 3.07 m/s (11)   delay 0.18 / 0.33 / 0.53 s
+      was: roof>eave                  0.61 / 1.32 / 2.75 m/s (12)   delay 0.18 / 0.35 / 0.53 s
+      now: roof>roof                  1.09 / 2.22 / 5.47 m/s (83)   delay 0.17 / 0.45 / 0.8 s
+
+### P12-nearest-helper-picks-farthest
+  probe r01-topology-census.mjs: no difference
+  probe r12-deck-sections.mjs: 23 of 58 output lines differ
+      was: hopkins-4-12 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+      now: hopkins-4-12 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@3.83 porch-post@10.58 | porch roof@11.52
+      was: hopkins-4-12 east end: tool-use:ignited:deck:porch:7 | porch:0@4.92 porch:1@4.22 porch:2@3.52 porch:3@2.82 porch:4@2.12 porch:5@1.42 porch:6@0.72 porch:7@0.02(matches) stairs@2.35 porch-post@5.55 | porch roof@6.48
+      now: hopkins-4-12 east end: tool-use:ignited:deck:porch:7 | porch:0@4.92 porch:1@4.22 porch:2@3.52 porch:3@2.82 porch:4@2.12 porch:5@1.42 porch:6@0.72 porch:7@0.02(matches) stairs@8.73 porch-post@5.68 | porch roof@6.62
+      was: hopkins-4-15 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 stairs@2.35 porch-post@0.65 | porch roof@1.58
+      now: hopkins-4-15 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 stairs@1.6 porch-post@4.05 | porch roof@3.45
+      was: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@1.65 porch-post@2.75 | porch roof@3.48
+      now: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@3.7 porch-post@1.95 | porch roof@2.88
+      was: monroe-row west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 stairs:0@2.42 stairs:1@1.65 porch-post@0.65 | porch roof@1.58
+      now: monroe-row west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 stairs:0@1.92 stairs:1@1.15 porch-post@1.62 | porch roof@2.55
+      was: monroe-row east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@1.72 stairs:1@0.95 porch-post@1.35 | porch roof@2.28
+      now: monroe-row east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@2.62 stairs:1@1.85 porch-post@0.92 | porch roof@1.85
+  probe r08-spread-speeds.mjs: 69 of 112 output lines differ
+      was: deck>deck                  1.43 / 1.43 / 1.44 m/s (8)   delay 0.7 / 0.7 / 0.93 s
+      now: deck>deck                  1.36 / 1.43 / 1.43 m/s (8)   delay 0.7 / 0.7 / 3.82 s
+      was: deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.63 / 0.63 / 0.63 s
+      now: deck>post                  1.32 / 1.32 / 1.32 m/s (1)   delay 5.67 / 5.67 / 5.67 s
+      was: wall>deck                  1.23 / 1.23 / 1.23 m/s (1)   delay 0.85 / 0.85 / 0.85 s
+      now: wall>deck                  1.32 / 1.32 / 1.32 m/s (1)   delay 3.87 / 3.87 / 3.87 s
+      was: hopkins-4-15: strike tool-use:ignited house/wall:0:10,5|10,6:0; sites lit 481/481; floor patches lit 45/45, first 0.98 s last 7.32 s
+      now: hopkins-4-15: strike tool-use:ignited house/wall:0:10,5|10,6:0; sites lit 481/481; floor patches lit 45/45, first 0.98 s last 7.52 s
+      was: deck>deck                  1.43 / 1.43 / 1.44 m/s (4)   delay 0.7 / 0.7 / 0.93 s
+      now: deck>deck                  1.43 / 1.43 / 1.52 m/s (4)   delay 0.7 / 0.7 / 1.58 s
+      was: deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.63 / 0.63 / 0.63 s
+      now: eave>roof                  0.6 / 1.09 / 2.16 m/s (8)   delay 0.27 / 0.9 / 1.23 s
+
+### P13-anchor-is-first-triangle
+  probe r02-floor-vs-art.mjs: no difference
+  probe r08-spread-speeds.mjs: 14 of 112 output lines differ
+      was: hopkins-4-09: strike tool-use:ignited house/wall:0:7,5|7,6:0; sites lit 284/284; floor patches lit 33/33, first 0.87 s last 6.23 s
+      now: hopkins-4-09: strike tool-use:ignited house/wall:0:7,5|7,6:0; sites lit 284/284; floor patches lit 33/33, first 0.87 s last 6.22 s
+      was: floor>wall                 1.68 / 1.85 / 5.49 m/s (26)   delay 0.17 / 0.62 / 0.75 s
+      now: floor>wall                 1.7 / 1.85 / 5.49 m/s (26)   delay 0.17 / 0.63 / 0.75 s
+      was: wall>floor                 1.08 / 2.21 / 4.73 m/s (11)   delay 0.25 / 0.58 / 0.85 s
+      now: wall>floor                 1.08 / 2.21 / 4.73 m/s (11)   delay 0.23 / 0.58 / 0.85 s
+      was: worst: L1 (0.58,7.25) -> (1,9) chord 1.8 m, on-oak path 1.84 m, ratio 1.03; chord time 1.54 s vs path time 1.58 s
+      now: worst: L1 (0.83,7.17) -> (1,9) chord 1.84 m, on-oak path 1.89 m, ratio 1.02; chord time 1.57 s vs path time 1.61 s
+      was: worst: L1 (0.58,7.25) -> (3,7) chord 2.43 m, on-oak path 2.46 m, ratio 1.01; chord time 2.08 s vs path time 2.1 s
+      now: worst: L1 (0.5,5) -> (0.83,7.17) chord 2.19 m, on-oak path 2.23 m, ratio 1.02; chord time 1.87 s vs path time 1.91 s
+      was: floor link chord lengths: min 1.5 m, median 2 m, max 2.43 m
+      now: floor link chord lengths: min 1.5 m, median 2 m, max 2.19 m
+
+### P15-stair-foot-anywhere-on-lower-floor
+  probe r01-topology-census.mjs: no difference
+  probe r08-spread-speeds.mjs: 108 of 112 output lines differ
+      was: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 299/299; floor patches lit 27/27, first 0.98 s last 6.28 s
+      now: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 299/299; floor patches lit 27/27, first 0.98 s last 6.55 s
+      was: floor>floor same storey    1.53 / 1.67 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+      now: floor>floor same storey    1.53 / 1.7 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+      was: floor>floor stairs         1.91 / 1.91 / 1.91 m/s (1)   delay 1.55 / 1.55 / 1.55 s
+      now: floor>wall                 1.7 / 1.88 / 5.49 m/s (23)   delay 0.17 / 0.5 / 0.75 s
+      was: floor>wall                 1.7 / 2.03 / 5.49 m/s (24)   delay 0.17 / 0.5 / 0.75 s
+      now: post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+      was: post>roof                  1.21 / 1.21 / 1.21 m/s (1)   delay 0.93 / 0.93 / 0.93 s
+      now: roof>eave                  0.56 / 1.32 / 2.75 m/s (12)   delay 0.18 / 0.37 / 0.55 s
+      was: roof>eave                  0.61 / 1.32 / 2.75 m/s (12)   delay 0.18 / 0.35 / 0.53 s
+      now: roof>roof                  1.09 / 2.22 / 5.47 m/s (83)   delay 0.17 / 0.45 / 0.8 s
+
+### M03-mutable-list-not-remembered

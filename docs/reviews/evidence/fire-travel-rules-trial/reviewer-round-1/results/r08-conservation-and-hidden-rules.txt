@@ -1,0 +1,31 @@
+(a) Hopkins 15, furnished, the trial strike, one house, 600 s.
+    fuel laid before the match: 1542.1 tile-fulls in 1545 fuels: {"frame":676,"clapboard":439,"furniture":10,"roof":408,"oil":6,"coal":1,"cloth":1.8,"lacquer":0.3}
+    embers created during the run: 373.2 tile-fulls in 1528 "fall" events = 24.2 % of the fuel laid. ledger.laid went from 1542.1 to 1915.3.
+    so "laid - burnt - left" = -5.4e-8 closes only because created embers are added to "laid" (kernel.mjs addFuel). Against the fuel actually laid: burnt 1915.3 + left 0 - laid 1542.1 = 373.2 tile-fulls from nothing.
+    "fall" events whose landing tile is the tile itself: 636 of 1528 (each still adds embers and a heat pulse of 2.5); of these on the ground storey from a spent floor: 408
+    unlit fuels switched to burning by a fall (no heat test): 0
+    heat: max 3.667 (cap 4), min 0; radiant channel max 0 (not capped, not heat: a fuel chars on max(heat, radiant))
+    at 150 s: active tiles 18 (heat > 0.05: 18), fuel left {"coal burning":0.72}
+    at 300 s: active tiles 18 (heat > 0.05: 18), fuel left {"coal burning":0.22}
+    at 600 s: active tiles 0 (heat > 0.05: 0), fuel left {}
+    fuels never lit and not spent at 600 s: 0 {}
+
+(b) Hopkins 15 furnished + empty neighbour B at 2 m, the trial strike, 160 s. Each line switches ONE thing.
+variant                                                                           4 room s  5 half s  6 flame s  7 fall s  11 B lit s  never lit
+as written (CONTROL)                                                              17.97     36.5      122.5      64.27     9.3         0
+no "inside" loss split: every tile loses 2 /s (lossInside 2, no per-face term)    15.73     34.2      119.5      63.7      8.7         0
+enclosure as Rule 3 says: inside 0.5 /s + 1 per open face, outdoors 2 /s          12        19.17     94         62.83     7.2         0
+inside tiles lose LESS than outdoors by half: lossInside 1                        12.93     24.43     104        62.97     7.63        0
+no ceiling-to-sideways share (Rule 4 para 2)                                      18        37.07     123        64.27     9.37        0
+no "a wall is one surface storey to storey"                                       17.97     38.53     138        64.27     8.53        0
+wall continuity upward only                                                       17.97     36.5      122.5      64.27     9.3         0
+no one-sided burning of surfaces                                                  19.03     20.47     95         64.27     8.63        0
+reach also works inside one building (drop the `building` test)                   17.2      18.97     95.5       61.83     8.17        0
+reach warms any tile with fuel (drop the `radiantTarget` flag)                    17.97     36.5      122.5      64.27     9.3         0
+both of the last two                                                              14.03     16.73     91         61.83     8.1         0
+oil burst spreads to any tile in radius (drop the `room` test)                    17.97     36.5      119        64.27     9.3         0
+a fall does not light unlit fuel (it keeps its state)                             17.97     36.5      122.5      64.27     9.3         0
+no embers from spent faces                                                        17.97     36.93     123.5      64.27     9.3         0
+no embers at all                                                                  17.97     36.93     123.5      64.27     9.3         0
+Rule 4 as first written: down 0.25, diagonal down 0.4                             15.8      34.83     120        64.27     9.27        0
+Rule 5 as first written: timber 0.1, glass 0.15, masonry 0.02                     18.1      23.9      103.5      64.37     9.67        0

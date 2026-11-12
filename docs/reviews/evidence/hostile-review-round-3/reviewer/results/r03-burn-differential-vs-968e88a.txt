@@ -1,0 +1,120 @@
+control tree: 968e88a (labelled tip2 below)
+
+== hopkins9-east-siding  (HEAD 21s, tip2 22s wall)
+  tool: HEAD tool-use:ignited:hopkins-nine/wall:0:7,4|7,5:0 | tip2 tool-use:ignited:hopkins-nine/wall:0:7,4|7,5:0
+  ground ignitions HEAD 2770 tip2 2770; burned surface fuel HEAD 221.6 tip2 221.6; deposited burned HEAD 0 tip2 0
+  barrels HEAD [] tip2 []; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  hopkins-nine       first 0.02/0.02 burnout 155.17/155.15 (d=0.017) sections 20/20 order DIFFERS maxSectionShift 0.233s ignitions floor 36/39 walls 168/168 roof 80/80 lastIgnition 8.57/8.4 burned true,1/true,1
+     HEAD order 11,7,15,10,19,6,14,3,9,2,18,5,13,1,17,8,4,12,0,16
+     tip2 order 11,7,15,10,6,14,19,3,9,2,5,18,13,1,17,8,4,12,0,16
+  hopkins-thirteen   first 4.82/4.82 burnout 159.45/159.6 (d=-0.15) sections 16/16 order DIFFERS maxSectionShift -0.15s ignitions floor 32/34 walls 174/174 roof 71/71 lastIgnition 11.98/11.98 burned true,1/true,1
+     HEAD order 4,0,8,5,12,1,13,9,6,2,14,10,3,7,15,11
+     tip2 order 4,0,8,5,12,1,9,13,6,2,14,10,3,7,15,11
+  monroe-row-east    first 22.77/22.77 burnout 179.55/179.55 (d=0) sections 28/28 order same maxSectionShift 0s ignitions floor 61/60 walls 59/59 roof 132/132 lastIgnition 32.07/32.07 burned true,1/true,1
+  monroe-row-house   first 13.33/13.33 burnout 168.48/168.47 (d=0.017) sections 28/28 order DIFFERS maxSectionShift 0.017s ignitions floor 61/60 walls 65/65 roof 136/136 lastIgnition 20.6/20.6 burned true,1/true,1
+     HEAD order 0,12,16,24,4,1,20,8,13,17,25,5,9,21,14,18,2,10,6,22,26,15,19,3,11,7,23,27
+     tip2 order 0,12,16,24,4,1,20,8,13,17,25,5,9,21,14,18,2,10,6,22,26,15,19,3,11,23,7,27
+  monroe-row-middle  first 18.17/18.17 burnout 175.03/175.03 (d=0) sections 28/28 order same maxSectionShift 0s ignitions floor 61/60 walls 39/39 roof 117/117 lastIgnition 26.45/26.45 burned true,1/true,1
+
+== hopkins13-west-siding  (HEAD 22s, tip2 20s wall)
+  tool: HEAD tool-use:ignited:hopkins-thirteen/wall:0:0,3|0,4:0 | tip2 tool-use:ignited:hopkins-thirteen/wall:0:0,3|0,4:0
+  ground ignitions HEAD 2770 tip2 2770; burned surface fuel HEAD 221.6 tip2 221.6; deposited burned HEAD 0 tip2 0
+  barrels HEAD [] tip2 []; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  hopkins-nine       first 4.82/4.82 burnout 159.52/159.52 (d=0) sections 20/20 order DIFFERS maxSectionShift -0.3s ignitions floor 36/39 walls 168/168 roof 80/80 lastIgnition 12.3/12.28 burned true,1/true,1
+     HEAD order 11,15,7,19,10,14,6,18,3,2,9,1,13,5,17,0,8,12,4,16
+     tip2 order 11,15,7,10,19,14,6,3,18,2,9,1,13,5,17,0,8,12,4,16
+  hopkins-thirteen   first 0.02/0.02 burnout 155.27/155.42 (d=-0.15) sections 16/16 order DIFFERS maxSectionShift 0.2s ignitions floor 32/34 walls 174/174 roof 71/71 lastIgnition 7.88/7.9 burned true,1/true,1
+     HEAD order 4,8,0,5,9,1,12,6,13,10,2,14,7,11,3,15
+     tip2 order 4,8,0,5,9,12,1,13,6,10,2,14,7,3,11,15
+  monroe-row-east    first 18.65/18.65 burnout 176.73/176.63 (d=0.1) sections 28/28 order DIFFERS maxSectionShift 0.15s ignitions floor 61/60 walls 59/59 roof 132/132 lastIgnition 29.58/29.47 burned true,1/true,1
+     HEAD order 0,1,4,5,2,6,25,8,3,9,7,10,12,11,13,21,26,14,24,17,15,20,22,16,18,27,19,23
+     tip2 order 0,1,4,5,2,25,6,8,3,9,7,10,12,11,21,13,26,24,14,17,20,22,15,16,18,27,23,19
+  monroe-row-house   first 9.2/9.2 burnout 166.02/165.92 (d=0.1) sections 28/28 order DIFFERS maxSectionShift 0.133s ignitions floor 61/60 walls 65/65 roof 136/136 lastIgnition 18.33/18.22 burned true,1/true,1
+     HEAD order 0,4,12,16,1,5,8,24,9,2,13,6,17,20,10,3,21,14,7,25,18,11,15,22,19,26,23,27
+     tip2 order 0,4,12,16,1,5,8,24,9,13,2,17,6,20,10,21,3,14,7,25,18,11,22,15,19,26,23,27
+  monroe-row-middle  first 14.05/14.05 burnout 172.3/172.15 (d=0.15) sections 28/28 order DIFFERS maxSectionShift 0.15s ignitions floor 61/60 walls 39/39 roof 117/117 lastIgnition 24.05/24 burned true,1/true,1
+     HEAD order 0,1,4,5,2,6,25,8,3,9,7,10,12,11,13,16,21,14,26,24,20,15,17,22,18,27,19,23
+     tip2 order 0,1,4,5,2,6,25,8,3,9,7,10,12,11,13,21,16,26,14,24,20,15,17,22,18,27,19,23
+
+== monroe-middle-front  (HEAD 21s, tip2 20s wall)
+  tool: HEAD tool-use:ignited:monroe-row-middle/wall:0:2,0|3,0:0 | tip2 tool-use:ignited:monroe-row-middle/wall:0:2,0|3,0:0
+  ground ignitions HEAD 2770 tip2 2770; burned surface fuel HEAD 221.6 tip2 221.6; deposited burned HEAD 0 tip2 0
+  barrels HEAD [] tip2 []; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  hopkins-nine       first 20.63/20.63 burnout 175.23/175.22 (d=0.017) sections 20/20 order DIFFERS maxSectionShift -0.3s ignitions floor 36/39 walls 168/168 roof 80/80 lastIgnition 27.35/27.35 burned true,1/true,1
+     HEAD order 11,2,15,1,7,0,19,10,14,3,6,5,18,9,13,4,17,8,12,16
+     tip2 order 11,2,15,1,7,0,10,19,6,14,3,5,18,9,13,4,17,8,12,16
+  hopkins-thirteen   first 11.02/11.02 burnout 166.13/166.23 (d=-0.1) sections 16/16 order same maxSectionShift -0.233s ignitions floor 32/34 walls 174/174 roof 71/71 lastIgnition 18.15/18.1 burned true,1/true,1
+  monroe-row-east    first 4.1/4.1 burnout 164.42/164.4 (d=0.017) sections 28/28 order same maxSectionShift 0.017s ignitions floor 61/60 walls 59/59 roof 132/132 lastIgnition 15.45/15.72 burned true,1/true,1
+  monroe-row-house   first 4.35/4.35 burnout 163.23/163.23 (d=0) sections 28/28 order same maxSectionShift 0.017s ignitions floor 61/60 walls 65/65 roof 136/136 lastIgnition 15.08/15.13 burned true,1/true,1
+  monroe-row-middle  first 0.02/0.02 burnout 158.82/158.8 (d=0.017) sections 28/28 order same maxSectionShift 0.017s ignitions floor 61/60 walls 39/39 roof 117/117 lastIgnition 10.6/10.75 burned true,1/true,1
+
+== monroe-east-front  (HEAD 13s, tip2 11s wall)
+  tool: HEAD tool-rejected:blocked: | tip2 tool-rejected:blocked:
+  ground ignitions HEAD 0 tip2 0; burned surface fuel HEAD 0 tip2 0; deposited burned HEAD 0 tip2 0
+  barrels HEAD [] tip2 []; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+
+== hopkins12-porch-deck  (HEAD 19s, tip2 18s wall)
+  tool: HEAD tool-use:ignited:hopkins-twelve/deck:porch:3 | tip2 tool-use:ignited:hopkins-twelve/deck:porch:3
+  ground ignitions HEAD 2130 tip2 2130; burned surface fuel HEAD 170.4 tip2 170.4; deposited burned HEAD 0 tip2 0
+  barrels HEAD [["street-drum-west",267],["street-drum-east",653]] tip2 [["street-drum-west",267],["street-drum-east",653]]; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  ashland-cottage    first 11.43/11.43 burnout 167.3/167.3 (d=0) sections 12/12 order same maxSectionShift 0s ignitions floor 17/17 walls 78/78 roof 72/72 lastIgnition 19.53/19.53 burned true,1/true,1
+  hopkins-fifteen    first 4.45/4.45 burnout 161.18/161.18 (d=0) sections 25/25 order DIFFERS maxSectionShift 0.017s ignitions floor 50/50 walls 215/215 roof 216/216 lastIgnition 13.72/13.7 burned true,1/true,1
+     HEAD order 4,9,3,14,2,8,19,13,24,7,1,18,12,6,23,17,11,0,22,16,5,10,21,15,20
+     tip2 order 4,9,3,14,2,8,19,13,24,7,1,18,12,23,6,17,11,0,22,16,5,10,21,15,20
+  hopkins-twelve     first 0.02/0.02 burnout 157.2/157.2 (d=0) sections 16/16 order same maxSectionShift 0s ignitions floor 36/35 walls 164/164 roof 99/99 lastIgnition 9.63/9.63 burned true,1/true,1
+
+== hopkins15-side-siding  (HEAD 19s, tip2 23s wall)
+  tool: HEAD tool-use:ignited:hopkins-fifteen/wall:0:0,4|0,5:0 | tip2 tool-use:ignited:hopkins-fifteen/wall:0:0,4|0,5:0
+  ground ignitions HEAD 2130 tip2 2130; burned surface fuel HEAD 170.4 tip2 170.4; deposited burned HEAD 0 tip2 0
+  barrels HEAD [["street-drum-east",284],["street-drum-west",544]] tip2 [["street-drum-east",284],["street-drum-west",544]]; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  ashland-cottage    first 3.48/3.48 burnout 157.45/157.45 (d=0) sections 12/12 order same maxSectionShift 0s ignitions floor 17/17 walls 78/78 roof 72/72 lastIgnition 9.43/9.43 burned true,1/true,1
+  hopkins-fifteen    first 0.02/0.02 burnout 156.63/156.63 (d=0) sections 25/25 order same maxSectionShift 0s ignitions floor 50/50 walls 215/215 roof 216/216 lastIgnition 9.35/9.33 burned true,1/true,1
+  hopkins-twelve     first 9.83/9.83 burnout 164.88/164.88 (d=0) sections 16/16 order same maxSectionShift 0s ignitions floor 36/35 walls 164/164 roof 99/99 lastIgnition 17.47/17.4 burned true,1/true,1
+
+== ashland-side-siding  (HEAD 24s, tip2 21s wall)
+  tool: HEAD tool-use:ignited:ashland-cottage/wall:0:0,3|0,4:0 | tip2 tool-use:ignited:ashland-cottage/wall:0:0,3|0,4:0
+  ground ignitions HEAD 2130 tip2 2130; burned surface fuel HEAD 170.4 tip2 170.4; deposited burned HEAD 0 tip2 0
+  barrels HEAD [["street-drum-east",508],["street-drum-west",909]] tip2 [["street-drum-east",508],["street-drum-west",909]]; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  ashland-cottage    first 0.02/0.02 burnout 154.15/154.15 (d=0) sections 12/12 order same maxSectionShift 0s ignitions floor 17/17 walls 78/78 roof 72/72 lastIgnition 7.05/7.05 burned true,1/true,1
+  hopkins-fifteen    first 7.77/7.77 burnout 163.73/163.73 (d=0) sections 25/25 order same maxSectionShift 0s ignitions floor 50/50 walls 215/215 roof 216/216 lastIgnition 16.42/16.42 burned true,1/true,1
+  hopkins-twelve     first 16.18/16.18 burnout 170.9/170.9 (d=0) sections 16/16 order same maxSectionShift 0s ignitions floor 36/35 walls 164/164 roof 99/99 lastIgnition 23.55/23.47 burned true,1/true,1
+
+== south-lawn-grass  (HEAD 22s, tip2 24s wall)
+  tool: HEAD tool-use:ignited:cell:24,54+cell:25,54+cell:24,55+cell:25,55 | tip2 tool-use:ignited:cell:24,54+cell:25,54+cell:24,55+cell:25,55
+  ground ignitions HEAD 2770 tip2 2770; burned surface fuel HEAD 221.6 tip2 221.6; deposited burned HEAD 0 tip2 0
+  barrels HEAD [] tip2 []; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  hopkins-nine       first 4.2/4.2 burnout 159.63/159.65 (d=-0.017) sections 20/20 order DIFFERS maxSectionShift -0.4s ignitions floor 36/39 walls 168/168 roof 80/80 lastIgnition 11.95/11.98 burned true,1/true,1
+     HEAD order 2,1,0,11,3,15,7,6,5,10,4,19,14,9,8,13,18,12,17,16
+     tip2 order 2,1,0,11,15,3,7,6,5,10,4,19,14,9,8,13,18,12,17,16
+  hopkins-thirteen   first 3.12/3.12 burnout 158.28/158.35 (d=-0.067) sections 16/16 order DIFFERS maxSectionShift -0.367s ignitions floor 32/34 walls 174/174 roof 71/71 lastIgnition 10.55/10.55 burned true,1/true,1
+     HEAD order 0,1,4,2,8,5,6,3,9,12,10,7,13,11,14,15
+     tip2 order 0,1,4,2,5,8,9,6,3,12,10,7,13,11,14,15
+  monroe-row-east    first 18.48/18.48 burnout 178.58/178.58 (d=0) sections 28/28 order same maxSectionShift 0.033s ignitions floor 61/60 walls 59/59 roof 132/132 lastIgnition 29.95/29.98 burned true,1/true,1
+  monroe-row-house   first 9.42/9.42 burnout 168.03/168.02 (d=0.017) sections 28/28 order same maxSectionShift -0.017s ignitions floor 61/60 walls 65/65 roof 136/136 lastIgnition 20.12/20.12 burned true,1/true,1
+  monroe-row-middle  first 14.02/14.02 burnout 174.13/174.12 (d=0.017) sections 28/28 order same maxSectionShift 0.033s ignitions floor 61/60 walls 39/39 roof 117/117 lastIgnition 25.22/25.25 burned true,1/true,1
+(the first run stopped here on an illegal stance in the probe; the two remaining cases follow from a second run of the same probe with the case filter)
+control tree: 968e88a (labelled tip2 below)
+
+== north-lawn-grass  (HEAD 18s, tip2 18s wall)
+  tool: HEAD tool-use:ignited:cell:44,28+cell:45,28+cell:44,29+cell:45,29 | tip2 tool-use:ignited:cell:44,28+cell:45,28+cell:44,29+cell:45,29
+  ground ignitions HEAD 2130 tip2 2130; burned surface fuel HEAD 170.4 tip2 170.4; deposited burned HEAD 0 tip2 0
+  barrels HEAD [["street-drum-east",97],["street-drum-west",373]] tip2 [["street-drum-east",97],["street-drum-west",373]]; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  ashland-cottage    first 2.17/2.17 burnout 158.55/158.53 (d=0.017) sections 12/12 order same maxSectionShift 0.017s ignitions floor 17/17 walls 78/78 roof 72/72 lastIgnition 10.4/10.4 burned true,1/true,1
+  hopkins-fifteen    first 1.1/1.1 burnout 158.23/158.23 (d=0) sections 25/25 order DIFFERS maxSectionShift -0.233s ignitions floor 50/50 walls 215/215 roof 216/216 lastIgnition 11.13/11.1 burned true,1/true,1
+     HEAD order 1,0,2,5,3,6,10,7,11,8,4,15,12,13,16,9,17,20,14,18,21,19,22,23,24
+     tip2 order 1,0,2,5,3,6,10,7,11,8,4,15,12,13,9,16,17,20,14,18,21,19,22,23,24
+  hopkins-twelve     first 7.25/7.25 burnout 164.1/164.08 (d=0.017) sections 16/16 order same maxSectionShift 0.017s ignitions floor 36/35 walls 164/164 roof 99/99 lastIgnition 16.18/16.17 burned true,1/true,1
+
+== lantern-on-hopkins9  (HEAD 18s, tip2 18s wall)
+  tool: HEAD tool-use:: | tip2 tool-use::
+  ground ignitions HEAD 2770 tip2 2770; burned surface fuel HEAD 221.6 tip2 221.6; deposited burned HEAD 0.3 tip2 0.3
+  barrels HEAD [] tip2 []; still-burning cells HEAD 0 tip2 0; structure samples left HEAD 0 tip2 0
+  hopkins-nine       first 0.47/0.47 burnout 155.72/155.68 (d=0.033) sections 20/20 order DIFFERS maxSectionShift 0.5s ignitions floor 36/39 walls 168/168 roof 80/80 lastIgnition 9.27/9.25 burned true,1/true,1
+     HEAD order 11,7,15,19,10,14,6,3,18,2,9,13,5,17,1,4,0,8,12,16
+     tip2 order 11,7,15,19,10,14,6,3,18,2,9,5,13,17,1,4,8,0,12,16
+  hopkins-thirteen   first 5.78/5.78 burnout 160.38/160.55 (d=-0.167) sections 16/16 order same maxSectionShift -0.167s ignitions floor 32/34 walls 174/174 roof 71/71 lastIgnition 12.83/12.85 burned true,1/true,1
+  monroe-row-east    first 23.63/23.63 burnout 180.4/180.4 (d=0) sections 28/28 order same maxSectionShift 0s ignitions floor 61/60 walls 59/59 roof 132/132 lastIgnition 32.9/32.9 burned true,1/true,1
+  monroe-row-house   first 14.18/14.18 burnout 169.3/169.28 (d=0.017) sections 28/28 order same maxSectionShift 0.017s ignitions floor 61/60 walls 65/65 roof 136/136 lastIgnition 21.42/21.42 burned true,1/true,1
+  monroe-row-middle  first 19.03/19.03 burnout 175.88/175.88 (d=0) sections 28/28 order same maxSectionShift 0s ignitions floor 61/60 walls 39/39 roof 117/117 lastIgnition 27.27/27.27 burned true,1/true,1
+
+SUMMARY over 10 strikes x 330s (HEAD/tip2 in each pair above): worst house burnout shift 0.167 s; worst section retirement shift 0.5 s; houses with a different section collapse order 2; cases with a different affected-house set 0

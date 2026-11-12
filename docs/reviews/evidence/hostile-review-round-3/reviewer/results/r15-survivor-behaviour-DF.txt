@@ -1,0 +1,128 @@
+
+### D02-cut-edges-exchange-ground-heat
+  probe r12-deck-sections.mjs: 12 of 58 output lines differ
+      was: hopkins-4-12 q0 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-12 q0 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 25, total span 34 m vs perimeter 20 m, fronts off the outline 7, heights 0.48
+      was: hopkins-4-12 q1 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-12 q1 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 25, total span 34 m vs perimeter 20 m, fronts off the outline 7, heights 0.48
+      was: hopkins-4-15 q0 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-15 q0 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 13, total span 18 m vs perimeter 12 m, fronts off the outline 3, heights 0.48
+      was: hopkins-4-15 q1 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-15 q1 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 13, total span 18 m vs perimeter 12 m, fronts off the outline 3, heights 0.48
+      was: hopkins-4-09 q0 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-09 q0 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 7, total span 10 m vs perimeter 8 m, fronts off the outline 1, heights 0.48
+      was: hopkins-4-09 q1 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-09 q1 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 7, total span 10 m vs perimeter 8 m, fronts off the outline 1, heights 0.48
+
+### D05-stairs-not-linked-to-deck
+  probe r12-deck-sections.mjs: 23 of 58 output lines differ
+      was: hopkins-4-12 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+      now: hopkins-4-12 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@- porch-post@0.65 | porch roof@1.58
+      was: hopkins-4-12 east end: tool-use:ignited:deck:porch:7 | porch:0@4.92 porch:1@4.22 porch:2@3.52 porch:3@2.82 porch:4@2.12 porch:5@1.42 porch:6@0.72 porch:7@0.02(matches) stairs@2.35 porch-post@5.55 | porch roof@6.48
+      now: hopkins-4-12 east end: tool-use:ignited:deck:porch:7 | porch:0@4.92 porch:1@4.22 porch:2@3.52 porch:3@2.82 porch:4@2.12 porch:5@1.42 porch:6@0.72 porch:7@0.02(matches) stairs@- porch-post@5.55 | porch roof@6.48
+      was: hopkins-4-15 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 stairs@2.35 porch-post@0.65 | porch roof@1.58
+      now: hopkins-4-15 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 stairs@- porch-post@0.65 | porch roof@1.58
+      was: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@1.65 porch-post@2.75 | porch roof@3.48
+      now: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@- porch-post@2.75 | porch roof@3.48
+      was: monroe-row west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 stairs:0@2.42 stairs:1@1.65 porch-post@0.65 | porch roof@1.58
+      now: monroe-row west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 stairs:0@- stairs:1@- porch-post@0.65 | porch roof@1.58
+      was: monroe-row east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@1.72 stairs:1@0.95 porch-post@1.35 | porch roof@2.28
+      now: monroe-row east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@- stairs:1@- porch-post@1.35 | porch roof@2.28
+
+### D06-entry-door-not-linked-to-deck
+  probe r12-deck-sections.mjs: 2 of 58 output lines differ
+      was: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@1.65 porch-post@2.75 | porch roof@3.48
+      now: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@1.65 porch-post@2.75 | porch roof@3.68
+      was: hopkins-4-15: tool-use:ignited:deck:stairs | porch:0@2.25 porch:1@1.55 porch:2@0.85 porch:3@1.55 stairs@0.02(matches) porch-post@2.88 | porch roof@3.62
+      now: hopkins-4-15: tool-use:ignited:deck:stairs | porch:0@2.25 porch:1@1.55 porch:2@0.85 porch:3@1.55 stairs@0.02(matches) porch-post@2.88 | porch roof@3.82
+  probe r08-spread-speeds.mjs: 111 of 112 output lines differ
+      was: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 299/299; floor patches lit 27/27, first 0.98 s last 6.28 s
+      now: hopkins-4-12: strike tool-use:ignited house/wall:0:8,3|8,4:0; sites lit 249/299; floor patches lit 27/27, first 0.98 s last 6.28 s
+      was: deck>deck                  1.43 / 1.43 / 1.44 m/s (8)   delay 0.7 / 0.7 / 0.93 s
+      now: eave>roof                  0.55 / 0.73 / 1.86 m/s (15)   delay 0.2 / 0.38 / 1.02 s
+      was: deck>post                  2.13 / 2.13 / 2.13 m/s (1)   delay 0.63 / 0.63 / 0.63 s
+      now: floor>floor same storey    1.53 / 1.67 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+      was: eave>roof                  0.55 / 0.73 / 1.86 m/s (15)   delay 0.2 / 0.38 / 1.02 s
+      now: floor>floor stairs         1.91 / 1.91 / 1.91 m/s (1)   delay 1.55 / 1.55 / 1.55 s
+      was: floor>floor same storey    1.53 / 1.67 / 6 m/s (18)   delay 0.27 / 1.1 / 1.28 s
+      now: floor>wall                 1.7 / 2.03 / 5.49 m/s (24)   delay 0.17 / 0.5 / 0.75 s
+      was: floor>floor stairs         1.91 / 1.91 / 1.91 m/s (1)   delay 1.55 / 1.55 / 1.55 s
+      now: roof>eave                  0.61 / 1.32 / 2.75 m/s (12)   delay 0.18 / 0.35 / 0.53 s
+
+### D08-post-linked-to-far-deck-end
+  probe r12-deck-sections.mjs: 21 of 58 output lines differ
+      was: hopkins-4-12 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@0.65 | porch roof@1.58
+      now: hopkins-4-12 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 porch:4@2.82 porch:5@3.52 porch:6@4.22 porch:7@4.92 stairs@4.45 porch-post@10.58 | porch roof@11.52
+      was: hopkins-4-12 east end: tool-use:ignited:deck:porch:7 | porch:0@4.92 porch:1@4.22 porch:2@3.52 porch:3@2.82 porch:4@2.12 porch:5@1.42 porch:6@0.72 porch:7@0.02(matches) stairs@2.35 porch-post@5.55 | porch roof@6.48
+      now: hopkins-4-12 east end: tool-use:ignited:deck:porch:7 | porch:0@4.92 porch:1@4.22 porch:2@3.52 porch:3@2.82 porch:4@2.12 porch:5@1.42 porch:6@0.72 porch:7@0.02(matches) stairs@2.35 porch-post@5.68 | porch roof@6.62
+      was: hopkins-4-15 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 stairs@2.35 porch-post@0.65 | porch roof@1.58
+      now: hopkins-4-15 west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 porch:2@1.42 porch:3@2.12 stairs@2.35 porch-post@4.05 | porch roof@4.18
+      was: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@1.65 porch-post@2.75 | porch roof@3.48
+      now: hopkins-4-15 east end: tool-use:ignited:deck:porch:3 | porch:0@2.12 porch:1@1.42 porch:2@0.72 porch:3@0.02(matches) stairs@1.65 porch-post@1.95 | porch roof@2.88
+      was: monroe-row west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 stairs:0@2.42 stairs:1@1.65 porch-post@0.65 | porch roof@1.58
+      now: monroe-row west end: tool-use:ignited:deck:porch:0 | porch:0@0.02(matches) porch:1@0.72 stairs:0@2.42 stairs:1@1.65 porch-post@1.62 | porch roof@2.55
+      was: monroe-row east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@1.72 stairs:1@0.95 porch-post@1.35 | porch roof@2.28
+      now: monroe-row east end: tool-use:ignited:deck:porch:1 | porch:0@0.72 porch:1@0.02(matches) stairs:0@1.72 stairs:1@0.95 porch-post@0.92 | porch roof@1.85
+
+### D09-each-section-claims-whole-deck-area
+  probe r12-deck-sections.mjs: 16 of 58 output lines differ
+      was: hopkins-4-12 q0 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-12 q0 porch: 8 sections (8 x 2 m), sum of section areas 128 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+      was: hopkins-4-12 q1 porch: 8 sections (8 x 2 m), sum of section areas 16 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-12 q1 porch: 8 sections (8 x 2 m), sum of section areas 128 vs 16 m2, fronts 18, total span 20 m vs perimeter 20 m, fronts off the outline 0, heights 0.48
+      was: hopkins-4-15 q0 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-15 q0 porch: 4 sections (4 x 2 m), sum of section areas 32 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+      was: hopkins-4-15 q1 porch: 4 sections (4 x 2 m), sum of section areas 8 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-15 q1 porch: 4 sections (4 x 2 m), sum of section areas 32 vs 8 m2, fronts 10, total span 12 m vs perimeter 12 m, fronts off the outline 0, heights 0.48
+      was: hopkins-4-09 q0 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-09 q0 porch: 2 sections (2 x 2 m), sum of section areas 8 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+      was: hopkins-4-09 q1 porch: 2 sections (2 x 2 m), sum of section areas 4 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+      now: hopkins-4-09 q1 porch: 2 sections (2 x 2 m), sum of section areas 8 vs 4 m2, fronts 6, total span 8 m vs perimeter 8 m, fronts off the outline 0, heights 0.48
+  probe r21-burned-fraction.mjs: 2 of 2 output lines differ
+      was: area claimed by kind of site, m2: floor 84.5, wall 112.49, roof 76.08, eave 7.59, deck 16.91, porch-post 0.36; total 297.93
+      now: area claimed by kind of site, m2: floor 84.5, wall 112.49, roof 76.08, eave 7.59, deck 128.91, porch-post 0.36; total 409.93
+      was: burnedFraction 1 s: 0.0012, 2 s: 0.0035, 4 s: 0.0152, 6 s: 0.0464, 8 s: 0.126, 12 s: 0.4945, 20 s: 0.9962
+      now: burnedFraction 1 s: 0.0064, 2 s: 0.0192, 4 s: 0.0687, 6 s: 0.1549, 8 s: 0.2811, 12 s: 0.6279, 20 s: 0.9972
+
+### F02-post-or-rail-hit-heats-deck
+  probe r07-lantern-dud-repro.mjs: 2 of 14 output lines differ
+      was: DUD  D  at the east porch post of Hopkins 13 from the lawn
+      now: fire D  at the east porch post of Hopkins 13 from the lawn
+      was: stance (19.88,26.5) range 3.5 m; preview (19.88,29.03) h=1.23; impact (19.88,29.03) h=1.23; pool laid 0 L; structure sites lit 0; ground cells lit 0; lanterns left 3
+      now: stance (19.88,26.5) range 3.5 m; preview (19.88,29.03) h=1.23; impact (19.88,29.03) h=1.23; pool laid 0 L; structure sites lit 196; ground cells lit 448; lanterns left 3
+  probe r04-lantern-sweep.mjs hopkins-4-13: 2 of 8 output lines differ
+      was: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 249, pool fire only 27, DUD 64, came to rest inside 0, preview != flight 0, never landed 0
+      now: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 256, pool fire only 27, DUD 57, came to rest inside 0, preview != flight 0, never landed 0
+      was: TOTAL HEAD: throws 340, structure lit 249, pool fire only 27, dud 64, inside 0, preview != flight 0
+      now: TOTAL HEAD: throws 340, structure lit 256, pool fire only 27, dud 57, inside 0, preview != flight 0
+
+### F03-plinth-or-slab-hit-may-heat-wall
+  probe r07-lantern-dud-repro.mjs: no difference
+  probe r04-lantern-sweep.mjs hopkins-4-13: no difference
+  probe r18-lantern-panel-census.mjs: no difference
+
+### F04-rim-hit-heats-wall-half-metre-back
+  probe r07-lantern-dud-repro.mjs: no difference
+  probe r04-lantern-sweep.mjs hopkins-4-13: 2 of 8 output lines differ
+      was: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 249, pool fire only 27, DUD 64, came to rest inside 0, preview != flight 0, never landed 0
+      now: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 252, pool fire only 27, DUD 61, came to rest inside 0, preview != flight 0, never landed 0
+      was: TOTAL HEAD: throws 340, structure lit 249, pool fire only 27, dud 64, inside 0, preview != flight 0
+      now: TOTAL HEAD: throws 340, structure lit 252, pool fire only 27, dud 61, inside 0, preview != flight 0
+  probe r18-lantern-panel-census.mjs: no difference
+
+### F07-rim-hit-picks-band-by-height
+  probe r07-lantern-dud-repro.mjs: no difference
+  probe r04-lantern-sweep.mjs hopkins-4-13: 7 of 8 output lines differ
+      was: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 249, pool fire only 27, DUD 64, came to rest inside 0, preview != flight 0, never landed 0
+      now: HEAD hopkins-4-13 q0: throws 340 (stances skipped 12) -> structure lit 242, pool fire only 27, DUD 71, came to rest inside 0, preview != flight 0, never landed 0
+      was: dud: stance(26.59,20.91) dir(-1,0) range 2.8 impact world(23.984,20.91) h=0.361 local(7.984,4.91) pool=0
+      now: dud: stance(25.29,20.91) dir(-1,0) range 2.4 impact world(23.09,20.91) h=0.376 local(7.09,4.91) pool=0
+      was: dud: stance(26.59,20.91) dir(-1,0) range 3.7 impact world(23.093,20.91) h=0.36 local(7.093,4.91) pool=0
+      now: dud: stance(26.59,20.91) dir(-1,0) range 2.8 impact world(23.984,20.91) h=0.361 local(7.984,4.91) pool=0
+      was: dud: stance(28.09,20.91) dir(-1,0) range 4.3 impact world(23.997,20.91) h=0.36 local(7.997,4.91) pool=0
+      now: dud: stance(26.59,20.91) dir(-1,0) range 3.7 impact world(23.093,20.91) h=0.36 local(7.093,4.91) pool=0
+      was: dud: stance(28.09,20.91) dir(-1,0) range 5.2 impact world(23.102,20.91) h=0.36 local(7.102,4.91) pool=0
+      now: dud: stance(28.09,20.91) dir(-1,0) range 4.3 impact world(23.997,20.91) h=0.36 local(7.997,4.91) pool=0
+      was: dud: stance(25.29,21.91) dir(-1,0) range 1.5 impact world(23.96,21.91) h=0.362 local(7.96,5.91) pool=0
+      now: dud: stance(28.09,20.91) dir(-1,0) range 5.2 impact world(23.102,20.91) h=0.36 local(7.102,4.91) pool=0
+  probe r18-lantern-panel-census.mjs: no difference

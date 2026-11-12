@@ -1,0 +1,47 @@
+== hopkins-4-15  width 10 depth 10 porch {"x":3,"z":-2,"width":4,"depth":2,"roofRise":0.18} partyWalls false declaresWindows true,true
+  floor 0: game edges 40 (diagonal 0), windows 8 (diagonal 0, on x-constant walls 4 of which at x=0 or x=width 4), entry 1 | scene: glass faces 16 (= 8 window edges), outside door faces 2, clapboard faces 142, reported glass 8
+  floor 1: game edges 36 (diagonal 0), windows 8 (diagonal 0, on x-constant walls 2 of which at x=0 or x=width 2), entry 0 | scene: glass faces 16 (= 8 window edges), outside door faces 0, clapboard faces 128, reported glass 8
+  porch tiles 64 (deck+roof), fuel 64 tile-fulls; house labelled fuel 1543.1; ledger.laid 1607.1 (so porch in ledger: true)
+  strike wall:x+:19:10    hits clapboard room A/0:living   outside tile holds [] face above: timber
+  strike wall:x-:0:10     hits clapboard room A/0:kitchen  outside tile holds [] face above: timber
+  strike wall:y+:10:19    hits clapboard room A/0:pantry   outside tile holds [] face above: timber
+  strike wall:y-:10:0     hits door      room A/0:hall     outside tile holds [frame] face above: timber
+== hopkins-4-12  width 8 depth 7 porch {"x":0,"z":-2,"width":8,"depth":2} partyWalls false declaresWindows true,true
+  floor 0: game edges 30 (diagonal 0), windows 8 (diagonal 0, on x-constant walls 4 of which at x=0 or x=width 4), entry 1 | scene: glass faces 16 (= 8 window edges), outside door faces 2, clapboard faces 102, reported glass 8
+  floor 1: game edges 25 (diagonal 3), windows 6 (diagonal 0, on x-constant walls 2 of which at x=0 or x=width 2), entry 0 | scene: glass faces 12 (= 6 window edges), outside door faces 0, clapboard faces 96, reported glass 6
+  porch tiles 128 (deck+roof), fuel 128 tile-fulls; house labelled fuel 881.1; ledger.laid 1009.1 (so porch in ledger: true)
+  strike wall:x+:15:7     hits clapboard room A/0:bed-a    outside tile holds [] face above: timber
+  strike wall:x-:0:7      hits clapboard room A/0:kitchen  outside tile holds [] face above: timber
+  strike wall:y+:8:13     hits clapboard room A/0:kitchen  outside tile holds [] face above: timber
+  strike wall:y-:8:0      hits clapboard room A/0:sitting  outside tile holds [frame] face above: timber
+== hopkins-4-09  width 7 depth 10 porch {"x":0,"z":-1,"width":2,"depth":2} partyWalls false declaresWindows true,true
+  floor 0: game edges 32 (diagonal 2), windows 5 (diagonal 0, on x-constant walls 3 of which at x=0 or x=width 2), entry 1 | scene: glass faces 10 (= 5 window edges), outside door faces 2, clapboard faces 124, reported glass 5
+  floor 1: game edges 32 (diagonal 2), windows 6 (diagonal 0, on x-constant walls 4 of which at x=0 or x=width 2), entry 0 | scene: glass faces 12 (= 6 window edges), outside door faces 0, clapboard faces 124, reported glass 6
+  porch tiles 32 (deck+roof), fuel 32 tile-fulls; house labelled fuel 1124.7; ledger.laid 1156.7 (so porch in ledger: true)
+  strike wall:x+:11:7     hits clapboard room A/0:parlor   outside tile holds [] face above: timber
+  strike wall:x-:0:11     hits clapboard room A/0:kitchen  outside tile holds [] face above: timber
+  strike wall:y+:6:19     hits clapboard room A/0:pantry   outside tile holds [] face above: timber
+  strike wall:y-:7:0      hits clapboard room A/0:parlor   outside tile holds [] face above: glass
+== hopkins-4-13  width 8 depth 8 porch {"x":2,"z":-1,"width":3,"depth":1} partyWalls false declaresWindows true,true
+  floor 0: game edges 32 (diagonal 0), windows 5 (diagonal 0, on x-constant walls 2 of which at x=0 or x=width 2), entry 1 | scene: glass faces 10 (= 5 window edges), outside door faces 2, clapboard faces 116, reported glass 5
+  floor 1: game edges 30 (diagonal 0), windows 6 (diagonal 0, on x-constant walls 2 of which at x=0 or x=width 2), entry 0 | scene: glass faces 12 (= 6 window edges), outside door faces 0, clapboard faces 108, reported glass 6
+  porch tiles 24 (deck+roof), fuel 24 tile-fulls; house labelled fuel 980.0; ledger.laid 1004.0 (so porch in ledger: true)
+  strike wall:x+:13:12    hits clapboard room A/0:pantry   outside tile holds [] face above: timber
+  strike wall:x-:0:4      hits clapboard room A/0:living   outside tile holds [] face above: glass
+  strike wall:y+:8:15     hits clapboard room A/0:kitchen  outside tile holds [] face above: glass
+  strike wall:y-:8:0      hits clapboard room A/0:living   outside tile holds [frame] face above: timber
+== ashland-worker  width 6 depth 7 porch {"x":4,"z":-1,"width":2,"depth":1} partyWalls false declaresWindows false
+  floor 0: game edges 26 (diagonal 0), windows 11 (diagonal 0, on x-constant walls 6 of which at x=0 or x=width 6), entry 1 | scene: glass faces 22 (= 11 window edges), outside door faces 2, clapboard faces 80, reported glass 11
+  porch tiles 16 (deck+roof), fuel 16 tile-fulls; house labelled fuel 500.5; ledger.laid 516.5 (so porch in ledger: true)
+  strike wall:x+:11:7     hits clapboard room A/0:bed-a    outside tile holds [] face above: glass
+  strike wall:x-:0:7      hits clapboard room A/0:parlor   outside tile holds [] face above: glass
+  strike wall:y+:6:13     hits clapboard room A/0:kitchen  outside tile holds [] face above: timber
+  strike wall:y-:6:0      hits clapboard room A/0:parlor   outside tile holds [] face above: timber
+== monroe-row  width 7 depth 13 porch {"x":0,"z":-2,"width":2,"depth":2} partyWalls true declaresWindows false,false
+  floor 0: game edges 40 (diagonal 0), windows 15 (diagonal 0, on x-constant walls 9 of which at x=0 or x=width 9), entry 1 | scene: glass faces 12 (= 6 window edges), outside door faces 2, clapboard faces 146, reported glass 6
+  floor 1: game edges 40 (diagonal 2), windows 16 (diagonal 2, on x-constant walls 9 of which at x=0 or x=width 9), entry 0 | scene: glass faces 10 (= 5 window edges), outside door faces 0, clapboard faces 158, reported glass 5
+  porch tiles 32 (deck+roof), fuel 32 tile-fulls; house labelled fuel 1619.0; ledger.laid 1651.0 (so porch in ledger: true)
+  strike wall:x+:13:13    hits clapboard room A/0:dining   outside tile holds [] face above: timber
+  strike wall:x-:0:13     hits clapboard room A/0:hall     outside tile holds [] face above: timber
+  strike wall:y+:7:25     hits clapboard room A/0:dining   outside tile holds [] face above: timber
+  strike wall:y-:7:0      hits clapboard room A/0:parlor   outside tile holds [] face above: timber

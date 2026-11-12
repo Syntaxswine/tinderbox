@@ -1,0 +1,10 @@
+The player stands on the lawn at x 10.68, 0.59 m from the collision box, facing the wall.
+
+wall                                        tool          held or watched s  tool-use events    hottest Hopkins 9 site (1 = ignition)  first ignition
+------------------------------------------  ------------  -----------------  -----------------  -------------------------------------  ------------------------------------------
+set back 1.09 m: wall:0:6,2|6,3 at x 9.08   matches       2                  none               0                                      none
+set back 1.09 m: wall:0:6,2|6,3 at x 9.08   torch         2                  lit                0                                      none
+set back 1.09 m: wall:0:6,2|6,3 at x 9.08   flamethrower  1.5                none               1                                      wall:0:6,1|6,2:0 by flamethrower at 0.25 s
+flush (control): wall:0:7,4|7,5 at x 10.08  matches       2                  ignited            1                                      wall:0:7,4|7,5:0 by matches at 0.03 s
+flush (control): wall:0:7,4|7,5 at x 10.08  torch         2                  lit, then ignited  1                                      wall:0:7,4|7,5:0 by torch at 0.55 s
+flush (control): wall:0:7,4|7,5 at x 10.08  flamethrower  1.5                none               1                                      wall:0:7,4|7,5:0 by flamethrower at 0.25 s

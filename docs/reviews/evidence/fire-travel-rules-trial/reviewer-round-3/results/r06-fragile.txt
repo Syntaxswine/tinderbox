@@ -1,0 +1,23 @@
+base                   | T1 axis 1.579 diag 1.515 ok  | T2 wait 1.767-1.833 ok  | T3 3.35 ok  | T10 square holds, diag1 holds, diag2 holds
+rate x0.9              | T1 axis 1.429 diag 1.414 ok  | T2 wait 1.800-1.833 ok  | T3 3.62 OUT | T10 square holds, diag1 holds, diag2 holds
+rate x1.1              | T1 axis 1.667 diag 1.68 OUT | T2 wait 1.767-1.800 ok  | T3 3.13 ok  | T10 square holds, diag1 CROSSED 9.03, diag2 holds
+loss x0.9              | T1 axis 1.667 diag 1.515 OUT | T2 wait 1.767-1.800 ok  | T3 3.12 ok  | T10 square holds, diag1 CROSSED 8.93, diag2 holds
+loss x1.1              | T1 axis 1.5 diag 1.515 ok  | T2 wait 1.800-1.833 ok  | T3 3.56 OUT | T10 square holds, diag1 holds, diag2 holds
+maxHeat x0.9           | T1 axis 1.579 diag 1.515 ok  | T2 wait 1.967-2.000 ok  | T3 3.04 ok  | T10 square holds, diag1 holds, diag2 holds
+maxHeat x1.1           | T1 axis 1.579 diag 1.515 ok  | T2 wait 1.633-1.667 ok  | T3 3.59 OUT | T10 square holds, diag1 holds, diag2 holds
+falloff x0.9           | T1 axis 1.667 diag 1.515 OUT | T2 wait 1.767-1.833 ok  | T3 3.34 ok  | T10 square holds, diag1 holds, diag2 holds
+falloff x1.1           | T1 axis 1.5 diag 1.515 ok  | T2 wait 1.767-1.833 ok  | T3 3.34 ok  | T10 square holds, diag1 holds, diag2 holds
+grass out x0.9         | T1 axis 1.429 diag 1.414 ok  | T2 wait 1.800-1.833 ok  | T3 3.35 ok  | T10 square holds, diag1 holds, diag2 holds
+grass delay x0.9       | T1 axis 1.667 diag 1.632 OUT | T2 wait 1.800-1.833 ok  | T3 3.35 ok  | T10 square holds, diag1 holds, diag2 holds
+clapboard delay x0.9   | T1 axis 1.579 diag 1.515 ok  | T2 wait 1.600-1.633 ok  | T3 3.37 ok  | T10 square holds, diag1 holds, diag2 holds
+up,upDiag x0.9         | T1 axis 1.579 diag 1.515 ok  | T2 wait 1.767-1.833 ok  | T3 3.29 ok  | T10 square holds, diag1 holds, diag2 holds
+grass out x1.1         | T1 axis 1.667 diag 1.68 OUT | T2 wait 1.767-1.800 ok  | T3 3.35 ok  | T10 square holds, diag1 CROSSED 9.03, diag2 holds
+grass delay x1.1       | T1 axis 1.5 diag 1.45 ok  | T2 wait 1.767-1.833 ok  | T3 3.35 ok  | T10 square holds, diag1 holds, diag2 holds
+clapboard delay x1.1   | T1 axis 1.579 diag 1.515 ok  | T2 wait 1.967-2.000 ok  | T3 3.3 ok  | T10 square holds, diag1 holds, diag2 holds
+up,upDiag x1.1         | T1 axis 1.579 diag 1.515 ok  | T2 wait 1.767-1.833 ok  | T3 3.39 ok  | T10 square holds, diag1 holds, diag2 holds
+step 1/60              | T1 axis 1.622 diag 1.593 OUT | T2 wait 1.733-1.767 ok  | T3 3.35 ok  | T10 square holds, diag1 holds, diag2 holds
+step 1/45              | T1 axis 1.607 diag 1.591 OUT | T2 wait 1.733-1.778 ok  | T3 3.36 ok  | T10 square holds, diag1 holds, diag2 holds
+step 1/40              | T1 axis 1.6 diag 1.519 ok  | T2 wait 1.750-1.800 ok  | T3 3.36 ok  | T10 square holds, diag1 holds, diag2 holds
+step 1/24              | T1 axis 1.5 diag 1.414 ok  | T2 wait 1.833-1.875 ok  | T3 3.35 ok  | T10 square holds, diag1 holds, diag2 holds
+step 1/20              | T1 axis 1.667 diag 1.571 OUT | T2 wait 1.850-1.900 ok  | T3 3.34 ok  | T10 square holds, diag1 holds, diag2 holds
+step 1/15              | T1 axis 1.5 diag 1.515 ok  | T2 wait 1.933-2.000 OUT | T3 3.33 ok  | T10 square holds, diag1 holds, diag2 holds

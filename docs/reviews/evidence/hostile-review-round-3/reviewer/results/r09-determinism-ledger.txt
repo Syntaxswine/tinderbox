@@ -1,0 +1,9 @@
+(a) chunking over 200 s (12000 ticks): comparison ticks 120, 600, 1800, 3600, 6000, 9600, 12000
+    1/60 s frames vs 0.25 s frames: IDENTICAL at every comparison tick
+    1/60 s frames vs random frames seed 7: IDENTICAL at every comparison tick
+    1/60 s frames vs random frames seed 99: IDENTICAL at every comparison tick
+    end state: 5 houses destroyed, 0 cells burning, lantern fuel laid 0.3 L
+(c)(d) 600 audits on the 1/60 run (every 20 ticks), 5752800 published-vs-live cell comparisons; worst ledger error surface 1.198259269585833e-10 deposited 8.382183835919932e-15
+(b) second fresh simulation in the same process vs the first, 50 s, 5 comparison points: IDENTICAL
+(b) 25 s of fire, reset, replay vs fresh, 50 s, 5 comparison points: IDENTICAL
+TOTAL problems: 0

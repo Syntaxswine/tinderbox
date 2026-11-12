@@ -1,0 +1,134 @@
+[
+ {
+  "house": "hopkins-nine",
+  "sitesIgnited": 286,
+  "heights": {
+   "min": 0.24,
+   "max": 6.17
+  },
+  "firstUpperWall": 0.97,
+  "firstEave": 2.33,
+  "firstRoof": 3.02,
+  "firstGroundFloor": 0.83,
+  "firstUpperFloor": 1.55,
+  "lastIgnition": 8.38,
+  "flamesOut": 18.33,
+  "firstSectionGone": 150,
+  "houseGone": 155.13,
+  "burned": 1,
+  "otherHousesLit": [],
+  "hops": {
+   "up": {
+    "n": 133,
+    "median": 2.5,
+    "p10": 0.8,
+    "p90": 4.7
+   },
+   "level": {
+    "n": 140,
+    "median": 2.03,
+    "p10": 1.27,
+    "p90": 3.75
+   },
+   "down": {
+    "n": 12,
+    "median": 1.71,
+    "p10": 1.08,
+    "p90": 2.29
+   }
+  },
+  "causes": {
+   "matches": 1,
+   "surface-spread": 285
+  }
+ },
+ {
+  "house": "hopkins-fifteen",
+  "sitesIgnited": 478,
+  "heights": {
+   "min": 0.24,
+   "max": 6.22
+  },
+  "firstUpperWall": 0.97,
+  "firstEave": 2.13,
+  "firstRoof": 2.65,
+  "firstGroundFloor": 0.97,
+  "firstUpperFloor": 1.65,
+  "lastIgnition": 9.32,
+  "flamesOut": 19.25,
+  "firstSectionGone": 150,
+  "houseGone": 156.62,
+  "burned": 1,
+  "otherHousesLit": [],
+  "hops": {
+   "up": {
+    "n": 144,
+    "median": 2.25,
+    "p10": 1.02,
+    "p90": 4.29
+   },
+   "level": {
+    "n": 323,
+    "median": 2.14,
+    "p10": 1.43,
+    "p90": 3.33
+   },
+   "down": {
+    "n": 10,
+    "median": 2.27,
+    "p10": 1.52,
+    "p90": 3.49
+   }
+  },
+  "causes": {
+   "matches": 1,
+   "surface-spread": 477
+  }
+ },
+ {
+  "house": "monroe-row-middle",
+  "sitesIgnited": 214,
+  "heights": {
+   "min": 0.53,
+   "max": 6.23
+  },
+  "firstUpperWall": 1.17,
+  "firstEave": 2.78,
+  "firstRoof": 3.62,
+  "firstGroundFloor": 0.98,
+  "firstUpperFloor": 2.77,
+  "lastIgnition": 10.88,
+  "flamesOut": 20.58,
+  "firstSectionGone": 150,
+  "houseGone": 158.82,
+  "burned": 1,
+  "otherHousesLit": [
+   "monroe-row-east",
+   "monroe-row-house"
+  ],
+  "hops": {
+   "up": {
+    "n": 30,
+    "median": 2.32,
+    "p10": 0.89,
+    "p90": 3.92
+   },
+   "level": {
+    "n": 182,
+    "median": 2.22,
+    "p10": 1.5,
+    "p90": 3.85
+   },
+   "down": {
+    "n": 1,
+    "median": 1.22,
+    "p10": 1.22,
+    "p90": 1.22
+   }
+  },
+  "causes": {
+   "matches": 1,
+   "surface-spread": 213
+  }
+ }
+]
