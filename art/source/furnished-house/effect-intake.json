@@ -1,0 +1,26 @@
+{
+  "sourceCommit": "c855e627bdee963e930644839a60c027a03935de",
+  "sources": [
+    {
+      "path": "src/reuse/ashland/wall-shroud.js",
+      "bytes": 10613,
+      "sha256": "5f0c41d7adba4e2c70026f62c23f744719e031b486ab4f2067de97dce82a6661"
+    },
+    {
+      "path": "src/reuse/ashland/splats.js",
+      "bytes": 14343,
+      "sha256": "05935bb39993cec938f2389cf6726a6839bc5af282e171ede78db80588fb171c"
+    },
+    {
+      "path": "src/art/street-firelight.js",
+      "bytes": 6645,
+      "sha256": "c25ad9e91b6df0b9171bab3d9020b57a7bfde43c8c3cc28873ac782274f7ac04"
+    }
+  ],
+  "adaptation": "Scoped shroud adds a conservative support/tangent Gaussian envelope before the unchanged accepted splat renderer. Colors, temporal shape, smoke and wind sampling are preserved. Shared light pool reused unchanged.",
+  "installed": {
+    "path": "art/source/furnished-house/shroud.js",
+    "bytes": 11559,
+    "sha256": "f5a56e93f8c7e54bb5d27bb6f2f4f1b900fe630eb968df47ad89c44ee6e1bbc4"
+  }
+}
