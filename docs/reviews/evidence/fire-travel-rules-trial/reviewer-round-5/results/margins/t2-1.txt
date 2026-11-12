@@ -1,0 +1,15 @@
+rules {"maxHeat":2.755} fuels {}
+faces: 404 ground wall faces, 361 touched by grass, 43 behind a porch deck
+samples (face x start, eight starts): 2888; left out because the wall lit before its grass: 0; because wall or grass never lit in 40 s: 0
+four starts at the middle of each lawn edge (the trial's):
+  all                    361 faces, 361 timed: 1.933 to 2.000 s; over 1.9 s: 361; at 2 s or more: 12
+  plain                  336 faces, 336 timed: 1.933 to 2.000 s; over 1.9 s: 336; at 2 s or more: 6
+  inner corner            12 faces, 12 timed: 1.967 to 2.000 s; over 1.9 s: 12; at 2 s or more: 4
+  beside a porch deck     13 faces, 13 timed: 1.967 to 2.000 s; over 1.9 s: 13; at 2 s or more: 2
+  front door               0 faces, 0 timed: 
+eight starts (four more at the lawn's corners):
+  all                    361 faces, 361 timed: 1.933 to 2.033 s; over 1.9 s: 361; at 2 s or more: 42
+  plain                  336 faces, 336 timed: 1.933 to 2.000 s; over 1.9 s: 336; at 2 s or more: 36
+  inner corner            12 faces, 12 timed: 1.967 to 2.000 s; over 1.9 s: 12; at 2 s or more: 4
+  beside a porch deck     13 faces, 13 timed: 1.967 to 2.033 s; over 1.9 s: 13; at 2 s or more: 2
+  front door               0 faces, 0 timed: 

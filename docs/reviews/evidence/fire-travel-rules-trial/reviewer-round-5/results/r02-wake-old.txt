@@ -1,0 +1,12 @@
+kernel: ./kernel-06061b0.mjs
+A  clapboard wall, level            lit never     (delay x lightAt / 2.707 = 1.833 s); burns on the side of its own tile
+A  partition, level                 lit never     (delay x lightAt / 2.707 = 2.033 s); burns on the side of its own tile
+A  door, level                      lit never     (delay x lightAt / 2.707 = 1.833 s); burns on the side of its own tile
+A  floor (frame), hot tile below    lit never     (delay x lightAt / 2.707 = 1.467 s); burns on the side of its own tile
+A  roof, hot tile above             lit never     (delay x lightAt / 2.707 = 3.267 s); burns on the side of its own tile
+B  held 1 s, released: char then 0.000; active set empty after 3.83 s; char left when asleep 0.000
+D  after 120 s more with everything cold: char 0.000 (Rule 2 as written gives 0). Reheated: lights after never (a fresh wall: 1.833 s)
+D2 coal heated 8 s: char 13.53 of 15; after 600 s cold: 12.04; reheated, lights after 1.767 s (fresh coal: 8.9 s)
+C  air tile laid AFTER the first step, then held hot 12 s: wall lit never, char 0.000 (the facing lists are rebuilt only when a surface is added)
+E  one pulse of 2.5 on the facing tile: peak char 0.000 (0 would mean the surface was never looked at)
+F  spent surface, facing tile held hot 10 s: holder in the active set at the end: false; facing list still names it: false

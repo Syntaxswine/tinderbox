@@ -111,7 +111,7 @@
   },
   "2": {
    "verdict": "EDGE",
-   "text": "a wall lights 1.833 to 1.933 s after the grass against it, on the 361 ground wall faces of six plans that grass touches; 0 at 2 s or more, 22 over 1.9 s. 43 more faces are behind a porch deck and no grass touches them. The wait is a constant of the numbers: clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = 1.83 s at the heat ceiling, longer where the wall sees less than the ceiling   [target: under 2 s]"
+   "text": "a wall lights 1.833 to 1.933 s after the grass against it, on the 361 ground wall faces of six plans that grass touches; 0 at 2 s or more, 117 at 1.9 s or more. 43 more faces are behind a porch deck and no grass touches them. The wait is a constant of the numbers: clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = 1.83 s at the heat ceiling, longer where the wall sees less than the ceiling   [target: under 2 s]"
   },
   "3": {
    "verdict": "PARTLY",
@@ -163,7 +163,7 @@
   },
   "15": {
    "verdict": "MISSED",
-   "text": "cost per step of 1/30 s over 150 s (one step covers two of today's 1/60 s frames): one house 0.9 ms mean, 1.6 ms 95th centile, 18.3 ms worst, 2248 tiles active at peak; three houses on a lawn, all burning, 4.3 ms mean, 9.2 ms 95th centile, 15.8 ms worst, 7436 tiles active at peak; eight houses on a lawn, one struck, 18 ms mean, 40.2 ms 95th centile, 98.8 ms worst, 19647 tiles active at peak. Today's game: 3 to 5 ms per 1/60 s frame   [target: no more than today's]"
+   "text": "cost per step of 1/30 s over 150 s (one step covers two of today's 1/60 s frames): one house 0.8 ms mean, 1.5 ms 95th centile, 2.6 ms worst, 2248 tiles active at peak; three houses on a lawn, all burning, 4.7 ms mean, 11 ms 95th centile, 38.2 ms worst, 7436 tiles active at peak; eight houses on a lawn, one struck, 15.8 ms mean, 34.5 ms 95th centile, 110.5 ms worst, 19647 tiles active at peak. Today's game: 3 to 5 ms per 1/60 s frame   [target: no more than today's]"
   },
   "survey": {
    "strikes": 101,

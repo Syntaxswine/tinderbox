@@ -1,7 +1,7 @@
 // Runs the proposed fire-travel rules in the trial kernel against the targets in
 // docs/reviews/2026-11-11-fire-travel-rules.md. Evidence only; nothing here touches the game.
 //   1. node docs/reviews/evidence/fire-travel-rules-trial/survey.mjs <plan>     (once per plan, six plans; a few minutes each)
-//   2. node docs/reviews/evidence/fire-travel-rules-trial/trial.mjs             (about ten minutes; reads the surveys)
+//   2. node docs/reviews/evidence/fire-travel-rules-trial/trial.mjs             (about five minutes; reads the surveys)
 // Second version, after review round 1: targets 4 to 8 are counted over every plan and strike, not one;
 // grass is timed on steady fronts; the neighbour is lit from a house struck on its far side; cost is given
 // as mean, 95th centile and worst step.
@@ -47,7 +47,7 @@ const report = (n, verdict, text) => { results[n] = {verdict, text}; say(String(
     for (const v of perFace.values()) (v === null ? behind : waits).push(v);
   }
   report(2, waits.every(w => w < 2) ? (Math.max(...waits) > 1.9 ? 'EDGE' : 'MET') : 'MISSED', 'a wall lights ' + Math.min(...waits).toFixed(3) + ' to ' + Math.max(...waits).toFixed(3) + ' s after the grass against it, on the ' + waits.length + ' ground wall faces of six plans that grass touches; '
-    + waits.filter(w => w >= 2).length + ' at 2 s or more, ' + waits.filter(w => w > 1.9).length + ' over 1.9 s. ' + behind.length + ' more faces are behind a porch deck and no grass touches them. The wait is a constant of the numbers: clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = '
+    + waits.filter(w => w >= 2).length + ' at 2 s or more, ' + waits.filter(w => w > 1.8999).length + ' at 1.9 s or more. ' + behind.length + ' more faces are behind a porch deck and no grass touches them. The wait is a constant of the numbers: clapboard delay x lighting point / (heat ceiling x (1 - loss x step)) = '
     + (DEFAULT_FUELS.clapboard.delay * DEFAULT_FUELS.clapboard.lightAt / (DEFAULT_RULES.maxHeat * (1 - DEFAULT_RULES.loss * DEFAULT_RULES.step))).toFixed(2) + ' s at the heat ceiling, longer where the wall sees less than the ceiling   [target: under 2 s]');
   // A bare path between lawn and wall, one tile wide.
   const world = make(), a = house(world, 'A', 'hopkins-4-12', 8, 8, {}), W = Math.round((16 + a.plan.width) / PITCH), D = Math.round((16 + a.plan.depth) / PITCH), ring = new Set();

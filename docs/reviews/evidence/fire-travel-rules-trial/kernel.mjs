@@ -70,6 +70,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
       tiles.set(id, tile);
       if (k > topLayer) topLayer = k;
       around(i, j, k, stale);
+      listenersStale = true;   // a tile laid later may stand against a surface (review round 5, S2)
     }
     return tile;
   }
@@ -111,7 +112,7 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
   }
   const across = (tile, face) => tileAt(tile.i + AX[face.axis][0] * face.step, tile.j + AX[face.axis][1] * face.step, tile.k + AX[face.axis][2] * face.step);
   function addFuel(tile, cls, amount, {face = null, supports = false, lit = false, store = null} = {}) {
-    const fuel = {cls, amount, start: amount, lit, char: 0, face, supports, store, near: null, litAt: lit ? time : null, spentAt: null};
+    const fuel = {cls, amount, start: amount, lit, char: 0, face, supports, store, near: null, seen: null, litAt: lit ? time : null, spentAt: null};
     tile.fuels.push(fuel);
     ledger.laid += amount;
     if (face) listenersStale = true;
@@ -305,6 +306,10 @@ export function createWorld({fuels = DEFAULT_FUELS, rules: overrides = {}} = {})
           if (fuel.amount - keep <= 1e-9) spend(tile, fuel);
           continue;
         }
+        // Rule 2: char fades below the lighting point. A fuel in a sleeping tile is not looked at, so the fade
+        // for the time it slept is taken when it is next looked at (review round 5, S1).
+        if (fuel.char > 0 && fuel.seen !== null && time - fuel.seen > dt * 1.5) fuel.char = Math.max(0, fuel.char - (time - fuel.seen - dt) * rules.charFades);
+        fuel.seen = time;
         let exposure = Math.max(tile.heat, tile.rad), from = null;
         if (fuel.face) { const other = across(tile, fuel.face); if (other) { const there = Math.max(other.heat, other.rad); if (there > exposure) { exposure = there; from = other; } } }
         if (exposure > 1e-3) alive = true;

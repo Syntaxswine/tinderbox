@@ -1,0 +1,51 @@
+1. grass to grass across empty tiles, straight front (lawn 10 m, then the gap, then lawn)
+   1 empty tile(s) (0.5 m): grass beyond lit never
+   2 empty tile(s) (1 m): grass beyond lit never
+2. grass to a wall across empty tiles (lawn 10 m, the gap, a clapboard wall one layer tall facing the lawn)
+   front 0 empty tile(s): 21 of 21 faces lit; wait after the nearest grass in its row lit: 1.83 s to 1.87 s
+   front 1 empty tile(s): 21 of 21 faces lit; wait after the nearest grass in its row lit: 2.27 s to 2.77 s
+   front 2 empty tile(s): 0 of 21 faces lit
+   point 0 empty tile(s): 21 of 21 faces lit; wait after the nearest grass in its row lit: 1.8 s to 1.83 s
+   point 1 empty tile(s): 21 of 21 faces lit; wait after the nearest grass in its row lit: 2.27 s to 2.77 s
+   point 2 empty tile(s): 0 of 21 faces lit
+3. wall to wall across a gap (two clapboard walls 10.5 m long, four layers tall, facing each other; one face of wall 1 lit at its foot, mid-length)
+   lit outside (toward the gap)    gap 0.5 m: wall 2 first lit 2 s, 0 s after the face of wall 1 opposite it lit; wall 2 faces lit by 150 s: 84 of 84
+   lit outside (toward the gap)    gap 1.0 m: wall 2 first lit 2.67 s, 0.67 s after the face of wall 1 opposite it lit; wall 2 faces lit by 150 s: 84 of 84
+   lit outside (toward the gap)    gap 1.5 m: wall 2 first lit never
+   lit outside (toward the gap)    gap 2.0 m: wall 2 first lit never
+   lit inside (away from the gap)  gap 0.5 m: wall 2 first lit 12.93 s, 10.93 s after the face of wall 1 opposite it lit; wall 2 faces lit by 150 s: 84 of 84
+   lit inside (away from the gap)  gap 1.0 m: wall 2 first lit 14.9 s, 12.9 s after the face of wall 1 opposite it lit; wall 2 faces lit by 150 s: 84 of 84
+   lit inside (away from the gap)  gap 1.5 m: wall 2 first lit never
+   lit inside (away from the gap)  gap 2.0 m: wall 2 first lit never
+3b. one burning face only (wall 1 is a single face; wall 2 as before), lit outside
+   gap 0.5 m: wall 2 first lit 2 s
+   gap 1.0 m: wall 2 first lit 2.8 s
+3c. up and down: wall 1 on some layers only, wall 2 on others; every face of wall 1 lit outside at once
+   wall 1 on layer 0, wall 2 on layers 2-3 (its foot 2.12 m above the ground) gap 0.5 m: wall 2 first lit never
+   wall 1 on layer 0, wall 2 on layers 2-3 (its foot 2.12 m above the ground) gap 1.0 m: wall 2 first lit never
+   wall 1 on layer 0, wall 2 on layers 2-3 (its foot 2.12 m above the ground) gap 1.5 m: wall 2 first lit never
+   wall 1 on layer 0, wall 2 on layers 1-3                                    gap 0.5 m: wall 2 first lit 1.9 s
+   wall 1 on layer 0, wall 2 on layers 1-3                                    gap 1.0 m: wall 2 first lit 2 s
+   wall 1 on layer 0, wall 2 on layers 1-3                                    gap 1.5 m: wall 2 first lit never
+   wall 1 on layer 3, wall 2 on layers 0-2 (below it)                         gap 0.5 m: wall 2 first lit never
+   wall 1 on layer 3, wall 2 on layers 0-2 (below it)                         gap 1.0 m: wall 2 first lit never
+   wall 1 on layer 3, wall 2 on layers 0-2 (below it)                         gap 1.5 m: wall 2 first lit never
+   wall 1 on layer 3, wall 2 on layers 0-1                                    gap 0.5 m: wall 2 first lit never
+   wall 1 on layer 3, wall 2 on layers 0-1                                    gap 1.0 m: wall 2 first lit never
+   wall 1 on layer 3, wall 2 on layers 0-1                                    gap 1.5 m: wall 2 first lit never
+4. a surface above a burning roof (a 3.5 m square roof at the top of layer 0, lit on top at its middle; a timber deck above it, exposed underneath)
+   1 air tile(s) between (1.06 m): deck first lit 2.8 s; roof faces lit 49 of 49
+   2 air tile(s) between (2.12 m): deck first lit 1.6 s; roof faces lit 49 of 49
+   3 air tile(s) between (3.18 m): deck first lit never; roof faces lit 49 of 49
+5. a burning wall to grass across empty tiles (wall 10.5 m long, two layers; the gap; lawn)
+   wall lit outside 0 empty tile(s) (0 m): grass first lit 0.43 s
+   wall lit outside 1 empty tile(s) (0.5 m): grass first lit 0.43 s
+   wall lit outside 2 empty tile(s) (1 m): grass first lit never
+   wall lit inside  0 empty tile(s) (0 m): grass first lit 12.77 s
+   wall lit inside  1 empty tile(s) (0.5 m): grass first lit 13.47 s
+   wall lit inside  2 empty tile(s) (1 m): grass first lit never
+6. Rule 8 on the ground: lawn, a bare strip, lawn; an oil can (3 tile-fulls, a store) in the first bare tile; the first lawn lit as a front
+   bare strip 1.5 m: can burst 2.83 s over 29 tiles; lawn beyond lit 2.9 s
+   bare strip 2.0 m: can burst 2.83 s over 29 tiles; lawn beyond lit 3.03 s
+   bare strip 2.5 m: can burst 2.83 s over 29 tiles; lawn beyond lit never
+   bare strip 3.0 m: can burst 2.83 s over 29 tiles; lawn beyond lit never
