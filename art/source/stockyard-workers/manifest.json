@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-11-12",
+  "owner": "Artist, Tinderbox",
+  "task": "Native stockyard worker skins",
+  "branch": "codex/modular-stockyard-art",
+  "baseCommit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+  "status": "Game-wired opt-in artist candidate with actual WebGL JPG evidence; no master promotion or deployment.",
+  "entryPoint": "src/art/stockyard-worker-skins.js",
+  "skins": [
+    "yard-hand",
+    "packing-worker",
+    "yard-foreman"
+  ],
+  "species": [
+    "goat",
+    "horse",
+    "bear"
+  ],
+  "variants": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "sharedRenderer": "src/runtime/three.js (existing single pinned Three pair)",
+  "nativeDependencies": [
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/clothing-weights.js",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/clothing-weights.js",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 1202,
+      "sha256": "a70f99e17ce5cfe233f81e13219e432781a59f87beb97257bbdc3d76c47fb471",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/goat-worker.js",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-worker.js",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 827,
+      "sha256": "4bb669374a539443b96b1c79a2a2097978958fd7e219cb21df9413675dc32d9c",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-light-model.js",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 25451,
+      "sha256": "b0d4e65cc070357d778e8ba5260f590e4e15dc71a3dc8000003ec8465d23cbf0",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-model-paint.js",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 47623,
+      "sha256": "db8450b6981dd6e6bff05633d1db487f3ab415fc9ea31415740a91798c525ac4",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/worker-locomotion.js",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/worker-locomotion.js",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 3755,
+      "sha256": "7316b2dde70672a7fbfc7ff7708d5db9e2bdea5fff2e7215d3ef3a3d839336b0",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 419191,
+      "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 410862,
+      "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 1590294,
+      "sha256": "468ce2d133019dfbcf9ee69439ecb0eb92fecdc20c1306b83536d2a440329b89",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+      "installedPath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bytes": 1622867,
+      "sha256": "50e63428f990f31cdb2f6df0bee6a9ccb678860bf12dbc95a3fd6e87db73afea",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed project reuse; unresolved rights retained",
+      "provenance": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json"
+    },
+    {
+      "sourcePath": "dist/tactics/bear-worker.js",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-worker.js",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 3040,
+      "sha256": "6c71a33a94d508ba51ff5072277f6c11f2b6825b029c7549693b88dfb85d235b",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    },
+    {
+      "sourcePath": "dist/tactics/bear-paint.js",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-paint.js",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 2090,
+      "sha256": "4b9380494a20ff9bb3d6d86e073e7c84b6d357015d4d9738eeb392fa0b6975f5",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    },
+    {
+      "sourcePath": "dist/tactics/clothing-weights.js",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/clothing-weights.js",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 1180,
+      "sha256": "ff1ab35315485d8380dcf3b00f427b9cea7615e329cd56ab84b298aa773bb9a9",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    },
+    {
+      "sourcePath": "dist/tactics/horse-light-model.js",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-light-model.js",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 25286,
+      "sha256": "9306a065aed75f3408fd1d5799164241fcfe9add59a6d1dad2568a615e469baa",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    },
+    {
+      "sourcePath": "dist/tactics/horse-model-paint.js",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/horse-model-paint.js",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 47656,
+      "sha256": "100c1b679cae6f2cc997fd730ca829fe1d057ef06cc55e711ad57b9038844213",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    },
+    {
+      "sourcePath": "dist/tactics/worker-locomotion.js",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/worker-locomotion.js",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 3710,
+      "sha256": "90ceb0418cadde24c97e863c931decc49e7ac8927388aebb91076ec64e9b0d19",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    },
+    {
+      "sourcePath": "dist/tactics/bear-10k-data.json",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 419919,
+      "sha256": "3a449fe96a28a712cb1aaf4cdc76d44cc07163ec949aebc2d086dfa48a3a0823",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    },
+    {
+      "sourcePath": "dist/assets/characters/lowpoly-proof/bear-worker-model-paint-v1.png",
+      "installedPath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/assets/characters/lowpoly-proof/bear-worker-model-paint-v1.png",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "bytes": 1590125,
+      "sha256": "7b0fd63d06c840497c1a03967f06b9bdce30c0ce119040740e4651fc459fa5a0",
+      "adaptations": [],
+      "license": "Upstream game/art license not declared; user-directed reuse; rights remain unresolved",
+      "provenance": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json"
+    }
+  ],
+  "existingClosureManifests": [
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/engine.json",
+      "bytes": 2086,
+      "sha256": "e7ac47459f905d20d0fa9c64015696e1ac3786bb97354ffc327ee3cc5713d107",
+      "canonicalSha256": "e7ac47459f905d20d0fa9c64015696e1ac3786bb97354ffc327ee3cc5713d107"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/provenance/city.json",
+      "bytes": 19779,
+      "sha256": "64aa0e20f56bcbfe66a2ec065eddcf84197139c1e777b557b55b885b2c80d3fd",
+      "canonicalSha256": "64aa0e20f56bcbfe66a2ec065eddcf84197139c1e777b557b55b885b2c80d3fd"
+    },
+    {
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/provenance/bear.json",
+      "bytes": 13155,
+      "sha256": "a4a39da54add6c894aac4092634ccef3056cde865369a135f36ce76bc49be94f",
+      "canonicalSha256": "a4a39da54add6c894aac4092634ccef3056cde865369a135f36ce76bc49be94f"
+    }
+  ],
+  "localDependencies": [
+    {
+      "path": "src/art/resources.js",
+      "bytes": 1291,
+      "sha256": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1",
+      "canonicalSha256": "97addbe3bb9f9f1f2da0f94c8e1160aa7f1fb6161c6ac8e0e1ebfd4f335927f1"
+    },
+    {
+      "path": "src/reuse/characters.js",
+      "bytes": 3741,
+      "sha256": "46556d86c54107bb71c7899f1ffead5282ea78c03f8dfafdf765ffb4762522aa",
+      "canonicalSha256": "64ba675a129d3b37dbae2859e61a2abb1129132d36e4c7efac28bd9a2d1d8fe5"
+    },
+    {
+      "path": "src/reuse/civilians.js",
+      "bytes": 8367,
+      "sha256": "1026ee9ce7a1b5e74f1ffbcb9d19b47f75c4ed2d39856652e6301529665a5c2b",
+      "canonicalSha256": "f416857350957286d440eede43bafb0fba9c822d3a3df4e096cf7375c926006a"
+    },
+    {
+      "path": "src/reuse/bear.js",
+      "bytes": 11338,
+      "sha256": "184dce3d03e763cdc393ec7a53d867ace026189ce716619a7f5a69a7242546d9",
+      "canonicalSha256": "1e9be62bc432ba0c3ce76eb331c318ab44173d9d63c4943da262fd3c8ceeb485"
+    },
+    {
+      "path": "src/content/characters.js",
+      "bytes": 900,
+      "sha256": "c9f338b6719972274bacf6fee5f570f192ab0ef81e5b4937c6b8ac83c2828457",
+      "canonicalSha256": "a7726b9f72b6d5c80867c2892b5fb055f494bf35d2f7e7cf320c3de6c2c4b6ee"
+    }
+  ],
+  "authoredFiles": [
+    {
+      "path": "src/art/stockyard-worker-skins.js",
+      "bytes": 14222,
+      "sha256": "a0d74e19d71b6f8bd06a97d6004a28b5b38d5a23c2aa19cb373317d3ece2916e",
+      "canonicalSha256": "a0d74e19d71b6f8bd06a97d6004a28b5b38d5a23c2aa19cb373317d3ece2916e"
+    },
+    {
+      "path": "src/art/index.js",
+      "bytes": 14419,
+      "sha256": "382b48d5041333c7808dbe53510fdc28070da20dcf59ca61df9797f05c9cdc5c",
+      "canonicalSha256": "382b48d5041333c7808dbe53510fdc28070da20dcf59ca61df9797f05c9cdc5c"
+    },
+    {
+      "path": "art/source/stockyard-workers/check.mjs",
+      "bytes": 6001,
+      "sha256": "c27f8ace311f5c1e394f63afbadb84962626a1d92a085c140e75e3c107843bd9",
+      "canonicalSha256": "c27f8ace311f5c1e394f63afbadb84962626a1d92a085c140e75e3c107843bd9"
+    },
+    {
+      "path": "art/source/stockyard-workers/review.html",
+      "bytes": 670,
+      "sha256": "6f56bc73627ea758809029e8bb536d00891286a8d824459bb6c63f7b9fa9d057",
+      "canonicalSha256": "fb279d5c694ba632ed8d64f5e7b5b0afe477cb1d7793ce1c96b8566d461a543e"
+    },
+    {
+      "path": "art/source/stockyard-workers/review.js",
+      "bytes": 10045,
+      "sha256": "fde19d4fcd90dbb0ed550d112e7a32512c9dbc43b9e84ff2f499ecdbb7f70e62",
+      "canonicalSha256": "632a9273c97d9054eedd94f129d6eabb3404f5706075ab44d624da4a3cb8bfc8"
+    },
+    {
+      "path": "art/source/stockyard-workers/extract-review.mjs",
+      "bytes": 1822,
+      "sha256": "0b2dc3a78b865a403e7f26ac23fbb84e78df73bd8d92d1946f7ee8b85b0765e9",
+      "canonicalSha256": "0b2dc3a78b865a403e7f26ac23fbb84e78df73bd8d92d1946f7ee8b85b0765e9"
+    },
+    {
+      "path": "art/source/stockyard-workers/run-review.ps1",
+      "bytes": 7591,
+      "sha256": "0e1a27863bd7527eb3f4d76fdd2c67ee20e6e9f27acc94a9b0f15d285fe1c1d5",
+      "canonicalSha256": "0e1a27863bd7527eb3f4d76fdd2c67ee20e6e9f27acc94a9b0f15d285fe1c1d5"
+    },
+    {
+      "path": "tests/integration/stockyard-worker-skins.test.mjs",
+      "bytes": 3607,
+      "sha256": "0ef8cc8df9a09abf5d7528e92c088b1b5d67305a3f2b1fc47545e5e5f7f79e9a",
+      "canonicalSha256": "0ef8cc8df9a09abf5d7528e92c088b1b5d67305a3f2b1fc47545e5e5f7f79e9a"
+    },
+    {
+      "path": "docs/art/period-crowds/catalogue.json",
+      "bytes": 12929,
+      "sha256": "fd98a009e707541f9323c165680752765debb6c15b0d6ef34e234a910ce3a702",
+      "canonicalSha256": "fd98a009e707541f9323c165680752765debb6c15b0d6ef34e234a910ce3a702"
+    }
+  ],
+  "catalogueAncestry": {
+    "commit": "9f22f4665b074f51b841f997b55ad81f6e481637",
+    "path": "docs/art/period-crowds/catalogue.json",
+    "adaptation": "Copied the shared wardrobe intake, then recorded only the implemented worker batch."
+  },
+  "adaptations": [
+    "Copy native shirt/trouser garment surfaces; hide their source presentation while dressed; never edit source data.",
+    "Clip copied trouser waist and sleeveless waistcoat seams, interpolating native weights; own the result.",
+    "Fit new caps per species and share the original head bone; leave horns and ears exposed.",
+    "Braces, collars, apron, seams and buttons use the same existing skeleton, bind matrix and native unit scale.",
+    "Add cloth colors/grain and four slight tone variations; no new texture images.",
+    "Add opt-in art-scene dressing of existing game actors, preserving simulation, source proportions and protected police identity."
+  ],
+  "historicalReferences": [
+    {
+      "id": "ICHi-21839",
+      "title": "Canning room, stockyards",
+      "date": "1890s",
+      "creator": "J. W. Taylor",
+      "repository": "Chicago History Museum, reproduced by Northwestern University",
+      "catalogueUrl": "https://florencekelley.northwestern.edu/historical/stockyards/",
+      "imageUrl": "https://florencekelley.northwestern.edu/img/galleries/historical/stockyards/i21839.jpg",
+      "imageSha256": "1630ed7af9aae6302757db30b2cc7bb8931fb06a11d72330c1f0bd29f773d182",
+      "inspection": "Metadata read and photograph visually inspected 2026-11-12",
+      "use": "Work clothing and light aprons; mixed workers, not an exact uniform pattern.",
+      "rights": "No item-level redistribution grant established. Research-only scan; excluded from assets, previews and Git."
+    },
+    {
+      "id": "ICHi-32961",
+      "title": "Exchange Street, 200 feet west of the main entrance to the Union Stockyards",
+      "date": "1893",
+      "creator": "Unknown",
+      "repository": "Chicago History Museum, reproduced by Northwestern University",
+      "catalogueUrl": "https://florencekelley.northwestern.edu/historical/stockyards/",
+      "imageUrl": "https://florencekelley.northwestern.edu/img/galleries/historical/stockyards/i32961.jpg",
+      "imageSha256": "359da88bf445667dfac5533177deea18aea14c16202c20e747c3bec730f39451",
+      "inspection": "Metadata read and photograph visually inspected 2026-11-12",
+      "use": "Shirt-and-waistcoat silhouette among mixed coats and hats; not evidence of foreman status.",
+      "rights": "No item-level redistribution grant established. Research-only scan; excluded from assets, previews and Git."
+    },
+    {
+      "id": "ICHi-20069",
+      "title": "Workers at Horn Brothers Furniture Company, before the strike",
+      "date": "1886-04-30",
+      "creator": "Unknown",
+      "repository": "Chicago History Museum, reproduced by Northwestern University",
+      "catalogueUrl": "https://florencekelley.northwestern.edu/historical/stockyards/",
+      "imageUrl": "https://florencekelley.northwestern.edu/img/galleries/historical/stockyards/i20069.jpg",
+      "imageSha256": "12912ce771173a42bf0fc5914e05e5327421af65ede8bcc9aced0ecb5c0eb073",
+      "inspection": "Metadata read and photograph visually inspected 2026-11-12",
+      "use": "Chicago mixed workwear comparison: braces, waistcoats, shirts and aprons. Different trade/date.",
+      "rights": "No item-level redistribution grant established. Research-only scan; excluded from assets, previews and Git."
+    }
+  ],
+  "artistChoices": [
+    "Cloth colors, wear and tones cannot be read from monochrome sources.",
+    "Role labels, soft-cap cut, animal head clearance, split apron skirts and simplified collar/cuts are game art interpretations."
+  ],
+  "evidence": [
+    "docs/art/stockyard-workers/fit-checks.json",
+    "docs/art/stockyard-workers/webgl.json",
+    "docs/art/stockyard-workers/checks.json"
+  ],
+  "limits": [
+    "Native source rights remain unresolved as recorded by their original manifests; provenance is not a new license.",
+    "No historical scan pixels or newly imported donor files enter the runtime.",
+    "No livestock, new population behavior, production stockyard placement or performance benchmark is claimed."
+  ],
+  "textHashEncoding": "sha256 records checkout bytes; canonicalSha256 records UTF-8 text with LF for Git comparisons. Native dependency and JPG hashes always preserve exact binary/source bytes."
+}

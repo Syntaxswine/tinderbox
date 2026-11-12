@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "recordedOn": "2026-11-12",
+  "status": "Stockyard batch implemented: yard-hand, packing-worker and yard-foreman on native goat, horse and bear rigs, with opt-in actual Catalogue Street game wiring and JPG evidence. Other outfit families, livestock, district populations and behavior remain future work.",
+  "ownerDecisions": [
+    "Address livestock and crowds alongside the stockyard structures.",
+    "Reuse existing animal characters with period clothing.",
+    "Use the same wardrobe across stockyards, the Worlds Fair and the slums, with different outfit prevalence in each district.",
+    "Retain festive banners and ribbons around the stockyards and broader city, connecting them to the fair.",
+    "Preserve the Volaire mood direction and native character sizes."
+  ],
+  "reviewedWriteups": [
+    {
+      "kind": "Architect brief",
+      "commit": "5fa7857dc8528be84e4c33846c68cfc954ca2518",
+      "path": "docs/milestones/16-stockyard-art.md",
+      "use": "Covered pen and entrance scope, native dimensions, source facts and adaptation boundaries."
+    },
+    {
+      "kind": "Owner festive direction",
+      "commit": "812cffa900290a04524aa3bae32676cada0ba9cb",
+      "path": "docs/milestones/16-stockyard-art.md",
+      "use": "Removable jubilee dressing and the owners citywide celebration direction."
+    },
+    {
+      "kind": "Completed artist handoff",
+      "commit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+      "path": "docs/art/stockyards/README.md",
+      "use": "Existing pen/gate inventory and explicit omission of livestock and crowds."
+    },
+    {
+      "kind": "Owner-linked neighborhood account",
+      "url": "https://drloihjournal.blogspot.com/2021/09/the-stark-truth-about-chicago-in-1890s.html",
+      "use": "Context for Packingtown, everyday street work and the fair/city relationship. Secondary narrative, not a construction or clothing measurement source. Its1915 photograph and1906 literary quotation retain their later dates."
+    },
+    {
+      "kind": "University historical context",
+      "url": "https://florencekelley.northwestern.edu/historical/stockyards",
+      "use": "Stockyard work, livestock and neighborhood/rail connections; links to period archives."
+    },
+    {
+      "kind": "Linked stockyard history, read alongside the neighborhood account",
+      "title": "The History of the Union Stock Yards and Transit Company, Chicago (1865-1971)",
+      "url": "https://drloihjournal.blogspot.com/2018/08/history-of-the-union-stock-yards-and-transit-company-chicago-1865-1971.html",
+      "use": "Additional research leads for handlers, traders, delivery traffic, coopering, casks, loading fittings and smokehouse surroundings. Its illustrated1873 packing-house departments are leads for item-level verification."
+    }
+  ],
+  "existingBasis": {
+    "stockyardKit": {
+      "commit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+      "path": "assets/art/stockyards/manifest.json",
+      "assets": [
+        "covered-swine-pen",
+        "union-stockyard-gate"
+      ],
+      "alreadyPresent": [
+        "repeatable bays",
+        "gates",
+        "trough",
+        "working and jubilee dressing"
+      ]
+    },
+    "characterPins": {
+      "goat": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "horse": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "bear": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa"
+    },
+    "fittedClothingPrecedent": {
+      "path": "src/art/chicago-beat-uniform.js",
+      "evidence": "docs/art/chicago-1893-beat-uniform/README.md",
+      "scope": "Existing fitted native-goat clothing and skeleton ownership. This does not prove fit on horse or bear."
+    }
+  },
+  "wardrobeContract": {
+    "sharedSlots": [
+      "headwear",
+      "shirt-or-bodice",
+      "waistcoat-or-jacket",
+      "trousers-or-skirt",
+      "apron",
+      "footwear",
+      "small-accessories"
+    ],
+    "fit": "Fit garments separately to each native species. Preserve skeleton, bind matrices, body scale, locomotion, original fur/paint, hands, ears and horns.",
+    "resources": "Garment geometry/materials are owned; actor skeleton, source meshes and host renderer are borrowed. Restore replaced native clothing visibility on disposal.",
+    "variation": [
+      "cloth palette",
+      "hat style",
+      "apron or waistcoat",
+      "clean/worn/patched condition",
+      "small accessories"
+    ],
+    "identity": "Keep species variety in each district; outfit prevalence is a separate choice.",
+    "distribution": "District presets describe relative visual prevalence. Numeric weights and actual spawning await a coder contract; no historical population percentages are claimed.",
+    "periodEvidence": "Garment silhouettes require dated item-level photographs or costume records before visual acceptance. Colors and wear remain labelled art choices when a monochrome source cannot establish them."
+  },
+  "outfitFamilies": [
+    {
+      "id": "work-shirt-braces",
+      "pieces": [
+        "collared shirt",
+        "braces",
+        "plain trousers",
+        "work cap"
+      ],
+      "uses": [
+        "yard handler",
+        "laborer",
+        "porter"
+      ]
+    },
+    {
+      "id": "waistcoat-work-coat",
+      "pieces": [
+        "shirt",
+        "waistcoat",
+        "short work coat",
+        "trousers",
+        "cap or felt hat"
+      ],
+      "uses": [
+        "tradesperson",
+        "yard foreman",
+        "vendor"
+      ]
+    },
+    {
+      "id": "packing-apron",
+      "pieces": [
+        "work shirt",
+        "long apron",
+        "plain trousers",
+        "cap"
+      ],
+      "uses": [
+        "packing-house worker"
+      ],
+      "note": "An occupational variant for relevant work areas; the whole yard need not wear it."
+    },
+    {
+      "id": "sack-suit",
+      "pieces": [
+        "sack coat",
+        "waistcoat",
+        "trousers",
+        "collar",
+        "bowler or felt hat"
+      ],
+      "uses": [
+        "clerk",
+        "shopkeeper",
+        "visitor"
+      ]
+    },
+    {
+      "id": "everyday-dress-apron",
+      "pieces": [
+        "bodice",
+        "long skirt",
+        "apron",
+        "optional shawl",
+        "simple hat"
+      ],
+      "uses": [
+        "resident",
+        "vendor",
+        "service worker"
+      ]
+    },
+    {
+      "id": "visitor-day-dress",
+      "pieces": [
+        "day dress or jacket and skirt",
+        "period hat",
+        "optional parasol"
+      ],
+      "uses": [
+        "fair visitor",
+        "best clothes"
+      ]
+    },
+    {
+      "id": "fair-attendant",
+      "pieces": [
+        "fitted service jacket",
+        "trousers or skirt",
+        "occupation-specific headwear"
+      ],
+      "uses": [
+        "fair attendant"
+      ],
+      "note": "Exact uniform details remain pending a dated staff reference."
+    },
+    {
+      "id": "street-workwear",
+      "pieces": [
+        "shared shirt/bodice",
+        "trousers or skirt",
+        "coat or shawl",
+        "visible mending options"
+      ],
+      "uses": [
+        "resident",
+        "street trader",
+        "off-duty worker"
+      ],
+      "note": "Reuse the shared garment families with varied condition and repairs."
+    }
+  ],
+  "districtMixes": {
+    "stockyards": {
+      "dominant": [
+        "work-shirt-braces",
+        "waistcoat-work-coat"
+      ],
+      "regular": [
+        "packing-apron",
+        "sack-suit"
+      ],
+      "occasional": [
+        "everyday-dress-apron",
+        "visitor-day-dress",
+        "street-workwear"
+      ],
+      "visualContext": [
+        "handlers around pens",
+        "packing workers by relevant plant areas",
+        "clerks and foremen",
+        "porters and deliveries",
+        "retained festive dressing"
+      ]
+    },
+    "worlds-fair": {
+      "dominant": [
+        "sack-suit",
+        "visitor-day-dress"
+      ],
+      "regular": [
+        "everyday-dress-apron",
+        "fair-attendant",
+        "work-shirt-braces"
+      ],
+      "occasional": [
+        "waistcoat-work-coat",
+        "street-workwear"
+      ],
+      "visualContext": [
+        "visitors",
+        "attendants",
+        "vendors",
+        "porters and maintenance workers",
+        "mixed everyday and best clothes"
+      ]
+    },
+    "slums-and-working-neighborhoods": {
+      "dominant": [
+        "work-shirt-braces",
+        "everyday-dress-apron",
+        "street-workwear"
+      ],
+      "regular": [
+        "waistcoat-work-coat",
+        "sack-suit"
+      ],
+      "occasional": [
+        "visitor-day-dress",
+        "packing-apron"
+      ],
+      "visualContext": [
+        "residents",
+        "street vendors",
+        "off-duty workers",
+        "shopkeepers",
+        "a mix of cared-for, worn, repaired and best clothes"
+      ]
+    }
+  },
+  "livestockScope": {
+    "status": "Separate asset/animation intake remains required.",
+    "families": [
+      "cattle",
+      "hogs",
+      "sheep"
+    ],
+    "visualVariants": [
+      "coat or wool",
+      "markings",
+      "species-appropriate body and head details"
+    ],
+    "poseTargets": [
+      "idle",
+      "walk",
+      "feed",
+      "drink"
+    ],
+    "limits": "Crowd clothing does not supply livestock bodies or their movement. Inspect reusable donor assets at immutable pins before choosing new model work; herd behavior is a later runtime assignment."
+  },
+  "stockyardActivityProps": [
+    "feed sacks and loose feed dressing",
+    "buckets and water fittings",
+    "hay or straw bundles",
+    "handcart and delivery-load variants",
+    "sorting and loading fittings around the existing pens",
+    "small work records, signs and carried parcels",
+    "cooperage bench and cask stacks, after dated source verification",
+    "trader and clerk work surfaces with sales records"
+  ],
+  "referenceLeads": [
+    {
+      "url": "https://www.loc.gov/pictures/item/90712275/",
+      "use": "1878 covered livestock-pen context, already in the stockyard source register."
+    },
+    {
+      "url": "https://www.loc.gov/item/98687207/",
+      "use": "1890 stockyard panorama, already in the source register."
+    },
+    {
+      "url": "https://www.lib.uchicago.edu/collex/collections/worlds-columbian-exposition-records/",
+      "use": "Fair photographs, visitor material and ephemera. Item-level clothing/rights inspection still required."
+    },
+    {
+      "url": "https://www.chipublib.org/fa-worlds-columbian-exposition-snapshots-collection/",
+      "use": "Visitor snapshots as a crowd-clothing lead. Catalogue description read; item-level photographs not yet inspected."
+    },
+    {
+      "url": "https://collections.carli.illinois.edu/digital/collection/uic_7sh",
+      "use": "Hull-House photograph collection from the architects earlier district research. Individual dates and rights must be checked before visual intake."
+    },
+    {
+      "url": "https://florencekelley.northwestern.edu/historical/stockyards/",
+      "use": "Visually inspected institutional photographs ICHi-32961 (1893 Exchange Street), ICHi-20069 (1886 furniture workers), and ICHi-21839 (1890s stockyard canning room). Research-only, with dates and adaptation limits in the worker handoff."
+    }
+  ],
+  "handoffLimits": [
+    "The first three worker looks are implemented; remaining wardrobe and livestock families are catalogue scope.",
+    "No population AI, spawning, collision, fire behavior or production district weights changed.",
+    "No new donor files or historical scan pixels are imported; garment copies use the existing approved native rigs.",
+    "The independent fire/furnished-house grass branches remain separate.",
+    "One finite WebGL capture produced four JPGs, then retired its browser, server and isolated profile."
+  ],
+  "periodBoundaries": [
+    "The stockyard history spans1865-1971. Check every photograph, machine and transport feature against the1893 game date.",
+    "The articles1908-1957 elevated branch and1930s amphitheatre are later context, not1893 asset templates.",
+    "The neighborhood accounts1915 Bubbly Creek image and1906 Jungle quotation retain their dates.",
+    "Chronology and clothing details must be resolved through primary dated items before an asset is called an1893 reconstruction."
+  ],
+  "implementedBatches": [
+    {
+      "id": "stockyard-workers-v1",
+      "factory": "src/art/stockyard-worker-skins.js",
+      "gameAdapter": "src/art/index.js",
+      "selection": "stockyardWorkers: true or ?stockyardWorkers=1; default-off candidate",
+      "skins": [
+        "yard-hand",
+        "packing-worker",
+        "yard-foreman"
+      ],
+      "species": [
+        "goat",
+        "horse",
+        "bear"
+      ],
+      "handoff": "docs/art/stockyard-workers/README.md",
+      "evidence": [
+        "docs/art/stockyard-workers/fit-checks.json",
+        "docs/art/stockyard-workers/webgl.json"
+      ],
+      "limits": "Actual game captures use staged existing Catalogue Street positions; the pen study is separate from production map placement."
+    }
+  ]
+}

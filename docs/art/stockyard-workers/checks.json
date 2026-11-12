@@ -1,0 +1,101 @@
+{
+  "recordedOn": "2026-11-12",
+  "baseCommit": "e98e46f11f818857a2f08054e9d1071e023cc2d3",
+  "branch": "codex/modular-stockyard-art",
+  "checks": [
+    {
+      "command": "node --test tests/integration/stockyard-worker-skins.test.mjs",
+      "status": "pass",
+      "tests": 5,
+      "failed": 0
+    },
+    {
+      "command": "node art/source/stockyard-workers/check.mjs",
+      "status": "pass",
+      "groups": 4,
+      "pairs": 9,
+      "poses": 288,
+      "failed": 0
+    },
+    {
+      "command": "node workbenches/art/check-chicago-beat-uniform.mjs",
+      "status": "pass",
+      "poses": 32
+    },
+    {
+      "command": "powershell -File art/source/stockyard-workers/run-review.ps1",
+      "status": "pass",
+      "jpgs": 4,
+      "linkedPrograms": 23,
+      "compiledShaders": 46,
+      "errors": [],
+      "artUpdateIsolation": true
+    },
+    {
+      "command": "npm.cmd run check",
+      "status": "pass",
+      "repositoryTests": 296,
+      "failed": 0,
+      "details": "Own syntax/local dependencies, pinned source provenance, shared Three pair, all repository tests, byte-preserved art imports."
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "pass",
+      "packagedFiles": 3523
+    },
+    {
+      "command": "node tools/check-release.mjs",
+      "status": "pass",
+      "details": "3523 packaged hashes and nested production resource resolution."
+    },
+    {
+      "command": "Source/JPG hash and local documentation reference review",
+      "status": "pass"
+    }
+  ],
+  "visualReview": {
+    "status": "pass",
+    "reviewer": "Artist, Tinderbox",
+    "notes": [
+      "Three roles read at native game zoom and closer game zoom.",
+      "Waistcoat neckline refined with interpolated native seam cuts; final nine-fit sheet reviewed.",
+      "Caps preserve visible animal horns/ears; heads/limbs, native paint and original proportions remain apparent.",
+      "Pen study shows outfit and existing kit together at native scale.",
+      "Finite poses reviewed; no cloth physics or performance benchmark claimed."
+    ]
+  },
+  "helperRetirement": {
+    "portReleased": true,
+    "testProfileRemoved": true,
+    "task": "Stockyard worker skins",
+    "browserExited": true,
+    "serverExited": true,
+    "retiredAt": "2026-11-12T08:13:48.2483385Z",
+    "restart": "artifacts/helpers/stockyard-workers-review/restart.json"
+  },
+  "changedPaths": [
+    "art/source/stockyard-workers/check.mjs",
+    "art/source/stockyard-workers/extract-review.mjs",
+    "art/source/stockyard-workers/manifest.json",
+    "art/source/stockyard-workers/review.html",
+    "art/source/stockyard-workers/review.js",
+    "art/source/stockyard-workers/run-review.ps1",
+    "docs/art/period-crowds/catalogue.json",
+    "docs/art/stockyard-workers/README.md",
+    "docs/art/stockyard-workers/checks.json",
+    "docs/art/stockyard-workers/fit-checks.json",
+    "docs/art/stockyard-workers/previews/game-close-walking.jpg",
+    "docs/art/stockyard-workers/previews/game-normal.jpg",
+    "docs/art/stockyard-workers/previews/nine-native-fits.jpg",
+    "docs/art/stockyard-workers/previews/stockyard-crew.jpg",
+    "docs/art/stockyard-workers/webgl.json",
+    "src/art/index.js",
+    "src/art/stockyard-worker-skins.js",
+    "tests/integration/stockyard-worker-skins.test.mjs"
+  ],
+  "limits": [
+    "Opt-in game wardrobe candidate; separate architect stockyard map integration and promotion remain pending.",
+    "No new population AI, livestock or district prevalence rules.",
+    "No donor source revisions, historical scan redistribution, deployment or changes to independent fire/grass candidates."
+  ]
+}

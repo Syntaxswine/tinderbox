@@ -1,0 +1,294 @@
+{
+  "passed": 4,
+  "failed": 0,
+  "groups": [
+    "All nine native species/outfit pairs fit the existing player envelopes over288 idle/walking/heading samples",
+    "Native body vertices/materials, skeleton/bind matrices, gait and input data are unchanged; hands/heads/horns/ears/feet remain visible",
+    "Every garment uses the existing skeleton and normalized weights, owns its copies and restores source visibility on idempotent disposal",
+    "Review mode is explicit and default-off; stable civilian IDs select independent worker looks"
+  ],
+  "records": [
+    {
+      "species": "goat",
+      "skin": "yard-hand",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sourcePath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+      "poses": 32,
+      "height": 1.64951753616333,
+      "radius": 0.44087602427498346,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/goat/yard-hand",
+        "skin": "yard-hand",
+        "species": "goat",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 4216,
+        "resources": {
+          "geometries": 16,
+          "materials": 6,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "goat",
+      "skin": "packing-worker",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sourcePath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+      "poses": 32,
+      "height": 1.64951753616333,
+      "radius": 0.44087602427498346,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/goat/packing-worker",
+        "skin": "packing-worker",
+        "species": "goat",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 4152,
+        "resources": {
+          "geometries": 13,
+          "materials": 7,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "goat",
+      "skin": "yard-foreman",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sourcePath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+      "poses": 32,
+      "height": 1.64951753616333,
+      "radius": 0.44087602427498346,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/goat/yard-foreman",
+        "skin": "yard-foreman",
+        "species": "goat",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 5273,
+        "resources": {
+          "geometries": 13,
+          "materials": 7,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "horse",
+      "skin": "yard-hand",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sourcePath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+      "poses": 32,
+      "height": 1.649999976158142,
+      "radius": 0.45243030446991417,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/horse/yard-hand",
+        "skin": "yard-hand",
+        "species": "horse",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 4103,
+        "resources": {
+          "geometries": 16,
+          "materials": 6,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "horse",
+      "skin": "packing-worker",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sourcePath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+      "poses": 32,
+      "height": 1.649999976158142,
+      "radius": 0.45243030446991417,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/horse/packing-worker",
+        "skin": "packing-worker",
+        "species": "horse",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 4039,
+        "resources": {
+          "geometries": 13,
+          "materials": 7,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "horse",
+      "skin": "yard-foreman",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sourcePath": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+      "poses": 32,
+      "height": 1.649999976158142,
+      "radius": 0.45243030446991417,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/horse/yard-foreman",
+        "skin": "yard-foreman",
+        "species": "horse",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 5303,
+        "resources": {
+          "geometries": 13,
+          "materials": 7,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "bear",
+      "skin": "yard-hand",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "sourcePath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+      "sha256": "3a449fe96a28a712cb1aaf4cdc76d44cc07163ec949aebc2d086dfa48a3a0823",
+      "poses": 32,
+      "height": 1.6708452701568604,
+      "radius": 0.5064896561567601,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/bear/yard-hand",
+        "skin": "yard-hand",
+        "species": "bear",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 4238,
+        "resources": {
+          "geometries": 16,
+          "materials": 6,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "bear",
+      "skin": "packing-worker",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "sourcePath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+      "sha256": "3a449fe96a28a712cb1aaf4cdc76d44cc07163ec949aebc2d086dfa48a3a0823",
+      "poses": 32,
+      "height": 1.6708452701568604,
+      "radius": 0.5064896561567601,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/bear/packing-worker",
+        "skin": "packing-worker",
+        "species": "bear",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 4174,
+        "resources": {
+          "geometries": 13,
+          "materials": 7,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    },
+    {
+      "species": "bear",
+      "skin": "yard-foreman",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "sourcePath": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+      "sha256": "3a449fe96a28a712cb1aaf4cdc76d44cc07163ec949aebc2d086dfa48a3a0823",
+      "poses": 32,
+      "height": 1.6708452701568604,
+      "radius": 0.5064896561567601,
+      "minY": -6.938893903907228e-17,
+      "diagnostics": {
+        "id": "stockyard-worker/bear/yard-foreman",
+        "skin": "yard-foreman",
+        "species": "bear",
+        "variant": 0,
+        "disposed": false,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "skeletonBorrowed": true,
+        "triangles": 5333,
+        "resources": {
+          "geometries": 13,
+          "materials": 7,
+          "textures": 0,
+          "objects": 0
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Finite native rig/geometry proof; actual game WebGL/JPG review is separate."
+  ]
+}
