@@ -51,3 +51,7 @@ Grass fire samples carry `grass:true`, `part:'ground'`, and `buildingId:'furnish
 ## Gate still required
 
 Eleven focused checks pass: exact occupied-union clipping (including an L-shaped courtyard), native area/fuel/identity preservation, exact original replay commands, lineage through embers, phase/ash publication, selected-fixture reset/pause lifecycle and finite-runner overwrite/deadline guards. Full repository/package results are in the delivery. [The process receipt](helper-receipt.json) confirms the original worker lifetime exited. The architect owns coordinated same-camera/exposure/time exterior/cutaway JPGs, actual animated WebGL comparison and the conclusion about excessive acceleration. No reviewer calm-kernel timing is an acceptance target.
+
+## Subsequent bounded diagnostic
+
+The architect later authorized one new bedroom matched nonburning-ground run through180s with its own900s deadline. The [appended evidence leaf](bedroom-matched-180/README.md) records completion, identical50/90% times without grass combustion, exact saved-state/event differences and facade progression. It supersedes the deferred isolation status only for that bedroom prefix. The four original results and optional-stop receipts above remain preserved; ground-path and actual visual acceptance remain open.

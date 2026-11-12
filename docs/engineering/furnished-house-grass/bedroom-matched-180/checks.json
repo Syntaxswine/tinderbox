@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-11-12T08:56:02.111Z",
+  "sourceCommit": "9302065183fecf446f0485018cffaf72a839f0da",
+  "commands": [
+    {
+      "command": "node workbenches/furnished-house/compare-grass.mjs --matched-start bedroom --seconds 180 --deadline-seconds 900 --out artifacts/qa/furnished-house-grass-bedroom-matched-180",
+      "exitCode": 0,
+      "simulationTrajectories": 1,
+      "worldSeconds": 180,
+      "elapsedSeconds": 465.735,
+      "deadlineSeconds": 900
+    },
+    {
+      "command": "node --check workbenches/furnished-house/compare-matched-prefix.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node workbenches/furnished-house/compare-matched-prefix.mjs artifacts/qa/furnished-house-grass-bedroom-matched-180",
+      "exitCode": 0,
+      "simulationSteps": 0
+    }
+  ],
+  "initialDomainAndReceiversEqual": true,
+  "identicalOriginalHouseAndReferenceCellCohorts": true,
+  "onlyGrassIgnitionThresholdChanged": true,
+  "originalPrimaryInputsUnchanged": true,
+  "budgets": {
+    "passed": true,
+    "fuelError": 5.368519850890152e-9,
+    "heatRelativeError": 6.6892523271548755e-12,
+    "cohortBurnedError": 0,
+    "cohortGeneratedRelativeError": 0,
+    "grassBurned": 0,
+    "grassEver": 0,
+    "maxBurnsPerFuelPerTick": 1
+  },
+  "archiveClosed": true,
+  "workerLifetimeAbsent": true,
+  "postprocessorSha256": "185fa1875729559f4a067c2e1c67187cc1e239789a5a0b6f5194480129d93634",
+  "evidenceSha256": "54ea352303e398ab945bebf8ecaf295cf2442aeb683e6e099c6303642ac5c9fe",
+  "limits": [
+    "One profile-only nonburning-ground intervention within the frozen model. It cannot validate below-soil representative-cell versus air-side geometry.",
+    "Only the cached primary prefix through the completed diagnostic horizon is compared; no primary trajectory was rerun.",
+    "This leaf does not complete grass art, paired actual animated WebGL/JPG review or production promotion."
+  ],
+  "originalPrimaryPreservation": {
+    "resultSnapshotEventsReplayHashesVerified": 16,
+    "archiveReceiptsAndSizesVerified": 4,
+    "originalOptionalStopReceiptsVerified": true,
+    "oldArchiveBytesRehashed": false
+  }
+}

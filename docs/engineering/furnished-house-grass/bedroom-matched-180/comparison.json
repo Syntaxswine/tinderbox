@@ -1,0 +1,607 @@
+{
+  "version": 1,
+  "sourceChecks": {
+    "commit": "9302065183fecf446f0485018cffaf72a839f0da",
+    "actualFrozenSourceHashesVerified": true,
+    "sourceVerification": "Exact Git blob after checkout CRLF-to-LF normalization; actual execution-byte SHA-256 retained. Core execution bytes exactly equal cached primary.",
+    "sources": [
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "executionSha256": "3d58828451418127b3eefe613ee077792b54e86e0d85e14f932a51430a3df060",
+        "gitBlob": "282fb6dfe49e9b5613369925bf3f46443cd2f7ed",
+        "exactGitContent": true,
+        "checkoutCRLF": true
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "executionSha256": "9295a83afc2c2550a5cd1cf9f3cc43acef57dad54e86c59c2ac17b4818783c52",
+        "gitBlob": "fa0b9f6481f287a58a1ab0d21f3dbc8262710345",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "executionSha256": "fa7ed18b5400e99e7bd5ed1ddc29fd20b84279f7bff3ae67e7e9d9806bcae368",
+        "gitBlob": "f7d41ee2155ac8b015bc3ca3f4cddd0e3f82e086",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/support.js",
+        "executionSha256": "9de23edd6135d8d7ce9af09ed3ad6c683c4379102a9485f390e367664b98c0ac",
+        "gitBlob": "0bc1f1c5afdba30b01726bd1fae80af63f0aa3d9",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/prepare-data.js",
+        "executionSha256": "f43d0fbc4472c478f849d44abc4a5dff0cf5e460903cc389e069e1d231dafe94",
+        "gitBlob": "e861f794832cc9af6cd09f275bd11e35a3f0a737",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/grass-fixture.js",
+        "executionSha256": "02b722d8a5e57a83be8ca660331ad62676e6d0713391f88b383f351f9532902b",
+        "gitBlob": "5059a0a6d840acc7d0548d52238c365c784709f8",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/grass-measurements.js",
+        "executionSha256": "0f3f49008a01ec72cb36b42cad7e0b923cf013b64c450f1dc97f7e5bd12a2992",
+        "gitBlob": "cc256b41979e540f2352c7e380231b5b4776eb7f",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/replay-data.js",
+        "executionSha256": "962f81d7e0836673ca44c6369d650f2712f6a2cd51cea5706b421cbc10e087ba",
+        "gitBlob": "e9dac4e175225ce9817673e7d54452aee23e7573",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/compare-grass.mjs",
+        "executionSha256": "d6f2b396542059fb7e899186c6645dde38d5689c4c6fe437d5c9b66ca6c18d46",
+        "gitBlob": "9d8f4e1099c6589e5d470ac39015891d99d99e9c",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      },
+      {
+        "path": "workbenches/furnished-house/house-data.json",
+        "executionSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+        "gitBlob": "0a771638299ab070235b9d240a4e7924d0404a98",
+        "exactGitContent": true,
+        "checkoutCRLF": false
+      }
+    ],
+    "cachedPrimaryInputsUnchanged": true
+  },
+  "dataEqual": {
+    "control-data.json": true,
+    "grass-data.json": true
+  },
+  "initial": {
+    "domain": {
+      "grassSha256": "7a6915510434b8b9fad217460074006e06cf063b2bd39ee23cc609a238a3887e",
+      "matchedSha256": "7a6915510434b8b9fad217460074006e06cf063b2bd39ee23cc609a238a3887e",
+      "identical": true,
+      "cells": 7270,
+      "fuelIdentities": 5442,
+      "fuelInventory": 806.7328377358597
+    },
+    "receivers": {
+      "grassSha256": "bdc7b989541236136741e2940e1cee51de253a1cc70e35a9672594d5819bf36f",
+      "matchedSha256": "bdc7b989541236136741e2940e1cee51de253a1cc70e35a9672594d5819bf36f",
+      "identical": true,
+      "representativeCount": 248,
+      "candidateCount": 141,
+      "chosen": [
+        "0,3,10",
+        "0,1,12",
+        "0,0,12",
+        "4,0,12",
+        "-1,1,16",
+        "-1,-1,12",
+        "4,1,16",
+        "4,0,16",
+        "-1,-1,16",
+        "4,5,4",
+        "10,1,10",
+        "0,0,20",
+        "4,1,20",
+        "-1,3,-1",
+        "10,-1,10",
+        "4,3,-1",
+        "10,3,3",
+        "4,-1,20",
+        "-5,-1,0",
+        "4,-1,-1",
+        "12,-1,12",
+        "10,0,0",
+        "0,-1,24",
+        "10,3,-2"
+      ]
+    },
+    "houseCohort": {
+      "definition": "Sum of each original authored finite fuel identity area once, including separately authored finish layers (overlapping physical surfaces), contents and stores; descendants/embers/spills map back to that identity. Grass excluded. This is fuel-surface area, not unique floor/skin area.",
+      "identities": 4529,
+      "area": 879.0518539309301,
+      "identicalOwners": true,
+      "referenceCellCount": 4988,
+      "referenceCellKeysSha256": "f44f4b0e8496cbe27ed51ede7c6412f5b99f8e89f8a88a8eaaf906ede3ad42cd",
+      "initialGrassDigest": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+      "initialMatchedDigest": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+      "cachedInitialDigest": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+      "diagnosticInitialDigest": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193"
+    }
+  },
+  "options": {
+    "profileChanges": [
+      {
+        "cls": "grass",
+        "key": "threshold",
+        "grass": 0.85,
+        "matched": 1.7976931348623157e+308
+      }
+    ],
+    "onlyGrassIgnitionThresholdChanged": true,
+    "windIdentical": true,
+    "rulesIdentical": true,
+    "commandsIdentical": true
+  },
+  "complete": true,
+  "horizon": 180,
+  "requestedHorizon": 180,
+  "simulationStepsInPostprocessing": 0,
+  "process": {
+    "owner": "01a17ea3-b99b-74d2-8a74-56d2556a19cb",
+    "project": "Tinderbox milestone20 grass comparison",
+    "pid": 20696,
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "creationFiletime": "134389465178074482",
+    "startedAt": "2026-11-12T08:41:57.974Z",
+    "deadline": "2026-11-12T08:56:57.974Z",
+    "purpose": "One explicitly selected finite matched-domain diagnostic",
+    "port": null,
+    "stopMethod": "Private stop-requested file or finite deadline; finally closes archive/trial and saves partial/completed cases",
+    "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\furnished-house-grass-bedroom-matched-180\\stop-requested",
+    "retained": false,
+    "finished": true,
+    "sourceSnapshot": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\furnished-house-grass-bedroom-matched-180\\frozen-runtime",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\workbenches\\furnished-house\\compare-grass.mjs",
+        "--matched-start",
+        "bedroom",
+        "--seconds",
+        "180",
+        "--deadline-seconds",
+        "900",
+        "--out",
+        "artifacts/qa/furnished-house-grass-bedroom-matched-180"
+      ],
+      "inputs": [
+        "inputs.json",
+        "control-data.json",
+        "grass-data.json",
+        "frozen-runtime/"
+      ],
+      "outputs": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\furnished-house-grass-bedroom-matched-180",
+      "automaticReplay": false
+    },
+    "activeCase": "bedroom-nonburning-domain",
+    "finishedAt": "2026-11-12T08:49:43.709Z",
+    "exitCode": 0,
+    "elapsedSeconds": 465.735,
+    "deadlineSeconds": 900
+  },
+  "cachedGrassIgnition": {
+    "tick": 4881,
+    "time": 162.7
+  },
+  "stateComparison": {
+    "sampleKeysIdentical": true,
+    "samples": 181,
+    "prefixDigest": {
+      "grass": "cfa482276347b8596deba229a48917fd73ccc744728b638cf8cf00359ff07cf1",
+      "matched": "8f06f1e6543ed35e10780e0bb90903d203c15104384a43dc1b4dab60d314db46"
+    },
+    "allSamplesIdentical": false,
+    "firstDifferentSavedSample": {
+      "tick": 4890,
+      "time": 163,
+      "identical": false,
+      "grassDigest": "af574b74e9355aae9e02dd7d0ad54d3216d2d4d3365abc71fac3fbd4ffddccbd",
+      "matchedDigest": "497aad3e1a7ee40d3ecf2da3b0f2dd1aa094049f5cba647b9762c1060ad2383d",
+      "grassHouseEver": 782.2616904485053,
+      "matchedHouseEver": 782.2616904485053,
+      "grassHouseCurrent": 682.9495388748071,
+      "matchedHouseCurrent": 682.9495388748071
+    },
+    "lastIdenticalBeforeFirstDifference": {
+      "tick": 4860,
+      "time": 162,
+      "identical": true,
+      "grassDigest": "7fff3b4ea6bdcaa798a20d4a7d62cdbb33ab0bd6d1be9bca9e599fa6a8e1e7e9",
+      "matchedDigest": "7fff3b4ea6bdcaa798a20d4a7d62cdbb33ab0bd6d1be9bca9e599fa6a8e1e7e9",
+      "grassHouseEver": 776.3511066181262,
+      "matchedHouseEver": 776.3511066181262,
+      "grassHouseCurrent": 677.978905075428,
+      "matchedHouseCurrent": 677.978905075428
+    },
+    "preGrassSamplesIdentical": true,
+    "resolution": "House physical-state digests are saved at1Hz. The exact first divergent saved sample tick is reported; any underlying subsecond state change is bounded between the last identical and first different sample, not invented."
+  },
+  "eventComparison": {
+    "projection": "All non-grass events in order through horizon, preserving tick/time/fields but omitting only global event id, which shifts when grass publishes its own events.",
+    "grassEvents": 6131,
+    "matchedEvents": 6129,
+    "grassSha256": "ec4c3bcc3f033b3229d0691c79efb50e788ba2ba85f7d71b6a1a0fb48c50ad70",
+    "matchedSha256": "8ccda6888e887fc1892660a65f2f5dcfec94c5532a923de39179323f28ecb0ce",
+    "exactIdenticalPrefixEvents": 4970,
+    "firstDifference": {
+      "index": 4970,
+      "grass": {
+        "tick": 5036,
+        "time": 167.86666666666667,
+        "type": "ignition",
+        "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+        "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post",
+        "position": [
+          4.4099999999999975,
+          0.39619052380952385,
+          -2.6599999999999984
+        ],
+        "cls": "frame"
+      },
+      "matched": {
+        "tick": 5037,
+        "time": 167.9,
+        "type": "landing",
+        "fallId": "fuel:floor/l1/7,10:embers",
+        "itemId": null,
+        "position": [
+          3.75,
+          0.48,
+          5.25
+        ],
+        "contactPosition": [
+          3.75,
+          0.48,
+          5.25
+        ],
+        "supportBoundaryId": "floor/l0/7,10",
+        "fuelIds": [
+          "fuel:floor/l1/7,10:embers"
+        ]
+      },
+      "lastIdenticalEvent": {
+        "tick": 5036,
+        "time": 167.86666666666667,
+        "type": "landing",
+        "fallId": "fuel:wall/l1/4-5-4-6/581/5/2.6:embers",
+        "itemId": null,
+        "position": [
+          4,
+          2.5999999,
+          5.25
+        ],
+        "contactPosition": [
+          4,
+          2.5999999,
+          5.25
+        ],
+        "supportBoundaryId": "floor/l1/8,10",
+        "fuelIds": [
+          "fuel:wall/l1/4-5-4-6/581/5/2.6:embers"
+        ]
+      }
+    },
+    "firstChangedIgnition": {
+      "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+      "grass": {
+        "tick": 5036,
+        "time": 167.86666666666667,
+        "type": "ignition",
+        "fuelId": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+        "sourceSurfaceId": "attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post",
+        "position": [
+          4.4099999999999975,
+          0.39619052380952385,
+          -2.6599999999999984
+        ],
+        "cls": "frame"
+      },
+      "matched": null
+    }
+  },
+  "thresholds": {
+    "10": {
+      "grass": 15.933333333333334,
+      "matched": 15.933333333333334,
+      "matchedMinusGrass": 0
+    },
+    "50": {
+      "grass": 117.46666666666667,
+      "matched": 117.46666666666667,
+      "matchedMinusGrass": 0
+    },
+    "90": {
+      "grass": 164.53333333333333,
+      "matched": 164.53333333333333,
+      "matchedMinusGrass": 0
+    }
+  },
+  "exterior": {
+    "grass": {
+      "originalCount": 156,
+      "originalArea": 68.37,
+      "ignitedCount": 154,
+      "ignitedArea": 67.31,
+      "inPlaceIgnitedCount": 154,
+      "first": 119.6,
+      "lastAmongIgnited": 179.9,
+      "lastAllIgnited": null,
+      "unignitedCount": 2,
+      "unignitedArea": 1.06,
+      "unignitedIds": [
+        "fuel:wall/l0/4-10-5-10/290/4/0.48",
+        "fuel:wall/l0/4-10-5-10/290/4.5/0.48"
+      ],
+      "ignitionTimelineSha256": "de70bd195f3799f7f712b34802b444c0679df98c0bd449763b6a6bd123984917"
+    },
+    "matched": {
+      "originalCount": 156,
+      "originalArea": 68.37,
+      "ignitedCount": 154,
+      "ignitedArea": 67.31,
+      "inPlaceIgnitedCount": 154,
+      "first": 119.6,
+      "lastAmongIgnited": 179.9,
+      "lastAllIgnited": null,
+      "unignitedCount": 2,
+      "unignitedArea": 1.06,
+      "unignitedIds": [
+        "fuel:wall/l0/4-10-5-10/290/4/0.48",
+        "fuel:wall/l0/4-10-5-10/290/4.5/0.48"
+      ],
+      "ignitionTimelineSha256": "de70bd195f3799f7f712b34802b444c0679df98c0bd449763b6a6bd123984917"
+    },
+    "facades": {
+      "west (-X)": {
+        "grass": {
+          "originalCount": 40,
+          "originalArea": 17.599999999999998,
+          "ignitedCount": 40,
+          "ignitedArea": 17.599999999999998,
+          "inPlaceIgnitedCount": 40,
+          "first": 152.5,
+          "lastAmongIgnited": 165.5,
+          "lastAllIgnited": 165.5,
+          "unignitedCount": 0,
+          "unignitedArea": 0,
+          "unignitedIds": [],
+          "ignitionTimelineSha256": "1d48f8a63efe843f274e1f8c132d25faba45fd684ac08f6c3240536c96d2c94f"
+        },
+        "matched": {
+          "originalCount": 40,
+          "originalArea": 17.599999999999998,
+          "ignitedCount": 40,
+          "ignitedArea": 17.599999999999998,
+          "inPlaceIgnitedCount": 40,
+          "first": 152.5,
+          "lastAmongIgnited": 165.5,
+          "lastAllIgnited": 165.5,
+          "unignitedCount": 0,
+          "unignitedArea": 0,
+          "unignitedIds": [],
+          "ignitionTimelineSha256": "1d48f8a63efe843f274e1f8c132d25faba45fd684ac08f6c3240536c96d2c94f"
+        }
+      },
+      "rear (+Z)": {
+        "grass": {
+          "originalCount": 40,
+          "originalArea": 17.6,
+          "ignitedCount": 38,
+          "ignitedArea": 16.54,
+          "inPlaceIgnitedCount": 38,
+          "first": 125.6,
+          "lastAmongIgnited": 179.9,
+          "lastAllIgnited": null,
+          "unignitedCount": 2,
+          "unignitedArea": 1.06,
+          "unignitedIds": [
+            "fuel:wall/l0/4-10-5-10/290/4/0.48",
+            "fuel:wall/l0/4-10-5-10/290/4.5/0.48"
+          ],
+          "ignitionTimelineSha256": "f5680e1a6f9f9a299c2d9b1521aa18a5b769f76b7ea3eb1d1cb8084e23b1347d"
+        },
+        "matched": {
+          "originalCount": 40,
+          "originalArea": 17.6,
+          "ignitedCount": 38,
+          "ignitedArea": 16.54,
+          "inPlaceIgnitedCount": 38,
+          "first": 125.6,
+          "lastAmongIgnited": 179.9,
+          "lastAllIgnited": null,
+          "unignitedCount": 2,
+          "unignitedArea": 1.06,
+          "unignitedIds": [
+            "fuel:wall/l0/4-10-5-10/290/4/0.48",
+            "fuel:wall/l0/4-10-5-10/290/4.5/0.48"
+          ],
+          "ignitionTimelineSha256": "f5680e1a6f9f9a299c2d9b1521aa18a5b769f76b7ea3eb1d1cb8084e23b1347d"
+        }
+      },
+      "front (-Z)": {
+        "grass": {
+          "originalCount": 36,
+          "originalArea": 15.569999999999999,
+          "ignitedCount": 36,
+          "ignitedArea": 15.569999999999999,
+          "inPlaceIgnitedCount": 36,
+          "first": 128.2,
+          "lastAmongIgnited": 159.6,
+          "lastAllIgnited": 159.6,
+          "unignitedCount": 0,
+          "unignitedArea": 0,
+          "unignitedIds": [],
+          "ignitionTimelineSha256": "4fe4de3cf1bf4561701da5e4c8b1d3b9dffffb1b8a5fbe0aa6263e96d6fb29e8"
+        },
+        "matched": {
+          "originalCount": 36,
+          "originalArea": 15.569999999999999,
+          "ignitedCount": 36,
+          "ignitedArea": 15.569999999999999,
+          "inPlaceIgnitedCount": 36,
+          "first": 128.2,
+          "lastAmongIgnited": 159.6,
+          "lastAllIgnited": 159.6,
+          "unignitedCount": 0,
+          "unignitedArea": 0,
+          "unignitedIds": [],
+          "ignitionTimelineSha256": "4fe4de3cf1bf4561701da5e4c8b1d3b9dffffb1b8a5fbe0aa6263e96d6fb29e8"
+        }
+      },
+      "east (+X)": {
+        "grass": {
+          "originalCount": 40,
+          "originalArea": 17.599999999999998,
+          "ignitedCount": 40,
+          "ignitedArea": 17.599999999999998,
+          "inPlaceIgnitedCount": 40,
+          "first": 119.6,
+          "lastAmongIgnited": 131.9,
+          "lastAllIgnited": 131.9,
+          "unignitedCount": 0,
+          "unignitedArea": 0,
+          "unignitedIds": [],
+          "ignitionTimelineSha256": "3f421fb2c4c0e63016d6115289b38daf8655332b59ebd2fdc0158578d7640b6c"
+        },
+        "matched": {
+          "originalCount": 40,
+          "originalArea": 17.599999999999998,
+          "ignitedCount": 40,
+          "ignitedArea": 17.599999999999998,
+          "inPlaceIgnitedCount": 40,
+          "first": 119.6,
+          "lastAmongIgnited": 131.9,
+          "lastAllIgnited": 131.9,
+          "unignitedCount": 0,
+          "unignitedArea": 0,
+          "unignitedIds": [],
+          "ignitionTimelineSha256": "3f421fb2c4c0e63016d6115289b38daf8655332b59ebd2fdc0158578d7640b6c"
+        }
+      }
+    },
+    "identicalOriginalWallIgnitionTimeline": true
+  },
+  "budgets": {
+    "passed": true,
+    "fuelError": 5.368519850890152e-9,
+    "heatRelativeError": 6.6892523271548755e-12,
+    "cohortBurnedError": 0,
+    "cohortGeneratedRelativeError": 0,
+    "grassBurned": 0,
+    "grassEver": 0,
+    "maxBurnsPerFuelPerTick": 1
+  },
+  "files": {
+    "owner.json": {
+      "bytes": 1751,
+      "sha256": "4b3d3006147b22df66f74f37268ee9f50855b71bcabcfb9b573da4dd554f1d01"
+    },
+    "launch.json": {
+      "bytes": 4217,
+      "sha256": "d0d9b517c4827e3a07913320d9c7b72b04e6d44cd3dad863621d5bd9e576fa73"
+    },
+    "inputs.json": {
+      "bytes": 220013,
+      "sha256": "d633af1bbbfb94af1cd7d3854854af165a690607634bdb35b10cb96f6f651a8f"
+    },
+    "bedroom-nonburning-domain/snapshot.json": {
+      "bytes": 8415112,
+      "sha256": "671d896e1984ded06014de0629cfbe881a7735658b25533086b8c11af7286385"
+    },
+    "bedroom-nonburning-domain/events.json": {
+      "bytes": 1863294,
+      "sha256": "7c363173142d725ad8c1be05f169367ccdbe0aed035795ec0e57e4f1d73905f9"
+    },
+    "bedroom-nonburning-domain/frames.ndjson.gz": {
+      "bytes": 4116264,
+      "sha256": "54284bdfc4f52757b82978b486e3e3dabaf2bf7aff58ddd0eb8aeac457ac5e79"
+    }
+  },
+  "archiveClosed": true,
+  "sourcePrimaryReceipts": {
+    "ownerSha256": "6273d41dcb4e3811e749a22c30c164a67c37bac76b034c3b47dcedb70585d507",
+    "failureSha256": "4f1de2db05dacddd79c93cd24c1965c44f6843846b22e6956427b1fce3777dc9",
+    "optionalPartialSnapshotSha256": "9867a801807bd457a0a453993e33bc4a5caa9715f42fbca304d2189239f7db27"
+  },
+  "limitations": [
+    "One profile-only nonburning-ground intervention within the frozen model. It cannot validate below-soil representative-cell versus air-side geometry.",
+    "Only the cached primary prefix through the completed diagnostic horizon is compared; no primary trajectory was rerun.",
+    "This leaf does not complete grass art, paired actual animated WebGL/JPG review or production promotion."
+  ],
+  "finalSample": {
+    "grass": {
+      "originalArea": 879.0518539309301,
+      "everIgnitedArea": 823.2469358534892,
+      "currentBurningArea": 630.9425926915661,
+      "everIgnitedFraction": 0.9365169212397502,
+      "stateSha256": "664793e58c65164872ad2e48f265db7b9f5b63bcb6a7251b2acf812b69ad18f0",
+      "burned": 292.676848197768,
+      "remaining": 313.73377098825057,
+      "airborne": 0.7334185444761442
+    },
+    "matched": {
+      "originalArea": 879.0518539309301,
+      "everIgnitedArea": 823.1704858094892,
+      "currentBurningArea": 630.8661426475661,
+      "everIgnitedFraction": 0.936429952486248,
+      "stateSha256": "097f035c7e7e5e5e7281e9af5739b40c013a85685ae094986190e496da66a9a3",
+      "burned": 292.6763214150583,
+      "remaining": 313.7342977709563,
+      "airborne": 0.7334185444761442
+    }
+  },
+  "houseIgnitionDifferencesThroughHorizon": [
+    {
+      "id": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+      "area": 0.03822502199999994,
+      "group": "porch/entry",
+      "position": [
+        4.4099999999999975,
+        0.39619052380952385,
+        -2.6599999999999984
+      ],
+      "grass": {
+        "id": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post@8,-1,-6",
+        "time": 167.86666666666667,
+        "pose": "in-place"
+      },
+      "matched": null
+    },
+    {
+      "id": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/46/prototype-entry-rail-post@11,-1,-6",
+      "area": 0.03822502199999994,
+      "group": "porch/entry",
+      "position": [
+        5.590000000000002,
+        0.39619052380952385,
+        -2.6599999999999984
+      ],
+      "grass": {
+        "id": "fuel:attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/46/prototype-entry-rail-post@11,-1,-6",
+        "time": 169.1,
+        "pose": "in-place"
+      },
+      "matched": null
+    }
+  ]
+}
