@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';import {createHash} from 'node:c
 const runtimePin='8b155507332c3026bb078f40e870f242d36c1fa7',runtimeRoot='artifacts/helpers/furnished-house-review/runtime-8b1555',intake=[];
 fs.mkdirSync(runtimeRoot,{recursive:true});
 for(const name of ['geometry.js','prepare-data.js','scene.js','support.js','simulation.js']){const source='workbenches/furnished-house/'+name,bytes=execFileSync('git',['show',runtimePin+':'+source]),target=path.join(runtimeRoot,name);fs.writeFileSync(target,bytes);intake.push({path:source,sourceCommit:runtimePin,installedPath:target.replaceAll(path.sep,'/'),bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')});}
-fs.writeFileSync(path.join(runtimeRoot,'intake.json'),JSON.stringify({owner:'01a17ea0-1362-7d13-a42d-f4a5fcff8902',purpose:'Foreground prepared-manifest and support compatibility control; no background helper',endCondition:'Initialization, frame read and disposal complete',sourceCommit:runtimePin,files:intake},null,2)+'\\n');
+fs.writeFileSync(path.join(runtimeRoot,'intake.json'),JSON.stringify({owner:'01a17ea0-1362-7d13-a42d-f4a5fcff8902',purpose:'Foreground prepared-manifest and support compatibility control; no background helper',endCondition:'Initialization, frame read and disposal complete',sourceCommit:runtimePin,files:intake},null,2)+'\n');
 const {createTrial}=await import(pathToFileURL(path.resolve(runtimeRoot,'simulation.js')).href);
 const data=JSON.parse(fs.readFileSync('workbenches/furnished-house/house-data.json')),before=JSON.stringify(data),trial=createTrial(data),prepared=trial.scene.data,graph=trial.supportGraph.diagnostics(),a=await createFurnishedHouseArt(T,{data:prepared});
 try{

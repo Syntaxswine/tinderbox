@@ -1,0 +1,13 @@
+{
+  "passed": 6,
+  "failed": 0,
+  "groups": [
+    "A skipped land-and-retransfer retires flight unconditionally even when its historical rubble is gone",
+    "Same-revision paused/camera empty deltas preserve current flight and rubble",
+    "New landing ownership beats both old rubble tombstones and a retired roof provenance",
+    "Shared duplicated fuel footprints preserve the real outer boundary instead of inflating the flame envelope",
+    "A current airborne association takes priority over retained prior landing metadata",
+    "Escape/retirement and full reset leave no retained flight, landing or fuel-owner cache"
+  ],
+  "scope": "Focused coalesced-render lifecycle, associations and support-envelope regression; long exact runtime replay is separate."
+}
