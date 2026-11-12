@@ -1,0 +1,173 @@
+{
+  "runtimePin": "8b155507332c3026bb078f40e870f242d36c1fa7",
+  "sourceIntake": [
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "sourceCommit": "8b155507332c3026bb078f40e870f242d36c1fa7",
+      "installedPath": "artifacts/helpers/furnished-house-review/runtime-8b1555/geometry.js",
+      "bytes": 11189,
+      "sha256": "fa7ed18b5400e99e7bd5ed1ddc29fd20b84279f7bff3ae67e7e9d9806bcae368"
+    },
+    {
+      "path": "workbenches/furnished-house/prepare-data.js",
+      "sourceCommit": "8b155507332c3026bb078f40e870f242d36c1fa7",
+      "installedPath": "artifacts/helpers/furnished-house-review/runtime-8b1555/prepare-data.js",
+      "bytes": 2588,
+      "sha256": "f43d0fbc4472c478f849d44abc4a5dff0cf5e460903cc389e069e1d231dafe94"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "sourceCommit": "8b155507332c3026bb078f40e870f242d36c1fa7",
+      "installedPath": "artifacts/helpers/furnished-house-review/runtime-8b1555/scene.js",
+      "bytes": 10173,
+      "sha256": "9295a83afc2c2550a5cd1cf9f3cc43acef57dad54e86c59c2ac17b4818783c52"
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "sourceCommit": "8b155507332c3026bb078f40e870f242d36c1fa7",
+      "installedPath": "artifacts/helpers/furnished-house-review/runtime-8b1555/support.js",
+      "bytes": 5994,
+      "sha256": "9de23edd6135d8d7ce9af09ed3ad6c683c4379102a9485f390e367664b98c0ac"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "sourceCommit": "8b155507332c3026bb078f40e870f242d36c1fa7",
+      "installedPath": "artifacts/helpers/furnished-house-review/runtime-8b1555/simulation.js",
+      "bytes": 36686,
+      "sha256": "e7d4ab121a9d63c8f4bf83d2c999f3caa6c4fa79cc6cf502fe14849cfd0b73e5"
+    }
+  ],
+  "scope": "Pure Node initialization, prepared-manifest ownership, real source bindings and shared frame compatibility. Does not establish animated replay, inert landing timing or hardware cost.",
+  "runtimeAdapterVersion": 1,
+  "supportGraph": {
+    "nodes": 4363,
+    "contactPairs": 10251,
+    "declaredPairs": 14409,
+    "anchors": 414,
+    "groundedInert": 913,
+    "unrootedInert": 0,
+    "initiallySupported": 4363,
+    "unresolvedInitial": 0,
+    "unresolvedIds": [],
+    "checks": 0,
+    "stairFlight": {
+      "inferredStringer": true,
+      "steps": [
+        "stair/340",
+        "stair/341",
+        "stair/342",
+        "stair/343",
+        "stair/344",
+        "stair/345",
+        "stair/346",
+        "stair/347",
+        "stair/348",
+        "stair/349",
+        "stair/350",
+        "stair/351"
+      ],
+      "lower": [
+        "floor/l0/12,6",
+        "floor/l0/12,7",
+        "floor/l0/12,8",
+        "floor/l0/9,6",
+        "floor/l0/9,7",
+        "floor/l0/9,8",
+        "floor/l0/10,6",
+        "floor/l0/10,7",
+        "floor/l0/10,8",
+        "floor/l0/11,6",
+        "floor/l0/11,7",
+        "floor/l0/11,8"
+      ],
+      "upper": [
+        "floor/l1/12,13",
+        "floor/l1/9,13"
+      ],
+      "requiresBothLandings": true
+    }
+  },
+  "ornament": {
+    "id": "inert-ornament/native-chimney",
+    "supportSurfaceIds": [
+      "roof/798/13,4,12,0,93,37",
+      "roof/798/13,4,13,0,93,37",
+      "roof/799/13,4,12,0,93,37",
+      "roof/799/13,4,13,0,93,37",
+      "roof/799/14,4,12,0,93,37",
+      "roof/799/14,4,13,0,93,37"
+    ],
+    "parts": [
+      {
+        "id": "inert-ornament/native-chimney/part/0",
+        "material": "brick",
+        "fuelAmount": 0
+      },
+      {
+        "id": "inert-ornament/native-chimney/part/1",
+        "material": "brick",
+        "fuelAmount": 0
+      }
+    ]
+  },
+  "art": {
+    "disposed": false,
+    "version": 1,
+    "prefabId": "hopkins-4-15",
+    "worldTime": 0,
+    "revision": 0,
+    "view": "cutaway",
+    "level": 1,
+    "sourceSurfaces": 2952,
+    "physicalPatches": 5755,
+    "retiredPatches": 0,
+    "sourceMeshes": 860,
+    "batches": 61,
+    "items": 17,
+    "falls": 0,
+    "fallVisuals": 0,
+    "debris": {
+      "flights": 0,
+      "residue": 0,
+      "pendingLanding": 0,
+      "missingGeometry": 0,
+      "draws": 0,
+      "resources": {
+        "geometries": 1,
+        "materials": 1
+      }
+    },
+    "occupancy": 0,
+    "fireSamples": 0,
+    "representedSamples": 0,
+    "missingSamples": 0,
+    "visibleSamples": 0,
+    "viewCulledSamples": 0,
+    "emitterBatches": 0,
+    "fire": [],
+    "lightBudget": {
+      "terrainSites": 0,
+      "surfaceSites": 0,
+      "candidates": 0,
+      "capacity": 6,
+      "powerCap": 215,
+      "lights": []
+    },
+    "actualLights": [],
+    "resources": {
+      "geometries": 62,
+      "materials": 83,
+      "textures": 1
+    },
+    "resetCount": 2,
+    "revisionCount": 1,
+    "rootScale": [
+      1,
+      1,
+      1
+    ],
+    "stateBindings": 3052
+  },
+  "passed": 4,
+  "failed": 0
+}

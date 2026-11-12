@@ -1804,6 +1804,220 @@
         "remainingLimit": "Stair-side partitions and one fore-lip floor bay are explicitly removed in the same physical data; final continuous route proof remains required."
       },
       {
+        "type": "upper-stair-side-egress",
+        "status": "Architect approved",
+        "rightRail": {
+          "baseline": {
+            "position": [
+              6.04,
+              2.32,
+              5.5
+            ],
+            "quaternion": [
+              0.45983115019353515,
+              0,
+              0,
+              0.888006370085086
+            ],
+            "dimensions": [
+              0.055,
+              3.6734724716540343,
+              0.055
+            ],
+            "bounds": {
+              "min": [
+                6.012500000149012,
+                1.2375417050256752,
+                3.9841294852832356
+              ],
+              "max": [
+                6.067499999850988,
+                3.4024582949743243,
+                7.015870514716765
+              ]
+            }
+          },
+          "position": [
+            6.04,
+            1.9666666666666666,
+            5
+          ],
+          "dimensions": [
+            0.055,
+            2.4489816477693562,
+            0.055
+          ],
+          "retainedCentrelineZ": [
+            4,
+            6
+          ],
+          "removedCentrelineZ": [
+            6,
+            7
+          ],
+          "crossSectionUnchanged": [
+            0.055,
+            0.055
+          ],
+          "uvDensityAndPhaseUnchanged": true,
+          "sourceMeshBinding": "house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail"
+        },
+        "newel": {
+          "baseline": {
+            "position": [
+              6.04,
+              2.98,
+              7
+            ],
+            "dimensions": [
+              0.065,
+              0.75,
+              0.065
+            ],
+            "bounds": {
+              "min": [
+                6.007500001192093,
+                2.605,
+                6.967500001192093
+              ],
+              "max": [
+                6.072499998807907,
+                3.355,
+                7.032499998807907
+              ]
+            }
+          },
+          "position": [
+            7.54,
+            2.98,
+            6.95
+          ],
+          "translation": [
+            1.5,
+            0,
+            -0.05
+          ],
+          "dimensions": [
+            0.065,
+            0.75,
+            0.065
+          ],
+          "prototypeLevel": 1,
+          "location": "Actual upper bedroom A floor against the retained rear wall, outside the side-turn envelope",
+          "sourceMeshBinding": "house/gross-housing-hopkins-4-15/0/level-0/1/group/25/stair-newel",
+          "supportSurfaceIds": [
+            "floor/l1/14,13",
+            "floor/l1/15,13"
+          ],
+          "supportPolygons": [
+            {
+              "id": "floor/l1/14,13",
+              "triangles": [
+                [
+                  [
+                    7,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    6.5
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    7,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    7
+                  ]
+                ]
+              ]
+            },
+            {
+              "id": "floor/l1/15,13",
+              "triangles": [
+                [
+                  [
+                    7.5,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    8,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    8,
+                    2.5999999,
+                    6.5
+                  ]
+                ],
+                [
+                  [
+                    7.5,
+                    2.5999999,
+                    6.5
+                  ],
+                  [
+                    7.5,
+                    2.5999999,
+                    7
+                  ],
+                  [
+                    8,
+                    2.5999999,
+                    7
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        "retainedGapStartNewel": [
+          6.04,
+          2.2733333333333334,
+          6
+        ],
+        "turnWaypoints": [
+          [
+            5.5,
+            2.6,
+            6.875
+          ],
+          [
+            6,
+            2.6,
+            6.8
+          ],
+          [
+            6.5,
+            2.6,
+            6.4
+          ]
+        ],
+        "treadsUnchanged": true,
+        "floorAdded": false,
+        "noForwardLandingBeyondZ7": true,
+        "meshScalesUnchanged": true
+      },
+      {
         "wallEdge": "5,0|6,0",
         "level": 0,
         "type": "full-height-transom-frame",
