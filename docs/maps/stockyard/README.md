@@ -32,4 +32,6 @@ The artist's source research cache was inspected read-only. The 1891 museum PDF 
 
 Run `node art/source/stockyards/check.mjs` for the unchanged kit's 62 geometry/clearance/rotation/ownership checks. Map creation runs native validation and exact extension import/export comparison. `node tools/stockyard/review.mjs` runs a bounded actual-browser review of layout, native terrain editing, assembly movement/turn/copy, undo/redo, map export/import, roof inspection and native scale. Its isolated browser/server stop in `finally`; any retained owner preview has a separate expiry and lifecycle record.
 
+The [architect review](../../reviews/2026-11-12-stockyard-map.md) records the accepted blockout, actual browser actions, exported-file verification and cleanup recovery. JPGs show the [overview](previews/stockyard-editor-overview.jpg), [gate](previews/stockyard-gate-and-pens.jpg), [pen lanes](previews/stockyard-pen-lanes.jpg) and [roof cutaway](previews/stockyard-roof-cutaway.jpg).
+
 The fire/grass comparison remains on its own branches and continues with the existing coder. This blockout does not retune or replace the accepted furnished-house replay.

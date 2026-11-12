@@ -1,0 +1,45 @@
+{
+  "closedAt": "2026-11-12T08:07:15.504Z",
+  "helper": {
+    "owner": "Architect Tinderbox",
+    "project": "Tinderbox",
+    "purpose": "Furnished-house prototype stockyard-editor",
+    "driver": {
+      "pid": 12552,
+      "creationFiletime": "134389443343288868",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "browser": {
+      "pid": 69564,
+      "creationFiletime": "134389443442130600",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    "ports": [
+      49326,
+      49327
+    ],
+    "startedAt": "2026-11-12T08:05:44.058Z",
+    "expiresAt": "2026-11-12T08:10:44.058Z",
+    "stopFile": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\stockyard-editor-1794470742627\\STOP",
+    "stopMethod": "STOP file, deadline or driver finally",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\tools\\stockyard\\review.mjs"
+      ],
+      "commit": "31eaec8145dd5a7221e386b946dc7acb7a7acd0d",
+      "baselineManifest": "c592039f35d7f4173c17e4f9443726423e9d77eb8ee5bfdbb7d6430625c33987",
+      "output": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\furnished-house-replay\\stockyard-editor-1794470742627",
+      "environment": {
+        "TINDERBOX_PLAYWRIGHT_ROOT": "C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1110-778-0_26.1110.778.0_x64__3k8sg7r9htsxt/dependencies/node/node_modules"
+      }
+    }
+  },
+  "portsListening": [
+    false,
+    false
+  ],
+  "browserExited": false,
+  "cleanupError": "Error: Cleanup deadline: browser close\n    at Timeout.<anonymous> (file:///C:/Users/baals/Documents/ChatGPT/tinderbox/tools/review/furnished-house/review-browser.mjs:76:101)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)"
+}
