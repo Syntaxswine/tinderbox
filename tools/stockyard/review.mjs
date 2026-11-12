@@ -11,6 +11,10 @@ await withReviewBrowser(async({page,origin,output,save,errors})=>{
  assert.equal(before.info.instances,13);assert.equal(before.info.bays,72);assert.deepEqual(before.info.errors,[]);assert.deepEqual(before.info.nativeErrors,[]);
  save('initial.json',before.info);fs.writeFileSync(path.join(output,'exported.map.json'),before.text);
  await page.screenshot({path:path.join(output,'stockyard-editor-overview.jpg'),type:'jpeg',quality:92});
+ await frame.getByRole('button',{name:'Stockyard layer',exact:true}).click();assert.equal(await frame.locator('#stockyard-tools').isVisible(),false);
+ await frame.getByRole('button',{name:'Stockyard layer',exact:true}).click();assert.equal(await frame.locator('#stockyard-tools').isVisible(),true);
+ const downloadPromise=page.waitForEvent('download');await frame.locator('#sy-export').click();const download=await downloadPromise;
+ await download.saveAs(path.join(output,'downloaded.map.json'));assert.deepEqual(JSON.parse(fs.readFileSync(path.join(output,'downloaded.map.json'),'utf8')),JSON.parse(before.text));
  await frame.locator('#sy-selection').selectOption('covered-north-1-1');
  await frame.locator('#sy-x').fill('128');await frame.locator('#sy-apply').click();
  await frame.waitForFunction(()=>JSON.parse(window.__stockyard.export()).tinderboxStockyard.instances.find(p=>p.id==='covered-north-1-1').x===128);
@@ -37,6 +41,6 @@ await withReviewBrowser(async({page,origin,output,save,errors})=>{
  await frame.locator('#sy-fit').click();
  const final=await frame.evaluate(()=>({info:window.__stockyard.diagnostics(),validation:window.nautilus.document.validate(),scales:[...window.__stockyard.models.values()].map(v=>v.model.root.scale.toArray())}));
  assert.deepEqual(final.info.errors,[]);assert.deepEqual(final.validation,[]);assert.ok(final.scales.every(s=>s.every(v=>v===1)));
- assert.deepEqual(errors,[]);save('acceptance.json',{source:'actual native Nautilus editor plus Tinderbox stockyard layer',move:true,turn:true,copy:true,undo:true,redo:true,exportImport:true,nativeTerrainEdit:true,normalScale:true,...final});
+ assert.deepEqual(errors,[]);save('acceptance.json',{source:'actual native Nautilus editor plus Tinderbox stockyard layer',move:true,turn:true,copy:true,undo:true,redo:true,exportImport:true,fileDownload:true,panelToggle:true,nativeTerrainEdit:true,normalScale:true,...final});
  return final;
 },{suffix:'stockyard-editor',lifetimeMs:300000,staticDirectories:['maps/stockyard','artifacts/helpers/stockyard-map/engine-source/dist']});

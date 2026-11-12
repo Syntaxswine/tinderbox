@@ -13,7 +13,7 @@ map.starts.forEach((s,i)=>{s.character.id='char_stockyard_staging_'+(i+1);});
 // Keep the editor format's required staging slots in its original margin; no crowd is implied.
 function paint(x0,y0,x1,y1,kind,z=0){for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(z)map.upper[z-1][x+','+y]=kind;else map.terrain[y][x]=kind;}
 function edgeBox(x0,y0,x1,y1,kind,z=0){for(let x=x0;x<=x1;x++){map.edges[edgeKey('s',x,y0-1,z)]=kind;map.edges[edgeKey('s',x,y1,z)]=kind;}for(let y=y0;y<=y1;y++){map.edges[edgeKey('e',x0-1,y,z)]=kind;map.edges[edgeKey('e',x1,y,z)]=kind;}}
-paint(80,64,218,178,'yard');
+paint(80,64,218,178,'ground-dirt');
 paint(80,122,218,130,'ground-gravel'); // Exchange approach and internal east/west spine.
 paint(112,65,121,175,'ground-gravel'); // Centre Avenue / rail-service corridor.
 paint(181,70,188,168,'ground-gravel');
@@ -25,7 +25,7 @@ for(const [x0,y0,x1,y1]of [[83,83,106,113],[85,138,106,164],[190,145,198,158]]){
  for(let x=x0+5;x<x0+9;x++){delete map.edges[edgeKey('s',x,y1)];}
 }
 // Open holding pens are ordinary map-editor rail fences, distinct from covered hog bays.
-for(const x of [126,156]){paint(x,72,x+19,85,'yard');edgeBox(x,72,x+19,85,'fence-railing');for(let y=72;y<=85;y++)map.edges[edgeKey('e',x+9,y)]='fence-railing';delete map.edges[edgeKey('s',x+4,85)];delete map.edges[edgeKey('s',x+5,85)];}
+for(const x of [126,156]){paint(x,72,x+19,85,'ground-dirt');edgeBox(x,72,x+19,85,'fence-railing');for(let y=72;y<=85;y++)map.edges[edgeKey('e',x+9,y)]='fence-railing';delete map.edges[edgeKey('s',x+4,85)];delete map.edges[edgeKey('s',x+5,85)];}
 for(let y=87;y<118;y++)map.edges[edgeKey('e',201,y)]='fence-railing';
 for(let y=135;y<=167;y++)map.edges[edgeKey('e',201,y)]='fence-railing';
 const instances=[{id:'exchange-entrance',name:'Union Stock Yard gate',asset:'union-stockyard-gate',x:202,y:126,quarterTurns:3,bays:1,skin:'jubilee'}];
