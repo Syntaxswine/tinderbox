@@ -8,7 +8,7 @@ await withReviewBrowser(async({page,origin,save,errors})=>{
   assert.equal(await page.locator('#fatal').textContent(),'');
   const navigationToReadyMs=performance.now()-navigationStarted;
   const hardware=await page.evaluate(()=>{
-    const api=window.__furnished,coldInitialization=api.diagnostics().costMs.initialization;api.pause();api.setAutoRender(false);api.runReplay('kitchen',{play:false});
+    const api=window.__furnished,firstCompilation=api.diagnostics().costMs.initialization;api.pause();api.setAutoRender(false);api.runReplay('kitchen',{play:false});
     api.setView('exterior',0);api.setCamera({verticalSpan:12.6,offset:[10,14,-12],target:[5,0,5]});
     const gl=api.renderer.getContext(),ext=gl.getExtension('EXT_disjoint_timer_query_webgl2'),debug=gl.getExtension('WEBGL_debug_renderer_info');
     const gpu=[],pending=[],render=api.renderer.render.bind(api.renderer);let measuring=false;
@@ -23,22 +23,22 @@ await withReviewBrowser(async({page,origin,save,errors})=>{
     window.__qaCost={tick:0,
       advanceTo(time){while(this.tick<time*30){const n=Math.min(30,time*30-this.tick);api.advanceTicks(n);this.tick+=n;}return api.diagnostics();},
       async sample(count){
-        const sim=[],presentation=[],renderCpu=[],debugApi=[];let previous=api.diagnostics().costMs;
-        const last=(a,b)=>b.mean*b.samples-a.mean*a.samples;
+        const sim=[],presentation=[],renderCpu=[],debugApi=[];
         measuring=true;
         try{for(let i=0;i<count;i++){
-          const before=performance.now(),d=api.advanceTicks(1),elapsed=performance.now()-before;this.tick++;
-          sim.push(last(previous.simulation,d.costMs.simulation));presentation.push(last(previous.presentation,d.costMs.presentation));renderCpu.push(last(previous.render,d.costMs.render));debugApi.push(elapsed);
-          previous=d.costMs;await new Promise(requestAnimationFrame);poll();
+          const before=performance.now(),d=api.sampleStep(1),elapsed=performance.now()-before;this.tick++;
+          sim.push(d.simulationMs);presentation.push(d.presentationMs);renderCpu.push(d.renderCpuMs);debugApi.push(elapsed);
+          await new Promise(requestAnimationFrame);poll();
         }}finally{measuring=false;}
         for(let i=0;pending.length&&i<60;i++){await new Promise(requestAnimationFrame);poll();}
         if(pending.length)throw Error('GPU queries did not complete.');
+        if(ext&&gpu.length!==count)throw Error('Candidate GPU sample count mismatch.');
         return {sim,presentation,renderCpu,debugApi,gpu:gpu.splice(0),diagnostics:api.diagnostics()};
       },dispose(){for(const q of pending)gl.deleteQuery(q);api.renderer.render=render;api.dispose();}
     };
     return {renderer:String(gl.getParameter(debug?debug.UNMASKED_RENDERER_WEBGL:gl.RENDERER)),timerQuery:!!ext,
       toneMapping:api.renderer.toneMapping,exposure:api.renderer.toneMappingExposure,cameraType:api.camera.type,verticalSpan:api.camera.top-api.camera.bottom,
-      coldInitializationMs:coldInitialization,resetCompilationMs:api.diagnostics().costMs.initialization,viewport:[api.canvas.width,api.canvas.height],userAgent:navigator.userAgent};
+      firstSimulationCompilationMs:firstCompilation,resetSimulationCompilationMs:api.diagnostics().costMs.initialization,contextAttributes:gl.getContextAttributes(),viewport:[api.canvas.width,api.canvas.height],userAgent:navigator.userAgent};
   });
   const runs=[];
   for(const time of [5,30,75,120,170,240]){

@@ -63,11 +63,13 @@ await withReviewBrowser(async({page,origin,output,save,errors})=>{
     runs.push({startTime:time,before,summary:sample.summary,cpuMs:stats(sample.cpu),simulationMs:stats(sample.sim),
       presentationCpuMs:stats(sample.present),renderCpuMs:stats(sample.renderCpu),reportingAndOtherCpuMs:stats(sample.reporting),
       coreFrameCpuMs:stats(sample.sim.map((s,i)=>s+sample.present[i]+sample.renderCpu[i])),gpuMs:stats(sample.gpu),disjoint:sample.disjoint});
+    console.log(JSON.stringify({time,coreCpu:runs.at(-1).coreFrameCpuMs,gpu:runs.at(-1).gpuMs,draws:sample.summary.drawCalls,activeFire:sample.summary.activeFire}));
     if(time===30)await page.screenshot({path:path.join(output,'published-one-house.jpg'),type:'jpeg',quality:92});
   }
   const initMs=await page.evaluate(()=>window.__baseline.initMs);
+  const hardware=await page.evaluate(()=>{const b=window.__baseline,gl=b.gl,debug=gl.getExtension('WEBGL_debug_renderer_info');return {renderer:String(gl.getParameter(debug?debug.UNMASKED_RENDERER_WEBGL:gl.RENDERER)),version:gl.getParameter(gl.VERSION),timerQuery:!!b.ext,contextAttributes:gl.getContextAttributes(),exposure:b.renderer.toneMappingExposure,toneMapping:b.renderer.toneMapping,userAgent:navigator.userAgent};});
   await page.evaluate(()=>window.__baseline.dispose());
   assert.deepEqual(errors,[]);assert.ok(runs.some(r=>r.summary.activeFire>0),'The published baseline must actually burn.');
-  save('timings.json',{publishedCommit:'c855e627bdee963e930644839a60c027a03935de',initMs,navigationToReadyMs,viewport:[1280,800],method:'Production createRuntime/createArtScene with dummy HUD, fixed1/30 world-second advance. Art update and render CPU measured independently; GPU brackets renderer.render only.120 samples per window, bounded query drain, disjoint rejection.',runs});
-  console.log(JSON.stringify({initMs,runs}));return {initMs,runs};
+  save('timings.json',{publishedCommit:'c855e627bdee963e930644839a60c027a03935de',initMs,navigationToReadyMs,hardware,viewport:[1280,800],method:'Production createRuntime/createArtScene with dummy HUD, fixed1/30 world-second advance. Art update and render CPU measured independently; GPU brackets renderer.render only.120 samples per window, bounded query drain, disjoint rejection.',runs});
+  console.log(JSON.stringify({initMs,hardware,runs}));return {initMs,hardware,runs};
 },{suffix:'published-baseline',lifetimeMs:360000});
