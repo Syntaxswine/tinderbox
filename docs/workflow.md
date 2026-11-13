@@ -4,13 +4,17 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/bell-and-alder-closing-time-proposal` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Closing-time proposal, exact combined intake and replay review |
+| Architect | `codex/bell-and-alder-sandbox-proposal` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Finish/review closing-time first; queue exploratory neighborhood demo and bounded brigade study |
 | Artist | `codex/bell-and-alder-closing-art` from `b6838d00` (assigned); `4001bfb5` stockyard checkpoint preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Native lodging/stair variant, scene data, painted dressing and light/effect presentation |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
 | Coder | `codex/bell-and-alder-closing-runtime` from `b6838d00` (assigned); prior fire research branches preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Closing-time simulation/actors/interactions, audio runtime and replay delivery |
-| UI designer | `codex/fire-effect-settings-ui` from `25095656` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Three independent effect settings; preserve the separate train interface candidate |
+| UI designer | `codex/fire-brigade-study` from `b6838d00` (study assigned); effect-settings/train checkpoints preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Independent period fire-brigade research/reuse study only; no runtime/art expansion |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+
+The owner queued [Milestone 23: the Bell & Alder neighborhood sandbox](milestones/23-bell-and-alder-sandbox-demo.md) for a typical 10–15 minute exploratory session, with no required mission or victory condition. Failures are useful findings. **Coder/artist continue Milestone 22 first; finish, review and show its actual replay before any demo expansion or new implementation branches.** The architect records that gate and exact combined base. The later sandbox reuses a compact block, tests existing moving pieces and returns observed failures/costs rather than polishing toward a scripted success. It does not authorize production promotion.
+
+At the owner's invitation for parallel expansion work, the completed UI worker receives [Milestone 24: a small fire-brigade study](milestones/24-fire-brigade-study.md). This is a bounded primary-source/reuse/design task; it creates no brigade gameplay or art and does not compete with closing-time delivery. The future brigade is not a dependency of the sandbox.
 
 The current creative assignment is [Milestone 22: Bell & Alder at closing time](milestones/22-bell-and-alder-closing-time.md), authorized by the owner with a replay before game integration. The existing coder and artist work from `b6838d00` on isolated task branches, preserving the artist's stockyard work. One shop/lodging, alley, opposite frontage, resident and officer turn from quiet closing activity to a causal developing fire. Current controls remain. The architect reviews a real animated WebGL replay and source evidence before proposing production promotion; no Pages rollout is authorized by this assignment.
 
