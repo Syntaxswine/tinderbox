@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "status": "Measured first-slice layout, conforms to coder additive instance API v1; combined traversal and visual acceptance pending.",
+  "baseCommit": "93239f1e202f05064c033038f6f343f79b905b8e",
+  "frozenClosingArt": "a0eef339988c24ef5a688396f552b8661764f472",
+  "units": "metres; XYZ with Y up; native component scale1",
+  "module": [
+    1,
+    1,
+    2.12
+  ],
+  "firstIncrement": [
+    "Existing Bell and Alder control",
+    "One existing furnished Hopkins15",
+    "One modest paved service yard and connecting path"
+  ],
+  "placements": [
+    {
+      "id": "shop",
+      "source": "workbenches/bell-and-alder-closing/scene-data.json",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "quarterTurns": 0,
+      "walkingElevations": [
+        0,
+        2.12
+      ],
+      "preserve": "Frozen M22 geometry, fittings, NPCs, anchors and known deferred defects."
+    },
+    {
+      "id": "house",
+      "source": "workbenches/furnished-house/house-data.json",
+      "prepareWith": "workbenches/furnished-house/prepare-data.js:prepareFurnishedData",
+      "translation": [
+        -5,
+        0,
+        8
+      ],
+      "quarterTurns": 2,
+      "rotationRule": "Rigid180deg Y rotation, then translation; source preparation before ID qualification and transform.",
+      "sourceWalkingElevations": [
+        0.48,
+        2.6
+      ],
+      "worldWalkingElevations": [
+        0.48,
+        2.6
+      ],
+      "sourceVisualBounds": {
+        "min": [
+          -0.305,
+          -0.12,
+          -3.32
+        ],
+        "max": [
+          10.305,
+          6.91,
+          10.25
+        ]
+      },
+      "worldVisualBounds": {
+        "min": [
+          -15.305,
+          -0.12,
+          -2.25
+        ],
+        "max": [
+          -4.695,
+          6.91,
+          11.32
+        ]
+      },
+      "sourceModuleDimensions": {
+        "wall": [
+          1,
+          2,
+          0.16
+        ],
+        "door": [
+          1,
+          1.65,
+          0.12
+        ],
+        "slab": 0.12,
+        "levelPitch": 2.12
+      },
+      "reviewedEntry": {
+        "centre": [
+          5.00375,
+          0.48,
+          0
+        ],
+        "minimumClearWidth": 1.015,
+        "control": "docs/art/furnished-house/entry-checks.json"
+      },
+      "passageLimit": "Reviewed entry and interior stair are fitted to the1m-diameter goat/horse player profile. Larger bear/.62m-radius civilian passage is not accepted; preserve source scale and expose this limitation."
+    }
+  ],
+  "yard": {
+    "pavedBounds": {
+      "min": [
+        -5,
+        0,
+        -1
+      ],
+      "max": [
+        0,
+        0,
+        8
+      ]
+    },
+    "clearRoute": {
+      "centreX": -3,
+      "width": 2,
+      "zRange": [
+        -1,
+        10
+      ]
+    },
+    "dressing": [
+      {
+        "id": "yard-crate",
+        "reuse": "Existing painted cargo wood atlas on a simple1m cube",
+        "position": [
+          -4.5,
+          0,
+          9.5
+        ],
+        "dimensions": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "yard-fence",
+        "reuse": "Existing timber post/two-rail recipe in one1m panel",
+        "from": [
+          -5,
+          0,
+          -1
+        ],
+        "to": [
+          -4,
+          0,
+          -1
+        ],
+        "height": 1
+      }
+    ],
+    "gate": "Clear2m route X-4..-2 around the unchanged street lamp; one1m rear fence panel remains X-5..-4.",
+    "surface": "Paving only; no lawn, terrain growth or obstacle wind bake.",
+    "pavingAdaptation": "Add only the1m strip X-5..-4/Z-2..8 and street X-17..-4/Z8..16. Existing M22 west pavement X-4..0 supplies the rest of the yard; never export a coplanar duplicate."
+  },
+  "routeIntent": {
+    "shopToYard": [
+      [
+        4,
+        0,
+        9.2
+      ],
+      [
+        4,
+        0,
+        12
+      ],
+      [
+        -3,
+        0,
+        12
+      ],
+      [
+        -3,
+        0,
+        10
+      ],
+      [
+        -3,
+        0,
+        4
+      ],
+      [
+        -3,
+        0,
+        0
+      ]
+    ],
+    "streetToHouseStart": [
+      [
+        -3,
+        0,
+        12
+      ],
+      [
+        -10.00375,
+        0,
+        12
+      ]
+    ],
+    "houseNativeEntryApproach": "Transform the existing native six-block entry route and all original floor/stair contacts; retain the .48m raised floor."
+  },
+  "cameraIntent": {
+    "verticalSpan": 16,
+    "target": [
+      -2.5,
+      1.8,
+      5.8
+    ],
+    "offset": [
+      10,
+      14,
+      12
+    ],
+    "previewPixels": [
+      1600,
+      950
+    ],
+    "note": "Normal gameplay scale for first exemplar; a marked cutaway/route insert is additional evidence."
+  },
+  "apiNeeds": [
+    "Prepare each source before qualifying IDs or transforming it.",
+    "Instance-qualified surfaces/openings/items/parts/source meshes plus every support/contact/anchor reference.",
+    "Each stair flight must carry its own instance identity and actual lower/upper landings/elevations; no cross-building bracing.",
+    "Actual per-instance walking elevations: Bell0/2.12, reviewed house.48/2.60; one rigid transform, no stretching.",
+    "One authoritative thermal domain and explicit world/local frame mapping for art; shared light ownership must be defined.",
+    "Paved yard components need real movement/sight/cover/fuel/support records, not merely generic world-obstacle catalog entries."
+  ],
+  "deferred": [
+    "Known M22 pendant/light lifecycle, flame bands, grid-shaped aftermath, lantern attachment and failed direct-witness result",
+    "Suspicion bar and live visibility indicator; keep current buttons/icon",
+    "Monroe pair and additional buildings/wardrobes",
+    "Production/master/Pages promotion"
+  ],
+  "sourceInventory": [
+    {
+      "path": "workbenches/furnished-house/house-data.json",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 6172840,
+      "sha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1"
+    },
+    {
+      "path": "workbenches/furnished-house/art.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 41149,
+      "sha256": "30e47e550ded2b98aefbfc35ddac09c8dd352007323e916ff35a2adf109a6bbb"
+    },
+    {
+      "path": "workbenches/furnished-house/prepare-data.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 2588,
+      "sha256": "f43d0fbc4472c478f849d44abc4a5dff0cf5e460903cc389e069e1d231dafe94"
+    },
+    {
+      "path": "art/source/furnished-house/export.mjs",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 55207,
+      "sha256": "a46bd4c4fa3a3a5cc2ab284e996df6a2aefe259e1fa01aab6050471798d524b1"
+    },
+    {
+      "path": "src/art/hopkins-housing.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 8523,
+      "sha256": "6678cf4c5eeeb97bd2b5d6b47ebdeae6ad62682607b76b76e79731348c499d70"
+    },
+    {
+      "path": "src/art/gross-housing.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 28109,
+      "sha256": "6192c6e968ad468474f4ae14397ee9ca519b3a094e3da8e0fca917588b31760f"
+    },
+    {
+      "path": "src/art/gambrel-roof.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 6452,
+      "sha256": "1f215cf7edc7eefb4a0006a5081875bc591fb81ddabe981457524cde675aa0b6"
+    },
+    {
+      "path": "src/art/nautilus-windows.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 2963,
+      "sha256": "6a7e4daf7f1ff4d5eb4a8075d5b1863986ad55f0531c41107221e7d99aadc0e1"
+    },
+    {
+      "path": "src/art/world.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 6602,
+      "sha256": "0336c5cf68a17fee904b6ada1e53f4bb3897387e0513dba4230cfecaf087b4ee"
+    },
+    {
+      "path": "src/art/materials.js",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 3544,
+      "sha256": "e67136dbb1f713e787f6fa57b40ba102ccb36d8ad1552dbf61cc96544b520c37"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/environment/painted-study/cargo-materials-v1.png",
+      "commit": "93239f1e202f05064c033038f6f343f79b905b8e",
+      "bytes": 2276796,
+      "sha256": "032e09c8fa111f2e05f4b54acca5b46b97588241e234573e68117dbaba95db8e"
+    }
+  ],
+  "workflow": {
+    "path": "docs/art/shared-modular-art-workflow.md",
+    "sourceCommit": "4001bfb537fe2b156ccf17fa5a7e1b5cbdbcf9d4",
+    "sha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238",
+    "note": "Exact revised Version2, copied as one file without merging stockyard ancestry."
+  },
+  "sourceNavigationFinding": "Original dining-room detour clips its own open door leaf for goat/horse after placement. Sandbox-only route metadata uses the clear hall; no model, opening, collision or original route changed."
+}

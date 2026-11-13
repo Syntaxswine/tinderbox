@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "gameRuntimeCommit": "965e628c58c5b3f862134f8cd66238a9880aea87",
+  "artistCommit": "864713b135fee8331c70727927dd731fff0366e9",
+  "packageManifestSha256": "3d8a75bbf9ac9cc7ee2e2d93e67070acfd29b8083cc1a71ba665f533d213df0d",
+  "placementManifestSha256": "ca2f888faa1674d88c4898b96eaf429fc5af44755d2db9324a2d7b104f7881f3",
+  "files": [
+    {
+      "path": "overview-live.mp4",
+      "source": "sandbox-first-slice-live-cfr.mp4",
+      "bytes": 350919,
+      "sha256": "e31807913354732b1a828343bd04a6efca0c51e6a47b15afa8aa96ddc3afd9cb",
+      "seconds": 6,
+      "frames": 90,
+      "outputFps": 15,
+      "silent": true,
+      "interpolated": false
+    },
+    {
+      "path": "hopkins-upper-floor.jpg",
+      "source": "006-hopkins-upper-floor.jpg",
+      "bytes": 120228,
+      "sha256": "4144dc589a47391a2d22f4394d74ed405e0c2bf6c9ed7f6d0e2103be9e982af2",
+      "worldTime": 8.7,
+      "camera": {
+        "position": [
+          -1.5000000000000107,
+          17.3999999,
+          13.599999999999998
+        ],
+        "target": [
+          -11.50000000000001,
+          3.3999999,
+          1.5999999999999979
+        ],
+        "span": 16,
+        "exposure": 1
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "playerPosition": [
+        -11.50000000000001,
+        2.5999999,
+        1.5999999999999979
+      ]
+    },
+    {
+      "path": "yard-fire-hud.jpg",
+      "source": "009-yard-small-fire.jpg",
+      "bytes": 134237,
+      "sha256": "3a2a6786595a63cb99a5038c4bb929c45d12bc751138d4ca27b9f68d67cc0f32",
+      "worldTime": 16.7,
+      "camera": {
+        "position": [
+          8.5,
+          14.8,
+          24.00000000000001
+        ],
+        "target": [
+          -1.5000000000000007,
+          0.8,
+          12.00000000000001
+        ],
+        "span": 16,
+        "exposure": 1
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "playerPosition": [
+        -1.5000000000000007,
+        0,
+        12.00000000000001
+      ]
+    },
+    {
+      "path": "phone-fire-hud.jpg",
+      "source": "011-phone-fire-hud.jpg",
+      "bytes": 74864,
+      "sha256": "4fc2a444a8f21e5f6057cd1bdd1a281a69bb053f93a791c3cabbc60322d91474",
+      "worldTime": 22.666666666666668,
+      "camera": {
+        "position": [
+          8.5,
+          14.8,
+          24
+        ],
+        "target": [
+          -1.5,
+          0.8,
+          12
+        ],
+        "span": 16,
+        "exposure": 1
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "playerPosition": [
+        -1.5000000000000007,
+        0,
+        12.00000000000001
+      ]
+    },
+    {
+      "path": "phone-reset-hud.jpg",
+      "source": "012-phone-reset-hud.jpg",
+      "bytes": 63263,
+      "sha256": "1d01c9270ba39950d19647fb0d16474bb9b12b5ba6feb9a2be32de1607d74208",
+      "worldTime": 0,
+      "camera": {
+        "position": [
+          16.5,
+          14.8,
+          24.5
+        ],
+        "target": [
+          6.5,
+          0.8,
+          12.5
+        ],
+        "span": 16,
+        "exposure": 1
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "playerPosition": [
+        6.5,
+        0,
+        12.5
+      ]
+    }
+  ],
+  "nativeProfiles": [
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "passed": true,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      }
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "passed": true,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      }
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "passed": false,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": false,
+          "failed": {
+            "target": [
+              -10.00375,
+              0.48,
+              9
+            ],
+            "position": [
+              -10.00375,
+              0.48,
+              10.060000000000036
+            ],
+            "id": "house::attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/47/prototype-entry-rail-post@-22,0,20",
+            "reason": "Native geometry clearance"
+          }
+        },
+        "descent": {
+          "passed": false
+        }
+      }
+    },
+    {
+      "profile": "native-civilian-officer",
+      "radius": 0.62,
+      "height": 1.7,
+      "passed": false,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": false,
+          "failed": {
+            "target": [
+              -10.00375,
+              0.32,
+              10.66
+            ],
+            "position": [
+              -10.00375,
+              0.16,
+              10.940000000000017
+            ],
+            "id": "house::attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post",
+            "reason": "Native geometry clearance"
+          }
+        },
+        "descent": {
+          "passed": false
+        }
+      }
+    }
+  ],
+  "checks": {
+    "unitPass": 373,
+    "unitFail": 0,
+    "packageFiles": 3644,
+    "packageHashMismatches": 0,
+    "movieFullDecode": true,
+    "movieTimestampWarnings": false,
+    "combinedVisualAcceptance": false
+  },
+  "rights": "Existing installed source notices and unresolved baseline rights remain; no new donor intake or license grant."
+}

@@ -1,0 +1,29 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {loadSandbox} from './load.mjs';
+import {createSandboxRuntime} from './runtime.js';
+import {createNavigation} from '../furnished-house/navigation.js';
+import {CHARACTER_PROFILES} from '../../src/content/characters.js';
+import {CHICAGO_PATROL} from '../../src/content/exterior-kit.js';
+const get=(key,fallback)=>{const i=process.argv.indexOf(key);return i<0?fallback:process.argv[i+1];},file=get('--data'),out=get('--out');if(!file||!out)throw Error('Supply --data exact-manifest and --out artifacts/report.json');
+try{
+const {data,instances,manifest}=loadSandbox(file),runtime=createSandboxRuntime(data),trial=runtime.trial,checks=[],costs={};
+function walk(nav,points){const arrivals=[],samples=[];for(const target of points){let reached=false;for(let i=0;i<2500;i++){const p=nav.snapshot(),dx=target[0]-p.x,dz=target[2]-p.y,d=Math.hypot(dx,dz);if(d<.01&&Math.abs(target[1]-p.elevation)<.035){reached=true;arrivals.push(p.position);break;}if(d<1e-8)return {passed:false,arrivals,failed:{target,position:p.position,reason:'Wrong actual support height'},samples};const next=nav.move(dx/d,dz/d,Math.min(d,.02)/9);samples.push(next.position);if(next.lastBlock)return {passed:false,arrivals,failed:{target,position:next.position,...next.lastBlock},samples};}if(!reached)return {passed:false,arrivals,failed:{target,reason:'Bounded route horizon'},samples};}return {passed:true,arrivals,samples};}
+const shop=instances.find(i=>i.kind==='closing'),house=instances.find(i=>i.kind==='furnished'),A=shop.data.closingTime.anchors,anchor=name=>A[shop.id+'::'+name].position,houseRoute=house.data.navigation.prototypeRoute;
+const closedNav=createNavigation(trial,{...CHARACTER_PROFILES.goat,start:houseRoute[0]}),closedHouse=walk(closedNav,houseRoute.slice(1,6));
+for(const o of data.openings.filter(o=>o.kind==='door'))trial.command({type:'opening',id:o.id,open:true});trial.step();
+try{
+  for(const [name,profile]of [...Object.entries(CHARACTER_PROFILES),['native-civilian-officer',CHICAGO_PATROL]]){
+    const make=p=>createNavigation(trial,{...profile,start:p}),ground=walk(make(anchor('entryOutside')),['entryInside','shopAisle','aisleRear','lanternReach','aisleRear','shopAisle','entryInside','entryOutside'].map(anchor));
+    const stairPoints=['stairFoot',...Array.from({length:12},(_,i)=>'stair-'+String(i+1).padStart(2,'0')),'landing','serviceOutside','serviceInside','upstairsHall','residentRest'].map(anchor),shopNav=make(anchor('alleyApproach')),ascent=walk(shopNav,stairPoints),descent=ascent.passed?walk(shopNav,[...stairPoints].reverse().slice(1).concat([anchor('alleyApproach')])):{passed:false,skipped:'Ascent failed'};
+    const houseNav=make(houseRoute[0]),houseAscent=walk(houseNav,houseRoute.slice(1)),houseDescent=houseAscent.passed?walk(houseNav,[...houseRoute].reverse().slice(1)):{passed:false,skipped:'Ascent failed'};
+    const worldRoutes=[];for(const route of manifest.checkRoutes||[]){const points=route.anchors.map(id=>manifest.anchors[id].position),nav=make(points[0]);worldRoutes.push({id:route.id,...walk(nav,points.slice(1))});}
+    checks.push({profile:name,radius:profile.radius,height:profile.height,shop:{ground,ascent,descent},house:{ascent:houseAscent,descent:houseDescent},worldRoutes,passed:ground.passed&&ascent.passed&&descent.passed&&houseAscent.passed&&houseDescent.passed&&worldRoutes.every(r=>r.passed)});
+  }
+  runtime.command({type:'reset'});const quiet=[];for(let i=0;i<60;i++){const t=performance.now();runtime.step();quiet.push(performance.now()-t);}const stats=v=>{const a=v.slice().sort((a,b)=>a-b);return {samples:v.length,mean:v.reduce((a,b)=>a+b,0)/v.length,p95:a[Math.floor(a.length*.95)],max:a.at(-1)};};costs.quietStepMs=stats(quiet);
+  const s=runtime.snapshot();const report={version:1,createdAt:new Date().toISOString(),sourceManifestSha256:createHash('sha256').update(fs.readFileSync(file)).digest('hex'),instanceSources:manifest.instances.map(i=>({id:i.id,source:i.source,translation:i.translation,quarterTurns:i.quarterTurns})),closedHouse:{passed:!closedHouse.passed,failed:closedHouse.failed},checks,costs,quiet:{worldTime:runtime.worldTime,noIgnition:!runtime.trial.events.some(e=>e.type==='ignition'),actors:s.actors.length+1,lantern:s.closingTime.lantern},support:runtime.trial.supportGraph.diagnostics(),limitations:['Native radius/height/support tests are narrower than posed mesh/equipment clearance.','Unsupported wider profiles are findings, not permission to shrink them.','This is not a long fire run or performance acceptance.']};
+  const target=path.resolve(out);if(!target.startsWith(path.join(process.cwd(),'artifacts')+path.sep))throw Error('Evidence belongs under own artifacts');fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({...report,checks:checks.map(c=>({profile:c.profile,passed:c.passed,shop:Object.fromEntries(Object.entries(c.shop).map(([k,v])=>[k,{passed:v.passed,failed:v.failed}])),house:Object.fromEntries(Object.entries(c.house).map(([k,v])=>[k,{passed:v.passed,failed:v.failed}])),worldRoutes:c.worldRoutes.map(r=>({id:r.id,passed:r.passed,failed:r.failed}))})),support:{...report.support,unresolvedIds:undefined}}));
+  if(!checks.find(c=>c.profile==='goat')?.passed||!report.closedHouse.passed||!report.quiet.noIgnition)process.exitCode=1;
+}finally{runtime.dispose();}
+}catch(error){const target=path.resolve(out);if(!target.startsWith(path.join(process.cwd(),'artifacts')+path.sep))throw error;fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,JSON.stringify({version:1,createdAt:new Date().toISOString(),passed:false,phase:'composition/native check',error:String(error.stack||error)},null,2)+'\n');console.error(error);process.exitCode=1;}

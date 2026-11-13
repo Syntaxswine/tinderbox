@@ -1,4 +1,4 @@
-# Bell & Alder neighborhood sandbox
+# Catalogue Street demo with reusable Bell & Alder modules
 
 The owner authorizes a proposal for a larger demo around Bell & Alder and delivery of that proposal to the existing coder and artist. **Finish and review the closing-time replay before expanding it.** The owner explicitly wants an exploratory test of the moving pieces working together and accepts failures as evidence of what to do next. This is a sandbox for a typical **10–15 minute play session**, with no required mission, score, victory condition, escape objective or countdown.
 
@@ -24,7 +24,19 @@ Known deferrals remain visible: missed combined direct-witness reaction and its 
 
 ## Place and interactions
 
-Build one compact night block around the reviewed Bell & Alder shop/lodging, its stair and alley. Reuse one furnished Hopkins 15 house and a short pair of joined Monroe houses, plus a modest service yard and connections. This is a ceiling of four addresses including Bell & Alder, not a requirement to fill a large city. Start with one added house and the yard; add the row pair only after the first composition runs and produces useful observations. Stop at a smaller useful slice if an adapter, geometry or cost problem makes the next addition uninformative.
+### Subsequent owner direction: reuse the larger map
+
+The owner points out that larger maps already exist and asks that the new work attach as a modular piece. This supersedes the earlier two-address/four-address footprint limit and the instruction to add a new Monroe pair. The first slice remains the preserved integration fixture; it does not define the demo's size.
+
+**Host: the existing `NEIGHBORHOOD_SCENARIO` in `src/content/neighborhood.js`.** It is 51 × 47 m with eight house instances: Hopkins 12, 15, Ashland, Hopkins 9, Hopkins 13 and three joined Monroe units. It already includes Bell & Alder, street/grass, two barrels, three automatic powder/medicine pickups, two civilian routes and the officer. Preserve those IDs, placements and working behaviors. Reuse the existing title/Catalogue Street visit, controls and native assets; this is not a new district or another miniature standalone game.
+
+Upgrade the existing shop lot (X36–44/Z9–17) with the new shop/lodging/stair module and the existing `hopkins-fifteen` placement `(24,13)`, quarter-turn 2, with the furnished-house module. The shop's test-local origin maps back by translation `[36,0,9]`. Place the house independently using its actual host transform; do not translate the entire two-address test layout into the old street. Host X/Y denotes ground X/Z, not elevation. Preserve native walking elevations and explicitly convert quarter-turn conventions where needed.
+
+The test's opposite frontage and broad paving are review scenery, not mandatory building components. Artist supplies a versioned host-module variant identifying omitted/recomposed fixture IDs, with matching art, heat, collision and support. Do not copy duplicate terrain, block the existing road, overlap Ashland, or hide geometry while leaving its collider/fuel. Check service-stair/road/sidewalk clearance in the actual host layout. Keep the original test source and its failed/accepted evidence intact.
+
+Coder first records the smallest host/instance adapter contract. Preserve the existing player, inventory, input, clock, actors, tool/discharge/projectile behavior and pickups where compatible. Register module doors, traversal, thermal/contact and render state through explicit interfaces; one authoritative route must own each tool contact and fuel/heat budget. Do not run two unrelated games, duplicate the player/officer/lantern, or silently mix old and new fire outcomes. Reuse existing housing topology/native exports for other houses instead of recreating the architecture. Identify any remaining backend mismatch and its bounded adapter before a broad rewrite; do not claim universal rules without integration evidence.
+
+**Next acceptance:** the same player walks from the existing street into an upgraded module and back, with inventory/clocks intact; original map placements, barrels, pickups, civilians and Monroe joins remain. A normal host-map JPG must show the new module in context. Verify old-to-new door/step/contact boundaries, flame/heat transfer and reset once, then do a useful free-play pass. Nearby loading/culling may reuse established policies with off-camera heat/state preserved. There is no new city-generation, wardrobe, landmark or solver project in this attachment task.
 
 Preserve native dimensions, blank joining sides/end-only side windows, authored door leaves, actual floor/stair voids and material/support geometry. Reuse reviewed assets and exports rather than creating another architecture or wardrobe family. The measured neighborhood is a fictional arrangement; do not label it a surveyed historical block. Continue the warm browns, period lettering, fair dressing, native animal silhouettes and Volaire firelight direction under the shared modular art workflow.
 
@@ -61,8 +73,8 @@ These are observation prompts, not win conditions or promises that all behavior 
 
 | Owner | Responsibility | Existing checkout / future branch |
 | --- | --- | --- |
-| Coder Tinderbox | Shared instances/IDs, adapters, traversal and interactions, causal NPC/tool/heat behavior, profiling/export, resets and self-contained test package | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox`; future `codex/bell-and-alder-sandbox-runtime` from the recorded reviewed baseline |
-| Artist, Tinderbox | Reused-block composition, exact physical exports, modular joins and material/paint consistency, light/smoke/debris readability, native routes and visual evidence | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox`; future `codex/bell-and-alder-sandbox-art` from the same baseline |
+| Coder Tinderbox | Existing Catalogue Street host adapter, shared identities/state, traversal/tool/heat continuity, reset and packaged demo | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox`; next `codex/catalogue-modular-runtime` from the reviewed first-slice intake |
+| Artist, Tinderbox | Versioned shop/house modules fitted to original lots; removal of test scenery, measured connections and host-map JPG | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox`; next `codex/catalogue-modular-art` from the same intake |
 | Architect | Closing replay review, opening the expansion gate, exact candidate intake, scope decisions and experimental demo review | Primary checkout; no production promotion implied |
 
 Keep the current closing-time file ownership until its review ends. After the gate, the coder records an additive demo/instance API before the artist's first expanded physical export. Use a separate `workbenches/bell-and-alder-sandbox/` adapter and sources/evidence under matching task directories; preserve the original closing-time scene and replay unchanged as the control. No donor checkout writes, moving branch intake, new worker chats or duplicate servers. Each worker commits/pushes only its scoped files under the existing Git/check policy.

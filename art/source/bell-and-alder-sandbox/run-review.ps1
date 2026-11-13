@@ -1,0 +1,50 @@
+$ErrorActionPreference = 'Stop'
+$taskRoot = (Resolve-Path '.').Path
+$recordRoot = Join-Path $taskRoot 'artifacts/helpers/bell-and-alder-sandbox-review'
+New-Item -ItemType Directory -Force -Path $recordRoot | Out-Null
+$profile = Join-Path $recordRoot ('profile-' + [guid]::NewGuid().ToString('N'))
+$stop = Join-Path $recordRoot ('STOP-' + [guid]::NewGuid().ToString('N'))
+$port = 4557
+if (Get-NetTCPConnection -State Listen -LocalPort $port -ErrorAction SilentlyContinue) { throw 'Sandbox preview port is occupied.' }
+$nodeExe = (Get-Command node).Source
+$chromeExe = (Get-Item -LiteralPath 'C:/Program Files/Google/Chrome/Application/chrome.exe').FullName
+$url = 'http://127.0.0.1:4557/tinderbox/art/source/bell-and-alder-sandbox/review.html'
+$serverArgs = @('art/source/bell-and-alder-sandbox/serve-review.mjs','--root','.','--port','4557','--base','/tinderbox/','--ttl','300','--stop-file',$stop)
+$browserArgs = @('--headless=new','--disable-background-networking','--disable-default-apps','--disable-extensions','--disable-sync','--no-first-run','--no-default-browser-check','--no-proxy-server','--use-angle=d3d11','--window-size=1600,1070','--dump-dom','--virtual-time-budget=60000',('--user-data-dir=' + $profile),$url)
+@{task='Sandbox exported-art review';owner='01a17ea0-1362-7d13-a42d-f4a5fcff8902';workingDirectory=$taskRoot;source='art/source/bell-and-alder-sandbox/review.js';serverExecutable=$nodeExe;serverArguments=$serverArgs;browserExecutable=$chromeExe;browserArguments=$browserArgs;port=$port;expirySeconds=300;stopFile=$stop;restart='Run art/source/bell-and-alder-sandbox/run-review.ps1 deliberately with Node, installed Chrome and the exported factory available.'} | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8 (Join-Path $recordRoot 'restart.json')
+$server = $null; $browser = $null; $browserTime = $null
+try {
+ $server = Start-Process -FilePath $nodeExe -ArgumentList $serverArgs -WorkingDirectory $taskRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $recordRoot 'server-out.log') -RedirectStandardError (Join-Path $recordRoot 'server-err.log')
+ @{owner='01a17ea0-1362-7d13-a42d-f4a5fcff8902';pid=$server.Id;creationTime=$server.StartTime.ToUniversalTime().ToString('o');executable=$nodeExe;task='Sandbox art';purpose='Finite localhost exported-art capture';port=$port;stopFile=$stop;status='active'} | ConvertTo-Json | Set-Content -Encoding utf8 (Join-Path $recordRoot 'server-owner.json')
+ for ($tryIndex=0; $tryIndex -lt 20; $tryIndex++) {
+  try { $response=Invoke-WebRequest -Uri $url -TimeoutSec 2; if($response.StatusCode -eq 200){break} } catch {}
+  Start-Sleep -Milliseconds 200
+ }
+ $browser = Start-Process -FilePath $chromeExe -ArgumentList $browserArgs -WorkingDirectory $taskRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $recordRoot 'browser-output.html') -RedirectStandardError (Join-Path $recordRoot 'browser-err.log')
+ $browserTime=$browser.StartTime.ToUniversalTime()
+ @{owner='01a17ea0-1362-7d13-a42d-f4a5fcff8902';pid=$browser.Id;creationTime=$browserTime.ToString('o');executable=$chromeExe;task='Sandbox art';purpose='Isolated native WebGL JPG capture';profile=$profile;stopMethod='Natural headless exit, 90-second bounded process handle';status='active'} | ConvertTo-Json | Set-Content -Encoding utf8 (Join-Path $recordRoot 'browser-owner.json')
+ if(-not $browser.WaitForExit(90000)){throw 'Sandbox capture exceeded its 90-second deadline.'}
+ if($null -ne $browser.ExitCode -and $browser.ExitCode -ne 0){throw ('Sandbox capture exit ' + $browser.ExitCode)}
+ node art/source/bell-and-alder-sandbox/extract-review.mjs
+ if($LASTEXITCODE -ne 0){throw 'Sandbox capture extraction failed.'}
+} finally {
+ if($browser -and -not $browser.HasExited){
+  $live=Get-Process -Id $browser.Id -ErrorAction SilentlyContinue
+  if($live -and $live.StartTime.ToUniversalTime() -eq $browserTime -and $live.Path -eq $chromeExe){$browser.Kill();$browser.WaitForExit(5000) | Out-Null}
+ }
+ if($server){Set-Content -Encoding ascii -Path $stop -Value 'review complete';if(-not $server.WaitForExit(6000)){throw 'Preview server did not retire through its stop file.'}}
+ $portFree=-not [bool](Get-NetTCPConnection -State Listen -LocalPort $port -ErrorAction SilentlyContinue)
+ $usingProfile=Get-CimInstance Win32_Process -Filter "name='chrome.exe'" | Where-Object {$_.CommandLine -and $_.CommandLine.Contains($profile)}
+ for($profileWait=0;$usingProfile -and $profileWait -lt 15;$profileWait++){Start-Sleep -Milliseconds 200;$usingProfile=Get-CimInstance Win32_Process -Filter "name='chrome.exe'" | Where-Object {$_.CommandLine -and $_.CommandLine.Contains($profile)}}
+ $profileRemoved=-not (Test-Path -LiteralPath $profile)
+ if(-not $usingProfile -and (Test-Path -LiteralPath $profile)){
+  $resolved=(Resolve-Path -LiteralPath $profile).Path
+  if(-not $resolved.StartsWith($recordRoot + [IO.Path]::DirectorySeparatorChar)){throw 'Unsafe task profile path.'}
+  Remove-Item -LiteralPath $resolved -Recurse -Force
+  $profileRemoved=-not (Test-Path -LiteralPath $resolved)
+ }
+ @{task='Sandbox art';retiredAt=[DateTime]::UtcNow.ToString('o');serverExited=($null -eq $server -or $server.HasExited);browserExited=($null -eq $browser -or $browser.HasExited);portReleased=$portFree;testProfileRemoved=$profileRemoved;restart='artifacts/helpers/bell-and-alder-sandbox-review/restart.json'} | ConvertTo-Json | Set-Content -Encoding utf8 (Join-Path $recordRoot 'retirement.json')
+ foreach($name in @('server-owner.json','browser-owner.json')){ $p=Join-Path $recordRoot $name;if(Test-Path -LiteralPath $p){$r=Get-Content -Raw $p|ConvertFrom-Json;$r.status='retired';$r|ConvertTo-Json|Set-Content -Encoding utf8 $p}}
+ if(-not $portFree){throw 'Sandbox preview port is still listening.'}
+ if(-not $profileRemoved){throw 'Capture browser exited but its exact task profile is still in use; cleanup remains explicit in retirement.json.'}
+}
