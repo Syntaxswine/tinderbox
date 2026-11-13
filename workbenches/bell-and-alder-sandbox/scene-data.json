@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "prefabId": "bell-and-alder-sandbox-v1",
+  "instances": [
+    {
+      "id": "shop",
+      "kind": "closing",
+      "source": "../bell-and-alder-closing/scene-data.json",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "quarterTurns": 0,
+      "stairFlights": [
+        {
+          "id": "service-stair",
+          "treadSourceIds": [
+            "stair/tread-01",
+            "stair/tread-02",
+            "stair/tread-03",
+            "stair/tread-04",
+            "stair/tread-05",
+            "stair/tread-06",
+            "stair/tread-07",
+            "stair/tread-08",
+            "stair/tread-09",
+            "stair/tread-10",
+            "stair/tread-11",
+            "stair/tread-12"
+          ],
+          "lower": {
+            "elevation": 0,
+            "surfaceIds": [
+              "stair/base/9,10",
+              "stair/base/10,10"
+            ]
+          },
+          "upper": {
+            "elevation": 2.12,
+            "surfaceIds": [
+              "landing/9,3",
+              "landing/10,3"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "house",
+      "kind": "furnished",
+      "source": "../furnished-house/house-data.json",
+      "translation": [
+        -5,
+        0,
+        8
+      ],
+      "quarterTurns": 2,
+      "stairFlights": [
+        {
+          "id": "interior-stair",
+          "treadSourceIds": [
+            "stair/340",
+            "stair/341",
+            "stair/342",
+            "stair/343",
+            "stair/344",
+            "stair/345",
+            "stair/346",
+            "stair/347",
+            "stair/348",
+            "stair/349",
+            "stair/350",
+            "stair/351"
+          ],
+          "lower": {
+            "elevation": 0.48,
+            "surfaceIds": [
+              "floor/l0/9,7",
+              "floor/l0/10,7",
+              "floor/l0/11,7"
+            ]
+          },
+          "upper": {
+            "elevation": 2.6,
+            "surfaceIds": [
+              "floor/l1/9,13",
+              "floor/l1/12,13"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "yard",
+      "kind": "yard",
+      "source": "./yard-data.json",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "quarterTurns": 0,
+      "stairFlights": []
+    }
+  ],
+  "controlInstance": "shop",
+  "bounds": {
+    "min": [
+      -18,
+      -0.24,
+      -4
+    ],
+    "max": [
+      14,
+      7.2,
+      18
+    ]
+  },
+  "groundY": -0.12,
+  "camera": {
+    "target": [
+      -2.5,
+      1.8,
+      5.8
+    ],
+    "offset": [
+      10,
+      14,
+      12
+    ],
+    "span": 16,
+    "exposure": 1
+  },
+  "anchors": {
+    "yardCentre": {
+      "position": [
+        -2,
+        0,
+        4
+      ]
+    },
+    "yardEntrance": {
+      "position": [
+        -2,
+        0,
+        10
+      ]
+    },
+    "houseApproach": {
+      "position": [
+        -10.00375,
+        0,
+        12
+      ]
+    },
+    "houseEntryOutside": {
+      "position": [
+        -10.00375,
+        0.48,
+        8.65
+      ]
+    },
+    "houseEntryInside": {
+      "position": [
+        -10.00375,
+        0.48,
+        7
+      ]
+    },
+    "houseStairBottom": {
+      "position": [
+        -10.5,
+        0.48,
+        4.3
+      ]
+    },
+    "houseStairTop": {
+      "position": [
+        -9.5,
+        2.6,
+        1.25
+      ]
+    }
+  },
+  "doors": [],
+  "pickups": [],
+  "provenance": {
+    "baseCommit": "93239f1e202f05064c033038f6f343f79b905b8e",
+    "frozenShopSHA256": "15d284fbcaad23daceaf727079dbb902c072a9a0cefeaea7bd12fe89fd29c943",
+    "frozenHouseSHA256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+    "sourceLayout": "art/source/bell-and-alder-sandbox/layout.json",
+    "historicalStatus": "Fictional two-address arrangement of previously reviewed sources; no surveyed block claim.",
+    "nativeUnits": [
+      1,
+      1,
+      2.12
+    ],
+    "houseFloors": [
+      0.48,
+      2.6
+    ],
+    "shopFloors": [
+      0,
+      2.12
+    ],
+    "limits": [
+      "House source entry minimum clear width1.015m; native goat/horse body review only, larger bear/civilian not accepted.",
+      "Current M22 known defects deferred, frozen control unchanged.",
+      "One extra house and paved yard only; no Monroe pair or production/Pages promotion."
+    ]
+  }
+}
