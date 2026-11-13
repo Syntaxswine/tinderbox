@@ -4,13 +4,15 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/fire-receiver-selection-proposal` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Bounded radiation-selection brief and review; stockyard blockout preserved |
-| Artist | `codex/fire-effect-visibility-art` from `25095656` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Independent flame/smoke/light preparation and conservative early visibility |
+| Architect | `codex/bell-and-alder-closing-time-proposal` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Closing-time proposal, exact combined intake and replay review |
+| Artist | `codex/bell-and-alder-closing-art` from `b6838d00` (assigned); `4001bfb5` stockyard checkpoint preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Native lodging/stair variant, scene data, painted dressing and light/effect presentation |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/fire-receiver-selection-isolation` from `66febf33`; prior `codex/furnished-house-grass-comparison` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Completed 120s selection diagnostic at `b6838d00`; numerical research checkpoint accepted |
+| Coder | `codex/bell-and-alder-closing-runtime` from `b6838d00` (assigned); prior fire research branches preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Closing-time simulation/actors/interactions, audio runtime and replay delivery |
 | UI designer | `codex/fire-effect-settings-ui` from `25095656` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Three independent effect settings; preserve the separate train interface candidate |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+
+The current creative assignment is [Milestone 22: Bell & Alder at closing time](milestones/22-bell-and-alder-closing-time.md), authorized by the owner with a replay before game integration. The existing coder and artist work from `b6838d00` on isolated task branches, preserving the artist's stockyard work. One shop/lodging, alley, opposite frontage, resident and officer turn from quiet closing activity to a causal developing fire. Current controls remain. The architect reviews a real animated WebGL replay and source evidence before proposing production promotion; no Pages rollout is authorized by this assignment.
 
 The latest owner-authorized numerical investigation is [Milestone 21: radiation receiver selection](milestones/21-fire-receiver-selection.md), following the completed grass comparison and matched nonburning diagnostic at `66febf33`. The coder completed one bounded 120s bedroom intervention and compared cached prefixes; no primary trajectories were repeated. This does not authorize tuning, an incoming-lawn-fire trial or production promotion.
 
