@@ -39,6 +39,14 @@ Proposed common transform is translation `[-36,0,-9]` from published Catalogue S
               position:[4,1.1,8],outward:[0,0,1],level:0}],
  // Optional artist-authored procedural palette, no new unlicensed recordings.
  soundPalette:{},
+ // Optional routes; values are measured anchor names, never teleport poses.
+ replays:{hero:{approach:['entryOutside'],toLantern:['entryInside','lanternReach'],
+   toSighting:['entryInside','entryOutside','lanternSight'],
+   toStrike:['entryOutside','entryInside','heroStance'],
+   escape:['entryInside','entryOutside','safeObserver'],strike:'heroStrike'},
+   direct:{approach:['entryOutside'],toStrike:['directStance'],
+     toCover:['entryOutside','entryInside','coverStance'],strike:'directStrike'}},
+ pickups:[], // Optional automatic powder/inversion/healing contacts, {id,kind,position}.
  limitations:[]
 }
 ```
@@ -55,22 +63,34 @@ Keep the established thermal fields, full/reset, delta upserts and tombstones. `
 
 ```js
 {
- version:1, revision, worldTime,
+ version:1, generation, revision, worldTime,
+ clocks:{world,active,player,worldScale:1,playerScale:1},
  actors:[{id,role,characterId,position:[x,y,z],heading,travelled,moving,
           height,radius,hp,state,lookAt:null,
+          native:{/* approved native kit identity plus complete current pose */},
           // officer only: existing witness snapshot including reaction/aim/shot
           witness:null}],
  doors:[{id,openingIds,openFraction,intact}],
  lantern:{id,phase:'placed'|'carried'|'spent',ownerId:null|'player',
           position:[x,y,z],supportSourceId},
  resident:{state,evidence:null,routeIndex,blocked:null},
+ smokeSignals:[{sourceId,ventId,sourcePosition:[x,y,z],ventPosition:[x,y,z],
+                base:[x,y,z],position:[x,y,z],strength,ignited}],
  // Only newly emitted events; globally unique within this reset generation.
  events:[{id,worldTime,tick,type,actorId?,position?,reason?,details?}],
  replay:{id:'manual'|'hero'|'direct'|'quiet',seed,stage,speed}
 }
 ```
 
-Pose snapshots and lantern ownership supersede previous values even on a thermal delta. Event IDs include reset generation and a monotonic sequence; a paused/camera draw carries `events:[]` and cannot replay footsteps or reactions. A full/reset starts a fresh generation and clears retained state/events. Event types include `footstep`, `door`, `lantern-pickup`, `smoke-noticed`, `resident-look`, `resident-exit`, `route-blocked`, `officer-reaction`, `officer-shot`, `match`, plus routine/input diagnostics. Thermal ignition/failure/fall/landing events remain thermal events. Sound consumes state/events and never creates them.
+Pose snapshots and lantern ownership supersede previous values even on a thermal delta. Event IDs include reset generation and a monotonic sequence; a paused/camera draw carries `events:[]` and cannot replay footsteps or reactions. **Reset** starts a fresh generation; a full thermal checkpoint within that generation does not replay closing events. Event types include `footstep`, `door`, `lantern-pickup`, `smoke-noticed`, `resident-exit`, `route-blocked`, `officer-reaction`, `officer-shot`, `match`, plus routine/input diagnostics. Thermal ignition/failure/fall/landing events remain thermal events. Sound consumes state/events and never creates them.
+
+`actor.native` contains the allowlisted native kit profile followed by `x,y` (ground X/Z), `elevation`, `heading`, `travelled`, `moving`, `hp`, `radius` and `height`. The officer's native identity stays `chicago-beat-officer` even when its logical scene ID is `officer`. Resident/officer bodies retain their native .62m radius and1.7m height; player envelopes come from the approved selectable profile. Player native state additionally carries `tool`, `inventory`, `pouring`, `usingTool` and `torch`. Apply the authored walking elevation after a borrowed kit update if that updater resets root Y.
+
+Clock fields are `{world,active,player,worldScale,playerScale}` in both snapshots and additive frames. Fixed world time remains1/30s; powder advances player time1.5× and world time.35× per active second. Inversion affects movement exactly once and leaves throwable aiming unchanged. No manual drug action exists.
+
+Perception constants are `minimum=.08`, `sustain=.6s`, horizontal source range3m, eye range12m, vent outward offset.2m and rise1.6m. Sources are actual pure `trial.fireSamples()` values; reads do not consume frames or dirty state. An intact rotated-open leaf remains solid at its new pose, so aperture openness uses its actual `openFraction`, while both source and resident sight paths use live geometry. The strongest visible signal updates the resident's evidence; the approximation has no smoke-fluid or optical-density solver.
+
+`smokeSignals` is a complete current **observer-independent** array, at most one strongest source per declared vent. Each signal requires a current thermal/preheat smoke sample, a real open/broken aperture, a clear source→vent path and a clear exterior rise. `base` is the normalized .2m outside point; `position` is the plume observation point1.6m above it. Resident eye range/live visibility/sustain are applied separately. Art draws these current signals, never `resident.evidence`: smoke precedes observation, can remain visible while the resident is occluded, and clears immediately after an advancing closure/obstruction/reset. Legitimate resident memory may persist. Paused/camera frames retain signals and complete poses while scene events remain empty.
 
 ## Renderer and view
 

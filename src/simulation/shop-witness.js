@@ -22,9 +22,10 @@ function blocked(from, to, obstacles, sight = false) {
     (intersects(box) || box.heatBarriers?.some(intersects)));
 }
 
-export function createShopWitness(actor, player, obstacles, {event, hurt}) {
-  const rules = SHOP_WITNESS_RULES;
-  const eye = actor.height * .85, torso = player.height * .76;
+export function createShopWitness(actor, player, obstacles, {event, hurt, rules:overrides, lineBlocked}) {
+  const rules = overrides ? {...SHOP_WITNESS_RULES,...overrides} : SHOP_WITNESS_RULES;
+  const eye = () => (actor.elevation??0)+actor.height * .85, torso = () => (player.elevation??0)+player.height * .76;
+  const isBlocked=(from,to,sight=false)=>lineBlocked?lineBlocked(from,to,{sight}):blocked(from,to,obstacles,sight);
   actor.heading = POST_HEADING;
   let time = 0, memory = null, reaction = {kind: 'relaxed', worldTime: 0};
   let pending = [], shot = null, nextShotAt = 0;
@@ -34,7 +35,7 @@ export function createShopWitness(actor, player, obstacles, {event, hurt}) {
     const range = distance(actor, target);
     const facing = Math.cos(actor.heading) * (target.x - actor.x) + Math.sin(actor.heading) * (target.y - actor.y);
     return actor.hp > 0 && range <= rules.sightMetres && facing + EPS >= range * Math.cos(rules.halfAngle) &&
-      !blocked({...position(actor), h: eye}, {...position(target), h: height}, obstacles, true);
+      !isBlocked({...position(actor), h: eye()}, {...position(target), h: height}, true);
   }
 
   function watchHeat(tool, seenPlayer, projectileId) {
@@ -63,18 +64,18 @@ export function createShopWitness(actor, player, obstacles, {event, hurt}) {
     if (reaction.kind !== 'aggressive') return null;
     const elapsed = time - reaction.worldTime;
     const progress = elapsed + EPS >= rules.drawSeconds ? 1 : clamp(elapsed / rules.drawSeconds, 0, 1);
-    return {x: reaction.x, y: reaction.y, h: torso, progress};
+    return {x: reaction.x, y: reaction.y, h: torso(), progress};
   }
 
   function tryShot() {
     // Track only the visible player. The pose holds on the last sighting while covered.
-    if (!canSee(player, torso)) return;
+    if (!canSee(player, torso())) return;
     Object.assign(reaction, position(player));
     face(player);
     const range = distance(actor, player);
     if (time + EPS < nextShotAt || range < rules.minShotMetres || range > rules.shotMetres) return;
-    const muzzle = patrolMuzzle(actor), target = {...position(player), h: torso};
-    if (blocked(muzzle, target, obstacles)) return;
+    const muzzle = patrolMuzzle(actor), target = {...position(player), h: torso()};muzzle.h+=actor.elevation??0;
+    if (isBlocked(muzzle, target)) return;
     nextShotAt = time + rules.cooldownSeconds;
     const fired = event('officer-shot', muzzle, {actorId: actor.id, targetId: player.id,
       muzzle, target, damage: Math.min(player.hp, rules.damage), worldTime: time});
@@ -83,15 +84,18 @@ export function createShopWitness(actor, player, obstacles, {event, hurt}) {
   }
 
   return {
-    observeAction(tool) { return watchHeat(tool, player.hp > 0 && canSee(player, torso) ? position(player) : null); },
+    observeAction(tool) { return watchHeat(tool, player.hp > 0 && canSee(player, torso()) ? position(player) : null); },
     observeRelease(projectile) {
-      if (player.hp > 0 && canSee(player, torso) && canSee(projectile, projectile.h)) launches.set(projectile.id, position(player));
+      if (player.hp > 0 && canSee(player, torso()) && canSee(projectile, projectile.h)) launches.set(projectile.id, position(player));
     },
     observeImpact(projectile, impact) {
       const release = launches.get(projectile.id);
       launches.delete(projectile.id);
       return watchHeat('molotov', release && canSee(impact, impact.h) ? release : null, projectile.id);
     },
+    // A confirmed new fire may support remembered-lantern suspicion, never a
+    // causal draw. Adapters with unresolved thermal provenance use this path.
+    observeFire(site, fire) { if(site.phase==='burning')ignitions.push({site,contact:null,...fire}); },
     confirmIgnition(record, site, proof) {
       if (!proof?.independent || record.parentSiteId != null || record.cause?.startsWith('cell:') || record.cause === 'structure-siding') return;
       // The exact site caught after a heat addition that could cross the cooled
@@ -139,8 +143,9 @@ export function createShopWitness(actor, player, obstacles, {event, hurt}) {
           face(notice);
         }
       }
-      if (carryingLantern && player.hp > 0 && canSee(player, torso)) memory = {playerId: player.id, ...position(player), worldTime: time};
+      if (carryingLantern && player.hp > 0 && canSee(player, torso())) memory = {playerId: player.id, ...position(player), worldTime: time};
     },
+    canSee,
     snapshot: () => structuredClone({actorId: actor.id, memory, reaction, aim: aim(), shot})
   };
 }

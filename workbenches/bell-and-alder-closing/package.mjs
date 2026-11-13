@@ -1,0 +1,31 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const root=fs.realpathSync(process.cwd()),get=(key,fallback)=>{const i=process.argv.indexOf(key);return i<0?fallback:process.argv[i+1];},sha=b=>createHash('sha256').update(b).digest('hex'),git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',windowsHide:true}).trim();
+const artCommit=get('--art-commit'),seal=get('--seal'),out=path.resolve(seal||get('--out','artifacts/qa/bell-and-alder-closing/package-'+Date.now()));
+if(!/^[a-f0-9]{40}$/.test(artCommit||''))throw Error('An exact artist commit is required');
+if(!out.startsWith(path.join(root,'artifacts')+path.sep)||fs.existsSync(out)&&fs.lstatSync(out).isSymbolicLink())throw Error('Package must stay in this checkout artifacts directory');
+const ownPaths=['src/simulation/shop-witness.js','workbenches/furnished-house/simulation.js','workbenches/bell-and-alder-closing','docs/engineering/bell-and-alder-closing','tests/closing-time'];
+function inventory(directory){return fs.readdirSync(directory,{withFileTypes:true}).flatMap(e=>{const file=path.join(directory,e.name);if(e.isSymbolicLink())throw Error('Package cannot contain symlinks');if(e.isDirectory())return inventory(file);const bytes=fs.readFileSync(file);return [{path:path.relative(out,file).split(path.sep).join('/'),bytes:bytes.length,sha256:sha(bytes)}];});}
+if(seal){
+  const manifest=JSON.parse(fs.readFileSync(path.join(out,'package-manifest.json')));if(manifest.artistCommit!==artCommit)throw Error('Artist pin changed');if(git('status','--porcelain','--',...ownPaths))throw Error('Commit the checked runtime candidate before sealing');
+  for(const f of manifest.files)if(sha(fs.readFileSync(path.join(out,f.path)))!==f.sha256)throw Error('Package changed since review '+f.path);
+  for(const f of manifest.runtimeFiles){const file=path.join(root,f.path);if(sha(fs.readFileSync(file))!==f.sha256)throw Error('Runtime changed after browser review '+f.path);}
+  manifest.runtimeCommit=git('rev-parse','HEAD');manifest.workingRuntime=false;manifest.sealedAt=new Date().toISOString();fs.writeFileSync(path.join(out,'package-manifest.json'),JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({out,runtimeCommit:manifest.runtimeCommit,artistCommit:artCommit,sealed:true}));
+}else{
+  if(fs.existsSync(out))throw Error('Choose a fresh output; existing evidence is preserved');
+  execFileSync(process.execPath,['tools/build.mjs'],{cwd:root,stdio:'inherit',windowsHide:true});
+  fs.cpSync(path.join(root,'dist'),out,{recursive:true});
+  const copy=relative=>fs.cpSync(path.join(root,relative),path.join(out,relative),{recursive:true});
+  for(const relative of ['workbenches/furnished-house','workbenches/bell-and-alder-closing','art/source/furnished-house'])copy(relative);
+  const selected=git('ls-tree','-r','--name-only',artCommit,'--','art/source/bell-and-alder-closing','workbenches/bell-and-alder-closing/art.js','workbenches/bell-and-alder-closing/scene-data.json','docs/art/bell-and-alder-closing').split(/\r?\n/).filter(Boolean);
+  if(!selected.includes('workbenches/bell-and-alder-closing/scene-data.json')||!selected.includes('workbenches/bell-and-alder-closing/art.js'))throw Error('Artist commit has no complete physical/art export');
+  const artFiles=[];for(const relative of selected){const bytes=execFileSync('git',['show',artCommit+':'+relative],{cwd:root,maxBuffer:64*1024*1024,windowsHide:true});fs.mkdirSync(path.dirname(path.join(out,relative)),{recursive:true});fs.writeFileSync(path.join(out,relative),bytes);artFiles.push({path:relative,sha256:sha(bytes)});}
+  fs.copyFileSync(path.join(root,'workbenches/bell-and-alder-closing/launch.mjs'),path.join(out,'launch.mjs'));
+  fs.writeFileSync(path.join(out,'index.html'),'<!doctype html><title>Tinderbox closing-time review</title><script>location.replace("./workbenches/bell-and-alder-closing/"+location.search)</script><a href="./workbenches/bell-and-alder-closing/">Open isolated replay</a>');
+  fs.writeFileSync(path.join(out,'README.txt'),'Tinderbox — Bell & Alder closing-time candidate\n\nRequires Node22+ and a WebGL2 browser. No npm install.\nRun: node launch.mjs\nOpen the printed loopback URL. The review server stops after30minutes, on Ctrl+C, or when its private review-session-*/STOP file is created. It serves this folder only.\nUse the current joystick/keyboard and six buttons. Open/Close/Take floats near reachable objects. Click a surface and press Matches/Space to choose a fire start. Torch lights once, then ignites on a separate press. Oil lantern: press to aim, drag joystick, release, press again to throw. Medicine/drugs, if placed, activate on walk-over.\nHero/Direct/Quiet reproduce bounded input scripts. Pause, Reset, effect switches and mute are independent of physics. Enable sound with a button gesture. ?character=goat, horse or bear selects the existing native player.\nThis scene uses declared east1.5m/s ambient wind, not the Ashland obstacle-specific Nautilus bake. Production and Pages are unchanged.\nThe package manifest pins art, runtime, source files and hashes. Review evidence and remaining failures are delivered separately.\n');
+  const runtimeFiles=[];for(const relative of ownPaths.filter(p=>!p.startsWith('docs/')&&!p.startsWith('tests/'))){const absolute=path.join(root,relative),files=fs.statSync(absolute).isDirectory()?fs.readdirSync(absolute).filter(n=>/\.(?:m?js|html)$/.test(n)).map(n=>relative+'/'+n):[relative];for(const file of files)runtimeFiles.push({path:file,sha256:sha(fs.readFileSync(path.join(root,file)))});}
+  const raw=fs.readFileSync(path.join(out,'workbenches/bell-and-alder-closing/scene-data.json')),manifest={version:1,game:'Tinderbox',milestone:22,createdAt:new Date().toISOString(),runtimeCommit:git('rev-parse','HEAD'),workingRuntime:!!git('status','--porcelain','--',...ownPaths),artistCommit:artCommit,dataSha256:sha(raw),runtimeFiles,artFiles,files:inventory(out)};
+  fs.writeFileSync(path.join(out,'package-manifest.json'),JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({out,artistCommit:artCommit,workingRuntime:manifest.workingRuntime,dataSha256:manifest.dataSha256,files:manifest.files.length,bytes:manifest.files.reduce((n,f)=>n+f.bytes,0)}));
+}
