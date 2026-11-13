@@ -16,6 +16,7 @@ test('native sources prepare separately, qualify references and preserve rigid g
   const {manifest,sources}=fixture(true),original=JSON.stringify(sources),{data,instances}=composeSandbox(manifest,sources),house=instances.find(i=>i.id==='house').data;
   assert.equal(JSON.stringify(sources),original);assert.equal(data.stairFlights.length,2);assert.ok(house.items.some(i=>i.nativeId==='inert-ornament/native-chimney'));assert.ok(house.furnitureParts.filter(p=>p.inert).every(p=>p.supportSurfaceIds.every(id=>id.startsWith('house::'))));
   assert.deepEqual(house.levels.map(l=>l.floorY),[.48,2.6]);assert.deepEqual(instances[0].data.levels.map(l=>l.floorY),[0,2.12]);
+  assert.equal(data.closingTime.lantern.supportItemId,'shop::bell-and-alder:parlor-lamp');assert.equal(data.closingTime.lantern.assetId,'city1880-hand-lantern-lit');
   const vertex=sources.house.render.geometry[0].triangles[0].vertices[0],placed=house.render.geometry[0].triangles[0].vertices[0];assert.ok(Math.abs(placed[0]-(22+vertex[2]))<1e-8);assert.ok(Math.abs(placed[2]+vertex[0])<1e-8);assert.deepEqual(placed.slice(6),vertex.slice(6));
   assert.ok(data.surfaces.every(s=>s.id.startsWith(s.instanceId+'::')));assert.ok(data.surfaces.filter(s=>s.supportType==='stair-tread').every(s=>s.stairFlightId.startsWith(s.instanceId+'::')));
 });

@@ -26,7 +26,7 @@ function placedSource(raw,spec){
   const n=v=>new Vector3(...v).applyQuaternion(rotation).toArray().map(n=>Math.abs(n)<1e-12?0:n);
   const box=b=>{const corners=[];for(const x of [b.min[0],b.max[0]])for(const y of [b.min[1],b.max[1]])for(const z of [b.min[2],b.max[2]])corners.push(p([x,y,z]));return {...b,min:[0,1,2].map(i=>Math.min(...corners.map(c=>c[i]))),max:[0,1,2].map(i=>Math.max(...corners.map(c=>c[i])))};};
   function walk(value,key=''){
-    if(typeof value==='string')return (key==='id'||referenceKeys.has(key)||referenceArrays.has(key)||key==='materialId')&&ids.has(value)?prefix(value):value;
+    if(typeof value==='string'){const canonical=key==='id'||referenceKeys.has(key)||referenceArrays.has(key)||/(?:Id|Ids)$/.test(key)&&!/(?:asset|character|prefab|native)Ids?$/i.test(key);return canonical&&ids.has(value)?prefix(value):value;}
     if(typeof value==='number')return elevations.has(key)?value+spec.translation[1]:value;
     if(Array.isArray(value)){
       if(positions.has(key)&&point(value))return p(value);
