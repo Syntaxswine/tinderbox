@@ -1,0 +1,2060 @@
+{
+  "task": "Bell and Alder first native WebGL exemplar",
+  "scope": "Static authored quiet/pose/ownership fixtures only; combined runtime acceptance remains separate",
+  "gpu": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "cameraExposureFixed": true,
+  "stateChecks": {
+    "localQuarterRetirement": true,
+    "otherStoreyPreserved": true,
+    "emptyDeltaRetains": true,
+    "fullResetRestores": true,
+    "currentVentSignal": true,
+    "staleEvidenceStops": true,
+    "removedCurrentPathStops": true,
+    "smokeToggle": true,
+    "oneLanternReset": true
+  },
+  "errors": [],
+  "programResults": [
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    },
+    {
+      "linked": true,
+      "log": ""
+    }
+  ],
+  "shaderResults": [
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    },
+    {
+      "compiled": true,
+      "log": ""
+    }
+  ],
+  "views": [
+    {
+      "name": "quiet-exterior",
+      "mode": "exterior",
+      "level": 0,
+      "camera": [
+        25,
+        17,
+        29
+      ],
+      "target": [
+        4.2,
+        1.5,
+        7.2
+      ],
+      "halfWidth": 12,
+      "title": "Bell & Alder | closing time",
+      "caption": "Quiet exported-art exemplar. Native animals, one placed lantern, warm shop windows and a new grid-built lodging/stair.",
+      "worldTime": 0,
+      "exposure": 1,
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "art": {
+        "version": 1,
+        "prefabId": "bell-and-alder-closing-v1",
+        "disposed": false,
+        "worldTime": 0,
+        "actors": [
+          {
+            "id": "player",
+            "role": "player",
+            "position": {
+              "x": 4,
+              "y": 10,
+              "heading": -1.5707963268,
+              "travelled": 0
+            },
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "disposed": false,
+            "provisional": false,
+            "species": "goat",
+            "appearance": "normal",
+            "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+            "bodyTriangles": 9994,
+            "skinnedMeshes": 8,
+            "bones": 17,
+            "boneCount": 17,
+            "visibleTools": [],
+            "paint": "native-normal-projection",
+            "paintFrame": {
+              "width": 0.925,
+              "height": 1.85,
+              "centerY": 0.825,
+              "distance": 4,
+              "near": 0.1,
+              "far": 10
+            },
+            "selectedTool": "matches",
+            "visibleTool": null,
+            "defaultRifleVisible": false,
+            "worldAnchors": {
+              "grip": [
+                4,
+                0,
+                10
+              ],
+              "support": [
+                3.6449999999994236,
+                0.732,
+                9.88700000000181
+              ],
+              "muzzle": [
+                3.9999999999989795,
+                0.03,
+                9.8
+              ],
+              "spout": [
+                4,
+                0,
+                10
+              ],
+              "backpack": [
+                4.000000000000128,
+                1.08,
+                10.025
+              ]
+            },
+            "finiteAnchors": true,
+            "bodyBounds": null,
+            "playerTime": 0,
+            "poseEvaluations": 2,
+            "contacts": [
+              {
+                "side": 1,
+                "grip": [
+                  4,
+                  0,
+                  10
+                ],
+                "palm": [
+                  4.354999999999424,
+                  0.732,
+                  9.886999999998189
+                ],
+                "error": 0.821351325560506
+              }
+            ],
+            "geometries": 70,
+            "materials": 21,
+            "textures": 4,
+            "objects": 1
+          },
+          {
+            "id": "resident",
+            "role": "resident",
+            "position": [
+              2.5,
+              0,
+              2.4
+            ],
+            "characterId": "horse",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 10300,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              2.069313940564538,
+              0,
+              2.1210259559521227
+            ],
+            "max": [
+              2.930836620007852,
+              1.649999976158142,
+              2.625492655310614
+            ],
+            "contacts": [],
+            "sourceTriangles": 856076,
+            "species": "horse",
+            "appearance": "normal",
+            "armed": false
+          },
+          {
+            "id": "officer",
+            "role": "officer",
+            "position": [
+              2.5,
+              0,
+              10.5
+            ],
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 9994,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              2.069344594557996,
+              0,
+              10.288326397538185
+            ],
+            "max": [
+              2.9309749553161657,
+              1.64951753616333,
+              10.754952788352966
+            ],
+            "contacts": [],
+            "sourceTriangles": 29586,
+            "species": "goat",
+            "appearance": "normal",
+            "armed": true,
+            "uniform": {
+              "id": "chicago-1893-city-beat",
+              "disposed": false,
+              "species": "goat",
+              "pieces": {
+                "helmet": true,
+                "coat": true,
+                "trousers": true,
+                "footwear": true,
+                "belt": true,
+                "badge": true
+              },
+              "triangles": 7313
+            },
+            "sidearm": {
+              "id": "pistol",
+              "label": "TT-33 pistol",
+              "carry": "belt",
+              "parts": 15,
+              "visible": true
+            }
+          }
+        ],
+        "lantern": {
+          "id": "bell-and-alder:hand-lantern",
+          "phase": "placed",
+          "ownerId": null,
+          "models": 1,
+          "position": [
+            5.65,
+            0.747,
+            2.6
+          ],
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "structure": {
+          "disposed": false,
+          "version": 1,
+          "prefabId": "bell-and-alder-closing-v1",
+          "worldTime": 0,
+          "revision": 0,
+          "view": "exterior",
+          "level": 0,
+          "sourceSurfaces": 543,
+          "physicalPatches": 3605,
+          "retiredPatches": 0,
+          "sourceMeshes": 660,
+          "batches": 93,
+          "items": 23,
+          "falls": 0,
+          "fallVisuals": 0,
+          "debris": {
+            "flights": 0,
+            "residue": 0,
+            "pendingLanding": 0,
+            "missingGeometry": 0,
+            "draws": 0,
+            "resources": {
+              "geometries": 1,
+              "materials": 1
+            }
+          },
+          "occupancy": 0,
+          "fireSamples": 0,
+          "representedSamples": 0,
+          "missingSamples": 0,
+          "missingSampleDetails": [],
+          "visibleSamples": 0,
+          "viewCulledSamples": 0,
+          "cameraCulledSamples": 0,
+          "effects": {
+            "flames": true,
+            "smoke": true,
+            "lighting": true
+          },
+          "lightingMode": "building",
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 1,
+              "buildingAggregateSources": 0
+            }
+          },
+          "emitterBatches": 0,
+          "fire": [],
+          "lightBudget": {
+            "mode": "building",
+            "terrainSites": 0,
+            "surfaceSites": 0,
+            "candidates": 0,
+            "capacity": 6,
+            "powerCap": 215,
+            "activeArea": 0,
+            "activeEnergy": 0,
+            "lights": []
+          },
+          "actualLights": [],
+          "resources": {
+            "geometries": 94,
+            "materials": 116,
+            "textures": 7
+          },
+          "resetCount": 2,
+          "revisionCount": 1,
+          "rootScale": [
+            1,
+            1,
+            1
+          ],
+          "stateBindings": 642
+        },
+        "witness": {
+          "cue": null,
+          "shotId": null,
+          "flash": false,
+          "muzzle": null
+        },
+        "ventSmoke": {
+          "proxy": "Current physical path, not a fluid solver",
+          "hasCurrentCollection": true,
+          "signals": [],
+          "submitted": {
+            "patches": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0
+          },
+          "capacity": 16
+        },
+        "resources": {
+          "meshes": 189,
+          "uniqueGeometries": 189,
+          "materials": 57,
+          "textures": 9,
+          "sourceTriangles": 101611,
+          "characterKits": 3
+        },
+        "lights": [
+          {
+            "name": "Street fire spill 1",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 2",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 3",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 4",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 5",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 6",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "bell-and-alder:hand-lantern:light",
+            "type": "PointLight",
+            "intensity": 4.8,
+            "reach": 3.4,
+            "castShadow": true
+          },
+          {
+            "name": "bell-and-alder:shop-lamp:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": false
+          },
+          {
+            "name": "lodging-lamp:light",
+            "type": "PointLight",
+            "intensity": 4,
+            "reach": 4.3,
+            "castShadow": false
+          },
+          {
+            "name": "closing/front-pendant:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": true
+          },
+          {
+            "name": "street-lamp:light",
+            "type": "PointLight",
+            "intensity": 5,
+            "reach": 3.6,
+            "castShadow": false
+          }
+        ],
+        "lightingPolicy": "Existing six-light/power215 fire pool plus four installed lamps and one portable lantern; only front pendant and portable point lights cast shadows",
+        "wind": "Declared 1.5m/s east ambient; no shop obstacle bake"
+      },
+      "renderMsTwoDraws": 0,
+      "renderer": {
+        "calls": 163,
+        "triangles": 94989,
+        "memory": {
+          "geometries": 157,
+          "textures": 27
+        }
+      }
+    },
+    {
+      "name": "quiet-shop-cutaway",
+      "mode": "cutaway",
+      "level": 0,
+      "camera": [
+        22,
+        17,
+        26
+      ],
+      "target": [
+        4.5,
+        0.6,
+        5.3
+      ],
+      "halfWidth": 9.4,
+      "title": "Published shop | native fittings and clear aisle",
+      "caption": "Diagnostic cutaway. Original 25 shop fittings and 21 unit walls retain their transforms; doors are paired native leaves.",
+      "worldTime": 0,
+      "exposure": 1,
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "art": {
+        "version": 1,
+        "prefabId": "bell-and-alder-closing-v1",
+        "disposed": false,
+        "worldTime": 0,
+        "actors": [
+          {
+            "id": "player",
+            "role": "player",
+            "position": {
+              "x": 4,
+              "y": 10,
+              "heading": -1.5707963268,
+              "travelled": 0
+            },
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "disposed": false,
+            "provisional": false,
+            "species": "goat",
+            "appearance": "normal",
+            "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+            "bodyTriangles": 9994,
+            "skinnedMeshes": 8,
+            "bones": 17,
+            "boneCount": 17,
+            "visibleTools": [],
+            "paint": "native-normal-projection",
+            "paintFrame": {
+              "width": 0.925,
+              "height": 1.85,
+              "centerY": 0.825,
+              "distance": 4,
+              "near": 0.1,
+              "far": 10
+            },
+            "selectedTool": "matches",
+            "visibleTool": null,
+            "defaultRifleVisible": false,
+            "worldAnchors": {
+              "grip": [
+                4,
+                0,
+                10
+              ],
+              "support": [
+                3.6449999999994236,
+                0.732,
+                9.88700000000181
+              ],
+              "muzzle": [
+                3.9999999999989795,
+                0.03,
+                9.8
+              ],
+              "spout": [
+                4,
+                0,
+                10
+              ],
+              "backpack": [
+                4.000000000000128,
+                1.08,
+                10.025
+              ]
+            },
+            "finiteAnchors": true,
+            "bodyBounds": null,
+            "playerTime": 0,
+            "poseEvaluations": 2,
+            "contacts": [
+              {
+                "side": 1,
+                "grip": [
+                  4,
+                  0,
+                  10
+                ],
+                "palm": [
+                  4.354999999999424,
+                  0.732,
+                  9.886999999998189
+                ],
+                "error": 0.821351325560506
+              }
+            ],
+            "geometries": 70,
+            "materials": 21,
+            "textures": 4,
+            "objects": 1
+          },
+          {
+            "id": "resident",
+            "role": "resident",
+            "position": [
+              2.5,
+              0,
+              2.4
+            ],
+            "characterId": "horse",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 10300,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              2.069313940564538,
+              0,
+              2.1210259559521227
+            ],
+            "max": [
+              2.930836620007852,
+              1.649999976158142,
+              2.625492655310614
+            ],
+            "contacts": [],
+            "sourceTriangles": 856076,
+            "species": "horse",
+            "appearance": "normal",
+            "armed": false
+          },
+          {
+            "id": "officer",
+            "role": "officer",
+            "position": [
+              2.5,
+              0,
+              10.5
+            ],
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 9994,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              2.069344594557996,
+              0,
+              10.288326397538185
+            ],
+            "max": [
+              2.9309749553161657,
+              1.64951753616333,
+              10.754952788352966
+            ],
+            "contacts": [],
+            "sourceTriangles": 29586,
+            "species": "goat",
+            "appearance": "normal",
+            "armed": true,
+            "uniform": {
+              "id": "chicago-1893-city-beat",
+              "disposed": false,
+              "species": "goat",
+              "pieces": {
+                "helmet": true,
+                "coat": true,
+                "trousers": true,
+                "footwear": true,
+                "belt": true,
+                "badge": true
+              },
+              "triangles": 7313
+            },
+            "sidearm": {
+              "id": "pistol",
+              "label": "TT-33 pistol",
+              "carry": "belt",
+              "parts": 15,
+              "visible": true
+            }
+          }
+        ],
+        "lantern": {
+          "id": "bell-and-alder:hand-lantern",
+          "phase": "placed",
+          "ownerId": null,
+          "models": 1,
+          "position": [
+            5.65,
+            0.747,
+            2.6
+          ],
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "structure": {
+          "disposed": false,
+          "version": 1,
+          "prefabId": "bell-and-alder-closing-v1",
+          "worldTime": 0,
+          "revision": 1,
+          "view": "cutaway",
+          "level": 0,
+          "sourceSurfaces": 543,
+          "physicalPatches": 3605,
+          "retiredPatches": 0,
+          "sourceMeshes": 660,
+          "batches": 93,
+          "items": 23,
+          "falls": 0,
+          "fallVisuals": 0,
+          "debris": {
+            "flights": 0,
+            "residue": 0,
+            "pendingLanding": 0,
+            "missingGeometry": 0,
+            "draws": 0,
+            "resources": {
+              "geometries": 1,
+              "materials": 1
+            }
+          },
+          "occupancy": 0,
+          "fireSamples": 0,
+          "representedSamples": 0,
+          "missingSamples": 0,
+          "missingSampleDetails": [],
+          "visibleSamples": 0,
+          "viewCulledSamples": 0,
+          "cameraCulledSamples": 0,
+          "effects": {
+            "flames": true,
+            "smoke": true,
+            "lighting": true
+          },
+          "lightingMode": "building",
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 1,
+              "buildingAggregateSources": 0
+            }
+          },
+          "emitterBatches": 0,
+          "fire": [],
+          "lightBudget": {
+            "mode": "building",
+            "terrainSites": 0,
+            "surfaceSites": 0,
+            "candidates": 0,
+            "capacity": 6,
+            "powerCap": 215,
+            "activeArea": 0,
+            "activeEnergy": 0,
+            "lights": []
+          },
+          "actualLights": [],
+          "resources": {
+            "geometries": 94,
+            "materials": 116,
+            "textures": 7
+          },
+          "resetCount": 3,
+          "revisionCount": 2,
+          "rootScale": [
+            1,
+            1,
+            1
+          ],
+          "stateBindings": 642
+        },
+        "witness": {
+          "cue": null,
+          "shotId": null,
+          "flash": false,
+          "muzzle": null
+        },
+        "ventSmoke": {
+          "proxy": "Current physical path, not a fluid solver",
+          "hasCurrentCollection": true,
+          "signals": [],
+          "submitted": {
+            "patches": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0
+          },
+          "capacity": 16
+        },
+        "resources": {
+          "meshes": 189,
+          "uniqueGeometries": 189,
+          "materials": 57,
+          "textures": 9,
+          "sourceTriangles": 101611,
+          "characterKits": 3
+        },
+        "lights": [
+          {
+            "name": "Street fire spill 1",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 2",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 3",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 4",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 5",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 6",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "bell-and-alder:hand-lantern:light",
+            "type": "PointLight",
+            "intensity": 4.8,
+            "reach": 3.4,
+            "castShadow": true
+          },
+          {
+            "name": "bell-and-alder:shop-lamp:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": false
+          },
+          {
+            "name": "lodging-lamp:light",
+            "type": "PointLight",
+            "intensity": 4,
+            "reach": 4.3,
+            "castShadow": false
+          },
+          {
+            "name": "closing/front-pendant:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": true
+          },
+          {
+            "name": "street-lamp:light",
+            "type": "PointLight",
+            "intensity": 5,
+            "reach": 3.6,
+            "castShadow": false
+          }
+        ],
+        "lightingPolicy": "Existing six-light/power215 fire pool plus four installed lamps and one portable lantern; only front pendant and portable point lights cast shadows",
+        "wind": "Declared 1.5m/s east ambient; no shop obstacle bake"
+      },
+      "renderMsTwoDraws": 0,
+      "renderer": {
+        "calls": 154,
+        "triangles": 92517,
+        "memory": {
+          "geometries": 157,
+          "textures": 27
+        }
+      }
+    },
+    {
+      "name": "quiet-lodging-cutaway",
+      "mode": "cutaway",
+      "level": 1,
+      "camera": [
+        23,
+        19,
+        27
+      ],
+      "target": [
+        5,
+        2.4,
+        4.7
+      ],
+      "halfWidth": 10,
+      "title": "New lodging | native floor pitch and service route",
+      "caption": "Diagnostic static pose upstairs. Walking Y2.12 m; twelve exterior treads, a real landing and three native 2 m sash bays.",
+      "worldTime": 0,
+      "exposure": 1,
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "art": {
+        "version": 1,
+        "prefabId": "bell-and-alder-closing-v1",
+        "disposed": false,
+        "worldTime": 0,
+        "actors": [
+          {
+            "id": "player",
+            "role": "player",
+            "position": {
+              "x": 4,
+              "y": 10,
+              "heading": -1.5707963268,
+              "travelled": 0
+            },
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "disposed": false,
+            "provisional": false,
+            "species": "goat",
+            "appearance": "normal",
+            "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+            "bodyTriangles": 9994,
+            "skinnedMeshes": 8,
+            "bones": 17,
+            "boneCount": 17,
+            "visibleTools": [],
+            "paint": "native-normal-projection",
+            "paintFrame": {
+              "width": 0.925,
+              "height": 1.85,
+              "centerY": 0.825,
+              "distance": 4,
+              "near": 0.1,
+              "far": 10
+            },
+            "selectedTool": "matches",
+            "visibleTool": null,
+            "defaultRifleVisible": false,
+            "worldAnchors": {
+              "grip": [
+                4,
+                0,
+                10
+              ],
+              "support": [
+                3.6449999999994236,
+                0.732,
+                9.88700000000181
+              ],
+              "muzzle": [
+                3.9999999999989795,
+                0.03,
+                9.8
+              ],
+              "spout": [
+                4,
+                0,
+                10
+              ],
+              "backpack": [
+                4.000000000000128,
+                1.08,
+                10.025
+              ]
+            },
+            "finiteAnchors": true,
+            "bodyBounds": null,
+            "playerTime": 0,
+            "poseEvaluations": 2,
+            "contacts": [
+              {
+                "side": 1,
+                "grip": [
+                  4,
+                  0,
+                  10
+                ],
+                "palm": [
+                  4.354999999999424,
+                  0.732,
+                  9.886999999998189
+                ],
+                "error": 0.821351325560506
+              }
+            ],
+            "geometries": 70,
+            "materials": 21,
+            "textures": 4,
+            "objects": 1
+          },
+          {
+            "id": "resident",
+            "role": "resident",
+            "position": [
+              4,
+              2.12,
+              2.4
+            ],
+            "characterId": "horse",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 10300,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              3.5693139601223116,
+              2.1199999999999997,
+              2.1210259559521227
+            ],
+            "max": [
+              4.430836575304368,
+              3.769999976158142,
+              2.625492655310614
+            ],
+            "contacts": [],
+            "sourceTriangles": 856076,
+            "species": "horse",
+            "appearance": "normal",
+            "armed": false
+          },
+          {
+            "id": "officer",
+            "role": "officer",
+            "position": [
+              2.5,
+              0,
+              10.5
+            ],
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 9994,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              2.069344594557996,
+              0,
+              10.288326397538185
+            ],
+            "max": [
+              2.9309749553161657,
+              1.64951753616333,
+              10.754952788352966
+            ],
+            "contacts": [],
+            "sourceTriangles": 29586,
+            "species": "goat",
+            "appearance": "normal",
+            "armed": true,
+            "uniform": {
+              "id": "chicago-1893-city-beat",
+              "disposed": false,
+              "species": "goat",
+              "pieces": {
+                "helmet": true,
+                "coat": true,
+                "trousers": true,
+                "footwear": true,
+                "belt": true,
+                "badge": true
+              },
+              "triangles": 7313
+            },
+            "sidearm": {
+              "id": "pistol",
+              "label": "TT-33 pistol",
+              "carry": "belt",
+              "parts": 15,
+              "visible": true
+            }
+          }
+        ],
+        "lantern": {
+          "id": "bell-and-alder:hand-lantern",
+          "phase": "placed",
+          "ownerId": null,
+          "models": 1,
+          "position": [
+            5.65,
+            0.747,
+            2.6
+          ],
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "structure": {
+          "disposed": false,
+          "version": 1,
+          "prefabId": "bell-and-alder-closing-v1",
+          "worldTime": 0,
+          "revision": 2,
+          "view": "cutaway",
+          "level": 1,
+          "sourceSurfaces": 543,
+          "physicalPatches": 3605,
+          "retiredPatches": 0,
+          "sourceMeshes": 660,
+          "batches": 93,
+          "items": 23,
+          "falls": 0,
+          "fallVisuals": 0,
+          "debris": {
+            "flights": 0,
+            "residue": 0,
+            "pendingLanding": 0,
+            "missingGeometry": 0,
+            "draws": 0,
+            "resources": {
+              "geometries": 1,
+              "materials": 1
+            }
+          },
+          "occupancy": 0,
+          "fireSamples": 0,
+          "representedSamples": 0,
+          "missingSamples": 0,
+          "missingSampleDetails": [],
+          "visibleSamples": 0,
+          "viewCulledSamples": 0,
+          "cameraCulledSamples": 0,
+          "effects": {
+            "flames": true,
+            "smoke": true,
+            "lighting": true
+          },
+          "lightingMode": "building",
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 1,
+              "buildingAggregateSources": 0
+            }
+          },
+          "emitterBatches": 0,
+          "fire": [],
+          "lightBudget": {
+            "mode": "building",
+            "terrainSites": 0,
+            "surfaceSites": 0,
+            "candidates": 0,
+            "capacity": 6,
+            "powerCap": 215,
+            "activeArea": 0,
+            "activeEnergy": 0,
+            "lights": []
+          },
+          "actualLights": [],
+          "resources": {
+            "geometries": 94,
+            "materials": 116,
+            "textures": 7
+          },
+          "resetCount": 4,
+          "revisionCount": 3,
+          "rootScale": [
+            1,
+            1,
+            1
+          ],
+          "stateBindings": 642
+        },
+        "witness": {
+          "cue": null,
+          "shotId": null,
+          "flash": false,
+          "muzzle": null
+        },
+        "ventSmoke": {
+          "proxy": "Current physical path, not a fluid solver",
+          "hasCurrentCollection": true,
+          "signals": [],
+          "submitted": {
+            "patches": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0
+          },
+          "capacity": 16
+        },
+        "resources": {
+          "meshes": 189,
+          "uniqueGeometries": 189,
+          "materials": 57,
+          "textures": 9,
+          "sourceTriangles": 101611,
+          "characterKits": 3
+        },
+        "lights": [
+          {
+            "name": "Street fire spill 1",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 2",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 3",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 4",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 5",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 6",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "bell-and-alder:hand-lantern:light",
+            "type": "PointLight",
+            "intensity": 4.8,
+            "reach": 3.4,
+            "castShadow": true
+          },
+          {
+            "name": "bell-and-alder:shop-lamp:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": false
+          },
+          {
+            "name": "lodging-lamp:light",
+            "type": "PointLight",
+            "intensity": 4,
+            "reach": 4.3,
+            "castShadow": false
+          },
+          {
+            "name": "closing/front-pendant:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": true
+          },
+          {
+            "name": "street-lamp:light",
+            "type": "PointLight",
+            "intensity": 5,
+            "reach": 3.6,
+            "castShadow": false
+          }
+        ],
+        "lightingPolicy": "Existing six-light/power215 fire pool plus four installed lamps and one portable lantern; only front pendant and portable point lights cast shadows",
+        "wind": "Declared 1.5m/s east ambient; no shop obstacle bake"
+      },
+      "renderMsTwoDraws": 0,
+      "renderer": {
+        "calls": 154,
+        "triangles": 92517,
+        "memory": {
+          "geometries": 157,
+          "textures": 27
+        }
+      }
+    },
+    {
+      "name": "quiet-lantern-carried",
+      "mode": "exterior",
+      "level": 0,
+      "camera": [
+        25,
+        17,
+        29
+      ],
+      "target": [
+        4.2,
+        1.5,
+        7.2
+      ],
+      "halfWidth": 12,
+      "title": "One lantern | placed-to-carried presentation check",
+      "caption": "Static ownership fixture at the same camera and exposure. The single native lantern moves to its accepted hip-loop attachment.",
+      "worldTime": 0,
+      "exposure": 1,
+      "dimensions": [
+        1600,
+        1070
+      ],
+      "art": {
+        "version": 1,
+        "prefabId": "bell-and-alder-closing-v1",
+        "disposed": false,
+        "worldTime": 0,
+        "actors": [
+          {
+            "id": "player",
+            "role": "player",
+            "position": {
+              "x": 4,
+              "y": 10,
+              "heading": -1.5707963268,
+              "travelled": 0
+            },
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "disposed": false,
+            "provisional": false,
+            "species": "goat",
+            "appearance": "normal",
+            "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+            "bodyTriangles": 9994,
+            "skinnedMeshes": 8,
+            "bones": 17,
+            "boneCount": 17,
+            "visibleTools": [],
+            "paint": "native-normal-projection",
+            "paintFrame": {
+              "width": 0.925,
+              "height": 1.85,
+              "centerY": 0.825,
+              "distance": 4,
+              "near": 0.1,
+              "far": 10
+            },
+            "selectedTool": "matches",
+            "visibleTool": null,
+            "defaultRifleVisible": false,
+            "worldAnchors": {
+              "grip": [
+                4,
+                0,
+                10
+              ],
+              "support": [
+                3.6449999999994236,
+                0.732,
+                9.88700000000181
+              ],
+              "muzzle": [
+                3.9999999999989795,
+                0.03,
+                9.8
+              ],
+              "spout": [
+                4,
+                0,
+                10
+              ],
+              "backpack": [
+                4.000000000000128,
+                1.08,
+                10.025
+              ]
+            },
+            "finiteAnchors": true,
+            "bodyBounds": null,
+            "playerTime": 0,
+            "poseEvaluations": 2,
+            "contacts": [
+              {
+                "side": 1,
+                "grip": [
+                  4,
+                  0,
+                  10
+                ],
+                "palm": [
+                  4.354999999999424,
+                  0.732,
+                  9.886999999998189
+                ],
+                "error": 0.821351325560506
+              }
+            ],
+            "geometries": 70,
+            "materials": 21,
+            "textures": 4,
+            "objects": 1
+          },
+          {
+            "id": "resident",
+            "role": "resident",
+            "position": [
+              2.5,
+              0,
+              2.4
+            ],
+            "characterId": "horse",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 10300,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              2.069313940564538,
+              0,
+              2.1210259559521227
+            ],
+            "max": [
+              2.930836620007852,
+              1.649999976158142,
+              2.625492655310614
+            ],
+            "contacts": [],
+            "sourceTriangles": 856076,
+            "species": "horse",
+            "appearance": "normal",
+            "armed": false
+          },
+          {
+            "id": "officer",
+            "role": "officer",
+            "position": [
+              2.5,
+              0,
+              10.5
+            ],
+            "characterId": "goat",
+            "nativeScale": [
+              1,
+              1,
+              1
+            ],
+            "visible": true,
+            "triangles": 9994,
+            "rifleTriangles": 480,
+            "weapon": "rifle",
+            "weaponTriangles": 480,
+            "bones": 17,
+            "skinnedMeshes": 8,
+            "min": [
+              2.069344594557996,
+              0,
+              10.288326397538185
+            ],
+            "max": [
+              2.9309749553161657,
+              1.64951753616333,
+              10.754952788352966
+            ],
+            "contacts": [],
+            "sourceTriangles": 29586,
+            "species": "goat",
+            "appearance": "normal",
+            "armed": true,
+            "uniform": {
+              "id": "chicago-1893-city-beat",
+              "disposed": false,
+              "species": "goat",
+              "pieces": {
+                "helmet": true,
+                "coat": true,
+                "trousers": true,
+                "footwear": true,
+                "belt": true,
+                "badge": true
+              },
+              "triangles": 7313
+            },
+            "sidearm": {
+              "id": "pistol",
+              "label": "TT-33 pistol",
+              "carry": "belt",
+              "parts": 15,
+              "visible": true
+            }
+          }
+        ],
+        "lantern": {
+          "id": "bell-and-alder:hand-lantern",
+          "phase": "carried",
+          "ownerId": "player",
+          "models": 1,
+          "position": [
+            4.315000000000511,
+            0.4627999999999999,
+            10.099999999998392
+          ],
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "structure": {
+          "disposed": false,
+          "version": 1,
+          "prefabId": "bell-and-alder-closing-v1",
+          "worldTime": 0,
+          "revision": 3,
+          "view": "exterior",
+          "level": 0,
+          "sourceSurfaces": 543,
+          "physicalPatches": 3605,
+          "retiredPatches": 0,
+          "sourceMeshes": 660,
+          "batches": 93,
+          "items": 23,
+          "falls": 0,
+          "fallVisuals": 0,
+          "debris": {
+            "flights": 0,
+            "residue": 0,
+            "pendingLanding": 0,
+            "missingGeometry": 0,
+            "draws": 0,
+            "resources": {
+              "geometries": 1,
+              "materials": 1
+            }
+          },
+          "occupancy": 0,
+          "fireSamples": 0,
+          "representedSamples": 0,
+          "missingSamples": 0,
+          "missingSampleDetails": [],
+          "visibleSamples": 0,
+          "viewCulledSamples": 0,
+          "cameraCulledSamples": 0,
+          "effects": {
+            "flames": true,
+            "smoke": true,
+            "lighting": true
+          },
+          "lightingMode": "building",
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 1,
+              "buildingAggregateSources": 0
+            }
+          },
+          "emitterBatches": 0,
+          "fire": [],
+          "lightBudget": {
+            "mode": "building",
+            "terrainSites": 0,
+            "surfaceSites": 0,
+            "candidates": 0,
+            "capacity": 6,
+            "powerCap": 215,
+            "activeArea": 0,
+            "activeEnergy": 0,
+            "lights": []
+          },
+          "actualLights": [],
+          "resources": {
+            "geometries": 94,
+            "materials": 116,
+            "textures": 7
+          },
+          "resetCount": 5,
+          "revisionCount": 4,
+          "rootScale": [
+            1,
+            1,
+            1
+          ],
+          "stateBindings": 642
+        },
+        "witness": {
+          "cue": null,
+          "shotId": null,
+          "flash": false,
+          "muzzle": null
+        },
+        "ventSmoke": {
+          "proxy": "Current physical path, not a fluid solver",
+          "hasCurrentCollection": true,
+          "signals": [],
+          "submitted": {
+            "patches": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0
+          },
+          "capacity": 16
+        },
+        "resources": {
+          "meshes": 189,
+          "uniqueGeometries": 189,
+          "materials": 57,
+          "textures": 9,
+          "sourceTriangles": 101611,
+          "characterKits": 3
+        },
+        "lights": [
+          {
+            "name": "Street fire spill 1",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 2",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 3",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 4",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 5",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "Street fire spill 6",
+            "type": "PointLight",
+            "intensity": 0,
+            "reach": 17.601470508735446,
+            "castShadow": false
+          },
+          {
+            "name": "bell-and-alder:hand-lantern:light",
+            "type": "PointLight",
+            "intensity": 4.8,
+            "reach": 3.4,
+            "castShadow": true
+          },
+          {
+            "name": "bell-and-alder:shop-lamp:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": false
+          },
+          {
+            "name": "lodging-lamp:light",
+            "type": "PointLight",
+            "intensity": 4,
+            "reach": 4.3,
+            "castShadow": false
+          },
+          {
+            "name": "closing/front-pendant:light",
+            "type": "PointLight",
+            "intensity": 8.5,
+            "reach": 4.7,
+            "castShadow": true
+          },
+          {
+            "name": "street-lamp:light",
+            "type": "PointLight",
+            "intensity": 5,
+            "reach": 3.6,
+            "castShadow": false
+          }
+        ],
+        "lightingPolicy": "Existing six-light/power215 fire pool plus four installed lamps and one portable lantern; only front pendant and portable point lights cast shadows",
+        "wind": "Declared 1.5m/s east ambient; no shop obstacle bake"
+      },
+      "renderMsTwoDraws": 0,
+      "renderer": {
+        "calls": 154,
+        "triangles": 92517,
+        "memory": {
+          "geometries": 157,
+          "textures": 27
+        }
+      }
+    }
+  ],
+  "disposal": {
+    "before": {
+      "meshes": 190,
+      "uniqueGeometries": 190,
+      "materials": 58,
+      "textures": 9,
+      "sourceTriangles": 101613,
+      "characterKits": 3
+    },
+    "after": {
+      "meshes": 0,
+      "uniqueGeometries": 0,
+      "materials": 0,
+      "textures": 0,
+      "sourceTriangles": 0,
+      "characterKits": 0
+    },
+    "rendererAfter": {
+      "geometries": 0,
+      "textures": 1
+    }
+  },
+  "inputData": {
+    "path": "workbenches/bell-and-alder-closing/scene-data.json",
+    "sha256": "01e9f9f6250ce5db3203c3ccad468f7319b01573f37f5d0ec0dd96a72d61b7a8"
+  },
+  "reviewScriptSha256": "182ee47e5d46594ec9587272fdcaeb991bdb128853c374027a304567121a4bf9",
+  "jpgs": [
+    {
+      "path": "docs/art/bell-and-alder-closing/previews/quiet-exterior.jpg",
+      "bytes": 220767,
+      "sha256": "defeed27360cd9e4a27373521e563993c2fd95364863ee82763c0f3062a7c676"
+    },
+    {
+      "path": "docs/art/bell-and-alder-closing/previews/quiet-shop-cutaway.jpg",
+      "bytes": 271448,
+      "sha256": "77d8eb27ff72efaa307d264549131a99fee3ace01896b8ef5d494f3389d8d12d"
+    },
+    {
+      "path": "docs/art/bell-and-alder-closing/previews/quiet-lodging-cutaway.jpg",
+      "bytes": 190328,
+      "sha256": "93d5934271b381e8969e4fdccf61aa9369e239ea83ce74bcd3ba61edbd1da809"
+    },
+    {
+      "path": "docs/art/bell-and-alder-closing/previews/quiet-lantern-carried.jpg",
+      "bytes": 230194,
+      "sha256": "9370840656fb641d451cd94661b35e384db52f99c6005bb8b2c852d2cbe9ccb6"
+    }
+  ]
+}

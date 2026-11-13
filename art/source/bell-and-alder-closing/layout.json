@@ -301,7 +301,7 @@
     },
     "lanternReach": {
       "position": [
-        5.65,
+        5.2,
         0,
         3.5
       ],
@@ -405,9 +405,9 @@
     },
     "coverStance": {
       "position": [
-        2.5,
+        3,
         0,
-        6.5
+        6.9
       ],
       "level": 0
     },
@@ -582,6 +582,22 @@
         3
       ],
       "level": 1
+    },
+    "shopAisle": {
+      "position": [
+        4,
+        0,
+        5
+      ],
+      "level": 0
+    },
+    "safeObserver": {
+      "position": [
+        10,
+        0,
+        10.7
+      ],
+      "level": 0
     }
   },
   "actors": [
@@ -783,5 +799,68 @@
     "officer-reaction": {
       "intent": "A short questioning vocal gesture at suspicion; existing draw/shot only on runtime evidence"
     }
+  },
+  "replays": {
+    "hero": {
+      "approach": [
+        "entryOutside"
+      ],
+      "toLantern": [
+        "entryInside",
+        "shopAisle",
+        "aisleRear",
+        "lanternReach"
+      ],
+      "toSighting": [
+        "aisleRear",
+        "shopAisle",
+        "entryInside",
+        "entryOutside",
+        "lanternSight"
+      ],
+      "toStrike": [
+        "entryOutside",
+        "entryInside",
+        "heroStance"
+      ],
+      "escape": [
+        "entryInside",
+        "entryOutside",
+        "safeObserver"
+      ],
+      "strike": "heroStrike"
+    },
+    "direct": {
+      "approach": [
+        "entryOutside"
+      ],
+      "toStrike": [
+        "directStance"
+      ],
+      "toCover": [
+        "entryOutside",
+        "entryInside",
+        "coverStance"
+      ],
+      "strike": "directStrike"
+    }
+  },
+  "staticStreetLamp": {
+    "description": "Native installed entry lantern on a simple 2.12m iron post, versioned street fixture",
+    "position": [
+      -1.5,
+      0,
+      9.6
+    ],
+    "assetId": "city1880-entry-lantern-lit"
+  },
+  "quietLightingAdaptation": {
+    "assetId": "city1880-shop-pendant-lit",
+    "position": [
+      5.5,
+      0,
+      6.6
+    ],
+    "purpose": "Add one original native ceiling lamp over the front shop floor to establish warm display windows; original25 fittings unchanged."
   }
 }
