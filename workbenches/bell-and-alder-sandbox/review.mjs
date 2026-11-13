@@ -5,11 +5,12 @@ import net from 'node:net';
 import {createRequire} from 'node:module';
 import {createHash} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
+import repl from 'node:repl';
 import {serve,processIdentity} from '../bell-and-alder-closing/launch.mjs';
 const get=(key,fallback)=>{const i=process.argv.indexOf(key);return i<0?fallback:process.argv[i+1];},sha=b=>createHash('sha256').update(b).digest('hex');
 const root=fs.realpathSync(process.cwd()),pkg=path.resolve(get('--package','')),out=path.resolve(get('--out','artifacts/qa/bell-and-alder-sandbox/review-'+Date.now()));
 if(!pkg.startsWith(path.join(root,'artifacts')+path.sep)||!out.startsWith(path.join(root,'artifacts')+path.sep)||fs.existsSync(out))throw Error('Review uses an immutable package and fresh own artifacts output');
-fs.mkdirSync(out,{recursive:true});const stopFile=path.join(out,'STOP'),started=Date.now(),deadline=started+15*60000,save=(name,value)=>fs.writeFileSync(path.join(out,name),JSON.stringify(value,null,2)+'\n');
+fs.mkdirSync(out,{recursive:true});const stopFile=path.join(out,'STOP'),started=Date.now(),deadline=get('--deadline')?Date.parse(get('--deadline')):started+15*60000,save=(name,value)=>fs.writeFileSync(path.join(out,name),JSON.stringify(value,null,2)+'\n');if(!Number.isFinite(deadline)||deadline<=started)throw Error('Future finite review deadline required');
 const record={owner:'01a17ea3-b99b-74d2-8a74-56d2556a19cb',project:'Tinderbox',purpose:'M23 first-slice operator input and short WebGL review',driver:processIdentity(),startedAt:new Date(started).toISOString(),expiresAt:new Date(deadline).toISOString(),stopFile,ports:[],sourceSha256:sha(fs.readFileSync(import.meta.filename)),packageManifestSha256:sha(fs.readFileSync(path.join(pkg,'package-manifest.json'))),restart:{cwd:root,executable:process.execPath,args:[...process.execArgv,...process.argv.slice(1)],sourceFiles:[import.meta.filename,path.join(root,'workbenches/bell-and-alder-closing/launch.mjs')],inputs:[pkg],outputs:[out],dependencies:['Node22+','Playwright','Edge WebGL2'],pendingWork:'Review preserved operator inputs and captures; deliberate restart only with fresh output and deadline',secretReferences:[]}};
 save('helper.json',record);fs.mkdirSync(path.join(out,'source'));for(const file of record.restart.sourceFiles)fs.copyFileSync(file,path.join(out,'source',path.basename(file)));
 let server,edge,context,page,expiry,watcher,closing;const errors=[],operations=[],captures=[],stepCosts=[];
@@ -33,4 +34,5 @@ try{
     async finish(){await close('Operator review completed');setTimeout(()=>process.exit(0),20);return {out,closed:true};}
   };
   console.log(JSON.stringify({ready:true,out,server:server.url,driver:record.driver,browser:record.browser,deadline:record.expiresAt,commands:'await qa.inspect(); await qa.command(label,commands,steps); await qa.key(label,key,steps); await qa.capture(label); await qa.finish();'}));
+  repl.start({prompt:'sandbox> ',useGlobal:true}).on('exit',()=>void close('Operator console closed').finally(()=>process.exit(0)));
 }catch(error){errors.push(String(error.stack||error));save('failure.json',{errors});await close('Review launch failed');console.error(error);process.exit(1);}
