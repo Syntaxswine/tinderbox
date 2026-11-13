@@ -4,13 +4,15 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `codex/stockyard-map-blockout` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Owner-requested stockyard blockout in the native Nautilus workshop; grass review branch preserved |
+| Architect | `codex/fire-receiver-selection-proposal` (`master` integration held) | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Bounded radiation-selection brief and review; stockyard blockout preserved |
 | Artist | `codex/fire-effect-visibility-art` from `25095656` | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Independent flame/smoke/light preparation and conservative early visibility |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/furnished-house-grass-comparison` from milestone-20 architect brief (assigned) | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Four-case grass comparison, additive fixture, physical evidence and finite runner |
+| Coder | Milestone 21 task branch from `66febf33` (assigned); prior `codex/furnished-house-grass-comparison` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | One 120s nonburning-lawn bedroom trial using no-lawn radiation selection |
 | UI designer | `codex/fire-effect-settings-ui` from `25095656` | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | Three independent effect settings; preserve the separate train interface candidate |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
+
+The latest owner-authorized numerical investigation is [Milestone 21: radiation receiver selection](milestones/21-fire-receiver-selection.md), following the completed grass comparison and matched nonburning diagnostic at `66febf33`. The coder runs one bounded 120s bedroom intervention and compares cached prefixes; no primary trajectories are repeated. This does not authorize tuning, an incoming-lawn-fire trial or production promotion.
 
 The current bounded assignment is [independent fire effect settings and early visibility](milestones/19-fire-effect-settings.md). Its [combined review](reviews/2026-11-12-fire-effect-settings.md) accepts the isolated workbench switches, conservative early culling and optional whole-building glow comparison, with actual eight-mask browser evidence and measured limits. The expensive reference and physical simulation are preserved. This candidate is not a production/Pages rollout; the wider realistic-fire milestone remains open. Worker intake pins and remaining work are in the review; Git worktree metadata records actual branch occupancy.
 
