@@ -2,7 +2,7 @@
 
 This isolated artist candidate adds a native-grid lodging and external stair to the
 published single-storey shop. Its first evidence is a quiet WebGL exemplar and
-explicit physical export. Full actor traversal, causal reactions and the combined
+explicit physical export. Native cylinder traversal now passes on the selected 6 m flight. Combined moving body/equipment review, causal reactions and the
 300-second replay remain the coder/architect gate in
 [Milestone 22](../../milestones/22-bell-and-alder-closing-time.md).
 
@@ -43,8 +43,8 @@ sweep; no passage acceptance is inferred from the plan.
 The new lodging spans 8 by 8 m with a 2 m partition opening and three original 2 m
 Nautilus period sash bays. Roof slabs finish at Y 4.24. The simplified flat timber
 roof/deck and covering are an authored prototype, with drainage construction
-outside this study. The service flight is 2 m wide: twelve .1766667m rises over 3 m,
-.25 m going,1.90 m inside the iron handrails, and a real landing at Y 2.12. Bottom
+outside this study. The service flight is 2 m wide: twelve .1766667 m rises over 6 m,
+.5 m going,1.90 m inside the iron handrails, and a real landing at Y 2.12. Bottom
 bearing deck, treads, stringers, landing posts and rails all have physical records.
 
 The 25 original shop fittings retain their source positions and rotations; the 21
@@ -107,6 +107,49 @@ hinge/latch, handle contact, small resident/officer reactions and fuel-driven fi
 crackle. Sources are procedural or existing licensed material; playback, limits,
 pause/reset/disposal and recording belong to the coder.
 
+## Corrected route and traversal evidence
+
+The first failed candidate remains immutable at `3c842b20aa9ebc8f0ec0b447282cfd17f9d6e2e1`
+(data SHA `01e9f9f6250ce5db3203c3ccad468f7319b01573f37f5d0ec0dd96a72d61b7a8`).
+The coder diagnosed a centre-bearing sensitivity on its original 3 m stair: the
+larger cylinder reaches tread three while its centre is still on pavement. A pure
+first-step support comparison clears with unchanged body, gait and maximum step.
+This is a navigation approximation, not proof that the original stairs are
+intrinsically invalid. The architect selected the longer composed flight as the
+local M22 accommodation; shared navigation rules stay unchanged.
+
+The selected flight occupies X9–11/Z4–10; its level base deck occupies Z10–11.
+Twelve .5 m goings preserve the 2.12 m rise and .1766667 m riser. Inside rail width
+remains 1.90 m and the landing X8–11/Z2–4 is unchanged. Tread fuel grows with the
+additional actual timber area at the existing prototype rate. No material or
+weapon coefficient was adjusted to make the route pass.
+
+Service hinges now sit on the outer jambs: left [8,2.18,2] opens +90 degrees,
+right [8,2.18,4] opens -90 degrees. Every corresponding glass/wood render and
+physical part shares that canonical pivot. The paired native leaf dimensions
+remain unchanged. Entry pivots at X3/X5 were already correct; an extra straight
+waypoint [4,0,10] clears their tips before lateral movement.
+
+The player starts clear of the ordinary resident route at [6.5,0,12.5]. The lantern
+approach now comes from the front aisle to [5,0,3.75]. Street/escape waypoints clear
+the longer flight. The direct control uses the existing left display bulkhead:
+stance [2.25,0,8.9], strike [2.5,.58,8.136], planar distance .803864 m within the
+unchanged .85 m match reach. The same runtime query accepted the single match and
+ignited that finite lacquer finish. This does not establish the later witness/shot
+control, which remains part of the coder's actual replay.
+
+[All four cylinder profiles](native-traversal.json) pass the ground, ascent,
+descent, initial stances and closed-door control. The actual 40-second quiet
+routine reaches the lodging without route blocks, fire or reactions. The .62 m
+civilian/officer value is a radius, so its diameter is 1.24 m.
+[Changed route checks](correction-checks.json) also exercise the turn, cover,
+lantern and service routes. [Posed visible-vertex measurements](posed-height-probe.json)
+put the tallest sampled bear at 1.67085 m below the 1.71 m transom; this numeric
+check does not replace the combined moving/equipment WebGL review. The
+[initial longer-flight comparison](longer-stair-control.json) and its
+[authored layout](../../../art/source/bell-and-alder-closing/controls/longer-stair-layout.json)
+remain alongside the preserved failed control.
+
 ## Source pins and limits
 
 Implementation base: `b6838d004778faa6ca08914546499f6af27ce0b6`.
@@ -123,8 +166,7 @@ installed window adapter. Native character/Three donor:
 The export records actual file SHA-256 values; existing notices and unresolved
 rights limitations remain unchanged. User-directed reuse is not a new license grant.
 
-Quiet JPGs are actual shared-WebGL static art fixtures. They do not claim completed
-movement, causally witnessed ignition, resident exit, burn progression or final
+Quiet JPGs are actual shared-WebGL static art fixtures. They do not claim completed moving-body/equipment acceptance, causally witnessed ignition, resident exit, burn progression or final
 combined replay acceptance. The receiver-selection sensitivity and ambient-wind
 limitation remain declared. The queued neighborhood expansion is outside this
 candidate until the closing-time replay has been finished and reviewed.

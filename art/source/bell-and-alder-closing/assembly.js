@@ -67,19 +67,20 @@ export function createClosingAssembly(T,{layout}){
  for(let x=0;x<8;x++)for(let z=0;z<8;z++)box('roof/'+x+','+z,[x+.5,4.18,z+.5],[1,.12,1],roof,{kind:'roof',level:1,material:'timber',fuelClass:'roof',fuelAmount:1,thickness:.12,triangles:top(x,z,1,1,4.18),normal:[0,1,0]});
  for(let i=0;i<8;i++)box('upper/cornice/'+i,[i+.5,4.22,8.07],[1,.16,.24],wood,{kind:'attachment',level:1,material:'timber',fuelClass:'frame',fuelAmount:.15,thickness:0,physicalShape:'source-closed-mesh'});
  // Stair top contacts and a real level landing; iron rails preserve wide native actor clearance.
- for(let x=9;x<11;x++)slab('stair/base/'+x+',7',x,7,1,1,0,0,wood,{supportType:'porch-deck'});
+ const stair=layout.stair,stairFootZ=stair.bounds.max[2],stairTopZ=stair.bounds.min[2];
+ for(let x=9;x<11;x++)slab('stair/base/'+x+','+stairFootZ,x,stairFootZ,1,1,0,0,wood,{supportType:'porch-deck'});
  for(let i=0;i<12;i++){
-  const y=(i+1)*2.12/12,z=6.75-i*.25;
-  slab('stair/tread-'+String(i+1).padStart(2,'0'),9,z,2,.25,y,1,wood,{supportType:'stair-tread'});
-  for(const x of [9.03,10.97])box('stair/rail-post/'+i+'/'+x,[x,y+.48,z+.125],[.035,.96,.035],iron,{kind:'attachment',level:1,material:'iron',fuelClass:null,fuelAmount:0,thickness:0,physicalShape:'source-closed-mesh'});
+  const y=(i+1)*stair.rise/stair.treads,z=stairFootZ-(i+1)*stair.going;
+  slab('stair/tread-'+String(i+1).padStart(2,'0'),9,z,2,stair.going,y,1,wood,{supportType:'stair-tread'});
+  for(const x of [9.03,10.97])box('stair/rail-post/'+i+'/'+x,[x,y+.48,z+stair.going/2],[.035,.96,.035],iron,{kind:'attachment',level:1,material:'iron',fuelClass:null,fuelAmount:0,thickness:0,physicalShape:'source-closed-mesh'});
  }
  for(let x=8;x<11;x++)for(let z=2;z<4;z++)slab('landing/'+x+','+z,x,z,1,1,2.12,1,wood,{supportType:'porch-deck'});
  for(const x of [8.15,10.85])for(const z of [2.15,3.85])box('landing/post/'+x+','+z,[x,1,z],[.16,2,.16],wood,{kind:'attachment',level:0,material:'timber',fuelClass:'frame',fuelAmount:.3,thickness:0,physicalShape:'source-closed-mesh'});
  function slopedBeam(id,x,z0,z1,y0,y1,m=wood){
   const direction=new T.Vector3(0,y1-y0,z1-z0),g=new T.BoxGeometry(m===iron?.04:.12,m===iron?.045:.20,direction.length()),o=mesh(id,g,m,{kind:'attachment',level:1,material:m===iron?'iron':'timber',fuelClass:m===iron?null:'frame',fuelAmount:m===iron?0:.6,thickness:0,physicalShape:'source-closed-mesh'},[x,(y0+y1)/2,(z0+z1)/2]);o.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),direction.normalize());
  }
- for(const x of [9.10,10.90])slopedBeam('stair/stringer/'+x,x,7,4,0,2.12);
- for(const x of [9.03,10.97])slopedBeam('stair/handrail/'+x,x,7,4,.98,3.10,iron);
+ for(const x of [9.10,10.90])slopedBeam('stair/stringer/'+x,x,stairFootZ,stairTopZ,0,stair.rise);
+ for(const x of [9.03,10.97])slopedBeam('stair/handrail/'+x,x,stairFootZ,stairTopZ,.98,stair.rise+.98,iron);
  for(const z of [2,4,6])for(let x=0;x<8;x++)box('ceiling/beam/'+z+'/'+x,[x+.5,1.90,z],[1,.20,.16],wood,{kind:'attachment',level:0,material:'timber',fuelClass:'frame',fuelAmount:.25,thickness:0,physicalShape:'source-closed-mesh'});
  // Native one-metre door leaves; glass and wood retain separate physical meaning.
  function door(id,centre,yaw,level,pivotSide){
@@ -101,7 +102,7 @@ export function createClosingAssembly(T,{layout}){
   }
  }
  door('entry-left',[3.5,8],0,0,-1);door('entry-right',[4.5,8],0,0,1);
- door('service-left',[8,2.5],Math.PI/2,1,-1);door('service-right',[8,3.5],Math.PI/2,1,1);
+ door('service-left',[8,2.5],Math.PI/2,1,1);door('service-right',[8,3.5],Math.PI/2,1,-1);
  for(const [id,c,yaw,l]of [['entry-head-left',[3.5,8],0,0],['entry-head-right',[4.5,8],0,0],['service-head-left',[8,2.5],Math.PI/2,1],['service-head-right',[8,3.5],Math.PI/2,1]]){
   const y=l*2.12+1.71,rot=v=>new T.Vector3(...v).applyAxisAngle(new T.Vector3(0,1,0),yaw).add(new T.Vector3(c[0],y,c[1])).toArray(),normal=[Math.sin(yaw),0,Math.cos(yaw)];
   for(const [suffix,centre,size]of [['top',[0,.2675,0],[1,.045,.16]],['bottom',[0,.0225,0],[1,.045,.16]],['left',[-.48,.145,0],[.04,.20,.16]],['right',[.48,.145,0],[.04,.20,.16]],['glass',[0,.145,0],[.92,.20,.012]]]){

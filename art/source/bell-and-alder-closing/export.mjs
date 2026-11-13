@@ -44,7 +44,7 @@ try{
   record.supportConvention='Native source facets at the declared floor; item pivot is not a contact';items.push(record);
  }
  for(const s of surfaces){
-  if(s.kind==='floor'){if(s.supportType==='stair-tread')s.supportSurfaceIds=['stair/base/9,7','stair/base/10,7','landing/9,3','landing/10,3'];continue;}
+  if(s.kind==='floor'){if(s.supportType==='stair-tread')s.supportSurfaceIds=['stair/base/9,'+layout.stair.bounds.max[2],'stair/base/10,'+layout.stair.bounds.max[2],'landing/9,3','landing/10,3'];continue;}
   s.supportSurfaceIds=supportFor(s.bounds,s.level);
   if(s.kind==='attachment'){
    const hosts=surfaces.filter(h=>h.id!==s.id&&['floor','wall','roof'].includes(h.kind)&&h.level===s.level&&[0,1,2].every(i=>h.bounds.min[i]<=s.bounds.max[i]+.18&&h.bounds.max[i]>=s.bounds.min[i]-.18)).map(h=>h.id);

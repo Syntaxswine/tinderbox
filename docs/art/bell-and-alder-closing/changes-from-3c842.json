@@ -1,0 +1,385 @@
+{
+  "version": 1,
+  "failedControlCommit": "3c842b20aa9ebc8f0ec0b447282cfd17f9d6e2e1",
+  "selectedPhysicalDataSha256": "15d284fbcaad23daceaf727079dbb902c072a9a0cefeaea7bd12fe89fd29c943",
+  "changedAnchors": {
+    "playerStart": {
+      "before": [
+        4,
+        0,
+        10
+      ],
+      "after": [
+        6.5,
+        0,
+        12.5
+      ]
+    },
+    "lanternReach": {
+      "before": [
+        5.2,
+        0,
+        3.5
+      ],
+      "after": [
+        5,
+        0,
+        3.75
+      ]
+    },
+    "lanternSight": {
+      "before": [
+        5.5,
+        0,
+        9.3
+      ],
+      "after": [
+        5.5,
+        0,
+        10
+      ]
+    },
+    "alleyApproach": {
+      "before": [
+        10,
+        0,
+        9.2
+      ],
+      "after": [
+        11.8,
+        0,
+        11.8
+      ]
+    },
+    "stairFoot": {
+      "before": [
+        10,
+        0,
+        7.5
+      ],
+      "after": [
+        10,
+        0,
+        10.5
+      ]
+    },
+    "safeExit": {
+      "before": [
+        11.8,
+        0,
+        9.2
+      ],
+      "after": [
+        12,
+        0,
+        12.5
+      ]
+    },
+    "directStance": {
+      "before": [
+        5.5,
+        0,
+        9.1
+      ],
+      "after": [
+        2.25,
+        0,
+        8.9
+      ]
+    },
+    "directStrike": {
+      "before": [
+        5.5,
+        0.58,
+        8.136
+      ],
+      "after": [
+        2.5,
+        0.58,
+        8.136
+      ]
+    },
+    "stair-01": {
+      "before": [
+        10,
+        0.17666667,
+        6.875
+      ],
+      "after": [
+        10,
+        0.17666667,
+        9.75
+      ]
+    },
+    "stair-02": {
+      "before": [
+        10,
+        0.35333333,
+        6.625
+      ],
+      "after": [
+        10,
+        0.35333333,
+        9.25
+      ]
+    },
+    "stair-03": {
+      "before": [
+        10,
+        0.53,
+        6.375
+      ],
+      "after": [
+        10,
+        0.53,
+        8.75
+      ]
+    },
+    "stair-04": {
+      "before": [
+        10,
+        0.70666667,
+        6.125
+      ],
+      "after": [
+        10,
+        0.70666667,
+        8.25
+      ]
+    },
+    "stair-05": {
+      "before": [
+        10,
+        0.88333333,
+        5.875
+      ],
+      "after": [
+        10,
+        0.88333333,
+        7.75
+      ]
+    },
+    "stair-06": {
+      "before": [
+        10,
+        1.06,
+        5.625
+      ],
+      "after": [
+        10,
+        1.06,
+        7.25
+      ]
+    },
+    "stair-07": {
+      "before": [
+        10,
+        1.23666667,
+        5.375
+      ],
+      "after": [
+        10,
+        1.23666667,
+        6.75
+      ]
+    },
+    "stair-08": {
+      "before": [
+        10,
+        1.41333333,
+        5.125
+      ],
+      "after": [
+        10,
+        1.41333333,
+        6.25
+      ]
+    },
+    "stair-09": {
+      "before": [
+        10,
+        1.59,
+        4.875
+      ],
+      "after": [
+        10,
+        1.59,
+        5.75
+      ]
+    },
+    "stair-10": {
+      "before": [
+        10,
+        1.76666667,
+        4.625
+      ],
+      "after": [
+        10,
+        1.76666667,
+        5.25
+      ]
+    },
+    "stair-11": {
+      "before": [
+        10,
+        1.94333333,
+        4.375
+      ],
+      "after": [
+        10,
+        1.94333333,
+        4.75
+      ]
+    },
+    "stair-12": {
+      "before": [
+        10,
+        2.12,
+        4.125
+      ],
+      "after": [
+        10,
+        2.12,
+        4.25
+      ]
+    },
+    "safeObserver": {
+      "before": [
+        10,
+        0,
+        10.7
+      ],
+      "after": [
+        11.8,
+        0,
+        12.4
+      ]
+    },
+    "entryTurn": {
+      "before": null,
+      "after": [
+        4,
+        0,
+        10
+      ]
+    },
+    "directTurn": {
+      "before": null,
+      "after": [
+        2.25,
+        0,
+        10
+      ]
+    }
+  },
+  "serviceHinges": {
+    "before": {
+      "leftPivot": [
+        8,
+        2.18,
+        3
+      ],
+      "rightPivot": [
+        8,
+        2.18,
+        3
+      ]
+    },
+    "after": [
+      {
+        "leaf": "service-left",
+        "pivot": [
+          8,
+          2.18,
+          2
+        ],
+        "maxOpenAngle": 1.5707963267948966
+      },
+      {
+        "leaf": "service-right",
+        "pivot": [
+          8,
+          2.18,
+          4
+        ],
+        "maxOpenAngle": -1.5707963267948966
+      }
+    ]
+  },
+  "stair": {
+    "before": {
+      "rise": 2.12,
+      "run": 3,
+      "going": 0.25,
+      "footZ": 7
+    },
+    "after": {
+      "rise": 2.12,
+      "run": 6,
+      "going": 0.5,
+      "footZ": 10
+    },
+    "treads": 12,
+    "width": 2,
+    "insideRailWidth": 1.9,
+    "landingUnchanged": true
+  },
+  "replays": {
+    "hero": {
+      "approach": [
+        "entryOutside"
+      ],
+      "toLantern": [
+        "entryInside",
+        "shopAisle",
+        "lanternReach"
+      ],
+      "toSighting": [
+        "shopAisle",
+        "entryInside",
+        "entryOutside",
+        "entryTurn",
+        "lanternSight"
+      ],
+      "toStrike": [
+        "entryTurn",
+        "entryOutside",
+        "entryInside",
+        "heroStance"
+      ],
+      "escape": [
+        "entryInside",
+        "entryOutside",
+        "entryTurn",
+        "safeObserver"
+      ],
+      "strike": "heroStrike"
+    },
+    "direct": {
+      "approach": [
+        "entryOutside"
+      ],
+      "toStrike": [
+        "entryTurn",
+        "directTurn",
+        "directStance"
+      ],
+      "toCover": [
+        "directTurn",
+        "entryTurn",
+        "entryOutside",
+        "entryInside",
+        "coverStance"
+      ],
+      "strike": "directStrike"
+    }
+  },
+  "unchanged": [
+    "Original25 shop prop and21 wall transforms",
+    "Native animal models, rigs, proportions and attachments",
+    "Native1m door leaves and2.12m floor pitch",
+    "Existing .85m match reach, .22m max step and .45m gait clearance",
+    "Fire rules/material coefficients and bounded light pool"
+  ],
+  "remainingGate": "Official committed-source rerun, combined moving body/equipment WebGL review, then authorized causal replay capture before expansion."
+}

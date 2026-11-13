@@ -1,22 +1,21 @@
-# Bell and Alder closing layout draft
+# Bell & Alder measured layout
 
 Coordinates are local metres, X/Z ground and Y up. The single source translation is
-[-36, 0, -9]; shop walls and original fittings remain on X/Z0..8. Ground walking
-elevation is0; the new lodging walk is2.12, its ceiling underside4.12 and flat roof
-top4.24. No native body or component is scaled.
+[-36,0,-9]; shop walls and original fittings stay on X/Z0–8. Ground walking Y is0,
+lodging walking Y2.12, ceiling underside4.12 and roof top4.24. Native components and
+bodies retain their dimensions and scale.
 
-The east service stair is2m wide, with12 treads rising2.12m over3m. Its open-air
-landing occupies X8..11/Z2..4 and connects to a2m paired-leaf service opening at
-X8/Z2..4. The primary shop entry remains X3..5/Z8.
+The architect-selected east service flight occupies X9–11/Z4–10. It is2m wide,
+rises2.12m in twelve treads over6m, with .5m going and1.90m rail clearance. Its actual
+bottom deck is atZ10–11. Landing X8–11/Z2–4 connects to the paired native service
+leaves atX8/Z2–4. Their hinges are on the outer jambs atZ2 andZ4. The primary entry
+stays X3–5/Z8; lateral routes turn after reaching Z10 clear of its swung tips.
 
-See [the measured layout and stable anchors](../../../art/source/bell-and-alder-closing/layout.json)
-for both ordinary and emergency routes, source transforms, opening groups, lantern,
-strike/control anchors, and the initial acoustic palette. The upper central period
-sash is the resident observation opening. The proposed floor source is actual shop
-timber; the direct control uses a declared finite lacquer finish on a front display
-bulkhead. The physical export must bind those points to canonical surfaces.
+See [the source layout and stable anchors](../../../art/source/bell-and-alder-closing/layout.json)
+and [the handoff and current check scope](README.md). The four native cylinder
+profiles and actual quiet routine pass this composition. Combined moving-body,
+equipment, light/smoke and causal replay acceptance remain required.
 
-This is the first measured plan, preceding the quiet WebGL exemplar and physical
-freeze. Full native traversal, perception and the causal replay require the combined
-coder/art candidate. Current shop geometry is a single-storey open-top room; every
-upper floor, wall, partition, landing and roof here is a new versioned addition.
+Original3c842b20 and its3m stair failure are preserved controls. The coder found a
+centre-bearing/gait-ordering sensitivity; the longer composed variant accommodates
+that existing approximation without changing body sizes, gait or step limits.

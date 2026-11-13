@@ -1,0 +1,916 @@
+{
+  "version": 1,
+  "status": "Route-correction candidate after measured native blockers in3c842b20; combined posed equipment/replay acceptance remains pending.",
+  "baseCommit": "b6838d004778faa6ca08914546499f6af27ce0b6",
+  "briefCommit": "d7fd0d2865988779310741d8a0a69b5d16fbeb83",
+  "coderApiCommit": "a19465407abacc933aba5d296a6f30c507b81595",
+  "sourceArtWorkflowCommit": "4001bfb537fe2b156ccf17fa5a7e1b5cbdbcf9d4",
+  "units": "metres; X/Z ground, Y up",
+  "module": [
+    1,
+    1,
+    2.12
+  ],
+  "origin": {
+    "source": "Published Catalogue Street Bell & Alder",
+    "translation": [
+      -36,
+      0,
+      -9
+    ],
+    "appliedOnce": "All exported anchors and geometry are already local XYZ."
+  },
+  "shop": {
+    "bounds": {
+      "min": [
+        0,
+        0,
+        0
+      ],
+      "max": [
+        8,
+        2,
+        8
+      ]
+    },
+    "walkingY": 0,
+    "slabBottomY": -0.12,
+    "entry": {
+      "id": "bell-and-alder:entry",
+      "openingIds": [
+        "entry-left",
+        "entry-right"
+      ],
+      "span": [
+        3,
+        5
+      ],
+      "z": 8,
+      "leafDimensions": [
+        1,
+        1.65,
+        0.12
+      ],
+      "leafBaseY": 0.06,
+      "clearHeight": 2
+    },
+    "preserve": "Original25 prop placements and21 native unit-wall locations. New lodging and service assembly are additive; the entry and ground aisle remain intact."
+  },
+  "lodging": {
+    "walkingY": 2.12,
+    "slabBottomY": 2,
+    "wallTopY": 4.12,
+    "roofTopY": 4.24,
+    "roof": "Versioned flat timber roof using native1m slab modules; simple parapet/trim; no enlarged sloping-roof tiles.",
+    "serviceDoor": {
+      "id": "bell-and-alder:service",
+      "openingIds": [
+        "service-left",
+        "service-right"
+      ],
+      "x": 8,
+      "zSpan": [
+        2,
+        4
+      ],
+      "leafDimensions": [
+        1,
+        1.65,
+        0.12
+      ],
+      "leafBaseY": 2.18,
+      "clearHeight": 2,
+      "hinges": [
+        {
+          "leaf": "service-left",
+          "pivot": [
+            8,
+            2.18,
+            2
+          ],
+          "maxOpenAngle": 1.5707963267948966
+        },
+        {
+          "leaf": "service-right",
+          "pivot": [
+            8,
+            2.18,
+            4
+          ],
+          "maxOpenAngle": -1.5707963267948966
+        }
+      ]
+    },
+    "frontWindows": [
+      {
+        "id": "upper-front-2",
+        "center": [
+          2,
+          2.12,
+          8
+        ],
+        "span": 2,
+        "profile": "window-bay-period"
+      },
+      {
+        "id": "upper-front-4",
+        "center": [
+          4,
+          2.12,
+          8
+        ],
+        "span": 2,
+        "profile": "window-bay-period"
+      },
+      {
+        "id": "upper-front-6",
+        "center": [
+          6,
+          2.12,
+          8
+        ],
+        "span": 2,
+        "profile": "window-bay-period"
+      }
+    ],
+    "partition": {
+      "z": 4,
+      "solidX": [
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "openX": [
+        3,
+        5
+      ],
+      "clearHeight": 2
+    },
+    "furniture": [
+      {
+        "id": "lodging-bed",
+        "assetId": "city1880-bedstead",
+        "position": [
+          1.8,
+          2.12,
+          1.8
+        ]
+      },
+      {
+        "id": "lodging-washstand",
+        "assetId": "city1880-washstand",
+        "position": [
+          0.7,
+          2.12,
+          5.1
+        ]
+      },
+      {
+        "id": "lodging-dresser",
+        "assetId": "city1880-dresser",
+        "position": [
+          0.7,
+          2.12,
+          6.6
+        ]
+      },
+      {
+        "id": "lodging-lamp",
+        "assetId": "city1880-table-lamp-lit",
+        "position": [
+          5.7,
+          2.12,
+          6.7
+        ]
+      }
+    ]
+  },
+  "stair": {
+    "id": "external-service-stair",
+    "bounds": {
+      "min": [
+        9,
+        0,
+        4
+      ],
+      "max": [
+        11,
+        2.12,
+        10
+      ]
+    },
+    "treads": 12,
+    "rise": 2.12,
+    "riser": 0.17666666666666667,
+    "run": 6,
+    "going": 0.5,
+    "width": 2,
+    "landing": {
+      "min": [
+        8,
+        2,
+        2
+      ],
+      "max": [
+        11,
+        2.12,
+        4
+      ]
+    },
+    "railInnerClearWidth": 1.9,
+    "headroom": "Open to sky along flight and landing; upstairs opening2m clear.",
+    "supports": "Actual risers/treads, bearing stringers and landing posts; supplied individually in physical export.",
+    "routeRevision": {
+      "fromCommit": "3c842b20aa9ebc8f0ec0b447282cfd17f9d6e2e1",
+      "reason": "The .62m native radius encountered the third short tread above the borrowed .45m gait clearance before the centre reached the first. Compose a 6m run of twelve .5m goings; bodies, rise and collision stay unchanged."
+    }
+  },
+  "street": {
+    "shopSidewalkZ": [
+      8,
+      10
+    ],
+    "roadZ": [
+      10,
+      14.5
+    ],
+    "alleyX": [
+      8,
+      12
+    ],
+    "material": "Inert paved stone; no grass fixture."
+  },
+  "opposite": {
+    "frontZ": 15,
+    "xSpan": [
+      -3,
+      3
+    ],
+    "depth": 2,
+    "height": 4.24,
+    "chamfer": [
+      [
+        3,
+        15
+      ],
+      [
+        4,
+        16
+      ]
+    ],
+    "material": "Masonry with glazing and metal frames; no hidden combustible background mass.",
+    "adaptation": "Fictional shallow corner return keeps an actual lit brick plane readable from the fixed isometric camera."
+  },
+  "anchors": {
+    "playerStart": {
+      "position": [
+        6.5,
+        0,
+        12.5
+      ],
+      "level": 0
+    },
+    "counter": {
+      "position": [
+        2.5,
+        0,
+        2.4
+      ],
+      "level": 0
+    },
+    "aisleRear": {
+      "position": [
+        4,
+        0,
+        2.4
+      ],
+      "level": 0
+    },
+    "aisleFront": {
+      "position": [
+        4,
+        0,
+        6.7
+      ],
+      "level": 0
+    },
+    "entryReach": {
+      "position": [
+        4,
+        0.9,
+        8
+      ],
+      "level": 0
+    },
+    "entryOutside": {
+      "position": [
+        4,
+        0,
+        9.2
+      ],
+      "level": 0
+    },
+    "lantern": {
+      "position": [
+        5.65,
+        0.747,
+        2.6
+      ],
+      "level": 0
+    },
+    "lanternReach": {
+      "position": [
+        5,
+        0,
+        3.75
+      ],
+      "level": 0
+    },
+    "lanternSight": {
+      "position": [
+        5.5,
+        0,
+        10
+      ],
+      "level": 0
+    },
+    "alleyApproach": {
+      "position": [
+        11.8,
+        0,
+        11.8
+      ],
+      "level": 0
+    },
+    "stairFoot": {
+      "position": [
+        10,
+        0,
+        10.5
+      ],
+      "level": 0
+    },
+    "safeExit": {
+      "position": [
+        12,
+        0,
+        12.5
+      ],
+      "level": 0
+    },
+    "officerStart": {
+      "position": [
+        2.5,
+        0,
+        10.5
+      ],
+      "level": 0
+    },
+    "officerEast": {
+      "position": [
+        7,
+        0,
+        10.5
+      ],
+      "level": 0
+    },
+    "officerWest": {
+      "position": [
+        -1,
+        0,
+        10.5
+      ],
+      "level": 0
+    },
+    "directWitness": {
+      "position": [
+        2.5,
+        0,
+        10.5
+      ],
+      "level": 0
+    },
+    "heroStance": {
+      "position": [
+        3,
+        0,
+        6.75
+      ],
+      "level": 0
+    },
+    "heroStrike": {
+      "position": [
+        2.25,
+        0.015,
+        6.75
+      ],
+      "level": 0
+    },
+    "directStance": {
+      "position": [
+        2.25,
+        0,
+        8.9
+      ],
+      "level": 0
+    },
+    "directStrike": {
+      "position": [
+        2.5,
+        0.58,
+        8.136
+      ],
+      "level": 0
+    },
+    "coverStance": {
+      "position": [
+        3,
+        0,
+        6.9
+      ],
+      "level": 0
+    },
+    "stair-01": {
+      "position": [
+        10,
+        0.17666667,
+        9.75
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-01"
+    },
+    "stair-02": {
+      "position": [
+        10,
+        0.35333333,
+        9.25
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-02"
+    },
+    "stair-03": {
+      "position": [
+        10,
+        0.53,
+        8.75
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-03"
+    },
+    "stair-04": {
+      "position": [
+        10,
+        0.70666667,
+        8.25
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-04"
+    },
+    "stair-05": {
+      "position": [
+        10,
+        0.88333333,
+        7.75
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-05"
+    },
+    "stair-06": {
+      "position": [
+        10,
+        1.06,
+        7.25
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-06"
+    },
+    "stair-07": {
+      "position": [
+        10,
+        1.23666667,
+        6.75
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-07"
+    },
+    "stair-08": {
+      "position": [
+        10,
+        1.41333333,
+        6.25
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-08"
+    },
+    "stair-09": {
+      "position": [
+        10,
+        1.59,
+        5.75
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-09"
+    },
+    "stair-10": {
+      "position": [
+        10,
+        1.76666667,
+        5.25
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-10"
+    },
+    "stair-11": {
+      "position": [
+        10,
+        1.94333333,
+        4.75
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-11"
+    },
+    "stair-12": {
+      "position": [
+        10,
+        2.12,
+        4.25
+      ],
+      "level": 1,
+      "supportSurfaceId": "stair/tread-12"
+    },
+    "landing": {
+      "position": [
+        10,
+        2.12,
+        3.25
+      ],
+      "level": 1
+    },
+    "serviceOutside": {
+      "position": [
+        8.9,
+        2.12,
+        3
+      ],
+      "level": 1
+    },
+    "serviceInside": {
+      "position": [
+        7,
+        2.12,
+        3
+      ],
+      "level": 1
+    },
+    "upstairsHall": {
+      "position": [
+        4,
+        2.12,
+        3
+      ],
+      "level": 1
+    },
+    "residentRest": {
+      "position": [
+        4,
+        2.12,
+        2.4
+      ],
+      "level": 1
+    },
+    "residentView": {
+      "position": [
+        4,
+        2.12,
+        7.2
+      ],
+      "level": 1
+    },
+    "entryInside": {
+      "position": [
+        4,
+        0,
+        7
+      ],
+      "level": 0
+    },
+    "serviceReach": {
+      "position": [
+        8,
+        3.02,
+        3
+      ],
+      "level": 1
+    },
+    "shopAisle": {
+      "position": [
+        4,
+        0,
+        5
+      ],
+      "level": 0
+    },
+    "safeObserver": {
+      "position": [
+        11.8,
+        0,
+        12.4
+      ],
+      "level": 0
+    },
+    "entryTurn": {
+      "position": [
+        4,
+        0,
+        10
+      ],
+      "level": 0,
+      "purpose": "Straight clearance beyond the open native entrance leaves before lateral turns"
+    },
+    "directTurn": {
+      "position": [
+        2.25,
+        0,
+        10
+      ],
+      "level": 0,
+      "purpose": "Approach the actual left display bulkhead beyond the left leaf tip; match planar reach about .804m"
+    }
+  },
+  "actors": [
+    {
+      "id": "player",
+      "role": "player",
+      "characterId": "goat",
+      "anchor": "playerStart",
+      "heading": -1.5707963268
+    },
+    {
+      "id": "resident",
+      "role": "resident",
+      "characterId": "horse",
+      "anchor": "counter",
+      "routine": [
+        {
+          "anchor": "counter",
+          "hold": 8,
+          "heading": 1.5707963268
+        },
+        {
+          "anchor": "aisleRear"
+        },
+        {
+          "anchor": "aisleFront"
+        },
+        {
+          "anchor": "entryInside",
+          "door": {
+            "id": "bell-and-alder:entry",
+            "open": true
+          }
+        },
+        {
+          "anchor": "entryOutside"
+        },
+        {
+          "anchor": "entryTurn"
+        },
+        {
+          "anchor": "alleyApproach"
+        },
+        {
+          "anchor": "stairFoot"
+        },
+        {
+          "anchor": "stair-01"
+        },
+        {
+          "anchor": "stair-02"
+        },
+        {
+          "anchor": "stair-03"
+        },
+        {
+          "anchor": "stair-04"
+        },
+        {
+          "anchor": "stair-05"
+        },
+        {
+          "anchor": "stair-06"
+        },
+        {
+          "anchor": "stair-07"
+        },
+        {
+          "anchor": "stair-08"
+        },
+        {
+          "anchor": "stair-09"
+        },
+        {
+          "anchor": "stair-10"
+        },
+        {
+          "anchor": "stair-11"
+        },
+        {
+          "anchor": "stair-12"
+        },
+        {
+          "anchor": "landing"
+        },
+        {
+          "anchor": "serviceOutside",
+          "door": {
+            "id": "bell-and-alder:service",
+            "open": true
+          }
+        },
+        {
+          "anchor": "serviceInside"
+        },
+        {
+          "anchor": "upstairsHall"
+        },
+        {
+          "anchor": "residentRest",
+          "hold": 150
+        }
+      ],
+      "viewAnchor": "residentView",
+      "exitRoute": [
+        "upstairsHall",
+        "serviceInside",
+        "serviceOutside",
+        "landing",
+        "stair-12",
+        "stair-11",
+        "stair-10",
+        "stair-09",
+        "stair-08",
+        "stair-07",
+        "stair-06",
+        "stair-05",
+        "stair-04",
+        "stair-03",
+        "stair-02",
+        "stair-01",
+        "stairFoot",
+        "alleyApproach",
+        "safeExit"
+      ]
+    },
+    {
+      "id": "officer",
+      "role": "officer",
+      "characterId": "goat",
+      "anchor": "officerStart",
+      "routine": [
+        {
+          "anchor": "officerStart",
+          "hold": 10,
+          "heading": 0
+        },
+        {
+          "anchor": "officerEast",
+          "hold": 5
+        },
+        {
+          "anchor": "officerWest",
+          "hold": 5
+        }
+      ]
+    }
+  ],
+  "lantern": {
+    "id": "bell-and-alder:hand-lantern",
+    "assetId": "city1880-hand-lantern-lit",
+    "anchor": "lantern",
+    "supportItemId": "bell-and-alder:parlor-lamp",
+    "publishedPosition": [
+      41.65,
+      0.747,
+      11.6
+    ]
+  },
+  "smokeVents": [
+    {
+      "id": "front-entry-vent",
+      "openingIds": [
+        "entry-left",
+        "entry-right"
+      ],
+      "position": [
+        4,
+        1.2,
+        8
+      ],
+      "outward": [
+        0,
+        0,
+        1
+      ],
+      "level": 0,
+      "viewWindowId": "upper-front-4"
+    }
+  ],
+  "soundPalette": {
+    "street-bed": {
+      "intent": "Restrained distant wheel/hoof and soft night-air bed, no music",
+      "source": "Procedural or installed licensed sounds only"
+    },
+    "footstep": {
+      "intent": "Paved steps below; wood taps on real stairs/upperfloor",
+      "trigger": "Actual contact/distance events"
+    },
+    "door": {
+      "intent": "Quiet wooden hinge/latch tied to real door action"
+    },
+    "lantern-pickup": {
+      "intent": "Small handle/brass contact tied to ownership transition"
+    },
+    "smoke-noticed": {
+      "intent": "One restrained breath/cough and a short startled motion"
+    },
+    "fire": {
+      "intent": "Sparse initial crackles broadening with authoritative active fuel; no scheduled ignition sound"
+    },
+    "officer-reaction": {
+      "intent": "A short questioning vocal gesture at suspicion; existing draw/shot only on runtime evidence"
+    }
+  },
+  "replays": {
+    "hero": {
+      "approach": [
+        "entryOutside"
+      ],
+      "toLantern": [
+        "entryInside",
+        "shopAisle",
+        "lanternReach"
+      ],
+      "toSighting": [
+        "shopAisle",
+        "entryInside",
+        "entryOutside",
+        "entryTurn",
+        "lanternSight"
+      ],
+      "toStrike": [
+        "entryTurn",
+        "entryOutside",
+        "entryInside",
+        "heroStance"
+      ],
+      "escape": [
+        "entryInside",
+        "entryOutside",
+        "entryTurn",
+        "safeObserver"
+      ],
+      "strike": "heroStrike"
+    },
+    "direct": {
+      "approach": [
+        "entryOutside"
+      ],
+      "toStrike": [
+        "entryTurn",
+        "directTurn",
+        "directStance"
+      ],
+      "toCover": [
+        "directTurn",
+        "entryTurn",
+        "entryOutside",
+        "entryInside",
+        "coverStance"
+      ],
+      "strike": "directStrike"
+    }
+  },
+  "staticStreetLamp": {
+    "description": "Native installed entry lantern on a simple 2.12m iron post, versioned street fixture",
+    "position": [
+      -1.5,
+      0,
+      9.6
+    ],
+    "assetId": "city1880-entry-lantern-lit"
+  },
+  "quietLightingAdaptation": {
+    "assetId": "city1880-shop-pendant-lit",
+    "position": [
+      5.5,
+      0,
+      6.6
+    ],
+    "purpose": "Add one original native ceiling lamp over the front shop floor to establish warm display windows; original25 fittings unchanged."
+  }
+}

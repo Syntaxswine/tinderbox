@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "dataSha256": "15d284fbcaad23daceaf727079dbb902c072a9a0cefeaea7bd12fe89fd29c943",
+  "createdAt": "2026-11-13T04:40:37.383Z",
+  "passed": true,
+  "limitations": [
+    "This proves native cylinder/support travel, not the visual posed body/equipment sweep. Combined WebGL review remains mandatory."
+  ],
+  "scope": "Current selected6m composition; official coder check-scene source executed read-only against this artist export.",
+  "checkSourceSha256": "dd0c0df489945e5c13d0efd749ce445a6c683e93b484ae636262077a4485467f",
+  "checks": [
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "passed": true,
+      "closedEntryBlocks": true,
+      "groundPassed": true,
+      "ascentPassed": true,
+      "descentPassed": true,
+      "starts": [
+        {
+          "actorId": "player",
+          "position": [
+            6.5,
+            0,
+            12.5
+          ],
+          "clear": true,
+          "block": null
+        }
+      ],
+      "travelSamples": 2938
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "passed": true,
+      "closedEntryBlocks": true,
+      "groundPassed": true,
+      "ascentPassed": true,
+      "descentPassed": true,
+      "starts": [
+        {
+          "actorId": "player",
+          "position": [
+            6.5,
+            0,
+            12.5
+          ],
+          "clear": true,
+          "block": null
+        }
+      ],
+      "travelSamples": 2938
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "passed": true,
+      "closedEntryBlocks": true,
+      "groundPassed": true,
+      "ascentPassed": true,
+      "descentPassed": true,
+      "starts": [
+        {
+          "actorId": "player",
+          "position": [
+            6.5,
+            0,
+            12.5
+          ],
+          "clear": true,
+          "block": null
+        }
+      ],
+      "travelSamples": 2938
+    },
+    {
+      "profile": "native-civilian-officer",
+      "radius": 0.62,
+      "height": 1.7,
+      "passed": true,
+      "closedEntryBlocks": true,
+      "groundPassed": true,
+      "ascentPassed": true,
+      "descentPassed": true,
+      "starts": [
+        {
+          "actorId": "resident",
+          "position": [
+            2.5,
+            0,
+            2.4
+          ],
+          "clear": true,
+          "block": null
+        },
+        {
+          "actorId": "officer",
+          "position": [
+            2.5,
+            0,
+            10.5
+          ],
+          "clear": true,
+          "block": null
+        }
+      ],
+      "travelSamples": 2938
+    },
+    {
+      "kind": "actual quiet routine",
+      "passed": true,
+      "residentAt40": {
+        "time": 40,
+        "resident": {
+          "position": [
+            4.00053575091829,
+            2.12,
+            2.4137764521842087
+          ],
+          "routeIndex": 24,
+          "block": null
+        },
+        "officer": {
+          "position": [
+            2.470000000000001,
+            0,
+            10.5
+          ],
+          "routeIndex": 0,
+          "block": null
+        }
+      },
+      "routeBlocks": []
+    }
+  ]
+}
