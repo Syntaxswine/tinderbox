@@ -1,0 +1,25 @@
+# Primary-source ledger
+
+Inspected November 12, 2026. Three period records, not a complete departmental history. Facts below are limited to the indicated pages or image. No archival image or PDF is imported into game assets.
+
+| ID / original record | Date and direct locator | Verified support and uncertainty | Rights evidence |
+| --- | --- | --- | --- |
+| S1 · U.S. Census Office, *Social Statistics of Cities*, Bulletin 100; municipal returns compiled by John S. Billings | Issued July 22, 1891; Table VI, printed pp. **25–26**, PDF pages **24–25** (one based), Chicago row. [Original federal PDF](https://www2.census.gov/library/publications/decennial/1890/bulletins/demographics/100-social-statistics-of-cities.pdf#page=24). | Visually checked both complete table pages and headers: **63 steam engines, 77 hose carts, 367 horses; 733 alarm boxes and 6,400 hydrants**. This is a contemporary compilation of municipal returns, not the Chicago fire marshal's own report. It does not establish the precise reporting date, 1893 totals, team size, station assignment, alarm procedure or response time. | Original federal publication. Federal employee works are generally public domain in the U.S.; [LOC's explanation](https://www.loc.gov/legal/security-copyright-and-privacy/understanding-copyright/). Credit U.S. Census Office. Only links, limited facts and inspection hashes are delivered. |
+| S2 · C. D. Arnold, steam fire engine at the unfinished exposition grounds | **ca. 1891**, as catalogued. LOC **2012646401**, digital ID **cph.3a20954**, note No. 424. [Catalog](https://www.loc.gov/item/2012646401/); [original repository's JPEG derivative](https://tile.loc.gov/storage-services/service/pnp/cph/3a20000/3a20000/3a20900/3a20954r.jpg). | Visually inspected wheeled boiler/pump, connected hose and nearby operators. Useful machinery reference; this frame does not show a harness team, travel, a complete company or an engine maker's dimensions. Approximate date retained. Catalog text was available through the search index; direct catalog/JSON requests returned 403. The archival image itself was retrieved and inspected. | Catalog advisory: **No known restrictions on publication**. This is an advisory, not a newly obtained license. Credit Library of Congress Prints and Photographs Division / C. D. Arnold. |
+| S3 · C. D. Arnold, *Cold-Storage Warehouse 16* | **July 10, 1893**. University of Chicago Photographic Archive, **apf3-00016**, Archival Photographic Files Addenda, C. D. Arnold Photographs. [Item and date](https://photoarchive.lib.uchicago.edu/db.xqy?show=browse7.xml%7C77); [repository JPEG derivative](https://storage.lib.uchicago.edu/ucpa/series3/derivatives_series3/apf3-00016r.jpg). | Image and metadata inspected: apparatus in the approach, people working nearby, ground hose and a water stream. It records an actual exceptional incident, not a recommended drill. It supplies no calibrated range, pressure, crew roster or first-arrival interval. No casualty estimate is used to design the trial. | [Repository terms](https://photoarchive.lib.uchicago.edu/rights.html) require image credit for educational/scholarly use and permission for commercial publication. No commercial reuse clearance is claimed. Cite apf3-00016, Hanna Holborn Gray Special Collections Research Center, University of Chicago Library. |
+
+## Inspection identity
+
+The small source cache is ignored under `artifacts/research/chicago-fire-brigade/`; it is research material, not donor intake. Only the following originals were downloaded. PDF pages 24–25 were rendered with the bundled Poppler and visually inspected; the two JPEGs were viewed directly.
+
+| Cached file | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `census-bulletin-100.pdf` | 1,844,224 | `3d7f62f39855ad76a09b711eefdd9573867abffc4a37ec4985ba990b4d64f705` |
+| `loc-3a20954.jpg` | 38,867 | `4fb695a7a4cc6f9fac98003a8f0f00c5112598ac28bbbae9065c1988373110c1` |
+| `uchicago-apf3-00016.jpg` | 146,665 | `f7e4b2e20e6cd538fcab25bfc319e11229d282037b503d1aa322b40526abdb95` |
+
+## Unavailable evidence and stopping point
+
+A readable 1893 Chicago fire-marshal report and a verified alarm-box/hydrant plan were not obtained in this focused pass. The [Chicago Public Library Ellsworth finding aid](https://www.chipublib.org/fa-james-w-ellsworth-collection-2/) identifies Box 15, Folder 34 (undated alarm-box locations) and Folder 35 (Fire Marshal report, April 30, 1894). These are **uninspected leads**, excluded from the three verified records. The prior exposition [insurance-diagram lead](../1893-exposition/sources.json) also remains catalog-only and is not used for measurements.
+
+Consequently this study makes no claim about a named company's attendance, exact uniform, bell code, historical street route, hydrant placement or 1893 pumping capacity. Those are selection gates for a future asset/implementation contract. Modern histories and the later historical appendix in the Gutenberg exposition volume are not treated as 1893 operational records.
