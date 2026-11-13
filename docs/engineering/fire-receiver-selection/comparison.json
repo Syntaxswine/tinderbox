@@ -1,0 +1,1270 @@
+{
+  "version": 1,
+  "complete": true,
+  "horizon": 120,
+  "simulationStepsInPostprocessing": 0,
+  "baseCommit": "66febf337a41124e0704d1c591a09a1b396bd83f",
+  "contractCommit": "ae4169910f5144ee94941be04ed1d0a4b8905230",
+  "inputs": {
+    "version": 1,
+    "baseCommit": "66febf337a41124e0704d1c591a09a1b396bd83f",
+    "contractCommit": "ae4169910f5144ee94941be04ed1d0a4b8905230",
+    "sourceDataSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+    "fixtureSha256": "68eaf3e6f216f85a98cd7953bac0ac1564025368872444fb38dee175c12168c8",
+    "sources": [
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "sha256": "16b902864cf02a3b210b581e3945a7117ba39ab7bea374949463b09e15120dc1"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "sha256": "9295a83afc2c2550a5cd1cf9f3cc43acef57dad54e86c59c2ac17b4818783c52"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "sha256": "fa7ed18b5400e99e7bd5ed1ddc29fd20b84279f7bff3ae67e7e9d9806bcae368"
+      },
+      {
+        "path": "workbenches/furnished-house/support.js",
+        "sha256": "9de23edd6135d8d7ce9af09ed3ad6c683c4379102a9485f390e367664b98c0ac"
+      },
+      {
+        "path": "workbenches/furnished-house/prepare-data.js",
+        "sha256": "f43d0fbc4472c478f849d44abc4a5dff0cf5e460903cc389e069e1d231dafe94"
+      },
+      {
+        "path": "workbenches/furnished-house/grass-fixture.js",
+        "sha256": "02b722d8a5e57a83be8ca660331ad62676e6d0713391f88b383f351f9532902b"
+      },
+      {
+        "path": "workbenches/furnished-house/grass-measurements.js",
+        "sha256": "0f3f49008a01ec72cb36b42cad7e0b923cf013b64c450f1dc97f7e5bd12a2992"
+      },
+      {
+        "path": "workbenches/furnished-house/replay-data.js",
+        "sha256": "962f81d7e0836673ca44c6369d650f2712f6a2cd51cea5706b421cbc10e087ba"
+      },
+      {
+        "path": "workbenches/furnished-house/receiver-selection.js",
+        "sha256": "853010cce2627f76005c95308a352d6cb548ae1c0cb0b1ab797d0e9d00da0efe"
+      },
+      {
+        "path": "workbenches/furnished-house/run-receiver-selection.mjs",
+        "sha256": "22af8bd7e2cf7c1b6495fe84b9e1255a3bdc879876373d4f9be4553dee685c7e"
+      }
+    ],
+    "simulationPatchSha256": "56fcb24ff1c15061ac8e796fe7d823cbf6360d9801a45860b085b93a8e2af3c7",
+    "runtime": "v24.15.0",
+    "measuredWorldSeconds": 120,
+    "disabledWorldSeconds": 2,
+    "deadlineSeconds": 900,
+    "profiles": {
+      "grass": {
+        "threshold": 1.7976931348623157e+308,
+        "delay": 0.18,
+        "seconds": 3,
+        "energy": 110
+      },
+      "oil": {
+        "threshold": 0.6,
+        "delay": 0,
+        "seconds": 14,
+        "energy": 800
+      },
+      "clapboard": {
+        "threshold": 1.1,
+        "delay": 5,
+        "seconds": 180,
+        "energy": 3420
+      },
+      "partition": {
+        "threshold": 1.1,
+        "delay": 5,
+        "seconds": 180,
+        "energy": 2200
+      },
+      "door": {
+        "threshold": 1.1,
+        "delay": 5,
+        "seconds": 60,
+        "energy": 1000
+      },
+      "roof": {
+        "threshold": 1.1,
+        "delay": 3,
+        "seconds": 180,
+        "energy": 1980
+      },
+      "frame": {
+        "threshold": 1.3,
+        "delay": 3,
+        "seconds": 180,
+        "energy": 2250
+      },
+      "furniture": {
+        "threshold": 1.1,
+        "delay": 3,
+        "seconds": 60,
+        "energy": 1200
+      },
+      "cloth": {
+        "threshold": 0.8,
+        "delay": 0.5,
+        "seconds": 20,
+        "energy": 600
+      },
+      "lacquer": {
+        "threshold": 0.5,
+        "delay": 0,
+        "seconds": 4,
+        "energy": 120
+      },
+      "coal": {
+        "threshold": 1.6,
+        "delay": 15,
+        "seconds": 300,
+        "energy": 1800
+      },
+      "embers": {
+        "threshold": 0.7,
+        "delay": 0,
+        "seconds": 8,
+        "energy": 500
+      }
+    },
+    "rules": {
+      "step": 0.03333333333333333,
+      "maxHeat": 5,
+      "loss": 0.18,
+      "up": 3,
+      "upDiagonal": 2,
+      "down": 0.04,
+      "downDiagonal": 0.06,
+      "falloff": 1.5,
+      "glassBreaks": 1.6,
+      "burstAt": 1.4,
+      "emberShare": 0.15,
+      "matchEnergy": 1.05,
+      "localShare": 0.72,
+      "radiantShare": 0.16,
+      "retainShare": 0.12,
+      "radiantRange": 8,
+      "radiantCells": 24,
+      "raysPerTick": 48,
+      "radiantMaxAge": 1,
+      "maxStepsPerAdvance": 240
+    },
+    "wind": {
+      "kind": "ambient-control",
+      "speed": 1.5,
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "obstacleResolved": false
+    },
+    "commands": [
+      {
+        "tick": 1,
+        "type": "match",
+        "position": [
+          0.1,
+          3.13,
+          5.25
+        ],
+        "from": [
+          0.8,
+          3.13,
+          5.25
+        ],
+        "sequence": 1
+      }
+    ],
+    "mode": "initial-no-lawn-identities/live-lawn-transport",
+    "referenceCellCount": 4988,
+    "referenceCellKeysSha256": "f44f4b0e8496cbe27ed51ede7c6412f5b99f8e89f8a88a8eaaf906ede3ad42cd",
+    "originalHouseCount": 4529,
+    "originalHouseArea": 879.0518539309301,
+    "originalHouseOwnersSha256": "8a4f3a4192c3735f73974db7cdd19cbd8d6a878729db1bbe37d1900f4e493ab1",
+    "initialHouseDigest": "a76fab4d59cb34cca88564e54bbe2838fa77f1ca31c241dc8def583fecc3c193",
+    "initialDomainSha256": "0c034ee4627db5c127ce86d5ca36ee87fab057d3b5b7c9f20ad60c27a1ea1696",
+    "frozenNonburningDomainSha256": "0c034ee4627db5c127ce86d5ca36ee87fab057d3b5b7c9f20ad60c27a1ea1696",
+    "referenceRepresentativeCount": 178,
+    "referenceRepresentativesSha256": "0ee7146b52b0339944e3abef2f3abfdca395bd585bf7b79ffe411feccf8bd414",
+    "initialTargetResolution": {
+      "resolved": 178,
+      "missing": 0,
+      "displaced": 0,
+      "areaDifferences": [
+        {
+          "id": "11,-1,-6",
+          "referenceArea": 0.03822502199999994,
+          "liveArea": 0.24822502199999988,
+          "referenceCapacity": 0.25,
+          "liveCapacity": 0.25
+        }
+      ],
+      "capacityDifferences": []
+    },
+    "selectionExamples": [
+      {
+        "sourceId": "0,1,10",
+        "position": [
+          0.25,
+          2.0700000000000003,
+          5.25
+        ],
+        "referenceCandidateCount": 119,
+        "referenceSelected": [
+          "0,1,12",
+          "0,0,12",
+          "-1,3,10",
+          "-1,3,12",
+          "-1,1,16",
+          "-1,0,16",
+          "0,3,4",
+          "4,0,16",
+          "-1,5,8",
+          "10,1,10",
+          "0,0,20",
+          "-1,5,4",
+          "10,-1,10",
+          "10,-1,12",
+          "4,3,0",
+          "0,3,-1",
+          "4,0,-1",
+          "10,3,4",
+          "12,-1,12",
+          "12,1,16",
+          "12,-1,16",
+          "10,0,0",
+          "10,1,-1",
+          "12,0,0"
+        ],
+        "referenceSelectedSha256": "27e1712ac7f376ae008065788227a2d6b1d97c37673de46d99167518d4c7865f",
+        "lawnCandidateCount": 143,
+        "lawnSelected": [
+          "0,1,12",
+          "-1,0,12",
+          "4,1,12",
+          "4,0,12",
+          "4,-1,12",
+          "-5,-1,10",
+          "0,-1,4",
+          "4,0,4",
+          "-5,-1,4",
+          "-1,1,0",
+          "-1,0,0",
+          "0,-1,0",
+          "-1,-1,20",
+          "4,5,4",
+          "10,1,16",
+          "-1,3,-1",
+          "-5,-1,20",
+          "10,-1,16",
+          "12,-1,12",
+          "12,4,10",
+          "10,1,0",
+          "-1,-1,24",
+          "4,-1,24",
+          "12,1,20"
+        ],
+        "overlapCount": 2
+      },
+      {
+        "sourceId": "0,2,10",
+        "position": [
+          0.25,
+          3.1300000000000003,
+          5.25
+        ],
+        "referenceCandidateCount": 120,
+        "referenceSelected": [
+          "0,3,10",
+          "0,1,12",
+          "4,1,10",
+          "4,4,10",
+          "0,1,16",
+          "0,5,8",
+          "-1,0,16",
+          "4,5,8",
+          "0,5,4",
+          "4,-1,4",
+          "10,1,10",
+          "0,0,0",
+          "10,3,14",
+          "0,1,-1",
+          "4,0,20",
+          "10,1,4",
+          "10,5,8",
+          "10,0,4",
+          "12,3,14",
+          "12,-1,10",
+          "12,5,8",
+          "10,1,20",
+          "12,-1,4",
+          "10,3,-2"
+        ],
+        "referenceSelectedSha256": "bce919e680ffd2f50b232e18c760f8e9b0d75a6549284341be524507c28a80a6",
+        "lawnCandidateCount": 141,
+        "lawnSelected": [
+          "0,3,10",
+          "0,1,12",
+          "0,0,12",
+          "4,0,12",
+          "-1,1,16",
+          "-1,-1,12",
+          "4,1,16",
+          "4,0,16",
+          "-1,-1,16",
+          "4,5,4",
+          "10,1,10",
+          "0,0,20",
+          "4,1,20",
+          "-1,3,-1",
+          "10,-1,10",
+          "4,3,-1",
+          "10,3,3",
+          "4,-1,20",
+          "-5,-1,0",
+          "4,-1,-1",
+          "12,-1,12",
+          "10,0,0",
+          "0,-1,24",
+          "10,3,-2"
+        ],
+        "overlapCount": 4
+      }
+    ],
+    "cachedNonburningRoot": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\furnished-house-grass-bedroom-matched-180",
+    "cachedNoLawnRoot": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\furnished-house-grass"
+  },
+  "disabledEquivalence": {
+    "worldSeconds": 2,
+    "sampleTicks": [
+      0,
+      30,
+      60
+    ],
+    "houseStateDigestsEqual": true,
+    "allMetricsEqual": true,
+    "eventsEqual": true,
+    "snapshotSha256": "67708f856e698aa8a770644558cd37633f983930032d9676e0de199d1c27da9e",
+    "budgetPassed": true
+  },
+  "process": {
+    "owner": "01a17ea3-b99b-74d2-8a74-56d2556a19cb",
+    "project": "Tinderbox milestone21 receiver-selection isolation",
+    "purpose": "One <=2s disabled equivalence check and one120s nonburning-lawn bedroom trajectory",
+    "pid": 19468,
+    "creationFiletime": "134390054974167430",
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "startedAt": "2026-11-13T01:04:57.416Z",
+    "deadline": "2026-11-13T01:19:57.416Z",
+    "deadlineSeconds": 900,
+    "finalizationReserveSeconds": 5,
+    "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\fire-receiver-selection\\STOP",
+    "stopMethod": "Private STOP file or real process-creation deadline, checked at each fixed step; finally saves partial data, closes trace and disposes trials.",
+    "port": null,
+    "retained": false,
+    "finished": true,
+    "restart": {
+      "sourceCommit": "66febf337a41124e0704d1c591a09a1b396bd83f",
+      "contractCommit": "ae4169910f5144ee94941be04ed1d0a4b8905230",
+      "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\workbenches\\furnished-house\\run-receiver-selection.mjs",
+        "--out",
+        "artifacts/qa/fire-receiver-selection"
+      ],
+      "sources": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\fire-receiver-selection\\frozen-runtime",
+      "runtime": "v24.15.0",
+      "dependencies": "Node>=22; package.json and all execution modules preserved",
+      "inputs": [
+        "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\furnished-house-grass-bedroom-matched-180",
+        "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\furnished-house-grass",
+        "house-data.json"
+      ],
+      "outputs": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\fire-receiver-selection",
+      "pendingWork": "Never automatically restart/extend this bounded experiment; review any preserved partial before further authorization.",
+      "secretReferences": [],
+      "automaticReplay": false
+    },
+    "stage": "measured120",
+    "complete": true,
+    "preflightPassed": true,
+    "exitCode": 0,
+    "finishedAt": "2026-11-13T01:05:55.283Z",
+    "elapsedSeconds": 57.867,
+    "withinDeadline": true
+  },
+  "selection": {
+    "allActualSourcesVerified": true,
+    "count": 867,
+    "newSourceCount": 0,
+    "newSources": [],
+    "selectedReferencesResolved": 20808,
+    "uniqueRayPairs": 20808,
+    "rayBuilds": 20808,
+    "selectedPairsNotYetBuilt": 0,
+    "sourcesSha256": "c6c86aa7b6f693d44d13a6751228882e3c43d4ee5efa748aa79c6ef5382a3e3e",
+    "representativesSha256": "0ee7146b52b0339944e3abef2f3abfdca395bd585bf7b79ffe411feccf8bd414",
+    "representativeCount": 178,
+    "initialTargetResolution": {
+      "resolved": 178,
+      "missing": 0,
+      "displaced": 0,
+      "areaDifferences": [
+        {
+          "id": "11,-1,-6",
+          "referenceArea": 0.03822502199999994,
+          "liveArea": 0.24822502199999988,
+          "referenceCapacity": 0.25,
+          "liveCapacity": 0.25
+        }
+      ],
+      "capacityDifferences": []
+    },
+    "liveRayAreaDifferencePairs": 78,
+    "liveRayCapacityDifferencePairs": 0,
+    "liveRayAreaDifferencesByTarget": [
+      {
+        "targetId": "11,-1,-6",
+        "referenceArea": 0.03822502199999994,
+        "liveAreaMin": 0.24822502199999988,
+        "liveAreaMax": 0.24822502199999988,
+        "pairs": 78,
+        "builds": 78,
+        "transmissionMin": 0,
+        "transmissionMax": 0
+      }
+    ]
+  },
+  "comparisons": {
+    "noLawn": {
+      "sampleKeysIdentical": true,
+      "samples": 121,
+      "allOriginalHouseStateSamplesIdentical": true,
+      "firstDifferentSavedSample": null,
+      "lastIdenticalBeforeFirstDifference": null,
+      "stateSequenceSha256": {
+        "measured": "c2cbe67b0ddd173cbc153f71f33f0869eef2eacb4b1e2d496b08718af1914658",
+        "cached": "c2cbe67b0ddd173cbc153f71f33f0869eef2eacb4b1e2d496b08718af1914658"
+      },
+      "eventComparison": {
+        "projection": "All events through horizon, omitting only the global event counter id.",
+        "identical": true,
+        "identicalPrefixEvents": 2114,
+        "cachedCount": 2114,
+        "measuredCount": 2114,
+        "cachedSha256": "30c7d93730e5ff226b83e5b395ff91bd7d95c01ad313df9eca47c263c3a89394",
+        "measuredSha256": "30c7d93730e5ff226b83e5b395ff91bd7d95c01ad313df9eca47c263c3a89394",
+        "firstDifference": null
+      },
+      "thresholds": {
+        "10": {
+          "measured": 15.933333333333334,
+          "cached": 15.933333333333334,
+          "boundIfNull": "not reached by120s"
+        },
+        "50": {
+          "measured": null,
+          "cached": null,
+          "boundIfNull": "not reached by120s"
+        },
+        "90": {
+          "measured": null,
+          "cached": null,
+          "boundIfNull": "not reached by120s"
+        }
+      },
+      "checkpoints": [
+        {
+          "time": 30,
+          "measured": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 164.17772704629505,
+              "currentBurningArea": 156.0137269901475,
+              "everIgnitedFraction": 0.18676682872816627,
+              "stateSha256": "2a07fa372f7b8c524faf7d6c401384c2e28300604de3d06724535a87c8693002",
+              "burned": 9.607318789530197,
+              "remaining": 597.5367189463284,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 22744.243952276687,
+              "input": 1.05,
+              "ambient": 1472.0315817026494,
+              "blocked": 3637.2317489506527,
+              "cap": 13518.402274581691,
+              "escaped": 3509.0215554908805,
+              "stored": 608.6067915507562,
+              "radiationInTransit": 0,
+              "error": 5.6274984672199935e-11,
+              "relativeError": 2.4741374980808766e-15
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 9.607318789530197,
+              "escaped": 0,
+              "remaining": 797.1255189463276,
+              "airborne": 0,
+              "error": 1.9326762412674725e-12
+            },
+            "escapedShare": 0.15427461886636315
+          },
+          "cached": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 164.17772704629505,
+              "currentBurningArea": 156.0137269901475,
+              "everIgnitedFraction": 0.18676682872816627,
+              "stateSha256": "2a07fa372f7b8c524faf7d6c401384c2e28300604de3d06724535a87c8693002",
+              "burned": 9.607318789530197,
+              "remaining": 597.5367189463284,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 22744.243952276687,
+              "input": 1.05,
+              "ambient": 1472.0315817026494,
+              "blocked": 3637.201618703294,
+              "cap": 13518.402274581691,
+              "escaped": 3509.051685737903,
+              "stored": 608.6067915507562,
+              "radiationInTransit": 0,
+              "error": 3.936975190299563e-10,
+              "relativeError": 1.7308965971422375e-14
+            },
+            "fuel": {
+              "initial": 607.1440377358605,
+              "added": 0,
+              "burned": 9.607318789530197,
+              "escaped": 0,
+              "remaining": 597.5367189463284,
+              "airborne": 0,
+              "error": 1.9326762412674725e-12
+            },
+            "escapedShare": 0.15427594354684807
+          },
+          "heatDelta": {
+            "generated": 0,
+            "input": 0,
+            "ambient": 0,
+            "blocked": 0.030130247358556517,
+            "cap": 0,
+            "escaped": -0.030130247022498224,
+            "stored": 0,
+            "radiationInTransit": 0,
+            "error": -3.374225343577564e-10,
+            "relativeError": -1.48348284733415e-14
+          },
+          "houseEverDelta": 0,
+          "houseCurrentDelta": 0,
+          "escapedShareDelta": -0.0000013246804849154081
+        },
+        {
+          "time": 60,
+          "measured": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 304.9202172612899,
+              "currentBurningArea": 271.0326169156248,
+              "everIgnitedFraction": 0.34687398234558353,
+              "stateSha256": "81615064f0ccc2a6e52242b964c596aface894bf973fa1e8bbfe7a1e3bb708ae",
+              "burned": 38.065065753758134,
+              "remaining": 569.0789719821856,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 90668.87938642557,
+              "input": 1.05,
+              "ambient": 6231.599896966193,
+              "blocked": 17011.314263169796,
+              "cap": 52257.528777061714,
+              "escaped": 14001.950596297585,
+              "stored": 1167.5358528821228,
+              "radiationInTransit": 0,
+              "error": 4.816388354811352e-8,
+              "relativeError": 5.312001881334239e-13
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 38.065065753758134,
+              "escaped": 0,
+              "remaining": 768.6677719821848,
+              "airborne": 0,
+              "error": -8.333245204994455e-11
+            },
+            "escapedShare": 0.15442772141823077
+          },
+          "cached": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 304.9202172612899,
+              "currentBurningArea": 271.0326169156248,
+              "everIgnitedFraction": 0.34687398234558353,
+              "stateSha256": "81615064f0ccc2a6e52242b964c596aface894bf973fa1e8bbfe7a1e3bb708ae",
+              "burned": 38.065065753758134,
+              "remaining": 569.0789719821856,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 90668.87938642557,
+              "input": 1.05,
+              "ambient": 6231.599896966193,
+              "blocked": 17011.08608447357,
+              "cap": 52257.528777061714,
+              "escaped": 14002.178774992019,
+              "stored": 1167.5358528821228,
+              "radiationInTransit": 0,
+              "error": 4.995740710000973e-8,
+              "relativeError": 5.509809860675703e-13
+            },
+            "fuel": {
+              "initial": 607.1440377358605,
+              "added": 0,
+              "burned": 38.065065753758134,
+              "escaped": 0,
+              "remaining": 569.0789719821856,
+              "airborne": 0,
+              "error": -8.333245204994455e-11
+            },
+            "escapedShare": 0.15443023800444605
+          },
+          "heatDelta": {
+            "generated": 0,
+            "input": 0,
+            "ambient": 0,
+            "blocked": 0.22817869622667786,
+            "cap": 0,
+            "escaped": -0.2281786944331543,
+            "stored": 0,
+            "radiationInTransit": 0,
+            "error": -1.7935235518962145e-9,
+            "relativeError": -1.978079793414641e-14
+          },
+          "houseEverDelta": 0,
+          "houseCurrentDelta": 0,
+          "escapedShareDelta": -0.0000025165862152787266
+        },
+        {
+          "time": 120,
+          "measured": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 422.7569007162802,
+              "currentBurningArea": 351.39989905220244,
+              "everIgnitedFraction": 0.48092373484658796,
+              "stateSha256": "f0381c5d6e864640082e868cc74256a195196d44f1854cc86889a1497e2eb0e5",
+              "burned": 126.94159317938977,
+              "remaining": 480.202444553946,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 308176.72785119544,
+              "input": 1.05,
+              "ambient": 23660.30246530938,
+              "blocked": 58340.00019032324,
+              "cap": 176664.39868419064,
+              "escaped": 47547.669365932015,
+              "stored": 1965.4071393856007,
+              "radiationInTransit": 0,
+              "error": 0.000006054526693333173,
+              "relativeError": 1.9646214388165976e-11
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 126.94159317938977,
+              "escaped": 0,
+              "remaining": 679.7912445539467,
+              "airborne": 0,
+              "error": 2.523165676393546e-9
+            },
+            "escapedShare": 0.15428649559829896
+          },
+          "cached": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 422.7569007162802,
+              "currentBurningArea": 351.39989905220244,
+              "everIgnitedFraction": 0.48092373484658796,
+              "stateSha256": "f0381c5d6e864640082e868cc74256a195196d44f1854cc86889a1497e2eb0e5",
+              "burned": 126.94159317938977,
+              "remaining": 480.202444553946,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 308176.72785119544,
+              "input": 1.05,
+              "ambient": 23660.30246530938,
+              "blocked": 58338.70845964026,
+              "cap": 176664.39868419064,
+              "escaped": 47548.961096616804,
+              "stored": 1965.4071393856007,
+              "radiationInTransit": 0,
+              "error": 0.0000060527149798872415,
+              "relativeError": 1.964033559489748e-11
+            },
+            "fuel": {
+              "initial": 607.1440377358605,
+              "added": 0,
+              "burned": 126.94159317938977,
+              "escaped": 0,
+              "remaining": 480.202444553946,
+              "airborne": 0,
+              "error": 2.524700448702788e-9
+            },
+            "escapedShare": 0.15429068710974989
+          },
+          "heatDelta": {
+            "generated": 0,
+            "input": 0,
+            "ambient": 0,
+            "blocked": 1.2917306829840527,
+            "cap": 0,
+            "escaped": -1.2917306847884902,
+            "stored": 0,
+            "radiationInTransit": 0,
+            "error": 1.811713445931673e-9,
+            "relativeError": 5.878793268495542e-15
+          },
+          "houseEverDelta": 0,
+          "houseCurrentDelta": 0,
+          "escapedShareDelta": -0.0000041915114509238904
+        }
+      ]
+    },
+    "nonburningLawn": {
+      "sampleKeysIdentical": true,
+      "samples": 121,
+      "allOriginalHouseStateSamplesIdentical": false,
+      "firstDifferentSavedSample": {
+        "tick": 60,
+        "time": 2,
+        "identical": false,
+        "measured": "48c3365067675b8f6c78666996aa42d4807321d53afd62794147f35dbc679731",
+        "cached": "a2ebb9df9efbe40d6a9e8c836a14c1bf506ebb0ab77c696fa9ed28b6b40a9644",
+        "houseEverAreaDelta": 0,
+        "houseCurrentAreaDelta": 0
+      },
+      "lastIdenticalBeforeFirstDifference": {
+        "tick": 30,
+        "time": 1,
+        "identical": true,
+        "measured": "2fe5f63d7ae8a7eaca7d20be2dfbd0743aecd350263e1f317cce031810e97bf4",
+        "cached": "2fe5f63d7ae8a7eaca7d20be2dfbd0743aecd350263e1f317cce031810e97bf4",
+        "houseEverAreaDelta": 0,
+        "houseCurrentAreaDelta": 0
+      },
+      "stateSequenceSha256": {
+        "measured": "c2cbe67b0ddd173cbc153f71f33f0869eef2eacb4b1e2d496b08718af1914658",
+        "cached": "e88f3a93e5c430d421362994dac52a94c285db8bf65cfc2276ad0b072d9b53da"
+      },
+      "eventComparison": {
+        "projection": "All events through horizon, omitting only the global event counter id.",
+        "identical": false,
+        "identicalPrefixEvents": 126,
+        "cachedCount": 2291,
+        "measuredCount": 2114,
+        "cachedSha256": "36dd4ea3aab13ef1b351d6ecf47b92620c79bace7c7aeddeaba95227ace65426",
+        "measuredSha256": "30c7d93730e5ff226b83e5b395ff91bd7d95c01ad313df9eca47c263c3a89394",
+        "firstDifference": {
+          "cached": {
+            "tick": 273,
+            "time": 9.1,
+            "type": "ignition",
+            "fuelId": "fuel:floor/l1/4,10",
+            "sourceSurfaceId": "floor/l1/4,10",
+            "position": [
+              2.25,
+              2.5999999,
+              5.25
+            ],
+            "cls": "frame"
+          },
+          "measured": {
+            "tick": 272,
+            "time": 9.066666666666666,
+            "type": "window-break",
+            "boundaryId": "opening/l1/2-7-3-7@4,3,14",
+            "sourceSurfaceId": "opening/l1/2-7-3-7",
+            "position": [
+              2.302777838888889,
+              3.877777722222223,
+              7
+            ],
+            "cause": "heat"
+          },
+          "lastIdentical": {
+            "tick": 272,
+            "time": 9.066666666666666,
+            "type": "ignition",
+            "fuelId": "fuel:wall/l1/1-7-2-7/504/1.5/2.6",
+            "sourceSurfaceId": "wall/l1/1-7-2-7/504/1.5/2.6",
+            "position": [
+              1.75,
+              3.13,
+              7
+            ],
+            "cls": "clapboard"
+          }
+        }
+      },
+      "thresholds": {
+        "10": {
+          "measured": 15.933333333333334,
+          "cached": 15.933333333333334,
+          "boundIfNull": "not reached by120s"
+        },
+        "50": {
+          "measured": null,
+          "cached": 117.46666666666667,
+          "boundIfNull": "not reached by120s"
+        },
+        "90": {
+          "measured": null,
+          "cached": null,
+          "boundIfNull": "not reached by120s"
+        }
+      },
+      "checkpoints": [
+        {
+          "time": 30,
+          "measured": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 164.17772704629505,
+              "currentBurningArea": 156.0137269901475,
+              "everIgnitedFraction": 0.18676682872816627,
+              "stateSha256": "2a07fa372f7b8c524faf7d6c401384c2e28300604de3d06724535a87c8693002",
+              "burned": 9.607318789530197,
+              "remaining": 597.5367189463284,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 22744.243952276687,
+              "input": 1.05,
+              "ambient": 1472.0315817026494,
+              "blocked": 3637.2317489506527,
+              "cap": 13518.402274581691,
+              "escaped": 3509.0215554908805,
+              "stored": 608.6067915507562,
+              "radiationInTransit": 0,
+              "error": 5.6274984672199935e-11,
+              "relativeError": 2.4741374980808766e-15
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 9.607318789530197,
+              "escaped": 0,
+              "remaining": 797.1255189463276,
+              "airborne": 0,
+              "error": 1.9326762412674725e-12
+            },
+            "escapedShare": 0.15427461886636315
+          },
+          "cached": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 164.17772704629505,
+              "currentBurningArea": 156.0137269901475,
+              "everIgnitedFraction": 0.18676682872816627,
+              "stateSha256": "9585fe6118cb0c15772682fe9e14797b7aff8ccb41081964d34eece25c685d5f",
+              "burned": 9.59841604358432,
+              "remaining": 597.5456216922737,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 22718.554905240977,
+              "input": 1.05,
+              "ambient": 1470.4598643634627,
+              "blocked": 3623.466420961325,
+              "cap": 13501.177354236826,
+              "escaped": 3516.1034302427906,
+              "stored": 608.3978354330783,
+              "radiationInTransit": 0,
+              "error": 3.491663846943993e-9,
+              "relativeError": 1.5368506017191054e-13
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 9.59841604358432,
+              "escaped": 0,
+              "remaining": 797.1344216922729,
+              "airborne": 0,
+              "error": 2.5011104298755527e-12
+            },
+            "escapedShare": 0.15476076476275752
+          },
+          "heatDelta": {
+            "generated": 25.689047035710246,
+            "input": 0,
+            "ambient": 1.5717173391867618,
+            "blocked": 13.765327989327488,
+            "cap": 17.224920344864586,
+            "escaped": -7.0818747519101635,
+            "stored": 0.2089561176778716,
+            "radiationInTransit": 0,
+            "error": -3.435388862271793e-9,
+            "relativeError": -1.5121092267382965e-13
+          },
+          "houseEverDelta": 0,
+          "houseCurrentDelta": 0,
+          "escapedShareDelta": -0.0004861458963943688
+        },
+        {
+          "time": 60,
+          "measured": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 304.9202172612899,
+              "currentBurningArea": 271.0326169156248,
+              "everIgnitedFraction": 0.34687398234558353,
+              "stateSha256": "81615064f0ccc2a6e52242b964c596aface894bf973fa1e8bbfe7a1e3bb708ae",
+              "burned": 38.065065753758134,
+              "remaining": 569.0789719821856,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 90668.87938642557,
+              "input": 1.05,
+              "ambient": 6231.599896966193,
+              "blocked": 17011.314263169796,
+              "cap": 52257.528777061714,
+              "escaped": 14001.950596297585,
+              "stored": 1167.5358528821228,
+              "radiationInTransit": 0,
+              "error": 4.816388354811352e-8,
+              "relativeError": 5.312001881334239e-13
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 38.065065753758134,
+              "escaped": 0,
+              "remaining": 768.6677719821848,
+              "airborne": 0,
+              "error": -8.333245204994455e-11
+            },
+            "escapedShare": 0.15442772141823077
+          },
+          "cached": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 296.8561012223584,
+              "currentBurningArea": 265.2865009547158,
+              "everIgnitedFraction": 0.3377003300714082,
+              "stateSha256": "c6bdb9f8f969e8ab162847da58234e26dd7a7ad7fd703161af9bef0a75824abb",
+              "burned": 37.95682273112417,
+              "remaining": 569.1872150048182,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 90311.05366888335,
+              "input": 1.05,
+              "ambient": 6217.718987578462,
+              "blocked": 16876.093084282737,
+              "cap": 52072.585492115024,
+              "escaped": 13988.31023338604,
+              "stored": 1157.3958714918003,
+              "radiationInTransit": 0,
+              "error": 2.9286184144439176e-8,
+              "relativeError": 3.2427751048533713e-13
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 37.95682273112417,
+              "escaped": 0,
+              "remaining": 768.7760150048174,
+              "airborne": 0,
+              "error": -8.185452315956354e-11
+            },
+            "escapedShare": 0.15488854389520385
+          },
+          "heatDelta": {
+            "generated": 357.8257175422186,
+            "input": 0,
+            "ambient": 13.880909387731663,
+            "blocked": 135.22117888705907,
+            "cap": 184.94328494669026,
+            "escaped": 13.640362911544798,
+            "stored": 10.139981390322419,
+            "radiationInTransit": 0,
+            "error": 1.8877699403674342e-8,
+            "relativeError": 2.0692267764808673e-13
+          },
+          "houseEverDelta": 8.064116038931502,
+          "houseCurrentDelta": 5.746115960909037,
+          "escapedShareDelta": -0.00046082247697307177
+        },
+        {
+          "time": 120,
+          "measured": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 422.7569007162802,
+              "currentBurningArea": 351.39989905220244,
+              "everIgnitedFraction": 0.48092373484658796,
+              "stateSha256": "f0381c5d6e864640082e868cc74256a195196d44f1854cc86889a1497e2eb0e5",
+              "burned": 126.94159317938977,
+              "remaining": 480.202444553946,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 308176.72785119544,
+              "input": 1.05,
+              "ambient": 23660.30246530938,
+              "blocked": 58340.00019032324,
+              "cap": 176664.39868419064,
+              "escaped": 47547.669365932015,
+              "stored": 1965.4071393856007,
+              "radiationInTransit": 0,
+              "error": 0.000006054526693333173,
+              "relativeError": 1.9646214388165976e-11
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 126.94159317938977,
+              "escaped": 0,
+              "remaining": 679.7912445539467,
+              "airborne": 0,
+              "error": 2.523165676393546e-9
+            },
+            "escapedShare": 0.15428649559829896
+          },
+          "cached": {
+            "house": {
+              "originalArea": 879.0518539309301,
+              "everIgnitedArea": 469.7281295769186,
+              "currentBurningArea": 398.42672798098687,
+              "everIgnitedFraction": 0.5343577031052217,
+              "stateSha256": "61264a37600666e02f84acb21dba781f80e95cde0f0447bc971eb22198328af6",
+              "burned": 125.67929096372686,
+              "remaining": 481.46474676973895,
+              "airborne": 0
+            },
+            "heat": {
+              "generated": 304441.67555128515,
+              "input": 1.05,
+              "ambient": 23042.661874450998,
+              "blocked": 57552.951007590484,
+              "cap": 174678.88760873038,
+              "escaped": 47109.192804450286,
+              "stored": 2059.032250952206,
+              "radiationInTransit": 0,
+              "error": 0.000005110809524921933,
+              "relativeError": 1.678742533810678e-11
+            },
+            "fuel": {
+              "initial": 806.7328377358597,
+              "added": 0,
+              "burned": 125.67929096372686,
+              "escaped": 0,
+              "remaining": 681.0535467697397,
+              "airborne": 0,
+              "error": 2.3931079340400174e-9
+            },
+            "escapedShare": 0.15473909819702514
+          },
+          "heatDelta": {
+            "generated": 3735.052299910283,
+            "input": 0,
+            "ambient": 617.6405908583838,
+            "blocked": 787.0491827327569,
+            "cap": 1985.5110754602647,
+            "escaped": 438.47656148172973,
+            "stored": -93.62511156660548,
+            "radiationInTransit": 0,
+            "error": 9.4371716841124e-7,
+            "relativeError": 2.858789050059196e-12
+          },
+          "houseEverDelta": -46.971228860638405,
+          "houseCurrentDelta": -47.026828928784425,
+          "escapedShareDelta": -0.00045260259872617614
+        }
+      ]
+    }
+  },
+  "firstIgnitions": {
+    "measured": {
+      "exterior": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l1/0-5-0-6/513/5/2.6",
+        "sourceSurfaceId": "wall/l1/0-5-0-6/513/5/2.6",
+        "position": [
+          0,
+          3.13,
+          5.25
+        ],
+        "cls": "clapboard",
+        "originalSide": "west (-X)",
+        "originalLevel": 1
+      },
+      "groundExterior": null
+    },
+    "noLawn": {
+      "exterior": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l1/0-5-0-6/513/5/2.6",
+        "sourceSurfaceId": "wall/l1/0-5-0-6/513/5/2.6",
+        "position": [
+          0,
+          3.13,
+          5.25
+        ],
+        "cls": "clapboard",
+        "originalSide": "west (-X)",
+        "originalLevel": 1
+      },
+      "groundExterior": null
+    },
+    "nonburningLawn": {
+      "exterior": {
+        "id": 4,
+        "tick": 44,
+        "time": 1.4666666666666666,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l1/0-5-0-6/513/5/2.6",
+        "sourceSurfaceId": "wall/l1/0-5-0-6/513/5/2.6",
+        "position": [
+          0,
+          3.13,
+          5.25
+        ],
+        "cls": "clapboard",
+        "originalSide": "west (-X)",
+        "originalLevel": 1
+      },
+      "groundExterior": {
+        "id": 2265,
+        "tick": 3588,
+        "time": 119.6,
+        "type": "ignition",
+        "fuelId": "fuel:wall/l0/10-5-10-6/69/5.5/0.48",
+        "sourceSurfaceId": "wall/l0/10-5-10-6/69/5.5/0.48",
+        "position": [
+          10,
+          1.0099999999999998,
+          5.75
+        ],
+        "cls": "clapboard",
+        "originalSide": "east (+X)",
+        "originalLevel": 0
+      }
+    }
+  },
+  "budgets": {
+    "passed": true,
+    "metrics": {
+      "tick": 3600,
+      "worldTime": 120,
+      "fuel": {
+        "initial": 806.7328377358597,
+        "added": 0,
+        "burned": 126.94159317938977,
+        "escaped": 0,
+        "remaining": 679.7912445539467,
+        "airborne": 0,
+        "error": 2.523165676393546e-9
+      },
+      "heat": {
+        "generated": 308176.72785119544,
+        "input": 1.05,
+        "ambient": 23660.30246530938,
+        "blocked": 58340.00019032324,
+        "cap": 176664.39868419064,
+        "escaped": 47547.669365932015,
+        "stored": 1965.4071393856007,
+        "radiationInTransit": 0,
+        "error": 0.000006054526693333173,
+        "relativeError": 1.9646214388165976e-11
+      },
+      "burningCount": 2005,
+      "burningArea": 351.39989905220244,
+      "combustibleArea": 1078.6406539309312,
+      "burningAreaFraction": 0.3257803215293086,
+      "burnedFraction": 0.1573527036976186,
+      "activeCells": 2527,
+      "fallingCount": 0,
+      "queuedRadiationSources": 0,
+      "queuedRays": 0,
+      "oldestRadiationQueryDelay": 0,
+      "oldestRadiationEnergyAge": 0,
+      "stats": {
+        "ticks": 3600,
+        "cellVisits": 6335731,
+        "burnVisits": 19507073,
+        "linkBuilds": 867,
+        "rayBuilds": 20808,
+        "rayTests": 78117,
+        "invalidations": 1212,
+        "ignitions": 2057,
+        "failures": 8,
+        "landings": 8,
+        "peakActive": 2527,
+        "maxBurnsPerFuelPerTick": 1
+      }
+    },
+    "cohortBurnedError": 0,
+    "cohortGeneratedRelativeError": 0,
+    "grassBurned": 0
+  },
+  "classification": "Recovered the cached no-lawn original-house states at every saved1Hz sample and the exact semantic-event prefix through the tested horizon; global lawn state/ledger remains distinct.",
+  "escapedShareDefinition": "Cumulative escaped heat / (generated heat + applied input heat).",
+  "files": {
+    "inputs.json": {
+      "sha256": "2721a57fe22dcaf70df0812248a9dc555b451ce978a1f17910b74a6d472c0c4a",
+      "bytes": 8293
+    },
+    "owner.json": {
+      "sha256": "c96b55bcc8184aebe7f15274f20c1df7053c20fe6d24227723c8c055e1d1df4e",
+      "bytes": 2340
+    },
+    "simulation.patch": {
+      "sha256": "56fcb24ff1c15061ac8e796fe7d823cbf6360d9801a45860b085b93a8e2af3c7",
+      "bytes": 4332
+    },
+    "disabled-equivalence.json": {
+      "sha256": "acb7e3eb0b4d361f8d46dc384ecdd5f0c526a572737ff8e647396b141b10812a",
+      "bytes": 266
+    },
+    "selection.json": {
+      "sha256": "f015cbf3c6d402a1e7c2ab36e4315506b8d595e344405c9ee686c7cb3740c33e",
+      "bytes": 15761928
+    },
+    "samples.ndjson": {
+      "sha256": "1c7199aa5bd2a4481ba6dacc0d7b881b7b0214a9e93df0f5c3e8e2b272fdb66d",
+      "bytes": 289677
+    },
+    "snapshot.json": {
+      "sha256": "e83568840de429f7d2ed513cabe5b35fbaba1210c48c2777f3c024b2bcd49846",
+      "bytes": 15894275
+    },
+    "events.json": {
+      "sha256": "5f3b52714575c04a082cd0cea03edb110ddc32f89f590b58fc6c59d2530dbc88",
+      "bytes": 738742
+    }
+  },
+  "limits": [
+    "One120s trajectory and one2s disabled check only; no50%/90% extrapolation or later route conclusion.",
+    "Exact first semantic event difference is distinct from a state difference bounded by1Hz saved samples.",
+    "Selection-only diagnosis within this model; live selected-cell area differences remain, and below-soil path validation, incoming lawn fire, visuals and calibration are still open."
+  ]
+}

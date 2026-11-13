@@ -1,0 +1,33 @@
+diff --git a/workbenches/furnished-house/simulation.js b/workbenches/furnished-house/simulation.js
+index 282fb6df..0936efb5 100644
+--- a/workbenches/furnished-house/simulation.js
++++ b/workbenches/furnished-house/simulation.js
+@@ -8,7 +8,7 @@ export const RULES=Object.freeze({step:STEP,maxHeat:5,loss:.18,up:3,upDiagonal:2
+ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+ export const ambientWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
+ export const calmWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=out[1]=out[2]=0,out);
+-export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false}}={}) {
++export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},radiationSelection=null}={}) {
+   const scene=compileScene(data,{profiles}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,parts,index,cellAt}=scene;
+   data=scene.data;
+   let tick=0,revision=0,fullNext=true,eventSequence=0,commandSequence=0,closed=false;const coolingFactor=1-Math.exp(-r.loss*dt);
+@@ -53,7 +53,10 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
+     const list=targetRepresentatives.map(target=>({target,d:sub(target.position,c.position)})).map(v=>({...v,distance:length(v.d)})).filter(v=>v.distance>.85&&v.distance<=r.radiantRange).sort((a,b)=>a.distance-b.distance||a.target.id.localeCompare(b.target.id));
+     // Spread work across near/far geometry, with a hard, declared link count.
+     const chosen=list.length<=r.radiantCells?list:Array.from({length:r.radiantCells},(_,i)=>list[Math.floor(i*list.length/r.radiantCells)]);
+-    const record={cell:c,entries:chosen,cursor:0,links:[],energy:0,firstEnergyTick:tick,enqueuedTick:tick,complete:!chosen.length,scale:1};radCache.set(c.id,record);if(!record.complete)rayQueue.push(record);return record;
++    // Opt-in research hook replaces identities/order only. Live cells still
++    // supply geometry, area, incidence and every traced/invalidation path.
++    const entries=radiationSelection?radiationSelection.select({sourceId:c.id,position:[...c.position],range:r.radiantRange,count:r.radiantCells}).map(reference=>{const target=cells.get(reference.id);if(!target||target.position.some((v,i)=>v!==reference.position[i]))throw Error('Missing or displaced diagnostic radiation target '+reference.id);const d=sub(target.position,c.position);return {target,d,distance:length(d)};}):chosen;
++    const record={cell:c,entries,cursor:0,links:[],energy:0,firstEnergyTick:tick,enqueuedTick:tick,complete:!entries.length,scale:1};radCache.set(c.id,record);if(!record.complete)rayQueue.push(record);return record;
+   }
+   function emitRadiation(record) {
+     const energy=record.energy;record.energy=0;let assigned=0;
+@@ -66,6 +69,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
+       const record=rayQueue[0],{target,d,distance}=record.entries[record.cursor++],normal=unit(d),area=target.fuels.reduce((v,f)=>v+f.area/Math.max(1,f.cells.length),0),incidence=Math.max(.1,...target.fuels.map(f=>Math.abs(dot(f.normal||[0,1,0],normal))));
+       const trace=index.trace(record.cell.position,target.position);stats.rayBuilds++;stats.rayTests+=trace.hits.length;
+       const link={target,weight:area*incidence/(4*Math.PI*Math.max(.25,distance*distance)),hits:trace.hits,transmission:trace.transmission};record.links.push(link);index.watch(trace.hits.map(h=>h.surface.id),()=>{link.transmission=trace.hits.reduce((v,h)=>v*index.pass(h.surface),1);stats.invalidations++;});allowance--;
++      radiationSelection?.observeRay?.({tick,sourceId:record.cell.id,targetId:target.id,position:[...target.position],area,capacity:target.capacity,incidence,weight:link.weight,transmission:trace.transmission});
+       index.watchPath(record.cell.position,target.position,()=>{if(record.complete){record.complete=false;record.cursor=0;record.links=[];record.enqueuedTick=tick;rayQueue.push(record);stats.invalidations++;}});
+       if(record.cursor===record.entries.length){record.complete=true;record.scale=1/Math.max(1,record.links.reduce((n,l)=>n+l.weight,0));rayQueue.shift();emitRadiation(record);}
+     }

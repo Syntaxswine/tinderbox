@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-11-13T01:17:02.580Z",
+  "baseCommit": "66febf337a41124e0704d1c591a09a1b396bd83f",
+  "briefCommit": "ae4169910f5144ee94941be04ed1d0a4b8905230",
+  "focused": {
+    "command": "node --test tests/furnished-house/receiver-selection.test.mjs tests/furnished-house/effect-bindings.test.mjs tests/furnished-house/grass-comparison.test.mjs",
+    "tests": 16,
+    "passed": 16,
+    "exitCode": 0
+  },
+  "static": {
+    "syntaxEntries": 5,
+    "modulesResolved": 12,
+    "passed": true
+  },
+  "disabledFrozenPrefix": {
+    "worldSeconds": 2,
+    "houseDigestsEqual": true,
+    "allMetricsEqual": true,
+    "rawEventsEqual": true,
+    "budgetPassed": true
+  },
+  "measured": {
+    "trajectories": 1,
+    "worldSeconds": 120,
+    "steps": 3600,
+    "exitCode": 0,
+    "elapsedSeconds": 57.867,
+    "deadlineSeconds": 900,
+    "preflightPassed": true,
+    "allExecutionSourcesMatchCurrentAndFrozen": true,
+    "savedHouseStates": 121,
+    "semanticEvents": 2114,
+    "allHouseStatesAndEventsMatchNoLawn": true,
+    "selectionSources": 867,
+    "resolvedSelectedReferences": 20808,
+    "rayBuilds": 20808,
+    "newSourceCount": 0
+  },
+  "budget": {
+    "fuelError": 2.523165676393546e-9,
+    "heatRelativeError": 1.9646214388165976e-11,
+    "cohortBurnedError": 0,
+    "cohortGeneratedRelativeError": 0,
+    "maximumBurnsPerFuelPerTick": 1,
+    "passed": true
+  },
+  "cleanup": {
+    "workerLifetimeAbsent": true,
+    "port": null,
+    "retained": false,
+    "traceClosed": true
+  },
+  "referencePathsReviewed": true,
+  "evidenceSha256": "6268f5cbdfb4a6dd43160ebd0fa93a81213e9fee382264304b9c61e2060d2b9d",
+  "postprocessorSha256": "40a9159080eb214078e5018684e07592f9ee059c343b24c751793e5f5c020b5a",
+  "scope": "No primary reruns, extra analysis trajectories, broad burn sweep, server/GPU/browser or production rollout."
+}
