@@ -36,7 +36,7 @@ export function cancelLanternAim(state) {
 
 function launch(origin, target) {
   return {x: origin.x, y: origin.y, fromX: origin.x, fromY: origin.y,
-    targetX: target.x, targetY: target.y, progress: 0, h: LAUNCH_HEIGHT};
+    targetX: target.x, targetY: target.y, progress: 0, h: (origin.elevation||0)+LAUNCH_HEIGHT,...(origin.elevation?{baseH:origin.elevation}:{})};
 }
 
 export function useLantern(state, event, onRelease) {
@@ -65,20 +65,22 @@ function arcHeight(progress, range) {
 
 // Both the flight and the preview use the same step and the existing swept
 // obstacle query. A live shot still rechecks obstacles as fire changes them.
-export function advanceLantern(projectile, travel, obstacles) {
+export function advanceLantern(projectile, travel, obstacles,contactProvider) {
   const target = {x: projectile.targetX, y: projectile.targetY};
   const remaining = distance(projectile, target), step = Math.min(remaining, travel);
   const ratio = remaining > 1e-10 ? step / remaining : 1;
   const next = {x: projectile.x + (target.x - projectile.x) * ratio, y: projectile.y + (target.y - projectile.y) * ratio};
   const range = Math.hypot(projectile.targetX - projectile.fromX, projectile.targetY - projectile.fromY);
   const progressAt = point => range ? clamp(1 - distance(point, target) / range, 0, 1) : 1;
-  next.h = arcHeight(progressAt(next), range);
-  const contact = impactContact(projectile, next, obstacles, projectile.h, next.h);
+  next.h = (projectile.baseH||0)+arcHeight(progressAt(next), range);
+  let contact = impactContact(projectile, next, obstacles, projectile.h, next.h);
+  const native=contactProvider?.trace([projectile.x,projectile.h,projectile.y],[next.x,next.h,next.y]);
+  if(native&&native.t<(contact?.travel??1))contact={...native,native:true,travel:native.t};
   const fraction = contact?.travel ?? 1;
   const point = {x: projectile.x + (next.x - projectile.x) * fraction,
     y: projectile.y + (next.y - projectile.y) * fraction};
   const hit = distance(point, next) > 1e-8, progress = progressAt(point);
-  const position = {...point, h: arcHeight(progress, range)};
+  const position = {...point, h: (projectile.baseH||0)+arcHeight(progress, range)};
   return {next, position, progress, hit, contact, finished: hit || step >= remaining - 1e-10};
 }
 
@@ -87,7 +89,7 @@ function sameBlockers(record, obstacles) {
     box === obstacles[i] && box.height === height && box.destroyed === destroyed);
 }
 
-export function refreshLanternPreview(state, config) {
+export function refreshLanternPreview(state, config,contactProvider) {
   const {player, obstacles} = state, aim = player.lanternAim;
   if (!canReach(player, aim?.target, config)) return;
 
@@ -103,11 +105,11 @@ export function refreshLanternPreview(state, config) {
     ? Math.min(Math.ceil(remainingPowder / config.step), Math.max(1, Math.ceil(range / slowed))) : 0;
 
   const cached = state.lanternPreview;
-  if (cached?.target === aim.target && cached.slowSteps === slowSteps && sameBlockers(cached.obstacles, obstacles)) return;
+  if (cached?.target === aim.target && cached.slowSteps === slowSteps && cached.nativeRevision===contactProvider?.revision && sameBlockers(cached.obstacles, obstacles)) return;
   const projectile = launch(player, aim.target);
   let step;
   for (let i = 0; i < MAX_TRACE_STEPS; i++) {
-    step = advanceLantern(projectile, i < slowSteps ? slowed : normal, obstacles);
+    step = advanceLantern(projectile, i < slowSteps ? slowed : normal, obstacles,contactProvider);
     if (step.finished) break;
     Object.assign(projectile, step.position, {progress: step.progress});
   }
@@ -115,11 +117,11 @@ export function refreshLanternPreview(state, config) {
   aim.path = Array.from({length: PATH_SEGMENTS}, (_, i) => {
     const along = step.progress * i / PATH_SEGMENTS;
     return {x: player.x + (aim.target.x - player.x) * along, y: player.y + (aim.target.y - player.y) * along,
-      h: arcHeight(along, range)};
+      h: (player.elevation||0)+arcHeight(along, range)};
   });
   aim.path.push(aim.impact);
   // Street collision boxes only change shape by replacement or by height
   // and retirement updates during a collapse.
-  state.lanternPreview = {target: aim.target, slowSteps,
+  state.lanternPreview = {target: aim.target, slowSteps,nativeRevision:contactProvider?.revision,
     obstacles: obstacles.map(box => ({box, height: box.height, destroyed: box.destroyed}))};
 }

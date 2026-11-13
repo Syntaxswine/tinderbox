@@ -10,7 +10,8 @@ export let currentApplication=null;
 export function catalogueVisit(search = '') {
   const cottageMode = catalogueCottageMode(search);
   const witness = new URLSearchParams(search).get('witness') === '1';
-  return {cottageMode, scenario: cottageMode ? COTTAGE_PAIR_SCENARIO : witness ? SHOP_WITNESS_SCENARIO : 'neighborhood'};
+  const moduleMode=!cottageMode&&new URLSearchParams(search).get('catalogue')==='modules';
+  return {cottageMode, scenario: cottageMode ? COTTAGE_PAIR_SCENARIO : witness ? SHOP_WITNESS_SCENARIO : 'neighborhood',...(moduleMode?{moduleMode:true}:{})};
 }
 
 // The production composition. Every view consumes the same authoritative model.
@@ -63,9 +64,10 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
     createVisit:createVisit||(async(place,visitOptions)=>{
       if(place.id==='catalogue-street'){
         const [{createRuntime},{createArtScene}]=await Promise.all([import('./runtime/index.js'),import('./art/index.js')]);
-        const {cottageMode,scenario}=catalogueVisit(win.location?.search);
+        const {cottageMode,scenario,moduleMode}=catalogueVisit(win.location?.search);
         const cottageWind=cottageMode?await (await import('./reuse/ashland/wind.js')).loadCottageWind(cottageMode,visitOptions.signal):undefined;
-        return createRuntime({root:viewport,uiRoot:hud,scenario,cottageWind,
+        const catalogueModules=moduleMode?await(await import('./runtime/catalogue-modules.js')).loadCatalogueModules({scenario,signal:visitOptions.signal}):undefined;
+        return createRuntime({root:viewport,uiRoot:hud,scenario,cottageWind,catalogueModules,
           config:cottageMode?{input:{cameraY:-12}}:undefined,seed:1893,mountUI:ui.mountUI,createArtScene,autoStart,onSnapshot,...visitOptions,
           uiOptions:{mode:'gameplay',placeTitle:place.title,onExitToMenu:visitOptions.onExitToMenu}});
       }

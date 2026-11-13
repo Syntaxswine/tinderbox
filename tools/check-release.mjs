@@ -5,7 +5,8 @@ const root = path.resolve('dist');
 const manifest = JSON.parse(fs.readFileSync(path.join(root,'build-manifest.json'),'utf8'));
 const fail = message => { throw Error(message); };
 for (const file of manifest.files) {
-  if (!/^(?:index\.html|\.nojekyll|\.tinderbox-build|src\/|assets\/|vendor\/)/.test(file.path)) fail('Unexpected public path: '+file.path);
+  const component=(manifest.moduleRuntimeFiles||[]).includes(file.path)&&/^(?:workbenches\/(?:furnished-house|bell-and-alder-sandbox|catalogue-modular)\/|workbenches\/bell-and-alder-closing\/(?:visibility|smoke)\.js$|art\/source\/(?:furnished-house|bell-and-alder-sandbox|bell-and-alder-closing|catalogue-modular)\/)/.test(file.path)&&/\.(?:js|json)$/.test(file.path);
+  if (!component&&!/^(?:index\.html|\.nojekyll|\.tinderbox-build|src\/|assets\/|vendor\/)/.test(file.path)) fail('Unexpected public path: '+file.path);
   const target = path.resolve(root,file.path);
   if (!target.startsWith(root+path.sep)) fail('Distribution escaped its root');
   const bytes = fs.readFileSync(target);

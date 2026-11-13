@@ -34,7 +34,7 @@ export function createSupportGraph(scene) {
   let declaredPairs=0;
   for(const a of nodes.values())for(const source of new Set([...(a.supportSurfaceIds||[]),...(a.attachmentHostSurfaceIds||[]),...(a.supportBinding?.hostSurfaceIds||[])]))for(const b of bySource.get(source)||[]){if(a.kind==='attachment'){if(!overlaps(a.bounds,b.bounds,a.connectionTolerance||.015))continue;links.get(b.id).add(a.id);}else if(b.kind!=='attachment')connect(a,b);declaredPairs++;}
   for(const list of bySource.values())if(list[0].kind==='attachment')for(let i=0;i<list.length;i++)for(let j=i+1;j<list.length;j++)if(touching(list[i],list[j]))connect(list[i],list[j]);
-  const explicit=scene.data.sandbox?.version===1;
+  const explicit=scene.data.sandbox?.version===1||scene.data.catalogueModules?.version===1;
   const allTreads=[...nodes.values()].filter(s=>s.supportType==='stair-tread');
   if(explicit&&allTreads.some(s=>!s.stairFlightId))throw Error('Sandbox stair needs its own flight ID');
   const definitions=explicit?scene.data.stairFlights||[]:[{id:'legacy',lower:{elevation:scene.data.levels?.[0]?.floorY??.48},upper:{elevation:scene.data.levels?.[1]?.floorY??2.6}}];

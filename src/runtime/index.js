@@ -4,11 +4,11 @@ import {configuration} from '../simulation/config.js';
 import {createCameraRig} from './camera.js';
 import {createDiagnosticScene} from './diagnostics.js';
 export {THREE};
-export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,assetBaseUrl,simulation,seed,scenario,config,characterId='bear',autoStart=true,uiOptions={},signal:externalSignal,cottageWind,
+export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,assetBaseUrl,simulation,seed,scenario,config,characterId='bear',autoStart=true,uiOptions={},signal:externalSignal,cottageWind,catalogueModules,
   rendererFactory=()=>new THREE.WebGLRenderer({antialias:true,alpha:false}),observerFactory=callback=>new ResizeObserver(callback),onSnapshot=()=>{},onError=error=>console.error(error)}={}){
   if(!root)throw Error('A viewport root is required');
   if(externalSignal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-  const settings=configuration(config),sim=simulation??createSimulation({seed,scenario,config,characterId,cottageWind});
+  const settings=configuration(config),sim=simulation??createSimulation({seed,scenario,config,characterId,cottageWind,catalogueModules});
   const controller=new AbortController(),signal=controller.signal,doc=root.ownerDocument||globalThis.document,win=doc?.defaultView||globalThis;
   let renderer,scene,camera,observer,art,ui,animation,snapshot=sim.snapshot(),disposed=false,lastTime=null,frames=0,lastMetrics={},rendererDescription='unavailable';
   const cpuSamples=[],simulationSamples=[],frameSamples=[];
@@ -59,7 +59,7 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     renderer.domElement.addEventListener('webglcontextlost',event=>{if(disposed)return;event.preventDefault();dispose();onError(Error('Graphics context lost. Return to the places menu and try again.'));},{signal});
     win.addEventListener('blur',loseFocus,{signal});doc?.addEventListener('visibilitychange',()=>{if(doc.hidden)loseFocus();lastTime=null;},{signal});
     if(doc?.hidden||typeof doc?.hasFocus==='function'&&!doc.hasFocus())loseFocus();
-    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights}):createDiagnosticScene({THREE,scene,config:settings});
+    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights,catalogueModules}):createDiagnosticScene({THREE,scene,config:settings});
     if(disposed||externalSignal?.aborted){created.dispose();throw new DOMException('Visit cancelled','AbortError');}art=created;
     ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});
     renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Move with the joystick, WASD or arrows.');

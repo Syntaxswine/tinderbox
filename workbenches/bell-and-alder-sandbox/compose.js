@@ -57,6 +57,13 @@ function validateSource(data,sourcePath){
   for(const p of data.furnitureParts||[]){if(!items.has(p.itemId))throw Error('Dangling part owner '+p.itemId);if(p.fuelAmount>0&&!DEFAULT_PROFILES[p.fuelClass]||p.finish?.amount>0&&!DEFAULT_PROFILES[p.finish.fuelClass==='varnish'?'lacquer':p.finish.fuelClass])throw Error('Finite fuel/finish needs declared fuelClass: '+p.id+' ('+sourcePath+')');if(p.sourceMeshBinding&&!meshes.has(p.sourceMeshBinding))throw Error('Dangling mesh '+p.sourceMeshBinding);for(const id of p.supportSurfaceIds||[])if(!surfaces.has(id))throw Error('Dangling part support '+id);}
   for(const i of data.items||[]){for(const id of i.partIds||[])if(!parts.has(id))throw Error('Dangling item part '+id);for(const id of [...(i.supportSurfaceIds||[]),...(i.supportContacts||[]).flatMap(c=>c.supportSurfaceIds||[])])if(!surfaces.has(id))throw Error('Dangling item support '+id);}
 }
+// The host-map adapter reuses source preparation/identity/rigid placement only;
+// it deliberately does not bootstrap the standalone sandbox's actors or clock.
+export function preparePhysicalInstance(raw,spec){
+  const instance=placedSource(raw,spec);
+  instance.data.gridOrigin=[0,0,0];instance.data.thermalCell=[.5,1.06,.5];
+  validateSource(instance.data,spec.source);return instance;
+}
 export function composeSandbox(manifest,sources){
   if(manifest?.version!==1||manifest.prefabId!=='bell-and-alder-sandbox-v1')throw Error('Expected sandbox placement manifest v1');
   unique(manifest.instances,'instance');if(manifest.instances.length!==3||manifest.instances.filter(i=>i.kind==='closing').length!==1||manifest.instances.filter(i=>i.kind==='furnished').length!==1||manifest.instances.filter(i=>i.kind==='yard').length!==1)throw Error('First slice requires one shop, one furnished house and one yard');

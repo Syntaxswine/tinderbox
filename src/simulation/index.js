@@ -16,19 +16,21 @@ import {createRubbleHeat} from './rubble-heat.js';
 import {createJoinedRoofHeat} from './joined-roof-fire.js';
 import {createShopInteractions} from './shop.js';
 import {createShopWitness} from './shop-witness.js';
-import {CHICAGO_PATROL} from '../content/exterior-kit.js';
+import {CHICAGO_PATROL,CIVILIAN_PROFILES} from '../content/exterior-kit.js';
+import {createCatalogueThermal} from './catalogue-thermal.js';
+import {legacyModuleOwner} from '../content/catalogue-modules.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
 const EPS = 1e-9;
-export function createSimulation({seed = 1947, scenario, config: override,characterId='bear',cottageWind} = {}) {
+export function createSimulation({seed = 1947, scenario, config: override,characterId='bear',cottageWind,catalogueModules} = {}) {
   const profile=CHARACTER_PROFILES[characterId];if(!profile)throw Error('Unknown player character');
   const config = configuration(characterId==='bear'?override:{...override,player:{...override?.player,radius:profile.radius}}), definition = scenarioDefinition(scenario);
   if (!Number.isSafeInteger(seed)) throw Error('Seed must be a safe integer');
   const playableCottages=definition.id==='cottage-pair';
   const catalogue=playableCottages||definition.id==='neighborhood';
   if(playableCottages)prepareCottageFootprints(definition);
-  if(catalogue)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
+  if(catalogue&&!catalogueModules)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
   let state, field, buildingFuel, obstacleFuel, housing, joinedRoof, cottages, rubble, shop, witness, publishObstacles, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
   function event(type, point = state.player, extra = {}, fuelSite = point, ignitionProof) {
@@ -47,6 +49,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     if (pouring) event('pour', state.player, {active: false, reason});
   }
   function initialize(tick = 0) {
+    field?.dispose?.();
     generation++;
     const def = structuredClone(definition), start = def.player;
     const inventory = {...config.inventory, ...start.inventory};
@@ -54,7 +57,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     if (inventory.torchFuel <= 1e-10) inventory.torchFuel = 0;
     const torchDuration = inventory.torchFuel / config.tools.torch.fuelPerSecond;
     if (!Number.isFinite(torchDuration)) throw Error('Invalid initial torch duration');
-    state = {tick, paused: false, seed, events: [], input: {move: {x: 0, y: 0}, primary: false},
+    state = {tick, generation, paused: false, seed, events: [], input: {move: {x: 0, y: 0}, primary: false},
       clocks: {active: 0, player: 0, world: 0, playerScale: 1, worldScale: 1},
       player: {id:characterId==='bear'?'bear':'hero',characterId,species:characterId,height:profile.height, x: start.x, y: start.y, radius: config.player.radius, heading: start.heading ?? 0, moving: false,
         hp: clamp(start.hp ?? config.player.maxHp, 0, config.player.maxHp), maxHp: config.player.maxHp,
@@ -70,33 +73,34 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false,
       moveNeedsNeutral: false, lanternPreview: null, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
     state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
-    shop = createShopInteractions(def, state, event);
-    const officer = shop && def.id === 'neighborhood' && def.shopWitness === CHICAGO_PATROL.id &&
-      state.actors.find(actor => actor.id === CHICAGO_PATROL.id);
-    witness = officer ? createShopWitness(officer, state.player, state.obstacles, {event, hurt}) : null;
+    if(catalogueModules){state.player.elevation=0;state.obstacles=state.obstacles.filter(o=>!o.buildingId&&!legacyModuleOwner(o,catalogueModules.masks));const spec=catalogueModules.data.catalogueModules.resident;if(spec){if(state.actors.some(a=>a.id===spec.id))throw Error('Duplicate module resident');const profile=CIVILIAN_PROFILES[spec.characterId||'horse'];state.actors.push({...profile,id:spec.id,characterId:spec.characterId||'horse',role:'resident',x:spec.position[0],elevation:spec.position[1],y:spec.position[2],hp:100,heading:0,travelled:0,moving:false,flamerHeat:0,burn:null,route:[],routeIndex:0});}}
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
     state.tiles = [];
     for (let y = 0; y < def.height; y += def.tileSize) for (let x = 0; x < def.width; x += def.tileSize) {
       const point = {x: x + def.tileSize / 2, y: y + def.tileSize / 2};
-      state.tiles.push(Object.freeze({...point, size: def.tileSize, material: materialAt(def, point)}));
+      const material=materialAt(def,point);state.tiles.push(Object.freeze({...point, size: def.tileSize, material: catalogueModules&&material==='wood'?'paving':material}));
     }
     Object.freeze(state.tiles);
     publishObstacles = createObstaclePublisher();
-    field = new HeatField(def, config, state.obstacles);
-    rubble = catalogue ? createRubbleHeat(field) : null;
+    field = catalogueModules?createCatalogueThermal({compiled:catalogueModules,state,definition:def,config,event}):new HeatField(def, config, state.obstacles);
+    state.contactProvider=catalogueModules?field:null;
+    shop=catalogueModules?field.shop:createShopInteractions(def,state,event);
+    const officer=shop&&def.id==='neighborhood'&&(catalogueModules||def.shopWitness===CHICAGO_PATROL.id)&&state.actors.find(actor=>actor.id===CHICAGO_PATROL.id);
+    witness=officer?createShopWitness(officer,state.player,state.obstacles,{event,hurt,...(catalogueModules?{lineBlocked:(a,b,options)=>!field.lineClear(a,b,options)}:{})}):null;
+    rubble = catalogue&&!catalogueModules ? createRubbleHeat(field) : null;
     // Ungrouped timber has fixed footprints. Cache its live cell references
     // here and rebuild them with the field on reset.
-    obstacleFuel = state.obstacles.filter(o => !o.buildingId && o.material === 'wood').map(obstacle => ({
+    obstacleFuel = state.obstacles.filter(o => !catalogueModules&&!o.buildingId && o.material === 'wood').map(obstacle => ({
       obstacle, cells: field.cells.filter(cell => inBox(cell, obstacle))
     }));
     cottages=playableCottages?createCottageFire({buildings:state.buildings,obstacles:state.obstacles,sampleWind:cottageWind,seed,...config.cottage,retireGround:rubble.retire}):null;
     const lots=state.buildings.filter(building=>!cottages||!COTTAGE_IDS.includes(building.id)).map(building=>({
       building,colliders:state.obstacles.filter(obstacle=>obstacle.buildingId===building.id)
     }));
-    housing=catalogue?new Map(lots.map(lot=>[lot.building.id,createHousingFire(lot,state.obstacles,config,cottageWind,rubble.retire)])):null;
+    housing=catalogue&&!catalogueModules?new Map(lots.map(lot=>[lot.building.id,createHousingFire(lot,state.obstacles,config,cottageWind,rubble.retire)])):null;
     joinedRoof = housing ? createJoinedRoofHeat(housing) : null;
-    buildingFuel = catalogue ? [] : lots.map(({building,colliders}) => {
+    buildingFuel = catalogue||catalogueModules ? [] : lots.map(({building,colliders}) => {
       const cells = field.cells.filter(cell => colliders.some(obstacle => inBox(cell, obstacle)));
       const initialSurfaceFuel = cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
       if (!cells.length || initialSurfaceFuel <= EPS) throw Error('Building needs a finite dry-wood footprint');
@@ -168,7 +172,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       return;
     }
     if (command.type === 'aim') {
-      state.aim = {x: command.x, y: command.y};
+      state.aim = {x: command.x, y: command.y,...(Number.isFinite(command.h)?{h:command.h}:{})};
       if (command.hover !== true && !p.lanternAim) {
         state.closeAim = state.aim;
         facePointAim(true);
@@ -207,6 +211,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (!barrel) continue;
       // Remove before queue expansion. Rendering and duplicate IDs cannot reapply.
       barrel.destroyed = true;
+      field.retireObstacle?.(barrel.id);
       event('barrel-explosion', barrel, {objectId: barrel.id, radius: config.barrel.blastRadius});
       const cause = 'barrel:' + barrel.id;
       field.emit(barrel, config.barrel.blastRadius, config.barrel.heat, cause, {wallsProtect: config.barrel.wallsProtect});
@@ -214,12 +219,12 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       for (const lot of housing?.values() ?? []) lot.heatBlast(barrel, config.barrel, cause);
       for (const target of [state.player, ...state.actors]) {
         const d = distance(barrel, target);
-        if (d <= config.barrel.blastRadius && (!config.barrel.wallsProtect || lineClear(barrel, target, state.obstacles))) {
+        if (d <= config.barrel.blastRadius && (!config.barrel.wallsProtect || (catalogueModules?field.lineClear(barrel,target,{ignoreObstacleIds:[barrel.id]}):lineClear(barrel, target, state.obstacles)))) {
           hurt(target, config.barrel.damage * Math.max(0.2, 1 - d / config.barrel.blastRadius), 'barrel:' + barrel.id);
         }
       }
       for (const next of state.obstacles) if (next.kind === 'barrel' && !next.destroyed &&
-        distance(barrel, next) <= config.barrel.blastRadius && (!config.barrel.wallsProtect || lineClear(barrel, next, state.obstacles))) pending.push(next.id);
+        distance(barrel, next) <= config.barrel.blastRadius && (!config.barrel.wallsProtect || (catalogueModules?field.lineClear(barrel,next,{ignoreObstacleIds:[barrel.id,next.id]}):lineClear(barrel, next, state.obstacles)))) pending.push(next.id);
     }
   }
   function heatActors(emission, dt) {
@@ -230,7 +235,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for (const actor of state.actors) {
       if (actor.hp <= 0) continue;
       const hit = cone && inHeatCone(cone.origin, actor, ux, uy, cone.range, cosine) &&
-        lineClear(cone.origin, actor, state.obstacles, {allowWoodEndpoints: false});
+        (catalogueModules?field.lineClear(cone.origin,actor):lineClear(cone.origin, actor, state.obstacles, {allowWoodEndpoints: false}));
       if (actor.burn && time + EPS >= actor.burn.expiresAt) actor.burn = null;
       if (actor.burn) {
         if (hit) actor.burn.expiresAt = time + fire.actorBurnSeconds;
@@ -245,15 +250,17 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     }
   }
   function actorStep(actor, delta) {
+    if(catalogueModules&&actor.role==='resident'){field.residentStep?.(actor,delta);return;}
     actor.moving = false; if (actor.hp <= 0 || actor.route.length < 2) return;
     let budget = (actor.speed ?? 1) * delta;
     while (budget > EPS) {
       const target = actor.route[actor.routeIndex], d = distance(actor, target);
       if (d < EPS) { actor.routeIndex = (actor.routeIndex + 1) % actor.route.length; break; }
       const amount = Math.min(budget, d);
-      const path = moveDisc(actor, (target.x - actor.x) / d * amount, (target.y - actor.y) / d * amount, actor.radius ?? 0.2, definition, state.obstacles, field.size);
+      const path = catalogueModules?field.move(actor,(target.x-actor.x)/d*amount,(target.y-actor.y)/d*amount,actor.radius??.2,actor.height??1.66):moveDisc(actor, (target.x - actor.x) / d * amount, (target.y - actor.y) / d * amount, actor.radius ?? 0.2, definition, state.obstacles, field.size);
       const next = path.at(-1), walked = path.slice(1).reduce((sum, p, i) => sum + distance(path[i], p), 0);
       actor.heading = Math.atan2(next.y - actor.y, next.x - actor.x); actor.x = next.x; actor.y = next.y;
+      if(catalogueModules)actor.elevation=next.elevation;
       actor.travelled += walked; actor.moving ||= walked > EPS; budget -= amount;
       if (walked < amount - EPS) break;
       if (amount >= d - EPS) actor.routeIndex = (actor.routeIndex + 1) % actor.route.length;
@@ -276,7 +283,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       let path = [{x: p.x, y: p.y}];
       if (!p.lanternAim) {
         const direction = faceMovement(inverted);
-        path = moveDisc(p, direction.x * config.player.speed * playerDelta, direction.y * config.player.speed * playerDelta,
+        path = catalogueModules?field.move(p,direction.x*config.player.speed*playerDelta,direction.y*config.player.speed*playerDelta,p.radius,p.height):moveDisc(p, direction.x * config.player.speed * playerDelta, direction.y * config.player.speed * playerDelta,
           p.radius, definition, state.obstacles, field.size);
       }
       state.acceptedPath = path;
@@ -290,7 +297,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
         }
       }
       if (walked > EPS) { const end = path.at(-1); p.x = end.x; p.y = end.y; p.moving = true; p.travelled += walked; }
-      for(const {pickup,point}of resetting?[]:pickupContacts(state.pickups,path,p.radius,state.obstacles)){
+      if(catalogueModules){const end=path.at(-1);p.elevation=end.elevation??p.elevation;p.moduleOwner=end.ownerInstanceId??p.moduleOwner;p.surfaceId=end.surfaceId??p.surfaceId;}
+      for(const {pickup,point}of resetting?[]:pickupContacts(catalogueModules?state.pickups.filter(item=>Math.abs((item.elevation||0)-p.elevation)<.3):state.pickups,path,p.radius,state.obstacles)){
         if(useDrug(pickup.kind,point,{source:'pickup',pickupId:pickup.id})){
           pickup.consumed=true;event('pickup-used',pickup,{pickupId:pickup.id,kind:pickup.kind,actorId:p.id});
         }
@@ -329,8 +337,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for (const name of ['powder', 'inversion']) if (state.effects[name].expiresAt > 0 && !activeEffect(name)) {
       state.effects[name].expiresAt = 0; event('drug-expired', p, {drug: name});
     }
-    refreshLanternPreview(state, config);
-    if (witness) witness.update(state.clocks.world, shop.carriesLantern());
+    refreshLanternPreview(state, config, state.contactProvider);
+    if (witness){field.reportIgnitions?.(witness);witness.update(state.clocks.world, shop.carriesLantern());}
     state.clocks.playerScale = activeEffect('powder') ? config.drugs.playerScale : 1;
     state.clocks.worldScale = activeEffect('powder') ? config.drugs.worldScale : 1;
   }
@@ -338,7 +346,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     if (disposed) throw Error('Simulation disposed');
     const cells = field.snapshot(), obstacles = publishObstacles(state.obstacles), present = new Set(obstacles.map(o => o.id));
     const intactSupport = new Map(definition.modules.map(m => [m.id, m.colliderIds.length > 0 && m.colliderIds.every(id => present.has(id))]));
-    const modules = definition.modules.map(module => {
+    const modules = definition.modules.filter(module=>!catalogueModules?.masks.moduleIds.includes(module.id)).map(module => {
       const copy = structuredClone(module);
       copy.destroyed = copy.supportModuleIds ? copy.supportModuleIds.some(id => !intactSupport.get(id)) : copy.colliderIds.length > 0 && copy.colliderIds.every(id => !present.has(id));
       copy.parts = copy.parts.map(part => ({...part, destroyed: part.solid ? !present.has(part.id) : part.role === 'lintel' ? !present.has(copy.id + ':pier-left') || !present.has(copy.id + ':pier-right') : copy.destroyed}));
@@ -360,12 +368,13 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       ...(cottages?{cottageFire:cottages.snapshot(state.clocks.world)}:{}),
       ...(witness ? {witness: witness.snapshot()} : {}),
-      structureFire:[...(cottages?.samples(state.clocks.world)??[]), ...Array.from(housing?.values()??[]).flatMap(lot=>lot.samples(state.clocks.world))],
+      ...(catalogueModules?{catalogueModules:field.physicalFrame()}:{}),
+      structureFire:catalogueModules?field.physicalFrame().fireSamples:[...(cottages?.samples(state.clocks.world)??[]), ...Array.from(housing?.values()??[]).flatMap(lot=>lot.samples(state.clocks.world))],
       diagnostics: {scenario: definition.id, seed, generation, alpha: accumulator / config.step, lastSteps, droppedRealSeconds,
         acceptedPath: state.acceptedPath.map(p => ({...p})), fuel: {...field.stats,
           remainingDepositedFuel: field.publishedStats.remainingDepositedFuel},
         localHeatIndex: field.heatIndex(state.player,1),
-        burningCells: field.publishedStats.burningCells,
+        ...(catalogueModules?{thermal:field.diagnostics()}:{}),burningCells: field.publishedStats.burningCells,
         frontX: field.publishedStats.frontX}};
   }
   function dispatch(command) {
@@ -395,7 +404,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (disposed) throw Error('Simulation disposed');
       return field.heatIndex(point,radius);
     },
-    dispose() { disposed = true; commands = []; state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null; }
+    dispose() { disposed = true; commands = []; field?.dispose?.();state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }
