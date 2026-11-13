@@ -19,7 +19,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   const supportBySource=new Map(),itemParts=new Map([...items.keys()].map(id=>[id,[...parts.values()].filter(p=>p.itemId===id)]));
   for(const b of index.surfaces.values()){if(!supportBySource.has(b.sourceSurfaceId))supportBySource.set(b.sourceSurfaceId,[]);supportBySource.get(b.sourceSurfaceId).push(b);}
   for(const item of items.values()) {
-    const b=item.bounds||bounds((itemParts.get(item.id)||[]).flatMap(p=>[p.bounds.min,p.bounds.max])),declared=(item.supportSurfaceIds||[]).flatMap(id=>supportBySource.get(id)||[]),floorY=declared.length?Math.max(...declared.map(s=>s.position?.[1]??s.floorY)):data.levels?.find(l=>l.index===item.level)?.floorY??b.min[1];
+    const b=item.bounds||bounds((itemParts.get(item.id)||[]).flatMap(p=>[p.bounds.min,p.bounds.max])),declared=(item.supportSurfaceIds||[]).flatMap(id=>supportBySource.get(id)||[]),floorY=declared.length?Math.max(...declared.map(s=>s.position?.[1]??s.floorY)):data.levels?.find(l=>l.index===item.level&&(!item.instanceId||l.instanceId===item.instanceId))?.floorY??b.min[1];
     item.contactOffset=[(b.min[0]+b.max[0])/2-item.position[0],floorY-item.position[1],(b.min[2]+b.max[2])/2-item.position[2]];
     item.supportContactOffsets=item.supportContacts?.length?item.supportContacts.flatMap(c=>[centre(c.polygon),...c.polygon].map(p=>sub(p,item.position))):[[item.contactOffset[0],item.contactOffset[1],item.contactOffset[2]],...[b.min[0]+.01,b.max[0]-.01].flatMap(x=>[b.min[2]+.01,b.max[2]-.01].map(z=>[x-item.position[0],floorY-item.position[1],z-item.position[2]]))];
   }

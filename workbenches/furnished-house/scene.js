@@ -62,7 +62,7 @@ export function compileScene(data,{profiles={}}={}) {
         // complete uncut collider in every fragment after local retirement.
         b.solidTriangles=clipped;b.closedShape=single;b.bounds=bounds(clipped.flat());
       }
-      const sign=normal.find(v=>Math.abs(v)>1e-6)<0?-1:1,oriented=normal.map(v=>Math.round(v*sign*1e6)/1e6);b.sheetKey=[s.kind,s.level??'',...oriented,Math.round(dotPlane(normal,clipped[0][0])*sign*1e6)/1e6].join(':');
+      const sign=normal.find(v=>Math.abs(v)>1e-6)<0?-1:1,oriented=normal.map(v=>Math.round(v*sign*1e6)/1e6);b.sheetKey=[...(data.sandbox?.version===1?[s.instanceId]:[]),s.kind,s.level??'',...oriented,Math.round(dotPlane(normal,clipped[0][0])*sign*1e6)/1e6].join(':');
       boundaries.push(b);
       const amount=Number(s.fuelAmount??(combustible(mat)?triangles.reduce((a,t)=>a+triangleArea(t),0):0))*area/triangles.reduce((a,t)=>a+triangleArea(t),0);
       const cls=s.fuelClass||({floor:'frame',wall:'partition',roof:'roof',door:'door'}[s.kind]);
