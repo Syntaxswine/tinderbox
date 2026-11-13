@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "measurement": "Actually evaluated visible skinned/source vertices at seven native gait distances; no renderer or substituted body proxy",
+  "headerUnderside": 1.71,
+  "ceilingUnderside": 2,
+  "profiles": [
+    {
+      "profile": "player-goat",
+      "samples": 7,
+      "minimumY": 0,
+      "maximumY": 1.64951753616333,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "equipment": "Unarmed body as in initial lantern scene",
+      "marginToCurrentTransom": 0.060482463836669886,
+      "marginToCeiling": 0.3504824638366699
+    },
+    {
+      "profile": "player-horse",
+      "samples": 7,
+      "minimumY": 0,
+      "maximumY": 1.649999976158142,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "equipment": "Unarmed body as in initial lantern scene",
+      "marginToCurrentTransom": 0.060000023841857875,
+      "marginToCeiling": 0.3500000238418579
+    },
+    {
+      "profile": "player-bear",
+      "samples": 7,
+      "minimumY": 0,
+      "maximumY": 1.6708452701568604,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "equipment": "Unarmed body as in initial lantern scene",
+      "marginToCurrentTransom": 0.03915472984313961,
+      "marginToCeiling": 0.32915472984313965
+    },
+    {
+      "profile": "native-resident-horse",
+      "samples": 7,
+      "minimumY": 0,
+      "maximumY": 1.649999976158142,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "equipment": "Original unarmed civilian",
+      "marginToCurrentTransom": 0.060000023841857875,
+      "marginToCeiling": 0.3500000238418579
+    },
+    {
+      "profile": "native-uniformed-officer",
+      "samples": 7,
+      "minimumY": 0,
+      "maximumY": 1.64951753616333,
+      "nativeScale": [
+        1,
+        1,
+        1
+      ],
+      "equipment": "Original helmet, uniform and belt pistol",
+      "marginToCurrentTransom": 0.060482463836669886,
+      "marginToCeiling": 0.3504824638366699
+    }
+  ],
+  "limitations": [
+    "Numeric height envelope only; actual posed-surface sweep, carried equipment and combined WebGL review remain mandatory."
+  ]
+}

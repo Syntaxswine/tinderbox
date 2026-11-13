@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "scope": "Changed ground routes, outer service hinges and match stance. Selected6m composed flight is separately checked by the full native preflight; original3c842b20 remains the unchanged diagnostic control.",
+  "dataSha256": "15d284fbcaad23daceaf727079dbb902c072a9a0cefeaea7bd12fe89fd29c943",
+  "checks": [
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "closedEntryBlocks": true,
+      "ground": {
+        "passed": true,
+        "samples": 2857
+      },
+      "service": {
+        "passed": true,
+        "samples": 1082
+      },
+      "passed": true
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "closedEntryBlocks": true,
+      "ground": {
+        "passed": true,
+        "samples": 2857
+      },
+      "service": {
+        "passed": true,
+        "samples": 1082
+      },
+      "passed": true
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "closedEntryBlocks": true,
+      "ground": {
+        "passed": true,
+        "samples": 2857
+      },
+      "service": {
+        "passed": true,
+        "samples": 1082
+      },
+      "passed": true
+    },
+    {
+      "profile": "native-civilian-officer",
+      "radius": 0.62,
+      "height": 1.7,
+      "closedEntryBlocks": true,
+      "ground": {
+        "passed": true,
+        "samples": 2857
+      },
+      "service": {
+        "passed": true,
+        "samples": 1082
+      },
+      "passed": true
+    }
+  ],
+  "directControl": {
+    "stance": [
+      2.25,
+      0,
+      8.9
+    ],
+    "strike": [
+      2.5,
+      0.58,
+      8.136
+    ],
+    "planarRange": 0.8038631724367038,
+    "existingMatchReach": 0.85,
+    "withinPlanarReach": true,
+    "runtimeContactQuery": "See direct-contact-query.json: unchanged runtime accepted the contact and ignited the finite lacquer finish"
+  },
+  "stair": {
+    "rise": 2.12,
+    "run": 6,
+    "going": 0.5,
+    "selectedComposedVariant": true
+  },
+  "passed": true,
+  "limitations": [
+    "These changed-route cylinder checks do not establish full stair traversal or posed body/equipment clearance."
+  ]
+}

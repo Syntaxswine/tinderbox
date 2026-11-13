@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checks": [
+    "Unique canonical IDs and complete physical/render/support references",
+    "Original25 native shop prop transforms preserved",
+    "Meters, zero-based floors0/2.12, native one-meter leaves, 12 measured treads and1.90m rail clearance",
+    "Finite fuel/material separation, measured item contacts, one excluded-from-static portable lantern",
+    "Local texture closure and source hashes",
+    "Complete hero/direct anchor routes",
+    "Outer service hinges and selected stair area/footprint"
+  ],
+  "sourceHash": "15d284fbcaad23daceaf727079dbb902c072a9a0cefeaea7bd12fe89fd29c943",
+  "counts": {
+    "surfaces": 543,
+    "items": 23,
+    "parts": 76,
+    "openings": 44,
+    "triangles": 30814
+  },
+  "limitations": [
+    "Continuous native-body route and causal combined replay remain coder/architect acceptance."
+  ]
+}

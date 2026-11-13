@@ -1,0 +1,407 @@
+{
+  "version": 1,
+  "artistCommit": "3c842b20aa9ebc8f0ec0b447282cfd17f9d6e2e1",
+  "dataSha256": "01e9f9f6250ce5db3203c3ccad468f7319b01573f37f5d0ec0dd96a72d61b7a8",
+  "createdAt": "2026-11-13T04:36:16.104Z",
+  "scope": "Unchanged3m/12-tread flight, cold geometry only; no authored movement or collision policy changes.",
+  "rawEvidenceSha256": "fa0e12bc7d87ba974b4c27efb92563d0d4c4ed4a2cbaf3d19ee39a870c156dff",
+  "records": [
+    {
+      "name": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "gaitClearance": 0.45,
+      "lastProbe": {
+        "previous": [
+          10,
+          0.17666670000000004,
+          6.880000000000013
+        ],
+        "proposed": [
+          10,
+          0.17666669999999998,
+          6.860000000000014
+        ],
+        "previousSupport": {
+          "id": "stair/tread-01@19,0,13",
+          "y": 0.17666669999999998
+        },
+        "centreSupport": {
+          "id": "stair/tread-01@19,0,13",
+          "y": 0.17666669999999998
+        },
+        "low": 0.6266667,
+        "high": 1.8366665999999998,
+        "onStairs": true,
+        "footprintProbes": [
+          {
+            "forward": 0,
+            "point": [
+              10,
+              0.17666669999999998,
+              6.860000000000014
+            ],
+            "support": {
+              "id": "stair/tread-01@19,0,13",
+              "y": 0.17666669999999998
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.125,
+            "point": [
+              10,
+              0.17666669999999998,
+              6.735000000000014
+            ],
+            "support": {
+              "id": "stair/tread-02@19,0,13",
+              "y": 0.3533333
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.25,
+            "point": [
+              10,
+              0.17666669999999998,
+              6.610000000000014
+            ],
+            "support": {
+              "id": "stair/tread-02@19,0,13",
+              "y": 0.3533333
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.375,
+            "point": [
+              10,
+              0.17666669999999998,
+              6.485000000000014
+            ],
+            "support": {
+              "id": "pavement/east@19,0,12",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.5,
+            "point": [
+              10,
+              0.17666669999999998,
+              6.360000000000014
+            ],
+            "support": {
+              "id": "pavement/east@19,0,12",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          }
+        ],
+        "actual": [
+          10,
+          0.17666669999999998,
+          6.860000000000014
+        ],
+        "block": null
+      }
+    },
+    {
+      "name": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "gaitClearance": 0.45,
+      "lastProbe": {
+        "previous": [
+          10,
+          0,
+          7.060000000000009
+        ],
+        "proposed": [
+          10,
+          0,
+          7.04000000000001
+        ],
+        "previousSupport": {
+          "id": "pavement/east@19,0,14",
+          "y": 0
+        },
+        "centreSupport": {
+          "id": "pavement/east@19,0,14",
+          "y": 0
+        },
+        "low": 0.45,
+        "high": 1.6799998999999999,
+        "onStairs": true,
+        "footprintProbes": [
+          {
+            "forward": 0,
+            "point": [
+              10,
+              0,
+              7.04000000000001
+            ],
+            "support": {
+              "id": "pavement/east@19,0,14",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.125,
+            "point": [
+              10,
+              0,
+              6.91500000000001
+            ],
+            "support": {
+              "id": "stair/tread-01@19,0,13",
+              "y": 0.1766667
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.25,
+            "point": [
+              10,
+              0,
+              6.79000000000001
+            ],
+            "support": {
+              "id": "stair/tread-01@19,0,13",
+              "y": 0.1766667
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.375,
+            "point": [
+              10,
+              0,
+              6.66500000000001
+            ],
+            "support": {
+              "id": "pavement/east@19,0,13",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.5,
+            "point": [
+              10,
+              0,
+              6.54000000000001
+            ],
+            "support": {
+              "id": "pavement/east@19,0,13",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.56,
+            "point": [
+              10,
+              0,
+              6.480000000000009
+            ],
+            "support": {
+              "id": "pavement/east@19,0,12",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          }
+        ],
+        "actual": [
+          10,
+          0,
+          7.060000000000009
+        ],
+        "block": {
+          "id": "stair/tread-03@19,0,12",
+          "reason": "Native geometry clearance",
+          "position": [
+            10,
+            0,
+            7.04000000000001
+          ]
+        },
+        "reachableFirstStep": {
+          "forward": 0.125,
+          "point": [
+            10,
+            0,
+            6.91500000000001
+          ],
+          "support": {
+            "id": "stair/tread-01@19,0,13",
+            "y": 0.1766667
+          },
+          "insideNativeFootprint": true
+        },
+        "diagnosticOnly": {
+          "proposedFirstStep": [
+            10,
+            0.1766667,
+            7.04000000000001
+          ],
+          "low": 0.6266667,
+          "high": 1.8566665999999998,
+          "clearWithSameNativeBody": true,
+          "note": "Pure clearance probe, not accepted movement. Centre still has ground bearing; footprint support is outside the current centre-only adapter policy."
+        }
+      }
+    },
+    {
+      "name": "native-civilian",
+      "radius": 0.62,
+      "height": 1.7,
+      "gaitClearance": 0.45,
+      "lastProbe": {
+        "previous": [
+          10,
+          0,
+          7.120000000000008
+        ],
+        "proposed": [
+          10,
+          0,
+          7.1000000000000085
+        ],
+        "previousSupport": {
+          "id": "pavement/east@19,0,14",
+          "y": 0
+        },
+        "centreSupport": {
+          "id": "pavement/east@19,0,14",
+          "y": 0
+        },
+        "low": 0.45,
+        "high": 1.6999999,
+        "onStairs": true,
+        "footprintProbes": [
+          {
+            "forward": 0,
+            "point": [
+              10,
+              0,
+              7.1000000000000085
+            ],
+            "support": {
+              "id": "pavement/east@19,0,14",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.125,
+            "point": [
+              10,
+              0,
+              6.9750000000000085
+            ],
+            "support": {
+              "id": "stair/tread-01@19,0,13",
+              "y": 0.1766667
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.25,
+            "point": [
+              10,
+              0,
+              6.8500000000000085
+            ],
+            "support": {
+              "id": "stair/tread-01@19,0,13",
+              "y": 0.1766667
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.375,
+            "point": [
+              10,
+              0,
+              6.7250000000000085
+            ],
+            "support": {
+              "id": "pavement/east@19,0,13",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.5,
+            "point": [
+              10,
+              0,
+              6.6000000000000085
+            ],
+            "support": {
+              "id": "pavement/east@19,0,13",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          },
+          {
+            "forward": 0.62,
+            "point": [
+              10,
+              0,
+              6.480000000000008
+            ],
+            "support": {
+              "id": "pavement/east@19,0,12",
+              "y": 0
+            },
+            "insideNativeFootprint": true
+          }
+        ],
+        "actual": [
+          10,
+          0,
+          7.120000000000008
+        ],
+        "block": {
+          "id": "stair/tread-03@19,0,12",
+          "reason": "Native geometry clearance",
+          "position": [
+            10,
+            0,
+            7.1000000000000085
+          ]
+        },
+        "reachableFirstStep": {
+          "forward": 0.125,
+          "point": [
+            10,
+            0,
+            6.9750000000000085
+          ],
+          "support": {
+            "id": "stair/tread-01@19,0,13",
+            "y": 0.1766667
+          },
+          "insideNativeFootprint": true
+        },
+        "diagnosticOnly": {
+          "proposedFirstStep": [
+            10,
+            0.1766667,
+            7.1000000000000085
+          ],
+          "low": 0.6266667,
+          "high": 1.8766665999999999,
+          "clearWithSameNativeBody": true,
+          "note": "Pure clearance probe, not accepted movement. Centre still has ground bearing; footprint support is outside the current centre-only adapter policy."
+        }
+      }
+    }
+  ],
+  "interpretation": "Centre-bearing/gait ordering sensitivity; the pure proposed first-step probe is diagnostic, not accepted movement or proof that the original flight is invalid."
+}

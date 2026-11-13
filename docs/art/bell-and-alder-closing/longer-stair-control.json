@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "dataSha256": "503ecb4887f13e3bc627a75018178aab89061deb011dfe07647b9a479f38ed2c",
+  "createdAt": "2026-11-13T04:31:47.924Z",
+  "passed": true,
+  "limitations": [
+    "This proves native cylinder/support travel, not the visual posed body/equipment sweep. Combined WebGL review remains mandatory."
+  ],
+  "scope": "Initial6m composed-flight comparison, subsequently selected by the architect for the M22 local geometry solution. Original3c842b20/3m failure remains preserved. Final candidate source/data hash is recorded separately.",
+  "layout": "art/source/bell-and-alder-closing/controls/longer-stair-layout.json",
+  "checks": [
+    {
+      "profile": "goat",
+      "kind": null,
+      "passed": true,
+      "residentAt40": null
+    },
+    {
+      "profile": "horse",
+      "kind": null,
+      "passed": true,
+      "residentAt40": null
+    },
+    {
+      "profile": "bear",
+      "kind": null,
+      "passed": true,
+      "residentAt40": null
+    },
+    {
+      "profile": "native-civilian-officer",
+      "kind": null,
+      "passed": true,
+      "residentAt40": null
+    },
+    {
+      "profile": null,
+      "kind": "actual quiet routine",
+      "passed": true,
+      "residentAt40": {
+        "time": 40,
+        "resident": {
+          "position": [
+            4.00053575091829,
+            2.12,
+            2.4137764521842087
+          ],
+          "routeIndex": 24,
+          "block": null
+        },
+        "officer": {
+          "position": [
+            2.470000000000001,
+            0,
+            10.5
+          ],
+          "routeIndex": 0,
+          "block": null
+        }
+      }
+    }
+  ]
+}
