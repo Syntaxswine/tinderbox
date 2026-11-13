@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "scope": "Continuous native cylinder/support checks; posed/equipment clearance and free-play acceptance remain separate.",
+  "sourceManifestSha256": "787bcc690b3ee2225a2cc0f774b32565b3dd5ca432434d433b3b5a867c96c5cc",
+  "closedHouse": {
+    "passed": true,
+    "failed": {
+      "target": [
+        -10.00375,
+        0.48,
+        6.199999999999999
+      ],
+      "position": [
+        -10.00375,
+        0.48,
+        8.700000000000065
+      ],
+      "id": "house::opening/l0/5-0-6-0@-20,0,16",
+      "reason": "Native geometry clearance"
+    }
+  },
+  "profiles": [
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "passed": true,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "worldRoutes": [
+        {
+          "id": "shop-yard-house-approach",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "passed": true,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "worldRoutes": [
+        {
+          "id": "shop-yard-house-approach",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "passed": false,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": false,
+          "failed": {
+            "target": [
+              -10.00375,
+              0.48,
+              9
+            ],
+            "position": [
+              -10.00375,
+              0.48,
+              10.060000000000036
+            ],
+            "id": "house::attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/47/prototype-entry-rail-post@-22,0,20",
+            "reason": "Native geometry clearance"
+          }
+        },
+        "descent": {
+          "passed": false
+        }
+      },
+      "worldRoutes": [
+        {
+          "id": "shop-yard-house-approach",
+          "passed": false,
+          "failed": {
+            "target": [
+              -10.00375,
+              0.48,
+              9
+            ],
+            "position": [
+              -10.00375,
+              0.48,
+              10.060035146983347
+            ],
+            "id": "house::attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/47/prototype-entry-rail-post@-22,0,20",
+            "reason": "Native geometry clearance"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "native-civilian-officer",
+      "radius": 0.62,
+      "height": 1.7,
+      "passed": false,
+      "shop": {
+        "ground": {
+          "passed": true
+        },
+        "ascent": {
+          "passed": true
+        },
+        "descent": {
+          "passed": true
+        }
+      },
+      "house": {
+        "ascent": {
+          "passed": false,
+          "failed": {
+            "target": [
+              -10.00375,
+              0.32,
+              10.66
+            ],
+            "position": [
+              -10.00375,
+              0.16,
+              10.940000000000017
+            ],
+            "id": "house::attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/44/prototype-entry-rail-post",
+            "reason": "Native geometry clearance"
+          }
+        },
+        "descent": {
+          "passed": false
+        }
+      },
+      "worldRoutes": [
+        {
+          "id": "shop-yard-house-approach",
+          "passed": false,
+          "failed": {
+            "target": [
+              -10.00375,
+              0.32,
+              10.66
+            ],
+            "position": [
+              -10.003749999978947,
+              0.16,
+              10.940035146983329
+            ],
+            "id": "house::attachment/house/gross-housing-hopkins-4-15/3/exterior-ornament/46/prototype-entry-rail-post",
+            "reason": "Native geometry clearance"
+          }
+        }
+      ]
+    }
+  ],
+  "quiet": {
+    "worldTime": 2,
+    "noIgnition": true,
+    "actors": 3,
+    "lantern": {
+      "id": "shop::bell-and-alder:hand-lantern",
+      "assetId": "city1880-hand-lantern-lit",
+      "anchor": "shop::lantern",
+      "supportItemId": "bell-and-alder:parlor-lamp",
+      "publishedPosition": [
+        41.65,
+        0.747,
+        11.6
+      ],
+      "supportSourceId": "shop::bell-and-alder:parlor-lamp",
+      "nativeId": "bell-and-alder:hand-lantern",
+      "instanceId": "shop",
+      "phase": "placed",
+      "ownerId": null,
+      "position": [
+        5.65,
+        0.747,
+        2.6
+      ]
+    }
+  },
+  "costs": {
+    "quietStepMs": {
+      "samples": 60,
+      "mean": 24.937008333333264,
+      "p95": 43.55290000000241,
+      "max": 57.861800000002404
+    }
+  },
+  "supportCounts": {
+    "nodes": 6611,
+    "contactPairs": 16460,
+    "declaredPairs": 17928,
+    "anchors": 690,
+    "groundedInert": 2933,
+    "unrootedInert": 40,
+    "initiallySupported": 6217,
+    "unresolvedInitial": 394,
+    "checks": 0
+  },
+  "stairFlights": [
+    {
+      "id": "shop::service-stair",
+      "instanceId": "shop",
+      "treads": 12,
+      "requiresBothLandings": true
+    },
+    {
+      "id": "house::interior-stair",
+      "instanceId": "house",
+      "treads": 12,
+      "requiresBothLandings": true
+    }
+  ],
+  "dataHashes": [
+    {
+      "path": "workbenches/bell-and-alder-sandbox/scene-data.json",
+      "sha256": "787bcc690b3ee2225a2cc0f774b32565b3dd5ca432434d433b3b5a867c96c5cc"
+    },
+    {
+      "path": "workbenches/bell-and-alder-sandbox/yard-data.json",
+      "sha256": "004e576236df1f3d4eea27d753695db4fb63c33739341cdccccea2043fb4a49a"
+    },
+    {
+      "path": "workbenches/bell-and-alder-sandbox/house-route-data.json",
+      "sha256": "a2e1521bd1b0f15e6e4baefc197743e87fb14af4da3f8259aec325f3e127cef6"
+    }
+  ],
+  "notes": [
+    "Native geometry unchanged after passage check; final cargo UV density adjustment changes render UVs only.",
+    "Raw first failed and corrected route reports remain under artifacts/qa/bell-and-alder-sandbox/.",
+    "Quiet timing is one60-step Node observation after route checking; not a controlled benchmark or GPU measurement."
+  ]
+}

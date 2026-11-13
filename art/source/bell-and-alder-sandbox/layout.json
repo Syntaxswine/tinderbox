@@ -113,7 +113,7 @@
       ]
     },
     "clearRoute": {
-      "centreX": -2,
+      "centreX": -3,
       "width": 2,
       "zRange": [
         -1,
@@ -151,7 +151,7 @@
         "height": 1
       }
     ],
-    "gate": "Open yard; the1m rear fence panel leaves the2m route X-3..-1 clear. No gate interaction.",
+    "gate": "Clear2m route X-4..-2 around the unchanged street lamp; one1m rear fence panel remains X-5..-4.",
     "surface": "Paving only; no lawn, terrain growth or obstacle wind bake.",
     "pavingAdaptation": "Add only the1m strip X-5..-4/Z-2..8 and street X-17..-4/Z8..16. Existing M22 west pavement X-4..0 supplies the rest of the yard; never export a coplanar duplicate."
   },
@@ -160,27 +160,37 @@
       [
         4,
         0,
-        10
+        9.2
       ],
       [
-        -2,
+        4,
+        0,
+        12
+      ],
+      [
+        -3,
+        0,
+        12
+      ],
+      [
+        -3,
         0,
         10
       ],
       [
-        -2,
+        -3,
         0,
-        7
+        4
       ],
       [
-        -2,
+        -3,
         0,
         0
       ]
     ],
     "streetToHouseStart": [
       [
-        -2,
+        -3,
         0,
         12
       ],
@@ -297,5 +307,6 @@
     "sourceCommit": "4001bfb537fe2b156ccf17fa5a7e1b5cbdbcf9d4",
     "sha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238",
     "note": "Exact revised Version2, copied as one file without merging stockyard ancestry."
-  }
+  },
+  "sourceNavigationFinding": "Original dining-room detour clips its own open door leaf for goat/horse after placement. Sandbox-only route metadata uses the clear hall; no model, opening, collision or original route changed."
 }

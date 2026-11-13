@@ -49,7 +49,7 @@
     {
       "id": "house",
       "kind": "furnished",
-      "source": "../furnished-house/house-data.json",
+      "source": "./house-route-data.json",
       "translation": [
         -5,
         0,
@@ -135,14 +135,14 @@
   "anchors": {
     "yardCentre": {
       "position": [
-        -2,
+        -3,
         0,
         4
       ]
     },
     "yardEntrance": {
       "position": [
-        -2,
+        -3,
         0,
         10
       ]
@@ -181,9 +181,92 @@
         2.6,
         1.25
       ]
+    },
+    "streetTurn": {
+      "position": [
+        4,
+        0,
+        12
+      ]
+    },
+    "yardRear": {
+      "position": [
+        -3,
+        0,
+        0
+      ]
+    },
+    "streetWest": {
+      "position": [
+        -3,
+        0,
+        12
+      ]
+    },
+    "houseEntryRoute0": {
+      "position": [
+        -10.00375,
+        0,
+        11.8
+      ]
+    },
+    "houseEntryRoute1": {
+      "position": [
+        -10.00375,
+        0.16,
+        11.1
+      ]
+    },
+    "houseEntryRoute2": {
+      "position": [
+        -10.00375,
+        0.32,
+        10.66
+      ]
+    },
+    "houseEntryRoute3": {
+      "position": [
+        -10.00375,
+        0.48,
+        10.22
+      ]
+    },
+    "houseEntryRoute4": {
+      "position": [
+        -10.00375,
+        0.48,
+        9
+      ]
+    },
+    "houseEntryRoute5": {
+      "position": [
+        -10.00375,
+        0.48,
+        6.2
+      ]
+    },
+    "shopApproach": {
+      "position": [
+        4,
+        0,
+        9.2
+      ]
     }
   },
-  "doors": [],
+  "doors": [
+    {
+      "id": "house::opening/l0/5-0-6-0",
+      "openingIds": [
+        "house::opening/l0/5-0-6-0"
+      ],
+      "position": [
+        -10.00375,
+        1.38,
+        8.15
+      ],
+      "label": "Hopkins front door"
+    }
+  ],
   "pickups": [],
   "provenance": {
     "baseCommit": "93239f1e202f05064c033038f6f343f79b905b8e",
@@ -208,6 +291,30 @@
       "House source entry minimum clear width1.015m; native goat/horse body review only, larger bear/civilian not accepted.",
       "Current M22 known defects deferred, frozen control unchanged.",
       "One extra house and paved yard only; no Monroe pair or production/Pages promotion."
-    ]
-  }
+    ],
+    "sandboxHouseAdaptation": "Exact original physical/render geometry and contents; only prototypeRoute takes the clear hall directly to the native stair instead of the source dining-room detour that clips an open leaf. Original source/control unchanged."
+  },
+  "checkRoutes": [
+    {
+      "id": "shop-yard-house-approach",
+      "anchors": [
+        "shopApproach",
+        "streetTurn",
+        "streetWest",
+        "yardEntrance",
+        "yardCentre",
+        "yardRear",
+        "yardCentre",
+        "yardEntrance",
+        "streetWest",
+        "houseApproach",
+        "houseEntryRoute0",
+        "houseEntryRoute1",
+        "houseEntryRoute2",
+        "houseEntryRoute3",
+        "houseEntryRoute4",
+        "houseEntryRoute5"
+      ]
+    }
+  ]
 }

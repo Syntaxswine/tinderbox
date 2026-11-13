@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "baseCommit": "93239f1e202f05064c033038f6f343f79b905b8e",
+  "closingArtPin": "a0eef339988c24ef5a688396f552b8661764f472",
+  "workflowPin": "4001bfb537fe2b156ccf17fa5a7e1b5cbdbcf9d4",
+  "sourceFiles": [
+    {
+      "path": "art/source/bell-and-alder-closing/thermal-art.js",
+      "sha256": "d0e3346c51a50709e5546dba736f626d6a8732963802df679caf76ce7826278c",
+      "bytes": 42037
+    },
+    {
+      "path": "art/source/bell-and-alder-sandbox/thermal-art.js",
+      "sha256": "3f468a640d60fb2647660174382eddbbf7e997694733b8d47edcdd3e6baa46b8",
+      "bytes": 43491
+    },
+    {
+      "path": "workbenches/bell-and-alder-sandbox/art.js",
+      "sha256": "417aa393b03e1f4da7bebdd4ce7b2c7ebf89c3640c78e362c61892f5bdacedef",
+      "bytes": 4365
+    },
+    {
+      "path": "art/source/bell-and-alder-sandbox/export.mjs",
+      "sha256": "af414b0b55369ed464ef841852cf2156dce906c04968559cd548e21f0621e105",
+      "bytes": 8177
+    },
+    {
+      "path": "docs/art/shared-modular-art-workflow.md",
+      "sha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238",
+      "bytes": 20246
+    }
+  ],
+  "rendererAdaptations": [
+    "Additive source identity guard for house/yard.",
+    "Shared data-driven world grid; inverse rigid placement for generated native floor UVs.",
+    "Per-source actual walking-level origin and shader cache identity.",
+    "Yard uses local firelight, with no invented building-volume aggregate.",
+    "Runtime ownership partition once per source and one original actor/portable-lantern scene.",
+    "Front-pendant shadow restored by native ID after namespacing; original light settings unchanged."
+  ],
+  "licenses": "Existing embedded provenance/licenses preserved. No new donor or bitmap import; previous rights uncertainties are not resolved by this delivery.",
+  "testCommand": "node --test --test-reporter=dot tests/sandbox/instances.test.mjs in coder checkout",
+  "testResult": "exit0; focused sandbox test file passed",
+  "nodeVersion": "v24.15.0"
+}
