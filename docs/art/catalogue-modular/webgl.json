@@ -6,9 +6,9 @@
     "version": 1,
     "scope": "Read-only frozen coder working inputs for actual existing Catalogue Street art QA. No runtime code intake or production acceptance.",
     "sourceBranch": "codex/catalogue-modular-runtime",
-    "sourceCommit": "489845a48908eec3f8921d4441d107d6096f72a3",
+    "sourceCommit": "41a260e915ec023891e9c4bf682d1dba97d58bc4",
     "workingFiles": true,
-    "capturedAt": "2026-11-14T00:32:03.850Z",
+    "capturedAt": "2026-11-14T01:21:36.167Z",
     "files": [
       {
         "path": "src/art/index.js",
@@ -27,28 +27,28 @@
       },
       {
         "path": "src/content/catalogue-native-structure.js",
-        "bytes": 13193,
-        "sha256": "861a795271f5b28bf9d88f8324ebc6e025e6a3001f540a1e39159902133609d9"
+        "bytes": 13302,
+        "sha256": "87f7f0239dd7c31dd428b25c58a55aeecf8f1de9f9f3aced4c0512f2f0579878"
       },
       {
         "path": "src/main.js",
-        "bytes": 7120,
-        "sha256": "283d3799c66ba5688314dce9b72c6d1a9d55d507187914f11a81ac81d5eaeb50"
+        "bytes": 7208,
+        "sha256": "4426e18d4332847f09c4543073412a53a978426e6e56c3a0ea911d0dd05aadf0"
       },
       {
         "path": "src/runtime/catalogue-modules.js",
-        "bytes": 1649,
-        "sha256": "ac8ed82f18d0e5b3a2c62733bb576e5bf1ee2a1ae48473aa073a4dd0ac36f97c"
+        "bytes": 1708,
+        "sha256": "8bdae3844ce5470da028915590ca34f4b67d8ad9d45e42f3a59b531fac9ddb7d"
       },
       {
         "path": "src/runtime/index.js",
-        "bytes": 8019,
-        "sha256": "ad8777651089e4b40c37316badb88079e9666e5e52bf6a4607dd881a8dd45e91"
+        "bytes": 8248,
+        "sha256": "efb2a588b54a6bfc985dd5eed28640e6076f458ce7680fbd12f2f4ec78749693"
       },
       {
         "path": "src/simulation/catalogue-thermal.js",
-        "bytes": 22505,
-        "sha256": "38005606d75194e4c2cb5d25d032115d15ed2915b572087c5e65045f67e8f424"
+        "bytes": 26600,
+        "sha256": "5f4a0cd3a2845cd1fdd64d59a9bc35e0b8b09a53ef41f261e836c35abcdd97d5"
       },
       {
         "path": "src/simulation/discharge.js",
@@ -57,13 +57,18 @@
       },
       {
         "path": "src/simulation/index.js",
-        "bytes": 29080,
-        "sha256": "7b3f57664ff36c90f94f29dfdb11b15547c18f1bafc8ac42f7542642d792149a"
+        "bytes": 29539,
+        "sha256": "23257c0b865604b99839f68af8234200e463478a6609585c21205dfb4bea316b"
       },
       {
         "path": "src/simulation/lantern.js",
         "bytes": 6662,
         "sha256": "baaea757fae954ccdc38760591a42a9182f67732a6b259ebdeb2d717d98cf853"
+      },
+      {
+        "path": "src/simulation/shop-witness.js",
+        "bytes": 8931,
+        "sha256": "7fe1dd7178fd5256fe5412020ff94cf0f2f5e42c9c5a1acd22b2e7ebdc7d0db4"
       },
       {
         "path": "src/simulation/tools.js",
@@ -84,6 +89,11 @@
         "path": "workbenches/furnished-house/scene.js",
         "bytes": 10258,
         "sha256": "830e4a5b8f4d76f53ef6e8145ad803f53ad63504b655824e56b40b6a382f2f8c"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "bytes": 45445,
+        "sha256": "9c7f97b82b898bf1771f93beeab11e036081da8229fc08fdee14cac2d767f98a"
       },
       {
         "path": "workbenches/furnished-house/support.js",
@@ -610,7 +620,7 @@
       ],
       "renderer": {
         "calls": 230,
-        "triangles": 416934,
+        "triangles": 416854,
         "maxTextureSize": 16384,
         "memory": {
           "geometries": 274,
@@ -747,12 +757,12 @@
             "min": [
               37.169344333042616,
               0,
-              18.18832639753818
+              18.78832639753818
             ],
             "max": [
               38.03097560910461,
               1.64951753616333,
-              18.65495278835296
+              19.254952788352963
             ],
             "contacts": [],
             "sourceTriangles": 29586,
@@ -810,6 +820,8 @@
         "catalogueModules": {
           "version": 1,
           "disposed": false,
+          "occludingBuildingIds": [],
+          "occlusionMethod": "Existing conservative native source bounds and 18% presentation-only fade; active interior retains its cutaway",
           "worldTime": 0,
           "revision": 0,
           "generation": 0,
@@ -824,6 +836,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -831,6 +845,8 @@
               "sourceSurfaces": 516,
               "physicalPatches": 2437,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 28,
               "coverage": {
                 "meshes": 505,
                 "underCovered": 0,
@@ -975,6 +991,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -982,6 +1000,8 @@
               "sourceSurfaces": 2952,
               "physicalPatches": 6578,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 8,
               "coverage": {
                 "meshes": 775,
                 "underCovered": 0,
@@ -1126,13 +1146,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2936,
-              "physicalPatches": 5858,
+              "sourceSurfaces": 2908,
+              "physicalPatches": 5830,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 623,
                 "underCovered": 0,
@@ -1252,7 +1276,7 @@
                 1,
                 1
               ],
-              "stateBindings": 2936,
+              "stateBindings": 2908,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -1276,13 +1300,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3671,
-              "physicalPatches": 6089,
+              "sourceSurfaces": 3569,
+              "physicalPatches": 5987,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 714,
                 "underCovered": 0,
@@ -1292,7 +1320,7 @@
               },
               "stateTextureSize": [
                 128,
-                48
+                47
               ],
               "retiredPatches": 0,
               "sourceMeshes": 714,
@@ -1402,7 +1430,7 @@
                 1,
                 1
               ],
-              "stateBindings": 3671,
+              "stateBindings": 3569,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -1427,13 +1455,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2781,
-              "physicalPatches": 5637,
+              "sourceSurfaces": 2759,
+              "physicalPatches": 5615,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 621,
                 "underCovered": 0,
@@ -1443,7 +1475,7 @@
               },
               "stateTextureSize": [
                 128,
-                45
+                44
               ],
               "retiredPatches": 0,
               "sourceMeshes": 621,
@@ -1553,7 +1585,7 @@
                 1,
                 1
               ],
-              "stateBindings": 2781,
+              "stateBindings": 2759,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -1578,13 +1610,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3421,
-              "physicalPatches": 6519,
+              "sourceSurfaces": 3403,
+              "physicalPatches": 6501,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 614,
                 "underCovered": 0,
@@ -1704,7 +1740,7 @@
                 1,
                 1
               ],
-              "stateBindings": 3421,
+              "stateBindings": 3403,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -1729,13 +1765,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6737,
-              "physicalPatches": 10266,
+              "sourceSurfaces": 6483,
+              "physicalPatches": 10012,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1199,
                 "underCovered": 0,
@@ -1745,7 +1785,7 @@
               },
               "stateTextureSize": [
                 128,
-                81
+                79
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1199,
@@ -1855,7 +1895,7 @@
                 1,
                 1
               ],
-              "stateBindings": 6737,
+              "stateBindings": 6483,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -1880,13 +1920,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 5302,
-              "physicalPatches": 8808,
+              "sourceSurfaces": 5192,
+              "physicalPatches": 8698,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1062,
                 "underCovered": 0,
@@ -1896,7 +1940,7 @@
               },
               "stateTextureSize": [
                 128,
-                69
+                68
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1062,
@@ -2006,7 +2050,7 @@
                 1,
                 1
               ],
-              "stateBindings": 5302,
+              "stateBindings": 5192,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -2031,13 +2075,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6327,
-              "physicalPatches": 9844,
+              "sourceSurfaces": 6083,
+              "physicalPatches": 9600,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1076,
                 "underCovered": 0,
@@ -2047,7 +2095,7 @@
               },
               "stateTextureSize": [
                 128,
-                77
+                75
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1076,
@@ -2157,7 +2205,7 @@
                 1,
                 1
               ],
-              "stateBindings": 6327,
+              "stateBindings": 6083,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -2191,7 +2239,7 @@
             "uniqueGeometries": 262,
             "materials": 147,
             "textures": 44,
-            "sourceTriangles": 475708
+            "sourceTriangles": 475588
           },
           "lights": [
             {
@@ -2475,7 +2523,7 @@
       ],
       "renderer": {
         "calls": 378,
-        "triangles": 562415,
+        "triangles": 562295,
         "maxTextureSize": 16384,
         "memory": {
           "geometries": 360,
@@ -2612,12 +2660,12 @@
             "min": [
               37.169344333042616,
               0,
-              18.18832639753818
+              18.78832639753818
             ],
             "max": [
               38.03097560910461,
               1.64951753616333,
-              18.65495278835296
+              19.254952788352963
             ],
             "contacts": [],
             "sourceTriangles": 29586,
@@ -2675,6 +2723,8 @@
         "catalogueModules": {
           "version": 1,
           "disposed": false,
+          "occludingBuildingIds": [],
+          "occlusionMethod": "Existing conservative native source bounds and 18% presentation-only fade; active interior retains its cutaway",
           "worldTime": 0,
           "revision": 0,
           "generation": 0,
@@ -2689,6 +2739,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -2696,6 +2748,8 @@
               "sourceSurfaces": 516,
               "physicalPatches": 2437,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 28,
               "coverage": {
                 "meshes": 505,
                 "underCovered": 0,
@@ -2808,7 +2862,7 @@
                 "materials": 114,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
@@ -2840,6 +2894,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -2847,6 +2903,8 @@
               "sourceSurfaces": 2952,
               "physicalPatches": 6578,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 8,
               "coverage": {
                 "meshes": 775,
                 "underCovered": 0,
@@ -2959,7 +3017,7 @@
                 "materials": 83,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
@@ -2991,13 +3049,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2936,
-              "physicalPatches": 5858,
+              "sourceSurfaces": 2908,
+              "physicalPatches": 5830,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 623,
                 "underCovered": 0,
@@ -3110,14 +3172,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 2936,
+              "stateBindings": 2908,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -3141,13 +3203,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3671,
-              "physicalPatches": 6089,
+              "sourceSurfaces": 3569,
+              "physicalPatches": 5987,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 714,
                 "underCovered": 0,
@@ -3157,7 +3223,7 @@
               },
               "stateTextureSize": [
                 128,
-                48
+                47
               ],
               "retiredPatches": 0,
               "sourceMeshes": 714,
@@ -3260,14 +3326,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 3671,
+              "stateBindings": 3569,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -3292,13 +3358,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2781,
-              "physicalPatches": 5637,
+              "sourceSurfaces": 2759,
+              "physicalPatches": 5615,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 621,
                 "underCovered": 0,
@@ -3308,7 +3378,7 @@
               },
               "stateTextureSize": [
                 128,
-                45
+                44
               ],
               "retiredPatches": 0,
               "sourceMeshes": 621,
@@ -3411,14 +3481,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 2781,
+              "stateBindings": 2759,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -3443,13 +3513,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3421,
-              "physicalPatches": 6519,
+              "sourceSurfaces": 3403,
+              "physicalPatches": 6501,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 614,
                 "underCovered": 0,
@@ -3562,14 +3636,14 @@
                 "materials": 31,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 3421,
+              "stateBindings": 3403,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -3594,13 +3668,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6737,
-              "physicalPatches": 10266,
+              "sourceSurfaces": 6483,
+              "physicalPatches": 10012,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1199,
                 "underCovered": 0,
@@ -3610,7 +3688,7 @@
               },
               "stateTextureSize": [
                 128,
-                81
+                79
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1199,
@@ -3713,14 +3791,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 6737,
+              "stateBindings": 6483,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -3745,13 +3823,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 5302,
-              "physicalPatches": 8808,
+              "sourceSurfaces": 5192,
+              "physicalPatches": 8698,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1062,
                 "underCovered": 0,
@@ -3761,7 +3843,7 @@
               },
               "stateTextureSize": [
                 128,
-                69
+                68
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1062,
@@ -3864,14 +3946,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 5302,
+              "stateBindings": 5192,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -3896,13 +3978,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6327,
-              "physicalPatches": 9844,
+              "sourceSurfaces": 6083,
+              "physicalPatches": 9600,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1076,
                 "underCovered": 0,
@@ -3912,7 +3998,7 @@
               },
               "stateTextureSize": [
                 128,
-                77
+                75
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1076,
@@ -4015,14 +4101,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 6327,
+              "stateBindings": 6083,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -4056,7 +4142,7 @@
             "uniqueGeometries": 262,
             "materials": 147,
             "textures": 44,
-            "sourceTriangles": 475708
+            "sourceTriangles": 475588
           },
           "lights": [
             {
@@ -4477,12 +4563,12 @@
             "min": [
               37.169344333042616,
               0,
-              18.18832639753818
+              18.78832639753818
             ],
             "max": [
               38.03097560910461,
               1.64951753616333,
-              18.65495278835296
+              19.254952788352963
             ],
             "contacts": [],
             "sourceTriangles": 29586,
@@ -4540,6 +4626,8 @@
         "catalogueModules": {
           "version": 1,
           "disposed": false,
+          "occludingBuildingIds": [],
+          "occlusionMethod": "Existing conservative native source bounds and 18% presentation-only fade; active interior retains its cutaway",
           "worldTime": 0,
           "revision": 0,
           "generation": 0,
@@ -4554,6 +4642,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -4561,6 +4651,8 @@
               "sourceSurfaces": 516,
               "physicalPatches": 2437,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 28,
               "coverage": {
                 "meshes": 505,
                 "underCovered": 0,
@@ -4673,7 +4765,7 @@
                 "materials": 114,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
@@ -4705,6 +4797,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -4712,6 +4806,8 @@
               "sourceSurfaces": 2952,
               "physicalPatches": 6578,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 8,
               "coverage": {
                 "meshes": 775,
                 "underCovered": 0,
@@ -4824,7 +4920,7 @@
                 "materials": 83,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
@@ -4856,13 +4952,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2936,
-              "physicalPatches": 5858,
+              "sourceSurfaces": 2908,
+              "physicalPatches": 5830,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 623,
                 "underCovered": 0,
@@ -4975,14 +5075,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 2936,
+              "stateBindings": 2908,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -5006,13 +5106,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3671,
-              "physicalPatches": 6089,
+              "sourceSurfaces": 3569,
+              "physicalPatches": 5987,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 714,
                 "underCovered": 0,
@@ -5022,7 +5126,7 @@
               },
               "stateTextureSize": [
                 128,
-                48
+                47
               ],
               "retiredPatches": 0,
               "sourceMeshes": 714,
@@ -5125,14 +5229,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 3671,
+              "stateBindings": 3569,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -5157,13 +5261,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2781,
-              "physicalPatches": 5637,
+              "sourceSurfaces": 2759,
+              "physicalPatches": 5615,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 621,
                 "underCovered": 0,
@@ -5173,7 +5281,7 @@
               },
               "stateTextureSize": [
                 128,
-                45
+                44
               ],
               "retiredPatches": 0,
               "sourceMeshes": 621,
@@ -5276,14 +5384,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 2781,
+              "stateBindings": 2759,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -5308,13 +5416,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3421,
-              "physicalPatches": 6519,
+              "sourceSurfaces": 3403,
+              "physicalPatches": 6501,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 614,
                 "underCovered": 0,
@@ -5427,14 +5539,14 @@
                 "materials": 31,
                 "textures": 6
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 3421,
+              "stateBindings": 3403,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -5459,13 +5571,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6737,
-              "physicalPatches": 10266,
+              "sourceSurfaces": 6483,
+              "physicalPatches": 10012,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1199,
                 "underCovered": 0,
@@ -5475,7 +5591,7 @@
               },
               "stateTextureSize": [
                 128,
-                81
+                79
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1199,
@@ -5578,14 +5694,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 6737,
+              "stateBindings": 6483,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -5610,13 +5726,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 5302,
-              "physicalPatches": 8808,
+              "sourceSurfaces": 5192,
+              "physicalPatches": 8698,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1062,
                 "underCovered": 0,
@@ -5626,7 +5746,7 @@
               },
               "stateTextureSize": [
                 128,
-                69
+                68
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1062,
@@ -5729,14 +5849,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 5302,
+              "stateBindings": 5192,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -5761,13 +5881,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6327,
-              "physicalPatches": 9844,
+              "sourceSurfaces": 6083,
+              "physicalPatches": 9600,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1076,
                 "underCovered": 0,
@@ -5777,7 +5901,7 @@
               },
               "stateTextureSize": [
                 128,
-                77
+                75
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1076,
@@ -5880,14 +6004,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 4,
+              "resetCount": 2,
               "revisionCount": 3,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 6327,
+              "stateBindings": 6083,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -5921,7 +6045,7 @@
             "uniqueGeometries": 262,
             "materials": 147,
             "textures": 44,
-            "sourceTriangles": 475708
+            "sourceTriangles": 475588
           },
           "lights": [
             {
@@ -6205,7 +6329,7 @@
       ],
       "renderer": {
         "calls": 210,
-        "triangles": 294704,
+        "triangles": 294664,
         "maxTextureSize": 16384,
         "memory": {
           "geometries": 360,
@@ -6342,12 +6466,12 @@
             "min": [
               37.169344333042616,
               0,
-              18.18832639753818
+              18.78832639753818
             ],
             "max": [
               38.03097560910461,
               1.64951753616333,
-              18.65495278835296
+              19.254952788352963
             ],
             "contacts": [],
             "sourceTriangles": 29586,
@@ -6405,6 +6529,8 @@
         "catalogueModules": {
           "version": 1,
           "disposed": false,
+          "occludingBuildingIds": [],
+          "occlusionMethod": "Existing conservative native source bounds and 18% presentation-only fade; active interior retains its cutaway",
           "worldTime": 0,
           "revision": 0,
           "generation": 0,
@@ -6419,6 +6545,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -6426,6 +6554,8 @@
               "sourceSurfaces": 516,
               "physicalPatches": 2437,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 28,
               "coverage": {
                 "meshes": 505,
                 "underCovered": 0,
@@ -6538,7 +6668,7 @@
                 "materials": 114,
                 "textures": 6
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
@@ -6570,6 +6700,8 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
@@ -6577,6 +6709,8 @@
               "sourceSurfaces": 2952,
               "physicalPatches": 6578,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 8,
               "coverage": {
                 "meshes": 775,
                 "underCovered": 0,
@@ -6689,7 +6823,7 @@
                 "materials": 83,
                 "textures": 6
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
@@ -6721,13 +6855,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2936,
-              "physicalPatches": 5858,
+              "sourceSurfaces": 2908,
+              "physicalPatches": 5830,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 623,
                 "underCovered": 0,
@@ -6840,14 +6978,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 2936,
+              "stateBindings": 2908,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -6871,13 +7009,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3671,
-              "physicalPatches": 6089,
+              "sourceSurfaces": 3569,
+              "physicalPatches": 5987,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 714,
                 "underCovered": 0,
@@ -6887,7 +7029,7 @@
               },
               "stateTextureSize": [
                 128,
-                48
+                47
               ],
               "retiredPatches": 0,
               "sourceMeshes": 714,
@@ -6990,14 +7132,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 3671,
+              "stateBindings": 3569,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -7022,13 +7164,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 2781,
-              "physicalPatches": 5637,
+              "sourceSurfaces": 2759,
+              "physicalPatches": 5615,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 621,
                 "underCovered": 0,
@@ -7038,7 +7184,7 @@
               },
               "stateTextureSize": [
                 128,
-                45
+                44
               ],
               "retiredPatches": 0,
               "sourceMeshes": 621,
@@ -7141,14 +7287,14 @@
                 "materials": 29,
                 "textures": 6
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 2781,
+              "stateBindings": 2759,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -7173,13 +7319,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 3421,
-              "physicalPatches": 6519,
+              "sourceSurfaces": 3403,
+              "physicalPatches": 6501,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 614,
                 "underCovered": 0,
@@ -7292,14 +7442,14 @@
                 "materials": 31,
                 "textures": 6
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 3421,
+              "stateBindings": 3403,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -7324,13 +7474,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6737,
-              "physicalPatches": 10266,
+              "sourceSurfaces": 6483,
+              "physicalPatches": 10012,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1199,
                 "underCovered": 0,
@@ -7340,7 +7494,7 @@
               },
               "stateTextureSize": [
                 128,
-                81
+                79
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1199,
@@ -7443,14 +7597,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 6737,
+              "stateBindings": 6483,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -7475,13 +7629,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 5302,
-              "physicalPatches": 8808,
+              "sourceSurfaces": 5192,
+              "physicalPatches": 8698,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1062,
                 "underCovered": 0,
@@ -7491,7 +7649,7 @@
               },
               "stateTextureSize": [
                 128,
-                69
+                68
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1062,
@@ -7594,14 +7752,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 5302,
+              "stateBindings": 5192,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -7626,13 +7784,17 @@
               ],
               "disposed": false,
               "version": 1,
+              "occluded": false,
+              "opacityScale": 1,
               "worldTime": 0,
               "revision": 0,
               "view": "exterior",
               "level": 0,
-              "sourceSurfaces": 6327,
-              "physicalPatches": 9844,
+              "sourceSurfaces": 6083,
+              "physicalPatches": 9600,
               "charredIntactPatches": 0,
+              "stateTextureInvalidations": 1,
+              "doorPoseUpdates": 0,
               "coverage": {
                 "meshes": 1076,
                 "underCovered": 0,
@@ -7642,7 +7804,7 @@
               },
               "stateTextureSize": [
                 128,
-                77
+                75
               ],
               "retiredPatches": 0,
               "sourceMeshes": 1076,
@@ -7745,14 +7907,14 @@
                 "materials": 31,
                 "textures": 5
               },
-              "resetCount": 6,
+              "resetCount": 2,
               "revisionCount": 5,
               "rootScale": [
                 1,
                 1,
                 1
               ],
-              "stateBindings": 6327,
+              "stateBindings": 6083,
               "dormantPoolHidden": true,
               "sharedGridOrigin": [
                 0,
@@ -7786,7 +7948,7 @@
             "uniqueGeometries": 262,
             "materials": 147,
             "textures": 44,
-            "sourceTriangles": 475708
+            "sourceTriangles": 475588
           },
           "lights": [
             {
@@ -8056,7 +8218,7 @@
       "uniqueGeometries": 262,
       "materials": 147,
       "textures": 44,
-      "sourceTriangles": 475708
+      "sourceTriangles": 475588
     },
     "after": {
       "meshes": 0,
@@ -8083,14 +8245,14 @@
     },
     {
       "path": "workbenches/catalogue-modular/shop-data.json",
-      "sha256": "27b67dda2085530d50e00f4afce12f3a113fcaa5532d316a4028b7078ae334c6"
+      "sha256": "7dc5e92c0bbe45f7f8c0d96331450a2546a7c7cdb5e9d865a981e38905057f52"
     },
     {
       "path": "workbenches/catalogue-modular/house-data.json",
       "sha256": "124d10f7fee9a5b03193aff61ecee9375bef623b8de0cba363ac49c00c64f546"
     }
   ],
-  "reviewScriptSha256": "00c8a8858221db9463e9b95033a166dbdc4f2d6db2358b035b2e0fce2c7be966",
+  "reviewScriptSha256": "031518bc3346fbcc2fcfe32d393215dc43088465b2d39d451402b6c848a408c1",
   "jpgs": [
     {
       "path": "docs/art/catalogue-modular/previews/hopkins15-normal.jpg",
@@ -8099,18 +8261,18 @@
     },
     {
       "path": "docs/art/catalogue-modular/previews/host-overview.jpg",
-      "bytes": 155291,
-      "sha256": "75abc97d70a1d90f938312b65276cb5eccbeca73e516b74ae46b11e739eed97d"
+      "bytes": 155293,
+      "sha256": "7b3c760e7dc92fd1f809b178a9703d94b516c15cbf0b03b2d3ea64466a0a220a"
     },
     {
       "path": "docs/art/catalogue-modular/previews/native-monroe-control.jpg",
-      "bytes": 160506,
-      "sha256": "688d1f1e86d1ce8bdb7f17ef90b1bc3109df4dd80afba6dc2a13911e0cc89a6c"
+      "bytes": 160475,
+      "sha256": "df0b2d5571855309e6dc75cbb47648d7258f25a28ab992af80b548773da4c172"
     },
     {
       "path": "docs/art/catalogue-modular/previews/shop-stair-attachment.jpg",
-      "bytes": 306332,
-      "sha256": "ed74631f9f619c06441267c6fbee50b9b6fb51d2b0d8d7848d6b07f369896425"
+      "bytes": 308135,
+      "sha256": "089b7db41b6de9e9266b8709e9ff2e5f36f376a29baaa8ceb58d565e8a07f74b"
     }
   ]
 }
