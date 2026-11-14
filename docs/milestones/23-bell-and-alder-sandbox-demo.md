@@ -2,6 +2,8 @@
 
 ## Current delivery authorization
 
+Current checkpoint: functional code `ef302525` and live-access art `5deda67f` pass the 392-test and actual-input route/interaction gate, but the final raw browser fire window is 10.32 Hz (300 ms p95). The architect holds publication and assigns one bounded profiling/cache correction while retaining the exact source and failed performance control. See the [combined review](../reviews/2026-11-13-catalogue-modular-demo.md). No later owner authorization is needed once the required gate passes.
+
 The owner now explicitly instructs the coder and artist to finish the remaining connections, test the larger map, and publish the demo on Pages **once it passes**. This supersedes earlier statements that Pages needs a later owner authorization; the architect should complete review, promotion and live verification without asking again. It does not waive failed relevant checks or turn deferred results into passes.
 
 Finish actual shop/house entry/stair and NPC route connections, resident/native presentation and physical/render-state bindings, the existing tools/barrels/pickups on the common backend, and proved direct-witness draw/fire with live cover while remembered-lantern suspicion never fires. Test keyboard and mouse joystick across the real module boundaries, release/focus/pause/reset, desktop and narrow-screen presentation, current tool effects and finite budgets. Use a representative interactive pass and measured short-fire/reset/resource windows. Existing documented cosmetic/native-profile limits may remain disclosed; unusable input, launch/resource failures, missing required wiring and failed relevant behavior cannot be published as passing.
