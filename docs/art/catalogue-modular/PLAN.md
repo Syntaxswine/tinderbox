@@ -69,3 +69,8 @@ The reduced-source renderer contract uses optional `renderAppearanceIds` (qualif
 ## Registered artist view checkpoint
 
 The [current integration notes](HOST-INTEGRATION-NOTES.md) distinguish completed source/native-state registration and quiet real-host WebGL captures from the remaining release interactions and fire review. [Derivative provenance](../../../art/source/catalogue-modular/provenance.json), [all-mesh registration](registration-check.json), [local state](state-check.json), [material scale](material-registration.json), [native WebGL](webgl.json) and [helper retirement](helper-retirement.json) are recorded. Canvas JPGs include an explicitly expanded full-host overview, ordinary12.6m follow/attachment views and a native Monroe factory control. They omit the normal DOM HUD; full-map action, phone and performance acceptance remain separate requirements under the owner's later release instruction.
+
+
+## Second actual stair approach finding
+
+Coder intake `41a260e9` of artist `5b957764` passed the first58 waypoints, then the lateral approach to the real shop foot met `bell-and-alder::stair/handrail/9.03@93,0,9`, stopping the native goat at X47.10. The source route now approaches via world `[48.5,0,3]`, `[46,0,3]`, then foot `[46,0,4.5]`. It enters from the open north end instead of through the side rail. Resident routine and reverse exit use the same new `stairEntry` anchor, with `streetAccess` on the streetward exit. No stair, rail, floor, source mesh, native body or thermal record changes. Actual combined traversal is the coder's next verification; the failed trace remains a control.
