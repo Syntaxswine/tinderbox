@@ -48,3 +48,24 @@ Before final export: reconcile source/schema ownership; recheck the recomposed s
 ## Source export checkpoint
 
 `workbenches/catalogue-modular/{scene-data.json,shop-data.json,house-data.json}` now encode these separate variants. `componentBounds` carries explicit source-local and world bounds; `omittedSourceIds` / `recomposedSourceIds` are unqualified native IDs. Source preparation still precedes qualification/placement. [Source checks](source-checks.json) verify27 aligned omissions,42 rigidly moved components, preserved UV/color tuples, unchanged house physical/render arrays and resolved support/opening/item references. The exporter is deterministic. Actual host native-route and WebGL acceptance remain pending the combined runtime; this is an early intake checkpoint.
+
+## Reconciled presentation boundary
+
+The coder now declares one host-owned six-light/power215 fire pool. Component views allocate **zero fire point lights** and retain only the three installed shop fixtures plus one portable lantern. Prepared `closing`/`furnished`/`exterior` structure views are supported; `terrain` and `props` remain host-rendered. Only the authoritative `interiorInstanceId` receives cutaway; other buildings stay exterior. Portable-lantern poses come from actual host IDs/poses. Optional visible native-surface picking returns X/Z plus native elevation and respects current source retirement/cutaway; generated debris remains outside that optional art picker and is still runtime-owned.
+
+The source resident is retained under `closingTime.resident` as host-owned metadata (horse, original anchor/routine/view/exit refs); `actors` remains empty. Its approach inserts `streetAccess` before the north alley/stair so it does not take a new diagonal through the shop. The host assigns the one resident identity and draws the native model.
+
+## Actual host route finding
+
+The coder's first full-map native probe reached55 continuous waypoints, then the outward-open shop leaf blocked the direct turn from `[40,0,18.2]` toward the alley. The new prototype route now backs off to `[40,0,19]`, follows `[48.5,0,19]` and then turns north. The source resident already uses `entryTurn`; its inserted `streetAccess` now shares that Z19 backoff. Geometry, leaf reach and native bodies are unchanged. The coder retains the failed trace.
+
+The original officer's Z18.4 straight patrol also meets that real open leaf. A minimal **proposal for root/coder review** is to retain its original X37.6..42.4 span but put the two module-mode patrol waypoints at Z19.0; keep its original start and let the first leg approach the new line. This is a0.6m parallel local accommodation in the existing road. Preserve the old patrol in the legacy control and the observed failure; no actor ghosting or perception-rule change is proposed.
+
+[Host integration findings](HOST-INTEGRATION-NOTES.md) track the first actual-launch blocker and reduced-source binding requirements. The new view also records source-versus-submitted triangle area by mesh, so a reduced physical piece cannot silently clip away unrelated native trim. Canonical floor tops are drawn once, rather than adding the old native top again over the generated slab.
+
+The reduced-source renderer contract uses optional `renderAppearanceIds` (qualified material IDs) and `renderNormal` (world-space geometric normal). The new view enforces both before clipping/appending a source triangle. Older sources without these fields retain their existing path. No `visualAttachments` projection handler or invisible mass-proxy draw groups are added.
+
+
+## Registered artist view checkpoint
+
+The [current integration notes](HOST-INTEGRATION-NOTES.md) distinguish completed source/native-state registration and quiet real-host WebGL captures from the remaining release interactions and fire review. [Derivative provenance](../../../art/source/catalogue-modular/provenance.json), [all-mesh registration](registration-check.json), [local state](state-check.json), [material scale](material-registration.json), [native WebGL](webgl.json) and [helper retirement](helper-retirement.json) are recorded. Canvas JPGs include an explicitly expanded full-host overview, ordinary12.6m follow/attachment views and a native Monroe factory control. They omit the normal DOM HUD; full-map action, phone and performance acceptance remain separate requirements under the owner's later release instruction.
