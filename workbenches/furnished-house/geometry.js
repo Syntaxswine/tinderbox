@@ -84,12 +84,12 @@ function segmentBox(from,to,b) {
 }
 
 export function createBoundaryIndex(records,binSize=1) {
-  const surfaces=new Map(),bins=new Map(),listeners=new Map(),pathListeners=new Map();let revision=0;
+  const surfaces=new Map(),bins=new Map(),listeners=new Map(),pathListeners=new Map();let revision=0,membershipRevision=0;
   const binKey=(i,j,k)=>`${i},${j},${k}`;
   function visit(box,fn) { for(let k=Math.floor((box.min[2]-EPS)/binSize);k<=Math.floor((box.max[2]+EPS)/binSize);k++)for(let j=Math.floor((box.min[1]-EPS)/binSize);j<=Math.floor((box.max[1]+EPS)/binSize);j++)for(let i=Math.floor((box.min[0]-EPS)/binSize);i<=Math.floor((box.max[0]+EPS)/binSize);i++)fn(binKey(i,j,k)); }
   function put(record) {
     const old=surfaces.get(record.id);if(old)return old; // one canonical identity
-    const s={intact:true,openFraction:0,transmission:0,...record};s.bounds??=bounds(s.triangles.flat());surfaces.set(s.id,s);
+    const s={intact:true,openFraction:0,transmission:0,...record};s.bounds??=bounds(s.triangles.flat());surfaces.set(s.id,s);membershipRevision++;
     visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);});return s;
   }
   records.forEach(put);
@@ -128,6 +128,7 @@ export function createBoundaryIndex(records,binSize=1) {
     const s=surfaces.get(id);if(!s)throw Error(`Unknown boundary ${id}`);
     const moved=Object.hasOwn(patch,'solidTriangles')||Object.hasOwn(patch,'bounds'),affected=new Set();
     if(moved)visit(s.bounds,key=>{bins.get(key)?.delete(s);for(const fn of pathListeners.get(key)||[])affected.add(fn);});
+    if(Object.hasOwn(patch,'openingId')&&patch.openingId!==s.openingId)membershipRevision++;
     Object.assign(s,patch);revision++;
     if(moved)visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);for(const fn of pathListeners.get(key)||[])affected.add(fn);});
     for(const fn of affected)fn();
@@ -139,5 +140,5 @@ export function createBoundaryIndex(records,binSize=1) {
     const hits=crossings([x,fromY,z],[x,toY,z],{includeEndpoints:true});
     return hits.find(h=>h.surface.intact&&h.surface.openFraction<1&&Math.abs(h.surface.normal?.[1]??0)>.2&&h.surface.supports);
   }
-  return {surfaces,bins,put,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,get revision(){return revision;}};
+  return {surfaces,bins,put,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,get revision(){return revision;},get membershipRevision(){return membershipRevision;}};
 }

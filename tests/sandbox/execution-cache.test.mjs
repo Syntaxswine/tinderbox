@@ -43,3 +43,37 @@ test('cached cold guards preserve warming, char decay, fading smoke and door inv
     assert.ok(warmed&&smoked);assert.equal(b.metrics().burningCount,0);assert.ok(b.snapshot().fuels.every(f=>f.char===0));assert.equal(b.fireSamples().length,0);
   }finally{a.dispose();b.dispose();}
 });
+
+test('active and loose caches preserve fuel depletion, new embers and positive fuel escaping the domain',()=>{
+  const options={profiles:{frame:{threshold:.2,delay:0,seconds:.3,energy:1}}},a=createTrial(createGrayboxData(),options),b=createTrial(createGrayboxData(),{...options,executionCache:true});
+  try{
+    for(const trial of [a,b])for(const c of [{type:'heat',position:[1,.02,1],energy:2,tick:1},{type:'lantern',from:[100,1,100],velocity:[0,0,0],tick:3},{type:'deposit',position:[2,0,2],amount:.02,tick:6}])trial.command(c);
+    for(let tick=0;tick<100;tick++){a.step();b.step();assert.deepEqual(b.snapshot(),a.snapshot());assert.deepEqual(b.frame(),a.frame());}
+    assert.ok(b.metrics().fuel.escaped>0);assert.ok(b.events.some(e=>e.type==='escaped'));assert.ok([...b.scene.fuels.values()].some(f=>f.id.endsWith(':embers')));assert.ok([...b.scene.fuels.values()].some(f=>f.amount===0));
+  }finally{a.dispose();b.dispose();}
+});
+
+test('cached item bearing rechecks actual support retirement and a subsequent landing',()=>{
+  const data=createGrayboxData(),box={min:[.8,1,.8],max:[1.2,1.5,1.2]};
+  data.surfaces.push({id:'item-bearing',kind:'floor',level:1,normal:[0,1,0],material:'timber',fuelClass:'frame',fuelAmount:4,thickness:.12,triangles:[[[0,1,0],[2,1,2],[2,1,0]],[[0,1,0],[0,1,2],[2,1,2]]]});data.levels.push({index:1,floorY:1});
+  data.items.push({id:'test-table',position:[1,1,1],level:1,bounds:box,supportSurfaceIds:['item-bearing']});data.furnitureParts.push({id:'table-top',itemId:'test-table',level:1,bounds:box,material:'wood',fuelClass:'furniture',fuelAmount:1});
+  const a=createTrial(data),b=createTrial(data,{executionCache:true});
+  try{
+    for(let tick=0;tick<60;tick++){
+      if(tick===5)for(const trial of [a,b])for(const s of trial.scene.index.surfaces.values())if(s.sourceSurfaceId==='item-bearing')trial.scene.index.change(s.id,{intact:false,openFraction:1});
+      a.step();b.step();assert.deepEqual(b.snapshot(),a.snapshot());assert.deepEqual(b.frame(),a.frame());
+    }
+    assert.ok(b.events.some(e=>e.type==='fall'&&e.itemId));assert.ok(b.events.some(e=>e.type==='landing'&&e.itemId));
+  }finally{a.dispose();b.dispose();}
+});
+
+test('ordered totals reuse a cold prefix, then recompute an earlier changed fuel with identical sums',()=>{
+  const data=createGrayboxData();data.surfaces.push({id:'tail-patch',kind:'ground',normal:[0,1,0],material:'grass',fuelClass:'grass',fuelAmount:.25,triangles:[[[10,0,10],[10.5,0,10.5],[10.5,0,10]],[[10,0,10],[10,0,10.5],[10.5,0,10.5]]]});
+  const options={profiles:{frame:{threshold:.2,delay:0,seconds:.3,energy:1}}},a=createTrial(data,options),b=createTrial(data,{...options,executionCache:true});
+  try{
+    assert.deepEqual(b.snapshot(),a.snapshot());
+    for(const trial of [a,b])for(const command of [{type:'heat',position:[10.25,.015,10.25],energy:1.05,tick:3},{type:'deposit',position:[2,0,2],amount:.02,tick:10},{type:'heat',position:[1,.02,1],energy:2,tick:18}])trial.command(command);
+    for(let tick=0;tick<70;tick++){a.step();b.step();assert.deepEqual(b.snapshot(),a.snapshot());assert.deepEqual(b.frame(),a.frame());}
+    assert.ok(b.events.some(e=>e.type==='ignition'&&e.sourceSurfaceId==='tail-patch'));assert.ok(b.events.some(e=>e.type==='ignition'&&e.sourceSurfaceId==='shop-floor'));
+  }finally{a.dispose();b.dispose();}
+});

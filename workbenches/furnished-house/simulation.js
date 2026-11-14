@@ -18,11 +18,28 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   const itemFuels=new Map([...items.keys()].map(id=>[id,[...fuels.values()].filter(f=>f.itemId===id)]));
   let fuelList=[...fuels.values()],metricsCache=null,metricsTick=-1,metricsIndexRevision=-1,samplesCache=null,samplesTick=-1;
   const fuelOrder=new Map(fuelList.map((f,i)=>[f,i])),charred=new Set(fuelList.filter(f=>f.char>0&&!f.lit)),litFuels=new Set(fuelList.filter(f=>f.lit)),alwaysPreheat=new Set(fuelList.filter(f=>scene.profile[f.cls].threshold<=0||f.store&&r.burstAt<=0));
+  const positiveFuels=new Set(fuelList.filter(f=>f.amount>EPS)),looseFuels=new Set(fuelList.filter(f=>(f.loose||f.spill)&&f.amount>EPS)),itemSupportCache=new Map();
   const cellOrder=new Map([...cells.values()].map((c,i)=>[c,i]));let orderedCellCount=cells.size,fuelMotionRevision=0,fuelTotalsKey=null,fuelTotalsCache=null;
+  let fuelPrefix=new Float64Array(executionCache?fuelList.length*5:0),firstDirtyFuel=0;
+  function dirtyFuelTotals(f){if(!executionCache)return;const i=fuelOrder.get(f);if(i!==undefined)firstDirtyFuel=Math.min(firstDirtyFuel??i,i);fuelTotalsKey=null;}
   function storedCellHeat(){if(orderedCellCount!==cells.size){for(const c of cells.values())if(!cellOrder.has(c))cellOrder.set(c,cellOrder.size);orderedCellCount=cells.size;}return [...active].sort((a,b)=>cellOrder.get(a)-cellOrder.get(b)).reduce((sum,c)=>sum+c.heat*c.capacity,0);}
-  function fuelTotals(){const key=[ledger.added,ledger.burned,ledger.escaped,fuels.size,fuelMotionRevision,stats.ignitions].join('|');if(executionCache&&key===fuelTotalsKey)return fuelTotalsCache;let remaining=0,airborne=0,burningArea=0,burningCount=0,looseAmount=0;for(const f of fuels.values()){if(f.falling)airborne+=f.amount;else remaining+=f.amount;if(f.lit&&f.amount>EPS){burningCount++;burningArea+=f.area||0;}if(f.loose||f.id.startsWith('lantern:'))looseAmount+=f.amount;}const value={remaining,airborne,burningArea,burningCount,looseAmount};if(executionCache){fuelTotalsKey=key;fuelTotalsCache=value;}return value;}
+  function fuelTotals(){
+    const key=[ledger.added,ledger.burned,ledger.escaped,fuels.size,fuelMotionRevision,stats.ignitions].join('|');if(executionCache&&key===fuelTotalsKey)return fuelTotalsCache;
+    let remaining=0,airborne=0,burningArea=0,burningCount=0,looseAmount=0;
+    if(executionCache){
+      registeredFuels();const from=firstDirtyFuel??fuelList.length;
+      if(from){const at=(from-1)*5;remaining=fuelPrefix[at];airborne=fuelPrefix[at+1];burningArea=fuelPrefix[at+2];burningCount=fuelPrefix[at+3];looseAmount=fuelPrefix[at+4];}
+      // Resume the original sequential sums at the earliest changed record.
+      // No grouped/subtracted/tree sum changes floating-point association.
+      for(let i=from;i<fuelList.length;i++){const f=fuelList[i];if(f.falling)airborne+=f.amount;else remaining+=f.amount;if(f.lit&&f.amount>EPS){burningCount++;burningArea+=f.area||0;}if(f.loose||f.id.startsWith('lantern:'))looseAmount+=f.amount;const at=i*5;fuelPrefix[at]=remaining;fuelPrefix[at+1]=airborne;fuelPrefix[at+2]=burningArea;fuelPrefix[at+3]=burningCount;fuelPrefix[at+4]=looseAmount;}
+      firstDirtyFuel=null;
+    }else for(const f of fuels.values()){if(f.falling)airborne+=f.amount;else remaining+=f.amount;if(f.lit&&f.amount>EPS){burningCount++;burningArea+=f.area||0;}if(f.loose||f.id.startsWith('lantern:'))looseAmount+=f.amount;}
+    const value={remaining,airborne,burningArea,burningCount,looseAmount};if(executionCache){fuelTotalsKey=key;fuelTotalsCache=value;}return value;
+  }
   let executionTimings={};
-  function registeredFuels(){if(fuelList.length!==fuels.size){const count=fuelList.length;fuelList=[...fuels.values()];for(let i=count;i<fuelList.length;i++){const f=fuelList[i];fuelOrder.set(f,i);itemFuels.get(f.itemId)?.push(f);if(f.char>0&&!f.lit)charred.add(f);if(f.lit)litFuels.add(f);if(scene.profile[f.cls].threshold<=0||f.store&&r.burstAt<=0)alwaysPreheat.add(f);}}return fuelList;}
+  function registeredFuels(){if(fuelList.length!==fuels.size){const count=fuelList.length;fuelList=[...fuels.values()];if(executionCache){if(fuelPrefix.length<fuelList.length*5){const expanded=new Float64Array(Math.max(fuelList.length*5,fuelPrefix.length*2));expanded.set(fuelPrefix);fuelPrefix=expanded;}firstDirtyFuel=Math.min(firstDirtyFuel??count,count);fuelTotalsKey=null;}for(let i=count;i<fuelList.length;i++){const f=fuelList[i];fuelOrder.set(f,i);itemFuels.get(f.itemId)?.push(f);if(f.amount>EPS){positiveFuels.add(f);if(f.loose||f.spill)looseFuels.add(f);}if(f.char>0&&!f.lit)charred.add(f);if(f.lit&&f.amount>EPS)litFuels.add(f);if(scene.profile[f.cls].threshold<=0||f.store&&r.burstAt<=0)alwaysPreheat.add(f);}}return fuelList;}
+  function amountChanged(f){if(!executionCache)return;dirtyFuelTotals(f);if(f.amount>EPS)positiveFuels.add(f);else{positiveFuels.delete(f);litFuels.delete(f);charred.delete(f);looseFuels.delete(f);}}
+  const registryOrder=list=>[...list].sort((a,b)=>fuelOrder.get(a)-fuelOrder.get(b));
   function preheatCandidates(){registeredFuels();const candidates=new Set([...charred,...alwaysPreheat]);for(const c of active)for(const f of c.fuels)candidates.add(f);return [...candidates].sort((a,b)=>fuelOrder.get(a)-fuelOrder.get(b));}
   const supportBySource=new Map(),itemParts=new Map([...items.keys()].map(id=>[id,[...parts.values()].filter(p=>p.itemId===id)]));
   for(const b of index.surfaces.values()){if(!supportBySource.has(b.sourceSurfaceId))supportBySource.set(b.sourceSurfaceId,[]);supportBySource.get(b.sourceSurfaceId).push(b);}
@@ -108,7 +125,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     const rays=radiantLinks(c);if(!rays.energy)rays.firstEnergyTick=tick;rays.energy+=energy*r.radiantShare;if(rays.complete)emitRadiation(rays);
     deposit(c,energy*r.retainShare);
   }
-  function consume(f,amount) {const value=Math.min(f.amount,amount);f.amount-=value;if(f.amount<=EPS&&f.spentAt===null)f.spentAt=tick*dt;ledger.burned+=value;const energy=value*scene.profile[f.cls].energy;heat.generated+=energy;return energy;}
+  function consume(f,amount) {const value=Math.min(f.amount,amount);f.amount-=value;amountChanged(f);if(f.amount<=EPS&&f.spentAt===null)f.spentAt=tick*dt;ledger.burned+=value;const energy=value*scene.profile[f.cls].energy;heat.generated+=energy;return energy;}
   function changeBoundary(b,patch) {index.change(b.id,patch);dirty.add(b.id);}
   function breakWindow(b,position,cause) {for(const pane of index.surfaces.values())if(pane.sourceSurfaceId===b.sourceSurfaceId)changeBoundary(pane,{intact:false,openFraction:1});emit('window-break',{boundaryId:b.id,sourceSurfaceId:b.sourceSurfaceId,position,cause});}
   function supportedPoint(position) {
@@ -121,11 +138,11 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     let contacts=itemId?items.get(itemId).supportContactOffsets:[[0,0,0]];
     if(geometry){const points=geometry.solidTriangles.flat(),bottom=Math.min(...points.map(p=>p[1]));contacts=[...new Map(points.filter(p=>p[1]<bottom+1e-5).map(p=>[p.join(','),sub(p,position)])).values()];}
     const fall={id,itemId,fuelIds:list.map(f=>f.id),position:[...position],origin:[...position],previous:[...position],velocity:[...velocity],offsets:list.map(f=>sub(f.position,position)),contactOffsets:contacts,geometry,rubbleFootprint:footprint,rubbleKind,quaternion:[0,0,0,1],heldHeat:0};
-    for(const f of list){if(f.rubbleId){const old=rubble.get(f.rubbleId);if(old){old.fuelIds=old.fuelIds.filter(value=>value!==f.id);if(!old.fuelIds.length){rubble.delete(old.id);tombstones.push({collection:'rubble',id:old.id});}}f.rubbleId=null;f.floorFootprint=null;}f.falling=true;f.loose=true;f.fallId=id;f.supportBoundaryId=null;fall.heldHeat+=takeStored(f.cells[0],Math.min(.2,f.cells[0].heat*f.cells[0].capacity));}
+    for(const f of list){if(f.rubbleId){const old=rubble.get(f.rubbleId);if(old){old.fuelIds=old.fuelIds.filter(value=>value!==f.id);if(!old.fuelIds.length){rubble.delete(old.id);tombstones.push({collection:'rubble',id:old.id});}}f.rubbleId=null;f.floorFootprint=null;}f.falling=true;f.loose=true;dirtyFuelTotals(f);if(executionCache&&f.amount>EPS)looseFuels.add(f);f.fallId=id;f.supportBoundaryId=null;fall.heldHeat+=takeStored(f.cells[0],Math.min(.2,f.cells[0].heat*f.cells[0].capacity));}
     falls.set(id,fall);if(itemId){const item=items.get(itemId);item.falling=true;itemDirty.add(itemId);}emit('fall',{fallId:id,itemId,position:[...position],fuelIds:fall.fuelIds,cause});
   }
   function detachRemainder(f,b) {
-    const amount=f.amount;f.amount=0;f.spentAt=tick*dt;
+    const amount=f.amount;f.amount=0;amountChanged(f);f.spentAt=tick*dt;
     if(amount>EPS) {
       const id=`${f.id}:embers`,ember={...f,id,cls:'embers',amount,initial:amount,area:f.area,lit:true,litAt:tick*dt,spentAt:null,boundaryId:null,sourceSurfaceId:f.sourceSurfaceId,cells:[],falling:true,lastBurnTick:-1};
       fuels.set(id,ember);attachFuel(ember,centreCell(f.position));beginFall(id,[ember],f.position,{cause:b.id});
@@ -164,7 +181,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     f.store.reacted=true;f.store.blocked=false;
     // The pulse burns a declared fraction of the same finite oil. No extra
     // energy and no rewrite of the immutable introduction ledger.
-    const pulse=consume(f,amount*.04),rest=f.amount;f.amount=0;f.spentAt=tick*dt;
+    const pulse=consume(f,amount*.04),rest=f.amount;f.amount=0;amountChanged(f);f.spentAt=tick*dt;
     for(let i=0;i<candidates.length;i++) {
       const p=candidates[i].position,c=cellAt(p),id=`${f.id}:spill:${i}`,split={...f,id,store:null,itemId:null,cls:'oil',initial:rest/candidates.length,amount:rest/candidates.length,position:p,area:.25,normal:[0,1,0],cells:[],lit:false,char:0,spentAt:null,falling:false,spill:true,supportBoundaryId:candidates[i].fall?null:candidates[i].surface.id,lastBurnTick:-1};
       fuels.set(id,split);attachFuel(split,c);deposit(c,pulse/candidates.length);if(candidates[i].fall)beginFall(id,[split],p,{cause:'oil-through-opening'});
@@ -239,10 +256,10 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
             for(const id of fall.fuelIds){const f=fuels.get(id);f.rubbleId=record.id;f.loose=true;f.position=[...position];f.floorFootprint=triangles;f.normal=[0,1,0];attachFuel(f,cellAt(f.position));}
           }
         }
-        for(const id of fall.fuelIds){const f=fuels.get(id);f.falling=false;f.fallId=null;f.supportBoundaryId=f.rubbleId?rubble.get(f.rubbleId).supportBoundaryId:landingSurface.id;if(f.store?.kind==='lantern')burst(f);}
+        for(const id of fall.fuelIds){const f=fuels.get(id);f.falling=false;dirtyFuelTotals(f);f.fallId=null;f.supportBoundaryId=f.rubbleId?rubble.get(f.rubbleId).supportBoundaryId:landingSurface.id;if(f.store?.kind==='lantern')burst(f);}
         if(fall.itemId){items.get(fall.itemId).falling=false;items.get(fall.itemId).currentSupportIds=[landingSurface.id];}falls.delete(fall.id);fuelMotionRevision++;tombstones.push({collection:'falls',id:fall.id});stats.landings++;emit('landing',{fallId:fall.id,itemId:fall.itemId,position:next,contactPosition:landingContact,supportBoundaryId:landingSurface.id,fuelIds:fall.fuelIds});
       } else if(next[1]<scene.groundY-2) {
-        for(const id of fall.fuelIds){const f=fuels.get(id);ledger.escaped+=f.amount;f.amount=0;f.falling=false;f.fallId=null;}heat.escaped+=fall.heldHeat;falls.delete(fall.id);fuelMotionRevision++;tombstones.push({collection:'falls',id:fall.id});emit('escaped',{fallId:fall.id});
+        for(const id of fall.fuelIds){const f=fuels.get(id);ledger.escaped+=f.amount;f.amount=0;amountChanged(f);f.falling=false;f.fallId=null;}heat.escaped+=fall.heldHeat;falls.delete(fall.id);fuelMotionRevision++;tombstones.push({collection:'falls',id:fall.id});emit('escaped',{fallId:fall.id});
       }
     }
   }
@@ -255,8 +272,9 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     const burning=[];
     // Global unique fuel registry plus staged structural changes means one
     // object cannot burn again when it moves into a later-visited cell.
-    for(const f of fuels.values())if(f.amount>EPS) {
-      stats.burnVisits++;
+    if(executionCache){registeredFuels();stats.burnVisits+=positiveFuels.size;}
+    for(const f of (executionCache?registryOrder(litFuels):fuels.values()))if(f.amount>EPS) {
+      if(!executionCache)stats.burnVisits++;
       if(f.lit){if(f.lastBurnTick===tick)throw Error(`Double burn ${f.id}`);f.lastBurnTick=tick;stats.maxBurnsPerFuelPerTick=1;burning.push(f);}
     }
     const outputs=new Map();
@@ -279,7 +297,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       const p=scene.profile[f.cls],exposure=Math.max(...f.cells.map(c=>c.heat));
       if(f.store?.kind==='oil'||f.store?.kind==='oil-store') {if(!f.store.reacted&&tick>=(f.store.nextAttemptTick||0)&&exposure>=r.burstAt)burst(f);continue;}
       const before=f.char;
-      if(exposure>=p.threshold){f.preheatAt??=tick*dt;f.char+=dt*exposure/p.threshold;if(f.char+EPS>=p.delay){f.lit=true;f.litAt=tick*dt;f.burningCell=f.cells.reduce((a,b)=>a.heat>=b.heat?a:b);stats.ignitions++;emit('ignition',{fuelId:f.id,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,position:f.position,cls:f.cls,exposure,threshold:p.threshold,delay:p.delay,charBefore:before,burningCellId:f.burningCell.id,inputProof:ignitionInputProof(f,p,before)});}}else f.char=Math.max(0,f.char-dt*.2);
+      if(exposure>=p.threshold){f.preheatAt??=tick*dt;f.char+=dt*exposure/p.threshold;if(f.char+EPS>=p.delay){f.lit=true;dirtyFuelTotals(f);f.litAt=tick*dt;f.burningCell=f.cells.reduce((a,b)=>a.heat>=b.heat?a:b);stats.ignitions++;emit('ignition',{fuelId:f.id,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,position:f.position,cls:f.cls,exposure,threshold:p.threshold,delay:p.delay,charBefore:before,burningCellId:f.burningCell.id,inputProof:ignitionInputProof(f,p,before)});}}else f.char=Math.max(0,f.char-dt*.2);
       if(f.char!==before){if(f.boundaryId)dirty.add(f.boundaryId);if(f.itemId)itemDirty.add(f.itemId);}
       if(executionCache){if(f.char>0&&!f.lit)charred.add(f);else charred.delete(f);if(f.lit)litFuels.add(f);}
     }
@@ -302,15 +320,20 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     for(const part of parts.values())if(part.intact&&part.fuelId&&fuels.get(part.fuelId).amount<=EPS){part.intact=false;partDirty.add(part.id);itemDirty.add(part.itemId);emit('part-retirement',{partId:part.id,itemId:part.itemId,material:part.material});}
     for(const item of items.values())if(item.intact){const live=(itemParts.get(item.id)||[]).some(p=>p.intact);if(!live){item.intact=false;itemDirty.add(item.id);emit('item-retirement',{itemId:item.id});}}
     for(const item of items.values())if(!item.falling&&item.intact) {
-      const list=(itemFuels.get(item.id)||[]).filter(f=>f.amount>EPS&&!f.falling);
-      let supported=false;
-      if(item.currentSupportIds)supported=item.currentSupportIds.some(id=>index.surfaces.get(id)?.intact);
-      else if(item.supportSurfaceIds?.length)supported=item.supportSurfaceIds.some(id=>(supportBySource.get(id)||[]).some(b=>b.intact&&b.supports));
-      else {for(const offset of item.supportContactOffsets){const p=add(item.position,offset);if(index.supportAt(p[0],p[2],p[1]+.03,p[1]-.15)){supported=true;break;}}}
-      if(!supported)beginFall(item.id,list,item.position,{itemId:item.id});
+      const cached=executionCache?itemSupportCache.get(item.id):null,positionKey=executionCache?item.position.join(','):null;let supported;
+      if(cached&&cached.revision===index.revision&&cached.boundaries===index.surfaces.size&&cached.positionKey===positionKey&&cached.currentSupportIds===item.currentSupportIds)supported=cached.supported;
+      else{
+        supported=false;
+        if(item.currentSupportIds)supported=item.currentSupportIds.some(id=>index.surfaces.get(id)?.intact);
+        else if(item.supportSurfaceIds?.length)supported=item.supportSurfaceIds.some(id=>(supportBySource.get(id)||[]).some(b=>b.intact&&b.supports));
+        else {for(const offset of item.supportContactOffsets){const p=add(item.position,offset);if(index.supportAt(p[0],p[2],p[1]+.03,p[1]-.15)){supported=true;break;}}}
+        if(executionCache)itemSupportCache.set(item.id,{revision:index.revision,boundaries:index.surfaces.size,positionKey,currentSupportIds:item.currentSupportIds,supported});
+      }
+      if(!supported)beginFall(item.id,(itemFuels.get(item.id)||[]).filter(f=>f.amount>EPS&&!f.falling),item.position,{itemId:item.id});
     }
     for(const record of [...rubble.values()])if(!index.surfaces.get(record.supportBoundaryId)?.intact)beginFall(record.id,record.fuelIds.map(id=>fuels.get(id)),record.position,{cause:'rubble-support-loss',footprint:record.triangles,rubbleKind:record.kind});
-    for(const f of fuels.values())if((f.spill||f.loose)&&f.amount>EPS&&!f.itemId&&!f.falling&&!f.rubbleId&&f.supportBoundaryId&&!index.surfaces.get(f.supportBoundaryId)?.intact)beginFall(f.id,[f],f.position,{cause:f.spill?'liquid-support-failure':'loose-support-failure'});
+    if(executionCache)registeredFuels();
+    for(const f of (executionCache?registryOrder(looseFuels):fuels.values()))if((f.spill||f.loose)&&f.amount>EPS&&!f.itemId&&!f.falling&&!f.rubbleId&&f.supportBoundaryId&&!index.surfaces.get(f.supportBoundaryId)?.intact)beginFall(f.id,[f],f.position,{cause:f.spill?'liquid-support-failure':'loose-support-failure'});
     stats.peakActive=Math.max(stats.peakActive,active.size);revision++;measured('itemsMs');
   }
   function metrics() {
