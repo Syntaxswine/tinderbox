@@ -1,0 +1,995 @@
+{
+  "version": 1,
+  "baselineLocalCommit": "ef302525dbb6257f870648e9d0230a6b970ca170",
+  "artCommit": "5deda67fbe3fe0968f90cdbc3e806e98baab0b86",
+  "currentPackageManifestSha256": "a28e968161d29a19c475f5c1854151411bf1a12fe95e9273da13239b40aca114",
+  "exactState": {
+    "equal": true,
+    "excludedFields": [
+      "diagnostics.thermal.timing"
+    ],
+    "before": "host-gap-reference-26/profile-final.json.gz",
+    "after": "metrics-prefix-36/profile-final.json.gz",
+    "beforeStateSha256": "e728535743f01ed689ade6c31a4c0c67aefca8be38ae460849b10ae7f2a3ca9e",
+    "afterStateSha256": "e728535743f01ed689ade6c31a4c0c67aefca8be38ae460849b10ae7f2a3ca9e"
+  },
+  "cpu": [
+    {
+      "folder": "host-gap-reference-26",
+      "windows": [
+        {
+          "phase": "quiet",
+          "hostSteps": 120,
+          "meanCpuMs": 3.9138316666664954,
+          "p95CpuMs": 8.995899999998073,
+          "worstCpuMs": 18.587400000000343,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 347.3214000000007,
+            "physicalPublicationMs": 3.543100000009872,
+            "rasterPublicationMs": 1.1696000000083586,
+            "diagnosticsMs": 3.267500000009022,
+            "smokeSignalCalls": 59,
+            "smokeSignalsMs": 0.4838000000017928,
+            "smokeSightMs": 0.22830000001340522,
+            "navigationMs": 46.97390000003725
+          },
+          "endMetrics": {
+            "tick": 61,
+            "worldTime": 2.033333333333333,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 0,
+              "escaped": 0,
+              "remaining": 6263.856455042009,
+              "airborne": 0,
+              "error": 0
+            },
+            "heat": {
+              "generated": 0,
+              "input": 0,
+              "ambient": 0,
+              "blocked": 0,
+              "cap": 0,
+              "escaped": 0,
+              "stored": 0,
+              "radiationInTransit": 0,
+              "error": 0,
+              "relativeError": 0
+            },
+            "burningCount": 0,
+            "burningArea": 0,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0,
+            "burnedFraction": 0,
+            "activeCells": 0,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 61,
+              "cellVisits": 0,
+              "burnVisits": 3232756,
+              "linkBuilds": 0,
+              "rayBuilds": 0,
+              "rayTests": 0,
+              "invalidations": 0,
+              "ignitions": 0,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 0,
+              "maxBurnsPerFuelPerTick": 0
+            }
+          }
+        },
+        {
+          "phase": "small-fire",
+          "hostSteps": 120,
+          "meanCpuMs": 18.026853333333353,
+          "p95CpuMs": 41.79999999999927,
+          "worstCpuMs": 95.77399999999761,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 59,
+            "nativeSimulationMs": 1213.4004999999888,
+            "physicalPublicationMs": 59.212999999985186,
+            "rasterPublicationMs": 15.37829999999667,
+            "diagnosticsMs": 3.6427000000112457,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 110.75649999999587,
+            "smokeSightMs": 0.2947999999851163,
+            "navigationMs": 49.9594999999681
+          },
+          "endMetrics": {
+            "tick": 143,
+            "worldTime": 4.766666666666667,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 2.0777784044444902,
+              "escaped": 0,
+              "remaining": 6261.77867663756,
+              "airborne": 0,
+              "error": 3.637978807091713e-12
+            },
+            "heat": {
+              "generated": 228.55562448889563,
+              "input": 1.05,
+              "ambient": 11.45421659955262,
+              "blocked": 2.352251642801333,
+              "cap": 75.85248304254225,
+              "escaped": 35.98279704217417,
+              "stored": 103.9638761618238,
+              "radiationInTransit": 0,
+              "error": 1.4921397450962104e-12,
+              "relativeError": 6.498707287409566e-15
+            },
+            "burningCount": 42,
+            "burningArea": 10.500003150000246,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0.0012236144827728064,
+            "burnedFraction": 0.0003317091346772498,
+            "activeCells": 204,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 143,
+              "cellVisits": 6308,
+              "burnVisits": 7578428,
+              "linkBuilds": 38,
+              "rayBuilds": 912,
+              "rayTests": 1038,
+              "invalidations": 0,
+              "ignitions": 42,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 204,
+              "maxBurnsPerFuelPerTick": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "folder": "host-gap-cache-29",
+      "windows": [
+        {
+          "phase": "quiet",
+          "hostSteps": 120,
+          "meanCpuMs": 2.3153341666664344,
+          "p95CpuMs": 5.054300000003423,
+          "worstCpuMs": 31.256900000000314,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 14.647100000023784,
+            "physicalPublicationMs": 5.522999999986496,
+            "rasterPublicationMs": 2.2747999999846797,
+            "diagnosticsMs": 5.094599999967613,
+            "smokeSignalCalls": 59,
+            "smokeSignalsMs": 0.7113999999928637,
+            "smokeSightMs": 0.3685999999579508,
+            "navigationMs": 138.3393000001015
+          },
+          "endMetrics": {
+            "tick": 61,
+            "worldTime": 2.033333333333333,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 0,
+              "escaped": 0,
+              "remaining": 6263.856455042009,
+              "airborne": 0,
+              "error": 0
+            },
+            "heat": {
+              "generated": 0,
+              "input": 0,
+              "ambient": 0,
+              "blocked": 0,
+              "cap": 0,
+              "escaped": 0,
+              "stored": 0,
+              "radiationInTransit": 0,
+              "error": 0,
+              "relativeError": 0
+            },
+            "burningCount": 0,
+            "burningArea": 0,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0,
+            "burnedFraction": 0,
+            "activeCells": 0,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 61,
+              "cellVisits": 0,
+              "burnVisits": 3232756,
+              "linkBuilds": 0,
+              "rayBuilds": 0,
+              "rayTests": 0,
+              "invalidations": 0,
+              "ignitions": 0,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 0,
+              "maxBurnsPerFuelPerTick": 0
+            }
+          }
+        },
+        {
+          "phase": "small-fire",
+          "hostSteps": 120,
+          "meanCpuMs": 21.17127166666675,
+          "p95CpuMs": 53.61669999999867,
+          "worstCpuMs": 207.7245000000039,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 59,
+            "nativeSimulationMs": 691.5911000000124,
+            "physicalPublicationMs": 120.79539999995905,
+            "rasterPublicationMs": 30.753199999999197,
+            "diagnosticsMs": 10.68990000001213,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 15.208000000020547,
+            "smokeSightMs": 0.45930000005319016,
+            "navigationMs": 108.09790000013163
+          },
+          "endMetrics": {
+            "tick": 143,
+            "worldTime": 4.766666666666667,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 2.0777784044444902,
+              "escaped": 0,
+              "remaining": 6261.77867663756,
+              "airborne": 0,
+              "error": 3.637978807091713e-12
+            },
+            "heat": {
+              "generated": 228.55562448889563,
+              "input": 1.05,
+              "ambient": 11.45421659955262,
+              "blocked": 2.352251642801333,
+              "cap": 75.85248304254225,
+              "escaped": 35.98279704217417,
+              "stored": 103.9638761618238,
+              "radiationInTransit": 0,
+              "error": 1.4921397450962104e-12,
+              "relativeError": 6.498707287409566e-15
+            },
+            "burningCount": 42,
+            "burningArea": 10.500003150000246,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0.0012236144827728064,
+            "burnedFraction": 0.0003317091346772498,
+            "activeCells": 204,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 143,
+              "cellVisits": 6308,
+              "burnVisits": 7578428,
+              "linkBuilds": 38,
+              "rayBuilds": 912,
+              "rayTests": 1038,
+              "invalidations": 0,
+              "ignitions": 42,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 204,
+              "maxBurnsPerFuelPerTick": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "folder": "metrics-attribution-33",
+      "windows": [
+        {
+          "phase": "quiet",
+          "hostSteps": 120,
+          "meanCpuMs": 1.0454208333331432,
+          "p95CpuMs": 1.574800000002142,
+          "worstCpuMs": 9.357499999998254,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 5.525299999979325,
+            "backendAdvanceMs": 7.011699999973644,
+            "metricsQueriesMs": 0.6277000000227417,
+            "looseFuelQueriesMs": 0.2617999999965832,
+            "physicalPublicationMs": 3.344700000008743,
+            "rasterPublicationMs": 2.260999999980413,
+            "diagnosticsMs": 2.340699999997014,
+            "smokeSignalCalls": 59,
+            "smokeSignalsMs": 0.4653999999827647,
+            "smokeSightMs": 0.20539999999527936,
+            "navigationMs": 53.55489999997735
+          },
+          "endMetrics": {
+            "tick": 61,
+            "worldTime": 2.033333333333333,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 0,
+              "escaped": 0,
+              "remaining": 6263.856455042009,
+              "airborne": 0,
+              "error": 0
+            },
+            "heat": {
+              "generated": 0,
+              "input": 0,
+              "ambient": 0,
+              "blocked": 0,
+              "cap": 0,
+              "escaped": 0,
+              "stored": 0,
+              "radiationInTransit": 0,
+              "error": 0,
+              "relativeError": 0
+            },
+            "burningCount": 0,
+            "burningArea": 0,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0,
+            "burnedFraction": 0,
+            "activeCells": 0,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 61,
+              "cellVisits": 0,
+              "burnVisits": 3232756,
+              "linkBuilds": 0,
+              "rayBuilds": 0,
+              "rayTests": 0,
+              "invalidations": 0,
+              "ignitions": 0,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 0,
+              "maxBurnsPerFuelPerTick": 0
+            }
+          }
+        },
+        {
+          "phase": "small-fire",
+          "hostSteps": 120,
+          "meanCpuMs": 11.24999999999991,
+          "p95CpuMs": 31.012399999999616,
+          "worstCpuMs": 100.25989999999729,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 59,
+            "nativeSimulationMs": 385.7096999999849,
+            "backendAdvanceMs": 1075.1889999999985,
+            "metricsQueriesMs": 686.7422000000115,
+            "looseFuelQueriesMs": 0.8870999999999185,
+            "physicalPublicationMs": 76.02680000001783,
+            "rasterPublicationMs": 22.892099999986385,
+            "diagnosticsMs": 4.110300000003917,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 10.29609999999957,
+            "smokeSightMs": 0.2722000000067055,
+            "navigationMs": 56.601900000077876
+          },
+          "endMetrics": {
+            "tick": 143,
+            "worldTime": 4.766666666666667,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 2.0777784044444902,
+              "escaped": 0,
+              "remaining": 6261.77867663756,
+              "airborne": 0,
+              "error": 3.637978807091713e-12
+            },
+            "heat": {
+              "generated": 228.55562448889563,
+              "input": 1.05,
+              "ambient": 11.45421659955262,
+              "blocked": 2.352251642801333,
+              "cap": 75.85248304254225,
+              "escaped": 35.98279704217417,
+              "stored": 103.9638761618238,
+              "radiationInTransit": 0,
+              "error": 1.4921397450962104e-12,
+              "relativeError": 6.498707287409566e-15
+            },
+            "burningCount": 42,
+            "burningArea": 10.500003150000246,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0.0012236144827728064,
+            "burnedFraction": 0.0003317091346772498,
+            "activeCells": 204,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 143,
+              "cellVisits": 6308,
+              "burnVisits": 7578428,
+              "linkBuilds": 38,
+              "rayBuilds": 912,
+              "rayTests": 1038,
+              "invalidations": 0,
+              "ignitions": 42,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 204,
+              "maxBurnsPerFuelPerTick": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "folder": "metrics-prefix-36",
+      "windows": [
+        {
+          "phase": "quiet",
+          "hostSteps": 120,
+          "meanCpuMs": 1.0123216666667456,
+          "p95CpuMs": 1.9328999999997905,
+          "worstCpuMs": 8.793400000002293,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 4.352199999982986,
+            "backendAdvanceMs": 5.784699999985605,
+            "metricsQueriesMs": 0.598100000028353,
+            "looseFuelQueriesMs": 0.3070999999981723,
+            "physicalPublicationMs": 3.2528000000202155,
+            "rasterPublicationMs": 2.137300000002142,
+            "diagnosticsMs": 2.204599999993661,
+            "smokeSignalCalls": 59,
+            "smokeSignalsMs": 0.4718999999931839,
+            "smokeSightMs": 0.20159999999668798,
+            "navigationMs": 53.39720000004672
+          },
+          "endMetrics": {
+            "tick": 61,
+            "worldTime": 2.033333333333333,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 0,
+              "escaped": 0,
+              "remaining": 6263.856455042009,
+              "airborne": 0,
+              "error": 0
+            },
+            "heat": {
+              "generated": 0,
+              "input": 0,
+              "ambient": 0,
+              "blocked": 0,
+              "cap": 0,
+              "escaped": 0,
+              "stored": 0,
+              "radiationInTransit": 0,
+              "error": 0,
+              "relativeError": 0
+            },
+            "burningCount": 0,
+            "burningArea": 0,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0,
+            "burnedFraction": 0,
+            "activeCells": 0,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 61,
+              "cellVisits": 0,
+              "burnVisits": 3232756,
+              "linkBuilds": 0,
+              "rayBuilds": 0,
+              "rayTests": 0,
+              "invalidations": 0,
+              "ignitions": 0,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 0,
+              "maxBurnsPerFuelPerTick": 0
+            }
+          }
+        },
+        {
+          "phase": "small-fire",
+          "hostSteps": 120,
+          "meanCpuMs": 4.999832500000139,
+          "p95CpuMs": 18.80279999999766,
+          "worstCpuMs": 22.209100000000035,
+          "cumulativeDeltas": {
+            "hostSteps": 119,
+            "nativeSteps": 59,
+            "nativeSimulationMs": 334.75789999999324,
+            "backendAdvanceMs": 385.0674000000181,
+            "metricsQueriesMs": 48.51789999998073,
+            "looseFuelQueriesMs": 0.4274999999688589,
+            "physicalPublicationMs": 54.7344000000121,
+            "rasterPublicationMs": 16.28779999998369,
+            "diagnosticsMs": 2.8250000000152795,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 9.505599999996775,
+            "smokeSightMs": 0.21040000000721193,
+            "navigationMs": 48.507200000029115
+          },
+          "endMetrics": {
+            "tick": 143,
+            "worldTime": 4.766666666666667,
+            "fuel": {
+              "initial": 6263.856455042009,
+              "added": 0,
+              "burned": 2.0777784044444902,
+              "escaped": 0,
+              "remaining": 6261.77867663756,
+              "airborne": 0,
+              "error": 3.637978807091713e-12
+            },
+            "heat": {
+              "generated": 228.55562448889563,
+              "input": 1.05,
+              "ambient": 11.45421659955262,
+              "blocked": 2.352251642801333,
+              "cap": 75.85248304254225,
+              "escaped": 35.98279704217417,
+              "stored": 103.9638761618238,
+              "radiationInTransit": 0,
+              "error": 1.4921397450962104e-12,
+              "relativeError": 6.498707287409566e-15
+            },
+            "burningCount": 42,
+            "burningArea": 10.500003150000246,
+            "combustibleArea": 8581.13670427177,
+            "burningAreaFraction": 0.0012236144827728064,
+            "burnedFraction": 0.0003317091346772498,
+            "activeCells": 204,
+            "fallingCount": 0,
+            "queuedRadiationSources": 0,
+            "queuedRays": 0,
+            "oldestRadiationQueryDelay": 0,
+            "oldestRadiationEnergyAge": 0,
+            "stats": {
+              "ticks": 143,
+              "cellVisits": 6308,
+              "burnVisits": 7578428,
+              "linkBuilds": 38,
+              "rayBuilds": 912,
+              "rayTests": 1038,
+              "invalidations": 0,
+              "ignitions": 42,
+              "failures": 0,
+              "landings": 0,
+              "peakActive": 204,
+              "maxBurnsPerFuelPerTick": 1
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "browser": [
+    {
+      "folder": "production-live-final-25",
+      "pacing": [
+        {
+          "phase": "quiet",
+          "frames": 264,
+          "rafSeconds": 4.633400000000002,
+          "completionWallSeconds": 4.618,
+          "worldSeconds": 4.633333333333317,
+          "hz": 56.76177321189621,
+          "p95FrameMs": 33.099999999998545,
+          "worstFrameMs": 50,
+          "droppedSeconds": 0
+        },
+        {
+          "phase": "small-fire",
+          "frames": 39,
+          "rafSeconds": 3.683300000000003,
+          "completionWallSeconds": 4.119299999713897,
+          "worldSeconds": 3.5000000000000755,
+          "hz": 10.31683544647462,
+          "p95FrameMs": 300,
+          "worstFrameMs": 366.70000000000437,
+          "droppedSeconds": 0.18320000000000647
+        }
+      ],
+      "initializationMs": 31255.400000095367,
+      "droppedAtInitialSample": 9.883400000000002,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+      "threeRevision": "180",
+      "cpuStages": [
+        {
+          "phase": "quiet",
+          "meanCpuMs": {
+            "simulationMs": 3.94393940224792,
+            "artCpuMs": 2.2749999942201558,
+            "uiCpuMs": 0.12575758045369928,
+            "renderSubmitCpuMs": 9.096590912703311
+          }
+        },
+        {
+          "phase": "small-fire",
+          "meanCpuMs": {
+            "simulationMs": 87.51025640047513,
+            "artCpuMs": 5.57179487668551,
+            "uiCpuMs": 0.5897436019701835,
+            "renderSubmitCpuMs": 9.235897394327017
+          }
+        }
+      ],
+      "rawHashes": {
+        "actual-frame-samples.json": "d3f619e8fdb959974dcf06c4a27ea67c3907083a121f20c564daeec1f9dbf572",
+        "actual-raf-trace.json": "1c274056156a92183ac5fecc2287f99fcd6aec24c3bcef73615cd8c0f4c13715",
+        "actual-pacing.json": "6bc3b14c219309a890fb20fa3c6fcee770620e9e06100023d5a0d28ba5d56996"
+      },
+      "cleanup": {
+        "closedAt": "2026-11-14T04:15:48.363Z",
+        "helper": {
+          "owner": "Coder Tinderbox",
+          "project": "Catalogue modular host",
+          "purpose": "Actual host title/visit/continuity/JPG review",
+          "driver": {
+            "pid": 66832,
+            "creationFiletime": "134391032804822309",
+            "executable": "C:\\Program Files\\nodejs\\node.exe"
+          },
+          "browser": {
+            "pid": 51444,
+            "creationFiletime": "134391032816453795",
+            "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+          },
+          "ports": [
+            57637,
+            57638
+          ],
+          "startedAt": "2026-11-14T04:14:41.628Z",
+          "expiresAt": "2026-11-14T04:29:41.628Z",
+          "automaticStop": "Driver deadline calls context/browser/server close",
+          "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\catalogue-modular\\production-live-final-25\\STOP",
+          "stopMethod": "STOP file, deadline, or finally",
+          "restart": {
+            "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\catalogue-live.mjs",
+              "artifacts/qa/catalogue-modular/production-live-final-25"
+            ],
+            "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\catalogue-modular\\production-live-final-25",
+            "manifestSha256": "bccc66bedc337d5d8c4344265ac4eba52f69fda155c72d3f5e207ce47002cac8"
+          }
+        },
+        "portsListening": [
+          false,
+          false
+        ],
+        "browserExited": true
+      }
+    },
+    {
+      "folder": "production-live-cache-32",
+      "pacing": [
+        {
+          "phase": "quiet",
+          "frames": 260,
+          "rafSeconds": 6.266700000000005,
+          "completionWallSeconds": 6.260900000095368,
+          "worldSeconds": 4.849999999999984,
+          "hz": 41.329567395918076,
+          "p95FrameMs": 33.30000000000291,
+          "worstFrameMs": 1666.6000000000058,
+          "droppedSeconds": 1.416600000000006,
+          "nativeTicks": [
+            45,
+            190
+          ],
+          "activeCells": [
+            0,
+            0
+          ],
+          "burning": [
+            0,
+            0
+          ]
+        },
+        {
+          "phase": "small-fire",
+          "frames": 58,
+          "rafSeconds": 4.05,
+          "completionWallSeconds": 4.356199999809265,
+          "worldSeconds": 3.8833333333334394,
+          "hz": 14.074074074074074,
+          "p95FrameMs": 283.3000000000029,
+          "worstFrameMs": 316.79999999999563,
+          "droppedSeconds": 0.1665999999999972,
+          "nativeTicks": [
+            191,
+            307
+          ],
+          "activeCells": [
+            0,
+            553
+          ],
+          "burning": [
+            0,
+            175
+          ],
+          "fireAge": {
+            "start": {
+              "hostTick": 392,
+              "worldTime": 6.5333333333333155,
+              "nativeTick": 196,
+              "activeCells": 1,
+              "burning": 1,
+              "rafMs": 46082.1
+            },
+            "end": {
+              "hostTick": 615,
+              "worldTime": 10.250000000000089,
+              "nativeTick": 307,
+              "activeCells": 553,
+              "burning": 175,
+              "rafMs": 49965.5
+            },
+            "worldAge": 3.7166666666667734
+          }
+        }
+      ],
+      "initializationMs": 37044.199999809265,
+      "droppedAtInitialSample": 12.0499,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+      "threeRevision": "180",
+      "cpuStages": [
+        {
+          "phase": "quiet",
+          "meanCpuMs": {
+            "simulationMs": 1.6561538256131685,
+            "artCpuMs": 2.726923056749197,
+            "uiCpuMs": 0.15615386229294997,
+            "renderSubmitCpuMs": 17.355769223433274
+          }
+        },
+        {
+          "phase": "small-fire",
+          "meanCpuMs": {
+            "simulationMs": 53.98793108709927,
+            "artCpuMs": 7.036206886686128,
+            "uiCpuMs": 0.5896551609039307,
+            "renderSubmitCpuMs": 11.253448280794867
+          }
+        }
+      ],
+      "rawHashes": {
+        "actual-frame-samples.json": "523704ece1cca6ab698da08006079f8784430b3365cc17a28ea1f933d1de4739",
+        "actual-raf-trace.json": "f46388a53ba98d55369d57fa8d30cdc08b3f1689c0eb69b697b81b5455463863",
+        "actual-pacing.json": "7ddb48dc4feddfddbd5dfa06ab01570437c60f42c223b892bf7f8525d7291ed8"
+      },
+      "cleanup": {
+        "closedAt": "2026-11-14T04:43:53.028Z",
+        "helper": {
+          "owner": "Coder Tinderbox",
+          "project": "Catalogue modular host",
+          "purpose": "Actual host title/visit/continuity/JPG review",
+          "driver": {
+            "pid": 37680,
+            "creationFiletime": "134391049512008919",
+            "executable": "C:\\Program Files\\nodejs\\node.exe"
+          },
+          "browser": {
+            "pid": 73460,
+            "creationFiletime": "134391049523785570",
+            "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+          },
+          "ports": [
+            62270,
+            62271
+          ],
+          "startedAt": "2026-11-14T04:42:32.358Z",
+          "expiresAt": "2026-11-14T04:57:32.358Z",
+          "automaticStop": "Driver deadline calls context/browser/server close",
+          "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\catalogue-modular\\production-live-cache-32\\STOP",
+          "stopMethod": "STOP file, deadline, or finally",
+          "restart": {
+            "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\catalogue-live.mjs",
+              "artifacts/qa/catalogue-modular/production-live-cache-32"
+            ],
+            "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\catalogue-modular\\production-live-cache-32",
+            "manifestSha256": "edf331fccd9fabb695feac82a4b6f3f1379f8290a5786dbd78108bff88ddac60"
+          }
+        },
+        "portsListening": [
+          false,
+          false
+        ],
+        "browserExited": true
+      }
+    },
+    {
+      "folder": "production-live-prefix-38",
+      "pacing": [
+        {
+          "phase": "quiet",
+          "frames": 267,
+          "rafSeconds": 4.516599999999999,
+          "completionWallSeconds": 4.512400000095368,
+          "worldSeconds": 4.5166666666666515,
+          "hz": 58.89385821192935,
+          "p95FrameMs": 16.799999999995634,
+          "worstFrameMs": 33.60000000000582,
+          "droppedSeconds": 0,
+          "nativeTicks": [
+            45,
+            180
+          ],
+          "activeCells": [
+            0,
+            0
+          ],
+          "burning": [
+            0,
+            0
+          ]
+        },
+        {
+          "phase": "small-fire",
+          "frames": 123,
+          "rafSeconds": 3.7,
+          "completionWallSeconds": 3.8747000002861025,
+          "worldSeconds": 3.7000000000000792,
+          "hz": 32.972972972972975,
+          "p95FrameMs": 50.099999999998545,
+          "worstFrameMs": 183.1999999999971,
+          "droppedSeconds": 0,
+          "nativeTicks": [
+            181,
+            292
+          ],
+          "activeCells": [
+            0,
+            493
+          ],
+          "burning": [
+            0,
+            146
+          ],
+          "fireAge": {
+            "start": {
+              "hostTick": 371,
+              "worldTime": 6.183333333333317,
+              "nativeTick": 185,
+              "activeCells": 1,
+              "burning": 1,
+              "rafMs": 38794.7
+            },
+            "end": {
+              "hostTick": 584,
+              "worldTime": 9.733333333333396,
+              "nativeTick": 292,
+              "activeCells": 493,
+              "burning": 146,
+              "rafMs": 42344.7
+            },
+            "worldAge": 3.5500000000000798
+          }
+        }
+      ],
+      "initializationMs": 31811.5,
+      "droppedAtInitialSample": 10.033500000000004,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+      "threeRevision": "180",
+      "cpuStages": [
+        {
+          "phase": "quiet",
+          "meanCpuMs": {
+            "simulationMs": 1.4142322004511114,
+            "artCpuMs": 2.223595504903615,
+            "uiCpuMs": 0.12359550204616361,
+            "renderSubmitCpuMs": 8.983146083488894
+          }
+        },
+        {
+          "phase": "small-fire",
+          "meanCpuMs": {
+            "simulationMs": 14.79349593030728,
+            "artCpuMs": 4.9146341502181885,
+            "uiCpuMs": 0.5284553078131947,
+            "renderSubmitCpuMs": 9.145528448306449
+          }
+        }
+      ],
+      "rawHashes": {
+        "actual-frame-samples.json": "7b6a4e6760eff0332ec0f00838825e74b89e478a41db8d5806e0919f0f7fae68",
+        "actual-raf-trace.json": "605c16b75a96619c148b703c8fa5e4275a76e24011d465b6e778cca839f81767",
+        "actual-pacing.json": "85550ce90555a49652dac915f48661f5dcf5e1bd8bbc858d77ebaccb6dbfcaad"
+      },
+      "cleanup": {
+        "closedAt": "2026-11-14T04:57:22.998Z",
+        "helper": {
+          "owner": "Coder Tinderbox",
+          "project": "Catalogue modular host",
+          "purpose": "Actual host title/visit/continuity/JPG review",
+          "driver": {
+            "pid": 10440,
+            "creationFiletime": "134391057784590703",
+            "executable": "C:\\Program Files\\nodejs\\node.exe"
+          },
+          "browser": {
+            "pid": 22128,
+            "creationFiletime": "134391057794689214",
+            "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+          },
+          "ports": [
+            54095,
+            54096
+          ],
+          "startedAt": "2026-11-14T04:56:19.444Z",
+          "expiresAt": "2026-11-14T05:11:19.444Z",
+          "automaticStop": "Driver deadline calls context/browser/server close",
+          "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\catalogue-modular\\production-live-prefix-38\\STOP",
+          "stopMethod": "STOP file, deadline, or finally",
+          "restart": {
+            "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\catalogue-live.mjs",
+              "artifacts/qa/catalogue-modular/production-live-prefix-38"
+            ],
+            "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\catalogue-modular\\production-live-prefix-38",
+            "manifestSha256": "a28e968161d29a19c475f5c1854151411bf1a12fe95e9273da13239b40aca114"
+          }
+        },
+        "portsListening": [
+          false,
+          false
+        ],
+        "browserExited": true
+      }
+    }
+  ],
+  "limits": [
+    "All recorded runs are bounded individual measurements; no long-session or phone hardware claim.",
+    "The final fire window ends at the first actual callback at least3.5world seconds after first observed ignition; it ends at146burning patches.",
+    "The final average reaches the approximate30fps target; p95/worst fire frames are50.1/183.2ms and initialization remains31.8115seconds.",
+    "The current package retains the same full map, native source, thermal grid/profiles/rules/clocks and rendering quality.",
+    "Native simulation and accounting are subsets of backendAdvance; cumulative timings overlap and must not be added twice.",
+    "Early changed fuel falls back to a longer original-order suffix; this window does not establish cost for every house or mature collapse."
+  ]
+}

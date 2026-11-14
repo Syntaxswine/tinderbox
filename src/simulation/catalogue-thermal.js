@@ -3,7 +3,7 @@ import {createNavigation} from '../../workbenches/furnished-house/navigation.js'
 import {extrudePlane,segmentTriangle} from '../../workbenches/furnished-house/geometry.js';
 import {sweptCylinderClear} from '../runtime/collision.js';
 import {createVisibility} from '../../workbenches/bell-and-alder-closing/visibility.js';
-import {ventSmokeSignals,visibleSmoke,SMOKE_PERCEPTION} from '../../workbenches/bell-and-alder-closing/smoke.js';
+import {ventSmokeSignals,createVentSmokeSampler,visibleSmoke,SMOKE_PERCEPTION} from '../../workbenches/bell-and-alder-closing/smoke.js';
 const EPS=1e-8,clamp=n=>Math.max(0,Math.min(1,n));
 const xyz=(p,height=p.h??p.elevation??0)=>[p.x,height,p.y];
 const collections=['boundaries','supports','items','parts','falls','rubble','fireSamples','occupancy','events','tombstones'];
@@ -13,6 +13,7 @@ const collections=['boundaries','supports','items','parts','falls','rubble','fir
 export function createCatalogueThermal({compiled,state,definition,config,event}){
   const trial=createTrial(compiled.data,{executionCache:compiled.executionCache!==false,wind:ambientWind,windMetadata:{kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false}}),nativeStep=trial.rules.step;
   const visibility=createVisibility(trial,{partTrace:tracePart}),newIgnitions=[],residentSpec=compiled.data.catalogueModules.resident,residentState={state:'routine',routeIndex:0,holdUntil:null,smokeSince:null,lookSince:null,exitIndex:0,blocked:null};let smokeTick=-1,smokeSignals=[];
+  const sampleSmoke=compiled.executionCache===false?()=>ventSmokeSignals(trial,visibility):createVentSmokeSampler(trial,visibility);
   const instances=compiled.instances.map(i=>i.id),owners=new Map(),navs=new Map(),deposits=new Map(),doors=compiled.data.catalogueModules.doors,lantern=compiled.data.catalogueModules.lantern?{...structuredClone(compiled.data.catalogueModules.lantern),phase:'placed',ownerId:null}:null;
   const heatReceipts=new Map(),ignitionReceipts=new Map(),renderGeometry=new Map((compiled.data.render?.geometry||[]).map(g=>[g.id,g]));
   const hostBoundaryUpdates=new Map();
@@ -33,6 +34,7 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
   const publishedStats={remainingDepositedFuel:0,burningCells:0,frontX:0};
   const size=definition.fireCellSize;
   const now=()=>performance.now(),timing={nativeSteps:0,nativeSimulationMs:0,physicalPublicationMs:0,rasterPublicationMs:0,diagnosticsMs:0};
+  const hostWork={hostSteps:0,nativeSteps:0,nativeSimulationMs:0,backendAdvanceMs:0,metricsQueriesMs:0,looseFuelQueriesMs:0,physicalPublicationMs:0,rasterPublicationMs:0,diagnosticsMs:0,smokeSignalCalls:0,smokeSignalsMs:0,smokeSightMs:0,navigationMs:0};
   const named=id=>typeof id==='string'?instances.find(i=>id.startsWith(i+'::')||id.includes(':'+i+'::')):null;
   const supportOwner=p=>{const hit=trial.scene.index.supportAt(p[0],p[2],p[1]+.05,-10);return named(hit?.surface.sourceSurfaceId)||'terrain';};
   const query=p=>trial.scene.cells.get(trial.scene.key(trial.scene.coords(p)));
@@ -59,7 +61,8 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
     const energy=tool==='matches'?trial.rules.matchEnergy:spec.heat,cells=heat(to,energy,tool,from,onHeat);
     return {point:{x:actual[0],y:actual[2],h:actual[1]},dischargePoint:{x:actual[0],y:actual[2],h:actual[1]},cells,result:'heated',nativeTick:trial.tick+1};
   }
-  function move(start,dx,dz,radius,height){
+  function move(...args){const before=now();try{return moveNative(...args);}finally{hostWork.navigationMs+=now()-before;}}
+  function moveNative(start,dx,dz,radius,height){
     const id=start.id||'player';let nav=navs.get(id);if(!nav){nav=createNavigation(trial,{radius,height,maxStep:.22,start:xyz(start),slide:true});navs.set(id,nav);}nav.setPosition(xyz(start));
     const path=[{x:start.x,y:start.y,elevation:start.elevation||0,ownerInstanceId:start.moduleOwner,surfaceId:start.surfaceId}],length=Math.hypot(dx,dz);
     if(length<EPS)return path;
@@ -94,7 +97,7 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
     for(const b of hostBoundaryUpdates.values())if(!frame.boundaries.some(row=>row.id===b.id))frame.boundaries.push({id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:0,heatFraction:0,fuelFraction:1});hostBoundaryUpdates.clear();
     const owner=r=>owners.get(r.id)||named(r.sourceSurfaceId)||named(r.itemId)||named(r.originalSourceSurfaceId)||(r.fuelIds||[]).map(id=>owners.get(id)||named(id)).find(Boolean)||named(r.supportBoundaryId)||'terrain';
     for(const key of collections)frame[key]=(frame[key]||[]).map(r=>{const ownerInstanceId=owner(r);owners.set(r.id,ownerInstanceId);return {...r,ownerInstanceId,...(key==='fireSamples'?{buildingId:ownerInstanceId}:{})};});
-    frame.catalogueModules={version:1,generation:state.generation,representation:compiled.representation,instances:compiled.data.catalogueModules.instances,lantern:lantern?structuredClone(lantern):null,actors:[state.player,...state.actors].map(a=>({id:a.id,characterId:a.characterId||a.species,position:xyz(a),heading:a.heading,radius:a.radius,height:a.height||1.66})),hostTick:state.tick,hostWorldTime:state.clocks.world,nativeTick:trial.tick,nativeWorldTime:trial.worldTime,residual};cachedFrame=frame;frameHostTick=state.tick;timing.physicalPublicationMs=now()-before;return frame;
+    frame.catalogueModules={version:1,generation:state.generation,representation:compiled.representation,instances:compiled.data.catalogueModules.instances,lantern:lantern?structuredClone(lantern):null,actors:[state.player,...state.actors].map(a=>({id:a.id,characterId:a.characterId||a.species,position:xyz(a),heading:a.heading,radius:a.radius,height:a.height||1.66})),hostTick:state.tick,hostWorldTime:state.clocks.world,nativeTick:trial.tick,nativeWorldTime:trial.worldTime,residual};cachedFrame=frame;frameHostTick=state.tick;timing.physicalPublicationMs=now()-before;hostWork.physicalPublicationMs+=timing.physicalPublicationMs;return frame;
   }
   const rasterPoints=[];for(let z=size/2;z<definition.height;z+=size)for(let x=size/2;x<definition.width;x+=size)rasterPoints.push({x,y:z,h:.01,key:trial.scene.key(trial.scene.coords([x,.01,z]))});
   const rasterIndices=new Map();for(let i=0;i<rasterPoints.length;i++){const key=rasterPoints[i].key;if(!rasterIndices.has(key))rasterIndices.set(key,[]);rasterIndices.get(key).push(i);}
@@ -111,14 +114,15 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
       if(old&&old.heat===heat&&old.surfaceFuel===surfaceFuel&&old.depositedFuel===depositedFuel&&old.material===material&&old.phase===phase)continue;
       changed=true;result[i]=Object.freeze({id:cell?.id||p.key,publicId:cell?.id,x:p.x,y:p.y,h:p.h,size,material,surfaceFuel,depositedFuel,heat,phase,intensity:lit?1:0});
     }
-    rasterTick=trial.tick;rasterIndexRevision=trial.scene.index.revision;rasterFalling=falling;previousActive=active;bornCells.clear();if(changed)rasterCache=Object.freeze(result);timing.rasterPublicationMs=now()-before;return rasterCache;
+    rasterTick=trial.tick;rasterIndexRevision=trial.scene.index.revision;rasterFalling=falling;previousActive=active;bornCells.clear();if(changed)rasterCache=Object.freeze(result);timing.rasterPublicationMs=now()-before;hostWork.rasterPublicationMs+=timing.rasterPublicationMs;return rasterCache;
   }
   function flushDeposits(){for(const {position,amount}of deposits.values()){const command=trial.command({type:'deposit',position,amount});owners.set('deposit:'+command.sequence,supportOwner(position));}deposits.clear();}
-  function step(delta,time){residual+=delta;timing.nativeSteps=0;timing.nativeSimulationMs=0;while(residual+1e-10>=nativeStep){flushDeposits();const before=now();trial.step();timing.nativeSimulationMs+=now()-before;timing.nativeSteps++;residual=Math.max(0,residual-nativeStep);}cachedFrame=null;
+  function step(...args){const before=now();try{return nativeAdvance(...args);}finally{hostWork.backendAdvanceMs+=now()-before;}}
+  function nativeAdvance(delta,time){residual+=delta;hostWork.hostSteps++;timing.nativeSteps=0;timing.nativeSimulationMs=0;while(residual+1e-10>=nativeStep){flushDeposits();const before=now();trial.step();const elapsed=now()-before;timing.nativeSimulationMs+=elapsed;hostWork.nativeSimulationMs+=elapsed;hostWork.nativeSteps++;timing.nativeSteps++;residual=Math.max(0,residual-nativeStep);}cachedFrame=null;
     for(const e of trial.events.slice(cursor)){const {id,type,tick,...details}=e,position=e.position||[0,0,0];if(type==='ignition'){newIgnitions.push(e);const receipt=heatReceipts.get(e.inputProof?.commandSequence);if(receipt&&receipt.nativeTick===tick)ignitionReceipts.set(id,receipt);}event('thermal-'+type,{x:position[0],y:position[2]},{...details,backend:'catalogue-trial',nativeEventId:id,nativeTick:tick,nativeWorldTime:e.time,hostWorldTime:time});}cursor=trial.events.length;
     for(const [id,receipt]of heatReceipts)if(receipt.nativeTick<=trial.tick)heatReceipts.delete(id);
     if(lantern?.phase==='placed'&&!lanternSupported())lantern.phase='spent';if(lantern?.phase==='carried')lantern.position=xyz(state.player,(state.player.elevation||0)+.9);
-    const metrics=trial.metrics();publishedStats.burningCells=metrics.burningCount;publishedStats.remainingDepositedFuel=trial.looseFuelAmount()+[...deposits.values()].reduce((n,d)=>n+d.amount,0);stats.burnedSurfaceFuel=metrics.fuel.burned;timing.nativePhases=trial.executionTimings();
+    const metricsStart=now(),metrics=trial.metrics();hostWork.metricsQueriesMs+=now()-metricsStart;publishedStats.burningCells=metrics.burningCount;const looseStart=now();publishedStats.remainingDepositedFuel=trial.looseFuelAmount()+[...deposits.values()].reduce((n,d)=>n+d.amount,0);hostWork.looseFuelQueriesMs+=now()-looseStart;stats.burnedSurfaceFuel=metrics.fuel.burned;timing.nativePhases=trial.executionTimings();
   }
   function candidates(p,radius){const result=[],h=p.h??(p.elevation??0)+.1,lo=trial.scene.coords([p.x-radius,h-trial.scene.pitch[1],p.y-radius]),hi=trial.scene.coords([p.x+radius,h+trial.scene.pitch[1],p.y+radius]);for(let z=lo[2];z<=hi[2];z++)for(let y=lo[1];y<=hi[1];y++)for(let x=lo[0];x<=hi[0];x++){const c=trial.scene.cells.get(trial.scene.key([x,y,z]));if(c&&Math.hypot(c.position[0]-p.x,c.position[2]-p.y)<=radius+size*.71)result.push(proxy(c,c.position));}return result;}
   function addLine(a,b,rate,stock){const length=Math.hypot(b.x-a.x,b.y-a.y),amount=Math.min(stock,length*rate);if(amount>EPS){const position=xyz(b,(b.elevation??state.player.elevation??0)+.006),support=trial.scene.index.supportAt(position[0],position[2],position[1]+.02,position[1]-.25);if(!support)return 0;const key=trial.scene.key(trial.scene.coords(position))+'|'+support.surface.id,record=deposits.get(key);if(record){record.amount+=amount;record.position=position;}else deposits.set(key,{position,amount});stats.pouredFuel+=amount;}return amount;}
@@ -148,7 +152,7 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
     if(!residentSpec||actor.hp<=0){actor.moving=false;return;}
     const time=state.clocks.world,anchors=residentSpec.anchors;
     const walk=(position,speed)=>{const dx=position[0]-actor.x,dz=position[2]-actor.y,d=Math.hypot(dx,dz);if(d<.035&&Math.abs(position[1]-actor.elevation)<.25){actor.moving=false;return true;}const amount=Math.min(d,speed*delta),path=move(actor,dx/(d||1)*amount,dz/(d||1)*amount,actor.radius,actor.height),last=path.at(-1),walked=path.slice(1).reduce((n,p,i)=>n+Math.hypot(p.x-path[i].x,p.y-path[i].y),0);actor.moving=walked>EPS;if(actor.moving){actor.x=last.x;actor.y=last.y;actor.elevation=last.elevation;actor.heading=Math.atan2(dz,dx);actor.travelled+=walked;residentState.blocked=null;}else{const block=navs.get(actor.id)?.snapshot().lastBlock;if(block&&residentState.blocked?.id!==block.id){residentState.blocked=block;event('route-blocked',actor,{actorId:actor.id,reason:block.reason,details:block});}}return false;};
-    if(smokeTick!==trial.tick){smokeTick=trial.tick;smokeSignals=ventSmokeSignals(trial,visibility);}const signal=visibleSmoke(trial,actor,visibility,smokeSignals);
+    if(smokeTick!==trial.tick){smokeTick=trial.tick;const before=now();smokeSignals=sampleSmoke();hostWork.smokeSignalsMs+=now()-before;hostWork.smokeSignalCalls++;}const sightStart=now(),signal=visibleSmoke(trial,actor,visibility,smokeSignals);hostWork.smokeSightMs+=now()-sightStart;
     if(signal){residentState.smokeSince??=time;if(time-residentState.smokeSince>=SMOKE_PERCEPTION.sustain&&residentState.state==='routine'){residentState.state='looking';residentState.lookSince=time;event('smoke-noticed',actor,{actorId:actor.id,evidence:signal});}}else residentState.smokeSince=null;
     actor.state=residentState.state;
     if(residentState.state==='routine'){
@@ -165,7 +169,7 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
   return {trial,compiled,def:definition,size,stats,publishedStats,cells:[],shop,at,trace,move,heatTool,cone,emit,step,addLine,candidates,exposure,physicalFrame,impactLantern,retireObstacle,
     reportIgnitions,residentStep,sourceAudit,get revision(){return trial.scene.index.revision;},lineClear(a,b,options={}){const from=xyz(a,a.h??(a.elevation||0)+.9),to=xyz(b,b.h??(b.elevation||0)+.9),ignoreSources=[...(options.ignoreSources||[])];if(options.ignoreObstacleIds)for(const surface of trial.scene.index.surfaces.values())if(options.ignoreObstacleIds.includes(surface.hostObstacleId))ignoreSources.push(surface.sourceSurfaceId);return !visibility.blocked({x:from[0],h:from[1],y:from[2]},{x:to[0],h:to[1],y:to[2]},{...options,ignoreSources});},
     snapshot:raster,tileAt:p=>({x:Math.floor(p.x),y:Math.floor(p.y),width:1,depth:1}),heatIndex(p,radius){const list=candidates(p,radius);return clamp(list.reduce((n,c)=>n+c.heat,0)/(list.length||1)/trial.rules.maxHeat);},
-    diagnostics:()=>{const before=now(),{unresolvedIds,...support}=trial.supportGraph.diagnostics(),value={backend:'catalogue-trial',representation:compiled.representation,nativeTick:trial.tick,nativeWorldTime:trial.worldTime,residual,pendingDepositedFuel:[...deposits.values()].reduce((n,d)=>n+d.amount,0),metrics:trial.metrics(),support,navigation:Object.fromEntries([...navs].map(([id,nav])=>[id,nav.snapshot().lastBlock])),resident:{...residentState},instances,wind:trial.windMetadata,profiles:trial.scene.profile,inputProfiles:{matches:trial.rules.matchEnergy,torch:config.tools.torch.heat,flamethrowerEnergyPerSecond:config.tools.flamethrower.heatPerSecond,lanternPayload:.5,gasPerMetre:config.fuel.gasPerMetre}};timing.diagnosticsMs=now()-before;return {...value,timing:{...timing}};},
+    diagnostics:()=>{const before=now(),{unresolvedIds,...support}=trial.supportGraph.diagnostics(),value={backend:'catalogue-trial',representation:compiled.representation,nativeTick:trial.tick,nativeWorldTime:trial.worldTime,residual,pendingDepositedFuel:[...deposits.values()].reduce((n,d)=>n+d.amount,0),metrics:trial.metrics(),support,navigation:Object.fromEntries([...navs].map(([id,nav])=>[id,nav.snapshot().lastBlock])),resident:{...residentState},instances,wind:trial.windMetadata,profiles:trial.scene.profile,inputProfiles:{matches:trial.rules.matchEnergy,torch:config.tools.torch.heat,flamethrowerEnergyPerSecond:config.tools.flamethrower.heatPerSecond,lanternPayload:.5,gasPerMetre:config.fuel.gasPerMetre}};timing.diagnosticsMs=now()-before;hostWork.diagnosticsMs+=timing.diagnosticsMs;return {...value,timing:{...timing,hostWork:{...hostWork}}};},
     dispose(){if(disposed)return;disposed=true;trial.dispose();navs.clear();owners.clear();deposits.clear();heatReceipts.clear();ignitionReceipts.clear();partTriangles.clear();hostBoundaryUpdates.clear();cachedFrame=null;rasterCache=null;}
   };
 }

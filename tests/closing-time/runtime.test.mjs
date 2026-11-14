@@ -5,7 +5,7 @@ import {createClosingRuntime} from '../../workbenches/bell-and-alder-closing/run
 import {validateClosingData,validateClosingGeometry} from '../../workbenches/bell-and-alder-closing/schema.js';
 import {createTrial} from '../../workbenches/furnished-house/simulation.js';
 import {SHOP_WITNESS_RULES} from '../../src/simulation/shop-witness.js';
-import {visibleSmoke} from '../../workbenches/bell-and-alder-closing/smoke.js';
+import {visibleSmoke,ventSmokeSignals,createVentSmokeSampler} from '../../workbenches/bell-and-alder-closing/smoke.js';
 import {createVisibility} from '../../workbenches/bell-and-alder-closing/visibility.js';
 import {movementVector} from '../../src/simulation/geometry.js';
 import {DEFAULT_CONFIG} from '../../src/simulation/config.js';
@@ -49,4 +49,20 @@ test('smoke requires an actual open vent and a sustained visible signal, indepen
 });
 test('current world vent smoke precedes observation, survives an occluded resident, and clears independently of memory',()=>{
   for(const occluded of [false,true]){const d=fixture({open:true});if(occluded)d.surfaces.push({id:'resident-sight-screen',kind:'wall',level:0,normal:[0,0,1],thickness:.16,material:'masonry',triangles:[[[0,0,5],[8,0,5],[8,4,5]],[[0,0,5],[8,4,5],[0,4,5]]]});const r=createClosingRuntime(d);try{r.command({type:'match',position:[4.2,.015,7.48]});r.step(24);const f=r.frame({full:true});assert.equal(f.closingTime.smokeSignals.length,1);assert.equal(!!f.closingTime.resident.evidence,!occluded);assert.equal(r.snapshot().events.some(e=>e.type==='smoke-noticed'),!occluded);const signals=structuredClone(f.closingTime.smokeSignals);r.command({type:'pause',paused:true});const held=r.frame();assert.deepEqual(held.closingTime.smokeSignals,signals);assert.equal(held.closingTime.events.length,0);r.command({type:'pause',paused:false});r.command({type:'interact',portalId:'bell-and-alder:entry',action:'close'});r.step();const closed=r.frame();assert.equal(closed.closingTime.smokeSignals.length,0);assert.equal(!!closed.closingTime.resident.evidence,!occluded);r.command({type:'reset'});const reset=r.frame({full:true});assert.equal(reset.closingTime.smokeSignals.length,0);assert.equal(reset.closingTime.resident.evidence,null);}finally{r.dispose();}}
+});
+
+test('bound vent portals preserve live doors, retirement and changed membership without retaining smoke',()=>{
+  const trial=createTrial(fixture({open:true})),visibility=createVisibility(trial),sample=createVentSmokeSampler(trial,visibility);
+  const check=()=>{const before=trial.snapshot(),cached=sample();assert.deepEqual(cached,ventSmokeSignals(trial,visibility));assert.deepEqual(trial.snapshot(),before);return cached;};
+  try{
+    assert.equal(check().length,0);trial.command({type:'match',position:[4.2,.015,7.48]});trial.step(24);assert.equal(check().length,1);
+    const vent=trial.scene.data.closingTime.smokeVents[0],ids=[...vent.openingIds],portals=[...trial.scene.index.surfaces.values()].filter(b=>ids.includes(b.openingId));
+    for(const id of ids)trial.command({type:'opening',id,open:false});trial.step();assert.equal(check().length,0);
+    for(const id of ids)trial.command({type:'opening',id,open:true});trial.step();assert.equal(check().length,1);
+    for(const b of portals)trial.scene.index.change(b.id,{intact:false});assert.equal(check().length,1);
+    for(const b of portals)trial.scene.index.change(b.id,{openingId:'detached-opening'});assert.equal(check().length,0);
+    trial.scene.index.put({...portals[0],id:'new-retired-portal',openingId:ids[0]});assert.equal(check().length,1);
+    vent.openingIds=['detached-opening'];assert.equal(check().length,1);
+    trial.scene.data.closingTime.smokeVents[0]={...vent};assert.equal(check().length,1);
+  }finally{trial.dispose();}
 });

@@ -2,7 +2,7 @@
 
 ## Current delivery authorization
 
-Current checkpoint: functional code `ef302525` and live-access art `5deda67f` pass the 392-test and actual-input route/interaction gate, but the final raw browser fire window is 10.32 Hz (300 ms p95). The architect holds publication and assigns one bounded profiling/cache correction while retaining the exact source and failed performance control. See the [combined review](../reviews/2026-11-13-catalogue-modular-demo.md). No later owner authorization is needed once the required gate passes.
+Current candidate: code `4e7e7643` and live-access art `5deda67f` complete the actual input/interaction gate. The bounded bookkeeping cache preserves the entire reference state and reaches 32.973 Hz during the representative growing fire, with no dropped time. The old `ef302525` / 10.32 Hz result remains a failed control. Architect primary-checkout acceptance passes all 396 tests, the exact matching release package and an independent normal browser visit (36.110 Hz growing fire, no dropped time). Promotion is approved; deployment/live verification are recorded in the [combined review](../reviews/2026-11-13-catalogue-modular-demo.md). No later owner authorization is needed.
 
 The owner now explicitly instructs the coder and artist to finish the remaining connections, test the larger map, and publish the demo on Pages **once it passes**. This supersedes earlier statements that Pages needs a later owner authorization; the architect should complete review, promotion and live verification without asking again. It does not waive failed relevant checks or turn deferred results into passes.
 

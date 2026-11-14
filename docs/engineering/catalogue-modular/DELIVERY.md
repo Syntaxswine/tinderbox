@@ -1,5 +1,7 @@
 # Catalogue Street functional checkpoint — performance blocked
 
+This record preserves local baseline `ef302525`. The subsequent bounded correction and current candidate are documented in [CACHE-CORRECTION.md](CACHE-CORRECTION.md); the failed measurements below retain their original status.
+
 This candidate attaches the furnished Hopkins 15 and Bell & Alder shop/lodging to their original lots in the 51 × 47 m Catalogue Street. It retains the eight house identities, joined Monroe row, grass/street, original actors, pickups, barrels, tools and existing HUD. It does not replace the larger map with the two-address fixture. The seven other houses remain exterior-only.
 
 Use the ordinary title and Catalogue destination with `?catalogue=modules`. The host still owns the player, inventory, input, NPCs, clocks and animation loop. One attached native 30 Hz trial owns heat, fuel, support, openings, exposure and physical retirement; the legacy scalar and housing fire solvers do not also run. The manifest, qualified IDs, source geometry and rigid placement form the reusable boundary. [API and input profiles](API.md) describe it.
