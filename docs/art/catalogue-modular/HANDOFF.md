@@ -1,5 +1,7 @@
 # Catalogue Street artist handoff
 
+This handoff preserves the `2db04797` control. The additive live Hopkins 15 correction is recorded separately in [H15 access variant](h15-access-125.md), with its own hashes, focused checks and one new host JPG. Older evidence below retains its original inputs.
+
 Artist branch: `codex/catalogue-modular-art`, existing art worktree. The final candidate SHA is reported with the delivery. Include measured route commit `28ac3dfacf8e4997834b02919daccab0dfb5a857` if intake already contains only artist `5b957764` (coder `41a260e9`). No integration branch or Pages promotion is performed by the artist.
 
 ## Result

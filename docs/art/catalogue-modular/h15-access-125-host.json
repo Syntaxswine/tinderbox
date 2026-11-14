@@ -1,0 +1,4622 @@
+{
+  "version": 1,
+  "scope": "One focused visit in the actual full Catalogue host, ordinary DOM HUD and CDP native joystick/Open input. Fixed-step stepping drives actual accepted gameplay and rendering; no pawn teleport, forced thermal state, second game, performance or fire-library claim.",
+  "variant": "catalogue-h15-access-125-v1",
+  "control": {
+    "commit": "2db04797846c9f14e47259ae6d5282932421b4b8",
+    "path": "workbenches/catalogue-modular/house-data.json",
+    "sha256": "124d10f7fee9a5b03193aff61ecee9375bef623b8de0cba363ac49c00c64f546"
+  },
+  "runtimeInputs": {
+    "version": 1,
+    "scope": "Focused live H15 access-variant host preview; read-only frozen coder working inputs. Earlier phone/fire/cache inputs are separate unchanged controls.",
+    "sourceBranch": "codex/catalogue-modular-runtime",
+    "sourceCommit": "5784a604bec52f59a2ed9e816ebf5c316336dddd",
+    "workingFiles": true,
+    "capturedAt": "2026-11-14T03:45:09.598Z",
+    "files": [
+      {
+        "path": "src/art/index.js",
+        "bytes": 15265,
+        "sha256": "c714cca0fd43e37e7dae463bef34a730934043f578f4533a402bac048f656e10"
+      },
+      {
+        "path": "src/content/catalogue-modules.js",
+        "bytes": 5981,
+        "sha256": "fb5bcfecf4cb8bee8fbb741f8f192a3c3a06e35f9b2ceb4a997eeee565c7a11e"
+      },
+      {
+        "path": "src/content/catalogue-native-exteriors.js",
+        "bytes": 10666,
+        "sha256": "760209e7de335a1f1e1b3270103b770ec84568f5a9bb1d731a6ad08eb28b2889"
+      },
+      {
+        "path": "src/content/catalogue-native-structure.js",
+        "bytes": 13302,
+        "sha256": "87f7f0239dd7c31dd428b25c58a55aeecf8f1de9f9f3aced4c0512f2f0579878"
+      },
+      {
+        "path": "src/main.js",
+        "bytes": 7208,
+        "sha256": "4426e18d4332847f09c4543073412a53a978426e6e56c3a0ea911d0dd05aadf0"
+      },
+      {
+        "path": "src/runtime/catalogue-modules.js",
+        "bytes": 1708,
+        "sha256": "8bdae3844ce5470da028915590ca34f4b67d8ad9d45e42f3a59b531fac9ddb7d"
+      },
+      {
+        "path": "src/runtime/index.js",
+        "bytes": 8248,
+        "sha256": "efb2a588b54a6bfc985dd5eed28640e6076f458ce7680fbd12f2f4ec78749693"
+      },
+      {
+        "path": "src/simulation/catalogue-thermal.js",
+        "bytes": 29505,
+        "sha256": "92651454b8c7497ec5a2f378571e2920c7f16aebc43f5308be707d4c2ade564e"
+      },
+      {
+        "path": "src/simulation/discharge.js",
+        "bytes": 6569,
+        "sha256": "7aa33cdd36e09b89dceddc64ace2c041855b00ef2d47a0f05948aaf0d101dc92"
+      },
+      {
+        "path": "src/simulation/index.js",
+        "bytes": 29539,
+        "sha256": "23257c0b865604b99839f68af8234200e463478a6609585c21205dfb4bea316b"
+      },
+      {
+        "path": "src/simulation/lantern.js",
+        "bytes": 6662,
+        "sha256": "baaea757fae954ccdc38760591a42a9182f67732a6b259ebdeb2d717d98cf853"
+      },
+      {
+        "path": "src/simulation/shop-witness.js",
+        "bytes": 9102,
+        "sha256": "38e476ac7d69bad0d03a9b803c9f9f69da9489536baa4ea04227b41a9a1ce727"
+      },
+      {
+        "path": "src/simulation/tools.js",
+        "bytes": 11502,
+        "sha256": "73fa6ed4a82efd7bbe6cb9710504af1983d32e0bf9dc1389082de0412ebb25e6"
+      },
+      {
+        "path": "workbenches/bell-and-alder-closing/visibility.js",
+        "bytes": 1704,
+        "sha256": "25431aa7019ab7a762962cf5fe6a0daafb1e1f677d543326c1901a76f62d929e"
+      },
+      {
+        "path": "workbenches/bell-and-alder-sandbox/compose.js",
+        "bytes": 11491,
+        "sha256": "edf6ae2dc19d2d60d161542e5ac1295907687d667528e94d8a141917d46c9e43"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "bytes": 11273,
+        "sha256": "be34aa1cd5b05f69262350b3f75b696ca3a13893ba947e618efd7c9785baeeba"
+      },
+      {
+        "path": "workbenches/furnished-house/navigation.js",
+        "bytes": 6044,
+        "sha256": "28e8d423189813b9605c249029138ae50b75917151e1c74d08a507c4753f9295"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "bytes": 10258,
+        "sha256": "830e4a5b8f4d76f53ef6e8145ad803f53ad63504b655824e56b40b6a382f2f8c"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "bytes": 46866,
+        "sha256": "20b17c21762cbfd432e3223cb0c79cfb7fb29c652e7fac6aa4edef32e727f482"
+      },
+      {
+        "path": "workbenches/furnished-house/support.js",
+        "bytes": 7748,
+        "sha256": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+      }
+    ]
+  },
+  "artistInputs": {
+    "art/source/catalogue-modular/h15-access-variant.mjs": "f83b95482ab3193fc6e748d9e637e781509fa1d557a07758fe86f58b2f6e532b",
+    "art/source/catalogue-modular/capture-h15-access.mjs": "3578ee4f886f402582b374587d66b851ebf98d39291ced3bbf7c6240174d112c",
+    "art/source/catalogue-modular/review.js": "031518bc3346fbcc2fcfe32d393215dc43088465b2d39d451402b6c848a408c1",
+    "art/source/catalogue-modular/thermal-art.js": "2eaa4bba11767fb2d42180b8b21b880d1cf6481cd177dfd0143351b9c4385ae7",
+    "art/source/catalogue-modular/frame-view.js": "5e2843ccdffadac1bcab975f0817ca5fedbd34ada82725b066af3569c9abe901",
+    "workbenches/catalogue-modular/art.js": "651f2cf529acc7d505843ca941b06dc0130d7333184de850ba0d957e87d1312b",
+    "workbenches/catalogue-modular/scene-data.json": "75bc8a85553343b1ad11af44969e7cb2f8f115a8198020fecb81d86703e38eba",
+    "workbenches/catalogue-modular/shop-data.json": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5",
+    "workbenches/catalogue-modular/house-data.json": "965abd52ee8c06d77a96187c61568ba5325ff44cbab6515eca5f1422c359611b"
+  },
+  "initial": {
+    "viewport": [
+      1600,
+      1070
+    ],
+    "inputReceipts": [],
+    "player": {
+      "id": "hero",
+      "x": 20,
+      "y": 18,
+      "elevation": 0,
+      "heading": 0,
+      "tool": "jerry-can",
+      "usingTool": false,
+      "pouring": false,
+      "inventory": {
+        "matches": 12,
+        "gas": 4,
+        "molotovs": 4,
+        "torchFuel": 5,
+        "flamethrowerFuel": 6,
+        "powder": 4,
+        "healing": 3,
+        "inversion": 3
+      }
+    },
+    "actors": [
+      {
+        "id": "neighbor-horse",
+        "x": 7,
+        "y": 17,
+        "hp": 100
+      },
+      {
+        "id": "neighbor-goat",
+        "x": 29,
+        "y": 24.5,
+        "hp": 100
+      },
+      {
+        "id": "chicago-beat-officer",
+        "x": 37.6,
+        "y": 19,
+        "hp": 100
+      },
+      {
+        "id": "bell-and-alder:resident",
+        "x": 38.5,
+        "y": 11.4,
+        "elevation": 0,
+        "hp": 100
+      }
+    ],
+    "tick": 0,
+    "clocks": {
+      "active": 0,
+      "player": 0,
+      "world": 0,
+      "playerScale": 1,
+      "worldScale": 1
+    },
+    "paused": false,
+    "witness": {
+      "actorId": "chicago-beat-officer",
+      "memory": null,
+      "reaction": {
+        "kind": "relaxed",
+        "worldTime": 0
+      },
+      "aim": null,
+      "shot": null
+    },
+    "events": [],
+    "camera": {
+      "target": [
+        20,
+        0,
+        18
+      ],
+      "span": 12.600000000000001,
+      "zoom": 1,
+      "mode": "follow",
+      "followPlayer": true
+    },
+    "art": {
+      "occludingBuildingIds": [],
+      "tools": {
+        "projectiles": 0,
+        "geometries": 2,
+        "materials": 0,
+        "textures": 0,
+        "objects": 0
+      },
+      "bear": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [
+          "jerry-can"
+        ],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "jerry-can",
+        "visibleTool": "jerry-can",
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            20.22,
+            1,
+            18.3
+          ],
+          "support": [
+            20.113000000000003,
+            0.732,
+            17.645000000000003
+          ],
+          "muzzle": [
+            20.45,
+            0.84,
+            18.3
+          ],
+          "spout": [
+            20.45,
+            0.84,
+            18.3
+          ],
+          "backpack": [
+            19.975,
+            1.08,
+            18
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 20,
+          "y": 18,
+          "heading": 0,
+          "travelled": 0
+        },
+        "playerTime": 0,
+        "poseEvaluations": 2,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              20.22,
+              1,
+              18.3
+            ],
+            "palm": [
+              20.220000000000002,
+              0.9999999999999999,
+              18.3
+            ],
+            "error": 3.554447978966673e-15
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 12,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      },
+      "fire": {
+        "flameCards": 0,
+        "actorFlameCards": 0,
+        "rubbleFlameCards": 0,
+        "rubbleSmokeCards": 0,
+        "smokeCards": 0,
+        "burstCards": 0,
+        "discharge": {
+          "active": false,
+          "rayCount": 0,
+          "connectRays": false,
+          "triangles": 0,
+          "plumeCards": 0,
+          "capped": false,
+          "muzzleInsideShape": false,
+          "visualForwardStart": 0,
+          "geometryBuilds": 0,
+          "worldTime": 0,
+          "geometries": 2,
+          "materials": 2,
+          "textures": 1,
+          "objects": 0
+        },
+        "carriedTorch": {
+          "active": false,
+          "phase": "unlit",
+          "worldTime": 0,
+          "frame": 0,
+          "remainingSeconds": 41.66666666666667,
+          "anchor": null,
+          "light": {
+            "intensity": 0,
+            "reach": 3.8,
+            "castsShadow": true,
+            "source": null,
+            "pullback": 0
+          },
+          "resources": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 1
+          },
+          "presentationOnly": true
+        },
+        "eventCount": 0,
+        "trackedCells": 9588,
+        "seenEvents": 0,
+        "capped": false,
+        "worldTime": 0,
+        "geometries": 3,
+        "materials": 3,
+        "textures": 0,
+        "objects": 0
+      },
+      "witness": null,
+      "instances": [
+        {
+          "id": "bell-and-alder",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-fifteen",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-twelve",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "ashland-cottage",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-nine",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-thirteen",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-house",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-middle",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-east",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        }
+      ],
+      "resources": {
+        "meshes": 262,
+        "uniqueGeometries": 262,
+        "materials": 147,
+        "textures": 44,
+        "sourceTriangles": 475868
+      }
+    },
+    "errors": [],
+    "profile": {
+      "characterId": "goat",
+      "radius": 0.5,
+      "height": 1.66
+    },
+    "interaction": null,
+    "diagnostics": {
+      "scenario": "neighborhood",
+      "seed": 1893,
+      "generation": 0,
+      "alpha": 0,
+      "lastSteps": 0,
+      "droppedRealSeconds": 0,
+      "acceptedPath": [
+        {
+          "x": 20,
+          "y": 18
+        }
+      ],
+      "fuel": {
+        "pouredFuel": 0,
+        "fixtureFuel": 0,
+        "molotovFuel": 0,
+        "burnedDepositedFuel": 0,
+        "burnedSurfaceFuel": 0,
+        "remainingDepositedFuel": 0
+      },
+      "localHeatIndex": 0,
+      "thermal": {
+        "backend": "catalogue-trial",
+        "representation": "structure",
+        "nativeTick": 0,
+        "nativeWorldTime": 0,
+        "residual": 0,
+        "pendingDepositedFuel": 0,
+        "metrics": {
+          "tick": 0,
+          "worldTime": 0,
+          "fuel": {
+            "initial": 6263.856455042009,
+            "added": 0,
+            "burned": 0,
+            "escaped": 0,
+            "remaining": 6263.856455042009,
+            "airborne": 0,
+            "error": 0
+          },
+          "heat": {
+            "generated": 0,
+            "input": 0,
+            "ambient": 0,
+            "blocked": 0,
+            "cap": 0,
+            "escaped": 0,
+            "stored": 0,
+            "radiationInTransit": 0,
+            "error": 0,
+            "relativeError": 0
+          },
+          "burningCount": 0,
+          "burningArea": 0,
+          "combustibleArea": 8581.13670427177,
+          "burningAreaFraction": 0,
+          "burnedFraction": 0,
+          "activeCells": 0,
+          "fallingCount": 0,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 0,
+            "cellVisits": 0,
+            "burnVisits": 0,
+            "linkBuilds": 0,
+            "rayBuilds": 0,
+            "rayTests": 0,
+            "invalidations": 0,
+            "ignitions": 0,
+            "failures": 0,
+            "landings": 0,
+            "peakActive": 0,
+            "maxBurnsPerFuelPerTick": 0
+          }
+        },
+        "support": {
+          "nodes": 45795,
+          "contactPairs": 134363,
+          "declaredPairs": 211616,
+          "anchors": 2216,
+          "groundedInert": 4473,
+          "unrootedInert": 2214,
+          "initiallySupported": 41463,
+          "unresolvedInitial": 4332,
+          "checks": 0,
+          "stairFlights": [
+            {
+              "id": "bell-and-alder::external-service-stair",
+              "instanceId": "bell-and-alder",
+              "inferredStringer": true,
+              "steps": [
+                "bell-and-alder::stair/tread-01",
+                "bell-and-alder::stair/tread-02",
+                "bell-and-alder::stair/tread-03",
+                "bell-and-alder::stair/tread-04",
+                "bell-and-alder::stair/tread-05",
+                "bell-and-alder::stair/tread-06",
+                "bell-and-alder::stair/tread-07",
+                "bell-and-alder::stair/tread-08",
+                "bell-and-alder::stair/tread-09",
+                "bell-and-alder::stair/tread-10",
+                "bell-and-alder::stair/tread-11",
+                "bell-and-alder::stair/tread-12"
+              ],
+              "lower": [
+                "bell-and-alder::stair/base/9,10@92,0,8",
+                "bell-and-alder::stair/base/9,10@93,0,8",
+                "bell-and-alder::stair/base/9,10@92,0,9",
+                "bell-and-alder::stair/base/9,10@93,0,9",
+                "bell-and-alder::stair/base/10,10@90,0,8",
+                "bell-and-alder::stair/base/10,10@91,0,8",
+                "bell-and-alder::stair/base/10,10@90,0,9",
+                "bell-and-alder::stair/base/10,10@91,0,9"
+              ],
+              "upper": [
+                "bell-and-alder::landing/9,2@90,2,22",
+                "bell-and-alder::landing/9,2@91,2,22",
+                "bell-and-alder::landing/9,2@90,2,23",
+                "bell-and-alder::landing/9,2@91,2,23",
+                "bell-and-alder::landing/10,2@92,2,22",
+                "bell-and-alder::landing/10,2@93,2,22",
+                "bell-and-alder::landing/10,2@92,2,23",
+                "bell-and-alder::landing/10,2@93,2,23"
+              ],
+              "requiresBothLandings": true
+            },
+            {
+              "id": "hopkins-fifteen::interior-stair",
+              "instanceId": "hopkins-fifteen",
+              "inferredStringer": true,
+              "steps": [
+                "hopkins-fifteen::stair/340",
+                "hopkins-fifteen::stair/341",
+                "hopkins-fifteen::stair/342",
+                "hopkins-fifteen::stair/343",
+                "hopkins-fifteen::stair/344",
+                "hopkins-fifteen::stair/345",
+                "hopkins-fifteen::stair/346",
+                "hopkins-fifteen::stair/347",
+                "hopkins-fifteen::stair/348",
+                "hopkins-fifteen::stair/349",
+                "hopkins-fifteen::stair/350",
+                "hopkins-fifteen::stair/351"
+              ],
+              "lower": [
+                "hopkins-fifteen::floor/l0/9,7",
+                "hopkins-fifteen::floor/l0/10,7",
+                "hopkins-fifteen::floor/l0/11,7"
+              ],
+              "upper": [
+                "hopkins-fifteen::floor/l1/12,13",
+                "hopkins-fifteen::floor/l1/9,13"
+              ],
+              "requiresBothLandings": true
+            }
+          ]
+        },
+        "navigation": {},
+        "resident": {
+          "state": "routine",
+          "routeIndex": 0,
+          "holdUntil": null,
+          "smokeSince": null,
+          "lookSince": null,
+          "exitIndex": 0,
+          "blocked": null
+        },
+        "instances": [
+          "bell-and-alder",
+          "hopkins-fifteen",
+          "hopkins-twelve",
+          "ashland-cottage",
+          "hopkins-nine",
+          "hopkins-thirteen",
+          "monroe-row-house",
+          "monroe-row-middle",
+          "monroe-row-east",
+          "terrain",
+          "street-props"
+        ],
+        "wind": {
+          "kind": "ambient-control",
+          "speed": 1.5,
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "obstacleResolved": false
+        },
+        "profiles": {
+          "grass": {
+            "threshold": 0.85,
+            "delay": 0.18,
+            "seconds": 3,
+            "energy": 110
+          },
+          "oil": {
+            "threshold": 0.6,
+            "delay": 0,
+            "seconds": 14,
+            "energy": 800
+          },
+          "clapboard": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 3420
+          },
+          "partition": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 2200
+          },
+          "door": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 60,
+            "energy": 1000
+          },
+          "roof": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 1980
+          },
+          "frame": {
+            "threshold": 1.3,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 2250
+          },
+          "furniture": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 60,
+            "energy": 1200
+          },
+          "cloth": {
+            "threshold": 0.8,
+            "delay": 0.5,
+            "seconds": 20,
+            "energy": 600
+          },
+          "lacquer": {
+            "threshold": 0.5,
+            "delay": 0,
+            "seconds": 4,
+            "energy": 120
+          },
+          "coal": {
+            "threshold": 1.6,
+            "delay": 15,
+            "seconds": 300,
+            "energy": 1800
+          },
+          "embers": {
+            "threshold": 0.7,
+            "delay": 0,
+            "seconds": 8,
+            "energy": 500
+          }
+        },
+        "inputProfiles": {
+          "matches": 1.05,
+          "torch": 1.8,
+          "flamethrowerEnergyPerSecond": 12,
+          "lanternPayload": 0.5,
+          "gasPerMetre": 0.08
+        },
+        "timing": {
+          "nativeSteps": 0,
+          "nativeSimulationMs": 0,
+          "physicalPublicationMs": 174.80000019073486,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 0
+        }
+      },
+      "burningCells": 0,
+      "frontX": 0
+    }
+  },
+  "beforeOpen": {
+    "viewport": [
+      1600,
+      1070
+    ],
+    "inputReceipts": [
+      {
+        "type": "move",
+        "x": -0.0018408983645537553,
+        "y": 0.9999983055451701
+      },
+      {
+        "type": "move",
+        "x": -0.0007963009632616488,
+        "y": 0.4296875
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.6401842920756404,
+        "y": 0.7682213692547294
+      },
+      {
+        "type": "move",
+        "x": 0.42678997080813175,
+        "y": 0.5121473086777554
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.6401842920756404,
+        "y": 0.7682213692547294
+      },
+      {
+        "type": "move",
+        "x": 0.5975057403673836,
+        "y": 0.7170066696768593
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.6401842920756404,
+        "y": 0.7682213692547294
+      },
+      {
+        "type": "move",
+        "x": 0.5975057403673836,
+        "y": 0.7170066696768593
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.6401842920756404,
+        "y": 0.7682213692547294
+      },
+      {
+        "type": "move",
+        "x": 0.08535843168962814,
+        "y": 0.10242858667954749
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "player": {
+      "id": "hero",
+      "x": 18.99624997223698,
+      "y": 13.999999964320871,
+      "elevation": 0.48,
+      "heading": -1.5707889741858234,
+      "tool": "jerry-can",
+      "usingTool": false,
+      "pouring": false,
+      "inventory": {
+        "matches": 12,
+        "gas": 4,
+        "molotovs": 4,
+        "torchFuel": 5,
+        "flamethrowerFuel": 6,
+        "powder": 4,
+        "healing": 3,
+        "inversion": 3
+      }
+    },
+    "actors": [
+      {
+        "id": "neighbor-horse",
+        "x": 7.480000000000011,
+        "y": 17,
+        "elevation": 0,
+        "hp": 100
+      },
+      {
+        "id": "neighbor-goat",
+        "x": 28.520000000000053,
+        "y": 24.5,
+        "elevation": 0,
+        "hp": 100
+      },
+      {
+        "id": "chicago-beat-officer",
+        "x": 38.08000000000008,
+        "y": 19,
+        "elevation": 0,
+        "hp": 100
+      },
+      {
+        "id": "bell-and-alder:resident",
+        "x": 38.5,
+        "y": 11.4,
+        "elevation": 0,
+        "hp": 100,
+        "state": "routine"
+      }
+    ],
+    "tick": 36,
+    "clocks": {
+      "active": 0.6000000000000002,
+      "player": 0.6000000000000002,
+      "world": 0.6000000000000002,
+      "playerScale": 1,
+      "worldScale": 1
+    },
+    "paused": false,
+    "witness": {
+      "actorId": "chicago-beat-officer",
+      "memory": null,
+      "reaction": {
+        "kind": "relaxed",
+        "worldTime": 0
+      },
+      "aim": null,
+      "shot": null
+    },
+    "events": [],
+    "camera": {
+      "target": [
+        18.99624997223698,
+        0.48,
+        13.999999964320871
+      ],
+      "span": 12.600000000000001,
+      "zoom": 1,
+      "mode": "follow",
+      "followPlayer": true
+    },
+    "art": {
+      "occludingBuildingIds": [],
+      "tools": {
+        "projectiles": 0,
+        "geometries": 2,
+        "materials": 0,
+        "textures": 0,
+        "objects": 0
+      },
+      "bear": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [
+          "jerry-can"
+        ],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "jerry-can",
+        "visibleTool": "jerry-can",
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            19.296251589802868,
+            1.48,
+            13.78000217010954
+          ],
+          "support": [
+            18.641250803091403,
+            1.212,
+            13.886997354147704
+          ],
+          "muzzle": [
+            19.296253280902956,
+            1.32,
+            13.550002170115757
+          ],
+          "spout": [
+            19.296253280902956,
+            1.32,
+            13.550002170115757
+          ],
+          "backpack": [
+            18.996249788421753,
+            1.56,
+            14.024999964320195
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 18.99624997223698,
+          "y": 13.999999964320871,
+          "heading": -1.5707889741858234,
+          "travelled": 4.364453280914464
+        },
+        "playerTime": 0.6000000000000002,
+        "poseEvaluations": 38,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              19.296251589802868,
+              1.48,
+              13.78000217010954
+            ],
+            "palm": [
+              19.296251589802868,
+              1.48,
+              13.780002170109539
+            ],
+            "error": 1.7763568394002505e-15
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 12,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      },
+      "fire": {
+        "flameCards": 0,
+        "actorFlameCards": 0,
+        "rubbleFlameCards": 0,
+        "rubbleSmokeCards": 0,
+        "smokeCards": 0,
+        "burstCards": 0,
+        "discharge": {
+          "active": false,
+          "rayCount": 0,
+          "connectRays": false,
+          "triangles": 0,
+          "plumeCards": 0,
+          "capped": false,
+          "muzzleInsideShape": false,
+          "visualForwardStart": 0,
+          "geometryBuilds": 0,
+          "worldTime": 0.6000000000000002,
+          "geometries": 2,
+          "materials": 2,
+          "textures": 1,
+          "objects": 0
+        },
+        "carriedTorch": {
+          "active": false,
+          "phase": "unlit",
+          "worldTime": 0.6000000000000002,
+          "frame": 2,
+          "remainingSeconds": 41.66666666666667,
+          "anchor": null,
+          "light": {
+            "intensity": 0,
+            "reach": 3.8,
+            "castsShadow": true,
+            "source": null,
+            "pullback": 0
+          },
+          "resources": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 1
+          },
+          "presentationOnly": true
+        },
+        "eventCount": 0,
+        "trackedCells": 9588,
+        "seenEvents": 0,
+        "capped": false,
+        "worldTime": 0.6000000000000002,
+        "geometries": 3,
+        "materials": 3,
+        "textures": 0,
+        "objects": 0
+      },
+      "witness": null,
+      "instances": [
+        {
+          "id": "bell-and-alder",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-fifteen",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-twelve",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "ashland-cottage",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-nine",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-thirteen",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-house",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-middle",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-east",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        }
+      ],
+      "resources": {
+        "meshes": 262,
+        "uniqueGeometries": 262,
+        "materials": 147,
+        "textures": 44,
+        "sourceTriangles": 475868
+      }
+    },
+    "errors": [],
+    "profile": {
+      "characterId": "goat",
+      "radius": 0.5,
+      "height": 1.66
+    },
+    "interaction": {
+      "id": "hopkins-fifteen::opening/l0/5-0-6-0",
+      "kind": "door",
+      "action": "open",
+      "label": "Open House door",
+      "enabled": true,
+      "reason": "",
+      "anchor": [
+        19,
+        2.48,
+        13.149999999999999
+      ]
+    },
+    "diagnostics": {
+      "scenario": "neighborhood",
+      "seed": 1893,
+      "generation": 0,
+      "alpha": 0,
+      "lastSteps": 1,
+      "droppedRealSeconds": 0,
+      "acceptedPath": [
+        {
+          "x": 18.99624997223698,
+          "y": 13.999999964320871,
+          "elevation": 0.48,
+          "ownerInstanceId": "hopkins-fifteen",
+          "surfaceId": "hopkins-fifteen::porch/724@37,0,27"
+        }
+      ],
+      "fuel": {
+        "pouredFuel": 0,
+        "fixtureFuel": 0,
+        "molotovFuel": 0,
+        "burnedDepositedFuel": 0,
+        "burnedSurfaceFuel": 0,
+        "remainingDepositedFuel": 0
+      },
+      "localHeatIndex": 0,
+      "thermal": {
+        "backend": "catalogue-trial",
+        "representation": "structure",
+        "nativeTick": 18,
+        "nativeWorldTime": 0.6,
+        "residual": 0,
+        "pendingDepositedFuel": 0,
+        "metrics": {
+          "tick": 18,
+          "worldTime": 0.6,
+          "fuel": {
+            "initial": 6263.856455042009,
+            "added": 0,
+            "burned": 0,
+            "escaped": 0,
+            "remaining": 6263.856455042009,
+            "airborne": 0,
+            "error": 0
+          },
+          "heat": {
+            "generated": 0,
+            "input": 0,
+            "ambient": 0,
+            "blocked": 0,
+            "cap": 0,
+            "escaped": 0,
+            "stored": 0,
+            "radiationInTransit": 0,
+            "error": 0,
+            "relativeError": 0
+          },
+          "burningCount": 0,
+          "burningArea": 0,
+          "combustibleArea": 8581.13670427177,
+          "burningAreaFraction": 0,
+          "burnedFraction": 0,
+          "activeCells": 0,
+          "fallingCount": 0,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 18,
+            "cellVisits": 0,
+            "burnVisits": 953928,
+            "linkBuilds": 0,
+            "rayBuilds": 0,
+            "rayTests": 0,
+            "invalidations": 0,
+            "ignitions": 0,
+            "failures": 0,
+            "landings": 0,
+            "peakActive": 0,
+            "maxBurnsPerFuelPerTick": 0
+          }
+        },
+        "support": {
+          "nodes": 45795,
+          "contactPairs": 134363,
+          "declaredPairs": 211616,
+          "anchors": 2216,
+          "groundedInert": 4473,
+          "unrootedInert": 2214,
+          "initiallySupported": 41463,
+          "unresolvedInitial": 4332,
+          "checks": 0,
+          "stairFlights": [
+            {
+              "id": "bell-and-alder::external-service-stair",
+              "instanceId": "bell-and-alder",
+              "inferredStringer": true,
+              "steps": [
+                "bell-and-alder::stair/tread-01",
+                "bell-and-alder::stair/tread-02",
+                "bell-and-alder::stair/tread-03",
+                "bell-and-alder::stair/tread-04",
+                "bell-and-alder::stair/tread-05",
+                "bell-and-alder::stair/tread-06",
+                "bell-and-alder::stair/tread-07",
+                "bell-and-alder::stair/tread-08",
+                "bell-and-alder::stair/tread-09",
+                "bell-and-alder::stair/tread-10",
+                "bell-and-alder::stair/tread-11",
+                "bell-and-alder::stair/tread-12"
+              ],
+              "lower": [
+                "bell-and-alder::stair/base/9,10@92,0,8",
+                "bell-and-alder::stair/base/9,10@93,0,8",
+                "bell-and-alder::stair/base/9,10@92,0,9",
+                "bell-and-alder::stair/base/9,10@93,0,9",
+                "bell-and-alder::stair/base/10,10@90,0,8",
+                "bell-and-alder::stair/base/10,10@91,0,8",
+                "bell-and-alder::stair/base/10,10@90,0,9",
+                "bell-and-alder::stair/base/10,10@91,0,9"
+              ],
+              "upper": [
+                "bell-and-alder::landing/9,2@90,2,22",
+                "bell-and-alder::landing/9,2@91,2,22",
+                "bell-and-alder::landing/9,2@90,2,23",
+                "bell-and-alder::landing/9,2@91,2,23",
+                "bell-and-alder::landing/10,2@92,2,22",
+                "bell-and-alder::landing/10,2@93,2,22",
+                "bell-and-alder::landing/10,2@92,2,23",
+                "bell-and-alder::landing/10,2@93,2,23"
+              ],
+              "requiresBothLandings": true
+            },
+            {
+              "id": "hopkins-fifteen::interior-stair",
+              "instanceId": "hopkins-fifteen",
+              "inferredStringer": true,
+              "steps": [
+                "hopkins-fifteen::stair/340",
+                "hopkins-fifteen::stair/341",
+                "hopkins-fifteen::stair/342",
+                "hopkins-fifteen::stair/343",
+                "hopkins-fifteen::stair/344",
+                "hopkins-fifteen::stair/345",
+                "hopkins-fifteen::stair/346",
+                "hopkins-fifteen::stair/347",
+                "hopkins-fifteen::stair/348",
+                "hopkins-fifteen::stair/349",
+                "hopkins-fifteen::stair/350",
+                "hopkins-fifteen::stair/351"
+              ],
+              "lower": [
+                "hopkins-fifteen::floor/l0/9,7",
+                "hopkins-fifteen::floor/l0/10,7",
+                "hopkins-fifteen::floor/l0/11,7"
+              ],
+              "upper": [
+                "hopkins-fifteen::floor/l1/12,13",
+                "hopkins-fifteen::floor/l1/9,13"
+              ],
+              "requiresBothLandings": true
+            }
+          ]
+        },
+        "navigation": {
+          "hero": null,
+          "neighbor-horse": null,
+          "neighbor-goat": null,
+          "chicago-beat-officer": null
+        },
+        "resident": {
+          "state": "routine",
+          "routeIndex": 0,
+          "holdUntil": 8.016666666666667,
+          "smokeSince": null,
+          "lookSince": null,
+          "exitIndex": 0,
+          "blocked": null
+        },
+        "instances": [
+          "bell-and-alder",
+          "hopkins-fifteen",
+          "hopkins-twelve",
+          "ashland-cottage",
+          "hopkins-nine",
+          "hopkins-thirteen",
+          "monroe-row-house",
+          "monroe-row-middle",
+          "monroe-row-east",
+          "terrain",
+          "street-props"
+        ],
+        "wind": {
+          "kind": "ambient-control",
+          "speed": 1.5,
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "obstacleResolved": false
+        },
+        "profiles": {
+          "grass": {
+            "threshold": 0.85,
+            "delay": 0.18,
+            "seconds": 3,
+            "energy": 110
+          },
+          "oil": {
+            "threshold": 0.6,
+            "delay": 0,
+            "seconds": 14,
+            "energy": 800
+          },
+          "clapboard": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 3420
+          },
+          "partition": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 2200
+          },
+          "door": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 60,
+            "energy": 1000
+          },
+          "roof": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 1980
+          },
+          "frame": {
+            "threshold": 1.3,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 2250
+          },
+          "furniture": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 60,
+            "energy": 1200
+          },
+          "cloth": {
+            "threshold": 0.8,
+            "delay": 0.5,
+            "seconds": 20,
+            "energy": 600
+          },
+          "lacquer": {
+            "threshold": 0.5,
+            "delay": 0,
+            "seconds": 4,
+            "energy": 120
+          },
+          "coal": {
+            "threshold": 1.6,
+            "delay": 15,
+            "seconds": 300,
+            "energy": 1800
+          },
+          "embers": {
+            "threshold": 0.7,
+            "delay": 0,
+            "seconds": 8,
+            "energy": 500
+          }
+        },
+        "inputProfiles": {
+          "matches": 1.05,
+          "torch": 1.8,
+          "flamethrowerEnergyPerSecond": 12,
+          "lanternPayload": 0.5,
+          "gasPerMetre": 0.08
+        },
+        "timing": {
+          "nativeSteps": 1,
+          "nativeSimulationMs": 6.599999904632568,
+          "physicalPublicationMs": 0.10000038146972656,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 0.09999990463256836,
+          "nativePhases": {
+            "commandsAndFallsMs": 0,
+            "burnRegistryMs": 3.8999996185302734,
+            "transportMs": 0,
+            "preheatMs": 0,
+            "coolingMs": 0,
+            "boundaryAndSupportMs": 0,
+            "itemsMs": 2.700000286102295
+          }
+        }
+      },
+      "burningCells": 0,
+      "frontX": 0
+    }
+  },
+  "route": [
+    {
+      "target": [
+        18.99625,
+        0,
+        16.8
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.996250056266454,
+        "y": 16.8000000095565,
+        "elevation": 0
+      },
+      "observations": [
+        {
+          "x": 20,
+          "y": 18,
+          "elevation": 0
+        },
+        {
+          "x": 19.903760370170282,
+          "y": 17.884943780479993,
+          "elevation": 0
+        },
+        {
+          "x": 19.807520740340564,
+          "y": 17.769887560959987,
+          "elevation": 0
+        },
+        {
+          "x": 19.711281110510846,
+          "y": 17.65483134143998,
+          "elevation": 0
+        },
+        {
+          "x": 19.61504148068113,
+          "y": 17.539775121919973,
+          "elevation": 0
+        },
+        {
+          "x": 19.51880185085141,
+          "y": 17.424718902399967,
+          "elevation": 0
+        },
+        {
+          "x": 19.422562221021693,
+          "y": 17.30966268287996,
+          "elevation": 0
+        },
+        {
+          "x": 19.326322591191975,
+          "y": 17.194606463359953,
+          "elevation": 0
+        },
+        {
+          "x": 19.230082961362257,
+          "y": 17.079550243839947,
+          "elevation": 0
+        },
+        {
+          "x": 19.13384333153254,
+          "y": 16.96449402431994,
+          "elevation": 0
+        },
+        {
+          "x": 19.03760370170282,
+          "y": 16.849437804799933,
+          "elevation": 0
+        },
+        {
+          "x": 18.996250056266454,
+          "y": 16.8000000095565,
+          "elevation": 0
+        }
+      ]
+    },
+    {
+      "target": [
+        18.99625,
+        0.16,
+        16.1
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.996250035259095,
+        "y": 16.099999998247625,
+        "elevation": 0.16
+      },
+      "observations": [
+        {
+          "x": 18.996250056266454,
+          "y": 16.8000000095565,
+          "elevation": 0
+        },
+        {
+          "x": 18.996250035259067,
+          "y": 16.650000009556507,
+          "elevation": 0
+        },
+        {
+          "x": 18.99625001425168,
+          "y": 16.500000009556516,
+          "elevation": 0
+        },
+        {
+          "x": 18.99624999324429,
+          "y": 16.350000009556524,
+          "elevation": 0
+        },
+        {
+          "x": 18.996249972236903,
+          "y": 16.200000009556533,
+          "elevation": 0.16
+        },
+        {
+          "x": 18.996250035259095,
+          "y": 16.099999998247625,
+          "elevation": 0.16
+        }
+      ]
+    },
+    {
+      "target": [
+        18.99625,
+        0.32,
+        15.66
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.996250014251707,
+        "y": 15.659999953004798,
+        "elevation": 0.32
+      },
+      "observations": [
+        {
+          "x": 18.996250035259095,
+          "y": 16.099999998247625,
+          "elevation": 0.16
+        },
+        {
+          "x": 18.996250014251707,
+          "y": 15.949999998247629,
+          "elevation": 0.16
+        },
+        {
+          "x": 18.99624999324432,
+          "y": 15.799999998247626,
+          "elevation": 0.32
+        },
+        {
+          "x": 18.996250014251707,
+          "y": 15.659999953004798,
+          "elevation": 0.32
+        }
+      ]
+    },
+    {
+      "target": [
+        18.99625,
+        0.48,
+        15.22
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.99624999324432,
+        "y": 15.219999907761965,
+        "elevation": 0.48
+      },
+      "observations": [
+        {
+          "x": 18.996250014251707,
+          "y": 15.659999953004798,
+          "elevation": 0.32
+        },
+        {
+          "x": 18.99624999324432,
+          "y": 15.509999953004796,
+          "elevation": 0.31999999999999995
+        },
+        {
+          "x": 18.99624997223693,
+          "y": 15.359999953004793,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624999324432,
+          "y": 15.219999907761965,
+          "elevation": 0.48
+        }
+      ]
+    },
+    {
+      "target": [
+        18.99625,
+        0.48,
+        14
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.99624997223698,
+        "y": 13.999999964320871,
+        "elevation": 0.48
+      },
+      "observations": [
+        {
+          "x": 18.99624999324432,
+          "y": 15.219999907761965,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624997223693,
+          "y": 15.069999907761963,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249951229544,
+          "y": 14.91999990776196,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249930222156,
+          "y": 14.769999907761958,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249909214768,
+          "y": 14.619999907761956,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624988820738,
+          "y": 14.469999907761954,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249867199992,
+          "y": 14.319999907761952,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249846192605,
+          "y": 14.16999990776195,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249825185217,
+          "y": 14.019999907761948,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624997223698,
+          "y": 13.999999964320871,
+          "elevation": 0.48
+        }
+      ]
+    },
+    {
+      "target": [
+        18.99625,
+        0.48,
+        11.2
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.996249993244504,
+        "y": 11.20000010006369,
+        "elevation": 0.48
+      },
+      "observations": [
+        {
+          "x": 18.99624997223698,
+          "y": 13.999999964320871,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249951229593,
+          "y": 13.849999964320869,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249930222206,
+          "y": 13.699999964320867,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249909214818,
+          "y": 13.549999964320865,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624988820743,
+          "y": 13.399999964320862,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249867200042,
+          "y": 13.24999996432086,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249846192654,
+          "y": 13.099999964320858,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249825185267,
+          "y": 12.949999964320856,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624980417788,
+          "y": 12.799999964320854,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624978317049,
+          "y": 12.649999964320852,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249762163103,
+          "y": 12.49999996432085,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249741155715,
+          "y": 12.349999964320848,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249720148327,
+          "y": 12.199999964320845,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624969914094,
+          "y": 12.049999964320843,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.99624967813355,
+          "y": 11.899999964320841,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249657126164,
+          "y": 11.749999964320839,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249636118776,
+          "y": 11.599999964320837,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249615111388,
+          "y": 11.449999964320835,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249594104,
+          "y": 11.299999964320833,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.996249993244504,
+          "y": 11.20000010006369,
+          "elevation": 0.48
+        }
+      ]
+    },
+    {
+      "target": [
+        18.7,
+        0.48,
+        9.65
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.70000001330159,
+        "y": 9.649999934211756,
+        "elevation": 0.48
+      },
+      "observations": [
+        {
+          "x": 18.996249993244504,
+          "y": 11.20000010006369,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.96809029677012,
+          "y": 11.052667036922827,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.93993060029574,
+          "y": 10.905333973781964,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.911770903821356,
+          "y": 10.758000910641101,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.883611207346974,
+          "y": 10.610667847500238,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.85545151087259,
+          "y": 10.463334784359375,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.827291814398208,
+          "y": 10.316001721218512,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.799132117923826,
+          "y": 10.16866865807765,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.770972421449443,
+          "y": 10.021335594936787,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.74281272497506,
+          "y": 9.874002531795924,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.714653028500678,
+          "y": 9.72666946865506,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.70000001330159,
+          "y": 9.649999934211756,
+          "elevation": 0.48
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        0.48,
+        9.65
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.560000073095743,
+        "y": 9.650000039248727,
+        "elevation": 0.48
+      },
+      "observations": [
+        {
+          "x": 18.70000001330159,
+          "y": 9.649999934211756,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.560000073095743,
+          "y": 9.650000039248727,
+          "elevation": 0.48
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        0.6566666666666666,
+        8.875
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.5599999890662,
+        "y": 8.874999978651154,
+        "elevation": 0.6566667
+      },
+      "observations": [
+        {
+          "x": 18.560000073095743,
+          "y": 9.650000039248727,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.560000052088355,
+          "y": 9.500000039248725,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.560000031080968,
+          "y": 9.350000039248723,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.56000001007358,
+          "y": 9.200000039248721,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.559999989066192,
+          "y": 9.050000039248719,
+          "elevation": 0.48
+        },
+        {
+          "x": 18.559999968058804,
+          "y": 8.900000039248717,
+          "elevation": 0.6566667
+        },
+        {
+          "x": 18.5599999890662,
+          "y": 8.874999978651154,
+          "elevation": 0.6566667
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        0.8333333333333333,
+        8.625
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.560000031081003,
+        "y": 8.624999967342244,
+        "elevation": 0.8333333216459153
+      },
+      "observations": [
+        {
+          "x": 18.5599999890662,
+          "y": 8.874999978651154,
+          "elevation": 0.6566667
+        },
+        {
+          "x": 18.55999996805881,
+          "y": 8.724999978651152,
+          "elevation": 0.8333332999999999
+        },
+        {
+          "x": 18.560000031081003,
+          "y": 8.624999967342244,
+          "elevation": 0.8333333216459153
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        1.01,
+        8.375
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.55999994705143,
+        "y": 8.37500006107031,
+        "elevation": 1.01
+      },
+      "observations": [
+        {
+          "x": 18.560000031081003,
+          "y": 8.624999967342244,
+          "elevation": 0.8333333216459153
+        },
+        {
+          "x": 18.560000010073615,
+          "y": 8.474999967342242,
+          "elevation": 1.01
+        },
+        {
+          "x": 18.55999994705143,
+          "y": 8.37500006107031,
+          "elevation": 1.01
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        1.1866666666666665,
+        8.125
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.559999989066235,
+        "y": 8.1250000497614,
+        "elevation": 1.1866667
+      },
+      "observations": [
+        {
+          "x": 18.55999994705143,
+          "y": 8.37500006107031,
+          "elevation": 1.01
+        },
+        {
+          "x": 18.559999926044043,
+          "y": 8.225000061070308,
+          "elevation": 1.1866667
+        },
+        {
+          "x": 18.559999989066235,
+          "y": 8.1250000497614,
+          "elevation": 1.1866667
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        1.3633333333333333,
+        7.875
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.56000003108104,
+        "y": 7.875000038452487,
+        "elevation": 1.3633332999999999
+      },
+      "observations": [
+        {
+          "x": 18.559999989066235,
+          "y": 8.1250000497614,
+          "elevation": 1.1866667
+        },
+        {
+          "x": 18.559999968058847,
+          "y": 7.975000049761399,
+          "elevation": 1.3633332999999999
+        },
+        {
+          "x": 18.56000003108104,
+          "y": 7.875000038452487,
+          "elevation": 1.3633332999999999
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        1.54,
+        7.625
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.560000073095843,
+        "y": 7.625000027143579,
+        "elevation": 1.5399999999999998
+      },
+      "observations": [
+        {
+          "x": 18.56000003108104,
+          "y": 7.875000038452487,
+          "elevation": 1.3633332999999999
+        },
+        {
+          "x": 18.56000001007365,
+          "y": 7.725000038452491,
+          "elevation": 1.5399999999999998
+        },
+        {
+          "x": 18.560000073095843,
+          "y": 7.625000027143579,
+          "elevation": 1.5399999999999998
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        1.7166666666666666,
+        7.375
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.560000010073672,
+        "y": 7.3749998897903,
+        "elevation": 1.7166666999999998
+      },
+      "observations": [
+        {
+          "x": 18.560000073095843,
+          "y": 7.625000027143579,
+          "elevation": 1.5399999999999998
+        },
+        {
+          "x": 18.560000052088455,
+          "y": 7.475000027143582,
+          "elevation": 1.7166666999999998
+        },
+        {
+          "x": 18.560000010073672,
+          "y": 7.3749998897903,
+          "elevation": 1.7166666999999998
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        1.8933333333333333,
+        7.125
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.5599999260441,
+        "y": 7.124999983518367,
+        "elevation": 1.8933333
+      },
+      "observations": [
+        {
+          "x": 18.560000010073672,
+          "y": 7.3749998897903,
+          "elevation": 1.7166666999999998
+        },
+        {
+          "x": 18.559999989066284,
+          "y": 7.224999889790303,
+          "elevation": 1.8933333
+        },
+        {
+          "x": 18.5599999260441,
+          "y": 7.124999983518367,
+          "elevation": 1.8933333
+        }
+      ]
+    },
+    {
+      "target": [
+        18.56,
+        2.0700000000000003,
+        6.99
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.559999968058897,
+        "y": 6.989999929387657,
+        "elevation": 2.07
+      },
+      "observations": [
+        {
+          "x": 18.5599999260441,
+          "y": 7.124999983518367,
+          "elevation": 1.8933333
+        },
+        {
+          "x": 18.559999968058897,
+          "y": 6.989999929387657,
+          "elevation": 2.07
+        }
+      ]
+    },
+    {
+      "target": [
+        18.5171429,
+        2.0700000000000003,
+        6.875
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.517142886378327,
+        "y": 6.874999923734998,
+        "elevation": 2.07
+      },
+      "observations": [
+        {
+          "x": 18.559999968058897,
+          "y": 6.989999929387657,
+          "elevation": 2.07
+        },
+        {
+          "x": 18.517142886378327,
+          "y": 6.874999923734998,
+          "elevation": 2.07
+        }
+      ]
+    },
+    {
+      "target": [
+        18.44,
+        2.246666666666667,
+        6.625
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.440000034316316,
+        "y": 6.624999926973813,
+        "elevation": 2.2466667
+      },
+      "observations": [
+        {
+          "x": 18.517142886378327,
+          "y": 6.874999923734998,
+          "elevation": 2.07
+        },
+        {
+          "x": 18.47291486209436,
+          "y": 6.73166856779402,
+          "elevation": 2.2466667
+        },
+        {
+          "x": 18.440000034316316,
+          "y": 6.624999926973813,
+          "elevation": 2.2466667
+        }
+      ]
+    },
+    {
+      "target": [
+        18.44,
+        2.4233333333333333,
+        6.375
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.439999950286744,
+        "y": 6.37500002070188,
+        "elevation": 2.4233334
+      },
+      "observations": [
+        {
+          "x": 18.440000034316316,
+          "y": 6.624999926973813,
+          "elevation": 2.2466667
+        },
+        {
+          "x": 18.44000001330893,
+          "y": 6.474999926973816,
+          "elevation": 2.4233334
+        },
+        {
+          "x": 18.439999950286744,
+          "y": 6.37500002070188,
+          "elevation": 2.4233334
+        }
+      ]
+    },
+    {
+      "target": [
+        18.44,
+        2.6,
+        6.125
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 18.439999992301548,
+        "y": 6.125000009392972,
+        "elevation": 2.5999999
+      },
+      "observations": [
+        {
+          "x": 18.439999950286744,
+          "y": 6.37500002070188,
+          "elevation": 2.4233334
+        },
+        {
+          "x": 18.439999929279356,
+          "y": 6.225000020701883,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 18.439999992301548,
+          "y": 6.125000009392972,
+          "elevation": 2.5999999
+        }
+      ]
+    },
+    {
+      "target": [
+        17.8,
+        2.6,
+        6.125
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 17.800000084412037,
+        "y": 6.12500003040036,
+        "elevation": 2.5999999
+      },
+      "observations": [
+        {
+          "x": 18.439999992301548,
+          "y": 6.125000009392972,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 18.289999992301556,
+          "y": 6.125000030400365,
+          "elevation": 2.5999999915901757
+        },
+        {
+          "x": 18.139999992301565,
+          "y": 6.125000051407758,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 17.989999992301573,
+          "y": 6.125000072415151,
+          "elevation": 2.6
+        },
+        {
+          "x": 17.839999992301582,
+          "y": 6.125000093422544,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 17.800000084412037,
+          "y": 6.12500003040036,
+          "elevation": 2.5999999
+        }
+      ]
+    },
+    {
+      "target": [
+        17.5,
+        2.6,
+        6.6
+      ],
+      "reached": true,
+      "accepted": {
+        "x": 17.500000092500095,
+        "y": 6.59999998433256,
+        "elevation": 2.5999999
+      },
+      "observations": [
+        {
+          "x": 17.800000084412037,
+          "y": 6.12500003040036,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 17.719901176750316,
+          "y": 6.25182333412646,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 17.639802269088594,
+          "y": 6.37864663785256,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 17.559703361426873,
+          "y": 6.50546994157866,
+          "elevation": 2.5999999
+        },
+        {
+          "x": 17.500000092500095,
+          "y": 6.59999998433256,
+          "elevation": 2.5999999
+        }
+      ]
+    }
+  ],
+  "final": {
+    "viewport": [
+      1600,
+      1070
+    ],
+    "inputReceipts": [
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.5761664058999776,
+        "y": 0.6913992495519714
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.27131658301131273,
+        "y": 0.7718792440216174
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.3852105909778226,
+        "y": 0.922828592279906
+      },
+      {
+        "type": "move",
+        "x": 0.2866781911542339,
+        "y": 0.6867778600330422
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.6401842920756404,
+        "y": 0.7682213692547294
+      },
+      {
+        "type": "move",
+        "x": 0.4267888769881273,
+        "y": 0.5121473086777554
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": 0.6401842920756404,
+        "y": 0.7682213692547294
+      },
+      {
+        "type": "move",
+        "x": 0.42678997080813175,
+        "y": 0.5121473086777554
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": -0.7682213692547294,
+        "y": 0.6401842920756404
+      },
+      {
+        "type": "move",
+        "x": -0.20485826717909947,
+        "y": 0.1707157695592518
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "move",
+        "x": -0.9514932393173163,
+        "y": -0.3076685970402106
+      },
+      {
+        "type": "move",
+        "x": -0.7092132021449373,
+        "y": -0.22932592685931902
+      },
+      {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "player": {
+      "id": "hero",
+      "x": 17.500000092500095,
+      "y": 6.59999998433256,
+      "elevation": 2.5999999,
+      "heading": 2.1341132237318985,
+      "tool": "jerry-can",
+      "usingTool": false,
+      "pouring": false,
+      "inventory": {
+        "matches": 12,
+        "gas": 4,
+        "molotovs": 4,
+        "torchFuel": 5,
+        "flamethrowerFuel": 6,
+        "powder": 4,
+        "healing": 3,
+        "inversion": 3
+      }
+    },
+    "actors": [
+      {
+        "id": "neighbor-horse",
+        "x": 8.653333333333372,
+        "y": 17,
+        "elevation": 0,
+        "hp": 100
+      },
+      {
+        "id": "neighbor-goat",
+        "x": 27.34666666666685,
+        "y": 24.5,
+        "elevation": 0,
+        "hp": 100
+      },
+      {
+        "id": "chicago-beat-officer",
+        "x": 39.25333333333359,
+        "y": 19,
+        "elevation": 0,
+        "hp": 100
+      },
+      {
+        "id": "bell-and-alder:resident",
+        "x": 38.5,
+        "y": 11.4,
+        "elevation": 0,
+        "hp": 100,
+        "state": "routine"
+      }
+    ],
+    "tick": 124,
+    "clocks": {
+      "active": 2.066666666666664,
+      "player": 2.066666666666664,
+      "world": 2.066666666666664,
+      "playerScale": 1,
+      "worldScale": 1
+    },
+    "paused": false,
+    "witness": {
+      "actorId": "chicago-beat-officer",
+      "memory": null,
+      "reaction": {
+        "kind": "relaxed",
+        "worldTime": 0
+      },
+      "aim": null,
+      "shot": null
+    },
+    "events": [
+      {
+        "id": 1,
+        "tick": 37,
+        "type": "portal-state",
+        "x": 18.99624997223698,
+        "y": 13.999999964320871,
+        "portalId": "hopkins-fifteen::opening/l0/5-0-6-0",
+        "open": true,
+        "backend": "catalogue-trial",
+        "nativeTick": 19
+      },
+      {
+        "id": 2,
+        "tick": 38,
+        "type": "thermal-opening",
+        "x": 0,
+        "y": 0,
+        "time": 0.6333333333333333,
+        "openingId": "hopkins-fifteen::opening/l0/5-0-6-0",
+        "open": true,
+        "backend": "catalogue-trial",
+        "nativeEventId": 1,
+        "nativeTick": 19,
+        "nativeWorldTime": 0.6333333333333333,
+        "hostWorldTime": 0.6333333333333336
+      }
+    ],
+    "camera": {
+      "target": [
+        17.500000092500095,
+        2.5999999,
+        6.59999998433256
+      ],
+      "span": 12.600000000000001,
+      "zoom": 1,
+      "mode": "follow",
+      "followPlayer": true
+    },
+    "art": {
+      "occludingBuildingIds": [],
+      "tools": {
+        "projectiles": 0,
+        "geometries": 2,
+        "materials": 0,
+        "textures": 0,
+        "objects": 0
+      },
+      "bear": {
+        "disposed": false,
+        "provisional": false,
+        "species": "goat",
+        "appearance": "normal",
+        "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+        "bodyTriangles": 9994,
+        "skinnedMeshes": 8,
+        "bones": 17,
+        "boneCount": 17,
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "visibleTools": [
+          "jerry-can"
+        ],
+        "paint": "native-normal-projection",
+        "paintFrame": {
+          "width": 0.925,
+          "height": 1.85,
+          "centerY": 0.825,
+          "distance": 4,
+          "near": 0.1,
+          "far": 10
+        },
+        "selectedTool": "jerry-can",
+        "visibleTool": "jerry-can",
+        "defaultRifleVisible": false,
+        "worldAnchors": {
+          "grip": [
+            17.128874947084903,
+            3.5999999,
+            6.625809409753353
+          ],
+          "support": [
+            17.739807263878888,
+            3.3319999,
+            6.885107894702128
+          ],
+          "muzzle": [
+            17.006056435495495,
+            3.4399998999999997,
+            6.820271779406102
+          ],
+          "spout": [
+            17.006056435495495,
+            3.4399998999999997,
+            6.820271779406102
+          ],
+          "backpack": [
+            17.513349930716334,
+            3.6799999000000003,
+            6.57886277023987
+          ]
+        },
+        "finiteAnchors": true,
+        "bodyBounds": null,
+        "position": {
+          "x": 17.500000092500095,
+          "y": 6.59999998433256,
+          "heading": 2.1341132237318985,
+          "travelled": 13.62867301359169
+        },
+        "playerTime": 2.066666666666664,
+        "poseEvaluations": 124,
+        "contacts": [
+          {
+            "side": 1,
+            "grip": [
+              17.128874947084903,
+              3.5999999,
+              6.625809409753353
+            ],
+            "palm": [
+              17.1288749470849,
+              3.5999999,
+              6.625809409753354
+            ],
+            "error": 3.66205343881779e-15
+          }
+        ],
+        "geometries": 70,
+        "materials": 21,
+        "textures": 12,
+        "objects": 1,
+        "characterId": "goat",
+        "role": "player"
+      },
+      "fire": {
+        "flameCards": 0,
+        "actorFlameCards": 0,
+        "rubbleFlameCards": 0,
+        "rubbleSmokeCards": 0,
+        "smokeCards": 0,
+        "burstCards": 0,
+        "discharge": {
+          "active": false,
+          "rayCount": 0,
+          "connectRays": false,
+          "triangles": 0,
+          "plumeCards": 0,
+          "capped": false,
+          "muzzleInsideShape": false,
+          "visualForwardStart": 0,
+          "geometryBuilds": 0,
+          "worldTime": 2.066666666666664,
+          "geometries": 2,
+          "materials": 2,
+          "textures": 1,
+          "objects": 0
+        },
+        "carriedTorch": {
+          "active": false,
+          "phase": "unlit",
+          "worldTime": 2.066666666666664,
+          "frame": 0,
+          "remainingSeconds": 41.66666666666667,
+          "anchor": null,
+          "light": {
+            "intensity": 0,
+            "reach": 3.8,
+            "castsShadow": true,
+            "source": null,
+            "pullback": 0
+          },
+          "resources": {
+            "geometries": 1,
+            "materials": 1,
+            "textures": 1,
+            "objects": 1
+          },
+          "presentationOnly": true
+        },
+        "eventCount": 2,
+        "trackedCells": 9588,
+        "seenEvents": 2,
+        "capped": false,
+        "worldTime": 2.066666666666664,
+        "geometries": 3,
+        "materials": 3,
+        "textures": 0,
+        "objects": 0
+      },
+      "witness": null,
+      "instances": [
+        {
+          "id": "bell-and-alder",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-fifteen",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-twelve",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "ashland-cottage",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-nine",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "hopkins-thirteen",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-house",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-middle",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        },
+        {
+          "id": "monroe-row-east",
+          "fireSamples": 0,
+          "represented": 0,
+          "missing": 0,
+          "retired": 0,
+          "fire": [],
+          "effectWork": {
+            "suppliedSources": 0,
+            "activeSources": 0,
+            "representedSources": 0,
+            "preparedSources": 0,
+            "disabledSources": 0,
+            "viewCulledSources": 0,
+            "cameraCulledSources": 0,
+            "missingSources": 0,
+            "inactiveSources": 0,
+            "noCameraSources": 0,
+            "uncertainCameraSources": 0,
+            "flameSplats": 0,
+            "smokeSplats": 0,
+            "generatedFlameSplats": 0,
+            "generatedSmokeSplats": 0,
+            "activeLights": 0,
+            "channels": {
+              "flames": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "smoke": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              },
+              "lighting": {
+                "supplied": 0,
+                "disabled": 0,
+                "viewCulled": 0,
+                "cameraCulled": 0,
+                "prepared": 0
+              }
+            },
+            "work": {
+              "supportAnchorSources": 0,
+              "supportAnchorComputations": 0,
+              "flameEnvelopeSources": 0,
+              "flameContextSources": 0,
+              "flameCalls": 0,
+              "smokeCalls": 0,
+              "lightClusterCalls": 0,
+              "buildingAggregateCalls": 0,
+              "buildingAggregateSources": 0
+            }
+          }
+        }
+      ],
+      "resources": {
+        "meshes": 262,
+        "uniqueGeometries": 262,
+        "materials": 147,
+        "textures": 44,
+        "sourceTriangles": 475868
+      }
+    },
+    "errors": [],
+    "profile": {
+      "characterId": "goat",
+      "radius": 0.5,
+      "height": 1.66
+    },
+    "interaction": null,
+    "diagnostics": {
+      "scenario": "neighborhood",
+      "seed": 1893,
+      "generation": 0,
+      "alpha": 0,
+      "lastSteps": 1,
+      "droppedRealSeconds": 0,
+      "acceptedPath": [
+        {
+          "x": 17.500000092500095,
+          "y": 6.59999998433256,
+          "elevation": 2.5999999,
+          "ownerInstanceId": "hopkins-fifteen",
+          "surfaceId": "hopkins-fifteen::floor/l1/12,12"
+        }
+      ],
+      "fuel": {
+        "pouredFuel": 0,
+        "fixtureFuel": 0,
+        "molotovFuel": 0,
+        "burnedDepositedFuel": 0,
+        "burnedSurfaceFuel": 0,
+        "remainingDepositedFuel": 0
+      },
+      "localHeatIndex": 0,
+      "thermal": {
+        "backend": "catalogue-trial",
+        "representation": "structure",
+        "nativeTick": 62,
+        "nativeWorldTime": 2.0666666666666664,
+        "residual": 0,
+        "pendingDepositedFuel": 0,
+        "metrics": {
+          "tick": 62,
+          "worldTime": 2.0666666666666664,
+          "fuel": {
+            "initial": 6263.856455042009,
+            "added": 0,
+            "burned": 0,
+            "escaped": 0,
+            "remaining": 6263.856455042009,
+            "airborne": 0,
+            "error": 0
+          },
+          "heat": {
+            "generated": 0,
+            "input": 0,
+            "ambient": 0,
+            "blocked": 0,
+            "cap": 0,
+            "escaped": 0,
+            "stored": 0,
+            "radiationInTransit": 0,
+            "error": 0,
+            "relativeError": 0
+          },
+          "burningCount": 0,
+          "burningArea": 0,
+          "combustibleArea": 8581.13670427177,
+          "burningAreaFraction": 0,
+          "burnedFraction": 0,
+          "activeCells": 0,
+          "fallingCount": 0,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 62,
+            "cellVisits": 0,
+            "burnVisits": 3285752,
+            "linkBuilds": 0,
+            "rayBuilds": 0,
+            "rayTests": 0,
+            "invalidations": 0,
+            "ignitions": 0,
+            "failures": 0,
+            "landings": 0,
+            "peakActive": 0,
+            "maxBurnsPerFuelPerTick": 0
+          }
+        },
+        "support": {
+          "nodes": 45795,
+          "contactPairs": 134363,
+          "declaredPairs": 211616,
+          "anchors": 2216,
+          "groundedInert": 4473,
+          "unrootedInert": 2214,
+          "initiallySupported": 41463,
+          "unresolvedInitial": 4332,
+          "checks": 1,
+          "stairFlights": [
+            {
+              "id": "bell-and-alder::external-service-stair",
+              "instanceId": "bell-and-alder",
+              "inferredStringer": true,
+              "steps": [
+                "bell-and-alder::stair/tread-01",
+                "bell-and-alder::stair/tread-02",
+                "bell-and-alder::stair/tread-03",
+                "bell-and-alder::stair/tread-04",
+                "bell-and-alder::stair/tread-05",
+                "bell-and-alder::stair/tread-06",
+                "bell-and-alder::stair/tread-07",
+                "bell-and-alder::stair/tread-08",
+                "bell-and-alder::stair/tread-09",
+                "bell-and-alder::stair/tread-10",
+                "bell-and-alder::stair/tread-11",
+                "bell-and-alder::stair/tread-12"
+              ],
+              "lower": [
+                "bell-and-alder::stair/base/9,10@92,0,8",
+                "bell-and-alder::stair/base/9,10@93,0,8",
+                "bell-and-alder::stair/base/9,10@92,0,9",
+                "bell-and-alder::stair/base/9,10@93,0,9",
+                "bell-and-alder::stair/base/10,10@90,0,8",
+                "bell-and-alder::stair/base/10,10@91,0,8",
+                "bell-and-alder::stair/base/10,10@90,0,9",
+                "bell-and-alder::stair/base/10,10@91,0,9"
+              ],
+              "upper": [
+                "bell-and-alder::landing/9,2@90,2,22",
+                "bell-and-alder::landing/9,2@91,2,22",
+                "bell-and-alder::landing/9,2@90,2,23",
+                "bell-and-alder::landing/9,2@91,2,23",
+                "bell-and-alder::landing/10,2@92,2,22",
+                "bell-and-alder::landing/10,2@93,2,22",
+                "bell-and-alder::landing/10,2@92,2,23",
+                "bell-and-alder::landing/10,2@93,2,23"
+              ],
+              "requiresBothLandings": true
+            },
+            {
+              "id": "hopkins-fifteen::interior-stair",
+              "instanceId": "hopkins-fifteen",
+              "inferredStringer": true,
+              "steps": [
+                "hopkins-fifteen::stair/340",
+                "hopkins-fifteen::stair/341",
+                "hopkins-fifteen::stair/342",
+                "hopkins-fifteen::stair/343",
+                "hopkins-fifteen::stair/344",
+                "hopkins-fifteen::stair/345",
+                "hopkins-fifteen::stair/346",
+                "hopkins-fifteen::stair/347",
+                "hopkins-fifteen::stair/348",
+                "hopkins-fifteen::stair/349",
+                "hopkins-fifteen::stair/350",
+                "hopkins-fifteen::stair/351"
+              ],
+              "lower": [
+                "hopkins-fifteen::floor/l0/9,7",
+                "hopkins-fifteen::floor/l0/10,7",
+                "hopkins-fifteen::floor/l0/11,7"
+              ],
+              "upper": [
+                "hopkins-fifteen::floor/l1/12,13",
+                "hopkins-fifteen::floor/l1/9,13"
+              ],
+              "requiresBothLandings": true
+            }
+          ]
+        },
+        "navigation": {
+          "hero": null,
+          "neighbor-horse": null,
+          "neighbor-goat": null,
+          "chicago-beat-officer": null
+        },
+        "resident": {
+          "state": "routine",
+          "routeIndex": 0,
+          "holdUntil": 8.016666666666667,
+          "smokeSince": null,
+          "lookSince": null,
+          "exitIndex": 0,
+          "blocked": null
+        },
+        "instances": [
+          "bell-and-alder",
+          "hopkins-fifteen",
+          "hopkins-twelve",
+          "ashland-cottage",
+          "hopkins-nine",
+          "hopkins-thirteen",
+          "monroe-row-house",
+          "monroe-row-middle",
+          "monroe-row-east",
+          "terrain",
+          "street-props"
+        ],
+        "wind": {
+          "kind": "ambient-control",
+          "speed": 1.5,
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "obstacleResolved": false
+        },
+        "profiles": {
+          "grass": {
+            "threshold": 0.85,
+            "delay": 0.18,
+            "seconds": 3,
+            "energy": 110
+          },
+          "oil": {
+            "threshold": 0.6,
+            "delay": 0,
+            "seconds": 14,
+            "energy": 800
+          },
+          "clapboard": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 3420
+          },
+          "partition": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 2200
+          },
+          "door": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 60,
+            "energy": 1000
+          },
+          "roof": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 1980
+          },
+          "frame": {
+            "threshold": 1.3,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 2250
+          },
+          "furniture": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 60,
+            "energy": 1200
+          },
+          "cloth": {
+            "threshold": 0.8,
+            "delay": 0.5,
+            "seconds": 20,
+            "energy": 600
+          },
+          "lacquer": {
+            "threshold": 0.5,
+            "delay": 0,
+            "seconds": 4,
+            "energy": 120
+          },
+          "coal": {
+            "threshold": 1.6,
+            "delay": 15,
+            "seconds": 300,
+            "energy": 1800
+          },
+          "embers": {
+            "threshold": 0.7,
+            "delay": 0,
+            "seconds": 8,
+            "energy": 500
+          }
+        },
+        "inputProfiles": {
+          "matches": 1.05,
+          "torch": 1.8,
+          "flamethrowerEnergyPerSecond": 12,
+          "lanternPayload": 0.5,
+          "gasPerMetre": 0.08
+        },
+        "timing": {
+          "nativeSteps": 1,
+          "nativeSimulationMs": 5.099999904632568,
+          "physicalPublicationMs": 0,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 0,
+          "nativePhases": {
+            "commandsAndFallsMs": 0,
+            "burnRegistryMs": 3.299999713897705,
+            "transportMs": 0,
+            "preheatMs": 0,
+            "coolingMs": 0,
+            "boundaryAndSupportMs": 0,
+            "itemsMs": 1.8000001907348633
+          }
+        }
+      },
+      "burningCells": 0,
+      "frontX": 0
+    }
+  },
+  "gpu": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "maxTextureSize": 16384
+  },
+  "image": {
+    "path": "docs/art/catalogue-modular/previews/h15-access-125-host.jpg",
+    "sha256": "db5a922e488c2769d9826f72f690c8d230949df11cd040a3cefd0abc65b2bf5c",
+    "dimensions": [
+      1600,
+      1070
+    ]
+  },
+  "errors": [],
+  "disposal": {
+    "meshes": 0,
+    "uniqueGeometries": 0,
+    "materials": 0,
+    "textures": 0,
+    "sourceTriangles": 0
+  },
+  "passed": true,
+  "limits": [
+    "One new visual/source handoff; final combined keyboard/input/build and publication remain architect/coder work.",
+    "The earlier 2db phone/fire/cache evidence retains its original data pin.",
+    "Native cylinder fitting and a goat visit do not establish every species/pose/equipment envelope."
+  ]
+}
