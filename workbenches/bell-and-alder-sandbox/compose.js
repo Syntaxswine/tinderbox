@@ -30,7 +30,7 @@ function placedSource(raw,spec){
     if(typeof value==='number')return elevations.has(key)?value+spec.translation[1]:value;
     if(Array.isArray(value)){
       if(positions.has(key)&&point(value))return p(value);
-      if(['normal','outward','direction','offset'].includes(key)&&point(value))return n(value);
+      if(['normal','renderNormal','outward','direction','offset'].includes(key)&&point(value))return n(value);
       if(key==='quaternion'&&value.length===4)return rotation.clone().multiply(new Quaternion(...value)).toArray();
       if(['matrix','closedTransform'].includes(key)&&value.length===16)return matrix.clone().multiply(new Matrix4().fromArray(value)).toArray();
       if(key==='vertices')return value.map(v=>[...p(v.slice(0,3)),...n(v.slice(3,6)),...v.slice(6)]);
@@ -56,6 +56,13 @@ function validateSource(data,sourcePath){
   for(const o of data.openings||[])if(!surfaces.has(o.surfaceId))throw Error('Dangling opening '+o.surfaceId);
   for(const p of data.furnitureParts||[]){if(!items.has(p.itemId))throw Error('Dangling part owner '+p.itemId);if(p.fuelAmount>0&&!DEFAULT_PROFILES[p.fuelClass]||p.finish?.amount>0&&!DEFAULT_PROFILES[p.finish.fuelClass==='varnish'?'lacquer':p.finish.fuelClass])throw Error('Finite fuel/finish needs declared fuelClass: '+p.id+' ('+sourcePath+')');if(p.sourceMeshBinding&&!meshes.has(p.sourceMeshBinding))throw Error('Dangling mesh '+p.sourceMeshBinding);for(const id of p.supportSurfaceIds||[])if(!surfaces.has(id))throw Error('Dangling part support '+id);}
   for(const i of data.items||[]){for(const id of i.partIds||[])if(!parts.has(id))throw Error('Dangling item part '+id);for(const id of [...(i.supportSurfaceIds||[]),...(i.supportContacts||[]).flatMap(c=>c.supportSurfaceIds||[])])if(!surfaces.has(id))throw Error('Dangling item support '+id);}
+}
+// The host-map adapter reuses source preparation/identity/rigid placement only;
+// it deliberately does not bootstrap the standalone sandbox's actors or clock.
+export function preparePhysicalInstance(raw,spec){
+  const instance=placedSource(raw,spec);
+  instance.data.gridOrigin=[0,0,0];instance.data.thermalCell=[.5,1.06,.5];
+  validateSource(instance.data,spec.source);return instance;
 }
 export function composeSandbox(manifest,sources){
   if(manifest?.version!==1||manifest.prefabId!=='bell-and-alder-sandbox-v1')throw Error('Expected sandbox placement manifest v1');

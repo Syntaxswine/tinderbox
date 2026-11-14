@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "scope": "Cross-check recorded native host inputs/outcomes, final source hashes, cached state equivalence, and visual evidence. Live combined route/witness/performance acceptance remains the architect/coder gate.",
+  "passed": true,
+  "structures": 9,
+  "nativeMeshes": 7189,
+  "geometryCollectionsUnchanged": [
+    "surfaces",
+    "sourceMeshes",
+    "render",
+    "items",
+    "furnitureParts",
+    "stores",
+    "openings",
+    "componentRegistration"
+  ],
+  "readableGroundFire": {
+    "worldTime": 1.4,
+    "flameCards": 2
+  },
+  "nativeActorBurn": {
+    "id": "neighbor-horse",
+    "hp": 95.50000000000004,
+    "burn": {
+      "ignitedAt": 1.816666666666665,
+      "expiresAt": 6.049999999999997
+    },
+    "flameCards": 2
+  },
+  "fadeAndHiddenPick": true,
+  "phoneTouchRelease": true,
+  "normalHud": true,
+  "sourceHashes": {
+    "art/source/catalogue-modular/thermal-art.js": "2eaa4bba11767fb2d42180b8b21b880d1cf6481cd177dfd0143351b9c4385ae7",
+    "art/source/catalogue-modular/frame-view.js": "5e2843ccdffadac1bcab975f0817ca5fedbd34ada82725b066af3569c9abe901",
+    "workbenches/catalogue-modular/art.js": "651f2cf529acc7d505843ca941b06dc0130d7333184de850ba0d957e87d1312b",
+    "workbenches/catalogue-modular/scene-data.json": "845dd247d15f3ce8a55b6bd4a72bf057b6e1598561dfecd49c6387b5c4ae376a",
+    "workbenches/catalogue-modular/shop-data.json": "7dc5e92c0bbe45f7f8c0d96331450a2546a7c7cdb5e9d865a981e38905057f52",
+    "workbenches/catalogue-modular/house-data.json": "124d10f7fee9a5b03193aff61ecee9375bef623b8de0cba363ac49c00c64f546"
+  },
+  "motion": "docs/art/catalogue-modular/previews/desktop-grass-fire-motion.gif",
+  "checks": [
+    "native registration",
+    "recorded actual match ignition",
+    "recorded actual animal burn",
+    "existing fade/hidden picking",
+    "native touch/release",
+    "actual reset/disposal",
+    "exact reference RGBA/door equivalence",
+    "latest phone/capture source hashes",
+    "native source geometry unchanged"
+  ],
+  "visualScope": "Readability was reviewed in the actual stored native JPGs. Counts alone do not establish that review."
+}

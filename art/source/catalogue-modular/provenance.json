@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "source": {
+    "path": "art/source/bell-and-alder-closing/thermal-art.js",
+    "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+    "sha256": "d0e3346c51a50709e5546dba736f626d6a8732963802df679caf76ce7826278c"
+  },
+  "derivative": "art/source/catalogue-modular/thermal-art.js",
+  "adaptations": [
+    "Registered version-1 native source guard, actual level origin and inverse rigid-placement floor UV phase.",
+    "Two-dimensional state texture, local patch retirement and unchanged full native render geometry.",
+    "Qualified appearance/geometric-normal filters, projected midplane partitioning, exact attachment cell bounds and single ownership on shared boundaries.",
+    "Full measured depth for recorded moving-door trim and top-based floor/stair solids.",
+    "Captured room floors are replaced once by their canonical union with native stair voids retained.",
+    "No component fire-light pool; one host-owned six-light power-215 pool.",
+    "Pure ownerInstanceId frame selection; actual host poses supply the single portable lantern.",
+    "Existing player-occlusion fade connected through material/state wrappers; the active owner retains its interior cutaway. Optional native muzzle/trail samples accepted when supplied by the caller.",
+    "Unchanged material pixels, retirement/char counters and door poses cached; WeakMap owner-frame projection preserves stable full-frame identity. Dynamic effects/poses/lights/clocks still update.",
+    "Private installed-light caches retain only their declared source/item records; all actual physical frames still reach their owner views."
+  ],
+  "rights": "Existing source provenance and license status retained; no new license grant or donor revision.",
+  "upstreamRecipes": [
+    {
+      "path": "src/art/neighborhood.js",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "618ca9f2a04f88773c0bb8f5d9fd1c57708bd91dc66b9460ca374941e302d675",
+      "adaptation": "Existing conservative source-bounds player occlusion, 18 percent material fade, shadow restoration and presentation-only picking; actual native level elevation and height retained."
+    }
+  ]
+}

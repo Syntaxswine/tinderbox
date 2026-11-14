@@ -4,7 +4,7 @@ import {advanceLantern, useLantern} from './lantern.js';
 export function aimHeading(player, aim) { return Math.atan2(aim.y - player.y, aim.x - player.x); }
 export function localPoint(player, aim, range) {
   const heading = aimHeading(player, aim), reach = Math.min(range, distance(player, aim));
-  return {x: player.x + Math.cos(heading) * reach, y: player.y + Math.sin(heading) * reach};
+  return {x: player.x + Math.cos(heading) * reach, y: player.y + Math.sin(heading) * reach,...(Number.isFinite(aim.h)?{h:aim.h}:{})};
 }
 function closeTarget(player, aim, range, world) {
   if (aim) return localPoint(player, aim, range);
@@ -12,6 +12,7 @@ function closeTarget(player, aim, range, world) {
 }
 function heatAhead(state, field, target, spec, cottages, housing, onHeat) {
   const {player, obstacles} = state, tool = player.tool;
+  if(field.heatTool)return field.heatTool(tool,player,target,spec,onHeat);
   const siding = cottages?.igniteSiding(player, state.closeAim ?? target, spec.range, spec.heat, tool);
   if (siding) return siding;
   const contact = housing ? firstHeatContact(player, target, obstacles) : null;
@@ -140,7 +141,7 @@ export function heldTool(state, field, config, delta, event, world, cottages, ho
   state.discharge = resolveDischarge(state, config, world);
   const discharge = state.discharge;
   const onHeat = witness?.observeAction(tool);
-  field.cone(p, discharge.heading, spec.range, spec.halfAngle, heat, tool, onHeat);
+  field.cone(p, discharge.heading, spec.range, spec.halfAngle, heat, tool, onHeat,discharge);
   cottages?.heatDischarge(state.discharge,heat);
   if(housing?.size)heatHousingDischarge(state.discharge,heat,state.obstacles,housing,onHeat);
   if (p.inventory[key] <= 1e-10) {
@@ -167,9 +168,10 @@ export function projectilesStep(state, field, config, delta, event, cottages, ho
   const spec = config.tools.molotov, alive = [];
   for (const projectile of state.projectiles) {
     const {next, position, progress, hit, contact: impact, finished} =
-      advanceLantern(projectile, spec.speed * delta, state.obstacles);
+      advanceLantern(projectile, spec.speed * delta, state.obstacles,state.contactProvider);
     if (finished) {
       const onHeat = witness?.observeImpact(projectile, position);
+      if(field.impactLantern){field.impactLantern(position,projectile);event('molotov-impact',position,{projectileId:projectile.id,h:position.h});continue;}
       let surfaceHit;
       if (hit) {
         if (!impact?.volume) surfaceHit = cottages?.heatSurface(projectile, next, spec.heat * .70, 'molotov', projectile.h, next.h);

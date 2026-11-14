@@ -1,0 +1,3855 @@
+{
+  "version": 1,
+  "scope": "Focused source geometry, native collision/navigation (no slide), actual bearing/support-loss and renderer registration for the live H15 access variant. No fire replay, full action library, live-game frame-rate or final combined release acceptance.",
+  "control": {
+    "commit": "2db04797846c9f14e47259ae6d5282932421b4b8",
+    "path": "workbenches/catalogue-modular/house-data.json",
+    "sha256": "124d10f7fee9a5b03193aff61ecee9375bef623b8de0cba363ac49c00c64f546"
+  },
+  "variant": "catalogue-h15-access-125-v1",
+  "exportHashes": {
+    "scene-data.json": "75bc8a85553343b1ad11af44969e7cb2f8f115a8198020fecb81d86703e38eba",
+    "shop-data.json": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5",
+    "house-data.json": "965abd52ee8c06d77a96187c61568ba5325ff44cbab6515eca5f1422c359611b"
+  },
+  "sourceHashes": {
+    "art/source/catalogue-modular/h15-access-variant.mjs": "f83b95482ab3193fc6e748d9e637e781509fa1d557a07758fe86f58b2f6e532b",
+    "art/source/catalogue-modular/export.mjs": "0fec238015fe19e67c6ab9ad0a7d3706b00a8f540536a3a3f1f12c997f5dac7d",
+    "art/source/catalogue-modular/thermal-art.js": "2eaa4bba11767fb2d42180b8b21b880d1cf6481cd177dfd0143351b9c4385ae7",
+    "art/source/catalogue-modular/frame-view.js": "5e2843ccdffadac1bcab975f0817ca5fedbd34ada82725b066af3569c9abe901",
+    "workbenches/catalogue-modular/art.js": "651f2cf529acc7d505843ca941b06dc0130d7333184de850ba0d957e87d1312b",
+    "workbenches/furnished-house/house-data.json": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+    "workbenches/bell-and-alder-sandbox/house-route-data.json": "a2e1521bd1b0f15e6e4baefc197743e87fb14af4da3f8259aec325f3e127cef6",
+    "docs/art/catalogue-modular/webgl.json": "e07d027dbb7f78d5dc5907525121e28ae8d8ed2b14314dfa8205b0d20ccddc21",
+    "docs/art/catalogue-modular/desktop-actions.json": "2490ced655a3f1f00bddca6190fb0921e7776b8b1dba8ab889658eb54f98b9ad",
+    "docs/art/catalogue-modular/phone-actions.json": "c8fe39f15978704a819198b050074314523eac492ad35c6dad54ece1ba89fbec",
+    "docs/art/catalogue-modular/cache-check.json": "132edeac69107edcb46a8b68d1a3ef4a113db6a7ca25296bc828b0042566a0a3"
+  },
+  "runtimeInputs": {
+    "commit": "5784a604bec52f59a2ed9e816ebf5c316336dddd",
+    "workingSourceHashes": {
+      "workbenches/bell-and-alder-sandbox/compose.js": "edf6ae2dc19d2d60d161542e5ac1295907687d667528e94d8a141917d46c9e43",
+      "workbenches/furnished-house/navigation.js": "28e8d423189813b9605c249029138ae50b75917151e1c74d08a507c4753f9295",
+      "workbenches/furnished-house/simulation.js": "20b17c21762cbfd432e3223cb0c79cfb7fb29c652e7fac6aa4edef32e727f482",
+      "workbenches/furnished-house/scene.js": "830e4a5b8f4d76f53ef6e8145ad803f53ad63504b655824e56b40b6a382f2f8c",
+      "workbenches/furnished-house/support.js": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b",
+      "src/runtime/collision.js": "3f812a4d78e47ec5856ad660d3af3f0ae4e0a839a77b3ae4fdce75e50be64a89"
+    }
+  },
+  "profile": {
+    "radius": 0.5,
+    "height": 1.66,
+    "maxStep": 0.22,
+    "stepSampling": 0.025,
+    "slide": false
+  },
+  "quantities": {
+    "mainUpperFloorAreaBefore": 68,
+    "mainUpperFloorAreaAfter": 67,
+    "mainUpperFloorAreaRemoved": 1,
+    "addedTopArea": 0.08926249999999952,
+    "addedVolume": 0.010711499999999943,
+    "addedFuel": 0.08926249999999952,
+    "surfaceFuelBefore": 587.7940003000087,
+    "surfaceFuelAfter": 586.8832628000082,
+    "netSurfaceFuel": -0.9107375000005504,
+    "convention": "Unchanged prototype native frame density, one finite unit per m2 of 0.12m floor slab; not measured mass."
+  },
+  "moved": [
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel"
+      ],
+      "translation": [
+        -0.1175,
+        -0.005,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          4.927500001192093,
+          0.485,
+          3.967500001192093
+        ],
+        "max": [
+          4.992499998807907,
+          1.2349999999999999,
+          4.032499998807907
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          4.81,
+          0.48,
+          3.9675
+        ],
+        "max": [
+          4.875,
+          1.23,
+          4.0325
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel"
+      ],
+      "translation": [
+        -0.1175,
+        -0.005,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          4.927500001192093,
+          1.1916666666666664,
+          4.967500001192093
+        ],
+        "max": [
+          4.992499998807907,
+          1.9416666666666664,
+          5.032499998807907
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          4.81,
+          1.1866667,
+          4.9675
+        ],
+        "max": [
+          4.875,
+          1.9366667,
+          5.0325
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/19/stair-newel",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/19/stair-newel"
+      ],
+      "translation": [
+        -0.1175,
+        -0.005,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          4.927500001192093,
+          1.8983333333333334,
+          5.967500001192093
+        ],
+        "max": [
+          4.992499998807907,
+          2.6483333333333334,
+          6.032499998807907
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          4.81,
+          1.8933333,
+          5.9675
+        ],
+        "max": [
+          4.875,
+          2.6433333,
+          6.0325
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel"
+      ],
+      "translation": [
+        -0.1175,
+        -0.005,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          4.927500001192093,
+          2.605,
+          6.967500001192093
+        ],
+        "max": [
+          4.992499998807907,
+          3.355,
+          7.032499998807907
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          4.81,
+          2.6,
+          6.9675
+        ],
+        "max": [
+          4.875,
+          3.35,
+          7.0325
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/21/stair-handrail",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/21/stair-handrail"
+      ],
+      "translation": [
+        -0.1175,
+        -0.008,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          4.932500000149012,
+          1.2375417050256752,
+          3.9841294852832356
+        ],
+        "max": [
+          4.987499999850988,
+          3.4024582949743243,
+          7.015870514716765
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          4.815,
+          1.2295417,
+          3.9841295
+        ],
+        "max": [
+          4.87,
+          3.3944583,
+          7.0158705
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/22/stair-newel",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/22/stair-newel"
+      ],
+      "translation": [
+        0.1175,
+        -0.005,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          6.007500001192093,
+          0.485,
+          3.967500001192093
+        ],
+        "max": [
+          6.072499998807907,
+          1.2349999999999999,
+          4.032499998807907
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          6.125,
+          0.48,
+          3.9675
+        ],
+        "max": [
+          6.19,
+          1.23,
+          4.0325
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/23/stair-newel",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/23/stair-newel"
+      ],
+      "translation": [
+        0.1175,
+        -0.005,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          6.007500001192093,
+          1.1916666666666664,
+          4.967500001192093
+        ],
+        "max": [
+          6.072499998807907,
+          1.9416666666666664,
+          5.032499998807907
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          6.125,
+          1.1866667,
+          4.9675
+        ],
+        "max": [
+          6.19,
+          1.9366667,
+          5.0325
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/24/stair-newel",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/24/stair-newel"
+      ],
+      "translation": [
+        0.1175,
+        -0.005,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          6.007500001192093,
+          1.8983333333333334,
+          5.967500001192093
+        ],
+        "max": [
+          6.072499998807907,
+          2.6483333333333334,
+          6.032499998807907
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          6.125,
+          1.8933333,
+          5.9675
+        ],
+        "max": [
+          6.19,
+          2.6433333,
+          6.0325
+        ]
+      },
+      "nativeSizeRetained": true
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail",
+      "physicalSurfaceIds": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail"
+      ],
+      "translation": [
+        0.1175,
+        -0.008,
+        0
+      ],
+      "beforeBounds": {
+        "min": [
+          6.012500000149012,
+          1.2375416526999,
+          3.984129411237327
+        ],
+        "max": [
+          6.067499999850988,
+          2.695791680633433,
+          6.015870588762673
+        ]
+      },
+      "afterBounds": {
+        "min": [
+          6.13,
+          1.2295417,
+          3.9841294
+        ],
+        "max": [
+          6.185,
+          2.6877917,
+          6.0158706
+        ]
+      },
+      "nativeSizeRetained": true
+    }
+  ],
+  "clipped": [
+    {
+      "id": "floor/l1/12,6",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            3
+          ],
+          "max": [
+            6.5,
+            2.6,
+            3.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            3
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            3.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/12,7",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            3.5
+          ],
+          "max": [
+            6.5,
+            2.6,
+            4
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            3.5
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/12,8",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            4
+          ],
+          "max": [
+            6.5,
+            2.6,
+            4.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            4
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            4.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/12,9",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            4.5
+          ],
+          "max": [
+            6.5,
+            2.6,
+            5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            4.5
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/12,10",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            5
+          ],
+          "max": [
+            6.5,
+            2.6,
+            5.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            5
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            5.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/12,11",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            5.5
+          ],
+          "max": [
+            6.5,
+            2.6,
+            6
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            5.5
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/12,12",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            6
+          ],
+          "max": [
+            6.5,
+            2.6,
+            6.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            6
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            6.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/12,13",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            6,
+            2.48,
+            6.5
+          ],
+          "max": [
+            6.5,
+            2.6,
+            7
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            6.125,
+            2.48,
+            6.5
+          ],
+          "max": [
+            6.5,
+            2.5999999,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,6",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            3
+          ],
+          "max": [
+            5,
+            2.6,
+            3.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            3
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            3.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,7",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            3.5
+          ],
+          "max": [
+            5,
+            2.6,
+            4
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            3.5
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,8",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            4
+          ],
+          "max": [
+            5,
+            2.6,
+            4.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            4
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            4.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,9",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            4.5
+          ],
+          "max": [
+            5,
+            2.6,
+            5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            4.5
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,10",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            5
+          ],
+          "max": [
+            5,
+            2.6,
+            5.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            5
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            5.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,11",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            5.5
+          ],
+          "max": [
+            5,
+            2.6,
+            6
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            5.5
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,12",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            6
+          ],
+          "max": [
+            5,
+            2.6,
+            6.5
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            6
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            6.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "floor/l1/9,13",
+      "before": {
+        "area": 0.25,
+        "fuel": 0.25,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            6.5
+          ],
+          "max": [
+            5,
+            2.6,
+            7
+          ]
+        }
+      },
+      "after": {
+        "area": 0.1875,
+        "fuel": 0.1875,
+        "bounds": {
+          "min": [
+            4.5,
+            2.48,
+            6.5
+          ],
+          "max": [
+            4.875,
+            2.5999999,
+            7
+          ]
+        }
+      }
+    }
+  ],
+  "added": [
+    {
+      "id": "access125/bearing-left-z5",
+      "sourceMeshId": "access125/bearing-left-z5",
+      "supportType": "stair-bearing",
+      "bounds": {
+        "min": [
+          4.8,
+          1.0666667,
+          4.9675
+        ],
+        "max": [
+          5.015,
+          1.1866667,
+          5.0325
+        ]
+      },
+      "topArea": 0.013974999999999883,
+      "solidArea": 0.09514999999999957,
+      "volume": 0.001676999999999986,
+      "fuelAmount": 0.013974999999999883,
+      "supportSurfaceIds": [
+        "stair/343",
+        "stair/344"
+      ]
+    },
+    {
+      "id": "access125/bearing-right-z5",
+      "sourceMeshId": "access125/bearing-right-z5",
+      "supportType": "stair-bearing",
+      "bounds": {
+        "min": [
+          5.985,
+          1.0666667,
+          4.9675
+        ],
+        "max": [
+          6.2,
+          1.1866667,
+          5.0325
+        ]
+      },
+      "topArea": 0.013974999999999883,
+      "solidArea": 0.09514999999999957,
+      "volume": 0.001676999999999986,
+      "fuelAmount": 0.013974999999999883,
+      "supportSurfaceIds": [
+        "stair/343",
+        "stair/344"
+      ]
+    },
+    {
+      "id": "access125/bearing-left-z6",
+      "sourceMeshId": "access125/bearing-left-z6",
+      "supportType": "stair-bearing",
+      "bounds": {
+        "min": [
+          4.8,
+          1.7733333,
+          5.9675
+        ],
+        "max": [
+          5.015,
+          1.8933333,
+          6.0325
+        ]
+      },
+      "topArea": 0.013974999999999883,
+      "solidArea": 0.09514999999999968,
+      "volume": 0.001676999999999986,
+      "fuelAmount": 0.013974999999999883,
+      "supportSurfaceIds": [
+        "stair/347",
+        "stair/348"
+      ]
+    },
+    {
+      "id": "access125/bearing-right-z6",
+      "sourceMeshId": "access125/bearing-right-z6",
+      "supportType": "stair-bearing",
+      "bounds": {
+        "min": [
+          5.985,
+          1.7733333,
+          5.9675
+        ],
+        "max": [
+          6.2,
+          1.8933333,
+          6.0325
+        ]
+      },
+      "topArea": 0.013974999999999883,
+      "solidArea": 0.09514999999999968,
+      "volume": 0.001676999999999986,
+      "fuelAmount": 0.013974999999999883,
+      "supportSurfaceIds": [
+        "stair/347",
+        "stair/348"
+      ]
+    },
+    {
+      "id": "access125/bearing-upper-left-edge",
+      "sourceMeshId": "access125/bearing-upper-left-edge",
+      "supportType": "stair-landing-bearing",
+      "bounds": {
+        "min": [
+          4.81,
+          2.48,
+          7
+        ],
+        "max": [
+          4.875,
+          2.6,
+          7.0325
+        ]
+      },
+      "topArea": 0.0021124999999999963,
+      "solidArea": 0.027625000000000045,
+      "volume": 0.00025349999999999955,
+      "fuelAmount": 0.0021124999999999963,
+      "supportSurfaceIds": [
+        "floor/l1/9,13"
+      ]
+    },
+    {
+      "id": "access125/upper-tread-edge",
+      "sourceMeshId": "access125/upper-tread-edge",
+      "supportType": "stair-landing-edge",
+      "bounds": {
+        "min": [
+          6,
+          2.48,
+          6.75
+        ],
+        "max": [
+          6.125,
+          2.6,
+          7
+        ]
+      },
+      "topArea": 0.03125,
+      "solidArea": 0.15250000000000008,
+      "volume": 0.00375,
+      "fuelAmount": 0.03125,
+      "supportSurfaceIds": [
+        "stair/351",
+        "floor/l1/12,13"
+      ]
+    }
+  ],
+  "maxClipAttributeError": 0,
+  "preservedControls": [
+    {
+      "path": "art/source/catalogue-modular/thermal-art.js",
+      "workingSha256": "2eaa4bba11767fb2d42180b8b21b880d1cf6481cd177dfd0143351b9c4385ae7",
+      "gitBlobSha256": "5d957bd2f7c55bff236e98a9ed3dbb25dc81ed46cb6d9f502797b7416401eb4b",
+      "byteEqual": false,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "art/source/catalogue-modular/frame-view.js",
+      "workingSha256": "5e2843ccdffadac1bcab975f0817ca5fedbd34ada82725b066af3569c9abe901",
+      "gitBlobSha256": "10abfa92dab4bcffd167d46df7d8e6706b451e7c68216803f9b0bcad429f9e1e",
+      "byteEqual": false,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "workbenches/catalogue-modular/art.js",
+      "workingSha256": "651f2cf529acc7d505843ca941b06dc0130d7333184de850ba0d957e87d1312b",
+      "gitBlobSha256": "31b97dd2adc618e81978e9c8af80b4486ea580d06376a87c052331a0c7abf0a8",
+      "byteEqual": false,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "workbenches/furnished-house/house-data.json",
+      "workingSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+      "gitBlobSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1",
+      "byteEqual": true,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "workbenches/bell-and-alder-sandbox/house-route-data.json",
+      "workingSha256": "a2e1521bd1b0f15e6e4baefc197743e87fb14af4da3f8259aec325f3e127cef6",
+      "gitBlobSha256": "a2e1521bd1b0f15e6e4baefc197743e87fb14af4da3f8259aec325f3e127cef6",
+      "byteEqual": true,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "docs/art/catalogue-modular/webgl.json",
+      "workingSha256": "e07d027dbb7f78d5dc5907525121e28ae8d8ed2b14314dfa8205b0d20ccddc21",
+      "gitBlobSha256": "e07d027dbb7f78d5dc5907525121e28ae8d8ed2b14314dfa8205b0d20ccddc21",
+      "byteEqual": true,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "docs/art/catalogue-modular/desktop-actions.json",
+      "workingSha256": "2490ced655a3f1f00bddca6190fb0921e7776b8b1dba8ab889658eb54f98b9ad",
+      "gitBlobSha256": "2490ced655a3f1f00bddca6190fb0921e7776b8b1dba8ab889658eb54f98b9ad",
+      "byteEqual": true,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "docs/art/catalogue-modular/phone-actions.json",
+      "workingSha256": "c8fe39f15978704a819198b050074314523eac492ad35c6dad54ece1ba89fbec",
+      "gitBlobSha256": "c8fe39f15978704a819198b050074314523eac492ad35c6dad54ece1ba89fbec",
+      "byteEqual": true,
+      "normalizedTextEqual": true
+    },
+    {
+      "path": "docs/art/catalogue-modular/cache-check.json",
+      "workingSha256": "132edeac69107edcb46a8b68d1a3ef4a113db6a7ca25296bc828b0042566a0a3",
+      "gitBlobSha256": "132edeac69107edcb46a8b68d1a3ef4a113db6a7ca25296bc828b0042566a0a3",
+      "byteEqual": true,
+      "normalizedTextEqual": true
+    }
+  ],
+  "bearings": [
+    {
+      "id": "access125/bearing-left-z5",
+      "dimensions": [
+        0.21499999999999986,
+        0.11999999999999988,
+        0.0649999999999995
+      ],
+      "contacts": [
+        {
+          "id": "stair/343",
+          "overlap": [
+            0.01499999999999968,
+            0.11999999999999988,
+            0.03249999999999975
+          ],
+          "volume": 0.000058499999999998244
+        },
+        {
+          "id": "stair/344",
+          "overlap": [
+            0.01499999999999968,
+            0.11999999999999988,
+            0.03249999999999975
+          ],
+          "volume": 0.000058499999999998244
+        }
+      ]
+    },
+    {
+      "id": "access125/bearing-right-z5",
+      "dimensions": [
+        0.21499999999999986,
+        0.11999999999999988,
+        0.0649999999999995
+      ],
+      "contacts": [
+        {
+          "id": "stair/343",
+          "overlap": [
+            0.01499999999999968,
+            0.11999999999999988,
+            0.03249999999999975
+          ],
+          "volume": 0.000058499999999998244
+        },
+        {
+          "id": "stair/344",
+          "overlap": [
+            0.01499999999999968,
+            0.11999999999999988,
+            0.03249999999999975
+          ],
+          "volume": 0.000058499999999998244
+        }
+      ]
+    },
+    {
+      "id": "access125/bearing-left-z6",
+      "dimensions": [
+        0.21499999999999986,
+        0.1200000000000001,
+        0.0649999999999995
+      ],
+      "contacts": [
+        {
+          "id": "stair/347",
+          "overlap": [
+            0.01499999999999968,
+            0.1200000000000001,
+            0.03249999999999975
+          ],
+          "volume": 0.00005849999999999836
+        },
+        {
+          "id": "stair/348",
+          "overlap": [
+            0.01499999999999968,
+            0.1200000000000001,
+            0.03249999999999975
+          ],
+          "volume": 0.00005849999999999836
+        }
+      ]
+    },
+    {
+      "id": "access125/bearing-right-z6",
+      "dimensions": [
+        0.21499999999999986,
+        0.1200000000000001,
+        0.0649999999999995
+      ],
+      "contacts": [
+        {
+          "id": "stair/347",
+          "overlap": [
+            0.01499999999999968,
+            0.1200000000000001,
+            0.03249999999999975
+          ],
+          "volume": 0.00005849999999999836
+        },
+        {
+          "id": "stair/348",
+          "overlap": [
+            0.01499999999999968,
+            0.1200000000000001,
+            0.03249999999999975
+          ],
+          "volume": 0.00005849999999999836
+        }
+      ]
+    },
+    {
+      "id": "access125/bearing-upper-left-edge",
+      "dimensions": [
+        0.06500000000000039,
+        0.1200000000000001,
+        0.03249999999999975
+      ],
+      "contacts": [
+        {
+          "id": "floor/l1/9,13",
+          "overlap": [
+            0.06500000000000039,
+            0.11999989999999983,
+            0
+          ],
+          "volume": 0
+        }
+      ]
+    },
+    {
+      "id": "access125/upper-tread-edge",
+      "dimensions": [
+        0.125,
+        0.1200000000000001,
+        0.25
+      ],
+      "contacts": [
+        {
+          "id": "stair/351",
+          "overlap": [
+            0,
+            0.11999989999999983,
+            0.25
+          ],
+          "volume": 0
+        },
+        {
+          "id": "floor/l1/12,13",
+          "overlap": [
+            0,
+            0.11999989999999983,
+            0.25
+          ],
+          "volume": 0
+        }
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
+      "baseY": 0.48,
+      "hosts": [
+        "floor/l0/9,7",
+        "floor/l0/9,8"
+      ],
+      "baseCornersCovered": 4
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel",
+      "baseY": 1.1866667,
+      "hosts": [
+        "access125/bearing-left-z5"
+      ],
+      "baseCornersCovered": 4
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/19/stair-newel",
+      "baseY": 1.8933333,
+      "hosts": [
+        "access125/bearing-left-z6"
+      ],
+      "baseCornersCovered": 4
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel",
+      "baseY": 2.6,
+      "hosts": [
+        "floor/l1/9,13",
+        "access125/bearing-upper-left-edge"
+      ],
+      "baseCornersCovered": 4
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/22/stair-newel",
+      "baseY": 0.48,
+      "hosts": [
+        "floor/l0/12,7",
+        "floor/l0/12,8"
+      ],
+      "baseCornersCovered": 4
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/23/stair-newel",
+      "baseY": 1.1866667,
+      "hosts": [
+        "access125/bearing-right-z5"
+      ],
+      "baseCornersCovered": 4
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/24/stair-newel",
+      "baseY": 1.8933333,
+      "hosts": [
+        "access125/bearing-right-z6"
+      ],
+      "baseCornersCovered": 4
+    }
+  ],
+  "rails": [
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/21/stair-handrail",
+      "actualPostContacts": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel",
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/19/stair-newel",
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel"
+      ]
+    },
+    {
+      "id": "house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail",
+      "actualPostContacts": [
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/22/stair-newel",
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/23/stair-newel",
+        "attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/24/stair-newel"
+      ]
+    }
+  ],
+  "navigation": [
+    {
+      "offset": -0.05,
+      "direction": "up",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            5.390000000000001,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.390000000000001,
+            0.6566667,
+            4.124999999999977
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.390000000000001,
+            0.8333332999999999,
+            4.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.390000000000001,
+            1.01,
+            4.625000000000007
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.390000000000001,
+            1.1866667,
+            4.874999999999993
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.390000000000001,
+            1.3633332999999999,
+            5.125
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.390000000000001,
+            1.5399999999999998,
+            5.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.390000000000001,
+            1.7166666999999998,
+            5.624999999999998
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.390000000000001,
+            1.8933333,
+            5.874999999999996
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.390000000000001,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.4328571000000005,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.432857099999996,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.51,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.50999999999998,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.51,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.50999999999998,
+            2.4233334,
+            6.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.51,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.509999999999984,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.15,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.149999999999963,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.45,
+            2.6,
+            6.4
+          ],
+          "accepted": [
+            6.450000000000028,
+            2.5999999,
+            6.400000000000005
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,12",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": -0.05,
+      "direction": "down",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            6.15,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.150000000000016,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.51,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.510000000000037,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.51,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.510000000000002,
+            2.4233334,
+            6.624999999999999
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.51,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.510000000000002,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.4328571000000005,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.432857100000017,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.390000000000004,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.390000000000004,
+            1.8933333,
+            5.875000000000001
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.390000000000004,
+            1.7166666999999998,
+            5.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.390000000000004,
+            1.5399999999999998,
+            5.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.390000000000004,
+            1.3633332999999999,
+            5.125000000000002
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.390000000000004,
+            1.1866667,
+            4.875
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.390000000000004,
+            1.01,
+            4.6249999999999964
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.390000000000004,
+            0.8333332999999999,
+            4.374999999999993
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.390000000000004,
+            0.6566667,
+            4.125000000000007
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.390000000000001,
+            0.48,
+            3.35
+          ],
+          "accepted": [
+            5.390000000000004,
+            0.48,
+            3.349999999999973
+          ],
+          "support": "hopkins-fifteen::floor/l0/10,6",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": -0.025,
+      "direction": "up",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            5.415,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.414999999999999,
+            0.6566667,
+            4.124999999999977
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.414999999999999,
+            0.8333332999999999,
+            4.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.414999999999999,
+            1.01,
+            4.625000000000007
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.414999999999999,
+            1.1866667,
+            4.874999999999993
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.414999999999999,
+            1.3633332999999999,
+            5.125
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.414999999999999,
+            1.5399999999999998,
+            5.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.414999999999999,
+            1.7166666999999998,
+            5.624999999999998
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.414999999999999,
+            1.8933333,
+            5.874999999999996
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.414999999999999,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.4578571,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.457857099999995,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.534999999999999,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.535000000000018,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.534999999999999,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.535000000000018,
+            2.4233334,
+            6.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.534999999999999,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.535000000000018,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.175,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.174999999999997,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.475,
+            2.6,
+            6.4
+          ],
+          "accepted": [
+            6.47499999999998,
+            2.5999999,
+            6.400000000000005
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,12",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": -0.025,
+      "direction": "down",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            6.175,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.1750000000000185,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.534999999999999,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.535000000000039,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.534999999999999,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.535000000000004,
+            2.4233334,
+            6.624999999999999
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.534999999999999,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.535000000000004,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.4578571,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.4578570999999805,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.415000000000003,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.415000000000003,
+            1.8933333,
+            5.875000000000001
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.415000000000003,
+            1.7166666999999998,
+            5.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.415000000000003,
+            1.5399999999999998,
+            5.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.415000000000003,
+            1.3633332999999999,
+            5.125000000000002
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.415000000000003,
+            1.1866667,
+            4.875
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.415000000000003,
+            1.01,
+            4.6249999999999964
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.415000000000003,
+            0.8333332999999999,
+            4.374999999999993
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.415000000000003,
+            0.6566667,
+            4.125000000000007
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.415,
+            0.48,
+            3.35
+          ],
+          "accepted": [
+            5.415000000000003,
+            0.48,
+            3.349999999999973
+          ],
+          "support": "hopkins-fifteen::floor/l0/10,6",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": 0,
+      "direction": "up",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            5.44,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.440000000000001,
+            0.6566667,
+            4.124999999999977
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.440000000000001,
+            0.8333332999999999,
+            4.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.440000000000001,
+            1.01,
+            4.625000000000007
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.440000000000001,
+            1.1866667,
+            4.874999999999993
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.440000000000001,
+            1.3633332999999999,
+            5.125
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.440000000000001,
+            1.5399999999999998,
+            5.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.440000000000001,
+            1.7166666999999998,
+            5.624999999999998
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.440000000000001,
+            1.8933333,
+            5.874999999999996
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.440000000000001,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.4828571,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.482857099999997,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.56,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.559999999999981,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.56,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.559999999999981,
+            2.4233334,
+            6.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.56,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.559999999999981,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.2,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.19999999999996,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.5,
+            2.6,
+            6.4
+          ],
+          "accepted": [
+            6.500000000000025,
+            2.5999999,
+            6.400000000000005
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,12",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": 0,
+      "direction": "down",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            6.2,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.200000000000017,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.56,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.560000000000038,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.56,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.560000000000002,
+            2.4233334,
+            6.624999999999999
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.56,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.560000000000002,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.4828571,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.482857100000018,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.440000000000005,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.440000000000005,
+            1.8933333,
+            5.875000000000001
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.440000000000005,
+            1.7166666999999998,
+            5.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.440000000000005,
+            1.5399999999999998,
+            5.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.440000000000005,
+            1.3633332999999999,
+            5.125000000000002
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.440000000000005,
+            1.1866667,
+            4.875
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.440000000000005,
+            1.01,
+            4.6249999999999964
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.440000000000005,
+            0.8333332999999999,
+            4.374999999999993
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.440000000000005,
+            0.6566667,
+            4.125000000000007
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.44,
+            0.48,
+            3.35
+          ],
+          "accepted": [
+            5.440000000000005,
+            0.48,
+            3.349999999999973
+          ],
+          "support": "hopkins-fifteen::floor/l0/10,6",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": 0.025,
+      "direction": "up",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            5.465000000000001,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.465,
+            0.6566667,
+            4.124999999999977
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.465,
+            0.8333332999999999,
+            4.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.465,
+            1.01,
+            4.625000000000007
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.465,
+            1.1866667,
+            4.874999999999993
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.465,
+            1.3633332999999999,
+            5.125
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.465,
+            1.5399999999999998,
+            5.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.465,
+            1.7166666999999998,
+            5.624999999999998
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.465,
+            1.8933333,
+            5.874999999999996
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.465,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.507857100000001,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.507857099999995,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@36,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.585,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.585000000000019,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.585,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.585000000000019,
+            2.4233334,
+            6.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.585,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.585000000000015,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.2250000000000005,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.224999999999994,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.525,
+            2.6,
+            6.4
+          ],
+          "accepted": [
+            6.524999999999977,
+            2.5999999,
+            6.400000000000005
+          ],
+          "support": "hopkins-fifteen::floor/l1/13,12",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": 0.025,
+      "direction": "down",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            6.2250000000000005,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.225000000000016,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.585,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.585000000000036,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.585,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.585000000000001,
+            2.4233334,
+            6.624999999999999
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.585,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.585000000000001,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.507857100000001,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.507857100000017,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@36,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.465000000000003,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.465000000000003,
+            1.8933333,
+            5.875000000000001
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.465000000000003,
+            1.7166666999999998,
+            5.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.465000000000003,
+            1.5399999999999998,
+            5.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.465000000000003,
+            1.3633332999999999,
+            5.125000000000002
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.465000000000003,
+            1.1866667,
+            4.875
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.465000000000003,
+            1.01,
+            4.6249999999999964
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.465000000000003,
+            0.8333332999999999,
+            4.374999999999993
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.465000000000003,
+            0.6566667,
+            4.125000000000007
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.465000000000001,
+            0.48,
+            3.35
+          ],
+          "accepted": [
+            5.465000000000003,
+            0.48,
+            3.349999999999973
+          ],
+          "support": "hopkins-fifteen::floor/l0/10,6",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": 0.05,
+      "direction": "up",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            5.49,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.490000000000002,
+            0.6566667,
+            4.124999999999977
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.490000000000002,
+            0.8333332999999999,
+            4.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.490000000000002,
+            1.01,
+            4.625000000000007
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.490000000000002,
+            1.1866667,
+            4.874999999999993
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.490000000000002,
+            1.3633332999999999,
+            5.125
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.490000000000002,
+            1.5399999999999998,
+            5.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.490000000000002,
+            1.7166666999999998,
+            5.624999999999998
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.490000000000002,
+            1.8933333,
+            5.874999999999996
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.490000000000002,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.5328571,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.5328570999999975,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@36,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.609999999999999,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.609999999999982,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.609999999999999,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.609999999999982,
+            2.4233334,
+            6.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.609999999999999,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.609999999999985,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.25,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.2499999999999645,
+            2.5999999,
+            6.874999999999998
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            6.55,
+            2.6,
+            6.4
+          ],
+          "accepted": [
+            6.550000000000029,
+            2.5999999,
+            6.400000000000005
+          ],
+          "support": "hopkins-fifteen::floor/l1/13,12",
+          "lastBlock": null
+        }
+      ]
+    },
+    {
+      "offset": 0.05,
+      "direction": "down",
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            6.25,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            6.250000000000018,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::floor/l1/12,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.609999999999999,
+            2.6,
+            6.875
+          ],
+          "accepted": [
+            5.6100000000000385,
+            2.5999999,
+            6.874999999999994
+          ],
+          "support": "hopkins-fifteen::stair/351@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.609999999999999,
+            2.4233333333333333,
+            6.625
+          ],
+          "accepted": [
+            5.610000000000003,
+            2.4233334,
+            6.624999999999999
+          ],
+          "support": "hopkins-fifteen::stair/350@36,2,12",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.609999999999999,
+            2.246666666666667,
+            6.375
+          ],
+          "accepted": [
+            5.610000000000003,
+            2.2466667,
+            6.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/349@36,2,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.5328571,
+            2.0700000000000003,
+            6.125
+          ],
+          "accepted": [
+            5.532857100000019,
+            2.07,
+            6.124999999999999
+          ],
+          "support": "hopkins-fifteen::stair/348@36,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            2.0700000000000003,
+            6.01
+          ],
+          "accepted": [
+            5.4900000000000055,
+            2.07,
+            6.010000000000001
+          ],
+          "support": "hopkins-fifteen::stair/348@37,1,13",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.8933333333333333,
+            5.875
+          ],
+          "accepted": [
+            5.4900000000000055,
+            1.8933333,
+            5.875000000000001
+          ],
+          "support": "hopkins-fifteen::stair/347@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.7166666666666666,
+            5.625
+          ],
+          "accepted": [
+            5.4900000000000055,
+            1.7166666999999998,
+            5.6250000000000036
+          ],
+          "support": "hopkins-fifteen::stair/346@37,1,14",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.54,
+            5.375
+          ],
+          "accepted": [
+            5.4900000000000055,
+            1.5399999999999998,
+            5.3749999999999964
+          ],
+          "support": "hopkins-fifteen::stair/345@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.3633333333333333,
+            5.125
+          ],
+          "accepted": [
+            5.4900000000000055,
+            1.3633332999999999,
+            5.125000000000002
+          ],
+          "support": "hopkins-fifteen::stair/344@37,1,15",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.1866666666666665,
+            4.875
+          ],
+          "accepted": [
+            5.4900000000000055,
+            1.1866667,
+            4.875
+          ],
+          "support": "hopkins-fifteen::stair/343@37,1,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            1.01,
+            4.625
+          ],
+          "accepted": [
+            5.4900000000000055,
+            1.01,
+            4.6249999999999964
+          ],
+          "support": "hopkins-fifteen::stair/342@37,0,16",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.4900000000000055,
+            0.8333332999999999,
+            4.374999999999993
+          ],
+          "support": "hopkins-fifteen::stair/341@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            0.6566666666666666,
+            4.125
+          ],
+          "accepted": [
+            5.4900000000000055,
+            0.6566667,
+            4.125000000000007
+          ],
+          "support": "hopkins-fifteen::stair/340@37,0,17",
+          "lastBlock": null
+        },
+        {
+          "target": [
+            5.49,
+            0.48,
+            3.35
+          ],
+          "accepted": [
+            5.4900000000000055,
+            0.48,
+            3.349999999999973
+          ],
+          "support": "hopkins-fifteen::floor/l0/10,6",
+          "lastBlock": null
+        }
+      ]
+    }
+  ],
+  "originalControls": {
+    "exactControl": {
+      "passed": true,
+      "observations": [
+        {
+          "target": [
+            5.5,
+            0.8333333333333333,
+            4.375
+          ],
+          "accepted": [
+            5.5,
+            0.8333332999999999,
+            4.3750000000000036
+          ],
+          "support": "hopkins-fifteen::stair/341@36,0,17",
+          "lastBlock": null
+        }
+      ]
+    },
+    "offsetControl": {
+      "from": [
+        5.4895433,
+        0.6566667,
+        4.2489554
+      ],
+      "to": [
+        5.5,
+        0.8333333,
+        4.375
+      ],
+      "clear": false,
+      "lastBlock": {
+        "id": "hopkins-fifteen::floor/l1/9,8",
+        "reason": "Native geometry clearance",
+        "position": [
+          18.5,
+          0.8333333,
+          8.625
+        ]
+      }
+    }
+  },
+  "support": {
+    "scope": "Isolated H15 with the actual manifest-qualified explicit host flight and both named landings; retained native inferred stringer model",
+    "unresolvedInitial": 0,
+    "stairFlights": [
+      {
+        "id": "hopkins-fifteen::interior-stair",
+        "instanceId": "hopkins-fifteen",
+        "inferredStringer": true,
+        "steps": [
+          "hopkins-fifteen::stair/340",
+          "hopkins-fifteen::stair/341",
+          "hopkins-fifteen::stair/342",
+          "hopkins-fifteen::stair/343",
+          "hopkins-fifteen::stair/344",
+          "hopkins-fifteen::stair/345",
+          "hopkins-fifteen::stair/346",
+          "hopkins-fifteen::stair/347",
+          "hopkins-fifteen::stair/348",
+          "hopkins-fifteen::stair/349",
+          "hopkins-fifteen::stair/350",
+          "hopkins-fifteen::stair/351"
+        ],
+        "lower": [
+          "hopkins-fifteen::floor/l0/9,7",
+          "hopkins-fifteen::floor/l0/10,7",
+          "hopkins-fifteen::floor/l0/11,7"
+        ],
+        "upper": [
+          "hopkins-fifteen::floor/l1/12,13",
+          "hopkins-fifteen::floor/l1/9,13"
+        ],
+        "requiresBothLandings": true
+      }
+    ],
+    "supportLoss": {
+      "bearer": "hopkins-fifteen::access125/bearing-left-z5",
+      "retired": [
+        "hopkins-fifteen::access125/bearing-left-z5@37,1,15",
+        "hopkins-fifteen::access125/bearing-left-z5@38,1,15",
+        "hopkins-fifteen::access125/bearing-left-z5@37,1,16",
+        "hopkins-fifteen::access125/bearing-left-z5@38,1,16"
+      ],
+      "dependentPost": "hopkins-fifteen::attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel",
+      "unsupported": [
+        "hopkins-fifteen::attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel@38,1,15",
+        "hopkins-fifteen::attachment/house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel@38,1,16"
+      ]
+    }
+  },
+  "missingEdge": {
+    "passed": false,
+    "observations": [
+      {
+        "target": [
+          6.2,
+          2.6,
+          6.875
+        ],
+        "accepted": [
+          5.978461538461524,
+          2.5999999,
+          6.875
+        ],
+        "support": "hopkins-fifteen::stair/351@36,2,12",
+        "lastBlock": {
+          "reason": "No reachable support",
+          "position": [
+            17.996923076923093,
+            2.5999999,
+            6.125
+          ]
+        }
+      }
+    ],
+    "lastBlock": {
+      "reason": "No reachable support",
+      "position": [
+        17.996923076923093,
+        2.5999999,
+        6.125
+      ]
+    }
+  },
+  "registration": {
+    "meshes": 781,
+    "comparedMeshes": 781,
+    "canonicalFloorMeshes": 0,
+    "maxRelativeAreaError": 1.2434497875801753e-14,
+    "unrepresented": [],
+    "changedMeshes": [
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/17/stair-newel",
+        "name": "Stair newel",
+        "mode": "physical-clipping",
+        "sourceArea": 0.2034500000000013,
+        "submittedArea": 0.2034500000000013,
+        "ratio": 1
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/18/stair-newel",
+        "name": "Stair newel",
+        "mode": "physical-clipping",
+        "sourceArea": 0.2034500000000013,
+        "submittedArea": 0.20345000000000124,
+        "ratio": 0.9999999999999998
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/19/stair-newel",
+        "name": "Stair newel",
+        "mode": "physical-clipping",
+        "sourceArea": 0.2034500000000013,
+        "submittedArea": 0.20345000000000127,
+        "ratio": 0.9999999999999999
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/20/stair-newel",
+        "name": "Stair newel",
+        "mode": "physical-clipping",
+        "sourceArea": 0.2034500000000013,
+        "submittedArea": 0.20345000000000127,
+        "ratio": 0.9999999999999999
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/21/stair-handrail",
+        "name": "Stair handrail",
+        "mode": "physical-clipping",
+        "sourceArea": 0.8142138163000705,
+        "submittedArea": 0.8142138163000681,
+        "ratio": 0.999999999999997
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/22/stair-newel",
+        "name": "Stair newel",
+        "mode": "physical-clipping",
+        "sourceArea": 0.20344999999999547,
+        "submittedArea": 0.20344999999999547,
+        "ratio": 1
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/23/stair-newel",
+        "name": "Stair newel",
+        "mode": "physical-clipping",
+        "sourceArea": 0.20344999999999547,
+        "submittedArea": 0.20344999999999547,
+        "ratio": 1
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/24/stair-newel",
+        "name": "Stair newel",
+        "mode": "physical-clipping",
+        "sourceArea": 0.20344999999999547,
+        "submittedArea": 0.20344999999999544,
+        "ratio": 0.9999999999999999
+      },
+      {
+        "id": "hopkins-fifteen::house/gross-housing-hopkins-4-15/0/level-0/1/group/26/stair-handrail",
+        "name": "Stair handrail",
+        "mode": "physical-clipping",
+        "sourceArea": 0.5448259154036711,
+        "submittedArea": 0.5448259154036721,
+        "ratio": 1.0000000000000018
+      },
+      {
+        "id": "hopkins-fifteen::access125/bearing-left-z5",
+        "name": "H15 native clipped stair-bearing",
+        "mode": "physical-clipping",
+        "sourceArea": 0.09515000000000087,
+        "submittedArea": 0.09515000000000087,
+        "ratio": 1
+      },
+      {
+        "id": "hopkins-fifteen::access125/bearing-right-z5",
+        "name": "H15 native clipped stair-bearing",
+        "mode": "physical-clipping",
+        "sourceArea": 0.09514999999999957,
+        "submittedArea": 0.09514999999999955,
+        "ratio": 0.9999999999999999
+      },
+      {
+        "id": "hopkins-fifteen::access125/bearing-left-z6",
+        "name": "H15 native clipped stair-bearing",
+        "mode": "physical-clipping",
+        "sourceArea": 0.095150000000001,
+        "submittedArea": 0.09515000000000098,
+        "ratio": 0.9999999999999999
+      },
+      {
+        "id": "hopkins-fifteen::access125/bearing-right-z6",
+        "name": "H15 native clipped stair-bearing",
+        "mode": "physical-clipping",
+        "sourceArea": 0.09514999999999968,
+        "submittedArea": 0.09514999999999967,
+        "ratio": 0.9999999999999999
+      },
+      {
+        "id": "hopkins-fifteen::access125/bearing-upper-left-edge",
+        "name": "H15 native clipped stair-landing-bearing",
+        "mode": "physical-clipping",
+        "sourceArea": 0.02762500000000032,
+        "submittedArea": 0.02762500000000032,
+        "ratio": 1
+      },
+      {
+        "id": "hopkins-fifteen::access125/upper-tread-edge",
+        "name": "H15 native clipped stair-landing-edge",
+        "mode": "physical-clipping",
+        "sourceArea": 0.15250000000000008,
+        "submittedArea": 0.15250000000000008,
+        "ratio": 1
+      }
+    ],
+    "disposal": {
+      "geometries": 0,
+      "materials": 0,
+      "textures": 0
+    }
+  },
+  "checks": [
+    "Exact bounded change set and retained native pieces",
+    "Native guard dimensions and all painting attributes retained",
+    "Aperture matches floor records, level geometry, painted source and fuel",
+    "Real native bearing solids, seated post bases and rail contacts",
+    "Native 1m diameter / 1.66m body ascends and descends at five lateral offsets",
+    "Original floor-lip failure remains a failing control with unchanged body",
+    "All changed pieces rooted; physical bearer retirement removes post support",
+    "Removing actual edge geometry and its physical source blocks the landing crossing",
+    "New export matches actual renderer geometry and disposes completely",
+    "Shop geometry, contents and native stair remain the original control",
+    "Original fixtures and evidence preserved; authored JS retains matching normalized source"
+  ],
+  "passed": true,
+  "limitations": [
+    "The existing flight uses the inherited inferred stringer; these added posts and bearers have measured contacts.",
+    "Body-cylinder fitting does not prove every posed species/equipment envelope.",
+    "Original 2db phone/fire/cache captures keep their original input pin. The architect/coder own the new combined keyboard/input/build gate."
+  ]
+}

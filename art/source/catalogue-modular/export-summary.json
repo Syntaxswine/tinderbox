@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "prefabId": "catalogue-modular-v1",
+  "baseCommit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+  "shop": {
+    "surfaces": 516,
+    "meshes": 633,
+    "renderGeometry": 505,
+    "omitted": 27,
+    "recomposed": 42,
+    "items": 23,
+    "parts": 76,
+    "lights": 3,
+    "actors": 0
+  },
+  "house": {
+    "surfaces": 2970,
+    "meshes": 866,
+    "items": 16,
+    "parts": 81,
+    "accessVariant": {
+      "id": "catalogue-h15-access-125-v1",
+      "moved": 9,
+      "clipped": 16,
+      "added": 6,
+      "quantities": {
+        "mainUpperFloorAreaBefore": 68,
+        "mainUpperFloorAreaAfter": 67,
+        "mainUpperFloorAreaRemoved": 1,
+        "addedTopArea": 0.08926249999999952,
+        "addedVolume": 0.010711499999999943,
+        "addedFuel": 0.08926249999999952,
+        "surfaceFuelBefore": 587.7940003000087,
+        "surfaceFuelAfter": 586.8832628000082,
+        "netSurfaceFuel": -0.9107375000005504,
+        "convention": "Unchanged prototype native frame density, one finite unit per m2 of 0.12m floor slab; not measured mass."
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "workbenches/catalogue-modular/scene-data.json",
+      "commit": null,
+      "sha256": "75bc8a85553343b1ad11af44969e7cb2f8f115a8198020fecb81d86703e38eba",
+      "bytes": 7079
+    },
+    {
+      "path": "workbenches/catalogue-modular/shop-data.json",
+      "commit": null,
+      "sha256": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5",
+      "bytes": 9820868
+    },
+    {
+      "path": "workbenches/catalogue-modular/house-data.json",
+      "commit": null,
+      "sha256": "965abd52ee8c06d77a96187c61568ba5325ff44cbab6515eca5f1422c359611b",
+      "bytes": 6205084
+    }
+  ]
+}

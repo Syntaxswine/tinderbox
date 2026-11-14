@@ -92,12 +92,19 @@ function resolvedFan(origin, heading, halfAngle, reach, world, obstacles, elevat
 // This shape describes the heat source emitted this tick. It never applies heat.
 export function resolveDischarge(state, config, world, torchPoint = null) {
   const p = state.player, tool = p.tool, spec = config.tools[tool];
-  const origin = {x: p.x, y: p.y, h: config.tools.presentationHeight};
+  const origin = {x: p.x, y: p.y, h: (p.elevation||0)+config.tools.presentationHeight};
   const shapeOrigin = torchPoint ? {...torchPoint, h: torchPoint.h ?? origin.h} : {...origin};
   const radius = tool === 'torch' ? spec.radius : 0;
   const halfAngle = tool === 'torch' ? Math.PI : spec.halfAngle;
   const fan = resolvedFan(shapeOrigin, p.heading, halfAngle, tool === 'torch' ? radius : spec.range,
     world, state.obstacles, tool === 'flamethrower');
+  if(state.contactProvider){
+    // Keep the production sampled discharge; each ray clips against the same
+    // physical provider as heat/projectiles. Independent rays cannot fill a
+    // triangle through an unsampled native corner.
+    fan.connectRays=false;
+    for(const ray of fan.rays){const hit=state.contactProvider.trace([shapeOrigin.x,shapeOrigin.h,shapeOrigin.y],[ray.x,ray.h,ray.y]);if(!hit)continue;ray.distance=Math.max(0,ray.distance*hit.t-SKIN);ray.x=shapeOrigin.x+Math.cos(ray.angle)*ray.distance;ray.y=shapeOrigin.y+Math.sin(ray.angle)*ray.distance;ray.obstacleId=hit.surface.id;}
+  }
   return {version: 1, tick: state.tick, active: true, tool, origin, shapeOrigin, heading: p.heading,
     range: spec.range, radius, halfAngle, ...fan,
     lead: torchPoint ? {from: {...origin}, to: {...shapeOrigin}} : null};

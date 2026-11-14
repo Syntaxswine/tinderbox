@@ -1,0 +1,2504 @@
+{
+  "representation": "structure",
+  "sources": [
+    {
+      "path": "workbenches/catalogue-modular/scene-data.json",
+      "bytes": 7080,
+      "sha256": "e3b59b467147ecf44f8a96fba4c22405da104e42f822cb82093674a6ff3ade6b"
+    },
+    {
+      "path": "workbenches/catalogue-modular/shop-data.json",
+      "bytes": 9820869,
+      "sha256": "3bf1cefa20599e7de1612fdab7390044e0fbc1fb0fa3ae07566f20540018469c"
+    },
+    {
+      "path": "workbenches/catalogue-modular/house-data.json",
+      "bytes": 6205085,
+      "sha256": "991f3c39e1245efd3a235ea5d21c90fd609f16695171bbea275a6f7c831c7797"
+    }
+  ],
+  "profiles": {
+    "grass": {
+      "threshold": 0.85,
+      "delay": 0.18,
+      "seconds": 3,
+      "energy": 110
+    },
+    "oil": {
+      "threshold": 0.6,
+      "delay": 0,
+      "seconds": 14,
+      "energy": 800
+    },
+    "clapboard": {
+      "threshold": 1.1,
+      "delay": 5,
+      "seconds": 180,
+      "energy": 3420
+    },
+    "partition": {
+      "threshold": 1.1,
+      "delay": 5,
+      "seconds": 180,
+      "energy": 2200
+    },
+    "door": {
+      "threshold": 1.1,
+      "delay": 5,
+      "seconds": 60,
+      "energy": 1000
+    },
+    "roof": {
+      "threshold": 1.1,
+      "delay": 3,
+      "seconds": 180,
+      "energy": 1980
+    },
+    "frame": {
+      "threshold": 1.3,
+      "delay": 3,
+      "seconds": 180,
+      "energy": 2250
+    },
+    "furniture": {
+      "threshold": 1.1,
+      "delay": 3,
+      "seconds": 60,
+      "energy": 1200
+    },
+    "cloth": {
+      "threshold": 0.8,
+      "delay": 0.5,
+      "seconds": 20,
+      "energy": 600
+    },
+    "lacquer": {
+      "threshold": 0.5,
+      "delay": 0,
+      "seconds": 4,
+      "energy": 120
+    },
+    "coal": {
+      "threshold": 1.6,
+      "delay": 15,
+      "seconds": 300,
+      "energy": 1800
+    },
+    "embers": {
+      "threshold": 0.7,
+      "delay": 0,
+      "seconds": 8,
+      "energy": 500
+    }
+  },
+  "grid": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "pitch": [
+      0.5,
+      1.06,
+      0.5
+    ],
+    "cells": 53140,
+    "totalCapacity": 13285
+  },
+  "counts": {
+    "boundaries": 66108,
+    "fuels": 52996,
+    "items": 40,
+    "parts": 159
+  },
+  "support": {
+    "nodes": 45795,
+    "contactPairs": 134363,
+    "declaredPairs": 211616,
+    "anchors": 2216,
+    "groundedInert": 4473,
+    "unrootedInert": 2214,
+    "initiallySupported": 41463,
+    "unresolvedInitial": 4332,
+    "checks": 0,
+    "stairFlights": [
+      {
+        "id": "bell-and-alder::external-service-stair",
+        "instanceId": "bell-and-alder",
+        "inferredStringer": true,
+        "steps": [
+          "bell-and-alder::stair/tread-01",
+          "bell-and-alder::stair/tread-02",
+          "bell-and-alder::stair/tread-03",
+          "bell-and-alder::stair/tread-04",
+          "bell-and-alder::stair/tread-05",
+          "bell-and-alder::stair/tread-06",
+          "bell-and-alder::stair/tread-07",
+          "bell-and-alder::stair/tread-08",
+          "bell-and-alder::stair/tread-09",
+          "bell-and-alder::stair/tread-10",
+          "bell-and-alder::stair/tread-11",
+          "bell-and-alder::stair/tread-12"
+        ],
+        "lower": [
+          "bell-and-alder::stair/base/9,10@92,0,8",
+          "bell-and-alder::stair/base/9,10@93,0,8",
+          "bell-and-alder::stair/base/9,10@92,0,9",
+          "bell-and-alder::stair/base/9,10@93,0,9",
+          "bell-and-alder::stair/base/10,10@90,0,8",
+          "bell-and-alder::stair/base/10,10@91,0,8",
+          "bell-and-alder::stair/base/10,10@90,0,9",
+          "bell-and-alder::stair/base/10,10@91,0,9"
+        ],
+        "upper": [
+          "bell-and-alder::landing/9,2@90,2,22",
+          "bell-and-alder::landing/9,2@91,2,22",
+          "bell-and-alder::landing/9,2@90,2,23",
+          "bell-and-alder::landing/9,2@91,2,23",
+          "bell-and-alder::landing/10,2@92,2,22",
+          "bell-and-alder::landing/10,2@93,2,22",
+          "bell-and-alder::landing/10,2@92,2,23",
+          "bell-and-alder::landing/10,2@93,2,23"
+        ],
+        "requiresBothLandings": true
+      },
+      {
+        "id": "hopkins-fifteen::interior-stair",
+        "instanceId": "hopkins-fifteen",
+        "inferredStringer": true,
+        "steps": [
+          "hopkins-fifteen::stair/340",
+          "hopkins-fifteen::stair/341",
+          "hopkins-fifteen::stair/342",
+          "hopkins-fifteen::stair/343",
+          "hopkins-fifteen::stair/344",
+          "hopkins-fifteen::stair/345",
+          "hopkins-fifteen::stair/346",
+          "hopkins-fifteen::stair/347",
+          "hopkins-fifteen::stair/348",
+          "hopkins-fifteen::stair/349",
+          "hopkins-fifteen::stair/350",
+          "hopkins-fifteen::stair/351"
+        ],
+        "lower": [
+          "hopkins-fifteen::floor/l0/9,7",
+          "hopkins-fifteen::floor/l0/10,7",
+          "hopkins-fifteen::floor/l0/11,7"
+        ],
+        "upper": [
+          "hopkins-fifteen::floor/l1/12,13",
+          "hopkins-fifteen::floor/l1/9,13"
+        ],
+        "requiresBothLandings": true
+      }
+    ]
+  },
+  "groups": [
+    {
+      "instanceId": "bell-and-alder",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 1150,
+      "boundaries": 1150,
+      "parts": 0,
+      "area": 239.27568672662667,
+      "initialFuel": 171.68005915725607,
+      "potentialEnergy": 386280.13310382684,
+      "occupiedCells": 1246,
+      "occupiedCapacity": 311.5
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "timber",
+      "fuelClass": "clapboard",
+      "fuels": 120,
+      "boundaries": 120,
+      "parts": 0,
+      "area": 60.00001800000128,
+      "initialFuel": 60.00001800000128,
+      "potentialEnergy": 205200.061560004,
+      "occupiedCells": 226,
+      "occupiedCapacity": 56.5
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 256,
+      "boundaries": 256,
+      "parts": 0,
+      "area": 64.00001920000109,
+      "initialFuel": 64.00001920000109,
+      "potentialEnergy": 126720.03801600268,
+      "occupiedCells": 256,
+      "occupiedCapacity": 64
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 56,
+      "boundaries": 56,
+      "parts": 0,
+      "area": 3.4846495320001782,
+      "initialFuel": 3.4846495320001654,
+      "potentialEnergy": 3484.6495320001627,
+      "occupiedCells": 32,
+      "occupiedCapacity": 8
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "cloth",
+      "fuelClass": "cloth",
+      "fuels": 23,
+      "boundaries": 16,
+      "parts": 7,
+      "area": 24.27128187708809,
+      "initialFuel": 2.4720001126843028,
+      "potentialEnergy": 1483.2000676105818,
+      "occupiedCells": 15,
+      "occupiedCapacity": 3.75
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 2675,
+      "boundaries": 2675,
+      "parts": 0,
+      "area": 377.05011669073104,
+      "initialFuel": 212.94671178981696,
+      "potentialEnergy": 479130.1015270823,
+      "occupiedCells": 1355,
+      "occupiedCapacity": 338.75
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 214,
+      "boundaries": 214,
+      "parts": 0,
+      "area": 51.650009560000015,
+      "initialFuel": 51.650009560000015,
+      "potentialEnergy": 113630.02103199952,
+      "occupiedCells": 294,
+      "occupiedCapacity": 73.5
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "timber",
+      "fuelClass": "clapboard",
+      "fuels": 734,
+      "boundaries": 734,
+      "parts": 0,
+      "area": 153.96503157478685,
+      "initialFuel": 153.96503086719594,
+      "potentialEnergy": 526560.4055658088,
+      "occupiedCells": 808,
+      "occupiedCapacity": 202
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 48,
+      "boundaries": 48,
+      "parts": 0,
+      "area": 13.200005840000655,
+      "initialFuel": 5.940002628000293,
+      "potentialEnergy": 5940.002628000293,
+      "occupiedCells": 90,
+      "occupiedCapacity": 22.5
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 1452,
+      "boundaries": 1452,
+      "parts": 0,
+      "area": 162.3816217387259,
+      "initialFuel": 162.38161162894284,
+      "potentialEnergy": 321515.59102530556,
+      "occupiedCells": 712,
+      "occupiedCapacity": 178
+    },
+    {
+      "instanceId": "hopkins-twelve",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 3688,
+      "boundaries": 3688,
+      "parts": 0,
+      "area": 374.38435226181423,
+      "initialFuel": 242.01518498036117,
+      "potentialEnergy": 544534.1662058142,
+      "occupiedCells": 1042,
+      "occupiedCapacity": 260.5
+    },
+    {
+      "instanceId": "hopkins-twelve",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 551,
+      "boundaries": 551,
+      "parts": 0,
+      "area": 139.1382635706535,
+      "initialFuel": 153.92916686550313,
+      "potentialEnergy": 338644.1671041062,
+      "occupiedCells": 658,
+      "occupiedCapacity": 164.5
+    },
+    {
+      "instanceId": "hopkins-twelve",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 118,
+      "boundaries": 118,
+      "parts": 0,
+      "area": 32.2340090505849,
+      "initialFuel": 27.54700882181075,
+      "potentialEnergy": 27547.00882181072,
+      "occupiedCells": 83,
+      "occupiedCapacity": 20.75
+    },
+    {
+      "instanceId": "hopkins-twelve",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 412,
+      "boundaries": 412,
+      "parts": 0,
+      "area": 76.08079913450136,
+      "initialFuel": 38.04039958388478,
+      "potentialEnergy": 75319.9911760919,
+      "occupiedCells": 352,
+      "occupiedCapacity": 88
+    },
+    {
+      "instanceId": "ashland-cottage",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 4382,
+      "boundaries": 4382,
+      "parts": 0,
+      "area": 332.9952702163711,
+      "initialFuel": 217.6896381176001,
+      "potentialEnergy": 489801.6857645948,
+      "occupiedCells": 1121,
+      "occupiedCapacity": 280.25
+    },
+    {
+      "instanceId": "ashland-cottage",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 294,
+      "boundaries": 294,
+      "parts": 0,
+      "area": 117.0500288200017,
+      "initialFuel": 125.12503439000244,
+      "potentialEnergy": 275275.07565800525,
+      "occupiedCells": 420,
+      "occupiedCapacity": 105
+    },
+    {
+      "instanceId": "ashland-cottage",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 88,
+      "boundaries": 88,
+      "parts": 0,
+      "area": 29.010606131565726,
+      "initialFuel": 24.79230577867678,
+      "potentialEnergy": 24792.305778676717,
+      "occupiedCells": 58,
+      "occupiedCapacity": 14.5
+    },
+    {
+      "instanceId": "ashland-cottage",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 288,
+      "boundaries": 288,
+      "parts": 0,
+      "area": 53.32099509903907,
+      "initialFuel": 26.660497513746005,
+      "potentialEnergy": 52787.785077217144,
+      "occupiedCells": 288,
+      "occupiedCapacity": 72
+    },
+    {
+      "instanceId": "hopkins-nine",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 3155,
+      "boundaries": 3155,
+      "parts": 0,
+      "area": 345.7459537327279,
+      "initialFuel": 235.4049814414261,
+      "potentialEnergy": 529661.2082432043,
+      "occupiedCells": 968,
+      "occupiedCapacity": 242
+    },
+    {
+      "instanceId": "hopkins-nine",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 686,
+      "boundaries": 686,
+      "parts": 0,
+      "area": 179.86768472087158,
+      "initialFuel": 203.89388972600423,
+      "potentialEnergy": 448566.5573972092,
+      "occupiedCells": 785,
+      "occupiedCapacity": 196.25
+    },
+    {
+      "instanceId": "hopkins-nine",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 130,
+      "boundaries": 130,
+      "parts": 0,
+      "area": 35.4574099750943,
+      "initialFuel": 30.301709705268532,
+      "potentialEnergy": 30301.70970526848,
+      "occupiedCells": 92,
+      "occupiedCapacity": 23
+    },
+    {
+      "instanceId": "hopkins-nine",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 389,
+      "boundaries": 389,
+      "parts": 0,
+      "area": 83.20243692708723,
+      "initialFuel": 41.60121884651842,
+      "potentialEnergy": 82370.4133161065,
+      "occupiedCells": 338,
+      "occupiedCapacity": 84.5
+    },
+    {
+      "instanceId": "hopkins-thirteen",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 4027,
+      "boundaries": 4027,
+      "parts": 0,
+      "area": 315.6563809282772,
+      "initialFuel": 210.52119511061886,
+      "potentialEnergy": 473672.6889988928,
+      "occupiedCells": 905,
+      "occupiedCapacity": 226.25
+    },
+    {
+      "instanceId": "hopkins-thirteen",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 604,
+      "boundaries": 604,
+      "parts": 0,
+      "area": 165.24606410800615,
+      "initialFuel": 189.18307467800804,
+      "potentialEnergy": 416202.7642916174,
+      "occupiedCells": 761,
+      "occupiedCapacity": 190.25
+    },
+    {
+      "instanceId": "hopkins-thirteen",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 106,
+      "boundaries": 106,
+      "parts": 0,
+      "area": 29.01060812607548,
+      "initialFuel": 24.792307938353023,
+      "potentialEnergy": 24792.307938353006,
+      "occupiedCells": 74,
+      "occupiedCapacity": 18.5
+    },
+    {
+      "instanceId": "hopkins-thirteen",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 342,
+      "boundaries": 342,
+      "parts": 0,
+      "area": 71.92338898331782,
+      "initialFuel": 35.96169462470841,
+      "potentialEnergy": 71204.15535692254,
+      "occupiedCells": 302,
+      "occupiedCapacity": 75.5
+    },
+    {
+      "instanceId": "monroe-row-house",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 5259,
+      "boundaries": 5259,
+      "parts": 0,
+      "area": 644.6029347314799,
+      "initialFuel": 461.40647119592614,
+      "potentialEnergy": 1038164.560190811,
+      "occupiedCells": 2750,
+      "occupiedCapacity": 687.5
+    },
+    {
+      "instanceId": "monroe-row-house",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 1678,
+      "boundaries": 1678,
+      "parts": 0,
+      "area": 356.4000601242756,
+      "initialFuel": 228.52004524999282,
+      "potentialEnergy": 502744.0995499836,
+      "occupiedCells": 1027,
+      "occupiedCapacity": 256.75
+    },
+    {
+      "instanceId": "monroe-row-house",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 116,
+      "boundaries": 116,
+      "parts": 0,
+      "area": 38.68080830509384,
+      "initialFuel": 33.05640771341355,
+      "potentialEnergy": 33056.40771341349,
+      "occupiedCells": 76,
+      "occupiedCapacity": 19
+    },
+    {
+      "instanceId": "monroe-row-house",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 512,
+      "boundaries": 512,
+      "parts": 0,
+      "area": 107.05763008472968,
+      "initialFuel": 53.52881518441298,
+      "potentialEnergy": 105987.0540651379,
+      "occupiedCells": 496,
+      "occupiedCapacity": 124
+    },
+    {
+      "instanceId": "monroe-row-middle",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 4598,
+      "boundaries": 4598,
+      "parts": 0,
+      "area": 555.9735189651639,
+      "initialFuel": 414.61176170019763,
+      "potentialEnergy": 932876.4638254155,
+      "occupiedCells": 2615,
+      "occupiedCapacity": 653.75
+    },
+    {
+      "instanceId": "monroe-row-middle",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 1702,
+      "boundaries": 1702,
+      "parts": 0,
+      "area": 375.02009237828184,
+      "initialFuel": 233.3900600449953,
+      "potentialEnergy": 513458.13209898444,
+      "occupiedCells": 958,
+      "occupiedCapacity": 239.5
+    },
+    {
+      "instanceId": "monroe-row-middle",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 116,
+      "boundaries": 116,
+      "parts": 0,
+      "area": 38.6808083050938,
+      "initialFuel": 33.05640771341355,
+      "potentialEnergy": 33056.40771341349,
+      "occupiedCells": 76,
+      "occupiedCapacity": 19
+    },
+    {
+      "instanceId": "monroe-row-middle",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 448,
+      "boundaries": 448,
+      "parts": 0,
+      "area": 103.13556883344157,
+      "initialFuel": 51.56778460325833,
+      "potentialEnergy": 102104.21351445203,
+      "occupiedCells": 434,
+      "occupiedCapacity": 108.5
+    },
+    {
+      "instanceId": "monroe-row-east",
+      "material": "timber",
+      "fuelClass": "frame",
+      "fuels": 5149,
+      "boundaries": 5149,
+      "parts": 0,
+      "area": 630.8463945776718,
+      "initialFuel": 452.04819953582677,
+      "potentialEnergy": 1017108.4489555871,
+      "occupiedCells": 2760,
+      "occupiedCapacity": 690
+    },
+    {
+      "instanceId": "monroe-row-east",
+      "material": "timber",
+      "fuelClass": "partition",
+      "fuels": 1704,
+      "boundaries": 1704,
+      "parts": 0,
+      "area": 359.74005883627535,
+      "initialFuel": 231.6700450499924,
+      "potentialEnergy": 509674.09910998354,
+      "occupiedCells": 1041,
+      "occupiedCapacity": 260.25
+    },
+    {
+      "instanceId": "monroe-row-east",
+      "material": "timber",
+      "fuelClass": "door",
+      "fuels": 116,
+      "boundaries": 116,
+      "parts": 0,
+      "area": 38.6808083050938,
+      "initialFuel": 33.05640771341355,
+      "potentialEnergy": 33056.40771341349,
+      "occupiedCells": 76,
+      "occupiedCapacity": 19
+    },
+    {
+      "instanceId": "monroe-row-east",
+      "material": "timber",
+      "fuelClass": "roof",
+      "fuels": 504,
+      "boundaries": 504,
+      "parts": 0,
+      "area": 106.62852257855366,
+      "initialFuel": 53.31426143843316,
+      "potentialEnergy": 105562.23764809784,
+      "occupiedCells": 490,
+      "occupiedCapacity": 122.5
+    },
+    {
+      "instanceId": "terrain",
+      "material": "grass",
+      "fuelClass": "grass",
+      "fuels": 4896,
+      "boundaries": 4896,
+      "parts": 0,
+      "area": 1224.0003672000207,
+      "initialFuel": 1224.0003672000207,
+      "potentialEnergy": 134640.04039199534,
+      "occupiedCells": 4896,
+      "occupiedCapacity": 1224
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "timber",
+      "fuelClass": "furniture",
+      "fuels": 38,
+      "boundaries": 0,
+      "parts": 38,
+      "area": 176.09601907520005,
+      "initialFuel": 23,
+      "potentialEnergy": 27600,
+      "occupiedCells": 34,
+      "occupiedCapacity": 8.5
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "timber",
+      "fuelClass": "lacquer",
+      "fuels": 38,
+      "boundaries": 0,
+      "parts": 38,
+      "area": 176.09601907520005,
+      "initialFuel": 2.3000000000000007,
+      "potentialEnergy": 275.99999999999994,
+      "occupiedCells": 34,
+      "occupiedCapacity": 8.5
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "cloth",
+      "fuelClass": "cloth",
+      "fuels": 15,
+      "boundaries": 0,
+      "parts": 15,
+      "area": 35.15199967677892,
+      "initialFuel": 3.0000000000000004,
+      "potentialEnergy": 1799.9999999999993,
+      "occupiedCells": 12,
+      "occupiedCapacity": 3
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "timber",
+      "fuelClass": "furniture",
+      "fuels": 59,
+      "boundaries": 0,
+      "parts": 59,
+      "area": 41.80280034705995,
+      "initialFuel": 11.250000899999998,
+      "potentialEnergy": 13500.001080000005,
+      "occupiedCells": 54,
+      "occupiedCapacity": 13.5
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "timber",
+      "fuelClass": "lacquer",
+      "fuels": 58,
+      "boundaries": 0,
+      "parts": 58,
+      "area": 39.51640034705995,
+      "initialFuel": 1.0999992000000003,
+      "potentialEnergy": 131.99990399999996,
+      "occupiedCells": 53,
+      "occupiedCapacity": 13.25
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "oil",
+      "fuelClass": "oil",
+      "fuels": 1,
+      "boundaries": 0,
+      "parts": 1,
+      "area": 1.1368000000000027,
+      "initialFuel": 3,
+      "potentialEnergy": 2400,
+      "occupiedCells": 1,
+      "occupiedCapacity": 0.25
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "coal",
+      "fuelClass": "coal",
+      "fuels": 1,
+      "boundaries": 0,
+      "parts": 1,
+      "area": 2.2864,
+      "initialFuel": 1,
+      "potentialEnergy": 1800,
+      "occupiedCells": 1,
+      "occupiedCapacity": 0.25
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "stone",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 264,
+      "parts": 4,
+      "area": 68.32154261823436,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 264,
+      "occupiedCapacity": 66
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 84,
+      "parts": 0,
+      "area": 42.0000126000009,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 162,
+      "occupiedCapacity": 40.5
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 132,
+      "parts": 19,
+      "area": 7.487502117527201,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 74,
+      "occupiedCapacity": 18.5
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 84,
+      "parts": 7,
+      "area": 22.89347579568902,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 98,
+      "occupiedCapacity": 24.5
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "stone",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 992,
+      "parts": 0,
+      "area": 220.73136640923244,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 972,
+      "occupiedCapacity": 243
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "air",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 107,
+      "parts": 0,
+      "area": 33.15001343000137,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 182,
+      "occupiedCapacity": 45.5
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 60,
+      "parts": 0,
+      "area": 18.00000660000061,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 120,
+      "occupiedCapacity": 30
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 12,
+      "parts": 5,
+      "area": 3.5937973118361928,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 8,
+      "occupiedCapacity": 2
+    },
+    {
+      "instanceId": "hopkins-twelve",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 56,
+      "parts": 0,
+      "area": 16.189606048000563,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 112,
+      "occupiedCapacity": 28
+    },
+    {
+      "instanceId": "hopkins-twelve",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 1051,
+      "parts": 0,
+      "area": 171.48688397029514,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 701,
+      "occupiedCapacity": 175.25
+    },
+    {
+      "instanceId": "hopkins-twelve",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 10,
+      "parts": 0,
+      "area": 0.18716295278585837,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 10,
+      "occupiedCapacity": 2.5
+    },
+    {
+      "instanceId": "ashland-cottage",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 86,
+      "parts": 0,
+      "area": 19.71080816800088,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 162,
+      "occupiedCapacity": 40.5
+    },
+    {
+      "instanceId": "ashland-cottage",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 914,
+      "parts": 0,
+      "area": 81.89682898542932,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 494,
+      "occupiedCapacity": 123.5
+    },
+    {
+      "instanceId": "ashland-cottage",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 9,
+      "parts": 0,
+      "area": 0.16844663495272535,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 9,
+      "occupiedCapacity": 2.25
+    },
+    {
+      "instanceId": "hopkins-nine",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 44,
+      "parts": 0,
+      "area": 12.720404752000494,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 88,
+      "occupiedCapacity": 22
+    },
+    {
+      "instanceId": "hopkins-nine",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 1262,
+      "parts": 0,
+      "area": 207.44423583574527,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 863,
+      "occupiedCapacity": 215.75
+    },
+    {
+      "instanceId": "hopkins-nine",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 11,
+      "parts": 0,
+      "area": 0.20587925011485456,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 11,
+      "occupiedCapacity": 2.75
+    },
+    {
+      "instanceId": "hopkins-thirteen",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 138,
+      "parts": 0,
+      "area": 12.133268804400535,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 78,
+      "occupiedCapacity": 19.5
+    },
+    {
+      "instanceId": "hopkins-thirteen",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 141,
+      "parts": 0,
+      "area": 0.1808365180205662,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 17,
+      "occupiedCapacity": 4.25
+    },
+    {
+      "instanceId": "hopkins-thirteen",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 1173,
+      "parts": 0,
+      "area": 192.5555115066575,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 787,
+      "occupiedCapacity": 196.75
+    },
+    {
+      "instanceId": "monroe-row-house",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 2395,
+      "parts": 0,
+      "area": 324.54908123826004,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 1229,
+      "occupiedCapacity": 307.25
+    },
+    {
+      "instanceId": "monroe-row-house",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 142,
+      "parts": 0,
+      "area": 34.67754547991963,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 264,
+      "occupiedCapacity": 66
+    },
+    {
+      "instanceId": "monroe-row-house",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 12,
+      "parts": 0,
+      "area": 0.22459552693971918,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 12,
+      "occupiedCapacity": 3
+    },
+    {
+      "instanceId": "monroe-row-middle",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 1812,
+      "parts": 0,
+      "area": 241.2651917181095,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 1012,
+      "occupiedCapacity": 253
+    },
+    {
+      "instanceId": "monroe-row-middle",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 82,
+      "parts": 0,
+      "area": 19.781539499918978,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 150,
+      "occupiedCapacity": 37.5
+    },
+    {
+      "instanceId": "monroe-row-middle",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 12,
+      "parts": 0,
+      "area": 0.2245955269397136,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 12,
+      "occupiedCapacity": 3
+    },
+    {
+      "instanceId": "monroe-row-east",
+      "material": "masonry",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 2093,
+      "parts": 0,
+      "area": 243.5036698495212,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 1009,
+      "occupiedCapacity": 252.25
+    },
+    {
+      "instanceId": "monroe-row-east",
+      "material": "glass",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 130,
+      "parts": 0,
+      "area": 31.698344283919546,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 246,
+      "occupiedCapacity": 61.5
+    },
+    {
+      "instanceId": "monroe-row-east",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 12,
+      "parts": 0,
+      "area": 0.2245955269397136,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 12,
+      "occupiedCapacity": 3
+    },
+    {
+      "instanceId": "street-props",
+      "material": "iron",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 8,
+      "parts": 0,
+      "area": 4.605353428949875,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 8,
+      "occupiedCapacity": 2
+    },
+    {
+      "instanceId": "bell-and-alder",
+      "material": "timber",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 0,
+      "parts": 1,
+      "area": 0.2864,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 0,
+      "occupiedCapacity": 0
+    },
+    {
+      "instanceId": "hopkins-fifteen",
+      "material": "brick",
+      "fuelClass": null,
+      "fuels": 0,
+      "boundaries": 0,
+      "parts": 2,
+      "area": 6.071400000000001,
+      "initialFuel": 0,
+      "potentialEnergy": 0,
+      "occupiedCells": 0,
+      "occupiedCapacity": 0
+    }
+  ],
+  "sourceConversions": [
+    {
+      "id": "hopkins-twelve",
+      "version": 1,
+      "kind": "native-structure",
+      "grid": [
+        0.5,
+        1.06,
+        0.5
+      ],
+      "before": {
+        "partition": {
+          "sources": 407,
+          "area": 307.8582061608822,
+          "fuel": 153.9291035999998
+        },
+        "frame": {
+          "sources": 2615,
+          "area": 399.40528677803076,
+          "fuel": 242.01514400000224
+        },
+        "door": {
+          "sources": 180,
+          "area": 55.094003464327045,
+          "fuel": 27.54700000000004
+        },
+        "inert:iron": {
+          "sources": 136,
+          "area": 0.18716295278585887,
+          "fuel": 0
+        },
+        "inert:glass": {
+          "sources": 84,
+          "area": 34.49600000000003,
+          "fuel": 0
+        },
+        "inert:masonry": {
+          "sources": 366,
+          "area": 171.48678414391918,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 9,
+          "area": 76.080765766732,
+          "fuel": 38.040382900000004
+        }
+      },
+      "after": {
+        "frame": {
+          "sources": 2228,
+          "area": 374.38428669387565,
+          "fuel": 242.0151439579222
+        },
+        "partition": {
+          "sources": 164,
+          "area": 139.13820735854515,
+          "fuel": 153.92910360000027
+        },
+        "door": {
+          "sources": 68,
+          "area": 32.23400165424941,
+          "fuel": 27.546999999999983
+        },
+        "inert:glass": {
+          "sources": 14,
+          "area": 16.189600000000002,
+          "fuel": 0
+        },
+        "inert:masonry": {
+          "sources": 415,
+          "area": 171.48678414391944,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 9,
+          "area": 76.080765766732,
+          "fuel": 38.040382900000004
+        },
+        "inert:iron": {
+          "sources": 10,
+          "area": 0.18716295278585887,
+          "fuel": 0
+        }
+      },
+      "detailContactPairs": 7897,
+      "unresolvedAttachments": [
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-53",
+          "carrierId": "hopkins-twelve::structural/native-mesh-48",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-71",
+          "carrierId": "hopkins-twelve::structural/native-mesh-66",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-111",
+          "carrierId": "hopkins-twelve::structural/native-mesh-106",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-129",
+          "carrierId": "hopkins-twelve::structural/native-mesh-124",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-150",
+          "carrierId": "hopkins-twelve::structural/native-mesh-145",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-185",
+          "carrierId": "hopkins-twelve::structural/native-mesh-180",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-229",
+          "carrierId": "hopkins-twelve::structural/native-mesh-224",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-250",
+          "carrierId": "hopkins-twelve::structural/native-mesh-245",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-328",
+          "carrierId": "hopkins-twelve::structural/native-mesh-322/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-347",
+          "carrierId": "hopkins-twelve::structural/native-mesh-341/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-386",
+          "carrierId": "hopkins-twelve::structural/native-mesh-380/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-434",
+          "carrierId": "hopkins-twelve::structural/native-mesh-428/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-452",
+          "carrierId": "hopkins-twelve::structural/native-mesh-446/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-twelve::native-mesh-470",
+          "carrierId": "hopkins-twelve::structural/native-mesh-464/0",
+          "gap": 0.5724999999999998
+        }
+      ],
+      "diagnoses": [
+        "Projected carrier area replaces counting both box faces and narrow edges separately; finite prototype quantities are retained.",
+        "Source roof/porch/glass roles are explicit; raw facet fallback had classified some as walls.",
+        "Actual decorative geometry remains in contact/heat queries; aggregate normals and receiver layout can change transport. No identical fire trajectory is implied."
+      ]
+    },
+    {
+      "id": "ashland-cottage",
+      "version": 1,
+      "kind": "native-structure",
+      "grid": [
+        0.5,
+        1.06,
+        0.5
+      ],
+      "before": {
+        "partition": {
+          "sources": 327,
+          "area": 250.24999999999912,
+          "fuel": 125.12499999999953
+        },
+        "frame": {
+          "sources": 3169,
+          "area": 351.37919223596583,
+          "fuel": 217.6895970000005
+        },
+        "door": {
+          "sources": 162,
+          "area": 49.584602694476594,
+          "fuel": 24.792300000000033
+        },
+        "inert:iron": {
+          "sources": 119,
+          "area": 0.16844663495272508,
+          "fuel": 0
+        },
+        "inert:glass": {
+          "sources": 132,
+          "area": 42.38600000000002,
+          "fuel": 0
+        },
+        "inert:masonry": {
+          "sources": 390,
+          "area": 81.89679972400003,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 2,
+          "area": 53.320939271547,
+          "fuel": 26.6604696
+        }
+      },
+      "after": {
+        "frame": {
+          "sources": 2704,
+          "area": 332.99519223596155,
+          "fuel": 217.68959699999644
+        },
+        "partition": {
+          "sources": 133,
+          "area": 117.04999999999966,
+          "fuel": 125.12499999999997
+        },
+        "door": {
+          "sources": 61,
+          "area": 29.010601286638405,
+          "fuel": 24.79230000000003
+        },
+        "inert:glass": {
+          "sources": 22,
+          "area": 19.71080000000001,
+          "fuel": 0
+        },
+        "inert:masonry": {
+          "sources": 638,
+          "area": 81.89679972400094,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 2,
+          "area": 53.320939271547,
+          "fuel": 26.6604696
+        },
+        "inert:iron": {
+          "sources": 9,
+          "area": 0.16844663495272505,
+          "fuel": 0
+        }
+      },
+      "detailContactPairs": 11912,
+      "unresolvedAttachments": [
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-409",
+          "carrierId": "ashland-cottage::structural/native-mesh-403/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-429",
+          "carrierId": "ashland-cottage::structural/native-mesh-423/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-467",
+          "carrierId": "ashland-cottage::structural/native-mesh-461/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-496",
+          "carrierId": "ashland-cottage::structural/native-mesh-490/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-514",
+          "carrierId": "ashland-cottage::structural/native-mesh-508/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-526",
+          "carrierId": "ashland-cottage::structural/native-mesh-520/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-541",
+          "carrierId": "ashland-cottage::structural/native-mesh-535/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-582",
+          "carrierId": "ashland-cottage::structural/native-mesh-576/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-600",
+          "carrierId": "ashland-cottage::structural/native-mesh-594/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-626",
+          "carrierId": "ashland-cottage::structural/native-mesh-620/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "ashland-cottage::native-mesh-641",
+          "carrierId": "ashland-cottage::structural/native-mesh-635/0",
+          "gap": 0.5724999999999998
+        }
+      ],
+      "diagnoses": [
+        "Projected carrier area replaces counting both box faces and narrow edges separately; finite prototype quantities are retained.",
+        "Source roof/porch/glass roles are explicit; raw facet fallback had classified some as walls.",
+        "Actual decorative geometry remains in contact/heat queries; aggregate normals and receiver layout can change transport. No identical fire trajectory is implied."
+      ]
+    },
+    {
+      "id": "hopkins-nine",
+      "version": 1,
+      "kind": "native-structure",
+      "grid": [
+        0.5,
+        1.06,
+        0.5
+      ],
+      "before": {
+        "partition": {
+          "sources": 529,
+          "area": 407.7876082145104,
+          "fuel": 203.89380480000023
+        },
+        "frame": {
+          "sources": 2394,
+          "area": 355.80991192911705,
+          "fuel": 235.40495750000275
+        },
+        "inert:glass": {
+          "sources": 66,
+          "area": 27.104000000000028,
+          "fuel": 0
+        },
+        "door": {
+          "sources": 198,
+          "area": 60.60340384925227,
+          "fuel": 30.301700000000046
+        },
+        "inert:iron": {
+          "sources": 155,
+          "area": 0.20587925011485828,
+          "fuel": 0
+        },
+        "inert:masonry": {
+          "sources": 420,
+          "area": 207.4441121918922,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 42,
+          "area": 83.20242543405034,
+          "fuel": 41.601213099999995
+        }
+      },
+      "after": {
+        "frame": {
+          "sources": 1959,
+          "area": 345.7459118449628,
+          "fuel": 235.40495745792106
+        },
+        "partition": {
+          "sources": 177,
+          "area": 179.86760981139363,
+          "fuel": 203.89380480000008
+        },
+        "inert:glass": {
+          "sources": 11,
+          "area": 12.720400000000001,
+          "fuel": 0
+        },
+        "door": {
+          "sources": 75,
+          "area": 35.457401838054885,
+          "fuel": 30.301699999999986
+        },
+        "inert:masonry": {
+          "sources": 484,
+          "area": 207.4441121918923,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 42,
+          "area": 83.20242543405034,
+          "fuel": 41.601213099999995
+        },
+        "inert:iron": {
+          "sources": 11,
+          "area": 0.20587925011485841,
+          "fuel": 0
+        }
+      },
+      "detailContactPairs": 7425,
+      "unresolvedAttachments": [
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-9",
+          "carrierId": "hopkins-nine::structural/native-mesh-4",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-59",
+          "carrierId": "hopkins-nine::structural/native-mesh-54",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-149",
+          "carrierId": "hopkins-nine::structural/native-mesh-144",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-170",
+          "carrierId": "hopkins-nine::structural/native-mesh-165",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-191",
+          "carrierId": "hopkins-nine::structural/native-mesh-186",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-300",
+          "carrierId": "hopkins-nine::structural/native-mesh-294/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-335",
+          "carrierId": "hopkins-nine::structural/native-mesh-329/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-354",
+          "carrierId": "hopkins-nine::structural/native-mesh-348/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-413",
+          "carrierId": "hopkins-nine::structural/native-mesh-407/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-463",
+          "carrierId": "hopkins-nine::structural/native-mesh-457/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-nine::native-mesh-481",
+          "carrierId": "hopkins-nine::structural/native-mesh-475/0",
+          "gap": 0.5724999999999998
+        }
+      ],
+      "diagnoses": [
+        "Projected carrier area replaces counting both box faces and narrow edges separately; finite prototype quantities are retained.",
+        "Source roof/porch/glass roles are explicit; raw facet fallback had classified some as walls.",
+        "Actual decorative geometry remains in contact/heat queries; aggregate normals and receiver layout can change transport. No identical fire trajectory is implied."
+      ]
+    },
+    {
+      "id": "hopkins-thirteen",
+      "version": 1,
+      "kind": "native-structure",
+      "grid": [
+        0.5,
+        1.06,
+        0.5
+      ],
+      "before": {
+        "partition": {
+          "sources": 491,
+          "area": 378.36599999999993,
+          "fuel": 189.18299999999996
+        },
+        "frame": {
+          "sources": 2944,
+          "area": 323.9173360022359,
+          "fuel": 210.52117040000155
+        },
+        "door": {
+          "sources": 162,
+          "area": 49.58460307940183,
+          "fuel": 24.792300000000033
+        },
+        "inert:iron": {
+          "sources": 211,
+          "area": 0.18083639764387865,
+          "fuel": 0
+        },
+        "inert:glass": {
+          "sources": 126,
+          "area": 23.90166417000001,
+          "fuel": 0
+        },
+        "inert:masonry": {
+          "sources": 402,
+          "area": 192.55539987999998,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 26,
+          "area": 71.9233775339011,
+          "fuel": 35.961688900000006
+        }
+      },
+      "after": {
+        "frame": {
+          "sources": 2525,
+          "area": 315.6563358452421,
+          "fuel": 210.5211703214998
+        },
+        "partition": {
+          "sources": 158,
+          "area": 165.2459999999998,
+          "fuel": 189.18300000000002
+        },
+        "door": {
+          "sources": 61,
+          "area": 29.010601470443895,
+          "fuel": 24.79229999999998
+        },
+        "inert:glass": {
+          "sources": 81,
+          "area": 12.133264170000025,
+          "fuel": 0
+        },
+        "inert:iron": {
+          "sources": 87,
+          "area": 0.18083639764387832,
+          "fuel": 0
+        },
+        "inert:masonry": {
+          "sources": 465,
+          "area": 192.55539988000027,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 26,
+          "area": 71.9233775339011,
+          "fuel": 35.961688900000006
+        }
+      },
+      "detailContactPairs": 6725,
+      "unresolvedAttachments": [
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-35",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-30",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-53",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-48",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-99",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-94",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-120",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-115",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-189",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-184",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-302",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-296/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-337",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-331/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-355",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-349/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "hopkins-thirteen::native-mesh-388",
+          "carrierId": "hopkins-thirteen::structural/native-mesh-382/0",
+          "gap": 0.5724999999999998
+        }
+      ],
+      "diagnoses": [
+        "Projected carrier area replaces counting both box faces and narrow edges separately; finite prototype quantities are retained.",
+        "Source roof/porch/glass roles are explicit; raw facet fallback had classified some as walls.",
+        "Actual decorative geometry remains in contact/heat queries; aggregate normals and receiver layout can change transport. No identical fire trajectory is implied."
+      ]
+    },
+    {
+      "id": "monroe-row-house",
+      "version": 1,
+      "kind": "native-structure",
+      "grid": [
+        0.5,
+        1.06,
+        0.5
+      ],
+      "before": {
+        "partition": {
+          "sources": 734,
+          "area": 457.039999816297,
+          "fuel": 228.52000000000064
+        },
+        "inert:masonry": {
+          "sources": 966,
+          "area": 311.1090091959679,
+          "fuel": 0
+        },
+        "frame": {
+          "sources": 4346,
+          "area": 649.6878997296526,
+          "fuel": 461.40645229999814
+        },
+        "inert:glass": {
+          "sources": 211,
+          "area": 73.82653128008232,
+          "fuel": 0
+        },
+        "door": {
+          "sources": 216,
+          "area": 66.11280384925229,
+          "fuel": 33.05640000000004
+        },
+        "inert:iron": {
+          "sources": 170,
+          "area": 0.22459552693972262,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 6,
+          "area": 107.05753431590355,
+          "fuel": 53.528767299999984
+        }
+      },
+      "after": {
+        "frame": {
+          "sources": 3526,
+          "area": 644.6028996442388,
+          "fuel": 461.40645225731043
+        },
+        "partition": {
+          "sources": 1154,
+          "area": 356.39999981629353,
+          "fuel": 228.51999999999921
+        },
+        "inert:masonry": {
+          "sources": 1669,
+          "area": 324.5490092039095,
+          "fuel": 0
+        },
+        "inert:glass": {
+          "sources": 36,
+          "area": 34.677531543886566,
+          "fuel": 0
+        },
+        "door": {
+          "sources": 80,
+          "area": 38.68080183805491,
+          "fuel": 33.056400000000025
+        },
+        "roof": {
+          "sources": 6,
+          "area": 107.05753431590355,
+          "fuel": 53.528767299999984
+        },
+        "inert:iron": {
+          "sources": 12,
+          "area": 0.2245955269397229,
+          "fuel": 0
+        }
+      },
+      "detailContactPairs": 37649,
+      "unresolvedAttachments": [
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-9",
+          "carrierId": "monroe-row-house::structural/native-mesh-3",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-27",
+          "carrierId": "monroe-row-house::structural/native-mesh-21",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-45",
+          "carrierId": "monroe-row-house::structural/native-mesh-39",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-63",
+          "carrierId": "monroe-row-house::structural/native-mesh-57",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-81",
+          "carrierId": "monroe-row-house::structural/native-mesh-75",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-99",
+          "carrierId": "monroe-row-house::structural/native-mesh-93",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-117",
+          "carrierId": "monroe-row-house::structural/native-mesh-111",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-129",
+          "carrierId": "monroe-row-house::structural/native-mesh-123",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-144",
+          "carrierId": "monroe-row-house::structural/native-mesh-138",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-159",
+          "carrierId": "monroe-row-house::structural/native-mesh-153",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-179",
+          "carrierId": "monroe-row-house::structural/native-mesh-173/0",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-187",
+          "carrierId": "monroe-row-house::structural/native-mesh-173/0",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-345",
+          "carrierId": "monroe-row-house::structural/native-mesh-340",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-360",
+          "carrierId": "monroe-row-house::structural/native-mesh-355",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-375",
+          "carrierId": "monroe-row-house::structural/native-mesh-370/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-383",
+          "carrierId": "monroe-row-house::structural/native-mesh-370/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-430",
+          "carrierId": "monroe-row-house::structural/native-mesh-425",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-448",
+          "carrierId": "monroe-row-house::structural/native-mesh-443",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-466",
+          "carrierId": "monroe-row-house::structural/native-mesh-461",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-478",
+          "carrierId": "monroe-row-house::structural/native-mesh-473",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-512",
+          "carrierId": "monroe-row-house::structural/native-mesh-507",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-530",
+          "carrierId": "monroe-row-house::structural/native-mesh-525",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-596",
+          "carrierId": "monroe-row-house::structural/native-mesh-591",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-614",
+          "carrierId": "monroe-row-house::structural/native-mesh-609",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-774",
+          "carrierId": "monroe-row-house::structural/native-mesh-768/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-822",
+          "carrierId": "monroe-row-house::structural/native-mesh-816/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-840",
+          "carrierId": "monroe-row-house::structural/native-mesh-834/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-852",
+          "carrierId": "monroe-row-house::structural/native-mesh-846/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-867",
+          "carrierId": "monroe-row-house::structural/native-mesh-861/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-924",
+          "carrierId": "monroe-row-house::structural/native-mesh-918/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-960",
+          "carrierId": "monroe-row-house::structural/native-mesh-954/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-1013",
+          "carrierId": "monroe-row-house::structural/native-mesh-1007/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-1031",
+          "carrierId": "monroe-row-house::structural/native-mesh-1025/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-house::native-mesh-1049",
+          "carrierId": "monroe-row-house::structural/native-mesh-1043/0",
+          "gap": 0.5725000000000002
+        }
+      ],
+      "diagnoses": [
+        "Projected carrier area replaces counting both box faces and narrow edges separately; finite prototype quantities are retained.",
+        "Source roof/porch/glass roles are explicit; raw facet fallback had classified some as walls.",
+        "Actual decorative geometry remains in contact/heat queries; aggregate normals and receiver layout can change transport. No identical fire trajectory is implied."
+      ]
+    },
+    {
+      "id": "monroe-row-middle",
+      "version": 1,
+      "kind": "native-structure",
+      "grid": [
+        0.5,
+        1.06,
+        0.5
+      ],
+      "before": {
+        "partition": {
+          "sources": 776,
+          "area": 466.7799998162974,
+          "fuel": 233.39000000000084
+        },
+        "inert:masonry": {
+          "sources": 873,
+          "area": 235.98514229596765,
+          "fuel": 0
+        },
+        "frame": {
+          "sources": 3548,
+          "area": 556.0984837648065,
+          "fuel": 414.6117440999972
+        },
+        "inert:glass": {
+          "sources": 121,
+          "area": 41.94153128008218,
+          "fuel": 0
+        },
+        "door": {
+          "sources": 216,
+          "area": 66.11280384925229,
+          "fuel": 33.05640000000004
+        },
+        "inert:iron": {
+          "sources": 170,
+          "area": 0.22459552693972262,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 6,
+          "area": 103.13548822692476,
+          "fuel": 51.567744299999994
+        }
+      },
+      "after": {
+        "frame": {
+          "sources": 2892,
+          "area": 555.9734836759224,
+          "fuel": 414.61174405558165
+        },
+        "partition": {
+          "sources": 836,
+          "area": 375.0199998162958,
+          "fuel": 233.39000000000016
+        },
+        "inert:masonry": {
+          "sources": 1345,
+          "area": 241.26514230389702,
+          "fuel": 0
+        },
+        "inert:glass": {
+          "sources": 21,
+          "area": 19.78153154388656,
+          "fuel": 0
+        },
+        "door": {
+          "sources": 80,
+          "area": 38.68080183805491,
+          "fuel": 33.056400000000025
+        },
+        "roof": {
+          "sources": 6,
+          "area": 103.13548822692476,
+          "fuel": 51.567744299999994
+        },
+        "inert:iron": {
+          "sources": 12,
+          "area": 0.2245955269397229,
+          "fuel": 0
+        }
+      },
+      "detailContactPairs": 23058,
+      "unresolvedAttachments": [
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-9",
+          "carrierId": "monroe-row-middle::structural/native-mesh-3",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-27",
+          "carrierId": "monroe-row-middle::structural/native-mesh-21",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-84",
+          "carrierId": "monroe-row-middle::structural/native-mesh-78/0",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-99",
+          "carrierId": "monroe-row-middle::structural/native-mesh-93",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-114",
+          "carrierId": "monroe-row-middle::structural/native-mesh-108",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-134",
+          "carrierId": "monroe-row-middle::structural/native-mesh-128/0",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-142",
+          "carrierId": "monroe-row-middle::structural/native-mesh-128/0",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-300",
+          "carrierId": "monroe-row-middle::structural/native-mesh-295",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-315",
+          "carrierId": "monroe-row-middle::structural/native-mesh-310",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-330",
+          "carrierId": "monroe-row-middle::structural/native-mesh-325/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-338",
+          "carrierId": "monroe-row-middle::structural/native-mesh-325/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-406",
+          "carrierId": "monroe-row-middle::structural/native-mesh-401/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-440",
+          "carrierId": "monroe-row-middle::structural/native-mesh-435",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-458",
+          "carrierId": "monroe-row-middle::structural/native-mesh-453",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-684",
+          "carrierId": "monroe-row-middle::structural/native-mesh-678/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-744",
+          "carrierId": "monroe-row-middle::structural/native-mesh-738/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-759",
+          "carrierId": "monroe-row-middle::structural/native-mesh-753/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-843",
+          "carrierId": "monroe-row-middle::structural/native-mesh-837/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-middle::native-mesh-896",
+          "carrierId": "monroe-row-middle::structural/native-mesh-890/0",
+          "gap": 0.5725000000000002
+        }
+      ],
+      "diagnoses": [
+        "Projected carrier area replaces counting both box faces and narrow edges separately; finite prototype quantities are retained.",
+        "Source roof/porch/glass roles are explicit; raw facet fallback had classified some as walls.",
+        "Actual decorative geometry remains in contact/heat queries; aggregate normals and receiver layout can change transport. No identical fire trajectory is implied."
+      ]
+    },
+    {
+      "id": "monroe-row-east",
+      "version": 1,
+      "kind": "native-structure",
+      "grid": [
+        0.5,
+        1.06,
+        0.5
+      ],
+      "before": {
+        "partition": {
+          "sources": 744,
+          "area": 463.3399998162969,
+          "fuel": 231.67000000000056
+        },
+        "inert:masonry": {
+          "sources": 868,
+          "area": 230.38359450943366,
+          "fuel": 0
+        },
+        "frame": {
+          "sources": 4184,
+          "area": 630.9713575060435,
+          "fuel": 452.048180999998
+        },
+        "inert:glass": {
+          "sources": 193,
+          "area": 67.44953128008224,
+          "fuel": 0
+        },
+        "door": {
+          "sources": 216,
+          "area": 66.11280384925229,
+          "fuel": 33.05640000000004
+        },
+        "inert:iron": {
+          "sources": 170,
+          "area": 0.22459552693972262,
+          "fuel": 0
+        },
+        "roof": {
+          "sources": 6,
+          "area": 106.62842730168688,
+          "fuel": 53.31421379999999
+        }
+      },
+      "after": {
+        "frame": {
+          "sources": 3399,
+          "area": 630.8463574184296,
+          "fuel": 452.0481809562111
+        },
+        "inert:masonry": {
+          "sources": 1360,
+          "area": 243.50359451513606,
+          "fuel": 0
+        },
+        "inert:glass": {
+          "sources": 33,
+          "area": 31.698331543886574,
+          "fuel": 0
+        },
+        "partition": {
+          "sources": 1193,
+          "area": 359.73999981629333,
+          "fuel": 231.66999999999896
+        },
+        "door": {
+          "sources": 80,
+          "area": 38.68080183805491,
+          "fuel": 33.056400000000025
+        },
+        "roof": {
+          "sources": 6,
+          "area": 106.62842730168688,
+          "fuel": 53.31421379999999
+        },
+        "inert:iron": {
+          "sources": 12,
+          "area": 0.2245955269397229,
+          "fuel": 0
+        }
+      },
+      "detailContactPairs": 34542,
+      "unresolvedAttachments": [
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-9",
+          "carrierId": "monroe-row-east::structural/native-mesh-3",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-27",
+          "carrierId": "monroe-row-east::structural/native-mesh-21",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-84",
+          "carrierId": "monroe-row-east::structural/native-mesh-78/0",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-99",
+          "carrierId": "monroe-row-east::structural/native-mesh-93",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-114",
+          "carrierId": "monroe-row-east::structural/native-mesh-108",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-134",
+          "carrierId": "monroe-row-east::structural/native-mesh-128",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-152",
+          "carrierId": "monroe-row-east::structural/native-mesh-146",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-170",
+          "carrierId": "monroe-row-east::structural/native-mesh-164",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-188",
+          "carrierId": "monroe-row-east::structural/native-mesh-182",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-206",
+          "carrierId": "monroe-row-east::structural/native-mesh-200",
+          "gap": 0.3225
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-305",
+          "carrierId": "monroe-row-east::structural/native-mesh-300",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-320",
+          "carrierId": "monroe-row-east::structural/native-mesh-315",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-335",
+          "carrierId": "monroe-row-east::structural/native-mesh-330",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-353",
+          "carrierId": "monroe-row-east::structural/native-mesh-348",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-371",
+          "carrierId": "monroe-row-east::structural/native-mesh-366",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-418",
+          "carrierId": "monroe-row-east::structural/native-mesh-413/0",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-452",
+          "carrierId": "monroe-row-east::structural/native-mesh-447",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-470",
+          "carrierId": "monroe-row-east::structural/native-mesh-465",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-508",
+          "carrierId": "monroe-row-east::structural/native-mesh-503",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-526",
+          "carrierId": "monroe-row-east::structural/native-mesh-521",
+          "gap": 0.5724999999999998
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-634",
+          "carrierId": "monroe-row-east::structural/native-mesh-628/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-698",
+          "carrierId": "monroe-row-east::structural/native-mesh-692/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-756",
+          "carrierId": "monroe-row-east::structural/native-mesh-750/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-771",
+          "carrierId": "monroe-row-east::structural/native-mesh-765/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-834",
+          "carrierId": "monroe-row-east::structural/native-mesh-828/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-861",
+          "carrierId": "monroe-row-east::structural/native-mesh-855/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-894",
+          "carrierId": "monroe-row-east::structural/native-mesh-888/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-912",
+          "carrierId": "monroe-row-east::structural/native-mesh-906/0",
+          "gap": 0.5725000000000002
+        },
+        {
+          "sourceMeshId": "monroe-row-east::native-mesh-927",
+          "carrierId": "monroe-row-east::structural/native-mesh-921/0",
+          "gap": 0.5725000000000002
+        }
+      ],
+      "diagnoses": [
+        "Projected carrier area replaces counting both box faces and narrow edges separately; finite prototype quantities are retained.",
+        "Source roof/porch/glass roles are explicit; raw facet fallback had classified some as walls.",
+        "Actual decorative geometry remains in contact/heat queries; aggregate normals and receiver layout can change transport. No identical fire trajectory is implied."
+      ]
+    }
+  ],
+  "notes": [
+    "Capacity is the native allocated grid capacity, not calibrated material mass heat capacity. Group occupied capacities overlap and are not additive.",
+    "Inert boundaries use their actual canonical exposed cells. Inert furniture has real obstruction geometry but no dedicated fuel/heat node; it therefore has zero assigned occupied capacity here.",
+    "The implicit background support plane is excluded from material areas; global grid capacity still counts every allocated cell once.",
+    "Combustible area follows the existing native fuel records, including finite finishes; inert furniture area follows submitted source triangles."
+  ],
+  "totals": {
+    "registeredArea": 10619.30660666077,
+    "initialFuel": 6263.856455041686,
+    "potentialEnergy": 11184414.768366218
+  }
+}

@@ -9,7 +9,7 @@ export const length = a => Math.hypot(...a);
 export const unit = a => mul(a,1/(length(a)||1));
 export const centre = points => mul(points.reduce(add,[0,0,0]),1/points.length);
 export const triangleArea = t => length(cross(sub(t[1],t[0]),sub(t[2],t[0])))/2;
-export const bounds = points => ({min:[0,1,2].map(i=>Math.min(...points.map(p=>p[i]))),max:[0,1,2].map(i=>Math.max(...points.map(p=>p[i])))});
+export function bounds(points){const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];for(const p of points)for(let i=0;i<3;i++){min[i]=Math.min(min[i],p[i]);max[i]=Math.max(max[i],p[i]);}return {min,max};}
 export const overlaps = (a,b,margin=EPS) => [0,1,2].every(i=>a.min[i]<=b.max[i]+margin&&a.max[i]>=b.min[i]-margin);
 export function clipPolygon(poly,axis,value,above) {
   const out=[];

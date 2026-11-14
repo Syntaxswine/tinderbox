@@ -39,15 +39,19 @@ export function createShopWitness(actor, player, obstacles, {event, hurt, rules:
   }
 
   function watchHeat(tool, seenPlayer, projectileId) {
-    return (site, before) => {
+    const watch = (site, before) => {
       if (site.phase === 'burning' || site.heat <= before || (!site.fuel && site.surfaceFuel + site.depositedFuel <= EPS)) return;
       const fire = site.world ? {x: site.world.x, y: site.world.z} : site;
-      const height = (site.world?.y ?? 0) + rules.ignitionHeight;
+      const height = site.fireHeight ?? (site.world?.y ?? 0) + rules.ignitionHeight;
       const hit = {tool, before, after: site.heat, projectileId,
-        seenPlayer: seenPlayer && canSee(fire, height) ? seenPlayer : null};
+        seenPlayer: seenPlayer && canSee(fire, height) ? seenPlayer : null,...(site.nativeProof?{nativeProof:site.nativeProof}:{})};
       if (!contacts.has(site)) contacts.set(site, []);
       contacts.get(site).push(hit);
     };
+    // Native adapters capture sight of the actual accepted contact, before a
+    // later fixed thermal step can move either participant behind cover.
+    watch.capture = fire => {const contactVisible=canSee(fire,fire.height),captured=watchHeat(tool,seenPlayer&&contactVisible?seenPlayer:null,projectileId);captured.observation={observerId:actor.id,playerVisible:!!seenPlayer,contactVisible,seenPlayerPosition:seenPlayer};return captured;};
+    return watch;
   }
 
   function face(target) {
@@ -104,7 +108,7 @@ export function createShopWitness(actor, player, obstacles, {event, hurt, rules:
       const contact = contacts.get(site)?.find(hit => hit.tool === record.cause &&
         hit.after >= proof.required && hit.before + proof.incoming < proof.required);
       if (!contact && DIRECT_TOOLS.has(record.cause)) return;
-      ignitions.push({site, contact, ...position(record), height: (record.height ?? 0) + rules.ignitionHeight});
+      ignitions.push({site, contact, ...position(record), height: record.fireHeight ?? (record.height ?? 0) + rules.ignitionHeight});
     },
     update(worldTime, carryingLantern) {
       // Clear contacts after an advancing step, so pausing before combustion
@@ -118,10 +122,12 @@ export function createShopWitness(actor, player, obstacles, {event, hurt, rules:
       if (memory && !fresh(memory)) memory = null;
       if (reaction.kind !== 'relaxed' && time - reaction.worldTime + EPS >= rules[reaction.kind + 'Seconds']) relax();
 
-      const direct = origins.find(fire => fire.contact?.seenPlayer && canSee(fire, fire.height));
+      const visiblePoint=fire=>(fire.points?.(actor)||[fire]).find(p=>canSee(p,p.height));
+      const direct = origins.find(fire => fire.contact?.seenPlayer && visiblePoint(fire));
       if (direct && reaction.kind !== 'aggressive') {
         reaction = {kind: 'aggressive', ...direct.contact.seenPlayer, worldTime: time,
-          tool: direct.contact.tool, ...(direct.contact.projectileId ? {projectileId: direct.contact.projectileId} : {})};
+          tool: direct.contact.tool, ...(direct.contact.projectileId ? {projectileId: direct.contact.projectileId} : {}),...(direct.contact.nativeProof?{nativeProof:direct.contact.nativeProof}:{})};
+        if(direct.contact.nativeProof)event('officer-direct-witness',direct,{actorId:actor.id,tool:direct.contact.tool,nativeProof:direct.contact.nativeProof});
         face(reaction);
         pending = [];
         nextShotAt = Math.max(nextShotAt, time + rules.drawSeconds);
@@ -129,13 +135,13 @@ export function createShopWitness(actor, player, obstacles, {event, hurt, rules:
       if (reaction.kind === 'aggressive') tryShot();
       else {
         if (memory && time > memory.worldTime) {
-          for (const fire of origins) if (distance(fire, memory) <= rules.memoryMetres) pending.push({fire, sighting: memory});
+          for (const fire of origins) if ((fire.points?.(actor)||[fire]).some(p=>distance(p,memory)<=rules.memoryMetres)) pending.push({fire, sighting: memory});
         }
         let notice;
         pending = pending.filter(({fire, sighting}) => {
           if (fire.site.phase !== 'burning' || !fresh(sighting)) return false;
-          if (!canSee(fire, fire.height)) return true;
-          notice ??= fire;
+          const point=visiblePoint(fire);if (!point) return true;
+          notice ??= point;
           return false;
         });
         if (notice && reaction.kind === 'relaxed') {

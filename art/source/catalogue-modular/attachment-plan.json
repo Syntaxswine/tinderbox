@@ -1,0 +1,1332 @@
+{
+  "version": 1,
+  "status": "Measured attachment plan; no host runtime/export acceptance. Final field names follow coder API.",
+  "baseCommit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+  "frozenArt": "864713b135fee8331c70727927dd731fff0366e9",
+  "host": {
+    "size": [
+      51,
+      47
+    ],
+    "buildingCount": 8,
+    "patches": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 51,
+        "depth": 16,
+        "material": "grass"
+      },
+      {
+        "x": 0,
+        "y": 19,
+        "width": 51,
+        "depth": 5,
+        "material": "road"
+      },
+      {
+        "x": 0,
+        "y": 25,
+        "width": 51,
+        "depth": 22,
+        "material": "grass"
+      },
+      {
+        "x": 36,
+        "y": 9,
+        "width": 8,
+        "depth": 8,
+        "material": "wood"
+      }
+    ],
+    "pickups": [
+      {
+        "id": "street-powder-west",
+        "kind": "powder",
+        "x": 17,
+        "y": 21
+      },
+      {
+        "id": "street-healing-centre",
+        "kind": "healing",
+        "x": 21,
+        "y": 23
+      },
+      {
+        "id": "street-inversion-east",
+        "kind": "inversion",
+        "x": 27,
+        "y": 21
+      }
+    ],
+    "barrels": [
+      {
+        "id": "street-drum-west",
+        "x": 12.5,
+        "y": 15,
+        "width": 0.656,
+        "depth": 0.656,
+        "height": 0.8,
+        "material": "steel",
+        "kind": "barrel"
+      },
+      {
+        "id": "street-drum-east",
+        "x": 25.5,
+        "y": 15,
+        "width": 0.656,
+        "depth": 0.656,
+        "height": 0.8,
+        "material": "steel",
+        "kind": "barrel"
+      }
+    ],
+    "actors": [
+      {
+        "id": "neighbor-horse",
+        "x": 7,
+        "y": 17,
+        "route": [
+          {
+            "x": 7,
+            "y": 17
+          },
+          {
+            "x": 17,
+            "y": 17
+          }
+        ]
+      },
+      {
+        "id": "neighbor-goat",
+        "x": 29,
+        "y": 24.5,
+        "route": [
+          {
+            "x": 29,
+            "y": 24.5
+          },
+          {
+            "x": 19,
+            "y": 24.5
+          }
+        ]
+      },
+      {
+        "id": "chicago-beat-officer",
+        "x": 37.6,
+        "y": 18.4,
+        "route": [
+          {
+            "x": 37.6,
+            "y": 18.4
+          },
+          {
+            "x": 42.4,
+            "y": 18.4
+          }
+        ]
+      }
+    ],
+    "buildings": [
+      {
+        "id": "hopkins-twelve",
+        "prefabId": "hopkins-4-12",
+        "placement": [
+          11,
+          0,
+          10
+        ],
+        "hostQuarterTurns": 2,
+        "visualBounds": {
+          "min": [
+            2.7395594,
+            -0.12,
+            2.86
+          ],
+          "max": [
+            11.2604406,
+            7.06,
+            12.6761747
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "hopkins-twelve:foundation",
+            "buildingId": "hopkins-twelve",
+            "role": "foundation",
+            "x": 7,
+            "y": 6.5,
+            "width": 8.18,
+            "depth": 7.18,
+            "height": 4.6,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": []
+          },
+          {
+            "id": "hopkins-twelve:porch",
+            "buildingId": "hopkins-twelve",
+            "role": "porch",
+            "x": 7,
+            "y": 11,
+            "width": 8,
+            "depth": 2,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "hopkins-twelve:stairs",
+            "buildingId": "hopkins-twelve",
+            "role": "stairs",
+            "x": 5.5,
+            "y": 12.33,
+            "width": 1.275,
+            "depth": 0.7150000000000001,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": null,
+          "right": null
+        }
+      },
+      {
+        "id": "hopkins-fifteen",
+        "prefabId": "hopkins-4-15",
+        "placement": [
+          24,
+          0,
+          13
+        ],
+        "hostQuarterTurns": 2,
+        "visualBounds": {
+          "min": [
+            13.695,
+            -0.12,
+            2.75
+          ],
+          "max": [
+            24.305,
+            6.91,
+            15.6761747
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "hopkins-fifteen:foundation",
+            "buildingId": "hopkins-fifteen",
+            "role": "foundation",
+            "x": 19,
+            "y": 8,
+            "width": 10.18,
+            "depth": 10.18,
+            "height": 4.6,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": []
+          },
+          {
+            "id": "hopkins-fifteen:porch",
+            "buildingId": "hopkins-fifteen",
+            "role": "porch",
+            "x": 19,
+            "y": 14,
+            "width": 4,
+            "depth": 2,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "hopkins-fifteen:stairs",
+            "buildingId": "hopkins-fifteen",
+            "role": "stairs",
+            "x": 18.5,
+            "y": 15.33,
+            "width": 1.275,
+            "depth": 0.7150000000000001,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": null,
+          "right": null
+        }
+      },
+      {
+        "id": "ashland-cottage",
+        "prefabId": "ashland-worker",
+        "placement": [
+          33,
+          0,
+          10
+        ],
+        "hostQuarterTurns": 2,
+        "visualBounds": {
+          "min": [
+            26.695,
+            -0.12,
+            2.7
+          ],
+          "max": [
+            33.305,
+            6.36,
+            13.6572187
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "ashland-cottage:foundation",
+            "buildingId": "ashland-cottage",
+            "role": "foundation",
+            "x": 30,
+            "y": 6.5,
+            "width": 6.18,
+            "depth": 7.18,
+            "height": 4.12,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": []
+          },
+          {
+            "id": "ashland-cottage:porch",
+            "buildingId": "ashland-cottage",
+            "role": "porch",
+            "x": 28,
+            "y": 10.5,
+            "width": 2,
+            "depth": 1,
+            "height": 2.12,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "ashland-cottage:stairs",
+            "buildingId": "ashland-cottage",
+            "role": "stairs",
+            "x": 27.5,
+            "y": 12.32,
+            "width": 1.275,
+            "depth": 2.6950000000000003,
+            "height": 2.12,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": null,
+          "right": null
+        }
+      },
+      {
+        "id": "hopkins-nine",
+        "prefabId": "hopkins-4-09",
+        "placement": [
+          3,
+          0,
+          30
+        ],
+        "hostQuarterTurns": 0,
+        "visualBounds": {
+          "min": [
+            2.7395594,
+            -0.12,
+            28.3238253
+          ],
+          "max": [
+            10.14,
+            6.96,
+            40.14
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "hopkins-nine:foundation",
+            "buildingId": "hopkins-nine",
+            "role": "foundation",
+            "x": 6.5,
+            "y": 35,
+            "width": 7.18,
+            "depth": 10.18,
+            "height": 4.6,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": []
+          },
+          {
+            "id": "hopkins-nine:porch",
+            "buildingId": "hopkins-nine",
+            "role": "porch",
+            "x": 4,
+            "y": 30,
+            "width": 2,
+            "depth": 2,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "hopkins-nine:stairs",
+            "buildingId": "hopkins-nine",
+            "role": "stairs",
+            "x": 4.5,
+            "y": 28.67,
+            "width": 1.275,
+            "depth": 0.7150000000000001,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": null,
+          "right": null
+        }
+      },
+      {
+        "id": "hopkins-thirteen",
+        "prefabId": "hopkins-4-13",
+        "placement": [
+          15,
+          0,
+          30
+        ],
+        "hostQuarterTurns": 0,
+        "visualBounds": {
+          "min": [
+            14.86,
+            -0.12,
+            28.3238253
+          ],
+          "max": [
+            23.14,
+            6.96,
+            38.14
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "hopkins-thirteen:foundation",
+            "buildingId": "hopkins-thirteen",
+            "role": "foundation",
+            "x": 19,
+            "y": 34,
+            "width": 8.18,
+            "depth": 8.18,
+            "height": 4.6,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": []
+          },
+          {
+            "id": "hopkins-thirteen:porch",
+            "buildingId": "hopkins-thirteen",
+            "role": "porch",
+            "x": 18.5,
+            "y": 29.5,
+            "width": 3,
+            "depth": 1,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "hopkins-thirteen:stairs",
+            "buildingId": "hopkins-thirteen",
+            "role": "stairs",
+            "x": 18.5,
+            "y": 28.67,
+            "width": 1.275,
+            "depth": 0.7150000000000001,
+            "height": 0.48,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": null,
+          "right": null
+        }
+      },
+      {
+        "id": "monroe-row-house",
+        "prefabId": "monroe-row",
+        "placement": [
+          27,
+          0,
+          31
+        ],
+        "hostQuarterTurns": 0,
+        "visualBounds": {
+          "min": [
+            26.695,
+            -1.18,
+            27.6627813
+          ],
+          "max": [
+            34.0636396,
+            6.98,
+            44.3
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "monroe-row-house:foundation",
+            "buildingId": "monroe-row-house",
+            "role": "foundation",
+            "x": 30.455,
+            "y": 37.5,
+            "width": 7.09,
+            "depth": 13.18,
+            "height": 5.18,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": [
+              {
+                "id": "monroe-row-house:party-right",
+                "x": 34,
+                "y": 37.5,
+                "width": 0.16,
+                "depth": 13,
+                "height": 5.18,
+                "material": "masonry",
+                "blocksHeat": true
+              }
+            ]
+          },
+          {
+            "id": "monroe-row-house:porch",
+            "buildingId": "monroe-row-house",
+            "role": "porch",
+            "x": 28,
+            "y": 30,
+            "width": 2,
+            "depth": 2,
+            "height": 1.06,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "monroe-row-house:stairs",
+            "buildingId": "monroe-row-house",
+            "role": "stairs",
+            "x": 28.5,
+            "y": 28.34,
+            "width": 1.275,
+            "depth": 1.375,
+            "height": 1.06,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": null,
+          "right": "monroe-row-middle"
+        }
+      },
+      {
+        "id": "monroe-row-middle",
+        "prefabId": "monroe-row",
+        "placement": [
+          34,
+          0,
+          31
+        ],
+        "hostQuarterTurns": 0,
+        "visualBounds": {
+          "min": [
+            33.9591188,
+            -1.18,
+            27.6627813
+          ],
+          "max": [
+            41.0636396,
+            6.98,
+            44.3
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "monroe-row-middle:foundation",
+            "buildingId": "monroe-row-middle",
+            "role": "foundation",
+            "x": 37.5,
+            "y": 37.5,
+            "width": 7,
+            "depth": 13.18,
+            "height": 5.18,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": [
+              {
+                "id": "monroe-row-middle:party-left",
+                "x": 34,
+                "y": 37.5,
+                "width": 0.16,
+                "depth": 13,
+                "height": 5.18,
+                "material": "masonry",
+                "blocksHeat": true
+              },
+              {
+                "id": "monroe-row-middle:party-right",
+                "x": 41,
+                "y": 37.5,
+                "width": 0.16,
+                "depth": 13,
+                "height": 5.18,
+                "material": "masonry",
+                "blocksHeat": true
+              }
+            ]
+          },
+          {
+            "id": "monroe-row-middle:porch",
+            "buildingId": "monroe-row-middle",
+            "role": "porch",
+            "x": 35,
+            "y": 30,
+            "width": 2,
+            "depth": 2,
+            "height": 1.06,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "monroe-row-middle:stairs",
+            "buildingId": "monroe-row-middle",
+            "role": "stairs",
+            "x": 35.5,
+            "y": 28.34,
+            "width": 1.275,
+            "depth": 1.375,
+            "height": 1.06,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": "monroe-row-house",
+          "right": "monroe-row-east"
+        }
+      },
+      {
+        "id": "monroe-row-east",
+        "prefabId": "monroe-row",
+        "placement": [
+          41,
+          0,
+          31
+        ],
+        "hostQuarterTurns": 0,
+        "visualBounds": {
+          "min": [
+            40.9591188,
+            -1.18,
+            27.6627813
+          ],
+          "max": [
+            48.305,
+            6.98,
+            44.3
+          ]
+        },
+        "coarseFootprints": [
+          {
+            "id": "monroe-row-east:foundation",
+            "buildingId": "monroe-row-east",
+            "role": "foundation",
+            "x": 44.545,
+            "y": 37.5,
+            "width": 7.09,
+            "depth": 13.18,
+            "height": 5.18,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true,
+            "heatBarriers": [
+              {
+                "id": "monroe-row-east:party-left",
+                "x": 41,
+                "y": 37.5,
+                "width": 0.16,
+                "depth": 13,
+                "height": 5.18,
+                "material": "masonry",
+                "blocksHeat": true
+              }
+            ]
+          },
+          {
+            "id": "monroe-row-east:porch",
+            "buildingId": "monroe-row-east",
+            "role": "porch",
+            "x": 42,
+            "y": 30,
+            "width": 2,
+            "depth": 2,
+            "height": 1.06,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          },
+          {
+            "id": "monroe-row-east:stairs",
+            "buildingId": "monroe-row-east",
+            "role": "stairs",
+            "x": 42.5,
+            "y": 28.34,
+            "width": 1.275,
+            "depth": 1.375,
+            "height": 1.06,
+            "material": "wood",
+            "kind": "building-foundation",
+            "solid": true,
+            "blocksHeat": true
+          }
+        ],
+        "partyWalls": {
+          "left": "monroe-row-middle",
+          "right": null
+        }
+      }
+    ]
+  },
+  "coordinateContract": {
+    "ground": "Host x/y becomes world X/Z; world Y remains native elevation.",
+    "hostRotation": "Three Y angle = -hostQuarterTurns*PI/2",
+    "moduleRotation": "Three Y angle = +moduleQuarterTurns*PI/2",
+    "conversion": "moduleQuarterTurns=(4-hostQuarterTurns)%4; current house2 and shop0 are unchanged by this conversion.",
+    "shopTranslation": [
+      36,
+      0,
+      9
+    ],
+    "houseTranslation": [
+      24,
+      0,
+      13
+    ],
+    "houseQuarterTurns": 2,
+    "noBakedTestPlacement": true
+  },
+  "shop": {
+    "lot": {
+      "min": [
+        36,
+        0,
+        9
+      ],
+      "max": [
+        44,
+        4.24,
+        17
+      ]
+    },
+    "source": "workbenches/bell-and-alder-closing/scene-data.json",
+    "sourceFloorYs": [
+      0,
+      2.12
+    ],
+    "omitSurfaceAndMeshIds": [
+      "pavement/west",
+      "pavement/east",
+      "pavement/rear",
+      "pavement/front",
+      "street-lamp/post",
+      "street-lamp/foot",
+      "opposite/front/0/-3",
+      "opposite/front/1/-3",
+      "opposite/front/0/-2",
+      "opposite/front/1/-2",
+      "opposite/front/0/-1",
+      "opposite/front/1/-1",
+      "opposite/front/0/0",
+      "opposite/front/1/0",
+      "opposite/front/0/1",
+      "opposite/front/1/1",
+      "opposite/front/0/2",
+      "opposite/front/1/2",
+      "opposite/chamfer/0",
+      "opposite/chamfer/1",
+      "opposite/return/0/16",
+      "opposite/return/1/16",
+      "opposite/return/0/17",
+      "opposite/return/1/17",
+      "street-lamp/fixture/paint/iron",
+      "street-lamp/fixture/flame/iron",
+      "street-lamp/fixture/amber/glass"
+    ],
+    "omitLampIds": [
+      "street-lamp:light"
+    ],
+    "retainedCanonicalReferencesToOmitted": [],
+    "remaining": {
+      "surfaces": 516,
+      "sourceMeshes": 633,
+      "renderGeometry": 505,
+      "items": 23,
+      "parts": 76,
+      "openings": 44
+    },
+    "translatedOriginalBounds": {
+      "min": [
+        35.92,
+        -0.24,
+        8.92
+      ],
+      "max": [
+        47,
+        4.3,
+        20
+      ]
+    },
+    "roadIntrusions": [
+      {
+        "id": "stair/base/9,10",
+        "bounds": {
+          "min": [
+            45,
+            -0.12,
+            19
+          ],
+          "max": [
+            46,
+            0,
+            20
+          ]
+        },
+        "projectedRoadArea": 1
+      },
+      {
+        "id": "stair/base/10,10",
+        "bounds": {
+          "min": [
+            46,
+            -0.12,
+            19
+          ],
+          "max": [
+            47,
+            0,
+            20
+          ]
+        },
+        "projectedRoadArea": 1
+      },
+      {
+        "id": "stair/stringer/9.1",
+        "bounds": {
+          "min": [
+            45.04,
+            -0.0942874,
+            12.9666851
+          ],
+          "max": [
+            45.16,
+            2.2142874,
+            19.0333149
+          ]
+        },
+        "projectedRoadArea": 0.0039978
+      },
+      {
+        "id": "stair/stringer/10.9",
+        "bounds": {
+          "min": [
+            46.84,
+            -0.0942874,
+            12.9666851
+          ],
+          "max": [
+            46.96,
+            2.2142874,
+            19.0333149
+          ]
+        },
+        "projectedRoadArea": 0.0039978
+      },
+      {
+        "id": "stair/handrail/9.03",
+        "bounds": {
+          "min": [
+            45.01,
+            0.9587853,
+            12.9925041
+          ],
+          "max": [
+            45.05,
+            3.1212147,
+            19.0074959
+          ]
+        },
+        "projectedRoadArea": 0.0002998
+      },
+      {
+        "id": "stair/handrail/10.97",
+        "bounds": {
+          "min": [
+            46.95,
+            0.9587853,
+            12.9925041
+          ],
+          "max": [
+            46.99,
+            3.1212147,
+            19.0074959
+          ]
+        },
+        "projectedRoadArea": 0.0002998
+      }
+    ],
+    "proposedNorthStair": {
+      "status": "Recommended same-component recomposition; contract/combined clearance review still required.",
+      "sourceIds": [
+        "stair/base/9,10",
+        "stair/base/10,10",
+        "stair/tread-01",
+        "stair/rail-post/0/9.03",
+        "stair/rail-post/0/10.97",
+        "stair/tread-02",
+        "stair/rail-post/1/9.03",
+        "stair/rail-post/1/10.97",
+        "stair/tread-03",
+        "stair/rail-post/2/9.03",
+        "stair/rail-post/2/10.97",
+        "stair/tread-04",
+        "stair/rail-post/3/9.03",
+        "stair/rail-post/3/10.97",
+        "stair/tread-05",
+        "stair/rail-post/4/9.03",
+        "stair/rail-post/4/10.97",
+        "stair/tread-06",
+        "stair/rail-post/5/9.03",
+        "stair/rail-post/5/10.97",
+        "stair/tread-07",
+        "stair/rail-post/6/9.03",
+        "stair/rail-post/6/10.97",
+        "stair/tread-08",
+        "stair/rail-post/7/9.03",
+        "stair/rail-post/7/10.97",
+        "stair/tread-09",
+        "stair/rail-post/8/9.03",
+        "stair/rail-post/8/10.97",
+        "stair/tread-10",
+        "stair/rail-post/9/9.03",
+        "stair/rail-post/9/10.97",
+        "stair/tread-11",
+        "stair/rail-post/10/9.03",
+        "stair/rail-post/10/10.97",
+        "stair/tread-12",
+        "stair/rail-post/11/9.03",
+        "stair/rail-post/11/10.97",
+        "stair/stringer/9.1",
+        "stair/stringer/10.9",
+        "stair/handrail/9.03",
+        "stair/handrail/10.97"
+      ],
+      "localRotation": {
+        "quarterTurns": 2,
+        "pivot": [
+          10,
+          0,
+          3
+        ]
+      },
+      "worldPivot": [
+        46,
+        0,
+        12
+      ],
+      "flightPlanBounds": {
+        "min": [
+          45,
+          0,
+          5
+        ],
+        "max": [
+          47,
+          2.12,
+          11
+        ]
+      },
+      "basePlanBounds": {
+        "min": [
+          45,
+          0,
+          4
+        ],
+        "max": [
+          47,
+          0,
+          5
+        ]
+      },
+      "upperLandingBounds": {
+        "min": [
+          44,
+          2.12,
+          11
+        ],
+        "max": [
+          47,
+          2.12,
+          13
+        ]
+      },
+      "lowerSurfaceIds": [
+        "stair/base/9,10",
+        "stair/base/10,10"
+      ],
+      "upperSurfaceIds": [
+        "landing/9,2",
+        "landing/10,2"
+      ],
+      "sourceWalkingAnchors": {
+        "stairFoot": [
+          10,
+          0,
+          -4.5
+        ],
+        "landing": [
+          10,
+          2.12,
+          2.75
+        ],
+        "serviceOutside": [
+          8.9,
+          2.12,
+          3
+        ]
+      },
+      "worldWalkingAnchors": {
+        "stairFoot": [
+          46,
+          0,
+          4.5
+        ],
+        "landing": [
+          46,
+          2.12,
+          11.75
+        ],
+        "serviceOutside": [
+          44.9,
+          2.12,
+          12
+        ],
+        "eastApproach": [
+          48.5,
+          0,
+          4.5
+        ]
+      },
+      "newModuleVisualBounds": {
+        "min": [
+          35.92,
+          -0.24,
+          4
+        ],
+        "max": [
+          47,
+          4.3,
+          18.0409441
+        ]
+      },
+      "roadIntrusions": [],
+      "requires": [
+        "Rotate all42 stair source meshes, canonical triangles/normals/bounds and render vertices/matrices coherently. UVs stay native.",
+        "Replace south upper-landing refs with actual north landing9,2/10,2 and recompute moved attachment/bearing contacts.",
+        "Keep the6 landing slabs and4 landing posts unchanged; preserve native6m run,2m width,12rises and1.9m rail clearance.",
+        "Recompose stair approach/routine/check anchors from the real host. Do not replay the old opposite-frontage fixture."
+      ]
+    }
+  },
+  "house": {
+    "id": "hopkins-fifteen",
+    "source": "workbenches/bell-and-alder-sandbox/house-route-data.json",
+    "placement": [
+      24,
+      0,
+      13
+    ],
+    "quarterTurns": 2,
+    "sourceFloorYs": [
+      0.48,
+      2.6
+    ],
+    "hostVisualBounds": {
+      "min": [
+        13.695,
+        -0.12,
+        2.75
+      ],
+      "max": [
+        24.305,
+        6.91,
+        15.6761747
+      ]
+    },
+    "furnishedWorldVisualBounds": {
+      "min": [
+        13.695,
+        -0.12,
+        2.75
+      ],
+      "max": [
+        24.305,
+        6.91,
+        16.32
+      ]
+    },
+    "entryCentreWorld": [
+      18.99625,
+      0.48,
+      13
+    ],
+    "entryApproachWorld": [
+      18.99625,
+      0,
+      16.8
+    ],
+    "frontHandleWorld": [
+      18.99625,
+      1.38,
+      13.15
+    ],
+    "minimumClearWidth": 1.015,
+    "oldCoarseStairCentre": [
+      18.5,
+      0,
+      15.33
+    ],
+    "lateralEntryChange": 0.49625,
+    "frontExtension": 0.6438253,
+    "distanceToRoad": 2.68,
+    "replaceCoarseColliderIds": [
+      "hopkins-fifteen:foundation",
+      "hopkins-fifteen:porch",
+      "hopkins-fifteen:stairs"
+    ],
+    "profileLimits": "Goat/horse cylinder routes passed in frozen local exemplar; bear/civilian approach rails remain blocked. New host routes and full posed/equipment checks remain untested."
+  },
+  "hostReplacement": {
+    "shopWallIds": [
+      "bell-and-alder:wall-rear-0",
+      "bell-and-alder:wall-rear-1",
+      "bell-and-alder:wall-rear-2",
+      "bell-and-alder:wall-rear-3",
+      "bell-and-alder:wall-rear-4",
+      "bell-and-alder:wall-rear-5",
+      "bell-and-alder:wall-rear-6",
+      "bell-and-alder:wall-rear-7",
+      "bell-and-alder:wall-west-0",
+      "bell-and-alder:wall-west-1",
+      "bell-and-alder:wall-west-2",
+      "bell-and-alder:wall-west-3",
+      "bell-and-alder:wall-west-4",
+      "bell-and-alder:wall-west-5",
+      "bell-and-alder:wall-west-6",
+      "bell-and-alder:wall-west-7",
+      "bell-and-alder:wall-east-0",
+      "bell-and-alder:wall-east-1",
+      "bell-and-alder:wall-east-2",
+      "bell-and-alder:wall-front-west",
+      "bell-and-alder:wall-front-east"
+    ],
+    "shopObstacleIds": [
+      "bell-and-alder:shelf-west",
+      "bell-and-alder:shelf-east",
+      "bell-and-alder:counter",
+      "bell-and-alder:scale",
+      "bell-and-alder:case",
+      "bell-and-alder:fabric",
+      "bell-and-alder:settee",
+      "bell-and-alder:table",
+      "bell-and-alder:chair",
+      "bell-and-alder:parlor-lamp",
+      "bell-and-alder:front-glazing-0",
+      "bell-and-alder:front-glazing-1",
+      "bell-and-alder:front-glazing-2",
+      "bell-and-alder:front-glazing-3",
+      "bell-and-alder:east-glazing-0",
+      "bell-and-alder:east-glazing-1",
+      "bell-and-alder:east-glazing-2",
+      "bell-and-alder:east-glazing-3",
+      "bell-and-alder:east-glazing-4"
+    ],
+    "shopPropIds": [
+      "bell-and-alder:shelf-west",
+      "bell-and-alder:shelf-east",
+      "bell-and-alder:counter",
+      "bell-and-alder:scale",
+      "bell-and-alder:case",
+      "bell-and-alder:fabric",
+      "bell-and-alder:settee",
+      "bell-and-alder:table",
+      "bell-and-alder:chair",
+      "bell-and-alder:parlor-lamp",
+      "bell-and-alder:shop-lamp",
+      "bell-and-alder:trade-sign",
+      "bell-and-alder:cornice-0",
+      "bell-and-alder:cornice-1",
+      "bell-and-alder:cornice-2",
+      "bell-and-alder:cornice-3",
+      "bell-and-alder:front-glazing-0",
+      "bell-and-alder:front-glazing-1",
+      "bell-and-alder:front-glazing-2",
+      "bell-and-alder:front-glazing-3",
+      "bell-and-alder:east-glazing-0",
+      "bell-and-alder:east-glazing-1",
+      "bell-and-alder:east-glazing-2",
+      "bell-and-alder:east-glazing-3",
+      "bell-and-alder:east-glazing-4"
+    ],
+    "shopOwnedFloorPatch": {
+      "x": 36,
+      "y": 9,
+      "width": 8,
+      "depth": 8,
+      "material": "wood"
+    },
+    "entryId": "bell-and-alder:entry",
+    "lanternId": "bell-and-alder:hand-lantern",
+    "policy": "Replace only these old owners when new source is active. No duplicate old shop/H15 model, solid foundation block, fuel layer, lantern, actor or burnout group."
+  },
+  "preserve": {
+    "buildingIds": [
+      "hopkins-twelve",
+      "ashland-cottage",
+      "hopkins-nine",
+      "hopkins-thirteen",
+      "monroe-row-house",
+      "monroe-row-middle",
+      "monroe-row-east"
+    ],
+    "monroeSeams": [
+      34,
+      41
+    ],
+    "streetRoadZ": [
+      19,
+      24
+    ],
+    "allGrassBands": true,
+    "barrels": true,
+    "pickups": true,
+    "hostPlayerAndCharacters": true,
+    "hostRoutes": true,
+    "UIAndTools": true
+  },
+  "rejectTestYard": {
+    "instanceId": "yard",
+    "source": "workbenches/bell-and-alder-sandbox/yard-data.json",
+    "reason": "Standalone test footprint, paving/crate/fence placements do not register to this host. No whole-yard import."
+  },
+  "requiredAPIClarifications": [
+    "One ownership replacement for old shop/H15 visuals, collision, fuel, local burnout and the shop wood floor patch.",
+    "Host walk elevation stays0 on street/grass; provide real shared host terrain support after removing staging pavement. Do not substitute the isolated test ground as the full map.",
+    "Art owns structures and installed lamps/single authoritative lantern only; host draws its existing actors/tools/UI/pickups.",
+    "Explicit component-owned bounds, per-instance frame ownership, live registered actor/lantern poses and actual stair-flight contacts."
+  ],
+  "sources": [
+    {
+      "path": "src/content/neighborhood.js",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "d5322afeef4a11dc34302d356fb07238eae1263a1e6c33e17f900b0bd1755031",
+      "bytes": 3112
+    },
+    {
+      "path": "src/content/bell-and-alder-layout.js",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "c906214d46fbed3b2dcb5202de6c8527b10ba61b869af689ea1be3673718c936",
+      "bytes": 4170
+    },
+    {
+      "path": "src/content/buildings.js",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "2e48361e803bfe0a4f3a20c896080c422bf6ee6ec3839ca79ed81e6e592d759e",
+      "bytes": 6169
+    },
+    {
+      "path": "src/art/neighborhood.js",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "618ca9f2a04f88773c0bb8f5d9fd1c57708bd91dc66b9460ca374941e302d675",
+      "bytes": 9886
+    },
+    {
+      "path": "src/content/housing-plans.js",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "dc6a79a7ddd3164cc8bce65ce6988b43a98847227dbba7cf73f1da00d8ecdda6",
+      "bytes": 58285
+    },
+    {
+      "path": "workbenches/bell-and-alder-closing/scene-data.json",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "15d284fbcaad23daceaf727079dbb902c072a9a0cefeaea7bd12fe89fd29c943",
+      "bytes": 10271471
+    },
+    {
+      "path": "workbenches/bell-and-alder-sandbox/house-route-data.json",
+      "commit": "e07487fe3299531f9205b43fc39afd3c9106e2ee",
+      "sha256": "a2e1521bd1b0f15e6e4baefc197743e87fb14af4da3f8259aec325f3e127cef6",
+      "bytes": 6173097
+    },
+    {
+      "path": "art/source/catalogue-modular/measure-fit.mjs",
+      "commit": null,
+      "sha256": "c3a14d00c89b5bcdc594f5e26a416f9fe0e991f77a2b304f0516f1a75a5fed67",
+      "bytes": 9488
+    }
+  ]
+}

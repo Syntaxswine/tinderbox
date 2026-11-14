@@ -4,11 +4,11 @@ import {configuration} from '../simulation/config.js';
 import {createCameraRig} from './camera.js';
 import {createDiagnosticScene} from './diagnostics.js';
 export {THREE};
-export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,assetBaseUrl,simulation,seed,scenario,config,characterId='bear',autoStart=true,uiOptions={},signal:externalSignal,cottageWind,
+export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,assetBaseUrl,simulation,seed,scenario,config,characterId='bear',autoStart=true,uiOptions={},signal:externalSignal,cottageWind,catalogueModules,
   rendererFactory=()=>new THREE.WebGLRenderer({antialias:true,alpha:false}),observerFactory=callback=>new ResizeObserver(callback),onSnapshot=()=>{},onError=error=>console.error(error)}={}){
   if(!root)throw Error('A viewport root is required');
   if(externalSignal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-  const settings=configuration(config),sim=simulation??createSimulation({seed,scenario,config,characterId,cottageWind});
+  const settings=configuration(config),sim=simulation??createSimulation({seed,scenario,config,characterId,cottageWind,catalogueModules});
   const controller=new AbortController(),signal=controller.signal,doc=root.ownerDocument||globalThis.document,win=doc?.defaultView||globalThis;
   let renderer,scene,camera,observer,art,ui,animation,snapshot=sim.snapshot(),disposed=false,lastTime=null,frames=0,lastMetrics={},rendererDescription='unavailable';
   const cpuSamples=[],simulationSamples=[],frameSamples=[];
@@ -25,11 +25,11 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     const before=performance.now(),previous=snapshot;snapshot=next;
     const timing={alpha:snapshot.diagnostics.alpha,playerDelta:Math.max(0,snapshot.clocks.player-previous.clocks.player),worldDelta:Math.max(0,snapshot.clocks.world-previous.clocks.world),
       playerTime:snapshot.clocks.player,worldTime:snapshot.clocks.world,camera:camera.camera,viewMode:camera.diagnostics().mode,viewport:{width:root.clientWidth,height:root.clientHeight}};
-    camera.update(snapshot.player);art.update(snapshot,timing);ui?.update(snapshot);renderer.render(scene,camera.camera);frames++;
+    camera.update(snapshot.player);const artStart=performance.now();art.update(snapshot,timing);const uiStart=performance.now();ui?.update(snapshot);const renderStart=performance.now();renderer.render(scene,camera.camera);const renderEnd=performance.now();frames++;
     cpuSamples.push(performance.now()-before);simulationSamples.push(simulationMs);frameSamples.push(delta*1000);
     if(cpuSamples.length>240){cpuSamples.shift();simulationSamples.shift();frameSamples.shift();}
     const sorted=[...cpuSamples].sort((a,b)=>a-b),simSorted=[...simulationSamples].sort((a,b)=>a-b),intervals=frameSamples.filter(v=>v>0);
-    lastMetrics={frames,simulationMs,rendererDescription,userAgent:globalThis.navigator?.userAgent||'',streaming:art.streamingMetrics?.(),
+    lastMetrics={frames,simulationMs,artCpuMs:uiStart-artStart,uiCpuMs:renderStart-uiStart,renderSubmitCpuMs:renderEnd-renderStart,rendererDescription,userAgent:globalThis.navigator?.userAgent||'',streaming:art.streamingMetrics?.(),
       simulationCpuP95Ms:simSorted[Math.floor((simSorted.length-1)*.95)]??0,observedHz:intervals.length?1000*intervals.length/intervals.reduce((n,v)=>n+v,0):0,
       renderCpuP95Ms:sorted[Math.floor((sorted.length-1)*.95)]??0,drawCalls:renderer.info.render.calls,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,
       viewport:{width:root.clientWidth,height:root.clientHeight},threeRevision:THREE.REVISION,camera:camera.diagnostics()};
@@ -59,7 +59,7 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     renderer.domElement.addEventListener('webglcontextlost',event=>{if(disposed)return;event.preventDefault();dispose();onError(Error('Graphics context lost. Return to the places menu and try again.'));},{signal});
     win.addEventListener('blur',loseFocus,{signal});doc?.addEventListener('visibilitychange',()=>{if(doc.hidden)loseFocus();lastTime=null;},{signal});
     if(doc?.hidden||typeof doc?.hasFocus==='function'&&!doc.hasFocus())loseFocus();
-    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights}):createDiagnosticScene({THREE,scene,config:settings});
+    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights,catalogueModules}):createDiagnosticScene({THREE,scene,config:settings});
     if(disposed||externalSignal?.aborted){created.dispose();throw new DOMException('Visit cancelled','AbortError');}art=created;
     ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});
     renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Move with the joystick, WASD or arrows.');
