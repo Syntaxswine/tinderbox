@@ -1,0 +1,8 @@
+// Separate frozen runtime inputs for the focused access preview; preserve 2db controls.
+import fs from 'node:fs';import path from 'node:path';import {execFileSync} from 'node:child_process';import {createHash} from 'node:crypto';
+const donor=process.argv[2];if(!donor)throw Error('Supply the read-only matching coder checkout');const root=fs.realpathSync(donor),destination='artifacts/qa/h15-access-125/runtime-inputs';
+const git=(...args)=>execFileSync('git',['-C',root,...args],{encoding:'utf8'});
+const changed=git('diff','--name-only','e07487fe3299531f9205b43fc39afd3c9106e2ee'),untracked=git('ls-files','--others','--exclude-standard');
+const files=[...new Set((changed+'\n'+untracked).split(/\r?\n/).filter(f=>/^(src|workbenches)\//.test(f)&&!f.startsWith('workbenches/catalogue-modular/')&&/\.(js|mjs|css)$/.test(f)))].sort();
+const rows=files.map(file=>{const bytes=fs.readFileSync(path.join(root,file)),target=path.join(destination,file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,bytes);return {path:file,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};});
+const result={version:1,scope:'Focused live H15 access-variant host preview; read-only frozen coder working inputs. Earlier phone/fire/cache inputs are separate unchanged controls.',sourceBranch:git('branch','--show-current').trim(),sourceCommit:git('rev-parse','HEAD').trim(),workingFiles:true,capturedAt:new Date().toISOString(),files:rows};fs.writeFileSync('artifacts/qa/h15-access-125/runtime-inputs.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({files:files.length,sourceCommit:result.sourceCommit,workingFiles:true}));
