@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "scope": "Focused CPU-only presentation-state equivalence; actual native source/frame plus declared art-only door/char/retirement deltas. Not a full-host FPS or GPU measurement.",
+  "reference": {
+    "commit": "28ac3dfacf8e4997834b02919daccab0dfb5a857",
+    "path": "art/source/catalogue-modular/thermal-art.js",
+    "sha256": "98825164b5bf1d6b8513e1945b6d697ddb962bc13c69a39e0e10c964ba0f24a7"
+  },
+  "candidateSha256": "2eaa4bba11767fb2d42180b8b21b880d1cf6481cd177dfd0143351b9c4385ae7",
+  "instance": "hopkins-fifteen",
+  "comparisons": [
+    "real full native frame",
+    "empty native delta",
+    "recorded source door opening",
+    "local char and heat",
+    "local retirement",
+    "full rewind/reset"
+  ],
+  "exactRGBA": true,
+  "exactDoorQuaternions": true,
+  "unchangedFrames": 100,
+  "cachedTextureInvalidations": 0,
+  "referenceTextureInvalidations": 100,
+  "cachedDoorPoseUpdates": 0,
+  "stableOwnerProjection": true,
+  "focusedMeanUpdateMs": {
+    "cached": 0.021781000000009952,
+    "reference": 0.8918209999999999
+  },
+  "disposal": {
+    "geometries": 0,
+    "materials": 0,
+    "textures": 0
+  },
+  "passed": true
+}
