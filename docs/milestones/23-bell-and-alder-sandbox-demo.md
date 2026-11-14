@@ -1,5 +1,15 @@
 # Catalogue Street demo with reusable Bell & Alder modules
 
+## Current delivery authorization
+
+The owner now explicitly instructs the coder and artist to finish the remaining connections, test the larger map, and publish the demo on Pages **once it passes**. This supersedes earlier statements that Pages needs a later owner authorization; the architect should complete review, promotion and live verification without asking again. It does not waive failed relevant checks or turn deferred results into passes.
+
+Finish actual shop/house entry/stair and NPC route connections, resident/native presentation and physical/render-state bindings, the existing tools/barrels/pickups on the common backend, and proved direct-witness draw/fire with live cover while remembered-lantern suspicion never fires. Test keyboard and mouse joystick across the real module boundaries, release/focus/pause/reset, desktop and narrow-screen presentation, current tool effects and finite budgets. Use a representative interactive pass and measured short-fire/reset/resource windows. Existing documented cosmetic/native-profile limits may remain disclosed; unusable input, launch/resource failures, missing required wiring and failed relevant behavior cannot be published as passing.
+
+The structural adapter may also cache unchanged geometry/support/ownership and publish only genuinely changed state when profiling justifies it, with semantic equivalence checks. Keep the full-map visual layout, clocks, finite heat/fuel, off-camera simulation and source control. Do not fake frame rate or silently lower rules. Responsive desktop play is the goal (roughly 30 fps as a prototype target); record actual costs and observed input behavior, not an untested mobile/GPU claim.
+
+Prepare a self-contained nested `/tinderbox/` production closure for the module-enabled Catalogue visit, including its selected runtime/data/texture dependencies and notices, without raw QA artifacts/helper code or the entire experimental library. Preserve the four-map title, legacy/cottage controls and other destinations. The initial public demo may use the explicit `?catalogue=modules` link. After exact candidate intake and combined static/behavior/build/browser acceptance, architect promotes to `master`, pushes normally, monitors the existing Pages workflow, verifies the deployed version/resources/visit, and gives the owner the tested link. No force push or new hosting setup is required; existing Pages configuration and `PAGES_ENABLED=true` were verified.
+
 The owner authorizes a proposal for a larger demo around Bell & Alder and delivery of that proposal to the existing coder and artist. **Finish and review the closing-time replay before expanding it.** The owner explicitly wants an exploratory test of the moving pieces working together and accepts failures as evidence of what to do next. This is a sandbox for a typical **10–15 minute play session**, with no required mission, score, victory condition, escape objective or countdown.
 
 ## Sequence and entry gate
