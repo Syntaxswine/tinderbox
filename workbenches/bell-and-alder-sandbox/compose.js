@@ -30,7 +30,7 @@ function placedSource(raw,spec){
     if(typeof value==='number')return elevations.has(key)?value+spec.translation[1]:value;
     if(Array.isArray(value)){
       if(positions.has(key)&&point(value))return p(value);
-      if(['normal','outward','direction','offset'].includes(key)&&point(value))return n(value);
+      if(['normal','renderNormal','outward','direction','offset'].includes(key)&&point(value))return n(value);
       if(key==='quaternion'&&value.length===4)return rotation.clone().multiply(new Quaternion(...value)).toArray();
       if(['matrix','closedTransform'].includes(key)&&value.length===16)return matrix.clone().multiply(new Matrix4().fromArray(value)).toArray();
       if(key==='vertices')return value.map(v=>[...p(v.slice(0,3)),...n(v.slice(3,6)),...v.slice(6)]);

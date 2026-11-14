@@ -66,7 +66,8 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
         const [{createRuntime},{createArtScene}]=await Promise.all([import('./runtime/index.js'),import('./art/index.js')]);
         const {cottageMode,scenario,moduleMode}=catalogueVisit(win.location?.search);
         const cottageWind=cottageMode?await (await import('./reuse/ashland/wind.js')).loadCottageWind(cottageMode,visitOptions.signal):undefined;
-        const catalogueModules=moduleMode?await(await import('./runtime/catalogue-modules.js')).loadCatalogueModules({scenario,signal:visitOptions.signal}):undefined;
+        const representation=new URLSearchParams(win.location?.search).get('physics')==='facets'?'facets':'structure';
+        const catalogueModules=moduleMode?await(await import('./runtime/catalogue-modules.js')).loadCatalogueModules({scenario,signal:visitOptions.signal,representation,executionCache:new URLSearchParams(win.location?.search).get('execution')!=='reference'}):undefined;
         return createRuntime({root:viewport,uiRoot:hud,scenario,cottageWind,catalogueModules,
           config:cottageMode?{input:{cameraY:-12}}:undefined,seed:1893,mountUI:ui.mountUI,createArtScene,autoStart,onSnapshot,...visitOptions,
           uiOptions:{mode:'gameplay',placeTitle:place.title,onExitToMenu:visitOptions.onExitToMenu}});

@@ -25,11 +25,11 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     const before=performance.now(),previous=snapshot;snapshot=next;
     const timing={alpha:snapshot.diagnostics.alpha,playerDelta:Math.max(0,snapshot.clocks.player-previous.clocks.player),worldDelta:Math.max(0,snapshot.clocks.world-previous.clocks.world),
       playerTime:snapshot.clocks.player,worldTime:snapshot.clocks.world,camera:camera.camera,viewMode:camera.diagnostics().mode,viewport:{width:root.clientWidth,height:root.clientHeight}};
-    camera.update(snapshot.player);art.update(snapshot,timing);ui?.update(snapshot);renderer.render(scene,camera.camera);frames++;
+    camera.update(snapshot.player);const artStart=performance.now();art.update(snapshot,timing);const uiStart=performance.now();ui?.update(snapshot);const renderStart=performance.now();renderer.render(scene,camera.camera);const renderEnd=performance.now();frames++;
     cpuSamples.push(performance.now()-before);simulationSamples.push(simulationMs);frameSamples.push(delta*1000);
     if(cpuSamples.length>240){cpuSamples.shift();simulationSamples.shift();frameSamples.shift();}
     const sorted=[...cpuSamples].sort((a,b)=>a-b),simSorted=[...simulationSamples].sort((a,b)=>a-b),intervals=frameSamples.filter(v=>v>0);
-    lastMetrics={frames,simulationMs,rendererDescription,userAgent:globalThis.navigator?.userAgent||'',streaming:art.streamingMetrics?.(),
+    lastMetrics={frames,simulationMs,artCpuMs:uiStart-artStart,uiCpuMs:renderStart-uiStart,renderSubmitCpuMs:renderEnd-renderStart,rendererDescription,userAgent:globalThis.navigator?.userAgent||'',streaming:art.streamingMetrics?.(),
       simulationCpuP95Ms:simSorted[Math.floor((simSorted.length-1)*.95)]??0,observedHz:intervals.length?1000*intervals.length/intervals.reduce((n,v)=>n+v,0):0,
       renderCpuP95Ms:sorted[Math.floor((sorted.length-1)*.95)]??0,drawCalls:renderer.info.render.calls,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,
       viewport:{width:root.clientWidth,height:root.clientHeight},threeRevision:THREE.REVISION,camera:camera.diagnostics()};

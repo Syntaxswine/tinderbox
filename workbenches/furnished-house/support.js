@@ -16,6 +16,9 @@ function touching(a,b) {
   for(const t of ta)for(let i=0;i<3;i++)for(const other of tb)if(segmentTriangle(t[i],t[(i+1)%3],other)!==null)return true;
   return false;
 }
+// Read-only geometry query reused by the native source adapter. This exports
+// the same contact test; it does not change graph or failure rules.
+export {touching as supportSurfacesTouch};
 export function createSupportGraph(scene) {
   const {index,fuels}=scene,nodes=new Map([...index.surfaces.values()].filter(s=>s.fuelId&&fuels.get(s.fuelId).cls!=='grass'&&['floor','wall','roof','attachment'].includes(s.kind)).map(s=>[s.id,s])),links=new Map([...nodes.keys()].map(id=>[id,new Set()])),anchors=new Set(),bySource=new Map();
   for(const s of nodes.values()){if(!bySource.has(s.sourceSurfaceId))bySource.set(s.sourceSurfaceId,[]);bySource.get(s.sourceSurfaceId).push(s);}

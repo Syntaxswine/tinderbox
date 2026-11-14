@@ -73,7 +73,10 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       discharge: inactiveDischarge(tick), projectiles: [], projectileSequence: 0, primaryNeedsRelease: false,
       moveNeedsNeutral: false, lanternPreview: null, ignitionResults: [], acceptedPath: [{x: start.x, y: start.y}]};
     state.player.torch = {phase: inventory.torchFuel > 0 ? 'unlit' : 'spent', durationSeconds: torchDuration};
-    if(catalogueModules){state.player.elevation=0;state.obstacles=state.obstacles.filter(o=>!o.buildingId&&!legacyModuleOwner(o,catalogueModules.masks));const spec=catalogueModules.data.catalogueModules.resident;if(spec){if(state.actors.some(a=>a.id===spec.id))throw Error('Duplicate module resident');const profile=CIVILIAN_PROFILES[spec.characterId||'horse'];state.actors.push({...profile,id:spec.id,characterId:spec.characterId||'horse',role:'resident',x:spec.position[0],elevation:spec.position[1],y:spec.position[2],hp:100,heading:0,travelled:0,moving:false,flamerHeat:0,burn:null,route:[],routeIndex:0});}}
+    if(catalogueModules){state.player.elevation=0;state.obstacles=state.obstacles.filter(o=>!o.buildingId&&!legacyModuleOwner(o,catalogueModules.masks));const spec=catalogueModules.data.catalogueModules.resident;if(spec){if(state.actors.some(a=>a.id===spec.id))throw Error('Duplicate module resident');const profile=CIVILIAN_PROFILES[spec.characterId||'horse'];state.actors.push({...profile,id:spec.id,characterId:spec.characterId||'horse',role:'resident',team:'civilian',headgear:'none',equipment:'none',x:spec.position[0],elevation:spec.position[1],y:spec.position[2],hp:100,heading:0,travelled:0,moving:false,flamerHeat:0,burn:null,route:[],routeIndex:0});}
+      // Native entrance leaves extend to Z18 when open. A Z19 street leg
+      // clears their tips by 1m for this officer's measured .62m radius.
+      const patrol=state.actors.find(a=>a.id===CHICAGO_PATROL.id);if(patrol){const offset=19-patrol.y;patrol.y+=offset;patrol.route=patrol.route.map(p=>({...p,y:p.y+offset}));}}
     if (!TOOLS.includes(state.player.tool) || !freePoint(state.player, config.player.radius, def, state.obstacles)) throw Error('Invalid player spawn/tool');
     for (const actor of state.actors) if (actor.species && !freePoint(actor, actor.radius, def, state.obstacles)) throw Error('Invalid civilian spawn');
     state.tiles = [];
@@ -251,6 +254,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function actorStep(actor, delta) {
     if(catalogueModules&&actor.role==='resident'){field.residentStep?.(actor,delta);return;}
+    if(catalogueModules&&actor.id===CHICAGO_PATROL.id&&witness?.snapshot().reaction.kind!=='relaxed'){actor.moving=false;return;}
     actor.moving = false; if (actor.hp <= 0 || actor.route.length < 2) return;
     let budget = (actor.speed ?? 1) * delta;
     while (budget > EPS) {
@@ -391,6 +395,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     commands.push({...structuredClone(command), atTick, sequence: ++commandSequence}); return true;
   }
   return {dispatch, snapshot,
+    thermalAudit(){if(disposed)throw Error('Simulation disposed');return field.sourceAudit?.()??null;},
     advance(realDeltaSeconds) {
       if (disposed) throw Error('Simulation disposed');
       if (!Number.isFinite(realDeltaSeconds) || realDeltaSeconds < 0) throw Error('advance requires a finite nonnegative delta');

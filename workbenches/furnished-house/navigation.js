@@ -3,7 +3,7 @@ import {bounds,overlaps,pointOnTriangle,unit,cross,sub,EPS} from './geometry.js'
 
 // A small adapter over the production narrow phase, not a second character or
 // rescaled map. Physical retirement/opening state is borrowed from the trial.
-export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start}={}) {
+export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start,slide=false}={}) {
   const {scene}=trial,{data,index}=scene,meshInfo=new Map((data.sourceMeshes||[]).map(m=>[m.id,m]));
   start??=[data.navigation?.prototypeRoute?.[0]?.[0]??5.5,scene.groundY??0,-3.8];
   const extras=[],physicalMeshes=new Set([...data.surfaces.flatMap(s=>s.sourceMeshBindings||[]),...(data.furnitureParts||[]).map(p=>p.sourceMeshBinding).filter(Boolean)]);
@@ -45,9 +45,23 @@ export function createNavigation(trial,{radius=.5,height=1.66,maxStep=.22,start}
   function move(dx,dz,seconds=1/30) {
     moving=false;lastBlock=null;const distance=Math.hypot(dx,dz);if(distance<EPS||seconds===0)return snapshot();const scale=distance>1?1/distance:1,speed=9,steps=Math.max(1,Math.ceil(speed*seconds/.025));
     for(let i=0;i<steps;i++) {
-      const target=[position[0]+dx*scale*speed*seconds/steps,position[1],position[2]+dz*scale*speed*seconds/steps],s=support(target,position[1]);
-      if(!s){lastBlock={reason:'No reachable support',position:target};break;}target[1]=s.y;
-      if(!clear(position,target))break;
+      let target=[position[0]+dx*scale*speed*seconds/steps,position[1],position[2]+dz*scale*speed*seconds/steps];const s=support(target,position[1]);
+      if(s)target[1]=s.y;
+      if(!s||!clear(position,target)){
+        if(!s)lastBlock={reason:'No reachable support',position:target};
+        if(!slide)break;
+        // Borrow the host moveDisc axis-slide order. Each alternative still
+        // needs real reachable support and the same swept native body check.
+        let accepted=null;for(const candidate of [[target[0],position[1],position[2]],[position[0],position[1],target[2]]]){
+          if(Math.hypot(candidate[0]-position[0],candidate[2]-position[2])<EPS)continue;const landing=support(candidate,position[1]);if(!landing)continue;candidate[1]=landing.y;if(clear(position,candidate)){
+            // Prefer the safe axis that reaches the actual requested tread;
+            // retain host X/Z order when both alternatives have equal support.
+            if(!accepted||s&&Math.abs(candidate[1]-s.y)<Math.abs(accepted[1]-s.y)-EPS)accepted=candidate;
+            if(!s||Math.abs(accepted[1]-s.y)<EPS)break;
+          }
+        }
+        if(!accepted)break;target=accepted;lastBlock=null;
+      }
       travelled+=Math.hypot(target[0]-position[0],target[2]-position[2]);heading=Math.atan2(dz,dx);position=target;moving=true;
     }
     return snapshot();
