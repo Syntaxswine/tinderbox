@@ -1,0 +1,2455 @@
+{
+  "version": 1,
+  "scope": "One finite native WebGL source/factory preview at the normal 12.6m span; three native species plus the actual Chicago uniform on a fourth native goat, explicit posed activation, production two-card renderer control and one shared restored effect. This is not gameplay ignition or combined host acceptance.",
+  "commonContract": "064d41865ae35f00f8a33d7cf1bd6f368f327c17",
+  "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+  "sourceHashes": {
+    "src/art/character-shroud/index.js": "1495112cbfc5a2dc6aaad237b67dc8e8e71233a5bff15c88a05c0be5a735a9c4",
+    "src/art/character-shroud/fit.js": "b5fe3123a459ed5486cf85fa0ab1594b25bb6761c83c9f67452449e3d80cdad3",
+    "src/art/character-shroud/mounts.js": "52c8963c2df61f5d18898e537647bc37a4c15cf89d91fa237a654d7ade028bc6",
+    "src/art/character-shroud/splats.js": "21c34a98d4020554720788f5b0a28a8f678283849d3e43864ff2b71196ad18cc",
+    "art/source/character-fire-shroud/preview.js": "ede5046c7f584f5cda344a4fc5060178eeec17162c2a89f3db4b3d896f87c9ef",
+    "art/source/character-fire-shroud/capture.mjs": "de8beca545cf335db1b0615a3691a9624b2e7178f53cad43be505348fd52e28f",
+    "src/art/fire.js": "1cb7936a06880396f22360cd60461f5068c37d578e2df1093bf8455ca427b473",
+    "src/reuse/characters.js": "46556d86c54107bb71c7899f1ffead5282ea78c03f8dfafdf765ffb4762522aa",
+    "src/reuse/bear.js": "184dce3d03e763cdc393ec7a53d867ace026189ce716619a7f5a69a7242546d9",
+    "src/reuse/civilians.js": "1026ee9ce7a1b5e74f1ffbcb9d19b47f75c4ed2d39856652e6301529665a5c2b"
+  },
+  "info": {
+    "errors": [],
+    "camera": {
+      "span": 12.6,
+      "position": [
+        22,
+        15.4,
+        24
+      ],
+      "target": [
+        12,
+        1.4,
+        12
+      ]
+    },
+    "viewport": [
+      1280,
+      800
+    ],
+    "lastTime": 3.25,
+    "lastMode": "after",
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+  },
+  "before": {
+    "time": 1.2,
+    "mode": "before",
+    "active": true,
+    "shroud": {
+      "version": 1,
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "disposed": false,
+      "worldTime": 1.2,
+      "maxCharacters": 16,
+      "maxSplatsPerCharacter": 88,
+      "boundIds": [
+        "bear",
+        "goat",
+        "horse",
+        "officer"
+      ],
+      "activeIds": [
+        "bear",
+        "goat",
+        "horse",
+        "officer"
+      ],
+      "missingBindingIds": [],
+      "unpublishedIds": [],
+      "invalidIds": [],
+      "hiddenIds": [],
+      "cappedIds": [],
+      "patches": 16,
+      "flameSplats": 272,
+      "smokeSplats": 53,
+      "updates": 1,
+      "resets": 0,
+      "fitBuilds": 4,
+      "lastUpdateMs": 124.90000009536743,
+      "clock": "authoritative-world",
+      "angularOnset": "Deterministic actor-ID visual default; no mesh-impact provenance",
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "windSamplerSupplied": true,
+      "fits": [
+        {
+          "id": "bear",
+          "species": "bear",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2524004876613617,
+              0.14088189601898193,
+              -0.48454558849334717
+            ],
+            "max": [
+              0.17664490640163422,
+              1.2932660579681396,
+              0.48454558849334717
+            ]
+          },
+          "effectFit": [
+            1,
+            1,
+            1
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "goat",
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2077399045228958,
+              0.14048050343990326,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.13990260660648346,
+              1.2932660579681396,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.8102697661831456,
+            1,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "horse",
+          "species": "horse",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.21406610310077667,
+              0.14133979380130768,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.14760230481624603,
+              1.2930347919464111,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.842960705141423,
+            0.9998211767638193,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "officer",
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.22929686307907104,
+              0.14048050343990326,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.15483282506465912,
+              1.309000015258789,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.8953124621758068,
+            1.0121660637373946,
+            0.8864916353459069
+          ],
+          "outfit": "chicago-1893-city-beat",
+          "envelopeParts": [
+            "Fitted frock shoulders and upper sleeves",
+            "Parted frock skirt -1",
+            "Parted frock skirt 1",
+            "Standing collar",
+            "Plain trousers using the native leg weights"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "Fitted frock shoulders and upper sleeves",
+            "Weighted forearm wool -1",
+            "Turned cuff -1",
+            "Parted frock skirt -1",
+            "Weighted forearm wool 1",
+            "Turned cuff 1",
+            "Parted frock skirt 1",
+            "Standing collar",
+            "Plain trousers using the native leg weights"
+          ]
+        }
+      ],
+      "resources": {
+        "geometries": 1,
+        "materials": 1,
+        "textures": 0,
+        "lights": 0,
+        "renderers": 0
+      },
+      "drawBatches": 1
+    },
+    "oldFire": {
+      "flameCards": 8,
+      "actorFlameCards": 8,
+      "rubbleFlameCards": 0,
+      "rubbleSmokeCards": 0,
+      "smokeCards": 0,
+      "burstCards": 0,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 1.2,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      },
+      "carriedTorch": {
+        "active": false,
+        "phase": "unlit",
+        "worldTime": 1.2,
+        "frame": 1,
+        "remainingSeconds": 0,
+        "anchor": null,
+        "light": {
+          "intensity": 0,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": null,
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "eventCount": 0,
+      "trackedCells": 0,
+      "seenEvents": 0,
+      "capped": false,
+      "worldTime": 1.2,
+      "geometries": 3,
+      "materials": 3,
+      "textures": 0,
+      "objects": 0
+    },
+    "rigs": [
+      {
+        "species": "bear",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          8.599435645842007,
+          0,
+          14.840139628464994
+        ]
+      },
+      {
+        "species": "goat",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          10.942510548614003,
+          0,
+          12.887577209488331
+        ]
+      },
+      {
+        "species": "horse",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          13.285585451385998,
+          2.12,
+          10.93501479051167
+        ]
+      },
+      {
+        "species": "officer",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          15.628660354157994,
+          0,
+          8.982452371535006
+        ]
+      }
+    ],
+    "renderer": {
+      "calls": 61,
+      "triangles": 42791
+    },
+    "errors": []
+  },
+  "after": {
+    "time": 1.2,
+    "mode": "after",
+    "active": true,
+    "shroud": {
+      "version": 1,
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "disposed": false,
+      "worldTime": 1.2,
+      "maxCharacters": 16,
+      "maxSplatsPerCharacter": 88,
+      "boundIds": [
+        "bear",
+        "goat",
+        "horse",
+        "officer"
+      ],
+      "activeIds": [
+        "bear",
+        "goat",
+        "horse",
+        "officer"
+      ],
+      "missingBindingIds": [],
+      "unpublishedIds": [],
+      "invalidIds": [],
+      "hiddenIds": [],
+      "cappedIds": [],
+      "patches": 16,
+      "flameSplats": 272,
+      "smokeSplats": 53,
+      "updates": 2,
+      "resets": 0,
+      "fitBuilds": 4,
+      "lastUpdateMs": 0.8000001907348633,
+      "clock": "authoritative-world",
+      "angularOnset": "Deterministic actor-ID visual default; no mesh-impact provenance",
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "windSamplerSupplied": true,
+      "fits": [
+        {
+          "id": "bear",
+          "species": "bear",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2524004876613617,
+              0.14088189601898193,
+              -0.48454558849334717
+            ],
+            "max": [
+              0.17664490640163422,
+              1.2932660579681396,
+              0.48454558849334717
+            ]
+          },
+          "effectFit": [
+            1,
+            1,
+            1
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "goat",
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2077399045228958,
+              0.14048050343990326,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.13990260660648346,
+              1.2932660579681396,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.8102697661831456,
+            1,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "horse",
+          "species": "horse",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.21406610310077667,
+              0.14133979380130768,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.14760230481624603,
+              1.2930347919464111,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.842960705141423,
+            0.9998211767638193,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "officer",
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.22929686307907104,
+              0.14048050343990326,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.15483282506465912,
+              1.309000015258789,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.8953124621758068,
+            1.0121660637373946,
+            0.8864916353459069
+          ],
+          "outfit": "chicago-1893-city-beat",
+          "envelopeParts": [
+            "Fitted frock shoulders and upper sleeves",
+            "Parted frock skirt -1",
+            "Parted frock skirt 1",
+            "Standing collar",
+            "Plain trousers using the native leg weights"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "Fitted frock shoulders and upper sleeves",
+            "Weighted forearm wool -1",
+            "Turned cuff -1",
+            "Parted frock skirt -1",
+            "Weighted forearm wool 1",
+            "Turned cuff 1",
+            "Parted frock skirt 1",
+            "Standing collar",
+            "Plain trousers using the native leg weights"
+          ]
+        }
+      ],
+      "resources": {
+        "geometries": 1,
+        "materials": 1,
+        "textures": 0,
+        "lights": 0,
+        "renderers": 0
+      },
+      "drawBatches": 1
+    },
+    "oldFire": {
+      "flameCards": 8,
+      "actorFlameCards": 8,
+      "rubbleFlameCards": 0,
+      "rubbleSmokeCards": 0,
+      "smokeCards": 0,
+      "burstCards": 0,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 1.2,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      },
+      "carriedTorch": {
+        "active": false,
+        "phase": "unlit",
+        "worldTime": 1.2,
+        "frame": 1,
+        "remainingSeconds": 0,
+        "anchor": null,
+        "light": {
+          "intensity": 0,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": null,
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "eventCount": 0,
+      "trackedCells": 0,
+      "seenEvents": 0,
+      "capped": false,
+      "worldTime": 1.2,
+      "geometries": 3,
+      "materials": 3,
+      "textures": 0,
+      "objects": 0
+    },
+    "rigs": [
+      {
+        "species": "bear",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          8.599435645842007,
+          0,
+          14.840139628464994
+        ]
+      },
+      {
+        "species": "goat",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          10.942510548614003,
+          0,
+          12.887577209488331
+        ]
+      },
+      {
+        "species": "horse",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          13.285585451385998,
+          2.12,
+          10.93501479051167
+        ]
+      },
+      {
+        "species": "officer",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          15.628660354157994,
+          0,
+          8.982452371535006
+        ]
+      }
+    ],
+    "renderer": {
+      "calls": 61,
+      "triangles": 43425
+    },
+    "errors": []
+  },
+  "final": {
+    "time": 3.25,
+    "mode": "after",
+    "active": false,
+    "shroud": {
+      "version": 1,
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "disposed": false,
+      "worldTime": 3.25,
+      "maxCharacters": 16,
+      "maxSplatsPerCharacter": 88,
+      "boundIds": [
+        "bear",
+        "goat",
+        "horse",
+        "officer"
+      ],
+      "activeIds": [],
+      "missingBindingIds": [],
+      "unpublishedIds": [],
+      "invalidIds": [],
+      "hiddenIds": [],
+      "cappedIds": [],
+      "patches": 0,
+      "flameSplats": 0,
+      "smokeSplats": 0,
+      "updates": 199,
+      "resets": 0,
+      "fitBuilds": 8,
+      "lastUpdateMs": 0.09999990463256836,
+      "clock": "authoritative-world",
+      "angularOnset": "Deterministic actor-ID visual default; no mesh-impact provenance",
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "windSamplerSupplied": true,
+      "fits": [
+        {
+          "id": "bear",
+          "species": "bear",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2524004876613617,
+              0.14088189601898193,
+              -0.48454558849334717
+            ],
+            "max": [
+              0.17664490640163422,
+              1.2932660579681396,
+              0.48454558849334717
+            ]
+          },
+          "effectFit": [
+            1,
+            1,
+            1
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "goat",
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2077399045228958,
+              0.14048050343990326,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.13990260660648346,
+              1.2932660579681396,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.8102697661831456,
+            1,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "horse",
+          "species": "horse",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.21406610310077667,
+              0.14133979380130768,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.14760230481624603,
+              1.2930347919464111,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.842960705141423,
+            0.9998211767638193,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "officer",
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.22929686307907104,
+              0.14048050343990326,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.15483282506465912,
+              1.309000015258789,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.8953124621758068,
+            1.0121660637373946,
+            0.8864916353459069
+          ],
+          "outfit": "chicago-1893-city-beat",
+          "envelopeParts": [
+            "Fitted frock shoulders and upper sleeves",
+            "Parted frock skirt -1",
+            "Parted frock skirt 1",
+            "Standing collar",
+            "Plain trousers using the native leg weights"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "Fitted frock shoulders and upper sleeves",
+            "Weighted forearm wool -1",
+            "Turned cuff -1",
+            "Parted frock skirt -1",
+            "Weighted forearm wool 1",
+            "Turned cuff 1",
+            "Parted frock skirt 1",
+            "Standing collar",
+            "Plain trousers using the native leg weights"
+          ]
+        }
+      ],
+      "resources": {
+        "geometries": 1,
+        "materials": 1,
+        "textures": 0,
+        "lights": 0,
+        "renderers": 0
+      },
+      "drawBatches": 0
+    },
+    "oldFire": {
+      "flameCards": 8,
+      "actorFlameCards": 8,
+      "rubbleFlameCards": 0,
+      "rubbleSmokeCards": 0,
+      "smokeCards": 0,
+      "burstCards": 0,
+      "discharge": {
+        "active": false,
+        "rayCount": 0,
+        "connectRays": false,
+        "triangles": 0,
+        "plumeCards": 0,
+        "capped": false,
+        "muzzleInsideShape": false,
+        "visualForwardStart": 0,
+        "geometryBuilds": 0,
+        "worldTime": 1.2,
+        "geometries": 2,
+        "materials": 2,
+        "textures": 1,
+        "objects": 0
+      },
+      "carriedTorch": {
+        "active": false,
+        "phase": "unlit",
+        "worldTime": 1.2,
+        "frame": 1,
+        "remainingSeconds": 0,
+        "anchor": null,
+        "light": {
+          "intensity": 0,
+          "reach": 3.8,
+          "castsShadow": true,
+          "source": null,
+          "pullback": 0
+        },
+        "resources": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "objects": 1
+        },
+        "presentationOnly": true
+      },
+      "eventCount": 0,
+      "trackedCells": 0,
+      "seenEvents": 0,
+      "capped": false,
+      "worldTime": 1.2,
+      "geometries": 3,
+      "materials": 3,
+      "textures": 0,
+      "objects": 0
+    },
+    "rigs": [
+      {
+        "species": "bear",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          8.809387645842007,
+          0,
+          14.676843628464994
+        ]
+      },
+      {
+        "species": "goat",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          11.152462548614002,
+          0,
+          12.72428120948833
+        ]
+      },
+      {
+        "species": "horse",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          13.495537451385998,
+          2.12,
+          10.771718790511668
+        ]
+      },
+      {
+        "species": "officer",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "position": [
+          15.838612354157993,
+          0,
+          8.819156371535005
+        ]
+      }
+    ],
+    "renderer": {
+      "calls": 60,
+      "triangles": 42775
+    },
+    "errors": []
+  },
+  "clip": {
+    "mime": "video/webm;codecs=vp9",
+    "bytes": 228274,
+    "frames": [
+      {
+        "time": -0.010799999618530365,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 0.0059000003814699085,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 0.022600000381469726,
+        "active": true,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 39.09999990463257
+      },
+      {
+        "time": 0.055800000381469546,
+        "active": true,
+        "flame": 26,
+        "smoke": 0,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 0.07250000038146982,
+        "active": true,
+        "flame": 39,
+        "smoke": 0,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.08920000038146964,
+        "active": true,
+        "flame": 45,
+        "smoke": 0,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.1059000003814699,
+        "active": true,
+        "flame": 51,
+        "smoke": 0,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.12250000038146981,
+        "active": true,
+        "flame": 61,
+        "smoke": 0,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 0.13930000038146956,
+        "active": true,
+        "flame": 102,
+        "smoke": 0,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 0.15590000038146992,
+        "active": true,
+        "flame": 109,
+        "smoke": 0,
+        "updateMs": 0.9000000953674316
+      },
+      {
+        "time": 0.17250000038146937,
+        "active": true,
+        "flame": 119,
+        "smoke": 0,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.18920000038147008,
+        "active": true,
+        "flame": 127,
+        "smoke": 0,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.2059000003814699,
+        "active": true,
+        "flame": 136,
+        "smoke": 0,
+        "updateMs": 0.40000009536743164
+      },
+      {
+        "time": 0.22250000038146936,
+        "active": true,
+        "flame": 143,
+        "smoke": 0,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 0.23910000038146972,
+        "active": true,
+        "flame": 186,
+        "smoke": 0,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.2559000003814699,
+        "active": true,
+        "flame": 192,
+        "smoke": 1,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.2725000003814694,
+        "active": true,
+        "flame": 203,
+        "smoke": 2,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.2892000003814701,
+        "active": true,
+        "flame": 210,
+        "smoke": 2,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.30580000038146954,
+        "active": true,
+        "flame": 220,
+        "smoke": 3,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.32250000038146936,
+        "active": true,
+        "flame": 261,
+        "smoke": 4,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.3392000003814701,
+        "active": true,
+        "flame": 265,
+        "smoke": 5,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 0.3559000003814699,
+        "active": true,
+        "flame": 270,
+        "smoke": 7,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.37260000038146973,
+        "active": true,
+        "flame": 272,
+        "smoke": 8,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.38920000038147007,
+        "active": true,
+        "flame": 272,
+        "smoke": 10,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.4059000003814699,
+        "active": true,
+        "flame": 272,
+        "smoke": 11,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.42250000038146934,
+        "active": true,
+        "flame": 272,
+        "smoke": 13,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.4392000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 15,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.4559000003814699,
+        "active": true,
+        "flame": 272,
+        "smoke": 16,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.4726000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 16,
+        "updateMs": 1
+      },
+      {
+        "time": 0.4897000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 16,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.5058000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 16,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.5242000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 17,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.5392000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 18,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.5559000003814699,
+        "active": true,
+        "flame": 272,
+        "smoke": 19,
+        "updateMs": 0.8999996185302734
+      },
+      {
+        "time": 0.5725000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 19,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.5893000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 20,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.60590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 20,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 0.6226000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 21,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.6392000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 23,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 0.6559000003814699,
+        "active": true,
+        "flame": 272,
+        "smoke": 23,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.67270000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 26,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 0.6892000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 26,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.7060000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 29,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.7226000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 31,
+        "updateMs": 1
+      },
+      {
+        "time": 0.7393000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 32,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 0.7559000003814699,
+        "active": true,
+        "flame": 272,
+        "smoke": 32,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 0.7726000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 32,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 0.7891000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 32,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.8059000003814699,
+        "active": true,
+        "flame": 272,
+        "smoke": 32,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 0.8225000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 34,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.8392000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 35,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.85590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 35,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.8725000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 35,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 0.8892000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 36,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.9059000003814699,
+        "active": true,
+        "flame": 272,
+        "smoke": 37,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 0.9226000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 38,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 0.9392000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 39,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.9558000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 41,
+        "updateMs": 0.40000009536743164
+      },
+      {
+        "time": 0.9725000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 42,
+        "updateMs": 0.5
+      },
+      {
+        "time": 0.98920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 44,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.00590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 46,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.0225000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 47,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 1.03920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 48,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.0559000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 48,
+        "updateMs": 0.39999961853027344
+      },
+      {
+        "time": 1.0725000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 48,
+        "updateMs": 0.5
+      },
+      {
+        "time": 1.0891000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 48,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.1060000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 50,
+        "updateMs": 0.5
+      },
+      {
+        "time": 1.1225000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 50,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.1392000003814702,
+        "active": true,
+        "flame": 272,
+        "smoke": 51,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.15590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 51,
+        "updateMs": 0.5
+      },
+      {
+        "time": 1.1725000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 52,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.18920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 52,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.2058000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 53,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.2225000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 55,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.23920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 55,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.25590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 58,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 1.2725000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 59,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.28920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 61,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.3058000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 63,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 1.3226000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 64,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.3392000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 64,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.3560000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 64,
+        "updateMs": 1
+      },
+      {
+        "time": 1.3725000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 64,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 1.3893000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 64,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 1.40590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 66,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.4226000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 67,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 1.43920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 67,
+        "updateMs": 0.5
+      },
+      {
+        "time": 1.45590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 67,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.4726000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 68,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.48920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 69,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.50590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 1.5225000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 1.5393000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.5558000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.5726000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 1.5892000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.9000000953674316
+      },
+      {
+        "time": 1.6059000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 1.6226000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 77,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 1.6392000003814702,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.65590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 1.6725000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.68920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 1.70590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 1.7226000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.5
+      },
+      {
+        "time": 1.7393000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.9000000953674316
+      },
+      {
+        "time": 1.7561000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 1.7726000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 69,
+        "updateMs": 0.9000000953674316
+      },
+      {
+        "time": 1.7893000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 1.8059000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.8228000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 1.299999713897705
+      },
+      {
+        "time": 1.8392000003814701,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.8999996185302734
+      },
+      {
+        "time": 1.8560000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 74,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 1.8725000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 1.8892000003814702,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.9000000953674316
+      },
+      {
+        "time": 1.90590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 77,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.9226000003814698,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 1.9393000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 1.9560000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 1.9726000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 1.9893000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 74,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 2.00590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 72,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.0225000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 2.03920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.9000000953674316
+      },
+      {
+        "time": 2.05590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.0726000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 1.4000000953674316
+      },
+      {
+        "time": 2.0893000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.10590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.12260000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 1.3000001907348633
+      },
+      {
+        "time": 2.1393000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 74,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 2.15590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 2.1726000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 2.1893000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 77,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 2.2059000003814697,
+        "active": true,
+        "flame": 272,
+        "smoke": 77,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 2.22260000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.2392000003814703,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 2.25590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 74,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.2725000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 74,
+        "updateMs": 1
+      },
+      {
+        "time": 2.28910000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.5
+      },
+      {
+        "time": 2.30590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.6000003814697266
+      },
+      {
+        "time": 2.3225000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.33920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 2.35590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 2.3725000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 2.3895000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 1.0999999046325684
+      },
+      {
+        "time": 2.40590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 72,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 2.4225000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 2.43920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 2.4558000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.472500000381469,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.4892000003814703,
+        "active": true,
+        "flame": 272,
+        "smoke": 77,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 2.50590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 2.5225000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.53920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.40000009536743164
+      },
+      {
+        "time": 2.55590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 75,
+        "updateMs": 0.6999998092651367
+      },
+      {
+        "time": 2.5725000003814693,
+        "active": true,
+        "flame": 272,
+        "smoke": 74,
+        "updateMs": 0.5
+      },
+      {
+        "time": 2.58920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 72,
+        "updateMs": 0.5
+      },
+      {
+        "time": 2.6058000003814694,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.5
+      },
+      {
+        "time": 2.62260000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 2.6393000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 0.9000000953674316
+      },
+      {
+        "time": 2.65590000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 70,
+        "updateMs": 1.3000001907348633
+      },
+      {
+        "time": 2.6726000003814696,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.7999997138977051
+      },
+      {
+        "time": 2.68920000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 71,
+        "updateMs": 0.8000001907348633
+      },
+      {
+        "time": 2.7058000003814695,
+        "active": true,
+        "flame": 272,
+        "smoke": 73,
+        "updateMs": 0.5
+      },
+      {
+        "time": 2.72260000038147,
+        "active": true,
+        "flame": 272,
+        "smoke": 74,
+        "updateMs": 0.7000002861022949
+      },
+      {
+        "time": 2.7392000003814703,
+        "active": true,
+        "flame": 272,
+        "smoke": 76,
+        "updateMs": 0.5999999046325684
+      },
+      {
+        "time": 2.7558000003814693,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.19999980926513672
+      },
+      {
+        "time": 2.7726000003814697,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.78920000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 2.80590000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.8225000003814693,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.83920000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.8558000003814694,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 2.8725000003814696,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 2.8891000003814695,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.90590000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.9225000003814694,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.93920000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 2.9559000003814697,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 2.972500000381469,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 2.9891000003814696,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.0058000003814693,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.0226000003814697,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 3.0393000003814694,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.0558000003814696,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 3.0726000003814695,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.10000038146972656
+      },
+      {
+        "time": 3.0893000003814697,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 3.10590000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.1225000003814696,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.13920000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.15590000038147,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.1725000003814694,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 3.1893000003814693,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.19999980926513672
+      },
+      {
+        "time": 3.2059000003814697,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0.09999990463256836
+      },
+      {
+        "time": 3.222500000381469,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.2392000003814703,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      },
+      {
+        "time": 3.25,
+        "active": false,
+        "flame": 0,
+        "smoke": 0,
+        "updateMs": 0
+      }
+    ]
+  },
+  "cost": {
+    "scope": "Observed shared factory CPU update milliseconds during this single 4-body posed clip; excludes model/paint/render/encoding. No GPU timing or game FPS benchmark.",
+    "active": {
+      "samples": 144,
+      "median": 0.6999998092651367,
+      "p95": 1
+    },
+    "inactive": {
+      "samples": 28,
+      "median": 0,
+      "p95": 0.10000038146972656
+    }
+  },
+  "media": [
+    {
+      "path": "docs/art/character-fire-shroud/previews/before-two-card.jpg",
+      "sha256": "724aaeba461eb82250dadce4ddcff8dae5eec5b485da8c86915ae37076a59e19",
+      "bytes": 73477
+    },
+    {
+      "path": "docs/art/character-fire-shroud/previews/after-native-shroud.jpg",
+      "sha256": "14482c8e1a81b96d27a25f9d27fd42a31539ecea4ac4c02ffe39052bc0c35b16",
+      "bytes": 74475
+    },
+    {
+      "path": "docs/art/character-fire-shroud/previews/native-shroud-motion.webm",
+      "sha256": "a637c9bca95ad82f8ccb5358e3e803f083bd3cab6b24126cfefa29ea298cd5dc",
+      "bytes": 228274
+    }
+  ],
+  "disposal": {
+    "shroud": {
+      "geometries": 0,
+      "materials": 0,
+      "textures": 0,
+      "lights": 0,
+      "renderers": 0
+    },
+    "rendererMemory": {
+      "geometries": 0,
+      "textures": 0
+    }
+  },
+  "errors": [],
+  "passed": true
+}
