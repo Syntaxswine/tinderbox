@@ -1,4 +1,5 @@
 import {createTrial,ambientWind} from '../../workbenches/furnished-house/simulation.js';
+import {DEFAULT_PROFILES} from '../../workbenches/furnished-house/scene.js';
 import {createNavigation} from '../../workbenches/furnished-house/navigation.js';
 import {extrudePlane,segmentTriangle} from '../../workbenches/furnished-house/geometry.js';
 import {sweptCylinderClear} from '../runtime/collision.js';
@@ -7,11 +8,14 @@ import {ventSmokeSignals,createVentSmokeSampler,visibleSmoke,SMOKE_PERCEPTION} f
 const EPS=1e-8,clamp=n=>Math.max(0,Math.min(1,n));
 const xyz=(p,height=p.h??p.elevation??0)=>[p.x,height,p.y];
 const collections=['boundaries','supports','items','parts','falls','rubble','fireSamples','occupancy','events','tombstones'];
+// M26 owner-requested production tuning. Historical/replay profiles remain 3s.
+// One third of the finite energy over one third of the time retains peak power.
+export const CATALOGUE_GRASS_PROFILE=Object.freeze({...DEFAULT_PROFILES.grass,seconds:1,energy:110/3});
 
 // One physical provider, with no player, input, inventory, NPC or real-time loop.
 // The caller's worldDelta is the only source of simulation time.
-export function createCatalogueThermal({compiled,state,definition,config,event}){
-  const trial=createTrial(compiled.data,{executionCache:compiled.executionCache!==false,wind:ambientWind,windMetadata:{kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false}}),nativeStep=trial.rules.step;
+export function createCatalogueThermal({compiled,state,definition,config,event,onLoadPhase}){
+  const trial=createTrial(compiled.data,{executionCache:compiled.executionCache!==false,profiles:{grass:CATALOGUE_GRASS_PROFILE},wind:ambientWind,windMetadata:{kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},onLoadPhase}),nativeStep=trial.rules.step;
   const visibility=createVisibility(trial,{partTrace:tracePart}),newIgnitions=[],residentSpec=compiled.data.catalogueModules.resident,residentState={state:'routine',routeIndex:0,holdUntil:null,smokeSince:null,lookSince:null,exitIndex:0,blocked:null};let smokeTick=-1,smokeSignals=[];
   const sampleSmoke=compiled.executionCache===false?()=>ventSmokeSignals(trial,visibility):createVentSmokeSampler(trial,visibility);
   const instances=compiled.instances.map(i=>i.id),owners=new Map(),navs=new Map(),deposits=new Map(),doors=compiled.data.catalogueModules.doors,lantern=compiled.data.catalogueModules.lantern?{...structuredClone(compiled.data.catalogueModules.lantern),phase:'placed',ownerId:null}:null;
@@ -96,7 +100,7 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
     // the same live inert boundary state even before the next thermal tick.
     for(const b of hostBoundaryUpdates.values())if(!frame.boundaries.some(row=>row.id===b.id))frame.boundaries.push({id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:0,heatFraction:0,fuelFraction:1});hostBoundaryUpdates.clear();
     const owner=r=>owners.get(r.id)||named(r.sourceSurfaceId)||named(r.itemId)||named(r.originalSourceSurfaceId)||(r.fuelIds||[]).map(id=>owners.get(id)||named(id)).find(Boolean)||named(r.supportBoundaryId)||'terrain';
-    for(const key of collections)frame[key]=(frame[key]||[]).map(r=>{const ownerInstanceId=owner(r);owners.set(r.id,ownerInstanceId);return {...r,ownerInstanceId,...(key==='fireSamples'?{buildingId:ownerInstanceId}:{})};});
+    for(const key of collections)frame[key]=(frame[key]||[]).map(r=>{const ownerInstanceId=owner(r);owners.set(r.id,ownerInstanceId);return {...r,ownerInstanceId,...(key==='fireSamples'?{buildingId:ownerInstanceId,fuelClass:trial.scene.fuels.get(r.id)?.cls??null}:{})};});
     frame.catalogueModules={version:1,generation:state.generation,representation:compiled.representation,instances:compiled.data.catalogueModules.instances,lantern:lantern?structuredClone(lantern):null,actors:[state.player,...state.actors].map(a=>({id:a.id,characterId:a.characterId||a.species,position:xyz(a),heading:a.heading,radius:a.radius,height:a.height||1.66})),hostTick:state.tick,hostWorldTime:state.clocks.world,nativeTick:trial.tick,nativeWorldTime:trial.worldTime,residual};cachedFrame=frame;frameHostTick=state.tick;timing.physicalPublicationMs=now()-before;hostWork.physicalPublicationMs+=timing.physicalPublicationMs;return frame;
   }
   const rasterPoints=[];for(let z=size/2;z<definition.height;z+=size)for(let x=size/2;x<definition.width;x+=size)rasterPoints.push({x,y:z,h:.01,key:trial.scene.key(trial.scene.coords([x,.01,z]))});
@@ -107,12 +111,12 @@ export function createCatalogueThermal({compiled,state,definition,config,event})
     const all=!rasterCache||compiled.executionCache===false||rasterIndexRevision!==trial.scene.index.revision||falling||rasterFalling;
     const indices=all?rasterPoints.map((_,i)=>i):[...new Set([...active,...previousActive,...bornCells].flatMap(id=>rasterIndices.get(id)||[]))].sort((a,b)=>a-b),result=rasterCache?[...rasterCache]:[];let changed=!rasterCache;
     for(const i of indices){
-      const p=rasterPoints[i],cell=trial.scene.cells.get(p.key);let surfaceFuel=0,depositedFuel=0,remaining=0,grass=false,lit=false;
+      const p=rasterPoints[i],cell=trial.scene.cells.get(p.key);let surfaceFuel=0,depositedFuel=0,remaining=0,grass=false,grassRemaining=0,grassLit=false,oilLit=false,lit=false;
       for(const f of cell?.fuels||[]){remaining+=f.amount;grass||=f.cls==='grass';const onGround=f.sourceSurfaceId?.startsWith('terrain::')||(f.loose||f.spill)&&owners.get(f.id)==='terrain'&&(f.supportBoundaryId==='terrain:ground'||f.supportBoundaryId?.startsWith('terrain::'));
-        if(onGround){if(f.cls==='oil'&&(f.loose||f.spill))depositedFuel+=f.amount;else surfaceFuel+=f.amount;lit||=f.lit&&f.amount>EPS;}}
-      const heat=cell?.heat||0,material=grass?'grass':remaining?'wood':'paving',phase=lit?'burning':heat>0?'heating':'cold',old=rasterCache?.[i];
-      if(old&&old.heat===heat&&old.surfaceFuel===surfaceFuel&&old.depositedFuel===depositedFuel&&old.material===material&&old.phase===phase)continue;
-      changed=true;result[i]=Object.freeze({id:cell?.id||p.key,publicId:cell?.id,x:p.x,y:p.y,h:p.h,size,material,surfaceFuel,depositedFuel,heat,phase,intensity:lit?1:0});
+        if(onGround){if(f.cls==='oil'&&(f.loose||f.spill))depositedFuel+=f.amount;else surfaceFuel+=f.amount;const active=f.lit&&f.amount>EPS;lit||=active;if(f.cls==='grass'){grassRemaining+=f.amount;grassLit||=active;}if(f.cls==='oil')oilLit||=active;}}
+      const heat=cell?.heat||0,material=grass?'grass':remaining?'wood':'paving',grassSpent=grass&&grassRemaining<=EPS,flameFuel=grassLit?oilLit?'mixed':'grass':oilLit?'oil':null,phase=lit?'burning':grassSpent?'spent':heat>0?'heating':'cold',old=rasterCache?.[i];
+      if(old&&old.heat===heat&&old.surfaceFuel===surfaceFuel&&old.depositedFuel===depositedFuel&&old.material===material&&old.phase===phase&&old.grassSpent===grassSpent&&old.flameFuel===flameFuel)continue;
+      changed=true;result[i]=Object.freeze({id:cell?.id||p.key,publicId:cell?.id,x:p.x,y:p.y,h:p.h,size,material,surfaceFuel,depositedFuel,heat,phase,intensity:lit?1:0,grassSpent,flameFuel});
     }
     rasterTick=trial.tick;rasterIndexRevision=trial.scene.index.revision;rasterFalling=falling;previousActive=active;bornCells.clear();if(changed)rasterCache=Object.freeze(result);timing.rasterPublicationMs=now()-before;hostWork.rasterPublicationMs+=timing.rasterPublicationMs;return rasterCache;
   }

@@ -3,6 +3,9 @@
 // Catalogue native source identity, actual per-source storey origin, and inverse-placement
 // floor UV generation; physical patch grid remains data-driven shared world space.
 // Thermal rules, effect envelope and legacy M22 files remain unchanged.
+// M26 adds abort ownership and visit-scoped immutable image Sources; each view's
+// Texture/transform/sampler and material stay private. Image/mesh data is intact.
+import {loadOwnedBatch} from '../../../src/reuse/loading.js';
 import {bounds,normal,triangleArea,polygonTriangles,clip,clipBox,nearestSurface,distanceToBounds,pointInTriangleXZ,unit,sub} from '../furnished-house/geometry.js';
 import {createWallShroud} from '../furnished-house/shroud.js';
 import {createDebrisView} from '../furnished-house/debris.js';
@@ -10,8 +13,9 @@ import {connectSurfaceSamples,surfaceSampleContextKey} from '../furnished-house/
 import {normalizeArtEffects,hasBoundedHouseWind,validTriangles,validFootprint,houseEffectBounds,createCameraCuller} from '../furnished-house/visibility.js';
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0)),EPS=1e-6;
 const KIND={floor:0,wall:1,attachment:1,fitting:4,'landing-fitting':0,roof:2,door:3,window:3,plinth:5};
-export async function createCatalogueStructureArt(T,{renderer,data,placement}={}){
+export async function createCatalogueStructureArt(T,{renderer,data,placement,signal,sourcePool}={}){
  if(!T?.DataTexture||data?.version!==1||!data.prefabId||!Array.isArray(data.levels)||!data.levels.length||data.levels.some(l=>!Number.isFinite(l.floorY))||!Array.isArray(data.sourceMeshes)||!Array.isArray(data.render?.geometry))throw Error('Expected shared Three and a registered native version-1 structure source');
+ signal?.throwIfAborted();
  function gridPieces(poly,axes=[0,1,2]){
   let result=[poly];for(const axis of axes){const pitch=data.thermalCell[axis],origin=data.gridOrigin[axis],next=[];for(const p of result){const lo=Math.min(...p.map(v=>v[axis])),hi=Math.max(...p.map(v=>v[axis]));if(hi-lo<EPS){next.push(p);continue;}for(let j=Math.floor((lo-origin)/pitch+EPS);j<=Math.floor((hi-origin-EPS)/pitch);j++){let q=clip(p,v=>v[axis]-(origin+j*pitch));q=clip(q,v=>origin+(j+1)*pitch-v[axis]);if(q.length>=3)next.push(q);}}result=next;}return result;
  }
@@ -91,7 +95,12 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement}={}
  try{
   const textureCache=new Map();
   for(const a of data.render.materials){
-   let map=null;if(a.texture&&renderer){if(!textureCache.has(a.texture)){const t=await loader.loadAsync(new URL(a.texture,placement?.sourceURL||new URL(placement?.source||'art.js',new URL('../../../workbenches/catalogue-modular/',import.meta.url))).href);t.colorSpace=T.SRGBColorSpace;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.setScalar(a.repeat||1);textures.add(t);textureCache.set(a.texture,t);}map=textureCache.get(a.texture);}
+   signal?.throwIfAborted();
+   let map=null;if(a.texture&&renderer){if(!textureCache.has(a.texture)){
+    const url=new URL(a.texture,placement?.sourceURL||new URL(placement?.source||'art.js',new URL('../../../workbenches/catalogue-modular/',import.meta.url))).href;
+    const t=sourcePool?await sourcePool.borrow(url,()=>loader.loadAsync(url)):(await loadOwnedBatch([loader.loadAsync(url)],{signal}))[0];
+    textures.add(t);signal?.throwIfAborted();t.colorSpace=T.SRGBColorSpace;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.setScalar(a.repeat||1);textureCache.set(a.texture,t);
+   }map=textureCache.get(a.texture);}
    const m=decorate(ownM(new T.MeshStandardMaterial({name:a.name,color:a.color,map,roughness:a.roughness,metalness:a.metalness,side:T.DoubleSide,vertexColors:true,transparent:false})));
    // Original grossUV is captured as uv; metric scale and native window UVs survive.
    appearance.set(a.id,m);

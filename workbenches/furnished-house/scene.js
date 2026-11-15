@@ -18,7 +18,7 @@ export const DEFAULT_PROFILES=Object.freeze({
 });
 const PASS={air:1,glass:.05,timber:.02,wood:.02,masonry:0,stone:0,brick:0,iron:0,metal:0};
 const combustible=m=>/wood|oak|timber|cloth|linen|wool|oil|coal|lacquer|shingle|clapboard/i.test(typeof m==='string'?m:JSON.stringify(m));
-export function compileScene(data,{profiles={}}={}) {
+export function compileScene(data,{profiles={},onLoadPhase}={}) {
   data=prepareFurnishedData(data);
   if(data.version!==1||!Array.isArray(data.surfaces))throw Error('Expected version-1 artist house data');
   const origin=data.gridOrigin||[0,.48,0],pitch=data.thermalCell||CELL,cells=new Map(),fuels=new Map(),items=new Map(),parts=new Map(),boundaries=[];
@@ -37,6 +37,7 @@ export function compileScene(data,{profiles={}}={}) {
     f.cells??=[cellAt(f.position)];for(const c of f.cells)c.fuels.push(f);
     return f;
   }
+  onLoadPhase?.({phase:'physical-clipping-begin',surfaces:data.surfaces.length});
   // Clip physical planes to thermal boxes. Boundaries retain exact triangles;
   // no stretched room boxes or one-metre lookup replaces the source shape.
   for(const s of data.surfaces) {
@@ -73,7 +74,9 @@ export function compileScene(data,{profiles={}}={}) {
       b.heatCells=[...new Set([-1,1].map(sign=>cellAt(p.map((v,i)=>v+normal[i]*sign*.01))))];cell(c);
     }
   }
+  onLoadPhase?.({phase:'physical-clipping-ready',boundaries:boundaries.length,fuels:fuels.size,cells:cells.size});
   const index=createBoundaryIndex(boundaries);
+  onLoadPhase?.({phase:'physical-index-ready',boundaries:boundaries.length});
   // An explicitly declared ground plane provides support. It is not the
   // source kernel's special k=0 rule and does not seal an upper floor void.
   const groundY=data.groundY??0,houseBox=bounds(data.surfaces.flatMap(s=>s.triangles?.flat()||[]));
@@ -101,6 +104,7 @@ export function compileScene(data,{profiles={}}={}) {
     index.change(b.id,{openFraction:fraction,solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal});
     const f=fuels.get(b.fuelId);if(f){for(const c of f.cells)c.fuels=c.fuels.filter(value=>value!==f);f.position=b.position;f.normal=normal;f.cells=[...new Set([-1,1].map(sign=>cellAt(b.position.map((v,i)=>v+normal[i]*sign*.08))))];if(f.lit)f.burningCell=f.cells.reduce((a,b)=>a.heat>=b.heat?a:b);for(const c of f.cells)c.fuels.push(f);}
   }
+  onLoadPhase?.({phase:'physical-scene-ready',boundaries:index.surfaces.size,fuels:fuels.size,cells:cells.size,items:items.size,parts:parts.size});
   return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor};
 }
 const dotPlane=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];

@@ -18,13 +18,17 @@ function identifiers(value,result=new Set()){
   if(value.anchors)for(const id of Object.keys(value.anchors))result.add(id);
   for(const v of Object.values(value))identifiers(v,result);return result;
 }
-function placedSource(raw,spec){
-  const source=prepareFurnishedData(structuredClone(raw)),ids=identifiers(source),prefix=id=>qualify(spec.id,id);
+function placedSource(raw,spec,onLoadPhase){
+  onLoadPhase?.({phase:'placement-begin',instanceId:spec.id});
+  // Preparation is non-mutating; walk below creates the owned placed tree.
+  // Cloning the complete render/physical source first doubles transient data.
+  const source=prepareFurnishedData(raw),ids=identifiers(source),prefix=id=>qualify(spec.id,id);
+  onLoadPhase?.({phase:'placement-source-ready',instanceId:spec.id});
   for(const id of ids)if(id.includes('::'))throw Error('Source ID already qualified '+id);
   const matrix=new Matrix4().makeRotationY(spec.quarterTurns*Math.PI/2),rotation=new Quaternion().setFromRotationMatrix(matrix);matrix.setPosition(...spec.translation);
   const p=v=>{const out=new Vector3(...v).applyMatrix4(matrix).toArray();return out.map(n=>Math.abs(n)<1e-12?0:n);};
   const n=v=>new Vector3(...v).applyQuaternion(rotation).toArray().map(n=>Math.abs(n)<1e-12?0:n);
-  const box=b=>{const corners=[];for(const x of [b.min[0],b.max[0]])for(const y of [b.min[1],b.max[1]])for(const z of [b.min[2],b.max[2]])corners.push(p([x,y,z]));return {...b,min:[0,1,2].map(i=>Math.min(...corners.map(c=>c[i]))),max:[0,1,2].map(i=>Math.max(...corners.map(c=>c[i])))};};
+  const box=b=>{const corners=[],extra={...b};for(const [key,value]of Object.entries(b))if(key!=='min'&&key!=='max'&&value&&typeof value==='object')extra[key]=structuredClone(value);for(const x of [b.min[0],b.max[0]])for(const y of [b.min[1],b.max[1]])for(const z of [b.min[2],b.max[2]])corners.push(p([x,y,z]));return {...extra,min:[0,1,2].map(i=>Math.min(...corners.map(c=>c[i]))),max:[0,1,2].map(i=>Math.max(...corners.map(c=>c[i])))};};
   function walk(value,key=''){
     if(typeof value==='string'){const canonical=key==='id'||referenceKeys.has(key)||referenceArrays.has(key)||/(?:Id|Ids)$/.test(key)&&!/(?:asset|character|prefab|native)Ids?$/i.test(key);return canonical&&ids.has(value)?prefix(value):value;}
     if(typeof value==='number')return elevations.has(key)?value+spec.translation[1]:value;
@@ -46,6 +50,7 @@ function placedSource(raw,spec){
     return result;
   }
   const data=walk(source);
+  onLoadPhase?.({phase:'placement-owned-tree',instanceId:spec.id});
   for(const collection of ['levels','surfaces','openings','furnitureParts','items','stores','sourceMeshes'])for(const row of data[collection]||[]){row.instanceId=spec.id;row.nativeId=row.id.slice(spec.id.length+2);}
   data.buildingId=spec.id;
   return {id:spec.id,kind:spec.kind,prefabId:source.prefabId,translation:[...spec.translation],quarterTurns:spec.quarterTurns,data};
@@ -59,8 +64,8 @@ function validateSource(data,sourcePath){
 }
 // The host-map adapter reuses source preparation/identity/rigid placement only;
 // it deliberately does not bootstrap the standalone sandbox's actors or clock.
-export function preparePhysicalInstance(raw,spec){
-  const instance=placedSource(raw,spec);
+export function preparePhysicalInstance(raw,spec,{onLoadPhase}={}){
+  const instance=placedSource(raw,spec,onLoadPhase);
   instance.data.gridOrigin=[0,0,0];instance.data.thermalCell=[.5,1.06,.5];
   validateSource(instance.data,spec.source);return instance;
 }
