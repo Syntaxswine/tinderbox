@@ -5,9 +5,9 @@
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
 | Architect | `codex/review-grass-mobile-startup`; accepted M25 checkpoints preserved | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Quick grass and iPhone Catalogue-startup correction; current live release `bee8ce46` |
-| Artist | Next `codex/grass-mobile-art` from common contract; `a69f0920` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Grass visual ownership and startup paint/texture allocation audit; no concurrent preview |
+| Artist | `codex/grass-mobile-art`; `a69f0920` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Accepted audit `6370cdd8`; idle, with no helper or duplicate probe |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | Next `codex/grass-mobile-startup` from common contract; `9680991b` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | One phased startup-memory/lifecycle probe, bounded copy/ownership correction and quick grass profile |
+| Coder | `codex/grass-mobile-startup`; `9680991b` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Shared baseline complete; quick grass, copy/ownership correction and bounded static image-source sharing |
 | UI designer | `codex/fire-brigade-study` completed; effect-settings/train checkpoints preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | No new implementation assigned; suspicion bar/current-visibility indicator are deferred |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
