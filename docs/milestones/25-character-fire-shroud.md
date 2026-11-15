@@ -1,6 +1,6 @@
 # Restore the approved character fire shroud
 
-Current delivery: runtime `9680991b` with artist `a69f0920` passes the primary 406-test/art/build/package and actual normal-loop browser gates. The [architect review](../reviews/2026-11-15-character-fire-shroud.md) accepts the correction for promotion and records exact Pages/live verification separately. The approved shroud now serves native player/NPC presentation; damage and ignition rules are unchanged.
+Delivered and live: runtime `9680991b` with artist `a69f0920` passes the primary 406-test/art/build/package and actual normal-loop browser gates. Release `bee8ce46` is published and independently verified on Pages, including actual public-game NPC ignition. The [architect review](../reviews/2026-11-15-character-fire-shroud.md) records exact source, deployment, complete live package/resource checks and cleanup. The approved shroud now serves native player/NPC presentation; damage and ignition rules are unchanged.
 
 ## Owner correction and common base
 
