@@ -14,12 +14,13 @@ function fixture(extra=[]){
 }
 function closeLedgers(provider){const m=provider.trial.metrics();assert.ok(Math.abs(m.fuel.error)<1e-8,JSON.stringify(m.fuel));assert.ok(Math.abs(m.heat.error)<1e-7,JSON.stringify(m.heat));return m;}
 
-test('production grass finishes in one world second without raising peak power or changing historical, oil and house clocks',()=>{
+test('production grass finishes in one world second without raising peak power or changing historical, oil and house clocks',t=>{
   assert.equal(DEFAULT_PROFILES.grass.seconds,3);assert.equal(DEFAULT_PROFILES.grass.energy,110);assert.equal(DEFAULT_PROFILES.oil.seconds,14);assert.equal(DEFAULT_PROFILES.clapboard.seconds,180);assert.equal(DEFAULT_PROFILES.frame.seconds,180);
   assert.equal(CATALOGUE_GRASS_PROFILE.energy/CATALOGUE_GRASS_PROFILE.seconds,DEFAULT_PROFILES.grass.energy/DEFAULT_PROFILES.grass.seconds);
   const {provider,step}=fixture();try{
-    provider.trial.command({type:'match',position:[.25,.01,.25],energy:1.05});const grass=[...provider.trial.scene.fuels.values()].find(f=>f.cls==='grass');let first=null,last=null,peak=0,generated=0;
-    for(let i=0;i<150;i++){step();if(grass.lit&&grass.amount>1e-8){first??=provider.trial.worldTime;last=provider.trial.worldTime;}const next=provider.trial.metrics().heat.generated;peak=Math.max(peak,(next-generated)*30);generated=next;}
+    provider.trial.command({type:'match',position:[.25,.01,.25],energy:1.05});const grass=[...provider.trial.scene.fuels.values()].find(f=>f.cls==='grass');let first=null,last=null,spent=null,peak=0,generated=0;
+    for(let i=0;i<150;i++){step();if(grass.lit&&grass.amount>1e-8){first??=provider.trial.worldTime;last=provider.trial.worldTime;}else if(first!==null)spent??=provider.trial.worldTime;const next=provider.trial.metrics().heat.generated;peak=Math.max(peak,(next-generated)*30);generated=next;}
+    t.diagnostic(JSON.stringify({kind:'isolated-grass-kernel',scope:'Fixed native ticks, not measured wall time; architect normal-input gate owns wall/dropped-time trace',firstFlameWorld:first,lastFlameWorld:last,spentWorld:spent,ignitionToSpent:spent-first,initialFuel:grass.initial,generatedEnergy:generated,peakHeatPerWorldSecond:peak}));
     assert.ok(first!==null);assert.ok(last-first>=.93&&last-first<=1.001,JSON.stringify({first,last}));assert.ok(grass.amount<1e-8);assert.ok(peak<=grass.initial*110/3+1e-7);
     const cell=provider.snapshot()[0];assert.equal(cell.phase,'spent');assert.equal(cell.grassSpent,true);assert.equal(cell.flameFuel,null);assert.equal(cell.intensity,0);
     assert.ok(!provider.physicalFrame().fireSamples.some(s=>s.fuelClass==='grass'&&s.flame>0));

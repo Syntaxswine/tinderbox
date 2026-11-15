@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "date": "2026-11-15",
+  "contract": "docs/milestones/26-fast-grass-mobile-startup.md",
+  "base": "896c18b7c9436f17e01162ac601089c6df261fef",
+  "runtimeCommit": "8895961032f791f43c6e17dbb61beef18b077689",
+  "candidateProbeCommit": "cfb630bf8294d64b64c5b0347a6983eac09e9ea3",
+  "scope": "One sequential phased Node cold-load baseline, then one matched candidate; each physical worker exits before its desktop Edge art helper. Candidate includes one cancelled image load, serialized retry and disposal. No actual iPhone or Safari result.",
+  "runtime": "Node v24.15.0; desktop Edge, shared Three, 1280x800 viewport, ANGLE D3D11",
+  "measurementLimits": [
+    "Memory peaks are maxima of recorded phase samples, not continuous profiler peaks or portable device limits.",
+    "RSS/JS heap and logical GL payload are different observations. GL excludes driver padding, default MSAA/layers, decoded images and engine overhead; it is not measured VRAM.",
+    "Browser first-render heap remains about 1.11GB. Node improvement does not establish the same Safari improvement or diagnose the reported phone failure.",
+    "Twelve driver-stepped quiet frames are a small CPU sample, not FPS. They show no general speedup.",
+    "Source hashing occurs after the measured phases and streams values; no full-world stringify/gzip is used in either measured window."
+  ],
+  "physicalInvariance": {
+    "placedSourceDigestAlgorithm": "SHA-256 over ordered recursively streamed typed values; see startup-node-worker.mjs",
+    "baselineDigest": "4ae3e6366d6389907f5a6ea13336c751e847d68fd313ea04c5b6e0c5dca4a4fc",
+    "candidateDigest": "4ae3e6366d6389907f5a6ea13336c751e847d68fd313ea04c5b6e0c5dca4a4fc",
+    "publishedBoundaries": 66108,
+    "publishedSupports": 16770,
+    "items": 40,
+    "parts": 159,
+    "cells": 53140,
+    "gridOrigin": [0, 0, 0],
+    "gridPitch": [0.5, 1.06, 0.5],
+    "totalCapacity": 13285,
+    "structures": {"meshes":262,"uniqueGeometries":262,"materials":147,"textureObjects":44,"sourceTriangles":475868},
+    "firstFrame": {"drawCalls":236,"rendererGeometries":277},
+    "note": "All listed counts, placed source order and values match. Only the production grass profile and additive grass/oil presentation fields intentionally differ; no donor/source JSON or native geometry is changed."
+  },
+  "node": {
+    "baseline": {
+      "peakObservedRss": 1411821568,
+      "peakObservedHeap": 1216548384,
+      "initialPublicationHeap": 691588608,
+      "initialPublicationRss": 1382350848,
+      "disposedHandleRetainedForcedGcHeap": 326212920,
+      "allHandlesReleasedForcedGcHeap": 325953208,
+      "quietCpuMs": [75.5464,2.5501,0.8554,0.9545,0.8242,0.7317,0.6472,0.7418,0.7603,0.7932,0.5867,0.716]
+    },
+    "candidate": {
+      "peakObservedRss": 1016016896,
+      "peakObservedHeap": 801705576,
+      "initialPublicationHeap": 801705576,
+      "initialPublicationRss": 986349568,
+      "disposedHandleRetainedForcedGcHeap": 289571440,
+      "quietCpuMs": [73.2571,3.1527,1.1332,1.3147,1.015,0.9453,0.6774,0.886,1.1112,1.1094,1.0424,0.7899]
+    },
+    "note": "Baseline GC occurred between initialization and initial publication; do not compare those individual heap samples as identical GC states. Forced-GC retained data are reported separately. RSS can stay reserved after GC/disposal."
+  },
+  "browser": {
+    "baseline": {
+      "firstRenderHeap": 1111522043,
+      "logicalGlPayload": 484208524,
+      "texturePayload": 404896862,
+      "bufferPayload": 66728750,
+      "renderbufferPayload": 12582912,
+      "glTextureHandles": 82,
+      "rendererTextures": 78,
+      "quietCpuMs": [58,15,13.6,11,14.6,11.9,10.6,9.2,9.9,11,10.5,11]
+    },
+    "candidate": {
+      "firstRenderHeap": 1105890040,
+      "logicalGlPayload": 299758852,
+      "texturePayload": 220447190,
+      "bufferPayload": 66728750,
+      "renderbufferPayload": 12582912,
+      "glTextureHandles": 60,
+      "rendererTextures": 56,
+      "quietCpuMs": [62.2,18.4,14.1,13.7,14.9,11.8,10.6,11.3,11.8,11.5,11,12]
+    },
+    "ownership": "Canonical URL image Source sharing and one deterministic trim Source per visit. Per-view Texture transforms/samplers and materials stay private. All native 2048x1024 character paint projections remain private and unchanged. No texture downscaling."
+  },
+  "coldFrame": {
+    "baselineJpegSha256": "c20575196f3c4b9bdcffc6e75135dcaf9d4890626a91d50a7bde1cfa5cff3213",
+    "candidateJpegSha256": "1f84a2c971a6475c1dee5a8eb2badf839560a577bf135d17dc54ba339e94ad1c",
+    "wholeFrameStrictZeroPass": false,
+    "browserDecodedChangedPixels": 73664,
+    "browserDecodedChannelRms": 0.4766873128905712,
+    "browserDecodedMaxChannelDifference": 15,
+    "offlineWindowsDecodedChangedPixels": 70502,
+    "offlineWindowsChangedBoundsInclusive": {"minX":367,"minY":543,"maxX":912,"maxY":784},
+    "visibleWorldChangedPixels": 0,
+    "architectDisposition": "Accept affected static-source appearance control: every visible 3D-world pixel matches and UI source bytes are unchanged. Differences are confined to the interior of the bottom HUD console. Retain the failed whole-frame assertion and make no causal or whole-frame-pass claim. Normal UI/input gate remains architect-owned.",
+    "rawProbeExit": 1,
+    "rawProbeFailure": "Cold-frame pixel comparison differs",
+    "pageErrors": []
+  },
+  "cancelRetry": {
+    "cancelledVisitResult": false,
+    "retryVisitResult": true,
+    "cancelledFactorySettledBeforeRetryConstruction": true,
+    "lateTextureReturned": 1,
+    "lateTextureDisposed": 1,
+    "canvasesAfterRetry": 1,
+    "liveGlContextsAfterRetry": 1,
+    "glContextsAfterFinalDisposal": [
+      {"lost":true,"logicalBytes":0,"textures":0,"buffers":0,"renderbuffers":0},
+      {"lost":true,"logicalBytes":0,"textures":0,"buffers":0,"renderbuffers":0},
+      {"lost":true,"logicalBytes":0,"textures":0,"buffers":0,"renderbuffers":0}
+    ]
+  },
+  "grass": {
+    "production": {"threshold":0.85,"delay":0.18,"seconds":1,"energy":36.666666666666664},
+    "historical": {"threshold":0.85,"delay":0.18,"seconds":3,"energy":110},
+    "unchangedOilSeconds": 14,
+    "unchangedClapboardSeconds": 180,
+    "unchangedFrameSeconds": 180,
+    "isolatedKernelTrace": {
+      "scope": "Native fixed ticks; this is not measured wall time. Architect normal-input gate records world/wall/dropped time.",
+      "firstFlameWorld": 0.06666666666666667,
+      "lastFlameWorld": 1.0333333333333332,
+      "spentWorld": 1.0666666666666667,
+      "ignitionToSpentWorld": 1,
+      "initialFuel": 0.08,
+      "generatedEnergy": 2.9333333333333345,
+      "peakHeatPerWorldSecond": 2.933333333333339
+    },
+    "mixedControl": "At3.033worlds grassSpent=true, grass surface fuel below epsilon, flameFuel=oil, positive finite oil, no positive grass flame. Oil completes at its unchanged nominal14s; spent grass remains scorched, reheat cannot restore its fuel.",
+    "timberControl": {
+      "scope": "20 world seconds, native0.5m patch and a0.25m air gap to unchanged clapboard. No forced ignition or changed wood profile.",
+      "weakGrassMaxTimberExposure": 0.02211814075892465,
+      "weakTimberIgnitions": 0,
+      "finiteHalfUnitOilFedGrassMaxTimberExposure": 1.2047340694038027,
+      "oilFedTimberIgnitions": 0,
+      "positiveControl": "Six world seconds of ordinary queued local flame inputs, total external energy19.05, ignites one timber patch at1.3333333333333333worlds. This is explicit local heat, not grass-only spread.",
+      "maxAbsoluteHeatLedgerError": 1.1460166149390716e-11,
+      "maxAbsoluteFuelLedgerError": 7.771561172376096e-15
+    }
+  },
+  "checks": {
+    "focusedCoreTests": "62/62 pass before early runtime checkpoint",
+    "fullLocalCheck": "418/418 pass plus provenance/art checks; later weak/sustained control and trace logging pass4/4 separately",
+    "architectCombinedCheck": "Architect reports419/419, build and nested release pass on combined candidate; normal-input browser review in progress at handoff",
+    "buildFiles": 3546,
+    "buildBytes": 183181632,
+    "buildManifestSha256": "d24d81cbd083b1cb89a4f644fc7881edfc323f74629a05ae52c305046aad76e2",
+    "nestedRelease": "3546 packaged files match hashes; resources resolve below /tinderbox/"
+  },
+  "helpers": {
+    "baselineNode": {"pid":45924,"creationFiletime":"134392196006787400","exitCode":0,"workerExited":true,"ports":[]},
+    "baselineBrowser": {"pid":9328,"ports":[60525,60526],"browserExited":true,"portsListening":[false,false]},
+    "candidateNode": {"pid":15984,"creationFiletime":"134392224000032346","exitCode":0,"workerExited":true,"ports":[]},
+    "candidateBrowser": {"pid":58968,"creationFiletime":"134392224169426601","driverPid":28696,"ports":[51155,51156],"browserExited":true,"portsListening":[false,false]},
+    "retainedServices": []
+  },
+  "localEvidence": "artifacts/qa/grass-mobile-startup/{baseline,candidate}/: node-phases.json, node-measured-phases.json, node-summary.json, node-helper*.json, restart-source.json plus exact source/patch snapshots; browser-helper/{browser-initial.json,quiet-cpu.json,browser-disposal.json,cleanup-receipt.json}; candidate additionally cancel-retry.json, cold-frame-comparison.json, failure.json and pixel-blocks.json. Full check/build/release logs are alongside those directories."
+}
