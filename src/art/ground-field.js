@@ -69,7 +69,7 @@ export function createGroundField(T,readCells=createCellReader()){
     const i=index*4;
     const fuel=Math.fround(Math.min(1,Math.sqrt(Math.max(0,cell.depositedFuel||0))*2));
     const warm=Math.fround(cell.phase==='heating'?.24+clamp(cell.heat)*.55:cell.phase==='burning'?clamp(cell.intensity)*.75:0);
-    const char=Math.fround(cell.phase==='spent'?(/grass|wood/.test(cell.material)?1:.85):cell.phase==='burning'?.27:0);
+    const char=Math.fround(cell.phase==='spent'||cell.grassSpent?(/grass|wood/.test(cell.material)?1:.85):cell.phase==='burning'?.27:0);
     const live=cell.phase==='burning'?1:0;
     if(Object.is(target[i],fuel)&&Object.is(target[i+1],warm)&&Object.is(target[i+2],char)&&target[i+3]===live)return false;
     target[i]=fuel;target[i+1]=warm;target[i+2]=char;target[i+3]=live;

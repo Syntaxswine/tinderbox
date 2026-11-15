@@ -53,15 +53,18 @@ export function nativeExteriorSource(T,building,{sourceMetadata=false}={}){
   }finally{model.dispose();}
 }
 
-export function appendCatalogueNativeSources(T,compiled,host,{representation='structure'}={}){
+export function appendCatalogueNativeSources(T,compiled,host,{representation='structure',onLoadPhase}={}){
   const instances=[...compiled.instances],data=compiled.data;
   for(const building of host.buildings.filter(b=>!compiled.masks.buildingIds.includes(b.id))){
-    const full=nativeExteriorSource(T,building,{sourceMetadata:representation==='structure'}),source=representation==='facets'?full:nativeStructuralSource(full,building),spec={id:building.id,kind:'exterior',translation:[building.x,0,building.y],quarterTurns:(4-building.quarterTurns)%4,source:'native-factory:'+building.prefabId};
-    const instance=preparePhysicalInstance(source,spec);instances.push(instance);for(const key of ['levels','surfaces','items','furnitureParts','stores','openings','sourceMeshes','sourceHashes','runtimeAdaptations'])data[key].push(...instance.data[key]||[]);for(const key of ['materials','geometry'])data.render[key].push(...instance.data.render[key]);
+    onLoadPhase?.({phase:'native-exterior-begin',instanceId:building.id});
+    const full=nativeExteriorSource(T,building,{sourceMetadata:representation==='structure'});onLoadPhase?.({phase:'native-exterior-serialized',instanceId:building.id,surfaces:full.surfaces.length,meshes:full.sourceMeshes.length});
+    const source=representation==='facets'?full:nativeStructuralSource(full,building),spec={id:building.id,kind:'exterior',translation:[building.x,0,building.y],quarterTurns:(4-building.quarterTurns)%4,source:'native-factory:'+building.prefabId};
+    onLoadPhase?.({phase:'native-exterior-physical-source',instanceId:building.id,surfaces:source.surfaces.length});
+    const instance=preparePhysicalInstance(source,spec,{onLoadPhase});instances.push(instance);for(const key of ['levels','surfaces','items','furnitureParts','stores','openings','sourceMeshes','sourceHashes','runtimeAdaptations'])data[key].push(...instance.data[key]||[]);for(const key of ['materials','geometry'])data.render[key].push(...instance.data.render[key]);
   }
   const terrain={version:1,prefabId:'catalogue-terrain-v1',module:[1,1,2.12],levels:[{id:'ground',index:0,floorY:0}],surfaces:[],items:[],furnitureParts:[],stores:[],openings:[],sourceMeshes:[],render:{materials:[],geometry:[]}};
   for(const tile of host.tiles||[]){if(tile.material!=='grass')continue;const {x,y:z,size}=tile,lo=x-size/2,lz=z-size/2;terrain.surfaces.push({id:`grass:${lo},${lz}`,kind:'ground',normal:[0,1,0],material:'grass',fuelClass:'grass',fuelAmount:size*size,thickness:0,supports:true,sourceMeshBindings:[],triangles:[[[lo,0,lz],[lo+size,0,lz+size],[lo+size,0,lz]],[[lo,0,lz],[lo,0,lz+size],[lo+size,0,lz+size]]]});}
-  const ground=preparePhysicalInstance(terrain,{id:'terrain',kind:'terrain',source:'host-native-grass-tiles',translation:[0,0,0],quarterTurns:0});instances.push(ground);data.surfaces.push(...ground.data.surfaces);
+  const ground=preparePhysicalInstance(terrain,{id:'terrain',kind:'terrain',source:'host-native-grass-tiles',translation:[0,0,0],quarterTurns:0},{onLoadPhase});instances.push(ground);data.surfaces.push(...ground.data.surfaces);
   // The original barrels retain their host explosion rule. Their one canonical
   // inert body uses the same 18-sided cylinder as createWorld; no second oil
   // store or explosion timer is introduced into the detailed trial.
@@ -71,7 +74,7 @@ export function appendCatalogueNativeSources(T,compiled,host,{representation='st
     for(let i=0;i<(index?.count??p.count);i+=3)triangles.push([0,1,2].map(k=>{const j=index?index.getX(i+k):i+k;return [o.x+p.getX(j),o.height/2+p.getY(j),o.y+p.getZ(j)];}));geometry.dispose();
     props.surfaces.push({id:o.id,hostObstacleId:o.id,kind:'fitting',normal:[0,1,0],material:o.material==='wood'?'timber':'iron',fuelClass:o.material==='wood'?'furniture':null,fuelAmount:o.material==='wood'?o.width*o.depth*o.height:0,thickness:0,physicalShape:'source-closed-mesh',supports:false,sourceMeshBindings:[],triangles});
   }
-  const propInstance=preparePhysicalInstance(props,{id:'street-props',kind:'props',source:'host-native-props',translation:[0,0,0],quarterTurns:0});
+  const propInstance=preparePhysicalInstance(props,{id:'street-props',kind:'props',source:'host-native-props',translation:[0,0,0],quarterTurns:0},{onLoadPhase});
   // This ID addresses the existing host obstacle, rather than another
   // component source. Restore its external identity after internal qualification.
   for(const s of propInstance.data.surfaces)s.hostObstacleId=s.nativeId;

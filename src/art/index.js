@@ -3,6 +3,7 @@ import {Resources,removeTree} from './resources.js';
 import {createMaterials} from './materials.js';
 import {BEAR_SPEC} from '../reuse/bear.js';
 import {loadCharacterKit} from '../reuse/characters.js';
+import {loadOwnedBatch} from '../reuse/loading.js';
 import {createWorld,createActor} from './world.js';
 import {createExteriorKit} from './exterior-kit.js';
 import {loadCivilianKit} from '../reuse/civilians.js';
@@ -22,19 +23,23 @@ import {createWitnessReaction} from './witness-reaction.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
 const medicineUrl=new URL('../../assets/art/medicine-pickups/index.js',import.meta.url);
-export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire,defaultLights,catalogueModules}={}){
+export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire,defaultLights,catalogueModules,onLoadPhase}={}){
   if(!T?.TextureLoader||!scene?.add)throw new TypeError('createArtScene requires the shared THREE module and a scene.');
+  signal?.throwIfAborted();
   const base=new URL(assetBaseUrl,import.meta.url);if(!base.pathname.endsWith('/'))base.pathname+='/';
   const selected={flame:'effects/painted-fire/flame-atlas-v1.png',smoke:'effects/painted-fire/smoke-atlas-v1.png',
     burst:'effects/painted-fire/tank-burst-atlas-v1.png',materials:'environment/painted-study/material-atlas-v2.png',cargo:'environment/painted-study/cargo-materials-v1.png',kitBrick:'environment/hybrid-surfaces/brick-factory-v1.png',
     kitWood:'environment/hybrid-surfaces/wood-factory-v2.png',kitPlaster:'environment/ground-concrete.png'};
   const pool=new Resources(),loader=new T.TextureLoader(),entries=Object.entries(selected);
-  const loaded=await Promise.allSettled(entries.map(([,file])=>loader.loadAsync(new URL(file,base).href)));
-  for(const result of loaded)if(result.status==='fulfilled')pool.texture(result.value);
-  const failure=loaded.findIndex(result=>result.status==='rejected');
-  if(failure!==-1){pool.dispose();throw new Error('Tinderbox art asset failed: '+entries[failure][1],{cause:loaded[failure].reason});}
+  onLoadPhase?.({phase:'art-textures-begin'});
+  signal?.throwIfAborted();
+  let loaded;
+  try{loaded=await loadOwnedBatch(entries.map(([,file])=>loader.loadAsync(new URL(file,base).href)),{signal});}
+  catch(error){pool.dispose();throw error;}
+  for(const texture of loaded)pool.texture(texture);
   if(signal?.aborted){pool.dispose();throw new DOMException('Visit cancelled','AbortError');}
-  const assets=Object.fromEntries(entries.map(([name],i)=>{const texture=loaded[i].value;texture.colorSpace=T.SRGBColorSpace;return [name,texture];}));
+  const assets=Object.fromEntries(entries.map(([name],i)=>{const texture=loaded[i];texture.colorSpace=T.SRGBColorSpace;return [name,texture];}));
+  onLoadPhase?.({phase:'art-textures-ready',textures:entries.length});
   let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,rubble,sidingPreheat,firelight,streetNight,moduleArt,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
   const cottageIds=new Set(cottageFire?.buildings.map(b=>b.id)??[]);
   const moduleWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
@@ -52,14 +57,15 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   }
   let witnessReaction;
   try{
-    if(renderer)civilianKit=await loadCivilianKit({THREE:T,renderer,assetBaseUrl:base.href});
+    if(renderer)civilianKit=await loadCivilianKit({THREE:T,renderer,assetBaseUrl:base.href,onLoadPhase,signal});
     if(initialWorld?.buildings?.length&&!catalogueModules)housingKit=await loadNeighborhoodKit(T,{renderer});
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
     root=new T.Group();root.name='Tinderbox art module';
     const materials=createMaterials(T,pool,assets);
+    onLoadPhase?.({phase:'native-player-source-begin',species:characterId});
     bearKit=await loadCharacterKit({characterId,THREE:T,renderer,assetBaseUrl:bearAssetBaseUrl,materials,signal});
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-    world=createWorld(T,materials);bear=bearKit.create();field=createGroundField(T,readCells);fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
+    world=createWorld(T,materials);bear=bearKit.create();onLoadPhase?.({phase:'native-player-paint-ready',species:characterId});field=createGroundField(T,readCells);fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
     exterior=createExteriorKit(T,materials,assets,renderer);
     toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,readCells);
     root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root,sidingPreheat.root,firelight.root);
@@ -69,7 +75,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     }
     if(catalogueModules){
       const {createCatalogueModuleArt}=await import(new URL('../../workbenches/catalogue-modular/art.js',import.meta.url).href);
-      moduleArt=await createCatalogueModuleArt(T,{renderer,data:catalogueModules.data,instances:catalogueModules.instances,signal});root.add(moduleArt.root);
+      onLoadPhase?.({phase:'native-structure-art-begin'});moduleArt=await createCatalogueModuleArt(T,{renderer,data:catalogueModules.data,instances:catalogueModules.instances,signal});root.add(moduleArt.root);onLoadPhase?.({phase:'native-structure-art-ready'});
       streetNight=createStreetNight(T,scene,renderer,defaultLights);if(streetNight)root.add(streetNight.root);
     }else if(cottageFire){
       const {createCottagePairArt}=await import('./cottage-pair.js');
@@ -97,7 +103,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     const ring=new T.Mesh(ringGeo,ringMat);ring.name='Player footprint';ring.position.y=.026;root.add(ring);
     const arrowGeo=pool.geometry(new T.BufferGeometry());arrowGeo.setAttribute('position',new T.Float32BufferAttribute([1.6,.027,0,1.23,.027,-.16,1.23,.027,.16],3));arrowGeo.computeVertexNormals();
     const arrow=new T.Mesh(arrowGeo,pool.material(new T.MeshBasicMaterial({color:0xf0d28a,transparent:true,opacity:.7,side:T.DoubleSide,depthWrite:false})));root.add(arrow);
-    scene.add(root);
+    scene.add(root);onLoadPhase?.({phase:'art-scene-ready'});
     function update(snapshot,timing={}){
       if(disposed)return;
       if(snapshot?.version!==1||!snapshot.player||!snapshot.world)throw new TypeError('Art requires a v1 authoritative snapshot.');

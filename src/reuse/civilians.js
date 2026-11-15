@@ -2,6 +2,8 @@ import * as SharedThree from '../runtime/three.js';
 import {CHICAGO_PATROL, CIVILIAN_PROFILES, validateChicagoPatrol, validateCivilian} from '../content/exterior-kit.js';
 import {createChicago1893BeatUniform} from '../art/chicago-beat-uniform.js';
 import {createPatrolPistolPose} from './patrol-pistol.js';
+import {loadOwnedBatch,loadOwnedPair} from './loading.js';
+import {paintWithOwnership} from './bear.js';
 import {createWeaponModel} from '../../vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/weapon-models.js';
 import {createLightHorse} from '../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-light-model.js';
 import {createGoatWorker} from '../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-worker.js';
@@ -71,22 +73,22 @@ export function createChicagoPatrolRig(data) {
       parts: pistol.parts.length, visible: !disposed && rig.root.visible && pistol.root.visible},
     ...(pistolPose ? {pistolPose} : {})})};
 }
-export async function loadCivilianKit({THREE, renderer, assetBaseUrl = CIVILIAN_ASSET_BASE_URL} = {}) {
+export async function loadCivilianKit({THREE, renderer, assetBaseUrl = CIVILIAN_ASSET_BASE_URL,onLoadPhase,signal} = {}) {
   if (!THREE || THREE.SkinnedMesh !== SharedThree.SkinnedMesh || !(renderer instanceof SharedThree.WebGLRenderer)) throw Error('Civilian kit requires the shared THREE namespace and its borrowed WebGLRenderer; no substitute animals');
   const base = new URL(assetBaseUrl, import.meta.url); if (!base.pathname.endsWith('/')) base.pathname += '/';
   const textures = new Map(), models = new Map(), instances = new Set(); let disposed = false;
+  function dispose(){if(disposed)return;disposed=true;signal?.removeEventListener('abort',dispose);for(const i of [...instances])i.dispose();for(const t of textures.values())t.dispose();textures.clear();models.clear();}
+  signal?.addEventListener('abort',dispose,{once:true});if(signal?.aborted){dispose();throw new DOMException('Civilian load cancelled','AbortError');}
   const loader = new THREE.TextureLoader();
-  const loads = await Promise.allSettled(Object.values(CIVILIAN_PROFILES).map(async profile => {
-    const [model, texture] = await Promise.allSettled([
-      fetch(new URL(profile.model, base)).then(r => { if (!r.ok) throw Error('Civilian model HTTP ' + r.status); return r.json(); }),
-      loader.loadAsync(new URL(profile.paint, base).href)
-    ]);
-    if (texture.status === 'fulfilled') textures.set(profile.species, texture.value);
-    if (model.status === 'fulfilled') models.set(profile.species, model.value);
-    if (model.status === 'rejected' || texture.status === 'rejected') throw Error('Civilian source load failed: ' + profile.species, {cause: model.reason || texture.reason});
-  }));
-  const failure = loads.find(r => r.status === 'rejected');
-  if (failure) { for (const t of textures.values()) t.dispose(); throw failure.reason; }
+  try{
+    onLoadPhase?.({phase:'native-civilian-sources-begin'});
+    const loads=await loadOwnedBatch(Object.values(CIVILIAN_PROFILES).map(async profile=>({species:profile.species,...await loadOwnedPair(
+      fetch(new URL(profile.model,base),{signal}).then(r=>{if(!r.ok)throw Error('Civilian model HTTP '+r.status);return r.json();}),loader.loadAsync(new URL(profile.paint,base).href),signal
+    )})),{signal,release:value=>value.texture.dispose()});
+    if(disposed||signal?.aborted){for(const value of loads)value.texture.dispose();throw new DOMException('Civilian load cancelled','AbortError');}
+    for(const value of loads){textures.set(value.species,value.texture);models.set(value.species,value.model);}
+    onLoadPhase?.({phase:'native-civilian-sources-ready',species:models.size,textures:textures.size});
+  }catch(error){dispose();throw error;}
   function create(actor, patrol) {
     if (disposed) throw Error('Civilian kit disposed');
     if (patrol) validateChicagoPatrol(actor); else validateCivilian(actor);
@@ -95,15 +97,15 @@ export async function loadCivilianKit({THREE, renderer, assetBaseUrl = CIVILIAN_
       const data = models.get(actor.species);
       rig = patrol ? createChicagoPatrolRig(data) : createCivilianRig(actor.species, data);
       texture = textures.get(actor.species).clone();
-      paint = createModelPaint(renderer, rig.worker, texture, {species: actor.species, frame: PAINT_FRAME, sceneLighting: true});
+      paint = paintWithOwnership(renderer,rig.worker,texture,(r,w,t)=>createModelPaint(r,w,t,{species:actor.species,frame:PAINT_FRAME,sceneLighting:true}));
       for (const part of rig.worker.parts) { part.material = paint.material; part.castShadow = part.receiveShadow = true; }
       rig.update(actor, 0); let released = false;
       const instance = {root: rig.root, bodyBinding:rig.bodyBinding, bounds: rig.bounds, update: rig.update, diagnostics: rig.diagnostics,
         dispose() { if (released) return; released = true; paint.dispose(); rig.dispose(); instances.delete(instance); }};
-      instances.add(instance); return instance;
+      onLoadPhase?.({phase:'native-civilian-paint-ready',id:actor.id,species:actor.species});instances.add(instance);return instance;
     } catch (error) { if (paint) paint.dispose(); else texture?.dispose(); rig?.dispose(); throw error; }
   }
   return {create: actor => create(actor, false), createPatrol: actor => create(actor, true),
     diagnostics: () => ({disposed, species: [...models.keys()].sort(), instances: instances.size, sourceTextures: textures.size, baseUrl: base.href}),
-    dispose() { if (disposed) return; disposed = true; for (const i of [...instances]) i.dispose(); for (const t of textures.values()) t.dispose(); textures.clear(); models.clear(); }};
+    dispose};
 }

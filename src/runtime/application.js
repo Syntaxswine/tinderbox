@@ -3,9 +3,14 @@ export function createApplication({places,characters=[],selectedCharacterId='goa
   const catalogue=new Map(places.map(place=>[place.id,place]));
   const choices=new Set(characters.map(character=>character.id));
   if(choices.size&&!choices.has(selectedCharacterId))throw Error('Unknown initial character');
-  let epoch=0,active=null,pending=null,closed=false,state={phase:startAtTitle?'title':'menu',loadingId:null,error:null,placeId:null,selectedCharacterId};
+  let epoch=0,active=null,pending=null,retiring=null,closed=false,state={phase:startAtTitle?'title':'menu',loadingId:null,error:null,placeId:null,selectedCharacterId};
   function publish(next){state={...state,...next};onState({...state});}
-  function retire(){pending?.controller.abort();pending=null;if(active){const old=active;active=null;old.dispose();}}
+  function retire(){
+    const old=pending;pending=null;
+    if(old){old.controller.abort();const next=Promise.allSettled([retiring,old.promise]).then(()=>{});retiring=next;void next.then(()=>{if(retiring===next)retiring=null;});}
+    if(active){const previous=active;active=null;previous.dispose();}
+    return retiring;
+  }
   function returnToMenu({error=null,focusId=state.placeId||state.loadingId}={}){
     if(closed)return;epoch++;retire();publish({phase:'menu',loadingId:null,placeId:null,error});if(focusId&&!error)onFocus(focusId);
   }
@@ -13,23 +18,29 @@ export function createApplication({places,characters=[],selectedCharacterId='goa
     if(closed||state.phase==='title'||!catalogue.has(id))return Promise.resolve(false);
     if(pending?.id===id)return pending.promise;
     if(active&&state.placeId===id)return Promise.resolve(true);
-    epoch++;retire();const ticket=epoch,controller=new AbortController(),place=catalogue.get(id);
+    epoch++;const retirement=retire(),ticket=epoch,controller=new AbortController(),place=catalogue.get(id);
     publish({phase:'loading',loadingId:id,placeId:null,error:null});
-    const entry={id,controller,promise:null};pending=entry;
-    entry.promise=(async()=>{
+    let resolveEntry;const entry={id,controller,promise:new Promise(resolve=>{resolveEntry=resolve;})};pending=entry;
+    const work=(async()=>{
       let visit;
       try{
+        // A cancelled factory may still own textures/geometry until its promise
+        // settles. Do not overlap another full Catalogue construction with it.
+        if(retirement)await retirement;
+        if(closed||ticket!==epoch||controller.signal.aborted)return false;
         visit=await createVisit(place,{characterId:state.selectedCharacterId,signal:controller.signal,onExitToMenu:()=>returnToMenu({focusId:id}),
           onError:error=>{if(!closed&&ticket===epoch)returnToMenu({focusId:id,error:message(error)});}});
         if(closed||ticket!==epoch||controller.signal.aborted){visit?.dispose();return false;}
         if(!visit||typeof visit.dispose!=='function')throw Error('Visit did not supply its lifecycle handle');
         pending=null;active=visit;publish({phase:'visit',loadingId:null,placeId:id,error:null});return true;
       }catch(error){
+        const current=!closed&&ticket===epoch&&!controller.signal.aborted;
         visit?.dispose();
-        if(!closed&&ticket===epoch&&!controller.signal.aborted){pending=null;publish({phase:'menu',loadingId:null,placeId:null,error:message(error)});}
+        controller.abort();
+        if(current){pending=null;publish({phase:'menu',loadingId:null,placeId:null,error:message(error)});}
         return false;
       }
-    })();return entry.promise;
+    })();void work.then(resolveEntry,error=>{resolveEntry(false);if(!closed&&ticket===epoch)publish({phase:'menu',loadingId:null,placeId:null,error:message(error)});});return entry.promise;
   }
   publish(state);
   return {select,returnToMenu,openMenu(){if(closed||state.phase!=='title')return false;publish({phase:'menu',error:null});onFocus(places[0]?.id);return true;},

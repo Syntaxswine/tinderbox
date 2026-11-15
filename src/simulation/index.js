@@ -24,7 +24,7 @@ export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
 const EPS = 1e-9;
-export function createSimulation({seed = 1947, scenario, config: override,characterId='bear',cottageWind,catalogueModules} = {}) {
+export function createSimulation({seed = 1947, scenario, config: override,characterId='bear',cottageWind,catalogueModules,onLoadPhase} = {}) {
   const profile=CHARACTER_PROFILES[characterId];if(!profile)throw Error('Unknown player character');
   const config = configuration(characterId==='bear'?override:{...override,player:{...override?.player,radius:profile.radius}}), definition = scenarioDefinition(scenario);
   if (!Number.isSafeInteger(seed)) throw Error('Seed must be a safe integer');
@@ -89,7 +89,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     }
     Object.freeze(state.tiles);
     publishObstacles = createObstaclePublisher();
-    field = catalogueModules?createCatalogueThermal({compiled:catalogueModules,state,definition:def,config,event}):new HeatField(def, config, state.obstacles);
+    field = catalogueModules?createCatalogueThermal({compiled:catalogueModules,state,definition:def,config,event,onLoadPhase}):new HeatField(def, config, state.obstacles);
     state.contactProvider=catalogueModules?field:null;
     shop=catalogueModules?field.shop:createShopInteractions(def,state,event);
     const officer=shop&&def.id==='neighborhood'&&(catalogueModules||def.shopWitness===CHICAGO_PATROL.id)&&state.actors.find(actor=>actor.id===CHICAGO_PATROL.id);
@@ -113,7 +113,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       return {building,colliders,cells,initialSurfaceFuel};
     });
   }
-  initialize();
+  try{initialize();}catch(error){field?.dispose?.();characterFire.reset();state=null;field=null;catalogueModules=null;onLoadPhase=null;throw error;}
   const activeEffect = name => state.effects[name].expiresAt > state.clocks.active + EPS;
   function faceMovement(inverted = activeEffect('inversion')) {
     const direction = movementVector(state.input.move, inverted, config.input);
@@ -418,7 +418,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (disposed) throw Error('Simulation disposed');
       return field.heatIndex(point,radius);
     },
-    dispose() { disposed = true; commands = []; field?.dispose?.();characterFire.reset();state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null; }
+    dispose() { disposed = true; commands = []; field?.dispose?.();characterFire.reset();state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null;catalogueModules=null;cottageWind=null;onLoadPhase=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }

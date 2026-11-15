@@ -4,14 +4,15 @@ import {configuration} from '../simulation/config.js';
 import {createCameraRig} from './camera.js';
 import {createDiagnosticScene} from './diagnostics.js';
 export {THREE};
-export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,assetBaseUrl,simulation,seed,scenario,config,characterId='bear',autoStart=true,uiOptions={},signal:externalSignal,cottageWind,catalogueModules,
+export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,assetBaseUrl,simulation,seed,scenario,config,characterId='bear',autoStart=true,uiOptions={},signal:externalSignal,cottageWind,catalogueModules,onLoadPhase,
   rendererFactory=()=>new THREE.WebGLRenderer({antialias:true,alpha:false}),observerFactory=callback=>new ResizeObserver(callback),onSnapshot=()=>{},onError=error=>console.error(error)}={}){
   if(!root)throw Error('A viewport root is required');
   if(externalSignal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-  const settings=configuration(config),sim=simulation??createSimulation({seed,scenario,config,characterId,cottageWind,catalogueModules});
+  let settings,sim=simulation,retiredArtDiagnostics;
   const controller=new AbortController(),signal=controller.signal,doc=root.ownerDocument||globalThis.document,win=doc?.defaultView||globalThis;
-  let renderer,scene,camera,observer,art,ui,animation,snapshot=sim.snapshot(),disposed=false,lastTime=null,frames=0,lastMetrics={},rendererDescription='unavailable';
+  let renderer,scene,camera,observer,art,ui,animation,snapshot,disposed=false,lastTime=null,frames=0,lastMetrics={},rendererDescription='unavailable';
   const cpuSamples=[],simulationSamples=[],frameSamples=[];
+  const checkLoad=()=>{if(disposed||externalSignal?.aborted)throw new DOMException('Visit cancelled','AbortError');};
   function dispatch(command){
     if(disposed)return false;
     if(command?.type==='view-overview'||command?.type==='view-follow'){
@@ -33,7 +34,7 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
       simulationCpuP95Ms:simSorted[Math.floor((simSorted.length-1)*.95)]??0,observedHz:intervals.length?1000*intervals.length/intervals.reduce((n,v)=>n+v,0):0,
       renderCpuP95Ms:sorted[Math.floor((sorted.length-1)*.95)]??0,drawCalls:renderer.info.render.calls,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,
       viewport:{width:root.clientWidth,height:root.clientHeight},threeRevision:THREE.REVISION,camera:camera.diagnostics()};
-    onSnapshot(snapshot,lastMetrics);return snapshot;
+    onSnapshot(snapshot,lastMetrics);return next;
   }
   function advance(delta){
     if(disposed)throw Error('Runtime disposed');const before=performance.now();
@@ -41,12 +42,16 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
   }
   function frame(now){
     if(disposed)return;const delta=lastTime===null?0:Math.max(0,(now-lastTime)/1000);lastTime=now;
-    try{advance(delta);}catch(error){onError(error);return;}animation=win.requestAnimationFrame(frame);
+    try{advance(delta);}catch(error){onError(error);return;}if(!disposed)animation=win.requestAnimationFrame(frame);
   }
   function loseFocus(){if(disposed)return;dispatch({type:'cancel-input'});dispatch({type:'pause',paused:true});lastTime=null;try{if(art)advance(settings.step);else snapshot=sim.advance(settings.step);}catch(error){dispose();onError(error);}}
   const abort=()=>dispose();externalSignal?.addEventListener('abort',abort,{once:true});
   try{
-    renderer=rendererFactory();renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setClearColor(0x35281e);root.append(renderer.domElement);
+    onLoadPhase?.({phase:'host-simulation-begin'});checkLoad();settings=configuration(config);
+    if(!sim){const created=createSimulation({seed,scenario,config,characterId,cottageWind,catalogueModules,onLoadPhase});if(disposed||externalSignal?.aborted){created.dispose();checkLoad();}sim=created;}
+    onLoadPhase?.({phase:'host-simulation-ready'});checkLoad();snapshot=sim.snapshot();onLoadPhase?.({phase:'initial-publication-ready'});checkLoad();
+    const createdRenderer=rendererFactory();if(disposed||externalSignal?.aborted){createdRenderer.forceContextLoss?.();createdRenderer.dispose();createdRenderer.domElement.remove();checkLoad();}renderer=createdRenderer;
+    renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setClearColor(0x35281e);root.append(renderer.domElement);onLoadPhase?.({phase:'renderer-ready'});checkLoad();
     scene=new THREE.Scene();
     const defaultLights=[];
     if(!snapshot.cottageFire){
@@ -54,27 +59,29 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
       sun.position.set(-8,16,6);defaultLights.push(sky,sun);scene.add(...defaultLights);
     }
     camera=createCameraRig(root,renderer,snapshot.world,{x:settings.input.cameraX,h:14,y:settings.input.cameraY});
-    observer=observerFactory(()=>{camera.resize();if(art&&!disposed)try{present(snapshot,0);}catch(error){dispose();onError(error);}});observer.observe(root);
+    observer=observerFactory(()=>{if(disposed)return;camera.resize();if(art)try{present(snapshot,0);}catch(error){dispose();onError(error);}});observer.observe(root);checkLoad();
     const gl=renderer.getContext();if(!gl)throw Error('The browser could not create a WebGL 2 view');const debug=gl.getExtension('WEBGL_debug_renderer_info');rendererDescription=String(gl.getParameter(debug?debug.UNMASKED_RENDERER_WEBGL:gl.RENDERER));
     renderer.domElement.addEventListener('webglcontextlost',event=>{if(disposed)return;event.preventDefault();dispose();onError(Error('Graphics context lost. Return to the places menu and try again.'));},{signal});
     win.addEventListener('blur',loseFocus,{signal});doc?.addEventListener('visibilitychange',()=>{if(doc.hidden)loseFocus();lastTime=null;},{signal});
     if(doc?.hidden||typeof doc?.hasFocus==='function'&&!doc.hasFocus())loseFocus();
-    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights,catalogueModules}):createDiagnosticScene({THREE,scene,config:settings});
+    const created=createArtScene?await createArtScene({THREE,scene,renderer,assetBaseUrl,characterId,world:snapshot.world,pickups:snapshot.pickups||[],signal:externalSignal,cottageWind,cottageFire:snapshot.cottageFire,defaultLights,catalogueModules,onLoadPhase}):createDiagnosticScene({THREE,scene,config:settings});
     if(disposed||externalSignal?.aborted){created.dispose();throw new DOMException('Visit cancelled','AbortError');}art=created;
-    ui=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});
+    const createdUI=mountUI?.({root:uiRoot,onCommand:dispatch,onZoom:zoom,...uiOptions,onProjectInteraction:projectInteraction});if(disposed||externalSignal?.aborted){createdUI?.dispose();checkLoad();}ui=createdUI;
     renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label','Isometric '+(uiOptions.placeTitle||'Tinderbox')+'. Move with the joystick, WASD or arrows.');
     const aim=(event,hover)=>{const point=camera.screenToWorld(event.clientX,event.clientY,art.pickAimSurface);if(point)dispatch({type:'aim',...point,hover});};
     renderer.domElement.addEventListener('pointermove',event=>aim(event,true),{signal});
     renderer.domElement.addEventListener('pointerdown',event=>{if(event.button===0)aim(event,false);},{signal});
-    present(snapshot,0);if(autoStart)animation=win.requestAnimationFrame(frame);
-    return {dispatch,advance,snapshot:()=>sim.snapshot(),metrics:()=>({...lastMetrics}),screenToWorld:camera.screenToWorld,projectInteraction,zoom,artDiagnostics:()=>art?.diagnostics?.(),dispose};
+    onLoadPhase?.({phase:'first-render-begin'});checkLoad();present(snapshot,0);checkLoad();onLoadPhase?.({phase:'first-render-ready'});checkLoad();if(autoStart)animation=win.requestAnimationFrame(frame);
+    return {dispatch,advance,snapshot(){if(disposed)throw Error('Runtime disposed');return sim.snapshot();},metrics:()=>({...lastMetrics}),screenToWorld:(...args)=>disposed?null:camera.screenToWorld(...args),projectInteraction,zoom,artDiagnostics:()=>disposed?retiredArtDiagnostics:art?.diagnostics?.(),dispose};
   }catch(error){dispose();throw error;}
   function dispose(){
     if(disposed)return;disposed=true;
     const failures=[],clean=operation=>{try{operation();}catch(error){failures.push(error.message);}};
     clean(()=>win.cancelAnimationFrame?.(animation));clean(()=>controller.abort());clean(()=>externalSignal?.removeEventListener('abort',abort));clean(()=>observer?.disconnect());
-    clean(()=>{sim.dispatch({type:'cancel-input'});sim.dispatch({type:'pause',paused:true});});
-    clean(()=>ui?.dispose());clean(()=>art?.dispose());clean(()=>sim.dispose());clean(()=>scene?.clear());clean(()=>renderer?.forceContextLoss());clean(()=>renderer?.dispose());clean(()=>renderer?.domElement.remove());
+    clean(()=>{sim?.dispatch({type:'cancel-input'});sim?.dispatch({type:'pause',paused:true});});
+    clean(()=>ui?.dispose());clean(()=>art?.dispose());clean(()=>{retiredArtDiagnostics=art?.diagnostics?.();});clean(()=>sim?.dispose());clean(()=>scene?.clear());clean(()=>renderer?.forceContextLoss());clean(()=>renderer?.dispose());clean(()=>renderer?.domElement.remove());
     if(failures.length)lastMetrics={...lastMetrics,cleanupErrors:failures};
+    // A retired public handle keeps receipts, not a complete physical/art world.
+    sim=simulation=null;snapshot=null;art=null;ui=null;scene=null;camera=null;renderer=null;observer=null;catalogueModules=null;onLoadPhase=null;
   }
 }

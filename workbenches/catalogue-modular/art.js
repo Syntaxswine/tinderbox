@@ -1,5 +1,7 @@
 import {createCatalogueStructureArt} from '../../art/source/catalogue-modular/thermal-art.js';
 import {catalogueFrameView} from '../../art/source/catalogue-modular/frame-view.js';
+import {loadOwnedBatch} from '../../src/reuse/loading.js';
+import {createTextureSourcePool} from '../../src/reuse/texture-sources.js';
 import {createCityPropLibrary,CITY_PAINT_URL} from '../../vendor/nautilus-engine/2fa0befbfbdc6b0e44f5a14a6f785f44e7a95d74/packages/city-props/three.js';
 import {paintCityTrim,TRIM_WIDTH,TRIM_HEIGHT} from '../../vendor/nautilus-engine/2fa0befbfbdc6b0e44f5a14a6f785f44e7a95d74/packages/city-props/trim-paint.js';
 
@@ -9,26 +11,29 @@ export async function createCatalogueModuleArt(T,{renderer,data,instances,signal
  const fadeRay=new T.Raycaster(),fadePoint=new T.Vector3(),fadeHit=new T.Vector3(),fadeNdc=new T.Vector3();let occludingBuildingIds=[];
  const lightSources=new Set(),lightItems=new Set();
  const views=new Map(),lamps=[],ownedTextures=new Set(),finishedMaterials=new Set(),liveBoundaries=new Map(),liveItems=new Map();
+ const sourcePool=createTextureSourcePool({signal});
  let disposed=false,lastTime=0,lastRevision=-1,lastGeneration=-1,portable,portableLight,library,lanternPhase='spent',lanternOwner=null;
  const nativeId=(id,instance)=>id?.startsWith(instance+'::')?id.slice(instance.length+2):id;
  function lamp(spec,shadow=false){const light=new T.PointLight(spec.color,spec.intensity,spec.reach,2);light.name=spec.id;light.position.fromArray(spec.position);light.castShadow=shadow;if(shadow){light.shadow.mapSize.set(512,512);light.shadow.bias=-.00012;light.shadow.normalBias=.018;light.shadow.camera.near=.05;light.shadow.camera.far=spec.reach;}root.add(light);return light;}
  function finish(art){art.root.traverse(o=>{for(const m of Array.isArray(o.material)?o.material:[o.material])if(m&&!finishedMaterials.has(m)){
   finishedMaterials.add(m);if(m.name==='Nautilus city trim'){
-   const painted=paintCityTrim(),pixels=new Uint8Array(painted.length),stride=TRIM_WIDTH*4;for(let y=0;y<TRIM_HEIGHT;y++)pixels.set(painted.subarray(y*stride,(y+1)*stride),(TRIM_HEIGHT-y-1)*stride);
-   const map=new T.DataTexture(pixels,TRIM_WIDTH,TRIM_HEIGHT,T.RGBAFormat);map.colorSpace=T.SRGBColorSpace;map.magFilter=T.LinearFilter;map.minFilter=T.LinearMipmapLinearFilter;map.generateMipmaps=true;map.needsUpdate=true;ownedTextures.add(map);m.map=map;m.needsUpdate=true;
+   const map=sourcePool.borrowNow('deterministic-city-trim-v1',()=>{
+    const painted=paintCityTrim(),pixels=new Uint8Array(painted.length),stride=TRIM_WIDTH*4;for(let y=0;y<TRIM_HEIGHT;y++)pixels.set(painted.subarray(y*stride,(y+1)*stride),(TRIM_HEIGHT-y-1)*stride);
+    const texture=new T.DataTexture(pixels,TRIM_WIDTH,TRIM_HEIGHT,T.RGBAFormat);texture.colorSpace=T.SRGBColorSpace;texture.magFilter=T.LinearFilter;texture.minFilter=T.LinearMipmapLinearFilter;texture.generateMipmaps=true;texture.needsUpdate=true;return texture;
+   });ownedTextures.add(map);m.map=map;m.needsUpdate=true;
   }
   if(/Soda glass|Nautilus store glass/.test(m.name)){m.transparent=true;m.opacity=.23;m.depthWrite=false;m.roughness=.25;m.needsUpdate=true;}
   if(m.name==='Nautilus lamp flame'){m.emissive.setHex(0xffb956);m.emissiveIntensity=1.5;}
  }if(o.isMesh&&/Soda glass|Nautilus store glass|Nautilus lamp flame/.test(o.material?.name))o.castShadow=false;});}
- function dispose(){if(disposed)return;disposed=true;root.removeFromParent();for(const {art}of views.values())art.dispose();for(const {light}of lamps){light.shadow?.dispose();light.dispose();}portableLight?.shadow?.dispose();portableLight?.dispose();portable?.dispose();library?.dispose();for(const t of ownedTextures)t.dispose();ownedTextures.clear();finishedMaterials.clear();liveBoundaries.clear();liveItems.clear();root.clear();}
+ function dispose(){if(disposed)return;disposed=true;root.removeFromParent();for(const {art}of views.values())art.dispose();for(const {light}of lamps){light.shadow?.dispose();light.dispose();}portableLight?.shadow?.dispose();portableLight?.dispose();portable?.dispose();library?.dispose();for(const t of ownedTextures)t.dispose();sourcePool.dispose();ownedTextures.clear();finishedMaterials.clear();liveBoundaries.clear();liveItems.clear();root.clear();}
  try{
   for(const instance of instances.filter(i=>i.kind!=='terrain'&&i.kind!=='props')){
    signal?.throwIfAborted();if(views.has(instance.id))throw Error('Duplicate registered structure '+instance.id);
-   const art=await createCatalogueStructureArt(T,{renderer,data:instance.data,placement:instance});const bounds=new T.Box3();for(const mesh of instance.data.sourceMeshes)bounds.union(new T.Box3(new T.Vector3(...mesh.bounds.min),new T.Vector3(...mesh.bounds.max)));views.set(instance.id,{instance,art,bounds});root.add(art.root);finish(art);
+   const art=await createCatalogueStructureArt(T,{renderer,data:instance.data,placement:instance,signal,sourcePool});if(signal?.aborted){art.dispose();signal.throwIfAborted();}const bounds=new T.Box3();for(const mesh of instance.data.sourceMeshes)bounds.union(new T.Box3(new T.Vector3(...mesh.bounds.min),new T.Vector3(...mesh.bounds.max)));views.set(instance.id,{instance,art,bounds});root.add(art.root);finish(art);
    for(const spec of instance.data.closingTime?.lamps||[]){lamps.push({spec,light:lamp(spec,(spec.nativeId??nativeId(spec.id,instance.id))==='closing/front-pendant:light')});for(const id of spec.sourceSurfaceIds||[])lightSources.add(id);if(spec.itemId)lightItems.add(spec.itemId);}
   }
   const shop=instances.find(i=>i.id==='bell-and-alder');if(!shop?.data.closingTime?.lantern)throw Error('Registered original Bell lantern metadata required');
-  const atlas=await new T.TextureLoader().loadAsync(CITY_PAINT_URL);ownedTextures.add(atlas);signal?.throwIfAborted();atlas.colorSpace=T.SRGBColorSpace;atlas.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  const [atlas]=await loadOwnedBatch([new T.TextureLoader().loadAsync(CITY_PAINT_URL)],{signal});ownedTextures.add(atlas);signal?.throwIfAborted();atlas.colorSpace=T.SRGBColorSpace;atlas.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
   library=createCityPropLibrary(T,atlas);portable=library.build(shop.data.closingTime.lantern.assetId);portable.root.name=shop.data.closingTime.lantern.id;root.add(portable.root);portable.root.visible=false;
   portableLight=lamp({id:portable.root.name+':light',position:[0,.138,0],color:0xffad69,intensity:4.8,reach:3.4},true);portable.root.add(portableLight);
   function update(frame,view={}){

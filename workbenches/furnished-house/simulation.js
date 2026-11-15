@@ -8,8 +8,8 @@ export const RULES=Object.freeze({step:STEP,maxHeat:5,loss:.18,up:3,upDiagonal:2
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 export const ambientWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
 export const calmWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=out[1]=out[2]=0,out);
-export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},radiationSelection=null,executionCache=false}={}) {
-  const scene=compileScene(data,{profiles}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,parts,index,cellAt}=scene;
+export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},radiationSelection=null,executionCache=false,onLoadPhase}={}) {
+  const scene=compileScene(data,{profiles,onLoadPhase}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,parts,index,cellAt}=scene;
   data=scene.data;
   let tick=0,revision=0,fullNext=true,eventSequence=0,commandSequence=0,closed=false;const coolingFactor=1-Math.exp(-r.loss*dt);
   const commands=[],commandLog=[],events=[],dirty=new Set(index.surfaces.keys()),itemDirty=new Set(items.keys()),partDirty=new Set(parts.keys()),falls=new Map(),rubble=new Map(),tombstones=[],active=new Set(),radCache=new Map(),rayQueue=[],pendingHeat=new Map(),ventFlux=new Map(),thermalOrigins=new Map();
@@ -48,7 +48,9 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     item.contactOffset=[(b.min[0]+b.max[0])/2-item.position[0],floorY-item.position[1],(b.min[2]+b.max[2])/2-item.position[2]];
     item.supportContactOffsets=item.supportContacts?.length?item.supportContacts.flatMap(c=>[centre(c.polygon),...c.polygon].map(p=>sub(p,item.position))):[[item.contactOffset[0],item.contactOffset[1],item.contactOffset[2]],...[b.min[0]+.01,b.max[0]-.01].flatMap(x=>[b.min[2]+.01,b.max[2]-.01].map(z=>[x-item.position[0],floorY-item.position[1],z-item.position[2]]))];
   }
+  onLoadPhase?.({phase:'physical-support-begin'});
   const supportGraph=createSupportGraph(scene);
+  onLoadPhase?.({phase:'physical-support-ready'});
   const boundaryOrder=new Map([...index.surfaces.values()].map((b,i)=>[b,i])),windowsByCell=new Map(),windows=[];
   for(const b of index.surfaces.values())if(b.kind==='window'){windows.push(b);for(const c of b.heatCells||[]){if(!windowsByCell.has(c))windowsByCell.set(c,[]);windowsByCell.get(c).push(b);}}
   function retirementCandidates(burning){const result=new Set(r.glassBreaks<=0?windows:[]);for(const c of active)for(const b of windowsByCell.get(c)||[])result.add(b);for(const f of burning)if(f.boundaryId)result.add(index.surfaces.get(f.boundaryId));return [...result].sort((a,b)=>boundaryOrder.get(a)-boundaryOrder.get(b));}

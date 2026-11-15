@@ -5,7 +5,7 @@ const point=p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite);
 const arrays=['levels','surfaces','openings','furnitureParts','items','stores','sourceMeshes','sourceHashes','runtimeAdaptations'];
 const unique=(rows,label)=>{const ids=new Set();for(const row of rows||[]){if(typeof row.id!=='string'||!row.id||ids.has(row.id))throw Error('Duplicate/missing '+label+' '+row.id);ids.add(row.id);}return ids;};
 
-export function compileCatalogueModules(manifest,sources,host){
+export function compileCatalogueModules(manifest,sources,host,{onLoadPhase}={}){
   if(manifest?.version!==1||manifest.prefabId!=='catalogue-modular-v1'||host.id!=='neighborhood')throw Error('Catalogue Street module manifest required');
   unique(manifest.instances,'module');
   const shop=manifest.instances.find(i=>i.id===BELL_AND_ALDER.id),house=manifest.instances.find(i=>i.id==='hopkins-fifteen'),lot=host.buildings.find(b=>b.id==='hopkins-fifteen');
@@ -14,7 +14,7 @@ export function compileCatalogueModules(manifest,sources,host){
   const instances=manifest.instances.map(spec=>{
     if(!point(spec.translation)||spec.id.includes('::')||'scale' in spec||!Number.isInteger(spec.quarterTurns)||spec.quarterTurns<0||spec.quarterTurns>3)throw Error('Native rigid placement required '+spec.id);
     const raw=sources instanceof Map?sources.get(spec.source):sources[spec.source];if(raw?.version!==1)throw Error('Missing module physical source '+spec.source);
-    return {...preparePhysicalInstance(raw,spec),...(spec.componentBounds?{componentBounds:structuredClone(spec.componentBounds)}:{}),omittedSourceIds:[...(spec.omittedSourceIds||[])],recomposedSourceIds:[...(spec.recomposedSourceIds||[])]};
+    return {...preparePhysicalInstance(raw,spec,{onLoadPhase}),...(spec.componentBounds?{componentBounds:structuredClone(spec.componentBounds)}:{}),omittedSourceIds:[...(spec.omittedSourceIds||[])],recomposedSourceIds:[...(spec.recomposedSourceIds||[])]};
   });
   const data={version:1,prefabId:manifest.prefabId,runtimeAdapterVersion:1,thermalCell:[.5,1.06,.5],gridOrigin:[0,0,0],groundY:0,stairFlights:[],render:{materials:[],geometry:[]}};
   for(const key of arrays)data[key]=instances.flatMap(i=>i.data[key]||[]);

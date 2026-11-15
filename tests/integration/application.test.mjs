@@ -27,10 +27,23 @@ test('rapid exit/re-entry, stale failures and out-of-order selection never repla
   const loads=[deferred(),deferred(),deferred()];let i=0;const disposed=[];
   const app=createApplication({places:PLACES,createVisit:()=>loads[i++].promise});
   const first=app.select('new-york'),second=app.select('horticulture');
-  loads[1].resolve({dispose(){disposed.push('horticulture');}});await second;
-  loads[0].reject(Error('stale network failure'));await first;assert.equal(app.state().placeId,'horticulture');assert.equal(app.state().error,null);
+  assert.equal(i,1,'The second factory waits for retirement of the first');
+  loads[1].resolve({dispose(){disposed.push('horticulture');}});
+  loads[0].reject(Error('stale network failure'));await first;await second;assert.equal(app.state().placeId,'horticulture');assert.equal(app.state().error,null);
   app.returnToMenu();const third=app.select('catalogue-street');loads[2].resolve({dispose(){disposed.push('street');}});await third;
   app.dispose();assert.deepEqual(disposed,['horticulture','street']);assert.equal(app.state().phase,'disposed');
+});
+
+test('only the newest queued retry starts after a cancelled factory has settled and released its late visit',async()=>{
+  const loading=deferred(),calls=[],cleanup=[];let firstSignal;
+  const app=createApplication({places:PLACES,createVisit:(place,{signal})=>{
+    calls.push(place.id);if(calls.length===1){firstSignal=signal;return loading.promise;}
+    assert.deepEqual(cleanup,['old']);return {dispose(){cleanup.push(place.id);}};
+  }});
+  const first=app.select('catalogue-street');app.returnToMenu();const middle=app.select('new-york'),last=app.select('horticulture');
+  assert.equal(firstSignal.aborted,true);assert.deepEqual(calls,['catalogue-street']);
+  loading.resolve({dispose(){cleanup.push('old');}});assert.equal(await first,false);assert.equal(await middle,false);assert.equal(await last,true);
+  assert.deepEqual(calls,['catalogue-street','horticulture']);app.dispose();assert.deepEqual(cleanup,['old','horticulture']);
 });
 test('graphics/network failures remain recoverable, active context errors return to menu and all visits dispose once',async()=>{
   let fail=true,options,disposed=0;const focus=[];

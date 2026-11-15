@@ -17,6 +17,25 @@ test('renderer construction/setup failure releases the simulation and every part
   const a=fixture();await assert.rejects(createRuntime({...a.options,rendererFactory(){throw Error('WebGL unavailable');}}),/WebGL/);assert.equal(a.counts.simulation,1);assert.equal(a.root.children.length,0);
   const b=fixture();b.renderer.setPixelRatio=()=>{throw Error('setup failed');};await assert.rejects(createRuntime(b.options),/setup/);assert.equal(b.counts.renderer,1);assert.equal(b.counts.simulation,1);assert.equal(b.counts.context,1);
 });
+
+test('initial publication failure and constructor-stage cancellation retire the simulation before any art can mount',async()=>{
+  const broken=fixture();broken.sim.snapshot=()=>{throw Error('Initial publication failed');};
+  await assert.rejects(createRuntime(broken.options),/Initial publication failed/);assert.equal(broken.counts.simulation,1);assert.equal(broken.counts.renderer,0);
+  const f=fixture(),controller=new AbortController();
+  await assert.rejects(createRuntime({...f.options,signal:controller.signal,rendererFactory(){controller.abort();return f.renderer;}}),{name:'AbortError'});
+  assert.equal(f.counts.simulation,1);assert.equal(f.counts.renderer,1);assert.equal(f.counts.context,1);assert.equal(f.counts.art,0);assert.equal(f.root.children.length,0);
+});
+
+test('abort inside UI or first-frame callbacks releases the late UI and preserves only retired diagnostics',async()=>{
+  const f=fixture(),controller=new AbortController();
+  await assert.rejects(createRuntime({...f.options,signal:controller.signal,mountUI(){controller.abort();return {dispose(){f.counts.ui++;}};}}),{name:'AbortError'});
+  for(const owner of ['renderer','context','art','ui','simulation'])assert.equal(f.counts[owner],1,owner);
+  const g=fixture(),other=new AbortController();
+  await assert.rejects(createRuntime({...g.options,signal:other.signal,onSnapshot(){other.abort();}}),{name:'AbortError'});
+  for(const owner of ['renderer','context','art','ui','simulation'])assert.equal(g.counts[owner],1,owner);
+  const h=fixture();let retired=false;const runtime=await createRuntime({...h.options,createArtScene:async()=>({update(){},dispose(){retired=true;},diagnostics:()=>({disposed:retired,resources:retired?0:1})})});
+  runtime.dispose();assert.deepEqual(runtime.artDiagnostics(),{disposed:true,resources:0});assert.throws(()=>runtime.snapshot(),/disposed/);assert.equal(runtime.screenToWorld(0,0),null);assert.equal(runtime.dispatch({type:'use'}),false);assert.ok(runtime.metrics().frames>=1);
+});
 test('the art scene receives the runtime-owned daylight objects',async()=>{
   const f=fixture();
   const runtime=await createRuntime({...f.options,createArtScene:async({scene,defaultLights})=>{
