@@ -32,6 +32,14 @@ The artist records the factory's exact imports, update/bind/unbind/reset/dispose
 
 Each worker first checks status and actual branch occupancy, then branches from the common contract commit. Each owns its files and pushes only its candidate branch. The coder intakes the artist's exact reviewed commit once available; avoid repeated previews or duplicate helpers. Preserve the current primary deployment and the earlier shroud control.
 
+### Approved interface decisions
+
+Common dispatched contract commit: `064d41865ae35f00f8a33d7cf1bd6f368f327c17`. Both existing worker worktrees have switched to their assigned task branches from that exact commit.
+
+The additive detached per-character field is `characterFire: {version: 1, active, mode, intensity, age}`. Modes are `none`, `contact`, `timed` and `both`. A positive direct-lit-fuel sample or the existing NPC timer activates it while the body is alive. Age measures the continuous active union from world time and clears when that union ends, including death/reset. The backend returns numeric exposure and direct-flame information from the same existing sample reads; damage still consumes precisely its previous numeric exposure. The native adapter retains its three body-height queries; flat legacy ground cannot establish elevated fuel contact and therefore reports ground-plane contact only. Warm unlit exposure is an explicit negative control.
+
+The artist's accepted entry is `src/art/character-shroud/index.js`, exporting `createCharacterShroud(THREE, {maxCharacters: 16})`. It provides `root`, `bind(id, {species, worker})`, `update`, `unbind`, `reset`, `dispose` and diagnostics. The minimal native binding exposes actual already-posed `worker.root` and skinned `worker.parts`. Update receives world time, camera, the labelled XYZ wind sampler, effect masks and detached `{id, active, startedAt, intensity}` records. The coder maps `startedAt = worldTime - characterFire.age`, binds only on model identity/generation changes and rebinds after reset, since reset clears bindings. No heading/elevation is applied twice. The explicit prototype capacity is 16 bodies and at most 88 splats per active body in a lazily created shared pool; current five-body capacity fits within it and any unsupported/capped input must appear in diagnostics. No new lights, textures or renderer are introduced.
+
 ## Focused acceptance and delivery
 
 1. Demonstrate real production flamethrower ignition on a moving native NPC and the same shroud on the officer/resident. Show actual player direct-flame contact with the additive state, plus a warm-only negative control. Do not present an injected render-only flag as real gameplay ignition.

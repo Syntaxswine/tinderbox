@@ -5,9 +5,9 @@
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
 | Architect | `codex/review-character-fire-shroud`; `master` preserves published release/history | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Review restoration of the approved character fire shroud; current live demo remains `30b75864` |
-| Artist | Next `codex/character-fire-shroud-art` from the common contract; `5deda67f` and earlier checkpoints preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Shared native-character shroud factory, original source evidence and normal-zoom visual proof |
+| Artist | `codex/character-fire-shroud-art` from common `064d4186`; `5deda67f` and earlier checkpoints preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Shared native-character shroud factory, original source evidence and normal-zoom visual proof |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | Next `codex/character-fire-shroud-runtime` from the same contract; `4e7e7643` / `483c62ca` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Pose/state/host integration of shared shroud, truthful flame-contact metadata and focused combined checks |
+| Coder | `codex/character-fire-shroud-runtime` from common `064d4186`; `4e7e7643` / `483c62ca` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Pose/state/host integration of shared shroud, truthful flame-contact metadata and focused combined checks |
 | UI designer | `codex/fire-brigade-study` completed; effect-settings/train checkpoints preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | No new implementation assigned; suspicion bar/current-visibility indicator are deferred |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
