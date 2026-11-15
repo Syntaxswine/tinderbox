@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "task": "M25 character fire runtime",
+  "retained": [],
+  "receipts": [
+    {
+      "id": "host-01",
+      "closedAt": "2026-11-15T06:06:29.646Z",
+      "helper": {
+        "owner": "Coder Tinderbox",
+        "project": "Catalogue modular host",
+        "purpose": "M25 actual character shroud controls, motion, elevated contact and one active-body frame window",
+        "driver": {
+          "pid": 50864,
+          "creationFiletime": "134391962251552920",
+          "executable": "C:\\Program Files\\nodejs\\node.exe"
+        },
+        "browser": {
+          "pid": 31992,
+          "creationFiletime": "134391962272214216",
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+        },
+        "ports": [
+          49653,
+          64461
+        ],
+        "target": "nested local package",
+        "startedAt": "2026-11-15T06:03:47.189Z",
+        "expiresAt": "2026-11-15T06:18:47.189Z",
+        "automaticStop": "Driver deadline calls context/browser/server close",
+        "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\character-fire-shroud\\host-01\\STOP",
+        "stopMethod": "STOP file, deadline, or finally",
+        "restart": {
+          "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+          "executable": "C:\\Program Files\\nodejs\\node.exe",
+          "args": [
+            "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\character-fire-shroud.mjs",
+            "artifacts/qa/character-fire-shroud/host-01"
+          ],
+          "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\character-fire-shroud\\host-01",
+          "manifestSha256": "9c1936d0a331bf9ec38f22ed553daa87b788b80a8154ac3e3dfd09bb2f331c49"
+        }
+      },
+      "portsListening": [
+        false,
+        false
+      ],
+      "browserExited": true
+    },
+    {
+      "id": "host-02",
+      "closedAt": "2026-11-15T06:09:52.885Z",
+      "helper": {
+        "owner": "Coder Tinderbox",
+        "project": "Catalogue modular host",
+        "purpose": "M25 actual character shroud controls, motion, elevated contact and one active-body frame window",
+        "driver": {
+          "pid": 69104,
+          "creationFiletime": "134391964691200532",
+          "executable": "C:\\Program Files\\nodejs\\node.exe"
+        },
+        "browser": {
+          "pid": 66760,
+          "creationFiletime": "134391964702842371",
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+        },
+        "ports": [
+          58718,
+          50922
+        ],
+        "target": "nested local package",
+        "startedAt": "2026-11-15T06:07:50.263Z",
+        "expiresAt": "2026-11-15T06:22:50.263Z",
+        "automaticStop": "Driver deadline calls context/browser/server close",
+        "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\character-fire-shroud\\host-02\\STOP",
+        "stopMethod": "STOP file, deadline, or finally",
+        "restart": {
+          "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+          "executable": "C:\\Program Files\\nodejs\\node.exe",
+          "args": [
+            "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\character-fire-shroud.mjs",
+            "artifacts/qa/character-fire-shroud/host-02"
+          ],
+          "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\character-fire-shroud\\host-02",
+          "manifestSha256": "9c1936d0a331bf9ec38f22ed553daa87b788b80a8154ac3e3dfd09bb2f331c49"
+        }
+      },
+      "portsListening": [
+        false,
+        false
+      ],
+      "browserExited": true
+    },
+    {
+      "id": "shared-hosts-01",
+      "closedAt": "2026-11-15T06:14:24.887Z",
+      "helper": {
+        "owner": "Coder Tinderbox",
+        "project": "Catalogue modular host",
+        "purpose": "M25 short legacy and Nautilus-cottage shared-host compatibility; no performance sweep",
+        "driver": {
+          "pid": 27596,
+          "creationFiletime": "134391968498350778",
+          "executable": "C:\\Program Files\\nodejs\\node.exe"
+        },
+        "browser": {
+          "pid": 68832,
+          "creationFiletime": "134391968509090394",
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+        },
+        "ports": [
+          61977,
+          61978
+        ],
+        "target": "nested local package",
+        "startedAt": "2026-11-15T06:14:10.891Z",
+        "expiresAt": "2026-11-15T06:19:10.891Z",
+        "automaticStop": "Driver deadline calls context/browser/server close",
+        "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\character-fire-shroud\\shared-hosts-01\\STOP",
+        "stopMethod": "STOP file, deadline, or finally",
+        "restart": {
+          "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+          "executable": "C:\\Program Files\\nodejs\\node.exe",
+          "args": [
+            "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\character-fire-hosts.mjs",
+            "artifacts/qa/character-fire-shroud/shared-hosts-01"
+          ],
+          "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\character-fire-shroud\\shared-hosts-01",
+          "manifestSha256": "9c1936d0a331bf9ec38f22ed553daa87b788b80a8154ac3e3dfd09bb2f331c49"
+        }
+      },
+      "portsListening": [
+        false,
+        false
+      ],
+      "browserExited": true
+    }
+  ]
+}

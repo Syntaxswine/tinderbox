@@ -196,10 +196,15 @@ export class HeatField {
     const heat = cells.length ? cells.reduce((sum, cell) => sum + cell.heat, 0) / cells.length : this.at(point)?.heat ?? 0;
     return clamp(heat / max, 0, 1);
   }
-  exposure(point) {
-    const cell = this.at(point); if (!cell) return 0;
-    return Math.max(cell.phase === 'burning' ? cell.intensity : 0, clamp((cell.heat - this.config.fire.damageHeatStart) / this.config.fire.damageHeatSpan, 0, 1));
+  sampleCharacterExposure(point) {
+    const cell = this.at(point); if (!cell) return {exposure:0,directFlame:0};
+    const exposure=Math.max(cell.phase === 'burning' ? cell.intensity : 0, clamp((cell.heat - this.config.fire.damageHeatStart) / this.config.fire.damageHeatSpan, 0, 1));
+    // This backend has ground-plane fuel only. Its old 2D damage query remains
+    // unchanged, but cannot prove flame contact on a different floor.
+    const directFlame=Math.abs(point.elevation??0)<=EPS&&cell.phase==='burning'&&cell.surfaceFuel+cell.depositedFuel>EPS?cell.intensity:0;
+    return {exposure,directFlame};
   }
+  exposure(point) { return this.sampleCharacterExposure(point).exposure; }
   snapshot() {
     const previous = this.#published;
     if (previous && !this.#dirty.size) return previous;

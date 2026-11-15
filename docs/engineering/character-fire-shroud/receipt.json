@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "branch": "codex/character-fire-shroud-runtime",
+  "commonContract": "064d41865ae35f00f8a33d7cf1bd6f368f327c17",
+  "artistCommit": "a69f0920728fac774094d98923cab735db5b1d43",
+  "artistIntake": "f6ab3f665aa907c8ec78c343f3d5af2361b2ada2",
+  "animationSource": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+  "node": "v24.15.0",
+  "checks": {
+    "tests": 406,
+    "passed": 406,
+    "failed": 0,
+    "ownScriptsAtFullCheck": 310,
+    "resolvedModules": 348,
+    "runtimeUnchangedAfterFullCheck": true,
+    "qaOnlyRefinementsVerified": "node --check and completed actual browser gates"
+  },
+  "package": {
+    "files": 3545,
+    "bytes": 183170988,
+    "manifestSha256": "9c1936d0a331bf9ec38f22ed553daa87b788b80a8154ac3e3dfd09bb2f331c49",
+    "runtimeFiles": [
+      {
+        "path": "src/art/character-shroud/fit.js",
+        "bytes": 7666,
+        "sha256": "b5fe3123a459ed5486cf85fa0ab1594b25bb6761c83c9f67452449e3d80cdad3"
+      },
+      {
+        "path": "src/art/character-shroud/index.js",
+        "bytes": 7453,
+        "sha256": "0434d98adb900399852e94b8ed0116ee4071d0076ab06ac4e32449cd50eb1ea8"
+      },
+      {
+        "path": "src/art/character-shroud/mounts.js",
+        "bytes": 3889,
+        "sha256": "52c8963c2df61f5d18898e537647bc37a4c15cf89d91fa237a654d7ade028bc6"
+      },
+      {
+        "path": "src/art/character-shroud/splats.js",
+        "bytes": 13562,
+        "sha256": "21c34a98d4020554720788f5b0a28a8f678283849d3e43864ff2b71196ad18cc"
+      },
+      {
+        "path": "src/art/fire.js",
+        "bytes": 12342,
+        "sha256": "b4d65aa136a4b40c2e8773d637f8e9f14b0b51ec5d72ef8c8d7f409089f920b4"
+      },
+      {
+        "path": "src/art/index.js",
+        "bytes": 15977,
+        "sha256": "cb336a6689364c545294db5773ce9d05a542b7dafc5dc5f56aa220b5237d33cf"
+      },
+      {
+        "path": "src/reuse/bear.js",
+        "bytes": 11391,
+        "sha256": "1aaffb940cc6e0c9f361174e617c071677aa46aba286ab8aa458f4a868d0fe82"
+      },
+      {
+        "path": "src/reuse/civilians.js",
+        "bytes": 8395,
+        "sha256": "e05fb3163df13e7fa2c6e52d6480d5fc2a8ff5d53b9deaab26ddc29d9e7e27aa"
+      },
+      {
+        "path": "src/simulation/catalogue-thermal.js",
+        "bytes": 30854,
+        "sha256": "056ed088311d4e1ad197ca94cd7d5662e8a52e17a602345283c8526feb20148a"
+      },
+      {
+        "path": "src/simulation/character-fire.js",
+        "bytes": 1051,
+        "sha256": "ccb5628a1da99c8c0b391ca14190c927add784c7ed6a3d666faf2045c2858818"
+      },
+      {
+        "path": "src/simulation/field.js",
+        "bytes": 14394,
+        "sha256": "a0c34c644c27424be12c3378fdb3e21bfe0aa6fdb69211d7945a5f70f05def99"
+      },
+      {
+        "path": "src/simulation/index.js",
+        "bytes": 29724,
+        "sha256": "6a681de78ffac396abb57b46fc82c6a0734b3ee416f862e0848179343015e2d0"
+      }
+    ]
+  },
+  "logs": [
+    {
+      "path": "artifacts/qa/character-fire-shroud/full-check.log",
+      "sha256": "1021378b052fe7b98510d3728ee82dad66458f501a436644d59c88a11d66f576"
+    },
+    {
+      "path": "artifacts/qa/character-fire-shroud/build.log",
+      "sha256": "ad0ea65d04fb7d5c22c483e37fa5fb5f2f8d4fbe17cfec78d7038414f9c121ed"
+    },
+    {
+      "path": "artifacts/qa/character-fire-shroud/release-check.log",
+      "sha256": "5e2afc2a679633bcd23c4db1b984904b3bbf40ee5d6a632631bb5319ab93f735"
+    }
+  ],
+  "rawEvidence": [
+    "artifacts/qa/character-fire-shroud/host-01",
+    "artifacts/qa/character-fire-shroud/host-02",
+    "artifacts/qa/character-fire-shroud/shared-hosts-01"
+  ],
+  "media": [
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/before.jpg",
+      "bytes": 170773,
+      "sha256": "15522f2db9dd28889b374a00c9ca6835d789c191941e7a703eb3554f6df879d4"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/elevated-player-contact.jpg",
+      "bytes": 145076,
+      "sha256": "7e7de7ec26965cce480d80e2ae8facdb437ccb8f6049dec30a15f28cbc4a3268"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/moving-native-npc.jpg",
+      "bytes": 170811,
+      "sha256": "a02877ce7e9ef57c5e3e2da7e2a18c6bb2033ca665965daec7118e388f05218e"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/moving-native-npc.webm",
+      "bytes": 485291,
+      "sha256": "3f66700bd064cae7b218df7f9ce60b9a3403c642877502c870f5bd8bf3ae99ae"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/native-resident.jpg",
+      "bytes": 150633,
+      "sha256": "4ef690a922fd4c291a2126aee8e3ea66cc89721af626e885a0ed728939d7327b"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/player-contact.jpg",
+      "bytes": 167679,
+      "sha256": "19dbd2acf4ed5200abd5f5a27d9834cd81658fc638757fe0bab5c9a72820c8be"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/player-exited.jpg",
+      "bytes": 170859,
+      "sha256": "715a206e59bd0ce5b779042ca4a61b79a07fb7b26e46797f7e95906b8ff144ec"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/player-moving-turning.webm",
+      "bytes": 296558,
+      "sha256": "662c627bd54a71f65426216161e01e503b1d3de20b42ab0cd11e95cc34832bf5"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/uniformed-officer-phone.jpg",
+      "bytes": 74228,
+      "sha256": "4602891471b6aea3c39571c63bec524cba3be0ea6a2763ebf1b1b325f1379b0b"
+    },
+    {
+      "path": "docs/engineering/character-fire-shroud/previews/warm-only.jpg",
+      "bytes": 169591,
+      "sha256": "affb32157e3c0c263874d12967525ac14739ee4d01e00626518533dad247e6ec"
+    }
+  ]
+}

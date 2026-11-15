@@ -39,6 +39,28 @@ function fixture(){
  return {host,manifest,sources:{shop,house}};
 }
 
+test('a real native match on inert paving heats and damages without falsely setting the player ablaze',()=>{
+ const f=fixture(),sim=createSimulation({scenario:'neighborhood',characterId:'goat',catalogueModules:compileCatalogueModules(f.manifest,f.sources,f.host)});
+ try{
+  const first=sim.snapshot();sim.dispatch({type:'select-tool',tool:'matches'});sim.dispatch({type:'aim',x:first.player.x+.05,y:first.player.y,h:.1});sim.dispatch({type:'primary',pressed:true});sim.dispatch({type:'primary',pressed:false});
+  const s=sim.advance(1/30);assert.equal(s.diagnostics.thermal.metrics.heat.input,1.05);assert.ok(s.player.hp<first.player.hp);assert.equal(s.player.characterFire.active,false);assert.equal(s.player.characterFire.mode,'none');assert.equal(s.player.burn,undefined);assert.equal(s.diagnostics.burningCells,0);
+ }finally{sim.dispose();}
+});
+
+test('native contact uses real lit fuel at body heights and elevation, retaining the same numeric damage query',()=>{
+ const f=fixture();f.sources.house.levels.push({id:'level-1',index:1,floorY:2.12});f.sources.house.surfaces.push({...structuredClone(f.sources.house.surfaces[0]),id:'upper-floor',level:1,triangles:f.sources.house.surfaces[0].triangles.map(t=>t.map(([x,y,z])=>[x,y+2.12,z]))});
+ const compiled=compileCatalogueModules(f.manifest,f.sources,f.host),state={player:{id:'hero',x:20,y:18,elevation:0},actors:[],tick:0,generation:0,clocks:{world:0}},provider=createCatalogueThermal({compiled,state,definition:f.host,config:DEFAULT_CONFIG,event:()=>{}});
+ try{
+  const floor={x:22.25,y:11.25,height:1.66,elevation:0};provider.trial.command({type:'match',position:[floor.x,.1,floor.y],energy:4});for(let i=1;i<=90&&!provider.sampleCharacterExposure(floor).directFlame;i++)provider.step(1/30,i/30,()=>{});
+  const ground=provider.sampleCharacterExposure(floor),upper=provider.sampleCharacterExposure({...floor,elevation:2.12});assert.equal(ground.directFlame,1);assert.equal(ground.exposure,provider.exposure(floor));assert.equal(upper.directFlame,0);assert.equal(upper.exposure,provider.exposure({...floor,elevation:2.12}));
+  const elevated={x:21.25,y:12.25,height:1.66,elevation:2.12};provider.trial.command({type:'match',position:[elevated.x,2.22,elevated.y],energy:4});for(let i=1;i<=90&&!provider.sampleCharacterExposure(elevated).directFlame;i++)provider.step(1/30,provider.trial.worldTime+1/30,()=>{});
+  assert.equal(provider.sampleCharacterExposure(elevated).directFlame,1);
+  provider.trial.command({type:'match',position:[20.125,.1,18.125]});provider.step(1/30,2/30,()=>{});const warm=provider.sampleCharacterExposure({x:20.125,y:18.125,height:1.66,elevation:0});assert.ok(warm.exposure>0);assert.equal(warm.directFlame,0);
+  const oil={x:20.125,y:18.125,height:1.66,elevation:0};provider.trial.command({type:'deposit',position:[oil.x,.1,oil.y],amount:.01});provider.trial.command({type:'match',position:[oil.x,.1,oil.y]});provider.step(1/30,provider.trial.worldTime+1/30,()=>{});assert.equal(provider.sampleCharacterExposure(oil).directFlame,1);
+  for(let i=0;i<450;i++)provider.step(1/30,provider.trial.worldTime+1/30,()=>{});assert.equal(provider.sampleCharacterExposure(oil).directFlame,0,'Spent finite native oil cannot keep a body shroud active');
+ }finally{provider.dispose();}
+});
+
 test('native prop registration retains the external host ID and publishes its real retirement before another thermal tick',()=>{
  const f=fixture(),id='native-barrel-fixture',compiled=appendCatalogueNativeSources(THREE,compileCatalogueModules(f.manifest,f.sources,f.host),{...f.host,buildings:[],tiles:[],obstacles:[{id,kind:'barrel',material:'metal',x:12.5,y:15,width:.656,depth:.656,height:.8}]}),state={player:{id:'hero',x:20,y:18,elevation:0},actors:[],tick:0,generation:0,clocks:{world:0}},provider=createCatalogueThermal({compiled,state,definition:f.host,config:DEFAULT_CONFIG,event:()=>{}});
  try{const boundaries=[...provider.trial.scene.index.surfaces.values()].filter(b=>b.hostObstacleId===id);assert.ok(boundaries.length>0);assert.ok(provider.trace([12.5,.4,17],[12.5,.4,14]));provider.physicalFrame();provider.retireObstacle(id);const frame=provider.physicalFrame();assert.equal(frame.tick,0);assert.ok(boundaries.every(b=>!b.intact));assert.ok(frame.boundaries.some(b=>b.ownerInstanceId==='street-props'&&!b.intact));assert.equal(provider.trace([12.5,.4,17],[12.5,.4,14]),null);assert.equal(frame.metrics.heat.input,0);}finally{provider.dispose();}

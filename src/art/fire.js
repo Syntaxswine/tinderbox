@@ -3,6 +3,7 @@ import {Resources,clamp,seedOf,hash} from './resources.js';
 import {createCarriedTorch} from './carried-torch.js';
 import {createDischarge} from './discharge.js';
 import {createCellReader} from './cell-publication.js';
+import {createCharacterShroud} from './character-shroud/index.js';
 const MAX_CELLS=4096;
 export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
   const pool=new Resources(),root=new T.Group();root.name='Painted authoritative fire';
@@ -65,12 +66,14 @@ export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
     };layers.push(value);return value;
   }
   const flames=layer(assets.flame,0,MAX_CELLS*2),smoke=layer(assets.smoke,1,MAX_CELLS),bursts=layer(assets.burst,2,64);
-  const discharge=createDischarge(T,assets.flame),carriedTorch=createCarriedTorch(T,assets.flame);root.add(discharge.root,carriedTorch.root);
+  const discharge=createDischarge(T,assets.flame),carriedTorch=createCarriedTorch(T,assets.flame),characterShroud=createCharacterShroud(T,{maxCharacters:16});root.add(discharge.root,carriedTorch.root,characterShroud.root);
   const history=new Map(),eventsSeen=new Set(),eventOrder=[],explosions=[];
-  let lastWorld=-Infinity,lastTick=-1,eventCount=0,capped=false,highestEvent=-Infinity,primed=false,actorFlames=0,rubbleFlames=0,rubbleSmoke=0;
+  const characterBindings=new Map();
+  let lastWorld=-Infinity,lastTick=-1,lastGeneration,eventCount=0,capped=false,highestEvent=-Infinity,primed=false,rubbleFlames=0,rubbleSmoke=0,unsupportedCharacterIds=[];
   let publishedCells;
   const cardCells=[];
   function reset(){
+    characterShroud.reset();characterBindings.clear();unsupportedCharacterIds=[];
     carriedTorch.reset();history.clear();eventsSeen.clear();eventOrder.length=0;explosions.length=0;highestEvent=-Infinity;primed=false;
     publishedCells=undefined;cardCells.length=0;
   }
@@ -113,22 +116,23 @@ export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
   function update(snapshot,time,anchors={}){
     const clock=Number.isFinite(time)?time:snapshot.clocks?.world||0;
     const earlier=clock<lastWorld;
-    if(clock<lastWorld-1e-8||snapshot.tick<lastTick)reset();
+    const generation=snapshot.diagnostics?.generation;
+    if(clock<lastWorld-1e-8||snapshot.tick<lastTick||generation!==lastGeneration)reset();
+    lastGeneration=generation;
     lastWorld=clock;lastTick=snapshot.tick;worldClock.value=clock;bear.value.set(snapshot.player.x,1,snapshot.player.y);
-    for(const l of layers)l.begin();capped=false;actorFlames=0;rubbleFlames=0;rubbleSmoke=0;
-    // Carry the flame cards with the live body. Ground fire uses the rest of
-    // the same instance budget.
-    for(const actor of snapshot.actors||[]){
-      if(!actor.burn||actor.hp<=0)continue;
-      const height=actor.height??1.66,radius=actor.radius??.5;
-      const h=(actor.elevation??0)+height*.36,c=Math.cos(actor.heading),s=Math.sin(actor.heading);
-      const seed=seedOf(actor.id);
-      for(const side of [-1,1]){
-        const offset=side*radius*.56;
-        if(flames.add(actor.x-s*offset,h,actor.y+c*offset,radius*1.6,height*.88,.83,hash(seed*59+side)))actorFlames++;
-        else capped=true;
-      }
+    for(const l of layers)l.begin();capped=false;rubbleFlames=0;rubbleSmoke=0;
+    const bodies=new Map((anchors.characterBodies||[]).map(body=>[body.id,body])),present=new Set(),characters=[];
+    unsupportedCharacterIds=[];
+    for(const entity of [snapshot.player,...(snapshot.actors||[])]){
+      const body=bodies.get(entity.id),state=entity.characterFire;
+      if(!body?.worker){if(entity.hp>0&&state?.active)unsupportedCharacterIds.push(entity.id);continue;}
+      present.add(entity.id);
+      const previous=characterBindings.get(entity.id);
+      if(previous?.worker!==body.worker||previous?.species!==body.species){characterShroud.bind(entity.id,body);characterBindings.set(entity.id,body);}
+      characters.push({id:entity.id,active:entity.hp>0&&!!state?.active,startedAt:clock-(state?.age||0),intensity:state?.intensity||0});
     }
+    for(const id of characterBindings.keys())if(!present.has(id)){characterShroud.unbind(id);characterBindings.delete(id);}
+    characterShroud.update({worldTime:clock,camera:anchors.camera,sampleWind:anchors.sampleWind,windMetadata:anchors.windMetadata,characters,effects:anchors.effects||{flames:true,smoke:true}});
     const cells=snapshot.cells||[];
     const view=readCells(cells),changed=cells!==publishedCells;
     if(view&&(!changed||syncPublication(view,clock))){
@@ -188,6 +192,6 @@ export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
     discharge.update(snapshot.discharge,clock,anchors);carriedTorch.update(snapshot,clock,anchors);
     primed=true;for(const l of layers)l.end();
   }
-  return {root,update,reset,dispose(){carriedTorch.dispose();discharge.dispose();root.removeFromParent();root.clear();pool.dispose();},
-    diagnostics:()=>({flameCards:flames.count,actorFlameCards:actorFlames,rubbleFlameCards:rubbleFlames,rubbleSmokeCards:rubbleSmoke,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
+  return {root,update,reset,dischargeState:()=>discharge.diagnostics(),dispose(){characterShroud.dispose();characterBindings.clear();carriedTorch.dispose();discharge.dispose();root.removeFromParent();root.clear();pool.dispose();},
+    diagnostics:()=>({flameCards:flames.count,actorFlameCards:0,characterShroud:characterShroud.diagnostics(),unsupportedCharacterIds:[...unsupportedCharacterIds],rubbleFlameCards:rubbleFlames,rubbleSmokeCards:rubbleSmoke,smokeCards:smoke.count,burstCards:bursts.count,discharge:discharge.diagnostics(),carriedTorch:carriedTorch.diagnostics(),eventCount,trackedCells:history.size,seenEvents:eventsSeen.size,capped,worldTime:worldClock.value,...pool.counts()})};
 }

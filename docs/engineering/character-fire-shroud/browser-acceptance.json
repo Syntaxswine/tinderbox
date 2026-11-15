@@ -1,0 +1,26 @@
+{
+  "result": {
+    "pass": true,
+    "baseUrl": "http://127.0.0.1:58718/tinderbox/",
+    "autoStart": true,
+    "controls": "real title/menu, joystick, keyboard, surface picking and mounted tools",
+    "checks": [
+      "warm-only actual native match",
+      "moving native NPC actual held cone",
+      "uniformed officer actual held cone",
+      "native resident actual held cone",
+      "player actual oil contact/turn/exit",
+      "pause",
+      "native service stairs/elevated contact",
+      "reset/disposal",
+      "one short active-character window"
+    ],
+    "limits": [
+      "Posed three-species and all-around fitting controls are the artist delivery.",
+      "Landmark hosts have no fire gameplay and do not publish characterFire.",
+      "Measured active-character window includes the short MediaRecorder capture.",
+      "This driver does not retest the old house fire library or claim city-scale performance."
+    ]
+  },
+  "errors": []
+}
