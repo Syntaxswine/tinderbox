@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "branch": "codex/character-fire-shroud-art",
+  "commonContract": "064d41865ae35f00f8a33d7cf1bd6f368f327c17",
+  "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+  "candidateCommit": "Exact SHA reported in delivery; this manifest is part of that commit.",
+  "changedPaths": [
+    "art/source/character-fire-shroud/capture.mjs",
+    "art/source/character-fire-shroud/check.mjs",
+    "art/source/character-fire-shroud/controls/visual-capture/fit.js",
+    "art/source/character-fire-shroud/controls/visual-capture/index.js",
+    "art/source/character-fire-shroud/controls/visual-capture/manifest.json",
+    "art/source/character-fire-shroud/controls/visual-capture/mounts.js",
+    "art/source/character-fire-shroud/controls/visual-capture/splats.js",
+    "art/source/character-fire-shroud/preview.html",
+    "art/source/character-fire-shroud/preview.js",
+    "art/source/character-fire-shroud/provenance.json",
+    "art/source/character-fire-shroud/run-preview.ps1",
+    "art/source/character-fire-shroud/serve.mjs",
+    "art/source/character-fire-shroud/upstream/.gitattributes",
+    "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/tools/fire-realism/linear-hdr-presentation.js",
+    "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/art/fire-realism/gaussian-patch/bear-wrap.js",
+    "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/art/fire-realism/gaussian-patch/shroud-bands.js",
+    "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/art/fire-realism/gaussian-patch/splats.js",
+    "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/fire-realism/gaussian-patch/character.js",
+    "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/fire-realism/gaussian-patch/pilot.js",
+    "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/fire-realism/gaussian-patch/wind.json",
+    "docs/art/character-fire-shroud/API.md",
+    "docs/art/character-fire-shroud/HANDOFF.md",
+    "docs/art/character-fire-shroud/checks.json",
+    "docs/art/character-fire-shroud/delivery.json",
+    "docs/art/character-fire-shroud/helper-retirement.json",
+    "docs/art/character-fire-shroud/previews/after-native-shroud.jpg",
+    "docs/art/character-fire-shroud/previews/before-two-card.jpg",
+    "docs/art/character-fire-shroud/previews/native-shroud-motion.webm",
+    "docs/art/character-fire-shroud/previews/reference-7c60-bear-shroud.jpg",
+    "docs/art/character-fire-shroud/visual-check.json",
+    "src/art/character-shroud/fit.js",
+    "src/art/character-shroud/index.js",
+    "src/art/character-shroud/mounts.js",
+    "src/art/character-shroud/splats.js"
+  ],
+  "runtimeHashes": {
+    "src/art/character-shroud/index.js": "0434d98adb900399852e94b8ed0116ee4071d0076ab06ac4e32449cd50eb1ea8",
+    "src/art/character-shroud/splats.js": "21c34a98d4020554720788f5b0a28a8f678283849d3e43864ff2b71196ad18cc",
+    "src/art/character-shroud/fit.js": "b5fe3123a459ed5486cf85fa0ab1594b25bb6761c83c9f67452449e3d80cdad3",
+    "src/art/character-shroud/mounts.js": "52c8963c2df61f5d18898e537647bc37a4c15cf89d91fa237a654d7ade028bc6"
+  },
+  "checks": {
+    "passed": true,
+    "count": 13,
+    "receipt": "docs/art/character-fire-shroud/checks.json"
+  },
+  "visualReceipt": "docs/art/character-fire-shroud/visual-check.json",
+  "media": [
+    {
+      "path": "docs/art/character-fire-shroud/previews/before-two-card.jpg",
+      "sha256": "724aaeba461eb82250dadce4ddcff8dae5eec5b485da8c86915ae37076a59e19",
+      "bytes": 73477
+    },
+    {
+      "path": "docs/art/character-fire-shroud/previews/after-native-shroud.jpg",
+      "sha256": "14482c8e1a81b96d27a25f9d27fd42a31539ecea4ac4c02ffe39052bc0c35b16",
+      "bytes": 74475
+    },
+    {
+      "path": "docs/art/character-fire-shroud/previews/native-shroud-motion.webm",
+      "sha256": "a637c9bca95ad82f8ccb5358e3e803f083bd3cab6b24126cfefa29ea298cd5dc",
+      "bytes": 228274
+    }
+  ],
+  "originalVisualReference": {
+    "path": "docs/art/character-fire-shroud/previews/reference-7c60-bear-shroud.jpg",
+    "sourcePath": "artifacts/qa/fire-realism/gaussian-patch/bear-fire-shroud.jpg",
+    "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+    "sha256": "2b480f02600121003059cea71b7b473f2754753e1f94c9f33768e27c61a28878",
+    "bytes": 109421,
+    "note": "Unchanged existing architect native WebGL paired control; right panel is the accepted shroud."
+  },
+  "helperReceipt": "docs/art/character-fire-shroud/helper-retirement.json",
+  "limits": [
+    "Artist source/fit delivery; actual gameplay integration/acceptance remains coder/architect owned.",
+    "Single native preview, no GPU benchmark or city stress sweep."
+  ]
+}

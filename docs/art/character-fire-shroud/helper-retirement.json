@@ -1,0 +1,35 @@
+{
+  "browserExited": true,
+  "restart": "artifacts/helpers/character-fire-shroud-review/restart.json",
+  "task": "Native character shroud art",
+  "testProfileRemoved": true,
+  "portReleased": true,
+  "retiredAt": "2026-11-15T05:42:06.3655177Z",
+  "serverExited": true,
+  "processes": [
+    {
+      "owner": "01a17ea0-1362-7d13-a42d-f4a5fcff8902",
+      "pid": 56120,
+      "creationTime": "2026-11-15T05:41:55.7147275Z",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "task": "Native character shroud art",
+      "purpose": "Finite localhost exported-art capture",
+      "status": "retired"
+    },
+    {
+      "owner": "01a17ea0-1362-7d13-a42d-f4a5fcff8902",
+      "pid": 64500,
+      "creationTime": "2026-11-15T05:41:56.3814828Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "task": "Native character shroud art",
+      "purpose": "Isolated native WebGL JPG capture",
+      "status": "retired"
+    }
+  ],
+  "restartScript": "art/source/character-fire-shroud/run-preview.ps1",
+  "intendedExpirySeconds": 180,
+  "stopMethods": [
+    "Finite driver closes its private Chrome through CDP Browser.close.",
+    "Server exits through its private stop file or the actual 180-second TTL."
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "version": 1,
+  "scope": "Approved native character shroud restoration; raw controls separate from adapted runtime code.",
+  "commonContract": "064d41865ae35f00f8a33d7cf1bd6f368f327c17",
+  "repository": "https://github.com/Syntaxswine/tinderbox.git",
+  "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+  "files": [
+    {
+      "originalPath": "workbenches/art/fire-realism/gaussian-patch/bear-wrap.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "preservedPath": "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/art/fire-realism/gaussian-patch/bear-wrap.js",
+      "bytes": 2396,
+      "sha256": "cce10560ef15cc54fe9098349406e92d8f055e064712d5ea8ccf7f1efab15388"
+    },
+    {
+      "originalPath": "workbenches/art/fire-realism/gaussian-patch/shroud-bands.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "preservedPath": "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/art/fire-realism/gaussian-patch/shroud-bands.js",
+      "bytes": 2361,
+      "sha256": "043468a3788384cf30062798a0a6d2c57db90691614148ca0bdc97086ada7377"
+    },
+    {
+      "originalPath": "workbenches/art/fire-realism/gaussian-patch/splats.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "preservedPath": "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/art/fire-realism/gaussian-patch/splats.js",
+      "bytes": 13277,
+      "sha256": "c2c2be8e642723fe1e2d4158b50410b276017d37118ca05a7646a70d4620785d"
+    },
+    {
+      "originalPath": "workbenches/fire-realism/gaussian-patch/character.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "preservedPath": "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/fire-realism/gaussian-patch/character.js",
+      "bytes": 12793,
+      "sha256": "6c3771486d347c9934eeffa5104ac6aec3ebe00690e1a9c189c02cc88726084f"
+    },
+    {
+      "originalPath": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "preservedPath": "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/fire-realism/gaussian-patch/pilot.js",
+      "bytes": 12484,
+      "sha256": "d5bf23e8f882ff9fb5143c273610741e34a153821dc23242d00450dd6cae70e4"
+    },
+    {
+      "originalPath": "workbenches/fire-realism/gaussian-patch/wind.json",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "preservedPath": "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/workbenches/fire-realism/gaussian-patch/wind.json",
+      "bytes": 873,
+      "sha256": "1b80f18d25159a8eca2197b9941a416ddbdc05313f6ff61e90932dbf03d0fda1"
+    },
+    {
+      "originalPath": "tools/fire-realism/linear-hdr-presentation.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "preservedPath": "art/source/character-fire-shroud/upstream/7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26/tools/fire-realism/linear-hdr-presentation.js",
+      "bytes": 52979,
+      "sha256": "2847fe97af7cd97ee5099b5e5b385a02dd7a17e97d492d54e23ddbac6b4a3b89"
+    }
+  ],
+  "nativeCharacterPins": {
+    "bear": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+    "goat": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+    "horse": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083"
+  },
+  "windControl": {
+    "commit": "4ef13e738845f9bd35aed35ea982ea4f0cbc210a",
+    "kind": "historical open-ground baked wind control",
+    "productionPolicy": "Accept current labelled sampler; do not replace production wind with the historical bake."
+  },
+  "rights": "Retain existing repository and embedded provenance/licenses. This record is not an additional rights grant.",
+  "originalVisualReference": {
+    "path": "docs/art/character-fire-shroud/previews/reference-7c60-bear-shroud.jpg",
+    "sourcePath": "artifacts/qa/fire-realism/gaussian-patch/bear-fire-shroud.jpg",
+    "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+    "sha256": "2b480f02600121003059cea71b7b473f2754753e1f94c9f33768e27c61a28878",
+    "bytes": 109421,
+    "note": "Unchanged existing architect native WebGL paired control; right panel is the accepted shroud."
+  },
+  "referenceDependencyEdges": [
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../../src/runtime/three.js",
+      "resolvedPath": "src/runtime/three.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "88fd0a63e9d80a3b179b8329b6f06fd794e433caa445937b067ffdbd89f747c4"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../../src/art/index.js",
+      "resolvedPath": "src/art/index.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "a729fad714015d626d79327fe9e566478d36783340f996bdb2749434f65bbf74"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../../src/art/discharge.js",
+      "resolvedPath": "src/art/discharge.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "8082c3747cb098e95ae26590e4f117f98251ba106be618fb143c0708bca14f47"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../../src/simulation/index.js",
+      "resolvedPath": "src/simulation/index.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "661136f92d61fff583de895da6b4612ca25209e29904a965044423df65da611b"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../../src/reuse/bear.js",
+      "resolvedPath": "src/reuse/bear.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "1e9be62bc432ba0c3ce76eb331c318ab44173d9d63c4943da262fd3c8ceeb485"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../../tools/fire-realism/linear-hdr-presentation.js",
+      "resolvedPath": "tools/fire-realism/linear-hdr-presentation.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "2847fe97af7cd97ee5099b5e5b385a02dd7a17e97d492d54e23ddbac6b4a3b89"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../art/fire-realism/gaussian-patch/splats.js",
+      "resolvedPath": "workbenches/art/fire-realism/gaussian-patch/splats.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "c2c2be8e642723fe1e2d4158b50410b276017d37118ca05a7646a70d4620785d"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../art/fire-realism/gaussian-patch/bear-wrap.js",
+      "resolvedPath": "workbenches/art/fire-realism/gaussian-patch/bear-wrap.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "cce10560ef15cc54fe9098349406e92d8f055e064712d5ea8ccf7f1efab15388"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "../../art/fire-realism/gaussian-patch/shroud-bands.js",
+      "resolvedPath": "workbenches/art/fire-realism/gaussian-patch/shroud-bands.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "043468a3788384cf30062798a0a6d2c57db90691614148ca0bdc97086ada7377"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/character.js",
+      "specifier": "./pilot.js",
+      "resolvedPath": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "d5bf23e8f882ff9fb5143c273610741e34a153821dc23242d00450dd6cae70e4"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "specifier": "../../../src/runtime/three.js",
+      "resolvedPath": "src/runtime/three.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "88fd0a63e9d80a3b179b8329b6f06fd794e433caa445937b067ffdbd89f747c4"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "specifier": "../../../src/art/index.js",
+      "resolvedPath": "src/art/index.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "a729fad714015d626d79327fe9e566478d36783340f996bdb2749434f65bbf74"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "specifier": "../../../tools/fire-realism/camera.js",
+      "resolvedPath": "tools/fire-realism/camera.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "f6e1fe0d79e7de293628f457dd6890714689d5bcd81629eae29754014d89e5c4"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "specifier": "../../../tools/fire-realism/scenarios.js",
+      "resolvedPath": "tools/fire-realism/scenarios.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "d8eb9f03914b6e4e98bba707320fd33bbbab7482c22bd7c2bec1741af98c9288"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "specifier": "../../../tools/fire-realism/linear-hdr-presentation.js",
+      "resolvedPath": "tools/fire-realism/linear-hdr-presentation.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "2847fe97af7cd97ee5099b5e5b385a02dd7a17e97d492d54e23ddbac6b4a3b89"
+    },
+    {
+      "importer": "workbenches/fire-realism/gaussian-patch/pilot.js",
+      "specifier": "../../../tools/fire-realism/profiling.js",
+      "resolvedPath": "tools/fire-realism/profiling.js",
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "sha256": "083896b7b035fb954301c620c6d8f1ee8dae54f553681e9bdfada22b692a53ee"
+    }
+  ],
+  "runtimeImportClosure": [
+    "src/art/character-shroud/index.js",
+    "src/art/character-shroud/splats.js",
+    "src/art/character-shroud/fit.js",
+    "src/art/character-shroud/mounts.js"
+  ],
+  "adaptedRuntime": [
+    {
+      "path": "src/art/character-shroud/index.js",
+      "sha256": "0434d98adb900399852e94b8ed0116ee4071d0076ab06ac4e32449cd50eb1ea8"
+    },
+    {
+      "path": "src/art/character-shroud/splats.js",
+      "sha256": "21c34a98d4020554720788f5b0a28a8f678283849d3e43864ff2b71196ad18cc"
+    },
+    {
+      "path": "src/art/character-shroud/fit.js",
+      "sha256": "b5fe3123a459ed5486cf85fa0ab1594b25bb6761c83c9f67452449e3d80cdad3"
+    },
+    {
+      "path": "src/art/character-shroud/mounts.js",
+      "sha256": "52c8963c2df61f5d18898e537647bc37a4c15cf89d91fa237a654d7ade028bc6"
+    }
+  ],
+  "adaptations": [
+    "Reuse the original Gaussian material/profiles/gains and four cloth zones plus 32 close bands. Default patch output remains exact at the tested replay times.",
+    "Add explicit per-patch authoritative presentation age and a pool reset; do not copy private fixture lifetime, wind bake, point light or HDR renderer into production.",
+    "Fit goat/horse effects to their native clothing dimensions without changing model scale, vertices, UVs, materials, skeletons or equipment.",
+    "Track fitted bands through native skin transforms; cloth tips retain the original barycentric posed-triangle method and measured outward offset.",
+    "Inspect only the existing tagged Chicago outfit for visible replacement cloth. Exclude hidden replaced garments, helmets, badges, weapons and metal.",
+    "Preserve the accepted flat adapter API. Coder maps characterFire into active/startedAt/intensity after poses and elevation; source physics is never inspected.",
+    "Angular onset is a deterministic actor-ID visual default, not a claimed gameplay impact or mesh-hit result.",
+    "Final code adds explicit unsupported-binding diagnostics after the visual capture. Exact supported splat data matches the preserved captured source across four bodies and five times."
+  ],
+  "nativeAssets": [
+    {
+      "species": "bear",
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/tactics/bear-10k-data.json",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "sha256": "3a449fe96a28a712cb1aaf4cdc76d44cc07163ec949aebc2d086dfa48a3a0823",
+      "adaptation": "Existing pinned asset reused unchanged; no new native asset copy."
+    },
+    {
+      "species": "bear",
+      "path": "vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/assets/characters/lowpoly-proof/bear-worker-model-paint-v1.png",
+      "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+      "sha256": "7b0fd63d06c840497c1a03967f06b9bdce30c0ce119040740e4651fc459fa5a0",
+      "adaptation": "Existing pinned asset reused unchanged; no new native asset copy."
+    },
+    {
+      "species": "goat",
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/goat-10k-data.json",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "d81f129021f43058b4ec55f08651713f37b585a82b6b2d712837c6c865c7f25d",
+      "adaptation": "Existing pinned asset reused unchanged; no new native asset copy."
+    },
+    {
+      "species": "goat",
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/goat-worker-model-paint-v1.png",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "50e63428f990f31cdb2f6df0bee6a9ccb678860bf12dbc95a3fd6e87db73afea",
+      "adaptation": "Existing pinned asset reused unchanged; no new native asset copy."
+    },
+    {
+      "species": "horse",
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/horse-10k-data.json",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "5b2b0c0aa62fdf592af4d638c97dd4916ed1a7638f2c3b53815ae4d681305271",
+      "adaptation": "Existing pinned asset reused unchanged; no new native asset copy."
+    },
+    {
+      "species": "horse",
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/characters/lowpoly-proof/horse-worker-model-paint-v1.png",
+      "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+      "sha256": "468ce2d133019dfbcf9ee69439ecb0eb92fecdc20c1306b83536d2a440329b89",
+      "adaptation": "Existing pinned asset reused unchanged; no new native asset copy."
+    }
+  ],
+  "existingClothing": {
+    "path": "src/art/chicago-beat-uniform.js",
+    "contentPin": "064d41865ae35f00f8a33d7cf1bd6f368f327c17",
+    "workingSha256": "31f6a55c79cba0cd3b00fff0ae4840644c49d02aed77f48f81494420be61b5b1",
+    "adaptation": "Read-only use of the existing visible replacement cloth, fitted to the existing skeleton."
+  },
+  "visualCaptureControl": "art/source/character-fire-shroud/controls/visual-capture/manifest.json"
+}

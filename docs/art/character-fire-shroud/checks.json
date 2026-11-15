@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "scope": "CPU native-model/factory/source controls; no gameplay ignition, WebGL image, GPU timing or combined-host acceptance claim.",
+  "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+  "checks": [
+    "Inactive and warm-only controls allocate no effect resources",
+    "Native bear, goat and horse have 32 fitted bands, four cloth mounts and one shared draw",
+    "Constant world time freezes effect attributes and rebinding retains fitted anchors",
+    "Heading, world movement and upper-floor elevation follow the real native root",
+    "Skinned motion moves bands and cloth tips with a stationary root",
+    "Actual Chicago replacement clothing supplies outer coat anchors and clearance",
+    "Low intensity changes opacity without making warm-only state active",
+    "Hidden ancestors, removal and expired/contact-exit state clear immediately",
+    "Invalid/unpublished state, unsupported body and capacity limits are explicit",
+    "Presentation switches, reset, rewind and repeated lifecycle remain bounded",
+    "Native geometry, paint materials, authored scales and source controls are preserved",
+    "Default Gaussian patch data remains identical to the approved source",
+    "Dispose releases owned resources and is idempotent"
+  ],
+  "observations": {
+    "threeNativeBodies": {
+      "version": 1,
+      "sourceCommit": "7c60ba4b41f79de9dcca1f10b6e1dfffe9a74b26",
+      "disposed": false,
+      "worldTime": 3,
+      "maxCharacters": 16,
+      "maxSplatsPerCharacter": 88,
+      "boundIds": [
+        "bear",
+        "goat",
+        "horse"
+      ],
+      "unsupportedIds": [],
+      "unsupportedBindings": [],
+      "activeIds": [
+        "bear",
+        "goat",
+        "horse"
+      ],
+      "missingBindingIds": [],
+      "unpublishedIds": [],
+      "invalidIds": [],
+      "hiddenIds": [],
+      "cappedIds": [],
+      "patches": 12,
+      "flameSplats": 204,
+      "smokeSplats": 55,
+      "updates": 2,
+      "resets": 0,
+      "fitBuilds": 3,
+      "lastUpdateMs": 46.5994,
+      "clock": "authoritative-world",
+      "angularOnset": "Deterministic actor-ID visual default; no mesh-impact provenance",
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "windSamplerSupplied": true,
+      "fits": [
+        {
+          "id": "bear",
+          "species": "bear",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2524004876613617,
+              0.14088189601898193,
+              -0.48454558849334717
+            ],
+            "max": [
+              0.17664490640163422,
+              1.2932660579681396,
+              0.48454558849334717
+            ]
+          },
+          "effectFit": [
+            1,
+            1,
+            1
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "goat",
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.2077399045228958,
+              0.14048050343990326,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.13990260660648346,
+              1.2932660579681396,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.8102697661831456,
+            1,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        },
+        {
+          "id": "horse",
+          "species": "horse",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "clothingBindBounds": {
+            "min": [
+              -0.21406610310077667,
+              0.14133979380130768,
+              -0.4295456111431122
+            ],
+            "max": [
+              0.14760230481624603,
+              1.2930347919464111,
+              0.4295456111431122
+            ]
+          },
+          "effectFit": [
+            0.842960705141423,
+            0.9998211767638193,
+            0.8864916353459069
+          ],
+          "outfit": "native-normal",
+          "envelopeParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ],
+          "bands": 32,
+          "clothMounts": 4,
+          "clothParts": [
+            "connected shirt and sleeves",
+            "connected overalls seat and legs"
+          ]
+        }
+      ],
+      "resources": {
+        "geometries": 1,
+        "materials": 1,
+        "textures": 0,
+        "lights": 0,
+        "renderers": 0
+      },
+      "drawBatches": 1
+    },
+    "elevatedBounds": {
+      "minY": 2.2926509562188055,
+      "maxY": 3.4147760118304955
+    },
+    "nativePoseTracking": {
+      "bandTravel": 0.08834672275086894,
+      "patchTravel": 0.03680706946694444
+    },
+    "officerVisibleCloth": {
+      "fit": {
+        "id": "officer",
+        "species": "goat",
+        "nativeScale": [
+          1,
+          1,
+          1
+        ],
+        "clothingBindBounds": {
+          "min": [
+            -0.22929686307907104,
+            0.14048050343990326,
+            -0.4295456111431122
+          ],
+          "max": [
+            0.15483282506465912,
+            1.309000015258789,
+            0.4295456111431122
+          ]
+        },
+        "effectFit": [
+          0.8953124621758068,
+          1.0121660637373946,
+          0.8864916353459069
+        ],
+        "outfit": "chicago-1893-city-beat",
+        "envelopeParts": [
+          "Fitted frock shoulders and upper sleeves",
+          "Parted frock skirt -1",
+          "Parted frock skirt 1",
+          "Standing collar",
+          "Plain trousers using the native leg weights"
+        ],
+        "bands": 32,
+        "clothMounts": 4,
+        "clothParts": [
+          "Fitted frock shoulders and upper sleeves",
+          "Weighted forearm wool -1",
+          "Turned cuff -1",
+          "Parted frock skirt -1",
+          "Weighted forearm wool 1",
+          "Turned cuff 1",
+          "Parted frock skirt 1",
+          "Standing collar",
+          "Plain trousers using the native leg weights"
+        ]
+      },
+      "actualCoatRayChecks": 14,
+      "minBandOutsideCoat": 0.0002651019200167193,
+      "maxBandOutsideCoat": 0.25572966310357803,
+      "patches": [
+        "Parted frock skirt -1",
+        "Plain trousers using the native leg weights",
+        "Plain trousers using the native leg weights",
+        "Fitted frock shoulders and upper sleeves"
+      ]
+    },
+    "visualCaptureEquivalence": {
+      "times": [
+        0.1,
+        0.6,
+        1.2,
+        2.4,
+        3.25
+      ],
+      "bodies": 4,
+      "exactSupportedSplatData": true,
+      "scope": "Only unsupported-binding reporting was added after the native preview; shader, fit, cloth and supported draw data match the preserved captured source."
+    }
+  },
+  "sourceHashes": {
+    "src/art/character-shroud/index.js": "0434d98adb900399852e94b8ed0116ee4071d0076ab06ac4e32449cd50eb1ea8",
+    "src/art/character-shroud/fit.js": "b5fe3123a459ed5486cf85fa0ab1594b25bb6761c83c9f67452449e3d80cdad3",
+    "src/art/character-shroud/mounts.js": "52c8963c2df61f5d18898e537647bc37a4c15cf89d91fa237a654d7ade028bc6",
+    "src/art/character-shroud/splats.js": "21c34a98d4020554720788f5b0a28a8f678283849d3e43864ff2b71196ad18cc"
+  },
+  "passed": true
+}
