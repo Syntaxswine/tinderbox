@@ -1,5 +1,7 @@
 # Restore the approved character fire shroud
 
+Current delivery: runtime `9680991b` with artist `a69f0920` passes the primary 406-test/art/build/package and actual normal-loop browser gates. The [architect review](../reviews/2026-11-15-character-fire-shroud.md) accepts the correction for promotion and records exact Pages/live verification separately. The approved shroud now serves native player/NPC presentation; damage and ignition rules are unchanged.
+
 ## Owner correction and common base
 
 On November 15 the owner identified the missing approved shroud as Tinderbox's biggest fix: characters on fire must use the earlier animation that wraps them as if mummified in fire. This is a restoration/integration task, not a new fire-art direction or a change to ignition, damage, fuel, spread, movement or police rules.

@@ -101,7 +101,7 @@ test('frozen and mutable fire cards match through reorder, world-time tails, rew
   const spent = Object.freeze({...a, phase: 'spent', intensity: 0});
   const next = Object.freeze([spent, ordered[1]]);
   const reorder = Object.freeze([...next].reverse());
-  const actor = {id: 'actor', x: .1, y: .2, heading: .3, hp: 10, burn: {}};
+  const actor = {id: 'actor', x: .1, y: .2, heading: .3, hp: 10, burn: {},characterFire:{version:1,active:true,mode:'timed',intensity:1,age:0}};
   const pack = effect => effect.root.children.slice(0, 3).map(mesh => {
     const count = mesh.geometry.instanceCount;
     return ['iOffset', 'iShape', 'iInfo'].map(name => {
@@ -114,7 +114,8 @@ test('frozen and mutable fire cards match through reorder, world-time tails, rew
     immutable.update({...snapshot, cells}, clock);
     legacy.update({...snapshot, cells: cells.map(item => ({...item}))}, clock);
     assert.deepEqual(pack(immutable), pack(legacy));
-    assert.deepEqual(immutable.diagnostics(), legacy.diagnostics());
+    const stats=effect=>{const value=effect.diagnostics();delete value.characterShroud.lastUpdateMs;return value;};
+    assert.deepEqual(stats(immutable),stats(legacy));
   }
   try {
     compare(ordered, 0, 0);
@@ -132,7 +133,8 @@ test('frozen and mutable fire cards match through reorder, world-time tails, rew
       {phase: 'burning', intensity: 1})));
     compare(crowded, .3, 2);
     assert.equal(immutable.diagnostics().flameCards, 8192);
-    assert.equal(immutable.diagnostics().actorFlameCards, 2);
+    assert.equal(immutable.diagnostics().actorFlameCards, 0);
+    assert.deepEqual(immutable.diagnostics().unsupportedCharacterIds,['actor']);
     assert.equal(immutable.diagnostics().capped, true);
   } finally {
     immutable.dispose();

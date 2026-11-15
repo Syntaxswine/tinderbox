@@ -18,6 +18,7 @@ import {createShopInteractions} from './shop.js';
 import {createShopWitness} from './shop-witness.js';
 import {CHICAGO_PATROL,CIVILIAN_PROFILES} from '../content/exterior-kit.js';
 import {createCatalogueThermal} from './catalogue-thermal.js';
+import {createCharacterFirePresentation} from './character-fire.js';
 import {legacyModuleOwner} from '../content/catalogue-modules.js';
 export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
@@ -33,6 +34,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   if(catalogue&&!catalogueModules)prepareHousingFootprints(definition,playableCottages?COTTAGE_IDS:[]);
   let state, field, buildingFuel, obstacleFuel, housing, joinedRoof, cottages, rubble, shop, witness, publishObstacles, accumulator = 0, disposed = false, commands = [], commandSequence = 0, eventId = 0, generation = -1;
   let droppedRealSeconds = 0, lastSteps = 0;
+  const characterFire=createCharacterFirePresentation();
   function event(type, point = state.player, extra = {}, fuelSite = point, ignitionProof) {
     const record = {id: ++eventId, tick: state.tick, type, x: point.x, y: point.y, ...extra};
     state.events.push(record); if (state.events.length > config.events.capacity) state.events.shift();
@@ -50,6 +52,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function initialize(tick = 0) {
     field?.dispose?.();
+    characterFire.reset();
     generation++;
     const def = structuredClone(definition), start = def.player;
     const inventory = {...config.inventory, ...start.inventory};
@@ -321,7 +324,12 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     for(const lot of housing?.values()??[])lot.step(worldDelta,state.clocks.world,event);
     for (const result of state.ignitionResults) result.record.result = result.cells.some(cell => cell.phase === 'burning') ? 'ignited' : 'heated';
     state.ignitionResults = [];
-    for (const target of [p, ...state.actors]) hurt(target, field.exposure(target) * config.fire.damagePerSecond * worldDelta, 'heat');
+    const fireTargets=[p,...state.actors],directFlames=[];
+    for (const target of fireTargets) {
+      const contact=field.sampleCharacterExposure(target);
+      hurt(target, contact.exposure * config.fire.damagePerSecond * worldDelta, 'heat');
+      directFlames.push(contact.directFlame);
+    }
     for (const actor of state.actors) if (actor.burn) hurt(actor, config.fire.damagePerSecond * worldDelta, 'flamethrower-burn');
     for (const group of buildingFuel) if (!group.building.destroyed) {
       const surface = group.cells.reduce((sum, cell) => sum + cell.surfaceFuel, 0);
@@ -343,6 +351,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     }
     refreshLanternPreview(state, config, state.contactProvider);
     if (witness){field.reportIgnitions?.(witness);witness.update(state.clocks.world, shop.carriesLantern());}
+    for(let i=0;i<fireTargets.length;i++)characterFire.update(fireTargets[i],directFlames[i],state.clocks.world);
     state.clocks.playerScale = activeEffect('powder') ? config.drugs.playerScale : 1;
     state.clocks.worldScale = activeEffect('powder') ? config.drugs.worldScale : 1;
   }
@@ -357,7 +366,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       return copy;
     });
     return {version: 1, tick: state.tick, paused: state.paused,
-      clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory}, lanternAim: structuredClone(state.player.lanternAim),
+      clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory}, lanternAim: structuredClone(state.player.lanternAim),characterFire:characterFire.snapshot(state.player,state.clocks.world),
         ...(shop ? {interaction: shop.interaction()} : {}),
         torch: {...state.player.torch, remainingSeconds: state.player.inventory.torchFuel / config.tools.torch.fuelPerSecond}},
       effects: Object.fromEntries(['powder', 'inversion'].map(name => [name,
@@ -368,7 +377,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
         ...(definition.camera ? {camera: structuredClone(definition.camera)} : {}),
         ...(shop ? {shop: shop.snapshot()} : {}),
         fireCellSize: definition.fireCellSize, tiles: state.tiles, obstacles},
-      cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(({route, routeIndex, flamerHeat, burn, ...actor}) => ({...actor, ...(burn ? {burn: {...burn}} : {})})),
+      cells,pickups:state.pickups.map(pickup=>({...pickup})), actors: state.actors.map(source=>{const {route,routeIndex,flamerHeat,burn,...actor}=source;return {...actor,...(burn?{burn:{...burn}}:{}),characterFire:characterFire.snapshot(source,state.clocks.world)};}),
       discharge: structuredClone(state.discharge), events: structuredClone(state.events), aim: {...state.aim}, projectiles: state.projectiles.map(p => ({...p})),
       ...(cottages?{cottageFire:cottages.snapshot(state.clocks.world)}:{}),
       ...(witness ? {witness: witness.snapshot()} : {}),
@@ -409,7 +418,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (disposed) throw Error('Simulation disposed');
       return field.heatIndex(point,radius);
     },
-    dispose() { disposed = true; commands = []; field?.dispose?.();state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null; }
+    dispose() { disposed = true; commands = []; field?.dispose?.();characterFire.reset();state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }

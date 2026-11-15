@@ -22,7 +22,7 @@ test('a retiring native Hopkins section warms paving and ignites a previously gr
   function present(snapshot, withActor = false) {
     const time = snapshot.clocks.world, pockets = layer.update(snapshot, time);
     const actor = {id: 'burning-mover', x: 24, y: 8, hp: 80, height: 1.7, radius: .5, heading: .6,
-      burn: {ignitedAt: time, expiresAt: time+4}};
+      burn: {ignitedAt: time, expiresAt: time+4},characterFire:{version:1,active:true,mode:'timed',intensity:1,age:0}};
     field.update(snapshot);
     fire.update(withActor ? {...snapshot, actors: [actor]} : snapshot, time, {rubble: pockets});
     lights.update(snapshot, new Map(), time, pockets);
@@ -54,7 +54,8 @@ test('a retiring native Hopkins section warms paving and ignites a previously gr
     assert.equal(ruin.children.length, 2);
     assert.equal(fire.diagnostics().rubbleFlameCards, hot.length);
     assert.equal(fire.diagnostics().rubbleSmokeCards, hot.length);
-    assert.equal(fire.diagnostics().actorFlameCards, 2);
+    assert.equal(fire.diagnostics().actorFlameCards, 0);
+    assert.deepEqual(fire.diagnostics().unsupportedCharacterIds,['burning-mover']);
     assert.ok(lights.diagnostics().lights.length > 0 && lights.diagnostics().lights.length <= 6);
     assert.ok(lights.diagnostics().lights.every(light => light.kind === 'rubble' && light.intensity <= 4 && light.reach === 3));
 

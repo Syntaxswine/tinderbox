@@ -38,6 +38,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,rubble,sidingPreheat,firelight,streetNight,moduleArt,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
   const cottageIds=new Set(cottageFire?.buildings.map(b=>b.id)??[]);
   const moduleWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
+  const calmWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=out[1]=out[2]=0,out);
   const actors=new Map(),muzzlePoint=new T.Vector3();
   const readCells=createCellReader(),nearbyTrail=createTrailReader(readCells);
   let lastObstacles,plainObstacles;
@@ -117,11 +118,11 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       cottages?.update(snapshot.cottageFire,{camera:timing.camera,player,housingShadows,preheatSites,
         structureSites:Array.isArray(snapshot.structureFire)?structureSites:undefined});
       sidingPreheat.update({sites:preheatSites,time:worldTime,camera:timing.camera,player,sampleWind:cottageWind});
-      fire.update(snapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera,rubble:rubbleSites});const discharge=fire.diagnostics().discharge;bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
       footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:.56;
       ring.position.set(player.x,(player.elevation||0)+.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);
       arrow.position.set(player.x,player.elevation||0,player.y);arrow.rotation.y=-(player.heading||0);arrow.scale.set(footprintRadius,1,footprintRadius);
       const active=new Set(),witness=snapshot.witness;
+      const characterBodies=[{id:player.id,species:player.species,worker:bear.bodyBinding}];
       for(const actor of snapshot.actors||[]){
         if(actor.id===player.id)continue;active.add(actor.id);
         const patrol=actor.team===CHICAGO_PATROL.team,tagged=Object.hasOwn(actor,'species');
@@ -134,9 +135,16 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
           record={key,model};actors.set(actor.id,record);root.add(model.root);
         }
         record.model.update(actor,worldTime,actor.id===witness?.actorId?witness.aim:undefined);
-        if(catalogueModules)record.model.root.position.y=actor.elevation||0;
+        if(catalogueModules){record.model.root.position.y=actor.elevation||0;record.model.root.updateMatrixWorld(true);}
+        if(record.model.bodyBinding)characterBodies.push({id:actor.id,species:actor.species,worker:record.model.bodyBinding});
       }
       for(const [id,record]of actors)if(!active.has(id)){record.model.dispose();actors.delete(id);}
+      // The shared effect reads native cloth after gait, patrol aim, elevation
+      // and world matrices. No effect code owns a pose or a second transform.
+      fire.update(snapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera,rubble:rubbleSites,characterBodies,
+        sampleWind:catalogueModules?moduleWind:cottageWind||calmWind,
+        windMetadata:catalogueModules?snapshot.diagnostics?.thermal?.wind:{kind:cottageWind?'host-cottage-sampler':'calm-control'}});
+      const discharge=fire.dischargeState();bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
       if(witness&&(witness.reaction.kind!=='relaxed'||witness.shot)&&!witnessReaction){witnessReaction=createWitnessReaction(T);root.add(witnessReaction.root);}
       witnessReaction?.update(snapshot.actors?.find(actor=>actor.id===witness?.actorId),witness?.reaction,witness?.shot,worldTime);
       lastSnapshot={tick:snapshot.tick,worldTime,playerTime};updates++;

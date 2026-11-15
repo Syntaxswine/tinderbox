@@ -1,0 +1,42 @@
+{
+  "result": {
+    "pass": true,
+    "autoStart": false,
+    "pacingClaim": false,
+    "results": [
+      {
+        "id": "legacy",
+        "query": "",
+        "pass": true,
+        "wind": {
+          "kind": "calm-control"
+        },
+        "sampler": true,
+        "activeSplats": 12
+      },
+      {
+        "id": "cottage",
+        "query": "?cottages=1",
+        "pass": true,
+        "wind": {
+          "kind": "host-cottage-sampler"
+        },
+        "sampler": true,
+        "activeSplats": 12
+      }
+    ],
+    "checks": [
+      "real title/four maps",
+      "production poured fuel and match contact",
+      "shared native player shroud",
+      "pause",
+      "contact exit",
+      "reset/disposal"
+    ],
+    "limits": [
+      "Compatibility uses driver-stepped production commands; normal pacing was measured once in the larger modular host.",
+      "Existing cottage Nautilus sampler remains unchanged."
+    ]
+  },
+  "errors": []
+}

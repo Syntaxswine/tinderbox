@@ -32,7 +32,8 @@ function createStreetRig(species, data, validateActor) {
     root.position.set(actor.x, 0, actor.y); root.visible = actor.hp > 0; root.updateMatrixWorld(true);
   }
   const bounds = Object.freeze({radius: CIVILIAN_PROFILES[species].radius, height: CIVILIAN_PROFILES[species].height});
-  return {root, worker, bounds, update, diagnostics: () => ({...worker.diagnostics(), species, appearance: 'normal', armed: false}),
+  const bodyBinding=Object.freeze({root:worker.root,parts:Object.freeze([...worker.parts])});
+  return {root, worker, bodyBinding, bounds, update, diagnostics: () => ({...worker.diagnostics(), species, appearance: 'normal', armed: false}),
     dispose() { if (disposed) return; disposed = true; root.removeFromParent(); motion.dispose(); worker.dispose(); worker.skeleton.dispose(); root.clear(); }};
 }
 export function createCivilianRig(species, data) {
@@ -97,7 +98,7 @@ export async function loadCivilianKit({THREE, renderer, assetBaseUrl = CIVILIAN_
       paint = createModelPaint(renderer, rig.worker, texture, {species: actor.species, frame: PAINT_FRAME, sceneLighting: true});
       for (const part of rig.worker.parts) { part.material = paint.material; part.castShadow = part.receiveShadow = true; }
       rig.update(actor, 0); let released = false;
-      const instance = {root: rig.root, bounds: rig.bounds, update: rig.update, diagnostics: rig.diagnostics,
+      const instance = {root: rig.root, bodyBinding:rig.bodyBinding, bounds: rig.bounds, update: rig.update, diagnostics: rig.diagnostics,
         dispose() { if (released) return; released = true; paint.dispose(); rig.dispose(); instances.delete(instance); }};
       instances.add(instance); return instance;
     } catch (error) { if (paint) paint.dispose(); else texture?.dispose(); rig?.dispose(); throw error; }
