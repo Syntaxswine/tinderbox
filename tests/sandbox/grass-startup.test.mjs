@@ -47,3 +47,21 @@ test('owned placement can consume a frozen source without aliasing transforms, n
   a.sourceMeshes[0].bounds.audit.source.push('changed');a.surfaces[0].triangles[0][0][0]=99;a.render.geometry[0].triangles[0].vertices[0][6]=99;
   assert.equal(JSON.stringify(source),original);assert.deepEqual(b.sourceMeshes[0].bounds.audit.source,['native']);assert.notEqual(b.surfaces[0].triangles[0][0][0],99);assert.notEqual(b.render.geometry[0].triangles[0].vertices[0][6],99);
 });
+
+test('weak and sustained grass heat obey the unchanged timber dose, with a finite local-flame positive control',t=>{
+  const wall={id:'timber-control',kind:'wall',material:'timber',fuelClass:'clapboard',fuelAmount:1,normal:[1,0,0],thickness:.16,triangles:[[[.75,0,0],[.75,3.18,.5],[.75,0,.5]],[[.75,0,0],[.75,3.18,0],[.75,3.18,.5]]]};
+  function run(oil,localFlame=false){
+    const {provider,step}=fixture([wall]);try{
+      if(oil)provider.trial.command({type:'deposit',position:[.25,.001,.25],amount:oil});
+      provider.trial.command({type:'match',position:[.25,.01,.25],energy:1.05});
+      const wood=[...provider.trial.scene.fuels.values()].filter(f=>f.cls==='clapboard'),woodInitial=wood.reduce((sum,f)=>sum+f.initial,0);let maxWoodExposure=0;
+      for(let i=0;i<600;i++){if(localFlame&&i<180)provider.trial.command({type:'flame',position:[.76,.3,.25],energy:.1});step();maxWoodExposure=Math.max(maxWoodExposure,...wood.flatMap(f=>f.cells.map(c=>c.heat)));}
+      const m=closeLedgers(provider);
+      return {oil,localFlame,worldTime:provider.trial.worldTime,woodIgnitions:wood.filter(f=>f.litAt!==null).map(f=>f.litAt),woodRemaining:wood.reduce((sum,f)=>sum+f.amount,0),woodInitial,maxWoodExposure,heatInput:m.heat.input,heatGenerated:m.heat.generated,fuelError:m.fuel.error,heatError:m.heat.error};
+    }finally{provider.dispose();}
+  }
+  const weak=run(0),sustained=run(.5),positive=run(0,true);t.diagnostic(JSON.stringify({weak,sustained,positive}));
+  assert.deepEqual(weak.woodIgnitions,[]);assert.equal(weak.woodRemaining,weak.woodInitial);
+  assert.ok(sustained.maxWoodExposure>weak.maxWoodExposure);assert.deepEqual(sustained.woodIgnitions,[],'Sustained oil-fed grass across this gap is still below the required timber dose; spread is not forced');
+  assert.ok(positive.woodIgnitions.length>0);assert.ok(positive.woodRemaining<positive.woodInitial);assert.equal(weak.heatInput,1.05);assert.equal(sustained.heatInput,1.05);assert.ok(Math.abs(positive.heatInput-19.05)<1e-8);
+});
