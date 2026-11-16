@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "sourceCommit": "522d8c0e1cc31728bf1f90a19b8d6410e0dca68a",
+  "previousArtistLeaf": "59717c81fcebc9e5461115397293627ed192d33d",
+  "existingGuardCommit": "68ac1f908a902e91a036e12c8f03ab9bee5b463e",
+  "coderCompanion": "30bf843190174436b05c0324c36208fa794180a0",
+  "coderCompanionImported": false,
+  "candidateGitBlobSHA256": {
+    "art/source/furnished-house/visibility.js": "ff03391716ea0bc790846006d9f91da6b291ede40daee7a6c308bc062128a776",
+    "tests/integration/fire-preparation-cache.test.mjs": "c23469cc40e1ac0116b665424f8997aa0a29026fb3faee0020f4c9d956e78dc8"
+  },
+  "checks": {
+    "command": "node --test --test-concurrency=1 tests/integration/fire-preparation-cache.test.mjs",
+    "passed": 18,
+    "failed": 0,
+    "scope": "Finite CPU-only paired output and ownership/invalidation controls, not a production benchmark or browser acceptance.",
+    "syntaxAndWhitespacePassed": true,
+    "houseEffectBoundsMathUnchanged": true,
+    "preparationEvaluationOrderPreserved": true
+  },
+  "profileBasis": {
+    "owner": "Coder Tinderbox",
+    "folder": "C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/artifacts/qa/fire-half-cost/cpu-profile-round4",
+    "scope": "Existing closed CDP diagnostic; per-state sampled cost, not benchmark timing",
+    "effectBoundsSelfMsPerNativeState": 0.504,
+    "effectBoundsInclusiveMsPerNativeState": 0.514
+  },
+  "functionalProof": {
+    "privateBoundsCoordinateComparisonsPerSteadyHit": 0,
+    "plainPartialForgedAndAccessorCoordinateComparisonsPerSteadyHit": 6,
+    "callerTriangleArraysAndPointsRemainMutable": true,
+    "privateBoundsRootMinMaxFrozen": true,
+    "changedGeometryCreatesNewPrivateBounds": true,
+    "clearingRetiresPrivateProof": true,
+    "publicInspectionRemainsDetached": true
+  },
+  "ownership": {
+    "privateProof": "Per-cache WeakSet, written only for bounds newly created inside prepare; replaced on clear",
+    "retention": "No strong history/proof registry; existing latest source/envelope ownership and pruning remain",
+    "plainOrUnknownBounds": "Exact complete coordinate/length checking preserved",
+    "posePartNormal": "Exact per-call checks remain",
+    "frameCameraWindAndAnimationCached": false
+  },
+  "preservedRoundFour": {
+    "referenceMeanMs": 28.43,
+    "candidateMeanMs": 14.2475,
+    "referenceP95Ms": 34.6,
+    "candidateP95Ms": 18.1,
+    "completeTargetPassed": false,
+    "evidenceRoot": "C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/artifacts/qa/fire-half-cost/comparison-round4"
+  },
+  "target": {
+    "absoluteMeanMs": 14.025,
+    "absoluteP95Ms": 17.55,
+    "freshPairedMeanAndP95RatioCeiling": 0.5
+  },
+  "roundFiveMeasured": false,
+  "helpersStarted": 0
+}
