@@ -6,6 +6,7 @@ import * as T from '../../src/runtime/three.js';
 import {createCatalogueStructureArt} from '../../art/source/catalogue-modular/thermal-art.js';
 import {createWallShroud} from '../../art/source/furnished-house/shroud.js';
 import {createSupportGeometryCache} from '../../art/source/furnished-house/visibility.js';
+import {createOwnedPublicationGeometry,isOwnedPublicationGeometry} from '../../src/reuse/publication-geometry.js';
 
 // Small presentation-only fixtures, not gameplay trajectories or timing evidence.
 // The shared coder session supplies actual production motion and visual acceptance.
@@ -84,6 +85,7 @@ function sample(data, surfaceId, extra = {}) {
 function assertPreparationEntries(art, limit, label) {
   const stats = art.diagnostics().preparationCache;
   assert.ok(stats, label + ' needs explicit preparation-cache ownership counters');
+  assert.ok(Number.isInteger(stats.effectBoundsEntries) && stats.effectBoundsEntries >= 0 && stats.effectBoundsEntries <= limit * 2, label + ' two envelope entries per live source');
   assert.ok(Number.isInteger(stats.immutableEntries) && stats.immutableEntries >= 0 && stats.immutableEntries <= limit * 4, label + ' active immutable geometry retention');
   for (const key of ['sourceEntries', 'groupEntries', 'phaseEntries']) {
     assert.ok(Number.isInteger(stats[key]) && stats[key] >= 0 && stats[key] <= limit,
@@ -377,4 +379,156 @@ test('immutable preparation is shared across live sources and pruned without his
   assert.equal(cache.immutableSize, 0);
   cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.immutableSize, 0);
   cache.clear(); assert.equal(cache.size, 0); assert.equal(cache.immutableSize, 0);
+});
+
+
+test('producer-owned boundary/footprint DTOs preserve exact output, input ownership and pruning', async () => {
+  await paired(({data, candidate, compare}) => {
+    const raw = rectangle(0, 1, 0, 1), owned = createOwnedPublicationGeometry(raw);
+    assert.equal(isOwnedPublicationGeometry(owned), true);
+    assert.equal(isOwnedPublicationGeometry(raw), false);
+    assert.notEqual(owned, raw); assert.notEqual(owned[0][0], raw[0][0]);
+    assert.deepEqual(Reflect.ownKeys(owned), Reflect.ownKeys(raw), 'no trust fields added');
+    assert.ok(!Object.isFrozen(raw) && !Object.isFrozen(raw[0][0]));
+    const a = sample(data, 'floor-a', {boundaryId: 'owned-a', floorFootprint: owned});
+    const other = createOwnedPublicationGeometry(rectangle(1, 2, 0, 1));
+    const b = sample(data, 'floor-b', {boundaryId: 'owned-b', floorFootprint: other});
+    const input = frame([a, b], {boundaries: [
+      {id: 'owned-a', sourceSurfaceId: 'floor-a', intact: true, triangles: owned},
+      {id: 'owned-b', sourceSurfaceId: 'floor-b', intact: true, triangles: other},
+    ]});
+    for (let step = 0; step < 4; step++) {
+      input.revision++; input.worldTime += 1 / 30;
+      compare('same owned support/footprint at a new native-style state ' + step, input);
+      assert.equal(candidate.diagnostics().preparationCache.immutableEntries, 2);
+    }
+    raw[0][0][0] = -99; assert.notEqual(owned[0][0][0], -99, 'source mutation cannot reach owned output');
+    const identical = createOwnedPublicationGeometry(rectangle(0, 1, 0, 1));
+    a.floorFootprint = input.boundaries[0].triangles = identical; input.revision++;
+    compare('equal geometry from a new factory identity', input);
+    const changed = createOwnedPublicationGeometry(rectangle(0, .8, 0, 1));
+    a.floorFootprint = input.boundaries[0].triangles = changed; input.revision++;
+    compare('changed owned coordinates under the same source IDs', input);
+    b.flame = 0; input.revision++;
+    compare('same-ID neighbor change still invalidates a connected owned group', input);
+    compare('empty reset releases owned geometry', frame([], {full: true, revision: 0, worldTime: 0}));
+    assertPreparationEntries(candidate, 0, 'owned empty reset');
+  });
+});
+
+test('only private factory membership bypasses redundant clone/descriptor certification; shape validation remains', () => {
+  const raw = rectangle(0, 1, 0, 1), owned = createOwnedPublicationGeometry(raw);
+  const generic = freezeArrays(copy(owned)), proxy = new Proxy(owned, {});
+  assert.equal(isOwnedPublicationGeometry(generic), false);
+  assert.equal(isOwnedPublicationGeometry(proxy), false);
+  assert.equal(isOwnedPublicationGeometry(copy(owned)), false);
+  assert.equal(isOwnedPublicationGeometry({owned: true, geometry: owned}), false);
+  const cache = createSupportGeometryCache(), clone = globalThis.structuredClone;
+  const descriptor = Object.getOwnPropertyDescriptor; let clones = 0, descriptors = 0;
+  try {
+    globalThis.structuredClone = (...args) => {clones++; return clone(...args);};
+    Object.getOwnPropertyDescriptor = (...args) => {descriptors++; return descriptor(...args);};
+    cache.begin(); const a = cache.geometry(cache.source('first'), 'support', owned);
+    assert.equal(clones, 0); assert.equal(descriptors, 0);
+    const b = cache.geometry(cache.source('second'), 'support', owned);
+    assert.equal(a, b); assert.equal(clones, 0); assert.equal(descriptors, 0);
+    cache.geometry(cache.source('generic'), 'support', generic);
+    assert.equal(clones, 1, 'unowned fully frozen data still uses the original certificate');
+    assert.ok(descriptors > 0);
+  } finally {globalThis.structuredClone = clone; Object.getOwnPropertyDescriptor = descriptor;}
+  for (let step = 0; step < 8; step++) {
+    cache.begin(); cache.geometry(cache.source('current'), 'support', createOwnedPublicationGeometry(rectangle(0, 1 - step * .025, 0, 1)));
+    cache.prune(); assert.equal(cache.size, 1); assert.equal(cache.immutableSize, 1);
+  }
+  const malformed = createOwnedPublicationGeometry([[[NaN, 0, 0], [1, 0, 0], [0, 0, 1]]]);
+  assert.equal(isOwnedPublicationGeometry(malformed), true, 'ownership does not promise a triangle shape');
+  cache.begin(); assert.equal(cache.geometry(cache.source('invalid'), 'support', malformed).valid, false); cache.prune();
+  cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.immutableSize, 0);
+  cache.clear(); assert.equal(cache.size, 0); assert.equal(cache.immutableSize, 0);
+});
+
+
+test('static envelopes avoid helper calls across fresh animated frames while camera, wind and inspection stay live', async () => {
+  await paired(({data, candidate, compare}) => {
+    const samples = ['floor-a', 'wall', 'roof', 'upper'].map(id => sample(data, id));
+    const input = frame(samples), first = compare('cold conservative envelopes', input);
+    const cold = candidate.diagnostics().effectWork.work.effectBoundsComputations;
+    assert.equal(cold, samples.length * 2);
+    input.fireSamples = copy(samples); input.revision++; input.worldTime += 1 / 30;
+    const second = compare('fresh records advance animation with the same envelopes', input);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsComputations, 0);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsCacheHits, cold);
+    assert.notDeepEqual(second.inspect.splats, first.inspect.splats);
+    const exposed = candidate.inspect().emitters.find(q => q.flameBounds && q.smokeBounds);
+    exposed.flameBounds.min.fill(1e9); exposed.smokeBounds.max.fill(-1e9);
+    exposed.anchor[0] = 1e9; exposed.omissions.disabled = true;
+    assert.deepEqual(capture(candidate), second, 'inspection cannot change private cached bounds or diagnostics');
+    input.revision++; input.worldTime += 1 / 30;
+    compare('cached envelopes survive caller mutation of an earlier inspection', input);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsComputations, 0);
+    const away = camera(1000, 6, -7, [1000, 1.7, 1]);
+    assert.equal(compare('new camera still culls using cached envelopes', input, {...view, camera: away}).counts.visibleSamples, 0);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsComputations, 0);
+    const unknown = compare('unknown wind remains conservative with null envelopes', input, {...view, windMetadata: undefined});
+    assert.ok(unknown.inspect.emitters.every(q => q.flameBounds === null && q.smokeBounds === null));
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsComputations, 0);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsCacheHits, 0);
+    const cut = compare('cutaway remains current without rebuilding static bounds', input, {...view, mode: 'cutaway', level: 0});
+    assert.ok(cut.inspect.emitters.filter(q => q.flames).length < second.inspect.emitters.filter(q => q.flames).length);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsComputations, 0);
+    compare('empty reset clears both channels', frame([], {full: true, revision: 0, worldTime: 0}));
+    assertPreparationEntries(candidate, 0, 'empty envelope reset');
+  });
+});
+
+test('same-ID position, normal and in-place support-bound changes rebuild exact reference envelopes', async () => {
+  await paired(({data, candidate, compare}) => {
+    const a = sample(data, 'floor-a'), input = frame([a]);
+    const check = label => {
+      input.revision++; compare(label, input);
+      assert.equal(candidate.diagnostics().effectWork.work.effectBoundsComputations, 2, label);
+      assert.equal(candidate.diagnostics().preparationCache.effectBoundsEntries, 2);
+    };
+    check('initial two channels');
+    a.x = .4; check('source X changes under the same ID');
+    a.y += .1; check('source elevation changes under the same ID');
+    a.z = .4; check('source Z changes under the same ID');
+    a.nx = .6; a.ny = .8; check('normal changes in place');
+    a.nx = 0; a.ny = 1;
+    for (const triangle of a.floorFootprint) for (const point of triangle) if (point[0] === 1) point[0] = .75;
+    check('selected anchor bounds change in place');
+    const wall = sample(data, 'wall', {id: a.id, boundaryId: 'envelope-wall'});
+    const boundary = {id: 'envelope-wall', sourceSurfaceId: 'wall', intact: true,
+      triangles: copy(data.surfaces.find(s => s.id === 'wall').triangles)};
+    input.fireSamples = [wall]; input.boundaries = [boundary]; check('part and selected support bounds change');
+    for (const triangle of boundary.triangles) for (const point of triangle) if (point[1] === 2.12) point[1] = 2.32;
+    check('runtime wall support span changes in the same array');
+    input.fireSamples = copy(input.fireSamples); input.boundaries = copy(input.boundaries); input.revision++;
+    compare('equal cloned records retain the latest exact envelope', input);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsComputations, 0);
+    assert.equal(candidate.diagnostics().effectWork.work.effectBoundsCacheHits, 2);
+  });
+});
+
+test('envelope keys include selected bounds lengths and every coordinate checked by the frozen helper', async () => {
+  const {houseEffectBounds: originalBounds} = await import(referenceModule(
+    new URL('art/source/furnished-house/visibility.js', repository).href));
+  const cache = createSupportGeometryCache(), q = {part: 'ground', x: .5, y: .12, z: .5,
+    nx: 0, ny: 1, nz: 0, supportBounds: {min: [0, .12, 0], max: [1, .12, 1]}};
+  const check = computations => {
+    cache.begin(); const owner = cache.source('bounds');
+    for (const channel of ['flames', 'smoke']) assert.deepEqual(cache.effectBounds(owner, q, channel), originalBounds(q, channel));
+    cache.prune(); assert.equal(cache.effectBoundsComputations, computations);
+  };
+  check(2); check(0);
+  q.nx = -0; check(2);
+  q.supportBounds.min.push(0); q.supportBounds.max.push(1); check(2); check(0);
+  q.supportBounds.min[3] = 2; check(2); assert.equal(cache.effectBoundsSize, 0);
+  q.supportBounds.min[3] = 0; check(2);
+  q.anchorBounds = {min: [-.1, 0, -.1], max: [1.1, .2, 1.1]}; check(2);
+  q.supportBounds.min[0] = -100; check(0); // The helper selects anchorBounds.
+  q.anchorBounds.max[2] = 1.2; check(2);
+  q.part = 'roof'; q.nx = .6; q.ny = .8; check(2);
+  cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.effectBoundsSize, 0);
+  cache.clear(); assert.equal(cache.effectBoundsSize, 0);
 });
