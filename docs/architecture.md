@@ -31,7 +31,7 @@
 - Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
 - Monroe row houses join consecutively at their native frontage. Joining sides have no windows; side windows belong on exposed row ends.
 
-- The owner's November 16 target is half the current fire presentation cost with equivalent or better appearance. [Milestone 27](milestones/27-half-cost-fire.md) requires a current-production reference, separately measured CPU/GPU costs, exact physical behavior and normal-zoom temporal review; old standalone timings and paused-frame wins cannot establish it.
+- The owner's November 16 target is half the current fire presentation cost with equivalent or better appearance. [Milestone 27](milestones/27-half-cost-fire.md) passes its frozen dense-fire preparation targets: 29.013 → 12.257 ms mean CPU and 34.500 → 15.600 ms p95, with GPU cost essentially preserved. Stable owned geometry, grouping/anchor caches and fewer publication copies preserve exact thermal states and normal-zoom motion. The [architect review](reviews/2026-11-16-half-cost-fire.md) records 474 checks, actual normal-input acceptance, prior failed comparisons, package identities and release verification. Whole-game FPS, startup memory and actual iPhone Safari acceptance remain separate.
 
 ## Reuse-first technical direction
 
