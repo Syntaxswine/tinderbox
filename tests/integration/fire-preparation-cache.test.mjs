@@ -532,3 +532,54 @@ test('envelope keys include selected bounds lengths and every coordinate checked
   cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.effectBoundsSize, 0);
   cache.clear(); assert.equal(cache.effectBoundsSize, 0);
 });
+
+
+test('only private prepared bounds skip coordinate walks; caller data stays mutable and fallback/reset stay exact', async () => {
+  const {houseEffectBounds: originalBounds} = await import(referenceModule(
+    new URL('art/source/furnished-house/visibility.js', repository).href));
+  const cache = createSupportGeometryCache(), raw = rectangle(-3.25, 5.75, -4.125, 6.625, .375);
+  const before = copy(raw); cache.begin(); let owner = cache.source('bounds-owner');
+  const prepared = cache.geometry(owner, 'support', raw), owned = prepared.bounds;
+  assert.deepEqual(raw, before); assert.ok(!Object.isFrozen(raw) && !Object.isFrozen(raw[0]) && !Object.isFrozen(raw[0][0]));
+  assert.ok(Object.isFrozen(owned) && Object.isFrozen(owned.min) && Object.isFrozen(owned.max));
+  assert.throws(() => {owned.min[0] = -99;}, {name: 'TypeError'});
+  const q = {part: 'ground', x: .25, y: 1.25, z: .5, nx: 0, ny: 1, nz: 0, supportBounds: owned};
+  const prime = () => {
+    for (const channel of ['flames', 'smoke']) assert.deepEqual(cache.effectBounds(owner, q, channel), originalBounds(q, channel));
+  };
+  const coordinateWalks = () => {
+    const values = new Set([...q.supportBounds.min, ...q.supportBounds.max]);
+    const originalIs = Object.is, computations = cache.effectBoundsComputations; let checks = 0, result;
+    try {
+      Object.is = (a, b) => {if (values.has(a) && values.has(b)) checks++; return originalIs(a, b);};
+      result = cache.effectBounds(owner, q, 'flames');
+    } finally {Object.is = originalIs;}
+    assert.equal(cache.effectBoundsComputations, computations, 'exercise a cache hit, not a cold computation');
+    assert.deepEqual(result, originalBounds(q, 'flames')); return checks;
+  };
+  prime(); assert.equal(coordinateWalks(), 0, 'private immutable identity avoids all coordinate comparisons');
+  q.supportBounds = {min: [...owned.min], max: [...owned.max]};
+  prime(); assert.equal(coordinateWalks(), 6, 'plain equal bounds keep the six-coordinate fallback');
+  assert.ok(!Object.isFrozen(q.supportBounds) && !Object.isFrozen(q.supportBounds.min));
+  q.supportBounds.min[0] -= .5; prime();
+  q.supportBounds = Object.freeze({min: [...owned.min], max: [...owned.max]});
+  prime(); assert.equal(coordinateWalks(), 6, 'a frozen outer object is insufficient');
+  q.supportBounds.min[0] -= .25; prime();
+  q.supportBounds = Object.freeze({privateBounds: true,
+    min: Object.freeze([...owned.min]), max: Object.freeze([...owned.max])});
+  prime(); assert.equal(coordinateWalks(), 6, 'a forged flag and deep freeze cannot create private membership');
+  let edge = owned.max[0]; const accessorMax = [...owned.max];
+  Object.defineProperty(accessorMax, '0', {enumerable: true, configurable: true, get: () => edge});
+  q.supportBounds = Object.freeze({min: Object.freeze([...owned.min]), max: Object.freeze(accessorMax)});
+  prime(); assert.equal(coordinateWalks(), 6); edge += 1; prime();
+  for (const triangle of raw) for (const point of triangle) if (point[0] === 5.75) point[0] = 5.5;
+  cache.begin(); owner = cache.source('bounds-owner');
+  const changed = cache.geometry(owner, 'support', raw).bounds;
+  assert.notEqual(changed, owned); assert.equal(owned.max[0], 5.75); assert.equal(changed.max[0], 5.5);
+  q.supportBounds = changed; prime(); assert.equal(cache.effectBoundsComputations, 2);
+  assert.equal(coordinateWalks(), 0); cache.prune();
+  cache.clear(); cache.begin(); owner = cache.source('after-clear');
+  prime(); assert.equal(coordinateWalks(), 6, 'clear retires private proof even for a retained frozen object');
+  cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.effectBoundsSize, 0);
+  cache.clear(); assert.equal(cache.immutableSize, 0);
+});
