@@ -399,7 +399,10 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     for(const [id,energy]of ventFlux){const b=index.surfaces.get(id),flow=energy/dt;samples.push({id:`vent:${id}`,buildingId:data.buildingId||data.prefabId,part:'walls',...Object.fromEntries(['x','y','z'].map((axis,i)=>[axis,b.position[i]])),nx:b.normal[0],ny:b.normal[1],nz:b.normal[2],area:b.area,flame:clamp(flow/(4*b.area)),smoke:clamp(flow/(2*b.area)),ignitionTime:tick*dt,sourceSurfaceId:b.sourceSurfaceId,openingId:b.openingId,vent:true,heatFlux:flow});}
     sampleBoundaryIds=boundaryIds;for(const id of sampleGeometry.keys())if(!boundaryIds.has(id))sampleGeometry.delete(id);
     if(executionCache||borrowImmutable){
-      const immutable=Object.freeze(samples.map(sample=>Object.freeze(sample.floorFootprint?{...sample,floorFootprint:immutableFootprint(sample)}:sample)));
+      // These rows and their array were constructed locally for this call.
+      // Replace only the borrowed footprint before freezing the same rows.
+      for(const sample of samples){if(sample.floorFootprint)sample.floorFootprint=immutableFootprint(sample);Object.freeze(sample);}
+      const immutable=Object.freeze(samples);
       if(executionCache){samplesTick=tick;samplesCache=immutable;}return borrowImmutable?immutable:structuredClone(immutable);
     }return samples;
   }
