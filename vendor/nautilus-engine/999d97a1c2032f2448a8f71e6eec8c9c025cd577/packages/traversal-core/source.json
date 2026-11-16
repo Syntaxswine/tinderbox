@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "implementation": "Engine-owned swept convex contact and bounded tangent adaptation",
+  "donor": {"repository":"https://github.com/Syntaxswine/farmyard-fighters.git","commit":"7cd3d56e62a8087133a9fdf2f521cf92d310d6fd","path":"sites/tactical-animal/dist/solo-game.js","referenceOnly":true},
+  "preservedBehavior": ["subdivide/check accepted movement","use a clear tangent when requested movement is blocked","account only actual accepted distance"],
+  "deliberateDifferences": ["continuous rounded convex casts instead of sampled axis fallback","explicit 0.72 tangential slowdown","no automatic shoulder selection on head-on input","oriented native vehicle body distinct from walking disc","host-owned flat support and complete policy checkpoints"],
+  "runtimeDonorImports": [],
+  "originalEvidence": "vendor/farmyard-traversal/7cd3d56e62a8087133a9fdf2f521cf92d310d6fd/source.json"
+}

@@ -1,6 +1,7 @@
 import {createTrial,ambientWind} from '../../workbenches/furnished-house/simulation.js';
 import {DEFAULT_PROFILES} from '../../workbenches/furnished-house/scene.js';
 import {createNavigation} from '../../workbenches/furnished-house/navigation.js';
+import {NATIVE_DISC_SLIDE} from '../reuse/native-disc-slide.js';
 import {extrudePlane,segmentTriangle} from '../../workbenches/furnished-house/geometry.js';
 import {sweptCylinderClear} from '../runtime/collision.js';
 import {createVisibility} from '../../workbenches/bell-and-alder-closing/visibility.js';
@@ -67,15 +68,15 @@ export function createCatalogueThermal({compiled,state,definition,config,event,o
   }
   function move(...args){const before=now();try{return moveNative(...args);}finally{hostWork.navigationMs+=now()-before;}}
   function moveNative(start,dx,dz,radius,height){
-    const id=start.id||'player';let nav=navs.get(id);if(!nav){nav=createNavigation(trial,{radius,height,maxStep:.22,start:xyz(start),slide:true});navs.set(id,nav);}nav.setPosition(xyz(start));
+    const id=start.id||'player';let nav=navs.get(id);if(!nav){nav=createNavigation(trial,{radius,height,maxStep:.22,start:xyz(start),slideProfile:NATIVE_DISC_SLIDE,worldBounds:{width:definition.width,depth:definition.height}});navs.set(id,nav);}nav.setPosition(xyz(start));
     const path=[{x:start.x,y:start.y,elevation:start.elevation||0,ownerInstanceId:start.moduleOwner,surfaceId:start.surfaceId}],length=Math.hypot(dx,dz);
     if(length<EPS)return path;
     const steps=Math.max(1,Math.ceil(length/.025));
     for(let i=0;i<steps;i++){
       const before=nav.snapshot(),next=nav.move(dx/length,dz/length,length/steps/9);
       if(next.x<radius||next.y<radius||next.x>definition.width-radius||next.y>definition.height-radius){nav.setPosition(before.position);break;}
-      if(Math.hypot(next.x-before.x,next.y-before.y)<EPS)break;
-      const support=nav.support(next.position,next.elevation);path.push({x:next.x,y:next.y,elevation:next.elevation,ownerInstanceId:named(support?.id)||'terrain',surfaceId:support?.id});
+      if(Math.hypot(next.x-before.x,next.y-before.y)<EPS){nav.setPosition(before.position);break;}
+      for(const point of (next.acceptedPath||[before.position,next.position]).slice(1)){const support=nav.support(point,point[1]);path.push({x:point[0],y:point[2],elevation:point[1],ownerInstanceId:named(support?.id)||'terrain',surfaceId:support?.id});}
     }
     return path;
   }

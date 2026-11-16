@@ -11,11 +11,44 @@ function contains(p,polygon){let result=false;for(let i=0,j=polygon.length-1;i<p
   const a=polygon[i],b=polygon[j];if(pointDistance(p,a,b)<EPS)return true;
   if((a[1]>p[1])!==(b[1]>p[1])&&p[0]<(b[0]-a[0])*(p[1]-a[1])/(b[1]-a[1])+a[0])result=!result;
 }return result;}
+// Analytic distance to an existing authoritative planar furniture envelope.
+// The caller retains its own contact tolerance and vertical-band predicate.
+export function segmentRectangleDistance(from,to,min,max){
+  const polygon=[[min[0],min[1]],[max[0],min[1]],[max[0],max[1]],[min[0],max[1]]];
+  if(contains(from,polygon)||contains(to,polygon))return 0;
+  return Math.min(...polygon.map((point,i)=>segmentDistance(from,to,point,polygon[(i+1)%4])));
+}
 function clipHeight(polygon,height,above){
   const result=[];for(let i=0;i<polygon.length;i++){
     const a=polygon[i],b=polygon[(i+1)%polygon.length],insideA=above?a[1]>=height:a[1]<=height,insideB=above?b[1]>=height:b[1]<=height;
     if(insideA)result.push(a);if(insideA!==insideB){const t=(height-a[1])/(b[1]-a[1]);result.push(a.map((v,n)=>v+t*(b[n]-v)));}
   }return result;
+}
+// Each clipped triangle stays a separate convex primitive. Combining the
+// complete mesh into one hull would fill real apertures between its fragments.
+export function cylinderContactPolygons(shape,minY,maxY){
+  const polygons=[];
+  for(const triangle of shape.triangles){
+    if(triangle.every(v=>v[1]<minY)||triangle.every(v=>v[1]>maxY))continue;
+    const clipped=clipHeight(clipHeight(triangle,minY,true),maxY,false);
+    if(clipped.length)polygons.push(clipped.map(v=>({x:v[0],y:v[2]})));
+  }
+  return polygons;
+}
+
+// Exact planar support-edge stations partition a movement segment. Sampling
+// each open interval cannot step across a narrow unsupported gap merely
+// because both endpoints happen to be supported.
+export function supportSegmentStations(from,to,triangles){
+  const dx=to[0]-from[0],dz=to[2]-from[2],squared=dx*dx+dz*dz,stations=[0,1];
+  if(!squared)return stations;
+  const offer=t=>{if(t>0&&t<1)stations.push(t);};
+  for(const triangle of triangles)for(let i=0;i<3;i++){
+    const a=triangle[i],b=triangle[(i+1)%3],sx=b[0]-a[0],sz=b[2]-a[2],qx=a[0]-from[0],qz=a[2]-from[2],den=dx*sz-dz*sx;
+    if(Math.abs(den)>1e-12){const t=(qx*sz-qz*sx)/den,u=(qx*dz-qz*dx)/den;if(u>=-1e-10&&u<=1+1e-10)offer(t);}
+    else if(Math.abs(qx*dz-qz*dx)<1e-12){offer((qx*dx+qz*dz)/squared);offer(((b[0]-from[0])*dx+(b[2]-from[2])*dz)/squared);}
+  }
+  stations.sort((a,b)=>a-b);return stations.filter((v,i)=>i===0||v-stations[i-1]>1e-10);
 }
 export function transformCollisionShape(shape,matrix){
   const vertices=[];for(let i=0;i<shape.vertices.length;i+=3){const [x,y,z]=shape.vertices.slice(i,i+3);vertices.push([matrix[0]*x+matrix[4]*y+matrix[8]*z+matrix[12],matrix[1]*x+matrix[5]*y+matrix[9]*z+matrix[13],matrix[2]*x+matrix[6]*y+matrix[10]*z+matrix[14]]);}

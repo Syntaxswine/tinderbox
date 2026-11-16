@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "repository": "https://github.com/Syntaxswine/nautilus-engine.git",
+  "commit": "999d97a1c2032f2448a8f71e6eec8c9c025cd577",
+  "reason": "Owner-confirmed slippery walking edges, approved bounded detailed Catalogue adaptation under M28 bdacb3b1319451e27457f09342ece5485ef6f89c",
+  "inspection": "Read-only immutable local Git objects; donor checkout/ref/config untouched; no fetch",
+  "files": [
+    {
+      "sourcePath": "packages/traversal-core/index.js",
+      "installedPath": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/packages/traversal-core/index.js",
+      "bytes": 7342,
+      "sha256": "a94290b4b022140ff2b033c8ffb478bff23efd4fa954ac1d03acc4697e21abfc",
+      "gitBlob": "909d42dd6baf064910d3a705ada9521bed99ee24",
+      "adaptations": []
+    },
+    {
+      "sourcePath": "packages/traversal-core/README.md",
+      "installedPath": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/packages/traversal-core/README.md",
+      "bytes": 3629,
+      "sha256": "68aa91f1ad2d3f6bd9b62f36387efe0ed99be2cf44e714b2c582ddd3279ae7c4",
+      "gitBlob": "4f71545878c3460e5b8912cc578ebd980f3780ba",
+      "adaptations": []
+    },
+    {
+      "sourcePath": "packages/traversal-core/source.json",
+      "installedPath": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/packages/traversal-core/source.json",
+      "bytes": 903,
+      "sha256": "82e87bcd4fb9cb76b5f9933a6163c8c6550c446638a16732dd77185136a88065",
+      "gitBlob": "a9d29f7f562e77361a3d6f3c90dc2315877c8f92",
+      "adaptations": []
+    },
+    {
+      "sourcePath": "NOTICE.md",
+      "installedPath": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/NOTICE.md",
+      "bytes": 8811,
+      "sha256": "d6b2035207f19e3e9b95c72282e6140ad6b01ade274c6f458bf124e984c32ccd",
+      "gitBlob": "b7f1012e6cfd49b480aac93380d6e8d4c0b42f5c",
+      "adaptations": []
+    },
+    {
+      "sourcePath": "vendor/farmyard-traversal/7cd3d56e62a8087133a9fdf2f521cf92d310d6fd/NOTICE.md",
+      "installedPath": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/provenance/farmyard-traversal-NOTICE.md",
+      "bytes": 852,
+      "sha256": "f65dd0057f1d08264ca38d64929b1c8b75965dd83c336d31ef37d295163bd5ac",
+      "gitBlob": "4042860a8eab9437c053e44b953c9fdd15ce14a9",
+      "adaptations": []
+    }
+  ],
+  "runtimeEntry": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/packages/traversal-core/index.js",
+  "runtimeDependencyClosure": [],
+  "referenceOnlyQueries": {
+    "sourcePath": "packages/interactions/queries.js",
+    "bytes": 10477,
+    "sha256": "bc8579b5e8561f36e956e26d69786d9d516f3c1a07a9e494de36d22154688b7b",
+    "imported": false,
+    "evidence": "Full radius+requested-length reachable envelope and validation of every accepted segment; flat/AABB provider is not used"
+  },
+  "inheritedReference": {
+    "repository": "https://github.com/Syntaxswine/farmyard-fighters.git",
+    "commit": "7cd3d56e62a8087133a9fdf2f521cf92d310d6fd",
+    "manifestPath": "vendor/farmyard-traversal/7cd3d56e62a8087133a9fdf2f521cf92d310d6fd/source.json",
+    "manifestSha256": "deb065250e74cbf15e1e53a586cecaef6bf25d1425d121df2b043178f6e9d000",
+    "selectedEvidence": {
+      "source": "sites/tactical-animal/dist/solo-game.js",
+      "path": "vendor/farmyard-traversal/7cd3d56e62a8087133a9fdf2f521cf92d310d6fd/original/sites/tactical-animal/dist/solo-game.js.original",
+      "bytes": 73743,
+      "sha256": "c20d67f3b82fb876fda3bd1d72770ed70dc533729f933f2a02c8f4babb54b9a5",
+      "gitBlob": "3c92bc80f86f4f1df1f655de3e6aeac1c9e7fd76"
+    },
+    "runtimeImports": []
+  },
+  "rights": {
+    "status": "Unspecified per-file rights remain unresolved; provenance is not a license grant",
+    "notices": [
+      "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/NOTICE.md",
+      "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/provenance/farmyard-traversal-NOTICE.md"
+    ]
+  },
+  "adaptation": {
+    "location": "src/reuse/native-disc-slide.js",
+    "axes": "Tinderbox[x,height,z] to kernel planar{x,y:z} and vertical h",
+    "obstacles": "Individual native triangle projections clipped to the current native body height band; existing furniture envelopes; no retained-mesh whole-object hull/AABB",
+    "authority": "Every accepted segment retains native reachable support, exact triangle/closed-solid and world bounds validation",
+    "scope": "Detailed Catalogue walking only; default source controls, legacy maps, vehicles and all donor game code remain separate"
+  }
+}

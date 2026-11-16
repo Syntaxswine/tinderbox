@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "contractCommit": "bdacb3b1319451e27457f09342ece5485ef6f89c",
+  "artistSourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+  "previewOnlySuccessor": "3471160b3386f8cb53a705b66bad23ab09948b68",
+  "kernelCommit": "999d97a1c2032f2448a8f71e6eec8c9c025cd577",
+  "scope": "Exact proposed runtime hashes for explicit M28 integration controls. This is not architect promotion, actual input/browser or performance acceptance.",
+  "originalChecker": {
+    "path": "art/source/catalogue-modular/check-h15-circulation.mjs",
+    "lfSha256": "7e9db304bfc62e57c3111c68a62a22e0a7389908de6dadf4a93f65f7ef6ba46d"
+  },
+  "originalReference": {
+    "path": "art/source/catalogue-modular/controls/h15-circulation/reference.json",
+    "lfSha256": "5843352e710d601823adcb5970766ef25daa7d72629804420312e4aa6da469a8"
+  },
+  "runtimeExceptions": [
+    {
+      "path": "workbenches/furnished-house/navigation.js",
+      "originalLfSha256": "28e8d423189813b9605c249029138ae50b75917151e1c74d08a507c4753f9295",
+      "integratedLfSha256": "8ba3f2ded00f59617c8f36baa84e521f4318e6a9de55f541a68c4fac7fb3a1a9",
+      "reason": "Explicit opt-in native disc slide, support-edge partition and per-segment native validation; default stop and old axis control remain"
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "originalLfSha256": "5c0b2500c44c9599964d77e12416cd917746fe1ecc5be8da0cd309e67ca64fe5",
+      "integratedLfSha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "reason": "Individual height-clipped triangle projections, exact support-edge stations and analytic distance to existing furniture envelopes; original swept closed-solid oracle retained"
+    }
+  ],
+  "additionalRuntime": [
+    {
+      "path": "src/simulation/catalogue-thermal.js",
+      "originalLfSha256": "50729b94af47c530843a4af1e2a5e96754b837a732bdca88cfe54d76700fcaa6",
+      "integratedLfSha256": "3421387654b93f5f0a889d9ca6b02ca199563efff91fc1b0a13e1db15203dbbe",
+      "reason": "Explicit detailed-profile binding and complete accepted polyline with native elevations"
+    },
+    {
+      "path": "src/reuse/native-disc-slide.js",
+      "originalLfSha256": null,
+      "integratedLfSha256": "f209ecacf532f5feb6b6744d86a76a34becd5860bb0eeda93158ebb57cd81dbf",
+      "reason": "Separate self-contained native triangle adapter"
+    }
+  ],
+  "sourceExports": [
+    {
+      "path": "workbenches/catalogue-modular/house-data.json",
+      "sha256": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c"
+    },
+    {
+      "path": "workbenches/catalogue-modular/scene-data.json",
+      "sha256": "c8c69e58a14231f887a0f3a2c79867469fb34e52b5980727e85f21c62f160765"
+    },
+    {
+      "path": "workbenches/catalogue-modular/shop-data.json",
+      "sha256": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5"
+    }
+  ],
+  "vendorManifest": {
+    "path": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/provenance/disc-slide.json",
+    "lfSha256": "d78019e6fb5642121e3e8c3ec78324fc2fc7e9e5561d990d2b5d1bc519225a34"
+  }
+}

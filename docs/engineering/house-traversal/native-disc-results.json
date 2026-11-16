@@ -1,0 +1,834 @@
+{
+  "version": 1,
+  "recordedAt": "2026-11-16T22:13:12.250Z",
+  "scope": "Early coder candidate after the independent continuous-furniture correction. CPU source/native-provider checks only; no new renderer, build, broad suite, packaged runtime or actual keyboard/mouse acceptance.",
+  "contractCommit": "bdacb3b1319451e27457f09342ece5485ef6f89c",
+  "artistSourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+  "previewOnlySuccessor": "3471160b3386f8cb53a705b66bad23ab09948b68",
+  "kernelCommit": "999d97a1c2032f2448a8f71e6eec8c9c025cd577",
+  "runtimeDeclaration": {
+    "path": "docs/engineering/house-traversal/runtime-integration.json",
+    "lfSha256": "2c555a823a7f45a70f3e6be24688d29e0bbce7e2fde6d309c6d25cdc9757bd3f"
+  },
+  "checkedSources": [
+    {
+      "path": "workbenches/furnished-house/navigation.js",
+      "lfSha256": "8ba3f2ded00f59617c8f36baa84e521f4318e6a9de55f541a68c4fac7fb3a1a9"
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "lfSha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3"
+    },
+    {
+      "path": "src/simulation/catalogue-thermal.js",
+      "lfSha256": "3421387654b93f5f0a889d9ca6b02ca199563efff91fc1b0a13e1db15203dbbe"
+    },
+    {
+      "path": "src/reuse/native-disc-slide.js",
+      "lfSha256": "f209ecacf532f5feb6b6744d86a76a34becd5860bb0eeda93158ebb57cd81dbf"
+    },
+    {
+      "path": "tests/sandbox/native-disc-slide.test.mjs",
+      "lfSha256": "799fdc840ac58f0799a05ddd15266e068f6cd119da2b89be2421620ea75b8e05"
+    },
+    {
+      "path": "tests/helpers/observe-catalogue-moves.mjs",
+      "lfSha256": "ca0426c624a4bb6d343998b919c5ed632219c8d7f5fe36c9660b60eb5f98e4af"
+    },
+    {
+      "path": "tools/review/check-h15-integrated.mjs",
+      "lfSha256": "d8d2ea35c96a771c42fac17064dda32b7d847fd59a795850f6ef5d0164123fc1"
+    },
+    {
+      "path": "tools/review/house-traversal-physical.mjs",
+      "lfSha256": "28178574207b39408bcaf907c4d8986c6d67cfa09c1b8a3ba603e63da923863f"
+    },
+    {
+      "path": "tools/review/house-traversal-controls.mjs",
+      "lfSha256": "4711089c9b20be38f176654491d95c1869e0ac9ecee3aa783cdbfbb5f8fe62b4"
+    },
+    {
+      "path": "tools/review/house-traversal-gameplay.mjs",
+      "lfSha256": "f04ce8faab42701472b3f34a96ae2e88ad7772942a1c974648f90dec08637c8c"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Focused native and existing host behavior",
+      "command": "node --test --test-concurrency=1 tests/sandbox/native-disc-slide.test.mjs tests/sandbox/catalogue-host.test.mjs",
+      "passed": 28,
+      "failed": 0,
+      "newNativeCases": 11,
+      "existingHostCases": 17,
+      "includes": "Actual source-loaded street barrel glancing both ways and native-contact head-on stop, independently swept paths, support heights, per-step and three-step catch-up travel/gas/deposits, original powder/world clocks; exact analytic furniture-corner negative"
+    },
+    {
+      "name": "Explicit integrated-source controls",
+      "command": "node tools/review/check-h15-integrated.mjs --output=artifacts/qa/house-traversal-integrated/continuous-furniture",
+      "passed": 15,
+      "sourcePaths": 60,
+      "registeredMeshes": 819,
+      "retainedResources": {
+        "geometries": 0,
+        "materials": 0,
+        "textures": 0
+      },
+      "originalCheckerUnchanged": true,
+      "originalReferenceUnchanged": true,
+      "historicalReceiptUnchanged": true
+    },
+    {
+      "name": "Pinned corrected-runtime physical matrix",
+      "command": "node tools/review/house-traversal-physical.mjs --art-commit=4cecd10d09eff85543996d4362c63b2297001436 --output=artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture",
+      "passed": 67,
+      "failed": 0,
+      "routeCases": 61,
+      "pairedSafetyCases": 3,
+      "exclusivePairedPoseSamples": 12,
+      "retiredSupportCases": 3,
+      "rows": 34149,
+      "scope": "Static source/body/support and public contextual-group physical controls; keyboard input is a quantized command model, not DOM input. Native physics advances for actual accepted door actions. Ordinary browser and world-clock acceptance remain separate."
+    }
+  ],
+  "physical": {
+    "identity": {
+      "pid": 32392,
+      "creationFiletime": "134393405151940092",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "startedAt": "2026-11-16T22:08:35.234Z",
+    "expiresAt": "2026-11-16T22:23:35.234Z",
+    "cleanup": {
+      "closedAt": "2026-11-16T22:11:52.802Z",
+      "disposedCases": 67,
+      "remainingProviders": 0,
+      "ports": [],
+      "processLifetime": "Synchronous short-lived checker; no retained helper"
+    },
+    "coderHeadAtRun": "94801ca46777aa713319af2ba761e017360550e3",
+    "note": "Runtime changes were uncommitted at execution; exact final runtime hashes above and the integrated audit identify the tested source, rather than claiming the base Git head contained it.",
+    "matrix": [
+      {
+        "index": 0,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0,
+        "regression": "bear-porch",
+        "status": "passed",
+        "elapsedMs": 2914
+      },
+      {
+        "index": 1,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0,
+        "goatExitRegression": true,
+        "regression": "goat20mm-exit",
+        "status": "passed",
+        "elapsedMs": 2918
+      },
+      {
+        "index": 2,
+        "characterId": "goat",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 2698
+      },
+      {
+        "index": 3,
+        "characterId": "goat",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2909
+      },
+      {
+        "index": 4,
+        "characterId": "goat",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2529
+      },
+      {
+        "index": 5,
+        "characterId": "goat",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2482
+      },
+      {
+        "index": 6,
+        "characterId": "goat",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2397
+      },
+      {
+        "index": 7,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 2485
+      },
+      {
+        "index": 8,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2388
+      },
+      {
+        "index": 9,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2586
+      },
+      {
+        "index": 10,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2322
+      },
+      {
+        "index": 11,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2385
+      },
+      {
+        "index": 12,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 2948
+      },
+      {
+        "index": 13,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2658
+      },
+      {
+        "index": 14,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2574
+      },
+      {
+        "index": 15,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2948
+      },
+      {
+        "index": 16,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 3133
+      },
+      {
+        "index": 17,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 4384
+      },
+      {
+        "index": 18,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 4437
+      },
+      {
+        "index": 19,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 4308
+      },
+      {
+        "index": 20,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 4197
+      },
+      {
+        "index": 21,
+        "characterId": "goat",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 3245
+      },
+      {
+        "index": 22,
+        "characterId": "horse",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 2674
+      },
+      {
+        "index": 23,
+        "characterId": "horse",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2551
+      },
+      {
+        "index": 24,
+        "characterId": "horse",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2684
+      },
+      {
+        "index": 25,
+        "characterId": "horse",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2822
+      },
+      {
+        "index": 26,
+        "characterId": "horse",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2700
+      },
+      {
+        "index": 27,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 2464
+      },
+      {
+        "index": 28,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2655
+      },
+      {
+        "index": 29,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2961
+      },
+      {
+        "index": 30,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2789
+      },
+      {
+        "index": 31,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2652
+      },
+      {
+        "index": 32,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 2716
+      },
+      {
+        "index": 33,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2771
+      },
+      {
+        "index": 34,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2795
+      },
+      {
+        "index": 35,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2760
+      },
+      {
+        "index": 36,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2843
+      },
+      {
+        "index": 37,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 3735
+      },
+      {
+        "index": 38,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 3668
+      },
+      {
+        "index": 39,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 3750
+      },
+      {
+        "index": 40,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 4004
+      },
+      {
+        "index": 41,
+        "characterId": "horse",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 3756
+      },
+      {
+        "index": 42,
+        "characterId": "bear",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 2495
+      },
+      {
+        "index": 43,
+        "characterId": "bear",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2443
+      },
+      {
+        "index": 44,
+        "characterId": "bear",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2508
+      },
+      {
+        "index": 45,
+        "characterId": "bear",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2713
+      },
+      {
+        "index": 46,
+        "characterId": "bear",
+        "mode": "keyboard",
+        "magnitude": 1,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2677
+      },
+      {
+        "index": 47,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2526
+      },
+      {
+        "index": 48,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2951
+      },
+      {
+        "index": 49,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2519
+      },
+      {
+        "index": 50,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 1,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2501
+      },
+      {
+        "index": 51,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 3141
+      },
+      {
+        "index": 52,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 2659
+      },
+      {
+        "index": 53,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 2546
+      },
+      {
+        "index": 54,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 2619
+      },
+      {
+        "index": 55,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.5,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 2918
+      },
+      {
+        "index": 56,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0,
+        "status": "passed",
+        "elapsedMs": 3867
+      },
+      {
+        "index": 57,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": -0.05,
+        "status": "passed",
+        "elapsedMs": 3750
+      },
+      {
+        "index": 58,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0.05,
+        "status": "passed",
+        "elapsedMs": 3938
+      },
+      {
+        "index": 59,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": -0.1,
+        "status": "passed",
+        "elapsedMs": 3663
+      },
+      {
+        "index": 60,
+        "characterId": "bear",
+        "mode": "analog",
+        "magnitude": 0.2,
+        "offset": 0.1,
+        "status": "passed",
+        "elapsedMs": 3828
+      },
+      {
+        "index": 61,
+        "characterId": "goat",
+        "control": "pair-occupancy",
+        "status": "passed",
+        "elapsedMs": 2772
+      },
+      {
+        "index": 62,
+        "characterId": "goat",
+        "control": "unsupported",
+        "status": "passed",
+        "elapsedMs": 1728
+      },
+      {
+        "index": 63,
+        "characterId": "horse",
+        "control": "pair-occupancy",
+        "status": "passed",
+        "elapsedMs": 2471
+      },
+      {
+        "index": 64,
+        "characterId": "horse",
+        "control": "unsupported",
+        "status": "passed",
+        "elapsedMs": 1662
+      },
+      {
+        "index": 65,
+        "characterId": "bear",
+        "control": "pair-occupancy",
+        "status": "passed",
+        "elapsedMs": 2714
+      },
+      {
+        "index": 66,
+        "characterId": "bear",
+        "control": "unsupported",
+        "status": "passed",
+        "elapsedMs": 1986
+      }
+    ],
+    "osVerification": {
+      "verifiedAt": "2026-11-16T22:13:43.5394678Z",
+      "processes": [
+        {
+          "pid": 62632,
+          "expectedCreationFiletime": "134393398489318024",
+          "pidPresent": false,
+          "taskLifetimeStillRunning": false
+        },
+        {
+          "pid": 32392,
+          "expectedCreationFiletime": "134393405151940092",
+          "pidPresent": false,
+          "taskLifetimeStillRunning": false
+        }
+      ],
+      "ports": [],
+      "scope": "Both short-lived CPU matrix lifetimes ended; each disposed67 providers and opened no ports. No renderer or retained helper."
+    }
+  },
+  "preservedPriorResults": [
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-native-disc-first",
+      "passed": 67,
+      "scope": "Pre-continuous-furniture correction only; superseded for current acceptance"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-integrated/native-disc-first",
+      "scope": "Passing source audit for the earlier declared runtime hashes only"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate/native-disc-focused.log",
+      "passed": 8,
+      "scope": "Earlier bound-source pass before catch-up and furniture-corner additions"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-slide/focused-with-catchup.log",
+      "passed": 10,
+      "scope": "Pre-continuous-furniture focused pass, including catch-up; later strengthened head-on oracle and furniture case are in the final28 run"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-slide/failed-attempts.json",
+      "scope": "Preserved transcribed initial test-development failures and specific corrections; not passing evidence"
+    }
+  ],
+  "remaining": [
+    "Architect source review/intake of the exact pushed candidate",
+    "One coherent repository/build/release/nested-package gate",
+    "Actual normal-zoom keyboard and mouse visits in a newly granted bounded renderer session",
+    "Architect promotion and publication decision"
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/qa/house-traversal-slide/focused-continuous-furniture.log",
+      "bytes": 3320,
+      "sha256": "aa4100bb6d9196c704dd86a6f68edba755b97f63c3a885c1f5a7e7c3a6fd6e97"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-slide/integrated-continuous-furniture.log",
+      "bytes": 720,
+      "sha256": "47592695fb710e72418816e32e8e3b9f638fcf08bc9ddff0527595d879a48608"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-slide/pinned67-continuous-furniture.log",
+      "bytes": 158,
+      "sha256": "ef6480dcda921a42afc14dc1a1f835d0c14d5ab0e2f474fc17d3fb1dcaece6d2"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-integrated/continuous-furniture/audit.json",
+      "bytes": 9275,
+      "sha256": "668c1698db75b704e7160af2f6484cd713439fa3faab29142ed28c87a013bb1d"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-integrated/continuous-furniture/checks.json",
+      "bytes": 15700,
+      "sha256": "519a29077b099a9b963e087f2de85c332058c6e839032c479fe5903b8a0211f2"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-integrated/continuous-furniture/result.json",
+      "bytes": 1263,
+      "sha256": "23488dcd757c4174aae5eccaa6fed4f5f27fe6d64199fd5fa1a4065fe6a60226"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture/source-pin.json",
+      "bytes": 2013,
+      "sha256": "a155467eb59e4b4ecceb02860186d0e9d2730b6430100e586329ebf28b66786a"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture/result.json",
+      "bytes": 12275,
+      "sha256": "bd802e65d31fcbca43fd7bf5b8919b00658d89d960732d8e53795fdfec693f7a"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture/matrix.json",
+      "bytes": 10769,
+      "sha256": "6a5724a64743c2624ef6c7b6824becf91726bd866eda40f3da7d35a15e0c8008"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture/cleanup.json",
+      "bytes": 186,
+      "sha256": "701614e2a64bf4c63175a1f05c8a74b8072146aefbe4d1e871792cce396954fe"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture/restart.json",
+      "bytes": 2267,
+      "sha256": "fd588f39338d930b5301ce4b80f0a3e0a5220f8962c0b047d501c9845dfb7650"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture/plan.json",
+      "bytes": 26657,
+      "sha256": "476d5918e07447bf3bdf9c2dec773a1bfe81d431eeb4a89c98602bcc520dafe6"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-physical/4cecd10d-continuous-furniture/frames.jsonl",
+      "bytes": 160452682,
+      "sha256": "53870a983eaaa1b35a11b102c92b01adfe555eeaa8fdf2f7e7d314d468cc3637"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-slide/failed-attempts.json",
+      "bytes": 1313,
+      "sha256": "4673a253e122a8a6a405290f61497ba05a7c05c6b19eb433e7461f41f722f887"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-slide/cleanup-verification.json",
+      "bytes": 556,
+      "sha256": "8bb2ded5c577de7a4d00b4e2df81768eaf556b89e46c692dab3c353622e3d230"
+    }
+  ]
+}
