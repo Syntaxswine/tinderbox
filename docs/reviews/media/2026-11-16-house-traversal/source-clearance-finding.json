@@ -1,0 +1,38 @@
+{
+  "classification": "Captured open-door exit snag after a real 20mm walked offset; native solid collision preserved",
+  "packageManifestSha256": "d99c663be72954bcf749e96bb3dd18561055bcc89ed6ac7eb33f290e1d92b2b9",
+  "source": "dist/workbenches/catalogue-modular/house-data.json",
+  "leftSkirtingSurface": "attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/33/wall-4-0-5-0/2/interior-skirting",
+  "rightSkirtingSurface": "attachment/house/gross-housing-hopkins-4-15/0/level-0/0/group/33/wall-4-0-5-0/3/interior-skirting",
+  "innerEdgesLocalX": [4.4925, 5.5075],
+  "skirtingHeightLocalY": [0.48, 0.59],
+  "skirtingDepthLocalZ": [0.0825, 0.1275],
+  "clearGapM": 1.015,
+  "goatDiameterM": 1.0,
+  "exactCentreMarginPerSideM": 0.0075,
+  "authoredRouteLocalX": 5.00375,
+  "authoredRouteMinimumSideMarginM": 0.00375,
+  "capturedWorldPosition": [19.0162502833075, 0.48, 12.775000100064007],
+  "capturedLocalX": 4.9837497166925,
+  "capturedLeftOverlapM": 0.0087502833075,
+  "heldInputDurationWorldSeconds": 1.0666666666666629,
+  "positionExcursionM": 0,
+  "doorState": "Open; real contextual action is Close; occupied-threshold close is disabled",
+  "controlsPassed": [
+    "Native goat selected through real menu",
+    "Real contextual Open from outside",
+    "Walked through entrance",
+    "Real Close and Open from supported inside stance",
+    "Real walked20mm side offset and reversed exit attempt",
+    "All222 captured DOM events trusted"
+  ],
+  "notEstablished": [
+    "Centred return or recovery after snag",
+    "Interior stair ascent or descent in this session",
+    "Shop, keyboard or horse routes",
+    "Exact identity of the owner's original house/backend",
+    "Wall-clock frame rate or phone Safari behavior"
+  ],
+  "minimalProposal": "Artist proposes one additive access variant for the complete front approach and doorway, including posts/rails, jamb/casing, the named interior skirting, supported threshold and actual door poses. Compose or reposition native pieces with matching render/collision/support/fuel data and provenance. Preserve original controls and measured bodies. No collision relaxation, forced escape or shared controller replacement is supported by this capture.",
+  "cleanup": "All contexts closed; browser and driver exited; both ports released; receipt and independent PID/port check verified"
+}
