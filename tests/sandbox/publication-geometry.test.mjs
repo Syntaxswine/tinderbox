@@ -48,3 +48,18 @@ test('reused cell DTO bounds never alias mutable public frame bounds',()=>{
     const b=trial.frame({sharePublicationGeometry:true}).occupancy.find(c=>c.id===a.id);assert.equal(b.bounds,a.bounds);
   }finally{trial.dispose();}
 });
+
+test('cell bounds reuse invalidates on actual mutable coordinates, origin and pitch without changing public values',()=>{
+  const trial=createTrial(createGrayboxData(),{executionCache:true});
+  try{
+    trial.command({type:'match',position:[1,.02,1],energy:1.05});trial.step();
+    const initial=trial.frame({sharePublicationGeometry:true}).occupancy[0],cell=trial.scene.cells.get(initial.id);assert.ok(cell);
+    let previous=initial.bounds;
+    for(const change of [()=>{cell.c[0]++;},()=>{trial.scene.origin[1]+=.125;},()=>{trial.scene.pitch[2]*=2;}]){
+      change();const shared=trial.frame({sharePublicationGeometry:true}).occupancy.find(c=>c.id===initial.id),publicRow=trial.frame().occupancy.find(c=>c.id===initial.id);
+      assert.notEqual(shared.bounds,previous);assert.deepEqual(shared.bounds,publicRow.bounds);assert.ok(Object.isFrozen(shared.bounds));
+      assert.equal(trial.frame({sharePublicationGeometry:true}).occupancy.find(c=>c.id===initial.id).bounds,shared.bounds);
+      previous=shared.bounds;
+    }
+  }finally{trial.dispose();}
+});
