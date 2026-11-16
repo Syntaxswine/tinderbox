@@ -357,10 +357,13 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     if(!b||triangles!==b.triangles)return freezeGeometry(structuredClone(triangles));
     let cached=sampleGeometry.get(triangles);if(!cached||cached.revision!==index.revision){cached={revision:index.revision,value:freezeGeometry(structuredClone(triangles))};sampleGeometry.set(triangles,cached);}return cached.value;
   }
+  function cellBounds(c){
+    const min=[],max=[];for(let i=0;i<c.c.length;i++){min[i]=scene.origin[i]+c.c[i]*scene.pitch[i];max[i]=scene.origin[i]+(c.c[i]+1)*scene.pitch[i];}return {min,max};
+  }
   function publishedBounds(c,share,grid){
-    const make=()=>({min:c.c.map((v,i)=>scene.origin[i]+v*scene.pitch[i]),max:c.c.map((v,i)=>scene.origin[i]+(v+1)*scene.pitch[i])});
-    if(!share)return make();let cached=cellGeometry.get(c);
-    if(!cached||cached.grid!==grid||cached.coords.some((v,i)=>v!==c.c[i])){cached={grid,coords:[...c.c],value:freezeGeometry(make())};cellGeometry.set(c,cached);}return cached.value;
+    if(!share)return cellBounds(c);let cached=cellGeometry.get(c),same=!!cached&&cached.grid===grid&&cached.coords.length===c.c.length;
+    if(same)for(let i=0;i<c.c.length;i++)if(cached.coords[i]!==c.c[i]){same=false;break;}
+    if(!same){cached={grid,coords:[...c.c],value:freezeGeometry(cellBounds(c))};cellGeometry.set(c,cached);}return cached.value;
   }
   function fireSamples({borrowImmutable=false}={}) {
     if(executionCache&&samplesTick===tick&&samplesCache)return borrowImmutable?samplesCache:structuredClone(samplesCache);
