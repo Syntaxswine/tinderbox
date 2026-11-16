@@ -97,6 +97,18 @@ rights status.
 
 ## Focused checks and JPG evidence
 
+The November 16 owner review rejected the initial JPGs from `98c8ae1e`: their
+preview ground was at Y=−0.125 while every real stone solid, the source/scene ground
+and ground-level native feet use Y=0. The preserved rejected images and original
+receipt are in [rejected-ground-datum](rejected-ground-datum/rejection.json).
+[The measured correction](ground-datum-correction.json) changes only the preview
+plane to Y=0; all three asset exports and the completed stair remain unchanged.
+The three corrected JPGs are now in `previews` and `preview.json`. They retain the
+original camera, lighting, exposure, actor poses and shadow settings. All twelve
+stone render/physical minima are Y=0; measured native foot contact error is below
+5e−16 m. The source asset version and all three export hashes remain unchanged.
+
+
 [checks.json](checks.json) records **15 passing checks and 60 passing routes**:
 three native profiles, both directions, and offsets −0.10, −0.05, 0, +0.05 and
 +0.10 m, for the complete chain and kitchen return. Both frozen access125 and
@@ -134,7 +146,7 @@ The one isolated browser session and localhost server have closed. Both task-own
 process identities, their creation times, released ports 4568/4569, removed private
 profile and zero-resource disposal are recorded in
 [helper-retirement.json](helper-retirement.json). The wrapper has an actual
-15-minute retirement deadline and registers each new process lifetime. No helper
+5-minute absolute retirement deadline and registers each new process lifetime. No helper
 is retained. Durable restart source remains in the repository and the ignored local
 helper record identified by the receipt.
 

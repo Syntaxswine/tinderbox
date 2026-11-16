@@ -1,9 +1,13 @@
 {
   "version": 1,
+  "previewRevision": "h15-ground-datum-v2",
+  "rejectedPreviewCommit": "98c8ae1e413df7d8ca0d26b18e8066cad767f2d5",
+  "correction": "Preview plane now uses shared source/scene Y=0; native geometry, actor poses, shadow settings and all three asset exports unchanged.",
   "inputs": {
     "workbenches/catalogue-modular/house-data.json": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c",
     "workbenches/catalogue-modular/scene-data.json": "c8c69e58a14231f887a0f3a2c79867469fb34e52b5980727e85f21c62f160765",
-    "art/source/catalogue-modular/preview-circulation.js": "cf6069d4152e8d24b625d145bbd9eaec5784f7e611c943507002976190f53cef",
+    "workbenches/catalogue-modular/shop-data.json": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5",
+    "art/source/catalogue-modular/preview-circulation.js": "530266ce04bf4ac7ac9183cb1818d4d4f0144260b01a8476ae217cd9ddf30e23",
     "art/source/catalogue-modular/thermal-art.js": "3c344de9b16da0144a693394b4ec10afb0cb049655edca93c3424bc1de30ed6c",
     "src/reuse/characters.js": "46556d86c54107bb71c7899f1ffead5282ea78c03f8dfafdf765ffb4762522aa",
     "src/reuse/bear.js": "aec0122ce2e1df69afd3bd083308dca7da136e2da5dfd6fd157c20c020cea27b"
@@ -32,6 +36,85 @@
         "exposure": 1.05
       },
       "omissions": [],
+      "groundDatum": {
+        "previewRevision": "h15-ground-datum-v2",
+        "sourceY": 0,
+        "planeY": 0,
+        "stoneSolids": [
+          {
+            "id": "entry-step/747",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "entry-step/748",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "entry-step/749",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "entry-step/765",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "entry-step/766",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "entry-step/767",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "circulation150/entry/step-right-747",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "circulation150/entry/step-right-748",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "circulation150/entry/step-right-749",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "circulation150/entry/step-right-765",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "circulation150/entry/step-right-766",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "circulation150/entry/step-right-767",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          }
+        ]
+      },
       "actors": [
         {
           "species": "bear",
@@ -62,7 +145,10 @@
             5,
             0.16,
             -3.1
-          ]
+          ],
+          "feetY": 0.16000000000000003,
+          "expectedSupportY": 0.16,
+          "supportError": 2.7755575615628914e-17
         },
         {
           "species": "goat",
@@ -93,7 +179,10 @@
             7.8,
             0,
             -3
-          ]
+          ],
+          "feetY": 0,
+          "expectedSupportY": 0,
+          "supportError": 0
         }
       ],
       "diagnostics": {
@@ -273,7 +362,7 @@
       "errors": [],
       "image": {
         "path": "docs/art/h15-circulation/previews/exterior.jpg",
-        "sha256": "19ab6ba4af4c9223ea437486175e72a59c821a363736e805f6cb10f8366ee689",
+        "sha256": "a1a818ccaf692c9ebf1dddbdfcea6f3c13649b7611413b546f947619f526f02a",
         "size": [
           1400,
           1050
@@ -301,6 +390,85 @@
         "exposure": 1.05
       },
       "omissions": [],
+      "groundDatum": {
+        "previewRevision": "h15-ground-datum-v2",
+        "sourceY": 0,
+        "planeY": 0,
+        "stoneSolids": [
+          {
+            "id": "entry-step/747",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "entry-step/748",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "entry-step/749",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "entry-step/765",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "entry-step/766",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "entry-step/767",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "circulation150/entry/step-right-747",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "circulation150/entry/step-right-748",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "circulation150/entry/step-right-749",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "circulation150/entry/step-right-765",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "circulation150/entry/step-right-766",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "circulation150/entry/step-right-767",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          }
+        ]
+      },
       "actors": [
         {
           "species": "bear",
@@ -331,7 +499,10 @@
             5,
             0.16,
             -3.1
-          ]
+          ],
+          "feetY": 0.16000000000000003,
+          "expectedSupportY": 0.16,
+          "supportError": 2.7755575615628914e-17
         },
         {
           "species": "goat",
@@ -362,7 +533,10 @@
             7.3,
             0,
             -2.9
-          ]
+          ],
+          "feetY": 0,
+          "expectedSupportY": 0,
+          "supportError": 0
         }
       ],
       "diagnostics": {
@@ -542,7 +716,7 @@
       "errors": [],
       "image": {
         "path": "docs/art/h15-circulation/previews/entry.jpg",
-        "sha256": "6d31157dbbb420f0256d342b2f67657359270d56beec339b4c334fdb23d41284",
+        "sha256": "6035a9e84dd35ac6f348ca0ee6dcba8bdd23df8fafdbb3d8bce08264711dbbb2",
         "size": [
           1400,
           1050
@@ -575,6 +749,85 @@
         "Upper furniture",
         "Non-circulation trim"
       ],
+      "groundDatum": {
+        "previewRevision": "h15-ground-datum-v2",
+        "sourceY": 0,
+        "planeY": 0,
+        "stoneSolids": [
+          {
+            "id": "entry-step/747",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "entry-step/748",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "entry-step/749",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "entry-step/765",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "entry-step/766",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "entry-step/767",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "circulation150/entry/step-right-747",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "circulation150/entry/step-right-748",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "circulation150/entry/step-right-749",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          },
+          {
+            "id": "circulation150/entry/step-right-765",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.16
+          },
+          {
+            "id": "circulation150/entry/step-right-766",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.32
+          },
+          {
+            "id": "circulation150/entry/step-right-767",
+            "physicalMinY": 0,
+            "solidMinY": 0,
+            "topY": 0.48
+          }
+        ]
+      },
       "actors": [
         {
           "species": "bear",
@@ -605,7 +858,10 @@
             5.5,
             1.54,
             4.25
-          ]
+          ],
+          "feetY": 1.5399999999999996,
+          "expectedSupportY": 1.54,
+          "supportError": -4.440892098500626e-16
         },
         {
           "species": "goat",
@@ -636,7 +892,10 @@
             5.5,
             0.48,
             1.1
-          ]
+          ],
+          "feetY": 0.48,
+          "expectedSupportY": 0.48,
+          "supportError": 0
         }
       ],
       "diagnostics": {
@@ -816,7 +1075,7 @@
       "errors": [],
       "image": {
         "path": "docs/art/h15-circulation/previews/stairs.jpg",
-        "sha256": "4355bc43a7a0598fb2c79dd125d1a4e564f13664731dd8106e732c217d48bd93",
+        "sha256": "3cb0f9cb37b7acb3cb824d658d06b92beb133a8994d1aaaef645415934665178",
         "size": [
           1400,
           1050
@@ -834,5 +1093,13 @@
       1050
     ],
     "deviceScaleFactor": 1
+  },
+  "verification": {
+    "sourceExportsByteIdenticalTo4ce": true,
+    "sameCamerasLightingExposureAndActorPosesAsRejectedPreview": true,
+    "allTwelveStoneRenderAndPhysicalMinimaY": 0,
+    "largestNativeFootContactErrorM": 4.440892098500626e-16,
+    "visualReview": "Reviewed exterior, entry and full stair assembly; visible stone ground contact.",
+    "scope": "Static preview-only correction; no source, runtime, terrain placement, body scale or gameplay acceptance change."
   }
 }

@@ -1,0 +1,25 @@
+{
+  "status": "Rejected visual evidence",
+  "commit": "98c8ae1e413df7d8ca0d26b18e8066cad767f2d5",
+  "sourceCommitUnchanged": "4cecd10d09eff85543996d4362c63b2297001436",
+  "reason": "Preview plane was 0.125 m below the actual source/scene/actor datum, making correctly grounded stone and native actors appear to float.",
+  "images": [
+    {
+      "originalPath": "docs/art/h15-circulation/previews/exterior.jpg",
+      "preservedPath": "docs/art/h15-circulation/rejected-ground-datum/exterior.jpg",
+      "sha256": "19ab6ba4af4c9223ea437486175e72a59c821a363736e805f6cb10f8366ee689"
+    },
+    {
+      "originalPath": "docs/art/h15-circulation/previews/entry.jpg",
+      "preservedPath": "docs/art/h15-circulation/rejected-ground-datum/entry.jpg",
+      "sha256": "6d31157dbbb420f0256d342b2f67657359270d56beec339b4c334fdb23d41284"
+    },
+    {
+      "originalPath": "docs/art/h15-circulation/previews/stairs.jpg",
+      "preservedPath": "docs/art/h15-circulation/rejected-ground-datum/stairs.jpg",
+      "sha256": "4355bc43a7a0598fb2c79dd125d1a4e564f13664731dd8106e732c217d48bd93"
+    }
+  ],
+  "originalReceipt": "preview.json",
+  "originalPreviewSource": "preview-circulation.js.txt"
+}

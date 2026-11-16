@@ -15,8 +15,9 @@ $cleanup='C:/Users/baals/Local Storage/AI/GTP/helper-lifecycle/cleanup.py'
 $overlay=Join-Path $recordRoot 'empty-overlay'
 New-Item -ItemType Directory -Force -Path $overlay | Out-Null
 '{"files":[]}' | Set-Content -Encoding utf8 (Join-Path $recordRoot 'runtime-inputs.json')
-$expires=[DateTime]::UtcNow.AddMinutes(15)
-$serverArgs=@('art/source/catalogue-modular/serve-review.mjs','--root','.','--port','4568','--base','/tinderbox/','--ttl','900','--stop-file',$stop,'--overlay',$overlay)
+$expires=[DateTime]::UtcNow.AddMinutes(5)
+$reviewUntil=$expires.AddSeconds(-20)
+$serverArgs=@('art/source/catalogue-modular/serve-review.mjs','--root','.','--port','4568','--base','/tinderbox/','--ttl','300','--stop-file',$stop,'--overlay',$overlay)
 $browserArgs=@('--headless=new','--remote-debugging-address=127.0.0.1','--remote-debugging-port=4569','--disable-background-networking','--disable-default-apps','--disable-extensions','--disable-sync','--no-first-run','--no-default-browser-check','--no-proxy-server','--use-angle=d3d11','--window-size=1400,1050',('--user-data-dir='+$profile),'about:blank')
 $sourceFiles=@('art/source/catalogue-modular/run-circulation-preview.ps1','art/source/catalogue-modular/capture-circulation.mjs','art/source/catalogue-modular/preview-circulation.html','art/source/catalogue-modular/preview-circulation.js','art/source/catalogue-modular/serve-review.mjs','art/source/catalogue-modular/thermal-art.js','src/runtime/three.js','src/reuse/characters.js','src/reuse/bear.js','src/reuse/bear-tools.js','src/reuse/loading.js','package.json','workbenches/catalogue-modular/house-data.json') | ForEach-Object {Join-Path $taskRoot $_}
 $restart=@{cwd=$taskRoot;executable=$nodeExe;args=@('art/source/catalogue-modular/capture-circulation.mjs');dependencies=@('Node >=22','Installed Chrome native WebGL','Git source 4cecd10d plus these preview sources');inputs=@('workbenches/catalogue-modular/house-data.json','Local vendored textures/native rigs');outputs=@('docs/art/h15-circulation/previews','docs/art/h15-circulation/preview.json');pendingWork='Deliberately run the wrapper to reproduce static source views; no automatic restart.';secretReferences=@()}
@@ -33,8 +34,8 @@ try{
  if($LASTEXITCODE -ne 0){throw 'Preview browser registration failed.'}
  & $nodeExe art/source/catalogue-modular/capture-circulation.mjs
  if($LASTEXITCODE -ne 0){throw 'Static capture failed; preserve failure record.'}
- Write-Output 'Images ready; one source preview remains only during active visual review, hard expiry 15 minutes.'
- while(-not(Test-Path -LiteralPath $done) -and [DateTime]::UtcNow -lt $expires -and -not $browser.HasExited){Start-Sleep -Milliseconds 500}
+ Write-Output 'Images ready; one source preview remains only during active visual review, hard expiry 5 minutes.'
+ while(-not(Test-Path -LiteralPath $done) -and [DateTime]::UtcNow -lt $reviewUntil -and -not $browser.HasExited){Start-Sleep -Milliseconds 500}
 }finally{
  if($browser -and -not $browser.HasExited){try{& $nodeExe art/source/catalogue-modular/capture-circulation.mjs --close | Out-Null}catch{};if(-not $browser.WaitForExit(5000)){$live=Get-Process -Id $browser.Id -ErrorAction SilentlyContinue;if($live -and $live.StartTime.ToUniversalTime() -eq $browserTime -and $live.Path -eq $chromeExe){$browser.Kill();$browser.WaitForExit(5000)|Out-Null}}}
  if($server){Set-Content -LiteralPath $stop -Encoding ascii -Value 'review ended';if(-not $server.WaitForExit(6000)){throw 'Source-preview server did not honor stop file.'}}
