@@ -65,6 +65,19 @@ test('owner publication uses only fresh boundary/occupancy rows and preserves tr
  }finally{provider.dispose();}
 });
 
+test('owner hits read current map values without rewriting, while falsey misses preserve fallback and collection insertion order',()=>{
+ const f=fixture(),compiled=compileCatalogueModules(f.manifest,f.sources,f.host),state={player:{id:'hero',x:20,y:18,elevation:0},actors:[],tick:0,generation:0,clocks:{world:0}},provider=createCatalogueThermal({compiled,state,definition:f.host,config:DEFAULT_CONFIG,event:()=>{}}),nativeFrame=provider.trial.frame;
+ const boundaryId='publication-owner-probe-boundary',eventId='publication-owner-probe-event',originalSet=Map.prototype.set;let ownerMap;const writes=[];
+ provider.trial.frame=options=>{const frame=nativeFrame(options),boundary={id:boundaryId,sourceSurfaceId:'bell-and-alder::probe',kind:'floor',triangles:[],intact:true};frame.boundaries.push(boundary);frame.supports.push(boundary);frame.events.push({id:eventId,sourceSurfaceId:'hopkins-fifteen::probe'});return frame;};
+ Map.prototype.set=function(key,value){if(key===boundaryId)ownerMap=this;if(this===ownerMap&&(key===boundaryId||key===eventId))writes.push([key,value]);return originalSet.call(this,key,value);};
+ try{
+  const first=provider.physicalFrame();assert.ok(ownerMap);assert.deepEqual(writes,[[boundaryId,'bell-and-alder'],[eventId,'hopkins-fifteen']]);
+  const order=[...ownerMap.keys()];assert.ok(order.indexOf(boundaryId)<order.indexOf(eventId));assert.notEqual(first.supports.at(-1),first.boundaries.at(-1));
+  writes.length=0;originalSet.call(ownerMap,boundaryId,'hopkins-fifteen');state.tick++;const hit=provider.physicalFrame();assert.equal(hit.boundaries.at(-1).ownerInstanceId,'hopkins-fifteen');assert.equal(hit.supports.at(-1).ownerInstanceId,'hopkins-fifteen');assert.deepEqual(writes,[]);assert.deepEqual([...ownerMap.keys()],order);
+  for(const value of ['',0,false,null,undefined]){writes.length=0;originalSet.call(ownerMap,boundaryId,value);state.tick++;const miss=provider.physicalFrame();assert.equal(miss.boundaries.at(-1).ownerInstanceId,'bell-and-alder');assert.deepEqual(writes,[[boundaryId,'bell-and-alder']]);assert.deepEqual([...ownerMap.keys()],order);}
+ }finally{Map.prototype.set=originalSet;provider.dispose();}
+});
+
 test('a real native match on inert paving heats and damages without falsely setting the player ablaze',()=>{
  const f=fixture(),sim=createSimulation({scenario:'neighborhood',characterId:'goat',catalogueModules:compileCatalogueModules(f.manifest,f.sources,f.host)});
  try{

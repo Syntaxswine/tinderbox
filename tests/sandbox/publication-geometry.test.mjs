@@ -4,6 +4,35 @@ import {createTrial} from '../../workbenches/furnished-house/simulation.js';
 import {createGrayboxData} from '../../workbenches/bell-and-alder-closing/graybox-data.js';
 import {add,sub,mul,dot,bounds} from '../../workbenches/furnished-house/geometry.js';
 
+function orderedPublicationData(){
+  const floor=(id,x)=>({id,kind:'floor',material:'timber',fuelClass:'frame',fuelAmount:1,normal:[0,1,0],thickness:.12,triangles:[[[x,0,0],[x,0,.4],[x+.4,0,.4]],[[x,0,0],[x+.4,0,.4],[x+.4,0,0]]]});
+  return {version:1,prefabId:'publication-order',surfaces:[floor('first',0),floor('second',3)],items:[],furnitureParts:[],stores:[],openings:[],sourceMeshes:[],render:{materials:[],geometry:[]}};
+}
+
+test('full canonical order and reverse dirty insertion order preserve support aliases in both publication modes',()=>{
+  for(const executionCache of [false,true])for(const sharePublicationGeometry of [false,true]){
+    const trial=createTrial(orderedPublicationData(),{executionCache,profiles:{frame:{threshold:99,delay:100}}});
+    try{
+      const canonical=[...trial.scene.index.surfaces.values()],expected=canonical.map(b=>b.id),full=trial.frame({sharePublicationGeometry});assert.deepEqual(full.boundaries.map(b=>b.id),expected);
+      assert.deepEqual(full.supports.map(b=>b.id),canonical.filter(b=>b.supports).map(b=>b.id));
+      for(const row of full.supports)assert.equal(row,full.boundaries.find(b=>b.id===row.id));
+      const fuelBoundaries=canonical.filter(b=>b.fuelId).reverse();assert.equal(fuelBoundaries.length,2);
+      for(const b of fuelBoundaries)trial.command({type:'heat',position:trial.scene.fuels.get(b.fuelId).cells[0].position,energy:1.05});
+      trial.step();const delta=trial.frame({sharePublicationGeometry});assert.equal(delta.full,false);assert.deepEqual(delta.boundaries.map(b=>b.id),fuelBoundaries.map(b=>b.id));assert.deepEqual(delta.supports.map(b=>b.id),fuelBoundaries.map(b=>b.id));
+      for(let i=0;i<delta.supports.length;i++)assert.equal(delta.supports[i],delta.boundaries[i]);
+      assert.deepEqual(trial.frame({full:true,sharePublicationGeometry}).boundaries.map(b=>b.id),expected);
+    }finally{trial.dispose();}
+  }
+});
+
+test('a missing dirty canonical boundary still fails instead of silently dropping its publication',()=>{
+  const trial=createTrial(orderedPublicationData(),{executionCache:true,profiles:{frame:{threshold:99,delay:100}}});
+  try{
+    trial.frame();const b=[...trial.scene.index.surfaces.values()].find(b=>b.fuelId);trial.command({type:'heat',position:trial.scene.fuels.get(b.fuelId).cells[0].position,energy:1.05});trial.step();trial.scene.index.surfaces.delete(b.id);
+    assert.throws(()=>trial.frame({sharePublicationGeometry:true}),{name:'TypeError'});
+  }finally{trial.dispose();}
+});
+
 test('real shared publication geometry preserves exact native states, frame deltas, falls, spill and door events',()=>{
   const options={rules:{raysPerTick:1,radiantMaxAge:.05},profiles:{frame:{threshold:.4,delay:.05,seconds:.3,energy:1},clapboard:{threshold:.4,delay:.05,seconds:.3,energy:1}}};
   const reference=createTrial(createGrayboxData(),options),shared=createTrial(createGrayboxData(),{...options,executionCache:true});
