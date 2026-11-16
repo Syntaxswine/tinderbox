@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {EventEmitter} from 'node:events';
 import {createHash} from 'node:crypto';
-import {createPageContextOwner,runIsolatedLanes,endpointStateSha256,scalarWorkload,assertScalarWorkload} from '../../tools/review/browser-lanes.mjs';
+import {createPageContextOwner,runIsolatedLanes,endpointStateSha256,scalarWorkload,assertScalarWorkload,fireComparisonMode} from '../../tools/review/browser-lanes.mjs';
 
 function fixture({onPage=()=>{},failRoute=false}={}){
   const log=[],contexts=[];
@@ -69,4 +69,14 @@ test('scalar checks preserve every row and reject clock, upload or workload drif
   assertScalarWorkload([{...row,artMs:20}],[row]);assert.ok(!Object.hasOwn(scalarWorkload(row),'artMs'));
   for(const key of ['nativeTick','uploadBytes','sourceCount'])assert.throws(()=>assertScalarWorkload([{...row,[key]:row[key]+1}],[row]),/Unchanged scalar/);
   assert.throws(()=>assertScalarWorkload([],[row]),/Unchanged scalar/);
+});
+
+test('quality-only selects exactly reference then candidate without a CPU comparison while existing orders stay unchanged',()=>{
+  const quality=fireComparisonMode(['--quality-only']);assert.deepEqual(quality.order,['reference','candidate']);assert.equal(quality.qualityOnly,true);assert.equal(quality.compareCpu,false);assert.equal(quality.profileOnly,false);assert.equal(quality.isolatedTiming,false);
+  for(const flags of [[],['--isolated-timing']]){const mode=fireComparisonMode(flags);assert.deepEqual(mode.order,['reference','candidate','candidate','reference']);assert.equal(mode.compareCpu,true);}
+  const profile=fireComparisonMode(['--cpu-profile']);assert.deepEqual(profile.order,['candidate']);assert.equal(profile.compareCpu,false);
+});
+
+test('quality, isolated timing and CPU profile flags cannot be combined',()=>{
+  for(const flags of [['--quality-only','--isolated-timing'],['--quality-only','--cpu-profile'],['--isolated-timing','--cpu-profile'],['--quality-only','--isolated-timing','--cpu-profile']])assert.throws(()=>fireComparisonMode(flags),/mutually exclusive/);
 });
