@@ -99,13 +99,13 @@ export function createCatalogueThermal({compiled,state,definition,config,event,o
     // The host owns explosive-barrel retirement between native steps. Publish
     // the same live inert boundary state even before the next thermal tick.
     for(const b of hostBoundaryUpdates.values())if(!frame.boundaries.some(row=>row.id===b.id))frame.boundaries.push({id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:0,heatFraction:0,fuelFraction:1});hostBoundaryUpdates.clear();
-    const owner=r=>owners.get(r.id)||named(r.sourceSurfaceId)||named(r.itemId)||named(r.originalSourceSurfaceId)||(r.fuelIds||[]).map(id=>owners.get(id)||named(id)).find(Boolean)||named(r.supportBoundaryId)||'terrain';
+    const owner=r=>{const cached=owners.get(r.id);if(cached)return cached;const value=named(r.sourceSurfaceId)||named(r.itemId)||named(r.originalSourceSurfaceId)||(r.fuelIds||[]).map(id=>owners.get(id)||named(id)).find(Boolean)||named(r.supportBoundaryId)||'terrain';owners.set(r.id,value);return value;};
     for(const key of collections){
       // Trial.frame creates these boundary/occupancy DTO rows for this call
       // alone. Supports are cloned afterward to separate their aliased rows;
       // events belong to the trial and fire samples may be borrowed frozen.
-      if(key==='boundaries'||key==='occupancy'){for(const row of frame[key]){const ownerInstanceId=owner(row);owners.set(row.id,ownerInstanceId);row.ownerInstanceId=ownerInstanceId;}continue;}
-      frame[key]=(frame[key]||[]).map(r=>{const ownerInstanceId=owner(r);owners.set(r.id,ownerInstanceId);return {...r,ownerInstanceId,...(key==='fireSamples'?{buildingId:ownerInstanceId,fuelClass:trial.scene.fuels.get(r.id)?.cls??null}:{})};});
+      if(key==='boundaries'||key==='occupancy'){for(const row of frame[key]){row.ownerInstanceId=owner(row);}continue;}
+      frame[key]=(frame[key]||[]).map(r=>{const ownerInstanceId=owner(r);return {...r,ownerInstanceId,...(key==='fireSamples'?{buildingId:ownerInstanceId,fuelClass:trial.scene.fuels.get(r.id)?.cls??null}:{})};});
     }
     frame.catalogueModules={version:1,generation:state.generation,representation:compiled.representation,instances:compiled.data.catalogueModules.instances,lantern:lantern?structuredClone(lantern):null,actors:[state.player,...state.actors].map(a=>({id:a.id,characterId:a.characterId||a.species,position:xyz(a),heading:a.heading,radius:a.radius,height:a.height||1.66})),hostTick:state.tick,hostWorldTime:state.clocks.world,nativeTick:trial.tick,nativeWorldTime:trial.worldTime,residual};cachedFrame=frame;frameHostTick=state.tick;timing.physicalPublicationMs=now()-before;hostWork.physicalPublicationMs+=timing.physicalPublicationMs;return frame;
   }
