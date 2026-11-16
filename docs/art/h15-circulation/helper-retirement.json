@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "scope": "Single finite static asset review; no helper retained. First startup corrected registration.args before any browser launch.",
+  "retirement": {
+    "restart": "artifacts/helpers/h15-circulation-preview/restart.json",
+    "retiredAt": "2026-11-16T20:27:08.0799270Z",
+    "server": {
+      "creationTime": "2026-11-16T20:23:59.8382277Z",
+      "pid": 69648,
+      "exited": true
+    },
+    "profileRemoved": true,
+    "task": "H15 source-asset preview",
+    "portsReleased": true,
+    "browser": {
+      "creationTime": "2026-11-16T20:24:05.4362883Z",
+      "pid": 30388,
+      "exited": true
+    }
+  },
+  "disposal": {
+    "disposal": {
+      "art": {
+        "geometries": 0,
+        "materials": 0,
+        "textures": 0
+      },
+      "kits": [
+        {
+          "disposed": true,
+          "sourceCommit": "4f5f53917990ec03b2f14c65f067e4b99ec8fcaa",
+          "appearance": "normal",
+          "baseUrl": "http://127.0.0.1:4568/tinderbox/vendor/animal-factory-tactics-3d/4f5f53917990ec03b2f14c65f067e4b99ec8fcaa/dist/assets/",
+          "instances": 0
+        },
+        {
+          "disposed": true,
+          "characterId": "goat",
+          "species": "goat",
+          "sourceCommit": "30a3b8cae5f36bb0c1df3685b7fba16f701c2083",
+          "instances": 0
+        }
+      ],
+      "errors": []
+    },
+    "errors": []
+  },
+  "localRestartRecord": "artifacts/helpers/h15-circulation-preview/restart.json",
+  "localFinalSourceSnapshot": "artifacts/helpers/h15-circulation-preview/final-source.json"
+}

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "contract": "32576da673524a5bbff39ea556976ab24e0310fd",
-  "status": "Source geometry, support, navigation and render registration controls passed; static JPG review and actual-input destination acceptance pending.",
+  "status": "Source controls and static source JPG review passed; actual contextual/input destination acceptance remains coder/architect-owned.",
   "basis": "Immutable access125 control and original native stock; M27 unchanged",
   "variant": "catalogue-h15-circulation-150-v1",
   "doorGroup": {
@@ -321,5 +321,8 @@
   "reproduce": [
     "node art/source/catalogue-modular/export-circulation.mjs",
     "node art/source/catalogue-modular/check-h15-circulation.mjs"
-  ]
+  ],
+  "sourceCheckpoint": "4cecd10d09eff85543996d4362c63b2297001436",
+  "staticEvidence": "docs/art/h15-circulation/preview.json",
+  "helperRetired": "docs/art/h15-circulation/helper-retirement.json"
 }
