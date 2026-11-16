@@ -38,8 +38,8 @@ export function surfaceTangentRange(triangles,nx,nz,prepared){
  else for(const t of triangles)for(const p of t){const a=p[0]*tx+p[2]*tz;min=Math.min(min,a);max=Math.max(max,a);}
  const range={tx,tz,min,max};if(prepared)prepared.tangentRange=range;return range;
 }
-function groupSamples(samples){
- const groups=new Map();for(const q of samples){const id=surfaceSampleGroupKey(q);if(id===null)continue;if(!groups.has(id))groups.set(id,[]);groups.get(id).push(q);}return groups;
+function groupSamples(samples,keyForSample=surfaceSampleGroupKey){
+ const groups=new Map();for(const q of samples){const id=keyForSample(q);if(id===null)continue;if(!groups.has(id))groups.set(id,[]);groups.get(id).push(q);}return groups;
 }
 function connectGroup(id,list){
  const values=list.map(()=>({overlapGroup:id,overlapSources:list.length}));
@@ -54,14 +54,54 @@ function connectGroup(id,list){
  }
  return values;
 }
-function applyGroup(list,values){for(let i=0;i<list.length;i++)Object.assign(list[i],values[i]);}
+function applyGroup(list,values){
+ for(let i=0;i<list.length;i++){
+  const q=list[i],value=values[i];q.overlapGroup=value.overlapGroup;q.overlapSources=value.overlapSources;
+  // Only own result fields overwrite current radii. The chained assignment in
+  // connectGroup inserts supportRadius before floorRadius; retain that order.
+  if(Object.hasOwn(value,'tangentRadius'))q.tangentRadius=value.tangentRadius;
+  if(Object.hasOwn(value,'supportRadius'))q.supportRadius=value.supportRadius;
+  if(Object.hasOwn(value,'floorRadius'))q.floorRadius=value.floorRadius;
+ }
+}
 export function connectSurfaceSamples(samples){
  for(const [id,list]of groupSamples(samples))if(list.length>1)applyGroup(list,connectGroup(id,list));return samples;
 }
 // One latest entry per current group, storing only geometry and primitive inputs.
 // List order is included because rounded duplicate triangles retain the first face.
 export function createSurfaceSampleConnector(){
- let entries=new Map(),hits=0,computations=0;
+ let entries=new Map(),hits=0,computations=0,owners=new WeakSet();
+ const keySlot=Symbol('source grouping keys');
+ let keyCounts={contextBuilds:0,contextHits:0,exactBuilds:0,exactHits:0};
+ function preparedKey(q,owner,context){
+  // Eligibility remains live, including a source that stops flaming or becomes
+  // an item/vent. Cache only detached primitives, never samples or geometry.
+  if(!(q.flame>0)||!q.supportTriangles?.length||q.itemId||q.vent)return null;
+  const part=q.part,level=q.presentationLevel,x=q.x,y=q.y,z=q.z,nx=q.nx,ny=q.ny,nz=q.nz,
+   lo=part==='walls'?q.supportBounds.min[1]:undefined,hi=part==='walls'?q.supportBounds.max[1]:undefined;
+  if(typeof part!=='string'||typeof level!=='number'||typeof x!=='number'||typeof y!=='number'||typeof z!=='number'||typeof nx!=='number'||typeof ny!=='number'||typeof nz!=='number'||part==='walls'&&(typeof lo!=='number'||typeof hi!=='number'))
+   return context?surfaceSampleContextKey(q):surfaceSampleGroupKey(q);
+  const anchored=context&&!!q.anchorFootprint,slot=context?'context':'exact',
+   cache=owner[keySlot]||(owner[keySlot]={context:null,exact:null}),old=cache[slot];
+  if(old&&old.part===part&&Object.is(old.level,level)&&Object.is(old.x,x)&&Object.is(old.y,y)&&Object.is(old.z,z)&&Object.is(old.nx,nx)&&Object.is(old.ny,ny)&&Object.is(old.nz,nz)&&Object.is(old.lo,lo)&&Object.is(old.hi,hi)&&old.anchored===anchored){
+   if(context)keyCounts.contextHits++;else keyCounts.exactHits++;return old.value;
+  }
+  const n=[nx,ny,nz],value=anchored?[part,level,...n.map(v=>Math.round(v*1000))].join('/'):
+   [part,level,...n.map(v=>Math.round(v*1000)),Math.round((n[0]*x+n[1]*y+n[2]*z)*1000),...(part==='walls'?[lo,hi].map(v=>Math.round(v*1000)):[])].join('/');
+  cache[slot]={part,level,x,y,z,nx,ny,nz,lo,hi,anchored,value};
+  if(context)keyCounts.contextBuilds++;else keyCounts.exactBuilds++;return value;
+ }
+ function contextKey(q,owner){
+  // The renderer explicitly supplies its private current-source entry. Merely
+  // adding preparationOwner to a standalone helper's input does not opt it in.
+  if(!owner||typeof owner!=='object'||owner!==q.preparationOwner)return surfaceSampleContextKey(q);
+  if(!owners.has(owner)){
+   if(Object.getPrototypeOf(owner)!==Object.prototype||!Object.isExtensible(owner))return surfaceSampleContextKey(q);
+   owners.add(owner);
+  }
+  return preparedKey(q,owner,true);
+ }
+ function groupKey(q){const owner=q.preparationOwner;return owner&&owners.has(owner)?preparedKey(q,owner,false):surfaceSampleGroupKey(q);}
  function same(saved,list){return saved.length===list.length&&saved.every((p,i)=>{
   const q=list[i];if(p.id!==q.id||p.x!==q.x||p.z!==q.z||p.nx!==q.nx||p.nz!==q.nz)return false;
   if(q.supportGeometry)return p.geometry===q.supportGeometry;
@@ -72,12 +112,12 @@ export function createSurfaceSampleConnector(){
   ...(q.supportGeometry?{geometry:q.supportGeometry}:{coordinates:new Float64Array(q.supportTriangles.flat(2))})};}
  function connect(samples){
   const next=new Map();hits=computations=0;
-  for(const [id,list]of groupSamples(samples)){
+  for(const [id,list]of groupSamples(samples,groupKey)){
    if(list.length<2)continue;let entry=entries.get(id);
    if(entry&&same(entry.inputs,list))hits++;else{entry={inputs:list.map(snapshot),values:connectGroup(id,list)};computations++;}
    applyGroup(list,entry.values);next.set(id,entry);
   }
   entries=next;return samples;
  }
- return {connect,clear(){entries.clear();hits=computations=0;},diagnostics(){return {entries:entries.size,hits,computations};}};
+ return {contextKey,connect,clear(){entries.clear();owners=new WeakSet();hits=computations=0;keyCounts={contextBuilds:0,contextHits:0,exactBuilds:0,exactHits:0};},diagnostics(){return {entries:entries.size,hits,computations,keys:{...keyCounts}};}};
 }
