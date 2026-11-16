@@ -6,25 +6,38 @@ import {execFileSync} from 'node:child_process';
 import {withCatalogueBrowser} from './catalogue-browser.mjs';
 import {installStartupGpuLedger} from './startup-gpu-ledger.mjs';
 import {summarizeFireCpuProfile} from './fire-cpu-profile.mjs';
+import {runIsolatedLanes,endpointStateSha256,assertScalarWorkload} from './browser-lanes.mjs';
 
 const output=path.resolve(process.argv[2]||'artifacts/qa/fire-half-cost/comparison');
 const profileOnly=process.argv.includes('--cpu-profile');
+const isolatedTiming=process.argv.includes('--isolated-timing');
+assert.ok(!(profileOnly&&isolatedTiming),'The isolation comparison is separate from CPU profiling');
+if(isolatedTiming){assert.ok(process.argv[2]&&!process.argv[2].startsWith('--'),'Isolation control requires a new explicit output directory');assert.ok(!fs.existsSync(output)||!fs.readdirSync(output).length,'Isolation output must be new; earlier evidence is never overwritten');}
+const endpointHash='e211d18f739bab4bfa9a8eb006474ff8c61242d4db5368c16e0c6a65c8da845d',fixedCandidateManifest='2a9e7625087815840bc5ac316f8c011b6c0d40618cac6a35eb37ec9001559b43';
+const evidence={};
+if(isolatedTiming)for(const [lane,file,digest]of [['reference','1-reference-samples.json','32ca07dc9d37f2ea5127613545a9bd7989f81f7abbfb85977896c050fbee0116'],['candidate','2-candidate-samples.json','4025f2e1d3f0545b15320bff29ca75273a9f403830e356622a7d95128b7da698']]){
+ const relative='artifacts/qa/fire-half-cost/comparison-round5/browser-helper/'+file,bytes=fs.readFileSync(relative);assert.equal(createHash('sha256').update(bytes).digest('hex'),digest,'Frozen round5 scalar evidence');evidence[lane]={path:relative,sha256:digest,data:JSON.parse(bytes)};
+}
 fs.mkdirSync(output,{recursive:true});
 const original=JSON.parse(fs.readFileSync(new URL('./fire-half-cost-inputs.json',import.meta.url))),referenceRecord={base:original.sourceRecording.profilerCommit,manifestSha256:original.sourceRecording.referenceManifestSha256,path:'artifacts/qa/fire-half-cost/reference-package'};
 const save=(name,value)=>fs.writeFileSync(path.join(output,name),JSON.stringify(value,null,2)+'\n'),sha=value=>createHash('sha256').update(value).digest('hex');
 assert.equal(sha(JSON.stringify(original.commands)),original.commandsSha256,'Unchanged recorded input prefix');
 const windows=original.windows;
 save('workload.json',{source:'One recorded current-production normal input sequence; no old thermal packets/timing values are replayed',commands:original.commands,windows,primary:{name:'growing-later',nativeTicks:[721,780],world:[24.03333333333325,25.999999999999805],count:60,meanBudget:14.025,p95Budget:17.55,pairedRatio:.5},snapshotRetention:'latest snapshot and scalar rows only during live timing'});
-const sources=['tools/review/fire-half-cost-compare.mjs','tools/review/fire-cpu-profile.mjs','tools/review/fire-half-cost-inputs.json','tools/review/catalogue-browser.mjs','tools/review/startup-gpu-ledger.mjs'];
+if(isolatedTiming)save('isolation-protocol.json',{scope:'Tooling-only harness interference control; no production saving is attributed to the protocol',candidateManifestSha256:fixedCandidateManifest,reference:referenceRecord,order:['reference','candidate','candidate','reference'],contexts:'Fresh context/page per lane; awaited close before next create',observations:'Original scalar observer and GPU timing unchanged',endpoint:'One in-page canonical JSON/SHA only after each lane final timing/query flush; only digest/scalars returned',endpointSha256:endpointHash,optionalCapture:'None; prior round5 intermediate states, JPGs and temporal controls are byte-identical production evidence',evidence:Object.fromEntries(Object.entries(evidence).map(([lane,r])=>[lane,{path:r.path,sha256:r.sha256}])),limits:'Browser GPU process caches and external OS load remain shared/unknown'});
+const sources=['tools/review/fire-half-cost-compare.mjs','tools/review/fire-cpu-profile.mjs','tools/review/fire-half-cost-inputs.json','tools/review/catalogue-browser.mjs','tools/review/browser-lanes.mjs','tools/review/startup-gpu-ledger.mjs'];
 for(const file of sources){const dest=path.join(output,'restart-source',file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(file,dest);}
 fs.writeFileSync(path.join(output,'restart-source','changes.patch'),execFileSync('git',['diff','--binary']));
 save('restart.json',{owner:'Coder Tinderbox',purpose:'M27 single live scalar-only counterbalanced comparison',base:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),runtime:process.version,cwd:process.cwd(),sources,reference:referenceRecord,automaticRestart:false});
 
-await withCatalogueBrowser(async({page,baseUrl,referenceBaseUrl,referenceManifestSha256,manifestSha256,save:browserSave,errors})=>{
+await withCatalogueBrowser(async({page:initialPage,pageContext,createPageContext,contextDiagnostics,baseUrl,referenceBaseUrl,referenceManifestSha256,manifestSha256,save:browserSave,errors})=>{
  assert.equal(referenceManifestSha256,referenceRecord.manifestSha256);
- page.setDefaultTimeout(180000);await page.addInitScript({content:'('+installStartupGpuLedger.toString()+')()'});
+ if(isolatedTiming)assert.equal(manifestSha256,fixedCandidateManifest,'Unchanged round5 production package');
+ let page=initialPage;const preparedPages=new WeakSet(),deferredSaves=[];
  let expectedBase;const imports=new Set(),crossPackage=[],laneImports=[];
- page.on('request',request=>{const url=request.url();if(expectedBase&&/^https?:/.test(url)){if(!url.startsWith(expectedBase))crossPackage.push(url);else if(new URL(url).pathname.endsWith('.js'))imports.add(url);}});
+ async function preparePage(current){page=current;if(preparedPages.has(current))return;preparedPages.add(current);page.setDefaultTimeout(180000);await page.addInitScript({content:'('+installStartupGpuLedger.toString()+')()'});page.on('request',request=>{const url=request.url();if(expectedBase&&/^https?:/.test(url)){if(!url.startsWith(expectedBase))crossPackage.push(url);else if(new URL(url).pathname.endsWith('.js'))imports.add(url);}});}
+ await preparePage(initialPage);
+ const progress=value=>isolatedTiming?console.log(JSON.stringify(value)):save('progress.json',value);
  const runs=[],canonical=new Map(),commandMap=new Map();
  const profiler=profileOnly?await page.context().newCDPSession(page):null;let cpuSummary;
  if(profiler){await profiler.send('Profiler.enable');await profiler.send('Profiler.setSamplingInterval',{interval:250});await profiler.send('Performance.enable',{timeDomain:'timeTicks'});}
@@ -88,6 +101,12 @@ await withCatalogueBrowser(async({page,baseUrl,referenceBaseUrl,referenceManifes
   return {name,stateSha256:digest,worldTime:data.worldTime,nativeTick:data.nativeTick};
  }
 
+ async function scalarCheckpoint(lane,name){
+  const value=await page.evaluate(()=>({row:qa.rows.at(-1),viewport:qa.metrics.viewport})),expected=evidence[lane].data.rows.find(r=>r.window===name&&r.hostTick===range(name).last);
+  assert.ok(expected);assertScalarWorkload([value.row],[expected]);assert.deepEqual(value.viewport,{width:1280,height:494});
+  return {name,scope:'Scalar clocks/workload only; no intermediate snapshot/diagnostics/capture',hostTick:value.row.hostTick,nativeTick:value.row.nativeTick,worldTime:value.row.worldTime,viewport:value.viewport};
+ }
+
  async function qualityClip(run){
   await page.evaluate(()=>{
    const stream=qa.renderer.domElement.captureStream(30),type=['video/webm;codecs=vp9','video/webm;codecs=vp8'].find(t=>MediaRecorder.isTypeSupported(t));qa.clip={stream,chunks:[],rows:[]};
@@ -101,9 +120,10 @@ await withCatalogueBrowser(async({page,baseUrl,referenceBaseUrl,referenceManifes
   fs.writeFileSync(path.join(output,run+'-temporal.webm'),Buffer.from(clip.base64,'base64'));delete clip.base64;browserSave(run+'-temporal.json',clip);
  }
 
- for(const [index,lane]of (profileOnly?['candidate']:['reference','candidate','candidate','reference']).entries()){
-  const run=(index+1)+'-'+lane;save('progress.json',{phase:'starting',run});const camera=await start(lane),checks=[];
+ async function runLane(index,lane){
+  const run=(index+1)+'-'+lane;progress({phase:'starting',run});const camera=await start(lane),checks=[];
   await page.evaluate(async profileOnly=>{qa.window=profileOnly?null:'quiet';for(let i=0;i<60;i++){qa.step();await new Promise(requestAnimationFrame);}qa.window=null;await qa.flush();qa.send({type:'reset'});qa.step();},profileOnly);
+  if(isolatedTiming){const quiet=await page.evaluate(()=>qa.rows.filter(r=>r.window==='quiet'));assertScalarWorkload(quiet,evidence[lane].data.rows.filter(r=>r.window==='quiet'));}
   for(let i=0;i<boundaries.length-1;i++){
    const first=Math.max(boundaries[i],await page.evaluate(()=>qa.snap.tick+1)),last=boundaries[i+1]-1;if(first>last)continue;
    const window=windows.find(w=>w.generation===1&&first>=w.first&&first<=w.last)?.name??null;
@@ -117,16 +137,31 @@ await withCatalogueBrowser(async({page,baseUrl,referenceBaseUrl,referenceManifes
    }
    await page.evaluate(async({batch,window,profileOnly})=>{qa.window=profileOnly&&window!=='growing-later'?null:window;for(const row of batch){if(qa.snap.tick+1!==row.tick)throw Error('Frozen host input cadence mismatch');for(const command of row.commands)qa.send(command);qa.step();if(window||row.tick%20===0)await new Promise(requestAnimationFrame);}qa.window=null;await qa.flush();},{batch,window,profileOnly});
    if(calibration){const {profile}=await profiler.send('Profiler.stop'),ranges=await page.evaluate(()=>{qa.cpuProfileActive=false;return qa.cpuRanges;});save('cpu-profile.json',profile);save('cpu-ranges.json',{calibration,ranges});cpuSummary=summarizeFireCpuProfile(profile,ranges,calibration.navigationStartSeconds);save('cpu-summary.json',cpuSummary);}
-   if(window){if(!profileOnly)checks.push(await checkpoint(run,window));save('progress.json',{phase:window,run,lastHostTick:last});}
+   if(window){if(!profileOnly)checks.push(isolatedTiming?await scalarCheckpoint(lane,window):await checkpoint(run,window));progress({phase:window,run,lastHostTick:last});}
   }
   const data=await page.evaluate(()=>({rows:qa.rows.map(r=>({...r,gpuMs:qa.gpu.get(r.generation+':'+r.hostTick)??null})),hardware:{renderer:qa.metrics.rendererDescription,userAgent:navigator.userAgent,timerQuery:!!qa.ext},heap:performance.memory?.usedJSHeapSize,retainedSnapshotHistory:0}));
+  const record={run,lane,camera,checks,...data};if(isolatedTiming)deferredSaves.push([run+'-samples.json',record]);
   const primary=data.rows.filter(r=>r.window==='growing-later'&&r.primary);assert.deepEqual(primary.map(r=>r.nativeTick),Array.from({length:60},(_,i)=>721+i));assert.ok(primary.every(r=>!r.paused));if(data.hardware.timerQuery)assert.ok(data.rows.filter(r=>r.primary).every(r=>Number.isFinite(r.gpuMs)));
-  browserSave(run+'-samples.json',{run,lane,camera,checks,...data});runs.push({run,lane,...data});
-  if(index<2&&!profileOnly)await qualityClip(run);
-  const cleanup=await page.evaluate(()=>{const runtime=qa.app.visit();qa.app.dispose();const art=runtime.artDiagnostics();qa.snap=null;qa.profile=null;qa.camera=null;qa.renderer=null;return {art};});await page.waitForTimeout(100);cleanup.gpu=await page.evaluate(()=>window.__startupGpu());assert.ok(cleanup.gpu.contexts.every(c=>c.lost&&c.logicalBytes===0));browserSave(run+'-disposed.json',cleanup);
+  if(isolatedTiming){
+   assertScalarWorkload(data.rows,evidence[lane].data.rows);assert.deepEqual(data.hardware,evidence[lane].data.hardware);assert.deepEqual(camera,evidence[lane].data.camera);
+   data.endpointStateSha256=await page.evaluate(endpointStateSha256,{base:expectedBase});record.endpointStateSha256=data.endpointStateSha256;assert.equal(data.endpointStateSha256,endpointHash,'Exact final current canonical state');canonical.set('growing-later',data.endpointStateSha256);
+  }else browserSave(run+'-samples.json',{run,lane,camera,checks,...data});
+  runs.push({run,lane,...data});
+  if(index<2&&!profileOnly&&!isolatedTiming)await qualityClip(run);
+  const cleanup=isolatedTiming?await page.evaluate(()=>{qa.app.dispose();qa.snap=null;qa.profile=null;qa.camera=null;qa.renderer=null;return {scope:'No optional art diagnostic; required GL lifecycle only'};}):await page.evaluate(()=>{const runtime=qa.app.visit();qa.app.dispose();const art=runtime.artDiagnostics();qa.snap=null;qa.profile=null;qa.camera=null;qa.renderer=null;return {art};});await page.waitForTimeout(100);
+  cleanup.gpu=isolatedTiming?await page.evaluate(()=>({contexts:window.__startupGpu().contexts.map(c=>({lost:c.lost,logicalBytes:c.logicalBytes}))})):await page.evaluate(()=>window.__startupGpu());assert.ok(cleanup.gpu.contexts.length&&cleanup.gpu.contexts.every(c=>c.lost&&c.logicalBytes===0));
+  if(isolatedTiming)deferredSaves.push([run+'-disposed.json',cleanup]);else browserSave(run+'-disposed.json',cleanup);
   for(const relative of ['src/runtime/index.js','src/simulation/index.js','src/simulation/catalogue-thermal.js','workbenches/furnished-house/simulation.js','src/art/index.js','art/source/catalogue-modular/frame-view.js','art/source/catalogue-modular/thermal-art.js','src/art/character-shroud/splats.js'])assert.ok([...imports].some(url=>new URL(url).pathname===new URL(expectedBase).pathname+relative),'Independent live import '+run+'/'+relative);
-  laneImports.push({run,lane,base:expectedBase,modules:[...imports]});browserSave('import-closure.json',{lanes:laneImports,crossPackage});
+  laneImports.push({run,lane,base:expectedBase,modules:[...imports]});if(!isolatedTiming)browserSave('import-closure.json',{lanes:laneImports,crossPackage});
  }
+ if(isolatedTiming){
+  try{await runIsolatedLanes(['reference','candidate','candidate','reference'],{first:pageContext,create:createPageContext,run:async({index,lane,lease})=>{
+   try{await preparePage(lease.page);await runLane(index,lane);}
+   catch(error){try{const partial=await lease.page.evaluate(()=>({rows:globalThis.qa?.rows??[],scope:'Available scalar rows at sequence abort; no later lane is run'}));deferredSaves.push([(index+1)+'-'+lane+'-aborted-samples.json',partial]);}catch{}throw error;}
+  }});}catch(error){for(const [name,value]of deferredSaves)browserSave(name,value);browserSave('context-lifecycle.json',contextDiagnostics());browserSave('import-closure.json',{lanes:laneImports,crossPackage});throw error;}
+  const lifecycle=contextDiagnostics();assert.equal(lifecycle.created,4);assert.equal(lifecycle.closed,4);assert.equal(lifecycle.remaining,0);assert.equal(lifecycle.maxLive,1);browserSave('context-lifecycle.json',lifecycle);
+  for(const [name,value]of deferredSaves)browserSave(name,value);
+ }else for(const [index,lane]of (profileOnly?['candidate']:['reference','candidate','candidate','reference']).entries())await runLane(index,lane);
  assert.deepEqual(crossPackage,[]);assert.deepEqual(errors,[]);
  if(profiler){await profiler.send('Profiler.disable');await profiler.detach();return {pass:true,scope:'One diagnostic candidate CPU sampling window on unchanged live prefix; no new target comparison',summary:cpuSummary};}
  const stats=values=>{const a=values.filter(Number.isFinite).sort((a,b)=>a-b);return {count:a.length,mean:a.length?a.reduce((a,b)=>a+b,0)/a.length:null,p95:a.length?a[Math.floor((a.length-1)*.95)]:null,max:a.at(-1)??null};};
@@ -134,9 +169,9 @@ await withCatalogueBrowser(async({page,baseUrl,referenceBaseUrl,referenceManifes
  const reference=summarize('reference'),candidate=summarize('candidate'),ratio={mean:candidate.P.mean/reference.P.mean,p95:candidate.P.p95/reference.P.p95,gpuMean:reference.gpu.mean?candidate.gpu.mean/reference.gpu.mean:null,gpuP95:reference.gpu.p95?candidate.gpu.p95/reference.gpu.p95:null};
  const pass=candidate.P.mean<=14.025&&candidate.P.p95<=17.55&&ratio.mean<=.5&&ratio.p95<=.5;
  const perRun=runs.map(run=>{const rows=run.rows.filter(r=>r.window==='growing-later'&&r.primary);return {run:run.run,lane:run.lane,P:stats(rows.map(r=>r.physicalPublicationMs+r.artMs)),gpu:stats(rows.map(r=>r.gpuMs))};});
- const summary={version:1,scope:'Live independent full production paths, actual publication+art, NEW native721–780, scalar-only ABBA; no packet timing reuse, no FPS/iPhone claim',order:runs.map(r=>r.lane),referenceManifestSha256,candidateManifestSha256:manifestSha256,reference,candidate,ratio,perRun,cpuTargetPass:pass,gpuRegressionNeedsInvestigation:ratio.gpuMean!==null&&(ratio.gpuMean>1.10||ratio.gpuP95>1.10),stateChecks:checksSummary(),crossPackageImports:crossPackage,helpers:'finally closes sole browser/server, see cleanup receipt'};
+ const summary={version:1,scope:'Live independent full production paths, actual publication+art, NEW native721–780, scalar-only ABBA; no packet timing reuse, no FPS/iPhone claim',...(isolatedTiming?{collectionProtocol:'Fresh context/page per lane, optional capture/diagnostic/full-state export omitted; endpoint SHA after final timing only',qualityEvidence:'Byte-identical comparison-round5 intermediate states/JPGs/temporal controls; see isolation-protocol.json',productionSavingAttribution:false}:{}),order:runs.map(r=>r.lane),referenceManifestSha256,candidateManifestSha256:manifestSha256,reference,candidate,ratio,perRun,cpuTargetPass:pass,gpuRegressionNeedsInvestigation:ratio.gpuMean!==null&&(ratio.gpuMean>1.10||ratio.gpuP95>1.10),stateChecks:checksSummary(),crossPackageImports:crossPackage,helpers:'finally closes sole browser/server, see cleanup receipt'};
  function checksSummary(){return Object.fromEntries(canonical);}
  save('comparison.json',summary);browserSave('import-closure.json',{independentBases:[referenceBaseUrl,baseUrl],lanes:laneImports,crossPackage});
  if(!pass)throw Error('Measured fire CPU reduction misses the frozen absolute or paired target');
  return {pass:!summary.gpuRegressionNeedsInvestigation,cpuTargetPass:true,cpu:summary,limits:['A flagged GPU regression needs review of the counterbalanced blocks; CPU success does not waive it.','Temporal/JPG controls require affected-world review; whole-HUD RMS is not an acceptance gate.']};
-},{output:path.join(output,'browser-helper'),referencePackage:'artifacts/qa/fire-half-cost/reference-package',lifetimeMs:profileOnly?300000:900000,purpose:profileOnly?'M27 single candidate CPU diagnostic on frozen native721–780; no new ABBA/workload sweep':'M27 one live ABBA reference/candidate fire comparison; actual publication+art, scalar-only timings, separate quality controls'});
+},{output:path.join(output,'browser-helper'),referencePackage:'artifacts/qa/fire-half-cost/reference-package',lifetimeMs:profileOnly?300000:900000,purpose:profileOnly?'M27 single candidate CPU diagnostic on frozen native721–780; no new ABBA/workload sweep':isolatedTiming?'M27 one controlled ABBA with fresh contexts and no optional capture; unchanged round5 production and strict limits':'M27 one live ABBA reference/candidate fire comparison; actual publication+art, scalar-only timings, separate quality controls'});
