@@ -10,7 +10,7 @@ import {loadOwnedBatch} from '../../../src/reuse/loading.js';
 import {bounds,normal,triangleArea,polygonTriangles,clip,clipBox,nearestSurface,distanceToBounds,pointInTriangleXZ,unit,sub} from '../furnished-house/geometry.js';
 import {createWallShroud} from '../furnished-house/shroud.js';
 import {createDebrisView} from '../furnished-house/debris.js';
-import {createSurfaceSampleConnector,surfaceSampleContextKey,surfaceTangentRange} from '../furnished-house/presentation.js';
+import {createSurfaceSampleConnector,surfaceTangentRange} from '../furnished-house/presentation.js';
 import {normalizeArtEffects,hasBoundedHouseWind,createCameraCuller,createSupportGeometryCache} from '../furnished-house/visibility.js';
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0)),EPS=1e-6;
 const KIND={floor:0,wall:1,attachment:1,fitting:4,'landing-fitting':0,roof:2,door:3,window:3,plinth:5};
@@ -356,7 +356,7 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
     if(camera&&((q.renderFlames||q.renderSmoke)&&!cameraCull.known||q.flameBounds===null||q.smokeBounds===null))effectWork.uncertainCameraSources++;
     if(viewCulled)effectWork.viewCulledSources++;if(cameraCulled)effectWork.cameraCulledSources++;
     q.omissions={disabled,viewCulled,cameraCulled,noCamera:!camera};classified.push(q);
-    if(effectSettings.flames){const key=surfaceSampleContextKey(q);if(key!==null){if(!groups.has(key))groups.set(key,[]);groups.get(key).push(q);}}
+    if(effectSettings.flames){const key=surfaceConnection.contextKey(q,q.preparationOwner);if(key!==null){if(!groups.has(key))groups.set(key,[]);groups.get(key).push(q);}}
    }
    // Retain the complete connected group as preparation context if any member
    // can be seen. Off-screen context supplies the same union, without splats.
