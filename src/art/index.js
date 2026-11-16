@@ -23,7 +23,7 @@ import {createWitnessReaction} from './witness-reaction.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
 const medicineUrl=new URL('../../assets/art/medicine-pickups/index.js',import.meta.url);
-export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire,defaultLights,catalogueModules,onLoadPhase}={}){
+export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire,defaultLights,catalogueModules,onLoadPhase,onPresentationProfile}={}){
   if(!T?.TextureLoader||!scene?.add)throw new TypeError('createArtScene requires the shared THREE module and a scene.');
   signal?.throwIfAborted();
   const base=new URL(assetBaseUrl,import.meta.url);if(!base.pathname.endsWith('/'))base.pathname+='/';
@@ -104,6 +104,9 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     const arrowGeo=pool.geometry(new T.BufferGeometry());arrowGeo.setAttribute('position',new T.Float32BufferAttribute([1.6,.027,0,1.23,.027,-.16,1.23,.027,.16],3));arrowGeo.computeVertexNormals();
     const arrow=new T.Mesh(arrowGeo,pool.material(new T.MeshBasicMaterial({color:0xf0d28a,transparent:true,opacity:.7,side:T.DoubleSide,depthWrite:false})));root.add(arrow);
     scene.add(root);onLoadPhase?.({phase:'art-scene-ready'});
+    // Optional review-only scalar timings. The ordinary game does not allocate
+    // phase records or read this clock; no presentation work is bypassed.
+    const markPresentation=onPresentationProfile?(row,name)=>{const now=performance.now();row.stages[name]=now-row.last;row.last=now;}:null;
     function update(snapshot,timing={}){
       if(disposed)return;
       if(snapshot?.version!==1||!snapshot.player||!snapshot.world)throw new TypeError('Art requires a v1 authoritative snapshot.');
@@ -111,19 +114,28 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       if(![player.x,player.y,map.width,map.height,map.fireCellSize].every(Number.isFinite)||map.fireCellSize<=0||map.width<=0||map.height<=0||Math.ceil(map.width/map.fireCellSize)*Math.ceil(map.height/map.fireCellSize)>65536)throw new RangeError('Art grid must be finite, positive, and at most 65536 cells.');
       const playerTime=Number.isFinite(timing.playerTime)?timing.playerTime:snapshot.clocks?.player||0;
       const worldTime=Number.isFinite(timing.worldTime)?timing.worldTime:snapshot.clocks?.world||0;
+      const profile=markPresentation?{last:performance.now(),stages:{}}:null;
       medicine?.update(snapshot.pickups||[],{worldTime,paused:snapshot.paused});
       if(map.buildings?.length&&!housing&&!moduleArt)throw new Error('Catalogue housing was not loaded for this scene');
-      world.update({...map,obstacles:groundObstacles(map.obstacles)});exterior.update(map);field.update(snapshot);bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
+      world.update({...map,obstacles:groundObstacles(map.obstacles)});exterior.update(map);
+      if(profile)markPresentation(profile,'world');
+      field.update(snapshot);if(profile)markPresentation(profile,'ground');
+      bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
       shop?.update(map,{player,camera:timing.camera});
+      if(profile)markPresentation(profile,'playerAndLegacyShop');
       const standardHousing=cottages?{...map,buildings:map.buildings.filter(b=>!cottageIds.has(b.id))}:map;
       const preheatSites=[],structureSites=groupStructureFire(snapshot.structureFire);
       const rubbleSites=rubble?.update(snapshot,worldTime);
+      if(profile)markPresentation(profile,'structureSources');
       firelight.update(moduleArt?{...snapshot,cells:[]}:snapshot,structureSites,worldTime,rubbleSites);
+      if(profile)markPresentation(profile,'firelight');
       moduleArt?.update(snapshot.catalogueModules,{mode:player.moduleOwner&&player.moduleOwner!=='terrain'?'cutaway':'exterior',interiorInstanceId:player.moduleOwner,level:player.elevation>2?1:0,camera:timing.camera,observer:{x:player.x,y:player.elevation||0,z:player.y,height:player.height},sampleWind:moduleWind,effects:{flames:true,smoke:true,lighting:false}});
+      if(profile)markPresentation(profile,'nativeStructures');
       const housingShadows=housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,worldTime,sampleWind:cottageWind,preheatSites,structureSites,trail:nearbyTrail(snapshot.cells,player)});
       cottages?.update(snapshot.cottageFire,{camera:timing.camera,player,housingShadows,preheatSites,
         structureSites:Array.isArray(snapshot.structureFire)?structureSites:undefined});
       sidingPreheat.update({sites:preheatSites,time:worldTime,camera:timing.camera,player,sampleWind:cottageWind});
+      if(profile)markPresentation(profile,'legacyStructures');
       footprintRadius=Number.isFinite(player.radius)&&player.radius>0?player.radius:.56;
       ring.position.set(player.x,(player.elevation||0)+.026,player.y);ring.scale.set(footprintRadius,1,footprintRadius);
       arrow.position.set(player.x,player.elevation||0,player.y);arrow.rotation.y=-(player.heading||0);arrow.scale.set(footprintRadius,1,footprintRadius);
@@ -145,15 +157,18 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
         if(record.model.bodyBinding)characterBodies.push({id:actor.id,species:actor.species,worker:record.model.bodyBinding});
       }
       for(const [id,record]of actors)if(!active.has(id)){record.model.dispose();actors.delete(id);}
+      if(profile)markPresentation(profile,'actors');
       // The shared effect reads native cloth after gait, patrol aim, elevation
       // and world matrices. No effect code owns a pose or a second transform.
       fire.update(snapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera,rubble:rubbleSites,characterBodies,
         sampleWind:catalogueModules?moduleWind:cottageWind||calmWind,
         windMetadata:catalogueModules?snapshot.diagnostics?.thermal?.wind:{kind:cottageWind?'host-cottage-sampler':'calm-control'}});
+      if(profile)markPresentation(profile,'groundAndBodyFire');
       const discharge=fire.dischargeState();bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
       if(witness&&(witness.reaction.kind!=='relaxed'||witness.shot)&&!witnessReaction){witnessReaction=createWitnessReaction(T);root.add(witnessReaction.root);}
       witnessReaction?.update(snapshot.actors?.find(actor=>actor.id===witness?.actorId),witness?.reaction,witness?.shot,worldTime);
       lastSnapshot={tick:snapshot.tick,worldTime,playerTime};updates++;
+      if(profile){markPresentation(profile,'toolsAndWitness');onPresentationProfile({tick:snapshot.tick,generation:snapshot.diagnostics?.generation??null,nativeTick:snapshot.catalogueModules?.tick??null,worldTime,stages:profile.stages});}
     }
     function dispose(){
       if(disposed)return;disposed=true;
