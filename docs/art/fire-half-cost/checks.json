@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "sourceCommit": "02f1e63c5a4fb4e358f503f7789965e2c183af43",
+  "commonContract": "55cff1109d57842e169c5dcef04bfad7b0dd1f04",
+  "checks": {
+    "command": "node --test --test-concurrency=1 tests/integration/fire-preparation-cache.test.mjs",
+    "passed": 8,
+    "failed": 0,
+    "scope": "Finite CPU-only synthetic presentation controls, including exact generated splats/packed submission and latest-owner retention. Not a gameplay replay, performance measurement or browser acceptance.",
+    "referenceArchiveBlobsSHA256Verified": true,
+    "syntaxAndWhitespacePassed": true,
+    "nodeVersion": "v24.15.0",
+    "emptyRuntimeTriangles": "Exact paired controls preserve floor fallback acceptance and wall/no-fallback rejection in the frozen Catalogue reference."
+  },
+  "candidateGitBlobSHA256": {
+    "art/source/catalogue-modular/thermal-art.js": "2f649f524a44afd42fd01d98b765b069469f21a40ee4e3e6d75cbf68427497f0",
+    "art/source/furnished-house/presentation.js": "1e33b43b436dea2d8bd74d2aebbed6e7544585d15552b024f794daa993e3081d",
+    "art/source/furnished-house/shroud.js": "324f4cd8ec66557c7015c0bb317f7537d804bd90b0afc859e9b1ab01ea647166",
+    "art/source/furnished-house/visibility.js": "9e51aa6b2b933f6251724069903d66253eb8c09acfb3231481696552adf57814",
+    "tests/integration/fire-preparation-cache.test.mjs": "c4fa36a4e0a424143cc6ba7b41cb96760b5360bc2c25c36dfef96e4b9b30a0e5"
+  },
+  "frozenPrimary": {
+    "definition": "physical publication plus art CPU per NEW native state",
+    "window": "growing-later",
+    "nativeTicks": [
+      721,
+      780
+    ],
+    "worldTime": [
+      24.03333333333325,
+      25.999999999999805
+    ],
+    "baselineMeanMs": 28.05,
+    "baselineP95Ms": 35.1,
+    "targetMeanMs": 14.025,
+    "targetP95Ms": 17.55,
+    "candidateMeasured": false
+  },
+  "ownership": {
+    "source": "One latest primitive/geometry record per current stable source, pruned on each update",
+    "group": "One latest envelope record per current connected group; previous membership/signatures replaced",
+    "phase": "One phase per active source in each shroud batch; inactive IDs pruned",
+    "resetAndDisposal": "Source/group/phase ownership cleared; focused controls verify zero entries after empty full reset and disposal",
+    "retainsAnimatedSamplesOrFrames": false
+  },
+  "unchanged": [
+    "Native character shroud",
+    "Ashland splat shader/renderer",
+    "Native house/shop source data",
+    "Wind/camera/effect animation rules",
+    "M26 texture Source pool lifecycle"
+  ],
+  "helpersStarted": 0,
+  "sharedEvidenceRoot": "C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/artifacts/qa/fire-half-cost/baseline",
+  "limitations": [
+    "Actual production replay, matched imagery and paired CPU/GPU savings remain with the shared coder/architect session.",
+    "The 50 percent target is not claimed by the focused controls.",
+    "Existing support-anchor quantization is retained within each latest source entry; no historical geometry signatures are retained."
+  ],
+  "implementationCommit": "48dd278a921002a734669de3d2e8209c4be61177"
+}
