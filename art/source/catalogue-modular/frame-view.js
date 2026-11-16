@@ -5,6 +5,11 @@ const collections=['boundaries','supports','items','parts','falls','rubble','fir
 export function catalogueFrameView(frame,owner){
  if(frame.catalogueModules?.version!==1)throw Error('Authoritative Catalogue module frame metadata required');
  let cached=selections.get(frame);if(cached&&cached.meta===frame.catalogueModules&&cached.revision===frame.revision&&cached.worldTime===frame.worldTime&&cached.full===frame.full&&collections.every(key=>cached.inputs[key]===frame[key])&&cached.owners.has(owner))return cached.owners.get(owner);
- if(!cached||cached.meta!==frame.catalogueModules||cached.revision!==frame.revision||cached.worldTime!==frame.worldTime||cached.full!==frame.full||collections.some(key=>cached.inputs[key]!==frame[key])){cached={meta:frame.catalogueModules,revision:frame.revision,worldTime:frame.worldTime,full:frame.full,inputs:Object.fromEntries(collections.map(key=>[key,frame[key]])),owners:new Map()};selections.set(frame,cached);}
- const result={...frame};for(const key of collections)result[key]=(frame[key]||[]).filter(row=>row.ownerInstanceId===owner);cached.owners.set(owner,result);return result;
+ if(!cached||cached.meta!==frame.catalogueModules||cached.revision!==frame.revision||cached.worldTime!==frame.worldTime||cached.full!==frame.full||collections.some(key=>cached.inputs[key]!==frame[key])){
+  // Partition each authoritative collection once, preserving its source order.
+  // Every building used to filter the same whole collection independently.
+  const groups={};for(const key of collections){const owners=new Map();for(const row of frame[key]||[]){const id=row.ownerInstanceId;if(!owners.has(id))owners.set(id,[]);owners.get(id).push(row);}groups[key]=owners;}
+  cached={meta:frame.catalogueModules,revision:frame.revision,worldTime:frame.worldTime,full:frame.full,inputs:Object.fromEntries(collections.map(key=>[key,frame[key]])),groups,owners:new Map()};selections.set(frame,cached);
+ }
+ const result={...frame};for(const key of collections)result[key]=cached.groups[key].get(owner)||[];cached.owners.set(owner,result);return result;
 }

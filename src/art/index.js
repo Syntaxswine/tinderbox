@@ -23,6 +23,14 @@ import {createWitnessReaction} from './witness-reaction.js';
 export const ART_ASSET_ROOT=new URL('../../vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/assets/',import.meta.url).href;
 export {BEAR_SPEC};
 const medicineUrl=new URL('../../assets/art/medicine-pickups/index.js',import.meta.url);
+const NO_GROUND_CELLS=Object.freeze([]);
+// Keep the actual sampler and its authoritative bounds at the same boundary.
+// Unknown metadata remains unknown to the conservative structural culler.
+export function cataloguePresentationView(snapshot,camera,sampleWind){
+  const player=snapshot.player;
+  return {mode:player.moduleOwner&&player.moduleOwner!=='terrain'?'cutaway':'exterior',interiorInstanceId:player.moduleOwner,level:player.elevation>2?1:0,camera,
+    observer:{x:player.x,y:player.elevation||0,z:player.y,height:player.height},sampleWind,windMetadata:snapshot.diagnostics?.thermal?.wind,effects:{flames:true,smoke:true,lighting:false}};
+}
 export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire,defaultLights,catalogueModules,onLoadPhase,onPresentationProfile}={}){
   if(!T?.TextureLoader||!scene?.add)throw new TypeError('createArtScene requires the shared THREE module and a scene.');
   signal?.throwIfAborted();
@@ -67,7 +75,10 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
     world=createWorld(T,materials);bear=bearKit.create();onLoadPhase?.({phase:'native-player-paint-ready',species:characterId});field=createGroundField(T,readCells);fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
     exterior=createExteriorKit(T,materials,assets,renderer);
-    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,readCells);
+    // Native terrain illumination already comes from canonical fire samples.
+    // Its empty terrain list must not reset the shared field/card publication
+    // reader immediately before ground/body fire consumes the real cells.
+    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,catalogueModules?createCellReader():readCells);
     root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root,sidingPreheat.root,firelight.root);
     if(housingKit){
       housing=createNeighborhood(T,housingKit);rubble=createBurnedHouseRubble(T);
@@ -127,9 +138,9 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       const preheatSites=[],structureSites=groupStructureFire(snapshot.structureFire);
       const rubbleSites=rubble?.update(snapshot,worldTime);
       if(profile)markPresentation(profile,'structureSources');
-      firelight.update(moduleArt?{...snapshot,cells:[]}:snapshot,structureSites,worldTime,rubbleSites);
+      firelight.update(moduleArt?{...snapshot,cells:NO_GROUND_CELLS}:snapshot,structureSites,worldTime,rubbleSites);
       if(profile)markPresentation(profile,'firelight');
-      moduleArt?.update(snapshot.catalogueModules,{mode:player.moduleOwner&&player.moduleOwner!=='terrain'?'cutaway':'exterior',interiorInstanceId:player.moduleOwner,level:player.elevation>2?1:0,camera:timing.camera,observer:{x:player.x,y:player.elevation||0,z:player.y,height:player.height},sampleWind:moduleWind,effects:{flames:true,smoke:true,lighting:false}});
+      moduleArt?.update(snapshot.catalogueModules,cataloguePresentationView(snapshot,timing.camera,moduleWind));
       if(profile)markPresentation(profile,'nativeStructures');
       const housingShadows=housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,worldTime,sampleWind:cottageWind,preheatSites,structureSites,trail:nearbyTrail(snapshot.cells,player)});
       cottages?.update(snapshot.cottageFire,{camera:timing.camera,player,housingShadows,preheatSites,

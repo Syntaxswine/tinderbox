@@ -346,8 +346,24 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     if(executionCache){metricsTick=tick;metricsIndexRevision=index.revision;metricsCache=value;return {...value,fuel:{...value.fuel},heat:{...value.heat},stats:{...value.stats}};}return value;
   }
   function boundaryFrame(b) {const f=fuels.get(b.fuelId);return {id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:f?clamp(f.char/(scene.profile[f.cls].delay||1)):0,heatFraction:f?clamp(Math.max(...f.cells.map(c=>c.heat))/r.maxHeat):0,fuelFraction:f?f.amount/f.initial:1};}
-  function fireSamples() {
-    if(executionCache&&samplesTick===tick&&samplesCache)return structuredClone(samplesCache);
+  // Publication-only ownership: fixed boundary footprints and cell bounds may
+  // be shared by read-only internal consumers. Public fireSamples() still
+  // returns a detached mutable copy. Dynamic/falling footprints never use the
+  // static geometry cache; index revision invalidates moved/opened boundaries.
+  let sampleGeometry=new WeakMap(),cellGeometry=new WeakMap();
+  const freezeGeometry=value=>{if(value&&typeof value==='object'){for(const child of Object.values(value))freezeGeometry(child);Object.freeze(value);}return value;};
+  function immutableFootprint(sample){
+    const triangles=sample.floorFootprint,b=sample.boundaryId&&index.surfaces.get(sample.boundaryId);
+    if(!b||triangles!==b.triangles)return freezeGeometry(structuredClone(triangles));
+    let cached=sampleGeometry.get(triangles);if(!cached||cached.revision!==index.revision){cached={revision:index.revision,value:freezeGeometry(structuredClone(triangles))};sampleGeometry.set(triangles,cached);}return cached.value;
+  }
+  function publishedBounds(c,share,grid){
+    const make=()=>({min:c.c.map((v,i)=>scene.origin[i]+v*scene.pitch[i]),max:c.c.map((v,i)=>scene.origin[i]+(v+1)*scene.pitch[i])});
+    if(!share)return make();let cached=cellGeometry.get(c);
+    if(!cached||cached.grid!==grid||cached.coords.some((v,i)=>v!==c.c[i])){cached={grid,coords:[...c.c],value:freezeGeometry(make())};cellGeometry.set(c,cached);}return cached.value;
+  }
+  function fireSamples({borrowImmutable=false}={}) {
+    if(executionCache&&samplesTick===tick&&samplesCache)return borrowImmutable?samplesCache:structuredClone(samplesCache);
     const samples=[];
     if(executionCache)registeredFuels();
     for(const f of (executionCache?[...new Set([...litFuels,...charred])].sort((a,b)=>fuelOrder.get(a)-fuelOrder.get(b)):fuels.values()))if(f.amount>EPS) {
@@ -358,14 +374,18 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       samples.push({id:f.id,buildingId:data.buildingId||data.prefabId,part:f.rubbleId?'ground':b?.kind==='wall'?'walls':b?.kind||'contents',x:p[0],y:p[1],z:p[2],nx:normal[0],ny:normal[1],nz:normal[2],area:f.area,flame:f.lit?clamp(f.amount/f.initial*2):0,smoke:f.lit?.5:clamp((exposure/profile.threshold-.6)*.35),ignitionTime:f.litAt??f.preheatAt??tick*dt,ignited:f.lit,heatFraction:clamp(exposure/r.maxHeat),sourceSurfaceId:f.loose||f.falling?undefined:f.sourceSurfaceId,originalSourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,boundaryId:b?.id,fallId:f.fallId||undefined,rubbleId:f.rubbleId||undefined,supportBoundaryId:f.supportBoundaryId||undefined,...(f.floorFootprint?{floorFootprint:f.floorFootprint,floorRadius:.36}:b?.kind==='floor'?{floorFootprint:b.triangles,floorRadius:.36}:{})});
     }
     for(const [id,energy]of ventFlux){const b=index.surfaces.get(id),flow=energy/dt;samples.push({id:`vent:${id}`,buildingId:data.buildingId||data.prefabId,part:'walls',...Object.fromEntries(['x','y','z'].map((axis,i)=>[axis,b.position[i]])),nx:b.normal[0],ny:b.normal[1],nz:b.normal[2],area:b.area,flame:clamp(flow/(4*b.area)),smoke:clamp(flow/(2*b.area)),ignitionTime:tick*dt,sourceSurfaceId:b.sourceSurfaceId,openingId:b.openingId,vent:true,heatFlux:flow});}
-    if(executionCache){samplesTick=tick;samplesCache=structuredClone(samples);}return samples;
+    if(executionCache||borrowImmutable){
+      const immutable=Object.freeze(samples.map(sample=>Object.freeze(sample.floorFootprint?{...sample,floorFootprint:immutableFootprint(sample)}:sample)));
+      if(executionCache){samplesTick=tick;samplesCache=immutable;}return borrowImmutable?immutable:structuredClone(immutable);
+    }return samples;
   }
   let eventCursor=0;
-  function frame({full=false}={}) {
+  function frame({full=false,sharePublicationGeometry=false}={}) {
     full||=fullNext;fullNext=false;
     if(executionCache)registeredFuels();
     const records=full?[...index.surfaces.values()]:[...dirty].map(id=>index.surfaces.get(id)),b=records.map(boundaryFrame),itemRecords=(full?[...items.values()]:[...itemDirty].map(id=>items.get(id))).map(item=>{const list=executionCache?itemFuels.get(item.id):[...fuels.values()].filter(f=>f.itemId===item.id);return {...item,remainingFraction:list.reduce((v,f)=>v+f.amount,0)/(list.reduce((v,f)=>v+f.initial,0)||1),charFraction:Math.max(0,...list.map(f=>clamp(f.char/(scene.profile[f.cls].delay||1))))};});
-    const result={version:1,revision,tick,worldTime:tick*dt,full,boundaries:b,supports:b.filter(v=>index.surfaces.get(v.id).supports),items:itemRecords,falls:[...falls.values()].map(f=>({...f,flame:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?1:0,smoke:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?.4:0,ignitionTime:f.fuelIds.some(id=>Number.isFinite(fuels.get(id).litAt))?Math.min(...f.fuelIds.map(id=>fuels.get(id).litAt).filter(Number.isFinite)):null})),events:events.slice(full?0:eventCursor),metrics:metrics(),fireSamples:fireSamples(),tombstones:tombstones.splice(0),occupancy:[...active].map(c=>({id:c.id,bounds:{min:c.c.map((v,i)=>scene.origin[i]+v*scene.pitch[i]),max:c.c.map((v,i)=>scene.origin[i]+(v+1)*scene.pitch[i])},heatFraction:c.heat/r.maxHeat,occupied:c.fuels.length>0}))};
+    const grid=sharePublicationGeometry?[...scene.origin,...scene.pitch].join(','):null;
+    const result={version:1,revision,tick,worldTime:tick*dt,full,boundaries:b,supports:b.filter(v=>index.surfaces.get(v.id).supports),items:itemRecords,falls:[...falls.values()].map(f=>({...f,flame:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?1:0,smoke:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?.4:0,ignitionTime:f.fuelIds.some(id=>Number.isFinite(fuels.get(id).litAt))?Math.min(...f.fuelIds.map(id=>fuels.get(id).litAt).filter(Number.isFinite)):null})),events:events.slice(full?0:eventCursor),metrics:metrics(),fireSamples:fireSamples({borrowImmutable:sharePublicationGeometry}),tombstones:tombstones.splice(0),occupancy:[...active].map(c=>({id:c.id,bounds:publishedBounds(c,sharePublicationGeometry,grid),heatFraction:c.heat/r.maxHeat,occupied:c.fuels.length>0}))};
     result.parts=(full?[...parts.values()]:[...partDirty].map(id=>parts.get(id))).map(p=>({id:p.id,itemId:p.itemId,intact:p.intact,material:p.material,remainingFraction:p.fuelId?fuels.get(p.fuelId).amount/fuels.get(p.fuelId).initial:1}));
     result.rubble=[...rubble.values()].map(record=>{const list=record.fuelIds.map(id=>fuels.get(id)),remainingAmount=list.reduce((v,f)=>v+f.amount,0),initial=list.reduce((v,f)=>v+f.initial,0),lit=list.some(f=>f.lit&&f.amount>EPS);return {...record,phase:lit?'burning':remainingAmount>EPS?'char':'ash',remainingAmount,remainingFraction:remainingAmount/(initial||1),heatFraction:Math.max(0,...list.flatMap(f=>f.cells.map(c=>clamp(c.heat/r.maxHeat)))),flame:lit?clamp(remainingAmount/(initial||1)*2):0,smoke:lit?.4:0,ignitionTime:list.some(f=>Number.isFinite(f.litAt))?Math.min(...list.map(f=>f.litAt).filter(Number.isFinite)):null};});
     // An item may land and start another fall with its stable ID before the
@@ -377,7 +397,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   return {scene,supportGraph,rules:r,events,stats,wind,windMetadata,executionCache,executionTimings:()=>({...executionTimings}),activeCellIds:()=>[...active].map(c=>c.id),looseFuelAmount:()=>fuelTotals().looseAmount,command,step(count=1){if(closed)throw Error('Trial disposed');if(!Number.isInteger(count)||count<0)throw Error('Whole nonnegative steps required');for(let i=0;i<count;i++)stepOnce();return tick;},frame,fireSamples,metrics,
     snapshot(){return {version:1,tick,worldTime:tick*dt,cells:[...cells.values()].filter(c=>c.heat).map(c=>({id:c.id,heat:c.heat})),fuels:[...fuels.values()].map(f=>({id:f.id,cls:f.cls,amount:f.amount,initial:f.initial,area:f.area,char:f.char,lit:f.lit,litAt:f.litAt,spentAt:f.spentAt,falling:f.falling,position:f.position,boundaryId:f.boundaryId,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,supportBoundaryId:f.supportBoundaryId,store:f.store?{id:f.store.id,kind:f.store.kind,reacted:f.store.reacted,blocked:f.store.blocked}:null,cellIds:f.cells.map(c=>c.id),burningCellId:f.burningCell?.id})),boundaries:[...index.surfaces.values()].map(boundaryFrame),falls:[...falls.values()],events:events.slice(-1024),eventCount:events.length,items:[...items.values()].map(i=>({id:i.id,position:i.position,intact:i.intact,falling:i.falling,currentSupportIds:i.currentSupportIds})),parts:[...parts.values()].map(p=>({id:p.id,intact:p.intact})),rubble:[...rubble.values()],metrics:metrics()};},
     replay(){return {version:1,prefabId:data.prefabId,sourceHashes:data.sourceHashes,runtimeAdapterVersion:data.runtimeAdapterVersion||0,runtimeAdaptations:data.runtimeAdaptations||[],rules:r,profiles:scene.profile,wind:windMetadata,commands:structuredClone(commandLog),endTick:tick};},
-    dispose(){closed=true;commands.length=0;radCache.clear();pendingHeat.clear();},get tick(){return tick;},get worldTime(){return tick*dt;}};
+    dispose(){closed=true;commands.length=0;radCache.clear();pendingHeat.clear();samplesCache=null;sampleGeometry=new WeakMap();cellGeometry=new WeakMap();},get tick(){return tick;},get worldTime(){return tick*dt;}};
 }
 
 export function createClock(trial,{speed=1,maxSteps=RULES.maxStepsPerAdvance,worldScale=1,playerScale=1}={}) {

@@ -95,7 +95,7 @@ export function createCatalogueThermal({compiled,state,definition,config,event,o
     else{lantern.phase='carried';lantern.ownerId=state.player.id;event('lantern-taken',state.player,{objectId:lantern.id,actorId:state.player.id});}cachedFrame=null;},snapshot:()=>({moduleOwned:true,lantern:lantern?structuredClone(lantern):null,doors:rows()})};
   function refreshOwners(){if(knownFuels.length===trial.scene.fuels.size)return;const all=[...trial.scene.fuels.values()];for(let i=knownFuels.length;i<all.length;i++){const f=all[i],parent=f.id.replace(/:spill:.*$|:embers$/, '');if(!owners.has(f.id))owners.set(f.id,owners.get(parent)||named(f.sourceSurfaceId)||named(f.itemId)||named(f.id)||supportOwner(f.position));for(const c of f.cells)bornCells.add(c.id);}knownFuels=all;}
   function physicalFrame(){
-    if(cachedFrame&&frameHostTick===state.tick)return cachedFrame;const before=now();refreshOwners();const frame=trial.frame();
+    if(cachedFrame&&frameHostTick===state.tick)return cachedFrame;const before=now();refreshOwners();const frame=trial.frame({sharePublicationGeometry:true});
     // The host owns explosive-barrel retirement between native steps. Publish
     // the same live inert boundary state even before the next thermal tick.
     for(const b of hostBoundaryUpdates.values())if(!frame.boundaries.some(row=>row.id===b.id))frame.boundaries.push({id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:0,heatFraction:0,fuelFraction:1});hostBoundaryUpdates.clear();
