@@ -5,6 +5,36 @@ const point=p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite);
 const arrays=['levels','surfaces','openings','furnitureParts','items','stores','sourceMeshes','sourceHashes','runtimeAdaptations'];
 const unique=(rows,label)=>{const ids=new Set();for(const row of rows||[]){if(typeof row.id!=='string'||!row.id||ids.has(row.id))throw Error('Duplicate/missing '+label+' '+row.id);ids.add(row.id);}return ids;};
 
+function doorOverrides(manifest,instances){
+  const rows=manifest.doors??[];
+  if(!Array.isArray(rows)||rows.some(row=>!row||typeof row!=='object'))throw Error('Door overrides must be an array of records');
+  unique(rows,'door override');
+  const openings=new Map(instances.flatMap(instance=>(instance.data.openings||[]).map(opening=>[opening.id,{opening,instanceId:instance.id}]))),claimed=new Set(),byLeaf=new Map();
+  // Existing shop actions already own these leaves. An added manifest group
+  // must not give one leaf two contextual targets or two state transitions.
+  for(const instance of instances)if(instance.kind==='closing')for(const door of instance.data.closingTime?.doors||[])for(const id of door.openingIds||[]){
+    if(claimed.has(id))throw Error('Reused door opening '+id);claimed.add(id);
+  }
+  for(const row of rows){
+    const anchor=openings.get(row.id);
+    if(anchor?.opening.kind!=='door')throw Error('Unknown door override target '+row.id);
+    const ids=row.openingIds===undefined?[row.id]:row.openingIds;
+    if(!Array.isArray(ids)||!ids.length||ids.some(id=>typeof id!=='string'||!id))throw Error('Explicit door opening IDs required '+row.id);
+    if(!ids.includes(row.id))throw Error('Door group must include its target opening '+row.id);
+    const members=new Set();
+    for(const id of ids){
+      const member=openings.get(id);
+      if(member?.opening.kind!=='door')throw Error('Unknown door opening '+id);
+      if(member.instanceId!==anchor.instanceId)throw Error('Cross-instance door group '+row.id);
+      if(members.has(id)||claimed.has(id))throw Error('Reused door opening '+id);
+      members.add(id);
+    }
+    const group={...row,openingIds:[...ids]};
+    for(const id of members){claimed.add(id);byLeaf.set(id,group);}
+  }
+  return byLeaf;
+}
+
 export function compileCatalogueModules(manifest,sources,host,{onLoadPhase}={}){
   if(manifest?.version!==1||manifest.prefabId!=='catalogue-modular-v1'||host.id!=='neighborhood')throw Error('Catalogue Street module manifest required');
   unique(manifest.instances,'module');
@@ -19,7 +49,7 @@ export function compileCatalogueModules(manifest,sources,host,{onLoadPhase}={}){
   const data={version:1,prefabId:manifest.prefabId,runtimeAdapterVersion:1,thermalCell:[.5,1.06,.5],gridOrigin:[0,0,0],groundY:0,stairFlights:[],render:{materials:[],geometry:[]}};
   for(const key of arrays)data[key]=instances.flatMap(i=>i.data[key]||[]);
   for(const key of ['materials','geometry'])data.render[key]=instances.flatMap(i=>i.data.render?.[key]||[]);
-  const doors=[];
+  const doors=[],overrides=doorOverrides(manifest,instances);
   for(const instance of instances){
     const spec=manifest.instances.find(i=>i.id===instance.id),surfaces=new Map(instance.data.surfaces.map(s=>[s.id,s])),assigned=new Set();unique(spec.stairFlights,'flight');
     for(const flight of spec.stairFlights||[]){
@@ -32,12 +62,14 @@ export function compileCatalogueModules(manifest,sources,host,{onLoadPhase}={}){
     }
     if([...surfaces.values()].some(s=>s.supportType==='stair-tread'&&!assigned.has(s.id)))throw Error('Unbound module stair flight '+instance.id);
     if(instance.kind==='closing')for(const door of instance.data.closingTime?.doors||[]){const anchor=instance.data.closingTime.anchors[door.anchor];doors.push({...door,id:door.nativeId||door.id.slice(instance.id.length+2),physicalId:door.id,position:[...anchor.position],label:door.label||'Shop doors',instanceId:instance.id});}
-    else for(const opening of instance.data.openings||[])if(opening.kind==='door'){
-      const override=(manifest.doors||[]).find(d=>d.id===opening.id),b=opening.bounds||surfaces.get(opening.surfaceId)?.bounds,position=override?.position||b?.min.map((v,i)=>(v+b.max[i])/2)||opening.pivot;
+    for(const opening of instance.data.openings||[])if(opening.kind==='door'){
+      const override=overrides.get(opening.id);if((instance.kind==='closing'&&!override)||(override&&override.id!==opening.id))continue;
+      const b=opening.bounds||surfaces.get(opening.surfaceId)?.bounds,position=override?.position??b?.min.map((v,i)=>(v+b.max[i])/2)??opening.pivot;
       if(!point(position))throw Error('Measured door interaction required '+opening.id);
-      doors.push({id:opening.id,openingIds:override?.openingIds||[opening.id],position,label:override?.label||'House door',instanceId:instance.id});
+      doors.push({id:opening.id,openingIds:override?.openingIds||[opening.id],position:[...position],label:override?.label||'House door',instanceId:instance.id});
     }
   }
+  unique(doors,'contextual door');
   const closing=instances.find(i=>i.id===BELL_AND_ALDER.id).data.closingTime;
   const lantern=closing?.lantern?{...structuredClone(closing.lantern),id:closing.lantern.nativeId||closing.lantern.id.slice(BELL_AND_ALDER.id.length+2),physicalId:closing.lantern.id,position:[...closing.anchors[closing.lantern.anchor].position]}:null;
   const resident=closing?.resident||closing?.actors?.find(a=>a.role==='resident');
