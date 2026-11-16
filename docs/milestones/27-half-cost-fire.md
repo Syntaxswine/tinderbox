@@ -4,6 +4,8 @@ Owner instruction, November 16: keep the current fire looking as good or better 
 
 Architect acceptance, November 16: the final combined candidate passes 474 checks, build/nested packaging, matched normal-zoom still/motion review and actual normal controls/grass/re-entry. Mean preparation CPU is 29.013 → 12.257 ms and p95 34.500 → 15.600 ms under the frozen workload; all absolute/paired targets pass and the GPU guard is clear. The [review](../reviews/2026-11-16-half-cost-fire.md) records prior failures, the isolated protocol, exact packages, raw scalar evidence and publication verification. This measured preparation improvement does not imply half total game CPU, GPU or memory, or actual iPhone acceptance.
 
+Completed publication: release `1c279552` is live through successful Pages run `43883639680`. Complete canonical package equality, all 11 actual resource checks and a fresh normal-input public visit pass. All helpers are closed. [Play Catalogue Street](https://syntaxswine.github.io/tinderbox/?catalogue=modules).
+
 ## Target and reference
 
 Use **current production Catalogue Street** as the reference. Historical furnished-house timings are investigation clues, not today's denominator. Retain the original/current implementation and evidence unchanged.
