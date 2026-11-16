@@ -1,0 +1,11 @@
+# On-request emitter inspection
+
+Source checkpoint: `153d1ed75180894b04ba6e882dd1632cb1de7d03`, following private-bounds source `522d8c0e1cc31728bf1f90a19b8d6410e0dca68a`. The complete artist tree includes guard `68ac1f90`; keep the final gate/package pin explicit. Coder companion `30bf843190174436b05c0324c36208fa794180a0` remains separate and was not copied into this worktree.
+
+The normal update no longer constructs the unused emitter-inspection Map. All classification, support, camera, wind, animation, draw-buffer, lighting and metrics work stays in its original phase. `inspect()` projects the already-current render samples on first request, caches one detached diagnostic payload for that update, and returns detached copies. No benchmark flag, required presentation deferral or additional frame history is introduced.
+
+The exact original Map projection expression/field order is retained, including **first insertion / last value** behavior for duplicate IDs. Update invalidates the optional payload. Reset/disposal clears both current samples and payload; empty/disposed inspection returns no emitters. The `diagnostics().inspection` fields are lifetime counters `emitterProjectionBuilds` and `emitterProjectionRows`, plus the current `cached` flag.
+
+Nineteen [focused controls](../../../tests/integration/fire-preparation-cache.test.mjs) pass. Five fresh presentation updates prepare positive flame splats with zero inspection projections; the first request builds one and repeated requests reuse it. A later update invalidates without rebuilding. Requested output/field order match the frozen reference, caller input changes before first inspection cannot rewrite the prepared state, returned snapshots stay detached, and empty/reset/disposal behavior is verified. [Checks and source hashes](lazy-inspection-checks.json) record exact work counts and scope. These are CPU-only controls, not rendered images or timing savings.
+
+The updated sampled profile identifies native `update` self work, but this projection line was not separately timed. Previous failed comparisons remain preserved. The combined gate and fixed matched comparison must still establish mean/p95 at most 14.025/17.55 ms **and** at most half the fresh reference. No helper, browser, render, profile or benchmark was started; performance/quality acceptance remains pending.

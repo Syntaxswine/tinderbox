@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "sourceCommit": "153d1ed75180894b04ba6e882dd1632cb1de7d03",
+  "privateBoundsSourceCommit": "522d8c0e1cc31728bf1f90a19b8d6410e0dca68a",
+  "existingGuardCommit": "68ac1f908a902e91a036e12c8f03ab9bee5b463e",
+  "coderCompanion": "30bf843190174436b05c0324c36208fa794180a0",
+  "coderCompanionImported": false,
+  "candidateGitBlobSHA256": {
+    "art/source/catalogue-modular/thermal-art.js": "db487efe3fb3db802620fcdbf9fada6b330471594a3ec0cd0bd9e4bde90b0dc1",
+    "tests/integration/fire-preparation-cache.test.mjs": "eec8e7f9c77fb68537fbab1024c25ce4906f0ff3cc3efe73e64af37dbe97d3d8",
+    "art/source/furnished-house/visibility.js": "ff03391716ea0bc790846006d9f91da6b291ede40daee7a6c308bc062128a776"
+  },
+  "checks": {
+    "command": "node --test --test-concurrency=1 tests/integration/fire-preparation-cache.test.mjs",
+    "passed": 19,
+    "failed": 0,
+    "scope": "Finite CPU-only presentation/output/invalidation/ownership controls; not GPU rendering, a production benchmark or browser acceptance.",
+    "syntaxAndWhitespacePassed": true,
+    "projectionExpressionAndFieldOrderIdentical": true
+  },
+  "functionalProof": {
+    "freshPresentationUpdatesWithoutInspection": 5,
+    "unusedProjectionBuilds": 0,
+    "projectionBuildsAfterFirstRequest": 1,
+    "projectionBuildsAfterRepeatedRequest": 1,
+    "projectionBuildsAfterNextUninspectedUpdate": 1,
+    "projectionBuildsAfterNextRequest": 2,
+    "projectedRowsAfterTwoRequests": 4,
+    "duplicateInputRows": 3,
+    "duplicateOutputRows": 2,
+    "duplicateOrdering": "first insertion / last value",
+    "detachedFromInputMutationBeforeFirstRequest": true,
+    "detachedFromInspectionMutationAndLaterUpdates": true,
+    "emptyResetAndDisposedEmitters": [],
+    "disposedCurrentSampleCount": 0
+  },
+  "ownership": {
+    "currentRenderSamples": "Existing current array only; cleared on reset/disposal",
+    "inspectionPayload": "One detached optional projection per update; invalidated each update/reset/disposal; returned by detached copy",
+    "noAdditionalFrameHistory": true,
+    "noBenchmarkFlags": true
+  },
+  "newDiagnostics": [
+    "inspection.emitterProjectionBuilds",
+    "inspection.emitterProjectionRows",
+    "inspection.cached"
+  ],
+  "profileBasis": {
+    "owner": "Coder Tinderbox",
+    "scope": "Existing closed sampled diagnostic, not a timing saving",
+    "thermalArtUpdateSelfMsPerNativeState": 1.464,
+    "thermalArtUpdateInclusiveMsPerNativeState": 6.799,
+    "projectionLineSeparatelyTimed": false
+  },
+  "unchangedPhases": [
+    "Classification and support preparation",
+    "Camera/cutaway/wind evaluation",
+    "Flame/smoke animation and packed draw buffers",
+    "Physics and DTO publication",
+    "Normal metrics and light work"
+  ],
+  "roundFiveMeasured": false,
+  "target": {
+    "absoluteMeanMs": 14.025,
+    "absoluteP95Ms": 17.55,
+    "freshPairedMeanAndP95RatioCeiling": 0.5
+  },
+  "helpersStarted": 0
+}
