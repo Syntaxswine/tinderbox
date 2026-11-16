@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "scope": "Preview-only ground datum correction; no asset geometry or version change.",
+  "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+  "rejectedPreviewCommit": "98c8ae1e413df7d8ca0d26b18e8066cad767f2d5",
+  "previewRevision": "h15-ground-datum-v2",
+  "finding": "All twelve real stone blocks already start at Y=0; the preview plane was incorrectly at Y=-0.125.",
+  "oldPreviewGroundY": -0.125,
+  "correctedPreviewGroundY": 0,
+  "sourceGroundY": 0,
+  "sceneGroundY": 0,
+  "scopeNote": "The architect explicitly requires source/scene Y=0 as the shared preview datum. The host cosmetic tile top at -0.01 is a separate renderer offset; no host or asset change is included.",
+  "sourceExportsUnchanged": {
+    "house-data.json": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c",
+    "scene-data.json": "c8c69e58a14231f887a0f3a2c79867469fb34e52b5980727e85f21c62f160765",
+    "shop-data.json": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5"
+  },
+  "steps": [
+    {
+      "id": "entry-step/747",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.16,
+      "physicalMinY": 0,
+      "physicalTopY": 0.16,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "entry-step/748",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.32,
+      "physicalMinY": 0,
+      "physicalTopY": 0.32,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "entry-step/749",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.48,
+      "physicalMinY": 0,
+      "physicalTopY": 0.48,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "entry-step/765",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.16,
+      "physicalMinY": 0,
+      "physicalTopY": 0.16,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "entry-step/766",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.32,
+      "physicalMinY": 0,
+      "physicalTopY": 0.32,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "entry-step/767",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.48,
+      "physicalMinY": 0,
+      "physicalTopY": 0.48,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "circulation150/entry/step-right-747",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.16,
+      "physicalMinY": 0,
+      "physicalTopY": 0.16,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "circulation150/entry/step-right-748",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.32,
+      "physicalMinY": 0,
+      "physicalTopY": 0.32,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "circulation150/entry/step-right-749",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.48,
+      "physicalMinY": 0,
+      "physicalTopY": 0.48,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "circulation150/entry/step-right-765",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.16,
+      "physicalMinY": 0,
+      "physicalTopY": 0.16,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "circulation150/entry/step-right-766",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.32,
+      "physicalMinY": 0,
+      "physicalTopY": 0.32,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    },
+    {
+      "id": "circulation150/entry/step-right-767",
+      "actualSolidMinY": 0,
+      "actualSolidTopY": 0.48,
+      "physicalMinY": 0,
+      "physicalTopY": 0.48,
+      "oldPreviewGap": 0.125,
+      "correctedDatumGap": 0
+    }
+  ],
+  "rejectedImages": [
+    {
+      "originalPath": "docs/art/h15-circulation/previews/exterior.jpg",
+      "preservedPath": "docs/art/h15-circulation/rejected-ground-datum/exterior.jpg",
+      "sha256": "19ab6ba4af4c9223ea437486175e72a59c821a363736e805f6cb10f8366ee689"
+    },
+    {
+      "originalPath": "docs/art/h15-circulation/previews/entry.jpg",
+      "preservedPath": "docs/art/h15-circulation/rejected-ground-datum/entry.jpg",
+      "sha256": "6d31157dbbb420f0256d342b2f67657359270d56beec339b4c334fdb23d41284"
+    },
+    {
+      "originalPath": "docs/art/h15-circulation/previews/stairs.jpg",
+      "preservedPath": "docs/art/h15-circulation/rejected-ground-datum/stairs.jpg",
+      "sha256": "4355bc43a7a0598fb2c79dd125d1a4e564f13664731dd8106e732c217d48bd93"
+    }
+  ],
+  "nativeActorPoses": "Unchanged from rejected preview; native model body minima equal their support height within floating-point precision. New capture records measured feet Y.",
+  "status": "Corrected source-datum JPGs captured and visually reviewed; five-minute helper closed; all three core exports unchanged.",
+  "correctedImages": [
+    {
+      "path": "docs/art/h15-circulation/previews/exterior.jpg",
+      "sha256": "a1a818ccaf692c9ebf1dddbdfcea6f3c13649b7611413b546f947619f526f02a",
+      "size": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "path": "docs/art/h15-circulation/previews/entry.jpg",
+      "sha256": "6035a9e84dd35ac6f348ca0ee6dcba8bdd23df8fafdbb3d8bce08264711dbbb2",
+      "size": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "path": "docs/art/h15-circulation/previews/stairs.jpg",
+      "sha256": "3cb0f9cb37b7acb3cb824d658d06b92beb133a8994d1aaaef645415934665178",
+      "size": [
+        1400,
+        1050
+      ]
+    }
+  ],
+  "verification": {
+    "sourceExportsByteIdenticalTo4ce": true,
+    "sameCamerasLightingExposureAndActorPosesAsRejectedPreview": true,
+    "allTwelveStoneRenderAndPhysicalMinimaY": 0,
+    "largestNativeFootContactErrorM": 4.440892098500626e-16,
+    "visualReview": "Reviewed exterior, entry and full stair assembly; visible stone ground contact.",
+    "scope": "Static preview-only correction; no source, runtime, terrain placement, body scale or gameplay acceptance change."
+  },
+  "nativeFootContacts": [
+    {
+      "view": "exterior",
+      "actors": [
+        {
+          "species": "bear",
+          "position": [
+            5,
+            0.16,
+            -3.1
+          ],
+          "feetY": 0.16000000000000003,
+          "expectedSupportY": 0.16,
+          "supportError": 2.7755575615628914e-17,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "goat",
+          "position": [
+            7.8,
+            0,
+            -3
+          ],
+          "feetY": 0,
+          "expectedSupportY": 0,
+          "supportError": 0,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "view": "entry",
+      "actors": [
+        {
+          "species": "bear",
+          "position": [
+            5,
+            0.16,
+            -3.1
+          ],
+          "feetY": 0.16000000000000003,
+          "expectedSupportY": 0.16,
+          "supportError": 2.7755575615628914e-17,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "goat",
+          "position": [
+            7.3,
+            0,
+            -2.9
+          ],
+          "feetY": 0,
+          "expectedSupportY": 0,
+          "supportError": 0,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "view": "stairs",
+      "actors": [
+        {
+          "species": "bear",
+          "position": [
+            5.5,
+            1.54,
+            4.25
+          ],
+          "feetY": 1.5399999999999996,
+          "expectedSupportY": 1.54,
+          "supportError": -4.440892098500626e-16,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "species": "goat",
+          "position": [
+            5.5,
+            0.48,
+            1.1
+          ],
+          "feetY": 0.48,
+          "expectedSupportY": 0.48,
+          "supportError": 0,
+          "nativeScale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "helperRetired": "docs/art/h15-circulation/helper-retirement.json"
+}

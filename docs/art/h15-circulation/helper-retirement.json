@@ -1,21 +1,21 @@
 {
-  "version": 1,
-  "scope": "Single finite static asset review; no helper retained. First startup corrected registration.args before any browser launch.",
+  "version": 2,
+  "scope": "One five-minute corrected-datum static preview; closed immediately after three JPGs reviewed. No helper retained.",
   "retirement": {
-    "restart": "artifacts/helpers/h15-circulation-preview/restart.json",
-    "retiredAt": "2026-11-16T20:27:08.0799270Z",
-    "server": {
-      "creationTime": "2026-11-16T20:23:59.8382277Z",
-      "pid": 69648,
-      "exited": true
-    },
-    "profileRemoved": true,
-    "task": "H15 source-asset preview",
-    "portsReleased": true,
     "browser": {
-      "creationTime": "2026-11-16T20:24:05.4362883Z",
-      "pid": 30388,
-      "exited": true
+      "pid": 31612,
+      "exited": true,
+      "creationTime": "2026-11-16T21:06:24.7390452Z"
+    },
+    "portsReleased": true,
+    "retiredAt": "2026-11-16T21:07:51.9617987Z",
+    "profileRemoved": true,
+    "restart": "artifacts/helpers/h15-circulation-preview/restart.json",
+    "task": "H15 source-asset preview",
+    "server": {
+      "pid": 25472,
+      "exited": true,
+      "creationTime": "2026-11-16T21:06:12.7646067Z"
     }
   },
   "disposal": {
@@ -46,5 +46,6 @@
     "errors": []
   },
   "localRestartRecord": "artifacts/helpers/h15-circulation-preview/restart.json",
-  "localFinalSourceSnapshot": "artifacts/helpers/h15-circulation-preview/final-source.json"
+  "localFinalSourceSnapshot": "artifacts/helpers/h15-circulation-preview/final-source.json",
+  "previousSessionReceipt": "docs/art/h15-circulation/rejected-ground-datum/helper-retirement.json"
 }

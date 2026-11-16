@@ -1,0 +1,838 @@
+{
+  "version": 1,
+  "inputs": {
+    "workbenches/catalogue-modular/house-data.json": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c",
+    "workbenches/catalogue-modular/scene-data.json": "c8c69e58a14231f887a0f3a2c79867469fb34e52b5980727e85f21c62f160765",
+    "art/source/catalogue-modular/preview-circulation.js": "cf6069d4152e8d24b625d145bbd9eaec5784f7e611c943507002976190f53cef",
+    "art/source/catalogue-modular/thermal-art.js": "3c344de9b16da0144a693394b4ec10afb0cb049655edca93c3424bc1de30ed6c",
+    "src/reuse/characters.js": "46556d86c54107bb71c7899f1ffead5282ea78c03f8dfafdf765ffb4762522aa",
+    "src/reuse/bear.js": "aec0122ce2e1df69afd3bd083308dca7da136e2da5dfd6fd157c20c020cea27b"
+  },
+  "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+  "scope": "Static source export rendered through the existing Catalogue renderer and native painted rigs. Explicit source door/actor poses; no simulator, gameplay acceptance, performance or package claim.",
+  "views": [
+    {
+      "name": "exterior",
+      "camera": {
+        "eye": [
+          18,
+          12,
+          -15
+        ],
+        "target": [
+          5,
+          2.6,
+          3.1
+        ],
+        "span": 14.8
+      },
+      "lighting": {
+        "hemisphere": 2.2,
+        "sun": 3,
+        "exposure": 1.05
+      },
+      "omissions": [],
+      "actors": [
+        {
+          "species": "bear",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "body": {
+            "min": [
+              -0.4857703187631799,
+              2.7755575615628914e-17,
+              -0.2328318059444423
+            ],
+            "max": [
+              0.4859750100593061,
+              1.6708452701568606,
+              0.2695302963256836
+            ],
+            "size": [
+              0.971745328822486,
+              1.6708452701568606,
+              0.5023621022701259
+            ],
+            "radius": 0.4866607310914429
+          },
+          "position": [
+            5,
+            0.16,
+            -3.1
+          ]
+        },
+        {
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "body": {
+            "min": [
+              -0.430655444930081,
+              0,
+              -0.21167360246181488
+            ],
+            "max": [
+              0.4309750540363577,
+              1.64951753616333,
+              0.2549527883529663
+            ],
+            "size": [
+              0.8616304989664387,
+              1.64951753616333,
+              0.4666263908147812
+            ],
+            "radius": 0.431447072580853
+          },
+          "position": [
+            7.8,
+            0,
+            -3
+          ]
+        }
+      ],
+      "diagnostics": {
+        "disposed": false,
+        "inspection": {
+          "emitterProjectionBuilds": 0,
+          "emitterProjectionRows": 0,
+          "cached": false
+        },
+        "preparationCache": {
+          "sourceEntries": 0,
+          "immutableEntries": 0,
+          "effectBoundsEntries": 0,
+          "groupEntries": 0,
+          "phaseEntries": 0,
+          "groups": {
+            "entries": 0,
+            "hits": 0,
+            "computations": 0,
+            "keys": {
+              "contextBuilds": 0,
+              "contextHits": 0,
+              "exactBuilds": 0,
+              "exactHits": 0
+            }
+          }
+        },
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "occluded": false,
+        "opacityScale": 1,
+        "worldTime": 0,
+        "revision": 2,
+        "view": "exterior",
+        "level": 0,
+        "sourceSurfaces": 2957,
+        "physicalPatches": 5872,
+        "charredIntactPatches": 0,
+        "stateTextureInvalidations": 2,
+        "doorPoseUpdates": 14,
+        "coverage": {
+          "meshes": 819,
+          "underCovered": 0,
+          "overCovered": 0,
+          "underCoverageSamples": [],
+          "canonicalFloors": 0
+        },
+        "stateTextureSize": [
+          128,
+          46
+        ],
+        "retiredPatches": 0,
+        "sourceMeshes": 904,
+        "batches": 58,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "missingSampleDetails": [],
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
+        "cameraCulledSamples": 0,
+        "effects": {
+          "flames": false,
+          "smoke": false,
+          "lighting": false
+        },
+        "lightingMode": "local",
+        "effectWork": {
+          "suppliedSources": 0,
+          "activeSources": 0,
+          "representedSources": 0,
+          "preparedSources": 0,
+          "disabledSources": 0,
+          "viewCulledSources": 0,
+          "cameraCulledSources": 0,
+          "missingSources": 0,
+          "inactiveSources": 0,
+          "noCameraSources": 0,
+          "uncertainCameraSources": 0,
+          "flameSplats": 0,
+          "smokeSplats": 0,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 0,
+          "activeLights": 0,
+          "channels": {
+            "flames": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            },
+            "smoke": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            },
+            "lighting": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            }
+          },
+          "work": {
+            "supportAnchorSources": 0,
+            "supportAnchorComputations": 0,
+            "effectBoundsComputations": 0,
+            "effectBoundsCacheHits": 0,
+            "flameEnvelopeSources": 0,
+            "flameContextSources": 0,
+            "flameCalls": 0,
+            "smokeCalls": 0,
+            "lightClusterCalls": 0,
+            "buildingAggregateCalls": 0,
+            "buildingAggregateSources": 0
+          }
+        },
+        "emitterBatches": 0,
+        "fire": [],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 0,
+          "powerCap": 0,
+          "lights": [],
+          "disabled": true,
+          "delegatedToHost": true
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 59,
+          "materials": 80,
+          "textures": 6
+        },
+        "resetCount": 3,
+        "revisionCount": 2,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 3054,
+        "dormantPoolHidden": true,
+        "sharedGridOrigin": [
+          0,
+          0.48,
+          0
+        ],
+        "sharedThermalCell": [
+          0.5,
+          1.06,
+          0.5
+        ],
+        "firstFloorY": 0.48,
+        "nativeFloorUV": true
+      },
+      "errors": [],
+      "image": {
+        "path": "docs/art/h15-circulation/previews/exterior.jpg",
+        "sha256": "19ab6ba4af4c9223ea437486175e72a59c821a363736e805f6cb10f8366ee689",
+        "size": [
+          1400,
+          1050
+        ]
+      }
+    },
+    {
+      "name": "entry",
+      "camera": {
+        "eye": [
+          10,
+          4,
+          -14
+        ],
+        "target": [
+          5,
+          1.5,
+          -0.5
+        ],
+        "span": 7.8
+      },
+      "lighting": {
+        "hemisphere": 2.2,
+        "sun": 3,
+        "exposure": 1.05
+      },
+      "omissions": [],
+      "actors": [
+        {
+          "species": "bear",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "body": {
+            "min": [
+              -0.4857703187631799,
+              2.7755575615628914e-17,
+              -0.2328318059444423
+            ],
+            "max": [
+              0.4859750100593061,
+              1.6708452701568606,
+              0.2695302963256836
+            ],
+            "size": [
+              0.971745328822486,
+              1.6708452701568606,
+              0.5023621022701259
+            ],
+            "radius": 0.4866607310914429
+          },
+          "position": [
+            5,
+            0.16,
+            -3.1
+          ]
+        },
+        {
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "body": {
+            "min": [
+              -0.4306554412047907,
+              0,
+              -0.21167360246181488
+            ],
+            "max": [
+              0.43097504472313286,
+              1.64951753616333,
+              0.2549527883529663
+            ],
+            "size": [
+              0.8616304859279236,
+              1.64951753616333,
+              0.4666263908147812
+            ],
+            "radius": 0.43144708761942624
+          },
+          "position": [
+            7.3,
+            0,
+            -2.9
+          ]
+        }
+      ],
+      "diagnostics": {
+        "disposed": false,
+        "inspection": {
+          "emitterProjectionBuilds": 0,
+          "emitterProjectionRows": 0,
+          "cached": false
+        },
+        "preparationCache": {
+          "sourceEntries": 0,
+          "immutableEntries": 0,
+          "effectBoundsEntries": 0,
+          "groupEntries": 0,
+          "phaseEntries": 0,
+          "groups": {
+            "entries": 0,
+            "hits": 0,
+            "computations": 0,
+            "keys": {
+              "contextBuilds": 0,
+              "contextHits": 0,
+              "exactBuilds": 0,
+              "exactHits": 0
+            }
+          }
+        },
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "occluded": false,
+        "opacityScale": 1,
+        "worldTime": 0,
+        "revision": 3,
+        "view": "exterior",
+        "level": 0,
+        "sourceSurfaces": 2957,
+        "physicalPatches": 5872,
+        "charredIntactPatches": 0,
+        "stateTextureInvalidations": 3,
+        "doorPoseUpdates": 21,
+        "coverage": {
+          "meshes": 819,
+          "underCovered": 0,
+          "overCovered": 0,
+          "underCoverageSamples": [],
+          "canonicalFloors": 0
+        },
+        "stateTextureSize": [
+          128,
+          46
+        ],
+        "retiredPatches": 0,
+        "sourceMeshes": 904,
+        "batches": 58,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "missingSampleDetails": [],
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
+        "cameraCulledSamples": 0,
+        "effects": {
+          "flames": false,
+          "smoke": false,
+          "lighting": false
+        },
+        "lightingMode": "local",
+        "effectWork": {
+          "suppliedSources": 0,
+          "activeSources": 0,
+          "representedSources": 0,
+          "preparedSources": 0,
+          "disabledSources": 0,
+          "viewCulledSources": 0,
+          "cameraCulledSources": 0,
+          "missingSources": 0,
+          "inactiveSources": 0,
+          "noCameraSources": 0,
+          "uncertainCameraSources": 0,
+          "flameSplats": 0,
+          "smokeSplats": 0,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 0,
+          "activeLights": 0,
+          "channels": {
+            "flames": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            },
+            "smoke": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            },
+            "lighting": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            }
+          },
+          "work": {
+            "supportAnchorSources": 0,
+            "supportAnchorComputations": 0,
+            "effectBoundsComputations": 0,
+            "effectBoundsCacheHits": 0,
+            "flameEnvelopeSources": 0,
+            "flameContextSources": 0,
+            "flameCalls": 0,
+            "smokeCalls": 0,
+            "lightClusterCalls": 0,
+            "buildingAggregateCalls": 0,
+            "buildingAggregateSources": 0
+          }
+        },
+        "emitterBatches": 0,
+        "fire": [],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 0,
+          "powerCap": 0,
+          "lights": [],
+          "disabled": true,
+          "delegatedToHost": true
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 59,
+          "materials": 80,
+          "textures": 6
+        },
+        "resetCount": 4,
+        "revisionCount": 3,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 3054,
+        "dormantPoolHidden": true,
+        "sharedGridOrigin": [
+          0,
+          0.48,
+          0
+        ],
+        "sharedThermalCell": [
+          0.5,
+          1.06,
+          0.5
+        ],
+        "firstFloorY": 0.48,
+        "nativeFloorUV": true
+      },
+      "errors": [],
+      "image": {
+        "path": "docs/art/h15-circulation/previews/entry.jpg",
+        "sha256": "6d31157dbbb420f0256d342b2f67657359270d56beec339b4c334fdb23d41284",
+        "size": [
+          1400,
+          1050
+        ]
+      }
+    },
+    {
+      "name": "stairs",
+      "camera": {
+        "eye": [
+          16,
+          13,
+          -8
+        ],
+        "target": [
+          6.2,
+          1.8,
+          3.4
+        ],
+        "span": 10.8
+      },
+      "lighting": {
+        "hemisphere": 2.2,
+        "sun": 3,
+        "exposure": 1.05
+      },
+      "omissions": [
+        "Roof, walls and openings",
+        "Upper floors except actual exit landing",
+        "Upper furniture",
+        "Non-circulation trim"
+      ],
+      "actors": [
+        {
+          "species": "bear",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "body": {
+            "min": [
+              -0.4857703224884702,
+              -4.440892098500626e-16,
+              -0.23283180594444275
+            ],
+            "max": [
+              0.48597501937253185,
+              1.6708452701568604,
+              0.2695302963256836
+            ],
+            "size": [
+              0.971745341861002,
+              1.6708452701568608,
+              0.5023621022701263
+            ],
+            "radius": 0.4866607381210497
+          },
+          "position": [
+            5.5,
+            1.54,
+            4.25
+          ]
+        },
+        {
+          "species": "goat",
+          "nativeScale": [
+            1,
+            1,
+            1
+          ],
+          "body": {
+            "min": [
+              -0.430655427793746,
+              0,
+              -0.21167360246181477
+            ],
+            "max": [
+              0.4309750111955202,
+              1.64951753616333,
+              0.25495278835296653
+            ],
+            "size": [
+              0.8616304389892662,
+              1.64951753616333,
+              0.4666263908147813
+            ],
+            "radius": 0.43144714752770996
+          },
+          "position": [
+            5.5,
+            0.48,
+            1.1
+          ]
+        }
+      ],
+      "diagnostics": {
+        "disposed": false,
+        "inspection": {
+          "emitterProjectionBuilds": 0,
+          "emitterProjectionRows": 0,
+          "cached": false
+        },
+        "preparationCache": {
+          "sourceEntries": 0,
+          "immutableEntries": 0,
+          "effectBoundsEntries": 0,
+          "groupEntries": 0,
+          "phaseEntries": 0,
+          "groups": {
+            "entries": 0,
+            "hits": 0,
+            "computations": 0,
+            "keys": {
+              "contextBuilds": 0,
+              "contextHits": 0,
+              "exactBuilds": 0,
+              "exactHits": 0
+            }
+          }
+        },
+        "version": 1,
+        "prefabId": "hopkins-4-15",
+        "occluded": false,
+        "opacityScale": 1,
+        "worldTime": 0,
+        "revision": 4,
+        "view": "exterior",
+        "level": 0,
+        "sourceSurfaces": 2957,
+        "physicalPatches": 5872,
+        "charredIntactPatches": 0,
+        "stateTextureInvalidations": 4,
+        "doorPoseUpdates": 28,
+        "coverage": {
+          "meshes": 819,
+          "underCovered": 0,
+          "overCovered": 0,
+          "underCoverageSamples": [],
+          "canonicalFloors": 0
+        },
+        "stateTextureSize": [
+          128,
+          46
+        ],
+        "retiredPatches": 4167,
+        "sourceMeshes": 904,
+        "batches": 58,
+        "items": 16,
+        "falls": 0,
+        "fallVisuals": 0,
+        "debris": {
+          "flights": 0,
+          "residue": 0,
+          "pendingLanding": 0,
+          "missingGeometry": 0,
+          "draws": 0,
+          "resources": {
+            "geometries": 1,
+            "materials": 1
+          }
+        },
+        "occupancy": 0,
+        "fireSamples": 0,
+        "representedSamples": 0,
+        "missingSamples": 0,
+        "missingSampleDetails": [],
+        "visibleSamples": 0,
+        "viewCulledSamples": 0,
+        "cameraCulledSamples": 0,
+        "effects": {
+          "flames": false,
+          "smoke": false,
+          "lighting": false
+        },
+        "lightingMode": "local",
+        "effectWork": {
+          "suppliedSources": 0,
+          "activeSources": 0,
+          "representedSources": 0,
+          "preparedSources": 0,
+          "disabledSources": 0,
+          "viewCulledSources": 0,
+          "cameraCulledSources": 0,
+          "missingSources": 0,
+          "inactiveSources": 0,
+          "noCameraSources": 0,
+          "uncertainCameraSources": 0,
+          "flameSplats": 0,
+          "smokeSplats": 0,
+          "generatedFlameSplats": 0,
+          "generatedSmokeSplats": 0,
+          "activeLights": 0,
+          "channels": {
+            "flames": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            },
+            "smoke": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            },
+            "lighting": {
+              "supplied": 0,
+              "disabled": 0,
+              "viewCulled": 0,
+              "cameraCulled": 0,
+              "prepared": 0
+            }
+          },
+          "work": {
+            "supportAnchorSources": 0,
+            "supportAnchorComputations": 0,
+            "effectBoundsComputations": 0,
+            "effectBoundsCacheHits": 0,
+            "flameEnvelopeSources": 0,
+            "flameContextSources": 0,
+            "flameCalls": 0,
+            "smokeCalls": 0,
+            "lightClusterCalls": 0,
+            "buildingAggregateCalls": 0,
+            "buildingAggregateSources": 0
+          }
+        },
+        "emitterBatches": 0,
+        "fire": [],
+        "lightBudget": {
+          "terrainSites": 0,
+          "surfaceSites": 0,
+          "candidates": 0,
+          "capacity": 0,
+          "powerCap": 0,
+          "lights": [],
+          "disabled": true,
+          "delegatedToHost": true
+        },
+        "actualLights": [],
+        "resources": {
+          "geometries": 59,
+          "materials": 80,
+          "textures": 6
+        },
+        "resetCount": 5,
+        "revisionCount": 4,
+        "rootScale": [
+          1,
+          1,
+          1
+        ],
+        "stateBindings": 3054,
+        "dormantPoolHidden": true,
+        "sharedGridOrigin": [
+          0,
+          0.48,
+          0
+        ],
+        "sharedThermalCell": [
+          0.5,
+          1.06,
+          0.5
+        ],
+        "firstFloorY": 0.48,
+        "nativeFloorUV": true
+      },
+      "errors": [],
+      "image": {
+        "path": "docs/art/h15-circulation/previews/stairs.jpg",
+        "sha256": "4355bc43a7a0598fb2c79dd125d1a4e564f13664731dd8106e732c217d48bd93",
+        "size": [
+          1400,
+          1050
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "toolVersions": {
+    "node": "v24.15.0",
+    "chrome": "156.0.8078.80",
+    "platform": "Windows",
+    "viewport": [
+      1400,
+      1050
+    ],
+    "deviceScaleFactor": 1
+  }
+}
