@@ -5,6 +5,7 @@ import {createHash} from 'node:crypto';
 import * as T from '../../src/runtime/three.js';
 import {createCatalogueStructureArt} from '../../art/source/catalogue-modular/thermal-art.js';
 import {createWallShroud} from '../../art/source/furnished-house/shroud.js';
+import {createSupportGeometryCache} from '../../art/source/furnished-house/visibility.js';
 
 // Small presentation-only fixtures, not gameplay trajectories or timing evidence.
 // The shared coder session supplies actual production motion and visual acceptance.
@@ -83,6 +84,7 @@ function sample(data, surfaceId, extra = {}) {
 function assertPreparationEntries(art, limit, label) {
   const stats = art.diagnostics().preparationCache;
   assert.ok(stats, label + ' needs explicit preparation-cache ownership counters');
+  assert.ok(Number.isInteger(stats.immutableEntries) && stats.immutableEntries >= 0 && stats.immutableEntries <= limit * 4, label + ' active immutable geometry retention');
   for (const key of ['sourceEntries', 'groupEntries', 'phaseEntries']) {
     assert.ok(Number.isInteger(stats[key]) && stats[key] >= 0 && stats[key] <= limit,
       label + ' ' + key + ': ' + stats[key] + ' exceeds live-source bound ' + limit);
@@ -300,4 +302,79 @@ test('empty runtime geometry preserves the exact Catalogue reference fallback/re
       frame([wall], {revision: 12, boundaries: [{id: 'empty-wall', sourceSurfaceId: 'wall', triangles: [], intact: true}]}));
     assert.equal(result.counts.missingSamples, 1);
   });
+});
+
+
+function freezeArrays(value) {
+  if (Array.isArray(value)) {for (const child of value) freezeArrays(child); Object.freeze(value);}
+  return value;
+}
+
+test('certified persistent and cloned frozen footprints preserve exact animated output', async () => {
+  await paired(({data, candidate, compare}) => {
+    const a = sample(data, 'floor-a'), b = sample(data, 'floor-b');
+    a.floorFootprint = freezeArrays(a.floorFootprint); b.floorFootprint = freezeArrays(b.floorFootprint);
+    const input = frame([a, b]);
+    for (let step = 0; step < 4; step++) {
+      input.revision++; input.worldTime += 1 / 30;
+      compare('persistent recursively frozen DTO ' + step, input);
+      assert.equal(candidate.diagnostics().preparationCache.immutableEntries, 2);
+    }
+    a.floorFootprint = freezeArrays(copy(a.floorFootprint)); input.revision++;
+    compare('equal cloned immutable geometry', input);
+    a.floorFootprint = freezeArrays(rectangle(0, .8, 0, 1)); input.revision++;
+    compare('different cloned immutable geometry', input);
+    compare('old immutable identities are pruned', frame([], {revision: input.revision + 1}));
+    assertPreparationEntries(candidate, 0, 'no immutable owners');
+  });
+});
+
+test('frozen outer arrays with mutable descendants retain exact in-place invalidation', async () => {
+  await paired(({data, candidate, compare}) => {
+    const a = sample(data, 'floor-a'); Object.freeze(a.floorFootprint);
+    const input = frame([a]), first = compare('frozen outer only', input);
+    assert.equal(candidate.diagnostics().preparationCache.immutableEntries, 0);
+    for (const t of a.floorFootprint) for (const p of t) if (p[0] === 1) p[0] = .7;
+    input.revision++;
+    const changed = compare('mutable point changes below frozen parent', input);
+    assert.notDeepEqual(changed.inspect.emitters, first.inspect.emitters);
+    assert.equal(candidate.diagnostics().preparationCache.immutableEntries, 0);
+  });
+});
+
+test('frozen accessor-valued points are value-checked rather than trusted by identity', async () => {
+  await paired(({data, candidate, compare}) => {
+    let right = 1;
+    const footprint = rectangle(0, 1, 0, 1);
+    for (const t of footprint) for (const p of t) {
+      if (p[0] === 1) Object.defineProperty(p, '0', {enumerable: true, configurable: true, get: () => right});
+      Object.freeze(p);
+    }
+    for (const t of footprint) Object.freeze(t); Object.freeze(footprint);
+    const a = sample(data, 'floor-a', {floorFootprint: footprint}), input = frame([a]);
+    const first = compare('fully frozen arrays with numeric accessor', input);
+    assert.equal(candidate.diagnostics().preparationCache.immutableEntries, 0);
+    right = .7; input.revision++;
+    assert.notDeepEqual(compare('getter result changes without identity change', input).inspect.emitters, first.inspect.emitters);
+    assert.equal(candidate.diagnostics().preparationCache.immutableEntries, 0);
+  });
+});
+
+test('immutable preparation is shared across live sources and pruned without historical geometry retention', () => {
+  const cache = createSupportGeometryCache(), input = freezeArrays(rectangle(0, 1, 0, 1));
+  cache.begin(); const first = cache.source('one'), second = cache.source('two');
+  const a = cache.geometry(first, 'support', input), b = cache.geometry(second, 'support', input);
+  assert.equal(a, b, 'the same immutable array gets one preparation across source entries');
+  assert.equal(cache.immutableSize, 1); cache.prune();
+  for (let step = 0; step < 16; step++) {
+    cache.begin(); const owner = cache.source('one');
+    cache.geometry(owner, 'support', freezeArrays(rectangle(0, 1 - step * .01, 0, 1)));
+    cache.prune(); assert.equal(cache.size, 1); assert.equal(cache.immutableSize, 1);
+  }
+  // A frozen Proxy is not an ordinary immutable DTO; it must stay on the
+  // descriptor/value-checked path even if it mirrors a frozen array target.
+  cache.begin(); cache.geometry(cache.source('proxy'), 'support', new Proxy(input, {})); cache.prune();
+  assert.equal(cache.immutableSize, 0);
+  cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.immutableSize, 0);
+  cache.clear(); assert.equal(cache.size, 0); assert.equal(cache.immutableSize, 0);
 });
