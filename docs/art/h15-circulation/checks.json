@@ -1,0 +1,771 @@
+{
+  "version": 1,
+  "variant": "catalogue-h15-circulation-150-v1",
+  "scope": "Focused CPU source geometry/support/navigation/registration controls. Door poses are explicitly set for geometric testing. This is not real mouse/keyboard, gameplay, GPU or performance acceptance.",
+  "checks": [
+    "Immutable original/access125 controls, untouched M27/runtime, and identical Bell&Alder",
+    "Native bodies/module/floors and unchanged outer component envelope",
+    "Paired native leaves, positive width, actual2m header and agreed canonical identity",
+    "Actual tread bearing is1.50m wide at all twelve unchanged native elevations",
+    "Original support findings distinguished; successor has no unresolved support",
+    "goat full physical chain, both ways at five transverse offsets",
+    "goat kitchen return, both ways at five offsets",
+    "horse full physical chain, both ways at five transverse offsets",
+    "horse kitchen return, both ways at five offsets",
+    "bear full physical chain, both ways at five transverse offsets",
+    "bear kitchen return, both ways at five offsets",
+    "Captured open-door20mm skirting case remains blocked in access125 and clears in successor",
+    "Closed native paired leaves block actual body; reopening restores clearance",
+    "Unsupported upper void is still rejected",
+    "Source/render registration has no omitted or extra compared area and disposes"
+  ],
+  "passed": true,
+  "profiles": {
+    "goatHorse": {
+      "radius": 0.5,
+      "height": 1.66
+    },
+    "bear": {
+      "radius": 0.56,
+      "height": 1.68
+    }
+  },
+  "support": {
+    "access125Unresolved": 0,
+    "successorUnresolved": 0,
+    "flights": [
+      {
+        "id": "hopkins-fifteen::interior-stair/lower",
+        "lower": 8,
+        "upper": 8,
+        "requiresBothLandings": true
+      },
+      {
+        "id": "hopkins-fifteen::interior-stair/upper",
+        "lower": 8,
+        "upper": 6,
+        "requiresBothLandings": true
+      }
+    ]
+  },
+  "paths": [
+    {
+      "profile": "goat",
+      "offset": -0.1,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000029,
+        2.5999999,
+        4.149999999999993
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.1,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.899999999999999,
+        0,
+        -3.799999999999965
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.05,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.1999999999999975
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.05,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.949999999999999,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.250000000000002
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.999999999999975,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.05,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.299999999999995
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.05,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        5.050000000000001,
+        0,
+        -3.7999999999999723
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.1,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000015,
+        2.5999999,
+        4.349999999999996
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.1,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        5.09999999999998,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.1,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.771250000000009,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.1,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.899999999999988,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.05,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.82125000000001,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.05,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.949999999999989,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.8712500000000105,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.999999999999989,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.05,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.9212500000000112,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.05,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        5.04999999999999,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.1,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.971250000000012,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.1,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        5.099999999999991,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.1,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000029,
+        2.5999999,
+        4.149999999999993
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.1,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.899999999999999,
+        0,
+        -3.799999999999965
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.05,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.1999999999999975
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.05,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.949999999999999,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.250000000000002
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.999999999999975,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.05,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.299999999999995
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.05,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        5.050000000000001,
+        0,
+        -3.7999999999999723
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.1,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000015,
+        2.5999999,
+        4.349999999999996
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.1,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        5.09999999999998,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.1,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.771250000000009,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.1,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.899999999999988,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.05,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.82125000000001,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.05,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.949999999999989,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.8712500000000105,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.999999999999989,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.05,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.9212500000000112,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.05,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        5.04999999999999,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.1,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.971250000000012,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.1,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        5.099999999999991,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.1,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000029,
+        2.5999999,
+        4.149999999999993
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.1,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.899999999999999,
+        0,
+        -3.799999999999965
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.05,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.1999999999999975
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.05,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.949999999999999,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.250000000000002
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        4.999999999999975,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.05,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000011,
+        2.5999999,
+        4.299999999999995
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.05,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        5.050000000000001,
+        0,
+        -3.7999999999999723
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.1,
+      "direction": "up",
+      "passed": true,
+      "end": [
+        9.122500000000015,
+        2.5999999,
+        4.349999999999996
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.1,
+      "direction": "down",
+      "passed": true,
+      "end": [
+        5.09999999999998,
+        0,
+        -3.799999999999976
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.1,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.771250000000009,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.1,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.899999999999988,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.05,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.82125000000001,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.05,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.949999999999989,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.8712500000000105,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        4.999999999999989,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.05,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.9212500000000112,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.05,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        5.04999999999999,
+        0.48,
+        -1.000000000000023
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.1,
+      "direction": "in",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        3.971250000000012,
+        0.48,
+        5.749999999999996
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.1,
+      "direction": "out",
+      "kitchen": true,
+      "passed": true,
+      "end": [
+        5.099999999999991,
+        0.48,
+        -1.000000000000023
+      ]
+    }
+  ],
+  "registration": {
+    "meshes": 819,
+    "compared": 819,
+    "maxRelativeError": 1.2434497875801753e-14,
+    "bad": [],
+    "resources": {
+      "geometries": 0,
+      "materials": 0,
+      "textures": 0
+    }
+  },
+  "quantities": {
+    "surfaceFuelBefore": 586.8832628000082,
+    "surfaceFuelAfter": 565.9190473000078,
+    "surfaceFuelDelta": -20.964215500000364,
+    "upperFloorBefore": 67,
+    "upperFloorAfter": 62.63969999999998,
+    "addedStepStoneVolume": 0.4899839722938542,
+    "addedMainTreadFuel": 3.75,
+    "restoredLandingArea": 2.025,
+    "midLandingArea": 2.7873,
+    "coefficientPolicy": "Existing source finite quantities; added quarter treads use one quarter of source tread amount. Duplicated stone approach stays inert. Cut stock preserves source quantity per volume."
+  },
+  "outputs": {
+    "house-data.json": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c",
+    "scene-data.json": "c8c69e58a14231f887a0f3a2c79867469fb34e52b5980727e85f21c62f160765",
+    "shop-data.json": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5"
+  }
+}
