@@ -277,9 +277,13 @@ test('production composition mounts the houses, shop and one equipped patrol wit
   let art, geometryReleases = 0, originalReleases = 0;
   try {
     const snapshot = simulation.snapshot(), before = JSON.stringify(snapshot);
-    art = await createArtScene({THREE: T, renderer, scene, world: snapshot.world});
+    const presentationProfiles=[];
+    art = await createArtScene({THREE: T, renderer, scene, world: snapshot.world,onPresentationProfile:row=>presentationProfiles.push(row)});
     const rig = createCameraRig({clientWidth: 390, clientHeight: 420}, {setSize() {}}, snapshot.world); rig.update(snapshot.player);
     art.update(snapshot, {camera: rig.camera, viewport: {width: 390, height: 420}});
+    assert.equal(presentationProfiles.length,1);assert.equal(presentationProfiles[0].tick,snapshot.tick);
+    assert.ok(Object.values(presentationProfiles[0].stages).every(value=>Number.isFinite(value)&&value>=0));
+    assert.ok(['nativeStructures','groundAndBodyFire','firelight'].every(key=>Object.hasOwn(presentationProfiles[0].stages,key)));
     const diagnostics = art.diagnostics();
     assert.equal(diagnostics.housing.active, 8); assert.equal(diagnostics.bearProtagonist.species, 'bear');
     assert.ok(diagnostics.bellAndAlder);
