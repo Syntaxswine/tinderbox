@@ -31,6 +31,8 @@
 - Setting reference: the 1893 World's Columbian Exposition, researched from original plans, contemporary photographs and publications where available. Begin with inherited basic walls/doors, appropriate new wall/roof forms and interchangeable skin slots. Existing non-Red-Hat animals populate the initial city pending custom skins. Document source facts, uncertainty and game adaptations.
 - Monroe row houses join consecutively at their native frontage. Joining sides have no windows; side windows belong on exposed row ends.
 
+- The owner's November 16 target is half the current fire presentation cost with equivalent or better appearance. [Milestone 27](milestones/27-half-cost-fire.md) requires a current-production reference, separately measured CPU/GPU costs, exact physical behavior and normal-zoom temporal review; old standalone timings and paused-frame wins cannot establish it.
+
 ## Reuse-first technical direction
 
 The inspected Farmyard baseline is a browser game using JavaScript ES modules and a vendored Three.js renderer. `field-view.js` constructs an orthographic camera. The source project builds and checks with Node.js 22 or newer, without a package installation.

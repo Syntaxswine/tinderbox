@@ -4,10 +4,10 @@
 
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
-| Architect | `master`; M26 review branch and accepted M25 checkpoints preserved | `C:/Users/baals/Documents/ChatGPT/tinderbox` | Published/verified bounded grass/startup correction `80fa4f59`; actual iPhone retry remains |
-| Artist | `codex/grass-mobile-art`; `a69f0920` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Accepted audit `6370cdd8`; idle, with no helper or duplicate probe |
+| Architect | Next `codex/review-fire-half-cost`; M26/M25 preserved | `C:/Users/baals/Documents/ChatGPT/tinderbox` | M27 fire 50% presentation-cost target; final measured/visual review |
+| Artist | Next `codex/fire-half-cost-art`; `6370cdd8` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | Structural preparation/animation; coder's shared dataset |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/grass-mobile-startup`; `9680991b` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Delivered `cfc6c2ae` (runtime `88959610`); idle, with all helpers closed |
+| Coder | Next `codex/fire-half-cost-code`; `cfc6c2ae` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | Current baseline/shared comparison, runtime/publication work and tests |
 | UI designer | `codex/fire-brigade-study` completed; effect-settings/train checkpoints preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | No new implementation assigned; suspicion bar/current-visibility indicator are deferred |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -41,6 +41,8 @@ The next owner-requested experiment is [Milestone 20: grass against the furnishe
 The owner's separate [archived stockyard map blockout](https://github.com/Syntaxswine/tinderbox/blob/c2b8d45a72f326759399b0717e9319f7b4688f91/docs/maps/stockyard/README.md) uses existing pens/gate and period maps. Its files/history are not imported into this sandbox base. The asset candidate `e98e46f11f818857a2f08054e9d1071e023cc2d3` is isolated as intake `9a0b936e`; it is not promoted to production. The built-in Nautilus editor is pinned to published main `6a9d93c0a5fceefe5799448da4e69c83b65e3ce9` solely for that authoring host. The artist's specialist wardrobe/livestock/clutter remains separate.
 
 The UI designer works from the dedicated UI worktree. Coordinate new asset exports with the artist and gameplay/runtime contracts with the coder. Follow the [reconciled reuse plan](reuse-plan.md) for Farmyard UI reuse; unresolved gameplay and device choices remain proposals. UI candidates follow the same architect promotion gate.
+
+The new owner-authorized [Milestone 27](milestones/27-half-cost-fire.md) targets half the current fire presentation cost at unchanged normal zoom and appearance. Existing coder/artist workers preserve M26, audit first, then use one shared current-production comparison. Architect freezes the measured bottleneck/denominator and reviews physical/visual equivalence before promotion. Old standalone timings and paused-frame cache hits cannot substitute for the result. UI has no new assignment. M26 remains the live baseline above.
 
 ## TB-001: visual reuse audit
 
