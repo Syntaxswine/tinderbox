@@ -1,3 +1,4 @@
+import {bounds} from './geometry.js';
 // Conservative bounds for the accepted house shroud, before support-anchor/envelope work.
 // Uncertain bounds/cameras retain sources. No visibility result is a physics decision.
 export function normalizeArtEffects(value) {
@@ -55,4 +56,35 @@ export function createCameraCuller(T,camera) {
   return !frustum.intersectsBox(box);
  };
  cull.known=true;return cull;
+}
+
+// Visit-owned latest geometry per stable source. Detached numeric snapshots detect
+// cloned and reused/in-place records alike; no sample, frame or camera is retained.
+export function createSupportGeometryCache() {
+ const sources=new Map();let epoch=0;
+ function begin(){epoch++;}
+ function source(id){let entry=sources.get(id);if(!entry){entry={};sources.set(id,entry);}entry.epoch=epoch;return entry;}
+ function matches(value,triangles){
+  if(!value?.coordinates||!Array.isArray(triangles)||triangles.length*9!==value.coordinates.length)return false;
+  let at=0;
+  for(const t of triangles){if(!Array.isArray(t)||t.length!==3)return false;for(const p of t){if(!Array.isArray(p)||p.length!==3)return false;for(const v of p)if(!Object.is(v,value.coordinates[at++]))return false;}}
+  return true;
+ }
+ function geometry(entry,slot,triangles){
+  const old=entry[slot];if(matches(old,triangles))return old;
+  const wellFormed=Array.isArray(triangles)&&triangles.every(t=>Array.isArray(t)&&t.length===3&&t.every(p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite)));
+  if(!wellFormed)return entry[slot]={valid:false,wellFormed:false};
+  const coordinates=new Float64Array(triangles.length*9);let at=0;
+  for(const t of triangles)for(const p of t)for(const v of p)coordinates[at++]=v;
+  return entry[slot]={coordinates,wellFormed:true,valid:triangles.length>0,
+   footprint:triangles.some(t=>Math.abs((t[1][0]-t[0][0])*(t[2][2]-t[0][2])-(t[2][0]-t[0][0])*(t[1][2]-t[0][2]))>1e-12),
+   bounds:triangles.length?bounds(triangles.flat()):null};
+ }
+ function anchorKey(value){
+  if(value.anchorKey===undefined){const triangles=[];for(let at=0;at<value.coordinates.length;at+=9){const points=[];for(let p=0;p<9;p+=3)points.push([0,1,2].map(i=>Math.round(value.coordinates[at+p+i]*1e6)).join(','));triangles.push(points.join(';'));}value.anchorKey=triangles.join('|');}
+  return value.anchorKey;
+ }
+ function prune(){for(const [id,entry]of sources)if(entry.epoch!==epoch)sources.delete(id);}
+ function clear(){sources.clear();epoch=0;}
+ return {begin,source,geometry,anchorKey,prune,clear,get size(){return sources.size;}};
 }
