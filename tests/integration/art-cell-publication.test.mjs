@@ -170,6 +170,26 @@ test('terrain firelight retains ranking, movement and mutable fuel fade', () => 
   }
 });
 
+test('native empty-terrain lighting preserves field/card reader continuity and identical flame/smoke/light output',()=>{
+  const shared=createCellReader(),oldShared=createCellReader(),field=createGroundField(T,shared),oldField=createGroundField(T,oldShared),atlas=new T.Texture();
+  const fire=createFire(T,{flame:atlas,smoke:atlas,burst:atlas},field.uniforms,shared),oldFire=createFire(T,{flame:atlas,smoke:atlas,burst:atlas},oldField.uniforms,oldShared);
+  const light=createStreetFirelight(T,createCellReader()),oldLight=createStreetFirelight(T,oldShared),empty=Object.freeze([]),player={x:.5,y:.5},sources=new Map([['native',[{part:'walls',exposed:true,flame:.8,area:1,x:1,y:1,z:1,nx:0,ny:0,nz:1}]]]);
+  let coldReads=0;const cold=Object.freeze({...cell('cold',.75,.75),get phase(){coldReads++;return 'cold';}}),lit=Object.freeze(cell('lit',.25,.25,{phase:'burning',intensity:.8}));
+  const first=Object.freeze([lit,cold]),next=Object.freeze([Object.freeze({...lit,heat:.4}),cold]);
+  const pack=effect=>effect.root.children.slice(0,3).map(mesh=>['iOffset','iShape','iInfo'].map(name=>{const a=mesh.geometry.getAttribute(name);return a.array.slice(0,mesh.geometry.instanceCount*a.itemSize);}));
+  function update(cells,time){
+    const snapshot={world,player,cells,tick:Math.round(time*60),actors:[]};field.update(snapshot);oldField.update({...snapshot,cells:cells.map(c=>({...c}))});
+    light.update({...snapshot,cells:empty},sources,time);oldLight.update({...snapshot,cells:[]},sources,time);
+    fire.update(snapshot,time);oldFire.update({...snapshot,cells:cells.map(c=>({...c}))},time);
+    assert.deepEqual(pack(fire),pack(oldFire));assert.deepEqual(light.diagnostics(),oldLight.diagnostics());
+  }
+  try{
+    update(first,0);const before=coldReads;field.update({world,cells:first});light.update({world,player,cells:empty},sources,.1);fire.update({world,player,cells:first,tick:6,actors:[]},.1);assert.equal(coldReads,before);
+    const previous=shared(first);field.update({world,cells:next});light.update({world,player,cells:empty},sources,.2);assert.equal(shared(next).previous,previous.cells);assert.deepEqual(shared(next).changes,[0]);
+    update(next,.2);update(frozen([{...next[0],phase:'spent',intensity:0},cold]),1);update(first,0);
+  }finally{fire.dispose();oldFire.dispose();light.dispose();oldLight.dispose();field.dispose();oldField.dispose();atlas.dispose();}
+});
+
 test('world reuses immutable terrain and preserves mutable collider and tile size changes', () => {
   const material = new T.MeshBasicMaterial();
   const map = createWorld(T, new Proxy({}, {get: () => material}));
