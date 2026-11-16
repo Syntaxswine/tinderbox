@@ -62,7 +62,7 @@ export function createCameraCuller(T,camera) {
 // Visit-owned latest geometry per stable source. Detached numeric snapshots detect
 // cloned and reused/in-place records alike; no sample, frame or camera is retained.
 export function createSupportGeometryCache() {
- const sources=new Map(),immutableGeometry=new Map();let certified=new WeakMap(),epoch=0,boundsEntries=0,boundsComputations=0,boundsCacheHits=0;
+ const sources=new Map(),immutableGeometry=new Map();let certified=new WeakMap(),privateBounds=new WeakSet(),epoch=0,boundsEntries=0,boundsComputations=0,boundsCacheHits=0;
  function begin(){epoch++;boundsComputations=boundsCacheHits=0;}
  function source(id){let entry=sources.get(id);if(!entry){entry={};sources.set(id,entry);}entry.epoch=epoch;return entry;}
  function matches(value,triangles){
@@ -100,25 +100,30 @@ export function createSupportGeometryCache() {
   if(!wellFormed)return {valid:false,wellFormed:false};
   const coordinates=new Float64Array(triangles.length*9);let at=0;
   for(const t of triangles)for(const p of t)for(const v of p)coordinates[at++]=v;
-  return {coordinates,wellFormed:true,valid:triangles.length>0,
-   footprint:triangles.some(t=>Math.abs((t[1][0]-t[0][0])*(t[2][2]-t[0][2])-(t[2][0]-t[0][0])*(t[1][2]-t[0][2]))>1e-12),
-   bounds:triangles.length?bounds(triangles.flat()):null};
+  const valid=triangles.length>0,footprint=triangles.some(t=>Math.abs((t[1][0]-t[0][0])*(t[2][2]-t[0][2])-(t[2][0]-t[0][0])*(t[1][2]-t[0][2]))>1e-12);
+  const ownedBounds=triangles.length?bounds(triangles.flat()):null;
+  if(ownedBounds){Object.freeze(ownedBounds.min);Object.freeze(ownedBounds.max);Object.freeze(ownedBounds);privateBounds.add(ownedBounds);}
+  return {coordinates,wellFormed:true,valid,footprint,bounds:ownedBounds};
  }
  // Only static helper inputs are retained: never the source sample, camera,
  // wind eligibility, time or an animation result. Visibility still runs live.
  function effectBounds(entry,q,channel){
+  if(channel!=='flames'&&channel!=='smoke'){boundsComputations++;return houseEffectBounds(q,channel);}
   const slot=channel==='flames'?'flameEnvelope':'smokeEnvelope',b=q.anchorBounds||q.supportBounds,cached=entry[slot];
   if(cached&&cached.part===q.part&&Object.is(cached.x,q.x)&&Object.is(cached.y,q.y)&&Object.is(cached.z,q.z)&&Object.is(cached.nx,q.nx)&&Object.is(cached.ny,q.ny)&&Object.is(cached.nz,q.nz)&&cached.hasBounds===!!b){
    let equal=true;
    if(b){
-    equal=cached.min.length===b.min.length&&cached.max.length===b.max.length;
-    if(equal)for(let i=0;i<cached.min.length;i++)if(!Object.is(cached.min[i],b.min[i])){equal=false;break;}
-    if(equal)for(let i=0;i<cached.max.length;i++)if(!Object.is(cached.max[i],b.max[i])){equal=false;break;}
+    if(privateBounds.has(b))equal=cached.privateBounds===b;
+    else{
+     equal=cached.min.length===b.min.length&&cached.max.length===b.max.length;
+     if(equal)for(let i=0;i<cached.min.length;i++)if(!Object.is(cached.min[i],b.min[i])){equal=false;break;}
+     if(equal)for(let i=0;i<cached.max.length;i++)if(!Object.is(cached.max[i],b.max[i])){equal=false;break;}
+    }
    }
    if(equal){boundsCacheHits++;return cached.value;}
   }
   boundsComputations++;const value=houseEffectBounds(q,channel);
-  if(value){if(!cached)boundsEntries++;entry[slot]={part:q.part,x:q.x,y:q.y,z:q.z,nx:q.nx,ny:q.ny,nz:q.nz,hasBounds:!!b,min:b?Array.from(b.min):null,max:b?Array.from(b.max):null,value};}
+  if(value){const owned=!!b&&privateBounds.has(b);if(!cached)boundsEntries++;entry[slot]={part:q.part,x:q.x,y:q.y,z:q.z,nx:q.nx,ny:q.ny,nz:q.nz,hasBounds:!!b,privateBounds:owned?b:null,min:b?(owned?b.min:Array.from(b.min)):null,max:b?(owned?b.max:Array.from(b.max)):null,value};}
   else if(cached){delete entry[slot];boundsEntries--;}
   return value;
  }
@@ -127,6 +132,6 @@ export function createSupportGeometryCache() {
   return value.anchorKey;
  }
  function prune(){for(const [id,entry]of sources)if(entry.epoch!==epoch){if(entry.flameEnvelope)boundsEntries--;if(entry.smokeEnvelope)boundsEntries--;sources.delete(id);}for(const [input,entry]of immutableGeometry)if(entry.epoch!==epoch)immutableGeometry.delete(input);}
- function clear(){sources.clear();immutableGeometry.clear();certified=new WeakMap();epoch=boundsEntries=boundsComputations=boundsCacheHits=0;}
+ function clear(){sources.clear();immutableGeometry.clear();certified=new WeakMap();privateBounds=new WeakSet();epoch=boundsEntries=boundsComputations=boundsCacheHits=0;}
  return {begin,source,geometry,effectBounds,anchorKey,prune,clear,get size(){return sources.size;},get immutableSize(){return immutableGeometry.size;},get effectBoundsSize(){return boundsEntries;},get effectBoundsComputations(){return boundsComputations;},get effectBoundsCacheHits(){return boundsCacheHits;}};
 }

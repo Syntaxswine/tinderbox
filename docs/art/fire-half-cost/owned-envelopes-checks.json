@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "sourceCommit": "68ac1f908a902e91a036e12c8f03ab9bee5b463e",
+  "previousArtistLeaf": "c2b38c65ac7f94539ec3c443c588f1668da658b8",
+  "commonContract": "55cff1109d57842e169c5dcef04bfad7b0dd1f04",
+  "sharedDependency": {
+    "path": "src/reuse/publication-geometry.js",
+    "sourceCommit": "f2ef339e222d956bf2da767c658f16f76b56603b",
+    "gitBlobSHA256": "94cbb817e238f00d4aae4e039c75cda87d29585b856f12665b596007c4260fdf",
+    "copiedVerbatim": true,
+    "coderOwned": true
+  },
+  "candidateGitBlobSHA256": {
+    "art/source/furnished-house/visibility.js": "ef3fd3249d97aa698b6467812b5356f5b18e082b966c328c0b1c423d94ed197b",
+    "art/source/catalogue-modular/thermal-art.js": "140bbfb3fdd309a2104cffd6b61f8fae206a1efd415f6524f04dc8ade84bd872",
+    "tests/integration/fire-preparation-cache.test.mjs": "f9cdb704ccf4ae5de46d47305789a0b58386e7b119b9d19aa04d4e2bb8575917",
+    "src/reuse/publication-geometry.js": "94cbb817e238f00d4aae4e039c75cda87d29585b856f12665b596007c4260fdf"
+  },
+  "checks": {
+    "command": "node --test --test-concurrency=1 tests/integration/fire-preparation-cache.test.mjs",
+    "passed": 17,
+    "failed": 0,
+    "scope": "Finite CPU-only paired reference/output/invalidation/ownership controls. No production measurement or browser acceptance.",
+    "syntaxAndWhitespacePassed": true,
+    "houseEffectBoundsMathUnchanged": true,
+    "houseEffectBoundsNormalizedTextSHA256": "8fc2fa3032dc54112f77be9673c8295bae2fd0210c35517a0c5101e01ff10046"
+  },
+  "functionalWorkProof": {
+    "ownedConsumerSecondClones": 0,
+    "ownedConsumerDescriptorReads": 0,
+    "genericFrozenCertificationClones": 1,
+    "genericFrozenDescriptorReads": "positive; original path preserved",
+    "fourSourceFixtureColdEnvelopeCalls": 8,
+    "freshAnimatedEqualInputEnvelopeCalls": 0,
+    "freshAnimatedEqualInputEnvelopeHits": 8,
+    "note": "Asserted work counts, not elapsed-time measurements."
+  },
+  "envelopeCache": {
+    "key": [
+      "channel",
+      "part",
+      "x",
+      "y",
+      "z",
+      "nx",
+      "ny",
+      "nz",
+      "selected anchorBounds || supportBounds presence",
+      "selected min/max lengths and every coordinate"
+    ],
+    "capacity": "At most two envelopes per current stable source",
+    "retainsFrameCameraOrAnimatedSample": false,
+    "pruneResetDisposalVerified": true,
+    "unknownWindReturnsNull": true,
+    "cameraAndCutawayRemainLive": true,
+    "inspectEmitterBoundsDetached": true,
+    "newDiagnostics": [
+      "preparationCache.effectBoundsEntries",
+      "effectWork.work.effectBoundsComputations",
+      "effectWork.work.effectBoundsCacheHits"
+    ],
+    "unsupportedChannelRemainsUncachedNull": true
+  },
+  "preservedRoundThree": {
+    "referenceMeanMs": 29.363,
+    "candidateMeanMs": 14.304,
+    "referenceP95Ms": 33.8,
+    "candidateP95Ms": 18.4,
+    "relativeMeanPassed": true,
+    "completeTargetPassed": false,
+    "evidenceRoot": "C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/artifacts/qa/fire-half-cost/comparison-round3"
+  },
+  "target": {
+    "absoluteMeanMs": 14.025,
+    "absoluteP95Ms": 17.55,
+    "freshPairedMeanAndP95RatioCeiling": 0.5
+  },
+  "roundFourMeasured": false,
+  "unchanged": [
+    "Generic ordinary frozen/accessor/partial/Proxy paths",
+    "Prepared geometry and envelope helper math",
+    "Finisher and motion",
+    "Shaders and native body shroud",
+    "Physics and Source-pool ownership"
+  ],
+  "helpersStarted": 0,
+  "implementationCommit": "c059d8d6450d03c935a9488c8b77a84ad2ae792e"
+}
