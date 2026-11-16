@@ -14,6 +14,18 @@ Primary timings advance through new native states at normal cadence. A repeatedl
 
 ## Workers and ownership
 
+### Frozen baseline, November 16
+
+The one current-production baseline is accepted after visual inspection of `growing-later.jpg`. Primary case: `growing-later`, world 24.033333–26.000000, native ticks 721–780, 60 new native states. It has 616–777 structural sources and 6–14 actual positive roof sources, with the shop's normal cutaway/follow presentation, visible flames/smoke/firelight and an active native character. Earlier growth and actual moving-body oil-contact controls are retained. Page 1280 × 800, 3D viewport 1280 × 494, orthographic span 12.6 m, zoom 1, follow camera target ending [42.81,0,15.8]. Hardware: NVIDIA RTX 3080 / ANGLE D3D11, Edge 157. This is desktop evidence only.
+
+Freeze the primary metric as the **per-new-state CPU sum `physicalPublicationMs + artMs`**, two sequential CPU phases: **mean 28.050000 ms, p95 35.100000 ms**. Targets are **mean <=14.025000 ms and p95 <=17.550000 ms**, also requiring at least 50% improvement against the matched counterbalanced reference. Compute p95 from each frame's sum, not by adding separate percentiles. Full simulation already includes publication; do not double-count it in total-frame reporting. The dominant visual substage is native structure preparation (mean 16.653 ms), with ground/body fire at 2.308 ms. Physics itself is outside this optimization.
+
+Render submission is separately 6.510 ms mean; actual non-disjoint GPU render time is 9.435 ms mean / 12.612 ms p95 versus quiet 8.366 ms mean. These whole-scene values are reported and guarded, not added to CPU or called the saved fire cost. Investigate any reproducible >10% GPU mean/p95 regression in the matched comparison. Keep all raw values/outliers.
+
+Independent full reference package: 3,546 files / 183,182,807 bytes, manifest `a4c1279456b84f8729f63844268a5c5904401c294be134f1e0c89c031692d2b4` (current production plus symmetric optional timing hook). The original 1,560-state sequence, hash `51e2ac77caf403be67831c0841d63b59bb123f7863dc11ed4de1cee4f9ae3e57`, and scalar/image/cleanup evidence are in the coder's ignored `artifacts/qa/fire-half-cost/baseline/`. The full packet archive is large and stays uncommitted; preserve the input/source/hash/restart references.
+
+Final primary timings must actually execute both publication and art through each independent code path on the same current inputs. Packet replay alone may compare isolated art/output, but cannot claim saved publication from old recorded timing fields. Avoid retaining full historical snapshots in final timed comparison; capture only scalar data there, with matching reference/candidate collection policy. Retain this first recording's data and report both the frozen absolute budget and fresh paired ratios, so harness memory effects cannot manufacture the result. Baseline helper exited successfully, released ports 63614/63615 and reports zero tracked GL ownership. Runtime optimization is now authorized within the file boundaries below.
+
 Reuse existing chats/worktrees and preserve M26 branches. Task branches start from the exact common contract commit supplied after this brief. No new worker, worktree, UI task or standing service.
 
 | Owner | Branch and files |
