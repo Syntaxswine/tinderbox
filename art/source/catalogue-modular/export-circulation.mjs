@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import {createHash} from 'node:crypto';
+import {applyH15CirculationVariant} from './h15-circulation-variant.mjs';
+const root='art/source/catalogue-modular/controls/h15-circulation/',reference=JSON.parse(fs.readFileSync(root+'reference.json','utf8'));
+const sha=b=>createHash('sha256').update(b).digest('hex');
+for(const record of reference.files)if(sha(fs.readFileSync(root+record.file))!==record.sha256)throw Error('Immutable source control changed: '+record.file);
+const read=name=>JSON.parse(fs.readFileSync(root+name,'utf8')),house=read('access125-house.json'),scene=read('access125-scene.json'),stock=read('native-egress-stock.json');
+const change=applyH15CirculationVariant(house,stock),spec=scene.instances.find(i=>i.id==='hopkins-fifteen');
+const overlap=(b,a)=>[0,2].every(k=>Math.min(b.max[k],a.max[k])-Math.max(b.min[k],a.min[k])>1e-8);
+const lower=house.surfaces.filter(s=>s.kind==='floor'&&s.level===0&&Math.abs(s.bounds.max[1]-.48)<1e-5&&overlap(s.bounds,{min:[4.75,.48,.5],max:[6.25,.48,1.5]})).map(s=>s.id),upper=house.surfaces.filter(s=>s.kind==='floor'&&s.level===1&&Math.abs(s.bounds.max[1]-2.6)<1e-5&&overlap(s.bounds,{min:[8.3725,2.6,3.5],max:[9.8725,2.6,5]})).map(s=>s.id);
+spec.stairFlights=change.stair.flights.map(f=>({id:f.id,treadSourceIds:f.treadSourceIds,lower:{elevation:f.lowerY,surfaceIds:f.lowerY===.48?lower:change.stair.midLandingIds},upper:{elevation:f.upperY,surfaceIds:f.upperY===2.6?upper:change.stair.midLandingIds}}));spec.recomposedSourceIds=house.componentRegistration.recomposedSourceIds;spec.omittedSourceIds=house.componentRegistration.omittedSourceIds;
+scene.doors=[{id:'hopkins-fifteen::'+house.navigation.entryDoorGroup.id,openingIds:house.navigation.entryDoorGroup.openingIds.map(id=>'hopkins-fifteen::'+id),position:[19,1.35,13.15],label:'House door'}];
+scene.provenance.activeHouseAccessVariant={id:change.id,control:change.control,targets:change.targets,stair:change.stair,front:change.front};
+scene.provenance.geometryPolicy='Versioned native H15 circulation successor; original/access125 source controls immutable; actual supported tread/landing/threshold geometry, native bodies/UVs/pitch/lot unchanged.';
+for(const path of ['art/source/catalogue-modular/h15-circulation-variant.mjs','art/source/catalogue-modular/export-circulation.mjs']){const bytes=fs.readFileSync(path);house.sourceHashes.push({path,commit:null,sha256:sha(bytes),bytes:bytes.length});}
+house.sourceHashes.push({path:root+'access125-house.json',commit:change.control.commit,sha256:change.control.sha256});
+const sources=new Set(house.surfaces.map(s=>s.id));for(const s of house.surfaces)for(const id of [...s.supportSurfaceIds||[],...s.attachmentHostSurfaceIds||[],...s.supportBinding?.hostSurfaceIds||[]])if(!sources.has(id))throw Error('Dangling source support '+s.id+' -> '+id);
+for(const [name,data]of [['house-data.json',house],['scene-data.json',scene]])fs.writeFileSync('workbenches/catalogue-modular/'+name,JSON.stringify(data)+'\n');
+const outputs=Object.fromEntries(['house-data.json','scene-data.json','shop-data.json'].map(name=>[name,sha(fs.readFileSync('workbenches/catalogue-modular/'+name))]));
+const summary={version:1,variant:change.id,contract:change.contract,outputs,change,doorGroup:scene.doors[0],stairFlight:spec.stairFlights[0],status:'Source export; focused and real-input checks pending'};
+fs.writeFileSync('art/source/catalogue-modular/circulation-export-summary.json',JSON.stringify(summary,null,2)+'\n');
+console.log(JSON.stringify({variant:change.id,surfaces:house.surfaces.length,meshes:house.sourceMeshes.length,outputs,quantities:change.quantities,doorGroup:scene.doors[0]}));

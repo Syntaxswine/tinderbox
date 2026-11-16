@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "contract": "32576da673524a5bbff39ea556976ab24e0310fd",
+  "scope": "Immutable local authoring controls; no runtime reference to donor checkouts or moving branches.",
+  "files": [
+    {
+      "file": "access125-house.json",
+      "sourceCommit": "5deda67fbe3fe0968f90cdbc3e806e98baab0b86",
+      "sourcePath": "workbenches/catalogue-modular/house-data.json",
+      "sha256": "965abd52ee8c06d77a96187c61568ba5325ff44cbab6515eca5f1422c359611b",
+      "bytes": 6205084
+    },
+    {
+      "file": "access125-scene.json",
+      "sourceCommit": "5deda67fbe3fe0968f90cdbc3e806e98baab0b86",
+      "sourcePath": "workbenches/catalogue-modular/scene-data.json",
+      "sha256": "75bc8a85553343b1ad11af44969e7cb2f8f115a8198020fecb81d86703e38eba",
+      "bytes": 7079
+    },
+    {
+      "file": "access125-shop.json",
+      "sourceCommit": "5deda67fbe3fe0968f90cdbc3e806e98baab0b86",
+      "sourcePath": "workbenches/catalogue-modular/shop-data.json",
+      "sha256": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5",
+      "bytes": 9820868
+    },
+    {
+      "file": "zero-margin-house.json",
+      "sourceCommit": "2db04797846c9f14e47259ae6d5282932421b4b8",
+      "sourcePath": "workbenches/catalogue-modular/house-data.json",
+      "sha256": "124d10f7fee9a5b03193aff61ecee9375bef623b8de0cba363ac49c00c64f546",
+      "bytes": 6174034
+    },
+    {
+      "file": "native-egress-stock.json",
+      "sourceCommit": "595ce4bd5320959a00ef119b161b2054111b2a51",
+      "sourcePath": "workbenches/furnished-house/house-data.json",
+      "sourceDataSha256": "5722e591380d09be165e451ff278d3a6f61dedf37ff0457c93d900b678650092",
+      "sha256": "45bc480a3f5dc537e48944bc8f76b489b2f5b7b20b325dfedc1f3a98cd88a39f",
+      "reason": "Two original native pieces before the side-egress end cut: full right rail and terminal post for a proper top landing."
+    }
+  ],
+  "unchangedFiles": [
+    {
+      "path": "art/source/catalogue-modular/thermal-art.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "3c344de9b16da0144a693394b4ec10afb0cb049655edca93c3424bc1de30ed6c"
+    },
+    {
+      "path": "art/source/furnished-house/presentation.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "d82458bb0c1b33623793b600a6460d07419e60f6367ff28ec3d81e1c1ab0b21d"
+    },
+    {
+      "path": "art/source/furnished-house/visibility.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "ff03391716ea0bc790846006d9f91da6b291ede40daee7a6c308bc062128a776"
+    },
+    {
+      "path": "art/source/furnished-house/shroud.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "324f4cd8ec66557c7015c0bb317f7537d804bd90b0afc859e9b1ab01ea647166"
+    },
+    {
+      "path": "src/reuse/ashland/splats.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "05935bb39993cec938f2389cf6726a6839bc5af282e171ede78db80588fb171c"
+    },
+    {
+      "path": "src/art/character-shroud/index.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "0434d98adb900399852e94b8ed0116ee4071d0076ab06ac4e32449cd50eb1ea8"
+    },
+    {
+      "path": "src/art/character-shroud/splats.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "21c34a98d4020554720788f5b0a28a8f678283849d3e43864ff2b71196ad18cc"
+    },
+    {
+      "path": "workbenches/furnished-house/navigation.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "28e8d423189813b9605c249029138ae50b75917151e1c74d08a507c4753f9295"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "1accf6d27f27d78dd019f24e10f15354fd79b81b6cb8c87ee63ab90fdd98f1b5"
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "5c0b2500c44c9599964d77e12416cd917746fe1ecc5be8da0cd309e67ca64fe5"
+    },
+    {
+      "path": "workbenches/furnished-house/house-data.json",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "3a705131c3922ab33c86e269e5020ec08bea93de0eeeaab317c6ab90f001d7a1"
+    },
+    {
+      "path": "workbenches/bell-and-alder-sandbox/house-route-data.json",
+      "sourceCommit": "32576da673524a5bbff39ea556976ab24e0310fd",
+      "lfSha256": "a2e1521bd1b0f15e6e4baefc197743e87fb14af4da3f8259aec325f3e127cef6"
+    }
+  ]
+}
