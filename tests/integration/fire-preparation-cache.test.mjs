@@ -529,6 +529,8 @@ test('envelope keys include selected bounds lengths and every coordinate checked
   q.supportBounds.min[0] = -100; check(0); // The helper selects anchorBounds.
   q.anchorBounds.max[2] = 1.2; check(2);
   q.part = 'roof'; q.nx = .6; q.ny = .8; check(2);
+  cache.begin(); assert.equal(cache.effectBounds(cache.source('bounds'), q, 'lighting'), null);
+  assert.equal(cache.effectBoundsSize, 2, 'unknown channel cannot reuse or replace a smoke entry'); cache.prune();
   cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.effectBoundsSize, 0);
   cache.clear(); assert.equal(cache.effectBoundsSize, 0);
 });
