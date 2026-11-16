@@ -39,7 +39,7 @@ function fixture(){
  return {host,manifest,sources:{shop,house}};
 }
 
-test('owner publication uses only fresh occupancy rows and preserves trial, event, sample and support isolation',()=>{
+test('owner publication uses only fresh boundary/occupancy rows and preserves trial, event, sample and support isolation',()=>{
  const f=fixture(),compiled=compileCatalogueModules(f.manifest,f.sources,f.host),state={player:{id:'hero',x:20,y:18,elevation:0},actors:[],tick:0,generation:0,clocks:{world:0}},provider=createCatalogueThermal({compiled,state,definition:f.host,config:DEFAULT_CONFIG,event:()=>{}});
  try{
   provider.trial.command({type:'deposit',position:[20.125,.1,18.125],amount:.1});provider.trial.command({type:'match',position:[20.125,.1,18.125]});provider.step(1/30,1/30,()=>{});
@@ -48,12 +48,16 @@ test('owner publication uses only fresh occupancy rows and preserves trial, even
   const before=provider.trial.snapshot(),published=provider.physicalFrame(),sourceSamples=provider.trial.fireSamples({borrowImmutable:true});
   assert.ok(published.occupancy.length&&published.fireSamples.length&&published.events.length&&published.supports.length);
   assert.equal(published.occupancy,raw.occupancy);assert.equal(published.occupancy[0],raw.occupancy[0]);
+  assert.equal(published.boundaries,raw.boundaries);assert.equal(published.boundaries[0],raw.boundaries[0]);
+  assert.ok(published.boundaries.every(row=>row!==provider.trial.scene.index.surfaces.get(row.id)));
+  assert.ok([...provider.trial.scene.index.surfaces.values()].every(row=>!Object.hasOwn(row,'ownerInstanceId')));
   assert.ok(published.occupancy.every(row=>typeof row.ownerInstanceId==='string'&&Object.isFrozen(row.bounds)));
   for(const row of published.supports)assert.notEqual(row,published.boundaries.find(b=>b.id===row.id));
   for(let i=0;i<published.events.length;i++){assert.notEqual(published.events[i],raw.events[i]);assert.deepEqual(published.events[i],{...raw.events[i],ownerInstanceId:published.events[i].ownerInstanceId});}
   assert.ok(provider.trial.events.every(row=>!Object.hasOwn(row,'ownerInstanceId')));
   assert.ok(sourceSamples.every(row=>Object.isFrozen(row)&&!Object.hasOwn(row,'ownerInstanceId')));
   assert.notEqual(published.fireSamples,sourceSamples);assert.notEqual(published.fireSamples[0],sourceSamples[0]);
+  const boundary=published.boundaries[0];boundary.intact=!boundary.intact;boundary.ownerInstanceId='changed';
   const row=published.occupancy[0],id=row.id;row.heatFraction=-999;row.ownerInstanceId='changed';
   assert.throws(()=>{row.bounds.min[0]=-999;},{name:'TypeError'});assert.deepEqual(provider.trial.snapshot(),before);
   state.tick++;const next=provider.physicalFrame(),nextRow=next.occupancy.find(r=>r.id===id);
