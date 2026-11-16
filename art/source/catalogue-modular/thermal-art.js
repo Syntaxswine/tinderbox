@@ -5,12 +5,13 @@
 // Thermal rules, effect envelope and legacy M22 files remain unchanged.
 // M26 adds abort ownership and visit-scoped immutable image Sources; each view's
 // Texture/transform/sampler and material stay private. Image/mesh data is intact.
+// M27 caches detached support geometry/connected envelopes, never frame/animation state.
 import {loadOwnedBatch} from '../../../src/reuse/loading.js';
 import {bounds,normal,triangleArea,polygonTriangles,clip,clipBox,nearestSurface,distanceToBounds,pointInTriangleXZ,unit,sub} from '../furnished-house/geometry.js';
 import {createWallShroud} from '../furnished-house/shroud.js';
 import {createDebrisView} from '../furnished-house/debris.js';
-import {connectSurfaceSamples,surfaceSampleContextKey} from '../furnished-house/presentation.js';
-import {normalizeArtEffects,hasBoundedHouseWind,validTriangles,validFootprint,houseEffectBounds,createCameraCuller} from '../furnished-house/visibility.js';
+import {createSurfaceSampleConnector,surfaceSampleContextKey,surfaceTangentRange} from '../furnished-house/presentation.js';
+import {normalizeArtEffects,hasBoundedHouseWind,houseEffectBounds,createCameraCuller,createSupportGeometryCache} from '../furnished-house/visibility.js';
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0)),EPS=1e-6;
 const KIND={floor:0,wall:1,attachment:1,fitting:4,'landing-fitting':0,roof:2,door:3,window:3,plinth:5};
 export async function createCatalogueStructureArt(T,{renderer,data,placement,signal,sourcePool}={}){
@@ -24,6 +25,7 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
  function sourcePoint(v){const x=v[0]-(placement?.translation[0]??0),z=v[2]-(placement?.translation[2]??0),q=placement?.quarterTurns??0;return q===1?[-z,v[1],x]:q===2?[-x,v[1],-z]:q===3?[z,v[1],-x]:[x,v[1],z];}
  const floorVertex=(v,n,edge=false)=>{const p=sourcePoint(v),uv=edge?[p[0]+p[2],p[1]]:[p[0],p[2]];return [...v,...n,...uv,...uv];};
  const geometries=new Set(),materials=new Set(),textures=new Set(),effects=[],batches=[],itemGroups=new Map(),doorGroups=new Map(),patches=[],bySource=new Map(),patchByRuntimeId=new Map(),itemStates=new Map(),partStates=new Map(),fallStates=new Map(),boundaryStates=new Map(),openingState=new Map(),mappedMeshes=new Map(),renderCoverage=new Map();
+ const geometryPreparation=createSupportGeometryCache(),surfaceConnection=createSurfaceSampleConnector();
  const surfaces=new Map(data.surfaces.map(s=>[s.id,s])),sourceMeshes=new Map(data.sourceMeshes.map(s=>[s.id,s])),sourceGeometry=new Map(data.render.geometry.map(g=>[g.id,g])),partByMesh=new Map(data.furnitureParts.filter(p=>p.sourceMeshBinding).map(p=>[p.sourceMeshBinding,p])),openingByMesh=new Map(data.openings.flatMap(o=>o.sourceMeshBindings.map(id=>[id,o]))),openingByWall=new Map(data.openings.map(o=>[o.sourceWallBinding,o]));
  let debrisView=null,occluded=false,lastFadeMode=null;const fadeMaterials=new Map(),fadeShadows=new Map();
  let disposed=false,lastRevision=-1,lastTime=-Infinity,mode='exterior',selectedLevel=0,lastFrame=null,missingSamples=0,representedSamples=0,fireSamples=[],retiredPatches=0,charredIntactPatches=0,stateDirty=true,stateTextureInvalidations=0,doorPoseUpdates=0,resetCount=0,revisionCount=0,visibleSampleCount=0,missingSampleDetails=[];
@@ -76,7 +78,7 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
  stateTexture.minFilter=stateTexture.magFilter=T.NearestFilter;stateTexture.generateMipmaps=false;stateTexture.needsUpdate=true;textures.add(stateTexture);stateUniform.value=stateTexture;stateWidth.value=width;stateHeight.value=height;
  function writeState(index,values){const k=index*4,wasPresent=stateArray[k]>=.5,wasCharred=wasPresent&&stateArray[k+1]>.5;let changed=false;for(let i=0;i<4;i++){const value=Math.fround(values[i]);if(stateArray[k+i]!==value){stateArray[k+i]=value;changed=true;}}if(!changed)return;const present=stateArray[k]>=.5;retiredPatches+=Number(wasPresent)-Number(present);charredIntactPatches+=Number(present&&stateArray[k+1]>.5)-Number(wasCharred);stateDirty=true;}
  function trackDoor(record){const previous=doorSourceByBoundary.get(record.id),next=doorGroups.has(record.sourceSurfaceId)?record.sourceSurfaceId:null;if(previous&&previous!==next){doorBoundaryValues.get(previous)?.delete(record.id);dirtyDoors.add(previous);doorSourceByBoundary.delete(record.id);}if(!next)return;if(!doorBoundaryValues.has(next))doorBoundaryValues.set(next,new Map());const values=doorBoundaryValues.get(next),value=clamp(record.openFraction);if(values.get(record.id)!==value){values.set(record.id,value);dirtyDoors.add(next);}doorSourceByBoundary.set(record.id,next);}
- function resetState(){for(const p of patches){const o=openingState.get(p.sourceSurfaceId),s=surfaces.get(p.sourceSurfaceId);stateArray.set([1,0,o?.initialOpenFraction??s?.initialOpenFraction??0,0],p.index*4);}stateDirty=true;retiredPatches=charredIntactPatches=0;doorBoundaryValues.clear();doorSourceByBoundary.clear();dirtyDoors.clear();for(const id of doorGroups.keys())dirtyDoors.add(id);boundaryStates.clear();itemStates.clear();partStates.clear();fallStates.clear();patchByRuntimeId.clear();resetCount++;}
+ function resetState(){geometryPreparation.clear();surfaceConnection.clear();for(const fx of effects)fx.clear();for(const p of patches){const o=openingState.get(p.sourceSurfaceId),s=surfaces.get(p.sourceSurfaceId);stateArray.set([1,0,o?.initialOpenFraction??s?.initialOpenFraction??0,0],p.index*4);}stateDirty=true;retiredPatches=charredIntactPatches=0;doorBoundaryValues.clear();doorSourceByBoundary.clear();dirtyDoors.clear();for(const id of doorGroups.keys())dirtyDoors.add(id);boundaryStates.clear();itemStates.clear();partStates.clear();fallStates.clear();patchByRuntimeId.clear();resetCount++;}
 
  for(const o of data.openings)openingState.set(o.surfaceId,o);resetState();
  function decorate(m,depth=false){
@@ -192,7 +194,7 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
   const occGeometry=ownG(new T.BoxGeometry(1,1,1)),occMaterial=ownM(new T.MeshBasicMaterial({color:0x6fbaa8,wireframe:true,transparent:true,opacity:.40,depthWrite:false})),occupancy=new T.InstancedMesh(occGeometry,occMaterial,8192);
   occupancy.count=0;occupancy.frustumCulled=false;occupancy.name='Authoritative thermal occupancy';root.add(occupancy);
   const hasBuildingFloor=data.surfaces.some(s=>s.kind==='floor'),buildingGlow={update(){},diagnostics(){return {delegatedToHost:true,capacity:0,powerCap:0,lights:[]};}},firelight={root:new T.Group(),update(){},diagnostics(){return {delegatedToHost:true,capacity:0,powerCap:0,lights:[]};},dispose(){this.root.removeFromParent();this.root.clear();}};firelight.root.name='Host-owned firelight / no component pool';root.add(firelight.root);
-  debrisView=createDebrisView(T,{surfaces,getBoundary:id=>boundaryStates.get(id)});root.add(debrisView.root);const effectMapping=new Map(),radiusCache=new Map();
+  debrisView=createDebrisView(T,{surfaces,getBoundary:id=>boundaryStates.get(id)});root.add(debrisView.root);const effectMapping=new Map();
   function inProjectedTriangle(point,t,axis){
    const axes=[0,1,2].filter(i=>i!==axis),p=[point[axes[0]],point[axes[1]]],q=t.map(v=>[v[axes[0]],0,v[axes[1]]]);return pointInTriangleXZ(p,q);
   }
@@ -229,8 +231,8 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
   function supportAnchor(sample,triangles){
    effectWork.work.supportAnchorSources++;
    if(!triangles?.length)return null;
-   const key=sample.id+'/'+sample.x.toFixed(5)+'/'+sample.z.toFixed(5)+'/'+triangles.map(t=>t.map(pointKey).join(';')).join('|');
-   if(radiusCache.has(key))return radiusCache.get(key);
+   const owner=sample.preparationOwner,key=sample.x.toFixed(5)+'/'+sample.z.toFixed(5)+'/'+geometryPreparation.anchorKey(sample.anchorGeometry);
+   if(owner.anchor?.key===key)return owner.anchor.value;
    effectWork.work.supportAnchorComputations++;
    const edges=new Map(),seenTriangles=new Set();for(const t of triangles){const triangleKey=t.map(pointKey).sort().join('|');if(seenTriangles.has(triangleKey))continue;seenTriangles.add(triangleKey);for(let i=0;i<3;i++){const a=t[i],b=t[(i+1)%3],k=[pointKey(a),pointKey(b)].sort().join('|');if(edges.has(k))edges.delete(k);else edges.set(k,[a,b]);}}
    const candidates=[[sample.x,sample.z],...triangles.map(t=>[t.reduce((n,p)=>n+p[0],0)/3,t.reduce((n,p)=>n+p[2],0)/3])];
@@ -239,19 +241,19 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
     for(const [a,b]of edges.values()){const dx=b[0]-a[0],dz=b[2]-a[2],den=dx*dx+dz*dz;if(den<1e-12)continue;const t=clamp(((p[0]-a[0])*dx+(p[1]-a[2])*dz)/den);radius=Math.min(radius,Math.hypot(p[0]-a[0]-t*dx,p[1]-a[2]-t*dz));}
     if(radius>0&&(!best||radius>best.radius))best={x:p[0],z:p[1],radius:Math.max(.001,radius-.001)};
    }
-   if(radiusCache.size>=8192)radiusCache.clear();radiusCache.set(key,best);return best;
+   owner.anchor={key,value:best};return best;
   }
   // Resolve ownership and current elevation before any expensive support search.
   // The anchor search is shared by smoke/local light to preserve their exact positions.
   function classifySample(sample){
    if(typeof sample?.id!=='string'||![sample.x,sample.y,sample.z,sample.nx,sample.ny,sample.nz,sample.flame,sample.smoke,sample.ignitionTime,sample.area].every(Number.isFinite)||sample.area<=0||Math.hypot(sample.nx,sample.ny,sample.nz)<1e-6)return null;
-   const q={...sample,authoritativeY:sample.y,flame:clamp(sample.flame),smoke:clamp(sample.smoke),preheat:sample.preheat===true||sample.flame===0,exposed:sample.exposed!==false};
+   const preparationOwner=geometryPreparation.source(sample.id),q={...sample,preparationOwner,authoritativeY:sample.y,flame:clamp(sample.flame),smoke:clamp(sample.smoke),preheat:sample.preheat===true||sample.flame===0,exposed:sample.exposed!==false};
    const item=itemGroups.get(sample.itemId),activeFall=(sample.fallId&&fallStates.get(sample.fallId))||[...fallStates.values()].find(f=>sample.itemId&&f.itemId===sample.itemId||f.fuelIds?.includes(sample.id));
    if(activeFall){q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.baseRadius=.12;q.fallId=activeFall.id;q.supportOrigin='airborne';q.presentationLevel=Math.max(0,Math.floor((q.y-firstFloorY+.08)/pitch));return q;}
    const landed=debrisView.findFuel(sample.id,sample.rubbleId),landingFootprint=sample.floorFootprint||sample.footprint||landed?.floorFootprint||landed?.triangles;
    if(landed||sample.rubbleId||landingFootprint&&(sample.part==='contents'||sample.part==='rubble'||sample.supportBoundaryId)){
-    if(!validFootprint(landingFootprint))return null;
-    q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.anchorFootprint=q.supportTriangles=landingFootprint;q.anchorBounds=q.supportBounds=bounds(landingFootprint.flat());q.presentationLevel=Math.max(0,Math.floor((q.y-firstFloorY+.08)/pitch));q.rubbleId=sample.rubbleId||landed?.id;q.supportSurfaceId=sample.supportBoundaryId||landed?.supportBoundaryId;q.originalSourceSurfaceId=sample.originalSourceSurfaceId||sample.sourceSurfaceId;q.sourceSurfaceId=undefined;q.supportOrigin='landed';return q;
+    const shape=geometryPreparation.geometry(preparationOwner,'support',landingFootprint);if(!shape.footprint)return null;q.supportGeometry=q.anchorGeometry=shape;
+    q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.anchorFootprint=q.supportTriangles=landingFootprint;q.anchorBounds=q.supportBounds=shape.bounds;q.presentationLevel=Math.max(0,Math.floor((q.y-firstFloorY+.08)/pitch));q.rubbleId=sample.rubbleId||landed?.id;q.supportSurfaceId=sample.supportBoundaryId||landed?.supportBoundaryId;q.originalSourceSurfaceId=sample.originalSourceSurfaceId||sample.sourceSurfaceId;q.sourceSurfaceId=undefined;q.supportOrigin='landed';return q;
    }
    let source=surfaces.get(sample.sourceSurfaceId);if(!source&&sample.sourceSurfaceId)source=boundaryStates.get(sample.sourceSurfaceId);
    if(!source&&!item){
@@ -261,17 +263,18 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
    if(!source&&!item)return null;
    if(sample.openingId&&!data.openings.some(o=>o.id===sample.openingId))return null;
    const runtime=boundaryStates.get(sample.boundaryId||sample.id.replace(/^fuel:/,'')),triangles=runtime?.triangles||source?.triangles;
-   if(triangles&&(!Array.isArray(triangles)||!triangles.every(t=>Array.isArray(t)&&t.length===3&&t.every(p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite)))))return null;
-   q.supportTriangles=sample.floorFootprint||sample.footprint||triangles;q.supportBounds=triangles?.length?bounds(triangles.flat()):null;
-   if(q.supportTriangles!==undefined&&!validTriangles(q.supportTriangles))return null;
+   const support=triangles?geometryPreparation.geometry(preparationOwner,'support',triangles):null;if(triangles&&!support.wellFormed)return null;
+   q.supportTriangles=sample.floorFootprint||sample.footprint||triangles;q.supportBounds=support?.bounds||null;
+   q.supportGeometry=q.supportTriangles===triangles?support:geometryPreparation.geometry(preparationOwner,'footprint',q.supportTriangles);
+   if(q.supportTriangles!==undefined&&!q.supportGeometry?.valid)return null;
    q.presentationLevel=source?.level??item?.definition.level??0;q.wallTopY=data.levels.find(l=>l.index===q.presentationLevel)?.wallTop??q.supportBounds?.max[1];q.surfaceKind=source?.kind;
    if(sample.part==='contents'&&sample.id.endsWith(':embers')){q.part='ground';q.nx=0;q.ny=1;q.nz=0;q.baseRadius=.10;return q;}
    if(source){
     const rows=bySource.get(source.id)||[],live=!rows.length||rows.some(p=>stateArray[p.index*4]>.5);if(!live&&source.kind!=='window')return null;
     if(source.kind==='attachment'){q.part='ground';q.nx=0;q.ny=1;q.nz=0;const b=q.supportBounds;if(!b)return null;q.baseRadius=Math.max(.015,Math.min(.12,(b.max[0]-b.min[0])/2,(b.max[2]-b.min[2])/2));}
     else if(source.kind==='floor'||source.kind==='roof'){
-     q.sourceSurfaceId=q.sourceSurfaceId||source.id;q.anchorFootprint=sample.floorFootprint||sample.footprint||source.triangles;if(!validFootprint(q.anchorFootprint))return null;
-     q.anchorBounds=bounds(q.anchorFootprint.flat());q.part=source.kind==='floor'?(q.ny<-.5?'ceiling':'ground'):'roof';if(q.part==='ceiling')q.presentationLevel=Math.max(0,source.level-1);
+     q.sourceSurfaceId=q.sourceSurfaceId||source.id;q.anchorFootprint=sample.floorFootprint||sample.footprint||source.triangles;q.anchorGeometry=q.anchorFootprint===q.supportTriangles?q.supportGeometry:geometryPreparation.geometry(preparationOwner,'anchorGeometry',q.anchorFootprint);if(!q.anchorGeometry?.footprint)return null;
+     q.anchorBounds=q.anchorGeometry.bounds;q.part=source.kind==='floor'?(q.ny<-.5?'ceiling':'ground'):'roof';if(q.part==='ceiling')q.presentationLevel=Math.max(0,source.level-1);
     }else{
      if(!source.triangles?.length||!q.supportBounds)return null;q.part='walls';q.tangentTriangles=source.triangles;
     }
@@ -286,8 +289,8 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
     if(flameEnvelope){q.supportRadius=q.floorRadius=q.supportOrigin==='landed'?r.radius:Math.min(r.radius,Math.sqrt(Math.max(.001,q.area))*.5);}
    }else if(flameEnvelope&&q.baseRadius){q.supportRadius=q.floorRadius=q.baseRadius;}
    if(flameEnvelope&&q.tangentTriangles){
-    const h=Math.hypot(q.nx,q.nz)||1,tx=q.nz/h,tz=-q.nx/h,coords=q.tangentTriangles.flat().map(p=>p[0]*tx+p[2]*tz),at=q.x*tx+q.z*tz;
-    q.tangentRadius=Math.max(.01,Math.min(at-Math.min(...coords),Math.max(...coords)-at)-.002);
+    const shape=q.tangentTriangles===q.supportTriangles?q.supportGeometry:geometryPreparation.geometry(q.preparationOwner,'tangentGeometry',q.tangentTriangles),range=surfaceTangentRange(q.tangentTriangles,q.nx,q.nz,shape),at=q.x*range.tx+q.z*range.tz;
+    q.tangentRadius=Math.max(.01,Math.min(at-range.min,range.max-at)-.002);
    }
    return q;
   }
@@ -329,6 +332,7 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
    effectSettings=normalizeArtEffects({...view.effects,lighting:false});effectWork=emptyEffectWork();lightingMode=hasBuildingFloor&&view.lightingMode==='building'?'building':'local';
    const camera=view.camera,boundedWind=hasBoundedHouseWind(view),cameraCull=createCameraCuller(T,camera),classified=[],groups=new Map();
    const missing=sample=>{missingSamples++;if(missingSampleDetails.length<24)missingSampleDetails.push({id:sample?.id,sourceSurfaceId:sample?.sourceSurfaceId,originalSourceSurfaceId:sample?.originalSourceSurfaceId,rubbleId:sample?.rubbleId,fallId:sample?.fallId,part:sample?.part,position:[sample?.x,sample?.y,sample?.z],hasFootprint:!!sample?.floorFootprint?.length,reason:'invalid-or-unmapped'});};
+   geometryPreparation.begin();
    for(const sample of frame.fireSamples||[]){
     effectWork.suppliedSources++;
     if(sample&&[sample.flame,sample.smoke].every(Number.isFinite)&&!(sample.flame>0||sample.smoke>0)){effectWork.inactiveSources++;continue;}
@@ -364,7 +368,8 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
     if(q.renderSmoke)effectWork.channels.smoke.prepared++;if(q.lightEligible)effectWork.channels.lighting.prepared++;
     fireSamples.push(q);representedSamples++;
    }
-   if(effectSettings.flames)connectSurfaceSamples(fireSamples.filter(q=>q.renderFlames||q.flameContext));
+   geometryPreparation.prune();
+   if(effectSettings.flames)surfaceConnection.connect(fireSamples.filter(q=>q.renderFlames||q.flameContext));else surfaceConnection.clear();
    for(const q of fireSamples)effectMapping.set(q.id,{sourceSurfaceId:q.sourceSurfaceId||null,itemId:q.itemId||null,anchor:[q.x,q.y,q.z],supportOrigin:q.supportOrigin,rubbleId:q.rubbleId,fallId:q.fallId,supportSurfaceId:q.supportSurfaceId,originalSourceSurfaceId:q.originalSourceSurfaceId,presentationLevel:q.presentationLevel,part:q.part,preheat:q.preheat,overlapGroup:q.overlapGroup,overlapSources:q.overlapSources,supportRadius:q.supportRadius||null,tangentRadius:q.tangentRadius||null,flames:q.renderFlames,smoke:q.renderSmoke,lighting:q.lightEligible,flameContext:q.flameContext===true,omissions:q.omissions,flameBounds:q.flameBounds,smokeBounds:q.smokeBounds});
    const visibleSamples=fireSamples.filter(q=>q.renderFlames||q.renderSmoke);
    visibleSampleCount=visibleSamples.length;const count=camera?Math.ceil(visibleSamples.length/80):0;
@@ -393,9 +398,9 @@ export async function createCatalogueStructureArt(T,{renderer,data,placement,sig
    occupancy.instanceMatrix.needsUpdate=true;if(occupancy.instanceColor)occupancy.instanceColor.needsUpdate=true;
    if(stateDirty){stateTexture.needsUpdate=true;stateTextureInvalidations++;stateDirty=false;}lastRevision=frame.revision;lastTime=frame.worldTime;lastFrame=frame;revisionCount++;
   }
-  function diagnostics(){return {disposed,version:1,prefabId:data.prefabId,occluded,opacityScale:occluded?.18:1,worldTime:lastTime,revision:lastRevision,view:mode,level:selectedLevel,sourceSurfaces:data.surfaces.length,physicalPatches:patches.length,charredIntactPatches,stateTextureInvalidations,doorPoseUpdates,coverage:{meshes:renderCoverage.size,underCovered:[...renderCoverage.values()].filter(r=>r.ratio!==null&&r.ratio<.99).length,overCovered:[...renderCoverage.values()].filter(r=>r.ratio!==null&&r.ratio>1.01).length,underCoverageSamples:[...renderCoverage.values()].filter(r=>r.ratio!==null&&r.ratio<.99).slice(0,8),canonicalFloors:[...renderCoverage.values()].filter(r=>r.mode==='canonical-floor').length},stateTextureSize:[width,height],retiredPatches,sourceMeshes:data.sourceMeshes.length,batches:batches.length,items:itemGroups.size,falls:fallStates.size,fallVisuals:debrisView.diagnostics().flights,debris:debrisView.diagnostics(),occupancy:occupancy.count,fireSamples:fireSamples.length,representedSamples,missingSamples,missingSampleDetails,visibleSamples:visibleSampleCount,viewCulledSamples:effectWork.viewCulledSources,cameraCulledSamples:effectWork.cameraCulledSources,effects:{...effectSettings},lightingMode,effectWork:structuredClone(effectWork),emitterBatches:effects.length,fire:effects.map(f=>f.stats()),lightBudget:effectSettings.lighting?(lightingMode==='building'?buildingGlow.diagnostics():{...firelight.diagnostics(),mode:'local'}):{terrainSites:0,surfaceSites:0,candidates:0,capacity:0,powerCap:0,lights:[],disabled:true,delegatedToHost:true},actualLights:firelight.root.children.filter(l=>l.isPointLight&&l.intensity>0).map(l=>({position:l.position.toArray(),intensity:l.intensity,reach:l.distance})),resources:{geometries:geometries.size,materials:materials.size,textures:textures.size},resetCount,revisionCount,rootScale:root.scale.toArray(),stateBindings:bySource.size,dormantPoolHidden:!firelight.root.visible,sharedGridOrigin:[...data.gridOrigin],sharedThermalCell:[...data.thermalCell],firstFloorY,nativeFloorUV:true};}
+  function diagnostics(){return {disposed,preparationCache:{sourceEntries:geometryPreparation.size,groupEntries:surfaceConnection.diagnostics().entries,phaseEntries:effects.reduce((n,fx)=>n+fx.stats().phaseEntries,0),groups:surfaceConnection.diagnostics()},version:1,prefabId:data.prefabId,occluded,opacityScale:occluded?.18:1,worldTime:lastTime,revision:lastRevision,view:mode,level:selectedLevel,sourceSurfaces:data.surfaces.length,physicalPatches:patches.length,charredIntactPatches,stateTextureInvalidations,doorPoseUpdates,coverage:{meshes:renderCoverage.size,underCovered:[...renderCoverage.values()].filter(r=>r.ratio!==null&&r.ratio<.99).length,overCovered:[...renderCoverage.values()].filter(r=>r.ratio!==null&&r.ratio>1.01).length,underCoverageSamples:[...renderCoverage.values()].filter(r=>r.ratio!==null&&r.ratio<.99).slice(0,8),canonicalFloors:[...renderCoverage.values()].filter(r=>r.mode==='canonical-floor').length},stateTextureSize:[width,height],retiredPatches,sourceMeshes:data.sourceMeshes.length,batches:batches.length,items:itemGroups.size,falls:fallStates.size,fallVisuals:debrisView.diagnostics().flights,debris:debrisView.diagnostics(),occupancy:occupancy.count,fireSamples:fireSamples.length,representedSamples,missingSamples,missingSampleDetails,visibleSamples:visibleSampleCount,viewCulledSamples:effectWork.viewCulledSources,cameraCulledSamples:effectWork.cameraCulledSources,effects:{...effectSettings},lightingMode,effectWork:structuredClone(effectWork),emitterBatches:effects.length,fire:effects.map(f=>f.stats()),lightBudget:effectSettings.lighting?(lightingMode==='building'?buildingGlow.diagnostics():{...firelight.diagnostics(),mode:'local'}):{terrainSites:0,surfaceSites:0,candidates:0,capacity:0,powerCap:0,lights:[],disabled:true,delegatedToHost:true},actualLights:firelight.root.children.filter(l=>l.isPointLight&&l.intensity>0).map(l=>({position:l.position.toArray(),intensity:l.intensity,reach:l.distance})),resources:{geometries:geometries.size,materials:materials.size,textures:textures.size},resetCount,revisionCount,rootScale:root.scale.toArray(),stateBindings:bySource.size,dormantPoolHidden:!firelight.root.visible,sharedGridOrigin:[...data.gridOrigin],sharedThermalCell:[...data.thermalCell],firstFloorY,nativeFloorUV:true};}
   function dispose(){
-   if(disposed)return;disposed=true;root.removeFromParent();for(const fx of effects)fx.dispose();firelight.dispose();occupancy.dispose();debrisView.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();geometries.clear();materials.clear();textures.clear();root.clear();itemGroups.clear();doorGroups.clear();bySource.clear();itemStates.clear();partStates.clear();ownedPartRows.clear();openingState.clear();mappedMeshes.clear();renderCoverage.clear();boundaryStates.clear();fallStates.clear();patchByRuntimeId.clear();effectMapping.clear();radiusCache.clear();fadeMaterials.clear();fadeShadows.clear();doorBoundaryValues.clear();doorSourceByBoundary.clear();dirtyDoors.clear();patches.length=0;retiredPatches=charredIntactPatches=0;
+   if(disposed)return;disposed=true;root.removeFromParent();for(const fx of effects)fx.dispose();firelight.dispose();occupancy.dispose();debrisView.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();geometries.clear();materials.clear();textures.clear();root.clear();itemGroups.clear();doorGroups.clear();bySource.clear();itemStates.clear();partStates.clear();ownedPartRows.clear();openingState.clear();mappedMeshes.clear();renderCoverage.clear();boundaryStates.clear();fallStates.clear();patchByRuntimeId.clear();effectMapping.clear();geometryPreparation.clear();surfaceConnection.clear();fadeMaterials.clear();fadeShadows.clear();doorBoundaryValues.clear();doorSourceByBoundary.clear();dirtyDoors.clear();patches.length=0;retiredPatches=charredIntactPatches=0;
   }
   // Existing Catalogue presentation-only occlusion contract: source meshes
   // become 18% opaque with no depth writing or cast shadow. Effects/debris and
