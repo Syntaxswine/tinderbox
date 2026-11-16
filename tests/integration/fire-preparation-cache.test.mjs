@@ -6,6 +6,7 @@ import * as T from '../../src/runtime/three.js';
 import {createCatalogueStructureArt} from '../../art/source/catalogue-modular/thermal-art.js';
 import {createWallShroud} from '../../art/source/furnished-house/shroud.js';
 import {createSupportGeometryCache} from '../../art/source/furnished-house/visibility.js';
+import {createSurfaceSampleConnector,connectSurfaceSamples,surfaceSampleGroupKey,surfaceSampleContextKey} from '../../art/source/furnished-house/presentation.js';
 import {createOwnedPublicationGeometry,isOwnedPublicationGeometry} from '../../src/reuse/publication-geometry.js';
 
 // Small presentation-only fixtures, not gameplay trajectories or timing evidence.
@@ -30,6 +31,7 @@ function referenceModule(url) {
 }
 const {createCatalogueStructureArt: createReference} = await import(referenceModule(
   new URL('art/source/catalogue-modular/thermal-art.js', repository).href));
+const referencePresentation = await import(referenceModule(new URL('art/source/furnished-house/presentation.js', repository).href));
 
 const copy = value => structuredClone(value);
 const rectangle = (x0, x1, z0, z1, y = .12) => [
@@ -635,5 +637,158 @@ test('emitter inspection projects only on request once per update with exact Map
     assert.deepEqual(candidate.inspect().emitters, []); assert.deepEqual(candidate.inspect().emitters, uncached.inspect().emitters);
     assert.equal(candidate.diagnostics().inspection.emitterProjectionBuilds, 2, 'disposed inspection cannot build a projection');
     assert.deepEqual(saved, expected.emitters);
+  });
+});
+
+
+// The old uncached reference writes radii before overlap metadata. The current
+// pre-change connector copies metadata first; retain that insertion contract as
+// well as exact frozen-reference values and own-field presence.
+function currentOverlapKeys(before, after) {
+  const keys = Object.keys(before);
+  for (const name of ['overlapGroup', 'overlapSources', 'tangentRadius', 'supportRadius', 'floorRadius']) {
+    if (Object.hasOwn(after, name) && !Object.hasOwn(before, name)) keys.push(name);
+  }
+  return keys;
+}
+
+test('owned grouping keys preserve every scalar input, eligibility and rounded key boundary', () => {
+  const connector = createSurfaceSampleConnector(), preparation = createSupportGeometryCache();
+  const triangles = rectangle(0, 1, 0, 1), base = {part: 'ground', presentationLevel: 0,
+    x: .5, y: .12, z: .5, nx: 0, ny: 1, nz: 0, flame: .9, supportTriangles: triangles,
+    supportBounds: bounds(triangles), anchorFootprint: triangles};
+  const withoutOwner = ({preparationOwner, ...q}) => q;
+  const variants = [{}, {x: .5001}, {y: .1205}, {z: .5001}, {nx: .001}, {ny: .999}, {nz: -.001},
+    {presentationLevel: 1}, {presentationLevel: -0}, {part: 'roof'},
+    {part: 'walls', supportBounds: {min: [0, .2, 0], max: [1, 2.2, 1]}},
+    {part: 'walls', supportBounds: {min: [0, .3, 0], max: [1, 2.2, 1]}},
+    {part: 'walls', supportBounds: {min: [0, .3, 0], max: [1, 2.3, 1]}},
+    {anchorFootprint: null}, {anchorFootprint: []}, {flame: 0}, {supportTriangles: []},
+    {itemId: 'carried'}, {vent: true}, {presentationLevel: 'upper'}, {flame: .6}];
+  try {
+    for (const [step, changes] of variants.entries()) {
+      preparation.begin();
+      const actual = ['a', 'b'].map(id => ({...base, ...changes, id, preparationOwner: preparation.source(id)}));
+      const before = actual.map(withoutOwner), expected = copy(before);
+      for (let i = 0; i < actual.length; i++) {
+        assert.equal(connector.contextKey(actual[i], actual[i].preparationOwner),
+          referencePresentation.surfaceSampleContextKey(expected[i]), 'context variant ' + step);
+      }
+      connector.connect(actual); referencePresentation.connectSurfaceSamples(expected);
+      assert.deepEqual(actual.map(withoutOwner), expected, 'exact grouping variant ' + step);
+      assert.deepEqual(actual.map(q => Object.keys(withoutOwner(q))), expected.map((q, i) => currentOverlapKeys(before[i], q)), 'field order variant ' + step);
+      preparation.prune();
+    }
+  } finally {connector.clear(); preparation.clear();}
+});
+
+test('source grouping records keep pre-anchor and post-anchor keys separate and retire with their source', () => {
+  const connector = createSurfaceSampleConnector(), preparation = createSupportGeometryCache();
+  const triangles = rectangle(0, 1, 0, 1), source = {part: 'roof', presentationLevel: 0,
+    x: .0004999, y: .12, z: .5, nx: 1, ny: 0, nz: 0, flame: .9,
+    supportTriangles: triangles, supportBounds: bounds(triangles), anchorFootprint: triangles};
+  let first, oldOwner;
+  try {
+    for (let step = 0; step < 4; step++) {
+      preparation.begin();
+      const samples = ['a', 'b'].map(id => ({...copy(source), id, preparationOwner: preparation.source(id)}));
+      for (const q of samples) {
+        const key = connector.contextKey(q, q.preparationOwner);
+        assert.equal(key, referencePresentation.surfaceSampleContextKey(q));
+        q.x = .0005001; // Same anchor move on every new state crosses the rounded exact plane.
+        assert.notEqual(key, referencePresentation.surfaceSampleGroupKey(q));
+      }
+      connector.connect(samples);
+      for (const q of samples) assert.equal(q.overlapGroup, referencePresentation.surfaceSampleGroupKey(q));
+      const keys = connector.diagnostics().keys;
+      if (!first) first = keys;
+      assert.equal(keys.contextBuilds, 2); assert.equal(keys.exactBuilds, 2);
+      assert.equal(keys.contextHits, step * 2); assert.equal(keys.exactHits, step * 2);
+      oldOwner = samples[0].preparationOwner;
+      const slots = Object.getOwnPropertySymbols(oldOwner);
+      assert.equal(slots.length, 1);
+      const record = oldOwner[slots[0]];
+      assert.deepEqual(Object.keys(record), ['context', 'exact']);
+      for (const value of Object.values(record)) {
+        for (const scalar of Object.values(value)) assert.ok(scalar === null || typeof scalar !== 'object', 'no geometry, sample or frame retained');
+      }
+      preparation.prune();
+    }
+    preparation.begin(); preparation.prune(); connector.connect([]);
+    assert.equal(preparation.size, 0); assert.equal(connector.diagnostics().entries, 0);
+    preparation.begin();
+    const returned = {...copy(source), id: 'a', preparationOwner: preparation.source('a')};
+    assert.notEqual(returned.preparationOwner, oldOwner);
+    connector.contextKey(returned, returned.preparationOwner);
+    assert.equal(connector.diagnostics().keys.contextBuilds, first.contextBuilds + 1);
+    preparation.clear(); connector.clear();
+    const reset = {...copy(source), id: 'a', preparationOwner: preparation.source('a')};
+    connector.contextKey(reset, reset.preparationOwner);
+    assert.equal(connector.diagnostics().keys.contextBuilds, 1);
+    assert.equal(connector.diagnostics().keys.exactBuilds, 0);
+  } finally {connector.clear(); preparation.clear();}
+});
+
+test('standalone grouping preserves omitted radii, own field order and first duplicate-face geometry', () => {
+  const connector = createSurfaceSampleConnector(), triangles = rectangle(0, 1, 0, 1);
+  const shifted = copy(triangles); for (const t of shifted) for (const p of t) p[0] += .000004;
+  const base = {part: 'ground', presentationLevel: 0, x: .4, y: .12, z: .5, nx: 0, ny: 1, nz: 0, flame: .9};
+  const wallTriangles = [[[0, 0, 0], [1, 0, 0], [1, 2, 0]], [[0, 0, 0], [1, 2, 0], [0, 2, 0]]];
+  const wall = {part: 'walls', presentationLevel: 0, y: 1, z: 0, nx: 0, ny: 0, nz: 1,
+    flame: .9, supportTriangles: wallTriangles, supportBounds: bounds(wallTriangles)};
+  const cases = [
+    [{...base, id: 'a', x: 0, supportRadius: .123, supportTriangles: triangles},
+      {...base, id: 'b', floorRadius: undefined, supportTriangles: triangles}],
+    [{...wall, id: 'a', x: 2, tangentRadius: .321}, {...wall, id: 'b', x: .5}],
+    [{...base, id: 'a', supportTriangles: triangles}, {...base, id: 'b', supportTriangles: shifted}],
+    [{...base, id: 'b', supportTriangles: shifted}, {...base, id: 'a', supportTriangles: triangles}],
+  ];
+  const unowned = Object.freeze({marker: 'unowned'}); let prior;
+  try {
+    for (const [step, input] of cases.entries()) {
+      const expected = copy(input); referencePresentation.connectSurfaceSamples(expected);
+      const plain = copy(input); connectSurfaceSamples(plain);
+      assert.deepEqual(plain, expected); assert.deepEqual(plain.map(Object.keys), expected.map((q, i) => currentOverlapKeys(input[i], q)));
+      const actual = copy(input);
+      for (const q of actual) {
+        assert.equal(surfaceSampleGroupKey(q), referencePresentation.surfaceSampleGroupKey(q));
+        assert.equal(surfaceSampleContextKey(q), referencePresentation.surfaceSampleContextKey(q));
+        q.preparationOwner = unowned;
+        assert.equal(connector.contextKey(q), referencePresentation.surfaceSampleContextKey(q));
+        assert.equal(connector.contextKey(q, unowned), referencePresentation.surfaceSampleContextKey(q));
+      }
+      connector.connect(actual);
+      for (const q of actual) delete q.preparationOwner;
+      assert.deepEqual(actual, expected); assert.deepEqual(actual.map(Object.keys), expected.map((q, i) => currentOverlapKeys(input[i], q)));
+      if (step === 0) {assert.equal(Object.hasOwn(actual[0], 'floorRadius'), false); assert.equal(actual[0].supportRadius, .123);}
+      if (step === 1) {assert.equal(actual[0].tangentRadius, .321); assert.equal(Object.hasOwn(actual[0], 'supportRadius'), false);}
+      if (step === 2) prior = actual.find(q => q.id === 'a').supportRadius;
+      if (step === 3) assert.notEqual(actual.find(q => q.id === 'a').supportRadius, prior, 'first rounded duplicate face stays significant');
+    }
+    assert.equal(Object.getOwnPropertySymbols(unowned).length, 0);
+    assert.deepEqual(connector.diagnostics().keys, {contextBuilds: 0, contextHits: 0, exactBuilds: 0, exactHits: 0});
+  } finally {connector.clear();}
+});
+
+test('fresh animated native-style updates reuse grouping keys without changing frozen-reference output', async () => {
+  await paired(({data, candidate, compare}) => {
+    const samples = ['floor-a', 'floor-b', 'wall', 'roof'].map(id => sample(data, id));
+    let warm;
+    for (let step = 0; step < 5; step++) {
+      compare('prepared grouping fresh native state ' + step,
+        frame(copy(samples), {worldTime: 1 + step / 30, revision: 10 + step}));
+      const keys = candidate.diagnostics().preparationCache.groups.keys;
+      if (!warm) warm = keys;
+      assert.equal(keys.contextBuilds, warm.contextBuilds);
+      assert.equal(keys.exactBuilds, warm.exactBuilds);
+      assert.equal(keys.contextHits, step * samples.length);
+      assert.equal(keys.exactHits, step * samples.length);
+    }
+    compare('grouping membership retires', frame([], {worldTime: 2, revision: 20}));
+    assertPreparationEntries(candidate, 0, 'no current grouping sources');
+    compare('same IDs return with new source entries', frame(copy(samples), {worldTime: 2.1, revision: 21}));
+    const returned = candidate.diagnostics().preparationCache.groups.keys;
+    assert.equal(returned.contextBuilds, warm.contextBuilds * 2);
+    assert.equal(returned.exactBuilds, warm.exactBuilds * 2);
   });
 });
