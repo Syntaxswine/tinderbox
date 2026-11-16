@@ -4,7 +4,7 @@
   "artistSourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
   "previewOnlySuccessor": "3471160b3386f8cb53a705b66bad23ab09948b68",
   "kernelCommit": "999d97a1c2032f2448a8f71e6eec8c9c025cd577",
-  "scope": "Exact proposed runtime hashes for explicit M28 integration controls. This is not architect promotion, actual input/browser or performance acceptance.",
+  "scope": "Exact proposed runtime hashes for M28 integration, including the accepted explicit-solid placement correction. Earlier e7/C5 controls are historical; corrected source/native/package acceptance is separate.",
   "originalChecker": {
     "path": "art/source/catalogue-modular/check-h15-circulation.mjs",
     "lfSha256": "7e9db304bfc62e57c3111c68a62a22e0a7389908de6dadf4a93f65f7ef6ba46d"
@@ -39,6 +39,18 @@
       "originalLfSha256": null,
       "integratedLfSha256": "f209ecacf532f5feb6b6744d86a76a34becd5860bb0eeda93158ebb57cd81dbf",
       "reason": "Separate self-contained native triangle adapter"
+    },
+    {
+      "path": "workbenches/bell-and-alder-sandbox/compose.js",
+      "originalLfSha256": "f5b6c6a86d5cccdcb2cd5db49fa9c16e5a4d77c58ae2cd9627b91e7140bc28d9",
+      "integratedLfSha256": "c033e639ea4379ebc3ea94c94f4598689bad3fff08c26e84807b59d140faa97b",
+      "reason": "Apply the existing rigid instance transform to authored explicit collision vertices as well as surface/floor triangles; preserve immutable source arrays"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "originalLfSha256": "8660398841d3cfcbdcf6be282481b647f662be808827c74d2d2c6443cb29716b",
+      "integratedLfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
+      "reason": "Retain only the actual world-clipped explicit collision triangles per native fragment, bound their actual geometry and mark cut meshes open; no whole-mesh ghosts or new collision geometry"
     }
   ],
   "sourceExports": [

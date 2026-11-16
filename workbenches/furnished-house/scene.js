@@ -62,6 +62,13 @@ export function compileScene(data,{profiles={},onLoadPhase}={}) {
         // Thermal fragments share the actual source exterior. Do not leave a
         // complete uncut collider in every fragment after local retirement.
         b.solidTriangles=clipped;b.closedShape=single;b.bounds=bounds(clipped.flat());
+      } else if(s.solidTriangles?.length) {
+        // Authored explicit collision meshes are already rigidly placed.
+        // Partition their real triangles with the matching world fragment;
+        // retaining the full mesh in every cell leaves ghosts after retirement.
+        b.solidTriangles=s.solidTriangles.flatMap(t=>clipTriangle(t,clipBox));
+        b.closedShape=s.closedShape!==false&&s.solidTriangles.every(t=>t.every(v=>v.every((n,i)=>n>=clipBox.min[i]-EPS&&n<=clipBox.max[i]+EPS)));
+        b.bounds=bounds([...clipped.flat(),...b.solidTriangles.flat()]);
       }
       const sign=normal.find(v=>Math.abs(v)>1e-6)<0?-1:1,oriented=normal.map(v=>Math.round(v*sign*1e6)/1e6);b.sheetKey=[...(data.sandbox?.version===1||data.catalogueModules?.version===1?[s.instanceId]:[]),s.kind,s.level??'',...oriented,Math.round(dotPlane(normal,clipped[0][0])*sign*1e6)/1e6].join(':');
       boundaries.push(b);

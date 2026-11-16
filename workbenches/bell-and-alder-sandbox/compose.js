@@ -38,7 +38,7 @@ function placedSource(raw,spec,onLoadPhase){
       if(key==='quaternion'&&value.length===4)return rotation.clone().multiply(new Quaternion(...value)).toArray();
       if(['matrix','closedTransform'].includes(key)&&value.length===16)return matrix.clone().multiply(new Matrix4().fromArray(value)).toArray();
       if(key==='vertices')return value.map(v=>[...p(v.slice(0,3)),...n(v.slice(3,6)),...v.slice(6)]);
-      if(['triangles','floorTriangles'].includes(key))return value.map(t=>Array.isArray(t)?t.map(v=>p(v)):walk(t));
+      if(['triangles','floorTriangles','solidTriangles'].includes(key))return value.map(t=>Array.isArray(t)?t.map(v=>p(v)):walk(t));
       if(key==='polygon')return value.map(v=>v.length===2?(()=>{const q=p([v[0],0,v[1]]);return [q[0],q[2]];})():p(v));
       if(key==='prototypeRoute')return value.map(p);
       return value.map(v=>walk(v,key));
