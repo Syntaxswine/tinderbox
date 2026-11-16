@@ -278,3 +278,26 @@ test('shared wall and house shrouds retain exact animation and active-only phase
     assert.equal(a.stats().phaseEntries, 0);
   }
 });
+
+
+test('empty runtime geometry preserves the exact Catalogue reference fallback/rejection behavior', async () => {
+  await paired(({data, compare}) => {
+    const floor = sample(data, 'floor-a', {boundaryId: 'empty-floor'});
+    const emptyFloor = {id: 'empty-floor', sourceSurfaceId: 'floor-a', triangles: [], intact: true};
+    // The frozen Catalogue reference checks well-formed runtime triangles first,
+    // then requires a nonempty effective support footprint. A floor's explicit
+    // valid footprint remains usable; a wall still needs runtime support bounds.
+    let result = compare('empty runtime floor with valid explicit footprint',
+      frame([floor], {boundaries: [emptyFloor]}));
+    assert.equal(result.counts.missingSamples, 0);
+    assert.equal(result.counts.representedSamples, 1);
+    const withoutFootprint = {...floor}; delete withoutFootprint.floorFootprint;
+    result = compare('empty runtime floor without a nonempty fallback is rejected',
+      frame([withoutFootprint], {revision: 11, boundaries: [emptyFloor]}));
+    assert.equal(result.counts.missingSamples, 1);
+    const wall = sample(data, 'wall', {boundaryId: 'empty-wall', floorFootprint: copy(floor.floorFootprint)});
+    result = compare('empty runtime wall is rejected despite a valid fallback footprint',
+      frame([wall], {revision: 12, boundaries: [{id: 'empty-wall', sourceSurfaceId: 'wall', triangles: [], intact: true}]}));
+    assert.equal(result.counts.missingSamples, 1);
+  });
+});
