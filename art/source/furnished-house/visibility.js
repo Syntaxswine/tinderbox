@@ -108,6 +108,7 @@ export function createSupportGeometryCache() {
  // Only static helper inputs are retained: never the source sample, camera,
  // wind eligibility, time or an animation result. Visibility still runs live.
  function effectBounds(entry,q,channel){
+  if(channel!=='flames'&&channel!=='smoke'){boundsComputations++;return houseEffectBounds(q,channel);}
   const slot=channel==='flames'?'flameEnvelope':'smokeEnvelope',b=q.anchorBounds||q.supportBounds,cached=entry[slot];
   if(cached&&cached.part===q.part&&Object.is(cached.x,q.x)&&Object.is(cached.y,q.y)&&Object.is(cached.z,q.z)&&Object.is(cached.nx,q.nx)&&Object.is(cached.ny,q.ny)&&Object.is(cached.nz,q.nz)&&cached.hasBounds===!!b){
    let equal=true;
