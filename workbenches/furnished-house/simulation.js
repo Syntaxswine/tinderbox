@@ -3,6 +3,7 @@
 import {compileScene,STEP} from './scene.js';
 import {add,sub,mul,dot,cross,length,unit,centre,bounds,projectedHull,intersectFootprint,triangleArea,EPS} from './geometry.js';
 import {createSupportGraph} from './support.js';
+import {createOwnedPublicationGeometry} from '../../src/reuse/publication-geometry.js';
 
 export const RULES=Object.freeze({step:STEP,maxHeat:5,loss:.18,up:3,upDiagonal:2,down:.04,downDiagonal:.06,falloff:1.5,glassBreaks:1.6,burstAt:1.4,emberShare:.15,matchEnergy:1.05,localShare:.72,radiantShare:.16,retainShare:.12,radiantRange:8,radiantCells:24,raysPerTick:48,radiantMaxAge:1,maxStepsPerAdvance:240});
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
@@ -362,13 +363,13 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   function immutableBoundary(b){
     let cached=sampleGeometry.get(b.id);
     if(cached&&cached.revision===index.revision&&cached.triangles===b.triangles)return cached.value;
-    const value=cached&&sameTriangles(cached.value,b.triangles)?cached.value:freezeGeometry(structuredClone(b.triangles));
+    const value=cached&&sameTriangles(cached.value,b.triangles)?cached.value:createOwnedPublicationGeometry(b.triangles);
     if(cached){cached.revision=index.revision;cached.triangles=b.triangles;cached.value=value;}else{cached={revision:index.revision,triangles:b.triangles,value};sampleGeometry.set(b.id,cached);}return value;
   }
   function sharedBoundaryFrame(b){const row=boundaryFrame(b);if(sampleBoundaryIds.has(b.id))row.triangles=immutableBoundary(b);return row;}
   function immutableFootprint(sample){
     const triangles=sample.floorFootprint,b=sample.boundaryId&&index.surfaces.get(sample.boundaryId);
-    if(!b||triangles!==b.triangles)return freezeGeometry(structuredClone(triangles));
+    if(!b||triangles!==b.triangles)return createOwnedPublicationGeometry(triangles);
     return immutableBoundary(b);
   }
   function cellBounds(c){
