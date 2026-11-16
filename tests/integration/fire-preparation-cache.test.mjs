@@ -585,3 +585,55 @@ test('only private prepared bounds skip coordinate walks; caller data stays muta
   cache.begin(); cache.prune(); assert.equal(cache.size, 0); assert.equal(cache.effectBoundsSize, 0);
   cache.clear(); assert.equal(cache.immutableSize, 0);
 });
+
+
+test('emitter inspection projects only on request once per update with exact Map ordering, detachment and cleanup', async () => {
+  await paired(({data, candidate, uncached}) => {
+    assert.deepEqual(candidate.inspect().emitters, []);
+    assert.equal(candidate.diagnostics().inspection.emitterProjectionBuilds, 0);
+    const samples = [sample(data, 'floor-a', {id: 'duplicate'}),
+      sample(data, 'floor-b', {id: 'other'}), sample(data, 'wall', {id: 'duplicate', flame: .6})];
+    let input;
+    for (let step = 0; step < 5; step++) {
+      input = frame(copy(samples), {revision: 20 + step, worldTime: 1 + step / 30});
+      candidate.update(input, view); uncached.update(input, view);
+      assert.equal(candidate.diagnostics().inspection.emitterProjectionBuilds, 0, 'default update cannot project unused diagnostics');
+      assert.ok(candidate.diagnostics().effectWork.flameSplats > 0, 'required rendering still prepares every update');
+    }
+    // Caller input changes before the first request cannot rewrite the current
+    // classified/rendered samples. The frozen reference already captured them.
+    input.fireSamples[1].x += 99; input.fireSamples[1].id = 'input-only';
+    input.fireSamples[1].floorFootprint[0][0][0] -= 99;
+    const expected = uncached.inspect(), actual = candidate.inspect();
+    assert.deepEqual(actual, expected);
+    assert.deepEqual(actual.emitters.map(row => row.id), ['duplicate', 'other']);
+    assert.equal(actual.emitters[0].sourceSurfaceId, 'wall', 'last duplicate value keeps its first insertion position');
+    for (let i = 0; i < actual.emitters.length; i++) assert.deepEqual(Object.keys(actual.emitters[i]), Object.keys(expected.emitters[i]));
+    assert.equal(JSON.stringify(actual.emitters), JSON.stringify(expected.emitters), 'projection field order remains exact');
+    assert.deepEqual(candidate.diagnostics().inspection, {emitterProjectionBuilds: 1, emitterProjectionRows: 3, cached: true});
+    const saved = copy(actual.emitters);
+    actual.emitters[0].anchor[0] = -99; actual.emitters[0].flameBounds.min[0] = -99;
+    actual.emitters[0].omissions.disabled = true;
+    assert.deepEqual(candidate.inspect().emitters, saved);
+    assert.equal(candidate.diagnostics().inspection.emitterProjectionBuilds, 1);
+    const next = frame([sample(data, 'floor-b')], {revision: 30, worldTime: 2});
+    candidate.update(next, view); uncached.update(next, view);
+    assert.equal(candidate.diagnostics().inspection.emitterProjectionBuilds, 1, 'next update invalidates without eagerly rebuilding');
+    assert.deepEqual(candidate.inspect(), uncached.inspect());
+    assert.deepEqual(candidate.diagnostics().inspection, {emitterProjectionBuilds: 2, emitterProjectionRows: 4, cached: true});
+    assert.deepEqual(saved, expected.emitters, 'old snapshots survive later updates');
+    const reset = frame([], {full: true, revision: 0, worldTime: 0});
+    candidate.update(reset, view); uncached.update(reset, view);
+    assert.deepEqual(candidate.inspect().emitters, []); assert.deepEqual(candidate.inspect().emitters, uncached.inspect().emitters);
+    assert.equal(candidate.diagnostics().fireSamples, 0);
+    assert.equal(candidate.diagnostics().inspection.emitterProjectionBuilds, 2);
+    const live = frame([sample(data, 'floor-a')], {revision: 1, worldTime: .1});
+    candidate.update(live, view); uncached.update(live, view);
+    assert.equal(candidate.diagnostics().fireSamples, 1);
+    candidate.dispose(); uncached.dispose();
+    assert.equal(candidate.diagnostics().fireSamples, 0, 'dispose releases the current render samples');
+    assert.deepEqual(candidate.inspect().emitters, []); assert.deepEqual(candidate.inspect().emitters, uncached.inspect().emitters);
+    assert.equal(candidate.diagnostics().inspection.emitterProjectionBuilds, 2, 'disposed inspection cannot build a projection');
+    assert.deepEqual(saved, expected.emitters);
+  });
+});
