@@ -31,10 +31,12 @@ Reuse existing chats/worktrees and preserve M26 branches. Task branches start fr
 | Owner | Branch and files |
 | --- | --- |
 | Architect | `codex/review-fire-half-cost`: contract, frozen denominator, combined quality and promotion |
-| Coder | `codex/fire-half-cost-code`: shared benchmark/replay, runtime/publication allocations, `art/source/catalogue-modular/frame-view.js`, `src/runtime/`, `src/art/{index,fire,street-firelight}.js`, relevant tests/engineering evidence |
+| Coder | `codex/fire-half-cost-code`: shared benchmark/replay, runtime/publication allocations, `art/source/catalogue-modular/frame-view.js`, `src/runtime/`, `src/art/{index,fire,street-firelight}.js`, `src/simulation/catalogue-thermal.js`, publication-only `frame`/`fireSamples` helpers in `workbenches/furnished-house/simulation.js`, relevant tests/engineering evidence |
 | Artist | `codex/fire-half-cost-art`: `art/source/catalogue-modular/thermal-art.js`, `workbenches/catalogue-modular/art.js`, `art/source/furnished-house/{shroud,presentation,visibility}.js`, `src/reuse/ashland/splats.js`, focused controls/visual evidence |
 
 First audit without edits/helpers, agree measurement and call boundaries, then implement assigned files after common-brief dispatch. No overlapping source edits. Publication work preserves detached/immutable contracts and thermal outcomes. Keep M26 Source-pool disposal. Native character splats are a separate module, `src/art/character-shroud/splats.js`; leave it unchanged unless a measured need justifies an architect boundary adjustment. Ashland splat changes require cottage/shared-effect compatibility. Donor/vendor and other checkouts stay read-only.
+
+After baseline the architect accepts the coder's narrow additional publication scope above. No edits to native stepping/transport, ignition, fuel consumption, radiation, support or collapse rules are authorized. Public frame/sample consumers retain their ownership/detachment contract; any internal borrowed representation needs its own immutable ownership and mutation controls. A dedicated native firelight cell reader is also approved to avoid invalidating the ground/fire reader with the intentionally empty native terrain input, with exact terrain/light/fire output checks. Neither is an automatic numerical performance claim.
 
 Prefer removing repeated support/footprint/group/seed work, correct caching of stable geometry, buffer reuse and preparation only when inputs change. Separate anchors from animation. Ground fire is already instanced and lighting pooled; do not claim those as new savings. GPU animation/grouping needs measured justification and equivalent motion/coverage. Pose, wind, camera, door, falling fuel and collapse must invalidate relevant caches.
 
