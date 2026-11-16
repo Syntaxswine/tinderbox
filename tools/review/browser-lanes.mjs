@@ -58,3 +58,9 @@ export function scalarWorkload(row){
 export function assertScalarWorkload(rows,expected){
   assert.deepEqual(rows.map(scalarWorkload),expected.map(scalarWorkload),'Unchanged scalar clocks, drawn/uploaded work and fire sources');
 }
+
+export function fireComparisonMode(args){
+  const profileOnly=args.includes('--cpu-profile'),isolatedTiming=args.includes('--isolated-timing'),qualityOnly=args.includes('--quality-only');
+  assert.ok(Number(profileOnly)+Number(isolatedTiming)+Number(qualityOnly)<=1,'Quality, isolation and CPU-profile modes are mutually exclusive');
+  return {profileOnly,isolatedTiming,qualityOnly,compareCpu:!profileOnly&&!qualityOnly,order:profileOnly?['candidate']:qualityOnly?['reference','candidate']:['reference','candidate','candidate','reference']};
+}
