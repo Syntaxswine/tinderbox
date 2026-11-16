@@ -12,10 +12,13 @@ test('real shared publication geometry preserves exact native states, frame delt
     assert.deepEqual(shared.frame({sharePublicationGeometry:true}),reference.frame());
     for(let i=0;i<65;i++){
       reference.step();shared.step();assert.deepEqual(shared.snapshot(),reference.snapshot());
-      const current=shared.frame({sharePublicationGeometry:true});assert.deepEqual(current,reference.frame());
+      const current=shared.frame({sharePublicationGeometry:true}),expected=reference.frame();assert.deepEqual(current,expected);
+      assert.deepEqual(current.fireSamples.map(Object.keys),expected.fireSamples.map(Object.keys),'sample field order stays identical');
       assert.ok(Object.isFrozen(current.fireSamples));assert.ok(current.fireSamples.every(Object.isFrozen));
       assert.ok(current.occupancy.every(r=>Object.isFrozen(r.bounds)&&Object.isFrozen(r.bounds.min)&&Object.isFrozen(r.bounds.max)));
-      const mutable=shared.fireSamples();if(mutable[0]){mutable[0].flame=-99;if(mutable[0].floorFootprint)mutable[0].floorFootprint[0][0][0]=-999;}
+      const before=shared.snapshot(),mutable=shared.fireSamples();assert.notEqual(mutable,current.fireSamples);
+      if(mutable[0]){assert.notEqual(mutable[0],current.fireSamples[0]);assert.ok(!Object.isFrozen(mutable[0]));mutable[0].flame=-99;if(mutable[0].floorFootprint)mutable[0].floorFootprint[0][0][0]=-999;}
+      assert.deepEqual(shared.snapshot(),before,'mutable copies cannot mutate the native source through reused local rows');
       assert.deepEqual(shared.fireSamples(),reference.fireSamples());
     }
     assert.ok(shared.events.some(e=>e.type==='fall'));assert.ok(shared.events.some(e=>e.type==='fuel-deposit'));
