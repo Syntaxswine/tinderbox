@@ -42,6 +42,7 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
   let submitted = {flameSplats:0,smokeSplats:0};
   let disposed = false;
   let supportCell = null;
+  const phases=new Map();let phaseEpoch=0;
 
   function airAt(sampleWind, x, y, z) {
     wind.fill(0);
@@ -264,7 +265,7 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
   function update({time, cells, camera, sampleWind, effects = {}}) {
     if (disposed) return;
     activeCells = flameCalls = smokeCalls = generatedFlameSplats = generatedSmokeSplats = 0;
-    splats.length = 0;
+    splats.length = 0;phaseEpoch++;
     for (const cell of cells) {
       if (activeCells === maxCells) break;
       supportCell=cell;
@@ -273,11 +274,13 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
       const heat = effects.flames===false||cell.renderFlames===false?0:clamp(cell.flame, 0, 1);
       const sootStrength = effects.smoke===false||cell.renderSmoke===false?0:clamp(cell.smoke, 0, 1);
       if (!(heat > 0 || sootStrength > 0)) continue;
-      const phase = cellPhase(cell.id);
+      let cached=phases.get(cell.id);if(!cached){cached={phase:cellPhase(cell.id)};phases.set(cell.id,cached);}cached.epoch=phaseEpoch;
+      const phase = cached.phase;
       if (heat > 0) {const n=splats.length;flameCalls++;flames(cell, age, phase, heat, sampleWind);generatedFlameSplats+=splats.length-n;}
       if (sootStrength > 0) {const n=splats.length;smokeCalls++;smoke(cell, age, phase, sootStrength, sampleWind);generatedSmokeSplats+=splats.length-n;}
       activeCells += 1;
     }
+    for(const [id,entry]of phases)if(entry.epoch!==phaseEpoch)phases.delete(id);
     supportCell=null;
     batch.update({time, camera, extraSplats: splats});
     submitted=batch.stats();
@@ -285,12 +288,12 @@ export function createWallShroud(T, {maxCells = LIMIT, profile = 'wall'} = {}) {
 
   function clear() {
     activeCells = flameCalls = smokeCalls = generatedFlameSplats = generatedSmokeSplats = 0;
-    splats.length=0;supportCell=null;submitted={flameSplats:0,smokeSplats:0};root.visible=false;
+    splats.length=0;supportCell=null;phases.clear();submitted={flameSplats:0,smokeSplats:0};root.visible=false;
     root.traverse(o=>{if(o.isMesh){o.visible=false;o.geometry.instanceCount=0;}});
   }
   function stats() {
     const {flameSplats, smokeSplats} = submitted;
-    return {activeCells, flameSplats, smokeSplats, generatedFlameSplats, generatedSmokeSplats, flameCalls, smokeCalls, maxSplats};
+    return {activeCells, flameSplats, smokeSplats, generatedFlameSplats, generatedSmokeSplats, flameCalls, smokeCalls, maxSplats, phaseEntries:phases.size};
   }
 
   function dispose() {

@@ -1,0 +1,303 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as T from '../../src/runtime/three.js';
+import {createCatalogueStructureArt} from '../../art/source/catalogue-modular/thermal-art.js';
+import {createWallShroud} from '../../art/source/furnished-house/shroud.js';
+
+// Small presentation-only fixtures, not gameplay trajectories or timing evidence.
+// The shared coder session supplies actual production motion and visual acceptance.
+const repository = new URL('../../', import.meta.url);
+const referenceRoot = new URL('art/source/catalogue-modular/controls/fire-half-cost/reference/', repository);
+const reference = JSON.parse(readFileSync(new URL('reference.json', referenceRoot), 'utf8'));
+const records = new Map(reference.files.map(record => [new URL(record.path, repository).href, record]));
+const modules = new Map();
+function referenceModule(url) {
+  if (modules.has(url)) return modules.get(url);
+  const record = records.get(url);
+  if (!record) return url;
+  const bytes = readFileSync(new URL(record.file, referenceRoot));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256, record.path + ' reference bytes');
+  const source = bytes.toString('utf8').replace(/import\.meta\.url/g, JSON.stringify(url))
+    .replace(/from (['"])([^'"]+)\1/g, (_, quote, specifier) =>
+      'from ' + JSON.stringify(referenceModule(new URL(specifier, url).href)));
+  const result = 'data:text/javascript;base64,' + Buffer.from(source).toString('base64');
+  modules.set(url, result);
+  return result;
+}
+const {createCatalogueStructureArt: createReference} = await import(referenceModule(
+  new URL('art/source/catalogue-modular/thermal-art.js', repository).href));
+
+const copy = value => structuredClone(value);
+const rectangle = (x0, x1, z0, z1, y = .12) => [
+  [[x0, y, z0], [x1, y, z0], [x1, y, z1]],
+  [[x0, y, z0], [x1, y, z1], [x0, y, z1]],
+];
+const bounds = triangles => {
+  const points = triangles.flat();
+  return {min: [0, 1, 2].map(i => Math.min(...points.map(p => p[i]))),
+    max: [0, 1, 2].map(i => Math.max(...points.map(p => p[i])))};
+};
+function fixture() {
+  const surface = (id, kind, triangles, normal, level = 0) => ({
+    id, kind, triangles, normal, level, thickness: kind === 'wall' ? .16 : .12,
+    material: 'timber', fuelClass: 'timber', bounds: bounds(triangles), sourceMeshBindings: [],
+  });
+  const surfaces = [
+    surface('floor-a', 'floor', rectangle(0, 1, 0, 1), [0, 1, 0]),
+    surface('floor-b', 'floor', rectangle(1, 2, 0, 1), [0, 1, 0]),
+    surface('upper', 'floor', rectangle(0, 1, 0, 1, 2.24), [0, 1, 0], 1),
+    surface('wall', 'wall', [[[0, .12, 0], [0, 2.12, 0], [0, 2.12, 1]],
+      [[0, .12, 0], [0, 2.12, 1], [0, .12, 1]]], [1, 0, 0]),
+    surface('roof', 'roof', [[[0, 3.12, 0], [1, 3.87, 0], [1, 3.87, 1]],
+      [[0, 3.12, 0], [1, 3.87, 1], [0, 3.12, 1]]], [-.6, .8, 0], 1),
+    surface('door', 'door', [[[0, .12, 2], [1, .12, 2], [1, 1.77, 2]],
+      [[0, .12, 2], [1, 1.77, 2], [0, 1.77, 2]]], [0, 0, 1]),
+  ];
+  return {version: 1, prefabId: 'fire-preparation-control', buildingId: 'control',
+    module: [1, 1, 2.12], gridOrigin: [0, 0, 0], thermalCell: [.5, .5, .5],
+    levels: [{index: 0, floorY: .12, wallTop: 2.12, floorTriangles: rectangle(0, 2, 0, 1)},
+      {index: 1, floorY: 2.24, wallTop: 4.24, floorTriangles: rectangle(0, 1, 0, 1, 2.24)}],
+    surfaces, items: [], furnitureParts: [], stores: [], sourceMeshes: [],
+    openings: [{id: 'door', surfaceId: 'door', kind: 'door', level: 0,
+      sourceMeshBindings: [], pivot: [0, .12, 2], initialOpenFraction: 0, maxOpenAngle: Math.PI / 2}],
+    render: {geometry: [], materials: [{id: 'oak', name: 'Oak boards', color: 0x8a7251, roughness: 1, metalness: 0}]}};
+}
+function camera(x = 6, y = 6, z = -7, target = [1, 1.7, 1]) {
+  const result = new T.OrthographicCamera(-5, 5, 5, -5, .1, 100);
+  result.position.set(x, y, z); result.lookAt(...target); result.updateMatrixWorld(true);
+  return result;
+}
+const wind = (x, y, z, out) => {out.set([.8, 0, -.2]); return out;};
+const view = {mode: 'exterior', camera: camera(), sampleWind: wind,
+  windMetadata: {kind: 'ambient-control', speed: Math.hypot(.8, -.2), direction: [1, 0, 0]}};
+function sample(data, surfaceId, extra = {}) {
+  const s = data.surfaces.find(s => s.id === surfaceId);
+  const p = s.bounds.min.map((v, i) => (v + s.bounds.max[i]) / 2);
+  return {id: 'fuel:' + surfaceId, sourceSurfaceId: surfaceId, part: s.kind,
+    x: p[0], y: p[1], z: p[2], nx: s.normal[0], ny: s.normal[1], nz: s.normal[2],
+    area: .25, flame: .9, smoke: .7, ignitionTime: 0,
+    ...(s.kind === 'floor' ? {floorFootprint: copy(s.triangles)} : {}), ...extra};
+}
+function assertPreparationEntries(art, limit, label) {
+  const stats = art.diagnostics().preparationCache;
+  assert.ok(stats, label + ' needs explicit preparation-cache ownership counters');
+  for (const key of ['sourceEntries', 'groupEntries', 'phaseEntries']) {
+    assert.ok(Number.isInteger(stats[key]) && stats[key] >= 0 && stats[key] <= limit,
+      label + ' ' + key + ': ' + stats[key] + ' exceeds live-source bound ' + limit);
+  }
+}
+const frame = (fireSamples, changes = {}) => ({version: 1, revision: 10, worldTime: 1,
+  full: false, boundaries: [], supports: [], items: [], parts: [], falls: [], rubble: [],
+  tombstones: [], events: [], occupancy: [], fireSamples, ...changes});
+function capture(art) {
+  const inspect = art.inspect(), diagnostics = art.diagnostics(), buffers = [];
+  art.root.traverse(object => {
+    const geometry = object.geometry, attribute = geometry?.attributes.splatCenter;
+    if (attribute) buffers.push({visible: object.visible, count: geometry.instanceCount,
+      stride: attribute.data.stride,
+      values: Array.from(attribute.data.array.subarray(0, geometry.instanceCount * attribute.data.stride))});
+  });
+  return {inspect, buffers, door: art.root.getObjectByName('door').quaternion.toArray(),
+    counts: Object.fromEntries(['missingSamples', 'representedSamples', 'visibleSamples', 'fireSamples',
+      'retiredPatches', 'charredIntactPatches'].map(key => [key, diagnostics[key]])),
+    effects: diagnostics.effects, lights: diagnostics.actualLights};
+}
+async function paired(body) {
+  const data = fixture(), before = JSON.stringify(data);
+  const candidate = await createCatalogueStructureArt(T, {data: copy(data)});
+  const uncached = await createReference(T, {data: copy(data)});
+  const compare = (label, input, settings = view) => {
+    const inputBefore = JSON.stringify(input);
+    candidate.update(input, settings); uncached.update(input, settings);
+    const result = capture(candidate);
+    assert.deepEqual(result, capture(uncached), label);
+    assert.equal(JSON.stringify(input), inputBefore, label + ' mutated its input');
+    return result;
+  };
+  try {await body({data, candidate, uncached, compare});}
+  finally {
+    candidate.dispose(); uncached.dispose(); candidate.dispose();
+    assert.equal(JSON.stringify(data), before, 'fixture source mutated');
+    assert.deepEqual(candidate.diagnostics().resources, {geometries: 0, materials: 0, textures: 0});
+    assertPreparationEntries(candidate, 0, 'disposed cache');
+  }
+}
+
+test('M27 reference closure preserves all five exact uncached modules', () => {
+  assert.equal(reference.commit, '55cff1109d57842e169c5dcef04bfad7b0dd1f04');
+  assert.equal(modules.size, 5);
+});
+
+test('advancing and cloned records preserve exact anchors, envelopes, splats and packed submission', async () => {
+  await paired(({data, compare}) => {
+    const samples = ['floor-a', 'floor-b', 'wall', 'roof', 'upper', 'door'].map(id => sample(data, id));
+    let previous;
+    for (let step = 0; step < 5; step++) {
+      const result = compare('advancing native-style delta ' + step,
+        frame(copy(samples), {worldTime: 1 + step / 30, revision: 10 + step}));
+      assert.ok(result.buffers.some(buffer => buffer.count > 0));
+      if (previous) assert.notDeepEqual(result.inspect.splats, previous.inspect.splats, 'animation must keep advancing');
+      previous = result;
+    }
+  });
+});
+
+test('reused records detect coordinates, normals, footprint content and same-ID active neighbors', async () => {
+  await paired(({data, compare}) => {
+    const a = sample(data, 'floor-a'), b = sample(data, 'floor-b'), input = frame([a, b]);
+    const first = compare('initial joined floor', input);
+    b.flame = 0; input.revision++;
+    const unjoined = compare('same neighbor ID stops flaming', input);
+    assert.notDeepEqual(unjoined.inspect.emitters[0], first.inspect.emitters[0]);
+    b.flame = .9; input.revision++;
+    assert.deepEqual(compare('same neighbor ID resumes flaming', input), first);
+    a.x = .4; input.revision++;
+    assert.notDeepEqual(compare('source coordinate changed in place', input).inspect.emitters[0], first.inspect.emitters[0]);
+    a.nx = .6; a.ny = .8; input.revision++;
+    compare('normal changed in place', input);
+    a.nx = 0; a.ny = 1;
+    for (const triangle of a.floorFootprint) for (const p of triangle) if (p[0] === 1) p[0] = .75;
+    input.revision++;
+    compare('footprint coordinates changed under same array identity', input);
+    a.floorFootprint = copy(a.floorFootprint); input.revision++;
+    compare('equal footprint cloned to a different array', input);
+    input.fireSamples.reverse(); input.revision++;
+    compare('source order reversed', input);
+    input.fireSamples = [input.fireSamples[0]]; input.revision++;
+    compare('source removed', input);
+  });
+});
+
+test('camera, cutaway and wind remain live at fixed and advancing world times', async () => {
+  await paired(({data, compare}) => {
+    const input = frame(['floor-a', 'wall', 'upper', 'roof'].map(id => sample(data, id)));
+    const initial = compare('normal camera', input);
+    const away = camera(1000, 6, -7, [1000, 1.7, 1]);
+    const hidden = compare('camera leaves all sources', input, {...view, camera: away});
+    assert.equal(hidden.counts.visibleSamples, 0);
+    assert.deepEqual(compare('camera returns without a cold start', input), initial);
+    const cut = compare('lower-level cutaway', input, {...view, mode: 'cutaway', level: 0});
+    assert.ok(cut.inspect.emitters.filter(q => q.flames).length < initial.inspect.emitters.filter(q => q.flames).length);
+    compare('upper-level cutaway', input, {...view, mode: 'cutaway', level: 1});
+    const reverseWind = (x, y, z, out) => {out.set([-.8, .1, .2]); return out;};
+    const changed = compare('wind changes while time is fixed', input, {...view, sampleWind: reverseWind});
+    assert.notDeepEqual(changed.inspect.splats, initial.inspect.splats);
+    input.worldTime += 1 / 30; input.revision++;
+    compare('time resumes after camera and wind changes', input);
+    for (let mask = 0; mask < 8; mask++) compare('effect mask ' + mask, input,
+      {...view, effects: {flames: !!(mask & 1), smoke: !!(mask & 2), lighting: !!(mask & 4)}});
+  });
+});
+
+test('door geometry, airborne fuel, landing and collapsed support invalidate preparation', async () => {
+  await paired(({data, compare}) => {
+    const leaf = data.surfaces.find(s => s.id === 'door');
+    const door = sample(data, 'door', {id: 'fuel:door-runtime', boundaryId: 'door-runtime'});
+    const closed = {id: 'door-runtime', sourceSurfaceId: 'door', intact: true, openFraction: 0,
+      triangles: copy(leaf.triangles)};
+    const initial = compare('closed actual leaf', frame([door], {boundaries: [closed]}));
+    const turned = copy(closed); turned.openFraction = 1;
+    for (const triangle of turned.triangles) for (const p of triangle) {
+      const x = p[0], z = p[2] - 2; p[0] = z; p[2] = 2 - x;
+    }
+    door.x = 0; door.z = 1.5; door.nx = 1; door.nz = 0;
+    const opened = compare('door pose and triangles change together', frame([door], {revision: 11, boundaries: [turned]}));
+    assert.notDeepEqual(opened.door, initial.door);
+    const floor = sample(data, 'floor-a'), shape = data.surfaces.find(s => s.id === 'floor-a');
+    const flight = {id: 'flight-a', fuelIds: [floor.id], position: [.5, 1.3, .5],
+      origin: [.5, .12, .5], quaternion: [0, 0, 0, 1], geometry: {...copy(shape)}};
+    const airborne = {...floor, fallId: flight.id, y: 1.3};
+    let result = compare('fuel starts falling', frame([airborne], {revision: 12, falls: [flight]}));
+    assert.equal(result.inspect.emitters[0].supportOrigin, 'airborne');
+    airborne.y = .7; flight.position[1] = .7;
+    compare('same flight and sample records move', frame([airborne], {revision: 13, falls: [flight]}));
+    const rubble = {id: 'rubble-a', fuelIds: [floor.id], floorFootprint: rectangle(.1, .9, .1, .9),
+      heatFraction: .7, phase: 'burning', remainingFraction: .6};
+    result = compare('fuel lands on an authoritative footprint', frame([{...floor, rubbleId: rubble.id}],
+      {revision: 14, falls: [], completeCollections: ['falls'], rubble: [rubble]}));
+    assert.equal(result.inspect.emitters[0].supportOrigin, 'landed');
+    result = compare('original support collapses', frame([sample(data, 'floor-b')],
+      {revision: 15, boundaries: [{id: 'retired-floor-b', sourceSurfaceId: 'floor-b', intact: false}]}));
+    assert.equal(result.counts.missingSamples, 1);
+  });
+});
+
+test('rewind, full reset, malformed footprints, repeated ownership and disposal stay bounded', async () => {
+  await paired(({data, candidate, compare}) => {
+    const a = sample(data, 'floor-a'), input = frame([a]);
+    const initial = compare('initial state', input);
+    for (let step = 1; step <= 24; step++) {
+      input.revision++; input.worldTime += 1 / 30;
+      a.floorFootprint = rectangle(0, 1 - (step % 4) * .025, 0, 1);
+      a.x = .45 + (step % 3) * .025;
+      a.id = 'fuel:rotating-owner-' + (step % 4);
+      const neighbor = sample(data, 'floor-b', {flame: step % 2 ? .9 : 0});
+      input.fireSamples = step % 3 ? [a, neighbor] : [a];
+      compare('bounded positions, membership and footprints ' + step, input);
+      assertPreparationEntries(candidate, input.fireSamples.length, 'update ' + step);
+    }
+    compare('rewind and full reset', frame([sample(data, 'floor-a')], {revision: 1, worldTime: .4, full: true}));
+    assert.deepEqual(compare('restored after reset', frame([sample(data, 'floor-a')])), initial);
+    const bad = sample(data, 'floor-a'); bad.floorFootprint[0][0][0] = NaN;
+    assert.equal(compare('invalid footprint cannot become a cache hit', frame([bad], {revision: 11})).counts.missingSamples, 1);
+    compare('empty active set releases connected preparation', frame([], {revision: 12}));
+    assertPreparationEntries(candidate, 0, 'empty current source set');
+    compare('full reset without sources clears every preparation owner',
+      frame([], {revision: 0, worldTime: 0, full: true}));
+    assertPreparationEntries(candidate, 0, 'full reset');
+    assert.ok(candidate.diagnostics().resources.geometries > 0);
+  });
+});
+
+
+test('shared wall and house shrouds retain exact animation and active-only phase ownership', async () => {
+  const {createWallShroud: createReferenceShroud} = await import(referenceModule(
+    new URL('art/source/furnished-house/shroud.js', repository).href));
+  for (const profile of ['wall', 'house']) {
+    const a = createWallShroud(T, {profile, maxCells: 2});
+    const b = createReferenceShroud(T, {profile, maxCells: 2});
+    const cell = {id: 'reused-wall-owner', x: 0, y: 1, z: 0, nx: 1, ny: 0, nz: 0,
+      part: 'walls', flame: .9, smoke: .7, ignitionTime: 0, area: .25,
+      tangentRadius: .3, supportBounds: {min: [0, .12, -.5], max: [0, 2.12, .5]}};
+    try {
+      for (let step = 0; step < 6; step++) {
+        const cells = [{...cell, id: 'owner-' + step % 3, x: step * .015}];
+        const input = {time: .3 + step * .15, cells, camera: view.camera, sampleWind: wind};
+        a.root.visible = b.root.visible = true; a.update(input); b.update(input);
+        assert.deepEqual(a.inspect(), b.inspect(), profile + ' animated splats ' + step);
+        assert.equal(a.stats().flameSplats, b.stats().flameSplats);
+        assert.equal(a.stats().smokeSplats, b.stats().smokeSplats);
+        assert.equal(a.stats().phaseEntries, cells.length, 'old stable IDs must be pruned');
+      }
+      a.clear(); assert.equal(a.stats().phaseEntries, 0);
+      a.update({time: 2, cells: [], camera: view.camera});
+      assert.equal(a.stats().phaseEntries, 0);
+    } finally {a.dispose(); b.dispose();}
+    assert.equal(a.stats().phaseEntries, 0);
+  }
+});
+
+
+test('empty runtime geometry preserves the exact Catalogue reference fallback/rejection behavior', async () => {
+  await paired(({data, compare}) => {
+    const floor = sample(data, 'floor-a', {boundaryId: 'empty-floor'});
+    const emptyFloor = {id: 'empty-floor', sourceSurfaceId: 'floor-a', triangles: [], intact: true};
+    // The frozen Catalogue reference checks well-formed runtime triangles first,
+    // then requires a nonempty effective support footprint. A floor's explicit
+    // valid footprint remains usable; a wall still needs runtime support bounds.
+    let result = compare('empty runtime floor with valid explicit footprint',
+      frame([floor], {boundaries: [emptyFloor]}));
+    assert.equal(result.counts.missingSamples, 0);
+    assert.equal(result.counts.representedSamples, 1);
+    const withoutFootprint = {...floor}; delete withoutFootprint.floorFootprint;
+    result = compare('empty runtime floor without a nonempty fallback is rejected',
+      frame([withoutFootprint], {revision: 11, boundaries: [emptyFloor]}));
+    assert.equal(result.counts.missingSamples, 1);
+    const wall = sample(data, 'wall', {boundaryId: 'empty-wall', floorFootprint: copy(floor.floorFootprint)});
+    result = compare('empty runtime wall is rejected despite a valid fallback footprint',
+      frame([wall], {revision: 12, boundaries: [{id: 'empty-wall', sourceSurfaceId: 'wall', triangles: [], intact: true}]}));
+    assert.equal(result.counts.missingSamples, 1);
+  });
+});
