@@ -8,12 +8,17 @@ import {physicalDriver} from './house-traversal-controls.mjs';
 import {createNavigation} from '../../workbenches/furnished-house/navigation.js';
 import {DEFAULT_CONFIG} from '../../src/simulation/config.js';
 import {worldToStick} from '../../src/simulation/index.js';
+import {loadCatalogueModules} from '../../src/runtime/catalogue-modules.js';
+import {sweptCylinderClear} from '../../src/runtime/collision.js';
 
 const option=name=>process.argv.slice(2).find(a=>a.startsWith('--'+name+'='))?.slice(name.length+3);
 const commit=option('art-commit'),expectedManifest=option('manifest-sha256');assert.match(expectedManifest||'',/^[a-f0-9]{64}$/,'The checked package manifest hash is required');
 const output=path.resolve(option('output')||'artifacts/qa/house-traversal-gameplay/'+Date.now());assert.ok(!fs.existsSync(output),'Use fresh evidence');fs.mkdirSync(output,{recursive:true});
 const save=(name,value)=>fs.writeFileSync(path.join(output,name),JSON.stringify(value,null,2)+'\n'),sha=b=>createHash('sha256').update(b).digest('hex');
 assert.equal(sha(fs.readFileSync('dist/build-manifest.json')),expectedManifest);
+const sources=['tools/review/house-traversal-gameplay.mjs','tools/review/catalogue-browser.mjs','tools/review/browser-lanes.mjs','tools/review/house-traversal-physical.mjs','tools/review/house-traversal-controls.mjs','package.json'];
+for(const file of sources){const target=path.join(output,'restart-source',file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);}
+const restart={owner:'Coder Tinderbox',project:'M28 actual gameplay',cwd:process.cwd(),executable:process.execPath,args:process.argv.slice(1),runtime:process.version,sources,sourceHashes:sources.map(path=>({path,sha256:sha(fs.readFileSync(path))})),artCommit:commit,manifestSha256:expectedManifest,inputs:'Checked dist and real title/character/menu/joystick/contextual controls',outputs:output,pendingWork:'Canonical source-only planning, then2regressions,1mouse barrel glance and6full H15 visits',automaticRestart:false,deadline:'Existing browser harness installs one absolute shutdown time20minutes from its launch; never reset',stop:'STOP file or harness deadline/finally',ports:'Recorded by helper.json at launch'};save('restart.json',restart);
 const source=pinnedTraversalSource(commit),plan=source.plan,prepared={};
 // Resolve expectations against the pinned real support before creating the
 // browser. This disposable Node fixture is never the gameplay player.
@@ -34,21 +39,37 @@ for(const characterId of ['bear','goat','horse']){
   prepared[characterId]={body:driver.body,targets,probes};
  }finally{driver.dispose();}
 }
+// Derive one quiet west approach from the actual street prop/profile, then
+// traverse it with the bound native provider. This fixture never places or
+// changes the actual gameplay player and is disposed before renderer launch.
+async function planBarrel(){
+ const compiled=await loadCatalogueModules({fetcher:async url=>({ok:true,json:async()=>JSON.parse(fs.readFileSync(url,'utf8'))})}),driver=physicalDriver({...source,compiled,characterId:'goat'});
+ try{
+  const prop=source.definition.obstacles.find(o=>o.id==='street-drum-west'),shape=compiled.data.surfaces.find(s=>s.hostObstacleId===prop.id);assert.ok(shape&&shape.physicalShape==='source-closed-mesh');
+  const combined=Math.min(prop.width,prop.depth)/2+driver.body.radius,offset=(combined+.1)/Math.sqrt(2),stance=[prop.x-offset,0,prop.y+offset],west=prop.x-combined-.25,route=[[source.definition.player.x,0,source.definition.player.y],[west,0,source.definition.player.y],[west,0,stance[2]],stance];
+  for(const [index,target]of route.entries())driver.walk(target,'barrel-source-approach-'+index,{autoOpen:false});
+  const before=driver.position(),oracle={id:shape.id,triangles:shape.triangles,closed:true},frames=[];
+  assert.equal(sweptCylinderClear({x:before[0],y:before[2]},{x:before[0],y:before[2]},driver.body.radius,.025,driver.body.height,oracle),true);
+  for(let i=0;i<4;i++){const row=driver.step(driver.input(1,0),'barrel-source-glance');for(let j=1;j<row.acceptedPath.length;j++){const a=row.acceptedPath[j-1],b=row.acceptedPath[j];assert.equal(sweptCylinderClear(a,b,driver.body.radius,.025,driver.body.height,oracle),true);}frames.push(row);}
+  const after=driver.position();assert.ok(after[0]>before[0]&&after[2]>before[2]+.015,'Source-planned pure +X demand must glance around the actual barrel');
+  return {prop,body:driver.body,route,stance,before,after,requestedWorld:{x:1,y:0},ticks:4,frames,oracle,scope:'CPU planning only; no actual pawn placement. Source/profile clearance and real provider path verified; fixture disposed before browser.'};
+ }finally{driver.dispose();}
+}
+let barrelPlan;try{barrelPlan=await planBarrel();}catch(error){save('preflight-failure.json',{stage:'canonical-barrel-source-plan',error:error.stack,prepared});throw error;}
 const matrix=[
  {id:'bear-front-regression',animal:'bear',mode:'mouse',frontOnly:true},
  {id:'goat20mm-exit-regression',animal:'goat',mode:'mouse',frontOnly:true,exitShift:.02},
+ {id:'goat-mouse-street-barrel-glance',animal:'goat',mode:'mouse',barrel:true},
  ...['goat','horse','bear'].flatMap(animal=>['keyboard','mouse'].map(mode=>({id:animal+'-'+mode,animal,mode})))
 ].map(row=>({...row,status:'not-run'}));
-save('preflight-plan.json',{artCommit:commit,sourceClosure:source.records,route:plan.route,front:plan.front,inside:plan.inside,outside:plan.outside,flights:plan.flights,interpolatedStances:plan.interpolatedStances,prepared,matrix,scope:'Actual full Catalogue visit; source-only physical planning fixtures disposed before browser launch. Fixed-step runtime with trusted DOM inputs; no FPS claim.'});
-const sources=['tools/review/house-traversal-gameplay.mjs','tools/review/catalogue-browser.mjs','tools/review/browser-lanes.mjs','tools/review/house-traversal-physical.mjs','tools/review/house-traversal-controls.mjs','package.json'];
-for(const file of sources){const target=path.join(output,'restart-source',file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);}
-save('restart.json',{owner:'Coder Tinderbox',project:'M28 actual gameplay',cwd:process.cwd(),executable:process.execPath,args:process.argv.slice(1),runtime:process.version,sources,artCommit:commit,manifestSha256:expectedManifest,inputs:'Checked dist and real title/character/menu/joystick/contextual controls',outputs:output,pendingWork:matrix,automaticRestart:false,deadline:'Existing browser harness installs one absolute shutdown time20minutes from its launch; never reset',stop:'STOP file or harness deadline/finally',ports:'Recorded by helper.json at launch'});
+save('preflight-plan.json',{artCommit:commit,sourceClosure:source.records,route:plan.route,front:plan.front,inside:plan.inside,outside:plan.outside,flights:plan.flights,interpolatedStances:plan.interpolatedStances,prepared,barrelPlan,matrix,planningFixtures:{h15:3,barrel:1,remaining:0},scope:'Actual full Catalogue visit; source-only physical planning fixtures disposed before browser launch. Fixed-step runtime with trusted DOM inputs; no FPS claim.'});
+save('restart.json',{...restart,pendingWork:matrix,planningFixtures:{h15:3,barrel:1,remaining:0}});
 
 await withCatalogueBrowser(async({page,baseUrl,manifestSha256,errors})=>{
  assert.equal(manifestSha256,expectedManifest);page.setDefaultTimeout(15000);
  const helper=JSON.parse(fs.readFileSync(path.join(output,'helper.json'))),expires=Date.parse(helper.expiresAt);save('absolute-deadline.json',{startedAt:helper.startedAt,expiresAt:helper.expiresAt,intervalMs:expires-Date.parse(helper.startedAt),automaticStop:helper.automaticStop});assert.equal(expires-Date.parse(helper.startedAt),1200000);
  let current,active,keys=new Set(),mouseHeld=false,held={x:0,y:0},centre,radius,startedRoute=0,frame=0,shift=0;
- const visits=[],negatives=[],unrun=[];
+ const visits=[],negatives=[],unrun=[],barrelGlances=[];
  const guard=()=>{if(Date.now()>=expires||fs.existsSync(path.join(output,'STOP')))throw Error('Absolute browser deadline/STOP');if(startedRoute&&Date.now()-startedRoute>90000)throw Error('90second route wall deadline');};
  await page.goto(baseUrl+'?catalogue=modules',{waitUntil:'networkidle',timeout:30000});
  await page.evaluate(async()=>{
@@ -95,11 +116,23 @@ await withCatalogueBrowser(async({page,baseUrl,manifestSha256,errors})=>{
  }
  const target=(index,offset=0)=>{const p=[...prepared[active.animal].targets[String(offset)][index]];if(shift)p[0]+=shift;return p;};
  const checkpointSet=new Set(plan.flights.map(f=>f.checkpoint));
+ async function finishReview(test){
+  await stop();test.status='passed';test.final={player:current.player,clocks:current.clocks,tick:current.tick};save('matrix.json',matrix);save(test.id+'-input-events.json',await page.evaluate(()=>qa.inputEvents));await page.evaluate(()=>{qa.inputEvents=[];});
+  startedRoute=0;await page.locator('[data-pause]').click();await step('pause-for-places');await page.locator('[data-exit-to-menu]:visible').click();await page.waitForFunction(()=>qa.app.state().phase==='menu');assert.equal(await page.locator('#viewport canvas').count(),0);current=null;
+ }
  async function review(test){
   active=test;current=null;startedRoute=0;shift=0;keys.clear();mouseHeld=false;held={x:0,y:0};
   await page.locator('[data-select-character="'+test.animal+'"]').click();await page.getByRole('button',{name:'Open Catalogue Street map',exact:true}).click();await page.waitForFunction(()=>qa.app.state().phase==='visit'||qa.app.state().error,null,{timeout:120000});assert.equal(await page.evaluate(()=>qa.app.state().phase),'visit');
   await step('initial');if(current.paused){await page.locator('[data-resume]').click();await step('resume');}assert.equal(current.player.characterId,test.animal);assert.equal(current.player.radius,prepared[test.animal].body.radius);assert.equal(current.player.height,prepared[test.animal].body.height);assert.equal(await page.locator('#viewport canvas').count(),1);await page.locator('#viewport canvas').focus();
   startedRoute=Date.now();test.status='running';save('matrix.json',matrix);console.log(JSON.stringify({stage:'visit',case:test.id,expiresAt:helper.expiresAt}));
+  if(test.barrel){
+   for(const [index,point]of barrelPlan.route.entries())await walk(point,'barrel-approach-'+index,{autoOpen:false,magnitude:.5});await stop('barrel-stance');
+   const before=structuredClone(current),body=current.player;assert.equal(sweptCylinderClear(body,body,body.radius,.025,body.height,barrelPlan.oracle),true);await capture('barrel-before');const frames=[];
+   for(let i=0;i<barrelPlan.ticks;i++){await move(worldToStick(barrelPlan.requestedWorld,DEFAULT_CONFIG.input));await step('barrel-world-plus-x-'+i);for(let j=1;j<current.acceptedPath.length;j++)assert.equal(sweptCylinderClear(current.acceptedPath[j-1],current.acceptedPath[j],body.radius,.025,body.height,barrelPlan.oracle),true);frames.push(structuredClone(current));}
+   await capture('barrel-glancing-moving');assert.ok(current.player.x>before.player.x&&current.player.y>before.player.y+.015,'Actual normal-mouse +X request must accept a curved barrel tangent');
+   const distance=frames.reduce((n,row)=>n+row.acceptedPath.slice(1).reduce((sum,p,i)=>sum+Math.hypot(p.x-row.acceptedPath[i].x,p.y-row.acceptedPath[i].y),0),0);assert.ok(distance<=DEFAULT_CONFIG.player.speed*DEFAULT_CONFIG.step*barrelPlan.ticks+1e-6);assert.ok(Math.abs(current.player.travelled-before.player.travelled-distance)<1e-6);
+   const result={case:test.id,requestedWorld:barrelPlan.requestedWorld,ticks:barrelPlan.ticks,before,after:structuredClone(current),distance,frames,sourceProp:barrelPlan.prop};barrelGlances.push(result);save('barrel-glance.json',result);await stop('barrel-release');await capture('barrel-after');await finishReview(test);return;
+  }
   const end=test.frontOnly?plan.inside:plan.route.length-1;
   for(let i=0;i<=end;i++){
    let offset=0;if(!test.frontOnly&&test.mode==='mouse')offset=i<=plan.inside?.05:checkpointSet.has(i)?-.1:i===end?.1:0;
@@ -134,10 +167,9 @@ await withCatalogueBrowser(async({page,baseUrl,manifestSha256,errors})=>{
    if(i===plan.inside&&test.exitShift){const before=current.player.x;await move(worldToStick({x:test.exitShift/(DEFAULT_CONFIG.player.speed*DEFAULT_CONFIG.step),y:0},DEFAULT_CONFIG.input));await step('walked20mm-exit-offset');await stop();assert.ok(Math.abs(current.player.x-before-test.exitShift)<1e-5);shift=test.exitShift;await capture('walked20mm-exit-offset');}
    if(i===plan.outside)await action('close');
   }
-  await capture('outside');await stop();test.status='passed';test.final={player:current.player,clocks:current.clocks,tick:current.tick};save('matrix.json',matrix);save(test.id+'-input-events.json',await page.evaluate(()=>qa.inputEvents));await page.evaluate(()=>{qa.inputEvents=[];});
-  startedRoute=0;await page.locator('[data-pause]').click();await step('pause-for-places');await page.locator('[data-exit-to-menu]:visible').click();await page.waitForFunction(()=>qa.app.state().phase==='menu');assert.equal(await page.locator('#viewport canvas').count(),0);current=null;
+  await capture('outside');await finishReview(test);
  }
- try{for(const test of matrix)await review(test);assert.deepEqual(errors,[]);save('acceptance.json',{pass:true,matrix,visits,negatives,unrun,sourceCommit:commit,manifestSha256,query:'?catalogue=modules',input:'Trusted DOM controls in actual production application; manual fixed-step clock, no FPS or phone claim',limits:['Bell & Alder full species/input matrix not repeated in this bounded H15 correction','Only selected offset/magnitude combinations repeated in browser; full67provider controls are separate']});}
- catch(error){if(active)active.status='failed';save('acceptance.json',{pass:false,error:error.stack,finding:error.finding,current,matrix,visits,negatives,unrun});try{save('first-failure-input-events.json',await page.evaluate(()=>qa.inputEvents));await capture('failure',{error:String(error)});}catch{}throw error;}
+ try{for(const test of matrix)await review(test);assert.deepEqual(errors,[]);save('acceptance.json',{pass:true,matrix,visits,negatives,unrun,barrelGlances,sourceCommit:commit,manifestSha256,query:'?catalogue=modules',input:'Trusted DOM controls in actual production application; manual fixed-step clock, no FPS or phone claim',limits:['Bell & Alder full species/input matrix not repeated in this bounded H15 correction','Only selected offset/magnitude combinations repeated in browser; full67provider controls are separate']});}
+ catch(error){if(active)active.status='failed';save('acceptance.json',{pass:false,error:error.stack,finding:error.finding,current,matrix,visits,negatives,unrun,barrelGlances});try{save('first-failure-input-events.json',await page.evaluate(()=>qa.inputEvents));await capture('failure',{error:String(error)});}catch{}throw error;}
  finally{try{await stop('final-release');await page.evaluate(()=>qa.app.dispose());}catch{}save('matrix.json',matrix);}
 },{output,lifetimeMs:1200000,purpose:'M28 one20minute absolute-expiry actual-input H15 regression/native traversal review; stop first unexpected failure; no performance benchmark'});

@@ -2,6 +2,8 @@
 
 Candidate for the [M28 amendment](../../milestones/28-tree-and-traversal-corrections.md) at `bdacb3b1319451e27457f09342ece5485ef6f89c`. This is the early coder checkpoint; the combined package/input gate and architect promotion remain separate.
 
+The subsequent [combined gate](combined-gate.md) passes on this exact `e7e2bad3` source checkpoint. Actual input/browser acceptance and promotion remain pending.
+
 ## Source and binding
 
 The only new upstream runtime file is Nautilus `packages/traversal-core/index.js` at `999d97a1c2032f2448a8f71e6eec8c9c025cd577`, SHA-256 `a94290b4b022140ff2b033c8ffb478bff23efd4fa954ac1d03acc4697e21abfc`. Its dependency closure is empty. The five preserved source/notice files, Git blobs, byte lengths, SHA-256 values, original paths, reference-only query/Farmyard evidence and unresolved rights are recorded in [the import manifest](../../../vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/provenance/disc-slide.json). No donor checkout/ref/config was changed. The original mixed Farmyard game, vehicles and flat/AABB interactions provider are not imported.

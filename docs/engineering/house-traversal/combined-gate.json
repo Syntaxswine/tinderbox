@@ -1,0 +1,404 @@
+{
+  "version": 1,
+  "passed": true,
+  "recordedAt": "2026-11-16T22:33:10.922Z",
+  "candidateCommit": "e7e2bad3eb89d80e8465575a69ea15cfb9c5ec5f",
+  "branch": "codex/house-traversal-code",
+  "scope": "One architect-authorized fresh coherent source/repository/build/release/nested-HTTP gate on the accepted e7 runtime. No browser/WebGL/DOM visit, master promotion or publication. The passed67 and custom fire/performance replays were not repeated.",
+  "repository": {
+    "tests": 506,
+    "passed": 506,
+    "failed": 0,
+    "ownSyntaxScripts": 338,
+    "staticModules": 365,
+    "sharedThreePairs": 1,
+    "legacyPreservedImports": 5,
+    "legacyArtSyntaxDependencyChecks": 56
+  },
+  "integratedSource": {
+    "checks": 15,
+    "paths": 60,
+    "renderRegistrations": 819,
+    "maxRegistrationError": 1.2434497875801753e-14,
+    "resources": {
+      "geometries": 0,
+      "materials": 0,
+      "textures": 0
+    },
+    "originalCheckerUnchanged": true,
+    "originalReferenceUnchanged": true,
+    "historicalReceiptUnchanged": true,
+    "declaredRuntime": [
+      {
+        "path": "workbenches/furnished-house/navigation.js",
+        "originalLfSha256": "28e8d423189813b9605c249029138ae50b75917151e1c74d08a507c4753f9295",
+        "integratedLfSha256": "8ba3f2ded00f59617c8f36baa84e521f4318e6a9de55f541a68c4fac7fb3a1a9",
+        "reason": "Explicit opt-in native disc slide, support-edge partition and per-segment native validation; default stop and old axis control remain"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "originalLfSha256": "5c0b2500c44c9599964d77e12416cd917746fe1ecc5be8da0cd309e67ca64fe5",
+        "integratedLfSha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+        "reason": "Individual height-clipped triangle projections, exact support-edge stations and analytic distance to existing furniture envelopes; original swept closed-solid oracle retained"
+      },
+      {
+        "path": "src/simulation/catalogue-thermal.js",
+        "originalLfSha256": "50729b94af47c530843a4af1e2a5e96754b837a732bdca88cfe54d76700fcaa6",
+        "integratedLfSha256": "3421387654b93f5f0a889d9ca6b02ca199563efff91fc1b0a13e1db15203dbbe",
+        "reason": "Explicit detailed-profile binding and complete accepted polyline with native elevations"
+      },
+      {
+        "path": "src/reuse/native-disc-slide.js",
+        "originalLfSha256": null,
+        "integratedLfSha256": "f209ecacf532f5feb6b6744d86a76a34becd5860bb0eeda93158ebb57cd81dbf",
+        "reason": "Separate self-contained native triangle adapter"
+      }
+    ]
+  },
+  "sourceExports": [
+    {
+      "path": "workbenches/catalogue-modular/house-data.json",
+      "sha256": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c"
+    },
+    {
+      "path": "workbenches/catalogue-modular/scene-data.json",
+      "sha256": "c8c69e58a14231f887a0f3a2c79867469fb34e52b5980727e85f21c62f160765"
+    },
+    {
+      "path": "workbenches/catalogue-modular/shop-data.json",
+      "sha256": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5"
+    }
+  ],
+  "kernelCommit": "999d97a1c2032f2448a8f71e6eec8c9c025cd577",
+  "build": {
+    "files": 3554,
+    "bytes": 183498540,
+    "manifestSha256": "c5bd20e6453855c1fbb9d7a81c5433b4751420ac933bd37b0bb4e998155c4b85",
+    "manifestEvidence": "artifacts/qa/house-traversal-gate-e7e2bad3/build-manifest.json",
+    "runtimeFiles": [
+      {
+        "path": "workbenches/furnished-house/navigation.js",
+        "bytes": 10699,
+        "sha256": "8ba3f2ded00f59617c8f36baa84e521f4318e6a9de55f541a68c4fac7fb3a1a9"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "bytes": 5478,
+        "sha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3"
+      },
+      {
+        "path": "src/simulation/catalogue-thermal.js",
+        "bytes": 32365,
+        "sha256": "3421387654b93f5f0a889d9ca6b02ca199563efff91fc1b0a13e1db15203dbbe"
+      },
+      {
+        "path": "src/reuse/native-disc-slide.js",
+        "bytes": 2579,
+        "sha256": "f209ecacf532f5feb6b6744d86a76a34becd5860bb0eeda93158ebb57cd81dbf"
+      },
+      {
+        "path": "vendor/nautilus-engine/999d97a1c2032f2448a8f71e6eec8c9c025cd577/packages/traversal-core/index.js",
+        "bytes": 7342,
+        "sha256": "a94290b4b022140ff2b033c8ffb478bff23efd4fa954ac1d03acc4697e21abfc"
+      }
+    ]
+  },
+  "nested": {
+    "basePath": "/nested/tinderbox/",
+    "allFileHashesVerified": 3554,
+    "canonicalPublicFileChecks": 3552,
+    "additionalHiddenFileChecks": 2,
+    "mimeChecks": "Canonical HTTP check verifies all JavaScript module MIME types; actual loader also asserts200 application/json on the3source documents.",
+    "privateQaDirectoryStatus": 404,
+    "loaderRequests": [
+      {
+        "path": "workbenches/catalogue-modular/scene-data.json",
+        "status": 200,
+        "mime": "application/json"
+      },
+      {
+        "path": "workbenches/catalogue-modular/shop-data.json",
+        "status": 200,
+        "mime": "application/json"
+      },
+      {
+        "path": "workbenches/catalogue-modular/house-data.json",
+        "status": 200,
+        "mime": "application/json"
+      }
+    ],
+    "front": {
+      "id": "hopkins-fifteen::opening/l0/5-0-6-0",
+      "openingIds": [
+        "hopkins-fifteen::opening/l0/5-0-6-0",
+        "hopkins-fifteen::opening/l0/5-0-6-0/right"
+      ],
+      "position": [
+        19,
+        1.35,
+        13.15
+      ],
+      "label": "House door",
+      "instanceId": "hopkins-fifteen"
+    },
+    "flights": [
+      {
+        "id": "hopkins-fifteen::interior-stair/lower",
+        "lower": 0.48,
+        "upper": 1.54,
+        "treadPatches": 36
+      },
+      {
+        "id": "hopkins-fifteen::interior-stair/upper",
+        "lower": 1.54,
+        "upper": 2.6,
+        "treadPatches": 36
+      }
+    ]
+  },
+  "stages": [
+    {
+      "name": "repository",
+      "executable": "node",
+      "arguments": [
+        "tools/check.mjs"
+      ],
+      "startedAt": "2026-11-16T22:27:45.723Z",
+      "log": "artifacts/qa/house-traversal-gate-e7e2bad3/repository.log",
+      "pid": 19500,
+      "exitCode": 0,
+      "signal": null,
+      "stoppedAt": "2026-11-16T22:29:37.936Z"
+    },
+    {
+      "name": "integrated-source",
+      "executable": "node",
+      "arguments": [
+        "tools/review/check-h15-integrated.mjs",
+        "--output=artifacts/qa/house-traversal-gate-e7e2bad3/integrated-source"
+      ],
+      "startedAt": "2026-11-16T22:29:37.938Z",
+      "log": "artifacts/qa/house-traversal-gate-e7e2bad3/integrated-source.log",
+      "pid": 16696,
+      "exitCode": 0,
+      "signal": null,
+      "stoppedAt": "2026-11-16T22:29:45.373Z"
+    },
+    {
+      "name": "build",
+      "executable": "node",
+      "arguments": [
+        "tools/build.mjs"
+      ],
+      "startedAt": "2026-11-16T22:29:45.377Z",
+      "log": "artifacts/qa/house-traversal-gate-e7e2bad3/build.log",
+      "pid": 14700,
+      "exitCode": 0,
+      "signal": null,
+      "stoppedAt": "2026-11-16T22:29:53.007Z"
+    },
+    {
+      "name": "release",
+      "executable": "node",
+      "arguments": [
+        "tools/check-release.mjs"
+      ],
+      "startedAt": "2026-11-16T22:29:53.008Z",
+      "log": "artifacts/qa/house-traversal-gate-e7e2bad3/release.log",
+      "pid": 52936,
+      "exitCode": 0,
+      "signal": null,
+      "stoppedAt": "2026-11-16T22:29:54.251Z"
+    },
+    {
+      "name": "nested-package",
+      "executable": "node",
+      "arguments": [
+        "artifacts/qa/house-traversal-gate-e7e2bad3/nested.mjs"
+      ],
+      "startedAt": "2026-11-16T22:30:17.449Z",
+      "stoppedAt": "2026-11-16T22:30:26.848Z",
+      "pid": 74204,
+      "exitCode": 0,
+      "log": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-package.log",
+      "access": "Architect-authorized loopback escalation used on initial HTTP attempt; no repeated sandbox failure"
+    }
+  ],
+  "cleanup": {
+    "runner": {
+      "closedAt": "2026-11-16T22:29:54.252Z",
+      "process": {
+        "pid": 26420,
+        "creationFiletime": "134393416650208675",
+        "executable": "C:\\Program Files\\nodejs\\node.exe"
+      },
+      "ports": [],
+      "scope": "Foreground four-stage runner ended; no server or retained helper created"
+    },
+    "nested": {
+      "closedAt": "2026-11-16T22:30:26.848Z",
+      "process": {
+        "pid": 74204,
+        "creationFiletime": "134393418173675209",
+        "executable": "C:\\Program Files\\nodejs\\node.exe"
+      },
+      "port": 56880,
+      "serverClosed": true,
+      "portListening": false,
+      "expired": false
+    },
+    "osVerification": {
+      "verifiedAt": "2026-11-16T22:31:27.2666959Z",
+      "processes": [
+        {
+          "pid": 26420,
+          "expectedCreationFiletime": "134393416650208675",
+          "pidPresent": false,
+          "taskLifetimeStillRunning": false
+        },
+        {
+          "pid": 74204,
+          "expectedCreationFiletime": "134393418173675209",
+          "pidPresent": false,
+          "taskLifetimeStillRunning": false
+        }
+      ],
+      "port": 56880,
+      "portListening": false,
+      "scope": "Exact task-owned runner/nested lifetimes and nested port verified after successful gate; no force termination or retained service"
+    },
+    "retainedHelpers": 0
+  },
+  "launchFailure": {
+    "stageCommandsStarted": 0,
+    "type": "Windows PowerShell saved-file execution policy refused initial wrapper launch",
+    "resolution": "Preserved .ps1/error, switched only the artifact runner to Node; no execution-policy changes. All5gate stages executed once."
+  },
+  "remaining": [
+    "Architect review of the gate/package identity",
+    "Separately granted bounded20minute normal-zoom keyboard/mouse browser review",
+    "Architect promotion/publication decision"
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/input.json",
+      "bytes": 1841,
+      "sha256": "c2b2bdb56f3c83f185178aff5d58502848e310c757d89a16cbec68ff54334f78"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/run.ps1",
+      "bytes": 2467,
+      "sha256": "4c7b4ef60b31bcbf70388fa9e05f50c4067734e3b5c1d495dca9acb9739c30ad"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/run.mjs",
+      "bytes": 2513,
+      "sha256": "5f08436eb8eeadb011ab4014a38975591868086aac3ec1a9445311624690a45a"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested.mjs",
+      "bytes": 5507,
+      "sha256": "97e32c5c727a6d623d990944abad96d0bdef24bb6445227a56751b4fbd2d9ee8"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/launch-policy.txt",
+      "bytes": 215,
+      "sha256": "b42f30ece0b08055de360e7ec6bccd78388f10006998716e73d9832c59410de0"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/repository.log",
+      "bytes": 64843,
+      "sha256": "37339284c06880eec60c96d7deb1952e902afdfd6dfe04c5f2d25d64e67d6b31"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/integrated-source.log",
+      "bytes": 719,
+      "sha256": "f313582319f16cedc8540ec82b92477f3e68f0aba73c53e860d1872abcf5fb73"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/integrated-source/audit.json",
+      "bytes": 9275,
+      "sha256": "c027deb5acfb82fc5d698d0917798e0a71b50657ca510de7a4eabb5b30799123"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/integrated-source/checks.json",
+      "bytes": 15700,
+      "sha256": "519a29077b099a9b963e087f2de85c332058c6e839032c479fe5903b8a0211f2"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/integrated-source/result.json",
+      "bytes": 1263,
+      "sha256": "23488dcd757c4174aae5eccaa6fed4f5f27fe6d64199fd5fa1a4065fe6a60226"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/build.log",
+      "bytes": 116,
+      "sha256": "6237ad3e19312d172722b549291273eedae455181701836698e0a925bee65b9c"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/release.log",
+      "bytes": 100,
+      "sha256": "48c993653e182af64c2ee7ab4d8b3d501834fcd31f43fb4c627128d71139d929"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-package.log",
+      "bytes": 1136,
+      "sha256": "8f6399bad9dbae8b3d859d93a8f9512d0b3154dbd7d769c712c34a1ba4856c15"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-result.json",
+      "bytes": 1496,
+      "sha256": "d8b47f17c38d2502b499fe0fb05452c21bbd9297de814cf7a11f4b6e4a203f2f"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-site.stdout",
+      "bytes": 138,
+      "sha256": "49e8cdf2e202c26bd746a72063bd832460696af38c7195db8d0c745b3498ce73"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-site.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-hidden.json",
+      "bytes": 78,
+      "sha256": "2b5ca383586580d7c9c6eac43f36794dfab45c26f0b9adcdd28c15f3d4ecc50e"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-helper.json",
+      "bytes": 1006,
+      "sha256": "b09dd41bc3991f5be165187d4f534ee54c698e334bc4a29fa94059e70729734c"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/nested-cleanup.json",
+      "bytes": 272,
+      "sha256": "a58ddc2ff223b6c01e132ce48d35ce2b65ba371c8b5dd9590ea1b7fece078bbc"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/runner.json",
+      "bytes": 835,
+      "sha256": "ed62196acff2a17c1e8e4b415e5ddbd4a104ba59f4735f416b6fa9e1c22dc1cb"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/runner-cleanup.json",
+      "bytes": 287,
+      "sha256": "0d84439046a45c017e7b40e085b0e42c8f75eb39b22fe54411f26c583fff646e"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/cleanup-verification.json",
+      "bytes": 591,
+      "sha256": "b4b7ea90e0a015a98d18c362c3d8b4e67b2e9cbddc0303f5623476583e17ec19"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/stages.json",
+      "bytes": 1897,
+      "sha256": "e2d1293c9fc930321a7f6788b0aa0a3391bd3596f00f9abc5f5083975f1ce1d0"
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gate-e7e2bad3/build-manifest.json",
+      "bytes": 800572,
+      "sha256": "c5bd20e6453855c1fbb9d7a81c5433b4751420ac933bd37b0bb4e998155c4b85"
+    }
+  ]
+}
