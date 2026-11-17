@@ -1,0 +1,12 @@
+{
+  "authoringCorrections": [
+    "An initial inventory display assumed indexed geometry; nonindexed source meshes are now handled explicitly.",
+    "The first grouped report lacked a leaf-area branch and mislabeled those 36 components as generic nonfuel. The explicit accepted leaf recipe was added before handoff; no source material/geometry changed.",
+    "An analytic control initially selected an arbitrary proved wall fragment rather than a full native 1x2 cell. The selector now explicitly chooses native dimensions; no proof or source assertion was waived.",
+    "A checker source write used an invalid newline argument and truncated only the new checker. It was restored from the prepared source, compiled before writing, and rerun; all geometry reports and original assets remained unchanged. Controls now name two verified full native source IDs instead of choosing by outer bounds."
+  ],
+  "boundedScope": "One grouped pass over existing effective geometry plus exact compound/ownership exceptions. No reconstruction, exhaustive pose sweep, factory, repair, export, runtime, renderer or helper.",
+  "numericalPolicy": "Exact source-coordinate equality and integer/rational predicates; no New York welding/contact/quantity allowance copied. Literal tiny source seams/gaps are findings, not automatic defects or repair authorization.",
+  "version": 1,
+  "wetInterfaceEvidence": "Coder confirms no current per-carrier wet response. Future data contract and controls are proposed only; all 412 parts remain withheld."
+}
