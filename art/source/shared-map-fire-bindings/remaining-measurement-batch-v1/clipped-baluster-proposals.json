@@ -1,0 +1,739 @@
+{
+  "cases": [
+    {
+      "boundaryAudit": {
+        "atomicBadEdges": 38,
+        "boundaryLoopCount": 3,
+        "degreeTwoBoundaryLoops": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "rawBadEdges": 38
+      },
+      "boundaryEdgeReferences": [
+        [
+          54,
+          59
+        ],
+        [
+          54,
+          62
+        ],
+        [
+          62,
+          66
+        ],
+        [
+          66,
+          71
+        ],
+        [
+          71,
+          80
+        ],
+        [
+          89,
+          84
+        ],
+        [
+          84,
+          92
+        ],
+        [
+          92,
+          96
+        ],
+        [
+          96,
+          101
+        ],
+        [
+          101,
+          110
+        ],
+        [
+          125,
+          120
+        ],
+        [
+          120,
+          128
+        ],
+        [
+          128,
+          132
+        ],
+        [
+          132,
+          137
+        ],
+        [
+          59,
+          143
+        ],
+        [
+          80,
+          144
+        ],
+        [
+          144,
+          152
+        ],
+        [
+          89,
+          155
+        ],
+        [
+          155,
+          161
+        ],
+        [
+          110,
+          162
+        ],
+        [
+          162,
+          170
+        ],
+        [
+          125,
+          179
+        ],
+        [
+          179,
+          185
+        ],
+        [
+          137,
+          186
+        ],
+        [
+          143,
+          190
+        ],
+        [
+          190,
+          197
+        ],
+        [
+          197,
+          199
+        ],
+        [
+          199,
+          152
+        ],
+        [
+          161,
+          215
+        ],
+        [
+          215,
+          220
+        ],
+        [
+          220,
+          227
+        ],
+        [
+          227,
+          229
+        ],
+        [
+          229,
+          170
+        ],
+        [
+          185,
+          251
+        ],
+        [
+          251,
+          256
+        ],
+        [
+          256,
+          263
+        ],
+        [
+          263,
+          265
+        ],
+        [
+          186,
+          265
+        ]
+      ],
+      "constructor": "original accepted baluster-profile LatheGeometry, now independently clipped",
+      "loopYSeparation": [
+        {
+          "loopIndices": [
+            0,
+            1
+          ],
+          "positiveYSeparation": {
+            "approximate": 0.037668704986572266,
+            "denominator": "2097152",
+            "numerator": "78997"
+          }
+        },
+        {
+          "loopIndices": [
+            0,
+            2
+          ],
+          "positiveYSeparation": {
+            "approximate": 0.5643329620361328,
+            "denominator": "524288",
+            "numerator": "295873"
+          }
+        },
+        {
+          "loopIndices": [
+            1,
+            2
+          ],
+          "positiveYSeparation": {
+            "approximate": 0.26534271240234375,
+            "denominator": "131072",
+            "numerator": "34779"
+          }
+        }
+      ],
+      "matchedPlaneClasses": {
+        "[(0, 1.2999999523162842)]": 38
+      },
+      "matchedRecordedCutPlaneBoundaryEdges": 38,
+      "newCapMeshUVOrOpeningChange": false,
+      "otherUnprovedBoundaryEdges": 0,
+      "placeId": "horticulture",
+      "proofComplete": false,
+      "quantityReference": null,
+      "radialReferenceOrWholeOriginalVolumeInherited": false,
+      "recordedCut": {
+        "id": "hort-rotunda-guard-gap",
+        "maxY": 9.16,
+        "minY": 6.340000000000001,
+        "polygon": [
+          [
+            -1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            60.046837749447974
+          ],
+          [
+            -1.3,
+            60.046837749447974
+          ]
+        ],
+        "role": "gallery-rail"
+      },
+      "retainedSourceSurfaceComponents": 1,
+      "smallestReferenceOrRepairProposal": "Review exactly three separate planar closure/reference faces per original baluster, using only these existing recorded guard-cut loops. All 38 boundary edges match the captured cut plane; the loop areas and simple-boundary proofs are given. Preserve every retained source piece, the three separate cut-boundary patches, source triangles/UVs and recorded clearance; do not restore a full lathe, fill between patches or apply a weld tolerance. No closure polygons/triangles are generated. A complete non-self-intersecting cut-remnant quantity proof and source-plane quantization decision still need review.",
+      "sourceBoundaryLoops": [
+        {
+          "actualMaximumY": {
+            "approximate": 6.65397310256958,
+            "denominator": "2097152",
+            "numerator": "13954393"
+          },
+          "actualMinimumY": {
+            "approximate": 6.539999961853027,
+            "denominator": "1048576",
+            "numerator": "6857687"
+          },
+          "capturedCutPlane": {
+            "approximate": 1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "5452595"
+          },
+          "constantCoordinateAxes": [
+            0
+          ],
+          "planarBoundaryAreaExact": {
+            "approximate": 0.017756058905433747,
+            "denominator": "549755813888",
+            "numerator": "9761496615"
+          },
+          "simpleExistingPlanarBoundaryProved": true,
+          "sourceVertexReferences": [
+            54,
+            59,
+            143,
+            190,
+            197,
+            199,
+            152,
+            144,
+            80,
+            71,
+            66,
+            62
+          ]
+        },
+        {
+          "actualMaximumY": {
+            "approximate": 6.952963352203369,
+            "denominator": "2097152",
+            "numerator": "14581421"
+          },
+          "actualMinimumY": {
+            "approximate": 6.691641807556152,
+            "denominator": "1048576",
+            "numerator": "7016695"
+          },
+          "capturedCutPlane": {
+            "approximate": 1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "5452595"
+          },
+          "constantCoordinateAxes": [
+            0
+          ],
+          "planarBoundaryAreaExact": {
+            "approximate": 0.024683973676474125,
+            "denominator": "1099511627776",
+            "numerator": "27140316077"
+          },
+          "simpleExistingPlanarBoundaryProved": true,
+          "sourceVertexReferences": [
+            89,
+            155,
+            161,
+            215,
+            220,
+            227,
+            229,
+            170,
+            162,
+            110,
+            101,
+            96,
+            92,
+            84
+          ]
+        },
+        {
+          "actualMaximumY": {
+            "approximate": 7.340000152587891,
+            "denominator": "262144",
+            "numerator": "1924137"
+          },
+          "actualMinimumY": {
+            "approximate": 7.218306064605713,
+            "denominator": "2097152",
+            "numerator": "15137885"
+          },
+          "capturedCutPlane": {
+            "approximate": 1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "5452595"
+          },
+          "constantCoordinateAxes": [
+            0
+          ],
+          "planarBoundaryAreaExact": {
+            "approximate": 0.01862377359339007,
+            "denominator": "1099511627776",
+            "numerator": "20477055619"
+          },
+          "simpleExistingPlanarBoundaryProved": true,
+          "sourceVertexReferences": [
+            125,
+            179,
+            185,
+            251,
+            256,
+            263,
+            265,
+            186,
+            137,
+            132,
+            128,
+            120
+          ]
+        }
+      ],
+      "sourceData": {
+        "appearanceSlot": "trim",
+        "componentId": "rotunda-gallery-guard-12/baluster-2",
+        "id": "rotunda-gallery-guard-12/baluster-2",
+        "physicalMaterial": "unassigned"
+      },
+      "sourceId": "replacement/rotunda-gallery-guard-12/baluster-2",
+      "zeroAreaSourceTrianglesExcludedOnlyFromMeasures": 0
+    },
+    {
+      "boundaryAudit": {
+        "atomicBadEdges": 38,
+        "boundaryLoopCount": 3,
+        "degreeTwoBoundaryLoops": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "rawBadEdges": 38
+      },
+      "boundaryEdgeReferences": [
+        [
+          329,
+          324
+        ],
+        [
+          324,
+          332
+        ],
+        [
+          332,
+          336
+        ],
+        [
+          336,
+          341
+        ],
+        [
+          341,
+          350
+        ],
+        [
+          359,
+          354
+        ],
+        [
+          354,
+          362
+        ],
+        [
+          362,
+          366
+        ],
+        [
+          366,
+          371
+        ],
+        [
+          371,
+          380
+        ],
+        [
+          395,
+          390
+        ],
+        [
+          390,
+          398
+        ],
+        [
+          398,
+          402
+        ],
+        [
+          407,
+          402
+        ],
+        [
+          413,
+          329
+        ],
+        [
+          414,
+          350
+        ],
+        [
+          422,
+          414
+        ],
+        [
+          425,
+          359
+        ],
+        [
+          431,
+          425
+        ],
+        [
+          432,
+          380
+        ],
+        [
+          440,
+          432
+        ],
+        [
+          449,
+          395
+        ],
+        [
+          455,
+          449
+        ],
+        [
+          456,
+          407
+        ],
+        [
+          460,
+          413
+        ],
+        [
+          460,
+          467
+        ],
+        [
+          467,
+          469
+        ],
+        [
+          469,
+          422
+        ],
+        [
+          431,
+          485
+        ],
+        [
+          485,
+          490
+        ],
+        [
+          490,
+          497
+        ],
+        [
+          497,
+          499
+        ],
+        [
+          499,
+          440
+        ],
+        [
+          455,
+          521
+        ],
+        [
+          521,
+          526
+        ],
+        [
+          526,
+          533
+        ],
+        [
+          533,
+          535
+        ],
+        [
+          535,
+          456
+        ]
+      ],
+      "constructor": "original accepted baluster-profile LatheGeometry, now independently clipped",
+      "loopYSeparation": [
+        {
+          "loopIndices": [
+            0,
+            1
+          ],
+          "positiveYSeparation": {
+            "approximate": 0.037668704986572266,
+            "denominator": "2097152",
+            "numerator": "78997"
+          }
+        },
+        {
+          "loopIndices": [
+            0,
+            2
+          ],
+          "positiveYSeparation": {
+            "approximate": 0.5643329620361328,
+            "denominator": "524288",
+            "numerator": "295873"
+          }
+        },
+        {
+          "loopIndices": [
+            1,
+            2
+          ],
+          "positiveYSeparation": {
+            "approximate": 0.26534271240234375,
+            "denominator": "131072",
+            "numerator": "34779"
+          }
+        }
+      ],
+      "matchedPlaneClasses": {
+        "[(0, -1.2999999523162842)]": 38
+      },
+      "matchedRecordedCutPlaneBoundaryEdges": 38,
+      "newCapMeshUVOrOpeningChange": false,
+      "otherUnprovedBoundaryEdges": 0,
+      "placeId": "horticulture",
+      "proofComplete": false,
+      "quantityReference": null,
+      "radialReferenceOrWholeOriginalVolumeInherited": false,
+      "recordedCut": {
+        "id": "hort-rotunda-guard-gap",
+        "maxY": 9.16,
+        "minY": 6.340000000000001,
+        "polygon": [
+          [
+            -1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            60.046837749447974
+          ],
+          [
+            -1.3,
+            60.046837749447974
+          ]
+        ],
+        "role": "gallery-rail"
+      },
+      "retainedSourceSurfaceComponents": 1,
+      "smallestReferenceOrRepairProposal": "Review exactly three separate planar closure/reference faces per original baluster, using only these existing recorded guard-cut loops. All 38 boundary edges match the captured cut plane; the loop areas and simple-boundary proofs are given. Preserve every retained source piece, the three separate cut-boundary patches, source triangles/UVs and recorded clearance; do not restore a full lathe, fill between patches or apply a weld tolerance. No closure polygons/triangles are generated. A complete non-self-intersecting cut-remnant quantity proof and source-plane quantization decision still need review.",
+      "sourceBoundaryLoops": [
+        {
+          "actualMaximumY": {
+            "approximate": 6.65397310256958,
+            "denominator": "2097152",
+            "numerator": "13954393"
+          },
+          "actualMinimumY": {
+            "approximate": 6.539999961853027,
+            "denominator": "1048576",
+            "numerator": "6857687"
+          },
+          "capturedCutPlane": {
+            "approximate": -1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "-5452595"
+          },
+          "constantCoordinateAxes": [
+            0
+          ],
+          "planarBoundaryAreaExact": {
+            "approximate": 0.017756058905433747,
+            "denominator": "549755813888",
+            "numerator": "9761496615"
+          },
+          "simpleExistingPlanarBoundaryProved": true,
+          "sourceVertexReferences": [
+            460,
+            413,
+            329,
+            324,
+            332,
+            336,
+            341,
+            350,
+            414,
+            422,
+            469,
+            467
+          ]
+        },
+        {
+          "actualMaximumY": {
+            "approximate": 6.952963352203369,
+            "denominator": "2097152",
+            "numerator": "14581421"
+          },
+          "actualMinimumY": {
+            "approximate": 6.691641807556152,
+            "denominator": "1048576",
+            "numerator": "7016695"
+          },
+          "capturedCutPlane": {
+            "approximate": -1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "-5452595"
+          },
+          "constantCoordinateAxes": [
+            0
+          ],
+          "planarBoundaryAreaExact": {
+            "approximate": 0.024683973676474125,
+            "denominator": "1099511627776",
+            "numerator": "27140316077"
+          },
+          "simpleExistingPlanarBoundaryProved": true,
+          "sourceVertexReferences": [
+            431,
+            425,
+            359,
+            354,
+            362,
+            366,
+            371,
+            380,
+            432,
+            440,
+            499,
+            497,
+            490,
+            485
+          ]
+        },
+        {
+          "actualMaximumY": {
+            "approximate": 7.340000152587891,
+            "denominator": "262144",
+            "numerator": "1924137"
+          },
+          "actualMinimumY": {
+            "approximate": 7.218306064605713,
+            "denominator": "2097152",
+            "numerator": "15137885"
+          },
+          "capturedCutPlane": {
+            "approximate": -1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "-5452595"
+          },
+          "constantCoordinateAxes": [
+            0
+          ],
+          "planarBoundaryAreaExact": {
+            "approximate": 0.01862377359339007,
+            "denominator": "1099511627776",
+            "numerator": "20477055619"
+          },
+          "simpleExistingPlanarBoundaryProved": true,
+          "sourceVertexReferences": [
+            455,
+            449,
+            395,
+            390,
+            398,
+            402,
+            407,
+            456,
+            535,
+            533,
+            526,
+            521
+          ]
+        }
+      ],
+      "sourceData": {
+        "appearanceSlot": "trim",
+        "componentId": "rotunda-gallery-guard-12/baluster-6",
+        "id": "rotunda-gallery-guard-12/baluster-6",
+        "physicalMaterial": "unassigned"
+      },
+      "sourceId": "replacement/rotunda-gallery-guard-12/baluster-6",
+      "zeroAreaSourceTrianglesExcludedOnlyFromMeasures": 0
+    }
+  ],
+  "version": 1
+}

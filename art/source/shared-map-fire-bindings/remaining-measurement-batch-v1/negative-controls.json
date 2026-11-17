@@ -1,0 +1,34 @@
+{
+  "controls": [
+    {
+      "control": "original header missing retained face triangle",
+      "meshOrIndexWritten": false,
+      "result": "REJECT_RECTANGULAR_REFERENCE"
+    },
+    {
+      "control": "native primary triangle omitted, opposite member kept",
+      "meshOrIndexWritten": false,
+      "result": "REJECT_PRIMARY_DOMAIN_PAIR"
+    },
+    {
+      "control": "native primary source triangle counted twice",
+      "meshOrIndexWritten": false,
+      "result": "REJECT_PROJECTION_NONOVERLAP"
+    },
+    {
+      "control": "original roof underside faces requested as weather area",
+      "meshOrIndexWritten": false,
+      "originalDownwardOffsets": [
+        18,
+        21
+      ],
+      "result": "REJECT_DOWNWARD_NORMALS"
+    },
+    {
+      "control": "one original upper roof triangle counted twice",
+      "meshOrIndexWritten": false,
+      "result": "REJECT_UPPER_PROJECTION_OVERLAP"
+    }
+  ],
+  "version": 1
+}

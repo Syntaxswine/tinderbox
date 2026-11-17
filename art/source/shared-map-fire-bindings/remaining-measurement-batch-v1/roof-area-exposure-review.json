@@ -1,0 +1,385 @@
+{
+  "cases": [
+    {
+      "actualMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        6.36,
+        119,
+        1
+      ],
+      "actualUpperProjectedArea": {
+        "approximate": 3744.0,
+        "denominator": "1",
+        "numerator": "3744"
+      },
+      "actualUpperSurfaceAreaInterval": {
+        "lower": {
+          "approximate": 3873.230868322091,
+          "denominator": "170141183460469231731687303715884105728",
+          "numerator": "658996083751941419937226826584308808544775"
+        },
+        "scalarEvaluationWidth": {
+          "approximate": 8.816207631167156e-39,
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "3"
+        },
+        "sqrtEnclosureBits": 128,
+        "upper": {
+          "approximate": 3873.230868322091,
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "1317992167503882839874453653168617617089553"
+        },
+        "zeroAreaSourceTriangles": 0
+      },
+      "coarsePotentialCoveringSourceCount": 557,
+      "coarsePotentialCoveringSourceIdSetSha256": "00c00f8ec4b7899ad32f351ec4b7f36559d41ac9602b565159f82a6bf365b0c4",
+      "downwardTriangleIndexOffsetsExcluded": [
+        18,
+        21
+      ],
+      "exactAffineDeterminant": {
+        "approximate": 1.0,
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "exposedWeatherArea": null,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/b3101c59ffbe8d65ef2a1f002794ef21084f415600428349376757f2aab8e45a.json",
+      "intentionalUndersideRemovalPreserved": false,
+      "ownDownwardFacesAtOrBelowLowestUpperY": true,
+      "placeId": "horticulture",
+      "possibleExposedAreaUpperBound": {
+        "approximate": 3873.230868322091,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "1317992167503882839874453653168617617089553"
+      },
+      "proofComplete": false,
+      "provedExposedAreaLowerBound": null,
+      "quantityReference": null,
+      "reason": "Actual upper-face/self-overlap evidence supplied; external covering/exposure remains unproved. Metadata candidates below are not area or solid proof.",
+      "roofSelfUpperEnvelopeProved": true,
+      "sourceId": "rear-curtain-roof",
+      "stairArrivalOrCapChanged": false,
+      "upperFaceWorldBoundsForContextOnly": {
+        "max": [
+          {
+            "approximate": 293.0,
+            "denominator": "1",
+            "numerator": "293"
+          },
+          {
+            "approximate": 8.479999885559081,
+            "denominator": "1125899906842624",
+            "numerator": "9547631081176433"
+          },
+          {
+            "approximate": 127.0,
+            "denominator": "1",
+            "numerator": "127"
+          }
+        ],
+        "min": [
+          {
+            "approximate": 59.0,
+            "denominator": "1",
+            "numerator": "59"
+          },
+          {
+            "approximate": 6.36,
+            "denominator": "1125899906842624",
+            "numerator": "7160723407519089"
+          },
+          {
+            "approximate": 111.0,
+            "denominator": "1",
+            "numerator": "111"
+          }
+        ]
+      },
+      "upperProjectionNonoverlap": {
+        "proved": true,
+        "trianglePairs": 15
+      },
+      "upwardWeatherTriangleIndexOffsets": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15
+      ],
+      "verticalTriangleIndexOffsetsExcluded": []
+    },
+    {
+      "actualMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "actualUpperProjectedArea": {
+        "approximate": 2736.0,
+        "denominator": "1",
+        "numerator": "2736"
+      },
+      "actualUpperSurfaceAreaInterval": {
+        "lower": {
+          "approximate": 2901.7656241970826,
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "987419674851597645992923072410656200918171"
+        },
+        "scalarEvaluationWidth": {
+          "approximate": 8.816207631167156e-39,
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "3"
+        },
+        "sqrtEnclosureBits": 128,
+        "upper": {
+          "approximate": 2901.7656241970826,
+          "denominator": "170141183460469231731687303715884105728",
+          "numerator": "493709837425798822996461536205328100459087"
+        },
+        "zeroAreaSourceTriangles": 0
+      },
+      "coarsePotentialCoveringSourceCount": 230,
+      "coarsePotentialCoveringSourceIdSetSha256": "1b807a719c1494f1eb2b4fa1e88b31efbccb0d8cdc5ff1750f6bd6137ba10c9c",
+      "downwardTriangleIndexOffsetsExcluded": [],
+      "exactAffineDeterminant": {
+        "approximate": 1.0,
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "exposedWeatherArea": null,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/c26946b4a65413bdb4c1cf6c49a1c767d55ae5288297733a0e3d3b4ce858edac.json",
+      "intentionalUndersideRemovalPreserved": true,
+      "ownDownwardFacesAtOrBelowLowestUpperY": true,
+      "placeId": "horticulture",
+      "possibleExposedAreaUpperBound": {
+        "approximate": 2901.7656241970826,
+        "denominator": "170141183460469231731687303715884105728",
+        "numerator": "493709837425798822996461536205328100459087"
+      },
+      "proofComplete": false,
+      "provedExposedAreaLowerBound": null,
+      "quantityReference": null,
+      "reason": "Actual upper-face/self-overlap evidence supplied; external covering/exposure remains unproved. Metadata candidates below are not area or solid proof.",
+      "roofSelfUpperEnvelopeProved": true,
+      "sourceId": "replacement/end-pavilion-roof-0",
+      "stairArrivalOrCapChanged": false,
+      "upperFaceWorldBoundsForContextOnly": {
+        "max": [
+          {
+            "approximate": 59.0,
+            "denominator": "1",
+            "numerator": "59"
+          },
+          {
+            "approximate": 14.84000015258789,
+            "denominator": "262144",
+            "numerator": "3890217"
+          },
+          {
+            "approximate": 127.0,
+            "denominator": "1",
+            "numerator": "127"
+          }
+        ],
+        "min": [
+          {
+            "approximate": 23.0,
+            "denominator": "1",
+            "numerator": "23"
+          },
+          {
+            "approximate": 8.479999542236328,
+            "denominator": "262144",
+            "numerator": "2222981"
+          },
+          {
+            "approximate": 51.0,
+            "denominator": "1",
+            "numerator": "51"
+          }
+        ]
+      },
+      "upperProjectionNonoverlap": {
+        "proved": true,
+        "trianglePairs": 15
+      },
+      "upwardWeatherTriangleIndexOffsets": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15
+      ],
+      "verticalTriangleIndexOffsetsExcluded": []
+    },
+    {
+      "actualMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "actualUpperProjectedArea": {
+        "approximate": 2736.0,
+        "denominator": "1",
+        "numerator": "2736"
+      },
+      "actualUpperSurfaceAreaInterval": {
+        "lower": {
+          "approximate": 2901.7656241970826,
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "987419674851597645992923072410656200918171"
+        },
+        "scalarEvaluationWidth": {
+          "approximate": 8.816207631167156e-39,
+          "denominator": "340282366920938463463374607431768211456",
+          "numerator": "3"
+        },
+        "sqrtEnclosureBits": 128,
+        "upper": {
+          "approximate": 2901.7656241970826,
+          "denominator": "170141183460469231731687303715884105728",
+          "numerator": "493709837425798822996461536205328100459087"
+        },
+        "zeroAreaSourceTriangles": 0
+      },
+      "coarsePotentialCoveringSourceCount": 230,
+      "coarsePotentialCoveringSourceIdSetSha256": "2a57fff8ef2ff18ddf4752adeca60852fadffc3be7cecf84b1e0211591352585",
+      "downwardTriangleIndexOffsetsExcluded": [],
+      "exactAffineDeterminant": {
+        "approximate": 1.0,
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "exposedWeatherArea": null,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/f7d4c245f24d44e50471eb98ec4cebebdc3795a110409853797dd032bb52d2cd.json",
+      "intentionalUndersideRemovalPreserved": true,
+      "ownDownwardFacesAtOrBelowLowestUpperY": true,
+      "placeId": "horticulture",
+      "possibleExposedAreaUpperBound": {
+        "approximate": 2901.7656241970826,
+        "denominator": "170141183460469231731687303715884105728",
+        "numerator": "493709837425798822996461536205328100459087"
+      },
+      "proofComplete": false,
+      "provedExposedAreaLowerBound": null,
+      "quantityReference": null,
+      "reason": "Actual upper-face/self-overlap evidence supplied; external covering/exposure remains unproved. Metadata candidates below are not area or solid proof.",
+      "roofSelfUpperEnvelopeProved": true,
+      "sourceId": "replacement/end-pavilion-roof-1",
+      "stairArrivalOrCapChanged": false,
+      "upperFaceWorldBoundsForContextOnly": {
+        "max": [
+          {
+            "approximate": 329.0,
+            "denominator": "1",
+            "numerator": "329"
+          },
+          {
+            "approximate": 14.84000015258789,
+            "denominator": "262144",
+            "numerator": "3890217"
+          },
+          {
+            "approximate": 127.0,
+            "denominator": "1",
+            "numerator": "127"
+          }
+        ],
+        "min": [
+          {
+            "approximate": 293.0,
+            "denominator": "1",
+            "numerator": "293"
+          },
+          {
+            "approximate": 8.479999542236328,
+            "denominator": "262144",
+            "numerator": "2222981"
+          },
+          {
+            "approximate": 51.0,
+            "denominator": "1",
+            "numerator": "51"
+          }
+        ]
+      },
+      "upperProjectionNonoverlap": {
+        "proved": true,
+        "trianglePairs": 15
+      },
+      "upwardWeatherTriangleIndexOffsets": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15
+      ],
+      "verticalTriangleIndexOffsetsExcluded": []
+    }
+  ],
+  "threeRoofUpperProjectionPairs": [
+    {
+      "positiveProjectedOverlapAmongTheseUpperPatches": false,
+      "roofSources": [
+        "rear-curtain-roof",
+        "replacement/end-pavilion-roof-0"
+      ]
+    },
+    {
+      "positiveProjectedOverlapAmongTheseUpperPatches": false,
+      "roofSources": [
+        "rear-curtain-roof",
+        "replacement/end-pavilion-roof-1"
+      ]
+    },
+    {
+      "positiveProjectedOverlapAmongTheseUpperPatches": false,
+      "roofSources": [
+        "replacement/end-pavilion-roof-0",
+        "replacement/end-pavilion-roof-1"
+      ]
+    }
+  ],
+  "version": 1
+}
