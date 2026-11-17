@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "scope": "Unaccepted source-local contact/live candidate, held runtime push and consumed single-run evidence; both diagnostic-reference failures preserved",
+  "version": 2,
+  "scope": "Evidence-only negative result with active baseline restored; original experiment and exact candidate loader/payload preserved",
   "files": [
     {
       "path": ".gitattributes",
@@ -13,6 +13,11 @@
       "sha256": "f8e8b9bf2bdbf381eaef171e78e53dcabcebfbe0cd59b6934d472577b519d777"
     },
     {
+      "path": "archived-candidate-focused.log",
+      "bytes": 7609,
+      "sha256": "30424f0ce8bc7db084eed1465479daf31ddda24777f3ff6881a501a991ec7ba9"
+    },
+    {
       "path": "audit.mjs",
       "bytes": 4586,
       "sha256": "ae299aa2269eea57c2b16ea8ec473859baff47e44904757ac913b126d06c09e9"
@@ -23,9 +28,29 @@
       "sha256": "9e442d979db1c5f62c7adf6c4d6fdc8c467f03ad7cde7b8fd863e98d314823ee"
     },
     {
+      "path": "baseline-focused.log",
+      "bytes": 5234,
+      "sha256": "97a85699c3025991ad301556cde97c6524624960ff46a5e4dd2528c09ca8827d"
+    },
+    {
+      "path": "baseline-restoration.json",
+      "bytes": 2453,
+      "sha256": "3b548e578250e876a5322a92940ed3c0d581f170a68662019cf3e20a0ae3311d"
+    },
+    {
       "path": "candidate-diff.json",
       "bytes": 27212,
       "sha256": "fa7564a7dfdefd27924d83d63badf34fbd6395ad2551a9b60e91046a3eeb58a2"
+    },
+    {
+      "path": "candidate-loader-pins.json",
+      "bytes": 8622,
+      "sha256": "4d504de7eb4825d4ea9f5efd879b0c17ff0994bd57d4217a3a2056323d6e94d0"
+    },
+    {
+      "path": "candidate-loader.mjs",
+      "bytes": 3340,
+      "sha256": "f4d279d5a699efa4b7770cb802e9b3d399f085d15baaf5bf78ba4d198173f001"
     },
     {
       "path": "candidate-payload/docs/engineering/shared-maps/runtime-integration.json",
@@ -53,6 +78,16 @@
       "sha256": "ea7c0cb0454348774bc51d8f7033ef21c6c045713ca27b7ce72d2cd5cf157da7"
     },
     {
+      "path": "experimental-checkpoint-manifest.json",
+      "bytes": 7722,
+      "sha256": "217451cd516605a745932f9d426c432a119717d9972a3b94df370061cf2ab986"
+    },
+    {
+      "path": "experimental-checkpoint-README.md",
+      "bytes": 7435,
+      "sha256": "cbc6d0f3f7c3790e24b78afecff5e81d4ecaa76e20df93ca0907e828c355e5b5"
+    },
+    {
       "path": "failed-audit-v1.mjs",
       "bytes": 4148,
       "sha256": "03de26d675d3d323a72994b99d21da272ae21b1407a3a6763dfee329d1a5425f"
@@ -71,6 +106,11 @@
       "path": "failed-source-support-test-v1.mjs",
       "bytes": 17198,
       "sha256": "ba49732e00ebd9852f793ba0a3c161515d389dbd7e4e01d2dd7efb7c4b3ac7a3"
+    },
+    {
+      "path": "finalize-negative-result.mjs",
+      "bytes": 3840,
+      "sha256": "d1baf481dcebc91b55a306ee04edb1071a0ef7751aff3afe446fd7e61e4d6b71"
     },
     {
       "path": "focused-check.json",
@@ -113,6 +153,11 @@
       "sha256": "3d279f67932a26bf326285d9a57f17e627a2f65df64be9c4f262f7a0550e522a"
     },
     {
+      "path": "loader-pins.log",
+      "bytes": 363,
+      "sha256": "79edddb20685e38f12b4fa04d4d42c6efc46b07fd141c2df09ee5e7fc5be8bab"
+    },
+    {
       "path": "measure.mjs",
       "bytes": 15725,
       "sha256": "7fe4d0866b7c0c265180615cd73d313991543414a5eeaa92a919b96db7fea25b"
@@ -138,6 +183,16 @@
       "sha256": "533c42894eb161c571b77e5b5fc273ba450023f01b43a4f90cd6a34089b07af7"
     },
     {
+      "path": "negative-result-decision.json",
+      "bytes": 964,
+      "sha256": "ef141238b999cd75cd6c8ff861959503ee4c78fdf4268cf692104dff6316bc54"
+    },
+    {
+      "path": "non-adoption-decision.md",
+      "bytes": 6722,
+      "sha256": "afa4390bd6e082b7f03d0726b19325f5b144e0ba14785ec61495d836030592e3"
+    },
+    {
       "path": "preparation.json",
       "bytes": 4285,
       "sha256": "deed03b3afbdeb2164d8a65259ee80bd39d34e3dd52311358afd2af8fc960638"
@@ -154,8 +209,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7435,
-      "sha256": "cbc6d0f3f7c3790e24b78afecff5e81d4ecaa76e20df93ca0907e828c355e5b5"
+      "bytes": 9416,
+      "sha256": "23646570d450d6e87eca79df60fac50e5fab13bd6732eea561babc4179a19d1e"
     },
     {
       "path": "recorded-work-analysis.json",
@@ -171,6 +226,31 @@
       "path": "restart-record.json",
       "bytes": 6551,
       "sha256": "c8b2b0f5bce0c7f2eccd6860217ccc760450423f36e3a8630dfc7b03fe85c47f"
+    },
+    {
+      "path": "restore-baseline.mjs",
+      "bytes": 4610,
+      "sha256": "7c80e83a79fb4fac4d596111e245e227ef2a7fa4432bdd7ce250e7d6bfd1d92f"
+    },
+    {
+      "path": "restored-declaration.log",
+      "bytes": 36,
+      "sha256": "fa58d1ce42ee77f29bf135e7eceb61b41a9a191ccde7b60955dfe27bc058c903"
+    },
+    {
+      "path": "retirement-checks.json",
+      "bytes": 2596,
+      "sha256": "fef7e6e93a9a29c17c47d7b0583f2910b7c6a72974ff44bb864abb515b9f19c8"
+    },
+    {
+      "path": "retirement-checks.mjs",
+      "bytes": 1806,
+      "sha256": "ae31830d19696e0f6150fdf004110c9cf4ac26d223ea2b3b04d45c41f57f3086"
+    },
+    {
+      "path": "retirement-helper-check.json",
+      "bytes": 614,
+      "sha256": "767ff52fda778aecf51a94141152a95146d14fc587f8e5670d31e8dfa399084d"
     },
     {
       "path": "run/adaptation-audit.json",

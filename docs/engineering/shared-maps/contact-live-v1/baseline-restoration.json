@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "decision": "Reject both new algorithms for runtime intake; preserve exact candidate and restore accepted production/tests",
+  "experimentalCommit": "ee26e8091f5e02118360635ece29290ec6c11ccf",
+  "acceptedCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+  "algorithmReference": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+  "restored": [
+    {
+      "path": "src/simulation/source-support.js",
+      "beforeLfSha256": "18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021",
+      "afterLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+      "acceptedCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "archivedCandidate": "docs/engineering/shared-maps/contact-live-v1/candidate-payload/src/simulation/source-support.js"
+    },
+    {
+      "path": "tests/integration/source-support.test.mjs",
+      "beforeLfSha256": "f7a4618d2580ee5a8e2c1be00c64a52244671a3340aa8570da2f0e68359cb8ed",
+      "afterLfSha256": "f1ae80817a639ad092b99cc6f027c38e76282dca03c7a12afb2f7e0be7f9a0ba",
+      "acceptedCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "archivedCandidate": "docs/engineering/shared-maps/contact-live-v1/candidate-payload/tests/integration/source-support.test.mjs"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "beforeLfSha256": "d3066899c8650c9b3407c47ad9204301c827ccc9dcc02211eb88bfe71fbe818c",
+      "afterLfSha256": "685691f69af09c6bfed35fbd11294128be5e57443700287d8f19da608bbd2b2b",
+      "acceptedCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "archivedCandidate": "docs/engineering/shared-maps/contact-live-v1/candidate-payload/docs/engineering/shared-maps/runtime-integration.json"
+    }
+  ],
+  "removedActiveTest": {
+    "path": "tests/integration/source-contact-reach.test.mjs",
+    "rawSha256": "a5263f946f7d92aa0afd29a655551faaa32d8d81dc75cb28894fa622a594bdf6",
+    "preservedAt": "docs/engineering/shared-maps/contact-live-v1/candidate-payload/tests/integration/source-contact-reach.test.mjs"
+  },
+  "wipPreserved": {
+    "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+    "sha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f"
+  },
+  "productionTreeExact": true,
+  "experimental56ChecksPreserved": true,
+  "directLiveSubchangeMeasuredSeparately": false,
+  "noNewMeasurement": true,
+  "noBuildOrBrowser": true,
+  "restoredAt": "2026-11-17T12:52:37.682Z"
+}

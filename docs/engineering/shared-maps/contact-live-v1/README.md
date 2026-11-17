@@ -1,14 +1,17 @@
-# Unaccepted contact and live traversal experiment
+# Rejected contact and live traversal experiment
 
 This preserves the bounded source experiment authorized by architect contract
-`746c2ab02294f975728d0d8844d7f3f8943f546b`. **The candidate is not accepted runtime
-or performance progress over `55cd9b59`. Its runtime push is held.** The separately
-preserved [v5 actual-input failure](../phone-review-v5.md) remains open. No new
-build, browser, profile, matched control or publication is run.
+`746c2ab02294f975728d0d8844d7f3f8943f546b`. **The architect rejected adoption of
+both algorithms. Active runtime, declaration and tests are restored to exact
+`55cd9b59` / `822038cc` bytes.** The delivery is an evidence-only negative result;
+the archived candidate is not performance progress. The separately preserved
+[v5 actual-input failure](../phone-review-v5.md) remains open. No new build,
+browser, profile, matched control or publication is run.
 
 ## Source and correctness
 
-Only `src/simulation/source-support.js` changes in the production/source tree.
+The measured candidate changed only `src/simulation/source-support.js` in the
+production/source tree; that active change has now been restored.
 Candidate LF SHA-256:
 `18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021`.
 The strict whole-tree reference is `76290ae0ef5d08b2abdfcea5234f997f973b65e2`;
@@ -115,7 +118,7 @@ The archive keeps exact candidate payload/patch, both diagnostic failures and
 corrections, producer/verifier sources, raw receipts and hosts, commands, pins,
 checks and restart records. Raw line endings remain preserved. The unrelated
 support-region document stays excluded. The separate failure-art QA task remains
-queued until the architect selects a baseline; it is not stacked here.
+queued until after this evidence-only checkpoint; it is not stacked here.
 The immutable failed Node log retains its two indented blank lines and uses a
 binary Git diff classification; its original bytes and hash stay unchanged.
 
@@ -123,4 +126,33 @@ Node 19180 / FILETIME `134393918625839227` runs November 17, 2026 from
 07:24:23.474 to 07:24:33.029 EST, before its fixed 07:25:23.474 expiry. It exits
 zero and is independently absent. Simulation/compiled-owner disposal and observer
 disconnect complete. No ports or helpers remain. The measurement grant is
-consumed; no rerun, profile, control, build, renderer or runtime push is authorized.
+consumed; no rerun, profile, control, build or renderer is authorized.
+
+## Restored baseline and preserved candidate tests
+
+[baseline-restoration.json](baseline-restoration.json) records the exact scoped
+restore, removal of the new active test and unchanged unrelated documentation.
+The accepted support LF pin is `1e6bd6ec`; the exact `18545e67` source and both
+experimental test files remain under `candidate-payload/`. The direct-live
+subchange was never measured separately.
+
+The original 48-file checkpoint manifest and README remain preserved as
+`experimental-checkpoint-manifest.json` / `experimental-checkpoint-README.md`.
+Every original raw file and payload still matches, with the historical README
+checked at its preserved path. Original preparation/measurement/archive producers
+remain historical records; their source guards reject the restored active tree.
+
+`candidate-loader.mjs` provides an archive-only Node test loader, with four exact
+payload pins, 47 accepted native-module pins, both package pins and a strict
+accepted source-tree gate. It redirects test-process graph imports to the saved
+candidate without editing the active source. Archived test imports and their
+`import.meta.url` references retain their original repository context. This uses
+Node 24's synchronous hooks as documented in the
+[pinned Node v24.15.0 API](https://nodejs.org/download/release/v24.15.0/docs/api/module.html#moduleregisterhooksoptions).
+It is not imported by the game or public build.
+
+The restored baseline passes 46/46 controls. The archived loader reproduces all
+56/56 correctness controls on the saved candidate. Commands and logs are in
+`retirement-checks.json`, `baseline-focused.log` and
+`archived-candidate-focused.log`. This additional correctness verification runs
+no held-window measurement, profile, renderer or build and makes no timing claim.
