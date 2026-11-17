@@ -1,0 +1,3944 @@
+{
+  "appearanceSource": {
+    "indexPath": "assets/art/place-scenes/new-york/index.json",
+    "materialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+    "sha256": "1025e434bea1724b0212100cb92687faf95650d3c39c71734bf1b56fbf9713ad",
+    "sourceCarrierId": "carrier/edge-0/cornice-7"
+  },
+  "authorityCommit": "e1945001d1af9012235a8d64e8032666f5efb210",
+  "baseBindings": {
+    "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+    "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba"
+  },
+  "conversionAudit": {
+    "path": "art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/conversion-audit.json",
+    "sha256": "80cba9da5254a1c71858bbf5d6924efb13da3f516c67e365000fd9dccb9938b7"
+  },
+  "firstPilotPreserved": {
+    "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+    "excludedCanonicalId": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+    "excludedSourceProposalId": "proposal-only/blocking/main-parapet-6/bay-01",
+    "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/index.json",
+    "sha256": "0d1469e541657fa6f3ed537ff2f4ba7fe01f3952c273e0eba2720c224a436bcd"
+  },
+  "interfaceGates": {
+    "path": "art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/interface-gates.json",
+    "sha256": "c2428cf378891ddd6ee592029788d67050c0d8f53a3a54618268d191998c5853"
+  },
+  "members": [
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          64.08,
+          17.260000001788136,
+          58.58
+        ],
+        "min": [
+          63.92,
+          17.05000000357628,
+          58.42
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-5/bay-00",
+          "parent": "carrier/edge-5/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-5/bay-00/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-5/bay-00",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-5/bay-00/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-5/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-5/bay-00",
+          "portId": "carrier/roof-saddle-native/main-parapet-5/bay-00/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-00",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        64.0,
+        17.155000002682208,
+        58.5,
+        1
+      ],
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          58.0,
+          59.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          64.08,
+          17.260000001788136,
+          58.58
+        ],
+        "min": [
+          63.92,
+          17.05000000357628,
+          58.42
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/173ccd17e7af08836a98a45bb4bb5a9e15400c5c9ec32ecbf0a1f819e0ce21f1.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-5/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-5/bay-00/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            1,
+            2,
+            7,
+            6
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                5
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-5/bay-00/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            0,
+            1,
+            6,
+            5
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-5/base",
+          "id": "carrier/roof-saddle-native/main-parapet-5/bay-00/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            3,
+            4,
+            9,
+            8
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "744103689138232fa9186305807ea5e11fc55ea838b72fa4a6cc180871ff337a",
+      "quantityReference": 0.04011967147018361,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-5/bay-00/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-5/bay-00/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-5/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-5/bay-00/port-top",
+          "localAxis": "z",
+          "localIntervalMetres": [
+            58.0,
+            59.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-5/bay-00"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-5/bay-00"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          64.08,
+          17.260000001788136,
+          59.58
+        ],
+        "min": [
+          63.92,
+          17.05000000357628,
+          59.42
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-5/bay-01",
+          "parent": "carrier/edge-5/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-5/bay-01/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-5/bay-01",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-5/bay-01/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-5/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-5/bay-01",
+          "portId": "carrier/roof-saddle-native/main-parapet-5/bay-01/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-01",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        64.0,
+        17.155000002682208,
+        59.5,
+        1
+      ],
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          59.0,
+          60.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          64.08,
+          17.260000001788136,
+          59.58
+        ],
+        "min": [
+          63.92,
+          17.05000000357628,
+          59.42
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/173ccd17e7af08836a98a45bb4bb5a9e15400c5c9ec32ecbf0a1f819e0ce21f1.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-5/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-5/bay-01/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            1,
+            2,
+            7,
+            6
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                5
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-5/bay-01/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            0,
+            1,
+            6,
+            5
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-5/base",
+          "id": "carrier/roof-saddle-native/main-parapet-5/bay-01/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            3,
+            4,
+            9,
+            8
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "744103689138232fa9186305807ea5e11fc55ea838b72fa4a6cc180871ff337a",
+      "quantityReference": 0.04011967147018361,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-5/bay-01/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-5/bay-01/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-5/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-5/bay-01/port-top",
+          "localAxis": "z",
+          "localIntervalMetres": [
+            59.0,
+            60.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-5/bay-01"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-5/bay-01"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          48.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          48.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-00",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-00/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-00",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-00/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-00",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-00/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-00",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        48.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          48.0,
+          49.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          48.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          48.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-00/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                3
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-00/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-00/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-00/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-00/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-00/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            48.0,
+            49.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-00"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-00"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          50.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          50.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-02",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-02/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-02",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-02/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-02",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-02/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-02",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        50.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          50.0,
+          51.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          50.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          50.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-02/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2,
+                3
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-02/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-02/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-02/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-02/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-02/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            50.0,
+            51.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-02"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-02"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          51.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          51.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-03",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-03/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-03",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-03/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-03",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-03/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-03",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        51.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          51.0,
+          52.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          51.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          51.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-03/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-03/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-03/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-03/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-03/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-03/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            51.0,
+            52.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-03"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-03"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          52.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          52.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-04",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-04/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-04",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-04/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-04",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-04/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-04",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        52.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          52.0,
+          53.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          52.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          52.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-04/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-04/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-04/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-04/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-04/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-04/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            52.0,
+            53.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-04"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-04"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          53.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          53.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-05",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-05/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-05",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-05/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-05",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-05/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-05",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        53.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          53.0,
+          54.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          53.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          53.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-05/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-05/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-05/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-05/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-05/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-05/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            53.0,
+            54.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-05"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-05"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          54.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          54.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-06",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-06/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-06",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-06/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-06",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-06/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-06",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        54.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          54.0,
+          55.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          54.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          54.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-06/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-06/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-06/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-06/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-06/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-06/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            54.0,
+            55.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-06"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-06"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          55.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          55.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-07",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-07/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-07",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-07/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-07",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-07/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-07",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        55.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          55.0,
+          56.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          55.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          55.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-07/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-07/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-07/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-07/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-07/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-07/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            55.0,
+            56.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-07"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-07"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          56.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          56.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-08",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-08/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-08",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-08/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-08",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-08/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-08",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        56.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          56.0,
+          57.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          56.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          56.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-08/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-08/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-08/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-08/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-08/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-08/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            56.0,
+            57.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-08"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-08"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          57.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          57.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-09",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-09/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-09",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-09/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-09",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-09/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-09",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        57.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          57.0,
+          58.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          57.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          57.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-09/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-09/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-09/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-09/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-09/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-09/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            57.0,
+            58.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-09"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-09"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          58.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          58.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-10",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-10/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-10",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-10/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-10",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-10/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-10",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        58.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          58.0,
+          59.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          58.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          58.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-10/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-10/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-10/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-10/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-10/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-10/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            58.0,
+            59.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-10"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-10"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          59.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          59.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-11",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-11/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-11",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-11/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-11",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-11/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-11",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        59.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          59.0,
+          60.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          59.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          59.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-11/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-11/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-11/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-11/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-11/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-11/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            59.0,
+            60.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-11"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-11"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          60.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          60.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-12",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-12/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-12",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-12/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-12",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-12/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-12",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        60.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          60.0,
+          61.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          60.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          60.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-12/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-12/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-12/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-12/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-12/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-12/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            60.0,
+            61.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-12"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-12"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          61.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          61.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-13",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-13/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-13",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-13/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-13",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-13/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-13",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        61.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          61.0,
+          62.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          61.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          61.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-13/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-13/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-13/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-13/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-13/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-13/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            61.0,
+            62.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-13"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-13"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          62.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          62.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-14",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-14/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-14",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-14/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-14",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-14/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-14",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        62.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          62.0,
+          63.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          62.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          62.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-14/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-14/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-14/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-14/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-14/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-14/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            62.0,
+            63.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-14"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-14"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          63.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          63.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-15",
+          "parent": "carrier/edge-6/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-15/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-6/bay-15",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-15/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-6/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-15",
+          "portId": "carrier/roof-saddle-native/main-parapet-6/bay-15/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-15",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        63.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          63.0,
+          64.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          63.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          63.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-6/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-15/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-15/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-6/base",
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-15/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-15/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-15/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-6/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-6/bay-15/port-top",
+          "localAxis": "x",
+          "localIntervalMetres": [
+            63.0,
+            64.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-6/bay-15"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-15"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          48.08,
+          17.260000001788136,
+          58.58
+        ],
+        "min": [
+          47.92,
+          17.05000000357628,
+          58.42
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-7/bay-00",
+          "parent": "carrier/edge-7/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-7/bay-00/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-7/bay-00",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-7/bay-00/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-7/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-7/bay-00",
+          "portId": "carrier/roof-saddle-native/main-parapet-7/bay-00/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-00",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        48.0,
+        17.155000002682208,
+        58.5,
+        1
+      ],
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          58.0,
+          59.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          48.08,
+          17.260000001788136,
+          58.58
+        ],
+        "min": [
+          47.92,
+          17.05000000357628,
+          58.42
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e339e210d1f2be437b39805b2a9d806094db7f4844b115ad91e4251a726bcdf6.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-7/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-7/bay-00/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                4
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-7/bay-00/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-7/base",
+          "id": "carrier/roof-saddle-native/main-parapet-7/bay-00/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "0672b0c06b0f1c54b6160563e990b1ddfb2715b642817a965335c21895fc4081",
+      "quantityReference": 0.04011967147018361,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-7/bay-00/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-7/bay-00/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-7/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-7/bay-00/port-top",
+          "localAxis": "z",
+          "localIntervalMetres": [
+            58.0,
+            59.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-7/bay-00"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-7/bay-00"
+    },
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          48.08,
+          17.260000001788136,
+          59.58
+        ],
+        "min": [
+          47.92,
+          17.05000000357628,
+          59.42
+        ]
+      },
+      "canonicalOwnerCount": 1,
+      "contacts": [
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-7/bay-01",
+          "parent": "carrier/edge-7/cornice-7",
+          "portId": "carrier/roof-saddle-native/main-parapet-7/bay-01/port-cornice"
+        },
+        {
+          "child": "carrier/roof-saddle-native/main-parapet-7/bay-01",
+          "parent": "carrier/roof/rear-tail",
+          "portId": "carrier/roof-saddle-native/main-parapet-7/bay-01/port-roof-seat"
+        },
+        {
+          "child": "carrier/main-parapet-7/base",
+          "parent": "carrier/roof-saddle-native/main-parapet-7/bay-01",
+          "portId": "carrier/roof-saddle-native/main-parapet-7/bay-01/port-top"
+        }
+      ],
+      "finish": null,
+      "fuelClass": "frame",
+      "groundAnchor": false,
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-01",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        48.0,
+        17.155000002682208,
+        59.5,
+        1
+      ],
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          59.0,
+          60.0
+        ],
+        "pitchMetres": 1
+      },
+      "originalEnvelopeBounds": {
+        "max": [
+          48.08,
+          17.260000001788136,
+          59.58
+        ],
+        "min": [
+          47.92,
+          17.05000000357628,
+          59.42
+        ]
+      },
+      "physicalMaterial": "timber",
+      "ports": [
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/e339e210d1f2be437b39805b2a9d806094db7f4844b115ad91e4251a726bcdf6.json",
+              "sourceTriangleIds": [
+                0,
+                2
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/edge-7/cornice-7",
+          "id": "carrier/roof-saddle-native/main-parapet-7/bay-01/port-cornice",
+          "kind": "cornice",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            8,
+            9
+          ],
+          "physicalVertexIds": [
+            6,
+            7,
+            2,
+            1
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+              "sourceTriangleIds": [
+                4
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/roof/rear-tail",
+          "id": "carrier/roof-saddle-native/main-parapet-7/bay-01/port-roof-seat",
+          "kind": "roof-seat",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            6,
+            7
+          ],
+          "physicalVertexIds": [
+            5,
+            6,
+            1,
+            0
+          ],
+          "remapAllowed": false
+        },
+        {
+          "fixedOriginalSourceTriangles": [
+            {
+              "geometryPath": "assets/art/place-scenes/new-york/geometry/fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e.json",
+              "sourceTriangleIds": [
+                6,
+                7
+              ]
+            }
+          ],
+          "fixedParentCarrierId": "carrier/main-parapet-7/base",
+          "id": "carrier/roof-saddle-native/main-parapet-7/bay-01/port-top",
+          "kind": "top",
+          "nativeFragmentBinding": "Deferred; no compiler/activation.",
+          "physicalTriangleIds": [
+            12,
+            13
+          ],
+          "physicalVertexIds": [
+            8,
+            9,
+            4,
+            3
+          ],
+          "remapAllowed": false
+        }
+      ],
+      "profileId": "0672b0c06b0f1c54b6160563e990b1ddfb2715b642817a965335c21895fc4081",
+      "quantityReference": 0.04011967147018361,
+      "role": "timber-fitting",
+      "selectedSupportSemantics": {
+        "anyParentFallbackAllowed": false,
+        "independentOriginalParentSupportRequired": true,
+        "newAnchor": false,
+        "operator": "ALL_FIXED_PORTS",
+        "remapAllowed": false,
+        "requiredLowerPortIds": [
+          "carrier/roof-saddle-native/main-parapet-7/bay-01/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-7/bay-01/port-roof-seat"
+        ],
+        "reverseBrace": false,
+        "roofRole": "roof-covering",
+        "supportFromFittingUpperOrDescendantsAllowed": false,
+        "upperDependency": {
+          "child": "carrier/main-parapet-7/base",
+          "direction": "parent-to-child",
+          "fixedTopPortId": "carrier/roof-saddle-native/main-parapet-7/bay-01/port-top",
+          "localAxis": "z",
+          "localIntervalMetres": [
+            59.0,
+            60.0
+          ],
+          "parent": "carrier/roof-saddle-native/main-parapet-7/bay-01"
+        }
+      },
+      "sourceProposalId": "proposal-only/blocking/main-parapet-7/bay-01"
+    }
+  ],
+  "namedOriginalParents": {
+    "carrier/edge-5/cornice-7": [
+      {
+        "geometryId": "173ccd17e7af08836a98a45bb4bb5a9e15400c5c9ec32ecbf0a1f819e0ce21f1",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/173ccd17e7af08836a98a45bb4bb5a9e15400c5c9ec32ecbf0a1f819e0ce21f1.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.96,
+          26,
+          1
+        ],
+        "partId": "edge-5/cornice-7",
+        "sha256": "22ebe605c349f02dc14befe1d18e3b31448cfe2c02d4e9a46b0c4ff84962dd0a",
+        "sourcePartId": "edge-5/cornice-7",
+        "sourceRange": null
+      }
+    ],
+    "carrier/edge-6/cornice-7": [
+      {
+        "geometryId": "ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.96,
+          26,
+          1
+        ],
+        "partId": "edge-6/cornice-7",
+        "sha256": "d3f70276fdae9c7b2b86de21728a684fb9df84f74552d8112af380a9cd9af07d",
+        "sourcePartId": "edge-6/cornice-7",
+        "sourceRange": null
+      }
+    ],
+    "carrier/edge-7/cornice-7": [
+      {
+        "geometryId": "e339e210d1f2be437b39805b2a9d806094db7f4844b115ad91e4251a726bcdf6",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/e339e210d1f2be437b39805b2a9d806094db7f4844b115ad91e4251a726bcdf6.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.96,
+          26,
+          1
+        ],
+        "partId": "edge-7/cornice-7",
+        "sha256": "9faeaf62d9844e196faf29a16a141e88c066c0085682e2258d7dbade9082acb0",
+        "sourcePartId": "edge-7/cornice-7",
+        "sourceRange": null
+      }
+    ],
+    "carrier/main-parapet-5/base": [
+      {
+        "geometryId": "fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e.json",
+        "matrix": [
+          2.220446049250313e-16,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          -1,
+          0,
+          2.220446049250313e-16,
+          0,
+          64,
+          17.34000015258789,
+          59,
+          1
+        ],
+        "partId": "main-parapet-5/base",
+        "sha256": "18f7b5d74cfebfbae253fa68124808b434dce3cfc4bec4ff3fe2dfa6dc0ea0c6",
+        "sourcePartId": "main-parapet-5/base",
+        "sourceRange": null
+      }
+    ],
+    "carrier/main-parapet-6/base": [
+      {
+        "geometryId": "e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+        "matrix": [
+          -1,
+          0,
+          1.2246467991473532e-16,
+          0,
+          0,
+          1,
+          0,
+          0,
+          -1.2246467991473532e-16,
+          0,
+          -1,
+          0,
+          56,
+          17.34,
+          60,
+          1
+        ],
+        "partId": "main-parapet-6/base",
+        "sha256": "c2c3d561053b1185d75dcb4a9038f594e04ae12dbf9aaea53daa632a15e47346",
+        "sourcePartId": "main-parapet-6/base",
+        "sourceRange": null
+      }
+    ],
+    "carrier/main-parapet-7/base": [
+      {
+        "geometryId": "fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/fa8ff58fe2bc7bbaf19684ddc81a4b47c789067b6a01fc481b68e6d07fb7ad1e.json",
+        "matrix": [
+          2.220446049250313e-16,
+          0,
+          -1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          2.220446049250313e-16,
+          0,
+          48,
+          17.34000015258789,
+          59,
+          1
+        ],
+        "partId": "main-parapet-7/base",
+        "sha256": "18f7b5d74cfebfbae253fa68124808b434dce3cfc4bec4ff3fe2dfa6dc0ea0c6",
+        "sourcePartId": "main-parapet-7/base",
+        "sourceRange": null
+      }
+    ],
+    "carrier/roof/rear-tail": [
+      {
+        "geometryId": "ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.96,
+          59,
+          1
+        ],
+        "partId": "roof/rear-tail",
+        "sha256": "9f3ed10d083a5a52c316b83f1579e4fa6148e3b4974b5d7969257d3beddf6669",
+        "sourcePartId": "roof/rear-tail",
+        "sourceRange": null
+      }
+    ]
+  },
+  "nativeContactToleranceMetres": 1e-05,
+  "placeId": "new-york",
+  "profiles": {
+    "0672b0c06b0f1c54b6160563e990b1ddfb2715b642817a965335c21895fc4081": {
+      "binaryBuffers": {
+        "physical/index": {
+          "count": 48,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/e70c6572e7c67886849481707888a21dff515f14e99f23fb387bc45ba0e95c1f.u16le.bin",
+          "sha256": "e70c6572e7c67886849481707888a21dff515f14e99f23fb387bc45ba0e95c1f"
+        },
+        "physical/position": {
+          "count": 10,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/f4046003d034877f01d5f31e890e3ebfc4904c29e20a75f4488b8d1f531cb1fe.f32le.bin",
+          "sha256": "f4046003d034877f01d5f31e890e3ebfc4904c29e20a75f4488b8d1f531cb1fe"
+        },
+        "render/grossUV": {
+          "count": 48,
+          "itemSize": 2,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/069ec6820a92b62a023847425d7c599a4089410a23131b18f7154fbc88931d77.f32le.bin",
+          "sha256": "069ec6820a92b62a023847425d7c599a4089410a23131b18f7154fbc88931d77"
+        },
+        "render/index": {
+          "count": 48,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/03ce6321ae65c3c6b1204faade3a17c83ee854d08f9965f970f792727491c5cd.u16le.bin",
+          "sha256": "03ce6321ae65c3c6b1204faade3a17c83ee854d08f9965f970f792727491c5cd"
+        },
+        "render/normal": {
+          "count": 48,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/8150f5c04e264f0ab69bc14d872a4223887dddd7ea50bb96c9d3b6462408699e.f32le.bin",
+          "sha256": "8150f5c04e264f0ab69bc14d872a4223887dddd7ea50bb96c9d3b6462408699e"
+        },
+        "render/position": {
+          "count": 48,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/deff830e11670a9235ad8462dea8f1254f3bf124fe25111cb3ab239a3171eb43.f32le.bin",
+          "sha256": "deff830e11670a9235ad8462dea8f1254f3bf124fe25111cb3ab239a3171eb43"
+        },
+        "render/uv": {
+          "count": 48,
+          "itemSize": 2,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/069ec6820a92b62a023847425d7c599a4089410a23131b18f7154fbc88931d77.f32le.bin",
+          "sha256": "069ec6820a92b62a023847425d7c599a4089410a23131b18f7154fbc88931d77"
+        }
+      },
+      "physicalGeometry": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/geometry/5e597caa0ca99989d5f22530669ff130a106adc927d027c1bf341eebb4fbfacb.json",
+        "sha256": "5e597caa0ca99989d5f22530669ff130a106adc927d027c1bf341eebb4fbfacb",
+        "triangleCount": 16,
+        "vertexCount": 10
+      },
+      "physicalRenderMapping": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/geometry/72bc95fe33f77c80d863edba9ab4f1695dd2755026c368ebe5b823af0cacca8c.json",
+        "sha256": "72bc95fe33f77c80d863edba9ab4f1695dd2755026c368ebe5b823af0cacca8c"
+      },
+      "renderGeometry": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/geometry/b4842fec6c1d08e187fed75f50967dea36aff6ac9ab543c2a5de77395aa6688e.json",
+        "sha256": "b4842fec6c1d08e187fed75f50967dea36aff6ac9ab543c2a5de77395aa6688e",
+        "triangleCount": 16,
+        "vertexCount": 48
+      },
+      "reusedAcceptedPilotBuffers": false
+    },
+    "744103689138232fa9186305807ea5e11fc55ea838b72fa4a6cc180871ff337a": {
+      "binaryBuffers": {
+        "physical/index": {
+          "count": 48,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/4cd7a93e5843ebfdc2b9661010dee0eb10d02ddbd14a4e20195dd249793802d6.u16le.bin",
+          "sha256": "4cd7a93e5843ebfdc2b9661010dee0eb10d02ddbd14a4e20195dd249793802d6"
+        },
+        "physical/position": {
+          "count": 10,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/02fadba7b91185e5b2de8bc4836e7d3323737f41ffcaad64f46f7cec38eb569c.f32le.bin",
+          "sha256": "02fadba7b91185e5b2de8bc4836e7d3323737f41ffcaad64f46f7cec38eb569c"
+        },
+        "render/grossUV": {
+          "count": 48,
+          "itemSize": 2,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/87af491e1a559a3fd2a6bf54c42c603a1594e3d461bc767d063aa5c72823ada0.f32le.bin",
+          "sha256": "87af491e1a559a3fd2a6bf54c42c603a1594e3d461bc767d063aa5c72823ada0"
+        },
+        "render/index": {
+          "count": 48,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/03ce6321ae65c3c6b1204faade3a17c83ee854d08f9965f970f792727491c5cd.u16le.bin",
+          "sha256": "03ce6321ae65c3c6b1204faade3a17c83ee854d08f9965f970f792727491c5cd"
+        },
+        "render/normal": {
+          "count": 48,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/6b473820e6139046a83520d3c5a2bb6c0db5ab6f44ba8861acd57fd5f808a409.f32le.bin",
+          "sha256": "6b473820e6139046a83520d3c5a2bb6c0db5ab6f44ba8861acd57fd5f808a409"
+        },
+        "render/position": {
+          "count": 48,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/60d2b907d6ad0288dd4478c5e8f1796c9e2c18a9910e3fd0202a3ab6693bc32f.f32le.bin",
+          "sha256": "60d2b907d6ad0288dd4478c5e8f1796c9e2c18a9910e3fd0202a3ab6693bc32f"
+        },
+        "render/uv": {
+          "count": 48,
+          "itemSize": 2,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/buffers/87af491e1a559a3fd2a6bf54c42c603a1594e3d461bc767d063aa5c72823ada0.f32le.bin",
+          "sha256": "87af491e1a559a3fd2a6bf54c42c603a1594e3d461bc767d063aa5c72823ada0"
+        }
+      },
+      "physicalGeometry": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/geometry/f3cb3f9200e0c51342e099ca5e297568a177c6001cf5a3f409dd2694226faba1.json",
+        "sha256": "f3cb3f9200e0c51342e099ca5e297568a177c6001cf5a3f409dd2694226faba1",
+        "triangleCount": 16,
+        "vertexCount": 10
+      },
+      "physicalRenderMapping": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/geometry/a8e1bacf8e1896e586d00b6c1d83ddf677d0ff6fd6dedb021491683cb4429fa3.json",
+        "sha256": "a8e1bacf8e1896e586d00b6c1d83ddf677d0ff6fd6dedb021491683cb4429fa3"
+      },
+      "renderGeometry": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-batch-v1/geometry/37873d1c041f38d4e3ecd458c206a12656ce7016cc4d4bd91d8266cc26ff5710.json",
+        "sha256": "37873d1c041f38d4e3ecd458c206a12656ce7016cc4d4bd91d8266cc26ff5710",
+        "triangleCount": 16,
+        "vertexCount": 48
+      },
+      "reusedAcceptedPilotBuffers": false
+    },
+    "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa": {
+      "binaryBuffers": {
+        "physical/index": {
+          "count": 48,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/physical-index.u16le.bin",
+          "sha256": "e70c6572e7c67886849481707888a21dff515f14e99f23fb387bc45ba0e95c1f"
+        },
+        "physical/position": {
+          "count": 10,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/physical-position.f32le.bin",
+          "sha256": "883d1941ae87f5add7ecae5bbdbd42dec03861bc0a9c54e5f71f3686d011a6ce"
+        },
+        "render/grossUV": {
+          "count": 48,
+          "itemSize": 2,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-uv.f32le.bin",
+          "sha256": "580982c3396abd98f4342403f258b57c23e0515269612b3c456f21318df3a2ca"
+        },
+        "render/index": {
+          "count": 48,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-index.u16le.bin",
+          "sha256": "03ce6321ae65c3c6b1204faade3a17c83ee854d08f9965f970f792727491c5cd"
+        },
+        "render/normal": {
+          "count": 48,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-normal.f32le.bin",
+          "sha256": "119b56f6b61f287e0977196160b17193bfd1198951b2e4bc7455dafb9c054969"
+        },
+        "render/position": {
+          "count": 48,
+          "itemSize": 3,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-position.f32le.bin",
+          "sha256": "894f1233e2c418d08d4a3982c060df4cf2f0410434b8775b5484f6fdf11fb245"
+        },
+        "render/uv": {
+          "count": 48,
+          "itemSize": 2,
+          "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-uv.f32le.bin",
+          "sha256": "580982c3396abd98f4342403f258b57c23e0515269612b3c456f21318df3a2ca"
+        }
+      },
+      "physicalGeometry": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/physical.json",
+        "sha256": "85b98cb5b08f53573e7f3e96655908fb38d6eca431d052fa31869c7e2910a908",
+        "triangleCount": 16,
+        "vertexCount": 10
+      },
+      "physicalRenderMapping": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/vertex-mapping.json",
+        "sha256": "72bc95fe33f77c80d863edba9ab4f1695dd2755026c368ebe5b823af0cacca8c"
+      },
+      "renderGeometry": {
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/render.json",
+        "sha256": "f8ab8db6a18654e691580f2de3beb283a8675750e247aece503fd9080b697243",
+        "triangleCount": 16,
+        "vertexCount": 48
+      },
+      "reusedAcceptedPilotBuffers": true
+    }
+  },
+  "quantityCertificates": {
+    "path": "art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/quantity-certificates.json",
+    "sha256": "6ab879879c952c02faea36a5a091c094182a9e9ca47f59a24d1f0dd23786b4bb"
+  },
+  "runtimeInstalled": false,
+  "runtimeStockAssigned": 0,
+  "sourceTable": {
+    "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/separate-parapet-gap-design.json",
+    "sha256": "481294255d3afd8dd0ea208d2dc0cc1c7adf1f2e6108e5929a0e887bbb1abfa4"
+  },
+  "status": "NINETEEN_NATIVE_SOURCE_ASSETS_RUNTIME_GATE_OPEN",
+  "version": 1,
+  "worldLedgerComputed": false
+}

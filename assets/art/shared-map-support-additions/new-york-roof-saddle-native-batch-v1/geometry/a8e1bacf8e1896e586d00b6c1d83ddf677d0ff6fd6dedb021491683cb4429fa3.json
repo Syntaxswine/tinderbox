@@ -1,0 +1,273 @@
+{
+  "physicalToRenderVertices": [
+    [
+      8,
+      18,
+      21,
+      43
+    ],
+    [
+      5,
+      7,
+      19,
+      24,
+      27
+    ],
+    [
+      2,
+      4,
+      25,
+      30,
+      33
+    ],
+    [
+      1,
+      31,
+      36,
+      39
+    ],
+    [
+      0,
+      3,
+      6,
+      37,
+      42,
+      45
+    ],
+    [
+      9,
+      12,
+      15,
+      23,
+      44,
+      46
+    ],
+    [
+      10,
+      20,
+      22,
+      29
+    ],
+    [
+      11,
+      13,
+      26,
+      28,
+      35
+    ],
+    [
+      14,
+      16,
+      32,
+      34,
+      41
+    ],
+    [
+      17,
+      38,
+      40,
+      47
+    ]
+  ],
+  "physicalTriangleCount": 16,
+  "physicalVertexCount": 10,
+  "renderToPhysicalVertex": [
+    4,
+    3,
+    2,
+    4,
+    2,
+    1,
+    4,
+    1,
+    0,
+    5,
+    6,
+    7,
+    5,
+    7,
+    8,
+    5,
+    8,
+    9,
+    0,
+    1,
+    6,
+    0,
+    6,
+    5,
+    1,
+    2,
+    7,
+    1,
+    7,
+    6,
+    2,
+    3,
+    8,
+    2,
+    8,
+    7,
+    3,
+    4,
+    9,
+    3,
+    9,
+    8,
+    4,
+    0,
+    5,
+    4,
+    5,
+    9
+  ],
+  "renderTriangleCount": 16,
+  "renderTriangleToPhysicalTriangle": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "renderVertexCount": 48,
+  "rule": "Render seams duplicate attributes only. Every rendered Float32 position has the same bits as its mapped physical vertex; one physical body/owner/account.",
+  "sourceFaceTriangles": [
+    {
+      "physicalTriangleIds": [
+        0,
+        1,
+        2
+      ],
+      "physicalVertices": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "renderTriangleIds": [
+        0,
+        1,
+        2
+      ],
+      "sourceFaceId": 0
+    },
+    {
+      "physicalTriangleIds": [
+        3,
+        4,
+        5
+      ],
+      "physicalVertices": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "renderTriangleIds": [
+        3,
+        4,
+        5
+      ],
+      "sourceFaceId": 1
+    },
+    {
+      "physicalTriangleIds": [
+        6,
+        7
+      ],
+      "physicalVertices": [
+        0,
+        1,
+        6,
+        5
+      ],
+      "renderTriangleIds": [
+        6,
+        7
+      ],
+      "sourceFaceId": 2
+    },
+    {
+      "physicalTriangleIds": [
+        8,
+        9
+      ],
+      "physicalVertices": [
+        1,
+        2,
+        7,
+        6
+      ],
+      "renderTriangleIds": [
+        8,
+        9
+      ],
+      "sourceFaceId": 3
+    },
+    {
+      "physicalTriangleIds": [
+        10,
+        11
+      ],
+      "physicalVertices": [
+        2,
+        3,
+        8,
+        7
+      ],
+      "renderTriangleIds": [
+        10,
+        11
+      ],
+      "sourceFaceId": 4
+    },
+    {
+      "physicalTriangleIds": [
+        12,
+        13
+      ],
+      "physicalVertices": [
+        3,
+        4,
+        9,
+        8
+      ],
+      "renderTriangleIds": [
+        12,
+        13
+      ],
+      "sourceFaceId": 5
+    },
+    {
+      "physicalTriangleIds": [
+        14,
+        15
+      ],
+      "physicalVertices": [
+        4,
+        0,
+        5,
+        9
+      ],
+      "renderTriangleIds": [
+        14,
+        15
+      ],
+      "sourceFaceId": 6
+    }
+  ],
+  "version": 1
+}
