@@ -1,0 +1,15 @@
+{
+  "kind": "Exact source correction after first pure codec syntax failure",
+  "failedSource": "attempt-01-syntax.test.mjs.txt",
+  "failedTap": "../attempt-01-syntax.tap",
+  "failedLfSha256": "bf9f3c34726583a6470906629f218c9363132b8e2c95af296b1cd7120845353e",
+  "corrected25TestLfSha256": "8f9a7b80a846f8b0c39bb75683429707f9e6921c10b99cdc43571070de254d0f",
+  "operation": {
+    "offsetUnit": "UTF-8 bytes",
+    "offset": 15527,
+    "remove": "  const checked=vm.runInNewContext(script+String.raw",
+    "insert": "  const checked=vm.runInNewContext(script+\"\\nlet materialized=0;\\nconst define=Object.defineProperty;\\nObject.defineProperty=(...args)=>{materialized++;return define(...args);};\\nlet code;try{decodeSupportBlocks(badBytes);}catch(error){code=error.code;}\\nJSON.stringify({code,materialized});\\n\",\n    {TextEncoder,TextDecoder,Uint8Array,DataView,badBytes:bad});\n  assert.deepEqual(JSON.parse(checked),{code:'DUPLICATE',materialized:0});\n});\n"
+  },
+  "correction": "Replace the incomplete String.raw sandbox fragment with a quoted escaped script. This remains a VM context; no browser or renderer is started.",
+  "followup": "Current source separately adds the lowered-edge-array regression after the preserved 25-test pass."
+}

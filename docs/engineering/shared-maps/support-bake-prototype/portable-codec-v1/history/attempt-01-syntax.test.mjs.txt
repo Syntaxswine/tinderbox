@@ -1,0 +1,226 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {createHash} from 'node:crypto';
+import {encodeSupportBlocks,decodeSupportBlocks,packResult,unpackResult,DEFAULT_LIMITS,SupportCodecError} from './codec.mjs';
+
+const raw=fs.readFileSync(new URL('../blocks.json',import.meta.url));
+const digest=b=>createHash('sha256').update(b).digest('hex');
+assert.equal(digest(raw),'ef1990de493c8f901c1cf631b71aaf750bf7e30bb7b9b8976e3f5f12401244fa');
+const saved=JSON.parse(raw),copy=x=>structuredClone(x);
+const wire=encodeSupportBlocks(saved);
+const single=()=>({...copy(saved),entries:[copy(saved.entries[0])]});
+function falseArchive(){
+  const archive=single(),block=archive.entries[0];
+  block.descriptor.key='synthetic:false';
+  block.signature=digest(JSON.stringify(block.descriptor));
+  block.edges=[];block.result=packResult(false);
+  block.blockSha256=digest(JSON.stringify({signature:block.signature,edges:block.edges,result:block.result}));
+  return archive;
+}
+const rejects=(fn,code)=>assert.throws(fn,error=>error instanceof SupportCodecError&&(!code||error.code===code));
+function seal(input){
+  const b=new Uint8Array(input),v=new DataView(b.buffer);v.setUint32(8,b.length,true);
+  let c=0xffffffff;for(let i=0;i<b.length-4;i++){c^=b[i];for(let n=0;n<8;n++)c=(c>>>1)^((c&1)?0xedb88320:0);}
+  v.setUint32(b.length-4,(c^0xffffffff)>>>0,true);return b;
+}
+function change(input,fn){const b=new Uint8Array(input);fn(b,new DataView(b.buffer));return seal(b);}
+function uvar(n){const a=[];do{const low=n%128;n=Math.floor(n/128);a.push(low|(n?128:0));}while(n);return a;}
+function replace(input,start,end,data){const out=new Uint8Array(input.length-(end-start)+data.length);out.set(input.subarray(0,start));out.set(data,start);out.set(input.subarray(end),start+data.length);return seal(out);}
+// Trusted-wire location helper for surgical CRC-valid corruptions, not a decoder.
+function locate(b){
+  const view=new DataView(b.buffer,b.byteOffset,b.byteLength),dictionary=[],edges=[],objects=[],values=[];
+  let at=24;
+  function uv(){const start=at;let n=0,p=1;while(true){const x=b[at++];n+=(x&127)*p;if(!(x&128))return {start,end:at,value:n};p*=128;}}
+  for(let i=0;i<view.getUint32(12,true);i++){
+    const len=uv(),start=at;at+=len.value;dictionary.push({...len,dataStart:start,dataEnd:at,text:new TextDecoder().decode(b.subarray(start,at))});
+  }
+  const bodyStart=at;
+  function walk(path){
+    const start=at,tag=b[at++];values.push({path,tag,start});
+    if(tag===3){at+=8;return;}if(tag===4){uv();return;}if(tag<3)return;
+    if(tag===5){const count=uv();for(let i=0;i<count.value;i++)walk(path+'/'+i);return;}
+    if(tag===6){
+      const count=uv(),keys=[];objects.push({path,keys});
+      for(let i=0;i<count.value;i++){const key=uv();keys.push({...key,text:dictionary[key.value].text});walk(path+'/'+dictionary[key.value].text);}return;
+    }
+    if(tag===7){const count=uv(),pairs=[];for(let i=0;i<count.value;i++)pairs.push([uv(),uv()]);edges.push({path,count,pairs});return;}
+    throw Error('Unexpected trusted test wire tag');
+  }
+  walk('');assert.equal(at,b.length-4);return {dictionary,edges,objects,values,bodyStart};
+}
+test('all four archived blocks retain every identity field, result and exact JSON/edge order',()=>{
+  const restored=decodeSupportBlocks(wire);
+  assert.deepEqual(restored,saved);assert.equal(JSON.stringify(restored),JSON.stringify(saved));
+  assert.deepEqual(encodeSupportBlocks(restored),wire);
+  assert.ok(wire.length<raw.length,'Dictionary coding must actually reduce this saved payload');
+  assert.equal(digest(raw),'ef1990de493c8f901c1cf631b71aaf750bf7e30bb7b9b8976e3f5f12401244fa');
+});
+for(let i=0;i<4;i++)test('archived block '+i+' round-trips in isolation',()=>{
+  const archive={...copy(saved),entries:[copy(saved.entries[i])]};
+  const back=decodeSupportBlocks(encodeSupportBlocks(archive));assert.equal(JSON.stringify(back),JSON.stringify(archive));
+});
+test('synthetic false, true and undefined preserve native result meaning',()=>{
+  for(const value of [undefined,false,true]){
+    const archive=falseArchive();archive.entries[0].result=packResult(value);
+    const back=decodeSupportBlocks(encodeSupportBlocks(archive));
+    assert.deepEqual(back.entries[0].result,packResult(value));assert.equal(unpackResult(back.entries[0].result),value);
+  }
+  for(const bad of [null,0,'false',{},new Boolean(false)])rejects(()=>packResult(bad),'SCHEMA');
+  for(const bad of [{},{type:'boolean',value:'false'},{type:'undefined',value:false},{type:'false'}])rejects(()=>unpackResult(bad),'SCHEMA');
+});
+test('entry order and asymmetric edge orientation are preserved without sorting',()=>{
+  const archive=single();archive.entries[0].edges=[['z','a'],['a','z'],['b','a']];
+  assert.deepEqual(decodeSupportBlocks(encodeSupportBlocks(archive)).entries[0].edges,archive.entries[0].edges);
+  const reversed=copy(saved);reversed.entries.reverse();
+  assert.deepEqual(decodeSupportBlocks(encodeSupportBlocks(reversed)).entries.map(e=>e.signature),reversed.entries.map(e=>e.signature));
+});
+test('well-formed Unicode, BOM strings, negative zero and opaque identity metadata survive',()=>{
+  const archive=falseArchive();
+  archive.scope.extra={unicode:'北 🌲',bom:'\ufefforiginal-id',zero:-0,empty:'',truth:false};
+  archive.entries[0].descriptor.extra={source:'new-source',pose:[null,1.06]};
+  const back=decodeSupportBlocks(encodeSupportBlocks(archive));
+  assert.deepEqual(back,archive);assert.ok(Object.is(back.scope.extra.zero,-0));
+});
+test('decoder owns input bytes; returned metadata and edges have independent mutable containers',()=>{
+  const binary=new Uint8Array(wire),back=decodeSupportBlocks(binary);binary.fill(0);
+  assert.equal(JSON.stringify(back),JSON.stringify(saved));back.entries[0].edges[0][0]='changed';
+  assert.notEqual(saved.entries[0].edges[0][0],'changed');assert.deepEqual(decodeSupportBlocks(wire),saved);
+  const padded=new Uint8Array(wire.length+8);padded.set(wire,4);
+  assert.deepEqual(decodeSupportBlocks(padded.subarray(4,4+wire.length)),saved);
+});
+test('all eleven public limits tighten safely on both encode and decode',()=>{
+  const locations=locate(wire),dictBytes=locations.dictionary.reduce((n,d)=>n+d.value,0);
+  const limits={
+    maxBytes:wire.length-1,maxEntries:3,maxEdgesPerEntry:11,maxEdges:27,
+    maxIds:locations.dictionary.length-1,maxIdBytes:Math.max(...locations.dictionary.map(d=>d.value))-1,
+    maxDictionaryBytes:dictBytes-1,maxNodes:1,maxDepth:1,maxKeys:1,maxArrayLength:1
+  };
+  for(const [name,value]of Object.entries(limits)){
+    rejects(()=>encodeSupportBlocks(saved,{limits:{[name]:value}}),'LIMIT');
+    rejects(()=>decodeSupportBlocks(wire,{limits:{[name]:value}}),'LIMIT');
+  }
+  for(const value of [-1,1.5,NaN,DEFAULT_LIMITS.maxBytes+1]){
+    rejects(()=>decodeSupportBlocks(wire,{limits:{maxBytes:value}}),'LIMIT');
+  }
+  rejects(()=>decodeSupportBlocks(wire,{limits:{unknown:1}}),'LIMIT');
+  rejects(()=>decodeSupportBlocks(wire,{unknown:1}),'SCHEMA');
+});
+test('header size/count ceilings reject before dictionary or object materialization',()=>{
+  for(const [offset,maximum]of [[12,DEFAULT_LIMITS.maxIds],[16,DEFAULT_LIMITS.maxEntries],[20,DEFAULT_LIMITS.maxEdges]]){
+    rejects(()=>decodeSupportBlocks(change(wire,(_b,v)=>v.setUint32(offset,maximum+1,true))),'LIMIT');
+  }
+  rejects(()=>decodeSupportBlocks(new Uint8Array(DEFAULT_LIMITS.maxBytes+1)),'LIMIT');
+  rejects(()=>decodeSupportBlocks(new ArrayBuffer(32)),'SCHEMA');
+  rejects(()=>decodeSupportBlocks(null),'SCHEMA');
+});
+test('unknown magic, versions, flags and reserved fields reject',()=>{
+  for(const offset of [0,4,5,6])rejects(()=>decodeSupportBlocks(change(wire,b=>{b[offset]^=8;})),'FORMAT');
+});
+test('CRC rejects every one-byte payload change in dictionary, metadata and edges',()=>{
+  const spots=locate(wire),edge=spots.edges[0].pairs[0][0].start;
+  for(const offset of [spots.dictionary[0].dataStart,spots.bodyStart,edge,wire.length-1]){
+    const b=new Uint8Array(wire);b[offset]^=1;rejects(()=>decodeSupportBlocks(b),'CORRUPT');
+  }
+});
+test('every truncation prefix and appended bytes reject',()=>{
+  for(let n=0;n<wire.length;n++)rejects(()=>decodeSupportBlocks(wire.subarray(0,n)));
+  const extra=new Uint8Array(wire.length+1);extra.set(wire);rejects(()=>decodeSupportBlocks(extra));
+  rejects(()=>decodeSupportBlocks(replace(wire,wire.length-5,wire.length-4,[])),'TRUNCATED');
+});
+test('canonical u32 varints reject overlong and overflow encodings with a valid CRC',()=>{
+  const first=locate(wire).dictionary[0];assert.ok(first.value<128);
+  rejects(()=>decodeSupportBlocks(replace(wire,first.start,first.end,[first.value|128,0])),'FORMAT');
+  rejects(()=>decodeSupportBlocks(replace(wire,first.start,first.end,[255,255,255,255,255,1])),'RANGE');
+});
+test('dictionary length caps, invalid UTF-8 and duplicate strings reject',()=>{
+  const spots=locate(wire),first=spots.dictionary[0],second=spots.dictionary[1];
+  rejects(()=>decodeSupportBlocks(replace(wire,first.start,first.end,uvar(DEFAULT_LIMITS.maxIdBytes+1))),'LIMIT');
+  rejects(()=>decodeSupportBlocks(change(wire,b=>{b[first.dataStart]=255;})),'UTF8');
+  const repeated=[...uvar(first.value),...wire.subarray(first.dataStart,first.dataEnd)];
+  rejects(()=>decodeSupportBlocks(replace(wire,second.start,second.dataEnd,repeated)),'DUPLICATE');
+});
+test('dictionary reference, directed duplicate and self-edge range checks precede expansion',()=>{
+  const locations=locate(wire),first=locations.edges[0].pairs[0],second=locations.edges[0].pairs[1];
+  rejects(()=>decodeSupportBlocks(replace(wire,first[0].start,first[0].end,uvar(locations.dictionary.length))),'RANGE');
+  rejects(()=>decodeSupportBlocks(replace(wire,first[1].start,first[1].end,uvar(first[0].value))),'RANGE');
+  rejects(()=>decodeSupportBlocks(replace(wire,second[0].start,second[1].end,[...uvar(first[0].value),...uvar(first[1].value)])),'DUPLICATE');
+  const archive=single();archive.entries[0].edges.push([...archive.entries[0].edges[0]]);
+  rejects(()=>encodeSupportBlocks(archive),'DUPLICATE');
+  archive.entries[0].edges=[['same','same']];rejects(()=>encodeSupportBlocks(archive),'RANGE');
+});
+test('CRC-valid duplicate object keys and entry signatures reject',()=>{
+  const root=locate(wire).objects.find(o=>o.path===''),[first,second]=root.keys;
+  rejects(()=>decodeSupportBlocks(replace(wire,second.start,second.end,uvar(first.value))),'DUPLICATE');
+  const repeated=single();repeated.entries.push(copy(repeated.entries[0]));rejects(()=>encodeSupportBlocks(repeated),'DUPLICATE');
+  const locations=locate(wire),signatures=locations.values.filter(v=>/^\/entries\/\d+\/signature$/.test(v.path));
+  // Replace only the second signature's string ID (the STRING tag stays intact).
+  const firstIdAt=signatures[0].start+1,secondIdAt=signatures[1].start+1;
+  const lengthAt=pos=>{let n=1;while(wire[pos+n-1]&128)n++;return n;};
+  const firstId=wire.subarray(firstIdAt,firstIdAt+lengthAt(firstIdAt));
+  rejects(()=>decodeSupportBlocks(replace(wire,secondIdAt,secondIdAt+lengthAt(secondIdAt),firstId)),'DUPLICATE');
+});
+test('header/body entry or edge count mismatch and trailing token bytes reject',()=>{
+  rejects(()=>decodeSupportBlocks(change(wire,(_b,v)=>v.setUint32(16,3,true))),'FORMAT');
+  rejects(()=>decodeSupportBlocks(change(wire,(_b,v)=>v.setUint32(20,27,true))),'FORMAT');
+  rejects(()=>decodeSupportBlocks(replace(wire,wire.length-4,wire.length-4,[0])),'FORMAT');
+});
+test('unknown token tags and misplaced edge lists reject',()=>{
+  const spots=locate(wire),array=spots.values.find(v=>v.path==='/entries');
+  rejects(()=>decodeSupportBlocks(change(wire,b=>{b[spots.bodyStart]=255;})),'SCHEMA');
+  const owners=spots.values.find(v=>v.path==='/entries/0/descriptor/owners');
+  rejects(()=>decodeSupportBlocks(change(wire,b=>{b[owners.start]=7;})),'FORMAT');
+  rejects(()=>decodeSupportBlocks(change(wire,b=>{b[array.start]=0;})),'SCHEMA');
+});
+test('nonfinite and unsafe integer wire values reject',()=>{
+  const numeric=locate(wire).values.find(v=>v.tag===3);
+  for(const n of [NaN,Infinity,Number.MAX_SAFE_INTEGER+1]){
+    rejects(()=>decodeSupportBlocks(change(wire,(_b,v)=>v.setFloat64(numeric.start+1,n,true))),'RANGE');
+    const archive=single();archive.scope.bad=n;rejects(()=>encodeSupportBlocks(archive),'RANGE');
+  }
+});
+test('malformed result and identity schemas are rejected as codec errors',()=>{
+  const invalids=[
+    a=>{a.sourceCommit=null;},a=>{a.entries[0].signature={};},
+    a=>{a.entries[0].blockSha256=null;},a=>{a.entries[0].descriptor=[];},
+    a=>{a.entries[0].result={type:'boolean',value:'false'};},
+    a=>{delete a.entries[0].result;},a=>{a.entries[0].edges=[['one']];}
+  ];
+  for(const edit of invalids){const archive=single();edit(archive);rejects(()=>encodeSupportBlocks(archive),'SCHEMA');}
+  const falseWire=encodeSupportBlocks(falseArchive()),value=locate(falseWire).values.find(v=>v.path==='/entries/0/result/value');
+  rejects(()=>decodeSupportBlocks(change(falseWire,b=>{b[value.start]=0;})),'SCHEMA');
+});
+test('arrays, cycles, accessors, symbols and ill-formed strings cannot bypass bounds',()=>{
+  const archive=single();archive.scope.cycle=archive;rejects(()=>encodeSupportBlocks(archive),'SCHEMA');
+  for(const bad of [()=>{},undefined,Symbol('bad'),new Date()]){
+    const a=single();a.scope.extra=bad;rejects(()=>encodeSupportBlocks(a),'SCHEMA');
+  }
+  for(const bad of ['\ud800','\udfff']){
+    const a=single();a.scope.extra=bad;rejects(()=>encodeSupportBlocks(a),'UTF8');
+  }
+  const sparse=single();sparse.scope.extra=new Array(2);rejects(()=>encodeSupportBlocks(sparse),'SCHEMA');
+  const getter=single();Object.defineProperty(getter.scope,'bad',{enumerable:true,get(){throw Error('Getter must never execute');}});
+  rejects(()=>encodeSupportBlocks(getter),'SCHEMA');
+  const hidden=single();Object.defineProperty(hidden.scope,'hidden',{value:1});rejects(()=>encodeSupportBlocks(hidden),'SCHEMA');
+});
+test('prototype-like keys remain data and integer object key order is canonical',()=>{
+  const archive=falseArchive();archive.scope.extra=JSON.parse('{"__proto__":{"safe":true},"constructor":"data","0":"zero","1":"one"}');
+  const encoded=encodeSupportBlocks(archive),back=decodeSupportBlocks(encoded);
+  assert.equal(Object.getPrototypeOf(back.scope.extra),Object.prototype);assert.equal({}.safe,undefined);
+  assert.equal(back.scope.extra.__proto__.safe,true);assert.equal(JSON.stringify(back),JSON.stringify(archive));
+  const object=locate(encoded).objects.find(o=>o.path==='/scope/extra'),[a,b]=object.keys;
+  assert.equal(a.text,'0');assert.equal(b.text,'1');
+  const swapped=change(encoded,out=>{out[a.start]=b.value;out[b.start]=a.value;});
+  rejects(()=>decodeSupportBlocks(swapped),'FORMAT');
+});
+test('standard browser globals suffice and malformed late data creates no decoded object',()=>{
+  const source=fs.readFileSync(new URL('./codec.mjs',import.meta.url),'utf8');
+  assert.doesNotMatch(source,/^\s*import\s|\b(?:Buffer|process|require)\b/m);
+  const script=source.replace(/^export /gm,'');
+  const globals={TextEncoder,TextDecoder,Uint8Array,DataView,archiveJSON:JSON.stringify(saved)};
+  const same=vm.runInNewContext(script+'\nJSON.stringify(decodeSupportBlocks(encodeSupportBlocks(JSON.parse(archiveJSON))))',globals);
+  assert.equal(same,JSON.stringify(saved));
+  const positions=locate(wire),pair=positions.edges.at(-1).pairs;
+  const bad=replace(wire,pair[1][0].start,pair[1][1].end,[...uvar(pair[0][0].value),...uvar(pair[0][1].value)]);
+  const checked=vm.runInNewContext(script+String.raw

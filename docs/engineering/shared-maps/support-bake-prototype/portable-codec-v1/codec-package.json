@@ -1,0 +1,77 @@
+{
+  "purpose": "Portable codec packaging of four saved blocks only; no simulation or benchmark",
+  "originalProofCommit": "e3c352265862ad39046128a9b27b2a5c10f1e6fa",
+  "frozenSourceCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+  "input": {
+    "path": "../blocks.json",
+    "bytes": 10839,
+    "sha256": "ef1990de493c8f901c1cf631b71aaf750bf7e30bb7b9b8976e3f5f12401244fa"
+  },
+  "output": {
+    "path": "four-saved-blocks.tbsb",
+    "bytes": 3253,
+    "sha256": "3b49454119a2707e21478cda81aa322915b61a84c0cc7a40fd984b675704bc51",
+    "wireFormat": {
+      "magic": "TBSB",
+      "version": 1,
+      "headerBytes": 24,
+      "trailerBytes": 4
+    }
+  },
+  "codecLfSha256": "80875abe44dcc4b2ee4429e32cf03bd410e68f7fa344a0126339bfde08257971",
+  "testsLfSha256": "35389d18a7a036ad6d66c4f1060de48b89a93296720eae00a61d2e228da6d7b9",
+  "dictionaryIdsAndStrings": 74,
+  "entries": 4,
+  "orderedDirectedEdges": 28,
+  "identityJSONExact": true,
+  "originalSignatureFields": [
+    {
+      "signature": "c00f638b181b8ffb61a351f2b428e2ffdd34a1db1dee908324f25249b7bfc750",
+      "blockSha256": "0f93a93c3826a16b5f89d06b8dea130d2b5dbcb0374840c6b226a99cd28498fb"
+    },
+    {
+      "signature": "c11529384aa35d64328f79304b3a54867d2d27c021b5efd6b4f7ebe97fc11a01",
+      "blockSha256": "4db7bdb56e653fcf49eb37ee33845f357d90dbcc2e6da483c940c8051c35f233"
+    },
+    {
+      "signature": "3adc1ac1c08d7a284aaa109e50ddc2d7f5ca5d41fdace71c3e434ad262b1ea6b",
+      "blockSha256": "485731c08778aafea599bdf4b18c4eb32a6f7a065927e9b1f331cbc7bd12ce9f"
+    },
+    {
+      "signature": "3635429052d8496644e98ed6026b7eb5d43a8e87c099a0630d271763a912db7b",
+      "blockSha256": "d94939b080e5911856e64f31f4a6167a10b89f91b2be07caa0fb9d241d1a866c"
+    }
+  ],
+  "savedTypedResults": [
+    {
+      "type": "undefined"
+    },
+    {
+      "type": "boolean",
+      "value": true
+    },
+    {
+      "type": "boolean",
+      "value": true
+    },
+    {
+      "type": "boolean",
+      "value": true
+    }
+  ],
+  "hardLimits": {
+    "maxBytes": 262144,
+    "maxEntries": 64,
+    "maxEdgesPerEntry": 4096,
+    "maxEdges": 8192,
+    "maxIds": 4096,
+    "maxIdBytes": 1024,
+    "maxDictionaryBytes": 131072,
+    "maxNodes": 32768,
+    "maxDepth": 24,
+    "maxKeys": 128,
+    "maxArrayLength": 8192
+  },
+  "integrityScope": "CRC32 detects wire corruption only. Reviewed SHA-256/source/block identity and native applicability remain separate; no runtime admission.",
+  "helpersCreated": 0
+}
