@@ -92,3 +92,37 @@ test('snapshot capability records preserve a visit, reject contradictions and ne
   const capabilities=snapshotCapabilitiesOf(value,gameplay);
   assert.equal(capabilities.tools,false);assert.equal(capabilities.interact,false);assert.equal(capabilities.overview,false);
 });
+
+for(const field of ['tools','health','interact','overview']) {
+  test('snapshot cannot enable factory-disabled '+field,()=>{
+    const mount=Object.freeze({...gameplay,[field]:false}),value=snapshot();
+    const before=JSON.stringify({mount,value});freeze(value);
+    assert.throws(()=>snapshotCapabilitiesOf(value,mount),{name:'TypeError',message:new RegExp(field)});
+    assert.equal(JSON.stringify({mount,value}),before,'Capability rejection changed authoritative state');
+  });
+}
+
+test('snapshot restrictions can restore only permissions granted by the factory',()=>{
+  for(const field of ['tools','health','interact','overview']) {
+    const mount=gameplay,value=snapshot(),before=JSON.stringify(mount);
+    assert.equal(snapshotCapabilitiesOf(value,mount)[field],true);
+    value.capabilities=Object.freeze({...gameplay,[field]:false});
+    assert.equal(snapshotCapabilitiesOf(value,mount)[field],false);
+    value.capabilities=gameplay;
+    assert.equal(snapshotCapabilitiesOf(value,mount)[field],true);
+    assert.equal(JSON.stringify(mount),before);
+  }
+});
+
+test('legacy fallback capabilities remain the ceiling when snapshot capabilities are absent',()=>{
+  for(const mode of ['gameplay','explore']) {
+    const mount=capabilitiesOf(undefined,mode),value={version:1,mode,player:{}};
+    assert.deepEqual(snapshotCapabilitiesOf(value,mount),mount);
+    value.capabilities=Object.freeze({...mount,interact:false});
+    assert.equal(snapshotCapabilitiesOf(value,mount).interact,false);
+    delete value.capabilities;
+    assert.deepEqual(snapshotCapabilitiesOf(value,mount),mount);
+    value.capabilities=Object.freeze({...mount,[mode==='gameplay'?'overview':'tools']:true});
+    assert.throws(()=>snapshotCapabilitiesOf(value,mount),TypeError);
+  }
+});

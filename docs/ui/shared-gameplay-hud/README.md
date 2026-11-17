@@ -22,7 +22,7 @@ mountUI({
 // The same host publishes snapshot.capabilities alongside its real v1 snapshot.
 ```
 
-Explicit mount capabilities select the presentation mode. A snapshot can restrict an affordance; the UI never obtains permission from a destination ID, inventory count, location label or the presence of navigation metadata. Malformed explicit records, contradictory snapshot modes and a capability mode change within a visit throw at the boundary. Changing mode requires a fresh mount. No additional runtime field is requested beyond the coder's proposal.
+Explicit mount capabilities select the presentation mode and set the visit's permission ceiling. A snapshot can restrict an affordance, then restore it only when the factory granted it. Enabling factory-disabled `tools`, `health`, `interact` or `overview` throws `TypeError`; the UI never obtains permission from a destination ID, inventory count, location label or the presence of navigation metadata. Malformed explicit records, contradictory snapshot modes and a capability mode change within a visit throw at the boundary. Changing mode requires a fresh mount. No additional runtime field is requested beyond the coder's proposal.
 
 For unchanged callers that omit capabilities, the existing `mode` option retains its behavior: gameplay has tools/health/interactions and no Overview affordance; exploration has interactions/Overview and no tools/health. An absent snapshot capability record inherits the mount record. Explicit `null` does not count as absent.
 
@@ -50,7 +50,8 @@ The implementation is original Tinderbox presentation code built on the UI at th
 
 ## Checks and limits
 
-- All **40** Node UI checks pass: the existing model/map/preferences checks plus nine capability and five finite menu checks. They include all five tools for all three native characters, invalid/contradictory capability records, real stock/torch/aim constraints, copied interactions, pause readiness, unsupported camera actions, disposal and unchanged-label stability.
+- All **46** Node UI checks pass: the existing model/map/preferences checks plus fifteen capability and five finite menu checks. They include all five tools for all three native characters, invalid/contradictory capability records, real stock/torch/aim constraints, copied interactions, pause readiness, unsupported camera actions, disposal and unchanged-label stability.
+- The ceiling regression checks first reproduced five failures against `27f8430d`: all four forbidden flag escalations and the legacy ceiling case. The successor rejects those contradictions while preserving true → false → true restrictions/restoration, omitted snapshot capabilities and frozen source records.
 - Syntax checks pass for the four changed UI modules and two added test modules. The UI import closure passes syntax/reference checks for 10 local modules and 9 asset URLs; the handoff link resolves. `git diff --check` passes.
 - The existing UI provenance and place-preview byte checks pass within that suite.
 

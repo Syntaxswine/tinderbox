@@ -103,6 +103,8 @@ export function snapshotCapabilitiesOf(snapshot, visitCapabilities) {
   const capabilities=capabilitiesOf(snapshot?.capabilities===undefined?visitCapabilities:snapshot.capabilities,visitCapabilities.mode);
   if(capabilities.mode!==visitCapabilities.mode || snapshot?.mode!==undefined&&snapshot.mode!==capabilities.mode)
     throw new TypeError('Host capability mode changed within a visit.');
+  const escalation=['tools','health','interact','overview'].find(field=>capabilities[field]&&!visitCapabilities[field]);
+  if(escalation)throw new TypeError('Snapshot exceeds factory capability: '+escalation);
   return capabilities;
 }
 
