@@ -1,0 +1,41 @@
+{
+  "owner": "Coder Tinderbox",
+  "task": "M29 matched source-support CPU attribution",
+  "state": "Both authorized runs complete and stopped; no pending in-memory work.",
+  "runtimeCommit": "cd443ccdd9cbbb38cf4c338ef697d902739726d6",
+  "requirements": {
+    "runtime": "Node.js22 or newer; measured24.15.0",
+    "platform": "Windows PowerShell process identity query",
+    "packageInstall": false,
+    "network": false
+  },
+  "cwd": "C:/Users/baals/.codex/worktrees/coding-9200/tinderbox",
+  "source": "docs/engineering/shared-maps/cpu-stall-v1/matched-cpu.mjs",
+  "sourceSha256": "091fdb58315c83de84c70f4fbbf14b0872432bc78c44753231cf12519c2ed89b",
+  "inputs": "source-inputs.json",
+  "outputs": [
+    "matched-cpu.mjs",
+    "control-receipt.json",
+    "profile-receipt.json",
+    "control-helper.json",
+    "profile-helper.json",
+    "adaptation-audit.json",
+    "raw.cpuprofile",
+    "pair-analysis.json",
+    "independent-cleanup.json"
+  ],
+  "bounds": {
+    "perRunWallMs": 60000,
+    "perRunHostSteps": 1000,
+    "heldWindowHostSteps": 32
+  },
+  "deliberateCommands": [
+    "node docs/engineering/shared-maps/cpu-stall-v1/matched-cpu.mjs --mode=control --run-dir=artifacts/qa/shared-map-runtime/cpu-stall-new-control",
+    "node docs/engineering/shared-maps/cpu-stall-v1/matched-cpu.mjs --mode=profile --run-dir=artifacts/qa/shared-map-runtime/cpu-stall-new-profile"
+  ],
+  "restartCondition": "Deliberate architect-approved run on the frozen production bytes, with fresh output directories. These commands are preservation records, not an automatic rerun or new grant.",
+  "stopMethod": "Finite wall/step guards; profiler and GC observer disconnect, simulation/compiled disposal and ordinary process exit.",
+  "secretReferences": [],
+  "ports": [],
+  "retainedHelpers": false
+}

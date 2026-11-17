@@ -1,0 +1,52 @@
+{
+  "original": "tools/review/shared-map-route-contact.mjs",
+  "substitutions": [
+    {
+      "purpose": "Identical passive method and native-phase observers",
+      "before": "let trial;compiled.createNavigation=args=>{trial=args.trial;return createNavigation(args);};",
+      "after": "\nconst P=globalThis.__tinderboxCpuAttribution;\nlet trial;compiled.createNavigation=args=>{trial=args.trial;P.trial=trial;\n  for(const key of ['unsupported','pendingSources','sourcesAdded'])P.timed(trial.supportGraph,key,'support.'+key);\n  for(const key of ['hotSites','replaceSupportReferences','frame','fireSamples','metrics'])P.timed(trial,key,'trial.'+key);\n  for(const key of ['candidates','crossings','supportAt','trace'])P.timed(trial.scene.index,key,'query.'+key);\n  for(const key of ['shape','prepareClaim'])P.timed(args.querySource,key,'sourceQuery.'+key);\n  for(const key of ['ensure','ensurePoint','beforeStep'])P.timed(args.activation,key,'activation.'+key);\n  const prepare=trial.prepareSources;trial.prepareSources=function(...args){const at=performance.now();try{const staged=prepare.apply(this,args);for(const key of ['validate','commit'])P.timed(staged,key,'physical.'+key);return staged;}finally{P.record('physical.prepare',performance.now()-at);}};\n  const nativeStep=trial.step;trial.step=function(...args){const at=performance.now();try{return nativeStep.apply(this,args);}finally{const elapsed=performance.now()-at,phases=trial.executionTimings();for(const [key,value]of Object.entries(phases))P.phaseTotals[key]=(P.phaseTotals[key]||0)+value;if(elapsed>25)P.slowSteps.push({tick:trial.tick,elapsedMs:elapsed,phases,sourceSurfaces:trial.scene.sourceDefinitions.size,cells:trial.scene.cells.size});}};\n  return createNavigation(args);};"
+    },
+    {
+      "purpose": "Record cold preparation",
+      "before": "const compiled=compileSharedMap",
+      "after": "globalThis.__tinderboxCpuAttribution.mark('cold-prepare-start');const compiled=compileSharedMap"
+    },
+    {
+      "purpose": "Exact frozen source identity",
+      "before": "baselineRuntimeCommit:'2b350309d9116812a1d3988af090614bdaefbc25'",
+      "after": "baselineRuntimeCommit:'cd443ccdd9cbbb38cf4c338ef697d902739726d6'"
+    },
+    {
+      "purpose": "Cold state digest without geometry expansion",
+      "before": "const rect={left:0",
+      "after": "P.sim=sim;P.compiled=compiled;P.mark('cold-prepare-ready');P.states.cold=P.digest(sim,trial);const rect={left:0"
+    },
+    {
+      "purpose": "Explicit wall and host-step bounds",
+      "before": "const step=()=>{assert.ok(performance.now()-started<60000,'Finite CPU deadline');return sim.advance(1/60);};",
+      "after": "const step=()=>{assert.ok(performance.now()-P.started<60000,'Finite 60-second CPU deadline including cold preparation');assert.ok(P.hostSteps++<1000,'Finite 1000-host-step bound');return sim.advance(1/60);};"
+    },
+    {
+      "purpose": "Ordinary input tape",
+      "before": "const command=c=>{assert.equal(sim.dispatch(c),true);return step();};",
+      "after": "const command=c=>{P.commands.push(structuredClone(c));assert.equal(sim.dispatch(c),true);return step();};"
+    },
+    {
+      "purpose": "Reviewed actual camera jamb point",
+      "before": "useTool('timber',{x:54.8,y:26,h:3.02}",
+      "after": "useTool('timber',{x:54.999999955296516,y:25.760000053644177,h:3.299999937415123}"
+    },
+    {
+      "purpose": "One rapid queued input prefix, 11 held and 21 released steps",
+      "before": "result.passed=true;",
+      "after": "\nstage='fixed-32-host-step-held-window';\nconst heldBefore=sim.snapshot();P.states.before=P.digest(sim,trial);P.mark('held-start');\nconst heldStepStart=P.hostSteps,callsBefore=structuredClone(P.calls),phasesBefore={...P.phaseTotals};\nfor(const c of [{type:'select-tool',tool:'flamethrower'},{type:'primary',pressed:true}]){P.commands.push(c);assert.equal(sim.dispatch(c),true);}\nfor(let i=0;i<11;i++)step();\nconst release={type:'primary',pressed:false};P.commands.push(release);assert.equal(sim.dispatch(release),true);\nfor(let i=0;i<21;i++)step();\nP.mark('held-end');const heldAfter=sim.snapshot();\nP.held={hostSteps:P.hostSteps-heldStepStart,callsBefore,phasesBefore,before:{tick:heldBefore.tick,world:heldBefore.clocks.world,fuel:heldBefore.player.inventory.flamethrowerFuel,thermal:heldBefore.diagnostics.thermal},after:{tick:heldAfter.tick,world:heldAfter.clocks.world,fuel:heldAfter.player.inventory.flamethrowerFuel,thermal:heldAfter.diagnostics.thermal}};\nassert.equal(P.held.hostSteps,32);assert.ok(Math.abs(heldAfter.clocks.world-heldBefore.clocks.world-32/60)<1e-12);assert.ok(Math.abs(heldBefore.player.inventory.flamethrowerFuel-heldAfter.player.inventory.flamethrowerFuel-.055)<1e-12);\nP.states.after=P.digest(sim,trial);result.passed=true;"
+    },
+    {
+      "purpose": "Guaranteed ordinary disposal and result handoff",
+      "before": "sim.dispose();compiled.dispose();result.elapsedMs=",
+      "after": "P.result=result;P.mark(\"fixture-end\");sim.dispose();compiled.dispose();result.elapsedMs="
+    }
+  ],
+  "originalLfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474",
+  "derivedLfSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253"
+}
