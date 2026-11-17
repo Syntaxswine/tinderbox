@@ -1,0 +1,145 @@
+{
+  "sourceCommit": "c9b02eb278854380cc41f1de77ed4b0c57e4dc47",
+  "craftedCasesExecuted": 8,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "results": [
+    {
+      "name": "1 native slab ray uses solid underside in ordinary index",
+      "admitted": true,
+      "regional": [],
+      "ordinary": [
+        {
+          "id": "native-slab",
+          "t": 0.7999999999999999,
+          "normal": [
+            0,
+            -1,
+            0
+          ]
+        }
+      ],
+      "regionalTransmission": 1,
+      "ordinaryTransmission": 0.02
+    },
+    {
+      "name": "2 cold source rayRecord solid channel follows ordinary index",
+      "admitted": true,
+      "regional": [],
+      "ordinary": [
+        {
+          "id": "cold-box",
+          "t": 0.7333333333333334,
+          "normal": [
+            0,
+            -1,
+            0
+          ]
+        }
+      ],
+      "regionalTransmission": 1,
+      "ordinaryTransmission": 0.02
+    },
+    {
+      "name": "3 cold closed interior in retained upper query halo",
+      "admitted": true,
+      "low": 0.99999995,
+      "high": 0.999999975,
+      "regionalClear": true,
+      "ordinaryClear": false
+    },
+    {
+      "name": "4 native closed interior in retained upper query halo",
+      "admitted": true,
+      "low": 0.99999995,
+      "high": 0.999999975,
+      "regionalClear": true,
+      "ordinaryClear": false
+    },
+    {
+      "name": "5 cold outer-face provenance must name original last cell",
+      "admitted": true,
+      "t": 0.6666666666666666,
+      "segmentCell": [
+        1,
+        0,
+        0
+      ],
+      "hitCell": [
+        1,
+        0,
+        0
+      ],
+      "segmentHalo": false,
+      "faceOwners": [
+        {
+          "cell": [
+            0,
+            0,
+            0
+          ],
+          "outerHalo": true
+        }
+      ],
+      "expectedSourceCell": [
+        0,
+        0,
+        0
+      ],
+      "coverageError": "Unknown/off-grid original query cell"
+    },
+    {
+      "name": "6 unsupported native floor solid below original cell is explicitly rejected",
+      "admitted": false,
+      "error": "Native physical geometry extends beyond representable original cell halo",
+      "expected": "reject beyond original cell halo"
+    },
+    {
+      "name": "7 out-of-source-span surface must be rejected or preserved if admitted",
+      "admitted": true,
+      "regional": [],
+      "ordinary": [],
+      "regionalTransmission": 1,
+      "ordinaryTransmission": 1,
+      "surfacePieces": 0,
+      "expected": "explicit unsupported-span rejection or ordinary cold surface preservation"
+    },
+    {
+      "name": "8 native surface outside its cell halo must not be admitted as halo",
+      "admitted": true,
+      "nativeSourceCell": [
+        0,
+        0,
+        0
+      ],
+      "farHit": {
+        "id": "plane@0",
+        "provenance": {
+          "partRef": {
+            "id": "plane",
+            "carrierId": "owner",
+            "geometry": "manual-original-plane",
+            "closed": false
+          },
+          "ownerId": "owner",
+          "sourceSurfaceId": "plane-face",
+          "recordId": "plane@0",
+          "cell": [
+            0,
+            0,
+            0
+          ],
+          "hitCell": [
+            2,
+            0,
+            0
+          ],
+          "primitive": 0,
+          "channel": "surface",
+          "halo": true
+        }
+      },
+      "expected": "reject surface overreach just as solid overreach; x=2.5 is beyond cell 0 plus 2 EPS"
+    }
+  ]
+}

@@ -69,18 +69,21 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
     if(!text(spec.partRef?.id)||!text(spec.partRef.carrierId)||parts.has(spec.partRef.id)||typeof spec.closed!=='boolean'||spec.closed!==spec.partRef.closed||!text(spec.rayRecord?.id)||spec.rayRecord.sourceCarrierId!==spec.partRef.carrierId||spec.rayRecord.nativePartId!==spec.partRef.id||!text(spec.rayRecord.sourceSurfaceId)||typeof spec.rayRecord.intact!=='boolean'||![spec.rayRecord.transmission,spec.rayRecord.openFraction].every(Number.isFinite))throw Error('Original static part/query ownership required');
     totalTriangles+=(spec.surfaceTriangles?.length||0)+(spec.solidTriangles?.length||0);if(totalTriangles>REGIONAL_QUERY_LIMITS.triangles)throw Error('Original query triangle ceiling exceeded');
     const surface=triangles(spec.surfaceTriangles),solid=triangles(spec.solidTriangles),box=bounds(solid.flat());if(spec.closed)checkedClosed(solid);
+    if(spec.rayRecord.triangles!==surface||spec.rayRecord.solidTriangles&&spec.rayRecord.solidTriangles!==solid)throw Error('Original ray channel must reference its admitted surface/solid geometry');
     physicalBounds(spec.rayRecord.bounds,[...surface,...solid]);if(spec.partRef.bounds)physicalBounds(spec.partRef.bounds,solid);
     const min=coords(box.min),max=box.max.map((v,i)=>box.max[i]-box.min[i]<EPS?min[i]:Math.ceil((v-grid.origin[i])/grid.pitch[i]-EPS)-1);let count=1;
     if(![...min,...max,...max.map(v=>v+1)].every(Number.isSafeInteger))throw Error('Unsafe original query span');for(let i=0;i<3;i++){const n=max[i]-min[i]+1;if(!Number.isSafeInteger(n)||n<1||n>REGIONAL_QUERY_LIMITS.cellsPerPart||count>Math.floor(REGIONAL_QUERY_LIMITS.cellsPerPart/n))throw Error('Original query cell catalogue exceeds static pilot limit');count*=n;}
+    const catalogue={min:min.map((v,i)=>grid.origin[i]+v*grid.pitch[i]-HALO),max:max.map((v,i)=>grid.origin[i]+(v+1)*grid.pitch[i]+HALO)};
+    if(surface.some(t=>t.some(p=>p.some((v,i)=>v<catalogue.min[i]||v>catalogue.max[i]))))throw Error('Source surface geometry extends beyond its original cell catalogue halo');
     for(let i=0;i<3;i++)for(let c=min[i];c<=max[i]+1;c++)edge(i,c);
-    parts.set(spec.partRef.id,{spec,surface,solid,box,min,max,count,records:new Map(),cells:new Map()});
+    parts.set(spec.partRef.id,{spec,surface,solid,ray:spec.rayRecord.solidTriangles||surface,rayChannel:spec.rayRecord.solidTriangles?'solid':'surface',box,min,max,count,records:new Map(),cells:new Map()});
   }
   for(const entry of nativeInventory){
     const r=entry.record,p=parts.get(r?.nativePartId);if(!p||r.sourceCarrierId!==p.spec.partRef.carrierId||!text(r.sourceSurfaceId)||!text(r.id)||native.has(r.id)||typeof r.intact!=='boolean'||![r.transmission,r.openFraction].every(Number.isFinite))throw Error('Static original native physical ownership required');
     validCell(p,entry.cell);totalTriangles+=(r.triangles?.length||0)+((r.solidTriangles||r.triangles)?.length||0);if(totalTriangles>REGIONAL_QUERY_LIMITS.triangles)throw Error('Original query triangle ceiling exceeded');const surface=triangles(r.triangles),solid=triangles(r.solidTriangles||r.triangles);if(r.closedShape!==false)checkedClosed(solid);
     physicalBounds(r.bounds,[...surface,...solid]);
     const canonical={min:entry.cell.map((v,i)=>grid.origin[i]+v*grid.pitch[i]-HALO),max:entry.cell.map((v,i)=>grid.origin[i]+(v+1)*grid.pitch[i]+HALO)};
-    if(solid.flat().some(v=>v.some((n,i)=>n<canonical.min[i]||n>canonical.max[i])))throw Error('Native physical geometry extends beyond representable original cell halo');
+    if([...surface,...solid].some(t=>t.some(v=>v.some((n,i)=>n<canonical.min[i]||n>canonical.max[i]))))throw Error('Native surface/solid geometry extends beyond representable original cell halo');
     const value={entry,p,surface,solid,box:bounds(solid.flat())};native.set(r.id,value);p.records.set(r.id,value);const id=key(entry.cell);if(!p.cells.has(id))p.cells.set(id,[]);p.cells.get(id).push(r.id);
   }
   if(totalTriangles>REGIONAL_QUERY_LIMITS.triangles)throw Error('Original query triangle ceiling exceeded');
@@ -90,10 +93,16 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
   function read(view){live();const value=views.get(view);if(!value||value.kernel!==kernel||value.state.generation!==generation||value.state.released)throw Error('Unknown/stale regional query view');return value.state;}
   let current;
   const domainKey=(partId,c)=>partId+'@'+key(c),status=(state,p,c)=>state.domains.get(domainKey(p.spec.partRef.id,c))||'cold';
-  function pointDomain(state,p,point){const raw=coords(point),c=raw.map((v,i)=>Math.max(p.min[i],Math.min(p.max[i],v)));if(!same(raw,c)){const b=cellBox(c);if(point.some((v,i)=>v<b.min[i]-HALO||v>b.max[i]+HALO))return 'outside';}return status(state,p,c);}
+  function pointOwnership(p,point){const hitCell=coords(point),cell=hitCell.map((v,i)=>Math.max(p.min[i],Math.min(p.max[i],v))),outerHalo=!same(hitCell,cell);if(outerHalo){const b=cellBox(cell);if(point.some((v,i)=>v<b.min[i]-HALO||v>b.max[i]+HALO))return null;}return {cell,hitCell,outerHalo};}
+  function pointDomain(state,p,point){const owner=pointOwnership(p,point);return owner?status(state,p,owner.cell):'outside';}
   // The original full-span upper edge is assigned to its last source cell.
   // Keep its original faces/query halo without adding an outside domain claim.
   function faceBox(p,c){const b=cellBox(c);return {min:b.min.map((v,i)=>v-(c[i]===p.min[i]?HALO:0)),max:b.max.map((v,i)=>v+(c[i]===p.max[i]?HALO:0))};}
+  // Containment has the ORIGINAL body's metric EPS and barycentric EPS, not
+  // the smaller geometric halo. This is a broad phase/probe envelope only:
+  // unchanged original closed-mesh predicates still decide occupancy.
+  const bodyProbeBounds=box=>({min:box.min.map((v,i)=>v-BODY_EPS*(1+2*(box.max[i]-v))),max:box.max.map((v,i)=>v+BODY_EPS*(1+2*(v-box.min[i])))});
+  function bodyWitnessBox(p,c,shapeBox){const b=cellBox(c),probe=bodyProbeBounds(shapeBox);return {min:b.min.map((v,i)=>c[i]===p.min[i]?Math.min(v,probe.min[i]):v),max:b.max.map((v,i)=>c[i]===p.max[i]?Math.max(v,probe.max[i]):v)};}
   function cellsIn(p,box){const lo=coords(box.min).map((v,i)=>Math.max(p.min[i],v-1)),hi=coords(box.max).map((v,i)=>Math.min(p.max[i],v+1)),out=[];for(let z=lo[2];z<=hi[2];z++)for(let y=lo[1];y<=hi[1];y++)for(let x=lo[0];x<=hi[0];x++)out.push([x,y,z]);return out;}
   function facePieces(state,{channel,box,includeInactive=false,partId}={}){
     if(!['surface','solid'].includes(channel))throw Error('Explicit original surface/solid channel required');const out=[];
@@ -118,7 +127,7 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
   function segment(view,from,to,{includeEndpoints=false,ignore=[],includeInactive=true}={}){
     const state=read(view);if(!vector(from)||!vector(to)||to.some((v,i)=>!Number.isFinite(v-from[i])))throw Error('Finite representable segment required');const hits=[],skip=new Set(ignore),stationCache=new Map();
     const stationsFor=p=>{if(stationCache.has(p))return stationCache.get(p);const stations=[0,1];for(let axis=0;axis<3;axis++)if(to[axis]!==from[axis])for(let c=p.min[axis];c<=p.max[axis]+1;c++){const t=(edge(axis,c)-from[axis])/(to[axis]-from[axis]);if(t>0&&t<1){stations.push(t);let before=t,after=t;for(let i=0;i<4;i++){before=nextFloat(before,false);after=nextFloat(after,true);stations.push(before,after);}}}stationCache.set(p,stations);return stations;};
-    const offer=(p,record,ts,kind,sourceCell)=>{
+    const offer=(p,record,ts,kind,sourceCell,channel)=>{
       if(skip.has(record.id)||!includeInactive&&record.intact===false||!segmentBox(from,to,record.bounds||p.box))return;let first=null;
       // Grid stations expose a later authoritative coplanar interval even when
       // the original triangle's first hit is in another ownership domain.
@@ -127,9 +136,9 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
         const hit=segmentTriangle(from,to,t,record.thickness||0);take(hit,i);const n=normal(t),den=to.reduce((v,x,j)=>v+(x-from[j])*n[j],0);
         if(hit!==null&&Math.abs(den)<EPS&&pointDomain(state,p,from.map((v,j)=>v+(to[j]-v)*hit))!==kind)for(const station of stationsFor(p)){const point=from.map((v,j)=>v+(to[j]-v)*station);if(segmentTriangle(point,point,t,record.thickness||0)===0)take(station,i);}
       }
-      if(first){const cell=coords(first.point);hits.push({surface:record,t:first.t,normal:normal(ts[first.primitive]),provenance:{partRef:p.spec.partRef,ownerId:p.spec.partRef.carrierId,sourceSurfaceId:record.sourceSurfaceId,recordId:record.id,cell:sourceCell||cell,hitCell:cell,primitive:first.primitive,channel:'surface',halo:sourceCell?!same(cell,sourceCell):false}});}
+      if(first){const owner=pointOwnership(p,first.point);hits.push({surface:record,t:first.t,normal:normal(ts[first.primitive]),provenance:{partRef:p.spec.partRef,ownerId:p.spec.partRef.carrierId,sourceSurfaceId:record.sourceSurfaceId,recordId:record.id,cell:sourceCell||owner.cell,hitCell:owner.hitCell,primitive:first.primitive,channel,halo:owner.outerHalo||!!sourceCell&&!same(owner.hitCell,sourceCell),outerHalo:owner.outerHalo}});}
     };
-    for(const p of parts.values()){offer(p,p.spec.rayRecord,p.surface,'cold');for(const [id,n]of p.records)if(status(state,p,n.entry.cell)==='native'&&!state.retired.has(id))offer(p,n.entry.record,n.surface,'native',n.entry.cell);}
+    for(const p of parts.values()){offer(p,p.spec.rayRecord,p.ray,'cold',null,p.rayChannel);for(const [id,n]of p.records)if(status(state,p,n.entry.cell)==='native'&&!state.retired.has(id))offer(p,n.entry.record,n.solid,'native',n.entry.cell,n.entry.record.solidTriangles?'solid':'surface');}
     hits.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));const unique=[];
     for(const hit of hits){const sheet=hit.surface.sheetKey||hit.surface.sourceSurfaceId||hit.surface.id,old=unique.findIndex(other=>(other.surface.sheetKey||other.surface.sourceSurfaceId||other.surface.id)===sheet&&Math.abs(other.t-hit.t)<EPS*10);if(old<0)unique.push(hit);else if(pass(hit.surface)<pass(unique[old].surface))unique[old]=hit;}
     return unique.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));
@@ -143,8 +152,8 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
     }
     const inside=(point,ts)=>!sweptCylinderClear({x:point[0],y:point[2]},{x:point[0],y:point[2]},0,point[1],point[1],{triangles:ts,closed:true});
     for(const p of parts.values()){
-      if(p.spec.closed&&p.spec.rayRecord.intact!==false)for(const c of cellsIn(p,box))if(status(state,p,c)==='cold'){const point=bodyCellWitness(from,to,radius,minY,maxY,cellBox(c));if(point&&inside(point,p.solid))return false;}
-      for(const [id,n]of p.records)if(n.entry.record.closedShape!==false&&n.entry.record.intact!==false&&status(state,p,n.entry.cell)==='native'&&!state.retired.has(id)&&overlap(n.box,box))for(const c of cellsIn(p,n.box))if(status(state,p,c)==='native'){const point=bodyCellWitness(from,to,radius,minY,maxY,cellBox(c));if(point&&inside(point,n.solid))return false;}
+      if(p.spec.closed&&p.spec.rayRecord.intact!==false)for(const c of cellsIn(p,box))if(status(state,p,c)==='cold'){const point=bodyCellWitness(from,to,radius,minY,maxY,bodyWitnessBox(p,c,p.box));if(point&&inside(point,p.solid))return false;}
+      for(const [id,n]of p.records)if(n.entry.record.closedShape!==false&&n.entry.record.intact!==false&&status(state,p,n.entry.cell)==='native'&&!state.retired.has(id)&&overlap(bodyProbeBounds(n.box),box))for(const c of cellsIn(p,bodyProbeBounds(n.box)))if(status(state,p,c)==='native'){const point=bodyCellWitness(from,to,radius,minY,maxY,bodyWitnessBox(p,c,n.box));if(point&&inside(point,n.solid))return false;}
     }return true;
   }
   function coverage({partId,cells,records:ids,complete}){

@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const dir='docs/engineering/shared-maps/regional-query-boundaries-v1/',owned=['src/runtime/regional-effective-query.js','tests/integration/regional-query-boundaries.test.mjs','docs/engineering/shared-maps/runtime-integration.json'],sha=b=>createHash('sha256').update(b).digest('hex');
+const files=[...owned,...fs.readdirSync(dir).filter(p=>p!=='manifest.json').map(p=>dir+p)].sort().map(p=>{const b=fs.readFileSync(p),mode=owned.includes(p)?'LF':'raw';return {path:p,mode,sha256:sha(mode==='LF'?b.toString('utf8').replace(/\r\n/g,'\n'):b)};}),result={version:1,base:'c9b02eb278854380cc41f1de77ed4b0c57e4dc47',scope:'Only four isolated query boundary corrections and exact evidence',files};if(process.argv.includes('--check'))assert.deepEqual(JSON.parse(fs.readFileSync(dir+'manifest.json')),result);else fs.writeFileSync(dir+'manifest.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({passed:true,manifestEntries:files.length,sourcePaths:owned.length,nativeCompilerCalls:0}));

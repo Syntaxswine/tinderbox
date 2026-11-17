@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "base": "c9b02eb278854380cc41f1de77ed4b0c57e4dc47",
+  "passed": true,
+  "scope": "Four isolated query boundary corrections only",
+  "focusedRuns": 2,
+  "testsPerRun": 18,
+  "exactCraftedCases": 8,
+  "savedArrayRuns": 1,
+  "savedChecks": 239,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "graphRebuilds": 0,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "originalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "originalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "originalSourcePins": 4,
+      "preserved": true
+    }
+  ],
+  "unchangedExistingFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "src/runtime/collision.js",
+    "workbenches/furnished-house/scene.js",
+    "src/runtime/source-query-registry.js",
+    "src/runtime/native-query-registry.js",
+    "src/simulation/regional-source-pilot.js",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/fixtures/regional-query-data.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/runtime/regional-effective-query.js",
+      "lfSha256": "d329946d6e916b232a534d8e9524fb004015cf7bd2a58e5f125a026fe2d4b3e9"
+    },
+    {
+      "path": "tests/integration/regional-query-boundaries.test.mjs",
+      "lfSha256": "205a29dc89a6b64a7dd5919828f7cd33148cd2475c44011c8055e2af65bfea95"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "ec4ac0656ac81a0e2574aa3733e0cce9654db2b20f01663eac03fd3eb2f9ac3b"
+    }
+  ],
+  "reviewSourcePaths": {
+    "script": "C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox/artifacts/ui-qa/regional-query-c9b02eb/crafted.mjs",
+    "results": "C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox/artifacts/ui-qa/regional-query-c9b02eb/crafted-results.json"
+  },
+  "reviewSnapshotPins": [
+    {
+      "path": "docs/engineering/shared-maps/regional-query-boundaries-v1/review-crafted.mjs.txt",
+      "rawSha256": "0042beb9924b366a0815ad1c02161b2051624c1d5080ddf9a908febdaebf7787"
+    },
+    {
+      "path": "docs/engineering/shared-maps/regional-query-boundaries-v1/review-crafted-results.json",
+      "rawSha256": "9a7a2e6c42ddb0ee6bbc81a5156be7897daf5dbcc0c3059e4b1f64c8a2e0b8db"
+    }
+  ],
+  "declaration": {
+    "modified": 22,
+    "added": 48
+  },
+  "wipPreserved": true,
+  "helpers": [],
+  "ports": [],
+  "productionEnabled": false
+}
