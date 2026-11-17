@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {createRuntime} from '../../src/runtime/index.js';
 import {createSimulation} from '../../src/simulation/index.js';
 import {loadOwnedPair} from '../../src/reuse/loading.js';
+import {SHARED_MAP_CAPABILITIES} from '../../src/content/visit-capabilities.js';
 function fixture(scenario='tiny'){
   const counts={renderer:0,context:0,observer:0,art:0,ui:0,simulation:0,frames:0};
   class Node extends EventTarget{constructor(){super();this.clientWidth=900;this.clientHeight=600;this.children=[];}append(child){this.children.push(child);child.parent=this;}remove(){if(this.parent)this.parent.children=this.parent.children.filter(c=>c!==this);}setAttribute(){}getBoundingClientRect(){return{left:0,top:0,width:900,height:600};}}
@@ -46,6 +47,20 @@ test('the art scene receives the runtime-owned daylight objects',async()=>{
     return {update(){},dispose(){}};
   }});
   runtime.dispose();
+});
+
+test('runtime forwards the exact factory capability ceiling and rejects later snapshot grants above it',async()=>{
+  const f=fixture(),snapshot=f.sim.snapshot;f.sim.capabilities=SHARED_MAP_CAPABILITIES;
+  let flags=SHARED_MAP_CAPABILITIES,mounted;
+  f.sim.snapshot=()=>({...snapshot(),capabilities:flags});
+  const runtime=await createRuntime({...f.options,mountUI(options){mounted=options.capabilities;return {update(){},dispose(){f.counts.ui++;}};}});
+  try{
+    assert.equal(mounted,SHARED_MAP_CAPABILITIES);assert.equal(runtime.capabilities,mounted);
+    flags={...mounted,tools:false};runtime.dispatch({type:'view-overview'});
+    flags=mounted;runtime.dispatch({type:'view-follow'});
+    flags=null;assert.throws(()=>runtime.dispatch({type:'view-overview'}),/Invalid authoritative/);
+    flags={...mounted,mode:'explore',tools:false,health:false};assert.throws(()=>runtime.dispatch({type:'view-overview'}),/ceiling/);
+  }finally{runtime.dispose();}
 });
 test('abort during art loading stops the renderer immediately and disposes late art before mounting UI',async()=>{
   const f=fixture(),controller=new AbortController();let resolve;const art=new Promise(r=>resolve=r);

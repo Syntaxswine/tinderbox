@@ -9,8 +9,8 @@ export const RULES=Object.freeze({step:STEP,maxHeat:5,loss:.18,up:3,upDiagonal:2
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 export const ambientWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
 export const calmWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=out[1]=out[2]=0,out);
-export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},radiationSelection=null,executionCache=false,onLoadPhase}={}) {
-  const scene=compileScene(data,{profiles,onLoadPhase}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,parts,index,cellAt}=scene;
+export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},radiationSelection=null,executionCache=false,onLoadPhase,querySource}={}) {
+  const scene=compileScene(data,{profiles,onLoadPhase,querySource}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,parts,index,cellAt}=scene;
   data=scene.data;
   let tick=0,revision=0,fullNext=true,eventSequence=0,commandSequence=0,closed=false;const coolingFactor=1-Math.exp(-r.loss*dt);
   const commands=[],commandLog=[],events=[],dirty=new Set(index.surfaces.keys()),itemDirty=new Set(items.keys()),partDirty=new Set(parts.keys()),falls=new Map(),rubble=new Map(),tombstones=[],active=new Set(),radCache=new Map(),rayQueue=[],pendingHeat=new Map(),ventFlux=new Map(),thermalOrigins=new Map();
@@ -148,7 +148,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     const amount=f.amount;f.amount=0;amountChanged(f);f.spentAt=tick*dt;
     if(amount>EPS) {
       const id=`${f.id}:embers`,ember={...f,id,cls:'embers',amount,initial:amount,area:f.area,lit:true,litAt:tick*dt,spentAt:null,boundaryId:null,sourceSurfaceId:f.sourceSurfaceId,cells:[],falling:true,lastBurnTick:-1};
-      fuels.set(id,ember);attachFuel(ember,centreCell(f.position));beginFall(id,[ember],f.position,{cause:b.id});
+      fuels.set(id,ember);attachFuel(ember,centreCell(f.position));beginFall(id,[ember,...(f.coatingFuelIds||[]).map(id=>fuels.get(id)).filter(f=>f.amount>EPS)],f.position,{cause:b.id});
     }
   }
   function fail(b,f) {
@@ -167,7 +167,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       for(const [key,members]of groups) {
         const triangles=members.flatMap(({b})=>b.triangles),solidTriangles=members.flatMap(({b})=>b.solidTriangles||b.triangles),position=centre(solidTriangles.flat()),id=`mechanical:${tick}:${key}`;
         for(const {b,f}of members){changeBoundary(b,{intact:false,openFraction:1});dirty.add(b.id);f.boundaryId=null;f.loose=true;f.burningCell=null;emit('mechanical-support-loss',{boundaryId:b.id,sourceSurfaceId:b.sourceSurfaceId,fuelId:f.id,remaining:f.amount,ignitionTime:f.litAt,materialAge:f.litAt===null?null:tick*dt-f.litAt,fallId:id});}
-        beginFall(id,members.map(v=>v.f),position,{cause:'mechanical-support-loss',geometry:{triangles,solidTriangles,thickness:Math.max(...members.map(({b})=>b.thickness||0)),normal:members[0].b.normal,sourceSurfaceIds:members.map(({b})=>b.sourceSurfaceId),boundaryIds:members.map(({b})=>b.id)}});
+        beginFall(id,members.flatMap(v=>[v.f,...(v.f.coatingFuelIds||[]).map(id=>fuels.get(id)).filter(f=>f.amount>EPS)]),position,{cause:'mechanical-support-loss',geometry:{triangles,solidTriangles,thickness:Math.max(...members.map(({b})=>b.thickness||0)),normal:members[0].b.normal,sourceSurfaceIds:members.map(({b})=>b.sourceSurfaceId),boundaryIds:members.map(({b})=>b.id)}});
       }
       unsupported=supportGraph.unsupported();
     }
@@ -347,7 +347,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     if(executionCache){metricsTick=tick;metricsIndexRevision=index.revision;metricsCache=value;return {...value,fuel:{...value.fuel},heat:{...value.heat},stats:{...value.stats}};}return value;
   }
   const maximumHeat=list=>{let value=-Infinity;for(const c of list)value=Math.max(value,c.heat);return value;};
-  function boundaryFrame(b) {const f=fuels.get(b.fuelId);return {id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:f?clamp(f.char/(scene.profile[f.cls].delay||1)):0,heatFraction:f?clamp(maximumHeat(f.cells)/r.maxHeat):0,fuelFraction:f?f.amount/f.initial:1};}
+  function boundaryFrame(b) {if(b.queryOnly)return {id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,queryOnly:true,intact:b.intact,openFraction:b.openFraction};const f=fuels.get(b.fuelId);return {id:b.id,sourceSurfaceId:b.sourceSurfaceId,kind:b.kind,triangles:b.triangles,intact:b.intact,openFraction:b.openFraction,charFraction:f?clamp(f.char/(scene.profile[f.cls].delay||1)):0,heatFraction:f?clamp(maximumHeat(f.cells)/r.maxHeat):0,fuelFraction:f?f.amount/f.initial:1};}
   // Publication-only ownership: fixed boundary footprints and cell bounds may
   // be shared by read-only internal consumers. Public fireSamples() still
   // returns a detached mutable copy. Dynamic/falling footprints never use the
@@ -387,7 +387,8 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     for(const f of (executionCache?[...new Set([...litFuels,...charred])].sort((a,b)=>fuelOrder.get(a)-fuelOrder.get(b)):fuels.values()))if(f.amount>EPS) {
       if(executionCache&&!f.lit&&!(f.char>0))continue;
       const exposure=maximumHeat(f.cells),profile=scene.profile[f.cls];if(!f.lit&&(!(f.char>0)||exposure<profile.threshold*.6)||(f.store?.kind==='oil'||f.store?.kind==='oil-store')&&!f.store.reacted)continue;
-      const b=f.boundaryId?index.surfaces.get(f.boundaryId):null,c=f.burningCell||f.cells.reduce((a,b)=>a.heat>=b.heat?a:b),n=f.normal;
+      const displayBoundary=f.boundaryId||(!f.falling&&!f.loose&&f.physicalFinish?fuels.get(f.coreFuelId)?.boundaryId:null);
+      const b=displayBoundary?index.surfaces.get(displayBoundary):null,c=f.burningCell||f.cells.reduce((a,b)=>a.heat>=b.heat?a:b),n=f.normal;
       let x=f.position[0],y=f.position[1],z=f.position[2],nx=n?n[0]:0,ny=n?n[1]:1,nz=n?n[2]:0;
       if(b){
         // Match sub -> dot(reduce from +0), then mul/add without reassociation.
@@ -414,7 +415,7 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     // Preserve canonical/dirty insertion order and the Trial-level support
     // alias while the canonical boundary is already in hand. Missing dirty
     // rows still reach the same publisher and fail instead of being skipped.
-    for(const record of full?index.surfaces.values():dirty){const boundary=full?record:index.surfaces.get(record),row=publishBoundary(boundary);b.push(row);if(boundary.supports)supports.push(row);}
+    for(const record of full?index.surfaces.values():dirty){const boundary=full?record:index.surfaces.get(record);if(boundary.queryOnly)continue;const row=publishBoundary(boundary);b.push(row);if(boundary.supports)supports.push(row);}
     const itemRecords=(full?[...items.values()]:[...itemDirty].map(id=>items.get(id))).map(item=>{const list=executionCache?itemFuels.get(item.id):[...fuels.values()].filter(f=>f.itemId===item.id);return {...item,remainingFraction:list.reduce((v,f)=>v+f.amount,0)/(list.reduce((v,f)=>v+f.initial,0)||1),charFraction:Math.max(0,...list.map(f=>clamp(f.char/(scene.profile[f.cls].delay||1))))};});
     const grid=sharePublicationGeometry?[...scene.origin,...scene.pitch].join(','):null;
     const result={version:1,revision,tick,worldTime:tick*dt,full,boundaries:b,supports,items:itemRecords,falls:[...falls.values()].map(f=>({...f,flame:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?1:0,smoke:f.fuelIds.some(id=>fuels.get(id).lit&&fuels.get(id).amount>EPS)?.4:0,ignitionTime:f.fuelIds.some(id=>Number.isFinite(fuels.get(id).litAt))?Math.min(...f.fuelIds.map(id=>fuels.get(id).litAt).filter(Number.isFinite)):null})),events:events.slice(full?0:eventCursor),metrics:metrics(),fireSamples:samples,tombstones:tombstones.splice(0),occupancy:[...active].map(c=>({id:c.id,bounds:publishedBounds(c,sharePublicationGeometry,grid),heatFraction:c.heat/r.maxHeat,occupied:c.fuels.length>0}))};
