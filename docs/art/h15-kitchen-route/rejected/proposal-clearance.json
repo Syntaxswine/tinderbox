@@ -1,0 +1,1184 @@
+{
+  "scope": "Bounded independent source-local furniture AABB clearance for proposed bend; not runtime acceptance. No source files changed.",
+  "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+  "houseSha256": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c",
+  "candidateRoute": [
+    [
+      5,
+      0.48,
+      -1
+    ],
+    [
+      5,
+      0.48,
+      0.5
+    ],
+    [
+      4,
+      0.48,
+      0.75
+    ],
+    [
+      3,
+      0.48,
+      2
+    ],
+    [
+      3,
+      0.48,
+      3.5
+    ],
+    [
+      3.87125,
+      0.48,
+      4.5
+    ],
+    [
+      3.87125,
+      0.48,
+      5.75
+    ]
+  ],
+  "result": "Candidate rejected by retained parlor settee for all native profiles and all five X offsets.",
+  "solidPolicy": "Scene marks every furniture part solid unless proceduralStoreContents is true; raw definitions omit solid.",
+  "bodyBand": [
+    0.505,
+    2.16
+  ],
+  "samples": [
+    {
+      "profile": "goat",
+      "offset": -0.1,
+      "point": [
+        3.9,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.2749999999999999,
+          "radius": 0.5,
+          "penetration": 0.2250000000000001
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.29436372059070043,
+          "radius": 0.5,
+          "penetration": 0.20563627940929957
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.2599999999999998,
+          "radius": 0.5,
+          "penetration": 0.2400000000000002
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/7",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.765
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.835
+            ]
+          },
+          "horizontalDistance": 0.41527099585692234,
+          "radius": 0.5,
+          "penetration": 0.08472900414307766
+        }
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": -0.05,
+      "point": [
+        3.95,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.3250000000000002,
+          "radius": 0.5,
+          "penetration": 0.17499999999999982
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.3415406271587615,
+          "radius": 0.5,
+          "penetration": 0.1584593728412385
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.31000000000000005,
+          "radius": 0.5,
+          "penetration": 0.18999999999999995
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/7",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.765
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.835
+            ]
+          },
+          "horizontalDistance": 0.465241872578125,
+          "radius": 0.5,
+          "penetration": 0.03475812742187501
+        }
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0,
+      "point": [
+        4,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.375,
+          "radius": 0.5,
+          "penetration": 0.125
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.38942264957241507,
+          "radius": 0.5,
+          "penetration": 0.11057735042758493
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.3599999999999999,
+          "radius": 0.5,
+          "penetration": 0.14000000000000012
+        }
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.05,
+      "point": [
+        4.05,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.4249999999999998,
+          "radius": 0.5,
+          "penetration": 0.07500000000000018
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.4377784827969505,
+          "radius": 0.5,
+          "penetration": 0.062221517203049526
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.4099999999999997,
+          "radius": 0.5,
+          "penetration": 0.0900000000000003
+        }
+      ]
+    },
+    {
+      "profile": "goat",
+      "offset": 0.1,
+      "point": [
+        4.1,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.47499999999999964,
+          "radius": 0.5,
+          "penetration": 0.025000000000000355
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.48646685395821126,
+          "radius": 0.5,
+          "penetration": 0.013533146041788735
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.4599999999999995,
+          "radius": 0.5,
+          "penetration": 0.04000000000000048
+        }
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.1,
+      "point": [
+        3.9,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.2749999999999999,
+          "radius": 0.5,
+          "penetration": 0.2250000000000001
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.29436372059070043,
+          "radius": 0.5,
+          "penetration": 0.20563627940929957
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.2599999999999998,
+          "radius": 0.5,
+          "penetration": 0.2400000000000002
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/7",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.765
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.835
+            ]
+          },
+          "horizontalDistance": 0.41527099585692234,
+          "radius": 0.5,
+          "penetration": 0.08472900414307766
+        }
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": -0.05,
+      "point": [
+        3.95,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.3250000000000002,
+          "radius": 0.5,
+          "penetration": 0.17499999999999982
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.3415406271587615,
+          "radius": 0.5,
+          "penetration": 0.1584593728412385
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.31000000000000005,
+          "radius": 0.5,
+          "penetration": 0.18999999999999995
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/7",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.765
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.835
+            ]
+          },
+          "horizontalDistance": 0.465241872578125,
+          "radius": 0.5,
+          "penetration": 0.03475812742187501
+        }
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0,
+      "point": [
+        4,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.375,
+          "radius": 0.5,
+          "penetration": 0.125
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.38942264957241507,
+          "radius": 0.5,
+          "penetration": 0.11057735042758493
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.3599999999999999,
+          "radius": 0.5,
+          "penetration": 0.14000000000000012
+        }
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.05,
+      "point": [
+        4.05,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.4249999999999998,
+          "radius": 0.5,
+          "penetration": 0.07500000000000018
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.4377784827969505,
+          "radius": 0.5,
+          "penetration": 0.062221517203049526
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.4099999999999997,
+          "radius": 0.5,
+          "penetration": 0.0900000000000003
+        }
+      ]
+    },
+    {
+      "profile": "horse",
+      "offset": 0.1,
+      "point": [
+        4.1,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.47499999999999964,
+          "radius": 0.5,
+          "penetration": 0.025000000000000355
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.48646685395821126,
+          "radius": 0.5,
+          "penetration": 0.013533146041788735
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.4599999999999995,
+          "radius": 0.5,
+          "penetration": 0.04000000000000048
+        }
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.1,
+      "point": [
+        3.9,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.2749999999999999,
+          "radius": 0.56,
+          "penetration": 0.28500000000000014
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.29436372059070043,
+          "radius": 0.56,
+          "penetration": 0.2656362794092996
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.2599999999999998,
+          "radius": 0.56,
+          "penetration": 0.30000000000000027
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/6",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.365
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.435
+            ]
+          },
+          "horizontalDistance": 0.5210086371644909,
+          "radius": 0.56,
+          "penetration": 0.03899136283550919
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/7",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.765
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.835
+            ]
+          },
+          "horizontalDistance": 0.41527099585692234,
+          "radius": 0.56,
+          "penetration": 0.1447290041430777
+        }
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": -0.05,
+      "point": [
+        3.95,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.3250000000000002,
+          "radius": 0.56,
+          "penetration": 0.23499999999999988
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.3415406271587615,
+          "radius": 0.56,
+          "penetration": 0.21845937284123856
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.31000000000000005,
+          "radius": 0.56,
+          "penetration": 0.25
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/7",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.765
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.835
+            ]
+          },
+          "horizontalDistance": 0.465241872578125,
+          "radius": 0.56,
+          "penetration": 0.09475812742187506
+        }
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0,
+      "point": [
+        4,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.375,
+          "radius": 0.56,
+          "penetration": 0.18500000000000005
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.38942264957241507,
+          "radius": 0.56,
+          "penetration": 0.17057735042758498
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.3599999999999999,
+          "radius": 0.56,
+          "penetration": 0.20000000000000018
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-leg/7",
+          "bounds": {
+            "min": [
+              3.415,
+              0.48,
+              0.765
+            ],
+            "max": [
+              3.485,
+              0.76,
+              0.835
+            ]
+          },
+          "horizontalDistance": 0.5152184002925363,
+          "radius": 0.56,
+          "penetration": 0.04478159970746376
+        }
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.05,
+      "point": [
+        4.05,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.4249999999999998,
+          "radius": 0.56,
+          "penetration": 0.13500000000000023
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.4377784827969505,
+          "radius": 0.56,
+          "penetration": 0.12222151720304958
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.4099999999999997,
+          "radius": 0.56,
+          "penetration": 0.15000000000000036
+        }
+      ]
+    },
+    {
+      "profile": "bear",
+      "offset": 0.1,
+      "point": [
+        4.1,
+        0.48,
+        0.75
+      ],
+      "clear": false,
+      "blockers": [
+        {
+          "id": "item/l0/parlor/settee/settee-seat/0",
+          "bounds": {
+            "min": [
+              2.075,
+              0.76,
+              0.275
+            ],
+            "max": [
+              3.625,
+              0.96,
+              0.925
+            ]
+          },
+          "horizontalDistance": 0.47499999999999964,
+          "radius": 0.56,
+          "penetration": 0.08500000000000041
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-back/1",
+          "bounds": {
+            "min": [
+              2.075,
+              0.9,
+              0.855
+            ],
+            "max": [
+              3.625,
+              1.38,
+              0.985
+            ]
+          },
+          "horizontalDistance": 0.48646685395821126,
+          "radius": 0.56,
+          "penetration": 0.07353314604178879
+        },
+        {
+          "id": "item/l0/parlor/settee/settee-arm/3",
+          "bounds": {
+            "min": [
+              3.52,
+              0.91,
+              0.26
+            ],
+            "max": [
+              3.64,
+              1.21,
+              0.94
+            ]
+          },
+          "horizontalDistance": 0.4599999999999995,
+          "radius": 0.56,
+          "penetration": 0.10000000000000053
+        }
+      ]
+    }
+  ]
+}

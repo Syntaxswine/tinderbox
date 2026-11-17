@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "variant": "catalogue-h15-circulation-150-kitchen-v2",
+  "change": {
+    "id": "catalogue-h15-circulation-150-kitchen-v2",
+    "previousVariant": "catalogue-h15-circulation-150-v1",
+    "control": {
+      "commit": "4cecd10d09eff85543996d4362c63b2297001436",
+      "path": "workbenches/catalogue-modular/house-data.json",
+      "sha256": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c"
+    },
+    "runtimeCheckpoint": "8e50a4c0e39a48241001a02f7a29c4193fdd343d",
+    "itemId": "item/l0/parlor/settee",
+    "offset": [
+      -0.35,
+      0,
+      0
+    ],
+    "from": [
+      2.85,
+      0.48,
+      0.6
+    ],
+    "to": [
+      2.5,
+      0.48,
+      0.6
+    ],
+    "movedMeshIds": [
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/0/settee-seat",
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/1/settee-back",
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/2/settee-arm",
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/3/settee-arm",
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/4/settee-leg",
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/5/settee-leg",
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/6/settee-leg",
+      "house/gross-housing-hopkins-4-15/0/level-0/1/group/3/furnishing-parlor/7/settee-leg"
+    ],
+    "supportContactCount": 9,
+    "supportSurfaceIds": [
+      "floor/l0/3,0",
+      "floor/l0/3,1",
+      "floor/l0/6,0",
+      "floor/l0/6,1"
+    ],
+    "kitchenRoute": [
+      [
+        5,
+        0.48,
+        -1
+      ],
+      [
+        5,
+        0.48,
+        0.5
+      ],
+      [
+        5,
+        0.48,
+        0.75
+      ],
+      [
+        4,
+        0.48,
+        0.75
+      ],
+      [
+        4,
+        0.48,
+        1.8
+      ],
+      [
+        3,
+        0.48,
+        2
+      ],
+      [
+        3,
+        0.48,
+        3.5
+      ],
+      [
+        3.87125,
+        0.48,
+        4.5
+      ],
+      [
+        3.87125,
+        0.48,
+        5.75
+      ]
+    ],
+    "movableFurniturePassage": {
+      "clearWidth": 1.395,
+      "setteeArmMaxX": 3.29,
+      "stairPostMinX": 4.685,
+      "classification": "Movable-furniture passage; not a 1.50 m structural opening",
+      "worstBearMargins": {
+        "frontParlorPost": 0.04,
+        "setteeArm": 0.05,
+        "lowerLeftStairPost": 0.025
+      }
+    },
+    "structuralClearWidth": 1.5,
+    "sourceSurfaceFuelDelta": 0,
+    "furnitureFuelDelta": 0,
+    "scope": "One rigid native settee placement and kitchen route; all structure, main stair route, paint, UV density, body scale and finite fuel unchanged."
+  },
+  "outputs": {
+    "house-data.json": "c89b46f600965bca778bba69a9c6a7f7845972d84e2f0745d26c69f54e9085a7",
+    "scene-data.json": "ae0863da72f2cda8e0ea7c0b73c8d2b1aec583d38b31548ca4d04a67b72cfdb9",
+    "shop-data.json": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5"
+  },
+  "status": "Local source export; local source checks and coder combined acceptance are separate."
+}

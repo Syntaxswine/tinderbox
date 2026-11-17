@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "scope": "Immutable prior circulation source; independent of moving donor checkouts. Original circulation checker/reference remain unchanged.",
+  "files": [
+    {
+      "file": "circulation-v1-house.json",
+      "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+      "sourcePath": "workbenches/catalogue-modular/house-data.json",
+      "sha256": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c",
+      "bytes": 6438350
+    },
+    {
+      "file": "circulation-v1-scene.json",
+      "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+      "sourcePath": "workbenches/catalogue-modular/scene-data.json",
+      "sha256": "c8c69e58a14231f887a0f3a2c79867469fb34e52b5980727e85f21c62f160765",
+      "bytes": 30295
+    }
+  ],
+  "unchangedShopSha256": "cd8ecffe491043546935dc162f0db88e8bd0056d1acb5fe97251db900269b2b5",
+  "runtimeCheckpoint": "8e50a4c0e39a48241001a02f7a29c4193fdd343d",
+  "preservedAuthoringFiles": [
+    {
+      "path": "art/source/catalogue-modular/check-h15-circulation.mjs",
+      "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+      "lfSha256": "7e9db304bfc62e57c3111c68a62a22e0a7389908de6dadf4a93f65f7ef6ba46d"
+    },
+    {
+      "path": "art/source/catalogue-modular/controls/h15-circulation/reference.json",
+      "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+      "lfSha256": "5843352e710d601823adcb5970766ef25daa7d72629804420312e4aa6da469a8"
+    },
+    {
+      "path": "art/source/catalogue-modular/h15-circulation-variant.mjs",
+      "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+      "lfSha256": "9cf39dbc0578712e9b8463d9ce49a331fbb7c89d9fc09a0228ccfd379c7ba3b9"
+    },
+    {
+      "path": "art/source/catalogue-modular/export-circulation.mjs",
+      "sourceCommit": "4cecd10d09eff85543996d4362c63b2297001436",
+      "lfSha256": "272d0df93867aa32af77b14c216ca7c261ddad60766a3a4847f93be5b15f5143"
+    }
+  ]
+}

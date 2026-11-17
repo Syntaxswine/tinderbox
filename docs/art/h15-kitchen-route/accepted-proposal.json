@@ -1,0 +1,473 @@
+{
+  "sourceHouseSha256": "c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c",
+  "newSetteeBounds": {
+    "min": [
+      1.71,
+      0.48,
+      0.26
+    ],
+    "max": [
+      3.29,
+      1.38,
+      0.985
+    ]
+  },
+  "wholeBearing": {
+    "area": 1.1454999999999997,
+    "covered": 1.1454999999999997,
+    "ids": [
+      "floor/l0/3,0",
+      "floor/l0/3,1",
+      "floor/l0/4,0",
+      "floor/l0/4,1",
+      "floor/l0/5,0",
+      "floor/l0/5,1",
+      "floor/l0/6,0",
+      "floor/l0/6,1"
+    ],
+    "passed": true
+  },
+  "contacts": [
+    {
+      "id": "item/l0/parlor/settee/contact/0",
+      "area": 0.0024500000000000632,
+      "covered": 0.0024500000000000632,
+      "ids": [
+        "floor/l0/3,0"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/1",
+      "area": 0.0024500000000000632,
+      "covered": 0.0024500000000000632,
+      "ids": [
+        "floor/l0/3,0"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/2",
+      "area": 0.0024500000000000632,
+      "covered": 0.0024500000000000632,
+      "ids": [
+        "floor/l0/3,1"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/3",
+      "area": 0.0024500000000000632,
+      "covered": 0.0024500000000000632,
+      "ids": [
+        "floor/l0/3,1"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/4",
+      "area": 0.002449999999999952,
+      "covered": 0.002449999999999952,
+      "ids": [
+        "floor/l0/6,0"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/5",
+      "area": 0.002449999999999952,
+      "covered": 0.002449999999999952,
+      "ids": [
+        "floor/l0/6,0"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/6",
+      "area": 0.002449999999999841,
+      "covered": 0.002449999999999841,
+      "ids": [
+        "floor/l0/6,1"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/7",
+      "area": 0.00019999999999997797,
+      "covered": 0.00019999999999997797,
+      "ids": [
+        "floor/l0/6,1"
+      ],
+      "passed": true
+    },
+    {
+      "id": "item/l0/parlor/settee/contact/8",
+      "area": 0.0022499999999998632,
+      "covered": 0.0022499999999998632,
+      "ids": [
+        "floor/l0/6,1"
+      ],
+      "passed": true
+    }
+  ],
+  "overlapsFound": [],
+  "move": {
+    "itemId": "item/l0/parlor/settee",
+    "from": [
+      2.85,
+      0.48,
+      0.6
+    ],
+    "to": [
+      2.5,
+      0.48,
+      0.6
+    ],
+    "offset": [
+      -0.35,
+      0,
+      0
+    ],
+    "meshCount": 8,
+    "paintUVScaleFuelPreserved": true
+  },
+  "route": [
+    [
+      5,
+      0.48,
+      -1
+    ],
+    [
+      5,
+      0.48,
+      0.5
+    ],
+    [
+      5,
+      0.48,
+      0.75
+    ],
+    [
+      4,
+      0.48,
+      0.75
+    ],
+    [
+      4,
+      0.48,
+      1.8
+    ],
+    [
+      3,
+      0.48,
+      2
+    ],
+    [
+      3,
+      0.48,
+      3.5
+    ],
+    [
+      3.87125,
+      0.48,
+      4.5
+    ],
+    [
+      3.87125,
+      0.48,
+      5.75
+    ]
+  ],
+  "paths": [
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.1,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.1,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.05,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.05,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.05,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.05,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.1,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "goat",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.1,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.1,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.1,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.05,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": -0.05,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.05,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.05,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.1,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "horse",
+      "radius": 0.5,
+      "height": 1.66,
+      "offset": 0.1,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": -0.1,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": -0.1,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": -0.05,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": -0.05,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": 0,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": 0,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": 0.05,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": 0.05,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": 0.1,
+      "direction": "in",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "profile": "bear",
+      "radius": 0.56,
+      "height": 1.68,
+      "offset": 0.1,
+      "direction": "out",
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "supportSamples": 10956,
+  "passed": true,
+  "scope": "Independent native source-local closed-solid straight sweeps at full radius and full body height, with both front leaves posed open. Existing collision function; source data changed only in memory. This is not corrected world-placement/provider, held-input or runtime acceptance.",
+  "runtimeCheckpoint": "8e50a4c0e39a48241001a02f7a29c4193fdd343d",
+  "independentClearancesM": {
+    "frontParlorPostToWorstBear": 0.039999999999999925,
+    "movedSetteeArmToWorstBear": 0.04999999999999982,
+    "lowerLeftStairPostToWorstBear": 0.02499999999999991
+  },
+  "footContactAreaM2": 0.01959999999999984,
+  "testedStraightSegments": 240,
+  "readOnlyProposal": true,
+  "rejectedControls": [
+    "proposal-clearance.json",
+    "settee-proposal-diagonal-rejected.json"
+  ],
+  "evaluatorHashes": {
+    "src/runtime/collision.js": "26ba1a7f7eb42cf2fd0bd2d4384fa06647ae550a6b4e8e421582f9ae92d372f9",
+    "artifacts/qa/h15-kitchen-route/evaluate-settee-proposal-square.mjs": "cbaab2a10ade3cbb8afe65f414a10f777c72fbd8dee64b20e8505cc2a93f07b1"
+  }
+}
