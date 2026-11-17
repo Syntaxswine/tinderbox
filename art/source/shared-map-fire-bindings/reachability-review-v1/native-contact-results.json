@@ -1,0 +1,256 @@
+{
+  "version": 1,
+  "result": "PASS",
+  "scope": "Exact native triangle-contact controls on existing source geometry; does not establish bearing, fastening or approved graph direction.",
+  "bindingsSha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+  "reviewEvidenceSha256": "160e5309026be7d6250659c07af27478205f73dfaa9e03f5d7a0537d27d5b103",
+  "producerSha256": "c5fed15847422cf9fac65c1308346db2767983dce71c3025f2982d188eea3ed7",
+  "unchangedNativeTouchingFunctionMatchesEvidenceSnapshot": true,
+  "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+  "geometrySourceCount": 25,
+  "controls": [
+    {
+      "case": "portal-jamb-to-floor",
+      "source": "carrier/ny-front/jamb--1",
+      "candidate": "carrier/main-floor/tile--2-0",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.079999961
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "portal-header-to-fixed-jamb",
+      "source": "carrier/ny-front/header",
+      "candidate": "carrier/ny-front/jamb--1",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.080000017
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "portal-right-jamb-to-floor",
+      "source": "carrier/ny-front/jamb-1",
+      "candidate": "carrier/main-floor/tile-1-0",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.079999961
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "portal-header-to-right-fixed-jamb",
+      "source": "carrier/ny-front/header",
+      "candidate": "carrier/ny-front/jamb-1",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.080000017
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "window-jamb-to-wall",
+      "source": "carrier/main/0/frieze-1/jamb--1",
+      "candidate": "carrier/main/0/cell-7-7/1",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.07
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "closure-cap-to-actual-deck",
+      "source": "carrier/visit-cap/ny-side-approach--1/7",
+      "candidate": "carrier/porch-west-1",
+      "sourceTriangleCount": 8,
+      "candidateTriangleCount": 168,
+      "nativeContact": true,
+      "positiveVolumeProof": null,
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "sloped-handrail-to-post",
+      "source": "carrier/ny-main-flight-2/handrail--1",
+      "candidate": "carrier/ny-main-flight-2/post--1-0",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": false,
+      "positiveVolumeProof": null,
+      "geometricGapProven": true,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "guard-top-to-existing-cross-rail",
+      "source": "carrier/ny-middle-guard-right/top",
+      "candidate": "carrier/ny-middle-guard-back/top",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.035
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "window-jamb-to-existing-sill",
+      "source": "carrier/main/0/frieze-1/jamb--1",
+      "candidate": "carrier/main/0/frieze-1/sill",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.069999531
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "cornice-to-wall",
+      "source": "carrier/edge-0/cornice-1",
+      "candidate": "carrier/main/0/cell-3-0/1",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "child-source-point-inside-parent-solid",
+        "minimumInteriorPlaneMarginMetres": 0.019999996,
+        "worldWitness": [
+          32.0600001,
+          8.1966667,
+          26.06
+        ]
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "parapet-base-to-roof",
+      "source": "carrier/main-parapet-0/base",
+      "candidate": "carrier/roof/front-centre",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 8,
+      "nativeContact": false,
+      "positiveVolumeProof": null,
+      "geometricGapProven": true,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "parapet-base-to-rooted-cornice",
+      "source": "carrier/main-parapet-0/base",
+      "candidate": "carrier/edge-0/cornice-7",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": false,
+      "positiveVolumeProof": null,
+      "geometricGapProven": true,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "clerestory-base-to-existing-cornice",
+      "source": "carrier/clerestory/front-rail/base",
+      "candidate": "carrier/clerestory/cornice",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.00500038
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "sloped-handrail-to-interior-post",
+      "source": "carrier/ny-main-flight-2/handrail--1",
+      "candidate": "carrier/ny-main-flight-2/post--1-10",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.001357906
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "parapet-pier-to-base",
+      "source": "carrier/main-parapet-0/pier-0",
+      "candidate": "carrier/main-parapet-0/base",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.160000544
+      },
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "parapet-cap-to-pier",
+      "source": "carrier/main-parapet-0/cap-0",
+      "candidate": "carrier/main-parapet-0/pier-0",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": null,
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "cap-to-parent-pier",
+      "source": "carrier/upper-terrace/rail-front/cap-2",
+      "candidate": "carrier/upper-terrace/rail-front/pier-2",
+      "sourceTriangleCount": 12,
+      "candidateTriangleCount": 12,
+      "nativeContact": true,
+      "positiveVolumeProof": null,
+      "geometricGapProven": false,
+      "acceptedAsSupport": false
+    },
+    {
+      "case": "closed-header-to-moving-leaf",
+      "source": "carrier/ny-front/header",
+      "candidate": "carrier/ny-front/leaf--1",
+      "nativeContact": true,
+      "acceptedAsSupport": false,
+      "meaning": "Observed contact is not permanent fixed-frame/hinge ownership."
+    },
+    {
+      "case": "open-header-to-moving-leaf",
+      "source": "carrier/ny-front/header",
+      "candidate": "carrier/ny-front/leaf--1",
+      "nativeContact": true,
+      "acceptedAsSupport": false,
+      "meaning": "Observed contact is not permanent fixed-frame/hinge ownership."
+    }
+  ],
+  "rendererStarted": false,
+  "newLinksApplied": 0
+}

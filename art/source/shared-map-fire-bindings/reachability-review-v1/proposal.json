@@ -1,0 +1,1236 @@
+{
+  "all1092Adjudicated": false,
+  "changedFuelOrCoating": 0,
+  "changedGeometry": 0,
+  "changedPhysicalProfiles": 0,
+  "classificationFindings": {
+    "attachmentDirectionCaution": "A rooted rail/glass may have an original parent inside an unrooted frame component. Preserve parent-dependent glass/ornament semantics and choose exact real fixed-frame joins; do not globally reverse attachments.",
+    "coarseRoleCaution": "timber-fitting includes column subparts, rails, cornices and ornaments; one role string is not a load-bearing classification. No blanket role promotion is proposed.",
+    "existingContactSearchCaution": "The source exporter records coplanar finite-area faces; the proposed runtime contact compiler searches only recorded adjacency and structural/structural pairs. This can omit actual embedded or shared-cut contacts without any lost source geometry.",
+    "existingParentRecordsOmitted": 0,
+    "nativeHingeOrHardwareLinksOmitted": 0
+  },
+  "completedBindingsSha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+  "coordinateConvention": "Carrier IDs are place-local, qualify with new-york:: once. Geometry/matrices and all witnesses are emitted-world; [56,0,26] is already applied.",
+  "diagnosticInterpretationAccepted": false,
+  "existingUrnBearingRecommendation": "Keep the exact existing local cap/pier bearing records. Review the parent chain; do not attach urns directly to remote primary walls or ground.",
+  "genuineGapCasesHeldForDecision": [
+    {
+      "actualSurfaceWitness": [
+        [
+          41.80000019073486,
+          17.26000000178814,
+          25.875
+        ],
+        [
+          41.80000019073486,
+          16.96,
+          25.800000190734863
+        ]
+      ],
+      "candidateParentCarrierId": "carrier/roof/front-centre",
+      "case": "parapet-base-to-roof",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "geometryChangeAuthorized": false,
+      "interpretation": "Genuine separated solids for this exact pair; bounds overlap is not contact. The upper witness separation is not the minimum gap.",
+      "mountApplied": false,
+      "mountAuthorized": false,
+      "nextDecision": "Design decision remains open for this same parapet base: a specific engineered fastening or other authored support needs authority. These are pairwise bounds and two alternative parents, not two independent defects or a global nearest-parent proof. Preserve the actual gap and local patch semantics.",
+      "separationLowerBoundMetres": 0.24676473633616247,
+      "vertexToTriangleUpperBoundMetres": 0.30923287739612987,
+      "witnessSeparationMetres": 0.30923287739612987
+    },
+    {
+      "actualSurfaceWitness": [
+        [
+          32.0,
+          17.26000000178814,
+          25.875
+        ],
+        [
+          32.0,
+          17.05000000357628,
+          25.875
+        ]
+      ],
+      "candidateParentCarrierId": "carrier/edge-0/cornice-7",
+      "case": "parapet-base-to-rooted-cornice",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "geometryChangeAuthorized": false,
+      "interpretation": "Genuine separated solids for this exact pair; bounds overlap is not contact. The upper witness separation is not the minimum gap.",
+      "mountApplied": false,
+      "mountAuthorized": false,
+      "nextDecision": "Design decision remains open for this same parapet base: a specific engineered fastening or other authored support needs authority. These are pairwise bounds and two alternative parents, not two independent defects or a global nearest-parent proof. Preserve the actual gap and local patch semantics.",
+      "separationLowerBoundMetres": 0.20999999821185966,
+      "vertexToTriangleUpperBoundMetres": 0.20999999821185966,
+      "witnessSeparationMetres": 0.20999999821185966
+    }
+  ],
+  "inputEvidence": [
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/review-evidence.json",
+      "sha256": "160e5309026be7d6250659c07af27478205f73dfaa9e03f5d7a0537d27d5b103"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/native-contact-results.json",
+      "sha256": "14dec933992a65739ce952514f6afc1aafc42fa59464e63cab40b70c9da27ed4"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/propose.py",
+      "sha256": "b8c9d7cfaa7e103486f717e7a71d04602972c1e495e5c8d7861db02a116cbb77"
+    }
+  ],
+  "newGroundAnchors": 0,
+  "newLinksApplied": 0,
+  "placeId": "new-york",
+  "portalNormalizationProposal": {
+    "applied": false,
+    "fixedHeaderCarrierId": "carrier/ny-front/header",
+    "importantObservation": "Native geometry contacts are true for the measured left leaf in both closed and open poses. Contact existence alone does not establish intended permanent support ownership.",
+    "originalClosedPoseBearings": [
+      {
+        "childCarrierId": "carrier/ny-front/header",
+        "kind": "coplanar-horizontal-triangle-contact",
+        "parentCarrierId": "carrier/ny-front/leaf--1"
+      },
+      {
+        "childCarrierId": "carrier/ny-front/header",
+        "kind": "coplanar-horizontal-triangle-contact",
+        "parentCarrierId": "carrier/ny-front/leaf-1"
+      }
+    ],
+    "portalId": "ny-front",
+    "proposal": "Retain these historical observed contacts, but use the two proposed fixed-jamb joins as permanent fixed-header support. Keep existing jamb-to-leaf hinges and leaf-to-hardware links unchanged."
+  },
+  "preservedArtCommit": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
+  "proposedAcceptanceControls": [
+    "Validate one static portal with fixed-header support independent of each moving leaf; retire local jamb parents to verify the actual dependent leaf/hardware chain.",
+    "Retire the named local wall patch to test its window/cornice dependency; preserve unrelated patches and the original finite stock.",
+    "Verify the named cap/deck seam with the unchanged triangle test before and after activation; source-cap geometry and floor elevations remain exact.",
+    "Remove external support from a named frame/cross-rail cycle to prove it cannot ground itself.",
+    "Keep the separated parapet base unrooted until a specific authored design is accepted; do not infer a mount from either sampled parent. No epsilon inflation or global adjacency reversal."
+  ],
+  "proposedLocalPairs": [
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "portal-jamb-to-floor",
+      "childCarrierId": "carrier/ny-front/jamb--1",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            54.99999999821186,
+            2.1199999414384365,
+            26.140000000596046
+          ],
+          "min": [
+            54.84000000178814,
+            2.0399999809265137,
+            26.0
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/fdbc911eea5db279b9b88a3ac0e00c8d3be4d19a196de9dc83adbe2e89f9b473.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              54.92,
+              3.52,
+              26,
+              1
+            ],
+            "sourcePartId": "ny-front/jamb--1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          54.92,
+          2.079999961182475,
+          26.070000000298023
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/main-floor/tile--2-0",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            54.99999999821186,
+            2.1199999414384365,
+            26.140000000596046
+          ],
+          "min": [
+            54.84000000178814,
+            2.0399999809265137,
+            26.0
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/036610addb5a16f27643255ba33b9bfe1b127c447b54da531b512c462c94acc1.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              54.5,
+              2.059999942779541,
+              26.5,
+              1
+            ],
+            "sourcePartId": "main-floor/tile--2-0",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          54.92,
+          2.079999961182475,
+          26.070000000298023
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.079999961
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "One fixed portal frame; footer attaches to the actual deck, independent of leaf pose.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "portal-right-jamb-to-floor",
+      "childCarrierId": "carrier/ny-front/jamb-1",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            57.15999999821186,
+            2.1199999414384365,
+            26.140000000596046
+          ],
+          "min": [
+            57.00000000178814,
+            2.0399999809265137,
+            26.0
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/fdbc911eea5db279b9b88a3ac0e00c8d3be4d19a196de9dc83adbe2e89f9b473.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              57.08,
+              3.52,
+              26,
+              1
+            ],
+            "sourcePartId": "ny-front/jamb-1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          57.08,
+          2.079999961182475,
+          26.070000000298023
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/main-floor/tile-1-0",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            57.15999999821186,
+            2.1199999414384365,
+            26.140000000596046
+          ],
+          "min": [
+            57.00000000178814,
+            2.0399999809265137,
+            26.0
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/ddf15092edaeb8580ad3d8c94c4c1817d4772042ea142ff315ae4fe4c7fec7ed.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              57.5,
+              2.059999942779541,
+              26.5,
+              1
+            ],
+            "sourcePartId": "main-floor/tile-1-0",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          57.08,
+          2.079999961182475,
+          26.070000000298023
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.079999961
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "Other actual fixed jamb of the same portal; no widened opening or altered leaf.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "portal-header-to-fixed-jamb",
+      "childCarrierId": "carrier/ny-front/header",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            54.99999999821186,
+            5.000000019073486,
+            26.140000000596046
+          ],
+          "min": [
+            54.8400000333786,
+            4.920000001788139,
+            25.859999999403954
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/a7d7b87097d8cc9b1b5c543e95f51da1f8991b3dabd95f8ac3ef080282905e9b.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              5,
+              26,
+              1
+            ],
+            "sourcePartId": "ny-front/header",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          54.92000001579523,
+          4.960000010430813,
+          26.0
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/ny-front/jamb--1",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            54.99999999821186,
+            5.000000019073486,
+            26.140000000596046
+          ],
+          "min": [
+            54.8400000333786,
+            4.920000001788139,
+            25.859999999403954
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/fdbc911eea5db279b9b88a3ac0e00c8d3be4d19a196de9dc83adbe2e89f9b473.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              54.92,
+              3.52,
+              26,
+              1
+            ],
+            "sourcePartId": "ny-front/jamb--1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          54.92000001579523,
+          4.960000010430813,
+          26.0
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.080000017
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "Fixed header attaches to the actual left fixed jamb, not an incidental closed-leaf bearing.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "portal-header-to-right-fixed-jamb",
+      "childCarrierId": "carrier/ny-front/header",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            57.1599999666214,
+            5.000000019073486,
+            26.140000000596046
+          ],
+          "min": [
+            57.00000000178814,
+            4.920000001788139,
+            25.859999999403954
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/a7d7b87097d8cc9b1b5c543e95f51da1f8991b3dabd95f8ac3ef080282905e9b.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              5,
+              26,
+              1
+            ],
+            "sourcePartId": "ny-front/header",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          57.07999998420477,
+          4.960000010430813,
+          26.0
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/ny-front/jamb-1",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            57.1599999666214,
+            5.000000019073486,
+            26.140000000596046
+          ],
+          "min": [
+            57.00000000178814,
+            4.920000001788139,
+            25.859999999403954
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/fdbc911eea5db279b9b88a3ac0e00c8d3be4d19a196de9dc83adbe2e89f9b473.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              57.08,
+              3.52,
+              26,
+              1
+            ],
+            "sourcePartId": "ny-front/jamb-1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          57.07999998420477,
+          4.960000010430813,
+          26.0
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.080000017
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "Fixed header attaches to the actual right fixed jamb.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "window-jamb-to-wall",
+      "childCarrierId": "carrier/main/0/frieze-1/jamb--1",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            40.0,
+            16.40000033378601,
+            26.0
+          ],
+          "min": [
+            39.92999999970198,
+            15.130000352859497,
+            25.92000000178814
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/119b0bc5ee60f2673ec2f3532868d73363313d3a543821bdd44869f9e79b874b.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              40,
+              15.765000343322754,
+              25.88000000268221,
+              1
+            ],
+            "sourcePartId": "main/0/frieze-1/jamb--1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          39.96499999985099,
+          15.765000343322754,
+          25.96000000089407
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/main/0/cell-7-7/1",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            40.0,
+            16.40000033378601,
+            26.0
+          ],
+          "min": [
+            39.92999999970198,
+            15.130000352859497,
+            25.92000000178814
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/5bd6c448cd2d287a4cfe0e192d120b6cc11681c02a4a8635ac4cd245f23c60bf.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              39.5,
+              15.84000015258789,
+              26,
+              1
+            ],
+            "sourcePartId": "main/0/cell-7-7/1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          39.96499999985099,
+          15.765000343322754,
+          25.96000000089407
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.07
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "Frame remains parent-dependent. Use its measured overlap with the real wall; glass is not a brace.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "cornice-to-wall",
+      "childCarrierId": "carrier/edge-0/cornice-1",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            33.0,
+            8.330000001490117,
+            26.07999999821186
+          ],
+          "min": [
+            32.0,
+            8.129999998509884,
+            25.92000000178814
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/eb00a03d406e98ba1052101ff72273da5ff8148d0b95af94f85a998962bc16bf.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              8.23,
+              26,
+              1
+            ],
+            "sourcePartId": "edge-0/cornice-1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          32.5,
+          8.23,
+          26.0
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/main/0/cell-3-0/1",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            33.0,
+            8.330000001490117,
+            26.07999999821186
+          ],
+          "min": [
+            32.0,
+            8.129999998509884,
+            25.92000000178814
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              32.5,
+              7.360000133514404,
+              26,
+              1
+            ],
+            "sourcePartId": "main/0/cell-3-0/1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          32.5,
+          8.23,
+          26.0
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "child-source-point-inside-parent-solid",
+        "minimumInteriorPlaneMarginMetres": 0.019999996,
+        "worldWitness": [
+          32.0600001,
+          8.1966667,
+          26.06
+        ]
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "One local 1 m wall/cornice fixture. The complete 48 m span requires its actual full local support set before rollout.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "clerestory-base-to-existing-cornice",
+      "childCarrierId": "carrier/clerestory/front-rail/base",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            70.0,
+            21.325,
+            34.125
+          ],
+          "min": [
+            42.0,
+            21.319999620318413,
+            33.875
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/aeda55b5445686a99f0966d6f0743b19520bf5d4b4d01ad9a0bd01f8485bb025.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              21.399999618530273,
+              34,
+              1
+            ],
+            "sourcePartId": "clerestory/front-rail/base",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          56.0,
+          21.322499810159208,
+          34.0
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/clerestory/cornice",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            70.0,
+            21.325,
+            34.125
+          ],
+          "min": [
+            42.0,
+            21.319999620318413,
+            33.875
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/f54ab4ed1369233a6de657d6415a2ccf353322b8f0cac7d436206203d0818b45.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              21.2,
+              34,
+              1
+            ],
+            "sourcePartId": "clerestory/cornice",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          56.0,
+          21.322499810159208,
+          34.0
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.00500038
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "The second-largest component already overlaps its rooted cornice. Add only this exact local dependent join; preserve the original inverse embed evidence.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "sloped-handrail-to-interior-post",
+      "childCarrierId": "carrier/ny-main-flight-2/handrail--1",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            55.95250000059605,
+            6.956666558980942,
+            34.689166985452175
+          ],
+          "min": [
+            55.90749999880791,
+            6.006666570901871,
+            34.644166983664036
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/fe35204377d301f8e821aa2c7b0ddaa6da903daab778cee74f55263617ff2cbb.json",
+            "matrix": [
+              1,
+              -9.809629513728431e-17,
+              5.903126795881399e-17,
+              0,
+              9.809629513728431e-17,
+              0.4682936370372772,
+              -0.8835728764533997,
+              0,
+              5.903126795881399e-17,
+              0.8835728764533997,
+              0.4682936370372772,
+              0,
+              55.92999999970198,
+              7.360000133514404,
+              34,
+              1
+            ],
+            "sourcePartId": "ny-main-flight-2/handrail--1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          55.90749999880791,
+          6.955466749827316,
+          34.68853108658376
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/ny-main-flight-2/post--1-10",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            55.95250000059605,
+            6.956666558980942,
+            34.689166985452175
+          ],
+          "min": [
+            55.90749999880791,
+            6.006666570901871,
+            34.644166983664036
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/6bde25c0585d53a9ecaab339af96cd7d44ac6ad3dfef8c37e1bb33437486d301.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              55.92999999970198,
+              6.481666564941406,
+              34.666666984558105,
+              1
+            ],
+            "sourcePartId": "ny-main-flight-2/post--1-10",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          55.90749999880791,
+          6.956666558980942,
+          34.689166985452175
+        ]
+      },
+      "positiveVolumeProof": {
+        "kind": "exact-native-box-sat-volume-overlap",
+        "minimumProjectionOverlapMetres": 0.001357906
+      },
+      "proposedKind": "fixed-embed",
+      "reason": "The rail overlaps this actual intermediate post. Its separated endpoint does not require an inferred mount when this real support is available.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "closure-cap-to-actual-deck",
+      "childCarrierId": "carrier/visit-cap/ny-side-approach--1/7",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            23.187088012695312,
+            2.119999885559082,
+            39.37232685089111
+          ],
+          "min": [
+            23.024662017822266,
+            2.0,
+            38.0
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/be388584977bf56c6c490e02291120ca1909a35bca0f9795de086de00deaa005.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              0,
+              26,
+              1
+            ],
+            "sourcePartId": "visit-cap/ny-side-approach--1/7",
+            "sourceRange": {
+              "count": 24,
+              "id": "visit-cap/ny-side-approach--1/7",
+              "start": 192
+            }
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          23.024662017822266,
+          2.0,
+          39.37232685089111
+        ]
+      },
+      "direction": "symmetric local structural contact only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/porch-west-1",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            23.187088012695312,
+            2.119999885559082,
+            39.37232685089111
+          ],
+          "min": [
+            23.024662017822266,
+            2.0,
+            38.0
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/4b68f0640de81e32e36d2e28b1cddebffba655d888fb5e3743d0b9e6f4cb710d.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              2.059999942779541,
+              26,
+              1
+            ],
+            "sourcePartId": "porch-west-1",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          23.024662017822266,
+          2.0,
+          39.37232685089111
+        ]
+      },
+      "positiveVolumeProof": null,
+      "proposedKind": "verified-source-contact-candidate",
+      "reason": "Both are structural under the proposed classifier. Exact native triangle contact is absent from original broadphase adjacency; add only this named search pair for validation.",
+      "wholeCarrierRetirement": false
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "case": "cap-to-parent-pier",
+      "childCarrierId": "carrier/upper-terrace/rail-front/cap-2",
+      "childRegion": {
+        "bounds": {
+          "max": [
+            56.21000003814697,
+            24.26000015437603,
+            38.855000004172325
+          ],
+          "min": [
+            56.21000003814697,
+            24.26000015437603,
+            38.855000004172325
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/3603689d750cfbe9a4b13d9295b0ddcec9c5920cc4580e9639edc03de79cd53b.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              57.75,
+              24.34000015258789,
+              39,
+              1
+            ],
+            "sourcePartId": "upper-terrace/rail-front/cap-2",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          56.21000003814697,
+          24.26000015437603,
+          38.855000004172325
+        ]
+      },
+      "direction": "parent to child dependency only",
+      "groundAnchor": false,
+      "nativeTriangleContact": true,
+      "parentCarrierId": "carrier/upper-terrace/rail-front/pier-2",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            56.20999999344349,
+            24.26000015437603,
+            38.855000004172325
+          ],
+          "min": [
+            56.20999999344349,
+            24.26000015437603,
+            38.855000004172325
+          ]
+        },
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/4176f5130b38888fb720f7f37f93909f1c32d1bcb71a9b0f3728f902c35e31a3.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              56,
+              23.8700008392334,
+              39,
+              1
+            ],
+            "sourcePartId": "upper-terrace/rail-front/pier-2",
+            "sourceRange": null
+          }
+        ],
+        "meaning": "Finite selector and witness only; actual source triangles remain authoritative.",
+        "witnessPoint": [
+          56.20999999344349,
+          24.26000015437603,
+          38.855000004172325
+        ]
+      },
+      "positiveVolumeProof": null,
+      "proposedKind": "explicit-carpentry-face-joint-proposal",
+      "reason": "Near-coincident vertical butt faces. Actual contact alone is not horizontal bearing; explicit local timber fastening needs authority and an agreed schema.",
+      "wholeCarrierRetirement": false
+    }
+  ],
+  "rendererStarted": false,
+  "scope": "Ten exact local control pairs only; eight volume embeds, one structural seam candidate and one carpentry face joint. Not a 1092-ID correction or a production-complete support table.",
+  "separatedEndpointWithExistingAlternativeContact": {
+    "actualEndpointWitness": [
+      [
+        55.95250000059605,
+        5.209074976292392,
+        37.98360981650033
+      ],
+      [
+        55.95250000059605,
+        5.190000146627426,
+        37.97749999910593
+      ]
+    ],
+    "alternativeCase": "sloped-handrail-to-interior-post",
+    "alternativePositiveOverlapProof": {
+      "kind": "exact-native-box-sat-volume-overlap",
+      "minimumProjectionOverlapMetres": 0.001357906
+    },
+    "case": "sloped-handrail-to-post",
+    "gapLowerBoundMetres": 0.019074829664965876,
+    "gapUpperBoundMetres": 0.02002945319624113,
+    "mountProposed": false,
+    "reason": "An actual local support exists elsewhere on this same rail; the endpoint gap alone is not a reason to add a mount."
+  },
+  "status": "UNACCEPTED_PROPOSAL",
+  "version": 1
+}

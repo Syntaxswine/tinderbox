@@ -1,0 +1,309 @@
+{
+  "authoringSources": [
+    {
+      "path": "art/source/shared-map-fire-bindings/support-overrides-v1/export.py",
+      "sha256": "bee466a9031bb650e4e8d5f8ba993fb466c0c9bdd8ee2d7ca881e0005f78e970"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/support-overrides-v1/check.py",
+      "sha256": "15bb6ed8616e5551a664a3d39887565f3478e5de62d8b7a4c2126a4a4ddf54a2"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/support-overrides-v1/.gitattributes",
+      "sha256": "7e1697b5b2d2b5d52cb19e7b2134db2727290cade87f7b98bb7d459986bf5cf9"
+    }
+  ],
+  "authority": {
+    "commit": "01da2407d22dcb9dbfb607a7559ed8c56c379ba5",
+    "path": "docs/milestones/29-shared-gameplay-maps.md",
+    "sha256": "9a261ddb0a04941172968b373d6e699dead5d35357210c2940eed461af9b1bbc",
+    "snapshotPath": "art/source/shared-map-fire-bindings/support-overrides-v1/authority-01da2407.md"
+  },
+  "baseBindings": {
+    "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+    "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba"
+  },
+  "baseCarriers": 12446,
+  "baseFiniteLedger": {
+    "awningCount": 58,
+    "coreByClass": {
+      "clapboard": 2843.006532,
+      "cloth": 17.4,
+      "door": 12.6,
+      "frame": 11179.439092,
+      "roof": 1715.398329
+    },
+    "coreTotal": 15767.843953,
+    "doorLeafCount": 10,
+    "finishCarrierIds": [
+      "carrier/main/0/cell-1-22/1"
+    ],
+    "finishTotal": 0.1,
+    "oneOwnerPerLogicalSourcePart": true,
+    "total": 15767.943953,
+    "unassignedExcluded": false,
+    "unit": "prototype-fuel-unit",
+    "unverifiedClosedVolumeExcluded": false
+  },
+  "beforeFixtureSupportRows": [
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 9.333333,
+      "fuelClass": "frame",
+      "id": "carrier/clerestory/front-rail/base",
+      "physicalBounds": {
+        "max": [
+          70.0,
+          21.479999616742134,
+          34.125
+        ],
+        "min": [
+          42.0,
+          21.319999620318413,
+          33.875
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 28.800002,
+      "fuelClass": "frame",
+      "id": "carrier/edge-0/cornice-1",
+      "physicalBounds": {
+        "max": [
+          80.18000030517578,
+          8.330000001490117,
+          26.180000007152557
+        ],
+        "min": [
+          31.81999969482422,
+          8.129999998509884,
+          25.819999992847443
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 0.3556,
+      "fuelClass": "frame",
+      "id": "carrier/main/0/frieze-1/jamb--1",
+      "physicalBounds": {
+        "max": [
+          40.07000000029802,
+          16.40000033378601,
+          26.0
+        ],
+        "min": [
+          39.92999999970198,
+          15.130000352859497,
+          25.760000005364418
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 0.866133,
+      "fuelClass": "frame",
+      "id": "carrier/ny-front/header",
+      "physicalBounds": {
+        "max": [
+          57.1599999666214,
+          5.079999998211861,
+          26.140000000596046
+        ],
+        "min": [
+          54.8400000333786,
+          4.920000001788139,
+          25.859999999403954
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [
+        "carrier/ny-front/leaf--1",
+        "carrier/ny-front/leaf-1"
+      ],
+      "supportEvidence": [
+        {
+          "area": 0.12,
+          "carrierId": "carrier/ny-front/leaf--1",
+          "kind": "coplanar-horizontal-triangle-contact",
+          "toleranceMetres": 2e-05
+        },
+        {
+          "area": 0.12,
+          "carrierId": "carrier/ny-front/leaf-1",
+          "kind": "coplanar-horizontal-triangle-contact",
+          "toleranceMetres": 2e-05
+        }
+      ],
+      "supportResolution": "direct-bearing-or-native-attachment"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 1.105067,
+      "fuelClass": "frame",
+      "id": "carrier/ny-front/jamb--1",
+      "physicalBounds": {
+        "max": [
+          54.99999999821186,
+          5.000000019073486,
+          26.140000000596046
+        ],
+        "min": [
+          54.84000000178814,
+          2.0399999809265137,
+          25.859999999403954
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 1.105067,
+      "fuelClass": "frame",
+      "id": "carrier/ny-front/jamb-1",
+      "physicalBounds": {
+        "max": [
+          57.15999999821186,
+          5.000000019073486,
+          26.140000000596046
+        ],
+        "min": [
+          57.00000000178814,
+          2.0399999809265137,
+          25.859999999403954
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 0.369711,
+      "fuelClass": "frame",
+      "id": "carrier/ny-main-flight-2/handrail--1",
+      "physicalBounds": {
+        "max": [
+          55.96499999985099,
+          9.510925290736417,
+          38.016390371232504
+        ],
+        "min": [
+          55.894999999552965,
+          5.209074976292392,
+          29.983609628767496
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 1.190933,
+      "fuelClass": "frame",
+      "id": "carrier/upper-terrace/rail-front/cap-2",
+      "physicalBounds": {
+        "max": [
+          59.28999996185303,
+          24.42000015079975,
+          39.144999995827675
+        ],
+        "min": [
+          56.21000003814697,
+          24.26000015437603,
+          38.855000004172325
+        ]
+      },
+      "physicalMaterial": "timber",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    },
+    {
+      "anchors": [],
+      "finish": null,
+      "fuelAmount": 0,
+      "fuelClass": null,
+      "id": "carrier/visit-cap/ny-side-approach--1/7",
+      "physicalBounds": {
+        "max": [
+          23.187088012695312,
+          2.119999885559082,
+          39.37232685089111
+        ],
+        "min": [
+          23.024662017822266,
+          2.0,
+          38.0
+        ]
+      },
+      "physicalMaterial": "stone",
+      "supportCarrierIds": [],
+      "supportEvidence": [],
+      "supportResolution": "native-face-connected-span-needs-kernel-resolution"
+    }
+  ],
+  "beforeProposal": {
+    "path": "art/source/shared-map-fire-bindings/reachability-review-v1/proposal.json",
+    "sha256": "218ef7c7ebd7dfee6de11430bcc49c494b51bb954533c76ac9da21bec662d58c"
+  },
+  "contract": {
+    "commit": "6a01e2bb1281fcb037c25208d0a70b35442c9c1c",
+    "path": "docs/engineering/shared-maps/support-overrides-contract.md",
+    "sha256": "72f54efaeaea6805eb25062466f5c89a4c08493de35d8df4f7fdfba9a098185d",
+    "snapshotPath": "art/source/shared-map-fire-bindings/support-overrides-v1/contract-6a01e2bb.md"
+  },
+  "effectiveGeometryOverlay": {
+    "indexPath": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+    "sha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941"
+  },
+  "joinCount": 10,
+  "parapetProposalApplied": false,
+  "placeId": "new-york",
+  "remainingReachabilityAccepted": false,
+  "rendererStarted": false,
+  "retiredSupportInterpretationCount": 2,
+  "reviewEvidence": [
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/review-evidence.json",
+      "sha256": "160e5309026be7d6250659c07af27478205f73dfaa9e03f5d7a0537d27d5b103"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/native-contact-results.json",
+      "sha256": "14dec933992a65739ce952514f6afc1aafc42fa59464e63cab40b70c9da27ed4"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/support-overrides-v1/before-review.md",
+      "sha256": "56e806a2dd43556d4f4c06cef542f7df0293c76b62489b83c8232e266b8c761c"
+    }
+  ],
+  "runtimeBehaviorAcceptance": false,
+  "version": 1
+}
