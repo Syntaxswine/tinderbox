@@ -127,4 +127,25 @@ To parallelize the required New York integration, reuse the existing UI speciali
 
 The reconciled contract is `9d7ca0495ea28c35c7f103e33e462994daf7d196`, [presentation interface](../engineering/shared-maps/presentation-contract.md). UI implements `createSharedMapPresentation` by forwarding to the existing `createArtScene` owner; coder adds that core's `gameplayMap`/`createMapStructureArt` hook and owns source terrain, elevated residue, resident masks and structural services. No second character/effect/light loop is introduced. Implementation follows the exact borrowed-resource, authoritative timing and idempotent abort/disposal contract.
 
+## Support reachability first control set
+
+The artist's bounded `reachability-review-v1` examines 74 affected families and 19 native-contact controls without changing the accepted data. Approve only these exact child-to-parent first-control relationships (all IDs prefixed `carrier/`):
+
+| Child | Parent | Relationship |
+| --- | --- | --- |
+| `ny-front/jamb--1` | `main-floor/tile--2-0` | Measured footer embed |
+| `ny-front/jamb-1` | `main-floor/tile-1-0` | Measured footer embed |
+| `ny-front/header` | `ny-front/jamb--1` | Fixed header embed |
+| `ny-front/header` | `ny-front/jamb-1` | Fixed header embed |
+| `main/0/frieze-1/jamb--1` | `main/0/cell-7-7/1` | Fixed frame embed |
+| `edge-0/cornice-1` | `main/0/cell-3-0/1` | One-metre local embed fixture |
+| `clerestory/front-rail/base` | `clerestory/cornice` | Measured local overlap |
+| `ny-main-flight-2/handrail--1` | `ny-main-flight-2/post--1-10` | Measured intermediate-post overlap |
+| `visit-cap/ny-side-approach--1/7` | `porch-west-1` | Exact structural source seam |
+| `upper-terrace/rail-front/cap-2` | `upper-terrace/rail-front/pier-2` | Explicit carpentry butt joint at native precision |
+
+Artist authors a small additive support override and evidence, not a second 40 MB bindings copy. Preserve completed bindings `407c0f8b`, geometry `f1252c73`, materials and fuel. Coordinate its typed schema with coder. The fixed header's permanent support uses its fixed jambs; moving-leaf observed contact remains physical evidence rather than load-bearing support for that frame. Preserve hinge/hardware relationships. Validate cold/active parity, actual local parent loss, header independence from moving leaves, no self-grounding cycle and unchanged stock. The cornice fixture does not establish full 48 m coverage; the remaining graph stays an explicit finding.
+
+For separated `main-parapet-0/base`, prepare a bounded proposal for minimal modeled timber blocking/corbel supports to actual rooted roof/cornice geometry, preserving original assembly positions, native dimensions, UVs and raw history. Supply precise added-member/contact geometry, finite fuel and local retirement/ownership. No parapet geometry addition or unmodelled quarter-metre mount is approved by this proposal assignment.
+
 The coder's corrected CPU extraction is source accepted through `6f54554ceaefe0d63ad617836bd30e63466d66d4`. Continue New York runtime/presentation, source-aware aiming and persistent sparse activation, preserving local retirement and atomic replacement of static proxies. No renderer is granted by this amendment. Administration/Horticulture rollout still follows the actual New York pilot review; plan bounded source shards or compact authoring rules before exporting their larger tables, and keep authoring evidence out of startup fetches.
