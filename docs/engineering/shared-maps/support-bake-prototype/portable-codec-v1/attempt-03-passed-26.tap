@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: all four archived blocks retain every identity field, result and exact JSON/edge order
+ok 1 - all four archived blocks retain every identity field, result and exact JSON/edge order
+  ---
+  duration_ms: 4.0795
+  type: 'test'
+  ...
+# Subtest: archived block 0 round-trips in isolation
+ok 2 - archived block 0 round-trips in isolation
+  ---
+  duration_ms: 1.1215
+  type: 'test'
+  ...
+# Subtest: archived block 1 round-trips in isolation
+ok 3 - archived block 1 round-trips in isolation
+  ---
+  duration_ms: 0.7624
+  type: 'test'
+  ...
+# Subtest: archived block 2 round-trips in isolation
+ok 4 - archived block 2 round-trips in isolation
+  ---
+  duration_ms: 0.8972
+  type: 'test'
+  ...
+# Subtest: archived block 3 round-trips in isolation
+ok 5 - archived block 3 round-trips in isolation
+  ---
+  duration_ms: 1.1847
+  type: 'test'
+  ...
+# Subtest: synthetic false, true and undefined preserve native result meaning
+ok 6 - synthetic false, true and undefined preserve native result meaning
+  ---
+  duration_ms: 2.9535
+  type: 'test'
+  ...
+# Subtest: entry order and asymmetric edge orientation are preserved without sorting
+ok 7 - entry order and asymmetric edge orientation are preserved without sorting
+  ---
+  duration_ms: 1.9694
+  type: 'test'
+  ...
+# Subtest: well-formed Unicode, BOM strings, negative zero and opaque identity metadata survive
+ok 8 - well-formed Unicode, BOM strings, negative zero and opaque identity metadata survive
+  ---
+  duration_ms: 0.8824
+  type: 'test'
+  ...
+# Subtest: decoder owns input bytes; returned metadata and edges have independent mutable containers
+ok 9 - decoder owns input bytes; returned metadata and edges have independent mutable containers
+  ---
+  duration_ms: 1.6274
+  type: 'test'
+  ...
+# Subtest: all eleven public limits tighten safely on both encode and decode
+ok 10 - all eleven public limits tighten safely on both encode and decode
+  ---
+  duration_ms: 3.6525
+  type: 'test'
+  ...
+# Subtest: header size/count ceilings reject before dictionary or object materialization
+ok 11 - header size/count ceilings reject before dictionary or object materialization
+  ---
+  duration_ms: 1.5516
+  type: 'test'
+  ...
+# Subtest: unknown magic, versions, flags and reserved fields reject
+ok 12 - unknown magic, versions, flags and reserved fields reject
+  ---
+  duration_ms: 0.7537
+  type: 'test'
+  ...
+# Subtest: CRC rejects every one-byte payload change in dictionary, metadata and edges
+ok 13 - CRC rejects every one-byte payload change in dictionary, metadata and edges
+  ---
+  duration_ms: 0.7237
+  type: 'test'
+  ...
+# Subtest: every truncation prefix and appended bytes reject
+ok 14 - every truncation prefix and appended bytes reject
+  ---
+  duration_ms: 41.5068
+  type: 'test'
+  ...
+# Subtest: canonical u32 varints reject overlong and overflow encodings with a valid CRC
+ok 15 - canonical u32 varints reject overlong and overflow encodings with a valid CRC
+  ---
+  duration_ms: 0.668
+  type: 'test'
+  ...
+# Subtest: dictionary length caps, invalid UTF-8 and duplicate strings reject
+ok 16 - dictionary length caps, invalid UTF-8 and duplicate strings reject
+  ---
+  duration_ms: 0.8715
+  type: 'test'
+  ...
+# Subtest: dictionary reference, directed duplicate and self-edge range checks precede expansion
+ok 17 - dictionary reference, directed duplicate and self-edge range checks precede expansion
+  ---
+  duration_ms: 1.604
+  type: 'test'
+  ...
+# Subtest: CRC-valid duplicate object keys and entry signatures reject
+ok 18 - CRC-valid duplicate object keys and entry signatures reject
+  ---
+  duration_ms: 1.6229
+  type: 'test'
+  ...
+# Subtest: header/body entry or edge count mismatch and trailing token bytes reject
+ok 19 - header/body entry or edge count mismatch and trailing token bytes reject
+  ---
+  duration_ms: 1.363
+  type: 'test'
+  ...
+# Subtest: unknown token tags and misplaced edge lists reject
+ok 20 - unknown token tags and misplaced edge lists reject
+  ---
+  duration_ms: 1.6022
+  type: 'test'
+  ...
+# Subtest: nonfinite and unsafe integer wire values reject
+ok 21 - nonfinite and unsafe integer wire values reject
+  ---
+  duration_ms: 1.6089
+  type: 'test'
+  ...
+# Subtest: malformed result and identity schemas are rejected as codec errors
+ok 22 - malformed result and identity schemas are rejected as codec errors
+  ---
+  duration_ms: 2.221
+  type: 'test'
+  ...
+# Subtest: arrays, cycles, accessors, symbols and ill-formed strings cannot bypass bounds
+ok 23 - arrays, cycles, accessors, symbols and ill-formed strings cannot bypass bounds
+  ---
+  duration_ms: 1.5019
+  type: 'test'
+  ...
+# Subtest: prototype-like keys remain data and integer object key order is canonical
+ok 24 - prototype-like keys remain data and integer object key order is canonical
+  ---
+  duration_ms: 1.105
+  type: 'test'
+  ...
+# Subtest: standard browser globals suffice and malformed late data creates no decoded object
+ok 25 - standard browser globals suffice and malformed late data creates no decoded object
+  ---
+  duration_ms: 9.5213
+  type: 'test'
+  ...
+# Subtest: a tightened generic array ceiling also bounds dedicated edge lists before expansion
+ok 26 - a tightened generic array ceiling also bounds dedicated edge lists before expansion
+  ---
+  duration_ms: 0.6897
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 198.4949

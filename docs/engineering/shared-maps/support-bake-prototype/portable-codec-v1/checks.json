@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "scope": "Portable codec/pure tests only",
+  "decisionCommit": "0e4136029ecc832210e91dd609583e528e5bdfef",
+  "humanReadmeRepairCommit": "5ba76f6baaff36e7be0ea7d11fbb9026eb3dc455",
+  "rawProofPathsUnchanged": 18,
+  "originalArchiveSha256": "ef1990de493c8f901c1cf631b71aaf750bf7e30bb7b9b8976e3f5f12401244fa",
+  "encodedBytes": 3253,
+  "encodedSha256": "3b49454119a2707e21478cda81aa322915b61a84c0cc7a40fd984b675704bc51",
+  "pureTestsPassed": 27,
+  "exactFailedSyntaxSourceAndCorrectionVerified": true,
+  "vmCompatibilityOnly": true,
+  "worldFixtureRuns": 0,
+  "benchmarks": 0,
+  "helpersCreated": 0,
+  "productionChangedPaths": [],
+  "trainCandidateUnchanged": true,
+  "codecAPI": [
+    "encodeSupportBlocks",
+    "decodeSupportBlocks",
+    "packResult",
+    "unpackResult",
+    "DEFAULT_LIMITS",
+    "WIRE_FORMAT",
+    "SupportCodecError"
+  ],
+  "trust": "CRC wire corruption check; SHA identity/native applicability remain coder-owned outside callbacks."
+}
