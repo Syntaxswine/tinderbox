@@ -1,0 +1,219 @@
+{
+  "acceptedInstanceRepresentationCertificates": 476,
+  "acceptedIntervalMultipleOutcomes": 476,
+  "additionalScalarRepresentationErrorSeparateFromSeamOnlyBounds": true,
+  "canonicalRuntimeExportOrBindingAssigned": false,
+  "conditionalInstanceRepresentationProposals": 54,
+  "conditionalTableUnionRepresentationProposals": 8,
+  "instanceCertificates": 530,
+  "multipleIntervalOutcomesDoNotBlockSelectedLower": true,
+  "multipleOutcomeIntervals": 530,
+  "nearestEvenDiagnosticConservativeCandidatesRoundingUp": 492,
+  "rule": "After unchanged accepted reference-depth recipe, greatest finite nonnegative binary64 <= exact rational lower quantity.",
+  "scalarControls": [
+    {
+      "control": "exact-zero",
+      "exactInput": {
+        "approximate": 0.0,
+        "denominator": "1",
+        "numerator": "0"
+      },
+      "expectedFloorDyadic": {
+        "approximate": 0.0,
+        "denominator": "1",
+        "numerator": "0"
+      },
+      "representation": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x0000000000000000",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "exactRationalLower": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "hexFloat": "0x0.0p+0",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x0000000000000000",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.0",
+        "nextUpBitsUint64Hex": "0x0000000000000001",
+        "nextUpExactDyadicValue": {
+          "approximate": 5e-324,
+          "denominator": "202402253307310618352495346718917307049556649764142118356901358027430339567995346891960383701437124495187077864316811911389808737385793476867013399940738509921517424276566361364466907742093216341239767678472745068562007483424692698618103355649159556340810056512358769552333414615230502532186327508646006263307707741093494784",
+          "numerator": "1"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 5e-324,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.0
+      },
+      "scope": "Scalar arithmetic control only; no asset stock or binding."
+    },
+    {
+      "control": "exact-representable",
+      "exactInput": {
+        "approximate": 1.5,
+        "denominator": "2",
+        "numerator": "3"
+      },
+      "expectedFloorDyadic": {
+        "approximate": 1.5,
+        "denominator": "2",
+        "numerator": "3"
+      },
+      "representation": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3ff8000000000000",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 1.5,
+          "denominator": "2",
+          "numerator": "3"
+        },
+        "exactRationalLower": {
+          "approximate": 1.5,
+          "denominator": "2",
+          "numerator": "3"
+        },
+        "hexFloat": "0x1.8000000000000p+0",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3ff8000000000000",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "1.5",
+        "nextUpBitsUint64Hex": "0x3ff8000000000001",
+        "nextUpExactDyadicValue": {
+          "approximate": 1.5000000000000002,
+          "denominator": "4503599627370496",
+          "numerator": "6755399441055745"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 1.5000000000000002,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 1.5
+      },
+      "scope": "Scalar arithmetic control only; no asset stock or binding."
+    },
+    {
+      "control": "between-floats-midpoint",
+      "exactInput": {
+        "approximate": 1.0,
+        "denominator": "9007199254740992",
+        "numerator": "9007199254740993"
+      },
+      "expectedFloorDyadic": {
+        "approximate": 1.0,
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "representation": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.1102230246251565e-16,
+          "denominator": "9007199254740992",
+          "numerator": "1"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3ff0000000000000",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 1.0,
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "exactRationalLower": {
+          "approximate": 1.0,
+          "denominator": "9007199254740992",
+          "numerator": "9007199254740993"
+        },
+        "hexFloat": "0x1.0000000000000p+0",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3ff0000000000000",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "1.0",
+        "nextUpBitsUint64Hex": "0x3ff0000000000001",
+        "nextUpExactDyadicValue": {
+          "approximate": 1.0000000000000002,
+          "denominator": "4503599627370496",
+          "numerator": "4503599627370497"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 1.0000000000000002,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 1.0
+      },
+      "scope": "Scalar arithmetic control only; no asset stock or binding."
+    },
+    {
+      "control": "between-floats-nearest-rounds-up",
+      "exactInput": {
+        "approximate": 1.0000000000000002,
+        "denominator": "18014398509481984",
+        "numerator": "18014398509481987"
+      },
+      "expectedFloorDyadic": {
+        "approximate": 1.0,
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "representation": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.6653345369377348e-16,
+          "denominator": "18014398509481984",
+          "numerator": "3"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3ff0000000000000",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 1.0,
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "exactRationalLower": {
+          "approximate": 1.0000000000000002,
+          "denominator": "18014398509481984",
+          "numerator": "18014398509481987"
+        },
+        "hexFloat": "0x1.0000000000000p+0",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3ff0000000000000",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "1.0",
+        "nextUpBitsUint64Hex": "0x3ff0000000000001",
+        "nextUpExactDyadicValue": {
+          "approximate": 1.0000000000000002,
+          "denominator": "4503599627370496",
+          "numerator": "4503599627370497"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 1.0000000000000002,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 1.0
+      },
+      "scope": "Scalar arithmetic control only; no asset stock or binding."
+    }
+  ],
+  "scope": "Deterministic source-side representation of the selected conservative lower quantity only. All intervals remain; no claim about unknown actual volume, runtime export or finite fuel assignment. Five unaccepted templates and eight unions remain conditional.",
+  "selectedRepresentationsRoundingAboveExactLower": 0,
+  "sourceLowerRepresentationRuleSelectedByArchitect": true,
+  "version": 1
+}

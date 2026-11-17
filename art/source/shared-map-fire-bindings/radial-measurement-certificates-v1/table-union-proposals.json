@@ -1,0 +1,1725 @@
+{
+  "proposals": [
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            47,
+            7.159999847412109,
+            61,
+            1
+          ],
+          "sourceId": "cafe/-129/22/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            47,
+            6.739999771118164,
+            61,
+            1
+          ],
+          "sourceId": "cafe/-129/22/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/-129/22/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    },
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            47,
+            7.159999847412109,
+            69,
+            1
+          ],
+          "sourceId": "cafe/-129/30/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            47,
+            6.739999771118164,
+            69,
+            1
+          ],
+          "sourceId": "cafe/-129/30/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/-129/30/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    },
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            35,
+            7.159999847412109,
+            61,
+            1
+          ],
+          "sourceId": "cafe/-141/22/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            35,
+            6.739999771118164,
+            61,
+            1
+          ],
+          "sourceId": "cafe/-141/22/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/-141/22/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    },
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            35,
+            7.159999847412109,
+            69,
+            1
+          ],
+          "sourceId": "cafe/-141/30/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            35,
+            6.739999771118164,
+            69,
+            1
+          ],
+          "sourceId": "cafe/-141/30/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/-141/30/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    },
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            305,
+            7.159999847412109,
+            61,
+            1
+          ],
+          "sourceId": "cafe/129/22/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            305,
+            6.739999771118164,
+            61,
+            1
+          ],
+          "sourceId": "cafe/129/22/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/129/22/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    },
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            305,
+            7.159999847412109,
+            69,
+            1
+          ],
+          "sourceId": "cafe/129/30/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            305,
+            6.739999771118164,
+            69,
+            1
+          ],
+          "sourceId": "cafe/129/30/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/129/30/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    },
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            317,
+            7.159999847412109,
+            61,
+            1
+          ],
+          "sourceId": "cafe/141/22/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            317,
+            6.739999771118164,
+            61,
+            1
+          ],
+          "sourceId": "cafe/141/22/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/141/22/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    },
+    {
+      "actualDisjointnessProof": {
+        "endpointReferenceYDisplacementExactlyZero": true,
+        "intersectionVolumeExact": {
+          "approximate": 0.0,
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "legMaximumWorldY": {
+          "approximate": 7.1199997663497925,
+          "denominator": "8388608",
+          "numerator": "59726887"
+        },
+        "positiveLiteralSeparation": {
+          "approximate": 8.195638656616211e-08,
+          "denominator": "134217728",
+          "numerator": "11"
+        },
+        "proof": "Each certified periodic component solid is within the Y halfspaces proved from all its original transformed positions. The positive gap separates the closed reference sets, so their actual intersection is empty. Bounding envelopes are not substituted for component volume.",
+        "separatingPlaneNormal": [
+          0,
+          1,
+          0
+        ],
+        "topMinimumWorldY": {
+          "approximate": 7.119999848306179,
+          "denominator": "134217728",
+          "numerator": "955630203"
+        }
+      },
+      "canonicalMeasurementExport": null,
+      "canonicalRoundingReview": {
+        "canonicalRuntimeExport": null,
+        "conservativeLowerRecipeRepresentation": {
+          "additionalRepresentationUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "adjacentNonnegativeBinary64BitsProved": true,
+          "bitsUint64Hex": "0x3ff81cc927c7a37d",
+          "dyadicLEExactLower": true,
+          "exactDyadicValue": {
+            "approximate": 1.5070277742290437,
+            "denominator": "4503599627370496",
+            "numerator": "6787049722454909"
+          },
+          "exactRationalLower": {
+            "approximate": 1.5070277742290437,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "415712401914069886074920322926129657423274611455439579"
+          },
+          "hexFloat": "0x1.81cc927c7a37dp+0",
+          "jsonDecimalTokenInsideCorrectRoundingCell": true,
+          "jsonRoundTripBitsUint64Hex": "0x3ff81cc927c7a37d",
+          "jsonRoundTripPreservesExactDyadic": true,
+          "jsonToken": "1.5070277742290437",
+          "nextUpBitsUint64Hex": "0x3ff81cc927c7a37e",
+          "nextUpExactDyadicValue": {
+            "approximate": 1.5070277742290439,
+            "denominator": "2251799813685248",
+            "numerator": "3393524861227455"
+          },
+          "nextUpGTExactLower": true,
+          "nextUpValue": 1.5070277742290439,
+          "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+          "runtimeExportOrFuelAssignment": false,
+          "value": 1.5070277742290437
+        },
+        "conservativeRecipeQuantityConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "18436638287068794679535834881532768987"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 1.5070277742290437,
+          "downwardHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenBinary64": 1.5070277742290437,
+          "nearestEvenHex": "0x1.81cc927c7a37dp+0",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": false,
+          "nearestEvenSignedConversionError": {
+            "approximate": -6.683593232749038e-17,
+            "denominator": "275849197355859984296031457258901749150134819040002048",
+            "numerator": "-18436638287068794679535834881532768987"
+          }
+        },
+        "conservativeVolumeConversionDiagnosticOnly": {
+          "candidateAdditionalUndermeasurement": {
+            "approximate": 1.9091332538506602e-17,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "43886072976673830939520076656370922203"
+          },
+          "candidateSelectedForExport": false,
+          "downwardBinary64Candidate": 0.18084333290748522,
+          "downwardHex": "0x1.725dfd444c5e8p-3",
+          "nearestEvenBinary64": 0.18084333290748525,
+          "nearestEvenHex": "0x1.725dfd444c5e9p-3",
+          "nearestEvenRoundingCellCertified": true,
+          "nearestEvenRoundsAboveExact": true,
+          "nearestEvenSignedConversionError": {
+            "approximate": 8.66424307712231e-18,
+            "denominator": "2298743311298833287537520540725463775428108683275403264",
+            "numerator": "19916870821002130959862662237085617445"
+          }
+        },
+        "multipleIntervalOutcomesDoNotBlockLowerRepresentation": true,
+        "quantityIntervalHasMultipleBinary64Outcomes": true,
+        "quantityIntervalNearestEvenOutcomeCount": 7,
+        "runtimeOrFuelAssignment": false,
+        "scope": "Apply the unchanged exact reference-depth recipe first, then conservatively represent its selected lower value. The full measurement interval remains. This representation does not identify the unknown actual volume or install/export a fuel quantity.",
+        "selectedLowerReferenceNotWholeInterval": true,
+        "sourceRepresentationInterpretationAccepted": false,
+        "status": "CONDITIONAL_SOURCE_REPRESENTATION_PROPOSAL"
+      },
+      "geometryRepairOrGapFilled": false,
+      "jointOrSupportOrConnectivityAccepted": false,
+      "members": [
+        {
+          "affineCertificateId": "c88a21952d01719beeaac6f9",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            317,
+            7.159999847412109,
+            69,
+            1
+          ],
+          "sourceId": "cafe/141/30/top",
+          "templateId": "a0784d61"
+        },
+        {
+          "affineCertificateId": "bd64332d14abbda691829280",
+          "originalMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            317,
+            6.739999771118164,
+            69,
+            1
+          ],
+          "sourceId": "cafe/141/30/leg",
+          "templateId": "eb49ad7c"
+        }
+      ],
+      "nominalUnionVolumeIntegral": {
+        "approximate": 0.1808433329074853,
+        "denominator": "340282366920938463463374607431768211456",
+        "numerator": "61537797363630344297357035622100120113"
+      },
+      "periodicReferenceUnionVolumeExact": {
+        "approximate": 0.18084333290748533,
+        "denominator": "680564733841876926926749214863536422912",
+        "numerator": "123075594727260692880698842624150647989"
+      },
+      "periodicReferenceUnionVolumeInterval": [
+        {
+          "approximate": 0.18084333290748525,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 0.1808433329074854,
+          "denominator": "2298743311298833287537520540725463775428108683275403264",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ],
+      "placeId": "horticulture",
+      "proposalKey": "cafe/141/30/table-assembly",
+      "proposedConservativeUnionVolume": {
+        "approximate": 0.18084333290748525,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "415712401914069886074920322926129657423274611455439579"
+      },
+      "quantityAssigned": false,
+      "seamOnlyUnionVolumeError": {
+        "approximate": 7.765039283239955e-17,
+        "denominator": "2298743311298833287537520540725463775428108683275403264",
+        "numerator": "178498321143205334451827836794473139493"
+      },
+      "status": "TABLE_UNION_MEASUREMENT_PROPOSAL_UNACCEPTED",
+      "unassignedGeometricRecipeInterval": [
+        {
+          "approximate": 1.5070277742290437,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914069886074920322926129657423274611455439579"
+        },
+        {
+          "approximate": 1.507027774229045,
+          "denominator": "275849197355859984296031457258901749150134819040002048",
+          "numerator": "415712401914070243071562609336798561078948200401718565"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}
