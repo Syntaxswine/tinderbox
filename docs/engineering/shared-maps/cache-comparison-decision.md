@@ -36,3 +36,23 @@ support and replay results still require exact comparison. Negative controls
 must reject changed collision, portal or actor behavior. Unknown differences
 remain failures. Actual pauses remain a separate blocker regardless of digest
 results. Keep family/port/block/material installation outside this experiment.
+
+## Independent raw-host result
+
+Root verifies all six raw-host file hashes and compares every recursive field.
+Cold is identical. Before differs only in collision `cachedTriangles`
+2336 → 2528, `peakTriangles` 2528 → 2560 and `shapeBuilds` 496 → 432.
+After differs only in `peakTriangles` 15432 → 15244 and `shapeBuilds`
+1775 → 1482. All other host values agree. All three native, directed support,
+replay, counts, heat and fuel comparisons and command hashes agree independently.
+Accept these exact observations as telemetry for the measured two-path version.
+The original digest failure remains evidence, not a passed strict equality.
+
+Root source review also finds that clearing the graph's own `watched` set does
+not remove callbacks held by the boundary index. Authorize the smallest additive
+owned-watch unsubscribe API as a separately pinned lifecycle successor; existing
+watch consumers and notification deduplication remain compatible. Require actual
+notification/subscription release checks, not a cleared diagnostic counter.
+It adds `workbenches/furnished-house/geometry.js` as a third physical source path.
+The measured version and correctness lanes remain frozen; no new measurement,
+renderer or build is granted by this lifecycle correction.
