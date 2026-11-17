@@ -1,5 +1,9 @@
 {
-  "artifactSha256": "2c4f2e5e3f1a6439cc9d900725b95c3ac40c2c46d159f3a7815b71d784a52c20",
+  "artifactSha256": "7490e3bfeeab4a6080d2c9d97b99fc81bac875d711c83fcbe4c10e34e008b1f9",
+  "bindingComparison": {
+    "commit": "a067048a84e91a049a5cfcbc9209e84e118fc1af",
+    "onlyChanges": "Policy evidence and source-ledger metadata; physical bindings, finite quantities, coverage and source references identical."
+  },
   "carriers": 12342,
   "checks": {
     "access": 1,
@@ -9,16 +13,43 @@
     "frame": 1,
     "glass": 77,
     "ledger": 7,
-    "negative controls": 4,
+    "negative controls": 6,
     "ownership": 49371,
     "pilot": 4,
-    "pin": 586,
+    "pin": 2315,
+    "policy": 23,
+    "policy-context": 1,
     "quantity": 50835,
+    "regression": 15,
     "roof": 1042,
     "source-gap": 1,
     "support": 106550
   },
   "logicalSourceParts": 12858,
+  "policyContext": {
+    "containsAcceptedAmendment": true,
+    "currentPolicyHashesArePhysicalGates": false,
+    "documents": [
+      {
+        "currentLFTextSha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238",
+        "currentSha256": "09edcbd2d63d094616b541aebcf4ceaa55fab1a2b134351297dc7ab602613fb4",
+        "latestPinnedPolicySha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238",
+        "matchesLatestPolicyText": true,
+        "path": "docs/art/shared-modular-art-workflow.md",
+        "wouldFailOriginalCoupledPin": true
+      },
+      {
+        "currentLFTextSha256": "932198df389751522c75235afed21fc4baf045c244fd32db87787ca849bfe591",
+        "currentSha256": "932198df389751522c75235afed21fc4baf045c244fd32db87787ca849bfe591",
+        "latestPinnedPolicySha256": "932198df389751522c75235afed21fc4baf045c244fd32db87787ca849bfe591",
+        "matchesLatestPolicyText": true,
+        "path": "docs/milestones/29-shared-gameplay-maps.md",
+        "wouldFailOriginalCoupledPin": true
+      }
+    ],
+    "gitCommit": "ec3aba6a70b74a0c30322899b4ab9652261d129a",
+    "physicalDependenciesVerified": 575
+  },
   "pythonVersion": "3.12.10",
   "result": "PASS",
   "runtimeOrVisualAcceptance": false,

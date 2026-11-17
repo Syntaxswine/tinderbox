@@ -129,6 +129,42 @@ Shadow graphic dependencies that remain unknown are also listed explicitly.
 These lists must accompany integration review rather than being treated as passed
 collapse or traversal checks.
 
+## Policy evidence and reproducibility correction
+
+The original `a067048a` candidate passed in the artist checkout but failed the architect's
+combined source check because two mutable policy documents were incorrectly included in
+`sourceLedger`. The architect's Version 2 workflow has CRLF serialization of the same
+committed text; its M29 brief also includes the accepted `15672d11` amendment. Neither
+change is a physical asset divergence.
+
+Policy is now separate historical evidence in `policyEvidence`, with an exact commit,
+Git blob, SHA-256 and deliberately preserved snapshot for each reference:
+
+| Evidence | Committed reference | Frozen source |
+| --- | --- | --- |
+| Version 2 shared art workflow read at authoring | `6d1061cd:docs/art/shared-modular-art-workflow.md`, blob `63415856848ab3c26f509cb09eed2b079ea8973b` | [Workflow snapshot](../../../art/source/shared-map-fire-bindings/policy-snapshots/workflow-v2-6d1061cd.md) |
+| Original M29 authoring brief | `6d1061cd:docs/milestones/29-shared-gameplay-maps.md` | [Original brief snapshot](../../../art/source/shared-map-fire-bindings/policy-snapshots/m29-authoring-6d1061cd.md) |
+| Accepted material/capability amendment | `15672d1187dd01ca6557f0459247adc0d4971a11:docs/milestones/29-shared-gameplay-maps.md` | [Accepted brief snapshot](../../../art/source/shared-map-fire-bindings/policy-snapshots/m29-accepted-15672d11.md) |
+
+Each snapshot must equal its committed Git object byte-for-byte. Version 2 is therefore
+available in committed sources, rather than relying on a local working document. The
+initial working-copy policy hashes remain recorded with their original LF/CRLF
+serialization, explaining the failed old pins without rewriting history.
+
+Current policy paths are excluded from physical dependency hashes and the physical
+`git diff` gate. Every original physical source/provenance pin remains strict. Candidate
+authoring scripts and byte-preservation attributes also retain exact pins. No physical
+hash is normalized for line endings or waived. Later architect policy edits do not require
+regenerating art, while corrupting a frozen policy snapshot still fails its own check.
+Updating this historical policy evidence is a deliberate source change.
+
+The optional context check reads the architect checkout without editing it: it verifies
+all original physical dependencies there, reports current policy hashes separately, and
+checks that the context contains the accepted amendment. Candidate-owned authoring tools
+remain verified in the candidate checkout. The optional comparison verifies that this
+successor changes only policy/source-ledger metadata relative to `a067048a`, including
+unchanged carriers, geometry, support, poses, materials and finite quantities.
+
 ## Reproduction and checks
 
 Use Python 3.12 and the repository's existing Node runtime. No package installation,
@@ -138,6 +174,8 @@ renderer, server, watcher or background helper is required.
 python art/source/shared-map-fire-bindings/export.py
 python art/source/shared-map-fire-bindings/export.py --check
 python art/source/shared-map-fire-bindings/check.py --record
+# Optional read-only combined-context regression from the artist checkout:
+python art/source/shared-map-fire-bindings/check.py --policy-worktree "C:/Users/baals/Documents/ChatGPT/tinderbox" --compare-binding-ref a067048a --record
 node workbenches/art/check-exposition-new-york-tile.mjs
 node workbenches/art/check-exploration-access.mjs
 ```
@@ -146,8 +184,9 @@ The exporter pins the scene index, navigation, sections, geometry and original s
 closure. The independent checker verifies exact ownership, poses, ranges and world
 coordinates; recomputes finite quantities and roof fragment areas; checks the original
 workproduct against common base `6d1061cd3ab7e6c9bff212381193376473413b30`; and rejects
-four deliberate bad controls: duplicate fuel ownership, double-applied source offset,
-a second coating and fuel assigned to glass. The receipt records the exact artifact hash.
+six deliberate bad controls: duplicate fuel ownership, double-applied source offset,
+a second coating, fuel assigned to glass, changed physical source bytes and a corrupted
+frozen policy snapshot. The receipt records the exact artifact hash and any selected combined-context comparison.
 
 During authoring, checks caught an unterminated JSON export, duplicate area from a roof
 polygon clipping edge case, a contact sliver that rounded to zero, and the open-source

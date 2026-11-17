@@ -21,15 +21,15 @@
     },
     {
       "path": "art/source/shared-map-fire-bindings/.gitattributes",
-      "sha256": "fab1df18b7d9acf87222372795da637e13468b71c6c3c22bf8bb75cc7af0ded2"
+      "sha256": "7e1697b5b2d2b5d52cb19e7b2134db2727290cade87f7b98bb7d459986bf5cf9"
     },
     {
       "path": "art/source/shared-map-fire-bindings/check.py",
-      "sha256": "e03e3dce18bf37b5bae089b6d6a069e2013bea22cf6efadc7b8114a9f2da8955"
+      "sha256": "24171b90d9f0f07ebc7f54caf8bcd8fcd4c1b61a014655c2e68b31e47cb81bc1"
     },
     {
       "path": "art/source/shared-map-fire-bindings/export.py",
-      "sha256": "eed82d13068fe57b094a595c546322a36a62be036136e8979409e6fd9088c110"
+      "sha256": "ae42ec633ab21e8d065ee0b3e3779292591c20cceb9d0f1dd3cd76b1600327aa"
     },
     {
       "path": "assets/art/exploration-access/index.js",
@@ -2322,17 +2322,44 @@
     {
       "path": "docs/art/shared-map-fire-bindings/.gitattributes",
       "sha256": "6eab5a36d862407780bd841adf0c2ef1a3742a36f89ddd8f6171eab0737f062f"
-    },
-    {
-      "path": "docs/art/shared-modular-art-workflow.md",
-      "sha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238"
-    },
-    {
-      "path": "docs/milestones/29-shared-gameplay-maps.md",
-      "sha256": "706b51a2d763478fefc50b8311b51105f998f1ba2d8df44ba64eae6bd66f529d"
     }
   ],
-  "sourceLedgerSha256": "b61b0a7523bed01f4b9b7825cd2da0470f7a24ec22028ef7cf9ed4c545bf7b77",
+  "sourceLedgerScope": "Exact physical source/provenance and authoring-tool dependencies; current policy documents are excluded.",
+  "policyEvidence": [
+    {
+      "role": "shared-workflow-read-at-authoring",
+      "path": "docs/art/shared-modular-art-workflow.md",
+      "commit": "6d1061cd3ab7e6c9bff212381193376473413b30",
+      "gitBlob": "63415856848ab3c26f509cb09eed2b079ea8973b",
+      "sha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238",
+      "snapshotPath": "art/source/shared-map-fire-bindings/policy-snapshots/workflow-v2-6d1061cd.md",
+      "label": "Shared modular art workflow, Version 2, 12 November 2026",
+      "originalDeliveryWorkingCopySha256": "3321b5bc7b40786898e06dd43f3bc17ae84b29fc1cf221ee2bf9e2481ab64238",
+      "originalDeliveryLineEndings": "LF"
+    },
+    {
+      "role": "original-brief-read-at-authoring",
+      "path": "docs/milestones/29-shared-gameplay-maps.md",
+      "commit": "6d1061cd3ab7e6c9bff212381193376473413b30",
+      "gitBlob": "d52cb2372fbe966b04d9bf53cc041802116339b6",
+      "sha256": "09fe8fac960a6c215fcfa461e67eed7779773cfafc16ee15c74e6c7b9f4e4170",
+      "snapshotPath": "art/source/shared-map-fire-bindings/policy-snapshots/m29-authoring-6d1061cd.md",
+      "label": "Original M29 common brief",
+      "originalDeliveryWorkingCopySha256": "706b51a2d763478fefc50b8311b51105f998f1ba2d8df44ba64eae6bd66f529d",
+      "originalDeliveryLineEndings": "CRLF"
+    },
+    {
+      "role": "accepted-pilot-contract",
+      "path": "docs/milestones/29-shared-gameplay-maps.md",
+      "commit": "15672d1187dd01ca6557f0459247adc0d4971a11",
+      "gitBlob": "4eb7a9880a4b2f9affdc0c13eb3c2e81ad56925a",
+      "sha256": "932198df389751522c75235afed21fc4baf045c244fd32db87787ca849bfe591",
+      "snapshotPath": "art/source/shared-map-fire-bindings/policy-snapshots/m29-accepted-15672d11.md",
+      "label": "M29 reconciled pilot material and capability contract"
+    }
+  ],
+  "policyEvidenceSha256": "4a0f5127d4dda7310715ab79af50e97ac128c59ef4f21f784965275f7c17e71b",
+  "sourceLedgerSha256": "0f6a09d3e7934ac9f7ebd8ab4191642c1c8c149af7e6d885119a93536254e15d",
   "nativeContract": {
     "cell": [
       1,
