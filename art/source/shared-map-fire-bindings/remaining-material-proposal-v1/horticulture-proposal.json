@@ -1,0 +1,970 @@
+{
+  "actualCarrierCount": "not assigned",
+  "families": [
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Visible paving is documented; actual historic quay construction remains unresolved.",
+      "examples": [
+        "terrace/0/floor-0",
+        "terrace/1/floor-0",
+        "terrace/10/floor-0"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "terrace/0/floor-0",
+      "id": "H01",
+      "lastSourceId": "terrace/9999/floor-0",
+      "logicalIdSetSha256": "2f5bb0a3db721c4c7679360df18b05119dda8786bd4ebfb425346b9f6b2d6d44",
+      "logicalSourceCount": 10404,
+      "name": "Terrace native paving cells",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "masonry-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 10404,
+      "scope": {
+        "all": [
+          {
+            "idRegex": "^terrace/"
+          },
+          {
+            "roleIn": [
+              "floor"
+            ]
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Source concrete enum is geometry-only. Contact with ground must be measured.",
+      "examples": [
+        "terrace/0/quay-outer-corner.front:0:0",
+        "terrace/0/quay-outer-corner.left:0:0",
+        "terrace/1/quay-pier.front:0:0"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "terrace/0/quay-outer-corner.front:0:0",
+      "id": "H02",
+      "lastSourceId": "terrace/99/quay-rail.front:0:0",
+      "logicalIdSetSha256": "5f97cb4c50f8e9514d13931ddd225d2851819d583f38aea14a30de97d6731898",
+      "logicalSourceCount": 346,
+      "name": "Terrace native retaining backbone",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "masonry-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 346,
+      "scope": {
+        "roleIn": [
+          "retaining-backbone"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Dark photograph rails do not establish alloy or fixity.",
+      "examples": [
+        "replacement/terrace/2447/front/rail-0",
+        "replacement/terrace/2447/front/rail-1",
+        "replacement/terrace/2447/front/rail-2"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "replacement/terrace/2447/front/rail-0",
+      "id": "H03",
+      "lastSourceId": "terrace/99/front/rail-2",
+      "logicalIdSetSha256": "dc35f2a41a288fc1c4c2ee8f51498e0ce060a18e8ddae515ef5a6f99d52ec034",
+      "logicalSourceCount": 1038,
+      "name": "Terrace rail bars/stair rails",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "metal-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 1038,
+      "scope": {
+        "all": [
+          {
+            "idRegex": "^terrace/"
+          },
+          {
+            "roleIn": [
+              "rail-bar",
+              "stair-rail"
+            ]
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Thin facings do not duplicate backbone fuel or become its brace.",
+      "examples": [
+        "replacement/terrace/2447/coping",
+        "replacement/terrace/2448/coping",
+        "replacement/terrace/3365/coping"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "replacement/terrace/2447/coping",
+      "id": "H04",
+      "lastSourceId": "terrace/99/front/toe",
+      "logicalIdSetSha256": "a6ab5cd215fe47667ba4b7d09ba19eaca8e8f99e1e314a34978a5f1fc2063412",
+      "logicalSourceCount": 3445,
+      "name": "Other terrace facings/coping/posts/treads",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "mineral-quay-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 3445,
+      "scope": {
+        "idRegex": "^terrace/"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Conkey documents cream staff outside, not this uniform core material.",
+      "examples": [
+        "court-0-0-piece-0-tier-0:0:0/seam-1",
+        "court-0-0-piece-0-tier-0:0:0/wall-1",
+        "court-0-0-piece-0-tier-0:0:1/seam-1"
+      ],
+      "existingSharedProfile": "clapboard",
+      "firstSourceId": "court-0-0-piece-0-tier-0:0:0/seam-1",
+      "id": "H05",
+      "lastSourceId": "rotunda-9-piece-0-tier-0:4:7/wall-1",
+      "logicalIdSetSha256": "5666f2a6d9f21ad12161bb1074bd75a78e44f7be03c1187836fae507553b9f07",
+      "logicalSourceCount": 11198,
+      "name": "Wall and level-closure core",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "wall-area",
+      "renderRecordCount": 11198,
+      "scope": {
+        "roleIn": [
+          "structural-wall",
+          "perimeter-closure"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination.",
+      "examples": [
+        "first-floor/cell--1-0-0",
+        "first-floor/cell--1-1-0",
+        "first-floor/cell--1-10-0"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "first-floor/cell--1-0-0",
+      "id": "H06",
+      "lastSourceId": "rotunda-gallery/cell-9-9-0",
+      "logicalIdSetSha256": "4d2306a9e57a29375889911aba78083c24b7c2434c9d1ba51e0adc6159a82e6f",
+      "logicalSourceCount": 27996,
+      "name": "Building floor/gallery cells",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "top-area",
+      "renderRecordCount": 27090,
+      "scope": {
+        "all": [
+          {
+            "roleIn": [
+              "floor"
+            ]
+          },
+          {
+            "idRegex": "^(?:first-floor|pavilion-galleries|rotunda-gallery)/"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. No new occupied destination or hidden rotunda cap is implied.",
+      "examples": [
+        "dome-spring-deck/cell--1-5-0",
+        "dome-spring-deck/cell--1-6-0",
+        "dome-spring-deck/cell--1-63-0"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "dome-spring-deck/cell--1-5-0",
+      "id": "H07",
+      "lastSourceId": "foyer-roof-1/cell-9-9-0",
+      "logicalIdSetSha256": "aea53a09c882d1203435ae1f04b72e0b211d92b73ad1600b954bac75b15abfec",
+      "logicalSourceCount": 1961,
+      "name": "Unoccupied spring/entry/foyer roof decks",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "top-area",
+      "renderRecordCount": 1033,
+      "scope": {
+        "roleIn": [
+          "floor"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination.",
+      "examples": [
+        "hort-dry-approach--1/tread-0",
+        "hort-dry-approach--1/tread-1",
+        "hort-dry-approach--1/tread-10"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "hort-dry-approach--1/tread-0",
+      "id": "H08",
+      "lastSourceId": "hort-dry-approach-1/tread-9",
+      "logicalIdSetSha256": "465398857a893d21af26191a0968288eb06a7fa0d0e88ab0788556c6c3ddfbd9",
+      "logicalSourceCount": 24,
+      "name": "Added dry approach treads",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "masonry-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 24,
+      "scope": {
+        "all": [
+          {
+            "roleIn": [
+              "stair-tread"
+            ]
+          },
+          {
+            "idRegex": "^hort-dry-approach-"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination.",
+      "examples": [
+        "east-gallery/step-0",
+        "east-gallery/step-1",
+        "east-gallery/step-10"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "east-gallery/step-0",
+      "id": "H09",
+      "lastSourceId": "west-gallery/step-9",
+      "logicalIdSetSha256": "a869056ad88541475ac81ad41903bc7f49955ddd2e7b508b3f0bd383a6180a34",
+      "logicalSourceCount": 72,
+      "name": "Three gallery stair tread families",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "top-area",
+      "renderRecordCount": 72,
+      "scope": {
+        "roleIn": [
+          "stair-tread"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination.",
+      "examples": [
+        "hort-court--1-front/leaf-extension--1",
+        "hort-court--1-front/leaf-extension-1",
+        "hort-court--1-front/native-leaf--1"
+      ],
+      "existingSharedProfile": "door",
+      "firstSourceId": "hort-court--1-front/leaf-extension--1",
+      "id": "H10",
+      "lastSourceId": "hort-main/native-leaf-1",
+      "logicalIdSetSha256": "7a204357c38c9b9b888924d1ba8041105c4c9b43b3a963c6504207a7c7aa53bf",
+      "logicalSourceCount": 20,
+      "name": "Native paired leaf bodies/extensions",
+      "ownershipProposal": "pair-body-and-extension-by-original-portal-and-sign",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "leaf-area",
+      "renderRecordCount": 20,
+      "scope": {
+        "roleIn": [
+          "door-leaf",
+          "door-extension"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Moving-leaf attachment remains; no fixed-frame support from a moving door.",
+      "examples": [
+        "hort-court--1-front/handle--1",
+        "hort-court--1-front/handle-1",
+        "hort-court--1-rear/handle--1"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "hort-court--1-front/handle--1",
+      "id": "H11",
+      "lastSourceId": "hort-main/handle-1",
+      "logicalIdSetSha256": "5ba48877aae7ff52d99188ca4f8654cb583f40cf71578cf0e78052028ddb2557",
+      "logicalSourceCount": 10,
+      "name": "Leaf hardware",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "metal-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 10,
+      "scope": {
+        "roleIn": [
+          "door-hardware"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Conkey documents glazed front curtains and crystal dome. Open thin skins are not closed-volume fuel or structure.",
+      "examples": [
+        "court-0-0-arch-0/arched-glass",
+        "court-0-0-arch-1/arched-glass",
+        "court-0-0-arch-11/arched-glass"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "court-0-0-arch-0/arched-glass",
+      "id": "H12",
+      "lastSourceId": "vestibule-side-3-arch-1/arched-glass",
+      "logicalIdSetSha256": "aeeacbf3c5521e4ca952486733df91b7eb2a5e70ab0fd64929a9430657e51850",
+      "logicalSourceCount": 381,
+      "name": "Glazing and vents",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "glass",
+      "quantityRule": "inert",
+      "renderRecordCount": 381,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "window-glass",
+              "dome-glass",
+              "roof-glass",
+              "lantern-glass",
+              "cupola-vent"
+            ]
+          },
+          {
+            "idRegex": "/(?:arched-glass|glass)$"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Period report documents ornamental ironwork at the Horticulture dome. Assignment to every modelled dome/cupola/gallery frame is an explicit game adaptation; exact alloy/member construction remains unverified.",
+      "examples": [
+        "curved-gallery-connector--1/purlin--1-0",
+        "curved-gallery-connector--1/purlin--1-1",
+        "curved-gallery-connector--1/purlin--1-2"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "curved-gallery-connector--1/purlin--1-0",
+      "id": "H13",
+      "lastSourceId": "great-dome/lantern-ring-32.86",
+      "logicalIdSetSha256": "76ee78fc18059ab09e1abdac2aaa73b9738023edb01cf9c51071743c1cc1800a",
+      "logicalSourceCount": 453,
+      "name": "Dome/lantern/glazed-gallery framework",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "metal-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 453,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "dome-frame",
+              "lantern-frame"
+            ]
+          },
+          {
+            "idRegex": "^(?:great-dome/lantern-|front-glass-gallery-|curved-gallery-connector-)"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Ribbed covering appearance does not establish historical sheet metal.",
+      "examples": [
+        "front-cupola--1/cupola-roof",
+        "front-cupola-1/cupola-roof"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "front-cupola--1/cupola-roof",
+      "id": "H14",
+      "lastSourceId": "front-cupola-1/cupola-roof",
+      "logicalIdSetSha256": "a46888f1d3ecc9ac8274b86acf7d2cef692c2f2c0c2dc33f57957e604845ff0b",
+      "logicalSourceCount": 2,
+      "name": "Cupola coverings",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "metal-roof-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 2,
+      "scope": {
+        "roleIn": [
+          "cupola-roof"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Living plants are source-supported. Existing grass/dry timber rates do not establish wet foliage/palm/fern behaviour.",
+      "examples": [
+        "fern-0/frond-0",
+        "fern-0/frond-1",
+        "fern-0/frond-10"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "fern-0/frond-0",
+      "id": "H15",
+      "lastSourceId": "palm-5/trunk",
+      "logicalIdSetSha256": "155e5368e168d0c3e10006fa8a92ed8a381658668e8ef4f70f8a7611a31b80af",
+      "logicalSourceCount": 412,
+      "name": "Live foliage/fruit/trunks",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "live-vegetation-unresolved",
+      "quantityRule": "withheld",
+      "renderRecordCount": 412,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "plant"
+            ]
+          },
+          {
+            "idRegex": "^(?:palm-|fern-|orange-tree-).*/trunk$"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Soil moisture remains unverified.",
+      "examples": [
+        "court-bed--54-51",
+        "court-bed--54-65",
+        "court-bed--76-51"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "court-bed--54-51",
+      "id": "H16",
+      "lastSourceId": "front-flower-bed-98",
+      "logicalIdSetSha256": "7a5e7524066ff918b0b278cc034e6ccbd4175f858ca65e98d4033a86e362465d",
+      "logicalSourceCount": 18,
+      "name": "Soil/planting-bed proxies",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "soil-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 18,
+      "scope": {
+        "roleIn": [
+          "planting-bed"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Actual basin masonry construction is unverified.",
+      "examples": [
+        "court-basin--1/kerb-x--4.3",
+        "court-basin--1/kerb-x-4.3",
+        "court-basin--1/kerb-z--2.3"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "court-basin--1/kerb-x--4.3",
+      "id": "H16b",
+      "lastSourceId": "court-basin-1/kerb-z-2.3",
+      "logicalIdSetSha256": "515ccc0be82b594c5dab84225d0d746ecfa59a728c49b5f745c6748feb285c90",
+      "logicalSourceCount": 8,
+      "name": "Court basin kerbs",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "masonry-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 8,
+      "scope": {
+        "idRegex": "^court-basin-.*/kerb-"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Source supports aquatic basins. Two thin render water parts are not the lagoon rectangle, fuel or a new heat/suppression rule.",
+      "examples": [
+        "court-basin--1/water",
+        "court-basin-1/water"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "court-basin--1/water",
+      "id": "H17",
+      "lastSourceId": "court-basin-1/water",
+      "logicalIdSetSha256": "ff52623319d64575e7e4b051e3a5afa8558a4feff38e08670717980ab89fd892",
+      "logicalSourceCount": 2,
+      "name": "Decorative basin water",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "water",
+      "quantityRule": "inert",
+      "renderRecordCount": 2,
+      "scope": {
+        "roleIn": [
+          "decorative-water"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Cafes are source-supported; furniture design and placements are authored.",
+      "examples": [
+        "cafe/-129/22/bench--1.1",
+        "cafe/-129/22/bench-1.1",
+        "cafe/-129/22/foot--1.1--0.15"
+      ],
+      "existingSharedProfile": "furniture",
+      "firstSourceId": "cafe/-129/22/bench--1.1",
+      "id": "H18",
+      "lastSourceId": "cafe/141/30/top",
+      "logicalIdSetSha256": "3575543f28983210d51558ee05f9d538bccac1afd57c9598927e1919ddb16941",
+      "logicalSourceCount": 64,
+      "name": "Cafe tables and benches",
+      "ownershipProposal": "one-table-and-two-separate-benches-per-cafe-position",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "closed-volume",
+      "renderRecordCount": 64,
+      "scope": {
+        "idRegex": "^cafe/"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. A glazed opening does not establish historical wood; fixed-frame support needs actual contacts.",
+      "examples": [
+        "court-0-0-arch-0/fan--1",
+        "court-0-0-arch-0/fan-1",
+        "court-0-0-arch-0/jamb--1"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "court-0-0-arch-0/fan--1",
+      "id": "H19",
+      "lastSourceId": "vestibule-side-3-arch-1/transom",
+      "logicalIdSetSha256": "a17849e753308cbb2527cd67e6e8840b6d4dc2fab91bc611e8c010009fa5b79c",
+      "logicalSourceCount": 2213,
+      "name": "Fixed portal/window carpentry",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "closed-volume",
+      "renderRecordCount": 2213,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "portal-frame"
+            ]
+          },
+          {
+            "idRegex": "/(?:jamb-|mullion|transom|sash-|fan-|leaf-header)"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Existing join directions and unsupported components require independent source review.",
+      "examples": [
+        "east-gallery/handrail--1",
+        "east-gallery/handrail-1",
+        "east-gallery/post--1-0"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "east-gallery/handrail--1",
+      "id": "H20",
+      "lastSourceId": "west-gallery/post-1-9",
+      "logicalIdSetSha256": "6d7290da41f133708ba7b021ff458af81b512e387efc07af3c550353b7db0a95",
+      "logicalSourceCount": 799,
+      "name": "Gallery guards and stair rails",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "closed-volume",
+      "renderRecordCount": 799,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "stair-rail"
+            ]
+          },
+          {
+            "idRegex": "^(?:end-gallery-guard-|rotunda-gallery-guard-)|/(?:post-|handrail-)"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Conkey distinguishes rear ordinary light from front glass; exact rear roofing is unresolved.",
+      "examples": [
+        "rear-curtain-roof",
+        "replacement/end-pavilion-roof-0",
+        "replacement/end-pavilion-roof-1"
+      ],
+      "existingSharedProfile": "roof",
+      "firstSourceId": "rear-curtain-roof",
+      "id": "H21",
+      "lastSourceId": "replacement/end-pavilion-roof-1",
+      "logicalIdSetSha256": "dc8a0938f08410bde795635b17f54279b899ed08e2f4793ca6fc15d2c489573f",
+      "logicalSourceCount": 3,
+      "name": "Rear/end opaque roof coverings",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-covering-proxy",
+      "quantityRule": "weather-area",
+      "renderRecordCount": 3,
+      "scope": {
+        "idRegex": "^(?:rear-curtain-roof|end-pavilion-roof-[01])$"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Cream exterior staff is documented. Per-piece inert proxy and absence of an extra coating account are game choices.",
+      "examples": [
+        "court-0-0-arch-0/arch",
+        "court-0-0-arch-0/sill",
+        "court-0-0-arch-0/spandrel--1"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "court-0-0-arch-0/arch",
+      "id": "H22",
+      "lastSourceId": "vestibule-side-3-arch-1/spandrel-1",
+      "logicalIdSetSha256": "4b744d2777eb159421e76efb673e6337ef8ef3d1bb71e1ea4f23bb1767ed6e62",
+      "logicalSourceCount": 2919,
+      "name": "Staff-like arcade trim/sculpture",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "mineral-staff-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 2919,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "ornament"
+            ]
+          },
+          {
+            "idRegex": "(?:cornice|/arch$|spandrel|/sill$|/boss-|/pilaster-|/capital-|^entrance-figure-)"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "No default timber, inert, quantity or support fallback.",
+      "examples": [],
+      "existingSharedProfile": null,
+      "firstSourceId": null,
+      "id": "H99",
+      "lastSourceId": null,
+      "logicalIdSetSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "logicalSourceCount": 0,
+      "name": "Unresolved source exceptions",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "unassigned",
+      "quantityRule": "withheld",
+      "renderRecordCount": 0,
+      "scope": {
+        "idRegex": ".*"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported.",
+      "unresolvedIds": []
+    }
+  ],
+  "familyOverridesExported": false,
+  "finiteFuel": "not assigned",
+  "geometryArraysRead": false,
+  "logicalIdSetSha256": "33f801c8c57d4c0c3a760de491348ea856064133ef4b2abaa39ad44538785439",
+  "logicalSourceParts": 63788,
+  "manifestWaterRectangle": {
+    "depth": 21,
+    "height": 0,
+    "width": 352,
+    "x": 176,
+    "y": 10.5
+  },
+  "mergedRenderRows": 38,
+  "nativeAccessExceptions": {
+    "accessPlanSummary": {
+      "floorOpenings": [
+        {
+          "filledBy": [],
+          "id": "hort-retained-hole-west-gallery",
+          "level": 3,
+          "maxY": 6.36,
+          "minY": 6.24,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -136,
+              38
+            ],
+            [
+              -134,
+              38
+            ],
+            [
+              -134,
+              46
+            ],
+            [
+              -136,
+              46
+            ]
+          ],
+          "sourceFloorId": "pavilion-galleries"
+        },
+        {
+          "filledBy": [],
+          "id": "hort-retained-hole-east-gallery",
+          "level": 3,
+          "maxY": 6.36,
+          "minY": 6.24,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              134,
+              38
+            ],
+            [
+              136,
+              38
+            ],
+            [
+              136,
+              46
+            ],
+            [
+              134,
+              46
+            ]
+          ],
+          "sourceFloorId": "pavilion-galleries"
+        }
+      ],
+      "hiddenParts": 115,
+      "portals": [
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "hort-main",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "hort-court--1-front",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "hort-court--1-rear",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "hort-court-1-front",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "hort-court-1-rear",
+          "openingWidth": 2
+        }
+      ],
+      "stairs": [
+        {
+          "build": false,
+          "fromLevel": 1,
+          "id": "hort-west-gallery",
+          "kind": "straight",
+          "toLevel": 3
+        },
+        {
+          "build": false,
+          "fromLevel": 1,
+          "id": "hort-east-gallery",
+          "kind": "straight",
+          "toLevel": 3
+        },
+        {
+          "build": false,
+          "fromLevel": 1,
+          "id": "hort-rotunda-gallery",
+          "kind": "straight",
+          "toLevel": 3
+        },
+        {
+          "build": true,
+          "fromLevel": 0,
+          "id": "hort-dry-approach--1",
+          "kind": "straight",
+          "toLevel": 1
+        },
+        {
+          "build": true,
+          "fromLevel": 0,
+          "id": "hort-dry-approach-1",
+          "kind": "straight",
+          "toLevel": 1
+        }
+      ]
+    },
+    "collisionShapeOpenMetadataCount": 199,
+    "height": 144,
+    "occupiedLevels": [
+      1,
+      3
+    ],
+    "portals": [
+      {
+        "id": "hort-main",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "hort-court--1-front",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "hort-court--1-rear",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "hort-court-1-front",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "hort-court-1-rear",
+        "initiallyOpen": false,
+        "stateful": true
+      }
+    ],
+    "sourceOffset": [
+      176,
+      0,
+      39
+    ],
+    "width": 352
+  },
+  "navigationSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6",
+  "newCombustionProfiles": false,
+  "placeId": "horticulture",
+  "quantityRules": {
+    "closed-volume": {
+      "measuredNow": false,
+      "proposal": "actual verified closed physical union volume divided by .12; withhold on unverified/open/cut geometry or unresolved overlap; never double-count compound intersections or cosmetic layers"
+    },
+    "inert": {
+      "measuredNow": false,
+      "proposal": "zero fuel; keep screening, breakage, mass/support intent and retirement explicit"
+    },
+    "leaf-area": {
+      "measuredNow": false,
+      "proposal": "one native body plus its existing upper extension: total nonduplicate physical panel area times .45, once per portal/sign; hardware separate/inert"
+    },
+    "top-area": {
+      "measuredNow": false,
+      "proposal": "actual upward projected physical area times 1; retain each real slab/tread, apertures and .12 m slab geometry; never add absent cells"
+    },
+    "wall-area": {
+      "measuredNow": false,
+      "proposal": "one primary remaining physical wall/closure area at .16 m native depth times 1; never two faces; partition versus clapboard uses the selected existing profile"
+    },
+    "weather-area": {
+      "measuredNow": false,
+      "proposal": "actual exposed upward weather-face area times 1; remove buried/duplicate coverage by actual triangles, never bounding-box area"
+    },
+    "withheld": {
+      "measuredNow": false,
+      "proposal": "No finite assignment, including no automatic zero or timber default"
+    }
+  },
+  "renderRecords": 61954,
+  "roleCounts": {
+    "None": 6501,
+    "coping": 334,
+    "cupola-roof": 2,
+    "cupola-vent": 2,
+    "custom-facing": 2074,
+    "decorative-water": 2,
+    "dome-frame": 166,
+    "dome-glass": 1,
+    "door-extension": 10,
+    "door-hardware": 10,
+    "door-leaf": 10,
+    "floor": 40361,
+    "lantern-frame": 2,
+    "lantern-glass": 1,
+    "ornament": 432,
+    "perimeter-closure": 5230,
+    "plant": 390,
+    "planting-bed": 18,
+    "portal-frame": 15,
+    "rail-bar": 1008,
+    "retaining-backbone": 346,
+    "roof-glass": 16,
+    "rusticated-pier-facing": 332,
+    "source-ornament": 30,
+    "stair-rail": 58,
+    "stair-tread": 108,
+    "structural-wall": 5968,
+    "window-glass": 361
+  },
+  "runtimeConsumable": false,
+  "sourceGeometryChanged": false,
+  "sourceIndexSha256": "45d31d5e3580e25664135063474bbe14e82d7e86b9c9fe513157a58f783d37c7",
+  "status": "UNACCEPTED_UNAPPLIED_MATERIAL_FAMILY_PROPOSAL",
+  "supportOrAnchorAssignments": false,
+  "version": 1
+}

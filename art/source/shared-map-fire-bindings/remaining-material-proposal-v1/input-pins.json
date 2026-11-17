@@ -1,0 +1,455 @@
+{
+  "acceptedUI": {
+    "commit": "4498db77a606f87413765b26b34811ef360a4776",
+    "originalPath": "docs/ui/shared-map-presentation/remaining-place-intake.md",
+    "sha256": "b59e6c80d798b09a83bc2f464706dc5f00637443faaaa96eace23fa93b179a72",
+    "snapshotPath": "art/source/shared-map-fire-bindings/remaining-material-proposal-v1/accepted-ui-intake.md"
+  },
+  "compiledSceneTrees": [
+    {
+      "compiledInputCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitTree": "a209a41e5e538c2ac78ef9f4777289cd505184ff",
+      "path": "assets/art/place-scenes/administration"
+    },
+    {
+      "compiledInputCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitTree": "2d1ec8cfae508d8e9979a415ad281d4640360a1b",
+      "path": "assets/art/place-scenes/horticulture"
+    }
+  ],
+  "existingSharedProfiles": {
+    "artistOriginalDeclarationIdentical": true,
+    "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+    "declarationSha256": "1be2feae11152f53a0c8b24c7b73de972023c2f7c7fa49ffd207f176fc9f0e04",
+    "ids": [
+      "grass",
+      "oil",
+      "clapboard",
+      "partition",
+      "door",
+      "roof",
+      "frame",
+      "furniture",
+      "cloth",
+      "lacquer",
+      "coal",
+      "embers"
+    ],
+    "newProfiles": false,
+    "path": "workbenches/furnished-house/scene.js"
+  },
+  "files": [
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 108401,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "7b7bfd6fe9cf3a7c6161ce5cd62d9f2b81b8ae6d8b526df5a09ed5130e91ed70",
+      "path": "assets/art/places-intake.json",
+      "scope": "original-asset-or-research",
+      "sha256": "d829bd769f565aa571f81645c0702acd66151e275c64c2e1e344120f34b72b1c",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 10542,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084",
+      "path": "assets/art/exposition-new-york/forms.js",
+      "scope": "original-asset-or-research",
+      "sha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 12641,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "34ca5dfced13cd6cdcf0259a53a35030fb3a2e924df21c5ad201e6e252b012f6",
+      "path": "assets/art/horticulture-waterfront/index.js",
+      "scope": "original-asset-or-research",
+      "sha256": "34ca5dfced13cd6cdcf0259a53a35030fb3a2e924df21c5ad201e6e252b012f6",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 49225,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "472604b68c2e561d0d2b23b0822769c128bf44d8780a5d3fb56510ba79af1199",
+      "path": "assets/art/horticulture-waterfront/kit.json",
+      "scope": "original-asset-or-research",
+      "sha256": "472604b68c2e561d0d2b23b0822769c128bf44d8780a5d3fb56510ba79af1199",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 6501,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "051a2dcb6e6a655073455b021b9b87ba1100e217a67449c068e5bc7517c8f323",
+      "path": "assets/art/horticulture-waterfront/manifest.json",
+      "scope": "original-asset-or-research",
+      "sha256": "051a2dcb6e6a655073455b021b9b87ba1100e217a67449c068e5bc7517c8f323",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 11624,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "cf8eca00afc7e0ddb0494fd8865817ea1154bc1335197cf3bd54e5b08dc5a031",
+      "path": "assets/art/exploration-access/index.js",
+      "scope": "original-asset-or-research",
+      "sha256": "cf8eca00afc7e0ddb0494fd8865817ea1154bc1335197cf3bd54e5b08dc5a031",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 804624,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "ccbd6892679a71fd34e0a3cadcf83aa3168227eb4581989b647873d74baf0933",
+      "path": "assets/art/exploration-access/plans.js",
+      "scope": "original-asset-or-research",
+      "sha256": "ccbd6892679a71fd34e0a3cadcf83aa3168227eb4581989b647873d74baf0933",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 6026775,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "92835289c9757862e14503e20e3ac2046cd0ce3a3cf28b7623e44bc50f7b81bc",
+      "path": "assets/art/exploration-access/fragments.js",
+      "scope": "original-asset-or-research",
+      "sha256": "92835289c9757862e14503e20e3ac2046cd0ce3a3cf28b7623e44bc50f7b81bc",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 51819,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "9a4a2504ebb20f7d285c55d2bce0ef975be0a942095b5971808383b08ef09b4c",
+      "path": "art/source/exploration-access/plan-summary.json",
+      "scope": "original-asset-or-research",
+      "sha256": "9a4a2504ebb20f7d285c55d2bce0ef975be0a942095b5971808383b08ef09b4c",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 9400,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "73dee7d57ea71200f3253df79b34c422cf9037f6ac93cd746abd6f21aa2d5334",
+      "path": "docs/research/1893-exposition/README.md",
+      "scope": "original-asset-or-research",
+      "sha256": "829ef3559d93179e54687225409192f728f7040f6a7ce83a3b7e4389b81848c5",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 10929,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "e3f880edecb4c0d1fce6ef379a9dcb692e77478eca202b7b68cf8d089e2fc2c4",
+      "path": "docs/research/1893-exposition/sources.json",
+      "scope": "original-asset-or-research",
+      "sha256": "d3581916b7019015c7f78ed89c4f8a4cc15b44d53c18abd49ff97fb093ab4b63",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 3005,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "bce4f5d92fd0a51bf73a79916d52db7c69ee63aad89b5d45c7d747435581e2c2",
+      "path": "art/source/horticulture-waterfront/sources.json",
+      "scope": "original-asset-or-research",
+      "sha256": "bce4f5d92fd0a51bf73a79916d52db7c69ee63aad89b5d45c7d747435581e2c2",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": false,
+      "bytes": 15523,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
+      "path": "workbenches/furnished-house/scene.js",
+      "scope": "read-only-runtime-context",
+      "sha256": "5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 911,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "b48f3735b8ab48c4dac767f25675838690f474f53294deebb253b901575cc3b6",
+      "path": "src/content/places.js",
+      "scope": "read-only-runtime-context",
+      "sha256": "f2520e28a3d2873f3d852b9a85476b642e83343d0926feda6d70235fcf746fad",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 23952,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a",
+      "path": "assets/art/exposition-administration/index.js",
+      "scope": "original-asset-or-research",
+      "sha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 149604,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "8b90bc1725f3a949b2174871770e54ea0c660afc355d7592c55732cd63644cd7",
+      "path": "assets/art/exposition-administration/metadata.json",
+      "scope": "original-asset-or-research",
+      "sha256": "8b90bc1725f3a949b2174871770e54ea0c660afc355d7592c55732cd63644cd7",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 9250,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "8a72abd6a718dde2bae28f59c905b14058d5d12e77b906d7b46c34bfac87cd51",
+      "path": "assets/art/exposition-administration/manifest.json",
+      "scope": "original-asset-or-research",
+      "sha256": "8a72abd6a718dde2bae28f59c905b14058d5d12e77b906d7b46c34bfac87cd51",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 6651,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "363b1fb4396cb549df1d4ce9b09325bd3c405db05b09df239e4794476ec04cac",
+      "path": "assets/art/exposition-administration/plan.js",
+      "scope": "original-asset-or-research",
+      "sha256": "363b1fb4396cb549df1d4ce9b09325bd3c405db05b09df239e4794476ec04cac",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 2417,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "4f6a61e0e559a3ae875cd3612cbffa9a8c7a56170ac602560a579a51dfa28ee5",
+      "path": "assets/art/exposition-administration/floors.js",
+      "scope": "original-asset-or-research",
+      "sha256": "4f6a61e0e559a3ae875cd3612cbffa9a8c7a56170ac602560a579a51dfa28ee5",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 2012,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "0c816cd152b814a0c3bfb453e6f42102e9331f084f8504e848b47dcb3915f707",
+      "path": "assets/art/exposition-administration/stairs.js",
+      "scope": "original-asset-or-research",
+      "sha256": "0c816cd152b814a0c3bfb453e6f42102e9331f084f8504e848b47dcb3915f707",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 6455,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "7df52725b2d9480e4837d0588bda7af8e7fdf6964bb5113cafb69ef3ac79acb0",
+      "path": "art/source/exposition-administration/sources.json",
+      "scope": "original-asset-or-research",
+      "sha256": "7df52725b2d9480e4837d0588bda7af8e7fdf6964bb5113cafb69ef3ac79acb0",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 5741,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "93a322473bb33f5a9a8231152aac986452a304cafa612c60eefb7e2cf0914268",
+      "path": "art/source/exposition-administration/measurements.json",
+      "scope": "original-asset-or-research",
+      "sha256": "93a322473bb33f5a9a8231152aac986452a304cafa612c60eefb7e2cf0914268",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 271640,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "4de71aac210f28b1becbf3bafd4d9bbcd9ad6ed36a8fb978c685ee3ee5802497",
+      "path": "assets/art/place-scenes/administration/index.json",
+      "scope": "original-asset-or-research",
+      "sha256": "4de71aac210f28b1becbf3bafd4d9bbcd9ad6ed36a8fb978c685ee3ee5802497",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 7010545,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54",
+      "path": "assets/art/place-scenes/administration/navigation.json",
+      "scope": "original-asset-or-research",
+      "sha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 26733,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "49ccfada5562819a6fa9eb0d5aa250a32a45b6559588614b1388bfe380e52ac2",
+      "path": "assets/art/exposition-horticulture/index.js",
+      "scope": "original-asset-or-research",
+      "sha256": "49ccfada5562819a6fa9eb0d5aa250a32a45b6559588614b1388bfe380e52ac2",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 182513,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "a319e905c511fad8c1965359a4ee9f523c15f0bb015a3ac07f9ceb0ea186f469",
+      "path": "assets/art/exposition-horticulture/metadata.json",
+      "scope": "original-asset-or-research",
+      "sha256": "a319e905c511fad8c1965359a4ee9f523c15f0bb015a3ac07f9ceb0ea186f469",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 7724,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "a59fec79ee5ed63675032f0b899bc26f6e90f02e5dbc8d1a685ac3e82e9f67ef",
+      "path": "assets/art/exposition-horticulture/manifest.json",
+      "scope": "original-asset-or-research",
+      "sha256": "a59fec79ee5ed63675032f0b899bc26f6e90f02e5dbc8d1a685ac3e82e9f67ef",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 6910,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "656f6aed5dce93a4a2b7dc970f4c3510d698d36d95b8d326f5c396dd5468dbe0",
+      "path": "assets/art/exposition-horticulture/plan.js",
+      "scope": "original-asset-or-research",
+      "sha256": "656f6aed5dce93a4a2b7dc970f4c3510d698d36d95b8d326f5c396dd5468dbe0",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 2516,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "ec491447d9f387dcbf4fd62cc3993af4fd19292f27936a2b7932ca6277ae8598",
+      "path": "assets/art/exposition-horticulture/floors.js",
+      "scope": "original-asset-or-research",
+      "sha256": "ec491447d9f387dcbf4fd62cc3993af4fd19292f27936a2b7932ca6277ae8598",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 6955,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "fcf2d20786bc49d6603246b22aa21bedfa56110031959bff48347538ea480fb4",
+      "path": "assets/art/exposition-horticulture/terrace.js",
+      "scope": "original-asset-or-research",
+      "sha256": "fcf2d20786bc49d6603246b22aa21bedfa56110031959bff48347538ea480fb4",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 6715,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "03a9caea4710b75422ed35961b83a6b5acd3e8ab2658880d50b1653128011a67",
+      "path": "art/source/exposition-horticulture/sources.json",
+      "scope": "original-asset-or-research",
+      "sha256": "03a9caea4710b75422ed35961b83a6b5acd3e8ab2658880d50b1653128011a67",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 3743,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "b05484060982506576f193bacde217e4804329ec0ed4707b1672cc8ab837a213",
+      "path": "art/source/exposition-horticulture/measurements.json",
+      "scope": "original-asset-or-research",
+      "sha256": "b05484060982506576f193bacde217e4804329ec0ed4707b1672cc8ab837a213",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 181129,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "45d31d5e3580e25664135063474bbe14e82d7e86b9c9fe513157a58f783d37c7",
+      "path": "assets/art/place-scenes/horticulture/index.json",
+      "scope": "original-asset-or-research",
+      "sha256": "45d31d5e3580e25664135063474bbe14e82d7e86b9c9fe513157a58f783d37c7",
+      "workingBytesAreAuthoritative": false
+    },
+    {
+      "artistHeadBlobIdentical": true,
+      "bytes": 8131307,
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "inputAuthority": "immutable Git object; no line-ending normalization",
+      "observedArtistWorkingSha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6",
+      "path": "assets/art/place-scenes/horticulture/navigation.json",
+      "scope": "original-asset-or-research",
+      "sha256": "46b35ad5aed3dbb699fed9d96c256d3fac79ce04e678fbce672b4e46eb7ba3c6",
+      "workingBytesAreAuthoritative": false
+    }
+  ],
+  "newYork96And20Expanded": false,
+  "originalFactoryPins": [
+    {
+      "commit": "43337a33ddfe4dff6849654c827c56e1f24e1acc",
+      "path": "assets/art/exposition-administration/index.js",
+      "sha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a"
+    },
+    {
+      "commit": "c4287338ff93907900a94a86b6c7e3bed0ae7c2f",
+      "path": "assets/art/exposition-horticulture/index.js",
+      "sha256": "49ccfada5562819a6fa9eb0d5aa250a32a45b6559588614b1388bfe380e52ac2"
+    },
+    {
+      "commit": "c6ddd51d7dd47a2ec148159e6a6d64a8d00bd2a9",
+      "path": "assets/art/horticulture-waterfront/index.js",
+      "sha256": "34ca5dfced13cd6cdcf0259a53a35030fb3a2e924df21c5ad201e6e252b012f6"
+    },
+    {
+      "commit": "26e1b1301ce577ab8ed26afa32fdafa93d7d44e4",
+      "path": "assets/art/exploration-access/index.js",
+      "sha256": "cf8eca00afc7e0ddb0494fd8865817ea1154bc1335197cf3bd54e5b08dc5a031"
+    }
+  ],
+  "preservedNewYorkCandidates": [
+    {
+      "commit": "2b6444a7fddf257a798ca5ae888505f6169e0efd",
+      "path": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/index.json",
+      "sha256": "a5a34f18a4d18b5a316096edf58b941e727a7546e544636a5a29469bc5c5b1c2"
+    },
+    {
+      "commit": "2b6444a7fddf257a798ca5ae888505f6169e0efd",
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/review-package.json",
+      "sha256": "2f9ead816218206a9fa8dd378d947a483745535df46f4c5459aaf23aa0938901"
+    }
+  ],
+  "runtimeSourceCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "status": "UNACCEPTED_SOURCE_PROPOSAL_INPUTS",
+  "version": 1
+}
