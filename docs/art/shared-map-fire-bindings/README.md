@@ -1,5 +1,9 @@
 # New York shared-map physical bindings
 
+The [completed additive package](completion-v1.md) applies the accepted coverage and
+geometry work. This page and `new-york.json` remain the preserved original pilot/source
+control; the completed compiler input is `new-york-complete-v1.json`.
+
 Artist source candidate for [Milestone 29](../../milestones/29-shared-gameplay-maps.md).
 This follows [shared modular art workflow Version 2](../shared-modular-art-workflow.md),
 including separate appearance, physical meaning, fuel, native dimensions and delivery status.
@@ -164,6 +168,12 @@ checks that the context contains the accepted amendment. Candidate-owned authori
 remain verified in the candidate checkout. The optional comparison verifies that this
 successor changes only policy/source-ledger metadata relative to `a067048a`, including
 unchanged carriers, geometry, support, poses, materials and finite quantities.
+
+## Coverage-completion proposal
+
+The separate [bounded proposal](coverage-proposal.md) supplies explicit decisions for all
+75 material IDs, 29 cut issues and 664 support records. It is unapplied and preserves this
+accepted source-binding candidate, the original geometry and the three-carrier CPU pilot.
 
 ## Reproduction and checks
 
