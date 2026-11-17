@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "authority": "ea0bb3db15b275513f48df6e00f255438610462e",
+  "passed": true,
+  "scope": "Saved-data grouping and source/reference integrity only",
+  "reports": [
+    {
+      "horizontalMetres": 2,
+      "bounds": "tightBounds",
+      "independentlyEnumeratedCentres": 131600,
+      "maxNativeFragments": 2486,
+      "maxNonemptyRegions": 138,
+      "exactWitnessEdgeRecounts": true
+    },
+    {
+      "horizontalMetres": 2,
+      "bounds": "cellBounds",
+      "independentlyEnumeratedCentres": 131600,
+      "maxNativeFragments": 2486,
+      "maxNonemptyRegions": 138,
+      "exactWitnessEdgeRecounts": true
+    },
+    {
+      "horizontalMetres": 4,
+      "bounds": "tightBounds",
+      "independentlyEnumeratedCentres": 131600,
+      "maxNativeFragments": 3112,
+      "maxNonemptyRegions": 44,
+      "exactWitnessEdgeRecounts": true
+    },
+    {
+      "horizontalMetres": 4,
+      "bounds": "cellBounds",
+      "independentlyEnumeratedCentres": 131600,
+      "maxNativeFragments": 3112,
+      "maxNonemptyRegions": 44,
+      "exactWitnessEdgeRecounts": true
+    }
+  ],
+  "historical": [
+    {
+      "archive": "support-large-proof-v1",
+      "rawFiles": 20,
+      "manifestSha256": "97e2e9f415d6f206f8dacadccbe88fd2aea31cff903ae0ca82c0c3fe3329fa50"
+    },
+    {
+      "archive": "support-large-proof-v2",
+      "rawFiles": 33,
+      "manifestSha256": "95a24091f033912c96fdc926b186467434f462ab57dcc8de988cb8cedbcec2a8"
+    }
+  ],
+  "noNativeCompilation": true,
+  "noWorldTrialOrTick": true,
+  "noTimingObservation": true,
+  "noSourceExportOrRuntimeChange": true
+}
