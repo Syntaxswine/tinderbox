@@ -1,0 +1,1011 @@
+{
+  "version": 1,
+  "stage": "in-memory geometry preparation; no schema-dependent asset export",
+  "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+  "cases": [
+    {
+      "sourcePartId": "replacement/edge-0/cornice-0",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 2.097597973251368,
+      "originalVolume": 2.188797885131862,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 1.048798986625684
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 1.048798986625684
+        }
+      ],
+      "geometryId": "8b785f054dcafec332a98cdd527c972922d09d4a84ffc4d6289f4143c73df587",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-0",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 1.1856022018400836,
+      "originalVolume": 1.2768023712123977,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.5928011009200418
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 0.5928011009200418
+        }
+      ],
+      "geometryId": "c3a069ac8268b4c22fc50e1452f35c86bced82b19cb142907a57ff5129b1015e",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 40,
+      "retessellatedSourceTriangles": 4,
+      "retainedSurfaceProof": [
+        {
+          "sourceTriangle": 21,
+          "afterTriangleStart": 21,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 63,
+            "count": 3
+          },
+          "sourceArea": 0.5946165896966704,
+          "effectiveUnionArea": 0.5946165896966704,
+          "interiorOverlapArea": 5.551115123125783e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 2.79324961771632e-9,
+            "grossUV": 2.79324961771632e-9
+          }
+        },
+        {
+          "sourceTriangle": 22,
+          "afterTriangleStart": 25,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 66,
+            "count": 3
+          },
+          "sourceArea": 0.6873821731547025,
+          "effectiveUnionArea": 0.6873821731547025,
+          "interiorOverlapArea": 1.1102230246251565e-16,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": -1.9249046800950964e-12,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.6504316385779205e-9,
+            "grossUV": 1.6504316385779205e-9
+          }
+        },
+        {
+          "sourceTriangle": 33,
+          "afterTriangleStart": 39,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 99,
+            "count": 3
+          },
+          "sourceArea": 0.7054717036517104,
+          "effectiveUnionArea": 0.7054717036517104,
+          "interiorOverlapArea": 0,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": -1.1102230246251565e-16,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.6914926820321696e-9,
+            "grossUV": 1.6914926820321696e-9
+          }
+        },
+        {
+          "sourceTriangle": 35,
+          "afterTriangleStart": 44,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 105,
+            "count": 3
+          },
+          "sourceArea": 0.6125270560727643,
+          "effectiveUnionArea": 0.6125270560727643,
+          "interiorOverlapArea": 3.048714870624384e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 3.569571388473136e-9,
+            "grossUV": 3.569571388473136e-9
+          }
+        }
+      ],
+      "afterTriangles": 66,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 2.0088013183558364,
+      "originalVolume": 2.0160014953580685,
+      "components": [
+        {
+          "triangles": 66,
+          "signedVolume": 2.008801318355836
+        }
+      ],
+      "geometryId": "4dc4871026554e9358a8684c72412c703007dc425e129a2f7d9bd9096083a766",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-2",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 3.9000024795532235,
+      "originalVolume": 4.200002670288086,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 1.950001239776611
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 1.950001239776611
+        }
+      ],
+      "geometryId": "d7c17a84a127ccdf74e87c2f798ad30a5c99ba6bd839215841c2b4edcf3fe5f4",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-3",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 2.995202221674844,
+      "originalVolume": 3.2256023925729096,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 1.4976011108374223
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 1.4976011108374223
+        }
+      ],
+      "geometryId": "46db2f29d3df48b9e211e622af00a925a58d7eebd32762c98c0b2cf79c75fc38",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-0",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 1.1856022018400834,
+      "originalVolume": 1.2768023712123977,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.5928011009200418
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 0.5928011009200419
+        }
+      ],
+      "geometryId": "38132d0309fbc93591688470c1e2e58136f64cd22fb32aa0952671afcc8062bf",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 40,
+      "retessellatedSourceTriangles": 4,
+      "retainedSurfaceProof": [
+        {
+          "sourceTriangle": 21,
+          "afterTriangleStart": 21,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 63,
+            "count": 3
+          },
+          "sourceArea": 0.5946166035195688,
+          "effectiveUnionArea": 0.5946166035195688,
+          "interiorOverlapArea": 0,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 3.4141249688479647e-9,
+            "grossUV": 3.4141249688479647e-9
+          }
+        },
+        {
+          "sourceTriangle": 22,
+          "afterTriangleStart": 25,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 66,
+            "count": 3
+          },
+          "sourceArea": 0.6873821571753069,
+          "effectiveUnionArea": 0.6873821571753069,
+          "interiorOverlapArea": 1.1102230246251565e-16,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.4760905969746219e-9,
+            "grossUV": 1.4760905969746219e-9
+          }
+        },
+        {
+          "sourceTriangle": 33,
+          "afterTriangleStart": 39,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 99,
+            "count": 3
+          },
+          "sourceArea": 0.7054716876997418,
+          "effectiveUnionArea": 0.7054716876997418,
+          "interiorOverlapArea": 6.097300935953005e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": -1.8274270985330077e-12,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.908592242583218e-9,
+            "grossUV": 1.908592242583218e-9
+          }
+        },
+        {
+          "sourceTriangle": 35,
+          "afterTriangleStart": 44,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 105,
+            "count": 3
+          },
+          "sourceArea": 0.6125270699230896,
+          "effectiveUnionArea": 0.6125270699230896,
+          "interiorOverlapArea": 1.3877787807814457e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 3.1048991155913086e-9,
+            "grossUV": 3.1048991155913086e-9
+          }
+        }
+      ],
+      "afterTriangles": 66,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 2.0088013183558364,
+      "originalVolume": 2.0160014953580685,
+      "components": [
+        {
+          "triangles": 66,
+          "signedVolume": 2.0088013183558355
+        }
+      ],
+      "geometryId": "e313cc8c2218520c2b1aee3bc87d75ac3a822a4d765e6650c04efa823e132de1",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-2",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 3.9000024795532235,
+      "originalVolume": 4.200002670288086,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 1.950001239776611
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 1.950001239776611
+        }
+      ],
+      "geometryId": "5ff83f26642d7d7e6dcab5722c907702a9897de34942a36c68c3b249dbad80d7",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-3",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 2.9952022216748446,
+      "originalVolume": 3.2256023925729087,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 1.4976011108374225
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 1.4976011108374223
+        }
+      ],
+      "geometryId": "d2f0cb46eb67d7acab3cfd534a22fce7520c847e9747f481f6315f346256702e",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/0/entry/header-3.77",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.010919986823800035,
+      "originalVolume": 0.08371991055370309,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.005459993411900011
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 0.005459993411900011
+        }
+      ],
+      "geometryId": "b090b89cfaec3e6e2570dcf33fd1b3964575ed060b0fb032d5f7817c7ea12359",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/0/entry/transom-mullion",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.021383996755599616,
+      "originalVolume": 0.03969000006437283,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.021383996755599616
+        }
+      ],
+      "geometryId": "54c2ffb1ecdce05cc972219f886bf521ccace04eee733aae9a4bb7f5fb44816b",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-3-13/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.3135996307373716,
+      "originalVolume": 0.3199997711180913,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.3135996307373716
+        }
+      ],
+      "geometryId": "18c08ec93f988838d0c259ffa1ac933f3b4bed29256be46c456756db310bc4cb",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-3-14/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.3135996307373716,
+      "originalVolume": 0.3199997711180913,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.3135996307373716
+        }
+      ],
+      "geometryId": "ad3953d802e5e531817ebd13f47c57149d280fc789beac88ee0ec3156b08c2a5",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-5-13/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.21119990234365105,
+      "originalVolume": 0.31999969482421875,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.21119990234365105
+        }
+      ],
+      "geometryId": "1f4527267b41479b9de96348dcd183b941039a5e887bba47df96872849c51ea1",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-5-14/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.21119990234365105,
+      "originalVolume": 0.31999969482421875,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.21119990234365105
+        }
+      ],
+      "geometryId": "ba0f3b4c193c5cb447f56b6951fd5dd0a5c2173ced18dbd998ba83e62d6d638b",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/header-3.77",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.010919891319547903,
+      "originalVolume": 0.08371935192180274,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.005459945659773948
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 0.005459945659773948
+        }
+      ],
+      "geometryId": "5ab7133f363c881829e1a9199660eea3b0fcaaa32f7fc3e3091c82483abf4564",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/jamb--1",
+      "operation": "restore-original-closed-jamb",
+      "beforeTriangles": 22,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 12,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.17139072534288735,
+      "originalVolume": 0.17139072534288735,
+      "components": [
+        {
+          "triangles": 12,
+          "signedVolume": 0.17139072534288735
+        }
+      ],
+      "geometryId": "c864e343e360d2b080d6c3e112ffea4c28709e878182b8a05b7080263b2e2d72",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/jamb-1",
+      "operation": "restore-original-closed-jamb",
+      "beforeTriangles": 22,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 12,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.17139072534288735,
+      "originalVolume": 0.17139072534288735,
+      "components": [
+        {
+          "triangles": 12,
+          "signedVolume": 0.17139072534288735
+        }
+      ],
+      "geometryId": "3e59eb4cec60891a9337fe42340344cc6a138cb869fec139e1a40bcdabccfd61",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/transom-mullion",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.021384067565962676,
+      "originalVolume": 0.039690131492718356,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.021384067565962672
+        }
+      ],
+      "geometryId": "089464cde7fd998b3b3abca78368b2c14c8119924ccdb15762263f11115ce161",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-3-13/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.3135996307373716,
+      "originalVolume": 0.3199997711180913,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.3135996307373716
+        }
+      ],
+      "geometryId": "dadf312cb34dc95e80f846a611cd0e29769c9f36654965733bde2fe7ca8f65b0",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-3-14/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.3135996307373716,
+      "originalVolume": 0.3199997711180913,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.3135996307373716
+        }
+      ],
+      "geometryId": "b8fce2ee830893b1f681f5577a2b0dc0c019df9923710396729ae653b5d903e4",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-5-13/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.21119990234365105,
+      "originalVolume": 0.31999969482421875,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.21119990234365105
+        }
+      ],
+      "geometryId": "84c25c316e3110ff09df1e1255791526da4e7792b418dcac46fc8fd4afbcf4a9",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-5-14/1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.21119990234365105,
+      "originalVolume": 0.31999969482421875,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.21119990234365105
+        }
+      ],
+      "geometryId": "7591a6b2e4a7b44333f8e03e8875318a9a1077a8311d5083ece46a584a8247e4",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/header-3.77",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 28,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 44,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.010919891319547903,
+      "originalVolume": 0.08371935192180274,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.005459945659773948
+        },
+        {
+          "triangles": 22,
+          "signedVolume": 0.005459945659773948
+        }
+      ],
+      "geometryId": "ff6f3005be40a865d0acb5c6769fb268af2702eed84ce79cc06d08a0843aeffa",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/jamb--1",
+      "operation": "restore-original-closed-jamb",
+      "beforeTriangles": 22,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 12,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.17139072534288735,
+      "originalVolume": 0.17139072534288735,
+      "components": [
+        {
+          "triangles": 12,
+          "signedVolume": 0.17139072534288735
+        }
+      ],
+      "geometryId": "0ab38aa789001fecc362d980f5b72235b990bd673a8633f2d434a7e9245cf6e0",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/jamb-1",
+      "operation": "restore-original-closed-jamb",
+      "beforeTriangles": 22,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 12,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.17139072534288735,
+      "originalVolume": 0.17139072534288735,
+      "components": [
+        {
+          "triangles": 12,
+          "signedVolume": 0.17139072534288735
+        }
+      ],
+      "geometryId": "42d913adcdfa224af193ebf9a54d93ec4d845571f83fab2da9d864cda680ab27",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/transom-mullion",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 14,
+      "retessellatedSourceTriangles": 0,
+      "retainedSurfaceProof": [],
+      "afterTriangles": 22,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 0.021384067565962676,
+      "originalVolume": 0.039690131492718356,
+      "components": [
+        {
+          "triangles": 22,
+          "signedVolume": 0.021384067565962672
+        }
+      ],
+      "geometryId": "22db56be2880687d7c4419837ca778400682e3923eb60b21eb896877d824c0d1",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/porch-east/cornice-1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 216,
+      "retessellatedSourceTriangles": 4,
+      "retainedSurfaceProof": [
+        {
+          "sourceTriangle": 56,
+          "afterTriangleStart": 56,
+          "afterTriangleCount": 5,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 168,
+            "count": 3
+          },
+          "sourceArea": 2.0418863231680007,
+          "effectiveUnionArea": 2.0418863231680007,
+          "interiorOverlapArea": 0,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": -5.4567461660326444e-14,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.1920908082885262e-7,
+            "grossUV": 1.1920908082885262e-7
+          }
+        },
+        {
+          "sourceTriangle": 62,
+          "afterTriangleStart": 66,
+          "afterTriangleCount": 5,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 186,
+            "count": 3
+          },
+          "sourceArea": 2.0418863231680007,
+          "effectiveUnionArea": 2.0418863231680007,
+          "interiorOverlapArea": 2.529182118610477e-16,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": -5.4511950509095186e-14,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.1920908082885262e-7,
+            "grossUV": 1.1920908082885262e-7
+          }
+        },
+        {
+          "sourceTriangle": 211,
+          "afterTriangleStart": 219,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 633,
+            "count": 3
+          },
+          "sourceArea": 0.3822723627090454,
+          "effectiveUnionArea": 0.3822723627090454,
+          "interiorOverlapArea": 3.9604202528312113e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 2.7939677238464355e-9,
+            "grossUV": 2.7939677238464355e-9
+          }
+        },
+        {
+          "sourceTriangle": 212,
+          "afterTriangleStart": 223,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 636,
+            "count": 3
+          },
+          "sourceArea": 0.4877268075942993,
+          "effectiveUnionArea": 0.4877268075942993,
+          "interiorOverlapArea": 6.130163427974054e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 3.1507150013987406e-10,
+            "grossUV": 3.1507150013987406e-10
+          }
+        }
+      ],
+      "afterTriangles": 248,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 29.472558759099805,
+      "originalVolume": 29.59255929315771,
+      "components": [
+        {
+          "triangles": 248,
+          "signedVolume": 29.47255875909983
+        }
+      ],
+      "geometryId": "ae67eb2f149be2ce0cf72d493e28e3b8df7b884b97b324e71017bad7df8bbe53",
+      "badEdges": []
+    },
+    {
+      "sourcePartId": "replacement/porch-west/cornice-1",
+      "operation": "append-cut-plane-caps",
+      "beforeTriangles": 216,
+      "retessellatedSourceTriangles": 4,
+      "retainedSurfaceProof": [
+        {
+          "sourceTriangle": 56,
+          "afterTriangleStart": 56,
+          "afterTriangleCount": 5,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 168,
+            "count": 3
+          },
+          "sourceArea": 2.0418868225533515,
+          "effectiveUnionArea": 2.0418868225533515,
+          "interiorOverlapArea": 3.3306690738754696e-16,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": -2.7200464103316335e-14,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.1920916609398091e-7,
+            "grossUV": 1.1920916609398091e-7
+          }
+        },
+        {
+          "sourceTriangle": 62,
+          "afterTriangleStart": 66,
+          "afterTriangleCount": 5,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 186,
+            "count": 3
+          },
+          "sourceArea": 2.0418868225533515,
+          "effectiveUnionArea": 2.0418868225533515,
+          "interiorOverlapArea": 3.087339730277997e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": -2.7228219678931964e-14,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 1.192091656498917e-7,
+            "grossUV": 1.192091656498917e-7
+          }
+        },
+        {
+          "sourceTriangle": 211,
+          "afterTriangleStart": 219,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 633,
+            "count": 3
+          },
+          "sourceArea": 0.3822723627090454,
+          "effectiveUnionArea": 0.3822723627090454,
+          "interiorOverlapArea": 3.960419591156713e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 2.7939677238464355e-9,
+            "grossUV": 2.7939677238464355e-9
+          }
+        },
+        {
+          "sourceTriangle": 212,
+          "afterTriangleStart": 223,
+          "afterTriangleCount": 4,
+          "retessellated": true,
+          "sourceIndexInterval": {
+            "start": 636,
+            "count": 3
+          },
+          "sourceArea": 0.4877268075942993,
+          "effectiveUnionArea": 0.4877268075942993,
+          "interiorOverlapArea": 6.130164089648552e-17,
+          "maximumPlaneDeviation": 0,
+          "minimumBarycentricWeight": 0,
+          "maximumAttributeInterpolationError": {
+            "normal": 0,
+            "uv": 3.1507150013987406e-10,
+            "grossUV": 3.1507150013987406e-10
+          }
+        }
+      ],
+      "afterTriangles": 248,
+      "closed": true,
+      "unmatchedEdges": 0,
+      "degenerateTriangles": 0,
+      "wrongNormalTriangles": 0,
+      "signedVolume": 29.472558759099815,
+      "originalVolume": 29.59255929315772,
+      "components": [
+        {
+          "triangles": 248,
+          "signedVolume": 29.472558759099833
+        }
+      ],
+      "geometryId": "438a80bbcd5a6be1b571c3dc3baff7ad05ba72728e5327c59b49d281cd85efd3",
+      "badEdges": []
+    }
+  ],
+  "originalAssetsChanged": false,
+  "rendererStarted": false
+}
