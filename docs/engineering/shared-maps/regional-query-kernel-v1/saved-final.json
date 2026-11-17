@@ -1,0 +1,4646 @@
+{
+  "authority": "df3dbcea",
+  "kind": "Saved-array query correctness only; no speed claim",
+  "pid": 55856,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-17T20:06:47.376Z",
+  "inputs": [
+    {
+      "path": "docs/engineering/shared-maps/support-large-proof-v2/reference-blocks.json",
+      "bytes": 24151807,
+      "sha256": "bfab707ff646e9dfedfaae3b80d510ac750e4f561335d895c24c4e4cc4d49418"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+    }
+  ],
+  "checks": [
+    {
+      "name": "cold-ray-0-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          33.5
+        ],
+        "to": [
+          41.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-0-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          33.5
+        ],
+        "to": [
+          41.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-1-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          36.5
+        ],
+        "to": [
+          41.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-1-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          36.5
+        ],
+        "to": [
+          41.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-2-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          42
+        ],
+        "to": [
+          41.5,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-2-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          42
+        ],
+        "to": [
+          41.5,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-3-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          49
+        ],
+        "to": [
+          41.5,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-3-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          49
+        ],
+        "to": [
+          41.5,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-4-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          50.5
+        ],
+        "to": [
+          41.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-4-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          50.5
+        ],
+        "to": [
+          41.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-5-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          33.5
+        ],
+        "to": [
+          47,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-5-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          33.5
+        ],
+        "to": [
+          47,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-6-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          36.5
+        ],
+        "to": [
+          47,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "70bfa8da20828363ecb14b8d59db176b4016535f8ae93bd24be68f73b698dcee",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-6-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          36.5
+        ],
+        "to": [
+          47,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "70bfa8da20828363ecb14b8d59db176b4016535f8ae93bd24be68f73b698dcee",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-7-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          42
+        ],
+        "to": [
+          47,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "19a6639c01ee8f80abb84b67954e27dc8ae916560c607d87db129bb77ebd49e2",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-7-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          42
+        ],
+        "to": [
+          47,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "19a6639c01ee8f80abb84b67954e27dc8ae916560c607d87db129bb77ebd49e2",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-8-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          49
+        ],
+        "to": [
+          47,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-8-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          49
+        ],
+        "to": [
+          47,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-9-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          50.5
+        ],
+        "to": [
+          47,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-9-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          50.5
+        ],
+        "to": [
+          47,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-10-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          33.5
+        ],
+        "to": [
+          56,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-10-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          33.5
+        ],
+        "to": [
+          56,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-11-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          36.5
+        ],
+        "to": [
+          56,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "01d0ff1a40e3e9013c8717eec55a898eb74bc9c264ceee40e0c1e2829c58d216",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-11-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          36.5
+        ],
+        "to": [
+          56,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "01d0ff1a40e3e9013c8717eec55a898eb74bc9c264ceee40e0c1e2829c58d216",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-12-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          42
+        ],
+        "to": [
+          56,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "0f5dbc7b166d9f8b027034e97e014727ca419018a04c3ef70820ad5cdef8c60a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-12-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          42
+        ],
+        "to": [
+          56,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "0f5dbc7b166d9f8b027034e97e014727ca419018a04c3ef70820ad5cdef8c60a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-13-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          49
+        ],
+        "to": [
+          56,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-13-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          49
+        ],
+        "to": [
+          56,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-14-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          50.5
+        ],
+        "to": [
+          56,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-14-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          50.5
+        ],
+        "to": [
+          56,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-15-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          33.5
+        ],
+        "to": [
+          65,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-15-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          33.5
+        ],
+        "to": [
+          65,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-16-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          36.5
+        ],
+        "to": [
+          65,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "b319415c6b86f6ed1b9b737725d0be67a0307d77fcf01126eb07c40b878ce44c",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-16-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          36.5
+        ],
+        "to": [
+          65,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "b319415c6b86f6ed1b9b737725d0be67a0307d77fcf01126eb07c40b878ce44c",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-17-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          42
+        ],
+        "to": [
+          65,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "b1a3bdb171965d3d44ac7928fc225b9d336d71bf4da79bb72909b040cadccb9d",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-17-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          42
+        ],
+        "to": [
+          65,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "b1a3bdb171965d3d44ac7928fc225b9d336d71bf4da79bb72909b040cadccb9d",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-18-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          49
+        ],
+        "to": [
+          65,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-18-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          49
+        ],
+        "to": [
+          65,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-19-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          50.5
+        ],
+        "to": [
+          65,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-19-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          50.5
+        ],
+        "to": [
+          65,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-20-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          33.5
+        ],
+        "to": [
+          70.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-20-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          33.5
+        ],
+        "to": [
+          70.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-21-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          36.5
+        ],
+        "to": [
+          70.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-21-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          36.5
+        ],
+        "to": [
+          70.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-22-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          42
+        ],
+        "to": [
+          70.5,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-22-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          42
+        ],
+        "to": [
+          70.5,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-23-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          49
+        ],
+        "to": [
+          70.5,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-23-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          49
+        ],
+        "to": [
+          70.5,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-24-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          50.5
+        ],
+        "to": [
+          70.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-24-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          50.5
+        ],
+        "to": [
+          70.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-25-false",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.25
+        ],
+        "to": [
+          55.25,
+          20,
+          36.25
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "df344016a94e7360b2ad00199674c195129b984031ae511e4079254838b80376",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-25-true",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.25
+        ],
+        "to": [
+          55.25,
+          20,
+          36.25
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "df344016a94e7360b2ad00199674c195129b984031ae511e4079254838b80376",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-26-false",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.75
+        ],
+        "to": [
+          55.25,
+          20,
+          36.75
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "cabfd137ed0614bfac089bb49909b33034ea63f1927ef6a2490c0054c6c836fe",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-26-true",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.75
+        ],
+        "to": [
+          55.25,
+          20,
+          36.75
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "cabfd137ed0614bfac089bb49909b33034ea63f1927ef6a2490c0054c6c836fe",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-27-false",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          37
+        ],
+        "to": [
+          55.25,
+          20,
+          37
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "dc0174b936d175bd72918849bd0b5dfc5b3b4b56c98ec044bbfa5f82ba325c2a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-27-true",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          37
+        ],
+        "to": [
+          55.25,
+          20,
+          37
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "dc0174b936d175bd72918849bd0b5dfc5b3b4b56c98ec044bbfa5f82ba325c2a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-28-false",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.25
+        ],
+        "to": [
+          55.75,
+          20,
+          36.25
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "df344016a94e7360b2ad00199674c195129b984031ae511e4079254838b80376",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-28-true",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.25
+        ],
+        "to": [
+          55.75,
+          20,
+          36.25
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "df344016a94e7360b2ad00199674c195129b984031ae511e4079254838b80376",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-29-false",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.75
+        ],
+        "to": [
+          55.75,
+          20,
+          36.75
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "cabfd137ed0614bfac089bb49909b33034ea63f1927ef6a2490c0054c6c836fe",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-29-true",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.75
+        ],
+        "to": [
+          55.75,
+          20,
+          36.75
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "cabfd137ed0614bfac089bb49909b33034ea63f1927ef6a2490c0054c6c836fe",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-30-false",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          37
+        ],
+        "to": [
+          55.75,
+          20,
+          37
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "dc0174b936d175bd72918849bd0b5dfc5b3b4b56c98ec044bbfa5f82ba325c2a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-30-true",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          37
+        ],
+        "to": [
+          55.75,
+          20,
+          37
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "dc0174b936d175bd72918849bd0b5dfc5b3b4b56c98ec044bbfa5f82ba325c2a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-31-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.25
+        ],
+        "to": [
+          56,
+          20,
+          36.25
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "df344016a94e7360b2ad00199674c195129b984031ae511e4079254838b80376",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-31-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.25
+        ],
+        "to": [
+          56,
+          20,
+          36.25
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "df344016a94e7360b2ad00199674c195129b984031ae511e4079254838b80376",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-32-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.75
+        ],
+        "to": [
+          56,
+          20,
+          36.75
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "cabfd137ed0614bfac089bb49909b33034ea63f1927ef6a2490c0054c6c836fe",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-32-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.75
+        ],
+        "to": [
+          56,
+          20,
+          36.75
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "cabfd137ed0614bfac089bb49909b33034ea63f1927ef6a2490c0054c6c836fe",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-33-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          37
+        ],
+        "to": [
+          56,
+          20,
+          37
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "dc0174b936d175bd72918849bd0b5dfc5b3b4b56c98ec044bbfa5f82ba325c2a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-33-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          37
+        ],
+        "to": [
+          56,
+          20,
+          37
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "dc0174b936d175bd72918849bd0b5dfc5b3b4b56c98ec044bbfa5f82ba325c2a",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-34-false",
+      "input": {
+        "from": [
+          38,
+          22,
+          42
+        ],
+        "to": [
+          73,
+          22,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "4343a6357d40090f5d3b6771f68fd293138abb7ddbc1dd5a51a08fb00788ce3b",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-34-true",
+      "input": {
+        "from": [
+          38,
+          22,
+          42
+        ],
+        "to": [
+          73,
+          22,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "4343a6357d40090f5d3b6771f68fd293138abb7ddbc1dd5a51a08fb00788ce3b",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-35-false",
+      "input": {
+        "from": [
+          73,
+          22,
+          42
+        ],
+        "to": [
+          38,
+          22,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "75cd7a665cbc86ddcca8c2c17839c56eb9eed8822dde5ffff0ea37df7dadf4bd",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-35-true",
+      "input": {
+        "from": [
+          73,
+          22,
+          42
+        ],
+        "to": [
+          38,
+          22,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "75cd7a665cbc86ddcca8c2c17839c56eb9eed8822dde5ffff0ea37df7dadf4bd",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-36-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          32
+        ],
+        "to": [
+          56,
+          20,
+          52
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "b68d86340adce28d5a017495b8025f9cb32ffc4543ae35bb859abeab77e8b749",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-36-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          32
+        ],
+        "to": [
+          56,
+          20,
+          52
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "b68d86340adce28d5a017495b8025f9cb32ffc4543ae35bb859abeab77e8b749",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-37-false",
+      "input": {
+        "from": [
+          56,
+          20,
+          52
+        ],
+        "to": [
+          56,
+          24,
+          32
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "a6b516b237abd2fbeccdce6d444ee90d41ac1f8e5e505ff996bef526ccd5f723",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-37-true",
+      "input": {
+        "from": [
+          56,
+          20,
+          52
+        ],
+        "to": [
+          56,
+          24,
+          32
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "a6b516b237abd2fbeccdce6d444ee90d41ac1f8e5e505ff996bef526ccd5f723",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-38-false",
+      "input": {
+        "from": [
+          41.699999609265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999609265134,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-38-true",
+      "input": {
+        "from": [
+          41.699999609265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999609265134,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-39-false",
+      "input": {
+        "from": [
+          41.69999975926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999975926514,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "f2ff4420bc47abb04dbbf0b49a04789885e49f4f6e95a11a3d754a6d6c346b12",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-39-true",
+      "input": {
+        "from": [
+          41.69999975926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999975926514,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "f2ff4420bc47abb04dbbf0b49a04789885e49f4f6e95a11a3d754a6d6c346b12",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-40-false",
+      "input": {
+        "from": [
+          41.69999980926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999980926514,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "e7011a14b63990e70fd2d2196688f4c3722fb5c0907da34d1837f0ee963a7f37",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-40-true",
+      "input": {
+        "from": [
+          41.69999980926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999980926514,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "e7011a14b63990e70fd2d2196688f4c3722fb5c0907da34d1837f0ee963a7f37",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-41-false",
+      "input": {
+        "from": [
+          41.699999859265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999859265134,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "c1b3e4cb0ba3a2f25413903a342c3cef7c36757aeed1f09549f6f8cf93265417",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-41-true",
+      "input": {
+        "from": [
+          41.699999859265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999859265134,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "c1b3e4cb0ba3a2f25413903a342c3cef7c36757aeed1f09549f6f8cf93265417",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-42-false",
+      "input": {
+        "from": [
+          41.70000000926514,
+          25,
+          42
+        ],
+        "to": [
+          41.70000000926514,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 1,
+      "digest": "cd43f70a7f6be98f4fc4eb7e73a1e34e9c9c1d5387480c5fba659f162719771b",
+      "passed": true
+    },
+    {
+      "name": "cold-ray-42-true",
+      "input": {
+        "from": [
+          41.70000000926514,
+          25,
+          42
+        ],
+        "to": [
+          41.70000000926514,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 1,
+      "digest": "cd43f70a7f6be98f4fc4eb7e73a1e34e9c9c1d5387480c5fba659f162719771b",
+      "passed": true
+    },
+    {
+      "name": "cold-body-0",
+      "input": {
+        "args": [
+          {
+            "x": 56,
+            "y": 42
+          },
+          {
+            "x": 56,
+            "y": 42
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "cold-body-1",
+      "input": {
+        "args": [
+          {
+            "x": 56,
+            "y": 42
+          },
+          {
+            "x": 56,
+            "y": 42
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "cold-body-2",
+      "input": {
+        "args": [
+          {
+            "x": 56,
+            "y": 42
+          },
+          {
+            "x": 56,
+            "y": 42
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "cold-body-3",
+      "input": {
+        "args": [
+          {
+            "x": 45,
+            "y": 36
+          },
+          {
+            "x": 45,
+            "y": 36
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "cold-body-4",
+      "input": {
+        "args": [
+          {
+            "x": 45,
+            "y": 36
+          },
+          {
+            "x": 45,
+            "y": 36
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "cold-body-5",
+      "input": {
+        "args": [
+          {
+            "x": 45,
+            "y": 36
+          },
+          {
+            "x": 45,
+            "y": 36
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "cold-body-6",
+      "input": {
+        "args": [
+          {
+            "x": 68,
+            "y": 47
+          },
+          {
+            "x": 68,
+            "y": 47
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "cold-body-7",
+      "input": {
+        "args": [
+          {
+            "x": 68,
+            "y": 47
+          },
+          {
+            "x": 68,
+            "y": 47
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "cold-body-8",
+      "input": {
+        "args": [
+          {
+            "x": 68,
+            "y": 47
+          },
+          {
+            "x": 68,
+            "y": 47
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "cold-body-9",
+      "input": {
+        "args": [
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "cold-body-10",
+      "input": {
+        "args": [
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "cold-body-11",
+      "input": {
+        "args": [
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "cold-body-12",
+      "input": {
+        "args": [
+          {
+            "x": 38,
+            "y": 42
+          },
+          {
+            "x": 73,
+            "y": 42
+          },
+          0.2,
+          22.4,
+          22.9
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "cold-body-13",
+      "input": {
+        "args": [
+          {
+            "x": 40,
+            "y": 32
+          },
+          {
+            "x": 72,
+            "y": 52
+          },
+          0.2,
+          21.5,
+          22
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "cold-scoped-surface",
+      "input": {
+        "channel": "surface"
+      },
+      "pieces": 4429,
+      "originalPrimitives": 20,
+      "uniqueScopedPrimitiveIds": 4429,
+      "haloPieces": 21,
+      "maxOriginalPrimitiveAreaDelta": 1.5205614545266144e-12,
+      "maxArithmeticBound": 2.900553654790704e-7,
+      "originalRecordReferences": true,
+      "noNewCapPrimitive": true,
+      "originalEpsilonOverlapBetweenDistinctNativeRecordsPreserved": true,
+      "passed": true
+    },
+    {
+      "name": "cold-scoped-solid",
+      "input": {
+        "channel": "solid"
+      },
+      "pieces": 4429,
+      "originalPrimitives": 20,
+      "uniqueScopedPrimitiveIds": 4429,
+      "haloPieces": 21,
+      "maxOriginalPrimitiveAreaDelta": 1.5205614545266144e-12,
+      "maxArithmeticBound": 2.900553654790704e-7,
+      "originalRecordReferences": true,
+      "noNewCapPrimitive": true,
+      "originalEpsilonOverlapBetweenDistinctNativeRecordsPreserved": true,
+      "passed": true
+    },
+    {
+      "name": "native-ray-0-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          33.5
+        ],
+        "to": [
+          41.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-0-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          33.5
+        ],
+        "to": [
+          41.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-1-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          36.5
+        ],
+        "to": [
+          41.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-1-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          36.5
+        ],
+        "to": [
+          41.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-2-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          42
+        ],
+        "to": [
+          41.5,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-2-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          42
+        ],
+        "to": [
+          41.5,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-3-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          49
+        ],
+        "to": [
+          41.5,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-3-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          49
+        ],
+        "to": [
+          41.5,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-4-false",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          50.5
+        ],
+        "to": [
+          41.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-4-true",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          50.5
+        ],
+        "to": [
+          41.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-5-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          33.5
+        ],
+        "to": [
+          47,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-5-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          33.5
+        ],
+        "to": [
+          47,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-6-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          36.5
+        ],
+        "to": [
+          47,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "9940a2dc1a56c1d041de31d5a687d0b2a6406c9e87453d503d717a4100b9672d",
+      "passed": true
+    },
+    {
+      "name": "native-ray-6-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          36.5
+        ],
+        "to": [
+          47,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "9940a2dc1a56c1d041de31d5a687d0b2a6406c9e87453d503d717a4100b9672d",
+      "passed": true
+    },
+    {
+      "name": "native-ray-7-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          42
+        ],
+        "to": [
+          47,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "8fbe400c84293cb9860e26306a8c84212342c442ac39c402b479e7cf4496b12a",
+      "passed": true
+    },
+    {
+      "name": "native-ray-7-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          42
+        ],
+        "to": [
+          47,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "8fbe400c84293cb9860e26306a8c84212342c442ac39c402b479e7cf4496b12a",
+      "passed": true
+    },
+    {
+      "name": "native-ray-8-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          49
+        ],
+        "to": [
+          47,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "4b75d497c49540434819992753b9ccb74a343fbc80c34a51d2ca26865d090f51",
+      "passed": true
+    },
+    {
+      "name": "native-ray-8-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          49
+        ],
+        "to": [
+          47,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "4b75d497c49540434819992753b9ccb74a343fbc80c34a51d2ca26865d090f51",
+      "passed": true
+    },
+    {
+      "name": "native-ray-9-false",
+      "input": {
+        "from": [
+          47,
+          25,
+          50.5
+        ],
+        "to": [
+          47,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-9-true",
+      "input": {
+        "from": [
+          47,
+          25,
+          50.5
+        ],
+        "to": [
+          47,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-10-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          33.5
+        ],
+        "to": [
+          56,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-10-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          33.5
+        ],
+        "to": [
+          56,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-11-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          36.5
+        ],
+        "to": [
+          56,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "e502e188e2adbd3f36f7dddd47a5ade223c7b8068d3cfe1f1d9720c79f09539e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-11-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          36.5
+        ],
+        "to": [
+          56,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "e502e188e2adbd3f36f7dddd47a5ade223c7b8068d3cfe1f1d9720c79f09539e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-12-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          42
+        ],
+        "to": [
+          56,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "2f6d4843b36d889fbc554b7dbef2ce3d75c9b363a01c1eb1d8196fb64dc76621",
+      "passed": true
+    },
+    {
+      "name": "native-ray-12-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          42
+        ],
+        "to": [
+          56,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "2f6d4843b36d889fbc554b7dbef2ce3d75c9b363a01c1eb1d8196fb64dc76621",
+      "passed": true
+    },
+    {
+      "name": "native-ray-13-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          49
+        ],
+        "to": [
+          56,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "b5b5ef925c308b1da3c5ca746f20448dd79206dd90a08cbfa83cd9e6545b52d8",
+      "passed": true
+    },
+    {
+      "name": "native-ray-13-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          49
+        ],
+        "to": [
+          56,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "b5b5ef925c308b1da3c5ca746f20448dd79206dd90a08cbfa83cd9e6545b52d8",
+      "passed": true
+    },
+    {
+      "name": "native-ray-14-false",
+      "input": {
+        "from": [
+          56,
+          25,
+          50.5
+        ],
+        "to": [
+          56,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-14-true",
+      "input": {
+        "from": [
+          56,
+          25,
+          50.5
+        ],
+        "to": [
+          56,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-15-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          33.5
+        ],
+        "to": [
+          65,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-15-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          33.5
+        ],
+        "to": [
+          65,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-16-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          36.5
+        ],
+        "to": [
+          65,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "d0f80a2c2a370edf9c74cfe347dff478379b6e6c5f570c126a2776e95f699fa1",
+      "passed": true
+    },
+    {
+      "name": "native-ray-16-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          36.5
+        ],
+        "to": [
+          65,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "d0f80a2c2a370edf9c74cfe347dff478379b6e6c5f570c126a2776e95f699fa1",
+      "passed": true
+    },
+    {
+      "name": "native-ray-17-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          42
+        ],
+        "to": [
+          65,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "ea326adad139845d3f50563284fe58119bdf3db367ffcb253f6ca3de10d39ac5",
+      "passed": true
+    },
+    {
+      "name": "native-ray-17-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          42
+        ],
+        "to": [
+          65,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "ea326adad139845d3f50563284fe58119bdf3db367ffcb253f6ca3de10d39ac5",
+      "passed": true
+    },
+    {
+      "name": "native-ray-18-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          49
+        ],
+        "to": [
+          65,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "5ea9eca2ce5321f372ba55c3bec8cbd0e6980fb211751ad5b59f6dbbd29dcd00",
+      "passed": true
+    },
+    {
+      "name": "native-ray-18-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          49
+        ],
+        "to": [
+          65,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "5ea9eca2ce5321f372ba55c3bec8cbd0e6980fb211751ad5b59f6dbbd29dcd00",
+      "passed": true
+    },
+    {
+      "name": "native-ray-19-false",
+      "input": {
+        "from": [
+          65,
+          25,
+          50.5
+        ],
+        "to": [
+          65,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-19-true",
+      "input": {
+        "from": [
+          65,
+          25,
+          50.5
+        ],
+        "to": [
+          65,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-20-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          33.5
+        ],
+        "to": [
+          70.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-20-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          33.5
+        ],
+        "to": [
+          70.5,
+          20,
+          33.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-21-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          36.5
+        ],
+        "to": [
+          70.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-21-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          36.5
+        ],
+        "to": [
+          70.5,
+          20,
+          36.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-22-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          42
+        ],
+        "to": [
+          70.5,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-22-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          42
+        ],
+        "to": [
+          70.5,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-23-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          49
+        ],
+        "to": [
+          70.5,
+          20,
+          49
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-23-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          49
+        ],
+        "to": [
+          70.5,
+          20,
+          49
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-24-false",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          50.5
+        ],
+        "to": [
+          70.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-24-true",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          50.5
+        ],
+        "to": [
+          70.5,
+          20,
+          50.5
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-25-false",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.25
+        ],
+        "to": [
+          55.25,
+          20,
+          36.25
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "7879c18924c06a4a804469084ae9d4cbb0a81784da7b73289f46b03b2267875e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-25-true",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.25
+        ],
+        "to": [
+          55.25,
+          20,
+          36.25
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "7879c18924c06a4a804469084ae9d4cbb0a81784da7b73289f46b03b2267875e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-26-false",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.75
+        ],
+        "to": [
+          55.25,
+          20,
+          36.75
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "68633d1a8ff7e66cbfd1522ba3fe17dcef44f41fac633db3d2f8baeb910b5844",
+      "passed": true
+    },
+    {
+      "name": "native-ray-26-true",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          36.75
+        ],
+        "to": [
+          55.25,
+          20,
+          36.75
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "68633d1a8ff7e66cbfd1522ba3fe17dcef44f41fac633db3d2f8baeb910b5844",
+      "passed": true
+    },
+    {
+      "name": "native-ray-27-false",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          37
+        ],
+        "to": [
+          55.25,
+          20,
+          37
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "68db45ae1a9c071f699f667fe2a4d2033ec72a44cb8e5618ea923992e61423ca",
+      "passed": true
+    },
+    {
+      "name": "native-ray-27-true",
+      "input": {
+        "from": [
+          55.25,
+          24,
+          37
+        ],
+        "to": [
+          55.25,
+          20,
+          37
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "68db45ae1a9c071f699f667fe2a4d2033ec72a44cb8e5618ea923992e61423ca",
+      "passed": true
+    },
+    {
+      "name": "native-ray-28-false",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.25
+        ],
+        "to": [
+          55.75,
+          20,
+          36.25
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "46ec41f324a77c36abe46e08e7e1ec785b8b55d52a7b35917e09decec0de677e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-28-true",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.25
+        ],
+        "to": [
+          55.75,
+          20,
+          36.25
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "46ec41f324a77c36abe46e08e7e1ec785b8b55d52a7b35917e09decec0de677e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-29-false",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.75
+        ],
+        "to": [
+          55.75,
+          20,
+          36.75
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "a90747f4fbdb91102d3b9d0d45acb0db961fa69526a3bd2623315c73309d440a",
+      "passed": true
+    },
+    {
+      "name": "native-ray-29-true",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          36.75
+        ],
+        "to": [
+          55.75,
+          20,
+          36.75
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "a90747f4fbdb91102d3b9d0d45acb0db961fa69526a3bd2623315c73309d440a",
+      "passed": true
+    },
+    {
+      "name": "native-ray-30-false",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          37
+        ],
+        "to": [
+          55.75,
+          20,
+          37
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "4a37b21db10d895e39f2eb1ee16ddec6dcd32f3ea4a6e5924b1a6493fb34e907",
+      "passed": true
+    },
+    {
+      "name": "native-ray-30-true",
+      "input": {
+        "from": [
+          55.75,
+          24,
+          37
+        ],
+        "to": [
+          55.75,
+          20,
+          37
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "4a37b21db10d895e39f2eb1ee16ddec6dcd32f3ea4a6e5924b1a6493fb34e907",
+      "passed": true
+    },
+    {
+      "name": "native-ray-31-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.25
+        ],
+        "to": [
+          56,
+          20,
+          36.25
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "46ec41f324a77c36abe46e08e7e1ec785b8b55d52a7b35917e09decec0de677e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-31-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.25
+        ],
+        "to": [
+          56,
+          20,
+          36.25
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "46ec41f324a77c36abe46e08e7e1ec785b8b55d52a7b35917e09decec0de677e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-32-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.75
+        ],
+        "to": [
+          56,
+          20,
+          36.75
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "a90747f4fbdb91102d3b9d0d45acb0db961fa69526a3bd2623315c73309d440a",
+      "passed": true
+    },
+    {
+      "name": "native-ray-32-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          36.75
+        ],
+        "to": [
+          56,
+          20,
+          36.75
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "a90747f4fbdb91102d3b9d0d45acb0db961fa69526a3bd2623315c73309d440a",
+      "passed": true
+    },
+    {
+      "name": "native-ray-33-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          37
+        ],
+        "to": [
+          56,
+          20,
+          37
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 3,
+      "digest": "4a37b21db10d895e39f2eb1ee16ddec6dcd32f3ea4a6e5924b1a6493fb34e907",
+      "passed": true
+    },
+    {
+      "name": "native-ray-33-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          37
+        ],
+        "to": [
+          56,
+          20,
+          37
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 3,
+      "digest": "4a37b21db10d895e39f2eb1ee16ddec6dcd32f3ea4a6e5924b1a6493fb34e907",
+      "passed": true
+    },
+    {
+      "name": "native-ray-34-false",
+      "input": {
+        "from": [
+          38,
+          22,
+          42
+        ],
+        "to": [
+          73,
+          22,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "fefc2b40e588fafa2249c029cb35b43b3baf4d83b849b7b06b49faca3e5e1aaf",
+      "passed": true
+    },
+    {
+      "name": "native-ray-34-true",
+      "input": {
+        "from": [
+          38,
+          22,
+          42
+        ],
+        "to": [
+          73,
+          22,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "fefc2b40e588fafa2249c029cb35b43b3baf4d83b849b7b06b49faca3e5e1aaf",
+      "passed": true
+    },
+    {
+      "name": "native-ray-35-false",
+      "input": {
+        "from": [
+          73,
+          22,
+          42
+        ],
+        "to": [
+          38,
+          22,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "6fe5f6a43f6a5f48dc103f4a249c718a8eb56e71cc0ed720e6ca7ebcb138e106",
+      "passed": true
+    },
+    {
+      "name": "native-ray-35-true",
+      "input": {
+        "from": [
+          73,
+          22,
+          42
+        ],
+        "to": [
+          38,
+          22,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "6fe5f6a43f6a5f48dc103f4a249c718a8eb56e71cc0ed720e6ca7ebcb138e106",
+      "passed": true
+    },
+    {
+      "name": "native-ray-36-false",
+      "input": {
+        "from": [
+          56,
+          24,
+          32
+        ],
+        "to": [
+          56,
+          20,
+          52
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "7792cf899848226fe77d9d64e2c491888c405d64d1e00f19f59ba8af2b9a8687",
+      "passed": true
+    },
+    {
+      "name": "native-ray-36-true",
+      "input": {
+        "from": [
+          56,
+          24,
+          32
+        ],
+        "to": [
+          56,
+          20,
+          52
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "7792cf899848226fe77d9d64e2c491888c405d64d1e00f19f59ba8af2b9a8687",
+      "passed": true
+    },
+    {
+      "name": "native-ray-37-false",
+      "input": {
+        "from": [
+          56,
+          20,
+          52
+        ],
+        "to": [
+          56,
+          24,
+          32
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "db5f9e05fc21d631ae2b0183eeccf68d10606999e2f43ba41979a148b56eca7e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-37-true",
+      "input": {
+        "from": [
+          56,
+          20,
+          52
+        ],
+        "to": [
+          56,
+          24,
+          32
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "db5f9e05fc21d631ae2b0183eeccf68d10606999e2f43ba41979a148b56eca7e",
+      "passed": true
+    },
+    {
+      "name": "native-ray-38-false",
+      "input": {
+        "from": [
+          41.699999609265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999609265134,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-38-true",
+      "input": {
+        "from": [
+          41.699999609265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999609265134,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-39-false",
+      "input": {
+        "from": [
+          41.69999975926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999975926514,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-39-true",
+      "input": {
+        "from": [
+          41.69999975926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999975926514,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "native-ray-40-false",
+      "input": {
+        "from": [
+          41.69999980926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999980926514,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "3427f4f758f14328fe0d4f0911d3fe7a6d9107a783074d9642ff21f83ac4a917",
+      "passed": true
+    },
+    {
+      "name": "native-ray-40-true",
+      "input": {
+        "from": [
+          41.69999980926514,
+          25,
+          42
+        ],
+        "to": [
+          41.69999980926514,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "3427f4f758f14328fe0d4f0911d3fe7a6d9107a783074d9642ff21f83ac4a917",
+      "passed": true
+    },
+    {
+      "name": "native-ray-41-false",
+      "input": {
+        "from": [
+          41.699999859265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999859265134,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "e05059975e19ece462538ccc225644bd4c0d24d1aadacaac16df329548a5ca38",
+      "passed": true
+    },
+    {
+      "name": "native-ray-41-true",
+      "input": {
+        "from": [
+          41.699999859265134,
+          25,
+          42
+        ],
+        "to": [
+          41.699999859265134,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "e05059975e19ece462538ccc225644bd4c0d24d1aadacaac16df329548a5ca38",
+      "passed": true
+    },
+    {
+      "name": "native-ray-42-false",
+      "input": {
+        "from": [
+          41.70000000926514,
+          25,
+          42
+        ],
+        "to": [
+          41.70000000926514,
+          20,
+          42
+        ],
+        "includeEndpoints": false
+      },
+      "hits": 2,
+      "digest": "92638ebeb78b6d7e5cfebc63aca9441b3848e2b6d1556887c2541e2451cf5bac",
+      "passed": true
+    },
+    {
+      "name": "native-ray-42-true",
+      "input": {
+        "from": [
+          41.70000000926514,
+          25,
+          42
+        ],
+        "to": [
+          41.70000000926514,
+          20,
+          42
+        ],
+        "includeEndpoints": true
+      },
+      "hits": 2,
+      "digest": "92638ebeb78b6d7e5cfebc63aca9441b3848e2b6d1556887c2541e2451cf5bac",
+      "passed": true
+    },
+    {
+      "name": "native-body-0",
+      "input": {
+        "args": [
+          {
+            "x": 56,
+            "y": 42
+          },
+          {
+            "x": 56,
+            "y": 42
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "native-body-1",
+      "input": {
+        "args": [
+          {
+            "x": 56,
+            "y": 42
+          },
+          {
+            "x": 56,
+            "y": 42
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-2",
+      "input": {
+        "args": [
+          {
+            "x": 56,
+            "y": 42
+          },
+          {
+            "x": 56,
+            "y": 42
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-3",
+      "input": {
+        "args": [
+          {
+            "x": 45,
+            "y": 36
+          },
+          {
+            "x": 45,
+            "y": 36
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "native-body-4",
+      "input": {
+        "args": [
+          {
+            "x": 45,
+            "y": 36
+          },
+          {
+            "x": 45,
+            "y": 36
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-5",
+      "input": {
+        "args": [
+          {
+            "x": 45,
+            "y": 36
+          },
+          {
+            "x": 45,
+            "y": 36
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-6",
+      "input": {
+        "args": [
+          {
+            "x": 68,
+            "y": 47
+          },
+          {
+            "x": 68,
+            "y": 47
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "native-body-7",
+      "input": {
+        "args": [
+          {
+            "x": 68,
+            "y": 47
+          },
+          {
+            "x": 68,
+            "y": 47
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-8",
+      "input": {
+        "args": [
+          {
+            "x": 68,
+            "y": 47
+          },
+          {
+            "x": 68,
+            "y": 47
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-9",
+      "input": {
+        "args": [
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          0.14,
+          21.1,
+          21.5
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "native-body-10",
+      "input": {
+        "args": [
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          0.14,
+          22.4,
+          22.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-11",
+      "input": {
+        "args": [
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          {
+            "x": 55.25,
+            "y": 36.25
+          },
+          0.14,
+          23.4,
+          23.8
+        ]
+      },
+      "clear": true,
+      "passed": true
+    },
+    {
+      "name": "native-body-12",
+      "input": {
+        "args": [
+          {
+            "x": 38,
+            "y": 42
+          },
+          {
+            "x": 73,
+            "y": 42
+          },
+          0.2,
+          22.4,
+          22.9
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "native-body-13",
+      "input": {
+        "args": [
+          {
+            "x": 40,
+            "y": 32
+          },
+          {
+            "x": 72,
+            "y": 52
+          },
+          0.2,
+          21.5,
+          22
+        ]
+      },
+      "clear": false,
+      "passed": true
+    },
+    {
+      "name": "native-scoped-surface",
+      "input": {
+        "channel": "surface"
+      },
+      "pieces": 53648,
+      "originalPrimitives": 8555,
+      "uniqueScopedPrimitiveIds": 53648,
+      "haloPieces": 45098,
+      "maxOriginalPrimitiveAreaDelta": 3.885780586188048e-15,
+      "maxArithmeticBound": 2.3675284023170205e-9,
+      "originalRecordReferences": true,
+      "noNewCapPrimitive": true,
+      "originalEpsilonOverlapBetweenDistinctNativeRecordsPreserved": true,
+      "passed": true
+    },
+    {
+      "name": "native-scoped-solid",
+      "input": {
+        "channel": "solid"
+      },
+      "pieces": 53742,
+      "originalPrimitives": 8598,
+      "uniqueScopedPrimitiveIds": 53742,
+      "haloPieces": 45182,
+      "maxOriginalPrimitiveAreaDelta": 3.885780586188048e-15,
+      "maxArithmeticBound": 2.3675284023170205e-9,
+      "originalRecordReferences": true,
+      "noNewCapPrimitive": true,
+      "originalEpsilonOverlapBetweenDistinctNativeRecordsPreserved": true,
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-0",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          33.5
+        ],
+        "to": [
+          41.5,
+          20,
+          33.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-1",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          36.5
+        ],
+        "to": [
+          41.5,
+          20,
+          36.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-2",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          42
+        ],
+        "to": [
+          41.5,
+          20,
+          42
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-3",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          49
+        ],
+        "to": [
+          41.5,
+          20,
+          49
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-4",
+      "input": {
+        "from": [
+          41.5,
+          25,
+          50.5
+        ],
+        "to": [
+          41.5,
+          20,
+          50.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-5",
+      "input": {
+        "from": [
+          47,
+          25,
+          33.5
+        ],
+        "to": [
+          47,
+          20,
+          33.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-6",
+      "input": {
+        "from": [
+          47,
+          25,
+          36.5
+        ],
+        "to": [
+          47,
+          20,
+          36.5
+        ]
+      },
+      "hits": 1,
+      "digest": "70bfa8da20828363ecb14b8d59db176b4016535f8ae93bd24be68f73b698dcee",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-7",
+      "input": {
+        "from": [
+          47,
+          25,
+          42
+        ],
+        "to": [
+          47,
+          20,
+          42
+        ]
+      },
+      "hits": 1,
+      "digest": "19a6639c01ee8f80abb84b67954e27dc8ae916560c607d87db129bb77ebd49e2",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-8",
+      "input": {
+        "from": [
+          47,
+          25,
+          49
+        ],
+        "to": [
+          47,
+          20,
+          49
+        ]
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-9",
+      "input": {
+        "from": [
+          47,
+          25,
+          50.5
+        ],
+        "to": [
+          47,
+          20,
+          50.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-10",
+      "input": {
+        "from": [
+          56,
+          25,
+          33.5
+        ],
+        "to": [
+          56,
+          20,
+          33.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-11",
+      "input": {
+        "from": [
+          56,
+          25,
+          36.5
+        ],
+        "to": [
+          56,
+          20,
+          36.5
+        ]
+      },
+      "hits": 2,
+      "digest": "01d0ff1a40e3e9013c8717eec55a898eb74bc9c264ceee40e0c1e2829c58d216",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-12",
+      "input": {
+        "from": [
+          56,
+          25,
+          42
+        ],
+        "to": [
+          56,
+          20,
+          42
+        ]
+      },
+      "hits": 1,
+      "digest": "0f5dbc7b166d9f8b027034e97e014727ca419018a04c3ef70820ad5cdef8c60a",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-13",
+      "input": {
+        "from": [
+          56,
+          25,
+          49
+        ],
+        "to": [
+          56,
+          20,
+          49
+        ]
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-14",
+      "input": {
+        "from": [
+          56,
+          25,
+          50.5
+        ],
+        "to": [
+          56,
+          20,
+          50.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-15",
+      "input": {
+        "from": [
+          65,
+          25,
+          33.5
+        ],
+        "to": [
+          65,
+          20,
+          33.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-16",
+      "input": {
+        "from": [
+          65,
+          25,
+          36.5
+        ],
+        "to": [
+          65,
+          20,
+          36.5
+        ]
+      },
+      "hits": 1,
+      "digest": "b319415c6b86f6ed1b9b737725d0be67a0307d77fcf01126eb07c40b878ce44c",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-17",
+      "input": {
+        "from": [
+          65,
+          25,
+          42
+        ],
+        "to": [
+          65,
+          20,
+          42
+        ]
+      },
+      "hits": 1,
+      "digest": "b1a3bdb171965d3d44ac7928fc225b9d336d71bf4da79bb72909b040cadccb9d",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-18",
+      "input": {
+        "from": [
+          65,
+          25,
+          49
+        ],
+        "to": [
+          65,
+          20,
+          49
+        ]
+      },
+      "hits": 1,
+      "digest": "227528c5750d6ad5447754f7ae3ab0ee56bd469e77b0056e895b404f3271e377",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-19",
+      "input": {
+        "from": [
+          65,
+          25,
+          50.5
+        ],
+        "to": [
+          65,
+          20,
+          50.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-20",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          33.5
+        ],
+        "to": [
+          70.5,
+          20,
+          33.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-21",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          36.5
+        ],
+        "to": [
+          70.5,
+          20,
+          36.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-22",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          42
+        ],
+        "to": [
+          70.5,
+          20,
+          42
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-23",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          49
+        ],
+        "to": [
+          70.5,
+          20,
+          49
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-24",
+      "input": {
+        "from": [
+          70.5,
+          25,
+          50.5
+        ],
+        "to": [
+          70.5,
+          20,
+          50.5
+        ]
+      },
+      "hits": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-25",
+      "input": {
+        "from": [
+          47.25,
+          25,
+          38.749999933333335
+        ],
+        "to": [
+          47.25,
+          20,
+          38.749999933333335
+        ]
+      },
+      "hits": 1,
+      "digest": "f2ff4420bc47abb04dbbf0b49a04789885e49f4f6e95a11a3d754a6d6c346b12",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-26",
+      "input": {
+        "from": [
+          47.25,
+          20,
+          38.749999933333335
+        ],
+        "to": [
+          47.25,
+          25,
+          38.749999933333335
+        ]
+      },
+      "hits": 1,
+      "digest": "c39d7c574196824f786340660911f379f186120f7bc292b4c62309bd56fbaf67",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-27",
+      "input": {
+        "from": [
+          41.90000000308837,
+          25,
+          33.79088659740771
+        ],
+        "to": [
+          41.90000000308837,
+          20,
+          33.79088659740771
+        ]
+      },
+      "hits": 1,
+      "digest": "704255fb8350c96951cc45aa94380295098cfeb74470889fd6adb8fbc5c820d5",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-28",
+      "input": {
+        "from": [
+          41.90000000308837,
+          20,
+          33.79088659740771
+        ],
+        "to": [
+          41.90000000308837,
+          25,
+          33.79088659740771
+        ]
+      },
+      "hits": 1,
+      "digest": "289bfe3474fb40874e5710ee927f0eb80bd3cefb0a13aefe87efe18de77f1afc",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-29",
+      "input": {
+        "from": [
+          41.79999990617675,
+          25,
+          33.90000000308837
+        ],
+        "to": [
+          41.79999990617675,
+          20,
+          33.90000000308837
+        ]
+      },
+      "hits": 2,
+      "digest": "85a596511bc0425dcb0595338a17a0cffa058fcacdd92bfef3c4d5256ab8ec20",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-30",
+      "input": {
+        "from": [
+          41.79999990617675,
+          20,
+          33.90000000308837
+        ],
+        "to": [
+          41.79999990617675,
+          25,
+          33.90000000308837
+        ]
+      },
+      "hits": 2,
+      "digest": "077831cbcec6fc11b6baab9c4027157cfb7a4b2c482c0efd68c8943e7e7f1b8d",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-31",
+      "input": {
+        "from": [
+          41.86666663745117,
+          25,
+          33.8386945827441
+        ],
+        "to": [
+          41.86666663745117,
+          20,
+          33.8386945827441
+        ]
+      },
+      "hits": 1,
+      "digest": "704255fb8350c96951cc45aa94380295098cfeb74470889fd6adb8fbc5c820d5",
+      "passed": true
+    },
+    {
+      "name": "mixed-original-domain-oracle-32",
+      "input": {
+        "from": [
+          41.86666663745117,
+          20,
+          33.8386945827441
+        ],
+        "to": [
+          41.86666663745117,
+          25,
+          33.8386945827441
+        ]
+      },
+      "hits": 1,
+      "digest": "289bfe3474fb40874e5710ee927f0eb80bd3cefb0a13aefe87efe18de77f1afc",
+      "passed": true
+    },
+    {
+      "name": "mixed-retired-patch-full-body-hole",
+      "input": {
+        "args": [
+          {
+            "x": 47.25,
+            "y": 38.749999933333335
+          },
+          {
+            "x": 47.25,
+            "y": 38.749999933333335
+          },
+          0.04,
+          22.409879450490713,
+          22.56987945049071
+        ],
+        "cell": [
+          94,
+          21,
+          77
+        ]
+      },
+      "clear": true,
+      "entireBodyInRetiredNativeCoverage": true,
+      "passed": true
+    },
+    {
+      "name": "mixed-complete-empty-native-body",
+      "input": {
+        "args": [
+          {
+            "x": 41.75,
+            "y": 33.75
+          },
+          {
+            "x": 41.75,
+            "y": 33.75
+          },
+          0.02,
+          22.69,
+          22.890000000000004
+        ],
+        "cell": [
+          83,
+          21,
+          67
+        ]
+      },
+      "clear": true,
+      "explicitCompleteEmptyCoverage": true,
+      "passed": true
+    }
+  ],
+  "firstFailure": null,
+  "complete": true,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "graphRebuilds": 0,
+  "proofReplay": false,
+  "cleanup": true,
+  "admission": {
+    "parts": [
+      {
+        "id": "clerestory-roof-deck/tile--1-10",
+        "owner": "new-york::carrier/clerestory-roof-deck/tile--1-10",
+        "sourceTriangles": 12,
+        "cells": 4,
+        "closed": true
+      },
+      {
+        "id": "roof/clerestory",
+        "owner": "new-york::carrier/roof/clerestory",
+        "sourceTriangles": 8,
+        "cells": 3944,
+        "closed": true
+      }
+    ],
+    "nativeRecords": 4136,
+    "nativeRoof": 4132,
+    "geometryArraysCloned": false,
+    "queryMetadataRestored": "Undefined/-0 revived in place; pinned timber/timber-covering transmission .02 supplied to both ordinary and regional query records. Saved sourceSurfaceId remains the ordinary sheet fallback; omitted sheetKey is not invented."
+  },
+  "current": {
+    "name": "mixed-complete-empty-native-body",
+    "input": {
+      "args": [
+        {
+          "x": 41.75,
+          "y": 33.75
+        },
+        {
+          "x": 41.75,
+          "y": 33.75
+        },
+        0.02,
+        22.69,
+        22.890000000000004
+      ],
+      "cell": [
+        83,
+        21,
+        67
+      ]
+    }
+  },
+  "mixed": {
+    "partId": "roof/clerestory",
+    "claimedCells": [
+      [
+        94,
+        21,
+        77
+      ],
+      [
+        83,
+        20,
+        67
+      ],
+      [
+        83,
+        21,
+        67
+      ]
+    ],
+    "retiredIds": [
+      "new-york::carrier/roof/clerestory/part/10387/face/0@94,21,77",
+      "new-york::carrier/roof/clerestory/part/10387/face/0@83,20,67"
+    ],
+    "sameCellSurvivors": [
+      "new-york::carrier/roof/clerestory/part/10387/face/2@83,20,67",
+      "new-york::carrier/roof/clerestory/part/10387/face/4@83,20,67"
+    ],
+    "explicitEmptyCell": [
+      83,
+      21,
+      67
+    ]
+  },
+  "endedAt": "2026-11-17T20:06:51.210Z"
+}
