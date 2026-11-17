@@ -7,35 +7,38 @@ and one deduplicated local geometry JSON beside it. This is the architect-approv
 It follows the first engineering checkpoint separately; do not delay that limited
 preview or silently include this addition before its exact source intake.
 
-The manifest has `version:1`, `placeId:'new-york'`, `coordinateFrame`, `authority`,
-`proposal`, exact `baseBindings`, `effectiveGeometryOverlay` and `supportControls`
-path/hash pins, `geometries`, `carriers`, `existingCarrierAttachments`,
-`finiteLedgerDelta` and `evidence`. Preserve completed inputs 407c0f8b/f1252c73
+The artist's concrete singular-geometry schema is accepted: `version:1`,
+`placeId:'new-york'`, `coordinateFrame`, `authority`, `approvedProposal`, exact
+`baseBindings`, `effectiveGeometryOverlay` and `supportOverrides` path/hash pins,
+`geometry:{id,path,sha256,triangleCount:12}`, `appearanceSource`, `members`,
+`joins`, `finiteLedger` and explicit local retirement/ownership. Preserve 407c0f8b/f1252c73
 and the separate f3f28fda ten-control descriptor byte-for-byte.
 
-Use the existing completed-carrier/render-binding record shape for all 48 unique
-members: stable local carrier/source-part IDs from the approved proposal; actual
-local closed buffers, full emitted-world matrices with the existing offset already
-applied; native bounds/section; the exact existing appearance ID; timber/frame;
-`quantityBasis.rule:'closed-volume'`, `.0448` canonical fuel per member; real bottom
-parent IDs/evidence/attachment regions; and `anchors:[]`. Name the new role
-`support-blocking` so its explicitly authored structural purpose is distinct from
-decorative fittings. This admits no role changes to existing sources.
+Each of the 48 `members` has its exact approved ID and source-part ID (remove only
+`carrier/`), `role:'timber-fitting'`, timber/frame, `.0448` fuel, no coating,
+closed-volume / .12 quantity, approved matrix/bounds/bay, shared geometry reference
+and existing appearance ID. The compiler derives existing section registration
+from those bounds. It normalizes these concise records to the existing carrier/
+render-binding shape; no duplicate export fields or changes to existing roles.
 
-`geometries` maps the one canonical geometry ID to `{geometryPath,sha256}`.
-Use the same `{attributes,index?}` buffer format, canonical ID/file-hash distinction,
-native normals and metre UV/grossUV convention as the effective overlay. Keep
-the approved dimensions, one-metre bay selection, matrices and IDs exactly.
+Use the same `{attributes,index?}` buffer wrapper, canonical ID/file-hash distinction,
+native normals and metre UV/grossUV convention as the effective overlay. Preserve
+the proposal's indexed unit-primitive arrays exactly. The approved member matrices
+apply only this new geometry's physical dimensions; no existing mesh is scaled.
+Keep the exact one-metre bay selection, matrices and IDs.
 
-`existingCarrierAttachments` contains only the 48 approved top bearings from the
-existing parapet-base carriers to their corresponding new members. Each uses
+`joins` contains the exact 96 bottom/top bearings. The 48 top links run from the
+existing parapet-base carriers to their corresponding new members; each uses
 `childCarrierId`, `parentCarrierId`, `kind:'bearing-face'`,
 `direction:'parent-to-child'`, `groundAnchor:false`, the same complete local
-child/parent region shape and exact measured evidence. New-member carrier records
-contain the other 48 bottom bearing relationships to actual rooted cornice-7.
-Retain actual contacts; do not infer support from the nearby separated roof.
+child/parent region shape and exact measured evidence. The other 48 bottom links run
+from the new members to actual rooted cornice-7. Retain the approved upper bay
+selectors as `localChildLossBounds` with `wholeCarrierRetirement:false`: they remove
+only that local direct bearing, leaving actual neighboring geometry to the shared
+stability rules. They introduce no new forced-break rule. Do not infer support
+from the nearby separated roof.
 
-`finiteLedgerDelta:{frame:2.1504,total:2.1504}` declares a static initial addition,
+`finiteLedger` records 48 accounts, .0448 each / 2.1504 frame total, a static addition,
 not a tool deposit or activation birth. The proposed combined canonical total is
 15770.094353, retaining the original .10 coating. No other profile, material, source
 quantity, ground anchor, floor/door aperture, parent direction or input rule changes.
