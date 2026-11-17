@@ -1,0 +1,32 @@
+{
+  "authority": "df3dbcea",
+  "kind": "Saved-array query correctness only; no speed claim",
+  "pid": 2812,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-17T19:52:28.977Z",
+  "inputs": [
+    {
+      "path": "docs/engineering/shared-maps/support-large-proof-v2/reference-blocks.json",
+      "bytes": 24151807,
+      "sha256": "bfab707ff646e9dfedfaae3b80d510ac750e4f561335d895c24c4e4cc4d49418"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+    }
+  ],
+  "checks": [],
+  "firstFailure": {
+    "name": "admission/setup",
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'timber-covering'\n- 'timber'\n         ^\n"
+  },
+  "complete": false,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "graphRebuilds": 0,
+  "proofReplay": false,
+  "cleanup": true,
+  "endedAt": "2026-11-17T19:52:29.148Z"
+}

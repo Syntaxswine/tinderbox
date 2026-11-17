@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "authority": "df3dbcea",
+  "base": "66f5bea98f102af2823acb9200aac58b228cd466",
+  "passed": true,
+  "finalManualTests": 13,
+  "finalSavedChecks": 239,
+  "totalForegroundAttempts": 15,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "spentProofReplayed": false,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "originalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "originalSourcePins": 5,
+      "preserved": true
+    }
+  ],
+  "uiSourcePins": 20,
+  "unchangedExistingQueryAndCompilerFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "src/runtime/collision.js",
+    "src/content/map-source-shapes.js",
+    "workbenches/furnished-house/scene.js",
+    "src/runtime/source-query-registry.js",
+    "src/runtime/native-query-registry.js",
+    "src/simulation/regional-source-pilot.js",
+    "workbenches/furnished-house/regional-domain.js"
+  ],
+  "originalSegmentBroadPhaseExact": true,
+  "sourcePins": [
+    {
+      "path": "src/runtime/regional-effective-query.js",
+      "mode": "LF",
+      "sha256": "9e835c21039e60105248d6000e349ee03ba6102bb125e8b2d8979a9ec547b458"
+    },
+    {
+      "path": "tests/fixtures/regional-query-data.mjs",
+      "mode": "LF",
+      "sha256": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4"
+    },
+    {
+      "path": "tests/integration/regional-effective-query.test.mjs",
+      "mode": "LF",
+      "sha256": "f03439ce0f87e57e111256250e1e8a3a2e2d563a4239729a2f7bc0c5b3b5c280"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "mode": "LF",
+      "sha256": "4b4669f9352a2291c094c72ae3289560efc088831c1b53afe9bcb4eb66c82368"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "mode": "LF",
+      "sha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "mode": "LF",
+      "sha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3"
+    },
+    {
+      "path": "src/content/map-source-shapes.js",
+      "mode": "LF",
+      "sha256": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "mode": "LF",
+      "sha256": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b"
+    },
+    {
+      "path": "src/runtime/source-query-registry.js",
+      "mode": "LF",
+      "sha256": "0baff57a303fb5eb9779dbbb5d816088d222e8f4af49e80586a1e17e8db363e8"
+    },
+    {
+      "path": "src/runtime/native-query-registry.js",
+      "mode": "LF",
+      "sha256": "42dfe59ab9c07e8b37a5c59c02f28378ca84f8fdc437746b41570889487be858"
+    },
+    {
+      "path": "src/simulation/regional-source-pilot.js",
+      "mode": "LF",
+      "sha256": "df2b0e2be8b665b918ef1811d716c6bfe94bf154db47edf79f66b85d14e0b6ff"
+    },
+    {
+      "path": "workbenches/furnished-house/regional-domain.js",
+      "mode": "LF",
+      "sha256": "0868d2097af01a128cdfa61a3b88bbf54483bcc986023291dc03eddcf512a2cc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/regional-query-kernel-v1/compare-saved.mjs",
+      "mode": "LF",
+      "sha256": "fc8ab376ddb5cb4d95291f7674eeb0249bc0412eb8cddb395538c8d70c960f06"
+    },
+    {
+      "path": "docs/engineering/shared-maps/regional-query-kernel-v1/run-saved.mjs",
+      "mode": "LF",
+      "sha256": "d607c12c31952997628543892355e2e17156a0387a7d395f9c53e79de4f9e91f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/regional-query-kernel-v1/run-synthetic.mjs",
+      "mode": "LF",
+      "sha256": "9d89df611fbe64e927826312b80402525faf8f763f7487a352429d8f445fa82f"
+    }
+  ],
+  "sourcePinTiming": "Post-run final source audit; final runtime/harness unchanged since saved-final, final fixture unchanged since synthetic-handoff. Earlier transient versions not separately snapshotted.",
+  "declaration": {
+    "modified": 22,
+    "added": 48
+  },
+  "preservedWip": true,
+  "helpers": [],
+  "ports": [],
+  "productionEnabled": false
+}
