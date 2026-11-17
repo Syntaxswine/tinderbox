@@ -11,8 +11,12 @@ const data=surfaces=>({version:1,runtimeAdapterVersion:1,prefabId:'query-control
 const definition=(blockers=[])=>({placeId:'fixture',width:112,height:78,spawn:{x:2,y:2,elevation:0},surfaces:[{id:'grounds',terrain:true,height:0,polygons:[rect(0,0,12,8)],holes:[]}],ceilings:[],blockers,collisionShapes:{},portals:[]});
 const wall={id:'opaque-unassigned',bounds:{min:[4.42,-5,-10],max:[4.58,12,20]}};
 
-test('unassigned native geometry is lazy and inert while tool, sight, convection and radiation share its opaque boundary',()=>{
-  const nav=definition([wall]),compiled={data:data([floor('fixture::left',3,2,1,1,0),floor('fixture::right',5,2,1,1,0)]),instances:[{id:'fixture',data:{}}],sparsePublication:true,createQuerySource:()=>createNativeQueryRegistry({navigation:nav})},state={player:{id:'hero',x:3.5,y:2.5,elevation:0,height:1.66,radius:.5,hp:100},actors:[],tick:0,generation:0,clocks:{world:0}},provider=createSceneThermal({compiled,state,definition:{...nav,fireCellSize:.5},config:DEFAULT_CONFIG,event:()=>{}});
+function sourceFixture(blockers){
+  const nav=definition(blockers),compiled={data:data([floor('fixture::left',3,2,1,1,0),floor('fixture::right',5,2,1,1,0)]),instances:[{id:'fixture',data:{}}],sparsePublication:true,createQuerySource:()=>createNativeQueryRegistry({navigation:nav})},state={player:{id:'hero',x:3.5,y:2.5,elevation:0,height:1.66,radius:.5,hp:100},actors:[],tick:0,generation:0,clocks:{world:0}},provider=createSceneThermal({compiled,state,definition:{...nav,fireCellSize:.5},config:DEFAULT_CONFIG,event:()=>{}});
+  return {provider,state};
+}
+test('unassigned native geometry screens a reachable matched heat receiver through the shared physical index',t=>{
+  const {provider,state}=sourceFixture([wall]);
   try{
     assert.ok(provider.trial.scene.index.surfaces.get('fixture::query/opaque-unassigned').queryOnly);
     assert.ok(Math.abs(provider.trial.scene.initialFuel-.1)<1e-7,'Only native clipping epsilon affects the known finite source quantity');assert.equal(provider.trial.scene.fuels.size,8,'Only the two known one-metre patches create canonical native fuel');
@@ -26,6 +30,18 @@ test('unassigned native geometry is lazy and inert while tool, sight, convection
     assert.equal(provider.queryMetrics().fuelAllocated,0);assert.ok(provider.queryMetrics().shapeBuilds>0);
     assert.ok(provider.snapshot().length<100,'Large logical bounds do not produce a full-map ground raster');
   }finally{provider.dispose();}
+  const clear=sourceFixture([]);
+  try{
+    assert.equal(clear.provider.lineClear(clear.state.player,{x:5.5,y:2.5,elevation:0}),true);
+    clear.provider.cone(clear.state.player,0,4.5,Math.PI/8,12/30,'flamethrower',null);clear.provider.step(1/30,1/30);clear.state.tick++;
+    const receiver=[...clear.provider.trial.scene.fuels.values()].filter(f=>f.sourceSurfaceId==='fixture::right');
+    assert.ok(receiver.every(f=>f.cells.every(c=>c.heat===0)),'The initial cone alone has not directly heated the matched receiver');
+    clear.provider.trial.command({type:'match',position:[3.75,.015,2.25]});for(let i=0;i<90;i++){clear.provider.step(1/30,(i+2)/30);clear.state.tick++;}
+    assert.ok([...clear.provider.trial.scene.fuels.values()].some(f=>f.sourceSurfaceId==='fixture::left'&&f.lit));
+    const maximumHeat=Math.max(...receiver.flatMap(f=>f.cells.map(c=>c.heat)));
+    assert.ok(maximumHeat>0,'With only the opaque wall removed, the same source and elapsed time must actually warm this receiver');
+    assert.equal(clear.provider.trial.tick,91);t.diagnostic(JSON.stringify({blockedReceiverHeat:0,noWallReceiverHeat:maximumHeat,nativeTicks:91,scope:'Combined native heat transport, not independent isolation of radiation and convection.'}));
+  }finally{clear.provider.dispose();}
 });
 
 test('partial known-floor retirement cannot be resurrected by a static proxy or query reload',()=>{

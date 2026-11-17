@@ -19,6 +19,8 @@ test('New York pilot keeps exact source pins, quantities and world coordinates w
   assert.equal(pilot.carriers.filter(c=>c.finish).length,1);assert.equal(pilot.carriers.find(c=>c.finish).finish.amount,.1);
   assert.deepEqual(pilot.surfaces.find(s=>s.fuelClass==='clapboard').bounds.min,[54,2.119999885559082,25.92000000178814]);
   assert.ok(Math.abs(pilot.surfaces.find(s=>s.kind==='floor').bounds.max[1]-8.48)<1e-5);
+  assert.equal(pilot.surfaces.find(s=>s.fuelClass==='clapboard').level,1,'Native first-story wall must tolerate source precision below 2.12 m');
+  assert.equal(pilot.surfaces.find(s=>s.kind==='floor').level,4,'Explicit native floor level overrides slab underside below its occupied level');
   assert.equal(pilot.surfaces.find(s=>s.material==='glass').fuelAmount,0);
   assert.ok(pilot.surfaces.every(s=>s.id.startsWith('new-york::')&&!s.id.includes('new-york::new-york::')));
   assert.throws(()=>gameplayMapDefinition({...navigation,width:Infinity}),/bounds/);

@@ -19,7 +19,7 @@ Normal Catalogue selection now chooses the accepted modular host. `?catalogue=le
 
 ## Measured scope
 
-The runtime pilot is **1,085,057 bytes**, extracted from the **27,291,670-byte** authoring sidecar. Its SHA-256 is `bd961c4a673310d3ea8a754d071568efc94847a8f740a0ae1142d46b069454ae`. The compiled artifact includes physical source hashes, explicit material/quantity records, three active native surfaces, source/render ownership and floor reservations. It never constructs the monolithic landmark factory.
+The runtime pilot is **1,085,057 bytes**, extracted from the **27,291,670-byte** authoring sidecar. Its SHA-256 is `9ed04a137858b28be158758fb2385a2cb5272212a3a9ed7efdaa1215e82397e6`. The compiled artifact includes physical source hashes, explicit material/quantity records, three active native surfaces, source/render ownership and floor reservations. It never constructs the monolithic landmark factory.
 
 | Counter | Three-source CPU fixture |
 | --- | ---: |
@@ -38,19 +38,21 @@ The runtime pilot is **1,085,057 bytes**, extracted from the **27,291,670-byte**
 
 The initial native clipping discrepancy is about `9.8e-7` fuel units. Diagnostics expose it as `nativeClippingDelta` and retain the canonical/world error; no coefficient or authored quantity was altered to hide it. The native trial's own finite ledger remains balanced.
 
-One direct source-contact fixture measured 134.944 ms construction and 0.137 ms mean / 0.151 ms p95 / 6.304 ms maximum per native advance over 135 steps. These are CPU-only measurements for **three sources**, not representative whole-building performance, normal gameplay FPS, graphics cost or phone Safari acceptance. No renderer, lights or section-render residency was measured.
+One direct source-contact fixture measured 134.944 ms construction and 0.137 ms mean / 0.151 ms p95 / 6.304 ms maximum per native advance over 135 steps. These are CPU-only measurements for **three sources**, not representative whole-building performance, normal gameplay FPS, graphics cost or phone Safari acceptance. No renderer, lights or section-render residency was measured. This saved measurement precedes the native-level label correction below; its physical geometry, quantities and kernel hashes are unchanged.
 
 ## Checks and retained failures
 
 - A 140-test affected navigation, host, native collision, application and UI batch passed 139 checks, including 42 native landmark door visits. Its one failure was a cached reserve subtraction producing `2.9999999999999996` rather than the original sequential sum of 3. Reserve sums now update only on activation, preserving the original sum order without scanning every publication.
 - The final focused run passes **25/25**: all three animals at 9 m/s in the New York host; standard five-tool stock and oil debit; match press edges; torch world time; lantern joystick aim/release; pause/reset; elevated heat without a ground projection; local lacquer ignition/exhaustion without core retirement; shared obstruction, falling-lantern impact/spill, no floor resurrection, unrelated distant geometry and canonical accounting; runtime lifecycle and capability restrictions. Lifecycle renderer APIs are mocks; this was not a browser/GPU session.
 - The separate M29 source wrapper executes all **15** preserved M28 physical assertions, **60** routes and **819** source/render registration comparisons. All pass. It preserves the old checker, reference, declaration and receipt, and audits the additional runtime hashes. This retains stop-only geometric controls; new movement/provider controls are the separate tests above.
+- Architect source review caught a first-story wall level label underflow: `2.119999885 / 2.12` floored to 0. Extraction now preserves explicit levels and otherwise uses the exact `compile-places` tolerance, `Math.floor(minY/2.12+1e-5)`. Wall level 1 and upper-floor level 4 are asserted; 6/6 New York checks pass after regeneration. The compact data changes only that wall label, with all world coordinates, fuel and source ownership identical.
+- The barrier control now has a matched no-wall positive with identical inputs, material and 91 native ticks. Receiver maximum heat is 0 behind the wall and `0.00046313129593097204` without it. All four query controls pass. This tests combined native heat transport; it does not independently isolate convection/radiation or exercise airborne embers.
 - Artist `check.py --compare-binding-ref a067048a84e91a049a5cfcbc9209e84e118fc1af` passes: 575 physical dependencies, identical canonical carriers/quantities, six negative controls and original physical assertions.
 - Pilot regeneration, runtime declaration checks and `git diff --check` pass. No repository-wide build/package, nested-host release or browser matrix ran under this CPU grant.
 
 Earlier local test attempts remain findings: the test initially used the wrong `worldToStick` signature, omitted the lantern's required joystick aim/release, and incorrectly expected every unlit coating patch to exhaust on the first patch's clock. Those fixture expectations were corrected; per-patch lifetimes and production input rules were retained. An initial hash-recording script also assumed the new UI menu file existed at baseline; the durable recorder now handles added files explicitly. The failed source-output directory is preserved.
 
-Local evidence is under `artifacts/qa/shared-map-pilot/`: `final-cpu/focused-null-capabilities.log`, `m29-native-source-checked/`, `three-source-cost/counts.json`, `failed-attempts.json` and earlier source attempts. These artifacts are excluded from the commit. All finite commands completed; all providers disposed. No server, browser, watcher or retained helper was started.
+Local evidence is under `artifacts/qa/shared-map-pilot/`: `final-cpu/focused-null-capabilities.log`, `m29-native-source-checked/`, `three-source-cost/counts.json`, `failed-attempts.json`, `native-level-correction.json`, `final-cpu/native-level-correction.log`, `final-cpu/matched-receiver-control.log` and earlier source attempts. These artifacts are excluded from the commit. All finite commands completed; all providers disposed. No server, browser, watcher or retained helper was started.
 
 ## Remaining engineering gate
 

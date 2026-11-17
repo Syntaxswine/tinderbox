@@ -51,7 +51,9 @@ export function extractSharedMapPilot({manifest,navigation,bindings,geometries})
     const binding=c.renderBindings.find(b=>b.sourcePartId===c.physicalSourcePartIds[0]);
     if(!binding||binding.physicalContribution!=='carrier-solid'||c.quantityBasis.closedSourceSolids!==true)throw Error('Pilot closed-solid assignment absent');
     const ts=sourceTriangles(binding,geometries[binding.geometryId]),shape=panel(c,ts),sourceId=qualify(placeId,c.id);
-    surfaces.push({id:sourceId,instanceId:placeId,...shape,material:c.physicalMaterial,fuelClass:c.fuelClass,fuelAmount:c.fuelAmount,area:c.area,level:c.nativeLevel??Math.floor(shape.bounds.min[1]/2.12),supportSurfaceIds:c.supportCarrierIds.map(id=>qualify(placeId,id)),sourceMeshBindings:c.sourcePartIds.map(id=>qualify(placeId,id)),...(c.finish?{finish:{fuelClass:c.finish.fuelClass,amount:c.finish.fuelAmount}}:{})});
+    // Match compile-places' native-level tolerance for Float32 source bounds.
+    const level=c.nativeLevel??binding.level??Math.floor(shape.bounds.min[1]/2.12+1e-5);
+    surfaces.push({id:sourceId,instanceId:placeId,...shape,material:c.physicalMaterial,fuelClass:c.fuelClass,fuelAmount:c.fuelAmount,area:c.area,level,supportSurfaceIds:c.supportCarrierIds.map(id=>qualify(placeId,id)),sourceMeshBindings:c.sourcePartIds.map(id=>qualify(placeId,id)),...(c.finish?{finish:{fuelClass:c.finish.fuelClass,amount:c.finish.fuelAmount}}:{})});
     for(const part of c.physicalSourcePartIds)boundaryBindings[part]=[sourceId];
     if(shape.kind==='floor')floorReservations.push({height:shape.bounds.max[1],polygon:[[shape.bounds.min[0],shape.bounds.min[2]],[shape.bounds.max[0],shape.bounds.min[2]],[shape.bounds.max[0],shape.bounds.max[2]],[shape.bounds.min[0],shape.bounds.max[2]]],sourceIds:[sourceId]});
     renderBindings.push(...c.renderBindings.map(b=>({...b,carrierId:sourceId,sourceSurfaceIds:[sourceId]})));activeCarrierIds.push(sourceId);
