@@ -9,10 +9,29 @@ const freeze=value=>{if(value&&typeof value==='object'){for(const v of Object.va
 const sum=list=>list.reduce((a,b)=>a+b,0);
 const finiteVector=value=>Array.isArray(value)&&value.length===3&&value.every(Number.isFinite);
 const roundoff=(q,n)=>64*Number.EPSILON*Math.max(1,q)*Math.max(1,n);
+// Deliberately limited to the accepted static roof's 320 potential descriptors.
+export const REGIONAL_SOURCE_PILOT_LIMITS=Object.freeze({descriptors:320});
 function span(surface,origin,pitch){
-  const box=bounds(surface.triangles.flat()),min=box.min.map((v,i)=>Math.floor((v-origin[i])/pitch[i]+EPS)),max=box.max.map((v,i)=>box.max[i]-box.min[i]<EPS?min[i]:Math.ceil((v-origin[i])/pitch[i]-EPS)-1);return {min,max};
+  const box=bounds(surface.triangles.flat()),min=box.min.map((v,i)=>Math.floor((v-origin[i])/pitch[i]+EPS)),max=box.max.map((v,i)=>box.max[i]-box.min[i]<EPS?min[i]:Math.ceil((v-origin[i])/pitch[i]-EPS)-1);
+  if(![...min,...max,...max.map(v=>v+1)].every(Number.isSafeInteger)||min.some((v,i)=>v>max[i]))throw Error('Unsafe native source span/exclusive end');return {min,max};
 }
 function clearScene(scene){for(const map of [scene.index.surfaces,scene.index.bins,scene.cells,scene.fuels,scene.items,scene.parts,scene.sourceDefinitions])map.clear();}
+function guardPhysicalReceipt(scene){
+  // Only local record/field references are retained. Geometry is frozen in
+  // place, never cloned/serialized into a second full physical snapshot.
+  const index=scene.index,readers=[()=>scene.index.surfaces,()=>scene.index.bins,()=>scene.cells,()=>scene.fuels,()=>scene.items,()=>scene.parts,()=>scene.sourceDefinitions];
+  const tables=readers.map(read=>({read,map:read(),entries:[...read()]})),records=[scene,index,scene.profile,...Object.values(scene.profile),...tables.flatMap(t=>t.entries.map(([,v])=>v)).filter(v=>!(v instanceof Set))],terminals=new Set(records),seen=new WeakSet();
+  function immutable(value){if(!value||typeof value!=='object'||terminals.has(value)||seen.has(value))return;seen.add(value);if(!(value instanceof Map)&&!(value instanceof Set))for(const v of Object.values(value))immutable(v);Object.freeze(value);}
+  const fields=records.map(record=>{const descriptors=Object.getOwnPropertyDescriptors(record);for(const d of Object.values(descriptors))immutable(d.value);return {record,prototype:Object.getPrototypeOf(record),descriptors};});
+  const bins=tables[1].entries.map(([,set])=>({set,records:[...set]}));
+  function changed(){throw Error('Regional physical receipt changed');}
+  return {validate(){
+    if(scene.index!==index)changed();
+    for(const t of tables)if(t.read()!==t.map||t.map.size!==t.entries.length||t.entries.some(([id,value])=>t.map.get(id)!==value))changed();
+    for(const b of bins)if(b.set.size!==b.records.length||b.records.some(record=>!b.set.has(record)))changed();
+    for(const {record,prototype,descriptors}of fields){if(Object.getPrototypeOf(record)!==prototype||Reflect.ownKeys(record).length!==Reflect.ownKeys(descriptors).length)changed();for(const key of Reflect.ownKeys(descriptors)){const expected=descriptors[key],current=Object.getOwnPropertyDescriptor(record,key);if(!current||!Object.is(current.value,expected.value)||current.get!==expected.get||current.set!==expected.set||current.enumerable!==expected.enumerable||current.configurable!==expected.configurable||current.writable!==expected.writable)changed();}}
+  },dispose(){for(const t of tables){t.map.clear();t.entries.length=0;}records.length=0;fields.length=0;bins.length=0;terminals.clear();}};
+}
 function checkCertificate(c,native){
   if(![c.canonicalQuantity,c.canonicalRoundoff,c.positive,c.negative,c.roundoffBound,native].every(v=>Number.isFinite(v)&&v>=0)||c.epsilon!==EPS)throw Error('Invalid regional quantity certificate');
   const delta=native-c.canonicalQuantity;if(delta>c.positive||delta< -c.negative)throw Error('Regional native quantity exceeds its source-local certificate');
@@ -20,18 +39,23 @@ function checkCertificate(c,native){
 export function createRegionalSourcePilot({data,owners,sourceRevision}){
   if(!/^[a-f0-9]{64}$/.test(sourceRevision)||data?.version!==1||data.runtimeAdapterVersion!==1||data.implicitGround!==false||!finiteVector(data.gridOrigin)||!finiteVector(data.thermalCell)||data.thermalCell.some((v,i)=>v!==[.5,1.06,.5][i]))throw Error('Static regional pilot needs a pinned native grid/source');
   if(['openings','items','furnitureParts','stores'].some(k=>data[k]?.length))throw Error('Only static isolated source surfaces are allowed');
-  const input=freeze(structuredClone(data)),ownerMap=new Map(),sourceIds=new Set(),activeReceipts=new Set();let epoch=0,closed=false,nativeCalls=0,visitedCells=0,certificateBuilds=0;
+  const input=freeze(structuredClone(data)),ownerMap=new Map(),sourceIds=new Set(),activeReceipts=new Set();let epoch=0,closed=false,nativeCalls=0,visitedCells=0,certificateBuilds=0,catalogueSize=0;
   for(const record of owners||[]){
     const q=record.fuelAmount+(record.finish?.amount??0),surfaces=input.surfaces.filter(s=>s.sourceCarrierId===record.id);
     if(typeof record.id!=='string'||ownerMap.has(record.id)||!Number.isFinite(record.fuelAmount)||record.fuelAmount<0||!Number.isFinite(record.finish?.amount??0)||(record.finish?.amount??0)<0||!Number.isFinite(q)||!surfaces.length)throw Error('Invalid original regional owner');
     for(const s of surfaces){if(!s.id||sourceIds.has(s.id)||!s.triangles?.length||!s.triangles.every(t=>Array.isArray(t)&&t.length===3&&t.every(finiteVector))||!Number.isFinite(s.fuelAmount)||s.fuelAmount<0||!Number.isFinite(s.finish?.amount??0)||(s.finish?.amount??0)<0||s.finish?.amount>0&&!(s.fuelAmount>0))throw Error('Uncertifiable original regional surface');sourceIds.add(s.id);}
     const assigned=sum(surfaces.map(s=>s.fuelAmount+(s.finish?.amount||0))),inputRoundoff=roundoff(q,surfaces.length);
     if(Math.abs(assigned-q)>inputRoundoff)throw Error('Original surface allocation differs from its canonical owner');
-    const spans=surfaces.map(s=>span(s,input.gridOrigin,input.thermalCell)),lo=[0,1,2].map(i=>Math.min(...spans.map(s=>s.min[i]))),hi=[0,1,2].map(i=>Math.max(...spans.map(s=>s.max[i]))),mins=[];
-    for(let y=lo[1];y<=hi[1];y++)for(let z=Math.floor(lo[2]/4)*4;z<=hi[2];z+=4)for(let x=Math.floor(lo[0]/4)*4;x<=hi[0];x+=4)mins.push([x,y,z]);
-    ownerMap.set(record.id,{id:record.id,q,surfaces,mins,keys:new Set(mins.map(m=>m.join(','))),inputRoundoff,certificates:new Map()});
+    const spans=surfaces.map(s=>span(s,input.gridOrigin,input.thermalCell)),lo=[0,1,2].map(i=>Math.min(...spans.map(s=>s.min[i]))),hi=[0,1,2].map(i=>Math.max(...spans.map(s=>s.max[i]))),stride=[4,1,4],first=lo.map((v,i)=>Math.floor(v/stride[i])*stride[i]),end=hi.map((v,i)=>(Math.floor(v/stride[i])+1)*stride[i]);
+    if(![...first,...end].every(Number.isSafeInteger))throw Error('Unsafe native regional origin/exclusive end');
+    const counts=end.map((v,i)=>(v-first[i])/stride[i]);let size=1;
+    for(const n of counts){if(!Number.isSafeInteger(n)||n<1||n>REGIONAL_SOURCE_PILOT_LIMITS.descriptors||size>Math.floor(REGIONAL_SOURCE_PILOT_LIMITS.descriptors/n))throw Error('Static roof descriptor catalogue exceeds 320');size*=n;}
+    catalogueSize+=size;if(catalogueSize>REGIONAL_SOURCE_PILOT_LIMITS.descriptors)throw Error('Static roof descriptor catalogue exceeds 320');
+    ownerMap.set(record.id,{id:record.id,q,surfaces,first,counts,mins:[],keys:new Set(),inputRoundoff,certificates:new Map()});
   }
   if(!ownerMap.size||input.surfaces.some(s=>!ownerMap.has(s.sourceCarrierId)))throw Error('Every source needs its one original owner');
+  // No descriptor is enumerated until every owner/span and the total pass.
+  for(const owner of ownerMap.values())for(let y=0;y<owner.counts[1];y++)for(let z=0;z<owner.counts[2];z++)for(let x=0;x<owner.counts[0];x++){const min=owner.first.map((v,i)=>v+[x,y,z][i]*[4,1,4][i]);owner.mins.push(min);owner.keys.add(min.join(','));}
   function live(){if(closed)throw Error('Regional compiler pilot disposed');}
   function region(id,min){
     live();const owner=ownerMap.get(id);
@@ -50,17 +74,19 @@ export function createRegionalSourcePilot({data,owners,sourceRevision}){
   }
   function compile(descriptor){
     const d=validateDescriptor(descriptor),cert=certificate(d.owner,descriptor,d.key),trace={visitedCells:0,sources:[]},local={...input,surfaces:d.owner.surfaces,partialCompilation:true},token=createRegionalCompileDomain(local,descriptor.cellMin,trace);
-    let scene;try{
+    let scene,physical;try{
       nativeCalls++;scene=compileScene(local,{regionalPilot:token});visitedCells+=trace.visitedCells;checkCertificate(cert,scene.initialFuel);
+      physical=guardPhysicalReceipt(scene);
       const boundaryIds=[...scene.index.surfaces.keys()],fuelIds=[...scene.fuels.keys()],expected=new Map([...scene.fuels].map(([id,f])=>[id,{amount:f.amount,initial:f.initial,cls:f.cls,sourceSurfaceId:f.sourceSurfaceId}]));
       let disposed=false;
       const receipt=Object.freeze({kind:'isolated-regional-compiler-receipt-v1',partialCompilation:true,descriptor,certificate:cert,nativeQuantity:scene.initialFuel,trace:freeze(trace),scene,
-        dispose(){if(disposed)return;disposed=true;clearScene(scene);activeReceipts.delete(receipt);}});
-      receipts.set(receipt,{pilot,epoch,key:d.key,owner:d.owner,boundaryIds,fuelIds,expected,isDisposed:()=>disposed});activeReceipts.add(receipt);return receipt;
-    }catch(error){if(scene)clearScene(scene);throw error;}
+        dispose(){if(disposed)return;disposed=true;physical.dispose();expected.clear();activeReceipts.delete(receipt);}});
+      receipts.set(receipt,{pilot,epoch,key:d.key,owner:d.owner,boundaryIds,fuelIds,expected,physical,isDisposed:()=>disposed});activeReceipts.add(receipt);return receipt;
+    }catch(error){if(physical)physical.dispose();else if(scene)clearScene(scene);throw error;}
   }
   function validateReceipt(receipt){
     live();const r=receipts.get(receipt);if(!r||r.pilot!==pilot||r.epoch!==epoch||r.isDisposed())throw Error('Unknown or stale regional receipt');
+    r.physical.validate();
     const scene=receipt.scene;
     if(scene.index.surfaces.size!==r.boundaryIds.length||r.boundaryIds.some(id=>!scene.index.surfaces.has(id))||scene.fuels.size!==r.fuelIds.length)throw Error('Regional receipt IDs changed');
     let native=0;for(const [id,value]of r.expected){const f=scene.fuels.get(id);if(!f||f.amount!==value.amount||f.initial!==value.initial||f.cls!==value.cls||f.sourceSurfaceId!==value.sourceSurfaceId)throw Error('Regional receipt quantity/profile changed');native+=f.amount;}
@@ -80,12 +106,16 @@ export function createRegionalClaimLedger(pilot){
   function row(owner,extra=null){
     const list=[...(claims.get(owner.id)?.values()||[])];if(extra)list.push(extra);
     const q=sum(list.map(c=>c.q)),native=sum(list.map(c=>c.native)),full=list.length===owner.mins.length,proved=owner.inputRoundoff+sum(list.map(c=>c.canonicalRoundoff))+roundoff(owner.q,list.length);
+    if(![q,native,proved].every(v=>Number.isFinite(v)&&v>=0))throw Error('Invalid finite regional parent quantity/proof');
     const remainder=full?owner.q-q:0;if(full&&Math.abs(remainder)>proved)throw Error('Unproved canonical parent remainder');
     if(q>owner.q+proved)throw Error('Regional claims exceed original canonical stock');
-    // Only a proved parent arithmetic carry is bounded here; physical amounts
-    // remain the compiler's originals. Full closure is booked exactly once.
+    // A partial sum below Q is untouched. Only a proved roundoff overshoot
+    // is capped in parent bookkeeping (negative carry, zero cold reserve).
+    // Measured shares/native fuel stay unchanged; full closure is booked once.
     const canonical=full?owner.q:Math.min(owner.q,q),carry=canonical-q;
+    if(!Number.isFinite(carry)||Math.abs(carry)>proved)throw Error('Unproved canonical parent arithmetic carry');
     const positive=sum(list.map(c=>c.positive))+Math.max(0,-carry)+roundoff(native,list.length),negative=sum(list.map(c=>c.negative))+Math.max(0,carry)+roundoff(native,list.length),delta=native-canonical;
+    if(![positive,negative].every(Number.isFinite))throw Error('Invalid finite regional parent clipping proof');
     if(delta>positive||delta< -negative)throw Error('Regional parent native roll-up exceeds its local proof');
     return {id:owner.id,quantity:owner.q,state:full?'full':list.length?'partial':'cold',claimedRegions:list.length,totalRegions:owner.mins.length,canonicalMeasured:q,canonicalTransferred:canonical,coldReserve:owner.q-canonical,parentArithmeticCarry:carry,canonicalRemainder:remainder,remainderClosed:full,provedRemainderBound:proved,nativeBorn:native,clippingDelta:delta,partitionError:{epsilon:EPS,positive,negative}};
   }

@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "base": "c66e659451284309e48dc420791369dd5af37e1e",
+  "passed": true,
+  "scope": "Successor receipt/span/carry guards only",
+  "focused": {
+    "runs": 2,
+    "testsPerRun": 12,
+    "originalCalls": 8,
+    "currentCalls": 8,
+    "regionalCalls": 38,
+    "totalNativeCalls": 54,
+    "rejectedBeforeNative": 2,
+    "rootEarlierReproCallsExcluded": 2
+  },
+  "actualRoofReruns": 0,
+  "previousArchive": {
+    "rawFilesIncludingManifest": 33,
+    "originalSourcePins": 8,
+    "originalDependencyPins": 33,
+    "allPreserved": true,
+    "spentComparisonNotReplayed": true
+  },
+  "nativeAlgorithmFilesUnchanged": [
+    "workbenches/furnished-house/scene.js",
+    "workbenches/furnished-house/geometry.js",
+    "workbenches/furnished-house/partition-error.js",
+    "workbenches/furnished-house/prepare-data.js",
+    "tools/record-shared-map-runtime.mjs"
+  ],
+  "constructorCatalogueCeiling": 320,
+  "guard": "In-place immutable nested data plus local table/record/field references; no full geometry clone",
+  "partialCarry": "Finite absolute carry must fit separately derived parent roundoff; measured/native quantities unchanged",
+  "runtimeDeclaration": {
+    "modified": 22,
+    "added": 47
+  },
+  "sourcePins": [
+    {
+      "path": "src/simulation/regional-source-pilot.js",
+      "lfSha256": "df2b0e2be8b665b918ef1811d716c6bfe94bf154db47edf79f66b85d14e0b6ff"
+    },
+    {
+      "path": "workbenches/furnished-house/regional-domain.js",
+      "lfSha256": "0868d2097af01a128cdfa61a3b88bbf54483bcc986023291dc03eddcf512a2cc"
+    },
+    {
+      "path": "tests/integration/regional-source-compiler.test.mjs",
+      "lfSha256": "5aa15e02eaf79938bf0f884a2dd386f4a31b05ce75d448d5b3e5accf0dc0c548"
+    },
+    {
+      "path": "tests/integration/regional-source-guards.test.mjs",
+      "lfSha256": "a3c444f5660cb2c769041c66c744940acd0e69012a31dbd39ed941593539583c"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "13c6133982b1e773d55806be05ebf6dbaa8d7e9de7be70c4ee56f5df71e9bb66"
+    }
+  ],
+  "wipPreserved": true,
+  "helpers": [],
+  "ports": [],
+  "productionEnabled": false
+}

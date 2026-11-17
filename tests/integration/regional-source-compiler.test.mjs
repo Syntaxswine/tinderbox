@@ -50,7 +50,7 @@ test('overlap, corrupt receipt and stale generation reject before changing stagi
   try{
     assert.throws(()=>pilot.region('fixture::owner',[2,0,0]),/off-grid/);assert.throws(()=>pilot.compile({...descriptors[0],sourceRevision:'b'.repeat(64)}),/stale/);assert.throws(()=>createRegionalClaimLedger(pilot),/already/);
     const cold=ledger.snapshot();assert.throws(()=>ledger.prepare({...r,certificate:{...r.certificate,canonicalQuantity:0}}),/stale/);assert.deepEqual(ledger.snapshot(),cold);assert.ok(Object.isFrozen(r.certificate)&&Object.isFrozen(r.descriptor));
-    const plan=ledger.prepare(r),before=ledger.snapshot(),fuel=r.scene.fuels.values().next().value,amount=fuel.amount;fuel.amount+=1;assert.throws(()=>plan.commit(),/quantity/);assert.deepEqual(ledger.snapshot(),before);fuel.amount=amount;
+    const plan=ledger.prepare(r),before=ledger.snapshot(),fuel=r.scene.fuels.values().next().value,amount=fuel.amount;fuel.amount+=1;assert.throws(()=>plan.commit(),/physical/);assert.deepEqual(ledger.snapshot(),before);fuel.amount=amount;
     plan.commit();const committed=ledger.snapshot();assert.throws(()=>ledger.prepare(r),/overlapping/);assert.deepEqual(ledger.snapshot(),committed);
     ledger.reset();assert.equal(ledger.snapshot().owners[0].state,'cold');assert.throws(()=>pilot.compile(descriptors[1]),/stale/);assert.throws(()=>ledger.prepare(r),/stale/);
     const current=pilot.compile(pilot.regions('fixture::owner')[0]);ledger.dispose();const next=createRegionalClaimLedger(pilot);try{assert.throws(()=>next.prepare(current),/stale/);}finally{next.dispose();}

@@ -1,0 +1,12 @@
+{
+  "toolChunk": "e4f0fd",
+  "stage": "Source/hash audit only",
+  "failure": "The audit incorrectly expected the protected uncommitted WIP's historical input hash to match the committed Git file at c66e6594.",
+  "currentWipRawSha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f",
+  "committedBaseWipSha256": "b284931e0a914eefbd68cd1140389b3a34baab2fd2ba14f0bc7f7ae103151b97",
+  "correction": "Verify the deliberately uncommitted WIP against its unchanged original raw pin; verify committed source pins against their original Git objects.",
+  "wipWasChanged": false,
+  "priorArchiveWasChanged": false,
+  "newNativeCalculations": 0,
+  "actualRoofReruns": 0
+}
