@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "authority": "3713e72b",
+  "activation": "f79a79a90298d5cfaff0f079e7272369bc7ca7d1",
+  "pid": 74568,
+  "startedAt": "2026-11-17T21:50:05.279Z",
+  "complete": true,
+  "roofCompilations": 3,
+  "wholeRoofCompilations": 0,
+  "deckCompilations": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "graphRebuilds": 0,
+  "regions": [
+    {
+      "kind": "nonempty",
+      "min": [
+        80,
+        20,
+        64
+      ],
+      "fragments": 3,
+      "fuels": 3,
+      "visitedCells": 3,
+      "canonicalQuantity": 0.09288954620157751,
+      "nativeQuantity": 0.0928896081279178,
+      "certificateSha256": "bf351bd429fbd05b6c62d31e0ba45d634a48a742943aeb9413f97039c94bb0b4",
+      "orderedIdsSha256": "c3f288a835bc8dfe4a83456ebb5d35e781769d4c6dcd73c3a0dfbf8018c1c54b",
+      "publication": {
+        "generation": 0,
+        "revision": 1,
+        "nativeRecords": 3,
+        "claimedCells": 1
+      }
+    },
+    {
+      "kind": "nonempty",
+      "min": [
+        132,
+        21,
+        92
+      ],
+      "fragments": 2,
+      "fuels": 2,
+      "visitedCells": 32,
+      "canonicalQuantity": 0.011794600620648065,
+      "nativeQuantity": 0.011794677916279618,
+      "certificateSha256": "0d006416e3cae4b9e03dee3386e64fec65449eed8608fb30295d812c6a0e44d5",
+      "orderedIdsSha256": "d9d25f935a529aff15c84b0de19524cf454b99803efe6ab155ecd99d3542cea1",
+      "publication": {
+        "generation": 0,
+        "revision": 2,
+        "nativeRecords": 5,
+        "claimedCells": 17
+      }
+    },
+    {
+      "kind": "empty",
+      "min": [
+        80,
+        21,
+        64
+      ],
+      "fragments": 0,
+      "fuels": 0,
+      "visitedCells": 2,
+      "canonicalQuantity": 0,
+      "nativeQuantity": 0,
+      "certificateSha256": "09d97948f6de0eacfa02820f834fd870167b5919c69980eda8e8a51c27fa6b0a",
+      "orderedIdsSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "publication": {
+        "generation": 0,
+        "revision": 3,
+        "nativeRecords": 5,
+        "claimedCells": 18
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "cold-zero-inventory",
+      "passed": true
+    },
+    {
+      "name": "original-records-and-quantity 80,20,64",
+      "passed": true
+    },
+    {
+      "name": "detached-stage 80,20,64",
+      "passed": true
+    },
+    {
+      "name": "borrowed-channels-and-stock 80,20,64",
+      "passed": true
+    },
+    {
+      "name": "original-records-and-quantity 132,21,92",
+      "passed": true
+    },
+    {
+      "name": "detached-stage 132,21,92",
+      "passed": true
+    },
+    {
+      "name": "borrowed-channels-and-stock 132,21,92",
+      "passed": true
+    },
+    {
+      "name": "original-records-and-quantity 80,21,64",
+      "passed": true
+    },
+    {
+      "name": "detached-stage 80,21,64",
+      "passed": true
+    },
+    {
+      "name": "borrowed-channels-and-stock 80,21,64",
+      "passed": true
+    },
+    {
+      "name": "distant-original-region-stays-cold",
+      "passed": true
+    },
+    {
+      "name": "record-local-retirement-and-held-view",
+      "passed": true
+    },
+    {
+      "name": "unified-reset-releases-generation-inventory",
+      "passed": true
+    }
+  ],
+  "firstFailure": null,
+  "cleanup": true,
+  "inputs": [
+    {
+      "path": "assets/runtime/map-sources/new-york/index.json",
+      "bytes": 8021251,
+      "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/navigation.json",
+      "bytes": 1495072,
+      "sha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-large-proof-v2/reference-blocks.json",
+      "sha256": "bfab707ff646e9dfedfaae3b80d510ac750e4f561335d895c24c4e4cc4d49418"
+    },
+    {
+      "path": "docs/engineering/shared-maps/bounded-source-compiler-v1/iterations-forward.jsonl",
+      "sha256": "a6364cb931a97c6be301663bfd3fd7990cc0601eb229661e17e40e85f94ce8c2"
+    }
+  ],
+  "current": "unified-reset-releases-generation-inventory",
+  "distant": {
+    "originalId": "new-york::carrier/roof/clerestory/part/10387/face/0@84,20,67",
+    "from": [
+      42.238955891688555,
+      21.1454816975692,
+      33.89063427562069
+    ],
+    "to": [
+      42.238955891688555,
+      21.339260477073207,
+      33.841138976713246
+    ],
+    "hitIds": [
+      "new-york::cold/roof/clerestory"
+    ]
+  },
+  "retirement": {
+    "retired": "new-york::carrier/roof/clerestory/part/10387/face/0@83,20,67",
+    "sameCellSurvivors": [
+      "new-york::carrier/roof/clerestory/part/10387/face/2@83,20,67",
+      "new-york::carrier/roof/clerestory/part/10387/face/4@83,20,67"
+    ],
+    "nativeBornUnchanged": true
+  },
+  "sourceMetrics": {
+    "canonicalCarriers": 12446,
+    "sourceParts": 12858,
+    "decodedUniqueGeometries": 434,
+    "appearanceMaterials": 9,
+    "startupWorldShapesExpanded": 0,
+    "startupThermalCellsAllocated": 0,
+    "decodedAttributeGeometries": 0,
+    "transformedQueries": 1,
+    "renderExpansions": 0,
+    "nativeSourceExpansions": 1,
+    "nativePartTransforms": 1,
+    "presentationBlueprints": 0,
+    "presentationPartTransforms": 0,
+    "staticIndexBins": 148
+  },
+  "endedAt": "2026-11-17T21:50:05.992Z"
+}

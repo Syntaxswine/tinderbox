@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+const out='docs/engineering/shared-maps/regional-receipt-bridge-v1/';if(fs.existsSync(out+'roof-launch.json')||fs.existsSync(out+'roof-result.json'))throw Error('No automatic roof replay');
+const args=['--max-old-space-size=512',out+'check-roof.mjs'],startedAt=new Date().toISOString(),child=spawnSync(process.execPath,args,{windowsHide:true,encoding:'utf8',timeout:20000,maxBuffer:1024*1024}),log=(child.stdout||'')+(child.stderr||'');
+fs.writeFileSync(out+'roof.log',log);fs.writeFileSync(out+'roof-launch.json',JSON.stringify({owner:'Coder Tinderbox',purpose:'Single finite original-roof receipt bridge check; at most three disjoint regional compilations',args,pid:child.pid,executable:process.execPath,startedAt,endedAt:new Date().toISOString(),exitCode:child.status,error:child.error?.message,signal:child.signal,timeoutMs:20000,ports:[],retainedHelpers:[],noAutomaticReplay:true,wholeRoofCompilations:0,deckCompilations:0,worldTrials:0,worldSteps:0},null,2)+'\n');console.log(log);process.exitCode=child.status??1;

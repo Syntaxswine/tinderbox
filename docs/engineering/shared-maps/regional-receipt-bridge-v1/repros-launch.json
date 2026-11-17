@@ -1,0 +1,35 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Exact ten public query regressions only",
+  "startedAt": "2026-11-17T21:52:13.165Z",
+  "endedAt": "2026-11-17T21:52:13.410Z",
+  "runs": [
+    {
+      "args": [
+        "docs/engineering/shared-maps/regional-receipt-bridge-v1/recheck-eight.mjs"
+      ],
+      "pid": 65596,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:52:13.167Z",
+      "endedAt": "2026-11-17T21:52:13.292Z",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "args": [
+        "docs/engineering/shared-maps/regional-receipt-bridge-v1/recheck-two.mjs"
+      ],
+      "pid": 10780,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:52:13.292Z",
+      "endedAt": "2026-11-17T21:52:13.410Z",
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "failed": false,
+  "timeoutPerChildMs": 20000,
+  "nativeCompilerCalls": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

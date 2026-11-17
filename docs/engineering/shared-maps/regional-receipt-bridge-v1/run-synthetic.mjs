@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+const out='docs/engineering/shared-maps/regional-receipt-bridge-v1/',attempt=process.argv[2];
+if(!/^[a-z0-9-]+$/.test(attempt||'')||fs.existsSync(out+'synthetic-'+attempt+'.json'))throw Error('Fresh named attempt required');
+const args=['--test','tests/integration/regional-source-compiler.test.mjs','tests/integration/regional-source-guards.test.mjs','tests/integration/regional-effective-query.test.mjs','tests/integration/regional-query-boundaries.test.mjs','tests/integration/regional-query-witness.test.mjs','tests/integration/regional-receipt-bridge.test.mjs'],startedAt=new Date().toISOString(),child=spawnSync(process.execPath,args,{windowsHide:true,encoding:'utf8',timeout:20000,maxBuffer:1024*1024}),log=(child.stdout||'')+(child.stderr||'');
+fs.writeFileSync(out+'synthetic-'+attempt+'.log',log);fs.writeFileSync(out+'synthetic-'+attempt+'.json',JSON.stringify({owner:'Coder Tinderbox',purpose:'Finite synthetic receipt-bridge and unchanged query/compiler controls',args,pid:child.pid,executable:process.execPath,startedAt,endedAt:new Date().toISOString(),exitCode:child.status,error:child.error?.message,signal:child.signal,timeoutMs:20000,ports:[],retainedHelpers:[],actualRoofCompilations:0,worldTrials:0,worldSteps:0},null,2)+'\n');console.log(log);process.exitCode=child.status??1;

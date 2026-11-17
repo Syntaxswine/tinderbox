@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-11-17T21:55:22.9899616Z",
+  "owner": "Coder Tinderbox",
+  "processes": [
+    {
+      "receipt": "synthetic-first.json",
+      "pid": 68328,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:44:19.168Z",
+      "endedAt": "2026-11-17T21:44:19.963Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "synthetic-corrected.json",
+      "pid": 22732,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:45:05.172Z",
+      "endedAt": "2026-11-17T21:45:06.065Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "synthetic-final.json",
+      "pid": 12684,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:52:12.355Z",
+      "endedAt": "2026-11-17T21:52:13.071Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "synthetic-reentrant-before.json",
+      "pid": 48628,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:54:09.767Z",
+      "endedAt": "2026-11-17T21:54:10.564Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "synthetic-publication-final.json",
+      "pid": 52860,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:54:28.106Z",
+      "endedAt": "2026-11-17T21:54:28.896Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "roof-launch.json",
+      "pid": 74568,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:50:05.143Z",
+      "endedAt": "2026-11-17T21:50:06.037Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "repros-launch.first.json",
+      "pid": 37728,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:46:30.411Z",
+      "endedAt": "2026-11-17T21:46:30.527Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "repros-launch.first.json",
+      "pid": 41064,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:46:30.527Z",
+      "endedAt": "2026-11-17T21:46:30.638Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "repros-launch.json",
+      "pid": 65596,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:52:13.167Z",
+      "endedAt": "2026-11-17T21:52:13.292Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "repros-launch.json",
+      "pid": 10780,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T21:52:13.292Z",
+      "endedAt": "2026-11-17T21:52:13.41Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    }
+  ],
+  "retainedHelpers": [],
+  "portsAllocated": [],
+  "stopMethod": "Finite hidden foreground children completed; no termination required"
+}
