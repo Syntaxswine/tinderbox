@@ -1,0 +1,63 @@
+{
+  "approvedAddedFrameFuel": 2.1504,
+  "approvedCombinedStaticTotal": 15770.094353,
+  "approvedNewCanonicalAccounts": 48,
+  "approvedProposal": {
+    "commit": "9a88959d2011d182377a9eeb95d5ed9d222e46b1",
+    "path": "art/source/shared-map-fire-bindings/support-overrides-v1/parapet-blocking-proposal.json",
+    "sha256": "ba25706bd1cf0895e36b16465dd2c6a5acebbcafe30d30b8e51b9d56ec9d13b4"
+  },
+  "authority": {
+    "commit": "ca5fc5ba7d0b87a8c16f16ff80bcf13185c308a5",
+    "path": "docs/milestones/29-shared-gameplay-maps.md",
+    "sha256": "3afe8e25ef86e4763c7a35c665bbffa041580c5e2fab29a27a48dcd3ccb1dbc4",
+    "snapshotPath": "art/source/shared-map-fire-bindings/parapet-blocking-v1/authority-ca5fc5ba.md"
+  },
+  "beforeAdditionsRegistered": 0,
+  "beforeCanonicalCarrierCount": 12446,
+  "beforeFiniteLedger": {
+    "awningCount": 58,
+    "coreByClass": {
+      "clapboard": 2843.006532,
+      "cloth": 17.4,
+      "door": 12.6,
+      "frame": 11179.439092,
+      "roof": 1715.398329
+    },
+    "coreTotal": 15767.843953,
+    "doorLeafCount": 10,
+    "finishCarrierIds": [
+      "carrier/main/0/cell-1-22/1"
+    ],
+    "finishTotal": 0.1,
+    "oneOwnerPerLogicalSourcePart": true,
+    "total": 15767.943953,
+    "unassignedExcluded": false,
+    "unit": "prototype-fuel-unit",
+    "unverifiedClosedVolumeExcluded": false
+  },
+  "contract": {
+    "commit": "4e8dacc0720234e7f630606b91e067f90cf4bb7c",
+    "path": "docs/engineering/shared-maps/support-additions-contract.md",
+    "sha256": "bd39be8d9b5504213e01f663c3bf86c9af5c97441fb34d881077a4c8c7974ad2",
+    "snapshotPath": "art/source/shared-map-fire-bindings/parapet-blocking-v1/contract-4e8dacc0.md"
+  },
+  "immutableSourceInputs": [
+    {
+      "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+      "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+      "sha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941"
+    },
+    {
+      "path": "assets/art/shared-map-support-overrides/new-york-controls-v1.json",
+      "sha256": "f3f28fda72742c6bc04d32f70331ab96e036662f953153952297fae9ce3bc915"
+    }
+  ],
+  "rendererStarted": false,
+  "runtimeAcceptance": false,
+  "sourceCandidateBefore": "9a88959d2011d182377a9eeb95d5ed9d222e46b1",
+  "version": 1
+}
