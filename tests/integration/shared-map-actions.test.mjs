@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {firstPrimaryReceipt,requirePrimaryTool} from '../../tools/review/shared-map-actions.mjs';
+test('the recorded same-tick torch/matches race fails on the actual first match outcome rather than waiting for a torch positive',()=>{const events=Object.freeze([{id:35,type:'tool-selected',tool:'torch'},{id:36,type:'tool-selected',tool:'matches'},{id:37,type:'tool-use',tool:'matches',result:'heated'}].map(Object.freeze));const receipt=firstPrimaryReceipt(events,34);assert.equal(receipt.id,37);assert.throws(()=>requirePrimaryTool(receipt,'torch'),/requested tool/);});
+test('prior actions and selection-only records cannot masquerade as a new primary outcome',()=>{assert.equal(firstPrimaryReceipt([{id:1,type:'tool-use',tool:'matches'},{id:2,type:'tool-selected',tool:'torch'}],1),null);assert.throws(()=>requirePrimaryTool(null,'torch'),/receipt/);});
+test('a genuine new torch rejection remains truthful without requiring or inventing ignition',()=>{const event={id:40,type:'tool-rejected',tool:'torch',result:'no-fuel',heatedCells:0};assert.equal(requirePrimaryTool(firstPrimaryReceipt([event],39),'torch'),event);assert.equal(event.result,'no-fuel');});
