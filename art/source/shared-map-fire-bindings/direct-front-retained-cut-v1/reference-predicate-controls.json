@@ -1,0 +1,47 @@
+{
+  "controls": [
+    {
+      "control": "duplicate actual source face",
+      "expectedReject": true,
+      "result": "PASS",
+      "scope": "Exact arithmetic/source-reference predicate only; no asset geometry or fixture exported."
+    },
+    {
+      "control": "reversed duplicate actual source face",
+      "expectedReject": true,
+      "result": "PASS",
+      "scope": "Exact arithmetic/source-reference predicate only; no asset geometry or fixture exported."
+    },
+    {
+      "control": "analytic nonshared 3D crossing",
+      "expectedReject": true,
+      "result": "PASS",
+      "scope": "Exact arithmetic/source-reference predicate only; no asset geometry or fixture exported."
+    },
+    {
+      "control": "analytic separated triangles",
+      "expectedReject": false,
+      "result": "PASS",
+      "scope": "Exact arithmetic/source-reference predicate only; no asset geometry or fixture exported."
+    },
+    {
+      "control": "actual adjacent source faces",
+      "expectedReject": false,
+      "result": "PASS",
+      "scope": "Exact arithmetic/source-reference predicate only; no asset geometry or fixture exported."
+    },
+    {
+      "control": "missing one original boundary loop",
+      "expectedReject": true,
+      "result": "PASS",
+      "scope": "Exact arithmetic/source-reference predicate only; no asset geometry or fixture exported."
+    },
+    {
+      "control": "analytic source triangle crossing an actual implicit reference-face interior",
+      "expectedReject": true,
+      "result": "PASS",
+      "scope": "Exact arithmetic/source-reference predicate only; no asset geometry or fixture exported."
+    }
+  ],
+  "version": 1
+}
