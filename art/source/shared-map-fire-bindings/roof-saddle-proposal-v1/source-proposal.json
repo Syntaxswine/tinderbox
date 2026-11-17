@@ -1,0 +1,283 @@
+{
+  "appearanceSource": {
+    "indexPath": "assets/art/place-scenes/new-york/index.json",
+    "materialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+    "sha256": "1025e434bea1724b0212100cb92687faf95650d3c39c71734bf1b56fbf9713ad",
+    "sourceCarrierId": "carrier/edge-0/cornice-7"
+  },
+  "authorityCommit": "8263a876cfa911c8a11b72fdfd3328a295039fa2",
+  "baseBindings": {
+    "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+    "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba"
+  },
+  "geometry": {
+    "path": "art/source/shared-map-fire-bindings/roof-saddle-proposal-v1/geometry/proposed-saddle.json",
+    "sha256": "68fcb9a576b246bd517b59bc47cf27860cbb19db88133d081011a680677ebe8c",
+    "triangleCount": 16,
+    "vertexCount": 10
+  },
+  "members": [
+    {
+      "anchors": [],
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "bounds": {
+        "max": [
+          49.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          49.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "canonicalStockAssigned": false,
+      "fuelAssigned": false,
+      "geometryId": "68fcb9a576b246bd517b59bc47cf27860cbb19db88133d081011a680677ebe8c",
+      "groundAnchor": false,
+      "id": "proposal-only/roof-saddle/main-parapet-6/bay-01",
+      "matrix": [
+        0.16,
+        0,
+        0,
+        0,
+        0,
+        0.20999999821185966,
+        0,
+        0,
+        0,
+        0,
+        0.16,
+        0,
+        49.5,
+        17.155000002682208,
+        60.0,
+        1
+      ],
+      "roleProposal": "timber-fitting",
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-01"
+    }
+  ],
+  "modularInterface": {
+    "connections": "Reduced cornice patch + separately proposed roof patch below; original complete parapet footprint above.",
+    "originalEnvelopeDimensionsMetres": [
+      0.16,
+      0.20999999821185966,
+      0.16
+    ],
+    "originalOneMetreBay": [
+      49.0,
+      50.0
+    ],
+    "pivot": "Original normalized-box centre and original matrix.",
+    "rotationAndMirroring": "Only this measured source pose is proposed; no other placements are authorized.",
+    "stockCellSizeXYZMetres": [
+      1,
+      2.12,
+      1
+    ]
+  },
+  "namedOriginalParents": {
+    "carrier/edge-6/cornice-7": [
+      {
+        "geometryId": "ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.96,
+          26,
+          1
+        ],
+        "partId": "edge-6/cornice-7",
+        "sha256": "d3f70276fdae9c7b2b86de21728a684fb9df84f74552d8112af380a9cd9af07d",
+        "sourcePartId": "edge-6/cornice-7",
+        "sourceRange": null
+      }
+    ],
+    "carrier/main-parapet-6/base": [
+      {
+        "geometryId": "e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+        "matrix": [
+          -1,
+          0,
+          1.2246467991473532e-16,
+          0,
+          0,
+          1,
+          0,
+          0,
+          -1.2246467991473532e-16,
+          0,
+          -1,
+          0,
+          56,
+          17.34,
+          60,
+          1
+        ],
+        "partId": "main-parapet-6/base",
+        "sha256": "c2c3d561053b1185d75dcb4a9038f594e04ae12dbf9aaea53daa632a15e47346",
+        "sourcePartId": "main-parapet-6/base",
+        "sourceRange": null
+      }
+    ],
+    "carrier/roof/rear-tail": [
+      {
+        "geometryId": "ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.96,
+          59,
+          1
+        ],
+        "partId": "roof/rear-tail",
+        "sha256": "9f3ed10d083a5a52c316b83f1579e4fa6148e3b4974b5d7969257d3beddf6669",
+        "sourcePartId": "roof/rear-tail",
+        "sourceRange": null
+      }
+    ]
+  },
+  "newGroundAnchors": 0,
+  "newRuntimeStock": 0,
+  "notRuntimeAssetExport": true,
+  "originalEnvelope": {
+    "bounds": {
+      "max": [
+        49.58,
+        17.260000001788136,
+        60.08
+      ],
+      "min": [
+        49.42,
+        17.05000000357628,
+        59.92
+      ]
+    },
+    "geometry": {
+      "id": "a91bddde99e47a78d59ef47a12b88a7833b9ce17e686f48699325dc9e8f6e6ad",
+      "path": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/geometry/a91bddde99e47a78d59ef47a12b88a7833b9ce17e686f48699325dc9e8f6e6ad.json",
+      "sha256": "c7356e7897372390040edb82ec1a92e33920230ca68de7e92ca52a7ff8d4d1ec",
+      "triangleCount": 12
+    },
+    "matrix": [
+      0.16,
+      0,
+      0,
+      0,
+      0,
+      0.20999999821185966,
+      0,
+      0,
+      0,
+      0,
+      0.16,
+      0,
+      49.5,
+      17.155000002682208,
+      60.0,
+      1
+    ],
+    "oldLowerCorniceNativeBearing": {
+      "actualFaceAreaMetresSquared": 0.025599999999940337,
+      "actualSurfaceWitness": [
+        [
+          49.473333333333336,
+          17.05000000357628,
+          59.973333333333336
+        ],
+        [
+          49.473333333333336,
+          17.05000000357628,
+          59.973333333333336
+        ]
+      ],
+      "axis": 1,
+      "childFace": "min",
+      "geometricHorizontalBearing": true,
+      "groundAnchor": false,
+      "kind": "actual-coplanar-source-face-area",
+      "nativePrecisionToleranceMetres": 1e-05,
+      "parentFace": "max",
+      "witnessSeparationMetres": 0.0
+    },
+    "unchangedUpperNativeBearing": {
+      "actualFaceAreaMetresSquared": 0.025599999999940337,
+      "actualSurfaceWitness": [
+        [
+          49.473333333333336,
+          17.26000000178814,
+          60.026666666666664
+        ],
+        [
+          49.473333333333336,
+          17.260000001788136,
+          60.026666666666664
+        ]
+      ],
+      "axis": 1,
+      "childFace": "min",
+      "geometricHorizontalBearing": true,
+      "groundAnchor": false,
+      "kind": "actual-coplanar-source-face-area",
+      "nativePrecisionToleranceMetres": 1e-05,
+      "parentFace": "max",
+      "witnessSeparationMetres": 3.552713678800501e-15
+    }
+  },
+  "otherNineteenProfilesExported": 0,
+  "placeId": "new-york",
+  "placementChangesRequired": [],
+  "proposedContacts": [
+    {
+      "accepted": false,
+      "child": "proposal-only/roof-saddle/main-parapet-6/bay-01",
+      "meaning": "Retained outer flat underside on reduced original cornice patch; local source interpretation only.",
+      "parent": "carrier/edge-6/cornice-7"
+    },
+    {
+      "accepted": false,
+      "child": "proposal-only/roof-saddle/main-parapet-6/bay-01",
+      "meaning": "NEW proposed sloping roof bearing, on actual source triangles 2,3; not an approved joint or anchor.",
+      "parent": "carrier/roof/rear-tail"
+    },
+    {
+      "accepted": false,
+      "child": "carrier/main-parapet-6/base",
+      "meaning": "Preserve entire original upper footprint, plane and captured separation.",
+      "parent": "proposal-only/roof-saddle/main-parapet-6/bay-01"
+    }
+  ],
+  "sourceTable": {
+    "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/separate-parapet-gap-design.json",
+    "sha256": "481294255d3afd8dd0ea208d2dc0cc1c7adf1f2e6108e5929a0e887bbb1abfa4"
+  },
+  "status": "UNAPPROVED_SINGLE_SOURCE_PROTOTYPE",
+  "version": 1
+}

@@ -1,0 +1,4384 @@
+{
+  "authoredProfiles": 1,
+  "classCounts": {
+    "east-hip": 2,
+    "rear-slope-crossing-triangulation-seam": 2,
+    "rear-slope-single-facet": 14,
+    "west-hip": 2
+  },
+  "obstructedRows": 20,
+  "records": [
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4497970127836283"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4110942034859131"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4497970127836283"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4122201033927557"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4509229126904709"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4122201033927557"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4509229126904709"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4110942034859131"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              63.92,
+              17.111666581895605,
+              58.42
+            ],
+            [
+              63.92,
+              17.111666581895605,
+              58.58
+            ],
+            [
+              64.08,
+              17.02499990463256,
+              58.58
+            ],
+            [
+              64.08,
+              17.02499990463256,
+              58.42
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 5
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        5
+      ],
+      "axis": "z",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.1483335724804249,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.02499990463256,
+          17.111666581895605
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                63.92,
+                17.111666581895605,
+                58.42
+              ],
+              [
+                63.92,
+                17.111666581895605,
+                58.58
+              ],
+              [
+                64.08,
+                17.02499990463256,
+                58.58
+              ],
+              [
+                64.08,
+                17.02499990463256,
+                58.42
+              ]
+            ],
+            "sourceTriangle": 5
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            64.08,
+            17.260000001788136,
+            58.58
+          ],
+          "min": [
+            63.92,
+            17.05000000357628,
+            58.42
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733225898463388
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            63.973333333333336,
+            17.05000000357628,
+            58.473333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-5/bay-00",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          63.973333333333336,
+          17.05010000357628,
+          58.473333333333336
+        ]
+      },
+      "class": "east-hip",
+      "minimumRemainingToActualParapetUndersideMetres": 0.1483335724804234,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "708354859840456097792",
+        "numerator": "105072698857627962049"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.14833341989252907,
+      "originalBayIntervalMetres": [
+        58.0,
+        59.0
+      ],
+      "originalBounds": {
+        "max": [
+          64.08,
+          17.260000001788136,
+          58.58
+        ],
+        "min": [
+          63.92,
+          17.05000000357628,
+          58.42
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-5/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.02499990463256,
+        17.111666581895605
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-5/bay-00",
+      "upperParapetId": "carrier/main-parapet-5/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4497970127836283"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4181310779036795"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4497970127836283"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4192569778105221"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4509229126904709"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4192569778105221"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4509229126904709"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4181310779036795"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              63.92,
+              17.111666581895605,
+              59.42
+            ],
+            [
+              63.92,
+              17.111666581895605,
+              59.58
+            ],
+            [
+              64.08,
+              17.02499990463256,
+              59.58
+            ],
+            [
+              64.08,
+              17.02499990463256,
+              59.42
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 5
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        5
+      ],
+      "axis": "z",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.1483335724804249,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.02499990463256,
+          17.111666581895605
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                63.92,
+                17.111666581895605,
+                59.42
+              ],
+              [
+                63.92,
+                17.111666581895605,
+                59.58
+              ],
+              [
+                64.08,
+                17.02499990463256,
+                59.58
+              ],
+              [
+                64.08,
+                17.02499990463256,
+                59.42
+              ]
+            ],
+            "sourceTriangle": 5
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            64.08,
+            17.260000001788136,
+            59.58
+          ],
+          "min": [
+            63.92,
+            17.05000000357628,
+            59.42
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733225898463388
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            63.973333333333336,
+            17.05000000357628,
+            59.473333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-5/bay-01",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          63.973333333333336,
+          17.05010000357628,
+          59.473333333333336
+        ]
+      },
+      "class": "east-hip",
+      "minimumRemainingToActualParapetUndersideMetres": 0.1483335724804234,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "708354859840456097792",
+        "numerator": "105072698857627962049"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.14833341989252907,
+      "originalBayIntervalMetres": [
+        59.0,
+        60.0
+      ],
+      "originalBounds": {
+        "max": [
+          64.08,
+          17.260000001788136,
+          59.58
+        ],
+        "min": [
+          63.92,
+          17.05000000357628,
+          59.42
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-5/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.02499990463256,
+        17.111666581895605
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-5/bay-01",
+      "upperParapetId": "carrier/main-parapet-5/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3418513592150917"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3418513592150917"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3407254593082491"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3407254593082491"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              48.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              48.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              48.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              48.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 3
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        3
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                48.58,
+                17.02500002086163,
+                60.08
+              ],
+              [
+                48.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                48.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                48.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 3
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            48.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            48.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            48.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-00",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          48.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        48.0,
+        49.0
+      ],
+      "originalBounds": {
+        "max": [
+          48.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          48.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-00",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3488882336328581"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3488882336328581"
+              },
+              {
+                "denominator": "1794499240972467044352",
+                "numerator": "30571301557763094121703"
+              },
+              {
+                "denominator": "897249620486233522176",
+                "numerator": "53888340019463379385267"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3477623337260155"
+              },
+              {
+                "denominator": "1794499240972467044352",
+                "numerator": "30559023405357993268609"
+              },
+              {
+                "denominator": "897249620486233522176",
+                "numerator": "53899673699472626254925"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3477623337260155"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              49.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              49.58,
+              17.03611841105936,
+              60.05947373960487
+            ],
+            [
+              49.42,
+              17.029276305961314,
+              60.07210531921268
+            ],
+            [
+              49.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "2630763708645911617511977476161536",
+            "numerator": "5981502450267009388469028445269"
+          },
+          "sourceTriangle": 2
+        },
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3477623337260155"
+              },
+              {
+                "denominator": "1794499240972467044352",
+                "numerator": "30559023405357993268609"
+              },
+              {
+                "denominator": "897249620486233522176",
+                "numerator": "53899673699472626254925"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3488882336328581"
+              },
+              {
+                "denominator": "1794499240972467044352",
+                "numerator": "30571301557763094121703"
+              },
+              {
+                "denominator": "897249620486233522176",
+                "numerator": "53888340019463379385267"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3488882336328581"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3477623337260155"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              49.42,
+              17.029276305961314,
+              60.07210531921268
+            ],
+            [
+              49.58,
+              17.03611841105936,
+              60.05947373960487
+            ],
+            [
+              49.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              49.42,
+              17.111666680905554,
+              59.92
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "2630763708645911617511977476161536",
+            "numerator": "61366048491065456821052039027797"
+          },
+          "sourceTriangle": 3
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2,
+        3
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.1483333208825819,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.02500002086163,
+          17.111666680905557
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                49.58,
+                17.02500002086163,
+                60.08
+              ],
+              [
+                49.58,
+                17.036118411059363,
+                60.059473739604876
+              ],
+              [
+                49.42,
+                17.029276305961314,
+                60.07210531921268
+              ],
+              [
+                49.42,
+                17.02500002086163,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          },
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                49.42,
+                17.029276305961314,
+                60.07210531921268
+              ],
+              [
+                49.58,
+                17.036118411059363,
+                60.059473739604876
+              ],
+              [
+                49.58,
+                17.111666680905557,
+                59.92
+              ],
+              [
+                49.42,
+                17.111666680905554,
+                59.92
+              ]
+            ],
+            "sourceTriangle": 3
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            49.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            49.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            49.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-01",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          49.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-crossing-triangulation-seam",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        49.0,
+        50.0
+      ],
+      "originalBounds": {
+        "max": [
+          49.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          49.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": true,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "One source prototype and finite checks only; new roof bearing, runtime ports, load interpretation and damage behavior need separate review.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 2,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-01",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3559251080506245"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3559251080506245"
+              },
+              {
+                "denominator": "598166413657489014784",
+                "numerator": "10216013336764992029773"
+              },
+              {
+                "denominator": "299083206828744507392",
+                "numerator": "17939168173135194979985"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3547992081437819"
+              },
+              {
+                "denominator": "1794499240972467044352",
+                "numerator": "30635761857889875236225"
+              },
+              {
+                "denominator": "897249620486233522176",
+                "numerator": "53828838199414831809613"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3547992081437819"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              50.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              50.58,
+              17.07888156792216,
+              59.98052636705607
+            ],
+            [
+              50.42,
+              17.07203946282411,
+              59.99315794666388
+            ],
+            [
+              50.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "7892291125937734852535932428484608",
+            "numerator": "117636610996075719281407760700671"
+          },
+          "sourceTriangle": 2
+        },
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3547992081437819"
+              },
+              {
+                "denominator": "1794499240972467044352",
+                "numerator": "30635761857889875236225"
+              },
+              {
+                "denominator": "897249620486233522176",
+                "numerator": "53828838199414831809613"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3559251080506245"
+              },
+              {
+                "denominator": "598166413657489014784",
+                "numerator": "10216013336764992029773"
+              },
+              {
+                "denominator": "299083206828744507392",
+                "numerator": "17939168173135194979985"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3559251080506245"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3547992081437819"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              50.42,
+              17.07203946282411,
+              59.99315794666388
+            ],
+            [
+              50.58,
+              17.07888156792216,
+              59.98052636705607
+            ],
+            [
+              50.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              50.42,
+              17.111666680905554,
+              59.92
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "7892291125937734852535932428484608",
+            "numerator": "84406041827921679347155441718527"
+          },
+          "sourceTriangle": 3
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2,
+        3
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.148333320882589,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861622,
+          17.11166668090555
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                50.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                50.58,
+                17.07888156792216,
+                59.98052636705607
+              ],
+              [
+                50.42,
+                17.07203946282411,
+                59.99315794666388
+              ],
+              [
+                50.42,
+                17.025000020861622,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          },
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                50.42,
+                17.07203946282411,
+                59.99315794666388
+              ],
+              [
+                50.58,
+                17.07888156792216,
+                59.98052636705607
+              ],
+              [
+                50.58,
+                17.11166668090555,
+                59.92
+              ],
+              [
+                50.42,
+                17.11166668090555,
+                59.92
+              ]
+            ],
+            "sourceTriangle": 3
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            50.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            50.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            50.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-02",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          50.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-crossing-triangulation-seam",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        50.0,
+        51.0
+      ],
+      "originalBounds": {
+        "max": [
+          50.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          50.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 2,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-02",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3629619824683909"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3629619824683909"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3618360825615483"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3618360825615483"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              51.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              51.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              51.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              51.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.148333320882589,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.11166668090555
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                51.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                51.58,
+                17.11166668090555,
+                59.92
+              ],
+              [
+                51.42,
+                17.11166668090555,
+                59.92
+              ],
+              [
+                51.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            51.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            51.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            51.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-03",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          51.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        51.0,
+        52.0
+      ],
+      "originalBounds": {
+        "max": [
+          51.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          51.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-03",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3699988568861573"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3699988568861573"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3688729569793147"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3688729569793147"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              52.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              52.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              52.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              52.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                52.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                52.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                52.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                52.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            52.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            52.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            52.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-04",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          52.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        52.0,
+        53.0
+      ],
+      "originalBounds": {
+        "max": [
+          52.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          52.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-04",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3770357313039237"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3770357313039237"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3759098313970811"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3759098313970811"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              53.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              53.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              53.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              53.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                53.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                53.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                53.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                53.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            53.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            53.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            53.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-05",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          53.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        53.0,
+        54.0
+      ],
+      "originalBounds": {
+        "max": [
+          53.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          53.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-05",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3840726057216901"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3840726057216901"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3829467058148475"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3829467058148475"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              54.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              54.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              54.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              54.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                54.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                54.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                54.42,
+                17.11166668090555,
+                59.92
+              ],
+              [
+                54.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            54.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            54.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            54.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-06",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          54.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        54.0,
+        55.0
+      ],
+      "originalBounds": {
+        "max": [
+          54.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          54.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-06",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3911094801394565"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3911094801394565"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3899835802326139"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3899835802326139"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              55.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              55.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              55.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              55.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                55.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                55.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                55.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                55.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            55.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            55.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            55.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-07",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          55.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        55.0,
+        56.0
+      ],
+      "originalBounds": {
+        "max": [
+          55.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          55.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-07",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3981463545572229"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3981463545572229"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3970204546503803"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3970204546503803"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              56.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              56.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              56.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              56.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                56.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                56.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                56.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                56.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            56.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            56.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            56.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-08",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          56.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        56.0,
+        57.0
+      ],
+      "originalBounds": {
+        "max": [
+          56.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          56.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-08",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4051832289749893"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4051832289749893"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4040573290681467"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4040573290681467"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              57.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              57.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              57.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              57.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                57.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                57.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                57.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                57.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            57.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            57.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            57.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-09",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          57.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        57.0,
+        58.0
+      ],
+      "originalBounds": {
+        "max": [
+          57.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          57.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-09",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4122201033927557"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4122201033927557"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4110942034859131"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4110942034859131"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              58.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              58.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              58.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              58.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                58.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                58.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                58.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                58.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            58.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            58.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            58.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-10",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          58.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        58.0,
+        59.0
+      ],
+      "originalBounds": {
+        "max": [
+          58.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          58.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-10",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4192569778105221"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4192569778105221"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4181310779036795"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4181310779036795"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              59.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              59.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              59.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              59.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.148333320882589,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.11166668090555
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                59.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                59.58,
+                17.11166668090555,
+                59.92
+              ],
+              [
+                59.42,
+                17.11166668090555,
+                59.92
+              ],
+              [
+                59.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            59.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            59.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            59.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-11",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          59.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        59.0,
+        60.0
+      ],
+      "originalBounds": {
+        "max": [
+          59.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          59.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-11",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4262938522282885"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4262938522282885"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4251679523214459"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4251679523214459"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              60.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              60.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              60.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              60.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                60.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                60.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                60.42,
+                17.11166668090555,
+                59.92
+              ],
+              [
+                60.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            60.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            60.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            60.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-12",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          60.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        60.0,
+        61.0
+      ],
+      "originalBounds": {
+        "max": [
+          60.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          60.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-12",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4333307266460549"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4333307266460549"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4322048267392123"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4322048267392123"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              61.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              61.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              61.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              61.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                61.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                61.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                61.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                61.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            61.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            61.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            61.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-13",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          61.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        61.0,
+        62.0
+      ],
+      "originalBounds": {
+        "max": [
+          61.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          61.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-13",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4403676010638213"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4403676010638213"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4392417011569787"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4392417011569787"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              62.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              62.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              62.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              62.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                62.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                62.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                62.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                62.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            62.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            62.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            62.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-14",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          62.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        62.0,
+        63.0
+      ],
+      "originalBounds": {
+        "max": [
+          62.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          62.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-14",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4474044754815877"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4474044754815877"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4462785755747451"
+              },
+              {
+                "denominator": "70835500057794445312",
+                "numerator": "1212113466164244544435"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4216495151125627"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "4462785755747451"
+              },
+              {
+                "denominator": "67108864",
+                "numerator": "1142528411"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4227754150194053"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              63.58,
+              17.025000020861626,
+              60.08
+            ],
+            [
+              63.58,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              63.42,
+              17.111666680905554,
+              59.92
+            ],
+            [
+              63.42,
+              17.025000020861626,
+              60.08
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 2
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        2
+      ],
+      "axis": "x",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.14833332088258544,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.025000020861626,
+          17.111666680905554
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                63.58,
+                17.025000020861626,
+                60.08
+              ],
+              [
+                63.58,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                63.42,
+                17.111666680905554,
+                59.92
+              ],
+              [
+                63.42,
+                17.025000020861626,
+                60.08
+              ]
+            ],
+            "sourceTriangle": 2
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            63.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            63.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            63.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-15",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          63.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "class": "rear-slope-single-facet",
+      "minimumRemainingToActualParapetUndersideMetres": 0.14833332088258674,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "141671000115588890624",
+        "numerator": "21014529919902128957"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.1483333208825832,
+      "originalBayIntervalMetres": [
+        63.0,
+        64.0
+      ],
+      "originalBounds": {
+        "max": [
+          63.58,
+          17.260000001788136,
+          60.08
+        ],
+        "min": [
+          63.42,
+          17.05000000357628,
+          59.92
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-6/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.025000020861626,
+        17.111666680905554
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-15",
+      "upperParapetId": "carrier/main-parapet-6/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3383329220062085"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4122201033927557"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3383329220062085"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4110942034859131"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3372070220993659"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4110942034859131"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3372070220993659"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4122201033927557"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              48.08,
+              17.111666581895605,
+              58.58
+            ],
+            [
+              48.08,
+              17.111666581895605,
+              58.42
+            ],
+            [
+              47.92,
+              17.02499990463256,
+              58.42
+            ],
+            [
+              47.92,
+              17.02499990463256,
+              58.58
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 4
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        4
+      ],
+      "axis": "z",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.1483335724804249,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.02499990463256,
+          17.111666581895605
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                48.08,
+                17.111666581895605,
+                58.58
+              ],
+              [
+                48.08,
+                17.111666581895605,
+                58.42
+              ],
+              [
+                47.92,
+                17.02499990463256,
+                58.42
+              ],
+              [
+                47.92,
+                17.02499990463256,
+                58.58
+              ]
+            ],
+            "sourceTriangle": 4
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            48.08,
+            17.260000001788136,
+            58.58
+          ],
+          "min": [
+            47.92,
+            17.05000000357628,
+            58.42
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.003331455575056097
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            47.973333333333336,
+            17.05000000357628,
+            58.473333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-7/bay-00",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          47.973333333333336,
+          17.05010000357628,
+          58.473333333333336
+        ]
+      },
+      "class": "west-hip",
+      "minimumRemainingToActualParapetUndersideMetres": 0.1483335724804234,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "708354859840456097792",
+        "numerator": "105072698857627962049"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.14833341989252907,
+      "originalBayIntervalMetres": [
+        58.0,
+        59.0
+      ],
+      "originalBounds": {
+        "max": [
+          48.08,
+          17.260000001788136,
+          58.58
+        ],
+        "min": [
+          47.92,
+          17.05000000357628,
+          58.42
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-7/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.02499990463256,
+        17.111666581895605
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-7/bay-00",
+      "upperParapetId": "carrier/main-parapet-7/base"
+    },
+    {
+      "actualClippedRoofPatches": [
+        {
+          "polygonExact": [
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3383329220062085"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4192569778105221"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3383329220062085"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12121132183255278862467"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4181310779036795"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3372070220993659"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4181310779036795"
+              }
+            ],
+            [
+              {
+                "denominator": "70368744177664",
+                "numerator": "3372070220993659"
+              },
+              {
+                "denominator": "708354859840456097792",
+                "numerator": "12059741421229774596997"
+              },
+              {
+                "denominator": "70368744177664",
+                "numerator": "4192569778105221"
+              }
+            ]
+          ],
+          "polygonMetres": [
+            [
+              48.08,
+              17.111666581895605,
+              59.58
+            ],
+            [
+              48.08,
+              17.111666581895605,
+              59.42
+            ],
+            [
+              47.92,
+              17.02499990463256,
+              59.42
+            ],
+            [
+              47.92,
+              17.02499990463256,
+              59.58
+            ]
+          ],
+          "projectedAreaExact": {
+            "denominator": "1237940039285380274899124224",
+            "numerator": "31691265005704383957529369"
+          },
+          "sourceTriangle": 4
+        }
+      ],
+      "actualRoofSourceTriangles": [
+        4
+      ],
+      "axis": "z",
+      "capturedOriginalClearanceEvidence": {
+        "design": "Trim the proposed lower block face to these actual upward roof facets. This needs a separately authored closed roof-saddle profile, source contact/UV/finite-stock validation and approval. Do not bury the full rectangular repeat in the existing roof.",
+        "minimumRemainingPadHeightMetres": 0.1483335724804249,
+        "newGeometryAuthored": false,
+        "proposalOnly": true,
+        "roofSurfaceYRangeMetres": [
+          17.02499990463256,
+          17.111666581895605
+        ],
+        "sourceUpperRoofPatches": [
+          {
+            "actualClippedUpwardSurfacePolygon": [
+              [
+                48.08,
+                17.111666581895605,
+                59.58
+              ],
+              [
+                48.08,
+                17.111666581895605,
+                59.42
+              ],
+              [
+                47.92,
+                17.02499990463256,
+                59.42
+              ],
+              [
+                47.92,
+                17.02499990463256,
+                59.58
+              ]
+            ],
+            "sourceTriangle": 4
+          }
+        ]
+      },
+      "capturedOriginalIntersection": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            48.08,
+            17.260000001788136,
+            59.58
+          ],
+          "min": [
+            47.92,
+            17.05000000357628,
+            59.42
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.003331455575056097
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            47.973333333333336,
+            17.05000000357628,
+            59.473333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-7/bay-01",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          47.973333333333336,
+          17.05010000357628,
+          59.473333333333336
+        ]
+      },
+      "class": "west-hip",
+      "minimumRemainingToActualParapetUndersideMetres": 0.1483335724804234,
+      "minimumRemainingToEnvelopeTopExact": {
+        "denominator": "708354859840456097792",
+        "numerator": "105072698857627962049"
+      },
+      "minimumRemainingToEnvelopeTopMetres": 0.14833341989252907,
+      "originalBayIntervalMetres": [
+        59.0,
+        60.0
+      ],
+      "originalBounds": {
+        "max": [
+          48.08,
+          17.260000001788136,
+          59.58
+        ],
+        "min": [
+          47.92,
+          17.05000000357628,
+          59.42
+        ]
+      },
+      "originalLowerCorniceId": "carrier/edge-7/cornice-7",
+      "perInstanceAcceptance": false,
+      "perInstanceProfileAuthored": false,
+      "proposedBearingPath": "retained local cornice patch plus separately proposed actual roof patch -> fitted body -> unchanged upper parapet contact",
+      "proposedRoofParentId": "carrier/roof/rear-tail",
+      "remainingUnproved": "No per-instance closed fitting, conservative rounding, UV, volume, all-source exclusion or fresh native contact accepted for this row; a shared plane class is not acceptance.",
+      "roofHeightRangeMetres": [
+        17.02499990463256,
+        17.111666581895605
+      ],
+      "sourcePatchCount": 1,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-7/bay-01",
+      "upperParapetId": "carrier/main-parapet-7/base"
+    }
+  ],
+  "selectedSourceProposalId": "proposal-only/blocking/main-parapet-6/bay-01",
+  "selectionRule": "Least exact remaining thickness to the frozen envelope top; ties choose most intersected actual source triangles, then lexicographic proposal ID. Exact captured binary64 inputs are rationalized for ranking, not snapped.",
+  "sourceTablePath": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/separate-parapet-gap-design.json",
+  "sourceTableSha256": "481294255d3afd8dd0ea208d2dc0cc1c7adf1f2e6108e5929a0e887bbb1abfa4",
+  "status": "BOUNDED_CLASSIFICATION_NOT_TWENTY_ASSET_EXPORT",
+  "version": 1
+}

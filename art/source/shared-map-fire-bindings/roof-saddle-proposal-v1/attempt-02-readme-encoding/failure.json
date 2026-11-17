@@ -1,0 +1,10 @@
+{
+  "cause": "The transport writer encoded non-ASCII typography as single bytes. Rewrite only the newly authored README with proper UTF-8; no geometry, proof, contact or JPG changes.",
+  "exception": "UnicodeDecodeError: utf-8 invalid start byte 0xb2 at position 4184",
+  "location": "review.py:52, README reference scan",
+  "nativeActivationOrNewRenderRun": false,
+  "rawDocument": "README-before.bin",
+  "rawDocumentSha256": "aecde69ce6022a89ec3148a981903e3853841021a4fbb90969121a7259318005",
+  "status": "PRESERVED_FAILED_PACKAGE_TEXT_READ",
+  "version": 1
+}
