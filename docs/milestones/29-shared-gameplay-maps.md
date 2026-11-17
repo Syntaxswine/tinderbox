@@ -72,3 +72,25 @@ Report actual idle/active physical counts, render residency, lights, owned resou
 - Run one coherent relevant repository/source/build/release/nested-path gate on the combined final candidate, preserving failed attempts. The normal promotion gate applies; worker pushes are candidates, not publication.
 
 Every helper needs ownership, source/restart inputs, exact PID/creation/ports, an actual expiry and immediate verified cleanup. Reuse the existing finite browser/review harness, one renderer at a time. A short pilot preview is retained only under an explicit bounded architect grant; no watcher, test server or browser remains after its review.
+
+## Reconciled pilot contracts
+
+The shared visit capability record is frozen and factory-authored: `{version:1,mode:'gameplay'|'explore',tools:boolean,health:boolean,interact:boolean,overview:boolean}`. The runtime, snapshot, application active-visit state and `mountUI` consume that same contract. Main application presentation derives its mode from the active runtime, not the place's name. A snapshot may restrict a factory capability and later restore it; it cannot grant a feature the factory disabled, or change mode within a visit. Contradictions are errors. Preserve existing tool/health/torch/aim/effect/clock/event data and `navigation:{placeId,view,waitingForSection,portalStates,collision,...streamMetrics}`. Camera commands remain `view-overview`/`view-follow`; the UI's Menu does not implement navigation or tool rules.
+
+The artist's New York table is accepted as **prototype gameplay assignment**, not evidence of original historical materials:
+
+| Source role | Accepted physical assignment and quantity convention |
+| --- | --- |
+| Foundation, approach stairs, plinth, paving | Inert stone; zero fuel |
+| Exterior primary wall / identified interior partition | Timber, `clapboard` / `partition`; 1 prototype unit per m² of primary area, once |
+| Floor, deck, interior stair carrier | Timber, `frame`; 1 unit per m² of actual footprint |
+| Roof covering | Timber-covering adaptation, `roof`; 1 unit per m² of exposed weather-facing area, excluding duplicate/buried faces |
+| Substantial columns, sash, rails and fittings | Timber, `frame`; closed volume divided by 0.12, matching the existing fitting convention |
+| Moving door leaf and actual moving extension | Timber, `door`; area × 0.45; inert hardware contributes no fuel |
+| Glass / metal hardware | Inert glass/metal with real screening, poses and appropriate support/retirement |
+| Complete awning | `cloth`; 0.3 unit per logical cloth item, not per stripe |
+| Cosmetic detail and paint | No additional fuel; follow the real carrier's visible state |
+
+Only pilot wall `main/0/cell-1-22/1` receives an explicitly declared, separately accounted 0.10-unit `lacquer` prototype coating. Do not infer a finish from color or coat all painted parts. The other initial contacts are elevated `upper-floor/tile-1-16` (top approximately 8.48 m) and inert `main/0/lower-3/glass`. Their sidecar is `assets/art/shared-map-fire-bindings/new-york.json`. It references the exact emitted geometry/matrices; the existing `[56,0,26]` source offset has already been applied. Local carrier IDs are qualified once by the compiler. Include `coordinateFrame`, `quantityBasis`, source facts versus gameplay assignments, actual supports/portal poses and canonical render ownership. Unassigned IDs remain explicit. These three records establish the pilot; complete substantial New York coverage is required for its finished gameplay map. Administration/Horticulture material overrides require their own reconciliation rather than inheriting timber automatically.
+
+Original M28 asset/control/checker/runtime declarations remain historical evidence. When an approved shared extraction changes a hashed runtime path, record exact before/after hashes and the reason in M29 integration evidence and rerun the physical assertions; do not overwrite the old reference or relax a failed assertion.
