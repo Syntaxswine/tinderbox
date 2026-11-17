@@ -2,11 +2,12 @@
 No renderer, source rewrite, solver tuning or live-game acceptance is performed.
 """
 from pathlib import Path
-import collections, hashlib, json, math, subprocess, sys
+import argparse, collections, hashlib, json, math, subprocess, sys
 ROOT=Path(__file__).resolve().parents[3]
 BASE='6d1061cd3ab7e6c9bff212381193376473413b30'
 SCENE='assets/art/place-scenes/new-york'
 checks=collections.Counter()
+POLICY_PATHS={'docs/art/shared-modular-art-workflow.md','docs/milestones/29-shared-gameplay-maps.md'}
 def check(ok,label):
     assert ok,label
     checks[label.split(':')[0]]+=1
@@ -104,14 +105,61 @@ def rejects(fn,label):
     except AssertionError:checks['negative controls']+=1;return
     raise AssertionError('Invalid mutation was accepted: '+label)
 
+def check_source_dependencies(rows,reader=None):
+    reader=reader or (lambda path:(ROOT/path).read_bytes())
+    for row in rows:
+        check(row['path'] not in POLICY_PATHS,'pin:mutable policy excluded from physical dependencies')
+        check(hashlib.sha256(reader(row['path'])).hexdigest()==row['sha256'],'pin:source dependency hash: '+row['path'])
+
+def check_policy_evidence(rows,snapshot_reader=None):
+    expected={'shared-workflow-read-at-authoring':(BASE,'63415856848ab3c26f509cb09eed2b079ea8973b'),
+              'original-brief-read-at-authoring':(BASE,'d52cb2372fbe966b04d9bf53cc041802116339b6'),
+              'accepted-pilot-contract':('15672d1187dd01ca6557f0459247adc0d4971a11','4eb7a9880a4b2f9affdc0c13eb3c2e81ad56925a')}
+    check(len(rows)==len(expected) and {r['role'] for r in rows}==set(expected),'policy:exact original and accepted committed contexts')
+    snapshot_reader=snapshot_reader or (lambda path:(ROOT/path).read_bytes())
+    for row in rows:
+        check((row['commit'],row['gitBlob'])==expected[row['role']],'policy:known committed object identity')
+        ref=row['commit']+':'+row['path']
+        blob=subprocess.check_output(['git','rev-parse',ref],cwd=ROOT,text=True).strip()
+        committed=subprocess.check_output(['git','show',ref],cwd=ROOT)
+        check(blob==row['gitBlob'],'policy:reference resolves exact blob')
+        check(hashlib.sha256(committed).hexdigest()==row['sha256'],'policy:committed object sha256')
+        check(snapshot_reader(row['snapshotPath'])==committed,'policy:snapshot is exact committed source')
+        if row['role']=='shared-workflow-read-at-authoring':check(b'Version 2' in committed.splitlines()[2],'policy:Version 2 workflow actually committed')
+        if row['role']=='accepted-pilot-contract':check(b'## Reconciled pilot contracts' in committed,'policy:accepted amendment preserved')
+        if 'originalDeliveryWorkingCopySha256' in row:
+            observed=committed.replace(b'\n',b'\r\n') if row['originalDeliveryLineEndings']=='CRLF' else committed
+            check(hashlib.sha256(observed).hexdigest()==row['originalDeliveryWorkingCopySha256'],'policy:original delivery serialization explained')
+
+def policy_context(rows,worktree,source_rows):
+    # Diagnostic context only: current policy text is never a physical source pin.
+    head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=worktree,text=True).strip()
+    accepted=next(r['commit'] for r in rows if r['role']=='accepted-pilot-contract')
+    contains=subprocess.run(['git','merge-base','--is-ancestor',accepted,head],cwd=worktree).returncode==0
+    originals={r['path']:r for r in rows if 'originalDeliveryWorkingCopySha256' in r};latest={r['path']:r for r in rows};documents=[]
+    owned_authoring={'art/source/shared-map-fire-bindings/export.py','art/source/shared-map-fire-bindings/check.py','art/source/shared-map-fire-bindings/.gitattributes','assets/art/shared-map-fire-bindings/.gitattributes','docs/art/shared-map-fire-bindings/.gitattributes'}
+    physical_rows=[r for r in source_rows if r['path'] not in owned_authoring]
+    check_source_dependencies(physical_rows,reader=lambda path:(worktree/path).read_bytes())
+    for path,row in sorted(latest.items()):
+        data=(worktree/path).read_bytes();raw=hashlib.sha256(data).hexdigest();normalized=hashlib.sha256(data.replace(b'\r\n',b'\n')).hexdigest()
+        documents.append({'path':path,'currentSha256':raw,'currentLFTextSha256':normalized,'latestPinnedPolicySha256':row['sha256'],'matchesLatestPolicyText':normalized==row['sha256'],'wouldFailOriginalCoupledPin':raw!=originals[path]['originalDeliveryWorkingCopySha256']})
+    return {'gitCommit':head,'containsAcceptedAmendment':contains,'documents':documents,'currentPolicyHashesArePhysicalGates':False,'physicalDependenciesVerified':len(physical_rows)}
+
 def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--record',action='store_true');parser.add_argument('--policy-worktree',type=Path);parser.add_argument('--compare-binding-ref');args=parser.parse_args()
     a=read('assets/art/shared-map-fire-bindings/new-york.json');ev=read('art/source/shared-map-fire-bindings/new-york-evidence.json');index=read(SCENE+'/index.json');nav=read(SCENE+'/navigation.json')
     check(sha(SCENE+'/index.json')=='1025e434bea1724b0212100cb92687faf95650d3c39c71734bf1b56fbf9713ad','pin:frozen scene index')
     check(a['sourceScene']['navigationSha256']==sha(SCENE+'/navigation.json'),'pin:frozen navigation')
-    for row in ev['sourceLedger']:check(sha(row['path'])==row['sha256'],'pin:source dependency hash')
+    check_source_dependencies(ev['sourceLedger'])
+    check_policy_evidence(ev['policyEvidence'])
+    check(a['policyEvidence']==ev['policyEvidence'],'policy:sidecar and evidence agree')
+    policy_canonical=json.dumps(ev['policyEvidence'],sort_keys=True,separators=(',',':')).encode()
+    check(hashlib.sha256(policy_canonical).hexdigest()==a['evidence']['policyEvidenceSha256']==ev['policyEvidenceSha256'],'policy:separate immutable policy digest')
+    context=policy_context(ev['policyEvidence'],args.policy_worktree or ROOT,ev['sourceLedger'])
+    if args.policy_worktree:check(context['containsAcceptedAmendment'],'policy-context:architect includes accepted 15672d1 amendment')
     canonical=json.dumps(ev['sourceLedger'],sort_keys=True,separators=(',',':')).encode()
     check(hashlib.sha256(canonical).hexdigest()==a['evidence']['sourceLedgerSha256']==ev['sourceLedgerSha256'],'pin:aggregate source ledger')
-    protected=['assets/art/place-scenes/new-york','assets/art/exposition-new-york','assets/art/exposition-new-york-tile','assets/art/exploration-access','art/source/exposition-new-york','art/source/exposition-new-york-tile','art/source/exploration-access','docs/art/shared-modular-art-workflow.md','art/source/furnished-house/export.mjs']
+    protected=['assets/art/place-scenes/new-york','assets/art/exposition-new-york','assets/art/exposition-new-york-tile','assets/art/exploration-access','art/source/exposition-new-york','art/source/exposition-new-york-tile','art/source/exploration-access','art/source/furnished-house/export.mjs']
     check(subprocess.run(['git','diff','--quiet',BASE,'--',*protected],cwd=ROOT).returncode==0,'pin:original workproduct unchanged against common base')
     sources={};logical=set();ranges=0
     for chunk in index['chunks']:
@@ -170,7 +218,19 @@ def main():
     floor['finish']={'fuelAmount':.1};rejects(lambda:check_ledger(a),'blanket painted-wall coat');del floor['finish']
     old=glass['fuelAmount'];glass['fuelAmount']=1
     rejects(lambda:check_quantity(glass,triangle_list(geoms[glass['renderBindings'][0]['geometryId']],glass['renderBindings'][0]['matrix'])),'glass as fuel');glass['fuelAmount']=old
-    result={'result':'PASS','checks':dict(checks),'carriers':len(a['carriers']),'logicalSourceParts':len(logical),'triangles':tri_count,'unassigned':len(a['unassignedBindings']),'supportUnresolved':len(a['coverage']['supportUnresolvedCarrierIds']),'runtimeOrVisualAcceptance':False,'artifactSha256':sha('assets/art/shared-map-fire-bindings/new-york.json'),'pythonVersion':sys.version.split()[0]}
-    if '--record' in sys.argv:(ROOT/'art/source/shared-map-fire-bindings/new-york-check-results.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n',encoding='utf-8',newline='\n')
+    comparison=None
+    if args.compare_binding_ref:
+        ref=subprocess.check_output(['git','rev-parse',args.compare_binding_ref],cwd=ROOT,text=True).strip()
+        previous=json.loads(subprocess.check_output(['git','show',ref+':assets/art/shared-map-fire-bindings/new-york.json'],cwd=ROOT))
+        keys=set(previous)|set(a)
+        for key in sorted(keys-{'policyEvidence','evidence','gameplayAssignments'}):check(a.get(key)==previous.get(key),'regression:unchanged binding content: '+key)
+        check({k:v for k,v in a['gameplayAssignments'].items() if k!='authority'}=={k:v for k,v in previous['gameplayAssignments'].items() if k!='authority'},'regression:unchanged material assignments and quantities')
+        comparison={'commit':ref,'onlyChanges':'Policy evidence and source-ledger metadata; physical bindings, finite quantities, coverage and source references identical.'}
+    # Regression: current policy edits are outside physical pins, while physical/snapshot corruption still fails.
+    index_row=next(r for r in ev['sourceLedger'] if r['path']==SCENE+'/index.json')
+    rejects(lambda:check_source_dependencies([index_row],reader=lambda path:(ROOT/path).read_bytes()+b'changed physical source'),'physical source byte mutation')
+    rejects(lambda:check_policy_evidence(ev['policyEvidence'],snapshot_reader=lambda path:(ROOT/path).read_bytes()+b'changed policy snapshot'),'immutable policy evidence mutation')
+    result={'result':'PASS','checks':dict(checks),'carriers':len(a['carriers']),'logicalSourceParts':len(logical),'triangles':tri_count,'unassigned':len(a['unassignedBindings']),'supportUnresolved':len(a['coverage']['supportUnresolvedCarrierIds']),'runtimeOrVisualAcceptance':False,'artifactSha256':sha('assets/art/shared-map-fire-bindings/new-york.json'),'pythonVersion':sys.version.split()[0],'policyContext':context,'bindingComparison':comparison}
+    if args.record:(ROOT/'art/source/shared-map-fire-bindings/new-york-check-results.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(result,sort_keys=True))
 if __name__=='__main__':main()
