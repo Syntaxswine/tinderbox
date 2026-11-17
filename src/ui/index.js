@@ -90,7 +90,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   let primaryPointer=null,primaryElement=null,primaryTool=null,awaitingSelection=false,primarySources=new Set();
   let menu=null,exiting=false,awaitingResume=false,previousFocus=null,wasBlocked=true,renderSignature='',previousAnnouncement='';
   let feedback=null,eventCursor=0,eventInitialized=false,eventGeneration,lastTick;
-  let lanternPress=null,lanternPending=null;
+  let lanternPress=null,lanternPending=null,selectionIntent=null;
   function readToolEvents(snapshot){
     const generation=snapshot.diagnostics?.generation,rewound=lastTick!==undefined&&snapshot.tick<lastTick;
     if(!eventInitialized || rewound || generation!==eventGeneration){eventCursor=Math.max(0,...(snapshot.events??[]).filter(e=>Number.isSafeInteger(e.id)).map(e=>e.id));feedback=null;eventInitialized=true;}
@@ -104,6 +104,11 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   for(const [id,button] of buttons)button.querySelector('[data-stock]').id='tb-stock-'+id+suffix;
   const on=(target,type,handler,options)=>{target.addEventListener(type,handler,options);listeners.push(()=>target.removeEventListener(type,handler,options));};
   const emit=command=>{if(!disposed)onCommand(command);};
+  const intendedTool=()=>selectionIntent?.id??view.tool.id;
+  function queueSelection(id){
+    selectionIntent={id,tick:lastTick,generation:eventGeneration};
+    emit({type:'select-tool',tool:id});
+  }
   const blocked=()=>!view||view.locked||Boolean(menu)||exiting;
   const contextBlocked=()=>blocked()||!view.capabilities.interact||(!exploring&&Boolean(view?.lanternAim||lanternPending));
   const contextAction=mountContextAction({shell,onProjectInteraction,onCommand:emit,isBlocked:contextBlocked,spaceShortcut:exploring,mark:icon('play')});
@@ -132,7 +137,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     primaryElement=button;primaryTool=button.dataset.tool;awaitingSelection=true;primaryPointer=pointerId;
     if(pointerId!==null)capture(button,pointerId);
     // The command queue owns selection and use order. No optimistic snapshot edits.
-    emit({type:'select-tool',tool:primaryTool});
+    queueSelection(primaryTool);
     if(disposed||blocked()){releaseTrigger();return false;}
     primarySources.add(source);button.classList.add('is-pressed');emit({type:'primary',pressed:true});paint();return true;
   }
@@ -140,7 +145,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     if(blocked()||!view.capabilities.tools||lanternPending)return;
     releaseTrigger();
     if(view.lanternAim&&id!=='molotov')lockLanternTransition();
-    emit({type:'select-tool',tool:id});paint();
+    queueSelection(id);paint();
   }
   function releaseStick(){const id=stickPointer;stickPointer=null;stickPointerType=null;stickRect=null;stickVector={x:0,y:0};release(stick,id);updateMovement();}
   function clearMotion(){keys.clear();releaseStick();}
@@ -150,7 +155,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     if(beginAction(button,'lantern')){releaseTrigger();paint();}
   }
   function cancelInput(){
-    lanternPress=null;contextAction.cancelPress();
+    selectionIntent=null;lanternPress=null;contextAction.cancelPress();
     if(view?.lanternAim||lanternPending)lockLanternTransition(true);else clearMotion();
     releaseTrigger();emit({type:'cancel-input'});
   }
@@ -308,11 +313,11 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     if(moveCodes.has(event.code)){event.preventDefault();if(!event.repeat){keys.add(event.code);updateMovement();}}
     else if(event.code==='KeyE'||exploring&&event.code==='Space'&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){event.preventDefault();if(!event.repeat)contextAction.request();}
     else if(!exploring&&view.capabilities.tools&&/^Digit[1-5]$/.test(event.code)&&!event.repeat){event.preventDefault();selectTool(TOOLS[Number(event.code.at(-1))-1].id);}
-    else if(!exploring&&view.capabilities.tools&&(event.code==='Space'||event.code==='Enter'&&view.tool.id==='molotov')&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){
+    else if(!exploring&&view.capabilities.tools&&(event.code==='Space'||event.code==='Enter'&&intendedTool()==='molotov')&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){
       event.preventDefault();
       if(!event.repeat){
-        const button=buttons.get(view.tool.id);
-        if(view.tool.id==='molotov')pressLantern(button);else beginAction(button,'key:Space');
+        const id=intendedTool(),button=buttons.get(id);
+        if(id==='molotov')pressLantern(button);else beginAction(button,'key:Space');
       }
     }
   });
@@ -352,6 +357,12 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       const hadTools=view?.capabilities.tools;
       view=exploring?{capabilities,paused:Boolean(snapshot?.paused),locked:Boolean(snapshot?.paused),navigation:navigationOf(snapshot)}:viewOf(snapshot,capabilities);
       if(hadTools&&!capabilities.tools)cancelInput();
+      // Keep queued input intent until acknowledgement, a newer host tick or a generation change.
+      // Inventory, phase and enabled buttons still come only from the snapshot.
+      const selectionSettled=Boolean(selectionIntent&&(
+        snapshot.diagnostics?.generation!==selectionIntent.generation||snapshot.tick>selectionIntent.tick||
+        snapshot.tick===selectionIntent.tick&&view.tool?.id===selectionIntent.id));
+      if(selectionSettled)selectionIntent=null;
       const aiming=Boolean(view.lanternAim),changedAim=wasAiming!==aiming;
       if(!exploring){
         readToolEvents(snapshot);
@@ -362,7 +373,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       if((awaitingResume||previouslyPaused)&&!view.paused){awaitingResume=false;menu=null;restoreFocus=true;}
       else if(view.paused&&!menu){previousFocus=doc.activeElement;menu='pause';paintMenu();focusMenu();}
       const nowBlocked=blocked(),cancel=!wasBlocked&&nowBlocked;wasBlocked=nowBlocked;if(cancel)cancelInput();
-      if(!exploring&&primaryTool===view.tool.id)awaitingSelection=false;
+      if(!exploring&&(selectionSettled||!selectionIntent&&primaryTool===view.tool.id))awaitingSelection=false;
       if(!exploring&&primarySources.size&&((!awaitingSelection&&primaryTool!==view.tool.id)||(primaryTool===view.tool.id&&view.primaryDisabled)))releaseTrigger();
       paint();
       if(changedAim&&!blocked()&&(priorFocus===cancelAim||priorFocus===doc.body||aiming&&priorFocus===buttons.get('molotov')))stick.focus({preventScroll:true});
