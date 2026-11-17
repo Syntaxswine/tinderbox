@@ -1,0 +1,824 @@
+{
+  "representatives": [
+    {
+      "allowRetiredOrBrokenPortions": false,
+      "bridgeDisconnectedPanes": false,
+      "directFrameContactAtStartMask": false,
+      "dynamicPortionConnectivityProvedOrInstalled": false,
+      "fixedOriginalFramePort": {
+        "actualWorldIntersectionWitness": [
+          {
+            "approximate": 148.5302172818199,
+            "denominator": "86787906194931391051857920",
+            "numerator": "12890626564567362205686381273"
+          },
+          {
+            "approximate": 10.6,
+            "denominator": "562949953421312",
+            "numerator": "5967269506265907"
+          },
+          {
+            "approximate": 69.58468011237773,
+            "denominator": "138860649911890225682972672",
+            "numerator": "9662573904315753914837487637"
+          }
+        ],
+        "fixedLocalParentMask": {
+          "cellKey": "1,0,45",
+          "coordinateFrame": "pinned original glass geometry-local frame and original matrix",
+          "glassSourceId": "great-crystal-dome/glass-skin"
+        },
+        "groundAnchor": false,
+        "mechanicalFasteningOrLoadCapacityProved": false,
+        "originalFrameRenderId": "great-crystal-dome/rib-51",
+        "originalFrameSourceId": "great-crystal-dome/rib-51",
+        "originalFrameTriangleOffset": 0,
+        "originalGlassTriangleOffset": 13248,
+        "sourceGeometryContactProved": true
+      },
+      "fixedOriginalFrameReference": {
+        "bounds": {
+          "max": [
+            172.08619284629822,
+            29.537900543212892,
+            74.2727832198143
+          ],
+          "min": [
+            148.48303985595703,
+            10.598240612796507,
+            69.48247194290161
+          ]
+        },
+        "floorId": null,
+        "geometryId": "57f8186b9557f5d5cae4afcd54b367ead08f16cd2d9393045aa3c3acc05b564d",
+        "geometryPath": "assets/art/place-scenes/horticulture/geometry/57f8186b9557f5d5cae4afcd54b367ead08f16cd2d9393045aa3c3acc05b564d.json",
+        "geometrySha256": "5d31eda7f8e76643b10bdf326c9956f9d390075e90e27600ba410687de5466f8",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          10.6,
+          75,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "horticulture",
+        "renderId": "great-crystal-dome/rib-51",
+        "role": "dome-frame",
+        "sectionId": "10_4_4",
+        "sourceId": "great-crystal-dome/rib-51",
+        "sourceRange": null
+      },
+      "greenhouseBracingOrNewJoint": false,
+      "originalAssociatedFrameIds": [
+        "great-crystal-dome/latitude-1",
+        "great-crystal-dome/latitude-10",
+        "great-crystal-dome/latitude-11",
+        "great-crystal-dome/latitude-12",
+        "great-crystal-dome/latitude-13",
+        "great-crystal-dome/latitude-14",
+        "great-crystal-dome/latitude-2",
+        "great-crystal-dome/latitude-3",
+        "great-crystal-dome/latitude-4",
+        "great-crystal-dome/latitude-5",
+        "great-crystal-dome/latitude-6",
+        "great-crystal-dome/latitude-7",
+        "great-crystal-dome/latitude-8",
+        "great-crystal-dome/latitude-9",
+        "great-crystal-dome/rib-0",
+        "great-crystal-dome/rib-1",
+        "great-crystal-dome/rib-10",
+        "great-crystal-dome/rib-11",
+        "great-crystal-dome/rib-12",
+        "great-crystal-dome/rib-13",
+        "great-crystal-dome/rib-14",
+        "great-crystal-dome/rib-15",
+        "great-crystal-dome/rib-16",
+        "great-crystal-dome/rib-17",
+        "great-crystal-dome/rib-18",
+        "great-crystal-dome/rib-19",
+        "great-crystal-dome/rib-2",
+        "great-crystal-dome/rib-20",
+        "great-crystal-dome/rib-21",
+        "great-crystal-dome/rib-22",
+        "great-crystal-dome/rib-23",
+        "great-crystal-dome/rib-24",
+        "great-crystal-dome/rib-25",
+        "great-crystal-dome/rib-26",
+        "great-crystal-dome/rib-27",
+        "great-crystal-dome/rib-28",
+        "great-crystal-dome/rib-29",
+        "great-crystal-dome/rib-3",
+        "great-crystal-dome/rib-30",
+        "great-crystal-dome/rib-31",
+        "great-crystal-dome/rib-32",
+        "great-crystal-dome/rib-33",
+        "great-crystal-dome/rib-34",
+        "great-crystal-dome/rib-35",
+        "great-crystal-dome/rib-36",
+        "great-crystal-dome/rib-37",
+        "great-crystal-dome/rib-38",
+        "great-crystal-dome/rib-39",
+        "great-crystal-dome/rib-4",
+        "great-crystal-dome/rib-40",
+        "great-crystal-dome/rib-41",
+        "great-crystal-dome/rib-42",
+        "great-crystal-dome/rib-43",
+        "great-crystal-dome/rib-44",
+        "great-crystal-dome/rib-45",
+        "great-crystal-dome/rib-46",
+        "great-crystal-dome/rib-47",
+        "great-crystal-dome/rib-48",
+        "great-crystal-dome/rib-49",
+        "great-crystal-dome/rib-5",
+        "great-crystal-dome/rib-50",
+        "great-crystal-dome/rib-51",
+        "great-crystal-dome/rib-52",
+        "great-crystal-dome/rib-53",
+        "great-crystal-dome/rib-54",
+        "great-crystal-dome/rib-55",
+        "great-crystal-dome/rib-56",
+        "great-crystal-dome/rib-57",
+        "great-crystal-dome/rib-58",
+        "great-crystal-dome/rib-59",
+        "great-crystal-dome/rib-6",
+        "great-crystal-dome/rib-60",
+        "great-crystal-dome/rib-61",
+        "great-crystal-dome/rib-62",
+        "great-crystal-dome/rib-63",
+        "great-crystal-dome/rib-64",
+        "great-crystal-dome/rib-65",
+        "great-crystal-dome/rib-66",
+        "great-crystal-dome/rib-67",
+        "great-crystal-dome/rib-68",
+        "great-crystal-dome/rib-69",
+        "great-crystal-dome/rib-7",
+        "great-crystal-dome/rib-70",
+        "great-crystal-dome/rib-71",
+        "great-crystal-dome/rib-72",
+        "great-crystal-dome/rib-73",
+        "great-crystal-dome/rib-74",
+        "great-crystal-dome/rib-75",
+        "great-crystal-dome/rib-76",
+        "great-crystal-dome/rib-77",
+        "great-crystal-dome/rib-78",
+        "great-crystal-dome/rib-79",
+        "great-crystal-dome/rib-8",
+        "great-crystal-dome/rib-80",
+        "great-crystal-dome/rib-81",
+        "great-crystal-dome/rib-82",
+        "great-crystal-dome/rib-83",
+        "great-crystal-dome/rib-84",
+        "great-crystal-dome/rib-85",
+        "great-crystal-dome/rib-86",
+        "great-crystal-dome/rib-87",
+        "great-crystal-dome/rib-88",
+        "great-crystal-dome/rib-89",
+        "great-crystal-dome/rib-9",
+        "great-crystal-dome/rib-90",
+        "great-crystal-dome/rib-91",
+        "great-crystal-dome/rib-92",
+        "great-crystal-dome/rib-93",
+        "great-crystal-dome/rib-94",
+        "great-crystal-dome/rib-95"
+      ],
+      "originalSourceId": "great-crystal-dome/glass-skin",
+      "originalTrianglePath": [
+        13248
+      ],
+      "pristineIntactSourcePathOnly": true,
+      "remapToAnotherSurvivingFrame": false,
+      "sameOriginalSourceComponentOnly": true,
+      "sharedOriginalSourceEdges": [],
+      "sourceReference": {
+        "bounds": {
+          "max": [
+            204,
+            29.484302139282228,
+            103
+          ],
+          "min": [
+            148,
+            10.6,
+            47
+          ]
+        },
+        "floorId": null,
+        "geometryId": "44733690b763d888563527003f7d1db6b7637a86eeb9fd63bb674aa4ec471d5d",
+        "geometryPath": "assets/art/place-scenes/horticulture/geometry/44733690b763d888563527003f7d1db6b7637a86eeb9fd63bb674aa4ec471d5d.json",
+        "geometrySha256": "a0bcb4671c45897853867306b6aefe7e0ccc41a8b3f81bde0855645f5210acaf",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          10.6,
+          75,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "horticulture",
+        "renderId": "great-crystal-dome/glass-skin",
+        "role": "dome-glass",
+        "sectionId": "11_4_5",
+        "sourceId": "great-crystal-dome/glass-skin",
+        "sourceRange": null
+      },
+      "startLocalMaskKey": "horticulture::great-crystal-dome/glass-skin::native-cell/0,0,45",
+      "startMaskOriginalTriangleOffsets": [
+        13248,
+        13251,
+        13254
+      ],
+      "startTemplateCellKey": "0,0,45",
+      "wholeTriangleSurvivalIsInsufficientAfterLocalDamage": true
+    },
+    {
+      "allowRetiredOrBrokenPortions": false,
+      "bridgeDisconnectedPanes": false,
+      "directFrameContactAtStartMask": false,
+      "dynamicPortionConnectivityProvedOrInstalled": false,
+      "fixedOriginalFramePort": {
+        "actualWorldIntersectionWitness": [
+          {
+            "approximate": 59.037500001490116,
+            "denominator": "134217728",
+            "numerator": "7923879117"
+          },
+          {
+            "approximate": 6.572000122070312,
+            "denominator": "327680",
+            "numerator": "2153513"
+          },
+          {
+            "approximate": 63.5,
+            "denominator": "2",
+            "numerator": "127"
+          }
+        ],
+        "fixedLocalParentMask": {
+          "cellKey": "0,0,1",
+          "coordinateFrame": "pinned original glass geometry-local frame and original matrix",
+          "glassSourceId": "front-glass-gallery-0/surface--1"
+        },
+        "groundAnchor": false,
+        "mechanicalFasteningOrLoadCapacityProved": false,
+        "originalFrameRenderId": "front-glass-gallery-0/rafter--1--42",
+        "originalFrameSourceId": "front-glass-gallery-0/rafter--1--42",
+        "originalFrameTriangleOffset": 3,
+        "originalGlassTriangleOffset": 3,
+        "sourceGeometryContactProved": true
+      },
+      "fixedOriginalFrameReference": {
+        "bounds": {
+          "max": [
+            59.037500001490116,
+            10.634524374968242,
+            73.01463852718206
+          ],
+          "min": [
+            58.962499998509884,
+            6.325474709504414,
+            62.98536147281795
+          ]
+        },
+        "floorId": null,
+        "geometryId": "6a5df7874e84744bc430523f93d88259cdf0a101af5698bbd50fd63252b2c76c",
+        "geometryPath": "assets/art/place-scenes/horticulture/geometry/6a5df7874e84744bc430523f93d88259cdf0a101af5698bbd50fd63252b2c76c.json",
+        "geometrySha256": "c589ac4ffef1fbd7fd62a8360a1545c7b02824a2706a3db732a74fb73f63b96c",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.39036068320274353,
+          0.920661985874176,
+          0,
+          0,
+          -0.920661985874176,
+          0.39036068320274353,
+          0,
+          59,
+          8.479999542236328,
+          68,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "horticulture",
+        "renderId": "front-glass-gallery-0/rafter--1--42",
+        "role": null,
+        "sectionId": "3_4_2",
+        "sourceId": "front-glass-gallery-0/rafter--1--42",
+        "sourceRange": null
+      },
+      "greenhouseBracingOrNewJoint": false,
+      "originalAssociatedFrameIds": [
+        "front-glass-gallery-0/purlin--1-0",
+        "front-glass-gallery-0/purlin--1-1",
+        "front-glass-gallery-0/purlin--1-2",
+        "front-glass-gallery-0/purlin--1-3",
+        "front-glass-gallery-0/purlin--1-4",
+        "front-glass-gallery-0/purlin--1-5",
+        "front-glass-gallery-0/purlin--1-6",
+        "front-glass-gallery-0/purlin--1-7",
+        "front-glass-gallery-0/purlin--1-8",
+        "front-glass-gallery-0/purlin-1-0",
+        "front-glass-gallery-0/purlin-1-1",
+        "front-glass-gallery-0/purlin-1-2",
+        "front-glass-gallery-0/purlin-1-3",
+        "front-glass-gallery-0/purlin-1-4",
+        "front-glass-gallery-0/purlin-1-5",
+        "front-glass-gallery-0/purlin-1-6",
+        "front-glass-gallery-0/purlin-1-7",
+        "front-glass-gallery-0/purlin-1-8",
+        "front-glass-gallery-0/rafter--1--10",
+        "front-glass-gallery-0/rafter--1--12",
+        "front-glass-gallery-0/rafter--1--14",
+        "front-glass-gallery-0/rafter--1--16",
+        "front-glass-gallery-0/rafter--1--18",
+        "front-glass-gallery-0/rafter--1--2",
+        "front-glass-gallery-0/rafter--1--20",
+        "front-glass-gallery-0/rafter--1--22",
+        "front-glass-gallery-0/rafter--1--24",
+        "front-glass-gallery-0/rafter--1--26",
+        "front-glass-gallery-0/rafter--1--28",
+        "front-glass-gallery-0/rafter--1--30",
+        "front-glass-gallery-0/rafter--1--32",
+        "front-glass-gallery-0/rafter--1--34",
+        "front-glass-gallery-0/rafter--1--36",
+        "front-glass-gallery-0/rafter--1--38",
+        "front-glass-gallery-0/rafter--1--4",
+        "front-glass-gallery-0/rafter--1--40",
+        "front-glass-gallery-0/rafter--1--42",
+        "front-glass-gallery-0/rafter--1--6",
+        "front-glass-gallery-0/rafter--1--8",
+        "front-glass-gallery-0/rafter--1-0",
+        "front-glass-gallery-0/rafter--1-10",
+        "front-glass-gallery-0/rafter--1-12",
+        "front-glass-gallery-0/rafter--1-14",
+        "front-glass-gallery-0/rafter--1-16",
+        "front-glass-gallery-0/rafter--1-18",
+        "front-glass-gallery-0/rafter--1-2",
+        "front-glass-gallery-0/rafter--1-20",
+        "front-glass-gallery-0/rafter--1-22",
+        "front-glass-gallery-0/rafter--1-24",
+        "front-glass-gallery-0/rafter--1-26",
+        "front-glass-gallery-0/rafter--1-28",
+        "front-glass-gallery-0/rafter--1-30",
+        "front-glass-gallery-0/rafter--1-32",
+        "front-glass-gallery-0/rafter--1-34",
+        "front-glass-gallery-0/rafter--1-36",
+        "front-glass-gallery-0/rafter--1-38",
+        "front-glass-gallery-0/rafter--1-4",
+        "front-glass-gallery-0/rafter--1-40",
+        "front-glass-gallery-0/rafter--1-42",
+        "front-glass-gallery-0/rafter--1-6",
+        "front-glass-gallery-0/rafter--1-8",
+        "front-glass-gallery-0/rafter-1--10",
+        "front-glass-gallery-0/rafter-1--12",
+        "front-glass-gallery-0/rafter-1--14",
+        "front-glass-gallery-0/rafter-1--16",
+        "front-glass-gallery-0/rafter-1--18",
+        "front-glass-gallery-0/rafter-1--2",
+        "front-glass-gallery-0/rafter-1--20",
+        "front-glass-gallery-0/rafter-1--22",
+        "front-glass-gallery-0/rafter-1--24",
+        "front-glass-gallery-0/rafter-1--26",
+        "front-glass-gallery-0/rafter-1--28",
+        "front-glass-gallery-0/rafter-1--30",
+        "front-glass-gallery-0/rafter-1--32",
+        "front-glass-gallery-0/rafter-1--34",
+        "front-glass-gallery-0/rafter-1--36",
+        "front-glass-gallery-0/rafter-1--38",
+        "front-glass-gallery-0/rafter-1--4",
+        "front-glass-gallery-0/rafter-1--40",
+        "front-glass-gallery-0/rafter-1--42",
+        "front-glass-gallery-0/rafter-1--6",
+        "front-glass-gallery-0/rafter-1--8",
+        "front-glass-gallery-0/rafter-1-0",
+        "front-glass-gallery-0/rafter-1-10",
+        "front-glass-gallery-0/rafter-1-12",
+        "front-glass-gallery-0/rafter-1-14",
+        "front-glass-gallery-0/rafter-1-16",
+        "front-glass-gallery-0/rafter-1-18",
+        "front-glass-gallery-0/rafter-1-2",
+        "front-glass-gallery-0/rafter-1-20",
+        "front-glass-gallery-0/rafter-1-22",
+        "front-glass-gallery-0/rafter-1-24",
+        "front-glass-gallery-0/rafter-1-26",
+        "front-glass-gallery-0/rafter-1-28",
+        "front-glass-gallery-0/rafter-1-30",
+        "front-glass-gallery-0/rafter-1-32",
+        "front-glass-gallery-0/rafter-1-34",
+        "front-glass-gallery-0/rafter-1-36",
+        "front-glass-gallery-0/rafter-1-38",
+        "front-glass-gallery-0/rafter-1-4",
+        "front-glass-gallery-0/rafter-1-40",
+        "front-glass-gallery-0/rafter-1-42",
+        "front-glass-gallery-0/rafter-1-6",
+        "front-glass-gallery-0/rafter-1-8"
+      ],
+      "originalSourceId": "front-glass-gallery-0/surface--1",
+      "originalTrianglePath": [
+        3
+      ],
+      "pristineIntactSourcePathOnly": true,
+      "remapToAnotherSurvivingFrame": false,
+      "sameOriginalSourceComponentOnly": true,
+      "sharedOriginalSourceEdges": [],
+      "sourceReference": {
+        "bounds": {
+          "max": [
+            143,
+            10.599999904632568,
+            73
+          ],
+          "min": [
+            59,
+            6.360000133514404,
+            63
+          ]
+        },
+        "floorId": null,
+        "geometryId": "1de70cbdb2e37abb5500146f220c56d0d64fc329acb26357b473fe42494a082f",
+        "geometryPath": "assets/art/place-scenes/horticulture/geometry/1de70cbdb2e37abb5500146f220c56d0d64fc329acb26357b473fe42494a082f.json",
+        "geometrySha256": "711d40ddeb5d112ff7edcc255ec4f469a709007d437a429636c729b2cad6fc84",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          101,
+          6.360000133514404,
+          73,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "horticulture",
+        "renderId": "front-glass-gallery-0/surface--1",
+        "role": "roof-glass",
+        "sectionId": "6_4_3",
+        "sourceId": "front-glass-gallery-0/surface--1",
+        "sourceRange": null
+      },
+      "startLocalMaskKey": "horticulture::front-glass-gallery-0/surface--1::native-cell/1,0,1",
+      "startMaskOriginalTriangleOffsets": [
+        3
+      ],
+      "startTemplateCellKey": "1,0,1",
+      "wholeTriangleSurvivalIsInsufficientAfterLocalDamage": true
+    },
+    {
+      "allowRetiredOrBrokenPortions": false,
+      "bridgeDisconnectedPanes": false,
+      "directFrameContactAtStartMask": false,
+      "dynamicPortionConnectivityProvedOrInstalled": false,
+      "fixedOriginalFramePort": {
+        "actualWorldIntersectionWitness": [
+          {
+            "approximate": 60.05999994277954,
+            "denominator": "2097152",
+            "numerator": "125954949"
+          },
+          {
+            "approximate": 2.239999771118164,
+            "denominator": "524288",
+            "numerator": "1174405"
+          },
+          {
+            "approximate": 91.94499969482422,
+            "denominator": "131072",
+            "numerator": "12051415"
+          }
+        ],
+        "fixedLocalParentMask": {
+          "cellKey": "12,0",
+          "coordinateFrame": "pinned original glass geometry-local frame and original matrix",
+          "glassSourceId": "replacement/body-12-entrance/glass"
+        },
+        "groundAnchor": false,
+        "mechanicalFasteningOrLoadCapacityProved": false,
+        "originalFrameRenderId": "replacement/body-12-entrance/sill",
+        "originalFrameSourceId": "replacement/body-12-entrance/sill",
+        "originalFrameTriangleOffset": 21,
+        "originalGlassTriangleOffset": 75,
+        "sourceGeometryContactProved": true
+      },
+      "fixedOriginalFrameReference": {
+        "bounds": {
+          "max": [
+            70.25,
+            2.239999771118164,
+            92.45000457763672
+          ],
+          "min": [
+            53.75,
+            1.9999998807907104,
+            91.93000030517578
+          ]
+        },
+        "floorId": null,
+        "geometryId": "3ac33f60e9a107896e0aadf6196f8aec28b8ff14c957a047836eeac4d6dfe690",
+        "geometryPath": "assets/art/place-scenes/administration/geometry/3ac33f60e9a107896e0aadf6196f8aec28b8ff14c957a047836eeac4d6dfe690.json",
+        "geometrySha256": "9ce2fb3647782546e36f4900c0b960ffc95482f9a4cd5d0966c85f2bb6adc9fb",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          62,
+          0,
+          22,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "administration",
+        "renderId": "replacement/body-12-entrance/sill",
+        "role": "source-ornament",
+        "sectionId": "3_5_0",
+        "sourceId": "replacement/body-12-entrance/sill",
+        "sourceRange": null
+      },
+      "greenhouseBracingOrNewJoint": false,
+      "originalAssociatedFrameIds": [
+        "body-12-entrance/arch-moulding",
+        "body-12-entrance/fan-1",
+        "body-12-entrance/fan-2",
+        "body-12-entrance/fan-3",
+        "body-12-entrance/fan-4",
+        "body-12-entrance/fan-5",
+        "body-12-entrance/fan-6",
+        "body-12-entrance/fan-7",
+        "body-12-entrance/jamb--1",
+        "body-12-entrance/jamb-1",
+        "body-12-entrance/mullion-1",
+        "body-12-entrance/mullion-2",
+        "body-12-entrance/mullion-3",
+        "body-12-entrance/mullion-5",
+        "body-12-entrance/mullion-6",
+        "body-12-entrance/mullion-7",
+        "body-12-entrance/pier-edge--1",
+        "body-12-entrance/pier-edge-1",
+        "body-12-entrance/spandrel--1",
+        "body-12-entrance/spandrel-1",
+        "body-12-entrance/transom-6.36",
+        "replacement/body-12-entrance/entry-header",
+        "replacement/body-12-entrance/mullion-4",
+        "replacement/body-12-entrance/sill"
+      ],
+      "originalSourceId": "replacement/body-12-entrance/glass",
+      "originalTrianglePath": [
+        75
+      ],
+      "pristineIntactSourcePathOnly": true,
+      "remapToAnotherSurvivingFrame": false,
+      "sameOriginalSourceComponentOnly": true,
+      "sharedOriginalSourceEdges": [],
+      "sourceReference": {
+        "bounds": {
+          "max": [
+            69.94000005722046,
+            16.899999618530273,
+            92.00499725341797
+          ],
+          "min": [
+            54.05999994277954,
+            2.179999828338623,
+            91.94499969482422
+          ]
+        },
+        "floorId": null,
+        "geometryId": "805fe963d4b355311a922624b66dbcbc5f3788de372109fc78eddfd37ce07e68",
+        "geometryPath": "assets/art/place-scenes/administration/geometry/805fe963d4b355311a922624b66dbcbc5f3788de372109fc78eddfd37ce07e68.json",
+        "geometrySha256": "efdfcfb33a4f3b74622b948161575048ff4cb1d33d3d50ae0559138b848d5213",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          62,
+          0,
+          22,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "administration",
+        "renderId": "replacement/body-12-entrance/glass",
+        "role": "source-ornament",
+        "sectionId": "3_5_1",
+        "sourceId": "replacement/body-12-entrance/glass",
+        "sourceRange": null
+      },
+      "startLocalMaskKey": "administration::replacement/body-12-entrance/glass::native-cell/1,1",
+      "startMaskOriginalTriangleOffsets": [
+        75,
+        90
+      ],
+      "startTemplateCellKey": "1,1",
+      "wholeTriangleSurvivalIsInsufficientAfterLocalDamage": true
+    },
+    {
+      "allowRetiredOrBrokenPortions": false,
+      "bridgeDisconnectedPanes": false,
+      "directFrameContactAtStartMask": false,
+      "dynamicPortionConnectivityProvedOrInstalled": false,
+      "fixedOriginalFramePort": {
+        "actualWorldIntersectionWitness": [
+          {
+            "approximate": 60.062992125522314,
+            "denominator": "85228256",
+            "numerator": "5119064069"
+          },
+          {
+            "approximate": 2.500000074505806,
+            "denominator": "67108864",
+            "numerator": "167772165"
+          },
+          {
+            "approximate": 82.99749938957393,
+            "denominator": "536870912",
+            "numerator": "44558943191"
+          }
+        ],
+        "fixedLocalParentMask": {
+          "cellKey": "0,0",
+          "coordinateFrame": "pinned original glass geometry-local frame and original matrix",
+          "glassSourceId": "court-0-0-arch-0/arched-glass"
+        },
+        "groundAnchor": false,
+        "mechanicalFasteningOrLoadCapacityProved": false,
+        "originalFrameRenderId": "court-0-0-arch-0/sill",
+        "originalFrameSourceId": "court-0-0-arch-0/sill",
+        "originalFrameTriangleOffset": 12,
+        "originalGlassTriangleOffset": 3,
+        "sourceGeometryContactProved": true
+      },
+      "fixedOriginalFrameReference": {
+        "bounds": {
+          "max": [
+            62.1599999666214,
+            2.500000074505806,
+            83.03999847173691
+          ],
+          "min": [
+            59.8400000333786,
+            2.3400000780820847,
+            82.65999847650528
+          ]
+        },
+        "floorId": null,
+        "geometryId": "94b8cc7811e14310d8d680bb9d511067b81cfeb7cd7a7bb162dd6cd54fb08733",
+        "geometryPath": "assets/art/place-scenes/horticulture/geometry/94b8cc7811e14310d8d680bb9d511067b81cfeb7cd7a7bb162dd6cd54fb08733.json",
+        "geometrySha256": "9b9a745844c0316d3d2b0c0022652b85fc76717eee2d55fb306a766beb08332a",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          61,
+          2.4200000762939453,
+          82.8499984741211,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "horticulture",
+        "renderId": "court-0-0-arch-0/sill",
+        "role": null,
+        "sectionId": "3_5_1",
+        "sourceId": "court-0-0-arch-0/sill",
+        "sourceRange": null
+      },
+      "greenhouseBracingOrNewJoint": false,
+      "originalAssociatedFrameIds": [
+        "court-0-0-arch-0/arch",
+        "court-0-0-arch-0/fan--1",
+        "court-0-0-arch-0/fan-1",
+        "court-0-0-arch-0/jamb--1",
+        "court-0-0-arch-0/jamb-1",
+        "court-0-0-arch-0/mullion",
+        "court-0-0-arch-0/sill",
+        "court-0-0-arch-0/spandrel--1",
+        "court-0-0-arch-0/spandrel-1",
+        "court-0-0-arch-0/transom"
+      ],
+      "originalSourceId": "court-0-0-arch-0/arched-glass",
+      "originalTrianglePath": [
+        3
+      ],
+      "pristineIntactSourcePathOnly": true,
+      "remapToAnotherSurvivingFrame": false,
+      "sameOriginalSourceComponentOnly": true,
+      "sharedOriginalSourceEdges": [],
+      "sourceReference": {
+        "bounds": {
+          "max": [
+            62,
+            5.960000038146973,
+            83.03249938972294
+          ],
+          "min": [
+            60,
+            2.4200000762939453,
+            82.99749938957393
+          ]
+        },
+        "floorId": null,
+        "geometryId": "8ce28eefc528a72c699d5adb860ddc915b7a9a11a25eeb704b80261a379b97f1",
+        "geometryPath": "assets/art/place-scenes/horticulture/geometry/8ce28eefc528a72c699d5adb860ddc915b7a9a11a25eeb704b80261a379b97f1.json",
+        "geometrySha256": "a0aeab3866c46048febf56105983f78bfa9a8f4482bfab45a710a7c123feeac0",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          61,
+          2.4200000762939453,
+          83.01499938964844,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "horticulture",
+        "renderId": "court-0-0-arch-0/arched-glass",
+        "role": "window-glass",
+        "sectionId": "3_5_1",
+        "sourceId": "court-0-0-arch-0/arched-glass",
+        "sourceRange": null
+      },
+      "startLocalMaskKey": "horticulture::court-0-0-arch-0/arched-glass::native-cell/1,1",
+      "startMaskOriginalTriangleOffsets": [
+        3,
+        42,
+        60,
+        78,
+        117,
+        135
+      ],
+      "startTemplateCellKey": "1,1",
+      "wholeTriangleSurvivalIsInsufficientAfterLocalDamage": true
+    }
+  ],
+  "requiredLossBehavior": "Schema gate: a retained mask may use an intact path inside its same original pane/sheet to fixed original local frame ports. No path may traverse broken/retired portions or another disconnected pane.",
+  "scope": "Representative pristine source paths only, not exhaustive glass paths, live damage behavior, grounding or native admission.",
+  "unprovedRepresentatives": [],
+  "version": 1
+}
