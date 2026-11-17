@@ -1,0 +1,74 @@
+# Milestone 29: shared gameplay across the existing maps
+
+## Accepted direction and baseline
+
+The owner requests consistent standard fire tools and appropriate fire response on the other maps. They explicitly suggest reusing the existing workproduct in new maps when that is cleaner. Rehost the existing landmark geometry, access and section workproduct as gameplay-map content served by shared gameplay systems. Do not implement a separate set of fire/tool rules in each exploration runtime.
+
+Start from published `52c0266fd1a65e67b13d7ac6a452156c6573b858` (M28 runtime publication `9a765f2f`). Catalogue Street's current modular gameplay is the control. This instruction deliberately supersedes M08's exploration-only, empty-inventory and unassigned-production-fuel restrictions for the converted destinations. Original assets, authoring records, exploration fixtures and historical checkers remain preserved.
+
+Keep exactly four menu destinations: Catalogue Street, New York State Building, Administration Building and Horticultural Building. Reuse native scales, original skins, existing occupied interiors, entry doors, stairs, terrain/water and section streaming. These are gameplay versions of the existing places, not four additional menu entries or a larger combined city. Stockyard/Hull House blockouts and research replays remain separate.
+
+## Scope and ownership
+
+Reuse the three existing worker chats/worktrees. No new worker or checkout is needed. Preserve their completed M28/M24 branches before creating these task branches from the architect's committed common brief:
+
+| Owner | Branch | Responsibility |
+| --- | --- | --- |
+| Architect | `codex/review-cross-map-fire` | Contract, exact intakes, material decisions, combined review, promotion and live verification |
+| Coder | `codex/shared-map-gameplay-code` in `coding-9200` | Shared gameplay/map adapter, source compiler, thermal state/streaming integration, runtime/navigation, meaningful checks and engineering evidence |
+| Artist | `codex/shared-map-fire-bindings` in `art-assets` | Versioned physical-material/source-part bindings, appearance/state correspondence, native support/retirement evidence and JPG review |
+| UI | `codex/shared-map-tools-ui` in `fire-ui-reconcile` | Existing toolbar/HUD/aim/interaction presentation across maps, authoritative capability/snapshot consumption and UI checks |
+
+Workers edit only their assigned worktree/paths. Coder owns gameplay and map capability contracts; UI does not invent stock or apply heat. Artist owns authored physical/material classifications; coder implements extraction and rules. Original donor checkouts remain read-only and current pins remain frozen unless a separately evidenced intake is accepted. Follow the shared modular art workflow.
+
+## One gameplay contract
+
+Use the current five production tool identities and their actual presentation: matches, toggle-pour `jerry-can` (current oil-barrel button), throwable `molotov` (current aim/throw oil-lantern button), timed carried torch and held flamethrower. Keep existing buttons and prototype inventory/configuration; do not introduce a new inventory design, a second throwable or manual drug controls. Keep selectable native goat, horse and AFT bear with their authored rigs/attachments. Preserve 9 m/s movement and the existing 0.22 m step limit.
+
+All converted maps use the same command/state/event and presentation rules:
+
+- Matches affect one reachable fuel tile/surface in front, once per press, with truthful heated/blocked/no-fuel/empty feedback. Heating does not promise that timber catches immediately.
+- First torch press lights it; it remains carried for its finite world-time fuel and lights nearby ground/walls. Further presses apply heat in front. The flame/light follows the actual elevated tool anchor.
+- Pouring toggles, spends stock by accepted travelled distance and deposits continuously along the actual supported 3D movement path. No frame-rate gaps or oil painted on a different floor.
+- The flamethrower emits a clipped forward cone from the native muzzle; visible barriers stop heat and projectiles. The lantern uses first press to aim, joystick adjustment and a second press to throw; impact respects actual floor/wall/roof height and spills finite oil.
+- Existing health, burning/shroud, shared tool effects, night/fire lighting, smoke, flame settings, pause/reset/exit cleanup and powder/inversion clocks follow the same core. Existing NPCs respond through that core where present; no new crowd, witness or mission system is assigned.
+
+Space/tool use and E/click contextual door actions must remain distinct. The main application's mode, actual simulation and HUD must agree; merely exposing the toolbar on the old rejecting exploration model is not implementation. Use authoritative visit capabilities/snapshots rather than a list of landmark names inside UI callbacks. Keep warm browns, 1890s typography, title/options, four destinations and normal return/failure behavior.
+
+## Map and material data
+
+Only map-specific content changes: bounds/spawn, native geometry and support, doors/stairs, physical material/fuel carriers, source/render bindings and valid wind metadata. Existing compiled navigation already supplies a declared positive-world source offset; keep that coordinate frame consistent across renderer, contact rays, thermal state and collision. Do not shrink a landmark to fit the old 64 m scenario guard or import the street's fixed lot arrangement into a landmark.
+
+Reuse the current native thermal/combustion implementation and accepted material profiles rather than duplicating tuned constants per map. Same material, geometry, exposure and wind must follow the same rules. Preserve quick finite-energy grass, heat accumulation/cooling, visible preheat smoke, stronger sustained building fire, actual barriers/openings, local support loss, burning debris and cooling rubble. Segment lifetimes start at their own ignition under the current material rules; do not clear a whole building with one timer or revive a historical map-specific 30-second shortcut. No general solver rewrite or balancing pass is assigned; report a concrete shared-kernel defect with its control before altering it.
+
+Original landmark assets explicitly leave combustion assignments open, and appearance palettes are not proof of physical material. Artist supplies an additive, versioned material/binding table keyed by stable source part/carrier IDs. Distinguish exposed fuel, finishes, underlying structural carriers, glass, metal, masonry/stone and water. Inert parts may heat, screen heat or lose support without becoming wood fuel. Record material facts supported by existing sources separately from architect-approved gameplay adaptations. Do not infer fuel from color or a generic authoring token named `wood`; do not mutate raw source history to claim it was assigned originally.
+
+Physical binding records must identify exact source/section/part IDs, bounds/triangles, layer/role, material profile, finite quantity/area/thickness assumptions, support/adjacency, door pose and render-retirement ownership. Render instances may reference one physical carrier; they must not duplicate its fuel in multiple sections. Keep correct world-space closed solids and real apertures. Native floor holes, stair bearing and live door state stay authoritative. Any necessary geometry change needs a reproduced source gap and a bounded artist proposal first.
+
+## Streaming and cost
+
+Horticulture is large: current compiled map bounds are 352 by 144 m, with more than a million source triangles including the terrace. Preserve the existing section workproduct; do not construct or rasterize the whole detailed landmark simply to enable a match. The current full-map raster/art cell and scenario-size limits require a deliberate sparse-map adapter, not an unchecked larger dense allocation.
+
+Keep render residency separate from persistent physical state. Load nearby geometry with the existing bounded section policy, preload traversable seams/stair destinations, and retain compact canonical heat/fuel/char/support/retirement state. Burning/cooling off-screen regions continue over world time and can heat neighbours; leaving/re-entering a visual section cannot reset fire, create fuel or resurrect walls. A fire's propagation frontier must obtain necessary neighbouring physical data before crossing a chunk boundary. Preserve source ownership and dispose late loads on exit.
+
+Use the existing shared flame/smoke/body-shroud/tool/light services at actual surface heights and normals. Fire, carried lights and smoke should have the same appearance/intensity semantics at normal zoom on every map. Reuse the bounded light pool/whole-structure aggregate where applicable; do not add a light per thermal tile. Surface/part retirement updates visible geometry, collision, support, sight and fuel together, including after a section reload.
+
+Report actual idle/active physical counts, render residency, lights, owned resources and representative growing-fire CPU costs at named scales. Preserve M27 caches and finite accounting. No new percentage/FPS claim or unmeasured phone-Safari claim is required. If a real hard budget cannot hold, return the measured blocker instead of changing geometry, clocks or ignition coefficients silently.
+
+## Delivery sequence
+
+1. **Audit and contract reconciliation.** Inventory all four menu maps and supported Catalogue/cottage/witness query routes, including their present backends. Propose one shared simulation/presentation boundary and exact material/section schema. No renderer during this read-only stage.
+2. **New York gameplay pilot.** Consume existing source/access/sections in the common core. Wire all five tools, material response, night effects and native traversal. Validate one exterior timber/finish start, an elevated start and an inert blocker. Architect reviews one short normal-zoom replay/JPG handoff before the adapter is rolled out; this is an engineering gate, not a request for new owner permission.
+3. **Reuse for the remaining places.** Apply the accepted adapter and bindings to Administration and Horticulture, preserving their native occupied floors and water/section boundaries. Make normal Catalogue selection use the accepted modular gameplay core. Retain supported cottage wind/calm behaviour/layout and explicitly reconcile compatibility URLs; do not leave silent production routes using different rules. Original legacy engines/replays can remain labelled diagnostic controls.
+4. **Combined acceptance and normal delivery.** Reconcile exact worker commits, run relevant source/behaviour/UI/packaging gates and actual-input review, save JPGs, then architect promotes to master/Pages and verifies the public package plus a bounded live visit. No as-is preview exception is assumed.
+
+## Acceptance evidence
+
+- Per production destination, commands use the same tools/config/inventory and report real results. Verify match count/edge, torch lifetime/carried light/heat, forward clipped flamethrower, real-path pouring including elevated movement and lantern aim/release/impact. Pause, reset, menu return and re-entry clear held input/projectiles/owned resources correctly.
+- Meaningful shared-fixture checks compare equivalent material/exposure behaviour across map adapters: easy short grass can go out before timber lights; sustained fire heats timber until it catches; cold inert barriers do not seed fuel behind them. Wind/source coordinates and energy must not change just because the host map is larger or unrelated distant data is registered.
+- Follow a real tool ignition through warming smoke, sustained wall/upper/eave or roof transfer where combustible connections exist, and a representative segment's eventual retirement/rubble. Do not require glass/stone/metal to burn as timber. On a streamed map, leave a burning region, cross a seam/level, return and verify continuing state and correct geometry/collision.
+- Native bodies, original geometry, real doors/stairs and supported upper-floor contacts remain correct. Verify all three profiles through representative routes in CPU/native controls; actual browser visits include meaningful keyboard/mouse movement, door actions, elevated ignition and return. No pawn teleport or forced positive fire/door state substitutes for real actions.
+- Use source-controlled deterministic runs for longer material/retirement checks and normal-zoom real-input browser evidence for wiring/appearance. Keep wall/world timing, CPU and GPU claims distinct. Do not repeat full matrices/builds after documentation-only changes or generate a long replay library.
+- Run one coherent relevant repository/source/build/release/nested-path gate on the combined final candidate, preserving failed attempts. The normal promotion gate applies; worker pushes are candidates, not publication.
+
+Every helper needs ownership, source/restart inputs, exact PID/creation/ports, an actual expiry and immediate verified cleanup. Reuse the existing finite browser/review harness, one renderer at a time. A short pilot preview is retained only under an explicit bounded architect grant; no watcher, test server or browser remains after its review.
