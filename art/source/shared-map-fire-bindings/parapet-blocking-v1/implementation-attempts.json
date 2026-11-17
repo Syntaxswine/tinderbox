@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "error": "UnboundLocalError: local variable source shadows source()",
+      "resolution": "Use explicit part_id; no geometry or manifest had been emitted. The final export follows the superseding reviewed 4e8dacc0 concise interface.",
+      "stage": "In-memory record preparation before manifest emission"
+    },
+    {
+      "error": "KeyError: area",
+      "resolution": "No assets emitted. Final 4e8dacc0 contract uses the concise approved member records and leaves carrier/section normalization to the compiler.",
+      "stage": "In-memory alternative carrier-record preparation"
+    }
+  ],
+  "rendererStarted": false,
+  "runtimeAltered": false,
+  "sourceGeometryAlteredByAttempt": false,
+  "version": 1
+}
