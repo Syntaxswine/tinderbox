@@ -1,0 +1,765 @@
+{
+  "version": 1,
+  "scope": "Failed fourth single-session engineering review; successful traversal and intended contacts do not waive actual held-input timing failure.",
+  "passed": false,
+  "firstFailure": {
+    "stage": "sustained-ignition-attempt",
+    "message": "Actual held input exceeded its two-second limit",
+    "actualHoldMs": 8881.099999904633,
+    "scheduledReleaseMs": 1800,
+    "maxWallMs": 2000,
+    "keyDown": {
+      "type": "keydown",
+      "trusted": true,
+      "at": 17964.699999809265,
+      "code": "Space",
+      "target": "CANVAS"
+    },
+    "keyUp": {
+      "type": "keyup",
+      "trusted": true,
+      "at": 26845.799999713898,
+      "code": "Space",
+      "target": "CANVAS"
+    }
+  },
+  "source": {
+    "authority": "9e1f85cfb39059eb98d59646d969905f7ecd0661",
+    "runtimeCommit": "cd443ccdd9cbbb38cf4c338ef697d902739726d6",
+    "harnessCommit": "9e1f85cfb39059eb98d59646d969905f7ecd0661",
+    "harnessSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37",
+    "canonicalCarriers": 12446,
+    "indexSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+    "librarySha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296",
+    "laterSupportOrMaterialChangesInstalled": false
+  },
+  "build": {
+    "manifestSha256": "2f5332a626b97f9ed5f8bef62c869e8c93400f2583186ec1b1f8264498532b37",
+    "files": 3619,
+    "bytes": 264631987
+  },
+  "layout": {
+    "browser": {
+      "width": 844,
+      "height": 390
+    },
+    "canvas": {
+      "left": 0,
+      "top": 0,
+      "width": 844,
+      "height": 390
+    },
+    "metrics": {
+      "width": 844,
+      "height": 390
+    },
+    "player": {
+      "feet": {
+        "x": 422,
+        "y": 194.9999999999997,
+        "visible": true
+      },
+      "center": {
+        "x": 422,
+        "y": 177.34049105921417,
+        "visible": true
+      },
+      "head": {
+        "x": 422,
+        "y": 159.68098211842863,
+        "visible": true
+      },
+      "pointerTarget": "CANVAS"
+    },
+    "minSceneHeight": 300,
+    "scope": "Measured DOM/projection/input guard; JPG review still establishes actual native-model visibility."
+  },
+  "route": {
+    "normalControls": true,
+    "interiorElevation": 2.12,
+    "frontDoorOpened": true,
+    "frontDoorClosed": true,
+    "noForcedState": true
+  },
+  "tools": {
+    "torchLight": {
+      "id": 37,
+      "tick": 381,
+      "type": "tool-use",
+      "x": 50.49607428191096,
+      "y": 25.107721952432883,
+      "tool": "torch",
+      "result": "lit"
+    },
+    "glass": {
+      "event": {
+        "id": 38,
+        "tick": 400,
+        "type": "tool-rejected",
+        "x": 50.516666237096416,
+        "y": 25.979999999515712,
+        "tool": "torch",
+        "result": "no-fuel",
+        "reason": "no-fuel",
+        "heatedCells": 0,
+        "cellIds": []
+      },
+      "aim": {
+        "screen": {
+          "x": 405.5931912460213,
+          "y": 162.82771691419342,
+          "visible": true
+        },
+        "x": 405.5931912460213,
+        "y": 162.82771691419342,
+        "picked": {
+          "x": 50.51666666707024,
+          "y": 25.979999999515712,
+          "h": 3.043333333898346,
+          "distance": 210.98021099560864,
+          "sourceSurfaceId": "new-york::carrier/main/0/lower-3/glass",
+          "ownerInstanceId": "new-york"
+        },
+        "element": "CANVAS"
+      },
+      "distance": 0.8725210815500011,
+      "range": 1.1,
+      "heatInput": 0
+    },
+    "timber": {
+      "event": {
+        "id": 40,
+        "tick": 528,
+        "type": "tool-use",
+        "x": 54.999999955296516,
+        "y": 25.760000605748942,
+        "tool": "matches",
+        "result": "heated",
+        "tile": {
+          "x": 54,
+          "y": 25,
+          "width": 1,
+          "depth": 1
+        },
+        "heatedCells": 1,
+        "cellIds": [
+          "110,3,51"
+        ]
+      },
+      "aim": {
+        "screen": {
+          "x": 418.7764688387733,
+          "y": 159.77022065063684,
+          "visible": true
+        },
+        "x": 418.7764688387733,
+        "y": 159.77022065063684,
+        "picked": {
+          "x": 54.999999955296516,
+          "y": 25.76000005364415,
+          "h": 3.2999999374151514,
+          "distance": 210.7150468919046,
+          "sourceSurfaceId": "new-york::carrier/main/0/entry/jamb--1/part/6562/face/0",
+          "ownerInstanceId": "new-york"
+        },
+        "element": "CANVAS"
+      },
+      "distance": 0.5427366741520507,
+      "range": 0.85,
+      "heatInput": 1.05
+    },
+    "held": {
+      "executed": true,
+      "before": {
+        "tick": 547,
+        "world": 9.1166666666667,
+        "hp": 100,
+        "selectedTool": "matches",
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 38.88333333333364
+        },
+        "inventory": {
+          "matches": 11,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.666000000000037,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "burning": 0,
+        "heat": {
+          "generated": 0,
+          "input": 1.05,
+          "ambient": 0.06114723973653873,
+          "blocked": 0,
+          "cap": 0,
+          "escaped": 0,
+          "stored": 0.9888527602634614,
+          "radiationInTransit": 0,
+          "error": 0,
+          "relativeError": 0
+        },
+        "carriers": {
+          "staticInitial": 15767.943953000535,
+          "activeInitial": 704.8916540000006,
+          "coldReserve": 15063.052299000316,
+          "canonicalCarriers": 12446,
+          "activeCarriers": 720,
+          "reservedCarriers": 11726,
+          "nativeStaticBirths": 704.891997660365,
+          "nativeClippingDelta": 0.0003436603643649505,
+          "nativePartitionError": {
+            "signedDelta": 0.0003436603643649505,
+            "positive": 0.0007524332194655772,
+            "negative": 0.010551287378306278,
+            "roundoffBound": 0.0000017539327796357273
+          },
+          "world": {
+            "initial": 15767.943953000535,
+            "added": 0,
+            "remaining": 15767.944296660673,
+            "airborne": 0,
+            "burned": 0,
+            "escaped": 0,
+            "error": -0.0003436601382418303
+          }
+        },
+        "support": {
+          "nodes": 19239,
+          "coldCarrierNodes": 11726,
+          "declaredPairs": 15285,
+          "adjacencyPairs": 25198,
+          "anchors": 4560,
+          "initiallySupported": 18619,
+          "unresolvedInitial": 1038,
+          "missingLocalLinks": 0,
+          "checks": 5
+        }
+      },
+      "after": {
+        "tick": 579,
+        "world": 9.650000000000059,
+        "hp": 100,
+        "selectedTool": "flamethrower",
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 38.350000000000364
+        },
+        "inventory": {
+          "matches": 11,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.602000000000044,
+          "flamethrowerFuel": 5.945000000000001,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "burning": 1,
+        "heat": {
+          "generated": 0.37100014925433716,
+          "input": 3.2499999999999925,
+          "ambient": 0.3221355181388426,
+          "blocked": 0.11469400118323497,
+          "cap": 0,
+          "escaped": 0.05566691599802412,
+          "stored": 3.128503713934237,
+          "radiationInTransit": 0,
+          "error": -8.881784197001252e-15,
+          "relativeError": -2.4528538610610863e-15
+        },
+        "carriers": {
+          "staticInitial": 15767.943953000535,
+          "activeInitial": 1834.625174999997,
+          "coldReserve": 13933.318778000263,
+          "canonicalCarriers": 12446,
+          "activeCarriers": 1577,
+          "reservedCarriers": 10869,
+          "nativeStaticBirths": 1834.6261287150205,
+          "nativeClippingDelta": 0.000953715023570112,
+          "nativePartitionError": {
+            "signedDelta": 0.000953715023570112,
+            "positive": 0.002059858937931026,
+            "negative": 0.024180248645889538,
+            "roundoffBound": 0.000004247383921170295
+          },
+          "world": {
+            "initial": 15767.943953000535,
+            "added": 0,
+            "remaining": 15767.94181504742,
+            "airborne": 0,
+            "burned": 0.00309166791045281,
+            "escaped": 0,
+            "error": -0.0009537147950730231
+          }
+        },
+        "support": {
+          "nodes": 34318,
+          "coldCarrierNodes": 10869,
+          "declaredPairs": 15285,
+          "adjacencyPairs": 25198,
+          "anchors": 5178,
+          "initiallySupported": 31738,
+          "unresolvedInitial": 1038,
+          "missingLocalLinks": 0,
+          "checks": 9
+        }
+      },
+      "observations": [
+        {
+          "at": 1794908649200,
+          "tick": 549,
+          "world": 9.150000000000034,
+          "tool": "flamethrower",
+          "usingTool": true,
+          "dischargeActive": true,
+          "dischargeTool": "flamethrower",
+          "fuel": 5.995
+        },
+        {
+          "at": 1794908657979,
+          "tick": 574,
+          "world": 9.566666666666721,
+          "tool": "flamethrower",
+          "usingTool": false,
+          "dischargeActive": false,
+          "dischargeTool": null,
+          "fuel": 5.945000000000001
+        },
+        {
+          "at": 1794908658004,
+          "tick": 579,
+          "world": 9.650000000000059,
+          "tool": "flamethrower",
+          "usingTool": false,
+          "dischargeActive": false,
+          "dischargeTool": null,
+          "fuel": 5.945000000000001
+        }
+      ],
+      "trustedInputs": [
+        {
+          "type": "keydown",
+          "trusted": true,
+          "at": 17962.799999713898,
+          "code": "Digit5",
+          "target": "CANVAS"
+        },
+        {
+          "type": "keyup",
+          "trusted": true,
+          "at": 17963.599999904633,
+          "code": "Digit5",
+          "target": "CANVAS"
+        },
+        {
+          "type": "keydown",
+          "trusted": true,
+          "at": 17964.699999809265,
+          "code": "Space",
+          "target": "CANVAS"
+        },
+        {
+          "type": "keyup",
+          "trusted": true,
+          "at": 26845.799999713898,
+          "code": "Space",
+          "target": "CANVAS"
+        }
+      ],
+      "boundedDurationPassed": false
+    }
+  },
+  "timing": {
+    "before": {
+      "tick": 547,
+      "world": 9.1166666666667,
+      "frames": 434,
+      "activeCarriers": 720,
+      "cells": 14694,
+      "activation": {
+        "batches": 3,
+        "activatedCarriers": 720,
+        "probedCells": 2,
+        "lastBatchMs": 91.40000009536743,
+        "totalBatchMs": 803.1999998092651,
+        "peakBatchMs": 704.7999997138977,
+        "peakBatchCarriers": 547
+      },
+      "hostWork": {
+        "hostSteps": 547,
+        "nativeSteps": 273,
+        "nativeSimulationMs": 112.30000066757202,
+        "backendAdvanceMs": 2604.00000333786,
+        "metricsQueriesMs": 6.700000286102295,
+        "looseFuelQueriesMs": 1.4000024795532227,
+        "physicalPublicationMs": 30.099998950958252,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 8.800000667572021,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 673.8999919891357
+      }
+    },
+    "after": {
+      "tick": 579,
+      "world": 9.650000000000059,
+      "frames": 439,
+      "activeCarriers": 1577,
+      "cells": 27952,
+      "activation": {
+        "batches": 28,
+        "activatedCarriers": 1577,
+        "probedCells": 49,
+        "lastBatchMs": 334.09999990463257,
+        "totalBatchMs": 1620.8999996185303,
+        "peakBatchMs": 704.7999997138977,
+        "peakBatchCarriers": 547
+      },
+      "hostWork": {
+        "hostSteps": 579,
+        "nativeSteps": 289,
+        "nativeSimulationMs": 6312.5,
+        "backendAdvanceMs": 11017.300004005432,
+        "metricsQueriesMs": 34.20000123977661,
+        "looseFuelQueriesMs": 1.4000024795532227,
+        "physicalPublicationMs": 43.89999866485596,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 8.900001049041748,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 694.8999910354614
+      }
+    },
+    "delta": {
+      "backendAdvanceMs": 8413.300000667572,
+      "nativeSimulationMs": 6200.199999332428,
+      "activationBatchesMs": 817.6999998092651
+    },
+    "countersAreInclusive": true,
+    "perBlockingFrameAttributionAvailable": false
+  },
+  "sections": {
+    "initial": {
+      "activeSections": 19,
+      "pendingSections": 0,
+      "geometries": 0,
+      "materials": 0,
+      "externalViews": 19,
+      "peakSections": 19,
+      "peakGeometries": 0,
+      "sectionLoads": 19,
+      "sectionReleases": 0,
+      "maxSections": 192,
+      "view": "follow",
+      "cutaway": false,
+      "failed": false
+    },
+    "final": {
+      "activeSections": 45,
+      "pendingSections": 0,
+      "geometries": 0,
+      "materials": 0,
+      "externalViews": 45,
+      "peakSections": 45,
+      "peakGeometries": 0,
+      "sectionLoads": 45,
+      "sectionReleases": 0,
+      "maxSections": 192,
+      "view": "follow",
+      "cutaway": false,
+      "failed": false
+    }
+  },
+  "lighting": {
+    "torchPhaseObserved": true,
+    "finalArtDiagnosticReached": false,
+    "visualFireLightAcceptance": false
+  },
+  "cleanup": {
+    "closedAt": "2026-11-17T09:44:18.569Z",
+    "helper": {
+      "owner": "Coder Tinderbox",
+      "project": "Catalogue modular host",
+      "purpose": "M29 9e1f85cfb39059eb98d59646d969905f7ecd0661: one frozen New York phone-sized normal-input engineering review",
+      "driver": {
+        "pid": 47404,
+        "creationFiletime": "134393822284519179",
+        "executable": "C:\\Program Files\\nodejs\\node.exe"
+      },
+      "browser": {
+        "pid": 51588,
+        "creationFiletime": "134393822301337112",
+        "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      "launchState": "launched",
+      "ports": [
+        50062,
+        50063
+      ],
+      "target": "nested local package",
+      "startedAt": "2026-11-17T09:43:49.716Z",
+      "expiresAt": "2026-11-17T09:46:49.716Z",
+      "automaticStop": "Driver deadline calls context/browser/server close",
+      "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\phone-review-v4\\STOP",
+      "stopMethod": "STOP file, deadline, or finally",
+      "restart": {
+        "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\shared-map-phone.mjs",
+          "--output=artifacts/qa/shared-map-runtime/phone-review-v4",
+          "--manifest-sha256=2f5332a626b97f9ed5f8bef62c869e8c93400f2583186ec1b1f8264498532b37",
+          "--runtime-commit=cd443ccdd9cbbb38cf4c338ef697d902739726d6",
+          "--authority=9e1f85cfb39059eb98d59646d969905f7ecd0661"
+        ],
+        "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\phone-review-v4",
+        "manifestSha256": "2f5332a626b97f9ed5f8bef62c869e8c93400f2583186ec1b1f8264498532b37"
+      }
+    },
+    "portsListening": [
+      false,
+      false
+    ],
+    "browserExited": true,
+    "contextLifecycle": {
+      "created": 1,
+      "closed": 1,
+      "remaining": 0,
+      "pending": 0,
+      "maxLive": 1,
+      "stopping": true
+    }
+  },
+  "independentCleanup": {
+    "checkedAt": "2026-11-17T09:45:49.6249037Z",
+    "processes": [
+      {
+        "pid": 47404,
+        "present": false
+      },
+      {
+        "pid": 51588,
+        "present": false
+      }
+    ],
+    "ports": [
+      {
+        "port": 50062,
+        "listening": false
+      },
+      {
+        "port": 50063,
+        "listening": false
+      }
+    ]
+  },
+  "evidenceDirectory": "artifacts/qa/shared-map-runtime/phone-review-v4/",
+  "artifacts": [
+    {
+      "name": "absolute-deadline.json",
+      "bytes": 113,
+      "sha256": "f977dcc1dc1b622b821b75a42726c00328a8d4f21a137a7478333df5aff97617"
+    },
+    {
+      "name": "build-manifest.json",
+      "bytes": 814646,
+      "sha256": "2f5332a626b97f9ed5f8bef62c869e8c93400f2583186ec1b1f8264498532b37"
+    },
+    {
+      "name": "checked-layout.json",
+      "bytes": 656,
+      "sha256": "d18d7c237b8691e129ed5e1bf4491602dee30ca54391603d540982d9c544ce96"
+    },
+    {
+      "name": "cleanup-receipt.json",
+      "bytes": 2086,
+      "sha256": "2d9df0d509b97230fbd911b1b94e8140b23920f0ba73a79b93059a1abd8747a4"
+    },
+    {
+      "name": "cleanup-stage.json",
+      "bytes": 67,
+      "sha256": "27358401da4cc6fb962129fdafc1280b84eb18bcf296570a853304553d81b949"
+    },
+    {
+      "name": "clear-column-row.json",
+      "bytes": 11349,
+      "sha256": "bba862d0882e9be7f2376fa6b06b5a803f827dbfa1c144bbdded8960544b5e62"
+    },
+    {
+      "name": "close-front-door.json",
+      "bytes": 11414,
+      "sha256": "dcd17a10ffa6366fd71cd07d13e8871034fb4915ad6f0d0c415d83c6d3086055"
+    },
+    {
+      "name": "failure.json",
+      "bytes": 669,
+      "sha256": "aa8cb57f41698d9e3c835e4a97ed811ffe664e5489b42880c30f081493218a5a"
+    },
+    {
+      "name": "first-failure.jpg",
+      "bytes": 71034,
+      "sha256": "e4fe625cc0955aa446b07c568f1fff6f69dfd294fe9a7b00ed3fc15ec2266c44"
+    },
+    {
+      "name": "first-finding.json",
+      "bytes": 20373,
+      "sha256": "117b51c7063c8c81495a0c8d98a52c9d09444984de14407bf2fc715f2ef99f12"
+    },
+    {
+      "name": "frame-contacts-input.json",
+      "bytes": 64823,
+      "sha256": "c6bac7e0a78990c1877509b39a5264683c788ebe9d95e6d282e461efc622e8eb"
+    },
+    {
+      "name": "front-return.json",
+      "bytes": 11172,
+      "sha256": "ebdefb1d223f8a974da5a61e613f966fe9adfccd78f60a07d0d7e8706f6ffcce"
+    },
+    {
+      "name": "front-stair.json",
+      "bytes": 10669,
+      "sha256": "45cd0b822ed3b2889756ca271f2cbd5ec9184a935a9698617f530eba19f81d32"
+    },
+    {
+      "name": "glass-approach.json",
+      "bytes": 11211,
+      "sha256": "528df1fd6cf00348889af299ca76304f8c9ef16de045186740aa114c546b35cd"
+    },
+    {
+      "name": "glass-backoff.json",
+      "bytes": 12134,
+      "sha256": "08a75d7d6fa35dd345072a2c4c07e302f657c116979899f9a5e469d99f8a3bda"
+    },
+    {
+      "name": "glass-contact-aim.json",
+      "bytes": 414,
+      "sha256": "4b37d7190ec49459afdcfc2bedbe461ca8041cc7eacf2988698fa461d99bf2fa"
+    },
+    {
+      "name": "glass-contact-first-press.json",
+      "bytes": 25061,
+      "sha256": "bd2a799b898ab9560704485d59b979737847bd754f2ce9c0b25c20afd9d86a7c"
+    },
+    {
+      "name": "glass-contact-primary-receipt.json",
+      "bytes": 26128,
+      "sha256": "2a364d8dd9e719440708acb9c526292a990013435fc37a574d4ecd6bec6ef59c"
+    },
+    {
+      "name": "glass-contact.json",
+      "bytes": 26636,
+      "sha256": "bf72a6fb61ab5b2a67d283df65289e45ec3a3b9dfe6d3cca2925c86512bc6596"
+    },
+    {
+      "name": "glass-stance.json",
+      "bytes": 11194,
+      "sha256": "45902329148b9c37d88d9277c704c3744ef3b367ee72be1da8e745a393fba20e"
+    },
+    {
+      "name": "helper.json",
+      "bytes": 1738,
+      "sha256": "33564ea37bd2bc957728a04f5d66dbc23e1b63cddb85914c7c935b90bd32894e"
+    },
+    {
+      "name": "independent-cleanup-check.json",
+      "bytes": 341,
+      "sha256": "e6f1c9257d97a21a73032a655b196e99bcb816a80b51841124a298a1da83798f"
+    },
+    {
+      "name": "interior-entry.json",
+      "bytes": 11137,
+      "sha256": "46492cf65d5f12fbba16baa16db98a87118b35748dcdd91f7835cae1a7954802"
+    },
+    {
+      "name": "interior.jpg",
+      "bytes": 45718,
+      "sha256": "ddc36e3adbf6508b1fc94e5ba9f081b0d98107f24d7d2d10d1e9363bd26e2ac8"
+    },
+    {
+      "name": "interior.json",
+      "bytes": 10874,
+      "sha256": "42d6a9bb90c52c6669c99ec1678f12fa7ea20e41253b8c382e71e03f5566630b"
+    },
+    {
+      "name": "measured-layout.json",
+      "bytes": 519,
+      "sha256": "4b2f1971d518cf548f534860c0ed4226e947316651c70c5f4b2c5f9d46c81072"
+    },
+    {
+      "name": "open-front-door.json",
+      "bytes": 11157,
+      "sha256": "0a0998b86c2f5054a598dba887ca02f1dbbe6562f3095a6003100f63ea78eaa8"
+    },
+    {
+      "name": "opened.json",
+      "bytes": 10396,
+      "sha256": "e429da6818d476efca6bdf357dfe3d9c801a84289f057c8677a30ea29e526bf5"
+    },
+    {
+      "name": "plan.json",
+      "bytes": 1806,
+      "sha256": "e4a7afd631940427cf195c2e35d8496c862bfaffead212c5f125034e844ec87e"
+    },
+    {
+      "name": "sustained-ignition-attempt.json",
+      "bytes": 35762,
+      "sha256": "cda0287c2df65766c0d2df33f23830a110aa61b058457134ab4dc7c263dd8aed"
+    },
+    {
+      "name": "timber-approach.json",
+      "bytes": 12344,
+      "sha256": "3c4d3bb5399d3c0fee2f49eb7b6199f8af8b8e735358f002eea203b06f661d2f"
+    },
+    {
+      "name": "timber-contact-aim.json",
+      "bytes": 431,
+      "sha256": "1eeb82aa04e4da83a2a706ffa0f251bbed4b4a3c7cc4fce1badaf748cdcf184e"
+    },
+    {
+      "name": "timber-contact-primary-receipt.json",
+      "bytes": 28316,
+      "sha256": "df3a27c75900a027ffea74ee4fef33ac0cb39c714df3de58c8bc5a2708217146"
+    },
+    {
+      "name": "timber-contact.json",
+      "bytes": 28842,
+      "sha256": "26edf107c1a1fca221688899c3accb5bd4f15d7ab88b084a3c59ca8ecb2cfa79"
+    },
+    {
+      "name": "timber-stance.json",
+      "bytes": 12318,
+      "sha256": "c7f25e279ea8d70218b3dacd0e52dbd0e97dbf7a93449ad2b755a1710602ea22"
+    },
+    {
+      "name": "title.json",
+      "bytes": 312,
+      "sha256": "c32aa59dfc06921d3dd61d51f7289c25908a76d7d75ce122854540a6f52cc1c1"
+    }
+  ],
+  "images": [
+    {
+      "path": "docs/engineering/shared-maps/phone-review-v4-interior.jpg",
+      "bytes": 45718,
+      "sha256": "ddc36e3adbf6508b1fc94e5ba9f081b0d98107f24d7d2d10d1e9363bd26e2ac8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/phone-review-v4-tool-contact.jpg",
+      "bytes": 71034,
+      "sha256": "e4fe625cc0955aa446b07c568f1fff6f69dfd294fe9a7b00ed3fc15ec2266c44"
+    }
+  ],
+  "remaining": [
+    "Bounded source/CPU timing attribution and correction before another renderer grant",
+    "Successful actual <=2-second held input and menu/disposal path",
+    "Final art/fire-light, support/accounting and other-map rollout gates"
+  ],
+  "helpersRunning": false
+}
