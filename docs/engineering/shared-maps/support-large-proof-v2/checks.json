@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "authority": "89d4073103f436187236ee0272c1ceac6067fe02",
+  "kind": "Evidence checks pass; the single observation remains incomplete at its recorded admission guard",
+  "observation": {
+    "launchAttempts": 1,
+    "proofProcesses": 1,
+    "nativeCompilations": 1,
+    "firstFailure": "admission3of4",
+    "completedStages": 35,
+    "failedStages": 1,
+    "unrun": [
+      "large-continuity:current-identity-equality",
+      "both-active-contact:current-identity-equality",
+      "large-continuity:active-replay",
+      "both-active-contact:active-replay",
+      "deck-active-contact:original-fallback",
+      "roof-active-contact:original-fallback"
+    ],
+    "comparisons": 5,
+    "derivedWholeBlockValues": 512131,
+    "unchangedValueLimit": 500000,
+    "noRetry": true
+  },
+  "checks": [
+    {
+      "name": "Exact v1-to-v2 renewal/source adaptations",
+      "exitCode": 0,
+      "toolChunk": "7eaef4"
+    },
+    {
+      "name": "Post-observation source and receipt audit",
+      "exitCode": 0,
+      "toolChunk": "b2f26e"
+    },
+    {
+      "name": "Read-only saved recording digests/counts",
+      "exitCode": 0,
+      "toolChunk": "a7e2fd"
+    },
+    {
+      "name": "Runtime declaration22/45",
+      "exitCode": 0,
+      "toolChunk": "c9c99c"
+    }
+  ],
+  "cleanup": {
+    "childPid": 57828,
+    "parentPid": 35544,
+    "exactProcessExitVerified": true,
+    "toolChunk": "06f115",
+    "inProcessFinally": {
+      "native": true,
+      "query": true,
+      "compiledMetadata": true,
+      "provider": true,
+      "contexts": true
+    },
+    "portsOpened": 0,
+    "retainedHelpers": []
+  },
+  "productionChanged": false,
+  "v1Changed": false,
+  "wipExcludedRawSha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f",
+  "referenceJSON": {
+    "serializedBytesExcludingFinalNewline": 24151806,
+    "fileBytes": 24151807,
+    "sha256": "bfab707ff646e9dfedfaae3b80d510ac750e4f561335d895c24c4e4cc4d49418",
+    "blocks": 4
+  }
+}

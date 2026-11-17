@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "sourceSeam": "989ecd6777f8a77791b0fa8ad32fcc618a2d3438",
+  "baseline": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+  "baselineLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+  "producerLfSha256": "26a85be05f05446379c2207b7f93b05b665b6a986b4df09590bcac94973bf059",
+  "noGeometryCalculation": true,
+  "referenceAdaptations": [
+    "Rebase exactly four imports to repository-relative URLs.",
+    "Wrap verbatim original helpers/contact/regions/continuity/declared/capture fragments in a local synchronous calculation call.",
+    "Supply native local index/nodes/active owners and capture-only links; graph scheduling/live decisions are not run or replaced."
+  ],
+  "preparationAdaptations": [
+    "Use unchanged frozen PREPARATION_LIMITS without overrides.",
+    "Wrap verbatim source part/blueprint/native compile/cap statements in named timing phases.",
+    "Expose the single compiled pair to a synchronous callback sharing its records for large continuity and ownership cases.",
+    "Keep verbatim owned-map cleanup in finally; append a compact cleanup observation."
+  ],
+  "referenceFragments": {
+    "imports": {
+      "lfSha256": "f7e9afa716c82ae02b206b2fb40153b73b8d2941b95ab3154e999d614993bb95",
+      "bytes": 321,
+      "verbatim": false,
+      "text": "import * as T from '../runtime/three.js';\nimport {bounds,overlaps,clipTriangle,centre,createBoundaryIndex,EPS} from '../../workbenches/furnished-house/geometry.js';\nimport {supportSurfacesTouch} from '../../workbenches/furnished-house/support.js';\nimport {sourceSupportClass} from '../content/map-source-support-data.js';"
+    },
+    "helpers": {
+      "lfSha256": "134da730336b80c068316d164b0d4e98c497fe66733683ce52fd502084b90cf0",
+      "bytes": 2211,
+      "verbatim": true,
+      "text": "const TOLERANCE=.00002;\nconst triangles=b=>b.closedSolidTriangles||b.solidTriangles||b.closedTriangles||b.triangles;\nconst boxDistance=(a,b)=>Math.hypot(...a.min.map((v,i)=>Math.max(v-b.max[i],b.min[i]-a.max[i],0)));\nconst expand=b=>({min:b.min.map(v=>v-TOLERANCE),max:b.max.map(v=>v+TOLERANCE)});\nconst point=new T.Vector3(),closest=new T.Vector3(),triangle=new T.Triangle();\nfunction nearestDistance(position,list){let result=Infinity;point.fromArray(position);for(const t of list){triangle.set(...t.map(p=>new T.Vector3(...p))).closestPointToPoint(point,closest);result=Math.min(result,point.distanceTo(closest));}return result;}\nfunction selectRegion(pieces,region){\n  const box=expand(region.bounds),intersecting=pieces.filter(b=>overlaps(b.bounds,box)&&triangles(b).some(t=>clipTriangle(t,box).length));\n  if(intersecting.length)return intersecting;\n  // An embed witness can lie inside a solid. Project it to the actual original\n  // exterior once; do not select a different surviving patch after damage.\n  const p=region.point||centre([box.min,box.max]),distances=pieces.map(b=>[b,nearestDistance(p,triangles(b))]),minimum=Math.min(...distances.map(v=>v[1]));\n  return distances.filter(v=>v[1]<=minimum+TOLERANCE).map(v=>v[0]);\n}\n\n// A temporary native broadphase for one registered carrier. Candidate records\n// passed onward are the authoritative world objects, not the index's copies.\n// This helper retains no geometry, index or subscription after the visit.\nexport function visitSourceContinuityCandidates(index,nodes,list,visit){\n  const carrier=list[0]?.sourceCarrierId;\n  for(const b of list)if(index.surfaces.get(b.id)!==b||nodes.get(b.id)!==b||b.queryOnly||b.sourceCarrierId!==carrier)throw Error('Continuity needs authoritative registered native fragments');\n  const local=createBoundaryIndex(list);let memberships=0;\n  for(const b of local.surfaces.values())memberships+=b.bounds.min.reduce((n,v,i)=>n*(Math.floor(b.bounds.max[i]+EPS)-Math.floor(v-EPS)+1),1);\n  for(const a of list){const candidates=local.candidates(a.bounds);for(let i=0;i<candidates.length;i++)candidates[i]=index.surfaces.get(candidates[i].id);visit(a,candidates);}\n  return {records:local.surfaces.size,memberships};\n}\n\n"
+    },
+    "capture": {
+      "lfSha256": "54b9a663622da31ec753bab4f71cc00606eaf546591c932b2942cc466a31cc7c",
+      "bytes": 299,
+      "verbatim": true,
+      "text": "  function directed(a,b){\n    links.get(a).add(b);\n    if(capture){if(!capture.seen.has(a))capture.seen.set(a,new Set());const seen=capture.seen.get(a);if(!seen.has(b)){seen.add(b);capture.edges.push([a,b]);}}\n  }\n  function add(a,b,both=false){if(a===b)return;directed(a,b);if(both)directed(b,a);}\n"
+    },
+    "contact": {
+      "lfSha256": "3c67bea8f1d7ba22eae1669796be034a794ac945b2915116b598d984c769a167",
+      "bytes": 804,
+      "verbatim": true,
+      "text": "  function coldPieces(id,near){\n    return carriers.get(id).parts.map(n=>model.parts[n]).filter(p=>p.physical&&(!near||overlaps(p.bounds,near,TOLERANCE))).map(p=>{const shape=querySource.shape(p.id,false);return {id:cold(id),bounds:p.bounds,triangles:shape.triangles,solidTriangles:shape.triangles,kind:'wall',thickness:0,normal:[0,1,0]};});\n  }\n  function pieces(id,near){return active.get(id)||coldPieces(id,near);}\n  function connectContact(a,b,directed){\n    if(!active.has(a)&&!active.has(b)){add(cold(a),cold(b),!directed);return true;}\n    let count=0;for(const first of pieces(a,carriers.get(b).bounds))for(const second of pieces(b,first.bounds))if(overlaps(first.bounds,second.bounds,TOLERANCE)&&supportSurfacesTouch(first,second)){add(first.id,second.id,!directed);count++;}return count>0;\n  }\n"
+    },
+    "regions": {
+      "lfSha256": "cd08147f78a4ec40f15c33d0e1b686ad0a7ba6a54b33fdde8f2cf254356c5554",
+      "bytes": 605,
+      "verbatim": true,
+      "text": "  function assemblyRegions(r){\n    if(r.childRegion)return [r.childRegion,r.parentRegion];\n    const child=carriers.get(r.child).bounds,parent=carriers.get(r.parent).bounds;\n    // Normalize only the named existing assembly. Keep its gap and evidence\n    // kind; this selects local original source faces, not an inferred mount.\n    const bridge={min:child.min.map((v,i)=>Math.min(child.max[i],Math.max(v,parent.min[i]))),max:child.max.map((v,i)=>Math.max(child.min[i],Math.min(v,parent.max[i])))};\n    const p=centre([bridge.min,bridge.max]);return [{bounds:bridge,point:p},{bounds:bridge,point:p}];\n  }\n"
+    },
+    "continuity": {
+      "lfSha256": "fdeb2b430e1933a1b30cebea24a03b81a25bf2a6138bb919a59bd67025283642",
+      "bytes": 412,
+      "verbatim": true,
+      "text": "      const temporary=visitSourceContinuityCandidates(index,nodes,list,(a,candidates)=>{for(const b of candidates)if(a.id<b.id&&b.sourceCarrierId===a.sourceCarrierId&&nodes.has(b.id)&&supportSurfacesTouch(a,b))add(a.id,b.id,true);});\n      continuityBuilds++;peakTemporaryRecords=Math.max(peakTemporaryRecords,temporary.records);peakTemporaryMemberships=Math.max(peakTemporaryMemberships,temporary.memberships);\n"
+    },
+    "declared": {
+      "lfSha256": "0ef404f2b61a315d5c6aabecdd097f47fa5379125672ceb5e8f6336470974a50",
+      "bytes": 504,
+      "verbatim": true,
+      "text": "        if(r.kind==='coplanar-horizontal-triangle-contact')return connectContact(r.parent,r.child,!r.symmetric);\n        const [childRegion,parentRegion]=assemblyRegions(r),children=active.has(r.child)?selectRegion(active.get(r.child),childRegion):[{id:cold(r.child)}],parents=active.has(r.parent)?selectRegion(active.get(r.parent),parentRegion):[{id:cold(r.parent)}];\n        for(const a of parents)for(const b of children)add(a.id,b.id,r.symmetric);\n        return parents.length>0&&children.length>0;\n"
+    }
+  },
+  "preparationFragments": {
+    "parts": {
+      "lfSha256": "dd807885426867adfdc4ac276f45aa1d9f318414ada0c2b077c9468c2f3e56d1",
+      "bytes": 554,
+      "verbatim": true,
+      "text": "  const parts=owners.flatMap(id=>model.carrierById.get(id).parts.map(n=>model.parts[n]));if(parts.length>policy.parts)throw Error('Selected source exceeds part budget');\n  let estimate=0;\n  for(const p of parts){const g=model.library?.geometries?.[p.geometry];if(!g?.attributes?.position)throw Error('Preparation needs the pinned native geometry library');estimate+=(g.index?.array.length??g.attributes.position.array.length/g.attributes.position.itemSize)/3;}\n  if(estimate>policy.sourceTriangles)throw Error('Selected source exceeds triangle budget');\n"
+    },
+    "blueprint": {
+      "lfSha256": "8eafa26ef02486a0e51e2111bc4affdc17ce00b02705faf41861819c01316850",
+      "bytes": 330,
+      "verbatim": true,
+      "text": "  const bundles=owners.map(id=>sources.sourcesForCarrier(id,portalStates)),surfaces=bundles.flatMap(b=>b.surfaces),openings=bundles.flatMap(b=>b.openings||[]);\n  if(surfaces.length>policy.surfaces||surfaces.reduce((n,s)=>n+s.triangles.length,0)>policy.sourceTriangles)throw Error('Selected blueprint exceeds preparation budget');\n"
+    },
+    "compile": {
+      "lfSha256": "922cf6ab4e4ecc28397bcce751c7f436b0751da9aaabb2e725b3715780041861",
+      "bytes": 139,
+      "verbatim": true,
+      "text": "  const scene=compileScene({...data,surfaces,openings,items:[],furnitureParts:[],stores:[],implicitGround:false,runtimeAdapterVersion:1});\n"
+    },
+    "resources": {
+      "lfSha256": "e90fef37634a7274a1c75d3b4b455c78602c6a25ccc1d775c2daf9b88efb9ad2",
+      "bytes": 269,
+      "verbatim": true,
+      "text": "  const resources={selectedOwners:owners,compiledNativeScenes:1,trials:0,worldSteps:0,sourceParts:parts.length,sourceSurfaces:surfaces.length,nativeFragments:scene.index.surfaces.size,localCells:scene.cells.size,localFuels:scene.fuels.size,coldGeometryRetained:false};\n"
+    },
+    "cap": {
+      "lfSha256": "469cea96d11a8afb501790a4319c0c43e63cc2f001c56d8e138c24d1d0bea948",
+      "bytes": 158,
+      "verbatim": true,
+      "text": "    if(resources.nativeFragments>policy.fragments||resources.localCells>policy.localCells)throw Error('Selected native fragments exceed preparation budget');\n"
+    },
+    "cleanup": {
+      "lfSha256": "4900bc63b3d392b5f23d96089d13a8663e879188d915340ad0ba6532cd03909b",
+      "bytes": 188,
+      "verbatim": true,
+      "text": "    for(const map of [scene.index.surfaces,scene.index.bins,scene.cells,scene.fuels,scene.items,scene.parts,scene.sourceDefinitions])map.clear();\n    resources.localCompilerDisposed=true;\n"
+    }
+  },
+  "outputs": [
+    {
+      "file": "original-calculation.mjs",
+      "lfSha256": "7c1df2860dd80e69c1f08a405deffb23a32d916c6f293ed18135a59ff795c6d9",
+      "bytes": 6223
+    },
+    {
+      "file": "native-preparation.mjs",
+      "lfSha256": "7e7c2029a4d003ede7aa6cd0456c849d67a17d7b7b2a2836660ec99b020b29d1",
+      "bytes": 2875
+    }
+  ]
+}

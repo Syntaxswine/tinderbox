@@ -1,0 +1,1592 @@
+{
+  "version": 1,
+  "authority": "89d4073103f436187236ee0272c1ceac6067fe02",
+  "seam": "989ecd6777f8a77791b0fa8ad32fcc618a2d3438",
+  "pid": 57828,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v2\\proof.mjs"
+  ],
+  "execArgv": [
+    "--max-old-space-size=1024"
+  ],
+  "entryAt": "2026-11-17T16:38:32.164Z",
+  "processTimeOrigin": 1794933512127.348,
+  "cooperativeLimitMs": 50000,
+  "nodeHeap": {
+    "total_heap_size": 7274496,
+    "total_heap_size_executable": 524288,
+    "total_physical_size": 7274496,
+    "total_available_size": 1270059664,
+    "used_heap_size": 6048520,
+    "heap_size_limit": 1275068416,
+    "malloced_memory": 434272,
+    "peak_malloced_memory": 286904,
+    "does_zap_garbage": 0,
+    "number_of_native_contexts": 2,
+    "number_of_detached_contexts": 0,
+    "total_global_handles_size": 12360,
+    "used_global_handles_size": 3168,
+    "external_memory": 2334901
+  },
+  "stages": [
+    {
+      "name": "pinned-inputs",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.169Z",
+      "before": {
+        "label": "pinned-inputs:before",
+        "elapsedProcessMs": 42.8174,
+        "rss": 38555648,
+        "heapTotal": 8323072,
+        "heapUsed": 5559864,
+        "external": 2334901,
+        "arrayBuffers": 29123
+      },
+      "elapsedFunctionMs": 37.495000000000005,
+      "after": {
+        "label": "pinned-inputs:after",
+        "elapsedProcessMs": 81.8501,
+        "rss": 68403200,
+        "heapTotal": 21274624,
+        "heapUsed": 15646624,
+        "external": 20142158,
+        "arrayBuffers": 14898028
+      },
+      "endedAt": "2026-11-17T16:38:32.209Z"
+    },
+    {
+      "name": "imports",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.210Z",
+      "before": {
+        "label": "imports:before",
+        "elapsedProcessMs": 83.5191,
+        "rss": 68407296,
+        "heapTotal": 21274624,
+        "heapUsed": 15682416,
+        "external": 20142158,
+        "arrayBuffers": 14898028
+      },
+      "elapsedFunctionMs": 68.1197,
+      "after": {
+        "label": "imports:after",
+        "elapsedProcessMs": 152.8383,
+        "rss": 76316672,
+        "heapTotal": 20054016,
+        "heapUsed": 12741904,
+        "external": 24604705,
+        "arrayBuffers": 16436189
+      },
+      "endedAt": "2026-11-17T16:38:32.279Z"
+    },
+    {
+      "name": "parse-source-json",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.413Z",
+      "before": {
+        "label": "parse-source-json:before",
+        "elapsedProcessMs": 286.1052,
+        "rss": 82665472,
+        "heapTotal": 34643968,
+        "heapUsed": 16996112,
+        "external": 23090856,
+        "arrayBuffers": 14922340
+      },
+      "elapsedFunctionMs": 55.38729999999998,
+      "after": {
+        "label": "parse-source-json:after",
+        "elapsedProcessMs": 342.7744,
+        "rss": 102375424,
+        "heapTotal": 63938560,
+        "heapUsed": 33629016,
+        "external": 24706637,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.469Z"
+    },
+    {
+      "name": "map-metadata",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.472Z",
+      "before": {
+        "label": "map-metadata:before",
+        "elapsedProcessMs": 344.9032,
+        "rss": 102379520,
+        "heapTotal": 63938560,
+        "heapUsed": 33670552,
+        "external": 24706637,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 56.85649999999998,
+      "after": {
+        "label": "map-metadata:after",
+        "elapsedProcessMs": 402.9919,
+        "rss": 169721856,
+        "heapTotal": 113213440,
+        "heapUsed": 73613168,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.530Z"
+    },
+    {
+      "name": "select-exact-pair",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.538Z",
+      "before": {
+        "label": "select-exact-pair:before",
+        "elapsedProcessMs": 411.5723,
+        "rss": 175595520,
+        "heapTotal": 115105792,
+        "heapUsed": 79587952,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.22739999999998872,
+      "after": {
+        "label": "select-exact-pair:after",
+        "elapsedProcessMs": 413.2787,
+        "rss": 175599616,
+        "heapTotal": 115105792,
+        "heapUsed": 79630424,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.540Z"
+    },
+    {
+      "name": "source-part-preflight",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.549Z",
+      "before": {
+        "label": "source-part-preflight:before",
+        "elapsedProcessMs": 422.7298,
+        "rss": 175710208,
+        "heapTotal": 115105792,
+        "heapUsed": 79754144,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.11969999999996617,
+      "after": {
+        "label": "source-part-preflight:after",
+        "elapsedProcessMs": 424.0293,
+        "rss": 175759360,
+        "heapTotal": 115105792,
+        "heapUsed": 79799200,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.551Z"
+    },
+    {
+      "name": "native-blueprint",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.552Z",
+      "before": {
+        "label": "native-blueprint:before",
+        "elapsedProcessMs": 425.4021,
+        "rss": 175804416,
+        "heapTotal": 115105792,
+        "heapUsed": 79847024,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 1.350500000000011,
+      "after": {
+        "label": "native-blueprint:after",
+        "elapsedProcessMs": 427.924,
+        "rss": 176250880,
+        "heapTotal": 115105792,
+        "heapUsed": 80186904,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.555Z"
+    },
+    {
+      "name": "native-clipping",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.557Z",
+      "before": {
+        "label": "native-clipping:before",
+        "elapsedProcessMs": 430.6033,
+        "rss": 176316416,
+        "heapTotal": 115105792,
+        "heapUsed": 80284176,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 214.0842,
+      "after": {
+        "label": "native-clipping:after",
+        "elapsedProcessMs": 645.8651,
+        "rss": 292814848,
+        "heapTotal": 218218496,
+        "heapUsed": 116142552,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.773Z"
+    },
+    {
+      "name": "native-postflight",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.776Z",
+      "before": {
+        "label": "native-postflight:before",
+        "elapsedProcessMs": 649.7628,
+        "rss": 293457920,
+        "heapTotal": 218218496,
+        "heapUsed": 116249296,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.07389999999998054,
+      "after": {
+        "label": "native-postflight:after",
+        "elapsedProcessMs": 651.1073,
+        "rss": 293642240,
+        "heapTotal": 218218496,
+        "heapUsed": 116468384,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.778Z"
+    },
+    {
+      "name": "large-continuity:original",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.785Z",
+      "before": {
+        "label": "large-continuity:original:before",
+        "elapsedProcessMs": 658.7733,
+        "rss": 290091008,
+        "heapTotal": 218918912,
+        "heapUsed": 119538296,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 102.39919999999995,
+      "after": {
+        "label": "large-continuity:original:after",
+        "elapsedProcessMs": 762.654,
+        "rss": 293310464,
+        "heapTotal": 232738816,
+        "heapUsed": 138410000,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.889Z"
+    },
+    {
+      "name": "large-continuity:shared",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.892Z",
+      "before": {
+        "label": "large-continuity:shared:before",
+        "elapsedProcessMs": 765.0871,
+        "rss": 293314560,
+        "heapTotal": 232738816,
+        "heapUsed": 138474000,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 82.44650000000001,
+      "after": {
+        "label": "large-continuity:shared:after",
+        "elapsedProcessMs": 848.7637,
+        "rss": 300367872,
+        "heapTotal": 239955968,
+        "heapUsed": 127624312,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.975Z"
+    },
+    {
+      "name": "large-continuity:equivalence",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:32.977Z",
+      "before": {
+        "label": "large-continuity:equivalence:before",
+        "elapsedProcessMs": 850.8133,
+        "rss": 300384256,
+        "heapTotal": 239955968,
+        "heapUsed": 127685800,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 7.91820000000007,
+      "after": {
+        "label": "large-continuity:equivalence:after",
+        "elapsedProcessMs": 859.9273,
+        "rss": 300924928,
+        "heapTotal": 240218112,
+        "heapUsed": 129952832,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:32.987Z"
+    },
+    {
+      "name": "large-continuity:identity",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.034Z",
+      "before": {
+        "label": "large-continuity:identity:before",
+        "elapsedProcessMs": 907.6776,
+        "rss": 323350528,
+        "heapTotal": 261947392,
+        "heapUsed": 151818392,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 192.50300000000004,
+      "after": {
+        "label": "large-continuity:identity:after",
+        "elapsedProcessMs": 1101.3309,
+        "rss": 318480384,
+        "heapTotal": 256790528,
+        "heapUsed": 165605240,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.228Z"
+    },
+    {
+      "name": "large-continuity:block",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.249Z",
+      "before": {
+        "label": "large-continuity:block:before",
+        "elapsedProcessMs": 1122.7612,
+        "rss": 318365696,
+        "heapTotal": 256790528,
+        "heapUsed": 188022512,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 42.041099999999915,
+      "after": {
+        "label": "large-continuity:block:after",
+        "elapsedProcessMs": 1166.0402,
+        "rss": 330403840,
+        "heapTotal": 267685888,
+        "heapUsed": 199017464,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.293Z"
+    },
+    {
+      "name": "both-cold-bypass:original",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.295Z",
+      "before": {
+        "label": "both-cold-bypass:original:before",
+        "elapsedProcessMs": 1168.7796,
+        "rss": 330485760,
+        "heapTotal": 267685888,
+        "heapUsed": 199267392,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.1850000000001728,
+      "after": {
+        "label": "both-cold-bypass:original:after",
+        "elapsedProcessMs": 1170.205,
+        "rss": 330498048,
+        "heapTotal": 267685888,
+        "heapUsed": 199353688,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.297Z"
+    },
+    {
+      "name": "both-cold-bypass:shared",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.298Z",
+      "before": {
+        "label": "both-cold-bypass:shared:before",
+        "elapsedProcessMs": 1171.5868,
+        "rss": 330498048,
+        "heapTotal": 267685888,
+        "heapUsed": 199433368,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.13440000000014152,
+      "after": {
+        "label": "both-cold-bypass:shared:after",
+        "elapsedProcessMs": 1172.8256,
+        "rss": 330498048,
+        "heapTotal": 267685888,
+        "heapUsed": 199501672,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.299Z"
+    },
+    {
+      "name": "both-cold-bypass:equivalence",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.301Z",
+      "before": {
+        "label": "both-cold-bypass:equivalence:before",
+        "elapsedProcessMs": 1174.1902,
+        "rss": 330498048,
+        "heapTotal": 267685888,
+        "heapUsed": 199576400,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.13810000000012224,
+      "after": {
+        "label": "both-cold-bypass:equivalence:after",
+        "elapsedProcessMs": 1179.8538,
+        "rss": 322433024,
+        "heapTotal": 260292608,
+        "heapUsed": 126592424,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.307Z"
+    },
+    {
+      "name": "deck-active-contact:original",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.310Z",
+      "before": {
+        "label": "deck-active-contact:original:before",
+        "elapsedProcessMs": 1183.7529,
+        "rss": 322658304,
+        "heapTotal": 260292608,
+        "heapUsed": 126921456,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.3894000000000233,
+      "after": {
+        "label": "deck-active-contact:original:after",
+        "elapsedProcessMs": 1185.5174,
+        "rss": 321421312,
+        "heapTotal": 260292608,
+        "heapUsed": 127156168,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.312Z"
+    },
+    {
+      "name": "deck-active-contact:shared",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.314Z",
+      "before": {
+        "label": "deck-active-contact:shared:before",
+        "elapsedProcessMs": 1187.1236,
+        "rss": 321449984,
+        "heapTotal": 260292608,
+        "heapUsed": 127233672,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.2799999999999727,
+      "after": {
+        "label": "deck-active-contact:shared:after",
+        "elapsedProcessMs": 1188.6062,
+        "rss": 321495040,
+        "heapTotal": 260292608,
+        "heapUsed": 127428216,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.315Z"
+    },
+    {
+      "name": "deck-active-contact:equivalence",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.317Z",
+      "before": {
+        "label": "deck-active-contact:equivalence:before",
+        "elapsedProcessMs": 1189.9431,
+        "rss": 321495040,
+        "heapTotal": 260292608,
+        "heapUsed": 127506384,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.028500000000121872,
+      "after": {
+        "label": "deck-active-contact:equivalence:after",
+        "elapsedProcessMs": 1191.0903,
+        "rss": 321495040,
+        "heapTotal": 260292608,
+        "heapUsed": 127581384,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.318Z"
+    },
+    {
+      "name": "deck-active-contact:identity",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.322Z",
+      "before": {
+        "label": "deck-active-contact:identity:before",
+        "elapsedProcessMs": 1195.0524,
+        "rss": 321495040,
+        "heapTotal": 260292608,
+        "heapUsed": 127758992,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 2.214000000000169,
+      "after": {
+        "label": "deck-active-contact:identity:after",
+        "elapsedProcessMs": 1198.4083,
+        "rss": 321781760,
+        "heapTotal": 260292608,
+        "heapUsed": 130133992,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.325Z"
+    },
+    {
+      "name": "deck-active-contact:block",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.328Z",
+      "before": {
+        "label": "deck-active-contact:block:before",
+        "elapsedProcessMs": 1201.3511,
+        "rss": 321794048,
+        "heapTotal": 260292608,
+        "heapUsed": 130485520,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.47129999999992833,
+      "after": {
+        "label": "deck-active-contact:block:after",
+        "elapsedProcessMs": 1203.0595,
+        "rss": 322232320,
+        "heapTotal": 260427776,
+        "heapUsed": 130726248,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.330Z"
+    },
+    {
+      "name": "roof-active-contact:original",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.334Z",
+      "before": {
+        "label": "roof-active-contact:original:before",
+        "elapsedProcessMs": 1207.0731,
+        "rss": 323022848,
+        "heapTotal": 261128192,
+        "heapUsed": 133590664,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 1.6030000000000655,
+      "after": {
+        "label": "roof-active-contact:original:after",
+        "elapsedProcessMs": 1210.4693,
+        "rss": 323289088,
+        "heapTotal": 261361664,
+        "heapUsed": 136227072,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.337Z"
+    },
+    {
+      "name": "roof-active-contact:shared",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.339Z",
+      "before": {
+        "label": "roof-active-contact:shared:before",
+        "elapsedProcessMs": 1212.378,
+        "rss": 323289088,
+        "heapTotal": 261361664,
+        "heapUsed": 136316392,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 1.153400000000147,
+      "after": {
+        "label": "roof-active-contact:shared:after",
+        "elapsedProcessMs": 1214.9408,
+        "rss": 323293184,
+        "heapTotal": 261361664,
+        "heapUsed": 137390304,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.342Z"
+    },
+    {
+      "name": "roof-active-contact:equivalence",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.343Z",
+      "before": {
+        "label": "roof-active-contact:equivalence:before",
+        "elapsedProcessMs": 1216.6482,
+        "rss": 323293184,
+        "heapTotal": 261361664,
+        "heapUsed": 137480280,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.053800000000137516,
+      "after": {
+        "label": "roof-active-contact:equivalence:after",
+        "elapsedProcessMs": 1218.1532,
+        "rss": 323293184,
+        "heapTotal": 261361664,
+        "heapUsed": 137566776,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.345Z"
+    },
+    {
+      "name": "roof-active-contact:identity",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.348Z",
+      "before": {
+        "label": "roof-active-contact:identity:before",
+        "elapsedProcessMs": 1221.7743,
+        "rss": 323293184,
+        "heapTotal": 261361664,
+        "heapUsed": 137777616,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 181.78840000000014,
+      "after": {
+        "label": "roof-active-contact:identity:after",
+        "elapsedProcessMs": 1404.7766,
+        "rss": 333856768,
+        "heapTotal": 272666624,
+        "heapUsed": 149803624,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.531Z"
+    },
+    {
+      "name": "roof-active-contact:block",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.550Z",
+      "before": {
+        "label": "roof-active-contact:block:before",
+        "elapsedProcessMs": 1423.7372,
+        "rss": 333897728,
+        "heapTotal": 272666624,
+        "heapUsed": 172292088,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 30.09199999999987,
+      "after": {
+        "label": "roof-active-contact:block:after",
+        "elapsedProcessMs": 1457.3387,
+        "rss": 341344256,
+        "heapTotal": 279224320,
+        "heapUsed": 178936280,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.584Z"
+    },
+    {
+      "name": "both-active-contact:original",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.588Z",
+      "before": {
+        "label": "both-active-contact:original:before",
+        "elapsedProcessMs": 1461.383,
+        "rss": 342523904,
+        "heapTotal": 279924736,
+        "heapUsed": 181878816,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 2.9838999999999487,
+      "after": {
+        "label": "both-active-contact:original:after",
+        "elapsedProcessMs": 1465.8342,
+        "rss": 341553152,
+        "heapTotal": 280420352,
+        "heapUsed": 186898808,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.592Z"
+    },
+    {
+      "name": "both-active-contact:shared",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.595Z",
+      "before": {
+        "label": "both-active-contact:shared:before",
+        "elapsedProcessMs": 1468.2726,
+        "rss": 342482944,
+        "heapTotal": 280420352,
+        "heapUsed": 186996424,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 2.764399999999796,
+      "after": {
+        "label": "both-active-contact:shared:after",
+        "elapsedProcessMs": 1472.4236,
+        "rss": 343965696,
+        "heapTotal": 280420352,
+        "heapUsed": 190418040,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.599Z"
+    },
+    {
+      "name": "both-active-contact:equivalence",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.601Z",
+      "before": {
+        "label": "both-active-contact:equivalence:before",
+        "elapsedProcessMs": 1474.4375,
+        "rss": 343949312,
+        "heapTotal": 280420352,
+        "heapUsed": 190516312,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 0.07079999999996289,
+      "after": {
+        "label": "both-active-contact:equivalence:after",
+        "elapsedProcessMs": 1476.2017,
+        "rss": 342888448,
+        "heapTotal": 280420352,
+        "heapUsed": 190669016,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.603Z"
+    },
+    {
+      "name": "both-active-contact:identity",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.607Z",
+      "before": {
+        "label": "both-active-contact:identity:before",
+        "elapsedProcessMs": 1480.2035,
+        "rss": 344088576,
+        "heapTotal": 280420352,
+        "heapUsed": 190932264,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 179.0422000000001,
+      "after": {
+        "label": "both-active-contact:identity:after",
+        "elapsedProcessMs": 1660.7555,
+        "rss": 346951680,
+        "heapTotal": 284348416,
+        "heapUsed": 192952472,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.787Z"
+    },
+    {
+      "name": "both-active-contact:block",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.808Z",
+      "before": {
+        "label": "both-active-contact:block:before",
+        "elapsedProcessMs": 1681.0967,
+        "rss": 346992640,
+        "heapTotal": 284348416,
+        "heapUsed": 215534592,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 31.514900000000125,
+      "after": {
+        "label": "both-active-contact:block:after",
+        "elapsedProcessMs": 1714.0458,
+        "rss": 354447360,
+        "heapTotal": 290922496,
+        "heapUsed": 222206984,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.841Z"
+    },
+    {
+      "name": "reference-json-encode",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.843Z",
+      "before": {
+        "label": "reference-json-encode:before",
+        "elapsedProcessMs": 1716.2186,
+        "rss": 354447360,
+        "heapTotal": 290922496,
+        "heapUsed": 222312672,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 85.50679999999988,
+      "after": {
+        "label": "reference-json-encode:after",
+        "elapsedProcessMs": 1803.084,
+        "rss": 378744832,
+        "heapTotal": 315076608,
+        "heapUsed": 246568192,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:33.930Z"
+    },
+    {
+      "name": "reference-json-write",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:33.981Z",
+      "before": {
+        "label": "reference-json-write:before",
+        "elapsedProcessMs": 1854.4606,
+        "rss": 377004032,
+        "heapTotal": 313839616,
+        "heapUsed": 179942560,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 23.523500000000013,
+      "after": {
+        "label": "reference-json-write:after",
+        "elapsedProcessMs": 1879.4021,
+        "rss": 401158144,
+        "heapTotal": 337993728,
+        "heapUsed": 204213696,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:34.006Z"
+    },
+    {
+      "name": "reference-json-decode",
+      "status": "passed",
+      "startedAt": "2026-11-17T16:38:34.009Z",
+      "before": {
+        "label": "reference-json-decode:before",
+        "elapsedProcessMs": 1882.5007,
+        "rss": 401158144,
+        "heapTotal": 337993728,
+        "heapUsed": 204325664,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 71.92920000000004,
+      "after": {
+        "label": "reference-json-decode:after",
+        "elapsedProcessMs": 1957.3699,
+        "rss": 401616896,
+        "heapTotal": 338264064,
+        "heapUsed": 247168688,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:34.084Z"
+    },
+    {
+      "name": "admission",
+      "status": "failed",
+      "startedAt": "2026-11-17T16:38:34.331Z",
+      "before": {
+        "label": "admission:before",
+        "elapsedProcessMs": 2204.0146,
+        "rss": 419065856,
+        "heapTotal": 359604224,
+        "heapUsed": 237927736,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "elapsedFunctionMs": 800.9016999999999,
+      "after": {
+        "label": "admission:after",
+        "elapsedProcessMs": 3006.5273,
+        "rss": 459956224,
+        "heapTotal": 393543680,
+        "heapUsed": 294700496,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      },
+      "endedAt": "2026-11-17T16:38:35.133Z",
+      "error": {
+        "name": "AssertionError",
+        "message": "First provider rejection/cap stops the proof\n\n3 !== 4\n",
+        "stack": "AssertionError [ERR_ASSERTION]: First provider rejection/cap stops the proof\n\n3 !== 4\n\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:106:292\n    at phase (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:28:71)\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:106:5\n    at Module.withNativePair (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/native-preparation.mjs:31:12)\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:85:10"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "name": "fixed-limits",
+      "at": "2026-11-17T16:38:32.410Z",
+      "value": {
+        "preparation": {
+          "parts": 512,
+          "sourceTriangles": 32768,
+          "surfaces": 4096,
+          "fragments": 8192,
+          "localCells": 65536
+        },
+        "provider": {
+          "blocks": 16,
+          "variantsPerKey": 4,
+          "edgesPerBlock": 65536,
+          "identityValues": 500000,
+          "totalIdentityValues": 1000000,
+          "totalEdges": 200000,
+          "depth": 64,
+          "stringLength": 1024
+        },
+        "overrides": false
+      },
+      "memory": {
+        "label": "fixed-limits",
+        "elapsedProcessMs": 283.8498,
+        "rss": 82665472,
+        "heapTotal": 34643968,
+        "heapUsed": 16955584,
+        "external": 23090856,
+        "arrayBuffers": 14922340
+      }
+    },
+    {
+      "name": "selected-input",
+      "at": "2026-11-17T16:38:32.547Z",
+      "value": {
+        "selected": {
+          "key": "adjacency:3555",
+          "owners": [
+            "new-york::carrier/clerestory-roof-deck/tile--1-10",
+            "new-york::carrier/roof/clerestory"
+          ],
+          "calculation": {
+            "kind": "contact",
+            "a": "new-york::carrier/clerestory-roof-deck/tile--1-10",
+            "b": "new-york::carrier/roof/clerestory",
+            "directed": false
+          }
+        },
+        "sourceIdentity": {
+          "version": 1,
+          "algorithm": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+          "sourceModel": "1003bce99fc28735e24d03bf044de462ac1eb59b6860c50ce1c548fb942f75ae",
+          "compiler": "ddd03319fd6eacf936cf3afdd0b2ed914d93a8e70e51c14076dc8e4c465ad36d",
+          "layout": "a9f031305f5e1f23b392ce94dc96d2a359c47305325eddd9bcdbc86e36e96178"
+        },
+        "sourcePins": [
+          {
+            "path": "assets/runtime/map-sources/new-york/index.json",
+            "bytes": 8021251,
+            "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+          },
+          {
+            "path": "assets/runtime/map-sources/new-york/library.json",
+            "bytes": 3150020,
+            "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+          },
+          {
+            "path": "assets/art/place-scenes/new-york/navigation.json",
+            "bytes": 1495072,
+            "sha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+          }
+        ],
+        "grid": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "pitch": [
+            0.5,
+            1.06,
+            0.5
+          ]
+        },
+        "portalCount": 5,
+        "sourceExpansionBeforeCompile": {
+          "canonicalCarriers": 12446,
+          "sourceParts": 12858,
+          "decodedUniqueGeometries": 434,
+          "appearanceMaterials": 9,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 0,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 0,
+          "nativePartTransforms": 0,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 148
+        }
+      },
+      "memory": {
+        "label": "selected-input",
+        "elapsedProcessMs": 420.6194,
+        "rss": 175673344,
+        "heapTotal": 115105792,
+        "heapUsed": 79696928,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "blueprint",
+      "at": "2026-11-17T16:38:32.556Z",
+      "value": {
+        "parts": 2,
+        "libraryTriangles": 20,
+        "surfaces": 6,
+        "sourceTriangles": 10,
+        "openings": 0
+      },
+      "memory": {
+        "label": "blueprint",
+        "elapsedProcessMs": 429.2351,
+        "rss": 176250880,
+        "heapTotal": 115105792,
+        "heapUsed": 80234008,
+        "external": 22597456,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "native-resources",
+      "at": "2026-11-17T16:38:32.775Z",
+      "value": {
+        "selectedOwners": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10",
+          "new-york::carrier/roof/clerestory"
+        ],
+        "compiledNativeScenes": 1,
+        "trials": 0,
+        "worldSteps": 0,
+        "sourceParts": 2,
+        "sourceSurfaces": 6,
+        "nativeFragments": 4136,
+        "localCells": 9520,
+        "localFuels": 4136,
+        "coldGeometryRetained": false
+      },
+      "memory": {
+        "label": "native-resources",
+        "elapsedProcessMs": 648.0519,
+        "rss": 293261312,
+        "heapTotal": 218218496,
+        "heapUsed": 116196136,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "native-counts",
+      "at": "2026-11-17T16:38:32.780Z",
+      "value": {
+        "byOwner": [
+          {
+            "id": "new-york::carrier/clerestory-roof-deck/tile--1-10",
+            "parts": 1,
+            "fragments": 4,
+            "nativeTriangles": 9
+          },
+          {
+            "id": "new-york::carrier/roof/clerestory",
+            "parts": 1,
+            "fragments": 4132,
+            "nativeTriangles": 8546
+          }
+        ],
+        "resources": {
+          "selectedOwners": [
+            "new-york::carrier/clerestory-roof-deck/tile--1-10",
+            "new-york::carrier/roof/clerestory"
+          ],
+          "compiledNativeScenes": 1,
+          "trials": 0,
+          "worldSteps": 0,
+          "sourceParts": 2,
+          "sourceSurfaces": 6,
+          "nativeFragments": 4136,
+          "localCells": 9520,
+          "localFuels": 4136,
+          "coldGeometryRetained": false
+        },
+        "sourceExpansion": {
+          "canonicalCarriers": 12446,
+          "sourceParts": 12858,
+          "decodedUniqueGeometries": 434,
+          "appearanceMaterials": 9,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 0,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 2,
+          "nativePartTransforms": 2,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 148
+        }
+      },
+      "memory": {
+        "label": "native-counts",
+        "elapsedProcessMs": 653.8581,
+        "rss": 294117376,
+        "heapTotal": 218218496,
+        "heapUsed": 116648280,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "large-continuity:result",
+      "at": "2026-11-17T16:38:33.032Z",
+      "value": {
+        "edges": 33558,
+        "result": {
+          "type": "undefined"
+        },
+        "owners": [
+          "new-york::carrier/roof/clerestory"
+        ],
+        "active": [
+          "new-york::carrier/roof/clerestory"
+        ],
+        "originalOrderedDigest": "54e42c95ac3f74a373f8e3671d41e8d0e48a4040523711d3e1da3d0d0cb920d8",
+        "exactOrderedEquality": true,
+        "bypass": false
+      },
+      "memory": {
+        "label": "large-continuity:result",
+        "elapsedProcessMs": 905.315,
+        "rss": 323330048,
+        "heapTotal": 261947392,
+        "heapUsed": 151754016,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "large-continuity:identity-count",
+      "at": "2026-11-17T16:38:33.247Z",
+      "value": {
+        "canonicalIdentityValues": 411451,
+        "countRule": "Encoded undefined/-0 tags are one value, matching the reference admission clone counter."
+      },
+      "memory": {
+        "label": "large-continuity:identity-count",
+        "elapsedProcessMs": 1120.4532,
+        "rss": 318345216,
+        "heapTotal": 256790528,
+        "heapUsed": 187955560,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "both-cold-bypass:result",
+      "at": "2026-11-17T16:38:33.309Z",
+      "value": {
+        "edges": 2,
+        "result": {
+          "type": "boolean",
+          "value": true
+        },
+        "owners": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10",
+          "new-york::carrier/roof/clerestory"
+        ],
+        "active": [],
+        "originalOrderedDigest": "189d9a7e526c9ee2a17ba032722a3fbdcb245636fc1a78abdf38a474de3632ce",
+        "exactOrderedEquality": true,
+        "bypass": true
+      },
+      "memory": {
+        "label": "both-cold-bypass:result",
+        "elapsedProcessMs": 1182.0609,
+        "rss": 322433024,
+        "heapTotal": 260292608,
+        "heapUsed": 126677016,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "deck-active-contact:result",
+      "at": "2026-11-17T16:38:33.320Z",
+      "value": {
+        "edges": 8,
+        "result": {
+          "type": "boolean",
+          "value": true
+        },
+        "owners": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10",
+          "new-york::carrier/roof/clerestory"
+        ],
+        "active": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10"
+        ],
+        "originalOrderedDigest": "9e795038b5b50f4dd44065553395d67a0a5d1387b9994dda40fc38ae6ac99686",
+        "exactOrderedEquality": true,
+        "bypass": false
+      },
+      "memory": {
+        "label": "deck-active-contact:result",
+        "elapsedProcessMs": 1193.5565,
+        "rss": 321495040,
+        "heapTotal": 260292608,
+        "heapUsed": 127676424,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "deck-active-contact:identity-count",
+      "at": "2026-11-17T16:38:33.327Z",
+      "value": {
+        "canonicalIdentityValues": 4366,
+        "countRule": "Encoded undefined/-0 tags are one value, matching the reference admission clone counter."
+      },
+      "memory": {
+        "label": "deck-active-contact:identity-count",
+        "elapsedProcessMs": 1199.9477,
+        "rss": 321794048,
+        "heapTotal": 260292608,
+        "heapUsed": 130401640,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "roof-active-contact:result",
+      "at": "2026-11-17T16:38:33.347Z",
+      "value": {
+        "edges": 32,
+        "result": {
+          "type": "boolean",
+          "value": true
+        },
+        "owners": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10",
+          "new-york::carrier/roof/clerestory"
+        ],
+        "active": [
+          "new-york::carrier/roof/clerestory"
+        ],
+        "originalOrderedDigest": "51ad5749e3a8fd05f5029812b1343674f088487ca374156049bd6ca7255c1cc8",
+        "exactOrderedEquality": true,
+        "bypass": false
+      },
+      "memory": {
+        "label": "roof-active-contact:result",
+        "elapsedProcessMs": 1220.336,
+        "rss": 323293184,
+        "heapTotal": 261361664,
+        "heapUsed": 137686472,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "roof-active-contact:identity-count",
+      "at": "2026-11-17T16:38:33.548Z",
+      "value": {
+        "canonicalIdentityValues": 411529,
+        "countRule": "Encoded undefined/-0 tags are one value, matching the reference admission clone counter."
+      },
+      "memory": {
+        "label": "roof-active-contact:identity-count",
+        "elapsedProcessMs": 1421.3695,
+        "rss": 333897728,
+        "heapTotal": 272666624,
+        "heapUsed": 172198352,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "both-active-contact:result",
+      "at": "2026-11-17T16:38:33.605Z",
+      "value": {
+        "edges": 72,
+        "result": {
+          "type": "boolean",
+          "value": true
+        },
+        "owners": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10",
+          "new-york::carrier/roof/clerestory"
+        ],
+        "active": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10",
+          "new-york::carrier/roof/clerestory"
+        ],
+        "originalOrderedDigest": "dc66dd7b56403326b3b1eac25574f56dc59b45d21eae8e058af0d054f60f30b2",
+        "exactOrderedEquality": true,
+        "bypass": false
+      },
+      "memory": {
+        "label": "both-active-contact:result",
+        "elapsedProcessMs": 1478.6306,
+        "rss": 343678976,
+        "heapTotal": 280420352,
+        "heapUsed": 190830752,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "both-active-contact:identity-count",
+      "at": "2026-11-17T16:38:33.806Z",
+      "value": {
+        "canonicalIdentityValues": 412501,
+        "countRule": "Encoded undefined/-0 tags are one value, matching the reference admission clone counter."
+      },
+      "memory": {
+        "label": "both-active-contact:identity-count",
+        "elapsedProcessMs": 1678.9554,
+        "rss": 346988544,
+        "heapTotal": 284348416,
+        "heapUsed": 215408192,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "reference-json-size",
+      "at": "2026-11-17T16:38:33.979Z",
+      "value": {
+        "bytes": 24151806,
+        "utf16CodeUnits": 24151806,
+        "blocks": 4,
+        "decodedIdentityValues": [
+          {
+            "key": "continuity:new-york::carrier/roof/clerestory",
+            "values": 411451,
+            "edges": 33558
+          },
+          {
+            "key": "adjacency:3555",
+            "values": 4366,
+            "edges": 8
+          },
+          {
+            "key": "adjacency:3555",
+            "values": 411529,
+            "edges": 32
+          },
+          {
+            "key": "adjacency:3555",
+            "values": 412501,
+            "edges": 72
+          }
+        ],
+        "format": "Unadapted reference JSON; no portable codec."
+      },
+      "memory": {
+        "label": "reference-json-size",
+        "elapsedProcessMs": 1852.3286,
+        "rss": 376991744,
+        "heapTotal": 313839616,
+        "heapUsed": 179832216,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "provider-admission",
+      "at": "2026-11-17T16:38:35.130Z",
+      "value": {
+        "admitted": 3,
+        "keys": 1,
+        "hits": 0,
+        "misses": 0,
+        "rejected": 1,
+        "identityValues": 828753,
+        "edges": 112,
+        "owned": true,
+        "disposed": false
+      },
+      "memory": {
+        "label": "provider-admission",
+        "elapsedProcessMs": 3003.6151,
+        "rss": 459894784,
+        "heapTotal": 393543680,
+        "heapUsed": 294554784,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "native-cleanup",
+      "at": "2026-11-17T16:38:35.135Z",
+      "value": {
+        "selectedOwners": [
+          "new-york::carrier/clerestory-roof-deck/tile--1-10",
+          "new-york::carrier/roof/clerestory"
+        ],
+        "compiledNativeScenes": 1,
+        "trials": 0,
+        "worldSteps": 0,
+        "sourceParts": 2,
+        "sourceSurfaces": 6,
+        "nativeFragments": 4136,
+        "localCells": 9520,
+        "localFuels": 4136,
+        "coldGeometryRetained": false,
+        "localCompilerDisposed": true
+      },
+      "memory": {
+        "label": "native-cleanup",
+        "elapsedProcessMs": 3007.9224,
+        "rss": 459964416,
+        "heapTotal": 393543680,
+        "heapUsed": 294821416,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    },
+    {
+      "name": "provider-cleanup",
+      "at": "2026-11-17T16:38:35.136Z",
+      "value": {
+        "admitted": 3,
+        "keys": 0,
+        "hits": 0,
+        "misses": 0,
+        "rejected": 1,
+        "identityValues": 0,
+        "edges": 0,
+        "owned": false,
+        "disposed": true
+      },
+      "memory": {
+        "label": "provider-cleanup",
+        "elapsedProcessMs": 3009.2056,
+        "rss": 459964416,
+        "heapTotal": 393543680,
+        "heapUsed": 294959952,
+        "external": 17952364,
+        "arrayBuffers": 12708234
+      }
+    }
+  ],
+  "observedMaxMemory": {
+    "rss": 459964416,
+    "heapTotal": 393543680,
+    "heapUsed": 295084296,
+    "external": 24706637,
+    "arrayBuffers": 16436189
+  },
+  "planned": [
+    "pinned-inputs",
+    "imports",
+    "parse-source-json",
+    "map-metadata",
+    "select-exact-pair",
+    "source-part-preflight",
+    "native-blueprint",
+    "native-clipping",
+    "native-postflight",
+    "large-continuity:original",
+    "large-continuity:shared",
+    "large-continuity:equivalence",
+    "large-continuity:identity",
+    "large-continuity:block",
+    "both-cold-bypass:original",
+    "both-cold-bypass:shared",
+    "both-cold-bypass:equivalence",
+    "deck-active-contact:original",
+    "deck-active-contact:shared",
+    "deck-active-contact:equivalence",
+    "deck-active-contact:identity",
+    "deck-active-contact:block",
+    "roof-active-contact:original",
+    "roof-active-contact:shared",
+    "roof-active-contact:equivalence",
+    "roof-active-contact:identity",
+    "roof-active-contact:block",
+    "both-active-contact:original",
+    "both-active-contact:shared",
+    "both-active-contact:equivalence",
+    "both-active-contact:identity",
+    "both-active-contact:block",
+    "reference-json-encode",
+    "reference-json-write",
+    "reference-json-decode",
+    "admission",
+    "large-continuity:current-identity-equality",
+    "both-active-contact:current-identity-equality",
+    "large-continuity:active-replay",
+    "both-active-contact:active-replay",
+    "deck-active-contact:original-fallback",
+    "roof-active-contact:original-fallback"
+  ],
+  "firstFailure": {
+    "stage": "admission",
+    "name": "AssertionError",
+    "message": "First provider rejection/cap stops the proof\n\n3 !== 4\n",
+    "stack": "AssertionError [ERR_ASSERTION]: First provider rejection/cap stops the proof\n\n3 !== 4\n\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:106:292\n    at phase (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:28:71)\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:106:5\n    at Module.withNativePair (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/native-preparation.mjs:31:12)\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:85:10"
+  },
+  "complete": false,
+  "cleanup": {
+    "native": true,
+    "query": true,
+    "compiledMetadata": true,
+    "provider": true,
+    "contexts": true
+  },
+  "scope": {
+    "nativeCompilationAttempts": 1,
+    "nativeCompilations": 1,
+    "trials": 0,
+    "worldSteps": 0,
+    "codec": false,
+    "productionEnabled": false,
+    "retirementShortcut": false,
+    "coldReplay": false
+  },
+  "unrun": [
+    "large-continuity:current-identity-equality",
+    "both-active-contact:current-identity-equality",
+    "large-continuity:active-replay",
+    "both-active-contact:active-replay",
+    "deck-active-contact:original-fallback",
+    "roof-active-contact:original-fallback"
+  ],
+  "elapsedProcessMs": 3010.4495,
+  "outcome": "Stopped at first failure/cap/bound; no retry, widening, substitution or skipped comparison.",
+  "finalMemory": {
+    "label": "finally",
+    "elapsedProcessMs": 3010.4294,
+    "rss": 459964416,
+    "heapTotal": 393543680,
+    "heapUsed": 295084296,
+    "external": 17952364,
+    "arrayBuffers": 12708234
+  },
+  "endedAt": "2026-11-17T16:38:35.137Z"
+}

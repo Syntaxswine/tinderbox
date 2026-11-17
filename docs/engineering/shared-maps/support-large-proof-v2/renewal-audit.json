@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "authority": "89d4073103f436187236ee0272c1ceac6067fe02",
+  "previousAttempt": "3ba1c01395ee86f1eded888d890a9fd964bb659d",
+  "v1RawFilesUnchanged": 20,
+  "v1ManifestSha256": "97e2e9f415d6f206f8dacadccbe88fd2aea31cff903ae0ca82c0c3fe3329fa50",
+  "harnessFiles": 8,
+  "exactDeclaredAdaptations": true,
+  "calculationAndPreparationBytesUnchanged": true,
+  "limitsSourceAndPlanUnchanged": true,
+  "rows": [
+    {
+      "file": ".gitattributes",
+      "beforeSha256": "c2de54695b1c3c98024b0eb697785a1f777b41746ea6619fa530ed33ef565cb3",
+      "afterSha256": "c2de54695b1c3c98024b0eb697785a1f777b41746ea6619fa530ed33ef565cb3",
+      "byteIdentical": true,
+      "changes": []
+    },
+    {
+      "file": "prepare-harness.mjs",
+      "beforeSha256": "53c008bebc6a4a8c5dcb16dda2eb2b759d786f71dfa143728cccfe7fb7530403",
+      "afterSha256": "53c008bebc6a4a8c5dcb16dda2eb2b759d786f71dfa143728cccfe7fb7530403",
+      "byteIdentical": true,
+      "changes": []
+    },
+    {
+      "file": "original-calculation.mjs",
+      "beforeSha256": "7c1df2860dd80e69c1f08a405deffb23a32d916c6f293ed18135a59ff795c6d9",
+      "afterSha256": "7c1df2860dd80e69c1f08a405deffb23a32d916c6f293ed18135a59ff795c6d9",
+      "byteIdentical": true,
+      "changes": []
+    },
+    {
+      "file": "native-preparation.mjs",
+      "beforeSha256": "7e7c2029a4d003ede7aa6cd0456c849d67a17d7b7b2a2836660ec99b020b29d1",
+      "afterSha256": "7e7c2029a4d003ede7aa6cd0456c849d67a17d7b7b2a2836660ec99b020b29d1",
+      "byteIdentical": true,
+      "changes": []
+    },
+    {
+      "file": "adaptation-audit.json",
+      "beforeSha256": "609661aa6ea682246313a165cb03754ac3748b0479b75e69cc513620d47b9717",
+      "afterSha256": "609661aa6ea682246313a165cb03754ac3748b0479b75e69cc513620d47b9717",
+      "byteIdentical": true,
+      "changes": []
+    },
+    {
+      "file": "proof.mjs",
+      "beforeSha256": "bf8824942b2d1ced671a81ef6ba93d5c41fe541d764335f786ce51f66965ed78",
+      "afterSha256": "7f06f0aa2963d2ac405f3ed7b394a582deebcff9f5445ee468c2da53a2d96593",
+      "byteIdentical": false,
+      "changes": [
+        {
+          "from": "4f57ccd6879b7e8f2086be1ae21e3ff154ea0d22",
+          "to": "89d4073103f436187236ee0272c1ceac6067fe02",
+          "reason": "New architect authority",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "launch.ps1",
+      "beforeSha256": "eb413ce1052e8a9b270ea2357150cf6a931850a2128d03505d0bb7f10520dc99",
+      "afterSha256": "1a4c4e4cdeb4beab0f458e4c1cfcc2bfdcb0d5832038679378e18d3330b083bc",
+      "byteIdentical": false,
+      "changes": [
+        {
+          "from": "4f57ccd6879b7e8f2086be1ae21e3ff154ea0d22",
+          "to": "89d4073103f436187236ee0272c1ceac6067fe02",
+          "reason": "New architect authority",
+          "occurrences": 1
+        },
+        {
+          "from": "$proofNode = (Get-Command node -CommandType Application).Source",
+          "to": "$proofNode = 'C:\\Program Files\\nodejs\\node.exe'\n$proofNodeLeaf = Get-Item -LiteralPath $proofNode -ErrorAction Stop\n$proofNodeVersion = $proofNodeLeaf.VersionInfo.FileVersion\nif ($proofNodeLeaf -isnot [IO.FileInfo] -or $proofNodeVersion -ne '24.15.0') { throw 'Verified scalar Node leaf/version differs; no proof process launched' }",
+          "reason": "Literal scalar executable with one leaf/version check",
+          "occurrences": 1
+        },
+        {
+          "from": "cwd = $proofRoot; executable = $proofNode; arguments =",
+          "to": "cwd = $proofRoot; executable = $proofNode; executableLeafVersion = $proofNodeVersion; arguments =",
+          "reason": "Record checked executable version",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "audit.mjs",
+      "beforeSha256": "47e2b3f14fca82518e451a1ee2aba5b407fdf9b6ac100544e0f11e5a11f27bed",
+      "afterSha256": "ee774226477394149ef8110a6d79a94950267e3ca84adab526eae3897b03f479",
+      "byteIdentical": false,
+      "changes": [
+        {
+          "from": "support-large-proof-v1/",
+          "to": "support-large-proof-v2/",
+          "reason": "Distinct fence path",
+          "occurrences": 1
+        }
+      ]
+    }
+  ]
+}
