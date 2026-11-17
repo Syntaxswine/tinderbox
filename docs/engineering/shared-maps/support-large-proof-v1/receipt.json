@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "owner": "Coder Tinderbox",
+  "project": "Tinderbox M29",
+  "authority": "4f57ccd6879b7e8f2086be1ae21e3ff154ea0d22",
+  "sourceSeam": "989ecd6777f8a77791b0fa8ad32fcc618a2d3438",
+  "purpose": "One exact ordered-pair 3555 native support preparation observation",
+  "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+  "executable": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1110-778-0_26.1110.778.0_x64__3k8sg7r9htsxt\\dependencies\\node\\bin\\node.exe"
+  ],
+  "arguments": [
+    "--max-old-space-size=1024",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\proof.mjs"
+  ],
+  "parentPid": 25612,
+  "parentCreatedUtc": "2026-11-17T16:16:07.5664041Z",
+  "parentExecutable": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1110-778-0_26.1110.778.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.exe",
+  "cooperativeMs": 50000,
+  "parentForceMs": 55000,
+  "absoluteMs": 60000,
+  "nodeOldSpaceMiB": 1024,
+  "ports": [],
+  "stopMethod": "Private stop file at 50 s, then exact PID/creation/executable validated process-handle termination at 55 s",
+  "state": "stateless",
+  "safeToTerminateReason": "Source-local disposable calculation only; partial files are saved before each risky stage. No user world/save/write transaction exists.",
+  "automaticReplay": false,
+  "restart": "This one observation consumes the grant. Preserve sources and outputs; no automatic rerun or restart is authorized.",
+  "planSha256": "30be687bb444c680774d7fd6d64989fbdb54f2fea0479fcde66500c2e7173c5c",
+  "sourceFiles": [
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\.gitattributes",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\prepare-harness.mjs",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\original-calculation.mjs",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\native-preparation.mjs",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\adaptation-audit.json",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\proof.mjs",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\launch.ps1",
+    "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\docs\\engineering\\shared-maps\\support-large-proof-v1\\audit.mjs"
+  ],
+  "inputPins": "docs/engineering/shared-maps/support-preparation-v1/source-pins.json",
+  "dependencyPins": "docs/engineering/shared-maps/support-preparation-v1/compiler-dependencies.json",
+  "outputs": [
+    "partial.json",
+    "final.json",
+    "calculations/",
+    "reference-blocks.json",
+    "stdout.log",
+    "stderr.log",
+    "receipt.json"
+  ],
+  "stopFileWritten": false,
+  "forced": false,
+  "childExitConfirmed": false,
+  "noRetainedPort": true,
+  "parentError": "Exception calling \"Start\" with \"0\" argument(s): \"An error occurred trying to start process 'C:\\Program Files\\nodejs\\node.exe C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1110-778-0_26.1110.778.0_x64__3k8sg7r9htsxt\\dependencies\\node\\bin\\node.exe' with working directory 'C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox'. The system cannot find the file specified.\"",
+  "endedAt": "2026-11-17T16:16:08.3149207Z",
+  "parentElapsedMs": 16.6817,
+  "withinAbsolute60s": false,
+  "lastPartialExists": false,
+  "finalExists": false
+}

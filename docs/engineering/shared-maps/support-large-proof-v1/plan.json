@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "owner": "Coder Tinderbox",
+  "authority": "4f57ccd6879b7e8f2086be1ae21e3ff154ea0d22",
+  "sourceSeam": "989ecd6777f8a77791b0fa8ad32fcc618a2d3438",
+  "singleObservation": true,
+  "selected": {
+    "contactIndex": 3555,
+    "owners": [
+      "new-york::carrier/clerestory-roof-deck/tile--1-10",
+      "new-york::carrier/roof/clerestory"
+    ],
+    "largeCarrierIndex": 10027
+  },
+  "bounds": {
+    "cooperativeMs": 50000,
+    "parentForceMs": 55000,
+    "absoluteMs": 60000,
+    "nodeOldSpaceMiB": 1024
+  },
+  "fixedPreparationLimits": {
+    "parts": 512,
+    "sourceTriangles": 32768,
+    "surfaces": 4096,
+    "fragments": 8192,
+    "localCells": 65536
+  },
+  "fixedProviderLimits": {
+    "blocks": 16,
+    "variantsPerKey": 4,
+    "edgesPerBlock": 65536,
+    "identityValues": 500000,
+    "totalIdentityValues": 1000000,
+    "totalEdges": 200000,
+    "depth": 64,
+    "stringLength": 1024
+  },
+  "sequence": [
+    "Pinned inputs, source imports and full metadata, exact pair selection",
+    "One native blueprint/compile with unchanged caps",
+    "Large continuity: original/shared ordered equality, identity and block",
+    "Pair: original both-cold bypass, then deck-active, roof-active and both-active original/shared/equality/identity",
+    "Reference JSON encode/write/decode, admission, full current identity equality, active-only replay and original mixed fallback where reached",
+    "Dispose all owned local/query/provider state"
+  ],
+  "firstCapOrFailure": "Save and stop. Do not widen limits, substitute sources, skip comparison or rerun.",
+  "timingDomain": "One unprofiled Node process. Named synchronous function/awaited import spans exclude checkpoint file writing; process lifetime includes instrumentation. Observed checkpoint maxima are not allocation peaks or game/FPS evidence.",
+  "sourcePins": "../support-preparation-v1/source-pins.json",
+  "compilerPins": "../support-preparation-v1/compiler-dependencies.json",
+  "compilerDigest": "ddd03319fd6eacf936cf3afdd0b2ed914d93a8e70e51c14076dc8e4c465ad36d",
+  "harnessPins": [
+    {
+      "file": ".gitattributes",
+      "bytes": 146,
+      "sha256": "c2de54695b1c3c98024b0eb697785a1f777b41746ea6619fa530ed33ef565cb3"
+    },
+    {
+      "file": "prepare-harness.mjs",
+      "bytes": 7231,
+      "sha256": "53c008bebc6a4a8c5dcb16dda2eb2b759d786f71dfa143728cccfe7fb7530403"
+    },
+    {
+      "file": "original-calculation.mjs",
+      "bytes": 6223,
+      "sha256": "7c1df2860dd80e69c1f08a405deffb23a32d916c6f293ed18135a59ff795c6d9"
+    },
+    {
+      "file": "native-preparation.mjs",
+      "bytes": 2875,
+      "sha256": "7e7c2029a4d003ede7aa6cd0456c849d67a17d7b7b2a2836660ec99b020b29d1"
+    },
+    {
+      "file": "adaptation-audit.json",
+      "bytes": 10616,
+      "sha256": "609661aa6ea682246313a165cb03754ac3748b0479b75e69cc513620d47b9717"
+    },
+    {
+      "file": "proof.mjs",
+      "bytes": 16673,
+      "sha256": "bf8824942b2d1ced671a81ef6ba93d5c41fe541d764335f786ce51f66965ed78"
+    },
+    {
+      "file": "launch.ps1",
+      "bytes": 8500,
+      "sha256": "eb413ce1052e8a9b270ea2357150cf6a931850a2128d03505d0bb7f10520dc99"
+    },
+    {
+      "file": "audit.mjs",
+      "bytes": 4911,
+      "sha256": "47e2b3f14fca82518e451a1ee2aba5b407fdf9b6ac100544e0f11e5a11f27bed"
+    }
+  ]
+}

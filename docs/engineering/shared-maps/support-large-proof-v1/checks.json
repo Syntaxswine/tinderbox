@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "scope": "Evidence/source verification of a failed launch; no native proof result",
+  "postmortem": {
+    "command": "node docs/engineering/shared-maps/support-large-proof-v1/verify-launch-failure.mjs",
+    "exitCode": 0,
+    "toolChunk": "dac214"
+  },
+  "declaration": {
+    "command": "node tools/record-shared-map-runtime.mjs --check",
+    "exitCode": 0,
+    "runtimeFiles": 22,
+    "addedFiles": 45,
+    "toolChunk": "d00320"
+  },
+  "launch": {
+    "attempts": 1,
+    "exitCode": 1,
+    "proofProcessesStarted": 0,
+    "nativeCompilations": 0,
+    "all42ChildStagesUnrun": true,
+    "noRetry": true
+  },
+  "cleanup": {
+    "parentPid": 25612,
+    "parentExitVerified": true,
+    "verificationToolChunk": "af1ec8",
+    "childCreated": false,
+    "portsOpened": 0,
+    "retainedHelpers": []
+  },
+  "unchanged": {
+    "compilerPins": 30,
+    "rawAssetPins": 3,
+    "harnessPins": 8,
+    "productionSource": true,
+    "unrelatedWipRawSha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f"
+  },
+  "validationNotRun": [
+    "Native ordered calculation comparison",
+    "Native clipping/preparation cost",
+    "Identity/admission/fallback/replay cost",
+    "Reference JSON size",
+    "Build",
+    "Renderer",
+    "Profile",
+    "Actual held-fire input"
+  ]
+}
