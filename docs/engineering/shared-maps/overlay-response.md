@@ -44,6 +44,14 @@ compatibility index. Explicit `childCarrierId` is welcome but must equal the
 containing carrier. Use only the accepted fixed embeds, bearing faces and assembly
 mounts; preserve declared mount gaps and hinge pose-invariance where applicable.
 
+The coder will normalize the preserved base `supportCarrierIds`/`supportEvidence`
+offline, retaining each original evidence kind and parent identity. No duplicate
+typed projection of those unchanged records is required from the artist. Native
+bearing, opening assemblies and pose-invariant hinges remain distinct from the
+newly authorized gap mounts. Unknown evidence stays an explicit exception; its
+normalization cannot invent a join, mount or anchor. New typed records cover the
+accepted additions and the separately measured parents of the new carriers.
+
 Local support needs the existing witness geometry, not only a distant parent ID.
 Include finite emitted-world contact/overlap bounds and available witness points
 or a precise evidence reference from which the offline compiler can extract them.
