@@ -52,3 +52,40 @@ exceeds the lower bound; record bits and JSON round-trip, with exact and
 between-floats controls. This selects a deterministic conservative representation
 without erasing the interval or assigning/exporting fuel. Other existing stock
 and all unaccepted-template/union decisions remain unchanged.
+
+## Affine and additional-template intake
+
+Root independently reproduces artist `0b43868bbcc1965db9f1d1cdd132be0668e87e5d`
+and verifies its 13 package hashes: 530 exact instances, 36 template/linear groups,
+25 stored matrices, 312 polar-order controls, six uncapped-range negatives, the
+96-edge authored open negative and four scalar conversion controls. All 53 prior
+payload/package files and 1,572 geometry inputs remain unchanged.
+
+Accept the requested 476 affine certificates and their proven downward binary64
+representations. Also accept the five additional templates / 54 instances under
+their own pinned constructor/cap/index/periodic-reference certificates and actual
+matrix/interval propagation. This is no universal tolerance. Raw strict closure
+remains failed and original coordinate/index arrays remain untouched.
+
+Accept the eight table union **measurements**: their actual reference components
+occupy separated Y halfspaces, with exact positive gap 11/134217728 m and zero
+intersection. Use one union account, not union plus duplicate component stock.
+The summed interval and conservative representation are approved measurement
+inputs; neither the small source gap nor a physical joint/anchor is repaired or
+proved by that volume. Existing compound ownership still needs runtime review.
+
+These references may feed the later complete binding export, keeping geometric
+uncertainty and representation undermeasurement explicit. No binding, actual fuel
+assignment or runtime export is installed here. The earlier strict 724-exception
+ledger is preserved; these 530 now have a separately accepted measurement route.
+The remaining 65 derived solids, 126 wall faces and three weather-roof cases
+retain their own unresolved status. Plant, glazing and structural gaps remain.
+
+Next source-only art review groups those remaining 194 cases and examines at most
+two representatives: an original cut office-door header and an unproved wall
+front-face case. Return actual defects/constructor/range evidence and the smallest
+measurement-reference or derived-repair proposal. Distinguish roundoff/T-junctions
+from genuine missing faces and intended openings; do not infer a front face from
+a box. Keep the three roof exposure cases separate. No full reconstruction,
+geometry/UV/cap export, changed opening, new anchors, runtime or renderer is
+approved before that concrete proposal.

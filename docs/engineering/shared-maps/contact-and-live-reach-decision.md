@@ -105,3 +105,11 @@ and clearly labeled conservative bounds. No extra run is authorized to fill them
 The separate [offline-bake proof](support-bake-prototype-contract.md) investigates
 moving unchanged calculations into preparation. No unmeasured direct-live-only
 runtime change or actual-input correction is inferred.
+
+Evidence-only restoration `4e0ee5fc9d31296099a0bbd9796a95bb04d47fe3` keeps the
+unaccepted experiment/payload in history and restores active code/tests. Root
+verifies all 64 archive hashes, support LF `1e6bd6ec` and an empty gameplay-tree
+delta from combined `76290ae0`. Separate QA `a67cfac5` adds only observational
+failure diagnostics; root passes all 25 helper/action/lifecycle checks, all seven
+QA archive hashes and declaration 22/41. No gameplay/source asset changes or
+actual browser/art diagnostic capture occur in that QA task.
