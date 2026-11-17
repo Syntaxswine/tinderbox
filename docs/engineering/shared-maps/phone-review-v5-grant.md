@@ -51,3 +51,21 @@ disconnect/close the single context and dispose the app/server. Independently
 verify original processes absent and ports free, preserving failure evidence and
 the restart record. No second build/session, new CPU experiment, retained helper,
 master promotion or Pages deployment is included in this grant.
+
+## Observed outcome
+
+Evidence-only `8628834adab044b4c02768aaa20ad33886cc1d8f` preserves the
+single built manifest `cf39fcfc2dd961f60d2ad6af8a03d738510d0aa2090c879e41b1bf958a8f8aac`
+(3,619 files / 264,636,740 bytes). Root independently verifies all 49 archived
+hashes and reviews both actual JPGs. Normal layout/traversal/doors, rapid torch,
+zero-heat glass rejection, timber match and actual rapid flame emission pass.
+Trusted held duration is 2,599.9 ms, so the original release check **fails**.
+Successful menu exit and final art/light diagnostics are unrun. The partly
+occluded fire in these stills does not establish firelight or visual acceptance.
+
+Root independently finds driver 40560 and Edge 60744 absent at their recorded
+identities and both ports 59697/59698 free. The initial sandbox socket query was
+denied access; a scoped escalated read succeeds with zero listeners. No helper
+is retained. The next correction is the separate source-only
+[contact/live traversal experiment](contact-and-live-reach-decision.md), not a
+second browser session under this authority.
