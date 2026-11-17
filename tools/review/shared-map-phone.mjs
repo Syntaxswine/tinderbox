@@ -6,6 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {withCatalogueBrowser} from './catalogue-browser.mjs';
 import {worldToStick,DEFAULT_CONFIG} from '../../src/simulation/index.js';
 import {NEW_YORK_GAMEPLAY_CONFIGURATION} from '../../src/content/shared-map.js';
+import {checkSharedMapLayout} from './shared-map-layout.mjs';
 
 // One architect-granted investigation. No second lane, manual simulation tick,
 // app-command shortcut, pawn placement, positive fire state or extra renderer.
@@ -88,8 +89,10 @@ await withCatalogueBrowser(async({page,baseUrl,manifestSha256,save,errors})=>{
     await page.getByRole('button',{name:'Open New York State Building map',exact:true}).click();
     await page.waitForFunction(()=>qa.app.state().phase==='visit'||qa.app.state().error,null,{timeout:120000});
     let s=await read();assert.equal(s.app.phase,'visit',s.app.error||'New York did not open');assert.equal(s.player.characterId,'goat');assert.equal(await page.locator('#viewport canvas').count(),1);
-    assert.equal(s.thermal.backend,'native-map-trial');assert.deepEqual(s.metrics.viewport,plan.viewport);assert.equal(s.metrics.camera.mode,'follow');assert.equal(s.metrics.camera.zoom,1);
+    assert.equal(s.thermal.backend,'native-map-trial');assert.equal(s.metrics.camera.mode,'follow');assert.equal(s.metrics.camera.zoom,1);
     if(s.paused){await page.locator('[data-resume]:visible').click();await page.waitForFunction(()=>!qa.snap.paused);}
+    const layout=await page.evaluate(()=>{const r=qa.app.visit(),p=qa.snap.player,canvas=document.querySelector('#viewport canvas').getBoundingClientRect(),hud=document.querySelector('#hud').getBoundingClientRect(),point=h=>{const q=r.projectInteraction([p.x,p.elevation+h,p.y]);return {...q,x:q.x+hud.left,y:q.y+hud.top};},feet=point(0),center=point(p.height/2),head=point(p.height);return {browser:{width:innerWidth,height:innerHeight},canvas:{left:canvas.left,top:canvas.top,width:canvas.width,height:canvas.height},metrics:qa.metrics.viewport,player:{feet,center,head,pointerTarget:document.elementFromPoint(center.x,center.y)?.tagName}};});
+    save('measured-layout.json',layout);save('checked-layout.json',checkSharedMapLayout(layout));
     save('opened.json',await read());
     await walk(56,24.8,'front-stair');await door('open');s=await walk(56,28,'interior-entry');assert.ok(Math.abs(s.player.elevation-2.12)<1e-5);assert.equal(s.player.interior,true);await capture('interior');
     await walk(56,24.8,'front-return');await door('close');
