@@ -7,6 +7,7 @@ import {withCatalogueBrowser} from './catalogue-browser.mjs';
 import {worldToStick,DEFAULT_CONFIG} from '../../src/simulation/index.js';
 import {NEW_YORK_GAMEPLAY_CONFIGURATION} from '../../src/content/shared-map.js';
 import {checkSharedMapLayout} from './shared-map-layout.mjs';
+import {firstPrimaryReceipt,requirePrimaryTool} from './shared-map-actions.mjs';
 
 // One architect-granted investigation. No second lane, manual simulation tick,
 // app-command shortcut, pawn placement, positive fire state or extra renderer.
@@ -66,12 +67,16 @@ await withCatalogueBrowser(async({page,baseUrl,manifestSha256,save,errors})=>{
     stage=kind+'-contact';guard();const target=plan.toolContacts[kind];
     const aim=await page.evaluate(p=>{const r=qa.app.visit(),screen=r.projectInteraction([p.x,p.h,p.y]),box=document.querySelector('#hud').getBoundingClientRect(),x=box.left+screen.x,y=box.top+screen.y;return {screen,x,y,picked:screen.visible?r.screenToWorld(x,y):null,element:screen.visible?document.elementFromPoint(x,y)?.tagName:null};},target);
     save(stage+'-aim.json',aim);assert.equal(aim.screen.visible,true);assert.equal(aim.element,'CANVAS');assert.ok(aim.picked?.sourceSurfaceId===target.carrier||aim.picked?.sourceSurfaceId?.startsWith(target.carrier+'/part/'),'The actual camera ray must select the intended original carrier');
-    await page.mouse.click(aim.x,aim.y);await page.locator('#viewport canvas').focus();await page.keyboard.press(target.key);
-    if(target.tool==='torch'){await page.keyboard.press('Space',{delay:70});await page.waitForFunction(()=>qa.snap.player.torch.phase==='lit');}
+    await page.mouse.click(aim.x,aim.y);await page.locator('#viewport canvas').focus();const beforeSelection=await read();await page.keyboard.press(target.key);
+    if(target.tool==='torch'){
+      const beforeLight=beforeSelection,lastId=Math.max(0,...beforeLight.events.map(e=>e.id));await page.keyboard.press('Space',{delay:70});
+      await page.waitForFunction(id=>qa.snap.events.some(e=>e.id>id&&['tool-use','tool-rejected'].includes(e.type)),lastId,{timeout:5000});
+      const lit=await read(),receipt=firstPrimaryReceipt(lit.events,lastId);save(stage+'-first-press.json',{before:beforeLight,after:lit,receipt});requirePrimaryTool(receipt,target.tool);assert.equal(lit.player.torch.phase,'lit');
+    }
     const before=await read(),range=DEFAULT_CONFIG.tools[target.tool].range,distance=Math.hypot(aim.picked.x-before.player.x,aim.picked.y-before.player.y);assert.ok(distance<=range,'The real selected face must satisfy the unchanged caller range');
     const lastId=Math.max(0,...before.events.map(e=>e.id));await page.keyboard.press('Space',{delay:70});
-    await page.waitForFunction(({tool,id})=>qa.snap.events.some(e=>e.tool===tool&&e.id>id&&['tool-use','tool-rejected'].includes(e.type)&&e.result!=='lit'),{tool:target.tool,id:lastId},{timeout:10000});
-    const after=await read(),event=after.events.filter(e=>e.tool===target.tool&&e.id>lastId&&e.result!=='lit').at(-1);assert.ok(event);assert.ok(Math.abs(event.x-aim.picked.x)<.06);assert.ok(Math.abs(event.y-aim.picked.y)<.06);
+    await page.waitForFunction(id=>qa.snap.events.some(e=>e.id>id&&['tool-use','tool-rejected'].includes(e.type)),lastId,{timeout:5000});
+    const after=await read(),event=firstPrimaryReceipt(after.events,lastId);save(stage+'-primary-receipt.json',{before,after,event});requirePrimaryTool(event,target.tool);assert.ok(Math.abs(event.x-aim.picked.x)<.06);assert.ok(Math.abs(event.y-aim.picked.y)<.06);
     if(target.tool==='matches')assert.equal(after.player.inventory.matches,before.player.inventory.matches-1);
     if(kind==='glass')assert.equal(event.result,'no-fuel');else assert.ok(['heated','ignited'].includes(event.result));save(stage+'.json',{before,after,aim,event,distance,range});
   }
@@ -98,8 +103,9 @@ await withCatalogueBrowser(async({page,baseUrl,manifestSha256,save,errors})=>{
     await walk(56,24.8,'front-return');await door('close');
     await walk(56,24.5,'clear-column-row');await walk(50.5,24.5,'glass-approach');await walk(50.5,25.05,'glass-stance');await useTool('glass');
     await walk(50.5,24.5,'glass-backoff');await walk(55.25,24.5,'timber-approach');await walk(55.25,25.25,'timber-stance');await useTool('timber');
-    stage='sustained-ignition-attempt';const beforeFlame=await read();await page.keyboard.press('Digit5');await page.keyboard.down('Space');
-    try{const started=Date.now();while(Date.now()-started<plan.boundedSustainedAttempt.maxWallMs){guard();const s=await read();if(s.thermal.metrics.burningCount>beforeFlame.thermal.metrics.burningCount)break;await page.waitForTimeout(100);}}finally{await page.keyboard.up('Space');}
+    stage='sustained-ignition-attempt';const beforeFlame=await read(),lastFlameId=Math.max(0,...beforeFlame.events.map(e=>e.id));await page.keyboard.press('Digit5');
+    const heldStarted=Date.now();let released,releaseError;const releaseKey=()=>released??=(page.keyboard.up('Space').catch(error=>{releaseError=error;})),releaseTimer=setTimeout(releaseKey,plan.boundedSustainedAttempt.maxWallMs);
+    try{await page.keyboard.down('Space');while(Date.now()-heldStarted<plan.boundedSustainedAttempt.maxWallMs){guard();const s=await read(),receipt=firstPrimaryReceipt(s.events,lastFlameId);if(receipt)requirePrimaryTool(receipt,'flamethrower');if(s.thermal.metrics.burningCount>beforeFlame.thermal.metrics.burningCount)break;await page.waitForTimeout(100);}}finally{clearTimeout(releaseTimer);await releaseKey();if(releaseError)save('held-release-error.json',{error:releaseError.stack});}if(releaseError)throw releaseError;
     const afterFlame=await read();save(stage+'.json',{before:beforeFlame,after:afterFlame,limit:plan.boundedSustainedAttempt,ignited:afterFlame.thermal.metrics.burningCount>beforeFlame.thermal.metrics.burningCount});await capture('exterior-tool-contact');
     stage='menu-disposal';save('final-art.json',await page.evaluate(()=>qa.app.visit().artDiagnostics()));
     await page.locator('[data-pause]').click();await page.locator('[data-exit-to-menu]:visible').click();await page.waitForFunction(()=>qa.app.state().phase==='menu');assert.equal(await page.locator('#viewport canvas').count(),0);
