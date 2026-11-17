@@ -1,9 +1,10 @@
-"""Package-only review. No rendering, subprocess helpers, native activation or world."""
+"""Package-only review with immutable Git-source context reads; no native activation or render."""
 from pathlib import Path
 import argparse,datetime,hashlib,importlib.util,json,math,re,struct,sys
 sys.dont_write_bytecode=True
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3]
 spec=importlib.util.spec_from_file_location('clear_package_export',HERE/'export.py');E=importlib.util.module_from_spec(spec);spec.loader.exec_module(E)
+context_spec=importlib.util.spec_from_file_location('parapet_dependency_context',HERE/'dependency-context.py');D=importlib.util.module_from_spec(context_spec);context_spec.loader.exec_module(D)
 DOC='docs/art/shared-map-fire-bindings/parapet-clear-blocking-v1'
 PREFIXES=[HERE.relative_to(ROOT).as_posix(),E.DIRECTORY,DOC]
 def rel(p):return p.relative_to(ROOT).as_posix()
@@ -64,13 +65,15 @@ def expected():
  return {'modular-evidence.json':modular,'preview-evidence.json':preview}
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--record',action='store_true');args=p.parse_args()
+ current_context=D.verify_working_sources(ROOT);D.preserve_checkpoint()
  if args.record and not (HERE/'preview-session/raster-output-hashes.json').exists():
   art=ROOT/'artifacts/shared-map-fire-bindings/parapet-clear-blocking-v1'
   rows=[{'path':rel(art/n),'bytes':(art/n).stat().st_size,'sha256':E.sha(rel(art/n)),'requiredForPackageVerification':False} for n in ['repeat-closeup.bmp','bearing-closeup.bmp']]
   (HERE/'preview-session/raster-output-hashes.json').write_bytes(E.encode({'version':1,'files':rows,'note':'Preserved transient raster identities; source/cameras regenerate them. Final JPGs are self-contained and no raster rerun is part of package checking.'}))
  for name,data in expected().items():
-  if args.record:(HERE/name).write_bytes(E.encode(data))
-  else:assert (HERE/name).read_bytes()==E.encode(data),'Evidence changed: '+name
+  target=HERE/name
+  if args.record and not target.exists():target.write_bytes(E.encode(data))
+  else:assert target.read_bytes()==E.encode(data),'Evidence changed: '+name
  linked=[]
  docpath=ROOT/DOC/'README.md'
  for target in re.findall(r'\[[^\]\n]+\]\(([^)\n]+)\)',docpath.read_text(encoding='utf-8')):
@@ -80,12 +83,12 @@ def main():
  files=sorted({p for prefix in PREFIXES for p in (ROOT/prefix).rglob('*') if p.is_file() and p.name!='review-package.json'})
  assert not any('__pycache__' in p.parts or p.suffix=='.pyc' for p in files)
  entries=[{'path':rel(p),'bytes':p.stat().st_size,'sha256':E.sha(rel(p))} for p in files]
- math_sources=['art/source/shared-map-fire-bindings/export.py','art/source/shared-map-fire-bindings/coverage-family-proposal-v1/geometry.py','art/source/shared-map-fire-bindings/propose-new-york-coverage.py','art/source/shared-map-fire-bindings/reachability-review-v1/review.py','workbenches/furnished-house/geometry.js','workbenches/furnished-house/support.js']
- dependencies=[{'path':p,'sha256':E.sha(p)} for p in math_sources]
+ dependencies=D.historical_dependencies()
+ context_policy={'path':rel(HERE/'dependency-contexts.json'),'sha256':E.sha(rel(HERE/'dependency-contexts.json')),'dependencyPinsMeaning':'Frozen historical producer dependencies from '+D.ORIGINAL+'; current verification context is admitted separately and reported only in command output.','historicalProducerPackageSha256':D.PACKAGE_SHA,'approvedVerificationCommit':D.APPROVED,'runtimeAcceptanceGranted':False}
  checks=E.read(rel(HERE/'check-results.json'))
  package={'version':1,'task':'M29 separate 96 accepted clear parapet blocks','candidateCommitIdentity':'Containing Git commit; pushed worker branch is a candidate, not promotion.',
   'artistParent':E.PARENT,'assignmentCommit':E.ASSIGNMENT,'approvalCommit':E.APPROVAL,'scopedDirectories':PREFIXES,'files':entries,'payloadCount':len(entries),'payloadBytes':sum(e['bytes'] for e in entries),
-  'dependencyPins':dependencies,'manifestPath':E.MANIFEST,'manifestSha256':E.sha(E.MANIFEST),'geometrySharedFromExistingPrototype':True,
+  'dependencyPins':dependencies,'dependencyContextPolicy':context_policy,'manifestPath':E.MANIFEST,'manifestSha256':E.sha(E.MANIFEST),'geometrySharedFromExistingPrototype':True,
   'members':96,'instanceTriangles':1152,'localBearings':192,'originalParents':16,'newGroundAnchors':0,'additionalStaticFrameUnits':4.3008,
   'sourceChecks':sum(checks['checks'].values()),'rejectingControls':len(checks['negativeControls']),'earlierTrackedPathsPreserved':checks['preservation']['earlierTrackedPathsUnchanged'],
   'handoffReferencesReviewed':len(linked),'rasterSessions':1,'deliveredJpgs':2,'previewHelpersClosed':True,'runtimeInstalled':False,'nativeActivationRun':False,'wholeBuildingIntersectionRerun':False,'combinedWorldLedgerComputed':False,
@@ -95,5 +98,6 @@ def main():
  if args.record:path.write_bytes(E.encode(package))
  else:assert path.read_bytes()==E.encode(package),'Package hash or reference inventory changed'
  print(json.dumps({k:package[k] for k in ['payloadCount','payloadBytes','members','instanceTriangles','localBearings','sourceChecks','rejectingControls','handoffReferencesReviewed','rasterSessions','deliveredJpgs','previewHelpersClosed']}))
- print('PASS: exact package hashes, source metadata, JPEG sizes, lifecycle receipts and local handoff references.')
+ print(json.dumps({'currentVerificationContext':current_context,'historicalProducerDependencyPinsPreserved':True}))
+ print('PASS: exact package hashes, frozen producer provenance, admitted source context, JPEG sizes, lifecycle receipts and local handoff references.')
 if __name__=='__main__':main()

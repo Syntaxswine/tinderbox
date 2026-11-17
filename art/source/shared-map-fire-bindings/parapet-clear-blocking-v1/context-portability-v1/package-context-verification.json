@@ -1,0 +1,81 @@
+{
+  "approvedVerificationCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a",
+  "controls": [
+    {
+      "context": "original-producer",
+      "defaultPackageVerifier": "PASS",
+      "historicalProducerDependencyPinsPreserved": true,
+      "lineEndings": "LF",
+      "verificationContext": {
+        "id": "original-producer",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+          "workbenches/furnished-house/support.js": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "7698e083b36635694e73dc07aa38748355e670a8"
+      }
+    },
+    {
+      "context": "original-producer",
+      "defaultPackageVerifier": "PASS",
+      "historicalProducerDependencyPinsPreserved": true,
+      "lineEndings": "CRLF",
+      "verificationContext": {
+        "id": "original-producer",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+          "workbenches/furnished-house/support.js": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "7698e083b36635694e73dc07aa38748355e670a8"
+      }
+    },
+    {
+      "context": "approved-combined-m29",
+      "defaultPackageVerifier": "PASS",
+      "historicalProducerDependencyPinsPreserved": true,
+      "lineEndings": "LF",
+      "verificationContext": {
+        "id": "approved-combined-m29",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+          "workbenches/furnished-house/support.js": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a"
+      }
+    },
+    {
+      "context": "approved-combined-m29",
+      "defaultPackageVerifier": "PASS",
+      "historicalProducerDependencyPinsPreserved": true,
+      "lineEndings": "CRLF",
+      "verificationContext": {
+        "id": "approved-combined-m29",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+          "workbenches/furnished-house/support.js": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a"
+      }
+    }
+  ],
+  "method": "Run the unmodified corrected default main in-process, substituting only the two working helper byte reads with exact frozen Git sources. The preserved original-failure record separately byte-matches approved Git sources to actual root read-only files. No checkout mutation or JavaScript execution.",
+  "nativeGeometryRendererOrWorldRun": false,
+  "originalPayloadsPreserved": 41,
+  "originalProducerCommit": "7698e083b36635694e73dc07aa38748355e670a8",
+  "positiveDefaultVerifierRuns": 4,
+  "result": "PASS_FULL_DEFAULT_PACKAGE_IN_BOTH_FROZEN_CONTEXTS",
+  "runtimeAcceptanceGranted": false,
+  "version": 1
+}
