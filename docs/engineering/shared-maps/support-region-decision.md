@@ -78,3 +78,39 @@ the untrimmed 5.1968-unit estimate is not an accepted quantity. No saddle geomet
 or old roof change is authorized here. Artist's current independent priority is
 the Administration/Horticulture material proposals; do not interrupt the first
 visual review with this later export work.
+
+## Clear repeat export accepted
+
+Root accepts artist `7698e083b36635694e73dc07aa38748355e670a8` and verifier
+successor `11f0a153e02ed0ad68673e5b3403497941308d6d` as the separate additive
+96-piece source/asset delivery. Independent deterministic export, 192 fresh
+native triangle contacts, 1,663 source checks/five rejecting controls, 51 current
+payload pins, local references, JPEG sizes and frozen-context verification pass.
+The scope is 96 additions and 16 original parents, 112 shapes/13 buffers; no
+native activation, whole-building intersection or world behavior is claimed.
+
+The addition manifest is
+`assets/art/shared-map-support-additions/new-york-parapet-clear-blocking-v1/index.json`,
+SHA-256 `08bcb4f535a59c67dcaa4e71ac57d7e7034d870ffb690d48ce191d3937b4dd78`.
+It reuses the approved primitive/finish/UVs: 96 distinct placements, 1,152 instance
+triangles, 192 named local selections, zero new anchors and 4.3008 separate frame
+units. The stored batch versus exact sum-of-members difference is recorded as
+`-1/4503599627370496`; no original quantity or world ledger is changed.
+
+Root views both actual JPGs: repetition and one-block bearing detail are readable
+at declared scale, with no visible float; retained microscopic separation stays
+below pixel scale. These are offline source-geometry close-ups, not game/lighting
+or damaged-support acceptance. Render/conversion failures remain preserved;
+the ordinary conversion path changed no Windows policy. Root confirms all four
+recorded process IDs 9788/41128/1264/67048 absent; no helper/port remains.
+
+The first package verifier confused old producer dependency pins with later
+approved M29 helpers. Its failure is retained. The correction keeps historical
+provenance and admits exact paired original/`df3dbcea` verification sources,
+requiring unchanged consumed math/contact blocks. Four LF/CRLF admissions/five
+rejections pass; 41 protected payloads, assets, JPGs and receipts remain unchanged.
+
+Native fragment mapping, local port-loss behavior, combined accounting and
+runtime integration still require coder acceptance. The front 48 stay separate.
+The 20 obstructed positions stay unapproved; the next
+[one-profile saddle proposal](roof-saddle-proposal-brief.md) grants no full export.
