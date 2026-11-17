@@ -165,6 +165,12 @@ remain verified in the candidate checkout. The optional comparison verifies that
 successor changes only policy/source-ledger metadata relative to `a067048a`, including
 unchanged carriers, geometry, support, poses, materials and finite quantities.
 
+## Coverage-completion proposal
+
+The separate [bounded proposal](coverage-proposal.md) supplies explicit decisions for all
+75 material IDs, 29 cut issues and 664 support records. It is unapplied and preserves this
+accepted source-binding candidate, the original geometry and the three-carrier CPU pilot.
+
 ## Reproduction and checks
 
 Use Python 3.12 and the repository's existing Node runtime. No package installation,
