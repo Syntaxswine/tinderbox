@@ -168,3 +168,33 @@ remain withheld; return at most two new minimal proposals if needed. No source
 coordinate/weld, mesh/cap/UV, opening, support, stock, profile, renderer, factory
 or runtime change. Roof work stays with UI. Commit/push the bounded source
 evidence and stop for review.
+
+## Remaining-case batch acceptance
+
+Root independently reproduces artist
+`30499d04069bea041bf7cf06b4b0e6ba9bff0291`: 20 complete references (19 boxes
+and the other baluster), 40 negative controls, two disjoint-interior proofs,
+12 package payload hashes, 108 preserved files and all 1,572 geometry inputs.
+Accept those per-case measurement/scalar references. The exact arbitrary-planar
+loop extension proves coplanarity and uses its actual area vector/projection;
+it introduces no plane fit or distance allowance. Physical closedness stays
+false. No stock, support, binding or geometry is installed.
+
+Ten box sources remain withheld, plus the separately researched three roofs.
+Authorize only the two minimal proposals in that package as next prototypes:
+`replacement/office-door-7/header` and
+`replacement/court-0-0-arch-10/jamb--1`. For the former, partition by proven
+recorded cut-plane ownership and prove every planar patch/shared edge and the
+complete embedded reference. For the latter, prove exact original edge ownership
+and source correspondence; existing-node atomisation may subdivide analytical
+edges only at actual existing source points, with unchanged coordinates, source
+triangle coverage/area and volume integrals. No distance weld or fitted plane.
+Repeat topology, embedding, orientation, volume and source-plane checks before
+adopting any instance. If either remains unproved, return that failure with no
+scalar. Do not automatically extend a prototype across the other eight sources.
+
+Artist stays in the existing worktree and preserves all earlier evidence. No
+physical cap/index/UV/coordinate/opening/native-scale change, whole factory,
+stock/profile/support/binding/runtime install, renderer or retained helper.
+Coordinate finite source calculations with coder's one cost observation.
+Commit/push the bounded two-prototype evidence and stop for review.

@@ -64,3 +64,26 @@ Store the source-only harness, hashes, raw observations and findings under
 Commit/push the scoped evidence and stop for review. No runtime enablement,
 material/asset install, cheap identity shortcut or renewed actual-input grant is
 implied. The 2,599.9 ms held-fire failure remains open.
+
+## Launch failure review and one corrected attempt
+
+Coder `3ba1c01395ee86f1eded888d890a9fd964bb659d` preserves the failed launcher.
+Root verifies all 20 raw files, eight harness pins, six original/six preparation
+fragments, 30 compiler pins, three raw assets, 21-path scope and absent child
+outputs. Its two-path executable array caused `Process.Start` to fail. All 42
+native stages remain unrun. No cost, cap, equality or size result exists. Root
+independently confirms parent 25612 is absent; no child ever received a PID.
+
+Authorize exactly one new launch attempt in a distinct
+`support-large-proof-v2/` fence. Preserve v1 and its spent marker unchanged.
+Use only the verified scalar `C:/Program Files/nodejs/node.exe`, file version
+24.15.0, with one literal-path leaf/version check before launch. Do not enumerate
+PATH or coerce an array into an executable. Root verified that leaf/version.
+Record exact launcher changes and path/authority-only harness adaptations;
+calculation/preparation fragments and all physical source/caps remain frozen.
+
+All previous one-pair/one-compilation, 1 GiB, 50/55/60-second, first-failure,
+no-rerun, no-enable/codec/world/build/renderer rules remain. There has been zero
+explanatory process so far; this renewal does not authorize two native runs.
+Coordinate the one observation after artist/UI calculations exit, retain actual
+process identity/partial results/cleanup, then commit/push and stop for review.
