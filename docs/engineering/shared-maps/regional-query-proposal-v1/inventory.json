@@ -1,0 +1,700 @@
+{
+  "sourceCommit": "3b1310192f3fca2ff03fd9d73b0d0d54eb5dccfb",
+  "kind": "static source inventory, not a geometry dataset",
+  "sourceFiles": [
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "rawSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "lfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "bytes": 12868,
+      "seams": {
+        "G1": {
+          "line": 113,
+          "needle": "function crossings("
+        },
+        "G2": {
+          "line": 129,
+          "needle": "function trace("
+        },
+        "G3": {
+          "line": 154,
+          "needle": "function supportAt("
+        },
+        "G4": {
+          "line": 130,
+          "needle": "function change("
+        },
+        "G5": {
+          "line": 148,
+          "needle": "function addBatch("
+        },
+        "G6": {
+          "line": 147,
+          "needle": "function watchPath("
+        }
+      }
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "rawSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9",
+      "lfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9",
+      "bytes": 60621,
+      "seams": {
+        "T1": {
+          "line": 70,
+          "needle": "function localLinks("
+        },
+        "T2": {
+          "line": 105,
+          "needle": "function buildRays("
+        },
+        "T3": {
+          "line": 205,
+          "needle": "function applyCommand("
+        },
+        "T4": {
+          "line": 244,
+          "needle": "function moveFalls("
+        },
+        "T5": {
+          "line": 230,
+          "needle": "function resolveLanding("
+        },
+        "T6": {
+          "line": 448,
+          "needle": "function replaceSupportReferences("
+        },
+        "T7": {
+          "line": 137,
+          "needle": "function supportedPoint("
+        }
+      }
+    },
+    {
+      "path": "workbenches/bell-and-alder-closing/visibility.js",
+      "rawSha256": "25431aa7019ab7a762962cf5fe6a0daafb1e1f677d543326c1901a76f62d929e",
+      "lfSha256": "25431aa7019ab7a762962cf5fe6a0daafb1e1f677d543326c1901a76f62d929e",
+      "bytes": 1704,
+      "seams": {
+        "V1": {
+          "line": 4,
+          "needle": "function blocked("
+        }
+      }
+    },
+    {
+      "path": "src/simulation/scene-thermal.js",
+      "rawSha256": "99e9a1ef618d8cc62bda54352d5042fcffb1578a6f15daabda3bf17362b7a478",
+      "lfSha256": "99e9a1ef618d8cc62bda54352d5042fcffb1578a6f15daabda3bf17362b7a478",
+      "bytes": 38395,
+      "seams": {
+        "H1": {
+          "line": 39,
+          "needle": "function tracePart("
+        },
+        "H2": {
+          "line": 61,
+          "needle": "function trace("
+        },
+        "H3": {
+          "line": 195,
+          "needle": "function surfacePoints("
+        }
+      }
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "rawSha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "lfSha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "bytes": 5478,
+      "seams": {
+        "C1": {
+          "line": 70,
+          "needle": "function sweptCylinderClear("
+        },
+        "C2": {
+          "line": 29,
+          "needle": "function cylinderContactPolygons("
+        },
+        "C3": {
+          "line": 58,
+          "needle": "function insideSolid("
+        }
+      }
+    },
+    {
+      "path": "src/reuse/native-disc-slide.js",
+      "rawSha256": "f209ecacf532f5feb6b6744d86a76a34becd5860bb0eeda93158ebb57cd81dbf",
+      "lfSha256": "f209ecacf532f5feb6b6744d86a76a34becd5860bb0eeda93158ebb57cd81dbf",
+      "bytes": 2579,
+      "seams": {
+        "D1": {
+          "line": 12,
+          "needle": "function nativeDiscProposal("
+        }
+      }
+    },
+    {
+      "path": "src/runtime/place-navigation.js",
+      "rawSha256": "83d6b08fd17800d6ba69c2a0ba27c37ff736c11c51d1e885822e2d606c3da144",
+      "lfSha256": "83d6b08fd17800d6ba69c2a0ba27c37ff736c11c51d1e885822e2d606c3da144",
+      "bytes": 12779,
+      "seams": {
+        "P1": {
+          "line": 50,
+          "needle": "function findSupport("
+        },
+        "P2": {
+          "line": 59,
+          "needle": "function canStand("
+        },
+        "P3": {
+          "line": 43,
+          "needle": "function sourceShape("
+        }
+      }
+    },
+    {
+      "path": "src/simulation/map-navigation.js",
+      "rawSha256": "9453c05262b1dbf0f2274e0e82b2ed3a56441507fa7c627b2bfafaaf215eb8f3",
+      "lfSha256": "9453c05262b1dbf0f2274e0e82b2ed3a56441507fa7c627b2bfafaaf215eb8f3",
+      "bytes": 5768,
+      "seams": {
+        "M1": {
+          "line": 5,
+          "needle": "function createMapNavigation("
+        }
+      }
+    },
+    {
+      "path": "workbenches/furnished-house/navigation.js",
+      "rawSha256": "8ba3f2ded00f59617c8f36baa84e521f4318e6a9de55f541a68c4fac7fb3a1a9",
+      "lfSha256": "8ba3f2ded00f59617c8f36baa84e521f4318e6a9de55f541a68c4fac7fb3a1a9",
+      "bytes": 10699,
+      "seams": {
+        "N1": {
+          "line": 19,
+          "needle": "function support("
+        },
+        "N2": {
+          "line": 44,
+          "needle": "function clear("
+        },
+        "N3": {
+          "line": 81,
+          "needle": "function contactStep("
+        }
+      }
+    },
+    {
+      "path": "src/simulation/actor-support.js",
+      "rawSha256": "f61f55d982e41504671c79f12e84041b6b919266df38dbf94c102e9015ebaa37",
+      "lfSha256": "f61f55d982e41504671c79f12e84041b6b919266df38dbf94c102e9015ebaa37",
+      "bytes": 2376,
+      "seams": {
+        "A1": {
+          "line": 6,
+          "needle": "function advanceActorSupport("
+        }
+      }
+    },
+    {
+      "path": "src/simulation/source-follow.js",
+      "rawSha256": "aee6a5e72f2d4b64edc3e6faf44d4de1d7448e9000b765aa0f9c677be15d5d06",
+      "lfSha256": "aee6a5e72f2d4b64edc3e6faf44d4de1d7448e9000b765aa0f9c677be15d5d06",
+      "bytes": 3070,
+      "seams": {
+        "F1": {
+          "line": 10,
+          "needle": "function parents("
+        },
+        "F2": {
+          "line": 14,
+          "needle": "function partition("
+        },
+        "F3": {
+          "line": 23,
+          "needle": "function resolve("
+        }
+      }
+    },
+    {
+      "path": "src/simulation/source-support-calculations.js",
+      "rawSha256": "d4c6832ae5550bade0fb4eb946bfe87e91d14840e7d88fb128694f6976f1a136",
+      "lfSha256": "d4c6832ae5550bade0fb4eb946bfe87e91d14840e7d88fb128694f6976f1a136",
+      "bytes": 6621,
+      "seams": {
+        "S1": {
+          "line": 43,
+          "needle": "function coldPieces("
+        },
+        "S2": {
+          "line": 13,
+          "needle": "function selectRegion("
+        },
+        "S3": {
+          "line": 47,
+          "needle": "function connectContact("
+        }
+      }
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "rawSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+      "lfSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+      "bytes": 7779,
+      "seams": {
+        "B1": {
+          "line": 11,
+          "needle": "function touching("
+        }
+      }
+    },
+    {
+      "path": "src/runtime/source-query-registry.js",
+      "rawSha256": "0baff57a303fb5eb9779dbbb5d816088d222e8f4af49e80586a1e17e8db363e8",
+      "lfSha256": "0baff57a303fb5eb9779dbbb5d816088d222e8f4af49e80586a1e17e8db363e8",
+      "bytes": 5870,
+      "seams": {
+        "Q1": {
+          "line": 16,
+          "needle": "function shape("
+        },
+        "Q2": {
+          "line": 33,
+          "needle": "function prepareClaim("
+        },
+        "Q3": {
+          "line": 26,
+          "needle": "function install("
+        }
+      }
+    },
+    {
+      "path": "src/runtime/native-query-registry.js",
+      "rawSha256": "42dfe59ab9c07e8b37a5c59c02f28378ca84f8fdc437746b41570889487be858",
+      "lfSha256": "42dfe59ab9c07e8b37a5c59c02f28378ca84f8fdc437746b41570889487be858",
+      "bytes": 6752,
+      "seams": {
+        "R1": {
+          "line": 9,
+          "needle": "function floorShape("
+        },
+        "R2": {
+          "line": 40,
+          "needle": "function install("
+        }
+      }
+    },
+    {
+      "path": "src/content/map-source-geometry.js",
+      "rawSha256": "83db4af6a2754b06c24e7afc1c28f617403ab44d609ec22a90fe2e8914445a01",
+      "lfSha256": "83db4af6a2754b06c24e7afc1c28f617403ab44d609ec22a90fe2e8914445a01",
+      "bytes": 7604,
+      "seams": {
+        "O1": {
+          "line": 34,
+          "needle": "function sourceBlueprint("
+        },
+        "O2": {
+          "line": 56,
+          "needle": "shapeForPart(id,open)"
+        }
+      }
+    },
+    {
+      "path": "src/simulation/source-activation.js",
+      "rawSha256": "2b612431c691fec709087130217e98925bab42ed40d2de268e8b6fafb9cbf358",
+      "lfSha256": "2b612431c691fec709087130217e98925bab42ed40d2de268e8b6fafb9cbf358",
+      "bytes": 3272,
+      "seams": {
+        "X1": {
+          "line": 5,
+          "needle": "function ensure("
+        }
+      }
+    },
+    {
+      "path": "docs/engineering/shared-maps/regional-query-proposal-brief.md",
+      "rawSha256": "19a7e90b94b7e39b8a0b4ebe95b46d103ae789438da73793e033f6c30c547dbb",
+      "lfSha256": "19a7e90b94b7e39b8a0b4ebe95b46d103ae789438da73793e033f6c30c547dbb",
+      "bytes": 3134,
+      "seams": {
+        "AUTH": {
+          "line": 8,
+          "needle": "Return one short, implementable interface proposal"
+        }
+      }
+    },
+    {
+      "path": "docs/engineering/shared-maps/bounded-source-compiler-pilot.md",
+      "rawSha256": "b113db51aecda3af069c8bb2b08345188a538b720437cddc04f594cccdc43805",
+      "lfSha256": "b113db51aecda3af069c8bb2b08345188a538b720437cddc04f594cccdc43805",
+      "bytes": 6271,
+      "seams": {
+        "GATE": {
+          "line": 86,
+          "needle": "Mixed closed-solid query replacement"
+        }
+      }
+    },
+    {
+      "path": "docs/engineering/shared-maps/bounded-source-regions-v1.md",
+      "rawSha256": "045517f638f55f29a67fa6dd230c508a090b057d86b0e4a8b86a4d94596e65ec",
+      "lfSha256": "045517f638f55f29a67fa6dd230c508a090b057d86b0e4a8b86a4d94596e65ec",
+      "bytes": 13459,
+      "seams": {
+        "FIXTURE": {
+          "line": 3,
+          "needle": "Owner `new-york::carrier/roof/clerestory`"
+        }
+      }
+    }
+  ],
+  "existingControls": [
+    {
+      "path": "tests/furnished-house/geometry.test.mjs",
+      "rawSha256": "02eea7fa52a724d80590fe126803e1dfc8765ef301383abb2ed3c5b26ca9276c",
+      "lfSha256": "02eea7fa52a724d80590fe126803e1dfc8765ef301383abb2ed3c5b26ca9276c",
+      "testsReadNotExecuted": [
+        {
+          "line": 5,
+          "source": "test('opposite observers and duplicate insertion retain the same physical face identity',()"
+        },
+        {
+          "line": 12,
+          "source": "test('sealed diagonal corner collects every simultaneous boundary instead of the best axis route',()"
+        },
+        {
+          "line": 18,
+          "source": "test('window aperture changes the crossing window, not the adjacent wall',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/native-map-queries.test.mjs",
+      "rawSha256": "6913372543c5b40c132989230bbbc36ef6fdabbd94a34613ac33d58ee960fafa",
+      "lfSha256": "6913372543c5b40c132989230bbbc36ef6fdabbd94a34613ac33d58ee960fafa",
+      "testsReadNotExecuted": [
+        {
+          "line": 18,
+          "source": "test('unassigned native geometry screens a reachable matched heat receiver through the shared physical index',t"
+        },
+        {
+          "line": 47,
+          "source": "test('partial known-floor retirement cannot be resurrected by a static proxy or query reload',()"
+        },
+        {
+          "line": 59,
+          "source": "test('distant unassigned source registration does not allocate cold thermal cells or change a local fire trajectory',()"
+        },
+        {
+          "line": 68,
+          "source": "test('a real native falling lantern hits the same unassigned solid and spills on the near side',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/source-collision.test.mjs",
+      "rawSha256": "d0cade7e26d8caa1982817a8ead0a3ce858556304e14a9178db502484754ea52",
+      "lfSha256": "d0cade7e26d8caa1982817a8ead0a3ce858556304e14a9178db502484754ea52",
+      "testsReadNotExecuted": [
+        {
+          "line": 17,
+          "source": "test('one retained U-frame mesh keeps its real aperture traversable while intact jambs and low lintel remain solid',()"
+        },
+        {
+          "line": 28,
+          "source": "test('an uncapped clipped pane does not acquire a phantom solid volume across its lower opening',()"
+        },
+        {
+          "line": 35,
+          "source": "test('native diagonal walls use their oriented source shape and closed solid interiors remain occupied',()"
+        },
+        {
+          "line": 43,
+          "source": "test('source-shape transforms remain bounded on out-and-back queries and retire on disposal',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/actor-support.test.mjs",
+      "rawSha256": "0101ac8bd79da680af4fb5f460ac90a28a279008fba1e719eedd513e35c04d90",
+      "lfSha256": "0101ac8bd79da680af4fb5f460ac90a28a279008fba1e719eedd513e35c04d90",
+      "testsReadNotExecuted": [
+        {
+          "line": 10,
+          "source": "for(const characterId of ['goat','horse','bear'])test('a ticking native '+characterId+' falls from a local floor hole and lands on real ground with pause preserving world time',()"
+        },
+        {
+          "line": 25,
+          "source": "test('powder slows native fall time while unsupported pouring spends no oil or player-clock movement',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/source-activation.test.mjs",
+      "rawSha256": "3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663",
+      "lfSha256": "3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663",
+      "testsReadNotExecuted": [
+        {
+          "line": 20,
+          "source": "test('atomic floor activation rebinds existing oil support and cannot resurrect a retired patch on reload',()"
+        },
+        {
+          "line": 35,
+          "source": "test('a failed canonical transfer leaves the cold source, reserve, cells and clock untouched',()"
+        },
+        {
+          "line": 41,
+          "source": "test('thermal-frontier activation preserves finite clocks and ignores distant unrelated cold stock',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/native-source-registration.test.mjs",
+      "rawSha256": "5f3fb9404a767a7fc9796599d618a179d6f51e308a6e857acbb5e893a6cf388f",
+      "lfSha256": "5f3fb9404a767a7fc9796599d618a179d6f51e308a6e857acbb5e893a6cf388f",
+      "testsReadNotExecuted": [
+        {
+          "line": 8,
+          "source": "test('a staged native source matches eager geometry and combustion without creating initial world stock twice',()"
+        },
+        {
+          "line": 20,
+          "source": "test('failed or stale source staging changes no live geometry, fuel, heat or native clock',()"
+        },
+        {
+          "line": 29,
+          "source": "test('registration preserves existing heat and fuel while adding a real radiation receiver',()"
+        },
+        {
+          "line": 38,
+          "source": "test('new native boundaries invalidate a previously clear cached path in one publication',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/source-continuity.test.mjs",
+      "rawSha256": "3a7d53418ea52b608b51ccb33f36f05b49add9a3d1509a529136b568ad7e50a4",
+      "lfSha256": "3a7d53418ea52b608b51ccb33f36f05b49add9a3d1509a529136b568ad7e50a4",
+      "testsReadNotExecuted": [
+        {
+          "line": 27,
+          "source": "test('local native candidates preserve order/current geometry with unrelated overlapping active and cold records',()"
+        },
+        {
+          "line": 35,
+          "source": "test('actual clipped door fragments and retired original patches keep authoritative geometry after native poses',()"
+        },
+        {
+          "line": 46,
+          "source": "test('asymmetric open-facet predicate arguments retain the exact original ID-directed order',()"
+        },
+        {
+          "line": 57,
+          "source": "test('the native one-metre membership count is bounded and no stale owner copy can enter the visit',()"
+        },
+        {
+          "line": 63,
+          "source": "test('the accepted ten New York support controls retain every ordered native candidate without another source transform or fuel birth',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/furnished-house/review.test.mjs",
+      "rawSha256": "23d4829711aae4e46ff748ad55525a01023ac509815b9231547a1aef6ac27e09",
+      "lfSha256": "23d4829711aae4e46ff748ad55525a01023ac509815b9231547a1aef6ac27e09",
+      "testsReadNotExecuted": [
+        {
+          "line": 11,
+          "source": "test('retained frames publish unlit heating, charring and subsequent cooling',()"
+        },
+        {
+          "line": 17,
+          "source": "test('finite upper oil puddles fall through lost support and land without duplication or repeated burn',()"
+        },
+        {
+          "line": 26,
+          "source": "test('a container above an existing hole sends its finite oil along actual falling paths',()"
+        },
+        {
+          "line": 31,
+          "source": "test('a blocked finite oil store remains full and may retry after a path becomes available',()"
+        },
+        {
+          "line": 38,
+          "source": "test('moving a canonical door invalidates newly intersected as well as previously crossed cached paths',()"
+        },
+        {
+          "line": 43,
+          "source": "test('a lantern breaks glass then stops at the following masonry in the same tick',()"
+        },
+        {
+          "line": 47,
+          "source": "test('spent wood becomes passable while the actual inert iron stove component remains',()"
+        },
+        {
+          "line": 52,
+          "source": "test('native worktable follows its own footprint supports, independently of the source group pivot under the stove',()"
+        },
+        {
+          "line": 59,
+          "source": "test('navigation includes the actual sixteen-centimetre wall thickness',()"
+        },
+        {
+          "line": 63,
+          "source": "test('cold fuel-free native stove fall has no ignition or smoke and survives JSON serialization',()"
+        },
+        {
+          "line": 67,
+          "source": "test('an unburned roof loses its actual bearing, falls with the same finite fuel and stops on the inert support',()"
+        },
+        {
+          "line": 73,
+          "source": "test('a vertically falling lantern grazes a wall edge without repeated up-nudges or an event storm',()"
+        },
+        {
+          "line": 77,
+          "source": "test('landed structural rubble survives its flight tombstone and becomes inert ash without new fuel',()"
+        },
+        {
+          "line": 82,
+          "source": "test('a skipped landing and retransfer publishes only current fall/rubble associations and retires both historical poses',()"
+        },
+        {
+          "line": 97,
+          "source": "test('a same-ID item reactivation supersedes its historical fall tombstone in a coalesced frame',()"
+        },
+        {
+          "line": 104,
+          "source": "test('a detached exterior fragment grazes a floor edge and keeps falling to a real supported footprint',()"
+        },
+        {
+          "line": 111,
+          "source": "test('a physical fitting top can bear landed fuel and releases it again when that actual top retires',()"
+        },
+        {
+          "line": 117,
+          "source": "test('a watertight infill prism keeps a real 3.75mm passage margin instead of an internal-diagonal parity obstacle',()"
+        },
+        {
+          "line": 121,
+          "source": "test('native inert chimney uses the same prepared art/physics binding and falls on lost roof bearing without new fuel',()"
+        },
+        {
+          "line": 126,
+          "source": "test('attachment fragments contain only their local source geometry and lose support when their lower fragment retires',()"
+        },
+        {
+          "line": 132,
+          "source": "test('native stair gait raises the accepted foot plane while retaining body, headroom and step limits',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/sandbox/native-placement.test.mjs",
+      "rawSha256": "17c35a79bc1c30f7061ab0fcd9bb3b82b3ae7161046244802f4c477bb017cb91",
+      "lfSha256": "17c35a79bc1c30f7061ab0fcd9bb3b82b3ae7161046244802f4c477bb017cb91",
+      "testsReadNotExecuted": [
+        {
+          "line": 28,
+          "source": "test('owned explicit collision vertices receive translation and all four native quarter-turns without source mutation',()"
+        },
+        {
+          "line": 36,
+          "source": "test('compiled broad-phase bounds include the actual explicit solid beyond its thermal plane at every rotation',()"
+        },
+        {
+          "line": 48,
+          "source": "test('pinned H15 railing blocks the real world-space native sweep and movement at its rendered position',()"
+        },
+        {
+          "line": 57,
+          "source": "test('world clipping preserves native rail area and local retirement leaves no full-mesh ghost in surviving fragments',()"
+        },
+        {
+          "line": 68,
+          "source": "test('explicit compound mesh placement and clipping preserve its real aperture',()"
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/map-source-geometry.test.mjs",
+      "rawSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40",
+      "lfSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40",
+      "testsReadNotExecuted": [
+        {
+          "line": 19,
+          "source": "test('compact sources keep local buffers deduplicated and apply the native placement once on demand',()"
+        },
+        {
+          "line": 31,
+          "source": "test('a merged logical source range retains its selected original attributes and owns only those triangles',()"
+        },
+        {
+          "line": 40,
+          "source": "test('inert door hardware keeps its real thin facets through cold and registered hinge poses',()"
+        }
+      ]
+    }
+  ],
+  "savedFixture": {
+    "path": "docs/engineering/shared-maps/support-large-proof-v2/reference-blocks.json",
+    "rawSha256": "bfab707ff646e9dfedfaae3b80d510ac750e4f561335d895c24c4e4cc4d49418",
+    "bytes": 24151807,
+    "grid": {
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "pitch": [
+        0.5,
+        1.06,
+        0.5
+      ]
+    },
+    "owners": {
+      "new-york::carrier/roof/clerestory": {
+        "originalParts": [
+          {
+            "id": "roof/clerestory",
+            "closed": true
+          }
+        ],
+        "nativeFragments": 4132,
+        "nativeClosedFlags": {
+          "False": 4132
+        },
+        "firstOriginalNativeId": "new-york::carrier/roof/clerestory/part/10387/face/0@83,20,67",
+        "lastOriginalNativeId": "new-york::carrier/roof/clerestory/part/10387/face/4@140,20,100"
+      },
+      "new-york::carrier/clerestory-roof-deck/tile--1-10": {
+        "originalParts": [
+          {
+            "id": "clerestory-roof-deck/tile--1-10",
+            "closed": true
+          }
+        ],
+        "nativeFragments": 4,
+        "nativeClosedFlags": {
+          "{'$undefined': True}": 4
+        },
+        "firstOriginalNativeId": "new-york::carrier/clerestory-roof-deck/tile--1-10/part/1491/plane@110,19,72",
+        "lastOriginalNativeId": "new-york::carrier/clerestory-roof-deck/tile--1-10/part/1491/plane@111,19,73"
+      }
+    }
+  },
+  "checks": {
+    "passed": true,
+    "mainProposalWords": 819,
+    "limit": 900,
+    "allSeamReferencesFound": true,
+    "testExecution": false,
+    "nativeCompilerWorldPhysicsRun": false,
+    "geometryOrDatasetExport": false
+  },
+  "proposalSha256": "293b254590204a0f4b1a792f6e48fdfab455f1a93a1fb8a213850a3ccf35e23d",
+  "inventoryScriptSha256": "c2205c71023972767aa4652448784a83afd310384b1af673d11c5b9bc2a4a03b"
+}

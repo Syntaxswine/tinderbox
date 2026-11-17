@@ -1,0 +1,291 @@
+{
+  "allGlassLivePathsOrNativeAdmissionProved": false,
+  "authoredDisconnectedVentOpeningMemberships": 12,
+  "authorityCommit": "02aa95bbcc2b95927837fbab05a4a6002f201ff9",
+  "coderDraftCommit": "5478eb5cbb4c701ce88e3642c58a13eb7547f282",
+  "compilerContextPortability": {
+    "allowedExactLFContexts": [
+      {
+        "gitBlobSha1": "fede6e85aed6914a1a57716b6bf5d40654b41c8d",
+        "id": "original-calculation-e3b30186",
+        "lfBytes": 11266,
+        "lfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
+        "sourceCommit": "e3b301860fad13855c7d2a8926f81bb1c4aed6be",
+        "sourcePath": "workbenches/furnished-house/scene.js",
+        "verificationStatus": "original-calculation-context"
+      },
+      {
+        "gitBlobSha1": "c656261daadaca1d1a770d0db72459464926256a",
+        "id": "approved-combined-1a88cf47",
+        "lfBytes": 15523,
+        "lfSha256": "5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36",
+        "sourceCommit": "1a88cf4748bf62c1456285ff43412c929d311199",
+        "sourcePath": "workbenches/furnished-house/scene.js",
+        "verificationStatus": "explicit-approved-combined-source-context"
+      },
+      {
+        "gitBlobSha1": "785ccb0b81dd8800ad1ecdf9607996b4f0aeaf0e",
+        "id": "candidate-verification-c66e6594",
+        "lfBytes": 16400,
+        "lfSha256": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b",
+        "sourceCommit": "c66e659451284309e48dc420791369dd5af37e1e",
+        "sourcePath": "workbenches/furnished-house/scene.js",
+        "verificationStatus": "candidate-source-verification-only; runtime candidate acceptance not granted"
+      }
+    ],
+    "archivesOriginalCalculatorOrGeometryRewritten": false,
+    "nativeWorldRendererRun": false,
+    "positiveControls": 6,
+    "preservedOriginalFailurePath": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-original-failure.json",
+    "rejectingControls": 3,
+    "requiredProfileBlocksEqualAcrossContexts": true,
+    "requiredProfileValues": {
+      "cloth": {
+        "delay": 0.5,
+        "energy": 600,
+        "seconds": 20,
+        "threshold": 0.8
+      },
+      "frame": {
+        "delay": 3,
+        "energy": 2250,
+        "seconds": 180,
+        "threshold": 1.3
+      }
+    },
+    "runtimeAcceptanceGrantedByThisCheck": false,
+    "sourcePath": "workbenches/furnished-house/scene.js",
+    "unaffectedOriginalPayloadFiles": 34,
+    "workingContextReportedSeparatelyInStdout": true
+  },
+  "compressedCalculationBytes": 10031978,
+  "directLocalFrameContactRequiredAtEveryMask": false,
+  "documentationReferenceReview": {
+    "authoredLocalLinks": 26,
+    "result": "PASS",
+    "verbatimSnapshotLinksAtOriginalGitContext": 6
+  },
+  "files": [
+    {
+      "bytes": 85,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/.gitattributes",
+      "sha256": "f165ae186f2453125b9db0836ffabfc5d2d08538f4bdda672dad5838c0a46646"
+    },
+    {
+      "bytes": 3975,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/authority-02aa95bb.md",
+      "sha256": "3f134305a76f27d93e72d06faea2e5b728d5d95d8d0bc18fb6aca3c0d9db6f12"
+    },
+    {
+      "bytes": 18148,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculate.py",
+      "sha256": "21592992b5c5f1829a796b768da23694483811faa56776f1cb644257ba23b96d"
+    },
+    {
+      "bytes": 1381,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/README.md",
+      "sha256": "1d5808a155953fb0d28607d8dbcc12218df425909881fefe1cc0478ee7b16070"
+    },
+    {
+      "bytes": 659,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/check-results.json.gz",
+      "sha256": "c6e9389b670497893d41f4ee8102f064d6cb148b598515dee7b9dd8f9a7f061c"
+    },
+    {
+      "bytes": 56140,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/dependency-exceptions.json.gz",
+      "sha256": "c047aa3573c5d7067fdf5680631022c49e96476ceef23a02f65210f8c8430bad"
+    },
+    {
+      "bytes": 9019662,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/glazing-local-damage-proposal.json.gz",
+      "sha256": "456a7133f5158897c95c2a082a1aab51321d38baf4d6a1f6b9b2da15b62c624b"
+    },
+    {
+      "bytes": 375078,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/glazing-source-catalogue.json.gz",
+      "sha256": "a3f3e1bbcdf4a0f55d68d963f5b2ae815a52c275443d8244e3fb10e9447e559a"
+    },
+    {
+      "bytes": 84238,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/input-pins.json.gz",
+      "sha256": "b92cb5eb9800a6baf6b6d8089963375ef3647d1dfbcc41e3efe7e33d31e8daf8"
+    },
+    {
+      "bytes": 5035,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/manifest.json",
+      "sha256": "2e7791c870bd3bf8511b2f1606349a331a0aaaa484ce2167ed2941d7f5c06da0"
+    },
+    {
+      "bytes": 379,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/negative-controls.json.gz",
+      "sha256": "d0d291710be67c21625fcdbecd432d722eb34d632ef2436e7f3bc4fd6a9d4688"
+    },
+    {
+      "bytes": 6377,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/original-calculator.py.gz",
+      "sha256": "a6d4516d1fd6ba748cb78b35895481d336fc4fea36a573cd5ed036287a4849f3"
+    },
+    {
+      "bytes": 29448,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/plant-parent-evidence.json.gz",
+      "sha256": "d45879c205ffec7e49c295a0cdd93e8c6a294e0bd0e26496e42ecb6b2450c6e0"
+    },
+    {
+      "bytes": 424877,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/plant-quantity-proofs.json.gz",
+      "sha256": "be69615d713ab9b0b90e239dc8dcc292dae49f01bad8d6a93c5181e5373ed1d6"
+    },
+    {
+      "bytes": 1128,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/schema-proposal.json.gz",
+      "sha256": "23426a5f4c708465cbb7e496c1a701d0f5e089de1b27f1b03d3813efb523f4c6"
+    },
+    {
+      "bytes": 40369,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/vegetation-owners-proposal.json.gz",
+      "sha256": "fefc91f1ac71978b6bf0fdad0bd0a9445954246eaef13cd5843336ffe6ac2f2d"
+    },
+    {
+      "bytes": 5232,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/cells.py",
+      "sha256": "982e60f9b5da082f1a3de02d88280a6b93f8be78ced6070c90d5d8e03dbf8c89"
+    },
+    {
+      "bytes": 1572,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/check-results.json",
+      "sha256": "a33d112814f3ac26f71a7ceafff9fc01ff5cc04ed0363d9902eda0d066e4f048"
+    },
+    {
+      "bytes": 13459,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/coder-bounded-source-5478eb5c.md",
+      "sha256": "045517f638f55f29a67fa6dd230c508a090b057d86b0e4a8b86a4d94596e65ec"
+    },
+    {
+      "bytes": 2211,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/compiler-contexts.json",
+      "sha256": "20b68723a893e8c2030023899a25fcbe6788c11d0c1e0ae19ef4b5bd81d0d22a"
+    },
+    {
+      "bytes": 31962,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/dependency-exceptions.json",
+      "sha256": "5944ec53b3d3c9b91b8dbaa156251948be18d336579a9a5391bd80f099ec5605"
+    },
+    {
+      "bytes": 27966,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/glazing-component-path-proposal.json",
+      "sha256": "3bdf02a7649844fad546e313e9b0d14a28e34fad03c24b3c3276b46f6390e47e"
+    },
+    {
+      "bytes": 26442,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/glazing-local-damage-proposal.json",
+      "sha256": "cd17453a73c2e6e1ff18df921800f3e10de057e39e298248ef1b3a344ee8938a"
+    },
+    {
+      "bytes": 1563441,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/glazing-source-catalogue.json",
+      "sha256": "d9a1b5d453c10bc4b724ff701a66e2252132d98e0736a0e1fc6cc146f8d58b7f"
+    },
+    {
+      "bytes": 6966,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/glazing.py",
+      "sha256": "b3495ab1b7d26905d3d20a46fcf118bb030badae0603d4c493690e6924be31c0"
+    },
+    {
+      "bytes": 296194,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/input-pins.json",
+      "sha256": "04e7f2e7674405f69e38bbfc373fe36ab825691034b93c99056f61c55db0ccb4"
+    },
+    {
+      "bytes": 2285,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/interface-note.md",
+      "sha256": "38bc31f48274447742d1343af7c4d4f46515f2b2c244d10083b67d0ca4e0660c"
+    },
+    {
+      "bytes": 1829,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/negative-controls.json",
+      "sha256": "f8fc54f3292d865ef398fda4eb3aed774fe7e402fefd731d2f0f22603f826dc2"
+    },
+    {
+      "bytes": 995806,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/plant-parent-evidence.json",
+      "sha256": "04f076719674fd67e8db952aac960f7d481e7372e168396caf6e86cdd6c7e30a"
+    },
+    {
+      "bytes": 4729709,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/plant-quantity-proofs.json",
+      "sha256": "699457802a5f66645cb847b6adb4412b89a9f88e6b332badd217fdabd6f9ce1e"
+    },
+    {
+      "bytes": 894,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-original-failure.json",
+      "sha256": "b57f12e21acce3f0bc4ee3d383a7b4a50023e732c6cd2cae84c395a9635cd1e4"
+    },
+    {
+      "bytes": 3487,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-verification.json",
+      "sha256": "5447486b4c5169ecb4078477261ef6f8e5a4b2cbe62b4a4ebe2d23c600169557"
+    },
+    {
+      "bytes": 5921,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context.py",
+      "sha256": "217f7ed01adf7555c04a068debddb5305d542d21294f2d3cd6a7f67a911aef94"
+    },
+    {
+      "bytes": 17184,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/review.py",
+      "sha256": "5eee483fc8623f5f5b5b1b5de5214472574da4e36f1cd8cdc685fcf5c4b354a5"
+    },
+    {
+      "bytes": 3082,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/schema-proposal.json",
+      "sha256": "c53ebd4c8e3d8115433aa5ddcba83be2214b896908daae54d44c74e29aef91d3"
+    },
+    {
+      "bytes": 1650,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/scope.md",
+      "sha256": "35a4674b77e3ebf940d7652409e15b6bb09146bbdb752736b658dcb474d1a3bb"
+    },
+    {
+      "bytes": 10120,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/source.py",
+      "sha256": "60a84b7f4e360de7f6bb48258a0a8fdfa5db9fcde419417f835ff76c50d212db"
+    },
+    {
+      "bytes": 1191324,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/vegetation-owners-proposal.json",
+      "sha256": "e1f6a96c5c7583344896534e1c207aa0a0120b2ec16f872336421862600b3d50"
+    },
+    {
+      "bytes": 10574,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/vegetation.py",
+      "sha256": "fa8cb255afc34f94337efb0a87c775eb27193fb0f7569441a97d866c6f200ce6"
+    },
+    {
+      "bytes": 9831,
+      "path": "docs/art/shared-map-fire-bindings/vegetation-pane-proposal-v1.md",
+      "sha256": "e4d8a007df3552a73429c3a3c6652194d4024f8c596d59d95580f84cb85c35b6"
+    }
+  ],
+  "negativeControls": 12,
+  "oneSidedFrondAreas": 120,
+  "originalGeometryContext": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "originalGeometryInputsPreserved": 1572,
+  "originalGlazingParts": 433,
+  "parentArtistCommit": "e3b301860fad13855c7d2a8926f81bb1c4aed6be",
+  "plantLocalPatches": 208,
+  "plantOwners": 98,
+  "preservedSourceCalculationOutputs": 10,
+  "priorPayloadAndPackageFilesPreserved": 144,
+  "rawCalculationBytes": 201206429,
+  "readOnlyCheck": "python -B art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/review.py",
+  "representativePristineWithinFacetPaths": 4,
+  "reviewStatus": "compact source-only proposal checkpoint; architect/coder schema review pending",
+  "runtimeBindingsStockProfilesGeometryOrFullAuthoringExport": false,
+  "schemaProposalsUnaccepted": 8,
+  "trunkQuantityCertificates": 22,
+  "verifierCorrectionParentArtistCommit": "c50f590c6d62676cabbca87c24a13e8fee16849e",
+  "version": 1,
+  "worldNativeFactoryRendererOrRetainedHelper": false,
+  "zeroAdditionalStockFollowers": 204
+}

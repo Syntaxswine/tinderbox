@@ -202,3 +202,11 @@ Horticulture and compatibility corrections are not declared finished. Master and
 Pages remain unchanged; no source-proof branch is a new playable release. All
 recorded completed proof/check processes have exited; the existing assigned
 chats continue their bounded work.
+
+The [subsequent compiler-stage review](2026-11-17-shared-map-compiler-stage.md)
+accepts the isolated two-metre compiler/quantity pilot and its returned receipt/
+catalogue guards after 12 independent focused checks and preserved large-data
+equivalence. The next query kernel remains isolated. Plant/pane source references
+are accepted without runtime installation, and the 96 clear parapet additions
+are assigned separately. Cross-map gameplay, live query/support integration,
+interaction performance and publication remain incomplete.
