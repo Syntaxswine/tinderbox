@@ -1,0 +1,974 @@
+{
+  "noInstanceAdoptionOrPhysicalCapExport": true,
+  "prototypes": [
+    {
+      "actualAffineDeterminant": {
+        "approximate": 1.0,
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "balusterRecordedCutIntersectionVolumeUnproved": false,
+      "boxFiveFaceCoverageCrosscheck": [
+        {
+          "actualFullFaceCoverage": {
+            "area": {
+              "approximate": 0.04640010223374702,
+              "denominator": "34359738368",
+              "numerator": "1594295373"
+            },
+            "hi": [
+              {
+                "approximate": 7.429999828338623,
+                "denominator": "2097152",
+                "numerator": "15581839"
+              },
+              {
+                "approximate": 59.691837310791016,
+                "denominator": "262144",
+                "numerator": "15647857"
+              }
+            ],
+            "lo": [
+              {
+                "approximate": 7.269999980926514,
+                "denominator": "2097152",
+                "numerator": "15246295"
+              },
+              {
+                "approximate": 59.40183639526367,
+                "denominator": "262144",
+                "numerator": "15571835"
+              }
+            ],
+            "nonoverlap": {
+              "proved": true,
+              "trianglePairs": 1
+            },
+            "proved": true
+          },
+          "axis": 0,
+          "sign": 1
+        },
+        {
+          "actualFullFaceCoverage": {
+            "area": {
+              "approximate": 0.4611014307974983,
+              "denominator": "549755813888",
+              "numerator": "253493192373"
+            },
+            "hi": [
+              {
+                "approximate": 2.8899998664855957,
+                "denominator": "2097152",
+                "numerator": "6060769"
+              },
+              {
+                "approximate": 59.691837310791016,
+                "denominator": "262144",
+                "numerator": "15647857"
+              }
+            ],
+            "lo": [
+              {
+                "approximate": 1.2999999523162842,
+                "denominator": "4194304",
+                "numerator": "5452595"
+              },
+              {
+                "approximate": 59.40183639526367,
+                "denominator": "262144",
+                "numerator": "15571835"
+              }
+            ],
+            "nonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "proved": true
+          },
+          "axis": 1,
+          "sign": 1
+        },
+        {
+          "actualFullFaceCoverage": {
+            "area": {
+              "approximate": 0.4611014307974983,
+              "denominator": "549755813888",
+              "numerator": "253493192373"
+            },
+            "hi": [
+              {
+                "approximate": 2.8899998664855957,
+                "denominator": "2097152",
+                "numerator": "6060769"
+              },
+              {
+                "approximate": 59.691837310791016,
+                "denominator": "262144",
+                "numerator": "15647857"
+              }
+            ],
+            "lo": [
+              {
+                "approximate": 1.2999999523162842,
+                "denominator": "4194304",
+                "numerator": "5452595"
+              },
+              {
+                "approximate": 59.40183639526367,
+                "denominator": "262144",
+                "numerator": "15571835"
+              }
+            ],
+            "nonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "proved": true
+          },
+          "axis": 1,
+          "sign": -1
+        },
+        {
+          "actualFullFaceCoverage": {
+            "area": {
+              "approximate": 0.25439974365235685,
+              "denominator": "1099511627776",
+              "numerator": "279715476249"
+            },
+            "hi": [
+              {
+                "approximate": 2.8899998664855957,
+                "denominator": "2097152",
+                "numerator": "6060769"
+              },
+              {
+                "approximate": 7.429999828338623,
+                "denominator": "2097152",
+                "numerator": "15581839"
+              }
+            ],
+            "lo": [
+              {
+                "approximate": 1.2999999523162842,
+                "denominator": "4194304",
+                "numerator": "5452595"
+              },
+              {
+                "approximate": 7.269999980926514,
+                "denominator": "2097152",
+                "numerator": "15246295"
+              }
+            ],
+            "nonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "proved": true
+          },
+          "axis": 2,
+          "sign": -1
+        },
+        {
+          "actualFullFaceCoverage": {
+            "area": {
+              "approximate": 0.25439974365235685,
+              "denominator": "1099511627776",
+              "numerator": "279715476249"
+            },
+            "hi": [
+              {
+                "approximate": 2.8899998664855957,
+                "denominator": "2097152",
+                "numerator": "6060769"
+              },
+              {
+                "approximate": 7.429999828338623,
+                "denominator": "2097152",
+                "numerator": "15581839"
+              }
+            ],
+            "lo": [
+              {
+                "approximate": 1.2999999523162842,
+                "denominator": "4194304",
+                "numerator": "5452595"
+              },
+              {
+                "approximate": 7.269999980926514,
+                "denominator": "2097152",
+                "numerator": "15246295"
+              }
+            ],
+            "nonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "proved": true
+          },
+          "axis": 2,
+          "sign": 1
+        }
+      ],
+      "candidateSourceRepresentationForReview": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 8.520226455511421e-17,
+          "denominator": "9735556609752801443206710427648",
+          "numerator": "829491469855449"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fe3ac73d21faf31",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.6148013214092086,
+          "denominator": "9007199254740992",
+          "numerator": "5537638004010801"
+        },
+        "exactRationalLower": {
+          "approximate": 0.6148013214092087,
+          "denominator": "17293822569102704",
+          "numerator": "10632264967700739"
+        },
+        "hexFloat": "0x1.3ac73d21faf31p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fe3ac73d21faf31",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.6148013214092086",
+        "nextUpBitsUint64Hex": "0x3fe3ac73d21faf32",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.6148013214092087,
+          "denominator": "4503599627370496",
+          "numerator": "2768819002005401"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.6148013214092087,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.6148013214092086
+      },
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/95e219c179a7ecf514d1305bbad2e65f82239d809f64fc180a5e6f30767e1205.json",
+      "geometrySha256": "c661df18bbe8ffd229060e283d3d827b10f0597b72007c87c928d73e5c478e9e",
+      "implicitReferenceFaceEvidence": [
+        {
+          "areaExact": {
+            "approximate": 0.04640010223374702,
+            "denominator": "34359738368",
+            "numerator": "1594295373"
+          },
+          "axis": 0,
+          "capturedPlane": {
+            "approximate": 1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "5452595"
+          },
+          "existingOrientedBoundaryVertexReferences": [
+            20,
+            17,
+            22,
+            33,
+            11,
+            8,
+            13,
+            26
+          ],
+          "orientedAreaVector": [
+            {
+              "approximate": -0.04640010223374702,
+              "denominator": "34359738368",
+              "numerator": "-1594295373"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "simpleExistingPlanarLoopProved": true,
+          "sourceOriginVolumeContribution": {
+            "approximate": -0.02010671023044728,
+            "denominator": "144115188075855872",
+            "numerator": "-2897682326447645"
+          }
+        }
+      ],
+      "instanceAdopted": false,
+      "interpretation": "Captured retained source surface plus only its own oriented simple cut-boundary disks. This describes the captured material; it does not replace the source with an ideal unquantized solid.",
+      "intersectionNote": "The box has a proven positive captured-reference intrusion. The baluster has proven negative boundary clearance; no zero intersection is asserted.",
+      "mathematicalRetainedReferenceProof": {
+        "badSourceTriangleCapIntersections": [],
+        "badSourceTrianglePairs": [],
+        "closedReferenceOrientedAreaVectorSum": [
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "closedReferenceVolumeExact": {
+          "approximate": 0.07377615856910505,
+          "denominator": "144115188075855872",
+          "numerator": "10632264967700739"
+        },
+        "diagnosticClosedIntegralNotAcceptedVolume": {
+          "approximate": 0.07377615856910505,
+          "denominator": "144115188075855872",
+          "numerator": "10632264967700739"
+        },
+        "implicitCapPairSeparation": [],
+        "nonzeroOriginalTriangles": 14,
+        "openSourceIntegralAtZeroOrigin": {
+          "approximate": 0.09388286879955232,
+          "denominator": "4503599627370496",
+          "numerator": "422810852942137"
+        },
+        "physicalCapGeometryGenerated": false,
+        "proofComplete": true,
+        "referenceIntegralOriginShift": [
+          1,
+          2,
+          3
+        ],
+        "referenceIntegralOriginShiftInvariant": true,
+        "sourceTriangleImplicitCapClassificationCounts": {
+          "plane-slice-avoids-cap-interior": 8,
+          "point-contact-not-in-cap-interior": 4,
+          "strict-cap-plane-separation": 2
+        },
+        "topology": {
+          "allInternalEdgesTwoOppositeUses": true,
+          "closedReferenceEulerCharacteristic": 2,
+          "closureFacesImplicitDisksOnly": 1,
+          "eachBoundaryVertexOwnedByOneExistingLoop": true,
+          "sourceSurfaceComponents": 1,
+          "sourceVertexLinksAreInteriorCyclesOrBoundaryPaths": true
+        },
+        "trianglePairClassificationCounts": {
+          "coplanar-contact-only-on-shared-source-simplex": 13,
+          "disjoint-axis-bounds": 36,
+          "disjoint-plane-slice-intervals": 6,
+          "noncoplanar-contact-only-on-shared-source-simplex": 36
+        },
+        "zeroAreaOriginalTrianglesExcludedOnlyFromMeasures": 0
+      },
+      "originalConstructorMetadata": {
+        "appearanceSlot": "trim",
+        "componentId": "rotunda-gallery-guard-12/cap-0",
+        "dimensions": [
+          2.680000000000002,
+          0.16,
+          0.29
+        ],
+        "form": "box",
+        "id": "rotunda-gallery-guard-12/cap-0",
+        "physicalMaterial": "unassigned"
+      },
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "originalPhysicalStrictFactsUnchanged": true,
+      "physicalSourceStrictClosureStillFailed": true,
+      "placeId": "horticulture",
+      "prototypeInterpretationAccepted": false,
+      "prototypeKind": "box",
+      "recordedCut": {
+        "id": "hort-rotunda-guard-gap",
+        "maxY": 9.16,
+        "minY": 6.340000000000001,
+        "polygon": [
+          [
+            -1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            60.046837749447974
+          ],
+          [
+            -1.3,
+            60.046837749447974
+          ]
+        ],
+        "role": "gallery-rail"
+      },
+      "referenceBoundaryMeaning": "Existing source vertex references and continuous oriented disk integrals only. No cap polygon coordinate buffer, cap triangle/index buffer or UV mesh is generated.",
+      "referenceConstructionCompleteNonSelfIntersecting": true,
+      "referenceVolumeWorldExact": {
+        "approximate": 0.07377615856910505,
+        "denominator": "144115188075855872",
+        "numerator": "10632264967700739"
+      },
+      "signedRecordedCutIntersectionVolume": {
+        "approximate": 2.2125292910080188e-09,
+        "denominator": "154742504910672534362390528",
+        "numerator": "342372324678815145"
+      },
+      "sourceAndFloat32CutPlaneEvidence": {
+        "allRawBoundaryValuesAndRecordedPlaneInsideCertifiedCell": true,
+        "capturedFloat32BitsUint32Hex": "0x3fa66666",
+        "capturedFloat32Plane": {
+          "approximate": 1.2999999523162842,
+          "denominator": "4194304",
+          "numerator": "5452595"
+        },
+        "exactFloat32RoundingCell": [
+          {
+            "approximate": 1.2999998927116394,
+            "denominator": "16777216",
+            "numerator": "21810379"
+          },
+          {
+            "approximate": 1.300000011920929,
+            "denominator": "16777216",
+            "numerator": "21810381"
+          }
+        ],
+        "maxObservedRawToFloat32BoundaryChange": {
+          "approximate": 4.7683715642676816e-08,
+          "denominator": "1125899906842624",
+          "numerator": "53687091"
+        },
+        "negativeMeansCapturedBoundaryInsideRecordedGuardGap": true,
+        "notAGlobalWeldOrClosureTolerance": true,
+        "rawBoundaryCoordinateRangeBeforeFloat32": [
+          {
+            "approximate": 1.2999999999999998,
+            "denominator": "1125899906842624",
+            "numerator": "1463669878895411"
+          },
+          {
+            "approximate": 1.2999999999999998,
+            "denominator": "1125899906842624",
+            "numerator": "1463669878895411"
+          }
+        ],
+        "recordedDecimalExact": {
+          "approximate": 1.3,
+          "denominator": "10",
+          "numerator": "13"
+        },
+        "recordedDecimalToken": "1.3",
+        "recordedProducerBinary64Plane": {
+          "approximate": 1.3,
+          "denominator": "4503599627370496",
+          "numerator": "5854679515581645"
+        },
+        "retainedHalfspaceMinimumSignedClearance": {
+          "approximate": -4.768371586472142e-08,
+          "denominator": "4503599627370496",
+          "numerator": "-214748365"
+        },
+        "signedCapturedMinusRecordedBinary64": {
+          "approximate": -4.768371586472142e-08,
+          "denominator": "4503599627370496",
+          "numerator": "-214748365"
+        },
+        "signedCapturedMinusRecordedDecimal": {
+          "approximate": -4.76837158203125e-08,
+          "denominator": "20971520",
+          "numerator": "-1"
+        },
+        "sourceLocalHalfUlpBound": {
+          "approximate": 5.960464477539063e-08,
+          "denominator": "16777216",
+          "numerator": "1"
+        },
+        "sourceOrOpeningPlaneMoved": false
+      },
+      "sourceAxisPlaneVolumeCrosscheck": {
+        "approximate": 0.07377615856910505,
+        "denominator": "144115188075855872",
+        "numerator": "10632264967700739"
+      },
+      "sourceBoundaryAudit": {
+        "atomicBadEdges": 8,
+        "boundaryLoopCount": 1,
+        "degreeTwoBoundaryLoops": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "rawBadEdges": 8
+      },
+      "sourceId": "replacement/rotunda-gallery-guard-12/cap-0",
+      "sourceRange": {
+        "count": 42,
+        "start": 0
+      },
+      "sourceStrictFactsChanged": false,
+      "stockRuntimeCapMeshUVOrOpeningExport": null
+    },
+    {
+      "actualAffineDeterminant": {
+        "approximate": 1.0,
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "balusterRecordedCutIntersectionVolumeUnproved": true,
+      "boxFiveFaceCoverageCrosscheck": null,
+      "candidateSourceRepresentationForReview": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 2.1452343872316765e-17,
+          "denominator": "19471113219505602886413420855296",
+          "numerator": "417701016361647"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fc412d7d320b62e",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.15682504471753717,
+          "denominator": "18014398509481984",
+          "numerator": "2825108851809047"
+        },
+        "exactRationalLower": {
+          "approximate": 0.1568250447175372,
+          "denominator": "1106804644422573056",
+          "numerator": "173574687855147865"
+        },
+        "hexFloat": "0x1.412d7d320b62ep-3",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fc412d7d320b62e",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.15682504471753717",
+        "nextUpBitsUint64Hex": "0x3fc412d7d320b62f",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.1568250447175372,
+          "denominator": "36028797018963968",
+          "numerator": "5650217703618095"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.1568250447175372,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.15682504471753717
+      },
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/51780727fc39cb26af077e91e0586481a14fd6542f22911630030579ffa8c5ac.json",
+      "geometrySha256": "27ed8b5133c9680dd1325a96fda7f127ec7e1026eb6ab674252c5b0abea780a0",
+      "implicitReferenceFaceEvidence": [
+        {
+          "areaExact": {
+            "approximate": 0.017756058905433747,
+            "denominator": "549755813888",
+            "numerator": "9761496615"
+          },
+          "axis": 0,
+          "capturedPlane": {
+            "approximate": 1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "5452595"
+          },
+          "existingOrientedBoundaryVertexReferences": [
+            54,
+            59,
+            143,
+            190,
+            197,
+            199,
+            152,
+            144,
+            80,
+            71,
+            66,
+            62
+          ],
+          "orientedAreaVector": [
+            {
+              "approximate": -0.017756058905433747,
+              "denominator": "549755813888",
+              "numerator": "-9761496615"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "simpleExistingPlanarLoopProved": true,
+          "sourceOriginVolumeContribution": {
+            "approximate": -0.0076942919101296685,
+            "denominator": "2305843009213693952",
+            "numerator": "-17741829211821975"
+          }
+        },
+        {
+          "areaExact": {
+            "approximate": 0.024683973676474125,
+            "denominator": "1099511627776",
+            "numerator": "27140316077"
+          },
+          "axis": 0,
+          "capturedPlane": {
+            "approximate": 1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "5452595"
+          },
+          "existingOrientedBoundaryVertexReferences": [
+            89,
+            155,
+            161,
+            215,
+            220,
+            227,
+            229,
+            170,
+            162,
+            110,
+            101,
+            96,
+            92,
+            84
+          ],
+          "orientedAreaVector": [
+            {
+              "approximate": -0.024683973676474125,
+              "denominator": "1099511627776",
+              "numerator": "-27140316077"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "simpleExistingPlanarLoopProved": true,
+          "sourceOriginVolumeContribution": {
+            "approximate": -0.010696388200797591,
+            "denominator": "13835058055282163712",
+            "numerator": "-147985151739869815"
+          }
+        },
+        {
+          "areaExact": {
+            "approximate": 0.01862377359339007,
+            "denominator": "1099511627776",
+            "numerator": "20477055619"
+          },
+          "axis": 0,
+          "capturedPlane": {
+            "approximate": 1.2999999523162842,
+            "denominator": "4194304",
+            "numerator": "5452595"
+          },
+          "existingOrientedBoundaryVertexReferences": [
+            125,
+            179,
+            185,
+            251,
+            256,
+            263,
+            265,
+            186,
+            137,
+            132,
+            128,
+            120
+          ],
+          "orientedAreaVector": [
+            {
+              "approximate": -0.01862377359339007,
+              "denominator": "1099511627776",
+              "numerator": "-20477055619"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "approximate": 0.0,
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "simpleExistingPlanarLoopProved": true,
+          "sourceOriginVolumeContribution": {
+            "approximate": -0.008070301594452121,
+            "denominator": "13835058055282163712",
+            "numerator": "-111653091082881305"
+          }
+        }
+      ],
+      "instanceAdopted": false,
+      "interpretation": "Captured retained source surface plus only its own oriented simple cut-boundary disks. This describes the captured material; it does not replace the source with an ideal unquantized solid.",
+      "intersectionNote": "The box has a proven positive captured-reference intrusion. The baluster has proven negative boundary clearance; no zero intersection is asserted.",
+      "mathematicalRetainedReferenceProof": {
+        "badSourceTriangleCapIntersections": [],
+        "badSourceTrianglePairs": [],
+        "closedReferenceOrientedAreaVectorSum": [
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "closedReferenceVolumeExact": {
+          "approximate": 0.018819005366104462,
+          "denominator": "9223372036854775808",
+          "numerator": "173574687855147865"
+        },
+        "diagnosticClosedIntegralNotAcceptedVolume": {
+          "approximate": 0.018819005366104462,
+          "denominator": "9223372036854775808",
+          "numerator": "173574687855147865"
+        },
+        "implicitCapPairSeparation": [
+          {
+            "capIndices": [
+              0,
+              1
+            ],
+            "strictCoordinateHalfspaceSeparation": true
+          },
+          {
+            "capIndices": [
+              0,
+              2
+            ],
+            "strictCoordinateHalfspaceSeparation": true
+          },
+          {
+            "capIndices": [
+              1,
+              2
+            ],
+            "strictCoordinateHalfspaceSeparation": true
+          }
+        ],
+        "nonzeroOriginalTriangles": 200,
+        "openSourceIntegralAtZeroOrigin": {
+          "approximate": 0.04527998707148384,
+          "denominator": "9223372036854775808",
+          "numerator": "417634166584269845"
+        },
+        "physicalCapGeometryGenerated": false,
+        "proofComplete": true,
+        "referenceIntegralOriginShift": [
+          1,
+          2,
+          3
+        ],
+        "referenceIntegralOriginShiftInvariant": true,
+        "sourceTriangleImplicitCapClassificationCounts": {
+          "plane-slice-avoids-cap-interior": 114,
+          "point-contact-not-in-cap-interior": 78,
+          "strict-cap-plane-separation": 408
+        },
+        "topology": {
+          "allInternalEdgesTwoOppositeUses": true,
+          "closedReferenceEulerCharacteristic": 2,
+          "closureFacesImplicitDisksOnly": 3,
+          "eachBoundaryVertexOwnedByOneExistingLoop": true,
+          "sourceSurfaceComponents": 1,
+          "sourceVertexLinksAreInteriorCyclesOrBoundaryPaths": true
+        },
+        "trianglePairClassificationCounts": {
+          "coplanar-contact-only-on-shared-source-simplex": 161,
+          "disjoint-axis-bounds": 18528,
+          "disjoint-plane-slice-intervals": 99,
+          "noncoplanar-contact-only-on-shared-source-simplex": 1000,
+          "strict-plane-separation": 112
+        },
+        "zeroAreaOriginalTrianglesExcludedOnlyFromMeasures": 0
+      },
+      "originalConstructorMetadata": {
+        "appearanceSlot": "trim",
+        "componentId": "rotunda-gallery-guard-12/baluster-2",
+        "id": "rotunda-gallery-guard-12/baluster-2",
+        "physicalMaterial": "unassigned"
+      },
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "originalPhysicalStrictFactsUnchanged": true,
+      "physicalSourceStrictClosureStillFailed": true,
+      "placeId": "horticulture",
+      "prototypeInterpretationAccepted": false,
+      "prototypeKind": "baluster",
+      "recordedCut": {
+        "id": "hort-rotunda-guard-gap",
+        "maxY": 9.16,
+        "minY": 6.340000000000001,
+        "polygon": [
+          [
+            -1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            59.146837749447975
+          ],
+          [
+            1.3,
+            60.046837749447974
+          ],
+          [
+            -1.3,
+            60.046837749447974
+          ]
+        ],
+        "role": "gallery-rail"
+      },
+      "referenceBoundaryMeaning": "Existing source vertex references and continuous oriented disk integrals only. No cap polygon coordinate buffer, cap triangle/index buffer or UV mesh is generated.",
+      "referenceConstructionCompleteNonSelfIntersecting": true,
+      "referenceVolumeWorldExact": {
+        "approximate": 0.018819005366104462,
+        "denominator": "9223372036854775808",
+        "numerator": "173574687855147865"
+      },
+      "signedRecordedCutIntersectionVolume": null,
+      "sourceAndFloat32CutPlaneEvidence": {
+        "allRawBoundaryValuesAndRecordedPlaneInsideCertifiedCell": true,
+        "capturedFloat32BitsUint32Hex": "0x3fa66666",
+        "capturedFloat32Plane": {
+          "approximate": 1.2999999523162842,
+          "denominator": "4194304",
+          "numerator": "5452595"
+        },
+        "exactFloat32RoundingCell": [
+          {
+            "approximate": 1.2999998927116394,
+            "denominator": "16777216",
+            "numerator": "21810379"
+          },
+          {
+            "approximate": 1.300000011920929,
+            "denominator": "16777216",
+            "numerator": "21810381"
+          }
+        ],
+        "maxObservedRawToFloat32BoundaryChange": {
+          "approximate": 4.768371586472142e-08,
+          "denominator": "4503599627370496",
+          "numerator": "214748365"
+        },
+        "negativeMeansCapturedBoundaryInsideRecordedGuardGap": true,
+        "notAGlobalWeldOrClosureTolerance": true,
+        "rawBoundaryCoordinateRangeBeforeFloat32": [
+          {
+            "approximate": 1.2999999999999998,
+            "denominator": "1125899906842624",
+            "numerator": "1463669878895411"
+          },
+          {
+            "approximate": 1.3,
+            "denominator": "4503599627370496",
+            "numerator": "5854679515581645"
+          }
+        ],
+        "recordedDecimalExact": {
+          "approximate": 1.3,
+          "denominator": "10",
+          "numerator": "13"
+        },
+        "recordedDecimalToken": "1.3",
+        "recordedProducerBinary64Plane": {
+          "approximate": 1.3,
+          "denominator": "4503599627370496",
+          "numerator": "5854679515581645"
+        },
+        "retainedHalfspaceMinimumSignedClearance": {
+          "approximate": -4.768371586472142e-08,
+          "denominator": "4503599627370496",
+          "numerator": "-214748365"
+        },
+        "signedCapturedMinusRecordedBinary64": {
+          "approximate": -4.768371586472142e-08,
+          "denominator": "4503599627370496",
+          "numerator": "-214748365"
+        },
+        "signedCapturedMinusRecordedDecimal": {
+          "approximate": -4.76837158203125e-08,
+          "denominator": "20971520",
+          "numerator": "-1"
+        },
+        "sourceLocalHalfUlpBound": {
+          "approximate": 5.960464477539063e-08,
+          "denominator": "16777216",
+          "numerator": "1"
+        },
+        "sourceOrOpeningPlaneMoved": false
+      },
+      "sourceAxisPlaneVolumeCrosscheck": null,
+      "sourceBoundaryAudit": {
+        "atomicBadEdges": 38,
+        "boundaryLoopCount": 3,
+        "degreeTwoBoundaryLoops": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "rawBadEdges": 38
+      },
+      "sourceId": "replacement/rotunda-gallery-guard-12/baluster-2",
+      "sourceRange": {
+        "count": 600,
+        "start": 0
+      },
+      "sourceStrictFactsChanged": false,
+      "stockRuntimeCapMeshUVOrOpeningExport": null
+    }
+  ],
+  "version": 1
+}
