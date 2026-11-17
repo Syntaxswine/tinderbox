@@ -99,3 +99,22 @@ dataset be enabled for a new frozen actual-input review. That review must still
 pass the existing two-second held-fire guard and verify firelight normally.
 Administration/Horticulture authoring and compatibility routes remain separate
 M29 requirements; this document does not declare the map rollout complete.
+
+## Portable codec source acceptance
+
+Root accepts UI `f3db4e2e4d480e0d19fccb3e19f979bbf7979fe8` as a fenced
+portable codec handoff after reading the full implementation and independently
+passing all 27 focused tests. Saved input/output and source/test LF hashes,
+the original signature fields, all 18 raw proof paths and the 16-path scoped
+delta pass. Parent `5ba76f6b` repairs only human README typography. Original raw
+proofs and source copies are preserved; no world fixture is rerun.
+
+The saved encoding is 3,253 bytes / 74 dictionary strings / 4 blocks / 28 edges,
+SHA-256 `3b49454119a2707e21478cda81aa322915b61a84c0cc7a40fd984b675704bc51`.
+The codec's complete pre-expansion scan, private byte snapshot and bounds pass
+the focused corruption, ordering, typed-result and browser-standard VM controls.
+This accepts transport behavior for the stated hard ceilings only. CRC is not
+source or payload admission. The archived prototype envelope is not yet the
+coder's prepared-provider schema; an explicit reviewed adapter/version decision
+and large-source limits remain necessary. No runtime import, map enablement,
+game speed claim, renderer, build, retained helper or Pages publication occurs.
