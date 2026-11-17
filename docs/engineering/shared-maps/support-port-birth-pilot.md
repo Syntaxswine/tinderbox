@@ -58,3 +58,16 @@ record exact scope, tests, source pins, limitations and helper closure. Commit
 and push the scoped candidate after relevant checks, then stop for architect
 review. Actual hybrid publication, five tools, traversal, firelight, performance
 and four-map/Pages acceptance remain the following live integration gates.
+
+## Native-face identity clarification
+
+Native primitive ordinals identify clipped native geometry; they are not
+original physical-face ordinals. A small pure geometric intersection/filter
+adapter is allowed to restrict authoritative native faces/material to the fixed
+original port and material component. It creates a query view, not new physical
+geometry, caps, thermal area or fuel. Use original source/component provenance
+and unchanged contact tolerances; never choose a different parent or component.
+An approved embed may test actual surviving material presence. A generated cut
+cap must not be relabelled as an original exterior bearing face. Reject a
+genuinely ambiguous original-component mapping with its concrete case. This
+clarification adds no native compilation or diagnostic allowance.
